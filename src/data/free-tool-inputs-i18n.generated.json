@@ -11699,8 +11699,8 @@
     },
     "concrete-bag-calculator": {
       "volumem3": {
-        "label": "Volume",
-        "placeholder": "Volume girin",
+        "label": "Hacim",
+        "placeholder": "Hacim girin",
         "helper": "Toplam döküm hacmi"
       },
       "bagyieldm3": {
@@ -11910,7 +11910,7 @@
       "principal": {
         "label": "Ana para",
         "placeholder": "Ana para girin",
-        "helper": "Kredi amount"
+        "helper": "Kredi tutarı"
       },
       "annualrate": {
         "label": "Yıllık Oran",
@@ -11925,8 +11925,8 @@
     },
     "mortgage-calculator": {
       "principal": {
-        "label": "Kredi amount",
-        "placeholder": "Kredi amount girin",
+        "label": "Kredi tutarı",
+        "placeholder": "Kredi tutarı girin",
         "helper": "Konut kredisi Ana para"
       },
       "annualrate": {
@@ -11994,7 +11994,7 @@
       "principal": {
         "label": "Ana para",
         "placeholder": "Ana para girin",
-        "helper": "Starting amount"
+        "helper": "Başlangıç tutarı"
       },
       "ratepercent": {
         "label": "Oran",
@@ -12021,7 +12021,7 @@
       "years": {
         "label": "Yıl",
         "placeholder": "Yıl girin",
-        "helper": "Time horizon"
+        "helper": "Zaman ufku"
       },
       "compoundsperyear": {
         "label": "Bileşik/yıl",
@@ -12039,14 +12039,14 @@
         "helper": "Yıllık bileşik dönem sayısı (ör. 1=yıllık, 12=aylık, 365=günlük)."
       },
       "timeperiod": {
-        "label": "Zaman Periyodu",
-        "placeholder": "Zaman Periyodu girin",
+        "label": "Zaman Dönemi",
+        "placeholder": "Zaman Dönemi girin",
         "helper": "Yatırım veya kredinin toplam süresi yıl olarak."
       },
       "additionalcontribution": {
         "label": "Dönem Başına Ek Katkı",
         "placeholder": "Dönem Başına Ek Katkı girin",
-        "helper": "Her bileşik dönem sonunda eklenen sabit miktar."
+        "helper": "Her bileşik dönemin sonunda eklenen sabit miktar."
       },
       "inflationrate": {
         "label": "Enflasyon Oranı",
@@ -12221,7 +12221,7 @@
       "production_volume": {
         "label": "Gerçek Üretim Hacmi (birim)",
         "placeholder": "Gerçek Üretim Hacmi (birim) girin",
-        "helper": "Dönemde üretilen toplam birim sayısı. Gerçekleşen ve başabaş karşılaştırması için kullanılır."
+        "helper": "Dönem içinde üretilen toplam birim. Gerçekleşen ile başabaş karşılaştırması için kullanılır."
       },
       "cost_allocation_method": {
         "label": "Maliyet Dağıtım Yöntemi",
@@ -12233,7 +12233,7 @@
       "gain": {
         "label": "Kazanç",
         "placeholder": "Kazanç girin",
-        "helper": "Return amount"
+        "helper": "Getiri tutarı"
       },
       "cost": {
         "label": "Maliyet",
@@ -12497,7 +12497,7 @@
       "machiningseconds": {
         "label": "İşleme",
         "placeholder": "İşleme girin",
-        "helper": "kesim time başına parça"
+        "helper": "kesim Süre başına parça"
       },
       "loadunloadseconds": {
         "label": "Yük/unYük",
@@ -12685,8 +12685,8 @@
     },
     "material-waste-calculator": {
       "inputmaterialkg": {
-        "label": "Input Malzeme",
-        "placeholder": "Input Malzeme girin",
+        "label": "Girdi Malzemesi",
+        "placeholder": "Girdi Malzemesi girin",
         "helper": "Malzeme fed"
       },
       "goodoutputkg": {
@@ -12711,7 +12711,7 @@
       "availabilitypercent": {
         "label": "Kullanılabilirlik",
         "placeholder": "Kullanılabilirlik girin",
-        "helper": "Uptime Yüzde"
+        "helper": "UpSüre Yüzde"
       },
       "performancepercent": {
         "label": "Performance",
@@ -12762,14 +12762,14 @@
       "rpm": {
         "label": "RPM",
         "placeholder": "RPM girin",
-        "helper": "Spindle Hız"
+        "helper": "İş Mili Hızı"
       }
     },
     "feed-rate-calculator": {
       "rpm": {
         "label": "RPM",
         "placeholder": "RPM girin",
-        "helper": "Spindle Hız"
+        "helper": "İş Mili Hızı"
       },
       "teeth": {
         "label": "Diş",
@@ -12779,7 +12779,7 @@
       "feedpertoothmm": {
         "label": "İlerleme/diş",
         "placeholder": "İlerleme/diş girin",
-        "helper": "Chip Yük başına diş"
+        "helper": "talaş yükü başına diş"
       }
     },
     "tolerance-drift-calculator": {
@@ -12825,7 +12825,7 @@
       "peak_demand_kw": {
         "label": "Tepe Talep (kW)",
         "placeholder": "Tepe Talep (kW) girin",
-        "helper": "Dönemdeki en yüksek 15 dakikalık ortalama talep. Tarifeye göre talep ücretlerini belirler."
+        "helper": "Dönemdeki en yüksek 15 dakikalık ortalama talep. Tarife gereği talep ücretlerini belirler."
       },
       "energy_rate_per_kwh": {
         "label": "Enerji Birim Fiyatı ($/kWh)",
@@ -12845,7 +12845,7 @@
       "pf_penalty_threshold": {
         "label": "PF Cezası Eşiği",
         "placeholder": "PF Cezası Eşiği girin",
-        "helper": "Cezanın uygulanmasından önceki minimum güç faktörü, tipik olarak hizmet standartlarına göre 0.9."
+        "helper": "Cezanın uygulanmaya başladığı minimum güç faktörü, tipik olarak kamu hizmeti standartlarına göre 0,9."
       },
       "pf_penalty_rate": {
         "label": "PF Cezası Oranı ($/kvar)",
@@ -12860,7 +12860,7 @@
       "operating_hours": {
         "label": "Aylık Çalışma Saati",
         "placeholder": "Aylık Çalışma Saati girin",
-        "helper": "Fatura döneminde tesisin çalıştığı toplam saat. Yük faktörü hesaplaması için kullanılır."
+        "helper": "Tesisin fatura döneminde çalıştığı toplam saat. Yük faktörü hesaplaması için kullanılır."
       },
       "tariff_type": {
         "label": "Tarife Türü",
@@ -12982,8 +12982,8 @@
         "helper": "ısı delivered"
       },
       "fuelinputkwh": {
-        "label": "Yakıt input",
-        "placeholder": "Yakıt input girin",
+        "label": "Yakıt girdi",
+        "placeholder": "Yakıt girdi girin",
         "helper": "Enerji in Yakıt"
       }
     },
@@ -13026,7 +13026,7 @@
       "load_factor": {
         "label": "Yük Faktörü (Tam Yükün Ortalama Yüzdesi)",
         "placeholder": "Yük Faktörü (Tam Yükün Ortalama Yüzdesi) girin",
-        "helper": "Kompresörün tam yük kapasitesinde çalıştığı ortalama yüzde. Kısmi yük ve yüksüz dönemleri içerir."
+        "helper": "Kompresörün çalıştığı tam yük kapasitesinin ortalama yüzdesi. Kısmi yük ve yüksüz dönemleri içerir."
       },
       "electricity_cost_per_kwh": {
         "label": "Elektrik Maliyeti",
@@ -13073,8 +13073,8 @@
     },
     "fuel-consumption-calculator": {
       "distancekm": {
-        "label": "Distance",
-        "placeholder": "Distance girin",
+        "label": "Mesafe",
+        "placeholder": "Mesafe girin",
         "helper": "Sefer Mesafe"
       },
       "consumptionper100km": {
@@ -13090,8 +13090,8 @@
     },
     "fuel-cost-calculator": {
       "distancekm": {
-        "label": "Distance",
-        "placeholder": "Distance girin",
+        "label": "Mesafe",
+        "placeholder": "Mesafe girin",
         "helper": "Sefer Mesafe"
       },
       "consumptionper100km": {
@@ -13191,8 +13191,8 @@
     },
     "route-cost-calculator": {
       "distancekm": {
-        "label": "Distance",
-        "placeholder": "Distance girin",
+        "label": "Mesafe",
+        "placeholder": "Mesafe girin",
         "helper": "Rota Uzunluk"
       },
       "fuelcostperkm": {
@@ -13203,7 +13203,7 @@
       "driverhours": {
         "label": "Driver Saat",
         "placeholder": "Driver Saat girin",
-        "helper": "Driving time"
+        "helper": "Sürüş süresi"
       },
       "hourlyrate": {
         "label": "Driver Oran",
@@ -13268,8 +13268,8 @@
     },
     "delivery-cost-calculator": {
       "distancekm": {
-        "label": "Distance",
-        "placeholder": "Distance girin",
+        "label": "Mesafe",
+        "placeholder": "Mesafe girin",
         "helper": "Rota km"
       },
       "costperkm": {
@@ -13459,8 +13459,8 @@
         "helper": "Aracın elde tutma süresi sonundaki tahmini piyasa değeri."
       },
       "holding_period_years": {
-        "label": "Tutma Süresi (Yıl)",
-        "placeholder": "Tutma Süresi (Yıl) girin",
+        "label": "Tutma Dönemi (Yıl)",
+        "placeholder": "Tutma Dönemi (Yıl) girin",
         "helper": "Aracın sahip olunacağı ve kullanılacağı beklenen yıl sayısı."
       },
       "annual_mileage": {
@@ -13471,7 +13471,7 @@
       "depreciation_method": {
         "label": "Amortisman Yöntemi",
         "placeholder": "Amortisman Yöntemi girin",
-        "helper": "Amortisman giderini elde tutma süresi boyunca dağıtmak için kullanılan muhasebe yöntemi."
+        "helper": "Elde tutma süresi boyunca amortisman giderini dağıtmak için kullanılan muhasebe yöntemi."
       },
       "maintenance_cost_per_year": {
         "label": "Yıllık Bakım Maliyeti (USD)",
@@ -13761,7 +13761,7 @@
       "minutes": {
         "label": "süre",
         "placeholder": "süre girin",
-        "helper": "Run time"
+        "helper": "Çalışma süresi"
       }
     },
     "feed-cost-estimator": {
@@ -14155,8 +14155,8 @@
     },
     "fuel-travel-calculator": {
       "distancekm": {
-        "label": "Distance",
-        "placeholder": "Distance girin",
+        "label": "Mesafe",
+        "placeholder": "Mesafe girin",
         "helper": "Sefer Mesafe"
       },
       "consumptionper100km": {
@@ -14233,7 +14233,7 @@
       "monthlysaving": {
         "label": "Aylık saving",
         "placeholder": "Aylık saving girin",
-        "helper": "Amount saved başına ay"
+        "helper": "Tasarruf edilen tutar başına ay"
       }
     },
     "percentage-increase-calculator": {
@@ -14356,12 +14356,12 @@
       "specification_limit_lower": {
         "label": "Alt Spesifikasyon Limiti (LSL)",
         "placeholder": "Alt Spesifikasyon Limiti (LSL) girin",
-        "helper": "Mühendislik spesifikasyonlarına göre kabul edilebilir süreç çıktısının alt sınırı."
+        "helper": "Mühendislik şartnamelerine göre kabul edilebilir süreç çıktısının alt sınırı."
       },
       "specification_limit_upper": {
         "label": "Üst Spesifikasyon Limiti (USL)",
         "placeholder": "Üst Spesifikasyon Limiti (USL) girin",
-        "helper": "Mühendislik spesifikasyonlarına göre kabul edilebilir süreç çıktısının üst sınırı."
+        "helper": "Mühendislik şartnamelerine göre kabul edilebilir süreç çıktısının üst sınırı."
       },
       "target_value": {
         "label": "Hedef Değer (Nominal)",
@@ -14405,8 +14405,8 @@
         "helper": "Successful outcomes"
       },
       "totaloutcomes": {
-        "label": "Total",
-        "placeholder": "Total girin",
+        "label": "Toplam",
+        "placeholder": "Toplam girin",
         "helper": "Toplam outcomes"
       },
       "defect_count": {
@@ -14452,9 +14452,9 @@
         "helper": "güven z (e.g. 1.96)"
       },
       "marginerrorpercent": {
-        "label": "Marj error",
-        "placeholder": "Marj error girin",
-        "helper": "Marj error"
+        "label": "Marj hatası",
+        "placeholder": "Marj hatası girin",
+        "helper": "Marj Hata"
       },
       "proportionpercent": {
         "label": "Proportion",
@@ -14469,12 +14469,12 @@
       "marginoferror": {
         "label": "Hata Payı (Kesinlik)",
         "placeholder": "Hata Payı (Kesinlik) girin",
-        "helper": "Gerçek popülasyon parametresinden kabul edilebilir sapma; süreç denetimleri için tipiktir."
+        "helper": "Gerçek popülasyon parametresinden kabul edilebilir sapma; süreç denetimleri için tipik."
       },
       "populationsize": {
         "label": "Popülasyon Büyüklüğü (Parti Büyüklüğü)",
         "placeholder": "Popülasyon Büyüklüğü (Parti Büyüklüğü) girin",
-        "helper": "Partideki veya dönem başına süreç çıktısındaki toplam öğe sayısı."
+        "helper": "Parti veya süreç çıktısındaki toplam öğe sayısı (dönem başına)."
       },
       "expectedproportion": {
         "label": "Beklenen Oran (Hata Oranı)",
@@ -14585,7 +14585,7 @@
       "value": {
         "label": "Değer",
         "placeholder": "Değer girin",
-        "helper": "Amount to convert"
+        "helper": "Dönüştürülecek miktar"
       },
       "fromunit": {
         "label": "Kaynak birim",
@@ -14597,7 +14597,7 @@
       "value": {
         "label": "Değer",
         "placeholder": "Değer girin",
-        "helper": "Amount to convert"
+        "helper": "Dönüştürülecek miktar"
       },
       "fromunit": {
         "label": "Kaynak birim",
@@ -14609,7 +14609,7 @@
       "value": {
         "label": "Değer",
         "placeholder": "Değer girin",
-        "helper": "Amount to convert"
+        "helper": "Dönüştürülecek miktar"
       },
       "fromunit": {
         "label": "Kaynak birim",
@@ -14621,7 +14621,7 @@
       "value": {
         "label": "Değer",
         "placeholder": "Değer girin",
-        "helper": "Amount to convert"
+        "helper": "Dönüştürülecek miktar"
       },
       "fromunit": {
         "label": "Kaynak birim",
@@ -14742,9 +14742,9 @@
         "helper": "Yıllık bileşik dönem sayısı, lojistik ve tedarik zinciri için WERC finansal metrikleriyle uyumlu."
       },
       "time_period_years": {
-        "label": "Yatırım Süresi",
-        "placeholder": "Yatırım Süresi girin",
-        "helper": "Yatırım süresi (yıl olarak), Yalın Altı Sigma proje zaman çizelgelerine göre çok dönemli APY hesaplaması için kullanılır."
+        "label": "Yatırım Dönemi",
+        "placeholder": "Yatırım Dönemi girin",
+        "helper": "Yatırım süresi yıl olarak, Yalın Altı Sigma proje zaman çizelgelerine göre çok dönemli APY hesaplaması için kullanılır."
       },
       "initial_principal": {
         "label": "Başlangıç Anaparası",
@@ -14779,9 +14779,9 @@
         "helper": "ISO 2859-1'e göre muayene partisindeki toplam öğe sayısı."
       },
       "aql_percent": {
-        "label": "AKS (%)",
-        "placeholder": "AKS (%) girin",
-        "helper": "Kabul Edilebilir Kalite Seviyesi – süreç ortalaması olarak kabul edilebilir maksimum kusurlu yüzdesi."
+        "label": "AKK (%)",
+        "placeholder": "AKK (%) girin",
+        "helper": "Kabul Edilebilir Kalite Seviyesi – süreç ortalaması olarak kabul edilebilir maksimum hatalı yüzdesi."
       },
       "inspection_level": {
         "label": "Muayene Seviyesi",
@@ -14895,12 +14895,12 @@
       "total_repair_orders": {
         "label": "Toplam Onarım Emri (aylık)",
         "placeholder": "Toplam Onarım Emri (aylık) girin",
-        "helper": "Dönemde tamamlanan toplam onarım emri sayısı (ISO 9001:2015 madde 8.5.1)."
+        "helper": "Dönem içinde tamamlanan toplam onarım emri sayısı (ISO 9001:2015 madde 8.5.1)."
       },
       "comeback_count": {
         "label": "Geri Dönüş Sayısı (aylık)",
         "placeholder": "Geri Dönüş Sayısı (aylık) girin",
-        "helper": "Garanti veya servis süresi içinde yeniden işleme için geri dönen onarım emri sayısı (Altı Sigma DPMO metriği)."
+        "helper": "Garanti veya servis süresi içinde yeniden işleme dönen onarım emri sayısı (Altı Sigma DPMO metriği)."
       },
       "avg_labor_rate": {
         "label": "Ortalama İşçilik Ücreti",
@@ -15046,7 +15046,7 @@
       "total_labor_hours_sold": {
         "label": "Satılan Toplam İşçilik Saati",
         "placeholder": "Satılan Toplam İşçilik Saati girin",
-        "helper": "Dönemde (aylık veya yıllık) satılan toplam faturalanabilir işçilik saati."
+        "helper": "Dönem içinde (aylık veya yıllık) satılan toplam faturalanabilir işçilik saati."
       },
       "parts_markup_percent": {
         "label": "Parça Kâr Marjı Yüzdesi",
@@ -15061,7 +15061,7 @@
       "total_parts_cost": {
         "label": "Toplam Parça Maliyeti (SMM)",
         "placeholder": "Toplam Parça Maliyeti (SMM) girin",
-        "helper": "Dönemde satılan parçaların toplam maliyeti."
+        "helper": "Dönem içinde satılan parçaların toplam maliyeti."
       },
       "shop_supply_charge_per_ro": {
         "label": "Onarım Emri Başına Atölye Malzeme Ücreti",
@@ -15076,7 +15076,7 @@
       "number_of_repair_orders": {
         "label": "Onarım Emri Sayısı",
         "placeholder": "Onarım Emri Sayısı girin",
-        "helper": "Dönemde tamamlanan toplam onarım emri sayısı."
+        "helper": "Dönem içinde tamamlanan toplam onarım emri sayısı."
       },
       "warranty_labor_hours": {
         "label": "Garanti İşçilik Saati",
@@ -15148,7 +15148,7 @@
       "safety_factor_target": {
         "label": "Hedef Güvenlik Faktörü (SF)",
         "placeholder": "Hedef Güvenlik Faktörü (SF) girin",
-        "helper": "Yapısal bütünlük için ISO 13822'ye göre kabul edilebilir minimum güvenlik faktörü."
+        "helper": "ISO 13822'ye göre yapısal bütünlük için minimum kabul edilebilir güvenlik faktörü."
       },
       "support_condition": {
         "label": "Destek Koşulu",
@@ -15390,7 +15390,7 @@
       "bottleneck_utilization": {
         "label": "Darboğaz Kullanımı (%)",
         "placeholder": "Darboğaz Kullanımı (%) girin",
-        "helper": "Birincil darboğaz kaynağının temsili bir dönem (örneğin son 4 hafta) üzerinden ölçülen mevcut kullanım oranı."
+        "helper": "Birincil darboğaz kaynağının mevcut kullanım oranı, temsili bir dönem (ör. son 4 hafta) üzerinden ölçülür."
       },
       "demand_rate": {
         "label": "Ortalama Talep Hızı (birim/saat)",
@@ -15457,7 +15457,7 @@
       "actualsalesvolume": {
         "label": "Gerçek Satış Hacmi",
         "placeholder": "Gerçek Satış Hacmi girin",
-        "helper": "Dönemde fiilen satılan birim sayısı."
+        "helper": "Dönem içinde fiilen satılan birim sayısı."
       },
       "capacityvolume": {
         "label": "Maksimum Kapasite Hacmi",
@@ -15984,7 +15984,7 @@
       "overrun_threshold_ms": {
         "label": "Aşma Eşiği (SLA)",
         "placeholder": "Aşma Eşiği (SLA) girin",
-        "helper": "SLA'ya göre kabul edilebilir maksimum yanıt süresi."
+        "helper": "SLA'ya göre maksimum kabul edilebilir yanıt süresi."
       },
       "region": {
         "label": "Bulut Bölgesi",
@@ -16058,7 +16058,7 @@
       "customer_lifetime_years": {
         "label": "Müşteri Ömrü (Yıl)",
         "placeholder": "Müşteri Ömrü (Yıl) girin",
-        "helper": "Ortalama elde tutma süresi. Abonelik modelleri için 1/ayrılma oranı kullanın."
+        "helper": "Ortalama elde tutma süresi. Abonelik modellerinde 1/ayrılma oranı kullanın."
       },
       "gross_margin_pct": {
         "label": "Brüt Kar Marjı (%)",
@@ -16318,7 +16318,7 @@
       "pressuredifferential": {
         "label": "İzin Verilen Basınç Farkı",
         "placeholder": "İzin Verilen Basınç Farkı girin",
-        "helper": "Tepe olayı sırasında kabul edilebilir maksimum basınç düşüşü."
+        "helper": "Tepe olayı sırasında maksimum kabul edilebilir basınç düşüşü."
       },
       "compressorcontroltype": {
         "label": "Kompresör Kontrol Tipi",
@@ -16432,7 +16432,7 @@
       "quality_threshold_ppm": {
         "label": "Kalite Eşiği (ppm)",
         "placeholder": "Kalite Eşiği (ppm) girin",
-        "helper": "Herhangi bir teşvik almaya hak kazanmak için maksimum kusur oranı."
+        "helper": "Herhangi bir teşvik için hak kazanmak için maksimum hata oranı."
       },
       "delivery_threshold_percent": {
         "label": "Teslimat Eşiği (%)",
@@ -16776,13 +16776,13 @@
       "seasonal_demand_factor": {
         "label": "Mevsimsel Talep Faktörü",
         "placeholder": "Mevsimsel Talep Faktörü girin",
-        "helper": "Yoğun/düşük talep dönemleri için ayarlama yapar."
+        "helper": "Yoğun/düşük talep dönemlerine göre ayarlama yapar."
       }
     },
     "demand-forecast-inventory-cost": {
       "historical_demand_mean": {
-        "label": "geçmiş talep ortalaması (birim/dönem)",
-        "placeholder": "geçmiş talep ortalaması (birim/dönem) girin",
+        "label": "Geçmiş Talep Ortalaması (birim/dönem)",
+        "placeholder": "Geçmiş Talep Ortalaması (birim/dönem) girin",
         "helper": "Son 12 dönemde gözlemlenen ortalama talep (ISO 9001:2015 veri toplama)."
       },
       "demand_std_dev": {
@@ -16821,8 +16821,8 @@
         "helper": "Karşılanmayan talep birimi başına kayıp kâr + ceza (Altı Sigma düşük kalite maliyeti)."
       },
       "periods_per_year": {
-        "label": "yıllık dönem sayısı",
-        "placeholder": "yıllık dönem sayısı girin",
+        "label": "Yıllık Dönem Sayısı",
+        "placeholder": "Yıllık Dönem Sayısı girin",
         "helper": "Bir yıldaki talep dönemi sayısı (örneğin, aylık için 12, haftalık için 52)."
       },
       "use_abc_classification": {
@@ -17001,7 +17001,7 @@
       "total_energy_kwh": {
         "label": "Toplam Enerji Tüketimi (kWh)",
         "placeholder": "Toplam Enerji Tüketimi (kWh) girin",
-        "helper": "Tesisin raporlama dönemi boyunca tükettiği toplam elektrik enerjisi (örneğin aylık)."
+        "helper": "Tesis tarafından raporlama dönemi boyunca tüketilen toplam elektrik enerjisi (örneğin, aylık)."
       },
       "peak_demand_kw": {
         "label": "Tepe Talep (kW)",
@@ -17021,7 +17021,7 @@
       "production_units": {
         "label": "Toplam Üretim Birimi",
         "placeholder": "Toplam Üretim Birimi girin",
-        "helper": "Dönemde üretilen birim sayısı (örneğin adet, kg, litre)."
+        "helper": "Dönemde üretilen birim sayısı (örneğin, adet, kg, litre)."
       },
       "facility_type": {
         "label": "Tesis Türü",
@@ -18050,14 +18050,14 @@
       "is_new_system": {
         "label": "Yeni Sistem (1 yıldan az süredir hizmette)",
         "placeholder": "Yeni Sistem (1 yıldan az süredir hizmette) girin",
-        "helper": "Yeni sistemler, alıştırma dönemi nedeniyle farklı kayıp özelliklerine sahip olabilir."
+        "helper": "Yeni sistemler, alışma dönemi nedeniyle farklı kayıp özelliklerine sahip olabilir."
       }
     },
     "inflation-escalation-calculator": {
       "base_cost": {
-        "label": "Temel Maliyet (Cari Dönem)",
-        "placeholder": "Temel Maliyet (Cari Dönem) girin",
-        "helper": "Analiz dönemi başlangıcındaki mal veya hizmetlerin toplam maliyeti."
+        "label": "Temel Maliyet (Mevcut Dönem)",
+        "placeholder": "Temel Maliyet (Mevcut Dönem) girin",
+        "helper": "Analiz döneminin başlangıcındaki toplam mal veya hizmet maliyeti."
       },
       "inflation_rate": {
         "label": "Yıllık Enflasyon Oranı",
@@ -18141,7 +18141,7 @@
       "avg_inventory_value": {
         "label": "Ortalama Envanter Değeri (USD)",
         "placeholder": "Ortalama Envanter Değeri (USD) girin",
-        "helper": "Dönem boyunca envanterin toplam ortalama değeri (ör. SMM tabanlı envanterin aylık ortalaması)."
+        "helper": "Dönem boyunca ortalama toplam stok değeri (örneğin, SMM tabanlı stokun aylık ortalaması)."
       },
       "cogs_annual": {
         "label": "Yıllık Satılan Mal Maliyeti (USD)",
@@ -18245,7 +18245,7 @@
       "operating_hours": {
         "label": "Çalışma Saatleri",
         "placeholder": "Çalışma Saatleri girin",
-        "helper": "Tesisin temel dönemde faaliyet gösterdiği toplam saat."
+        "helper": "Tesisin temel dönemde çalıştığı toplam saat."
       },
       "energy_source_mix": {
         "label": "Enerji Kaynağı Karışımı",
@@ -18896,7 +18896,7 @@
       "unitsproduced": {
         "label": "Üretilen Birim Sayısı",
         "placeholder": "Üretilen Birim Sayısı girin",
-        "helper": "Dönemde üretilen toplam birim sayısı (WERC verim metriği)."
+        "helper": "Dönemde üretilen toplam birim (WERC verim metriği)."
       },
       "inventoryholdingcost": {
         "label": "Envanter Bulundurma Maliyeti Oranı",
@@ -18921,7 +18921,7 @@
       "productionvolume": {
         "label": "Üretim Hacmi",
         "placeholder": "Üretim Hacmi girin",
-        "helper": "Dönem için üretilen birim sayısı (Yalın verim)."
+        "helper": "Dönemde üretilen birim sayısı (Yalın üretim çıktısı)."
       },
       "setuptimehours": {
         "label": "Parti Başına Kurulum Süresi",
@@ -19092,7 +19092,7 @@
       "moq": {
         "label": "Minimum Sipariş Miktarı (birim)",
         "placeholder": "Minimum Sipariş Miktarı (birim) girin",
-        "helper": "Tedarikçi tarafından uygulanan minimum parti büyüklüğü. EOQ < MOQ ise, sipariş miktarı yukarı ayarlanmalıdır, bu da taşıma maliyetini artırır."
+        "helper": "Tedarikçi tarafından belirlenen minimum parti büyüklüğü. EOQ < MOQ ise sipariş miktarı yukarı ayarlanmalı, elde tutma maliyeti artar."
       },
       "lead_time_days": {
         "label": "teslim süresi (gün)",
@@ -19524,8 +19524,8 @@
         "helper": "Planlanmamış ve planlı tüm duruşların toplamı (arıza, kurulum, bakım)."
       },
       "ideal_cycle_time": {
-        "label": "İdeal Çevrim Süresi (birim başına dakika)",
-        "placeholder": "İdeal Çevrim Süresi (birim başına dakika) girin",
+        "label": "İdeal Çevrim Süresi (dakika/birim)",
+        "placeholder": "İdeal Çevrim Süresi (dakika/birim) girin",
         "helper": "Optimum koşullar altında bir birim üretmek için teorik en hızlı süre."
       },
       "total_parts_produced": {
@@ -19707,8 +19707,8 @@
         "helper": "Sabit yumurtlama sonrası faz; varyasyon, potansiyel luteal faz defektini gösterir."
       },
       "last_period_start": {
-        "label": "Son Adet Döneminin Başlangıç Tarihi",
-        "placeholder": "Son Adet Döneminin Başlangıç Tarihi girin",
+        "label": "Son adet döneminin başlangıç tarihi",
+        "placeholder": "Son adet döneminin başlangıç tarihi girin",
         "helper": "Bir sonraki yumurtlama ve doğurgan pencereyi hesaplamak için referans noktası."
       },
       "cycle_variability": {
@@ -19969,7 +19969,7 @@
       "lmp_date": {
         "label": "Son Adet Tarihi (SAT)",
         "placeholder": "Son Adet Tarihi (SAT) girin",
-        "helper": "Son adet döneminin ilk gününün tarihi, gebelik yaşı hesaplaması için temel olarak kullanılır."
+        "helper": "Son adet döneminin ilk gününün tarihi, gebelik yaşı hesaplaması için temel alınır."
       },
       "cycle_length": {
         "label": "Ortalama Döngü Uzunluğu",
@@ -20187,7 +20187,7 @@
       "complexity_type": {
         "label": "Karmaşıklık Türü",
         "placeholder": "Karmaşıklık Türü girin",
-        "helper": "Karmaşıklık kategorisi: 'product' (yüksek SKU sayısı), 'process' (yüksek kurulum süresi), 'mixed' (her ikisi)."
+        "helper": "Karmaşıklık kategorisi: 'ürün' (yüksek SKU sayısı), 'süreç' (yüksek kurulum süresi), 'karma' (her ikisi)."
       },
       "use_lean_metrics": {
         "label": "Yalın Metrikleri Kullan (SMED, OEE)",
@@ -20256,7 +20256,7 @@
       "actualcost": {
         "label": "Gerçekleşen Maliyet (USD)",
         "placeholder": "Gerçekleşen Maliyet (USD) girin",
-        "helper": "Mevcut raporlama dönemine kadar fiilen gerçekleşen toplam maliyetler."
+        "helper": "Mevcut raporlama dönemine kadar fiilen oluşan toplam maliyetler."
       },
       "percentcomplete": {
         "label": "Tamamlanma Yüzdesi (%)",
@@ -20670,8 +20670,8 @@
         "helper": "Çalışan yemekleri, promosyonlar, ücretsizler ve indirimler nedeniyle kaybedilen gelir yüzdesi."
       },
       "covers_per_period": {
-        "label": "Dönem Başına Kapsam (Aylık)",
-        "placeholder": "Dönem Başına Kapsam (Aylık) girin",
+        "label": "Dönem Başına Kapak Sayısı (Aylık)",
+        "placeholder": "Dönem Başına Kapak Sayısı (Aylık) girin",
         "helper": "Ölçüm döneminde (ay) hizmet verilen toplam misafir sayısı."
       },
       "menu_engineering_score": {
@@ -21436,7 +21436,7 @@
       "standardization_level": {
         "label": "Standardizasyon Seviyesi",
         "placeholder": "Standardizasyon Seviyesi girin",
-        "helper": "Standart iş talimatları, takım ve kalıp tasarımının derecesi. Yüksek = minimum ayar."
+        "helper": "Standartlaştırılmış iş talimatları, takım ve kalıp tasarımı derecesi. Yüksek = minimum ayar."
       },
       "waste_motion_score": {
         "label": "Atık Hareket Puanı (1-10)",
@@ -21718,7 +21718,7 @@
       "time_horizon_months": {
         "label": "Zaman Ufku (ay)",
         "placeholder": "Zaman Ufku (ay) girin",
-        "helper": "Kur riskinin değerlendirildiği süre, genellikle sözleşme ödeme takvimiyle uyumludur."
+        "helper": "Kur riskinin değerlendirildiği süre, genellikle sözleşme ödeme planına uygun."
       },
       "confidence_level": {
         "label": "Güven Düzeyi",
@@ -22347,7 +22347,7 @@
       "volume_units": {
         "label": "İşlem Hacmi (birim)",
         "placeholder": "İşlem Hacmi (birim) girin",
-        "helper": "Dönem içinde işletmeler arasında transfer edilen toplam birim sayısı."
+        "helper": "Dönemde varlıklar arasında transfer edilen toplam birim sayısı."
       },
       "tax_rate_producer": {
         "label": "Üretici Kurum Vergi Oranı (%)",
@@ -22446,7 +22446,7 @@
       "num_employees": {
         "label": "Çalışan Sayısı",
         "placeholder": "Çalışan Sayısı girin",
-        "helper": "Dönem başındaki toplam çalışan sayısı."
+        "helper": "Dönem başındaki toplam personel sayısı."
       },
       "annual_turnover_rate": {
         "label": "Yıllık Devir Oranı",
@@ -22476,7 +22476,7 @@
       "lost_productivity_months": {
         "label": "Kayıp Verimlilik Süresi",
         "placeholder": "Kayıp Verimlilik Süresi girin",
-        "helper": "Yeni işe alınan başına ortalama düşük çıktı ayı (ramp-up süresi)."
+        "helper": "Yeni işe alım başına ortalama azaltılmış çıktı ayı (ramp-up süresi)."
       },
       "productivity_factor": {
         "label": "Rampa Çıkışı Sırasında Verimlilik Faktörü",
@@ -23657,7 +23657,7 @@
       "compoundingfrequency": {
         "label": "Aufzinsungshäufigkeit",
         "placeholder": "Aufzinsungshäufigkeit eingeben",
-        "helper": "Anzahl der Zinseszinsperioden pro Jahr (z. B. 1=jährlich, 12=monatlich, 365=täglich)."
+        "helper": "Anzahl der Zinsperioden pro Jahr (z. B. 1=jährlich, 12=monatlich, 365=täglich)."
       },
       "timeperiod": {
         "label": "Zeitraum",
@@ -23667,7 +23667,7 @@
       "additionalcontribution": {
         "label": "Zusätzlicher Beitrag pro Periode",
         "placeholder": "Zusätzlicher Beitrag pro Periode eingeben",
-        "helper": "Fester Betrag, der am Ende jeder Zinseszinsperiode hinzugefügt wird."
+        "helper": "Fester Betrag, der am Ende jeder Zinsperiode hinzugefügt wird."
       },
       "inflationrate": {
         "label": "Inflationsrate",
@@ -23726,7 +23726,7 @@
       "fixed_cost_allocation": {
         "label": "Fixkostenzuordnung (gesamt)",
         "placeholder": "Fixkostenzuordnung (gesamt) eingeben",
-        "helper": "Zugeordnete Fixkosten für den Auftragscharge (z. B. Rüstzeit, Engineering, Verwaltung) gemäß Lean Cost Deployment."
+        "helper": "Zugeordnete Fixkosten für die Auftragscharge (z. B. Rüstkosten, Engineering, Verwaltung) gemäß Lean Cost Deployment."
       },
       "discount_type": {
         "label": "Rabattart",
@@ -23842,7 +23842,7 @@
       "production_volume": {
         "label": "Tatsächliches Produktionsvolumen (Einheiten)",
         "placeholder": "Tatsächliches Produktionsvolumen (Einheiten) eingeben",
-        "helper": "Gesamtzahl der im Zeitraum produzierten Einheiten. Wird für den Vergleich von Ist- und Break-even verwendet."
+        "helper": "Gesamtzahl der im Zeitraum produzierten Einheiten. Wird für den Vergleich Ist vs. Break-even verwendet."
       },
       "cost_allocation_method": {
         "label": "Kostenzuordnungsmethode",
@@ -24383,14 +24383,14 @@
       "rpm": {
         "label": "RPM",
         "placeholder": "RPM eingeben",
-        "helper": "Spindle speed"
+        "helper": "Spindeldrehzahl"
       }
     },
     "feed-rate-calculator": {
       "rpm": {
         "label": "RPM",
         "placeholder": "RPM eingeben",
-        "helper": "Spindle speed"
+        "helper": "Spindeldrehzahl"
       },
       "teeth": {
         "label": "Zähne",
@@ -24400,7 +24400,7 @@
       "feedpertoothmm": {
         "label": "Vorschub/Zahn",
         "placeholder": "Vorschub/Zahn eingeben",
-        "helper": "Chip load pro tooth"
+        "helper": "Spanlast pro tooth"
       }
     },
     "tolerance-drift-calculator": {
@@ -24446,7 +24446,7 @@
       "peak_demand_kw": {
         "label": "Spitzenlast (kW)",
         "placeholder": "Spitzenlast (kW) eingeben",
-        "helper": "Höchste 15-Minuten-Durchschnittsnachfrage im Zeitraum. Treibt die Nachfragegebühren gemäß dem Versorgungstarif."
+        "helper": "Höchste 15-Minuten-Durchschnittsnachfrage im Zeitraum. Bestimmt die Leistungsgebühren gemäß dem Versorgungstarif."
       },
       "energy_rate_per_kwh": {
         "label": "Energiepreis ($/kWh)",
@@ -24466,7 +24466,7 @@
       "pf_penalty_threshold": {
         "label": "PF-Strafschwelle",
         "placeholder": "PF-Strafschwelle eingeben",
-        "helper": "Minimaler Leistungsfaktor vor Strafanwendung, typischerweise 0,9 gemäß Versorgungsstandards."
+        "helper": "Mindestleistungsfaktor, bevor eine Strafe anfällt, typischerweise 0,9 gemäß den Versorgungsstandards."
       },
       "pf_penalty_rate": {
         "label": "PF-Strafrate ($/kvar)",
@@ -24481,7 +24481,7 @@
       "operating_hours": {
         "label": "Betriebsstunden pro Monat",
         "placeholder": "Betriebsstunden pro Monat eingeben",
-        "helper": "Gesamtstunden, die die Anlage im Abrechnungszeitraum in Betrieb ist. Wird für die Lastfaktorberechnung verwendet."
+        "helper": "Gesamtstunden, in denen die Anlage im Abrechnungszeitraum betrieben wird. Wird für die Lastfaktorberechnung verwendet."
       },
       "tariff_type": {
         "label": "Tarifart",
@@ -25092,7 +25092,7 @@
       "depreciation_method": {
         "label": "Abschreibungsmethode",
         "placeholder": "Abschreibungsmethode eingeben",
-        "helper": "Buchhaltungsmethode zur Verteilung des Abschreibungsaufwands über die Haltedauer."
+        "helper": "Buchhaltungsmethode zur Verteilung der Abschreibungskosten über die Haltedauer."
       },
       "maintenance_cost_per_year": {
         "label": "Jährliche Wartungskosten (USD)",
@@ -26033,7 +26033,7 @@
       "defect_count": {
         "label": "Anzahl der Fehler",
         "placeholder": "Anzahl der Fehler eingeben",
-        "helper": "Gesamtzahl der beobachteten Defekte in der Stichprobe oder im Prozesszeitraum."
+        "helper": "Gesamtzahl der beobachteten Fehler in der Stichprobe oder im Prozesszeitraum."
       },
       "sample_size": {
         "label": "Stichprobengröße",
@@ -26108,8 +26108,8 @@
         "helper": "Geschätzte Prozessvariation für die Variablenstichprobenprüfung (z. B. SPC)."
       },
       "effectsize": {
-        "label": "Effektgröße (Mindestunterschied, der erkannt werden kann)",
-        "placeholder": "Effektgröße (Mindestunterschied, der erkannt werden kann) eingeben",
+        "label": "Effektgröße (minimal erkennbarer Unterschied)",
+        "placeholder": "Effektgröße (minimal erkennbarer Unterschied) eingeben",
         "helper": "Kleinste praktische Änderung, die im Hypothesentest (Six Sigma) erkannt werden soll."
       },
       "samplingmethod": {
@@ -26360,7 +26360,7 @@
       "compounding_frequency": {
         "label": "Aufzinsungshäufigkeit",
         "placeholder": "Aufzinsungshäufigkeit eingeben",
-        "helper": "Anzahl der Aufzinsungsperioden pro Jahr, abgestimmt auf WERC-Finanzkennzahlen für Logistik und Lieferkette."
+        "helper": "Anzahl der Zinsperioden pro Jahr, abgestimmt auf WERC-Finanzkennzahlen für Logistik und Lieferkette."
       },
       "time_period_years": {
         "label": "Anlagezeitraum",
@@ -26402,7 +26402,7 @@
       "aql_percent": {
         "label": "AQL (%)",
         "placeholder": "AQL (%) eingeben",
-        "helper": "Annehmbare Qualitätsgrenzlage – maximaler Prozentsatz fehlerhafter Einheiten, der als Prozessmittelwert akzeptabel ist."
+        "helper": "Annehmbare Qualitätsgrenzlage (AQL) – maximaler Prozentsatz fehlerhafter Einheiten, der als Prozessmittelwert akzeptabel ist."
       },
       "inspection_level": {
         "label": "Prüfniveau",
@@ -26521,7 +26521,7 @@
       "comeback_count": {
         "label": "Anzahl der Rückkehrer (monatlich)",
         "placeholder": "Anzahl der Rückkehrer (monatlich) eingeben",
-        "helper": "Anzahl der Reparaturaufträge, die innerhalb der Garantie- oder Servicefrist zur Nacharbeit zurückkamen (Six Sigma DPMO-Metrik)."
+        "helper": "Anzahl der Reparaturaufträge, die innerhalb der Garantie- oder Servicezeit zur Nacharbeit zurückkamen (Six Sigma DPMO-Metrik)."
       },
       "avg_labor_rate": {
         "label": "Durchschnittlicher Arbeitslohn",
@@ -26769,7 +26769,7 @@
       "safety_factor_target": {
         "label": "Zielsicherheitsfaktor (SF)",
         "placeholder": "Zielsicherheitsfaktor (SF) eingeben",
-        "helper": "Mindestzulässiger Sicherheitsfaktor gemäß ISO 13822 für strukturelle Integrität."
+        "helper": "Mindestakzeptabler Sicherheitsfaktor gemäß ISO 13822 für strukturelle Integrität."
       },
       "support_condition": {
         "label": "Auflagerbedingung",
@@ -27078,7 +27078,7 @@
       "actualsalesvolume": {
         "label": "Tatsächliches Verkaufsvolumen",
         "placeholder": "Tatsächliches Verkaufsvolumen eingeben",
-        "helper": "Anzahl der im Zeitraum tatsächlich verkauften Einheiten."
+        "helper": "Anzahl der tatsächlich im Zeitraum verkauften Einheiten."
       },
       "capacityvolume": {
         "label": "Maximales Kapazitätsvolumen",
@@ -27679,7 +27679,7 @@
       "customer_lifetime_years": {
         "label": "Kundenlebensdauer (Jahre)",
         "placeholder": "Kundenlebensdauer (Jahre) eingeben",
-        "helper": "Durchschnittliche Bindungsdauer. Verwenden Sie für Abonnementmodelle 1/Abwanderungsrate."
+        "helper": "Durchschnittliche Bindungsdauer. Bei Abonnementmodellen 1/Abwanderungsrate verwenden."
       },
       "gross_margin_pct": {
         "label": "Bruttomarge (%)",
@@ -27939,7 +27939,7 @@
       "pressuredifferential": {
         "label": "Zulässiger Druckunterschied",
         "placeholder": "Zulässiger Druckunterschied eingeben",
-        "helper": "Maximal akzeptabler Druckabfall während des Spitzenereignisses."
+        "helper": "Maximal akzeptabler Druckabfall während eines Spitzenereignisses."
       },
       "compressorcontroltype": {
         "label": "Kompressor-Steuerungstyp",
@@ -28058,7 +28058,7 @@
       "delivery_threshold_percent": {
         "label": "Lieferschwelle (%)",
         "placeholder": "Lieferschwelle (%) eingeben",
-        "helper": "Mindestprozentsatz der pünktlichen Lieferung, um für einen Anreiz in Frage zu kommen."
+        "helper": "Mindestprozentsatz der pünktlichen Lieferungen, um für einen Anreiz in Frage zu kommen."
       },
       "cost_reduction_sharing_percent": {
         "label": "Kostensenkungsbeteiligung (%)",
@@ -28209,7 +28209,7 @@
       "equipment_reliability": {
         "label": "Anlagenzuverlässigkeit (0-100)",
         "placeholder": "Anlagenzuverlässigkeit (0-100) eingeben",
-        "helper": "Prozentsatz der Zeit, in der die Ausrüstung während kritischer Perioden ohne Ausfall arbeitet."
+        "helper": "Prozentsatz der Zeit, in der die Ausrüstung während kritischer Zeiträume ohne Ausfall arbeitet."
       }
     },
     "currency-risk-calculator": {
@@ -28229,14 +28229,14 @@
         "helper": "Statistisches Konfidenzniveau, das bei der Value-at-Risk (VaR)-Schätzung verwendet wird, typische Werte 90 %, 95 %, 99 %."
       },
       "hedge_ratio": {
-        "label": "Hedge-Ratio",
-        "placeholder": "Hedge-Ratio eingeben",
+        "label": "Hedge-Verhältnis",
+        "placeholder": "Hedge-Verhältnis eingeben",
         "helper": "Prozentsatz des Risikos, der durch Absicherungsinstrumente (Forwards, Optionen) abgedeckt ist. Schlanke Kennzahl zur Abfallreduzierung."
       },
       "time_horizon_days": {
         "label": "Zeithorizont (Tage)",
         "placeholder": "Zeithorizont (Tage) eingeben",
-        "helper": "Risikobewertungszeitraum, der an Geschäftsplanungszyklen ausgerichtet ist (WERC-Lieferkettenstandard)."
+        "helper": "Risikobewertungszeitraum, abgestimmt auf die Geschäftsplanungszyklen (WERC Supply-Chain-Standard)."
       },
       "enable_lean_adjustment": {
         "label": "Lean-Volatilitätsanpassung aktivieren",
@@ -28397,14 +28397,14 @@
       "seasonal_demand_factor": {
         "label": "Saisonaler Nachfragefaktor",
         "placeholder": "Saisonaler Nachfragefaktor eingeben",
-        "helper": "Passt sich an Spitzen-/Nebenzeiten der Nachfrage an."
+        "helper": "Passt sich an Spitzen-/Nebennachfrageperioden an."
       }
     },
     "demand-forecast-inventory-cost": {
       "historical_demand_mean": {
-        "label": "Historischer Bedarfsmittelwert (Einheiten/Periode)",
-        "placeholder": "Historischer Bedarfsmittelwert (Einheiten/Periode) eingeben",
-        "helper": "Durchschnittliche Nachfrage in den letzten 12 Perioden (ISO 9001:2015 Datenerhebung)."
+        "label": "Historischer Bedarfsdurchschnitt (Einheiten/Periode)",
+        "placeholder": "Historischer Bedarfsdurchschnitt (Einheiten/Periode) eingeben",
+        "helper": "Durchschnittliche Nachfrage, die in den letzten 12 Perioden beobachtet wurde (ISO 9001:2015 Datenerfassung)."
       },
       "demand_std_dev": {
         "label": "Standardabweichung der Nachfrage (Einheiten)",
@@ -28622,12 +28622,12 @@
       "total_energy_kwh": {
         "label": "Gesamtenergieverbrauch (kWh)",
         "placeholder": "Gesamtenergieverbrauch (kWh) eingeben",
-        "helper": "Gesamte elektrische Energie, die die Anlage im Berichtszeitraum verbraucht hat (z. B. monatlich)."
+        "helper": "Gesamte elektrische Energie, die von der Anlage im Berichtszeitraum verbraucht wurde (z. B. monatlich)."
       },
       "peak_demand_kw": {
         "label": "Spitzenlast (kW)",
         "placeholder": "Spitzenlast (kW) eingeben",
-        "helper": "Höchste aufgezeichnete Leistungsanforderung während des Zeitraums; wird für die Berechnung der Leistungspreise verwendet."
+        "helper": "Höchste aufgezeichnete Leistungsnachfrage während des Zeitraums; wird für die Berechnung der Leistungsgebühr verwendet."
       },
       "tariff_rate_per_kwh": {
         "label": "Energiepreis ($/kWh)",
@@ -29671,13 +29671,13 @@
       "is_new_system": {
         "label": "Neues System (weniger als 1 Jahr in Betrieb)",
         "placeholder": "Neues System (weniger als 1 Jahr in Betrieb) eingeben",
-        "helper": "Neue Systeme können aufgrund der Einlaufzeit unterschiedliche Verlustcharakteristiken aufweisen."
+        "helper": "Neue Systeme können aufgrund der Einlaufphase andere Verlustcharakteristiken aufweisen."
       }
     },
     "inflation-escalation-calculator": {
       "base_cost": {
-        "label": "Basispreis (aktueller Zeitraum)",
-        "placeholder": "Basispreis (aktueller Zeitraum) eingeben",
+        "label": "Basis-Kosten (aktuelle Periode)",
+        "placeholder": "Basis-Kosten (aktuelle Periode) eingeben",
         "helper": "Gesamtkosten der Waren oder Dienstleistungen zu Beginn des Analysezeitraums."
       },
       "inflation_rate": {
@@ -29762,7 +29762,7 @@
       "avg_inventory_value": {
         "label": "Durchschnittlicher Lagerwert (USD)",
         "placeholder": "Durchschnittlicher Lagerwert (USD) eingeben",
-        "helper": "Gesamtdurchschnittswert des Lagerbestands über den Zeitraum (z. B. monatlicher Durchschnitt des COGS-basierten Lagerbestands)."
+        "helper": "Durchschnittlicher Gesamtbestandswert über den Zeitraum (z. B. monatlicher Durchschnitt des COGS-basierten Bestands)."
       },
       "cogs_annual": {
         "label": "Jährliche Kosten der verkauften Waren (USD)",
@@ -29846,7 +29846,7 @@
       "total_energy_consumption": {
         "label": "Gesamtenergieverbrauch",
         "placeholder": "Gesamtenergieverbrauch eingeben",
-        "helper": "Gesamtenergieverbrauch der Organisation im Basiszeitraum (z. B. ein Jahr)."
+        "helper": "Gesamtenergie, die von der Organisation im Basiszeitraum verbraucht wurde (z. B. ein Jahr)."
       },
       "production_volume": {
         "label": "Produktionsvolumen",
@@ -29866,7 +29866,7 @@
       "operating_hours": {
         "label": "Betriebsstunden",
         "placeholder": "Betriebsstunden eingeben",
-        "helper": "Gesamtbetriebsstunden der Anlage im Basiszeitraum."
+        "helper": "Gesamtstunden, in denen die Anlage im Basiszeitraum betrieben wurde."
       },
       "energy_source_mix": {
         "label": "Energiequellenmix",
@@ -30517,7 +30517,7 @@
       "unitsproduced": {
         "label": "Produzierte Einheiten",
         "placeholder": "Produzierte Einheiten eingeben",
-        "helper": "Gesamtzahl der im Zeitraum produzierten Einheiten (WERC Durchsatzmetrik)."
+        "helper": "Insgesamt im Zeitraum produzierte Einheiten (WERC-Durchsatzmetrik)."
       },
       "inventoryholdingcost": {
         "label": "Lagerhaltungskostensatz",
@@ -30542,7 +30542,7 @@
       "productionvolume": {
         "label": "Produktionsvolumen",
         "placeholder": "Produktionsvolumen eingeben",
-        "helper": "Anzahl der im Zeitraum produzierten Einheiten (Lean Durchsatz)."
+        "helper": "Anzahl der im Zeitraum produzierten Einheiten (Lean-Durchsatz)."
       },
       "setuptimehours": {
         "label": "Rüstzeit pro Los",
@@ -30713,7 +30713,7 @@
       "moq": {
         "label": "Mindestbestellmenge (Einheiten)",
         "placeholder": "Mindestbestellmenge (Einheiten) eingeben",
-        "helper": "Vom Lieferanten auferlegte Mindestlosgröße. Wenn EOQ < MOQ, muss die Bestellmenge nach oben angepasst werden, was die Lagerkosten erhöht."
+        "helper": "Vom Lieferanten vorgegebene Mindestlosgröße. Wenn EOQ < MOQ, muss die Bestellmenge nach oben angepasst werden, was die Lagerkosten erhöht."
       },
       "lead_time_days": {
         "label": "Vorlaufzeit (Tage)",
@@ -30738,7 +30738,7 @@
       "storage_capacity": {
         "label": "Lagerkapazität (Einheiten)",
         "placeholder": "Lagerkapazität (Einheiten) eingeben",
-        "helper": "Maximaler Lagerbestand, den das Lager physisch aufnehmen kann. Einschränkung für die realisierbare Bestellmenge."
+        "helper": "Maximaler Lagerbestand, den das Lager physisch aufnehmen kann. Einschränkung für die optimale Bestellmenge."
       },
       "backorder_cost_per_unit": {
         "label": "Fehlmengenkosten pro Einheit ($)",
@@ -31590,7 +31590,7 @@
       "lmp_date": {
         "label": "Datum der letzten Menstruation (LMP)",
         "placeholder": "Datum der letzten Menstruation (LMP) eingeben",
-        "helper": "Datum des ersten Tages der letzten Menstruationsperiode, als Grundlage für die Berechnung des Gestationsalters."
+        "helper": "Datum des ersten Tages der letzten Menstruationsperiode, als Basis für die Berechnung des Gestationsalters."
       },
       "cycle_length": {
         "label": "Durchschnittliche Zykluslänge",
@@ -31808,7 +31808,7 @@
       "complexity_type": {
         "label": "Komplexitätstyp",
         "placeholder": "Komplexitätstyp eingeben",
-        "helper": "Kategorie der Komplexität: 'product' (hohe SKU-Anzahl), 'process' (hohe Rüstzeit), 'mixed' (beides)."
+        "helper": "Komplexitätskategorie: 'Produkt' (hohe SKU-Anzahl), 'Prozess' (hohe Rüstzeit), 'gemischt' (beides)."
       },
       "use_lean_metrics": {
         "label": "Lean-Metriken verwenden (SMED, OEE)",
@@ -31877,7 +31877,7 @@
       "actualcost": {
         "label": "Angefallene Kosten (USD)",
         "placeholder": "Angefallene Kosten (USD) eingeben",
-        "helper": "Bis zum aktuellen Berichtszeitraum tatsächlich angefallene Gesamtkosten."
+        "helper": "Gesamte tatsächlich angefallene Kosten bis zum aktuellen Berichtszeitraum."
       },
       "percentcomplete": {
         "label": "Fertigstellungsgrad (%)",
@@ -32291,13 +32291,13 @@
         "helper": "Prozentsatz des Umsatzverlusts aufgrund von Mitarbeiterverpflegung, Aktionen, Komplimenten und Rabatten."
       },
       "covers_per_period": {
-        "label": "Covers pro Periode (monatlich)",
-        "placeholder": "Covers pro Periode (monatlich) eingeben",
-        "helper": "Gesamtzahl der Gäste, die im Messzeitraum (Monat) bedient wurden."
+        "label": "Abdeckungen pro Periode (monatlich)",
+        "placeholder": "Abdeckungen pro Periode (monatlich) eingeben",
+        "helper": "Gesamtzahl der im Messzeitraum (Monat) bedienten Gäste."
       },
       "menu_engineering_score": {
-        "label": "Menü-Engineering-Score (1-10)",
-        "placeholder": "Menü-Engineering-Score (1-10) eingeben",
+        "label": "Menü-Engineering-Punktzahl (1-10)",
+        "placeholder": "Menü-Engineering-Punktzahl (1-10) eingeben",
         "helper": "Subjektive Bewertung des Menülayouts, der Platzierung der Artikel und der Wirksamkeit des Upsellings (1=schlecht, 10=ausgezeichnet)."
       },
       "lean_kitchen_maturity": {
@@ -33339,7 +33339,7 @@
       "time_horizon_months": {
         "label": "Zeithorizont (Monate)",
         "placeholder": "Zeithorizont (Monate) eingeben",
-        "helper": "Zeitraum, über den das Währungsrisiko bewertet wird, normalerweise entsprechend dem Zahlungsplan des Vertrags."
+        "helper": "Zeitraum, über den das Währungsrisiko bewertet wird, in der Regel entsprechend dem Zahlungsplan des Vertrags."
       },
       "confidence_level": {
         "label": "Konfidenzniveau",
@@ -33480,17 +33480,17 @@
       "target_value": {
         "label": "Zielwert (T)",
         "placeholder": "Zielwert (T) eingeben",
-        "helper": "Die ideale nominale Spezifikation für das Produktmerkmal (z. B. Länge, Gewicht, Spannung)."
+        "helper": "Die ideale Nennspezifikation für das Produktmerkmal (z. B. Länge, Gewicht, Spannung)."
       },
       "lower_spec_limit": {
         "label": "Untere Spezifikationsgrenze (LSL)",
         "placeholder": "Untere Spezifikationsgrenze (LSL) eingeben",
-        "helper": "Minimal akzeptabler Wert gemäß technischer oder Kundenanforderung."
+        "helper": "Minimal akzeptabler Wert gemäß technischer Anforderung oder Kundenanforderung."
       },
       "upper_spec_limit": {
         "label": "Obere Spezifikationsgrenze (USL)",
         "placeholder": "Obere Spezifikationsgrenze (USL) eingeben",
-        "helper": "Maximal akzeptabler Wert gemäß technischer oder Kundenanforderung."
+        "helper": "Maximal akzeptabler Wert gemäß technischer Anforderung oder Kundenanforderung."
       },
       "process_mean": {
         "label": "Prozessmittelwert (μ)",
@@ -33968,7 +33968,7 @@
       "volume_units": {
         "label": "Transaktionsvolumen (Einheiten)",
         "placeholder": "Transaktionsvolumen (Einheiten) eingeben",
-        "helper": "Gesamtzahl der im Zeitraum zwischen den Unternehmen übertragenen Einheiten."
+        "helper": "Gesamtzahl der im Zeitraum zwischen Einheiten übertragenen Einheiten."
       },
       "tax_rate_producer": {
         "label": "Steuersatz des Herstellers (%)",
@@ -34067,7 +34067,7 @@
       "num_employees": {
         "label": "Anzahl der Mitarbeiter",
         "placeholder": "Anzahl der Mitarbeiter eingeben",
-        "helper": "Gesamtmitarbeiterzahl zu Beginn des Zeitraums."
+        "helper": "Gesamtzahl der Mitarbeiter zu Beginn des Zeitraums."
       },
       "annual_turnover_rate": {
         "label": "Jährliche Fluktuationsrate",
@@ -35278,7 +35278,7 @@
       "compoundingfrequency": {
         "label": "Fréquence de composition",
         "placeholder": "Saisir fréquence de composition",
-        "helper": "Nombre de périodes de composition par an (par exemple, 1=annuel, 12=mensuel, 365=quotidien)."
+        "helper": "Nombre de périodes de capitalisation par an (par exemple, 1=annuel, 12=mensuel, 365=quotidien)."
       },
       "timeperiod": {
         "label": "Période de temps",
@@ -35288,7 +35288,7 @@
       "additionalcontribution": {
         "label": "Contribution supplémentaire par période",
         "placeholder": "Saisir contribution supplémentaire par période",
-        "helper": "Montant fixe ajouté à la fin de chaque période de composition."
+        "helper": "Montant fixe ajouté à la fin de chaque période de capitalisation."
       },
       "inflationrate": {
         "label": "Taux d'inflation",
@@ -35374,7 +35374,7 @@
       "total_units": {
         "label": "Unités totales produites",
         "placeholder": "Saisir unités totales produites",
-        "helper": "Nombre total d'unités produites au cours de la période de rapport (ISO 9001:2015 clause 9.1.3)."
+        "helper": "Nombre total d'unités produites sur la période de rapport (ISO 9001:2015 clause 9.1.3)."
       },
       "defective_units": {
         "label": "Unités défectueuses",
@@ -35463,7 +35463,7 @@
       "production_volume": {
         "label": "Volume de production réel (unités)",
         "placeholder": "Saisir volume de production réel (unités)",
-        "helper": "Nombre total d'unités produites dans la période. Utilisé pour la comparaison réelle vs seuil de rentabilité."
+        "helper": "Nombre total d'unités produites dans la période. Utilisé pour la comparaison réel vs seuil de rentabilité."
       },
       "cost_allocation_method": {
         "label": "Méthode de répartition des coûts",
@@ -36004,14 +36004,14 @@
       "rpm": {
         "label": "RPM",
         "placeholder": "Saisir rpm",
-        "helper": "Spindle speed"
+        "helper": "Vitesse de broche"
       }
     },
     "feed-rate-calculator": {
       "rpm": {
         "label": "RPM",
         "placeholder": "Saisir rpm",
-        "helper": "Spindle speed"
+        "helper": "Vitesse de broche"
       },
       "teeth": {
         "label": "Dents",
@@ -36021,7 +36021,7 @@
       "feedpertoothmm": {
         "label": "Avance/dent",
         "placeholder": "Saisir avance/dent",
-        "helper": "Chip load par tooth"
+        "helper": "charge de copeau par tooth"
       }
     },
     "tolerance-drift-calculator": {
@@ -36062,7 +36062,7 @@
       "energy_consumption_kwh": {
         "label": "Consommation d'énergie (kWh)",
         "placeholder": "Saisir consommation d'énergie (kwh)",
-        "helper": "Total des kilowattheures mesurés pour la période de facturation. Utilisé comme principal moteur du coût de l'énergie."
+        "helper": "Kilowattheures totales mesurées pour la période de facturation. Utilisé comme principal moteur du coût de l'énergie."
       },
       "peak_demand_kw": {
         "label": "Demande de pointe (kW)",
@@ -36087,7 +36087,7 @@
       "pf_penalty_threshold": {
         "label": "Seuil de pénalité PF",
         "placeholder": "Saisir seuil de pénalité pf",
-        "helper": "Facteur de puissance minimum avant l'application de la pénalité, généralement 0,9 selon les normes des services publics."
+        "helper": "Facteur de puissance minimum avant l'application d'une pénalité, généralement 0,9 selon les normes des services publics."
       },
       "pf_penalty_rate": {
         "label": "Taux de pénalité PF ($/kvar)",
@@ -36102,7 +36102,7 @@
       "operating_hours": {
         "label": "Heures d'exploitation par mois",
         "placeholder": "Saisir heures d'exploitation par mois",
-        "helper": "Nombre total d'heures de fonctionnement de l'installation pendant la période de facturation. Utilisé pour le calcul du facteur de charge."
+        "helper": "Nombre total d'heures de fonctionnement de l'installation au cours de la période de facturation. Utilisé pour le calcul du facteur de charge."
       },
       "tariff_type": {
         "label": "Type de tarif",
@@ -36713,7 +36713,7 @@
       "depreciation_method": {
         "label": "Méthode d'amortissement",
         "placeholder": "Saisir méthode d'amortissement",
-        "helper": "Méthode comptable utilisée pour répartir la charge d'amortissement sur la période de détention."
+        "helper": "Méthode comptable utilisée pour répartir les charges d'amortissement sur la période de détention."
       },
       "maintenance_cost_per_year": {
         "label": "Coût d'entretien annuel (USD)",
@@ -37711,7 +37711,7 @@
       "marginoferror": {
         "label": "Marge d'erreur (Précision)",
         "placeholder": "Saisir marge d'erreur (précision)",
-        "helper": "Écart acceptable par rapport au vrai paramètre de population ; typique pour les audits de processus."
+        "helper": "Écart acceptable par rapport au paramètre réel de la population ; typique pour les audits de processus."
       },
       "populationsize": {
         "label": "Taille de la population (Taille du lot)",
@@ -37729,7 +37729,7 @@
         "helper": "Variation de processus estimée pour l'échantillonnage par variables (ex. SPC)."
       },
       "effectsize": {
-        "label": "Taille d'effet (Différence minimale détectable)",
+        "label": "Taille d'effet (différence minimale détectable)",
         "placeholder": "Saisir taille d'effet (différence minimale détectable)",
         "helper": "Plus petit changement pratique à détecter dans les tests d'hypothèses (Six Sigma)."
       },
@@ -37981,12 +37981,12 @@
       "compounding_frequency": {
         "label": "Fréquence de composition",
         "placeholder": "Saisir fréquence de composition",
-        "helper": "Nombre de périodes de composition par an, aligné sur les mesures financières WERC pour la logistique et la chaîne d'approvisionnement."
+        "helper": "Nombre de périodes de capitalisation par an, aligné sur les métriques financières WERC pour la logistique et la chaîne d'approvisionnement."
       },
       "time_period_years": {
         "label": "Période d'investissement",
         "placeholder": "Saisir période d'investissement",
-        "helper": "Durée de l'investissement en années, utilisée pour le calcul du rendement annuel en pourcentage (APY) multi-période selon les calendriers de projets Lean Six Sigma."
+        "helper": "Durée de l'investissement en années, utilisée pour le calcul du rendement annuel en pourcentage (APY) sur plusieurs périodes selon les échéanciers des projets Lean Six Sigma."
       },
       "initial_principal": {
         "label": "Capital initial",
@@ -38023,7 +38023,7 @@
       "aql_percent": {
         "label": "AQL (%)",
         "placeholder": "Saisir aql (%)",
-        "helper": "Niveau de qualité acceptable – pourcentage maximal de défectueux considéré comme acceptable en moyenne de processus."
+        "helper": "Niveau de qualité acceptable (AQL) – pourcentage maximal de défauts considéré comme acceptable comme moyenne du processus."
       },
       "inspection_level": {
         "label": "Niveau d'inspection",
@@ -38137,12 +38137,12 @@
       "total_repair_orders": {
         "label": "Nombre total d'ordres de réparation (mensuel)",
         "placeholder": "Saisir nombre total d'ordres de réparation (mensuel)",
-        "helper": "Nombre total d'ordres de réparation terminés dans la période (ISO 9001:2015 clause 8.5.1)."
+        "helper": "Nombre total d'ordres de réparation achevés dans la période (ISO 9001:2015 clause 8.5.1)."
       },
       "comeback_count": {
         "label": "Nombre de retours (mensuel)",
         "placeholder": "Saisir nombre de retours (mensuel)",
-        "helper": "Nombre d'ordres de réparation revenus pour reprise dans la période de garantie ou de service (métrique Six Sigma DPMO)."
+        "helper": "Nombre d'ordres de réparation retournés pour reprise sous garantie ou période de service (métrique Six Sigma DPMO)."
       },
       "avg_labor_rate": {
         "label": "Taux de main-d'œuvre moyen",
@@ -38288,7 +38288,7 @@
       "total_labor_hours_sold": {
         "label": "Heures de main-d'œuvre totales vendues",
         "placeholder": "Saisir heures de main-d'œuvre totales vendues",
-        "helper": "Total des heures de main-d'œuvre facturables vendues au cours de la période (mensuelle ou annuelle)."
+        "helper": "Total des heures de main-d'œuvre facturables vendues dans la période (mensuelle ou annuelle)."
       },
       "parts_markup_percent": {
         "label": "Pourcentage de marge sur pièces",
@@ -38303,7 +38303,7 @@
       "total_parts_cost": {
         "label": "Coût total des pièces (COGS)",
         "placeholder": "Saisir coût total des pièces (cogs)",
-        "helper": "Coût total des pièces vendues au cours de la période."
+        "helper": "Coût total des pièces vendues dans la période."
       },
       "shop_supply_charge_per_ro": {
         "label": "Frais de fournitures d'atelier par ordre de réparation",
@@ -38318,7 +38318,7 @@
       "number_of_repair_orders": {
         "label": "Nombre d'ordres de réparation",
         "placeholder": "Saisir nombre d'ordres de réparation",
-        "helper": "Nombre total d'ordres de réparation terminés au cours de la période."
+        "helper": "Nombre total d'ordres de réparation achevés dans la période."
       },
       "warranty_labor_hours": {
         "label": "Heures de main-d'œuvre sous garantie",
@@ -38390,7 +38390,7 @@
       "safety_factor_target": {
         "label": "Facteur de sécurité cible (SF)",
         "placeholder": "Saisir facteur de sécurité cible (sf)",
-        "helper": "Facteur de sécurité minimal acceptable selon ISO 13822 pour l'intégrité structurelle."
+        "helper": "Facteur de sécurité minimal acceptable selon l'ISO 13822 pour l'intégrité structurelle."
       },
       "support_condition": {
         "label": "Condition d'appui",
@@ -38543,7 +38543,7 @@
       "age": {
         "label": "Âge",
         "placeholder": "Saisir âge",
-        "helper": "L'âge affecte la composition corporelle et le taux métabolique (phase DMAIC Six Sigma : Measure)."
+        "helper": "L'âge affecte la composition corporelle et le taux métabolique (phase DMAIC Six Sigma : Mesurer)."
       },
       "height": {
         "label": "Taille",
@@ -38632,7 +38632,7 @@
       "bottleneck_utilization": {
         "label": "Utilisation du goulot d'étranglement (%)",
         "placeholder": "Saisir utilisation du goulot d'étranglement (%)",
-        "helper": "Taux d'utilisation actuel de la ressource goulot principale, mesuré sur une période représentative (par exemple, les 4 dernières semaines)."
+        "helper": "Taux d'utilisation actuel de la ressource goulot d'étranglement primaire, mesuré sur une période représentative (par exemple, les 4 dernières semaines)."
       },
       "demand_rate": {
         "label": "Taux de demande moyen (unités/heure)",
@@ -38642,7 +38642,7 @@
       "bottleneck_capacity": {
         "label": "Capacité du goulot d'étranglement (unités/heure)",
         "placeholder": "Saisir capacité du goulot d'étranglement (unités/heure)",
-        "helper": "Taux de sortie théorique maximal de la ressource goulot dans des conditions idéales."
+        "helper": "Taux de production théorique maximal de la ressource goulot d'étranglement dans des conditions idéales."
       },
       "investment_cost": {
         "label": "Coût d'investissement proposé ($)",
@@ -39300,7 +39300,7 @@
       "customer_lifetime_years": {
         "label": "Durée de vie client (années)",
         "placeholder": "Saisir durée de vie client (années)",
-        "helper": "Période de rétention moyenne. Pour les modèles d'abonnement, utilisez 1/taux d'attrition."
+        "helper": "Période de rétention moyenne. Pour les modèles d'abonnement, utiliser 1/taux de désabonnement."
       },
       "gross_margin_pct": {
         "label": "Marge brute (%)",
@@ -39639,7 +39639,7 @@
       "actual_throughput": {
         "label": "Débit réel (unités)",
         "placeholder": "Saisir débit réel (unités)",
-        "helper": "Unités totales produites ou livrées au cours de la période de mesure."
+        "helper": "Nombre total d'unités produites ou livrées dans la période de mesure."
       },
       "target_throughput": {
         "label": "Débit cible (unités)",
@@ -39674,12 +39674,12 @@
       "quality_threshold_ppm": {
         "label": "Seuil de qualité (ppm)",
         "placeholder": "Saisir seuil de qualité (ppm)",
-        "helper": "Taux de défaut maximum pour être éligible à une incitation."
+        "helper": "Taux de défauts maximal pour être admissible à une incitation."
       },
       "delivery_threshold_percent": {
         "label": "Seuil de livraison (%)",
         "placeholder": "Saisir seuil de livraison (%)",
-        "helper": "Pourcentage minimum de livraison à temps pour être éligible à l'incitation."
+        "helper": "Pourcentage minimum de livraison à temps pour être éligible à une incitation."
       },
       "cost_reduction_sharing_percent": {
         "label": "Partage de réduction des coûts (%)",
@@ -39701,7 +39701,7 @@
       "cpk": {
         "label": "Indice de capabilité processus (Cpk)",
         "placeholder": "Saisir indice de capabilité processus (cpk)",
-        "helper": "Cpk est une métrique Six Sigma standard indiquant dans quelle mesure un processus respecte les limites de spécification, en tenant compte du centrage. Cibles typiques : 1,33 (minimum acceptable), 1,67 (bon), 2,0 (excellent)."
+        "helper": "Le Cpk est une métrique standard Six Sigma indiquant dans quelle mesure un processus respecte les limites de spécification, en tenant compte du centrage. Cibles typiques : 1,33 (minimum acceptable), 1,67 (bon), 2,0 (excellent)."
       },
       "sigmashift": {
         "label": "Décalage Sigma (dérive à long terme)",
@@ -40018,7 +40018,7 @@
       "seasonal_demand_factor": {
         "label": "Facteur de demande saisonnière",
         "placeholder": "Saisir facteur de demande saisonnière",
-        "helper": "Ajuste pour les périodes de pointe/hors pointe de la demande."
+        "helper": "S'ajuste aux périodes de demande de pointe/hors pointe."
       }
     },
     "demand-forecast-inventory-cost": {
@@ -40243,12 +40243,12 @@
       "total_energy_kwh": {
         "label": "Consommation totale d'énergie (kWh)",
         "placeholder": "Saisir consommation totale d'énergie (kwh)",
-        "helper": "Énergie électrique totale consommée par l'installation au cours de la période de déclaration (par exemple mensuelle)."
+        "helper": "Énergie électrique totale consommée par l'installation au cours de la période de déclaration (par exemple, mensuelle)."
       },
       "peak_demand_kw": {
         "label": "Demande de pointe (kW)",
         "placeholder": "Saisir demande de pointe (kw)",
-        "helper": "Demande de puissance la plus élevée enregistrée pendant la période; utilisée pour le calcul des frais de demande."
+        "helper": "Demande de puissance la plus élevée enregistrée au cours de la période ; utilisée pour le calcul des frais de demande."
       },
       "tariff_rate_per_kwh": {
         "label": "Tarif de l'énergie ($/kWh)",
@@ -40263,7 +40263,7 @@
       "production_units": {
         "label": "Unités de production totales",
         "placeholder": "Saisir unités de production totales",
-        "helper": "Nombre d'unités produites au cours de la période (par exemple pièces, kg, litres)."
+        "helper": "Nombre d'unités produites au cours de la période (par exemple, pièces, kg, litres)."
       },
       "facility_type": {
         "label": "Type d'installation",
@@ -40295,7 +40295,7 @@
       "waste_volume_kg": {
         "label": "Volume de déchets (kg)",
         "placeholder": "Saisir volume de déchets (kg)",
-        "helper": "Masse totale de déchets générés au cours de la période de déclaration."
+        "helper": "Masse totale des déchets générés au cours de la période de déclaration."
       },
       "disposal_cost_per_kg": {
         "label": "Coût d'élimination par kg",
@@ -40826,7 +40826,7 @@
       "total_production_kg": {
         "label": "Production totale (kg)",
         "placeholder": "Saisir production totale (kg)",
-        "helper": "Poids total des produits finis fabriqués au cours de la période de déclaration (flux de matières ISO 14051)."
+        "helper": "Poids total des produits finis produits au cours de la période de déclaration (flux de matières ISO 14051)."
       },
       "waste_kg": {
         "label": "Déchets (kg)",
@@ -41297,8 +41297,8 @@
     },
     "inflation-escalation-calculator": {
       "base_cost": {
-        "label": "Coût de base (période en cours)",
-        "placeholder": "Saisir coût de base (période en cours)",
+        "label": "Coût de base (période actuelle)",
+        "placeholder": "Saisir coût de base (période actuelle)",
         "helper": "Coût total des biens ou services au début de la période d'analyse."
       },
       "inflation_rate": {
@@ -41383,7 +41383,7 @@
       "avg_inventory_value": {
         "label": "Valeur moyenne des stocks (USD)",
         "placeholder": "Saisir valeur moyenne des stocks (usd)",
-        "helper": "Valeur moyenne totale des stocks sur la période (par exemple, moyenne mensuelle des stocks basés sur le COGS)."
+        "helper": "Valeur totale moyenne des stocks sur la période (par exemple, moyenne mensuelle des stocks basés sur le COGS)."
       },
       "cogs_annual": {
         "label": "Coût annuel des marchandises vendues (USD)",
@@ -42138,7 +42138,7 @@
       "unitsproduced": {
         "label": "Unités produites",
         "placeholder": "Saisir unités produites",
-        "helper": "Nombre total d'unités produites au cours de la période (métrique de débit WERC)."
+        "helper": "Nombre total d'unités produites sur la période (métrique de débit WERC)."
       },
       "inventoryholdingcost": {
         "label": "Taux de coût de détention des stocks",
@@ -42334,7 +42334,7 @@
       "moq": {
         "label": "Quantité minimale de commande (unités)",
         "placeholder": "Saisir quantité minimale de commande (unités)",
-        "helper": "Taille de lot minimale imposée par le fournisseur. Si EOQ < MOQ, la quantité commandée doit être ajustée à la hausse, augmentant le coût de détention."
+        "helper": "Taille de lot minimale imposée par le fournisseur. Si EOQ < MOQ, la quantité commandée doit être ajustée à la hausse, augmentant le coût de possession."
       },
       "lead_time_days": {
         "label": "Délai de livraison (jours)",
@@ -42359,7 +42359,7 @@
       "storage_capacity": {
         "label": "Capacité de stockage (unités)",
         "placeholder": "Saisir capacité de stockage (unités)",
-        "helper": "Stock maximum que l'entrepôt peut physiquement contenir. Contrainte pour une quantité de commande réalisable."
+        "helper": "Stock maximum que l'entrepôt peut physiquement contenir. Contrainte pour la quantité de commande réalisable."
       },
       "backorder_cost_per_unit": {
         "label": "Coût de rupture par unité ($)",
@@ -42592,7 +42592,7 @@
       "production_volume": {
         "label": "Volume de production",
         "placeholder": "Saisir volume de production",
-        "helper": "Nombre total d'unités produites au cours de la période d'analyse."
+        "helper": "Nombre total d'unités produites sur la période d'analyse."
       },
       "shift_hours_per_day": {
         "label": "Heures de poste par jour",
@@ -43429,7 +43429,7 @@
       "complexity_type": {
         "label": "Type de complexité",
         "placeholder": "Saisir type de complexité",
-        "helper": "Catégorie de complexité : 'product' (nombre élevé de SKU), 'process' (temps de configuration élevé), 'mixed' (les deux)."
+        "helper": "Catégorie de complexité : 'produit' (nombre élevé de SKU), 'processus' (temps de réglage élevé), 'mixte' (les deux)."
       },
       "use_lean_metrics": {
         "label": "Utiliser des métriques Lean (SMED, OEE)",
@@ -43498,7 +43498,7 @@
       "actualcost": {
         "label": "Coût réel engagé (USD)",
         "placeholder": "Saisir coût réel engagé (usd)",
-        "helper": "Coûts totaux réellement engagés jusqu'à la période de reporting actuelle."
+        "helper": "Coûts totaux réellement encourus jusqu'à la période de rapport actuelle."
       },
       "percentcomplete": {
         "label": "Pourcentage d'achèvement (%)",
@@ -43912,9 +43912,9 @@
         "helper": "Pourcentage de revenus perdus en raison des repas du personnel, des promotions, des offres et des remises."
       },
       "covers_per_period": {
-        "label": "Couverts par période (mensuel)",
-        "placeholder": "Saisir couverts par période (mensuel)",
-        "helper": "Nombre total de convives servis pendant la période de mesure (mois)."
+        "label": "Couvertures par période (mensuel)",
+        "placeholder": "Saisir couvertures par période (mensuel)",
+        "helper": "Nombre total de clients servis sur la période de mesure (mois)."
       },
       "menu_engineering_score": {
         "label": "Score d'ingénierie de menu (1-10)",
@@ -44129,7 +44129,7 @@
       "total_licenses": {
         "label": "Nombre total de licences achetées",
         "placeholder": "Saisir nombre total de licences achetées",
-        "helper": "Nombre total de licences SaaS payées au cours de la période en cours."
+        "helper": "Nombre total de licences SaaS payées pour la période en cours."
       },
       "active_users": {
         "label": "Utilisateurs actifs (mensuel)",
@@ -44334,7 +44334,7 @@
       "total_units_produced": {
         "label": "Unités totales produites",
         "placeholder": "Saisir unités totales produites",
-        "helper": "Nombre total d'unités produites au cours de la période de déclaration (par exemple, quart de travail, jour, semaine)."
+        "helper": "Nombre total d'unités produites sur la période de rapport (par exemple, équipe, jour, semaine)."
       },
       "defective_units": {
         "label": "Unités défectueuses",
@@ -44678,7 +44678,7 @@
       "standardization_level": {
         "label": "Niveau de standardisation",
         "placeholder": "Saisir niveau de standardisation",
-        "helper": "Degré des instructions de travail standardisées, de l'outillage et de la conception des matrices. Élevé = ajustements minimaux."
+        "helper": "Degré d'instructions de travail standardisées, d'outillage et de conception de matrice. Élevé = ajustements minimaux."
       },
       "waste_motion_score": {
         "label": "Score de mouvement de gaspillage (1-10)",
@@ -45106,12 +45106,12 @@
       "lower_spec_limit": {
         "label": "Limite de spécification inférieure (LSL)",
         "placeholder": "Saisir limite de spécification inférieure (lsl)",
-        "helper": "Valeur minimale acceptable selon l'ingénierie ou l'exigence client."
+        "helper": "Valeur minimale acceptable selon l'exigence technique ou client."
       },
       "upper_spec_limit": {
         "label": "Limite de spécification supérieure (USL)",
         "placeholder": "Saisir limite de spécification supérieure (usl)",
-        "helper": "Valeur maximale acceptable selon l'ingénierie ou l'exigence client."
+        "helper": "Valeur maximale acceptable selon l'exigence technique ou client."
       },
       "process_mean": {
         "label": "Moyenne du processus (μ)",
@@ -45589,7 +45589,7 @@
       "volume_units": {
         "label": "Volume de transactions (unités)",
         "placeholder": "Saisir volume de transactions (unités)",
-        "helper": "Nombre total d'unités transférées entre les entités au cours de la période."
+        "helper": "Nombre total d'unités transférées entre entités au cours de la période."
       },
       "tax_rate_producer": {
         "label": "Taux d'imposition de l'entité productrice (%)",
@@ -45718,7 +45718,7 @@
       "lost_productivity_months": {
         "label": "Durée de perte de productivité",
         "placeholder": "Saisir durée de perte de productivité",
-        "helper": "Mois moyens de production réduite par nouvelle embauche (période de montée en puissance)."
+        "helper": "Moyenne de mois de production réduite par nouvelle embauche (période de montée en puissance)."
       },
       "productivity_factor": {
         "label": "Facteur de productivité pendant la montée en puissance",
@@ -46077,7 +46077,7 @@
       "productionoutput": {
         "label": "Production (unités)",
         "placeholder": "Saisir production (unités)",
-        "helper": "Nombre total d'unités produites au cours de la période de référence."
+        "helper": "Nombre total d'unités produites au cours de la période de reporting."
       },
       "processwater": {
         "label": "Eau de procédé utilisée (m³)",
@@ -46909,7 +46909,7 @@
       "additionalcontribution": {
         "label": "Contribución adicional por período",
         "placeholder": "Introduzca contribución adicional por período",
-        "helper": "Cantidad fija agregada al final de cada período de capitalización."
+        "helper": "Monto fijo agregado al final de cada período de capitalización."
       },
       "inflationrate": {
         "label": "Tasa de inflación",
@@ -47084,7 +47084,7 @@
       "production_volume": {
         "label": "Volumen de producción real (unidades)",
         "placeholder": "Introduzca volumen de producción real (unidades)",
-        "helper": "Número total de unidades producidas en el período. Se utiliza para la comparación real vs punto de equilibrio."
+        "helper": "Total de unidades producidas en el período. Se utiliza para la comparación real vs punto de equilibrio."
       },
       "cost_allocation_method": {
         "label": "Método de asignación de costos",
@@ -47625,14 +47625,14 @@
       "rpm": {
         "label": "RPM",
         "placeholder": "Introduzca rpm",
-        "helper": "Spindle speed"
+        "helper": "Velocidad del husillo"
       }
     },
     "feed-rate-calculator": {
       "rpm": {
         "label": "RPM",
         "placeholder": "Introduzca rpm",
-        "helper": "Spindle speed"
+        "helper": "Velocidad del husillo"
       },
       "teeth": {
         "label": "Dientes",
@@ -47642,7 +47642,7 @@
       "feedpertoothmm": {
         "label": "Avance/diente",
         "placeholder": "Introduzca avance/diente",
-        "helper": "Chip load por tooth"
+        "helper": "carga de viruta por tooth"
       }
     },
     "tolerance-drift-calculator": {
@@ -47683,12 +47683,12 @@
       "energy_consumption_kwh": {
         "label": "Consumo de energía (kWh)",
         "placeholder": "Introduzca consumo de energía (kwh)",
-        "helper": "Total de kilovatios-hora medidos para el período de facturación. Se utiliza como principal impulsor del costo de energía."
+        "helper": "Kilovatios-hora totales medidos para el período de facturación. Se utiliza como principal impulsor del costo de energía."
       },
       "peak_demand_kw": {
         "label": "Demanda máxima (kW)",
         "placeholder": "Introduzca demanda máxima (kw)",
-        "helper": "Demanda promedio más alta de 15 minutos en el período. Impulsa los cargos por demanda según la tarifa del servicio público."
+        "helper": "Demanda promedio más alta de 15 minutos en el período. Determina los cargos por demanda según la tarifa del servicio público."
       },
       "energy_rate_per_kwh": {
         "label": "Tarifa de energía ($/kWh)",
@@ -47708,7 +47708,7 @@
       "pf_penalty_threshold": {
         "label": "Umbral de penalización PF",
         "placeholder": "Introduzca umbral de penalización pf",
-        "helper": "Factor de potencia mínimo antes de que se aplique la penalización, típicamente 0.9 según los estándares de servicios públicos."
+        "helper": "Factor de potencia mínimo antes de que se aplique una penalización, típicamente 0,9 según los estándares de servicios públicos."
       },
       "pf_penalty_rate": {
         "label": "Tasa de penalización PF ($/kvar)",
@@ -47723,7 +47723,7 @@
       "operating_hours": {
         "label": "Horas operativas por mes",
         "placeholder": "Introduzca horas operativas por mes",
-        "helper": "Horas totales que la instalación opera en el período de facturación. Se utiliza para el cálculo del factor de carga."
+        "helper": "Horas totales de operación de la instalación en el período de facturación. Se utiliza para el cálculo del factor de carga."
       },
       "tariff_type": {
         "label": "Tipo de tarifa",
@@ -48322,7 +48322,7 @@
         "helper": "Valor de mercado estimado del vehículo al final del período de tenencia."
       },
       "holding_period_years": {
-        "label": "Período de Tenencia (Años)",
+        "label": "Período de tenencia (años)",
         "placeholder": "Introduzca período de tenencia (años)",
         "helper": "Número esperado de años que el vehículo será poseído y utilizado."
       },
@@ -48334,7 +48334,7 @@
       "depreciation_method": {
         "label": "Método de depreciación",
         "placeholder": "Introduzca método de depreciación",
-        "helper": "Método contable utilizado para asignar el gasto de depreciación durante el período de tenencia."
+        "helper": "Método contable utilizado para distribuir el gasto de depreciación durante el período de tenencia."
       },
       "maintenance_cost_per_year": {
         "label": "Costo de Mantenimiento Anual (USD)",
@@ -49275,7 +49275,7 @@
       "defect_count": {
         "label": "Número de defectos",
         "placeholder": "Introduzca número de defectos",
-        "helper": "Número total de defectos observados en la muestra o período de proceso."
+        "helper": "Total de defectos observados en la muestra o período del proceso."
       },
       "sample_size": {
         "label": "Tamaño de la muestra",
@@ -49350,7 +49350,7 @@
         "helper": "Variación estimada del proceso para el muestreo de variables (p. ej., SPC)."
       },
       "effectsize": {
-        "label": "Tamaño del efecto (Diferencia mínima detectable)",
+        "label": "Tamaño del efecto (diferencia mínima detectable)",
         "placeholder": "Introduzca tamaño del efecto (diferencia mínima detectable)",
         "helper": "Cambio práctico más pequeño a detectar en pruebas de hipótesis (Six Sigma)."
       },
@@ -49644,7 +49644,7 @@
       "aql_percent": {
         "label": "AQL (%)",
         "placeholder": "Introduzca aql (%)",
-        "helper": "Nivel de calidad aceptable – porcentaje máximo de defectuosos que se considera aceptable como promedio del proceso."
+        "helper": "Nivel de Calidad Aceptable (AQL) – porcentaje máximo de defectos considerado aceptable como promedio del proceso."
       },
       "inspection_level": {
         "label": "Nivel de inspección",
@@ -49939,7 +49939,7 @@
       "number_of_repair_orders": {
         "label": "Número de órdenes de reparación",
         "placeholder": "Introduzca número de órdenes de reparación",
-        "helper": "Total de órdenes de reparación completadas en el período."
+        "helper": "Número total de órdenes de reparación completadas en el período."
       },
       "warranty_labor_hours": {
         "label": "Horas de mano de obra en garantía",
@@ -50164,7 +50164,7 @@
       "age": {
         "label": "Edad",
         "placeholder": "Introduzca edad",
-        "helper": "La edad afecta la composición corporal y la tasa metabólica (fase DMAIC de Six Sigma: Measure)."
+        "helper": "La edad afecta la composición corporal y la tasa metabólica (fase DMAIC de Six Sigma: Medir)."
       },
       "height": {
         "label": "Altura",
@@ -50253,7 +50253,7 @@
       "bottleneck_utilization": {
         "label": "Utilización del cuello de botella (%)",
         "placeholder": "Introduzca utilización del cuello de botella (%)",
-        "helper": "Tasa de utilización actual del recurso cuello de botella principal, medida durante un período representativo (por ejemplo, las últimas 4 semanas)."
+        "helper": "Tasa de utilización actual del recurso cuello de botella primario, medida durante un período representativo (por ejemplo, las últimas 4 semanas)."
       },
       "demand_rate": {
         "label": "Tasa de demanda promedio (unidades/hora)",
@@ -50525,7 +50525,7 @@
       "total_imported_tonnes": {
         "label": "Toneladas importadas totales (acero/aluminio/cemento/fertilizante/hidrógeno)",
         "placeholder": "Introduzca toneladas importadas totales (acero/aluminio/cemento/fertilizante/hidrógeno)",
-        "helper": "Masa total de mercancías cubiertas por el CBAM importadas en el período de reporte."
+        "helper": "Masa total de mercancías cubiertas por el CBAM importadas en el período de informe."
       },
       "embedded_emissions_per_tonne": {
         "label": "Emisiones incorporadas por tonelada",
@@ -51260,7 +51260,7 @@
       "actual_throughput": {
         "label": "Rendimiento real (unidades)",
         "placeholder": "Introduzca rendimiento real (unidades)",
-        "helper": "Unidades totales producidas o entregadas en el período de medición."
+        "helper": "Total de unidades producidas o entregadas en el período de medición."
       },
       "target_throughput": {
         "label": "Rendimiento objetivo (unidades)",
@@ -51295,12 +51295,12 @@
       "quality_threshold_ppm": {
         "label": "Umbral de calidad (ppm)",
         "placeholder": "Introduzca umbral de calidad (ppm)",
-        "helper": "Tasa máxima de defectos para calificar para cualquier incentivo."
+        "helper": "Tasa de defectos máxima para calificar para cualquier incentivo."
       },
       "delivery_threshold_percent": {
         "label": "Umbral de entrega (%)",
         "placeholder": "Introduzca umbral de entrega (%)",
-        "helper": "Porcentaje mínimo de entrega a tiempo para calificar para el incentivo."
+        "helper": "Porcentaje mínimo de entregas a tiempo para calificar para un incentivo."
       },
       "cost_reduction_sharing_percent": {
         "label": "Participación en reducción de costos (%)",
@@ -51322,7 +51322,7 @@
       "cpk": {
         "label": "Índice de capacidad del proceso (Cpk)",
         "placeholder": "Introduzca índice de capacidad del proceso (cpk)",
-        "helper": "Cpk es una métrica estándar de Six Sigma que indica qué tan bien un proceso cumple con los límites de especificación, teniendo en cuenta el centrado. Objetivos típicos: 1,33 (mínimo aceptable), 1,67 (bueno), 2,0 (excelente)."
+        "helper": "Cpk es una métrica estándar de Six Sigma que indica qué tan bien un proceso cumple con los límites de especificación, teniendo en cuenta el centrado. Objetivos típicos: 1.33 (mínimo aceptable), 1.67 (bueno), 2.0 (excelente)."
       },
       "sigmashift": {
         "label": "Desviación Sigma (deriva a largo plazo)",
@@ -51646,7 +51646,7 @@
       "historical_demand_mean": {
         "label": "Media histórica de la demanda (unidades/período)",
         "placeholder": "Introduzca media histórica de la demanda (unidades/período)",
-        "helper": "Demanda promedio observada en los últimos 12 períodos (recopilación de datos ISO 9001:2015)."
+        "helper": "Demanda promedio observada durante los últimos 12 períodos (recopilación de datos ISO 9001:2015)."
       },
       "demand_std_dev": {
         "label": "Desviación estándar de la demanda (unidades)",
@@ -52447,7 +52447,7 @@
       "total_production_kg": {
         "label": "Producción total (kg)",
         "placeholder": "Introduzca producción total (kg)",
-        "helper": "Peso total de productos terminados producidos en el período de informe (flujo de materiales ISO 14051)."
+        "helper": "Peso total de los productos terminados producidos en el período de informe (flujo de materiales ISO 14051)."
       },
       "waste_kg": {
         "label": "Residuos (kg)",
@@ -52913,7 +52913,7 @@
       "is_new_system": {
         "label": "Sistema nuevo (menos de 1 año en servicio)",
         "placeholder": "Introduzca sistema nuevo (menos de 1 año en servicio)",
-        "helper": "Los sistemas nuevos pueden tener características de pérdida diferentes debido al período de asentamiento."
+        "helper": "Los sistemas nuevos pueden tener diferentes características de pérdida debido al período de asentamiento."
       }
     },
     "inflation-escalation-calculator": {
@@ -53004,7 +53004,7 @@
       "avg_inventory_value": {
         "label": "Valor promedio del inventario (USD)",
         "placeholder": "Introduzca valor promedio del inventario (usd)",
-        "helper": "Valor promedio total del inventario durante el período (por ejemplo, promedio mensual del inventario basado en COGS)."
+        "helper": "Valor total promedio del inventario durante el período (por ejemplo, promedio mensual del inventario basado en COGS)."
       },
       "cogs_annual": {
         "label": "Costo anual de los bienes vendidos (USD)",
@@ -53108,7 +53108,7 @@
       "operating_hours": {
         "label": "Horas de operación",
         "placeholder": "Introduzca horas de operación",
-        "helper": "Total de horas de operación de la instalación durante el período base."
+        "helper": "Horas totales de operación de la instalación durante el período base."
       },
       "energy_source_mix": {
         "label": "Combinación de fuentes de energía",
@@ -53729,7 +53729,7 @@
       "revenue": {
         "label": "Ingresos totales",
         "placeholder": "Introduzca ingresos totales",
-        "helper": "Ingresos totales por ventas para el período (informes financieros ISO 9001)."
+        "helper": "Ingresos totales por ventas del período (informes financieros ISO 9001)."
       },
       "materialcost": {
         "label": "Costo Directo de Material",
@@ -53759,7 +53759,7 @@
       "unitsproduced": {
         "label": "Unidades Producidas",
         "placeholder": "Introduzca unidades producidas",
-        "helper": "Número total de unidades producidas en el período (métrica de rendimiento WERC)."
+        "helper": "Unidades totales producidas en el período (métrica de rendimiento WERC)."
       },
       "inventoryholdingcost": {
         "label": "Tasa de costo de mantenimiento de inventario",
@@ -53980,7 +53980,7 @@
       "storage_capacity": {
         "label": "Capacidad de almacenamiento (unidades)",
         "placeholder": "Introduzca capacidad de almacenamiento (unidades)",
-        "helper": "Inventario máximo que el almacén puede contener físicamente. Restricción para una cantidad de pedido factible."
+        "helper": "Inventario máximo que el almacén puede contener físicamente. Restricción para la cantidad de pedido factible."
       },
       "backorder_cost_per_unit": {
         "label": "Costo de falta de existencias por unidad ($)",
@@ -54044,7 +54044,7 @@
       "num_appraisers": {
         "label": "Número de evaluadores",
         "placeholder": "Introduzca número de evaluadores",
-        "helper": "Número de operadores o evaluadores que realizan las mediciones, mínimo 2 para la estimación de la reproducibilidad."
+        "helper": "Número de operadores o evaluadores que realizan mediciones, mínimo 2 para la estimación de reproducibilidad."
       },
       "num_trials": {
         "label": "Número de ensayos por pieza",
@@ -54570,8 +54570,8 @@
         "helper": "Fase post-ovulación fija; la variación indica un posible defecto de la fase lútea."
       },
       "last_period_start": {
-        "label": "Fecha de inicio del último período menstrual",
-        "placeholder": "Introduzca fecha de inicio del último período menstrual",
+        "label": "Fecha de inicio de la última menstruación",
+        "placeholder": "Introduzca fecha de inicio de la última menstruación",
         "helper": "Punto de referencia para calcular la próxima ovulación y la ventana fértil."
       },
       "cycle_variability": {
@@ -54832,7 +54832,7 @@
       "lmp_date": {
         "label": "Fecha de la última menstruación (FUM)",
         "placeholder": "Introduzca fecha de la última menstruación (fum)",
-        "helper": "Fecha del primer día del último período menstrual, utilizada como línea de base para el cálculo de la edad gestacional."
+        "helper": "Fecha del primer día del último período menstrual, utilizada como línea base para el cálculo de la edad gestacional."
       },
       "cycle_length": {
         "label": "Longitud promedio del ciclo",
@@ -55050,7 +55050,7 @@
       "complexity_type": {
         "label": "Tipo de complejidad",
         "placeholder": "Introduzca tipo de complejidad",
-        "helper": "Categoría de complejidad: 'product' (alto número de SKU), 'process' (alto tiempo de preparación), 'mixed' (ambos)."
+        "helper": "Categoría de complejidad: 'producto' (alto número de SKU), 'proceso' (alto tiempo de preparación), 'mixto' (ambos)."
       },
       "use_lean_metrics": {
         "label": "Usar métricas Lean (SMED, OEE)",
@@ -55533,9 +55533,9 @@
         "helper": "Porcentaje de ingresos perdidos debido a comidas de empleados, promociones, cortesías y descuentos."
       },
       "covers_per_period": {
-        "label": "Cubiertos por período (mensual)",
-        "placeholder": "Introduzca cubiertos por período (mensual)",
-        "helper": "Número total de comensales atendidos en el período de medición (mes)."
+        "label": "Cubiertas por período (mensual)",
+        "placeholder": "Introduzca cubiertas por período (mensual)",
+        "helper": "Número total de huéspedes atendidos en el período de medición (mes)."
       },
       "menu_engineering_score": {
         "label": "Puntuación de ingeniería de menú (1-10)",
@@ -56581,7 +56581,7 @@
       "time_horizon_months": {
         "label": "Horizonte temporal (meses)",
         "placeholder": "Introduzca horizonte temporal (meses)",
-        "helper": "Período durante el cual se evalúa el riesgo cambiario, que generalmente coincide con el calendario de pagos del contrato."
+        "helper": "Período durante el cual se evalúa el riesgo de divisas, que generalmente coincide con el calendario de pagos del contrato."
       },
       "confidence_level": {
         "label": "Nivel de confianza",
@@ -56727,12 +56727,12 @@
       "lower_spec_limit": {
         "label": "Límite de especificación inferior (LSL)",
         "placeholder": "Introduzca límite de especificación inferior (lsl)",
-        "helper": "Valor mínimo aceptable según requisitos de ingeniería o del cliente."
+        "helper": "Valor mínimo aceptable según el requisito de ingeniería o del cliente."
       },
       "upper_spec_limit": {
         "label": "Límite de especificación superior (USL)",
         "placeholder": "Introduzca límite de especificación superior (usl)",
-        "helper": "Valor máximo aceptable según requisitos de ingeniería o del cliente."
+        "helper": "Valor máximo aceptable según el requisito de ingeniería o del cliente."
       },
       "process_mean": {
         "label": "Media del proceso (μ)",
@@ -57339,7 +57339,7 @@
       "lost_productivity_months": {
         "label": "Duración de la pérdida de productividad",
         "placeholder": "Introduzca duración de la pérdida de productividad",
-        "helper": "Meses promedio de producción reducida por nuevo empleado (período de adaptación)."
+        "helper": "Promedio de meses de producción reducida por nueva contratación (período de puesta en marcha)."
       },
       "productivity_factor": {
         "label": "Factor de productividad durante la rampa de aprendizaje",
@@ -57760,7 +57760,7 @@
       "throat_thickness": {
         "label": "Espesor de garganta efectivo",
         "placeholder": "Introduzca espesor de garganta efectivo",
-        "helper": "Dimensión mínima de garganta según el nivel de calidad B de la ISO 5817."
+        "helper": "Dimensión mínima de garganta según el nivel de calidad B de la norma ISO 5817."
       },
       "weld_length": {
         "label": "Longitud de soldadura",
@@ -58520,7 +58520,7 @@
       "compoundingfrequency": {
         "label": "تكرار المركب",
         "placeholder": "أدخل تكرار المركب",
-        "helper": "عدد فترات التركيب في السنة (مثال: 1=سنوي، 12=شهري، 365=يومي)."
+        "helper": "عدد فترات التركيب في السنة (مثل 1=سنوي، 12=شهري، 365=يومي)."
       },
       "timeperiod": {
         "label": "الفترة الزمنية",
@@ -58528,8 +58528,8 @@
         "helper": "المدة الإجمالية للاستثمار أو القرض بالسنوات."
       },
       "additionalcontribution": {
-        "label": "مساهمة إضافية لكل فترة",
-        "placeholder": "أدخل مساهمة إضافية لكل فترة",
+        "label": "المساهمة الإضافية لكل فترة",
+        "placeholder": "أدخل المساهمة الإضافية لكل فترة",
         "helper": "مبلغ ثابت يضاف في نهاية كل فترة تركيب."
       },
       "inflationrate": {
@@ -58589,7 +58589,7 @@
       "fixed_cost_allocation": {
         "label": "توزيع التكلفة الثابتة (الإجمالي)",
         "placeholder": "أدخل توزيع التكلفة الثابتة (الإجمالي)",
-        "helper": "التكاليف الثابتة المخصصة لدفعة الطلب (مثل الإعداد والهندسة والإدارة) وفقًا لنشر التكاليف الخالية من الهدر (Lean)."
+        "helper": "التكاليف الثابتة المخصصة لدفعة الطلب (مثل الإعداد والهندسة والإدارة) وفقًا لنشر التكاليف الهزيل."
       },
       "discount_type": {
         "label": "نوع الخصم",
@@ -58680,7 +58680,7 @@
       "fixed_costs": {
         "label": "إجمالي التكاليف الثابتة (لكل فترة)",
         "placeholder": "أدخل إجمالي التكاليف الثابتة (لكل فترة)",
-        "helper": "مجموع جميع التكاليف الثابتة (الإيجار والرواتب والتأمين والإهلاك) للفترة. ISO 9001:2015 البند 7.1.4."
+        "helper": "مجموع جميع التكاليف الثابتة (الإيجار، الرواتب، التأمين، الإهلاك) للفترة. ISO 9001:2015 البند 7.1.4."
       },
       "variable_cost_per_unit": {
         "label": "التكلفة المتغيرة لكل وحدة",
@@ -59246,14 +59246,14 @@
       "rpm": {
         "label": "RPM",
         "placeholder": "أدخل RPM",
-        "helper": "Spindle speed"
+        "helper": "سرعة المغزل"
       }
     },
     "feed-rate-calculator": {
       "rpm": {
         "label": "RPM",
         "placeholder": "أدخل RPM",
-        "helper": "Spindle speed"
+        "helper": "سرعة المغزل"
       },
       "teeth": {
         "label": "الأسنان",
@@ -59263,7 +59263,7 @@
       "feedpertoothmm": {
         "label": "تغذية/سن",
         "placeholder": "أدخل تغذية/سن",
-        "helper": "Chip load لكل tooth"
+        "helper": "حمل الرقائق لكل tooth"
       }
     },
     "tolerance-drift-calculator": {
@@ -59304,7 +59304,7 @@
       "energy_consumption_kwh": {
         "label": "استهلاك الطاقة (كيلوواط ساعة)",
         "placeholder": "أدخل استهلاك الطاقة (كيلوواط ساعة)",
-        "helper": "إجمالي كيلوواط-ساعة المقاسة لفترة الفوترة. يُستخدم كمحرك أساسي لتكلفة الطاقة."
+        "helper": "إجمالي كيلوواط ساعة المقاسة لفترة الفاتورة. يُستخدم كمحرك رئيسي لتكلفة الطاقة."
       },
       "peak_demand_kw": {
         "label": "ذروة الطلب (كيلوواط)",
@@ -59329,7 +59329,7 @@
       "pf_penalty_threshold": {
         "label": "حد عقوبة معامل القدرة",
         "placeholder": "أدخل حد عقوبة معامل القدرة",
-        "helper": "الحد الأدنى لمعامل القدرة قبل تطبيق الغرامة، عادة 0.9 وفقًا لمعايير المرافق."
+        "helper": "الحد الأدنى لعامل القدرة قبل تطبيق الغرامة، عادة 0.9 وفقًا لمعايير المرافق."
       },
       "pf_penalty_rate": {
         "label": "معدل عقوبة معامل القدرة ($/كيلوفار)",
@@ -59344,7 +59344,7 @@
       "operating_hours": {
         "label": "ساعات التشغيل شهريًا",
         "placeholder": "أدخل ساعات التشغيل شهريًا",
-        "helper": "إجمالي ساعات تشغيل المنشأة في فترة الفاتورة. يُستخدم لحساب معامل الحمل."
+        "helper": "إجمالي ساعات تشغيل المنشأة في فترة الفاتورة. يُستخدم لحساب عامل الحمولة."
       },
       "tariff_type": {
         "label": "نوع التعرفة",
@@ -59510,7 +59510,7 @@
       "load_factor": {
         "label": "عامل الحمولة (متوسط النسبة المئوية للحمل الكامل)",
         "placeholder": "أدخل عامل الحمولة (متوسط النسبة المئوية للحمل الكامل)",
-        "helper": "متوسط النسبة المئوية لسعة التحميل الكامل التي يعمل بها الضاغط. يشمل فترات التحميل الجزئي وعدم التحميل."
+        "helper": "متوسط النسبة المئوية لسعة الحمولة الكاملة التي يعمل بها الضاغط. يشمل فترات التحميل الجزئي وعدم التحميل."
       },
       "electricity_cost_per_kwh": {
         "label": "تكلفة الكهرباء",
@@ -60850,7 +60850,7 @@
       "target_value": {
         "label": "القيمة المستهدفة (الاسمية)",
         "placeholder": "أدخل القيمة المستهدفة (الاسمية)",
-        "helper": "الهدف المثالي للعملية، غالبًا نقطة منتصف حدود المواصفات."
+        "helper": "هدف العملية المثالي، غالبًا نقطة منتصف حدود المواصفات."
       }
     },
     "ratio-calculator": {
@@ -60896,7 +60896,7 @@
       "defect_count": {
         "label": "عدد العيوب",
         "placeholder": "أدخل عدد العيوب",
-        "helper": "إجمالي عدد العيوب الملاحظة في العينة أو فترة العملية."
+        "helper": "إجمالي العيوب الملاحظة في العينة أو فترة العملية."
       },
       "sample_size": {
         "label": "حجم العينة",
@@ -60971,8 +60971,8 @@
         "helper": "تباين العملية المقدر لأخذ العينات المتغيرة (مثل SPC)."
       },
       "effectsize": {
-        "label": "حجم التأثير (الفرق الأدنى القابل للاكتشاف)",
-        "placeholder": "أدخل حجم التأثير (الفرق الأدنى القابل للاكتشاف)",
+        "label": "حجم التأثير (الحد الأدنى للفرق القابل للاكتشاف)",
+        "placeholder": "أدخل حجم التأثير (الحد الأدنى للفرق القابل للاكتشاف)",
         "helper": "أصغر تغيير عملي يمكن اكتشافه في اختبار الفرضيات (Six Sigma)."
       },
       "samplingmethod": {
@@ -61223,7 +61223,7 @@
       "compounding_frequency": {
         "label": "تكرار المركب",
         "placeholder": "أدخل تكرار المركب",
-        "helper": "عدد فترات المركبة في السنة، بما يتماشى مع المقاييس المالية لـ WERC للخدمات اللوجستية وسلسلة التوريد."
+        "helper": "عدد فترات التركيب في السنة، متوافق مع مقاييس WERC المالية للوجستيات وسلسلة التوريد."
       },
       "time_period_years": {
         "label": "فترة الاستثمار",
@@ -61265,7 +61265,7 @@
       "aql_percent": {
         "label": "AQL (%)",
         "placeholder": "أدخل AQL (%)",
-        "helper": "مستوى الجودة المقبول – الحد الأقصى لنسبة المعيب التي تعتبر مقبولة كمتوسط للعملية."
+        "helper": "مستوى الجودة المقبول (AQL) – أقصى نسبة مئوية من المعيب التي تعتبر مقبولة كمتوسط للعملية."
       },
       "inspection_level": {
         "label": "مستوى الفحص",
@@ -61545,7 +61545,7 @@
       "total_parts_cost": {
         "label": "إجمالي تكلفة القطع (تكلفة البضائع المباعة)",
         "placeholder": "أدخل إجمالي تكلفة القطع (تكلفة البضائع المباعة)",
-        "helper": "التكلفة الإجمالية للقطع المباعة في الفترة."
+        "helper": "التكلفة الإجمالية للأجزاء المباعة في الفترة."
       },
       "shop_supply_charge_per_ro": {
         "label": "رسوم مستلزمات الورشة لكل أمر إصلاح",
@@ -61560,7 +61560,7 @@
       "number_of_repair_orders": {
         "label": "عدد أوامر الإصلاح",
         "placeholder": "أدخل عدد أوامر الإصلاح",
-        "helper": "إجمالي أوامر الإصلاح المكتملة في الفترة."
+        "helper": "إجمالي عدد أوامر الإصلاح المكتملة في الفترة."
       },
       "warranty_labor_hours": {
         "label": "ساعات العمل تحت الضمان",
@@ -61785,7 +61785,7 @@
       "age": {
         "label": "العمر",
         "placeholder": "أدخل العمر",
-        "helper": "يؤثر العمر على تكوين الجسم ومعدل الأيض (مرحلة DMAIC من ستة سيجما: القياس)."
+        "helper": "يؤثر العمر على تكوين الجسم ومعدل الأيض (مرحلة DMAIC لـ Six Sigma: القياس)."
       },
       "height": {
         "label": "الطول",
@@ -61874,7 +61874,7 @@
       "bottleneck_utilization": {
         "label": "استخدام عنق الزجاجة (%)",
         "placeholder": "أدخل استخدام عنق الزجاجة (%)",
-        "helper": "معدل الاستخدام الحالي لمورد الاختناق الأساسي، مقاسًا خلال فترة تمثيلية (مثل آخر 4 أسابيع)."
+        "helper": "معدل الاستخدام الحالي للمورد الرئيسي المختنق، مقاسًا على فترة تمثيلية (مثل آخر 4 أسابيع)."
       },
       "demand_rate": {
         "label": "متوسط معدل الطلب (وحدات/ساعة)",
@@ -61884,7 +61884,7 @@
       "bottleneck_capacity": {
         "label": "سعة عنق الزجاجة (وحدات/ساعة)",
         "placeholder": "أدخل سعة عنق الزجاجة (وحدات/ساعة)",
-        "helper": "أقصى معدل إخراج نظري لمورد الاختناق في ظل ظروف مثالية."
+        "helper": "أقصى معدل إنتاج نظري للمورد المختنق في ظل الظروف المثالية."
       },
       "investment_cost": {
         "label": "تكلفة الاستثمار المقترحة ($)",
@@ -61926,7 +61926,7 @@
       "fixedcosts": {
         "label": "إجمالي التكاليف الثابتة",
         "placeholder": "أدخل إجمالي التكاليف الثابتة",
-        "helper": "مجموع جميع النفقات الثابتة (الإيجار والرواتب والتأمين) لكل فترة."
+        "helper": "مجموع جميع النفقات الثابتة (الإيجار، الرواتب، التأمين) لكل فترة."
       },
       "variablecostperunit": {
         "label": "التكلفة المتغيرة لكل وحدة",
@@ -62146,7 +62146,7 @@
       "total_imported_tonnes": {
         "label": "إجمالي الأطنان المستوردة (صلب/ألومنيوم/أسمنت/سماد/هيدروجين)",
         "placeholder": "أدخل إجمالي الأطنان المستوردة (صلب/ألومنيوم/أسمنت/سماد/هيدروجين)",
-        "helper": "الكتلة الإجمالية للسلع المشمولة بآلية CBAM المستوردة في فترة التقرير."
+        "helper": "الكتلة الإجمالية للسلع المشمولة بآلية تعديل حدود الكربون (CBAM) المستوردة في فترة التقرير."
       },
       "embedded_emissions_per_tonne": {
         "label": "الانبعاثات المضمنة لكل طن",
@@ -62468,7 +62468,7 @@
       "overrun_threshold_ms": {
         "label": "حد التجاوز (SLA)",
         "placeholder": "أدخل حد التجاوز (SLA)",
-        "helper": "أقصى وقت استجابة مقبول وفقًا لـ SLA."
+        "helper": "أقصى وقت استجابة مقبول وفقًا لاتفاقية مستوى الخدمة (SLA)."
       },
       "region": {
         "label": "منطقة السحابة",
@@ -62802,7 +62802,7 @@
       "pressuredifferential": {
         "label": "فرق الضغط المسموح به",
         "placeholder": "أدخل فرق الضغط المسموح به",
-        "helper": "أقصى انخفاض مقبول في الضغط أثناء حدث الذروة."
+        "helper": "أقصى انخفاض ضغط مقبول أثناء حدث الذروة."
       },
       "compressorcontroltype": {
         "label": "نوع التحكم في الضاغط",
@@ -62943,7 +62943,7 @@
       "cpk": {
         "label": "مؤشر قدرة العملية (Cpk)",
         "placeholder": "أدخل مؤشر قدرة العملية (Cpk)",
-        "helper": "Cpk هو مقياس Six Sigma قياسي يشير إلى مدى تلبية العملية لحدود المواصفات، مع مراعاة التمركز. الأهداف النموذجية: 1.33 (الحد الأدنى المقبول)، 1.67 (جيد)، 2.0 (ممتاز)."
+        "helper": "Cpk هو مقياس Six Sigma القياسي الذي يشير إلى مدى توافق العملية مع حدود المواصفات، مع مراعاة التمركز. الأهداف النموذجية: 1.33 (الحد الأدنى المقبول)، 1.67 (جيد)، 2.0 (ممتاز)."
       },
       "sigmashift": {
         "label": "انحراف سيجما (انجراف طويل الأجل)",
@@ -63260,14 +63260,14 @@
       "seasonal_demand_factor": {
         "label": "عامل الطلب الموسمي",
         "placeholder": "أدخل عامل الطلب الموسمي",
-        "helper": "يضبط لفترات الطلب القصوى/خارج الذروة."
+        "helper": "يضبط لفترات الطلب المرتفع/المنخفض."
       }
     },
     "demand-forecast-inventory-cost": {
       "historical_demand_mean": {
         "label": "متوسط الطلب التاريخي (وحدات/فترة)",
         "placeholder": "أدخل متوسط الطلب التاريخي (وحدات/فترة)",
-        "helper": "متوسط الطلب الملاحظ خلال الـ 12 فترة الماضية (جمع البيانات وفقًا لـ ISO 9001:2015)."
+        "helper": "متوسط الطلب الملاحظ خلال الفترات الـ 12 الماضية (جمع البيانات وفقًا لـ ISO 9001:2015)."
       },
       "demand_std_dev": {
         "label": "الانحراف المعياري للطلب (وحدات)",
@@ -63305,8 +63305,8 @@
         "helper": "الربح المفقود + الغرامة لكل وحدة من الطلب غير الملبى (تكلفة الجودة الرديئة Six Sigma)."
       },
       "periods_per_year": {
-        "label": "عدد الفترات في السنة",
-        "placeholder": "أدخل عدد الفترات في السنة",
+        "label": "الفترات في السنة",
+        "placeholder": "أدخل الفترات في السنة",
         "helper": "عدد فترات الطلب في السنة (مثل 12 للشهرية، 52 للأسبوعية)."
       },
       "use_abc_classification": {
@@ -63520,7 +63520,7 @@
       "renewable_kwh": {
         "label": "الطاقة المتجددة المولدة (كيلوواط ساعة)",
         "placeholder": "أدخل الطاقة المتجددة المولدة (كيلوواط ساعة)",
-        "helper": "التوليد المتجدد في الموقع (شمسي، رياح) خلال الفترة."
+        "helper": "التوليد المتجدد في الموقع (الطاقة الشمسية وطاقة الرياح) خلال الفترة."
       },
       "co2_emission_factor": {
         "label": "عامل انبعاث ثاني أكسيد الكربون (كجم CO2/كيلوواط ساعة)",
@@ -64625,7 +64625,7 @@
       "avg_inventory_value": {
         "label": "متوسط قيمة المخزون (دولار أمريكي)",
         "placeholder": "أدخل متوسط قيمة المخزون (دولار أمريكي)",
-        "helper": "إجمالي متوسط قيمة المخزون خلال الفترة (مثل المتوسط الشهري للمخزون القائم على تكلفة البضائع المباعة)."
+        "helper": "متوسط القيمة الإجمالية للمخزون خلال الفترة (مثل المتوسط الشهري للمخزون القائم على تكلفة البضائع المباعة)."
       },
       "cogs_annual": {
         "label": "التكلفة السنوية للبضائع المباعة (دولار أمريكي)",
@@ -64709,12 +64709,12 @@
       "total_energy_consumption": {
         "label": "إجمالي استهلاك الطاقة",
         "placeholder": "أدخل إجمالي استهلاك الطاقة",
-        "helper": "إجمالي الطاقة التي تستهلكها المنظمة في الفترة الأساسية (مثل سنة واحدة)."
+        "helper": "إجمالي الطاقة المستهلكة من قبل المنظمة في فترة الأساس (مثل سنة واحدة)."
       },
       "production_volume": {
         "label": "حجم الإنتاج",
         "placeholder": "أدخل حجم الإنتاج",
-        "helper": "إجمالي الإنتاج في الفترة الأساسية (مثل عدد المنتجات أو الأطنان أو أي وحدة أخرى ذات صلة)."
+        "helper": "إجمالي الإنتاج في فترة الأساس (مثل عدد المنتجات أو الأطنان أو أي وحدة أخرى ذات صلة)."
       },
       "heating_degree_days": {
         "label": "أيام درجة التدفئة (HDD)",
@@ -64729,7 +64729,7 @@
       "operating_hours": {
         "label": "ساعات التشغيل",
         "placeholder": "أدخل ساعات التشغيل",
-        "helper": "إجمالي ساعات تشغيل المنشأة خلال الفترة الأساسية."
+        "helper": "إجمالي ساعات تشغيل المنشأة خلال فترة الأساس."
       },
       "energy_source_mix": {
         "label": "مزيج مصادر الطاقة",
@@ -65380,7 +65380,7 @@
       "unitsproduced": {
         "label": "الوحدات المنتجة",
         "placeholder": "أدخل الوحدات المنتجة",
-        "helper": "إجمالي عدد الوحدات المنتجة في الفترة (مقياس الإنتاجية WERC)."
+        "helper": "إجمالي الوحدات المنتجة في الفترة (مقياس الإنتاجية WERC)."
       },
       "inventoryholdingcost": {
         "label": "معدل تكلفة الاحتفاظ بالمخزون",
@@ -65405,7 +65405,7 @@
       "productionvolume": {
         "label": "حجم الإنتاج",
         "placeholder": "أدخل حجم الإنتاج",
-        "helper": "عدد الوحدات المنتجة للفترة (الإنتاجية اللينة)."
+        "helper": "عدد الوحدات المنتجة للفترة (الإنتاجية الخالية من الهدر)."
       },
       "setuptimehours": {
         "label": "وقت الإعداد لكل دفعة",
@@ -65576,7 +65576,7 @@
       "moq": {
         "label": "الحد الأدنى لكمية الطلب (وحدات)",
         "placeholder": "أدخل الحد الأدنى لكمية الطلب (وحدات)",
-        "helper": "الحد الأدنى لحجم الدفعة الذي يفرضه المورد. إذا كان EOQ < MOQ، يجب تعديل كمية الطلب لأعلى، مما يزيد من تكلفة الاحتفاظ."
+        "helper": "الحد الأدنى لحجم الدفعة الذي يفرضه المورد. إذا كانت EOQ < MOQ، يجب تعديل كمية الطلب لأعلى، مما يزيد من تكلفة الاحتفاظ."
       },
       "lead_time_days": {
         "label": "مهلة التسليم (أيام)",
@@ -65601,7 +65601,7 @@
       "storage_capacity": {
         "label": "سعة التخزين (وحدات)",
         "placeholder": "أدخل سعة التخزين (وحدات)",
-        "helper": "أقصى مخزون يمكن للمستودع الاحتفاظ به ماديًا. قيد لكمية الطلب الممكنة."
+        "helper": "أقصى مخزون يمكن للمستودع الاحتفاظ به فعليًا. قيد لكمية الطلب الممكنة."
       },
       "backorder_cost_per_unit": {
         "label": "تكلفة الطلب الخلفي لكل وحدة ($)",
@@ -66453,7 +66453,7 @@
       "lmp_date": {
         "label": "تاريخ آخر دورة شهرية (LMP)",
         "placeholder": "أدخل تاريخ آخر دورة شهرية (LMP)",
-        "helper": "تاريخ اليوم الأول لآخر دورة شهرية، يستخدم كأساس لحساب عمر الحمل."
+        "helper": "تاريخ أول يوم من آخر دورة شهرية، يُستخدم كأساس لحساب عمر الحمل."
       },
       "cycle_length": {
         "label": "متوسط طول الدورة",
@@ -66671,7 +66671,7 @@
       "complexity_type": {
         "label": "نوع التعقيد",
         "placeholder": "أدخل نوع التعقيد",
-        "helper": "فئة التعقيد: 'product' (عدد كبير من وحدات SKU)، 'process' (وقت إعداد طويل)، 'mixed' (كلاهما)."
+        "helper": "فئة التعقيد: 'منتج' (عدد كبير من SKU)، 'عملية' (وقت إعداد طويل)، 'مختلط' (كلاهما)."
       },
       "use_lean_metrics": {
         "label": "استخدام مقاييس اللين (SMED, OEE)",
@@ -67154,8 +67154,8 @@
         "helper": "نسبة الإيرادات المفقودة بسبب وجبات الموظفين والعروض الترويجية والمجاملات والخصومات."
       },
       "covers_per_period": {
-        "label": "الأغطية لكل فترة (شهريًا)",
-        "placeholder": "أدخل الأغطية لكل فترة (شهريًا)",
+        "label": "عدد الأغطية لكل فترة (شهريًا)",
+        "placeholder": "أدخل عدد الأغطية لكل فترة (شهريًا)",
         "helper": "إجمالي عدد الضيوف الذين تمت خدمتهم في فترة القياس (شهر)."
       },
       "menu_engineering_score": {
@@ -67856,7 +67856,7 @@
       "customer_impact": {
         "label": "درجة تأثير العميل",
         "placeholder": "أدخل درجة تأثير العميل",
-        "helper": "درجة التأثير الإيجابي على رضا العملاء (1 = ضئيل، 10 = تحويلي)."
+        "helper": "درجة التأثير الإيجابي على رضا العملاء (1 = أدنى، 10 = تحويلي)."
       },
       "data_confidence": {
         "label": "مستوى الثقة في البيانات",
@@ -67920,7 +67920,7 @@
       "standardization_level": {
         "label": "مستوى التوحيد القياسي",
         "placeholder": "أدخل مستوى التوحيد القياسي",
-        "helper": "درجة تعليمات العمل الموحدة والأدوات وتصميم القوالب. عالية = تعديلات ضئيلة."
+        "helper": "درجة تعليمات العمل الموحدة والأدوات وتصميم القوالب. عالية = تعديلات طفيفة."
       },
       "waste_motion_score": {
         "label": "درجة حركة الهدر (1-10)",
@@ -67937,7 +67937,7 @@
       "num_subgroups": {
         "label": "عدد المجموعات الفرعية (k)",
         "placeholder": "أدخل عدد المجموعات الفرعية (k)",
-        "helper": "إجمالي المجموعات الفرعية المستخدمة لتقدير تباين العملية. الحد الأدنى 10 لحدود موثوقة."
+        "helper": "إجمالي عدد المجموعات الفرعية المستخدمة لتقدير تباين العملية. الحد الأدنى 10 لحدود موثوقة."
       },
       "overall_mean": {
         "label": "المتوسط العام (X-شرطة مزدوجة)",
@@ -68343,7 +68343,7 @@
       "target_value": {
         "label": "القيمة المستهدفة (T)",
         "placeholder": "أدخل القيمة المستهدفة (T)",
-        "helper": "المواصفة الاسمية المثالية لخاصية المنتج (مثل الطول، الوزن، الجهد الكهربائي)."
+        "helper": "المواصفات الاسمية المثالية لخاصية المنتج (مثل الطول، الوزن، الجهد)."
       },
       "lower_spec_limit": {
         "label": "حد المواصفات الأدنى (LSL)",
@@ -68960,7 +68960,7 @@
       "lost_productivity_months": {
         "label": "مدة فقدان الإنتاجية",
         "placeholder": "أدخل مدة فقدان الإنتاجية",
-        "helper": "متوسط أشهر الإنتاج المنخفض لكل موظف جديد (فترة التأهيل)."
+        "helper": "متوسط أشهر الإنتاج المخفض لكل موظف جديد (فترة التدرج)."
       },
       "productivity_factor": {
         "label": "عامل الإنتاجية أثناء مرحلة التكيف",

@@ -45,7 +45,13 @@ export function resolveGeneratedI18nText(
 
   const normalizedLocale: SupportedLocale = isSupportedLocale(locale) ? locale : "en";
   const localized = i18n[normalizedLocale]?.trim();
+  const trimmedFallback = fallback.trim();
   if (localized) {
+    // If the generator carried over the exact English fallback into a non-English locale,
+    // force a calculator-phrase translation so we don't "leak" English surface copy.
+    if (normalizedLocale !== "en" && localized === trimmedFallback) {
+      return translateCalculatorPhrase(localized, normalizedLocale);
+    }
     return localized;
   }
 

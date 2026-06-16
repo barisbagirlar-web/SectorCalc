@@ -1075,7 +1075,7 @@
           "tags": [
             "Teklif",
             "Setup",
-            "Shop Rate"
+            "Tezgah Ücreti"
           ]
         },
         "technical": {
@@ -1342,7 +1342,7 @@
         "industrial": {
           "title": "Sanayi ve Atölyeler",
           "text": "Usta, teknisyen, mühendis ve işletme sahiplerinin günlük teknik ve ticari hesapları.",
-          "examples": "Shop rate, setup"
+          "examples": "Tezgah ücreti, hazırlık"
         },
         "engineering": {
           "title": "Mühendislik",
@@ -3335,7 +3335,8 @@
       "reportSuccess": "Sorun bildiriminiz iletildi. Teşekkürler.",
       "reportClose": "Kapat",
       "reportMessageTooShort": "Lütfen en az 10 karakter girin.",
-      "reportSubmitFailed": "Bildirim gönderilemedi. Lütfen tekrar deneyin."
+      "reportSubmitFailed": "Bildirim gönderilemedi. Lütfen tekrar deneyin.",
+      "calculationStandardLabel": "Calculation standard"
     },
     "freeForm": {
       "defaultDescription": "Hızlı sektör hesabı — sonuç için girdileri girin.",
@@ -3368,7 +3369,7 @@
       "sectionLabel": "Hesap makinesi bilgisi",
       "creatorsLabel": "Yaratıcılar:",
       "creatorName": "Prof. Dr. Neela Nataraj",
-      "creatorProfileAria": "Prof. Dr. Neela Nataraj, Indian Institute of Technology Bombay (LinkedIn profilini açar)",
+      "creatorProfileAria": "Prof. Dr. Neela Nataraj, Indian Institute of Technology Bombay (IIT Bombay sayfasını açar)",
       "helpfulLabel": "kişi bu hesap makinesini faydalı buluyor"
     },
     "interactionActionBar": {
@@ -3524,9 +3525,9 @@
       "cbamCertificatePrice": "CBAM sertifika fiyatı (EUR/t CO2e)",
       "calculate": "Karbon raporu oluştur",
       "totalEmissions": "Toplam emisyon",
-      "scope1": "Scope 1",
-      "scope2": "Scope 2",
-      "scope3": "Scope 3",
+      "scope1": "Kapsam 1",
+      "scope2": "Kapsam 2",
+      "scope3": "Kapsam 3",
       "tonnesValue": "{Değer} t CO2e",
       "scopeChartTitle": "Scope dağılımı",
       "cbamAnalysisTitle": "CBAM analizi",
@@ -3661,8 +3662,8 @@
     },
     "concrete-bag-calculator": {
       "volumem3": {
-        "label": "Volume",
-        "placeholder": "Volume girin",
+        "label": "Hacim",
+        "placeholder": "Hacim girin",
         "helper": "Toplam döküm hacmi"
       },
       "bagyieldm3": {
@@ -3872,7 +3873,7 @@
       "principal": {
         "label": "Ana para",
         "placeholder": "Ana para girin",
-        "helper": "Kredi amount"
+        "helper": "Kredi tutarı"
       },
       "annualrate": {
         "label": "Yıllık Oran",
@@ -3887,8 +3888,8 @@
     },
     "mortgage-calculator": {
       "principal": {
-        "label": "Kredi amount",
-        "placeholder": "Kredi amount girin",
+        "label": "Kredi tutarı",
+        "placeholder": "Kredi tutarı girin",
         "helper": "Konut kredisi Ana para"
       },
       "annualrate": {
@@ -3956,7 +3957,7 @@
       "principal": {
         "label": "Ana para",
         "placeholder": "Ana para girin",
-        "helper": "Starting amount"
+        "helper": "Başlangıç tutarı"
       },
       "ratepercent": {
         "label": "Oran",
@@ -3983,7 +3984,7 @@
       "years": {
         "label": "Yıl",
         "placeholder": "Yıl girin",
-        "helper": "Time horizon"
+        "helper": "Zaman ufku"
       },
       "compoundsperyear": {
         "label": "Bileşik/yıl",
@@ -4001,14 +4002,14 @@
         "helper": "Yıllık bileşik dönem sayısı (ör. 1=yıllık, 12=aylık, 365=günlük)."
       },
       "timeperiod": {
-        "label": "Zaman Periyodu",
-        "placeholder": "Zaman Periyodu girin",
+        "label": "Zaman Dönemi",
+        "placeholder": "Zaman Dönemi girin",
         "helper": "Yatırım veya kredinin toplam süresi yıl olarak."
       },
       "additionalcontribution": {
         "label": "Dönem Başına Ek Katkı",
         "placeholder": "Dönem Başına Ek Katkı girin",
-        "helper": "Her bileşik dönem sonunda eklenen sabit miktar."
+        "helper": "Her bileşik dönemin sonunda eklenen sabit miktar."
       },
       "inflationrate": {
         "label": "Enflasyon Oranı",
@@ -4183,7 +4184,7 @@
       "production_volume": {
         "label": "Gerçek Üretim Hacmi (birim)",
         "placeholder": "Gerçek Üretim Hacmi (birim) girin",
-        "helper": "Dönemde üretilen toplam birim sayısı. Gerçekleşen ve başabaş karşılaştırması için kullanılır."
+        "helper": "Dönem içinde üretilen toplam birim. Gerçekleşen ile başabaş karşılaştırması için kullanılır."
       },
       "cost_allocation_method": {
         "label": "Maliyet Dağıtım Yöntemi",
@@ -4195,7 +4196,7 @@
       "gain": {
         "label": "Kazanç",
         "placeholder": "Kazanç girin",
-        "helper": "Return amount"
+        "helper": "Getiri tutarı"
       },
       "cost": {
         "label": "Maliyet",
@@ -4459,7 +4460,7 @@
       "machiningseconds": {
         "label": "İşleme",
         "placeholder": "İşleme girin",
-        "helper": "kesim time başına parça"
+        "helper": "kesim Süre başına parça"
       },
       "loadunloadseconds": {
         "label": "Yük/unYük",
@@ -4647,8 +4648,8 @@
     },
     "material-waste-calculator": {
       "inputmaterialkg": {
-        "label": "Input Malzeme",
-        "placeholder": "Input Malzeme girin",
+        "label": "Girdi Malzemesi",
+        "placeholder": "Girdi Malzemesi girin",
         "helper": "Malzeme fed"
       },
       "goodoutputkg": {
@@ -4673,7 +4674,7 @@
       "availabilitypercent": {
         "label": "Kullanılabilirlik",
         "placeholder": "Kullanılabilirlik girin",
-        "helper": "Uptime Yüzde"
+        "helper": "UpSüre Yüzde"
       },
       "performancepercent": {
         "label": "Performance",
@@ -4724,14 +4725,14 @@
       "rpm": {
         "label": "RPM",
         "placeholder": "RPM girin",
-        "helper": "Spindle Hız"
+        "helper": "İş Mili Hızı"
       }
     },
     "feed-rate-calculator": {
       "rpm": {
         "label": "RPM",
         "placeholder": "RPM girin",
-        "helper": "Spindle Hız"
+        "helper": "İş Mili Hızı"
       },
       "teeth": {
         "label": "Diş",
@@ -4741,7 +4742,7 @@
       "feedpertoothmm": {
         "label": "İlerleme/diş",
         "placeholder": "İlerleme/diş girin",
-        "helper": "Chip Yük başına diş"
+        "helper": "talaş yükü başına diş"
       }
     },
     "tolerance-drift-calculator": {
@@ -4787,7 +4788,7 @@
       "peak_demand_kw": {
         "label": "Tepe Talep (kW)",
         "placeholder": "Tepe Talep (kW) girin",
-        "helper": "Dönemdeki en yüksek 15 dakikalık ortalama talep. Tarifeye göre talep ücretlerini belirler."
+        "helper": "Dönemdeki en yüksek 15 dakikalık ortalama talep. Tarife gereği talep ücretlerini belirler."
       },
       "energy_rate_per_kwh": {
         "label": "Enerji Birim Fiyatı ($/kWh)",
@@ -4807,7 +4808,7 @@
       "pf_penalty_threshold": {
         "label": "PF Cezası Eşiği",
         "placeholder": "PF Cezası Eşiği girin",
-        "helper": "Cezanın uygulanmasından önceki minimum güç faktörü, tipik olarak hizmet standartlarına göre 0.9."
+        "helper": "Cezanın uygulanmaya başladığı minimum güç faktörü, tipik olarak kamu hizmeti standartlarına göre 0,9."
       },
       "pf_penalty_rate": {
         "label": "PF Cezası Oranı ($/kvar)",
@@ -4822,7 +4823,7 @@
       "operating_hours": {
         "label": "Aylık Çalışma Saati",
         "placeholder": "Aylık Çalışma Saati girin",
-        "helper": "Fatura döneminde tesisin çalıştığı toplam saat. Yük faktörü hesaplaması için kullanılır."
+        "helper": "Tesisin fatura döneminde çalıştığı toplam saat. Yük faktörü hesaplaması için kullanılır."
       },
       "tariff_type": {
         "label": "Tarife Türü",
@@ -4944,8 +4945,8 @@
         "helper": "ısı delivered"
       },
       "fuelinputkwh": {
-        "label": "Yakıt input",
-        "placeholder": "Yakıt input girin",
+        "label": "Yakıt girdi",
+        "placeholder": "Yakıt girdi girin",
         "helper": "Enerji in Yakıt"
       }
     },
@@ -4988,7 +4989,7 @@
       "load_factor": {
         "label": "Yük Faktörü (Tam Yükün Ortalama Yüzdesi)",
         "placeholder": "Yük Faktörü (Tam Yükün Ortalama Yüzdesi) girin",
-        "helper": "Kompresörün tam yük kapasitesinde çalıştığı ortalama yüzde. Kısmi yük ve yüksüz dönemleri içerir."
+        "helper": "Kompresörün çalıştığı tam yük kapasitesinin ortalama yüzdesi. Kısmi yük ve yüksüz dönemleri içerir."
       },
       "electricity_cost_per_kwh": {
         "label": "Elektrik Maliyeti",
@@ -5035,8 +5036,8 @@
     },
     "fuel-consumption-calculator": {
       "distancekm": {
-        "label": "Distance",
-        "placeholder": "Distance girin",
+        "label": "Mesafe",
+        "placeholder": "Mesafe girin",
         "helper": "Sefer Mesafe"
       },
       "consumptionper100km": {
@@ -5052,8 +5053,8 @@
     },
     "fuel-cost-calculator": {
       "distancekm": {
-        "label": "Distance",
-        "placeholder": "Distance girin",
+        "label": "Mesafe",
+        "placeholder": "Mesafe girin",
         "helper": "Sefer Mesafe"
       },
       "consumptionper100km": {
@@ -5153,8 +5154,8 @@
     },
     "route-cost-calculator": {
       "distancekm": {
-        "label": "Distance",
-        "placeholder": "Distance girin",
+        "label": "Mesafe",
+        "placeholder": "Mesafe girin",
         "helper": "Rota Uzunluk"
       },
       "fuelcostperkm": {
@@ -5165,7 +5166,7 @@
       "driverhours": {
         "label": "Driver Saat",
         "placeholder": "Driver Saat girin",
-        "helper": "Driving time"
+        "helper": "Sürüş süresi"
       },
       "hourlyrate": {
         "label": "Driver Oran",
@@ -5230,8 +5231,8 @@
     },
     "delivery-cost-calculator": {
       "distancekm": {
-        "label": "Distance",
-        "placeholder": "Distance girin",
+        "label": "Mesafe",
+        "placeholder": "Mesafe girin",
         "helper": "Rota km"
       },
       "costperkm": {
@@ -5421,8 +5422,8 @@
         "helper": "Aracın elde tutma süresi sonundaki tahmini piyasa değeri."
       },
       "holding_period_years": {
-        "label": "Tutma Süresi (Yıl)",
-        "placeholder": "Tutma Süresi (Yıl) girin",
+        "label": "Tutma Dönemi (Yıl)",
+        "placeholder": "Tutma Dönemi (Yıl) girin",
         "helper": "Aracın sahip olunacağı ve kullanılacağı beklenen yıl sayısı."
       },
       "annual_mileage": {
@@ -5433,7 +5434,7 @@
       "depreciation_method": {
         "label": "Amortisman Yöntemi",
         "placeholder": "Amortisman Yöntemi girin",
-        "helper": "Amortisman giderini elde tutma süresi boyunca dağıtmak için kullanılan muhasebe yöntemi."
+        "helper": "Elde tutma süresi boyunca amortisman giderini dağıtmak için kullanılan muhasebe yöntemi."
       },
       "maintenance_cost_per_year": {
         "label": "Yıllık Bakım Maliyeti (USD)",
@@ -5723,7 +5724,7 @@
       "minutes": {
         "label": "süre",
         "placeholder": "süre girin",
-        "helper": "Run time"
+        "helper": "Çalışma süresi"
       }
     },
     "feed-cost-estimator": {
@@ -6117,8 +6118,8 @@
     },
     "fuel-travel-calculator": {
       "distancekm": {
-        "label": "Distance",
-        "placeholder": "Distance girin",
+        "label": "Mesafe",
+        "placeholder": "Mesafe girin",
         "helper": "Sefer Mesafe"
       },
       "consumptionper100km": {
@@ -6195,7 +6196,7 @@
       "monthlysaving": {
         "label": "Aylık saving",
         "placeholder": "Aylık saving girin",
-        "helper": "Amount saved başına ay"
+        "helper": "Tasarruf edilen tutar başına ay"
       }
     },
     "percentage-increase-calculator": {
@@ -6318,12 +6319,12 @@
       "specification_limit_lower": {
         "label": "Alt Spesifikasyon Limiti (LSL)",
         "placeholder": "Alt Spesifikasyon Limiti (LSL) girin",
-        "helper": "Mühendislik spesifikasyonlarına göre kabul edilebilir süreç çıktısının alt sınırı."
+        "helper": "Mühendislik şartnamelerine göre kabul edilebilir süreç çıktısının alt sınırı."
       },
       "specification_limit_upper": {
         "label": "Üst Spesifikasyon Limiti (USL)",
         "placeholder": "Üst Spesifikasyon Limiti (USL) girin",
-        "helper": "Mühendislik spesifikasyonlarına göre kabul edilebilir süreç çıktısının üst sınırı."
+        "helper": "Mühendislik şartnamelerine göre kabul edilebilir süreç çıktısının üst sınırı."
       },
       "target_value": {
         "label": "Hedef Değer (Nominal)",
@@ -6367,8 +6368,8 @@
         "helper": "Successful outcomes"
       },
       "totaloutcomes": {
-        "label": "Total",
-        "placeholder": "Total girin",
+        "label": "Toplam",
+        "placeholder": "Toplam girin",
         "helper": "Toplam outcomes"
       },
       "defect_count": {
@@ -6414,9 +6415,9 @@
         "helper": "güven z (e.g. 1.96)"
       },
       "marginerrorpercent": {
-        "label": "Marj error",
-        "placeholder": "Marj error girin",
-        "helper": "Marj error"
+        "label": "Marj hatası",
+        "placeholder": "Marj hatası girin",
+        "helper": "Marj Hata"
       },
       "proportionpercent": {
         "label": "Proportion",
@@ -6431,12 +6432,12 @@
       "marginoferror": {
         "label": "Hata Payı (Kesinlik)",
         "placeholder": "Hata Payı (Kesinlik) girin",
-        "helper": "Gerçek popülasyon parametresinden kabul edilebilir sapma; süreç denetimleri için tipiktir."
+        "helper": "Gerçek popülasyon parametresinden kabul edilebilir sapma; süreç denetimleri için tipik."
       },
       "populationsize": {
         "label": "Popülasyon Büyüklüğü (Parti Büyüklüğü)",
         "placeholder": "Popülasyon Büyüklüğü (Parti Büyüklüğü) girin",
-        "helper": "Partideki veya dönem başına süreç çıktısındaki toplam öğe sayısı."
+        "helper": "Parti veya süreç çıktısındaki toplam öğe sayısı (dönem başına)."
       },
       "expectedproportion": {
         "label": "Beklenen Oran (Hata Oranı)",
@@ -6547,7 +6548,7 @@
       "value": {
         "label": "Değer",
         "placeholder": "Değer girin",
-        "helper": "Amount to convert"
+        "helper": "Dönüştürülecek miktar"
       },
       "fromunit": {
         "label": "Kaynak birim",
@@ -6559,7 +6560,7 @@
       "value": {
         "label": "Değer",
         "placeholder": "Değer girin",
-        "helper": "Amount to convert"
+        "helper": "Dönüştürülecek miktar"
       },
       "fromunit": {
         "label": "Kaynak birim",
@@ -6571,7 +6572,7 @@
       "value": {
         "label": "Değer",
         "placeholder": "Değer girin",
-        "helper": "Amount to convert"
+        "helper": "Dönüştürülecek miktar"
       },
       "fromunit": {
         "label": "Kaynak birim",
@@ -6583,7 +6584,7 @@
       "value": {
         "label": "Değer",
         "placeholder": "Değer girin",
-        "helper": "Amount to convert"
+        "helper": "Dönüştürülecek miktar"
       },
       "fromunit": {
         "label": "Kaynak birim",
@@ -6704,9 +6705,9 @@
         "helper": "Yıllık bileşik dönem sayısı, lojistik ve tedarik zinciri için WERC finansal metrikleriyle uyumlu."
       },
       "time_period_years": {
-        "label": "Yatırım Süresi",
-        "placeholder": "Yatırım Süresi girin",
-        "helper": "Yatırım süresi (yıl olarak), Yalın Altı Sigma proje zaman çizelgelerine göre çok dönemli APY hesaplaması için kullanılır."
+        "label": "Yatırım Dönemi",
+        "placeholder": "Yatırım Dönemi girin",
+        "helper": "Yatırım süresi yıl olarak, Yalın Altı Sigma proje zaman çizelgelerine göre çok dönemli APY hesaplaması için kullanılır."
       },
       "initial_principal": {
         "label": "Başlangıç Anaparası",
@@ -6741,9 +6742,9 @@
         "helper": "ISO 2859-1'e göre muayene partisindeki toplam öğe sayısı."
       },
       "aql_percent": {
-        "label": "AKS (%)",
-        "placeholder": "AKS (%) girin",
-        "helper": "Kabul Edilebilir Kalite Seviyesi – süreç ortalaması olarak kabul edilebilir maksimum kusurlu yüzdesi."
+        "label": "AKK (%)",
+        "placeholder": "AKK (%) girin",
+        "helper": "Kabul Edilebilir Kalite Seviyesi – süreç ortalaması olarak kabul edilebilir maksimum hatalı yüzdesi."
       },
       "inspection_level": {
         "label": "Muayene Seviyesi",
@@ -6857,12 +6858,12 @@
       "total_repair_orders": {
         "label": "Toplam Onarım Emri (aylık)",
         "placeholder": "Toplam Onarım Emri (aylık) girin",
-        "helper": "Dönemde tamamlanan toplam onarım emri sayısı (ISO 9001:2015 madde 8.5.1)."
+        "helper": "Dönem içinde tamamlanan toplam onarım emri sayısı (ISO 9001:2015 madde 8.5.1)."
       },
       "comeback_count": {
         "label": "Geri Dönüş Sayısı (aylık)",
         "placeholder": "Geri Dönüş Sayısı (aylık) girin",
-        "helper": "Garanti veya servis süresi içinde yeniden işleme için geri dönen onarım emri sayısı (Altı Sigma DPMO metriği)."
+        "helper": "Garanti veya servis süresi içinde yeniden işleme dönen onarım emri sayısı (Altı Sigma DPMO metriği)."
       },
       "avg_labor_rate": {
         "label": "Ortalama İşçilik Ücreti",
@@ -7008,7 +7009,7 @@
       "total_labor_hours_sold": {
         "label": "Satılan Toplam İşçilik Saati",
         "placeholder": "Satılan Toplam İşçilik Saati girin",
-        "helper": "Dönemde (aylık veya yıllık) satılan toplam faturalanabilir işçilik saati."
+        "helper": "Dönem içinde (aylık veya yıllık) satılan toplam faturalanabilir işçilik saati."
       },
       "parts_markup_percent": {
         "label": "Parça Kâr Marjı Yüzdesi",
@@ -7023,7 +7024,7 @@
       "total_parts_cost": {
         "label": "Toplam Parça Maliyeti (SMM)",
         "placeholder": "Toplam Parça Maliyeti (SMM) girin",
-        "helper": "Dönemde satılan parçaların toplam maliyeti."
+        "helper": "Dönem içinde satılan parçaların toplam maliyeti."
       },
       "shop_supply_charge_per_ro": {
         "label": "Onarım Emri Başına Atölye Malzeme Ücreti",
@@ -7038,7 +7039,7 @@
       "number_of_repair_orders": {
         "label": "Onarım Emri Sayısı",
         "placeholder": "Onarım Emri Sayısı girin",
-        "helper": "Dönemde tamamlanan toplam onarım emri sayısı."
+        "helper": "Dönem içinde tamamlanan toplam onarım emri sayısı."
       },
       "warranty_labor_hours": {
         "label": "Garanti İşçilik Saati",
@@ -7110,7 +7111,7 @@
       "safety_factor_target": {
         "label": "Hedef Güvenlik Faktörü (SF)",
         "placeholder": "Hedef Güvenlik Faktörü (SF) girin",
-        "helper": "Yapısal bütünlük için ISO 13822'ye göre kabul edilebilir minimum güvenlik faktörü."
+        "helper": "ISO 13822'ye göre yapısal bütünlük için minimum kabul edilebilir güvenlik faktörü."
       },
       "support_condition": {
         "label": "Destek Koşulu",
@@ -7352,7 +7353,7 @@
       "bottleneck_utilization": {
         "label": "Darboğaz Kullanımı (%)",
         "placeholder": "Darboğaz Kullanımı (%) girin",
-        "helper": "Birincil darboğaz kaynağının temsili bir dönem (örneğin son 4 hafta) üzerinden ölçülen mevcut kullanım oranı."
+        "helper": "Birincil darboğaz kaynağının mevcut kullanım oranı, temsili bir dönem (ör. son 4 hafta) üzerinden ölçülür."
       },
       "demand_rate": {
         "label": "Ortalama Talep Hızı (birim/saat)",
@@ -7419,7 +7420,7 @@
       "actualsalesvolume": {
         "label": "Gerçek Satış Hacmi",
         "placeholder": "Gerçek Satış Hacmi girin",
-        "helper": "Dönemde fiilen satılan birim sayısı."
+        "helper": "Dönem içinde fiilen satılan birim sayısı."
       },
       "capacityvolume": {
         "label": "Maksimum Kapasite Hacmi",
@@ -7946,7 +7947,7 @@
       "overrun_threshold_ms": {
         "label": "Aşma Eşiği (SLA)",
         "placeholder": "Aşma Eşiği (SLA) girin",
-        "helper": "SLA'ya göre kabul edilebilir maksimum yanıt süresi."
+        "helper": "SLA'ya göre maksimum kabul edilebilir yanıt süresi."
       },
       "region": {
         "label": "Bulut Bölgesi",
@@ -8020,7 +8021,7 @@
       "customer_lifetime_years": {
         "label": "Müşteri Ömrü (Yıl)",
         "placeholder": "Müşteri Ömrü (Yıl) girin",
-        "helper": "Ortalama elde tutma süresi. Abonelik modelleri için 1/ayrılma oranı kullanın."
+        "helper": "Ortalama elde tutma süresi. Abonelik modellerinde 1/ayrılma oranı kullanın."
       },
       "gross_margin_pct": {
         "label": "Brüt Kar Marjı (%)",
@@ -8280,7 +8281,7 @@
       "pressuredifferential": {
         "label": "İzin Verilen Basınç Farkı",
         "placeholder": "İzin Verilen Basınç Farkı girin",
-        "helper": "Tepe olayı sırasında kabul edilebilir maksimum basınç düşüşü."
+        "helper": "Tepe olayı sırasında maksimum kabul edilebilir basınç düşüşü."
       },
       "compressorcontroltype": {
         "label": "Kompresör Kontrol Tipi",
@@ -8394,7 +8395,7 @@
       "quality_threshold_ppm": {
         "label": "Kalite Eşiği (ppm)",
         "placeholder": "Kalite Eşiği (ppm) girin",
-        "helper": "Herhangi bir teşvik almaya hak kazanmak için maksimum kusur oranı."
+        "helper": "Herhangi bir teşvik için hak kazanmak için maksimum hata oranı."
       },
       "delivery_threshold_percent": {
         "label": "Teslimat Eşiği (%)",
@@ -8738,13 +8739,13 @@
       "seasonal_demand_factor": {
         "label": "Mevsimsel Talep Faktörü",
         "placeholder": "Mevsimsel Talep Faktörü girin",
-        "helper": "Yoğun/düşük talep dönemleri için ayarlama yapar."
+        "helper": "Yoğun/düşük talep dönemlerine göre ayarlama yapar."
       }
     },
     "demand-forecast-inventory-cost": {
       "historical_demand_mean": {
-        "label": "geçmiş talep ortalaması (birim/dönem)",
-        "placeholder": "geçmiş talep ortalaması (birim/dönem) girin",
+        "label": "Geçmiş Talep Ortalaması (birim/dönem)",
+        "placeholder": "Geçmiş Talep Ortalaması (birim/dönem) girin",
         "helper": "Son 12 dönemde gözlemlenen ortalama talep (ISO 9001:2015 veri toplama)."
       },
       "demand_std_dev": {
@@ -8783,8 +8784,8 @@
         "helper": "Karşılanmayan talep birimi başına kayıp kâr + ceza (Altı Sigma düşük kalite maliyeti)."
       },
       "periods_per_year": {
-        "label": "yıllık dönem sayısı",
-        "placeholder": "yıllık dönem sayısı girin",
+        "label": "Yıllık Dönem Sayısı",
+        "placeholder": "Yıllık Dönem Sayısı girin",
         "helper": "Bir yıldaki talep dönemi sayısı (örneğin, aylık için 12, haftalık için 52)."
       },
       "use_abc_classification": {
@@ -8963,7 +8964,7 @@
       "total_energy_kwh": {
         "label": "Toplam Enerji Tüketimi (kWh)",
         "placeholder": "Toplam Enerji Tüketimi (kWh) girin",
-        "helper": "Tesisin raporlama dönemi boyunca tükettiği toplam elektrik enerjisi (örneğin aylık)."
+        "helper": "Tesis tarafından raporlama dönemi boyunca tüketilen toplam elektrik enerjisi (örneğin, aylık)."
       },
       "peak_demand_kw": {
         "label": "Tepe Talep (kW)",
@@ -8983,7 +8984,7 @@
       "production_units": {
         "label": "Toplam Üretim Birimi",
         "placeholder": "Toplam Üretim Birimi girin",
-        "helper": "Dönemde üretilen birim sayısı (örneğin adet, kg, litre)."
+        "helper": "Dönemde üretilen birim sayısı (örneğin, adet, kg, litre)."
       },
       "facility_type": {
         "label": "Tesis Türü",
@@ -10012,14 +10013,14 @@
       "is_new_system": {
         "label": "Yeni Sistem (1 yıldan az süredir hizmette)",
         "placeholder": "Yeni Sistem (1 yıldan az süredir hizmette) girin",
-        "helper": "Yeni sistemler, alıştırma dönemi nedeniyle farklı kayıp özelliklerine sahip olabilir."
+        "helper": "Yeni sistemler, alışma dönemi nedeniyle farklı kayıp özelliklerine sahip olabilir."
       }
     },
     "inflation-escalation-calculator": {
       "base_cost": {
-        "label": "Temel Maliyet (Cari Dönem)",
-        "placeholder": "Temel Maliyet (Cari Dönem) girin",
-        "helper": "Analiz dönemi başlangıcındaki mal veya hizmetlerin toplam maliyeti."
+        "label": "Temel Maliyet (Mevcut Dönem)",
+        "placeholder": "Temel Maliyet (Mevcut Dönem) girin",
+        "helper": "Analiz döneminin başlangıcındaki toplam mal veya hizmet maliyeti."
       },
       "inflation_rate": {
         "label": "Yıllık Enflasyon Oranı",
@@ -10103,7 +10104,7 @@
       "avg_inventory_value": {
         "label": "Ortalama Envanter Değeri (USD)",
         "placeholder": "Ortalama Envanter Değeri (USD) girin",
-        "helper": "Dönem boyunca envanterin toplam ortalama değeri (ör. SMM tabanlı envanterin aylık ortalaması)."
+        "helper": "Dönem boyunca ortalama toplam stok değeri (örneğin, SMM tabanlı stokun aylık ortalaması)."
       },
       "cogs_annual": {
         "label": "Yıllık Satılan Mal Maliyeti (USD)",
@@ -10207,7 +10208,7 @@
       "operating_hours": {
         "label": "Çalışma Saatleri",
         "placeholder": "Çalışma Saatleri girin",
-        "helper": "Tesisin temel dönemde faaliyet gösterdiği toplam saat."
+        "helper": "Tesisin temel dönemde çalıştığı toplam saat."
       },
       "energy_source_mix": {
         "label": "Enerji Kaynağı Karışımı",
@@ -10858,7 +10859,7 @@
       "unitsproduced": {
         "label": "Üretilen Birim Sayısı",
         "placeholder": "Üretilen Birim Sayısı girin",
-        "helper": "Dönemde üretilen toplam birim sayısı (WERC verim metriği)."
+        "helper": "Dönemde üretilen toplam birim (WERC verim metriği)."
       },
       "inventoryholdingcost": {
         "label": "Envanter Bulundurma Maliyeti Oranı",
@@ -10883,7 +10884,7 @@
       "productionvolume": {
         "label": "Üretim Hacmi",
         "placeholder": "Üretim Hacmi girin",
-        "helper": "Dönem için üretilen birim sayısı (Yalın verim)."
+        "helper": "Dönemde üretilen birim sayısı (Yalın üretim çıktısı)."
       },
       "setuptimehours": {
         "label": "Parti Başına Kurulum Süresi",
@@ -11054,7 +11055,7 @@
       "moq": {
         "label": "Minimum Sipariş Miktarı (birim)",
         "placeholder": "Minimum Sipariş Miktarı (birim) girin",
-        "helper": "Tedarikçi tarafından uygulanan minimum parti büyüklüğü. EOQ < MOQ ise, sipariş miktarı yukarı ayarlanmalıdır, bu da taşıma maliyetini artırır."
+        "helper": "Tedarikçi tarafından belirlenen minimum parti büyüklüğü. EOQ < MOQ ise sipariş miktarı yukarı ayarlanmalı, elde tutma maliyeti artar."
       },
       "lead_time_days": {
         "label": "teslim süresi (gün)",
@@ -11486,8 +11487,8 @@
         "helper": "Planlanmamış ve planlı tüm duruşların toplamı (arıza, kurulum, bakım)."
       },
       "ideal_cycle_time": {
-        "label": "İdeal Çevrim Süresi (birim başına dakika)",
-        "placeholder": "İdeal Çevrim Süresi (birim başına dakika) girin",
+        "label": "İdeal Çevrim Süresi (dakika/birim)",
+        "placeholder": "İdeal Çevrim Süresi (dakika/birim) girin",
         "helper": "Optimum koşullar altında bir birim üretmek için teorik en hızlı süre."
       },
       "total_parts_produced": {
@@ -11669,8 +11670,8 @@
         "helper": "Sabit yumurtlama sonrası faz; varyasyon, potansiyel luteal faz defektini gösterir."
       },
       "last_period_start": {
-        "label": "Son Adet Döneminin Başlangıç Tarihi",
-        "placeholder": "Son Adet Döneminin Başlangıç Tarihi girin",
+        "label": "Son adet döneminin başlangıç tarihi",
+        "placeholder": "Son adet döneminin başlangıç tarihi girin",
         "helper": "Bir sonraki yumurtlama ve doğurgan pencereyi hesaplamak için referans noktası."
       },
       "cycle_variability": {
@@ -11931,7 +11932,7 @@
       "lmp_date": {
         "label": "Son Adet Tarihi (SAT)",
         "placeholder": "Son Adet Tarihi (SAT) girin",
-        "helper": "Son adet döneminin ilk gününün tarihi, gebelik yaşı hesaplaması için temel olarak kullanılır."
+        "helper": "Son adet döneminin ilk gününün tarihi, gebelik yaşı hesaplaması için temel alınır."
       },
       "cycle_length": {
         "label": "Ortalama Döngü Uzunluğu",
@@ -12149,7 +12150,7 @@
       "complexity_type": {
         "label": "Karmaşıklık Türü",
         "placeholder": "Karmaşıklık Türü girin",
-        "helper": "Karmaşıklık kategorisi: 'product' (yüksek SKU sayısı), 'process' (yüksek kurulum süresi), 'mixed' (her ikisi)."
+        "helper": "Karmaşıklık kategorisi: 'ürün' (yüksek SKU sayısı), 'süreç' (yüksek kurulum süresi), 'karma' (her ikisi)."
       },
       "use_lean_metrics": {
         "label": "Yalın Metrikleri Kullan (SMED, OEE)",
@@ -12218,7 +12219,7 @@
       "actualcost": {
         "label": "Gerçekleşen Maliyet (USD)",
         "placeholder": "Gerçekleşen Maliyet (USD) girin",
-        "helper": "Mevcut raporlama dönemine kadar fiilen gerçekleşen toplam maliyetler."
+        "helper": "Mevcut raporlama dönemine kadar fiilen oluşan toplam maliyetler."
       },
       "percentcomplete": {
         "label": "Tamamlanma Yüzdesi (%)",
@@ -12632,8 +12633,8 @@
         "helper": "Çalışan yemekleri, promosyonlar, ücretsizler ve indirimler nedeniyle kaybedilen gelir yüzdesi."
       },
       "covers_per_period": {
-        "label": "Dönem Başına Kapsam (Aylık)",
-        "placeholder": "Dönem Başına Kapsam (Aylık) girin",
+        "label": "Dönem Başına Kapak Sayısı (Aylık)",
+        "placeholder": "Dönem Başına Kapak Sayısı (Aylık) girin",
         "helper": "Ölçüm döneminde (ay) hizmet verilen toplam misafir sayısı."
       },
       "menu_engineering_score": {
@@ -13398,7 +13399,7 @@
       "standardization_level": {
         "label": "Standardizasyon Seviyesi",
         "placeholder": "Standardizasyon Seviyesi girin",
-        "helper": "Standart iş talimatları, takım ve kalıp tasarımının derecesi. Yüksek = minimum ayar."
+        "helper": "Standartlaştırılmış iş talimatları, takım ve kalıp tasarımı derecesi. Yüksek = minimum ayar."
       },
       "waste_motion_score": {
         "label": "Atık Hareket Puanı (1-10)",
@@ -13680,7 +13681,7 @@
       "time_horizon_months": {
         "label": "Zaman Ufku (ay)",
         "placeholder": "Zaman Ufku (ay) girin",
-        "helper": "Kur riskinin değerlendirildiği süre, genellikle sözleşme ödeme takvimiyle uyumludur."
+        "helper": "Kur riskinin değerlendirildiği süre, genellikle sözleşme ödeme planına uygun."
       },
       "confidence_level": {
         "label": "Güven Düzeyi",
@@ -14309,7 +14310,7 @@
       "volume_units": {
         "label": "İşlem Hacmi (birim)",
         "placeholder": "İşlem Hacmi (birim) girin",
-        "helper": "Dönem içinde işletmeler arasında transfer edilen toplam birim sayısı."
+        "helper": "Dönemde varlıklar arasında transfer edilen toplam birim sayısı."
       },
       "tax_rate_producer": {
         "label": "Üretici Kurum Vergi Oranı (%)",
@@ -14408,7 +14409,7 @@
       "num_employees": {
         "label": "Çalışan Sayısı",
         "placeholder": "Çalışan Sayısı girin",
-        "helper": "Dönem başındaki toplam çalışan sayısı."
+        "helper": "Dönem başındaki toplam personel sayısı."
       },
       "annual_turnover_rate": {
         "label": "Yıllık Devir Oranı",
@@ -14438,7 +14439,7 @@
       "lost_productivity_months": {
         "label": "Kayıp Verimlilik Süresi",
         "placeholder": "Kayıp Verimlilik Süresi girin",
-        "helper": "Yeni işe alınan başına ortalama düşük çıktı ayı (ramp-up süresi)."
+        "helper": "Yeni işe alım başına ortalama azaltılmış çıktı ayı (ramp-up süresi)."
       },
       "productivity_factor": {
         "label": "Rampa Çıkışı Sırasında Verimlilik Faktörü",
@@ -15651,7 +15652,8 @@
     "twitterLabel": "X",
     "twitterAria": "SectorCalc X",
     "llmIndexLabel": "LLM İndeksi",
-    "sitemapLabel": "Site Haritası"
+    "sitemapLabel": "Site Haritası",
+    "legalRefund": "Refund Policy"
   },
   "calculatorLibrary": {
     "metaTitle": "Hesap Makinesi Kütüphanesi — SectorCalc",
@@ -15666,7 +15668,8 @@
     "servicesLabel": "services-products.txt",
     "freeToolsLabel": "Ücretsiz hesap makineleri",
     "premiumToolsLabel": "Premium hesap makineleri",
-    "industriesLabel": "Sektör merkezleri"
+    "industriesLabel": "Sektör merkezleri",
+    "generatedToolsLabel": "Generated calculators"
   },
   "inputGuide": {
     "shape": {
@@ -16259,7 +16262,7 @@
           "title": "Malzeme Fire Calculator"
         },
         "mealPlanningVerdict": {
-          "title": "Meal Planning Verdict"
+          "title": "Yemek Planı Kararı"
         },
         "menuProfitLeakDetector": {
           "title": "Menü Kâr Kaçak Detector"
@@ -16268,7 +16271,7 @@
           "title": "Millwork Bid risk Analyzer"
         },
         "officeCleaningBidOptimizer": {
-          "title": "Office Cleaning Bid Optimizer"
+          "title": "Ofis Temizlik Teklif Optimizasyonu"
         },
         "paintingJobProfitVerdict": {
           "title": "Boyaing Job Kâr Verdict"
@@ -16319,40 +16322,40 @@
           "title": "Sefer Bütçe Optimizer"
         },
         "oeeCalculator": {
-          "title": "Oee Calculator"
+          "title": "OEE Hesaplayıcı"
         },
         "agvAmrOtonomTasimaGeriDonusCalculator": {
-          "title": "Agv Amr Otonom Tasima Geri Donus Calculator"
+          "title": "AGV/AMR Otonom Taşıma Geri Dönüş Hesaplayıcı"
         },
         "altiSigmaDpmoSigmaSeviyesiCevirici": {
-          "title": "Alti Sigma Dpmo Sigma Seviyesi Cevirici"
+          "title": "Altı Sigma DPMO Sigma Seviyesi Çevirici"
         },
         "ambalajMalzemesiDegisimiVeMaliyetEtkiCalculator": {
-          "title": "Ambalaj Malzemesi Degisimi Ve Maliyet Etki Calculator"
+          "title": "Ambalaj Malzemesi Değişimi ve Maliyet Etki Hesaplayıcı"
         },
         "amperKilowattKwCevirici": {
           "title": "Ambaşına Kilowatt Kw Cevirici"
         },
         "andonSistemiDurusVeTepkiSuresiMaliyetCalculator": {
-          "title": "Andon Sistemi Durus Ve Tepki Suresi Maliyet Calculator"
+          "title": "Andon Sistemi Durus ve Tepki Süresi Maliyet Hesaplayıcı"
         },
         "aracAmortismanHesaplama": {
-          "title": "Arac Amortisman Hesaplama"
+          "title": "Araç Amortisman Hesaplama"
         },
         "aracBakimPeriyoduTakipHesaplama": {
           "title": "Arac Bakim başınaiyodu Takip Hesaplama"
         },
         "aracKiraSatinAlmaKarsilastirma": {
-          "title": "Arac Kira Satin Alma Karsilastirma"
+          "title": "Araç Kira Satın Alma Karşılaştırma"
         },
         "asgariSiparisMiktariMoqVeStokTasimaMaliyetDengeCalculator": {
-          "title": "Asgari Siparis Miktari Moq Ve Stok Tasima Maliyet Denge Calculator"
+          "title": "Asgari Sipariş Miktarı (MOQ) ve Stok Taşıma Maliyet Denge Hesaplayıcı"
         },
         "atikYonetimiVeBertarafMaliyetOptimizasyonCalculator": {
-          "title": "Atik Yonetimi Ve Bertaraf Maliyet Optimizasyon Calculator"
+          "title": "Atık Yönetimi ve Bertaraf Maliyet Optimizasyon Hesaplayıcı"
         },
         "bacaHavalandirmaKanaliCapHesabi": {
-          "title": "Baca Havalandirma Kanali Cap Hesabi"
+          "title": "Baca Havalandırma Kanalı Çap Hesabı"
         },
         "batchYieldCalculator": {
           "title": "parçai Verim Calculator"
@@ -16361,16 +16364,16 @@
           "title": "Boiler Verimlilik Calculator"
         },
         "boruAgirlikHesaplamaCelikPaslanmaz": {
-          "title": "Boru Agirlik Hesaplama Celik Paslanmaz"
+          "title": "Boru Ağırlık Hesaplama (Çelik/Paslanmaz)"
         },
         "boruHattiSurtunmeVePompaEnerjiKayipCalculator": {
-          "title": "Boru Hatti Surtunme Ve Pompa Enerji Kayip Calculator"
+          "title": "Boru Hattı Sürtünme ve Pompa Enerji Kayıp Hesaplayıcı"
         },
         "boyaKaplamaSarfiyatiMBasinaHesabi": {
-          "title": "Boya Kaplama Sarfiyati M Basina Hesabi"
+          "title": "Boya Kaplama Sarfiyatı m² Başına Hesabı"
         },
         "boyaVeApreRecetesiMaliyetOptimizasyonCalculator": {
-          "title": "Boya Ve Apre Recetesi Maliyet Optimizasyon Calculator"
+          "title": "Boya ve Apre Reçetesi Maliyet Optimizasyon Hesaplayıcı"
         },
         "breakEvenCalculator": {
           "title": "başabaş Calculator"
@@ -16379,19 +16382,19 @@
           "title": "Tuğla Calculator"
         },
         "buharKapaniSteamTrapKacakVeEnerjiKayipCalculator": {
-          "title": "Buhar Kapani Steam Trap Kacak Ve Enerji Kayip Calculator"
+          "title": "Buhar Kapanı (Steam Trap) Kaçak ve Enerji Kayıp Hesaplayıcı"
         },
         "cashFlowGapCalculator": {
           "title": "Cash Debi fark Calculator"
         },
         "cayKahveSuTuketimMaliyeti": {
-          "title": "Cay Kahve Su Tuketim Maliyeti"
+          "title": "Çay Kahve Su Tüketim Maliyeti"
         },
         "celikCatiMakasYaklasikAgirligi": {
-          "title": "Celik Cati Makas Yaklasik Agirligi"
+          "title": "Çelik Çatı Makas Yaklaşık Ağırlığı"
         },
         "celikRafDepoRafiYukKapasitesi": {
-          "title": "Celik Raf Depo Rafi Yuk Kapasitesi"
+          "title": "Çelik Raf Depo Rafı Yük Kapasitesi"
         },
         "cleaningCostCalculator": {
           "title": "Cleaning Maliyet Calculator"
@@ -16400,7 +16403,7 @@
           "title": "Cnc Çevrim süresi Calculator"
         },
         "cobotVsManuelIscilikKarsilastirmaCalculator": {
-          "title": "Cobot Vs Manuel Iscilik Karsilastirma Calculator"
+          "title": "Cobot vs Manuel İşçilik Karşılaştırma Hesaplayıcı"
         },
         "compressorEnergyCostCalculator": {
           "title": "Kompresör Enerji Maliyet Calculator"
@@ -16412,7 +16415,7 @@
           "title": "Beton Hacim Calculator"
         },
         "cpkPpkHataMaliyetiPpmCalculator": {
-          "title": "Cpk Ppk Hata Maliyeti Ppm Calculator"
+          "title": "CPk/PPk Hata Maliyeti PPM Hesaplayıcı"
         },
         "cropYieldCalculator": {
           "title": "Mahsul Verim Calculator"
@@ -16424,28 +16427,28 @@
           "title": "Teslimat Maliyet Calculator"
         },
         "depoRafPaletYerlesimOptimizasyonu": {
-          "title": "Depo Raf Palet Yerlesim Optimizasyonu"
+          "title": "Depo Raf Palet Yerleşim Optimizasyonu"
         },
         "depoYerlesimiVeToplamaRotasiOptimizasyonCalculator": {
-          "title": "Depo Yerlesimi Ve Toplama Rotasi Optimizasyon Calculator"
+          "title": "Depo Yerleşimi ve Toplama Rotası Optimizasyon Hesaplayıcı"
         },
         "depreciationCalculator": {
           "title": "Amortisman Calculator"
         },
         "desiCalculator": {
-          "title": "Desi Calculator"
+          "title": "Desi Hesaplayıcı"
         },
         "disliModulCapHesaplama": {
-          "title": "Disli Modul Cap Hesaplama"
+          "title": "Dişli Modül Çap Hesaplama"
         },
         "dizelBenzinMaliyetKarsilastirma": {
-          "title": "Dizel Benzin Maliyet Karsilastirma"
+          "title": "Dizel Benzin Maliyet Karşılaştırma"
         },
         "donguselEkonomiVeUrunOmruUzatmaRoiCalculator": {
-          "title": "Dongusel Ekonomi Ve Urun Omru Uzatma Roi Calculator"
+          "title": "Döngüsel Ekonomi ve Ürün Ömrü Uzatma ROI Hesaplayıcı"
         },
         "dovmeEkstruzyonProsesKuvvetVePresKapasiteCalculator": {
-          "title": "Dovme Ekstruzyon Proses Kuvvet Ve Pres Kapasite Calculator"
+          "title": "Dövme Ekstrüzyon Proses Kuvvet ve Pres Kapasite Hesaplayıcı"
         },
         "drywallCalculator": {
           "title": "DryDuvar Calculator"
@@ -16457,34 +16460,34 @@
           "title": "Enerji Tüketim Check"
         },
         "enerjiIzlemeSistemiYatirimVeTasarrufTahminCalculator": {
-          "title": "Enerji Izleme Sistemi Yatirim Ve Tasarruf Tahmin Calculator"
+          "title": "Enerji İzleme Sistemi Yatırım ve Tasarruf Tahmin Hesaplayıcı"
         },
         "enflasyonFiyatEskalasyonuHesaplama": {
           "title": "Enflasyon Fiyat Eskalasyonu Hesaplama"
         },
         "enjeksiyonDokumCekmePayiHesabi": {
-          "title": "Enjeksiyon Dokum Cekme Payi Hesabi"
+          "title": "Enjeksiyon Döküm Çekme Payı Hesabı"
         },
         "enjeksiyonSogutmaSuresiVeCevrimOptimizasyonCalculator": {
-          "title": "Enjeksiyon Sogutma Suresi Ve Cevrim Optimizasyon Calculator"
+          "title": "Enjeksiyon Soğutma Süresi ve Çevrim Optimizasyon Hesaplayıcı"
         },
         "excavationVolumeCalculator": {
           "title": "Kazı hacmi Calculator"
         },
         "fazlaMesaiUcretiHesaplama": {
-          "title": "Fazla Mesai Ucreti Hesaplama"
+          "title": "Fazla Mesai Ücreti Hesaplama"
         },
         "fazlaMesaiVsYeniIseAlimBasabasCalculator": {
-          "title": "Fazla Mesai Vs Yeni Ise Alim Basabas Calculator"
+          "title": "Fazla Mesai vs Yeni İşe Alım Başabaş Hesaplayıcı"
         },
         "fertilizerDosageCalculator": {
           "title": "Gübre Dozaj Calculator"
         },
         "filamentRecineTozMaliyetVeFireKarsilastirmaCalculator": {
-          "title": "Filament Recine Toz Maliyet Ve Fire Karsilastirma Calculator"
+          "title": "Filament Reçine Toz Maliyet ve Fire Karşılaştırma Hesaplayıcı"
         },
         "fiyatArtisiVeTalepEsnekligiKarlilikSimulasyonCalculator": {
-          "title": "Fiyat Artisi Ve Talep Esnekligi Karlilik Simulasyon Calculator"
+          "title": "Fiyat Artışı ve Talep Esnekliği Kârlılık Simülasyonu"
         },
         "flooringCalculator": {
           "title": "Zemining Calculator"
@@ -16493,10 +16496,10 @@
           "title": "Gıda maliyeti Calculator"
         },
         "forkliftTranspaletKullanimMaliyeti": {
-          "title": "Forklift Transpalet Kullanim Maliyeti"
+          "title": "Forklift Transpalet Kullanım Maliyeti"
         },
         "fotokopiYaziciTonerSayfaMaliyeti": {
-          "title": "Fotokopi Yazici Toner Sayfa Maliyeti"
+          "title": "Fotokopi Yazıcı Toner Sayfa Maliyeti"
         },
         "freightCostCalculator": {
           "title": "Freight Maliyet Calculator"
@@ -16508,13 +16511,13 @@
           "title": "Yakıt Travel Calculator"
         },
         "gecisGradeChangeOffSpecVeYikamaKayipCalculator": {
-          "title": "Gecis Grade Change Off Spec Ve Yikama Kayip Calculator"
+          "title": "Geçiş (Grade Change) Off-Spec ve Yıkama Kayıp Hesaplayıcısı"
         },
         "geriDonusumGelirMaliyetHesabi": {
-          "title": "Geri Donusum Gelir Maliyet Hesabi"
+          "title": "Geri Dönüşüm Gelir Maliyet Hesabı"
         },
         "hafriyatVeDolguDengesiOptimizasyonCalculator": {
-          "title": "Hafriyat Ve Dolgu Dengesi Optimizasyon Calculator"
+          "title": "Hafriyat ve Dolgu Dengesi Optimizasyonu"
         },
         "hourlyRateCalculator": {
           "title": "saatlik Oran Calculator"
@@ -16523,85 +16526,85 @@
           "title": "Sulama Maliyet Check"
         },
         "irsaliyeFaturaAdediBasinaSevkiyatMaliyeti": {
-          "title": "Irsaliye Fatura Adedi Basina Sevkiyat Maliyeti"
+          "title": "İrsaliye/Fatura Adedi Başına Sevkiyat Maliyeti"
         },
         "isElbisesiKkdKisiselKoruyucuDonanimSarfiyati": {
-          "title": "Is Elbisesi Kkd Kisisel Koruyucu Donanim Sarfiyati"
+          "title": "İş Elbisesi KKD Kişisel Koruyucu Donanım Sarfiyatı"
         },
         "isiDegistiriciEsanjorKapasiteHesabi": {
-          "title": "Isi Degistirici Esanjor Kapasite Hesabi"
+          "title": "Isı Değiştirici (Eşanjör) Kapasite Hesabı"
         },
         "isiDegistiriciEsanjorKirlenmeVeVerimKaybiCalculator": {
-          "title": "Isi Degistirici Esanjor Kirlenme Ve Verim Kaybi Calculator"
+          "title": "Isı Değiştirici (Eşanjör) Kirlenme ve Verim Kaybı Hesaplayıcısı"
         },
         "isiYukuVeIsitmaSogutmaKapasiteOptimizasyonCalculator": {
-          "title": "Isi Yuku Ve Isitma Sogutma Kapasite Optimizasyon Calculator"
+          "title": "Isı Yükü ve Isıtma Soğutma Kapasite Optimizasyonu"
         },
         "isitmaSogutmaYukuKcalKwHesabi": {
-          "title": "Isitma Sogutma Yuku Kcal Kw Hesabi"
+          "title": "Isıtma Soğutma Yükü (kcal/kW) Hesabı"
         },
         "iskeleVeKalipKullanimSuresiOptimizasyonCalculator": {
-          "title": "Iskele Ve Kalip Kullanim Suresi Optimizasyon Calculator"
+          "title": "İskele ve Kalıp Kullanım Süresi Optimizasyonu"
         },
         "isletmeSermayesiVeNakitDongusuOptimizasyonCalculator": {
-          "title": "Isletme Sermayesi Ve Nakit Dongusu Optimizasyon Calculator"
+          "title": "İşletme Sermayesi ve Nakit Döngüsü Optimizasyonu"
         },
         "iso50001EnerjiYonetimiTabanCizgisiVeTasarrufCalculator": {
-          "title": "Iso 50001 Enerji Yonetimi Taban Cizgisi Ve Tasarruf Calculator"
+          "title": "ISO 50001 Enerji Yönetimi Taban Çizgisi ve Tasarruf Hesaplayıcısı"
         },
         "istatistikselProsesKontrolSpcLimitHesabi": {
-          "title": "Istatistiksel Proses Kontrol Spc Limit Hesabi"
+          "title": "İstatistiksel Proses Kontrol (SPC) Limit Hesabı"
         },
         "jeneratorKapasitesiSecimHesaplama": {
-          "title": "Jenerator Kapasitesi Secim Hesaplama"
+          "title": "Jeneratör Kapasitesi Seçim Hesaplama"
         },
         "kaizenKazancTakipVeOnceliklendirmeCalculator": {
-          "title": "Kaizen Kazanc Takip Ve Onceliklendirme Calculator"
+          "title": "Kaizen Kazanç Takip ve Önceliklendirme Hesaplayıcısı"
         },
         "kaynakDikisHacmiMaliyetiHesabi": {
-          "title": "Kaynak Dikis Hacmi Maliyeti Hesabi"
+          "title": "Kaynak Dikiş Hacmi Maliyeti Hesabı"
         },
         "kaynakMaliyetiVeDolguMetaliTuketimCalculator": {
-          "title": "Kaynak Maliyeti Ve Dolgu Metali Tuketim Calculator"
+          "title": "Kaynak Maliyeti ve Dolgu Metali Tüketim Hesaplayıcısı"
         },
         "kazaMaliyetiDogrudanVeDolayliToplamKayipCalculator": {
-          "title": "Kaza Maliyeti Dogrudan Ve Dolayli Toplam Kayip Calculator"
+          "title": "Kaza Maliyeti (Doğrudan ve Dolaylı Toplam Kayıp) Hesaplayıcısı"
         },
         "kesmeParametreleriTakimOmruOptimizasyonCalculator": {
-          "title": "Kesme Parametreleri Takim Omru Optimizasyon Calculator"
+          "title": "Kesme Parametreleri Takım Ömrü Optimizasyonu"
         },
         "kirisKolonYaklasikAgirlikHesabi": {
-          "title": "Kiris Kolon Yaklasik Agirlik Hesabi"
+          "title": "Kiriş Kolon Yaklaşık Ağırlık Hesabı"
         },
         "klimaBtuSecimHesaplama": {
-          "title": "Klima Btu Secim Hesaplama"
+          "title": "Klima BTU Seçim Hesaplama"
         },
         "kokNedenAnaliziRcaTekrarlayanArizaBirikimliMaliyetCalculator": {
-          "title": "Kok Neden Analizi Rca Tekrarlayan Ariza Birikimli Maliyet Calculator"
+          "title": "Kök Neden Analizi (RCA) Tekrarlayan Arıza Birikimli Maliyet Hesaplayıcısı"
         },
         "kompresorDebisiTankHacmiHesabi": {
-          "title": "Kompresor Debisi Tank Hacmi Hesabi"
+          "title": "Kompresör Debisi Tank Hacmi Hesabı"
         },
         "konteynerYuklemeKapasitesiTeuHesabi": {
-          "title": "Konteyner Yukleme Kapasitesi Teu Hesabi"
+          "title": "Konteyner Yükleme Kapasitesi (TEU) Hesabı"
         },
         "koruyucuBakimFrekansiVeMaliyetOptimizasyonCalculator": {
-          "title": "Koruyucu Bakim Frekansi Ve Maliyet Optimizasyon Calculator"
+          "title": "Koruyucu Bakım Frekansı ve Maliyet Optimizasyonu"
         },
         "kosebentLamaAgirlikHesaplama": {
-          "title": "Kosebent Lama Agirlik Hesaplama"
+          "title": "Köşebent Lama Ağırlık Hesaplama"
         },
         "kritikYolCpmGecikmeCezasiVeHizlandirmaOptimizasyonCalculator": {
-          "title": "Kritik Yol Cpm Gecikme Cezasi Ve Hizlandirma Optimizasyon Calculator"
+          "title": "Kritik Yol (CPM) Gecikme Cezası ve Hızlandırma Optimizasyonu"
         },
         "kumasSerimVeKesimOptimizasyonFireCalculator": {
-          "title": "Kumas Serim Ve Kesim Optimizasyon Fire Calculator"
+          "title": "Kumaş Serim ve Kesim Optimizasyon Fire Hesaplayıcısı"
         },
         "kumlamaRaspaKumSarfiyatiHesabi": {
-          "title": "Kumlama Raspa Kum Sarfiyati Hesabi"
+          "title": "Kumlama Raspa Kum Sarfiyatı Hesabı"
         },
         "kutleDengesiVeFireTakipCalculator": {
-          "title": "Kutle Dengesi Ve Fire Takip Calculator"
+          "title": "Kütle Dengesi ve Fire Takip Hesaplayıcısı"
         },
         "kwhConsumptionCheck": {
           "title": "Kwh Tüketim Check"
@@ -16616,70 +16619,70 @@
           "title": "Lastik Omru Degisim km Hesaplama"
         },
         "lpgBenzinTasarrufKarsilastirma": {
-          "title": "Lpg Benzin Tasarruf Karsilastirma"
+          "title": "LPG Benzin Tasarruf Karşılaştırma"
         },
         "machineHourRateCalculator": {
           "title": "makine saat Oran Calculator"
         },
         "makineEkonomikOmruHurdaDegerHesabi": {
-          "title": "Makine Ekonomik Omru Hurda Deger Hesabi"
+          "title": "Makine Ekonomik Ömrü Hurda Değer Hesabı"
         },
         "matkapKilavuzDelikCapiTablosu": {
-          "title": "Matkap Kilavuz Delik Capi Tablosu"
+          "title": "Matkap Kılavuz Delik Çapı Tablosu"
         },
         "milAksCapiHesabiEgilmeBurulma": {
-          "title": "Mil Aks Capi Hesabi Egilme Burulma"
+          "title": "Mil/Aks Çapı Hesabı (Eğilme Burulma)"
         },
         "milkYieldCheck": {
           "title": "Milk Verim Check"
         },
         "mtbfMttrVeKullanilabilirlikFinansalCalculator": {
-          "title": "Mtbf Mttr Ve Kullanilabilirlik Finansal Calculator"
+          "title": "MTBF MTTR ve Kullanılabilirlik Finansal Hesaplayıcısı"
         },
         "musteriYasamBoyuDegerClvVeEdinmeMaliyetiCacCalculator": {
-          "title": "Musteri Yasam Boyu Deger Clv Ve Edinme Maliyeti Cac Calculator"
+          "title": "Müşteri Yaşam Boyu Değer (CLV) ve Edinme Maliyeti (CAC) Hesaplayıcısı"
         },
         "npuNpiProfilAgirlikHesaplama": {
-          "title": "Npu Npi Profil Agirlik Hesaplama"
+          "title": "NPU NPI Profil Ağırlık Hesaplama"
         },
         "ofisKirtasiyeSarfiyatHesabi": {
-          "title": "Ofis Kirtasiye Sarfiyat Hesabi"
+          "title": "Ofis Kırtasiye Sarfiyat Hesabı"
         },
         "ogrenmeEgrisiVePartiSureTahminCalculator": {
           "title": "Ogrenme Egrisi Ve parçai Sure Tahmin Calculator"
         },
         "otoServisIsEmriVeYedekParcaTeklifTutarlilikCalculator": {
-          "title": "Oto Servis Is Emri Ve Yedek Parca Teklif Tutarlilik Calculator"
+          "title": "Oto Servis İş Emri ve Yedek Parça Teklif Tutarlılık Hesaplayıcısı"
         },
         "paintCoverageCalculator": {
           "title": "Boya Kaplama Calculator"
         },
         "paketlemeMalzemesiStrecKoliSarfiyati": {
-          "title": "Paketleme Malzemesi Strec Koli Sarfiyati"
+          "title": "Paketleme Malzemesi Streç Koli Sarfiyatı"
         },
         "paletAmbalajKeresteHesabi": {
-          "title": "Palet Ambalaj Kereste Hesabi"
+          "title": "Palet Ambalaj Kereste Hesabı"
         },
         "paslanmazCelikAluminyumAyirtEtmeHesaplayicisiYogunlukBazli": {
-          "title": "Paslanmaz Celik Aluminyum Ayirt Etme Hesaplayicisi Yogunluk Bazli"
+          "title": "Paslanmaz Çelik Alüminyum Ayırt Etme Hesaplayıcısı (Yoğunluk Bazlı)"
         },
         "personelDevamsizlikMaliyetiHesaplama": {
           "title": "başınasonel Devamsizlik Maliyeti Hesaplama"
         },
         "plastikEnjeksiyonCevrimSuresiTahmini": {
-          "title": "Plastik Enjeksiyon Cevrim Suresi Tahmini"
+          "title": "Plastik Enjeksiyon Çevrim Süresi Tahmini"
         },
         "pokaYokeHataOnlemeYatirimGeriDonusCalculator": {
-          "title": "Poka Yoke Hata Onleme Yatirim Geri Donus Calculator"
+          "title": "Poka Yoke Hata Önleme Yatırım Geri Dönüş Hesaplayıcı"
         },
         "pompaGucuBasmaYuksekligiHesabi": {
-          "title": "Pompa Gucu Basma Yuksekligi Hesabi"
+          "title": "Pompa Gücü Basma Yüksekliği Hesabı"
         },
         "portionCostCalculator": {
           "title": "kısım Maliyet Calculator"
         },
         "prefabrikKonteynerOfisMMaliyeti": {
-          "title": "Prefabrik Konteyner Ofis M Maliyeti"
+          "title": "Prefabrik Konteyner Ofis M² Maliyeti"
         },
         "printJobCostCheck": {
           "title": "Print Job Maliyet Check"
@@ -16688,19 +16691,19 @@
           "title": "Project Maliyet Calculator"
         },
         "radyatorPetekBoyuHesaplama": {
-          "title": "Radyator Petek Boyu Hesaplama"
+          "title": "Radyatör Petek Boyu Hesaplama"
         },
         "rebarWeightCalculator": {
           "title": "İnşaat demiri ağırlığı Calculator"
         },
         "receteMaliyetiVeAlternatifHammaddeEtkiCalculator": {
-          "title": "Recete Maliyeti Ve Alternatif Hammadde Etki Calculator"
+          "title": "Reçete Maliyeti ve Alternatif Hammadde Etki Hesaplayıcı"
         },
         "recipeCostCheck": {
           "title": "Recipe Maliyet Check"
         },
         "restoranTabakMaliyetiVePorsiyonOptimizasyonCalculator": {
-          "title": "Restoran Tabak Maliyeti Ve Porsiyon Optimizasyon Calculator"
+          "title": "Restoran Tabak Maliyeti ve Porsiyon Optimizasyon Hesaplayıcı"
         },
         "roofingSquareCostCheck": {
           "title": "Çatıing Kare Maliyet Check"
@@ -16709,19 +16712,19 @@
           "title": "Rota Maliyet Calculator"
         },
         "ruzgarTurbiniYaklasikUretimHesabi": {
-          "title": "Ruzgar Turbini Yaklasik Uretim Hesabi"
+          "title": "Rüzgar Türbini Yaklaşık Üretim Hesabı"
         },
         "salaryCostCalculator": {
           "title": "Maaş Maliyet Calculator"
         },
         "satisKanaliKarlilikKarsilastirmaCalculator": {
-          "title": "Satis Kanali Karlilik Karsilastirma Calculator"
+          "title": "Satış Kanalı Kârlılık Karşılaştırma Hesaplayıcı"
         },
         "seedRateCalculator": {
           "title": "Seed Oran Calculator"
         },
         "sesYalitimiDesibelAzaltimiHesabi": {
-          "title": "Ses Yalitimi Desibel Azaltimi Hesabi"
+          "title": "Ses Yalıtımı Desibel Azaltımı Hesabı"
         },
         "sheetMetalWeightCalculator": {
           "title": "Sac metal Ağırlık Calculator"
@@ -16733,7 +16736,7 @@
           "title": "Sofor Obaşınaator Gunluk Yevmiye Maliyeti"
         },
         "sogukOdaSogutmaYukuHesabi": {
-          "title": "Soguk Oda Sogutma Yuku Hesabi"
+          "title": "Soğuk Oda Soğutma Yükü Hesabı"
         },
         "solarPanelOutputCalculator": {
           "title": "güneş Pano çıktı Calculator"
@@ -16742,34 +16745,34 @@
           "title": "Kare Footage Calculator"
         },
         "suDebisiLitreDakikaHesaplama": {
-          "title": "Su Debisi Litre Dakika Hesaplama"
+          "title": "Su Debisi Litre/Dakika Hesaplama"
         },
         "suIsitmaKazanBoylerKapasiteHesabi": {
-          "title": "Su Isitma Kazan Boyler Kapasite Hesabi"
+          "title": "Su Isıtma Kazanı Boyler Kapasite Hesabı"
         },
         "taguchiKaliteKayipFonksiyonuCalculator": {
-          "title": "Taguchi Kalite Kayip Fonksiyonu Calculator"
+          "title": "Taguchi Kalite Kayıp Fonksiyonu Hesaplayıcı"
         },
         "tahtaMdfSuntaMAgirlikHesabi": {
-          "title": "Tahta Mdf Sunta M Agirlik Hesabi"
+          "title": "Tahta MDF Sunta M² Ağırlık Hesabı"
         },
         "takimTutucuVeBaglamaAparatiSetupSuresiCalculator": {
           "title": "Takim Tutucu Ve Baglama Aparati Hazırlık Suresi Calculator"
         },
         "talepTahminHatasiVeStokStokYokluguMaliyetCalculator": {
-          "title": "Talep Tahmin Hatasi Ve Stok Stok Yoklugu Maliyet Calculator"
+          "title": "Talep Tahmin Hatası ve Stok Yokluğu Maliyet Hesaplayıcı"
         },
         "temizlikMalzemesiSarfiyatHesabi": {
-          "title": "Temizlik Malzemesi Sarfiyat Hesabi"
+          "title": "Temizlik Malzemesi Sarfiyat Hesabı"
         },
         "temizlikVeHijyenKimyasalTuketimOptimizasyonCalculator": {
-          "title": "Temizlik Ve Hijyen Kimyasal Tuketim Optimizasyon Calculator"
+          "title": "Temizlik ve Hijyen Kimyasal Tüketim Optimizasyon Hesaplayıcı"
         },
         "tileCalculator": {
           "title": "Fayans Calculator"
         },
         "tirKamyonYukKapasitesiHesaplama": {
-          "title": "Tir Kamyon Yuk Kapasitesi Hesaplama"
+          "title": "Tır Kamyon Yük Kapasitesi Hesaplama"
         },
         "toleranceDriftCalculator": {
           "title": "Tolerans sapma Calculator"
@@ -16778,10 +16781,10 @@
           "title": "Takım ömrü Calculator"
         },
         "toplantiSaatiMaliyetiHesaplama": {
-          "title": "Toplanti Saati Maliyeti Hesaplama"
+          "title": "Toplantı Saati Maliyeti Hesaplama"
         },
         "topolojiOptimizasyonuHafiflikVeYakitTasarrufuCalculator": {
-          "title": "Topoloji Optimizasyonu Hafiflik Ve Yakit Tasarrufu Calculator"
+          "title": "Topoloji Optimizasyonu Hafiflik ve Yakıt Tasarrufu Hesaplayıcı"
         },
         "unitCostCalculator": {
           "title": "Birim maliyet Calculator"
@@ -16790,19 +16793,19 @@
           "title": "birim Fiyat Calculator"
         },
         "upsKesintisizGucKaynagiSecimi": {
-          "title": "Ups Kesintisiz Guc Kaynagi Secimi"
+          "title": "UPS Kesintisiz Güç Kaynağı Seçimi"
         },
         "urunKarmasiKarmasiklikMaliyetiHiddenFactoryCalculator": {
           "title": "Urun Karmasi Karmasiklik Maliyeti Hidden Faktöry Calculator"
         },
         "vadeFarkiVeErkenOdemeIskontosuOptimizasyonCalculator": {
-          "title": "Vade Farki Ve Erken Odeme Iskontosu Optimizasyon Calculator"
+          "title": "Vade Farkı ve Erken Ödeme İskontosu Optimizasyon Hesaplayıcı"
         },
         "vakumSistemiKacakVeEnerjiKayipCalculator": {
-          "title": "Vakum Sistemi Kacak Ve Enerji Kayip Calculator"
+          "title": "Vakum Sistemi Kaçak ve Enerji Kayıp Hesaplayıcı"
         },
         "vidaSomunAdimDisUstuCapHesabi": {
-          "title": "Vida Somun Adim Dis Ustu Cap Hesabi"
+          "title": "Vida Somun Adım Dış Üstü Çap Hesabı"
         },
         "volumetricWeightCalculator": {
           "title": "Hacimtric Ağırlık Calculator"
@@ -16814,13 +16817,13 @@
           "title": "Su kullanımı Calculator"
         },
         "yalitimMalzemesiMHesaplama": {
-          "title": "Yalitim Malzemesi M Hesaplama"
+          "title": "Yalıtım Malzemesi M² Hesaplama"
         },
         "yapistiriciVeSizdirmazlikMalzemesiTuketimOptimizasyonCalculator": {
-          "title": "Yapistirici Ve Sizdirmazlik Malzemesi Tuketim Optimizasyon Calculator"
+          "title": "Yapıştırıcı ve Sızdırmazlık Malzemesi Tüketim Optimizasyon Hesaplayıcı"
         },
         "yayHeliselKuvvetUzamaHesabi": {
-          "title": "Yay Helisel Kuvvet Uzama Hesabi"
+          "title": "Yay Helisel Kuvvet Uzama Hesabı"
         },
         "yedekParcaStokSeviyesiVeDurusRiskiOptimizasyonCalculator": {
           "title": "Yedek Parca Stok Seviyesi Ve Durus riski Optimizasyon Calculator"
@@ -16829,46 +16832,46 @@
           "title": "Yemek Tabldot Maliyet Hesaplama"
         },
         "zamanEtuduVeStandartSureCalculator": {
-          "title": "Zaman Etudu Ve Standart Sure Calculator"
+          "title": "Zaman Etüdü ve Standart Süre Hesaplayıcı"
         },
         "akuKapasitesiCalismaSuresiHesabi": {
-          "title": "Aku Kapasitesi Calisma Suresi Hesabi"
+          "title": "Akü Kapasitesi Çalışma Süresi Hesabı"
         },
         "aqlKabulOrneklemesiRiskVeMaliyetCalculator": {
           "title": "Aql Kabul Orneklemesi risk Ve Maliyet Calculator"
         },
         "aydinlatmaArmaturSayisiHesaplama": {
-          "title": "Aydinlatma Armatur Sayisi Hesaplama"
+          "title": "Aydınlatma Armatür Sayısı Hesaplama"
         },
         "boruCapiAkisHiziHesaplama": {
-          "title": "Boru Capi Akis Hizi Hesaplama"
+          "title": "Boru Çapı Akış Hızı Hesaplama"
         },
         "cabinetCostEstimator": {
           "title": "Cabinet Maliyet Estimator"
         },
         "citKorkulukMalzemeHesabi": {
-          "title": "Cit Korkuluk Malzeme Hesabi"
+          "title": "Çit Korkuluk Malzeme Hesabı"
         },
         "egitimYatirimiVeVerimlilikArtisiGeriDonusCalculator": {
-          "title": "Egitim Yatirimi Ve Verimlilik Artisi Geri Donus Calculator"
+          "title": "Eğitim Yatırımı ve Verimlilik Artışı Geri Dönüş Hesaplayıcı"
         },
         "esnekUretimHucresiYatirimVeGeriDonusCalculator": {
-          "title": "Esnek Uretim Hucresi Yatirim Ve Geri Donus Calculator"
+          "title": "Esnek Üretim Hücresi Yatırım ve Geri Dönüş Hesaplayıcı"
         },
         "fuelConsumptionCalculator": {
           "title": "Yakıt Tüketim Calculator"
         },
         "iotSensorVeOngorucuBakimYatirimGeriDonusCalculator": {
-          "title": "Iot Sensor Ve Ongorucu Bakim Yatirim Geri Donus Calculator"
+          "title": "IoT Sensör ve Öngörücü Bakım Yatırım Geri Dönüş Hesaplayıcı"
         },
         "kapasitePlanlamaVeDarbogazYatirimOnceliklendirmeCalculator": {
-          "title": "Kapasite Planlama Ve Darbogaz Yatirim Onceliklendirme Calculator"
+          "title": "Kapasite Planlama ve Darboğaz Yatırım Önceliklendirme Hesaplayıcı"
         },
         "kazanilmisDegerYonetimiEvmTamamlanmaMaliyetTahminCalculator": {
-          "title": "Kazanilmis Deger Yonetimi Evm Tamamlanma Maliyet Tahmin Calculator"
+          "title": "Kazanılmış Değer Yönetimi (EVM) Tamamlanma Maliyet Tahmin Hesaplayıcı"
         },
         "kesmeBukmeAbkantTonajHesabi": {
-          "title": "Kesme Bukme Abkant Tonaj Hesabi"
+          "title": "Kesme Bükme Abkant Tonaj Hesabı"
         },
         "kritiklikRiskMatrisiVeBakimStratejisiSecimCalculator": {
           "title": "Kritiklik risk Matrisi Ve Bakim StOranjisi Secim Calculator"
@@ -16877,28 +16880,28 @@
           "title": "lazer Kesim Time Check"
         },
         "motorGucuKwHpCevirici": {
-          "title": "Motor Gucu Kw Hp Cevirici"
+          "title": "Motor Gücü kW HP Çevirici"
         },
         "musteriKaybiChurnVeKaybedilenGelirCalculator": {
-          "title": "Musteri Kaybi Churn Ve Kaybedilen Gelir Calculator"
+          "title": "Müşteri Kaybı (Churn) ve Kaybedilen Gelir Hesaplayıcı"
         },
         "silindirHacmiHesaplama": {
           "title": "Silindir Hacmi Hesaplama"
         },
         "sogutmaSivisiKarisimOraniAntifrizBorYagiHesaplama": {
-          "title": "Sogutma Sivisi Karisim Orani Antifriz Bor Yagi Hesaplama"
+          "title": "Soğutma Sıvısı Karışım Oranı Antifriz Bor Yağı Hesaplama"
         },
         "squareMeterCalculator": {
           "title": "Kare Meter Calculator"
         },
         "telKabloUzunluguAgirlikHesabi": {
-          "title": "Tel Kablo Uzunlugu Agirlik Hesabi"
+          "title": "Tel Kablo Uzunluğu Ağırlık Hesabı"
         },
         "titresimFrekansPeriyotHesaplama": {
           "title": "Titresim Frekans başınaiyot Hesaplama"
         },
         "toplamSahipOlmaMaliyetiTcoEkipmanKarsilastirmaCalculator": {
-          "title": "Toplam Sahip Olma Maliyeti Tco Ekipman Karsilastirma Calculator"
+          "title": "Toplam Sahip Olma Maliyeti (TCO) Ekipman Karşılaştırma Hesaplayıcı"
         },
         "vehicleDepreciationCalculator": {
           "title": "Araç amortismanı Calculator"
@@ -16907,13 +16910,13 @@
           "title": "Kaynaking Maliyet Estimator"
         },
         "yamazumiIsYukuDengelemeKayipCalculator": {
-          "title": "Yamazumi Is Yuku Dengeleme Kayip Calculator"
+          "title": "Yamazumi İş Yükü Dengeleme Kayıp Hesaplayıcı"
         },
         "yatakRulmanOmurHesabiL10": {
-          "title": "Yatak Rulman Omur Hesabi L10"
+          "title": "Yatak Rulman Ömür Hesabı L10"
         },
         "tesisYerlesimiVeMalzemeAkisMesafeOptimizasyonCalculator": {
-          "title": "Tesis Yerlesimi Ve Malzeme Akis Mesafe Optimizasyon Calculator"
+          "title": "Tesis Yerleşimi ve Malzeme Akış Mesafe Optimizasyon Hesaplayıcı"
         }
       }
     }
@@ -17072,7 +17075,7 @@
       "note": "Secret, admin rotası veya entitlement bypass burada yoktur."
     },
     "index": {
-      "title": "SectorCalc Semantic Tool Index",
+      "title": "SectorCalc Anlamsal Araç Dizini",
       "body": "Public hesaplayıcı sözleşmeleri, giriş/çıkış parametreleri ve CalculateAction semantiği otomatik olarak bu vitrinde listelenir.",
       "count": "{count} public araç"
     }
@@ -17190,5 +17193,150 @@
       "title": "Kaynak Teklif Risk Analizörü",
       "description": "Bu araç premium analiz kapsamındadır. Tam sonuç ve karar özeti için kredi veya aktif Pro erişimi gerekir."
     }
+  },
+  "legalCommon": {
+    "eyebrow": "Legal",
+    "readPrivacy": "Privacy Policy",
+    "readTerms": "Terms of Service",
+    "readRefund": "Refund Policy",
+    "seeAlso": "See also",
+    "termsFooter": "Read our <privacy>Privacy Policy</privacy> and <refund>Refund Policy</refund>.",
+    "privacyFooter": "See also <terms>Terms of Service</terms> and <refund>Refund Policy</refund>.",
+    "refundFooter": "See also <terms>Terms of Service</terms> and <privacy>Privacy Policy</privacy>.",
+    "contactIntro": "For questions, contact us using the details below.",
+    "dataControllerIntro": "The data controller for SectorCalc is:",
+    "refundContactIntro": "For refund requests or billing questions, contact us using the details below."
+  },
+  "terms": {
+    "meta": {
+      "title": "Terms of Service",
+      "description": "Legal terms and conditions for using SectorCalc calculators and services."
+    },
+    "heroDescription": "By accessing or using SectorCalc, you agree to these Terms of Service.",
+    "title": "Terms of Service",
+    "lastUpdated": "Last updated: {date}",
+    "lastUpdatedDate": "June 15, 2026",
+    "intro": "Welcome to SectorCalc. By accessing or using our website and calculation tools, you agree to be bound by these Terms of Service.",
+    "section1": {
+      "title": "1. Our Services",
+      "content": "SectorCalc provides industrial and business calculators for informational and decision-support purposes. Our tools do not constitute professional engineering, financial, or legal advice. You are solely responsible for verifying any results before making business decisions."
+    },
+    "section2": {
+      "title": "2. Premium Features & Credits",
+      "content": "Premium tools require credits. Credits are non-refundable and expire 12 months after purchase. You may purchase credit packages through our secure payment provider. Unused credits do not roll over."
+    },
+    "section3": {
+      "title": "3. User Accounts",
+      "content": "You must create an account to access premium features. You are responsible for maintaining the confidentiality of your login credentials and for all activities that occur under your account."
+    },
+    "section4": {
+      "title": "4. Intellectual Property",
+      "content": "All content, formulas, algorithms, designs, and trademarks are the exclusive property of Sector Calculator (operating as SectorCalc). You may not reproduce, distribute, or create derivative works without prior written permission."
+    },
+    "section5": {
+      "title": "5. Limitation of Liability",
+      "content": "To the maximum extent permitted by law, Sector Calculator shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our services."
+    },
+    "section6": {
+      "title": "6. Modifications",
+      "content": "We may update these Terms at any time. Continued use of the service after changes constitutes acceptance of the new Terms."
+    },
+    "section7": {
+      "title": "7. Contact Information",
+      "content": "For questions about these Terms, contact us using the details below."
+    }
+  },
+  "privacy": {
+    "meta": {
+      "title": "Privacy Policy",
+      "description": "How SectorCalc collects, uses, and protects your personal data."
+    },
+    "heroDescription": "What data we collect, how we use it, and your rights.",
+    "title": "Privacy Policy",
+    "effective": "Effective: June 15, 2026",
+    "intro": "Your privacy is important to us. This policy explains what data we collect, how we use it, and your rights.",
+    "section1": {
+      "title": "1. Information We Collect",
+      "content": "We collect personal information you provide (e.g., email address when you register). We also automatically collect usage data (IP address, browser type, pages visited) to improve our tools."
+    },
+    "section2": {
+      "title": "2. How We Use Your Information",
+      "content": "We use your data to operate, maintain, and improve SectorCalc, to process payments, and to communicate with you about your account or updates."
+    },
+    "section3": {
+      "title": "3. Cookies & Tracking",
+      "content": "We use essential cookies for authentication and optional analytics cookies (e.g., Google Analytics) to analyze usage. You can disable non-essential cookies in your browser settings."
+    },
+    "section4": {
+      "title": "4. Data Sharing",
+      "content": "We do not sell your personal data. We share data only with trusted third-party services (payment processors — Stripe/Paddle, hosting — Vercel) as necessary to provide our services."
+    },
+    "section5": {
+      "title": "5. Data Retention & Security",
+      "content": "We retain your data as long as your account is active. We implement reasonable security measures, but no method of transmission over the Internet is 100% secure."
+    },
+    "section6": {
+      "title": "6. Your Rights",
+      "content": "You may request access, correction, or deletion of your personal data by contacting us at info@sectorcalc.com."
+    },
+    "section7": {
+      "title": "7. Children's Privacy",
+      "content": "Our services are not directed to individuals under 16. We do not knowingly collect personal information from children."
+    },
+    "section8": {
+      "title": "8. Changes to This Policy",
+      "content": "We may update this policy from time to time. The \"Effective\" date at the top indicates when the latest version was posted."
+    },
+    "section9": {
+      "title": "9. Data Controller",
+      "content": "The data controller for SectorCalc is:"
+    }
+  },
+  "refundPolicy": {
+    "meta": {
+      "title": "Refund Policy",
+      "description": "Refund terms for credit purchases and subscriptions on SectorCalc."
+    },
+    "heroDescription": "Refund terms for credit purchases and subscriptions.",
+    "title": "Refund Policy",
+    "lastUpdated": "Last updated: June 15, 2026",
+    "intro": "We want you to be satisfied with your purchase. Please read this Refund Policy carefully.",
+    "section1": {
+      "title": "1. Credits & Subscriptions",
+      "content": "Credits: Purchases of credits are final and non-refundable. Unused credits expire 12 months after purchase. No cash refunds will be issued for unused credits. Subscriptions: If you purchase a recurring subscription, you may request a full refund within 14 days of your first payment, provided you have not used any premium tool during that period. After 14 days or after first use, subscription fees are non-refundable."
+    },
+    "section2": {
+      "title": "2. Faulty or Incorrect Tools",
+      "content": "If a premium tool produces demonstrably incorrect results due to a bug in our system, we will refund the credits used for that calculation (up to the number of credits spent) or provide replacement credits. Please report the issue with screenshots and details to info@sectorcalc.com."
+    },
+    "section3": {
+      "title": "3. How to Request a Refund",
+      "content": "To request a refund, contact us at info@sectorcalc.com with your transaction ID (from your payment provider) and the reason for the request. We will respond within 7–14 business days."
+    },
+    "section4": {
+      "title": "4. Chargebacks",
+      "content": "If you initiate a chargeback without first contacting us, we may suspend your account until the matter is resolved."
+    },
+    "section5": {
+      "title": "5. Changes to this Policy",
+      "content": "We reserve the right to modify this refund policy at any time. Changes will be posted on this page."
+    },
+    "section6": {
+      "title": "6. Contact Information",
+      "content": "For refund requests or billing questions, contact us using the details below."
+    }
+  },
+  "creditsPricing": {
+    "meta": {
+      "title": "Pricing – SectorCalc Credits",
+      "description": "Purchase credits to unlock premium industrial calculators. Plans start at $1.99."
+    },
+    "title": "Choose your credits",
+    "subtitle": "One credit unlocks one premium calculation. Credits expire 12 months after purchase.",
+    "creditsLabel": "{count} credits",
+    "perCredit": "/ credit",
+    "buyNow": "Buy credits",
+    "popular": "Most popular",
+    "legalNote": "All prices are in USD. Credits are non-refundable and expire 12 months after purchase."
   }
 }

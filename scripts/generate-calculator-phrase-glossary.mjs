@@ -331,6 +331,9 @@ const WORD_GLOSSARY = JSON.parse(
 const HELPER_PHRASE_GLOSSARY = JSON.parse(
   readFileSync(join(ROOT, "scripts/data/calculator-helper-phrase-glossary.json"), "utf8"),
 );
+const SURFACE_PHRASE_GLOSSARY = JSON.parse(
+  readFileSync(join(ROOT, "scripts/data/calculator-surface-phrase-glossary.json"), "utf8"),
+);
 
 for (const loc of ["tr", "de", "fr", "es", "ar"]) {
   Object.assign(
@@ -338,6 +341,7 @@ for (const loc of ["tr", "de", "fr", "es", "ar"]) {
     EXPAND[loc] ?? {},
     WORD_GLOSSARY[loc] ?? {},
     HELPER_PHRASE_GLOSSARY[loc] ?? {},
+    SURFACE_PHRASE_GLOSSARY[loc] ?? {},
   );
 }
 

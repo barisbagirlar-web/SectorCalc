@@ -521,7 +521,9 @@
       "reportBullet1": "Résumé exécutif avec statut de seuil",
       "reportBullet2": "Décomposition des facteurs de perte cachés",
       "reportBullet3": "Actions suggérées et notes d'hypothèses",
-      "reportBullet4": "PDF et CSV exportables avec accès payant"
+      "reportBullet4": "PDF et CSV exportables avec accès payant",
+      "faqIsFreeTitle": "Cette calculatrice est-elle gratuite ?",
+      "faqIsFreeAnswer": "Cet outil fait partie du périmètre d'analyse premium. Les résultats complets et les résumés de décision nécessitent des crédits ou un abonnement Pro actif."
     }
   },
   "trust": {
@@ -1057,7 +1059,7 @@
           "tags": [
             "Devis",
             "Setup",
-            "Shop Rate"
+            "Taux atelier"
           ]
         },
         "technical": {
@@ -1324,7 +1326,7 @@
         "industrial": {
           "title": "Ateliers industriels",
           "text": "Marge devis, seuil de rentabilité et main-d'œuvre réparation avant la pression prix client.",
-          "examples": "Shop rate, setup"
+          "examples": "Taux atelier, réglage"
         },
         "engineering": {
           "title": "Ingénierie",
@@ -3113,7 +3115,16 @@
     "result": "Comment l'outil le résout",
     "decisionImpact": "Impact sur la décision",
     "representativeNote": "Scénario représentatif — exposition modélisée, pas un résultat client vérifié.",
-    "viewRelatedTool": "Ouvrir l'outil associé"
+    "viewRelatedTool": "Ouvrir l'outil associé",
+    "featuredTitle": "Cinq premiers scénarios sectoriels",
+    "featuredSubtitle": "Format représentatif : problème, entrées, perte cachée, résultat du calcul, action suggérée et calculateur associé — pas un résultat client vérifié.",
+    "moreTitle": "Plus de scénarios représentatifs",
+    "inputSet": "Jeu d'entrées",
+    "hiddenLoss": "Perte cachée",
+    "calculationResult": "Résultat du calcul",
+    "suggestedAction": "Action suggérée",
+    "estimatedImpact": "Impact estimé",
+    "methodologyNote": "Note méthodologique"
   },
   "fieldMode": {
     "eyebrow": "Mode terrain",
@@ -3254,7 +3265,8 @@
       "reportSuccess": "Votre signalement a été envoyé. Merci.",
       "reportClose": "Fermer",
       "reportMessageTooShort": "Veuillez saisir au moins 10 caractères.",
-      "reportSubmitFailed": "Impossible d'envoyer le signalement. Réessayez."
+      "reportSubmitFailed": "Impossible d'envoyer le signalement. Réessayez.",
+      "calculationStandardLabel": "Norme de calcul"
     },
     "freeForm": {
       "defaultDescription": "Calcul sectoriel rapide — saisissez les entrées pour voir le résultat.",
@@ -3287,7 +3299,7 @@
       "sectionLabel": "Informations sur le calculateur",
       "creatorsLabel": "Créateurs :",
       "creatorName": "Prof. Dr. Neela Nataraj",
-      "creatorProfileAria": "Prof. Dr. Neela Nataraj, Indian Institute of Technology Bombay (ouvre le profil LinkedIn)",
+      "creatorProfileAria": "Prof. Dr. Neela Nataraj, Indian Institute of Technology Bombay (ouvre la page de profil de l'IIT Bombay)",
       "helpfulLabel": "personnes trouvent ce calculateur utile"
     },
     "interactionActionBar": {
@@ -3453,6 +3465,33 @@
       "supplierFetchFailed": "Impossible de récupérer les données fournisseur.",
       "supplierFetchSuccess": "{value} kg CO2e ({unit}, {source}) ajoutés aux biens achetés.",
       "supplierLastFetch": "Dernière récupération : {product} à {factor} kg CO2e/{unit}."
+    },
+    "insufficientCredits": "Vous avez besoin d'au moins 1 crédit pour cette analyse premium.",
+    "buyCreditsCta": "Acheter des crédits",
+    "creditsLoading": "Chargement du solde de crédits…",
+    "export": {
+      "sectionLabel": "Exporter les résultats",
+      "privacyNote": "Les exports sont générés dans votre navigateur. Les saisies ne sont pas stockées sauf si vous enregistrez un rapport.",
+      "downloadCsv": "Télécharger CSV",
+      "printReport": "Imprimer le rapport",
+      "lockedMessage": "L'export CSV et l'impression nécessent Pro.",
+      "unlockCta": "Voir les tarifs Pro"
+    },
+    "scenarioComparison": {
+      "title": "Comparaison de scénarios (What-If)",
+      "description": "Comparez côte à côte des jeux de données optimistes, réalistes et pessimistes.",
+      "realistic": "Realistic",
+      "optimistic": "Optimistic",
+      "pessimistic": "Pessimistic",
+      "calculateAll": "Calculer tous les scénarios",
+      "comparisonTitle": "Résultats de la comparaison",
+      "scenarioTotal": "Total : {value}",
+      "showTornado": "Quel paramètre impacte le plus le résultat ? (Tornado)",
+      "hideTornado": "Masquer le diagramme tornade",
+      "tornadoImpact": "Variation de {value}%",
+      "tornadoUnavailable": "L'analyse tornade nécessite des entrées numériques et un résultat principal non nul.",
+      "lockedMessage": "La comparaison de scénarios nécessite Pro.",
+      "unlockCta": "Voir les tarifs Pro"
     }
   },
   "generatedToolCatalog": {
@@ -3907,7 +3946,8 @@
     "home": "Accueil",
     "freeTools": "Calculateurs gratuits",
     "premiumTools": "Calculateurs premium",
-    "industries": "Calculateurs sectoriels"
+    "industries": "Calculateurs sectoriels",
+    "generatedTools": "Calculateurs générés"
   },
   "premiumSchemaPage": {
     "eyebrow": "Calculateur premium",
@@ -4335,7 +4375,7 @@
       "compoundingfrequency": {
         "label": "Fréquence de composition",
         "placeholder": "Saisir fréquence de composition",
-        "helper": "Nombre de périodes de composition par an (par exemple, 1=annuel, 12=mensuel, 365=quotidien)."
+        "helper": "Nombre de périodes de capitalisation par an (par exemple, 1=annuel, 12=mensuel, 365=quotidien)."
       },
       "timeperiod": {
         "label": "Période de temps",
@@ -4345,7 +4385,7 @@
       "additionalcontribution": {
         "label": "Contribution supplémentaire par période",
         "placeholder": "Saisir contribution supplémentaire par période",
-        "helper": "Montant fixe ajouté à la fin de chaque période de composition."
+        "helper": "Montant fixe ajouté à la fin de chaque période de capitalisation."
       },
       "inflationrate": {
         "label": "Taux d'inflation",
@@ -4431,7 +4471,7 @@
       "total_units": {
         "label": "Unités totales produites",
         "placeholder": "Saisir unités totales produites",
-        "helper": "Nombre total d'unités produites au cours de la période de rapport (ISO 9001:2015 clause 9.1.3)."
+        "helper": "Nombre total d'unités produites sur la période de rapport (ISO 9001:2015 clause 9.1.3)."
       },
       "defective_units": {
         "label": "Unités défectueuses",
@@ -4520,7 +4560,7 @@
       "production_volume": {
         "label": "Volume de production réel (unités)",
         "placeholder": "Saisir volume de production réel (unités)",
-        "helper": "Nombre total d'unités produites dans la période. Utilisé pour la comparaison réelle vs seuil de rentabilité."
+        "helper": "Nombre total d'unités produites dans la période. Utilisé pour la comparaison réel vs seuil de rentabilité."
       },
       "cost_allocation_method": {
         "label": "Méthode de répartition des coûts",
@@ -5061,14 +5101,14 @@
       "rpm": {
         "label": "RPM",
         "placeholder": "Saisir rpm",
-        "helper": "Spindle speed"
+        "helper": "Vitesse de broche"
       }
     },
     "feed-rate-calculator": {
       "rpm": {
         "label": "RPM",
         "placeholder": "Saisir rpm",
-        "helper": "Spindle speed"
+        "helper": "Vitesse de broche"
       },
       "teeth": {
         "label": "Dents",
@@ -5078,7 +5118,7 @@
       "feedpertoothmm": {
         "label": "Avance/dent",
         "placeholder": "Saisir avance/dent",
-        "helper": "Chip load par tooth"
+        "helper": "charge de copeau par tooth"
       }
     },
     "tolerance-drift-calculator": {
@@ -5119,7 +5159,7 @@
       "energy_consumption_kwh": {
         "label": "Consommation d'énergie (kWh)",
         "placeholder": "Saisir consommation d'énergie (kwh)",
-        "helper": "Total des kilowattheures mesurés pour la période de facturation. Utilisé comme principal moteur du coût de l'énergie."
+        "helper": "Kilowattheures totales mesurées pour la période de facturation. Utilisé comme principal moteur du coût de l'énergie."
       },
       "peak_demand_kw": {
         "label": "Demande de pointe (kW)",
@@ -5144,7 +5184,7 @@
       "pf_penalty_threshold": {
         "label": "Seuil de pénalité PF",
         "placeholder": "Saisir seuil de pénalité pf",
-        "helper": "Facteur de puissance minimum avant l'application de la pénalité, généralement 0,9 selon les normes des services publics."
+        "helper": "Facteur de puissance minimum avant l'application d'une pénalité, généralement 0,9 selon les normes des services publics."
       },
       "pf_penalty_rate": {
         "label": "Taux de pénalité PF ($/kvar)",
@@ -5159,7 +5199,7 @@
       "operating_hours": {
         "label": "Heures d'exploitation par mois",
         "placeholder": "Saisir heures d'exploitation par mois",
-        "helper": "Nombre total d'heures de fonctionnement de l'installation pendant la période de facturation. Utilisé pour le calcul du facteur de charge."
+        "helper": "Nombre total d'heures de fonctionnement de l'installation au cours de la période de facturation. Utilisé pour le calcul du facteur de charge."
       },
       "tariff_type": {
         "label": "Type de tarif",
@@ -5770,7 +5810,7 @@
       "depreciation_method": {
         "label": "Méthode d'amortissement",
         "placeholder": "Saisir méthode d'amortissement",
-        "helper": "Méthode comptable utilisée pour répartir la charge d'amortissement sur la période de détention."
+        "helper": "Méthode comptable utilisée pour répartir les charges d'amortissement sur la période de détention."
       },
       "maintenance_cost_per_year": {
         "label": "Coût d'entretien annuel (USD)",
@@ -6768,7 +6808,7 @@
       "marginoferror": {
         "label": "Marge d'erreur (Précision)",
         "placeholder": "Saisir marge d'erreur (précision)",
-        "helper": "Écart acceptable par rapport au vrai paramètre de population ; typique pour les audits de processus."
+        "helper": "Écart acceptable par rapport au paramètre réel de la population ; typique pour les audits de processus."
       },
       "populationsize": {
         "label": "Taille de la population (Taille du lot)",
@@ -6786,7 +6826,7 @@
         "helper": "Variation de processus estimée pour l'échantillonnage par variables (ex. SPC)."
       },
       "effectsize": {
-        "label": "Taille d'effet (Différence minimale détectable)",
+        "label": "Taille d'effet (différence minimale détectable)",
         "placeholder": "Saisir taille d'effet (différence minimale détectable)",
         "helper": "Plus petit changement pratique à détecter dans les tests d'hypothèses (Six Sigma)."
       },
@@ -7038,12 +7078,12 @@
       "compounding_frequency": {
         "label": "Fréquence de composition",
         "placeholder": "Saisir fréquence de composition",
-        "helper": "Nombre de périodes de composition par an, aligné sur les mesures financières WERC pour la logistique et la chaîne d'approvisionnement."
+        "helper": "Nombre de périodes de capitalisation par an, aligné sur les métriques financières WERC pour la logistique et la chaîne d'approvisionnement."
       },
       "time_period_years": {
         "label": "Période d'investissement",
         "placeholder": "Saisir période d'investissement",
-        "helper": "Durée de l'investissement en années, utilisée pour le calcul du rendement annuel en pourcentage (APY) multi-période selon les calendriers de projets Lean Six Sigma."
+        "helper": "Durée de l'investissement en années, utilisée pour le calcul du rendement annuel en pourcentage (APY) sur plusieurs périodes selon les échéanciers des projets Lean Six Sigma."
       },
       "initial_principal": {
         "label": "Capital initial",
@@ -7080,7 +7120,7 @@
       "aql_percent": {
         "label": "AQL (%)",
         "placeholder": "Saisir aql (%)",
-        "helper": "Niveau de qualité acceptable – pourcentage maximal de défectueux considéré comme acceptable en moyenne de processus."
+        "helper": "Niveau de qualité acceptable (AQL) – pourcentage maximal de défauts considéré comme acceptable comme moyenne du processus."
       },
       "inspection_level": {
         "label": "Niveau d'inspection",
@@ -7194,12 +7234,12 @@
       "total_repair_orders": {
         "label": "Nombre total d'ordres de réparation (mensuel)",
         "placeholder": "Saisir nombre total d'ordres de réparation (mensuel)",
-        "helper": "Nombre total d'ordres de réparation terminés dans la période (ISO 9001:2015 clause 8.5.1)."
+        "helper": "Nombre total d'ordres de réparation achevés dans la période (ISO 9001:2015 clause 8.5.1)."
       },
       "comeback_count": {
         "label": "Nombre de retours (mensuel)",
         "placeholder": "Saisir nombre de retours (mensuel)",
-        "helper": "Nombre d'ordres de réparation revenus pour reprise dans la période de garantie ou de service (métrique Six Sigma DPMO)."
+        "helper": "Nombre d'ordres de réparation retournés pour reprise sous garantie ou période de service (métrique Six Sigma DPMO)."
       },
       "avg_labor_rate": {
         "label": "Taux de main-d'œuvre moyen",
@@ -7345,7 +7385,7 @@
       "total_labor_hours_sold": {
         "label": "Heures de main-d'œuvre totales vendues",
         "placeholder": "Saisir heures de main-d'œuvre totales vendues",
-        "helper": "Total des heures de main-d'œuvre facturables vendues au cours de la période (mensuelle ou annuelle)."
+        "helper": "Total des heures de main-d'œuvre facturables vendues dans la période (mensuelle ou annuelle)."
       },
       "parts_markup_percent": {
         "label": "Pourcentage de marge sur pièces",
@@ -7360,7 +7400,7 @@
       "total_parts_cost": {
         "label": "Coût total des pièces (COGS)",
         "placeholder": "Saisir coût total des pièces (cogs)",
-        "helper": "Coût total des pièces vendues au cours de la période."
+        "helper": "Coût total des pièces vendues dans la période."
       },
       "shop_supply_charge_per_ro": {
         "label": "Frais de fournitures d'atelier par ordre de réparation",
@@ -7375,7 +7415,7 @@
       "number_of_repair_orders": {
         "label": "Nombre d'ordres de réparation",
         "placeholder": "Saisir nombre d'ordres de réparation",
-        "helper": "Nombre total d'ordres de réparation terminés au cours de la période."
+        "helper": "Nombre total d'ordres de réparation achevés dans la période."
       },
       "warranty_labor_hours": {
         "label": "Heures de main-d'œuvre sous garantie",
@@ -7447,7 +7487,7 @@
       "safety_factor_target": {
         "label": "Facteur de sécurité cible (SF)",
         "placeholder": "Saisir facteur de sécurité cible (sf)",
-        "helper": "Facteur de sécurité minimal acceptable selon ISO 13822 pour l'intégrité structurelle."
+        "helper": "Facteur de sécurité minimal acceptable selon l'ISO 13822 pour l'intégrité structurelle."
       },
       "support_condition": {
         "label": "Condition d'appui",
@@ -7600,7 +7640,7 @@
       "age": {
         "label": "Âge",
         "placeholder": "Saisir âge",
-        "helper": "L'âge affecte la composition corporelle et le taux métabolique (phase DMAIC Six Sigma : Measure)."
+        "helper": "L'âge affecte la composition corporelle et le taux métabolique (phase DMAIC Six Sigma : Mesurer)."
       },
       "height": {
         "label": "Taille",
@@ -7689,7 +7729,7 @@
       "bottleneck_utilization": {
         "label": "Utilisation du goulot d'étranglement (%)",
         "placeholder": "Saisir utilisation du goulot d'étranglement (%)",
-        "helper": "Taux d'utilisation actuel de la ressource goulot principale, mesuré sur une période représentative (par exemple, les 4 dernières semaines)."
+        "helper": "Taux d'utilisation actuel de la ressource goulot d'étranglement primaire, mesuré sur une période représentative (par exemple, les 4 dernières semaines)."
       },
       "demand_rate": {
         "label": "Taux de demande moyen (unités/heure)",
@@ -7699,7 +7739,7 @@
       "bottleneck_capacity": {
         "label": "Capacité du goulot d'étranglement (unités/heure)",
         "placeholder": "Saisir capacité du goulot d'étranglement (unités/heure)",
-        "helper": "Taux de sortie théorique maximal de la ressource goulot dans des conditions idéales."
+        "helper": "Taux de production théorique maximal de la ressource goulot d'étranglement dans des conditions idéales."
       },
       "investment_cost": {
         "label": "Coût d'investissement proposé ($)",
@@ -8357,7 +8397,7 @@
       "customer_lifetime_years": {
         "label": "Durée de vie client (années)",
         "placeholder": "Saisir durée de vie client (années)",
-        "helper": "Période de rétention moyenne. Pour les modèles d'abonnement, utilisez 1/taux d'attrition."
+        "helper": "Période de rétention moyenne. Pour les modèles d'abonnement, utiliser 1/taux de désabonnement."
       },
       "gross_margin_pct": {
         "label": "Marge brute (%)",
@@ -8696,7 +8736,7 @@
       "actual_throughput": {
         "label": "Débit réel (unités)",
         "placeholder": "Saisir débit réel (unités)",
-        "helper": "Unités totales produites ou livrées au cours de la période de mesure."
+        "helper": "Nombre total d'unités produites ou livrées dans la période de mesure."
       },
       "target_throughput": {
         "label": "Débit cible (unités)",
@@ -8731,12 +8771,12 @@
       "quality_threshold_ppm": {
         "label": "Seuil de qualité (ppm)",
         "placeholder": "Saisir seuil de qualité (ppm)",
-        "helper": "Taux de défaut maximum pour être éligible à une incitation."
+        "helper": "Taux de défauts maximal pour être admissible à une incitation."
       },
       "delivery_threshold_percent": {
         "label": "Seuil de livraison (%)",
         "placeholder": "Saisir seuil de livraison (%)",
-        "helper": "Pourcentage minimum de livraison à temps pour être éligible à l'incitation."
+        "helper": "Pourcentage minimum de livraison à temps pour être éligible à une incitation."
       },
       "cost_reduction_sharing_percent": {
         "label": "Partage de réduction des coûts (%)",
@@ -8758,7 +8798,7 @@
       "cpk": {
         "label": "Indice de capabilité processus (Cpk)",
         "placeholder": "Saisir indice de capabilité processus (cpk)",
-        "helper": "Cpk est une métrique Six Sigma standard indiquant dans quelle mesure un processus respecte les limites de spécification, en tenant compte du centrage. Cibles typiques : 1,33 (minimum acceptable), 1,67 (bon), 2,0 (excellent)."
+        "helper": "Le Cpk est une métrique standard Six Sigma indiquant dans quelle mesure un processus respecte les limites de spécification, en tenant compte du centrage. Cibles typiques : 1,33 (minimum acceptable), 1,67 (bon), 2,0 (excellent)."
       },
       "sigmashift": {
         "label": "Décalage Sigma (dérive à long terme)",
@@ -9075,7 +9115,7 @@
       "seasonal_demand_factor": {
         "label": "Facteur de demande saisonnière",
         "placeholder": "Saisir facteur de demande saisonnière",
-        "helper": "Ajuste pour les périodes de pointe/hors pointe de la demande."
+        "helper": "S'ajuste aux périodes de demande de pointe/hors pointe."
       }
     },
     "demand-forecast-inventory-cost": {
@@ -9300,12 +9340,12 @@
       "total_energy_kwh": {
         "label": "Consommation totale d'énergie (kWh)",
         "placeholder": "Saisir consommation totale d'énergie (kwh)",
-        "helper": "Énergie électrique totale consommée par l'installation au cours de la période de déclaration (par exemple mensuelle)."
+        "helper": "Énergie électrique totale consommée par l'installation au cours de la période de déclaration (par exemple, mensuelle)."
       },
       "peak_demand_kw": {
         "label": "Demande de pointe (kW)",
         "placeholder": "Saisir demande de pointe (kw)",
-        "helper": "Demande de puissance la plus élevée enregistrée pendant la période; utilisée pour le calcul des frais de demande."
+        "helper": "Demande de puissance la plus élevée enregistrée au cours de la période ; utilisée pour le calcul des frais de demande."
       },
       "tariff_rate_per_kwh": {
         "label": "Tarif de l'énergie ($/kWh)",
@@ -9320,7 +9360,7 @@
       "production_units": {
         "label": "Unités de production totales",
         "placeholder": "Saisir unités de production totales",
-        "helper": "Nombre d'unités produites au cours de la période (par exemple pièces, kg, litres)."
+        "helper": "Nombre d'unités produites au cours de la période (par exemple, pièces, kg, litres)."
       },
       "facility_type": {
         "label": "Type d'installation",
@@ -9352,7 +9392,7 @@
       "waste_volume_kg": {
         "label": "Volume de déchets (kg)",
         "placeholder": "Saisir volume de déchets (kg)",
-        "helper": "Masse totale de déchets générés au cours de la période de déclaration."
+        "helper": "Masse totale des déchets générés au cours de la période de déclaration."
       },
       "disposal_cost_per_kg": {
         "label": "Coût d'élimination par kg",
@@ -9883,7 +9923,7 @@
       "total_production_kg": {
         "label": "Production totale (kg)",
         "placeholder": "Saisir production totale (kg)",
-        "helper": "Poids total des produits finis fabriqués au cours de la période de déclaration (flux de matières ISO 14051)."
+        "helper": "Poids total des produits finis produits au cours de la période de déclaration (flux de matières ISO 14051)."
       },
       "waste_kg": {
         "label": "Déchets (kg)",
@@ -10354,8 +10394,8 @@
     },
     "inflation-escalation-calculator": {
       "base_cost": {
-        "label": "Coût de base (période en cours)",
-        "placeholder": "Saisir coût de base (période en cours)",
+        "label": "Coût de base (période actuelle)",
+        "placeholder": "Saisir coût de base (période actuelle)",
         "helper": "Coût total des biens ou services au début de la période d'analyse."
       },
       "inflation_rate": {
@@ -10440,7 +10480,7 @@
       "avg_inventory_value": {
         "label": "Valeur moyenne des stocks (USD)",
         "placeholder": "Saisir valeur moyenne des stocks (usd)",
-        "helper": "Valeur moyenne totale des stocks sur la période (par exemple, moyenne mensuelle des stocks basés sur le COGS)."
+        "helper": "Valeur totale moyenne des stocks sur la période (par exemple, moyenne mensuelle des stocks basés sur le COGS)."
       },
       "cogs_annual": {
         "label": "Coût annuel des marchandises vendues (USD)",
@@ -11195,7 +11235,7 @@
       "unitsproduced": {
         "label": "Unités produites",
         "placeholder": "Saisir unités produites",
-        "helper": "Nombre total d'unités produites au cours de la période (métrique de débit WERC)."
+        "helper": "Nombre total d'unités produites sur la période (métrique de débit WERC)."
       },
       "inventoryholdingcost": {
         "label": "Taux de coût de détention des stocks",
@@ -11391,7 +11431,7 @@
       "moq": {
         "label": "Quantité minimale de commande (unités)",
         "placeholder": "Saisir quantité minimale de commande (unités)",
-        "helper": "Taille de lot minimale imposée par le fournisseur. Si EOQ < MOQ, la quantité commandée doit être ajustée à la hausse, augmentant le coût de détention."
+        "helper": "Taille de lot minimale imposée par le fournisseur. Si EOQ < MOQ, la quantité commandée doit être ajustée à la hausse, augmentant le coût de possession."
       },
       "lead_time_days": {
         "label": "Délai de livraison (jours)",
@@ -11416,7 +11456,7 @@
       "storage_capacity": {
         "label": "Capacité de stockage (unités)",
         "placeholder": "Saisir capacité de stockage (unités)",
-        "helper": "Stock maximum que l'entrepôt peut physiquement contenir. Contrainte pour une quantité de commande réalisable."
+        "helper": "Stock maximum que l'entrepôt peut physiquement contenir. Contrainte pour la quantité de commande réalisable."
       },
       "backorder_cost_per_unit": {
         "label": "Coût de rupture par unité ($)",
@@ -11649,7 +11689,7 @@
       "production_volume": {
         "label": "Volume de production",
         "placeholder": "Saisir volume de production",
-        "helper": "Nombre total d'unités produites au cours de la période d'analyse."
+        "helper": "Nombre total d'unités produites sur la période d'analyse."
       },
       "shift_hours_per_day": {
         "label": "Heures de poste par jour",
@@ -12486,7 +12526,7 @@
       "complexity_type": {
         "label": "Type de complexité",
         "placeholder": "Saisir type de complexité",
-        "helper": "Catégorie de complexité : 'product' (nombre élevé de SKU), 'process' (temps de configuration élevé), 'mixed' (les deux)."
+        "helper": "Catégorie de complexité : 'produit' (nombre élevé de SKU), 'processus' (temps de réglage élevé), 'mixte' (les deux)."
       },
       "use_lean_metrics": {
         "label": "Utiliser des métriques Lean (SMED, OEE)",
@@ -12555,7 +12595,7 @@
       "actualcost": {
         "label": "Coût réel engagé (USD)",
         "placeholder": "Saisir coût réel engagé (usd)",
-        "helper": "Coûts totaux réellement engagés jusqu'à la période de reporting actuelle."
+        "helper": "Coûts totaux réellement encourus jusqu'à la période de rapport actuelle."
       },
       "percentcomplete": {
         "label": "Pourcentage d'achèvement (%)",
@@ -12969,9 +13009,9 @@
         "helper": "Pourcentage de revenus perdus en raison des repas du personnel, des promotions, des offres et des remises."
       },
       "covers_per_period": {
-        "label": "Couverts par période (mensuel)",
-        "placeholder": "Saisir couverts par période (mensuel)",
-        "helper": "Nombre total de convives servis pendant la période de mesure (mois)."
+        "label": "Couvertures par période (mensuel)",
+        "placeholder": "Saisir couvertures par période (mensuel)",
+        "helper": "Nombre total de clients servis sur la période de mesure (mois)."
       },
       "menu_engineering_score": {
         "label": "Score d'ingénierie de menu (1-10)",
@@ -13186,7 +13226,7 @@
       "total_licenses": {
         "label": "Nombre total de licences achetées",
         "placeholder": "Saisir nombre total de licences achetées",
-        "helper": "Nombre total de licences SaaS payées au cours de la période en cours."
+        "helper": "Nombre total de licences SaaS payées pour la période en cours."
       },
       "active_users": {
         "label": "Utilisateurs actifs (mensuel)",
@@ -13391,7 +13431,7 @@
       "total_units_produced": {
         "label": "Unités totales produites",
         "placeholder": "Saisir unités totales produites",
-        "helper": "Nombre total d'unités produites au cours de la période de déclaration (par exemple, quart de travail, jour, semaine)."
+        "helper": "Nombre total d'unités produites sur la période de rapport (par exemple, équipe, jour, semaine)."
       },
       "defective_units": {
         "label": "Unités défectueuses",
@@ -13735,7 +13775,7 @@
       "standardization_level": {
         "label": "Niveau de standardisation",
         "placeholder": "Saisir niveau de standardisation",
-        "helper": "Degré des instructions de travail standardisées, de l'outillage et de la conception des matrices. Élevé = ajustements minimaux."
+        "helper": "Degré d'instructions de travail standardisées, d'outillage et de conception de matrice. Élevé = ajustements minimaux."
       },
       "waste_motion_score": {
         "label": "Score de mouvement de gaspillage (1-10)",
@@ -14163,12 +14203,12 @@
       "lower_spec_limit": {
         "label": "Limite de spécification inférieure (LSL)",
         "placeholder": "Saisir limite de spécification inférieure (lsl)",
-        "helper": "Valeur minimale acceptable selon l'ingénierie ou l'exigence client."
+        "helper": "Valeur minimale acceptable selon l'exigence technique ou client."
       },
       "upper_spec_limit": {
         "label": "Limite de spécification supérieure (USL)",
         "placeholder": "Saisir limite de spécification supérieure (usl)",
-        "helper": "Valeur maximale acceptable selon l'ingénierie ou l'exigence client."
+        "helper": "Valeur maximale acceptable selon l'exigence technique ou client."
       },
       "process_mean": {
         "label": "Moyenne du processus (μ)",
@@ -14646,7 +14686,7 @@
       "volume_units": {
         "label": "Volume de transactions (unités)",
         "placeholder": "Saisir volume de transactions (unités)",
-        "helper": "Nombre total d'unités transférées entre les entités au cours de la période."
+        "helper": "Nombre total d'unités transférées entre entités au cours de la période."
       },
       "tax_rate_producer": {
         "label": "Taux d'imposition de l'entité productrice (%)",
@@ -14775,7 +14815,7 @@
       "lost_productivity_months": {
         "label": "Durée de perte de productivité",
         "placeholder": "Saisir durée de perte de productivité",
-        "helper": "Mois moyens de production réduite par nouvelle embauche (période de montée en puissance)."
+        "helper": "Moyenne de mois de production réduite par nouvelle embauche (période de montée en puissance)."
       },
       "productivity_factor": {
         "label": "Facteur de productivité pendant la montée en puissance",
@@ -15134,7 +15174,7 @@
       "productionoutput": {
         "label": "Production (unités)",
         "placeholder": "Saisir production (unités)",
-        "helper": "Nombre total d'unités produites au cours de la période de référence."
+        "helper": "Nombre total d'unités produites au cours de la période de reporting."
       },
       "processwater": {
         "label": "Eau de procédé utilisée (m³)",
@@ -15576,7 +15616,8 @@
     "twitterLabel": "X",
     "twitterAria": "SectorCalc sur X",
     "llmIndexLabel": "Index LLM",
-    "sitemapLabel": "Plan du site"
+    "sitemapLabel": "Plan du site",
+    "legalRefund": "Politique de remboursement"
   },
   "calculatorLibrary": {
     "metaTitle": "Bibliothèque de calculateurs — SectorCalc",
@@ -15591,7 +15632,8 @@
     "servicesLabel": "services-products.txt",
     "freeToolsLabel": "Calculateurs gratuits",
     "premiumToolsLabel": "Calculateurs premium",
-    "industriesLabel": "Hubs sectoriels"
+    "industriesLabel": "Hubs sectoriels",
+    "generatedToolsLabel": "Calculateurs générés"
   },
   "guidance": {
     "inputGuide": {
@@ -15663,11 +15705,11 @@
   },
   "disclaimer": {
     "standard": {
-      "title": "Usage agreement",
+      "title": "Accord d'utilisation",
       "body": "This calculation provides a preliminary assessment based on your inputs and DéDuréeiniste methodology. Results do not replace quotes, investment, Moteurering, tax, legal, or safety Décisions. For Critique Décisions, verify with your own data, qualified exparts, and applicable regulations."
     },
     "elevated": {
-      "title": "Important usage notice",
+      "title": "Avis d'utilisation important",
       "body": "This tool models commercial or compliance-sensitive exposure. Sorties are indicative only and must be validated against your contracts, payroll records, and local rules before Action."
     },
     "engineering": {
@@ -15677,7 +15719,7 @@
   },
   "standards": {
     "selectorTitle": "Moteurering standard context",
-    "selectorLabel": "Reference standard system",
+    "selectorLabel": "Système de normes de référence",
     "selectorNote": "Default follows Région; you may switch reference systems for comparison.",
     "engineeringWarning": "This tool provides standard-referenced pre-calculation only. Final design, safety, and conformity Décisions require authorized Moteurering review.",
     "systems": {
@@ -15697,13 +15739,13 @@
     }
   },
   "calculationFeedback": {
-    "prompt": "See an error in this result?",
+    "prompt": "Vous voyez une erreur dans ce résultat ?",
     "cta": "Envoyer a suggestion or correction",
-    "modalTitle": "Calculation feedback",
+    "modalTitle": "Retour sur le calcul",
     "close": "Fermer",
-    "issueTypeLabel": "Issue type",
+    "issueTypeLabel": "Type de problème",
     "messageLabel": "Description",
-    "emailLabel": "Email (optional)",
+    "emailLabel": "Email (facultatif)",
     "submit": "Envoyer le feedback",
     "submitting": "Envoi…",
     "success": "Thank you — your note was queued for review.",
@@ -15712,39 +15754,46 @@
       "formula-suggestion": "Formula suggestion",
       "unit-error": "Unit error",
       "translation-error": "Translation error",
-      "other": "Other"
+      "other": "Other",
+      "wrong_result": "Résultat erroné",
+      "missing_input": "Donnée manquante",
+      "unit_issue": "Problème d'unité",
+      "unclear_explanation": "Explication peu claire",
+      "sector_assumption_issue": "Hypothèse sectorielle problématique",
+      "improvement_request": "Demande d'amélioration"
     },
     "error": {
-      "submitFailed": "Could not send feedback. Try again shortly."
+      "submitFailed": "Could not send feedback. Try again shortly.",
+      "messageTooShort": "Veuillez ajouter au moins 10 caractères."
     }
   },
   "resultLayers": {
-    "quickTab": "Quick result",
-    "deepTab": "Detailed trace",
-    "deepTitle": "Detailed explanation"
+    "quickTab": "Résultat rapide",
+    "deepTab": "Trace détaillée",
+    "deepTitle": "Explication détaillée"
   },
   "developerShowcase": {
     "meta": {
       "title": "Developar showcase | SectorCalc",
-      "description": "Semantic reference for AI-readable SectorCalc calculator discovery."
+      "description": "Référence sémantique pour la découverte de calculateurs SectorCalc lisibles par IA."
     },
-    "eyebrow": "Semantic reference",
+    "eyebrow": "Référence sémantique",
     "title": "SectorCalc developar showcase",
     "intro": "This page explains how SectorCalc Outils expose structured inputs, Sorties, and JSON-LD for AI agents. It is a public reference — not a private API endpoint.",
     "semantic": {
-      "title": "JSON-LD structure",
+      "title": "Structure JSON-LD",
       "body": "Calculator routes expose schema.org Actions and software application metadata.",
-      "item1": "WebSite + Organization on core pages",
+      "item1": "WebSite + Organization sur les pages principales",
       "item2": "CalculerAction on calculator detail routes",
       "item3": "Les outils premium de décision incluent des métadonnées de rapport lorsque pertinent"
     },
     "resources": {
       "title": "Public ResSources",
-      "library": "Calculator library",
-      "note": "No secrets, admin routes, or entitlement bypass are exposed here."
+      "library": "Bibliothèque de calculateurs",
+      "note": "Aucun secret, route admin ou contournement de droits n'est exposé ici."
     },
     "index": {
-      "title": "SectorCalc Semantic Tool Index",
+      "title": "Index sémantique des outils SectorCalc",
       "body": "Public calculator contracts, input/Sortie parameters, and CalculerAction semantics are listed here Automatically.",
       "count": "{count} public Outils"
     }
@@ -15789,6 +15838,1506 @@
     "plumbing-job-margin-verdict": {
       "title": "Verdict marge plomberie",
       "description": "Outil premium. Resultats complets et synthese de decision : credits ou Pro actif requis."
+    },
+    "3d-print-job-margin-tool": {
+      "title": "Analyseur de pertes de fret et d'itinéraire",
+      "description": "Analyseur de pertes de fret et d'itinéraire"
+    },
+    "auto-shop-margin-leak-detector": {
+      "title": "Calculateur de coût de projet / béton",
+      "description": "Calculateur de coût de projet / béton"
+    },
+    "crop-yield-loss-analyzer": {
+      "title": "Analyseur de pertes de fret et d'itinéraire",
+      "description": "Analyseur de pertes de fret et d'itinéraire"
+    },
+    "dairy-profit-detector": {
+      "title": "Analyseur de pertes de fret et d'itinéraire",
+      "description": "Analyseur de pertes de fret et d'itinéraire"
+    },
+    "doviz-pozisyonu-kur-farki-riski-hesabi": {
+      "title": "Convertisseur Ampère — Kilowatt (KW)",
+      "description": "Convertisseur Ampère — Kilowatt (KW)"
+    },
+    "feed-efficiency-analyzer": {
+      "title": "Analyseur de pertes de fret et d'itinéraire",
+      "description": "Analyseur de pertes de route et fret"
+    },
+    "heat-loss-calculator": {
+      "title": "Calculateur d'âge",
+      "description": "Calculateur d'âge"
+    },
+    "material-waste-calculator": {
+      "title": "Calculateur d'âge",
+      "description": "Calculateur d'âge"
+    },
+    "meal-planning-verdict": {
+      "title": "Analyseur de pertes de route et fret",
+      "description": "Analyseur de pertes de route et fret"
+    },
+    "millwork-bid-risk-analyzer": {
+      "title": "Calculateur de coût béton/projet",
+      "description": "Calculateur de coût béton/projet"
+    },
+    "painting-job-profit-verdict": {
+      "title": "Calculateur de coût béton/projet",
+      "description": "Calculateur de coût béton/projet"
+    },
+    "panel-shop-margin-verdict": {
+      "title": "Calculateur de coût béton/projet",
+      "description": "Calculateur de coût béton/projet"
+    },
+    "profit-margin-calculator": {
+      "title": "Calculateur de remboursement de prêt",
+      "description": "Calculateur de remboursement de prêt"
+    },
+    "return-profit-erosion-tool": {
+      "title": "Calculateur de coût béton/projet",
+      "description": "Calculateur de coût béton/projet"
+    },
+    "roofing-contract-margin-guard": {
+      "title": "Calculateur de coût béton/projet",
+      "description": "Calculateur de coût béton/projet"
+    },
+    "route-optimization-analyzer": {
+      "title": "Analyseur de pertes de route et fret",
+      "description": "Analyseur de pertes de route et fret"
+    },
+    "scrap-rate-calculator": {
+      "title": "Calculateur d'âge",
+      "description": "Calculateur d'âge"
+    },
+    "water-optimization-verdict": {
+      "title": "Analyseur de pertes de route et fret",
+      "description": "Analyseur de pertes de route et fret"
     }
+  },
+  "credits": {
+    "eyebrow": "Credits",
+    "title": "Crédits SectorCalc",
+    "subtitle": "Achetez des crédits pour l'assistance IA premium et l'utilisation des analyseurs.",
+    "balanceLabel": "Credits",
+    "loading": "Chargement…",
+    "packageLabel": "{credits} crédits — ${price}",
+    "packageCredits": "{credits} crédits",
+    "perCreditPrice": "${price} / crédit",
+    "checkoutError": "Impossible de lancer le paiement. Veuillez réessayer.",
+    "buyIntro": "Choisissez un pack de crédits. Le paiement est traité de manière sécurisée via Stripe.",
+    "disclaimer": "Les crédits sont non remboursables. Simulation technique uniquement — pas un conseil financier ou technique.",
+    "loginTitle": "Connectez-vous pour acheter des crédits",
+    "loginBody": "Les crédits sont liés à votre compte SectorCalc après paiement.",
+    "loginCta": "Se connecter avec Google",
+    "successTitle": "Paiement reçu",
+    "successBody": "Les crédits peuvent prendre quelques secondes à apparaître. Rafraîchissez si votre solde ne se met pas à jour.",
+    "canceledTitle": "Paiement annulé",
+    "canceledBody": "Aucun débit n'a été effectué. Vous pouvez réessayer à tout moment.",
+    "backToAccount": "Retour au compte"
+  },
+  "runtimeReadiness": {
+    "eyebrow": "Revue qualité",
+    "title": "Calcul temporairement indisponible",
+    "body": "Ce calculateur est en cours de revue qualité. Le calcul complet est temporairement désactivé pour éviter des résultats non fiables.",
+    "browsePremiumCta": "Parcourir d'autres outils premium"
+  },
+  "runtimeTrust": {
+    "eyebrow": "Revue qualité",
+    "title": "Calculateur en cours de revue qualité",
+    "body": "Un contrôle qualité d'exécution a détecté une condition pouvant affecter la fiabilité des résultats. Le calcul complet et le paiement sont temporairement désactivés pour éviter des résultats non fiables ou un paiement incorrect.",
+    "browsePremiumCta": "Parcourir d'autres outils premium"
+  },
+  "inputGuide": {
+    "shape": {
+      "title": "Guide de saisie",
+      "description": "Ce guide fait correspondre les champs de mesure à leur contrepartie physique sur l'objet."
+    },
+    "costBreakdown": {
+      "description": "Ce guide visualise la correspondance entre les inducteurs de coûts, le prix de devis et l'impact sur la marge de sécurité."
+    },
+    "processFlow": {
+      "description": "Ce guide montre comment les entrées opérationnelles se convertissent en pertes de processus et en impact monétaire."
+    },
+    "quoteRisk": {
+      "description": "Ce guide relie le temps machine, les inducteurs OEE et les entrées de devis au risque de prix minimum de sécurité."
+    },
+    "tools": {
+      "cncQuoteRisk": {
+        "title": "Correspondance devis CNC et entrées OEE"
+      },
+      "changeOrder": {
+        "title": "Empilement des coûts d'ordre de modification"
+      },
+      "officeCleaning": {
+        "title": "Inducteurs de coûts d'offre de nettoyage"
+      },
+      "routeOptimization": {
+        "title": "Flux de pertes d'itinéraire et de fret"
+      },
+      "compressorLeak": {
+        "title": "Flux énergétique de fuite de compresseur"
+      }
+    },
+    "s2Activation": {
+      "tools": {
+        "3dPrintJobMarginTool": {
+          "title": "Correspondance des entrées de l'outil de marge sur travaux d'impression 3D"
+        },
+        "7IsrafMudaAvcisiParasalKarsilikCalculator": {
+          "title": "Correspondance des entrées du calculateur 7 Israf Muda Avcisi Parasal Karsilik"
+        },
+        "agricultureIrrigationYieldLoss": {
+          "title": "Correspondance des entrées de perte de rendement d'irrigation agricole"
+        },
+        "beltPulleySpeedLengthCalculator": {
+          "title": "Correspondance des entrées du calculateur de vitesse et longueur de poulie à courroie"
+        },
+        "calibrationDriftRisk": {
+          "title": "Correspondance des entrées du risque de dérive d'étalonnage"
+        },
+        "cloudApiCostOverrun": {
+          "title": "Correspondance des entrées de dépassement de coût d'API cloud"
+        },
+        "cncOeeLoss": {
+          "title": "Correspondance des entrées de perte OEE CNC"
+        },
+        "cncToolWearCost": {
+          "title": "Carte de saisie Coût d'usure outil CNC"
+        },
+        "compressorLeakCostCalculator": {
+          "title": "Carte de saisie Calculateur coût fuite compresseur"
+        },
+        "constructionProjectOverrun": {
+          "title": "Carte de saisie Dépassement projet construction"
+        },
+        "constructionSubcontractorMarginLeak": {
+          "title": "Carte de saisie Fuite marge sous-traitant construction"
+        },
+        "dairyFeedEfficiencyLoss": {
+          "title": "Carte de saisie Perte efficacité alimentation laitière"
+        },
+        "downtimeMinuteCostCalculator": {
+          "title": "Carte de saisie Calculateur coût minute d'arrêt"
+        },
+        "employeeTotalCostCalculator": {
+          "title": "Carte de saisie Calculateur coût total employé"
+        },
+        "feedEfficiencyAnalyzer": {
+          "title": "Carte de saisie Analyseur efficacité alimentation"
+        },
+        "foodWasteMarginLoss": {
+          "title": "Carte de saisie Perte marge gaspillage alimentaire"
+        },
+        "inventoryCarryingCostEoqCalculator": {
+          "title": "Carte de saisie Calculateur coût possession stock EOQ"
+        },
+        "investmentPaybackNpvCalculator": {
+          "title": "Carte de saisie Calculateur retour investissement VAN"
+        },
+        "oeeEquipmentEffectivenessCalculator": {
+          "title": "Carte de saisie Calculateur efficacité équipement OEE"
+        },
+        "paintingReworkCoverageRisk": {
+          "title": "Carte de saisie Risque reprise peinture"
+        },
+        "plumbingLeakCallbackCost": {
+          "title": "Carte de saisie Coût rappel fuite plomberie"
+        },
+        "printingReprintMarginLeak": {
+          "title": "Carte de saisie Fuite marge réimpression"
+        },
+        "productCustomerProfitabilityCalculator": {
+          "title": "Carte de saisie Calculateur rentabilité produit client"
+        },
+        "qualityCostPafCalculator": {
+          "title": "Carte de saisie Calculateur coût qualité PAF"
+        },
+        "restaurantMenuMarginLeak": {
+          "title": "Carte de saisie Fuite marge menu restaurant"
+        },
+        "retailInventoryTurnoverRisk": {
+          "title": "Carte de saisie Risque rotation stock retail"
+        },
+        "roofingWeatherDelayRisk": {
+          "title": "Carte de saisie Risque retard météo toiture"
+        },
+        "sheetMetalScrapRisk": {
+          "title": "Carte de saisie Risque rebut tôle"
+        },
+        "shopRateHourlyCostCalculator": {
+          "title": "Carte de saisie Calculateur coût horaire atelier"
+        },
+        "textileFabricWasteRisk": {
+          "title": "Carte de saisie Risque déchet textile"
+        },
+        "toleranceStackUpCalculator": {
+          "title": "Carte de saisie Calculateur cumul tolérances"
+        }
+      }
+    },
+    "s3Activation": {
+      "tools": {
+        "warehouseSpaceCostLeak": {
+          "title": "Carte de saisie Fuite coût espace entrepôt"
+        },
+        "autoShopMarginLeakDetector": {
+          "title": "Carte de saisie Détecteur fuite marge garage"
+        },
+        "cropYieldLossAnalyzer": {
+          "title": "Carte de saisie Analyseur perte rendement culture"
+        },
+        "dairyProfitDetector": {
+          "title": "Carte de saisie Détecteur profit laitier"
+        },
+        "landscapingContractProfitTool": {
+          "title": "Carte de saisie Outil profit contrat paysagiste"
+        },
+        "mealPlanningVerdict": {
+          "title": "Carte de saisie Verdict planification repas"
+        },
+        "menuProfitLeakDetector": {
+          "title": "Carte de saisie Détecteur fuite profit menu"
+        },
+        "millworkBidRiskAnalyzer": {
+          "title": "Carte de saisie Analyseur risque soumission menuiserie"
+        },
+        "paintingJobProfitVerdict": {
+          "title": "Carte de saisie Verdict profit chantier peinture"
+        },
+        "panelShopMarginVerdict": {
+          "title": "Carte de saisie Verdict marge atelier panneaux"
+        },
+        "plumbingJobMarginVerdict": {
+          "title": "Carte de saisie Verdict marge chantier plomberie"
+        },
+        "roofingContractMarginGuard": {
+          "title": "Carte de saisie Gardien marge contrat toiture"
+        },
+        "weldingBidRiskAnalyzer": {
+          "title": "Carte de saisie Analyseur risque soumission soudure"
+        }
+      }
+    },
+    "s5GuideOracle": {
+      "tools": {
+        "ageCalculator": {
+          "title": "Guide de saisie Calculateur d'âge",
+          "summary": "Guide de saisie pour Calculateur d'âge."
+        },
+        "agirlikliOrtalamaHesaplama": {
+          "title": "Guide de saisie Calcul moyenne pondérée",
+          "summary": "Guide de saisie pour Calcul moyenne pondérée."
+        },
+        "akaryakitFiyatiIleYolButcesi": {
+          "title": "Guide de saisie Budget route avec prix carburant",
+          "summary": "Guide de saisie pour Budget route avec prix carburant."
+        },
+        "amperKilowattKwCevirici": {
+          "title": "Guide de saisie Convertisseur Ampère Kilowatt kW",
+          "summary": "Guide de saisie pour Convertisseur Ampère Kilowatt kW."
+        },
+        "aracAmortismanHesaplama": {
+          "title": "Guide de saisie pour Calcul d'amortissement de véhicule",
+          "summary": "Guide de saisie pour Calcul d'amortissement de véhicule."
+        },
+        "aracBakimPeriyoduTakipHesaplama": {
+          "title": "Guide de saisie pour Suivi de période d'entretien de véhicule",
+          "summary": "Guide de saisie pour Suivi de période d'entretien de véhicule."
+        },
+        "areaConverter": {
+          "title": "Guide de saisie pour Convertisseur de surface",
+          "summary": "Guide de saisie pour Convertisseur de surface."
+        },
+        "asmaTavanMalzemeHesabi": {
+          "title": "Guide de saisie pour Calcul de matériau de faux plafond",
+          "summary": "Guide de saisie pour Calcul de matériau de faux plafond."
+        },
+        "averageCalculator": {
+          "title": "Guide de saisie pour Calculatrice de moyenne",
+          "summary": "Guide de saisie pour Calculatrice de moyenne."
+        },
+        "aydinlatmaArmaturSayisiHesaplama": {
+          "title": "Guide de saisie pour Calcul du nombre de luminaires",
+          "summary": "Guide de saisie pour Calcul du nombre de luminaires."
+        },
+        "bacaHavalandirmaKanaliCapHesabi": {
+          "title": "Guide de saisie pour Calcul du diamètre de conduit de cheminée/ventilation",
+          "summary": "Guide de saisie pour Calcul du diamètre de conduit de cheminée/ventilation."
+        },
+        "barPsiPascalCevirici": {
+          "title": "Guide de saisie pour Convertisseur Bar Psi Pascal",
+          "summary": "Guide de saisie pour Convertisseur Bar Psi Pascal."
+        },
+        "batchYieldCalculator": {
+          "title": "Guide de saisie pour Calculatrice de rendement de lot",
+          "summary": "Guide de saisie pour Calculatrice de rendement de lot."
+        },
+        "beygirGucuKilowattCevirici": {
+          "title": "Guide de saisie pour Convertisseur Cheval-vapeur Kilowatt",
+          "summary": "Guide de saisie pour Convertisseur Cheval-vapeur Kilowatt."
+        },
+        "boruAgirlikHesaplamaCelikPaslanmaz": {
+          "title": "Guide de saisie pour Calcul du poids du tube acier/inox",
+          "summary": "Guide de saisie pour Calcul du poids du tube acier/inox."
+        },
+        "boruCapiAkisHiziHesaplama": {
+          "title": "Guide de saisie pour Calcul du diamètre de tube et débit",
+          "summary": "Guide de saisie pour Calcul du diamètre de tube et débit."
+        },
+        "boyaKaplamaSarfiyatiMBasinaHesabi": {
+          "title": "Guide de saisie pour Calcul de consommation de peinture/revêtement par m²",
+          "summary": "Guide de saisie pour Calcul de consommation de peinture/revêtement par m²."
+        },
+        "brickCalculator": {
+          "title": "Guide de saisie pour Calculatrice de briques",
+          "summary": "Guide de saisie pour Calculatrice de briques."
+        },
+        "cabinetCostEstimator": {
+          "title": "Guide de saisie pour Estimateur de coût d'armoire",
+          "summary": "Guide de saisie pour Estimateur de coût d'armoire."
+        },
+        "cayKahveSuTuketimMaliyeti": {
+          "title": "Guide de saisie pour Coût de consommation thé/café/eau",
+          "summary": "Guide de saisie pour Coût de consommation thé/café/eau."
+        },
+        "celikCatiMakasYaklasikAgirligi": {
+          "title": "Guide de saisie pour Poids approximatif de ferme de toit en acier",
+          "summary": "Guide de saisie pour Poids approximatif de ferme de toit en acier."
+        },
+        "citKorkulukMalzemeHesabi": {
+          "title": "Guide de saisie pour Calcul de matériau de clôture/garde-corps",
+          "summary": "Guide de saisie pour Calcul de matériau de clôture/garde-corps."
+        },
+        "cleaningCostCalculator": {
+          "title": "Guide de saisie pour Calculatrice de coût de nettoyage",
+          "summary": "Guide de saisie pour Calculatrice de coût de nettoyage."
+        },
+        "cleaningCostEstimator": {
+          "title": "Guide de saisie pour Estimateur de coût de nettoyage",
+          "summary": "Guide de saisie pour Estimateur de coût de nettoyage."
+        },
+        "cncMinimumSafeQuoteAnalyzer": {
+          "title": "Guide de saisie pour Analyseur de devis minimum sûr CNC",
+          "summary": "Guide de saisie pour Analyseur de devis minimum sûr CNC."
+        },
+        "concreteVolumeCalculator": {
+          "title": "Guide de saisie pour Calculatrice de volume de béton",
+          "summary": "Guide de saisie pour Calculatrice de volume de béton."
+        },
+        "copAtikKonteynerHacimHesabi": {
+          "title": "Guide de saisie pour Calcul du volume de conteneur à déchets",
+          "summary": "Guide de saisie pour Cop Atik Konteyner Hacim Hesabi."
+        },
+        "cuttingSpeedCalculator": {
+          "title": "Guide de saisie du calculateur de vitesse de coupe",
+          "summary": "Guide de saisie pour le calculateur de vitesse de coupe."
+        },
+        "daireAlaniCevresiHesaplama": {
+          "title": "Guide de saisie pour Daire Alani Cevresi Hesaplama",
+          "summary": "Guide de saisie pour Daire Alani Cevresi Hesaplama."
+        },
+        "dateDifferenceCalculator": {
+          "title": "Guide de saisie du calculateur de différence de dates",
+          "summary": "Guide de saisie pour le calculateur de différence de dates."
+        },
+        "deliveryCostCalculator": {
+          "title": "Guide de saisie du calculateur de coût de livraison",
+          "summary": "Guide de saisie pour le calculateur de coût de livraison."
+        },
+        "depreciationCalculator": {
+          "title": "Guide de saisie du calculateur d'amortissement",
+          "summary": "Guide de saisie pour le calculateur d'amortissement."
+        },
+        "desiCalculator": {
+          "title": "Guide de saisie du calculateur Desi",
+          "summary": "Guide de saisie pour le calculateur Desi."
+        },
+        "discountCalculator": {
+          "title": "Guide de saisie du calculateur de remise",
+          "summary": "Guide de saisie pour le calculateur de remise."
+        },
+        "disliModulCapHesaplama": {
+          "title": "Guide de saisie pour Disli Modul Cap Hesaplama",
+          "summary": "Guide de saisie pour Disli Modul Cap Hesaplama."
+        },
+        "dizelBenzinMaliyetKarsilastirma": {
+          "title": "Guide de saisie pour Dizel Benzin Maliyet Karsilastirma",
+          "summary": "Guide de saisie pour Dizel Benzin Maliyet Karsilastirma."
+        },
+        "dogalgazTuketimiHesaplama": {
+          "title": "Guide de saisie pour Dogalgaz Tuketimi Hesaplama",
+          "summary": "Guide de saisie pour Dogalgaz Tuketimi Hesaplama."
+        },
+        "drywallCalculator": {
+          "title": "Guide de saisie du calculateur de cloisons sèches",
+          "summary": "Guide de saisie pour le calculateur de cloisons sèches."
+        },
+        "duvarKagidiSeramikAdetHesaplama": {
+          "title": "Guide de saisie pour Duvar Kagidi Seramik Adet Hesaplama",
+          "summary": "Guide de saisie pour Duvar Kagidi Seramik Adet Hesaplama."
+        },
+        "excavationVolumeCalculator": {
+          "title": "Guide de saisie du calculateur de volume d'excavation",
+          "summary": "Guide de saisie pour le calculateur de volume d'excavation."
+        },
+        "feedRateCalculator": {
+          "title": "Guide de saisie du calculateur d'avance",
+          "summary": "Guide de saisie pour le calculateur d'avance."
+        },
+        "flooringCalculator": {
+          "title": "Guide de saisie du calculateur de revêtement de sol",
+          "summary": "Guide de saisie pour le calculateur de revêtement de sol."
+        },
+        "fotokopiYaziciTonerSayfaMaliyeti": {
+          "title": "Guide de saisie pour Fotokopi Yazici Toner Sayfa Maliyeti",
+          "summary": "Guide de saisie pour Fotokopi Yazici Toner Sayfa Maliyeti."
+        },
+        "fuelConsumptionCalculator": {
+          "title": "Guide de saisie du calculateur de consommation de carburant",
+          "summary": "Guide de saisie pour le calculateur de consommation de carburant."
+        },
+        "fuelConsumptionCheck": {
+          "title": "Guide de saisie du contrôle de consommation de carburant",
+          "summary": "Guide de saisie pour le contrôle de consommation de carburant."
+        },
+        "fuelCostCalculator": {
+          "title": "Guide de saisie du calculateur de coût de carburant",
+          "summary": "Guide de saisie pour le calculateur de coût de carburant."
+        },
+        "fuelTravelCalculator": {
+          "title": "Guide de saisie du calculateur de voyage en carburant",
+          "summary": "Guide de saisie pour le calculateur de voyage en carburant."
+        },
+        "homeBudgetCalculator": {
+          "title": "Guide de saisie du calculateur de budget domestique",
+          "summary": "Guide de saisie pour le calculateur de budget domestique."
+        },
+        "homeRenovationM2": {
+          "title": "Guide de saisie pour Home Renovation M2",
+          "summary": "Guide de saisie pour Home Renovation M2."
+        },
+        "internetTelefonPaketiKarsilastirma": {
+          "title": "Guide de saisie Comparateur de forfaits Internet et Téléphone",
+          "summary": "Guide de saisie pour le Comparateur de forfaits Internet et Téléphone."
+        },
+        "isElbisesiKkdKisiselKoruyucuDonanimSarfiyati": {
+          "title": "Guide de saisie Consommation de vêtements de travail EPI",
+          "summary": "Guide de saisie pour la Consommation de vêtements de travail EPI."
+        },
+        "isiDegistiriciEsanjorKapasiteHesabi": {
+          "title": "Guide de saisie Calcul de capacité d'échangeur de chaleur",
+          "summary": "Guide de saisie pour le Calcul de capacité d'échangeur de chaleur."
+        },
+        "isitmaSogutmaYukuKcalKwHesabi": {
+          "title": "Guide de saisie Calcul charge chauffage/climatisation kcal kW",
+          "summary": "Guide de saisie pour le Calcul charge chauffage/climatisation kcal kW."
+        },
+        "jouleKaloriWattSaatCevirici": {
+          "title": "Guide de saisie Convertisseur Joule Calorie Watt Heure",
+          "summary": "Guide de saisie pour le Convertisseur Joule Calorie Watt Heure."
+        },
+        "kesirOndalikCevirici": {
+          "title": "Guide de saisie Convertisseur Fraction Décimal",
+          "summary": "Guide de saisie pour le Convertisseur Fraction Décimal."
+        },
+        "kirisKolonYaklasikAgirlikHesabi": {
+          "title": "Guide de saisie Calcul poids approximatif poutre/poteau",
+          "summary": "Guide de saisie pour le Calcul poids approximatif poutre/poteau."
+        },
+        "koniHacmiHesaplama": {
+          "title": "Guide de saisie Calcul volume cône",
+          "summary": "Guide de saisie pour le Calcul volume cône."
+        },
+        "kosebentLamaAgirlikHesaplama": {
+          "title": "Guide de saisie Calcul poids cornière plate",
+          "summary": "Guide de saisie pour le Calcul poids cornière plate."
+        },
+        "kumlamaRaspaKumSarfiyatiHesabi": {
+          "title": "Guide de saisie Calcul consommation sable sablage",
+          "summary": "Guide de saisie pour le Calcul consommation sable sablage."
+        },
+        "kureHacmiHesaplama": {
+          "title": "Guide de saisie Calcul volume sphère",
+          "summary": "Guide de saisie pour le Calcul volume sphère."
+        },
+        "kwhConsumptionCheck": {
+          "title": "Guide de saisie Vérification consommation kWh",
+          "summary": "Guide de saisie pour la Vérification consommation kWh."
+        },
+        "lastikOmruDegisimKmHesaplama": {
+          "title": "Guide de saisie Calcul durée de vie pneu et changement km",
+          "summary": "Guide de saisie pour le Calcul durée de vie pneu et changement km."
+        },
+        "lengthConverter": {
+          "title": "Guide de saisie Convertisseur de longueur",
+          "summary": "Guide de saisie pour le Convertisseur de longueur."
+        },
+        "lpgBenzinTasarrufKarsilastirma": {
+          "title": "Guide de saisie Comparaison économie GPL/Essence",
+          "summary": "Guide de saisie pour la Comparaison économie GPL/Essence."
+        },
+        "machineHourEstimator": {
+          "title": "Guide de saisie Estimateur d'heures machine",
+          "summary": "Guide de saisie pour l'Estimateur d'heures machine."
+        },
+        "matkapKilavuzDelikCapiTablosu": {
+          "title": "Guide de saisie Tableau diamètre perçage guide foret",
+          "summary": "Guide de saisie pour le Tableau diamètre perçage guide foret."
+        },
+        "medianCalculator": {
+          "title": "Guide de saisie Calculateur de médiane",
+          "summary": "Guide de saisie pour le Calculateur de médiane."
+        },
+        "merdivenPlatformYukseklikErisimHesabi": {
+          "title": "Guide de saisie Calcul hauteur d'accès plateforme échelle",
+          "summary": "Guide de saisie pour le Calcul hauteur d'accès plateforme échelle."
+        },
+        "newtonKilogramKuvvetCevirici": {
+          "title": "Guide de saisie Convertisseur Newton Kilogram-force",
+          "summary": "Guide de saisie pour le Convertisseur Newton Kilogram-force."
+        },
+        "npuNpiProfilAgirlikHesaplama": {
+          "title": "Guide de saisie Calcul poids profilé NPU/NPI",
+          "summary": "Guide de saisie pour le Calcul poids profilé NPU/NPI."
+        },
+        "ofisKirtasiyeSarfiyatHesabi": {
+          "title": "Guide de saisie Calcul consommation fournitures bureau",
+          "summary": "Guide de saisie pour le Calcul consommation fournitures bureau."
+        },
+        "paintCoverageCostCheck": {
+          "title": "Guide de saisie Vérification coût couverture peinture",
+          "summary": "Guide de saisie pour le contrôle du coût de couverture de peinture."
+        },
+        "paletAmbalajKeresteHesabi": {
+          "title": "Guide de saisie Palet Ambalaj Kereste Hesabi",
+          "summary": "Guide de saisie pour Palet Ambalaj Kereste Hesabi."
+        },
+        "paslanmazCelikAluminyumAyirtEtmeHesaplayicisiYogunlukBazli": {
+          "title": "Guide de saisie Paslanmaz Celik Aluminyum Ayirt Etme Hesaplayicisi Yogunluk Bazli",
+          "summary": "Guide de saisie pour Paslanmaz Celik Aluminyum Ayirt Etme Hesaplayicisi Yogunluk Bazli."
+        },
+        "percentageCalculator": {
+          "title": "Guide de saisie du calculateur de pourcentage",
+          "summary": "Guide de saisie pour le calculateur de pourcentage."
+        },
+        "percentageIncreaseCalculator": {
+          "title": "Guide de saisie du calculateur d'augmentation en pourcentage",
+          "summary": "Guide de saisie pour le calculateur d'augmentation en pourcentage."
+        },
+        "plasterCalculator": {
+          "title": "Guide de saisie du calculateur de plâtre",
+          "summary": "Guide de saisie pour le calculateur de plâtre."
+        },
+        "plumbingFixtureCostCheck": {
+          "title": "Guide de saisie du contrôle du coût des appareils sanitaires",
+          "summary": "Guide de saisie pour le contrôle du coût des appareils sanitaires."
+        },
+        "pompaGucuBasmaYuksekligiHesabi": {
+          "title": "Guide de saisie Pompa Gucu Basma Yuksekligi Hesabi",
+          "summary": "Guide de saisie pour Pompa Gucu Basma Yuksekligi Hesabi."
+        },
+        "prefabrikKonteynerOfisMMaliyeti": {
+          "title": "Guide de saisie Prefabrik Konteyner Ofis M Maliyeti",
+          "summary": "Guide de saisie pour Prefabrik Konteyner Ofis M Maliyeti."
+        },
+        "prefabrikKonteynerOlcuHesaplama": {
+          "title": "Guide de saisie Prefabrik Konteyner Olcu Hesaplama",
+          "summary": "Guide de saisie pour Prefabrik Konteyner Olcu Hesaplama."
+        },
+        "probabilityCalculator": {
+          "title": "Guide de saisie du calculateur de probabilité",
+          "summary": "Guide de saisie pour le calculateur de probabilité."
+        },
+        "productMarginCalculator": {
+          "title": "Guide de saisie du calculateur de marge produit",
+          "summary": "Guide de saisie pour le calculateur de marge produit."
+        },
+        "projectCostCalculator": {
+          "title": "Guide de saisie du calculateur de coût de projet",
+          "summary": "Guide de saisie pour le calculateur de coût de projet."
+        },
+        "projectCostEstimator": {
+          "title": "Guide de saisie de l'estimateur de coût de projet",
+          "summary": "Guide de saisie pour l'estimateur de coût de projet."
+        },
+        "proportionCalculator": {
+          "title": "Guide de saisie du calculateur de proportion",
+          "summary": "Guide de saisie pour le calculateur de proportion."
+        },
+        "radyatorPetekBoyuHesaplama": {
+          "title": "Guide de saisie Radyator Petek Boyu Hesaplama",
+          "summary": "Guide de saisie pour Radyator Petek Boyu Hesaplama."
+        },
+        "rastgeleSayiUreteci": {
+          "title": "Guide de saisie Rastgele Sayi Ureteci",
+          "summary": "Guide de saisie pour Rastgele Sayi Ureteci."
+        },
+        "ratioCalculator": {
+          "title": "Guide de saisie du calculateur de ratio",
+          "summary": "Guide de saisie pour le calculateur de ratio."
+        },
+        "rebarWeightCalculator": {
+          "title": "Guide de saisie du calculateur de poids des barres d'armature",
+          "summary": "Guide de saisie pour le calculateur de poids des barres d'armature."
+        },
+        "recipeCostCheck": {
+          "title": "Guide de saisie du contrôle du coût de recette",
+          "summary": "Guide de saisie pour le contrôle du coût de recette."
+        },
+        "repairTimeVsPriceCheck": {
+          "title": "Guide de saisie du contrôle temps de réparation vs prix",
+          "summary": "Guide de saisie pour le contrôle temps de réparation vs prix."
+        },
+        "returnRateProfitErosionTool": {
+          "title": "Guide de saisie de l'outil d'érosion du profit par taux de retour",
+          "summary": "Guide de saisie pour l'outil d'érosion du profit par taux de retour."
+        },
+        "roofingAreaCalculator": {
+          "title": "Guide de saisie du calculateur de surface de toiture",
+          "summary": "Guide de saisie pour le calculateur de surface de toiture."
+        },
+        "roofingSquareCostCheck": {
+          "title": "Guide de saisie pour le contrôle du coût au carré de toiture",
+          "summary": "Guide de saisie pour le contrôle du coût au carré de toiture."
+        }
+      }
+    },
+    "p6bFormulaFactory": {
+      "tools": {
+        "3dPrintJobMarginTool": {
+          "title": "Outil de marge pour impression 3D"
+        },
+        "threeDPrintJobMarginTool": {
+          "title": "Outil de marge pour impression 3D"
+        },
+        "autoShopMarginLeakDetector": {
+          "title": "Détecteur de fuite de marge en atelier auto"
+        },
+        "changeOrderImpactAnalyzer": {
+          "title": "Analyseur d'impact des avenants"
+        },
+        "cncQuoteRiskAnalyzer": {
+          "title": "Analyseur de risque de devis CNC"
+        },
+        "cropYieldLossAnalyzer": {
+          "title": "Analyseur de perte de rendement agricole"
+        },
+        "dairyProfitDetector": {
+          "title": "Détecteur de profit laitier"
+        },
+        "heatLossCalculator": {
+          "title": "Calculateur de perte de chaleur"
+        },
+        "hvacProjectMarginGuard": {
+          "title": "Gardien de marge pour projet HVAC"
+        },
+        "landscapingContractProfitTool": {
+          "title": "Outil de profit pour contrat d'aménagement paysager"
+        },
+        "materialWasteCalculator": {
+          "title": "Calculateur de déchets de matériaux"
+        },
+        "mealPlanningVerdict": {
+          "title": "Verdict de planification de repas"
+        },
+        "menuProfitLeakDetector": {
+          "title": "Détecteur de fuite de profit de menu"
+        },
+        "millworkBidRiskAnalyzer": {
+          "title": "Analyseur de risque de soumission en menuiserie"
+        },
+        "officeCleaningBidOptimizer": {
+          "title": "Optimiseur de soumission de nettoyage de bureaux"
+        },
+        "paintingJobProfitVerdict": {
+          "title": "Verdict de profit pour travaux de peinture"
+        },
+        "panelShopMarginVerdict": {
+          "title": "Verdict de marge en atelier de tôlerie"
+        },
+        "plumbingJobMarginVerdict": {
+          "title": "Verdict de marge pour travaux de plomberie"
+        },
+        "profitMarginCalculator": {
+          "title": "Calculateur de marge bénéficiaire"
+        },
+        "quotePriceProfitMarginCalculator": {
+          "title": "Calculateur de marge sur prix de devis"
+        },
+        "returnProfitErosionTool": {
+          "title": "Outil d'érosion du profit de retour"
+        },
+        "roofingContractMarginGuard": {
+          "title": "Gardien de marge pour contrat de toiture"
+        },
+        "routeOptimizationAnalyzer": {
+          "title": "Analyseur d'optimisation d'itinéraire"
+        },
+        "scrapRateCalculator": {
+          "title": "Calculateur de taux de rebut"
+        },
+        "sheetMetalQuoteRiskTool": {
+          "title": "Outil de risque de devis en tôlerie"
+        },
+        "signageBidSafePriceTool": {
+          "title": "Outil de prix sûr pour soumission d'enseignes"
+        },
+        "waterOptimizationVerdict": {
+          "title": "Verdict d'optimisation de l'eau"
+        },
+        "weldingBidRiskAnalyzer": {
+          "title": "Analyseur de risque de soumission en soudure"
+        },
+        "energyEfficiencyReport": {
+          "title": "Rapport d'efficacité énergétique"
+        },
+        "renovationBudgetOptimizer": {
+          "title": "Optimiseur de budget de rénovation"
+        },
+        "tripBudgetOptimizer": {
+          "title": "Optimiseur de budget de voyage"
+        },
+        "oeeCalculator": {
+          "title": "Calculateur OEE"
+        },
+        "agvAmrOtonomTasimaGeriDonusCalculator": {
+          "title": "Calculateur de retour sur investissement AGV/AMR autonome"
+        },
+        "altiSigmaDpmoSigmaSeviyesiCevirici": {
+          "title": "Convertisseur Six Sigma DPMO / Niveau Sigma"
+        },
+        "ambalajMalzemesiDegisimiVeMaliyetEtkiCalculator": {
+          "title": "Calculateur d'impact du changement de matériau d'emballage"
+        },
+        "amperKilowattKwCevirici": {
+          "title": "Convertisseur Ampère / Kilowatt (kW)"
+        },
+        "andonSistemiDurusVeTepkiSuresiMaliyetCalculator": {
+          "title": "Calculateur de coût des arrêts et temps de réponse du système Andon"
+        },
+        "aracAmortismanHesaplama": {
+          "title": "Calculateur d'amortissement de véhicule"
+        },
+        "aracBakimPeriyoduTakipHesaplama": {
+          "title": "Calculateur de suivi de période d'entretien de véhicule"
+        },
+        "aracKiraSatinAlmaKarsilastirma": {
+          "title": "Comparateur location/achat de véhicule"
+        },
+        "asgariSiparisMiktariMoqVeStokTasimaMaliyetDengeCalculator": {
+          "title": "Calculateur d'équilibre entre quantité minimale de commande (MOQ) et coût de stock"
+        },
+        "atikYonetimiVeBertarafMaliyetOptimizasyonCalculator": {
+          "title": "Calculateur d'optimisation des coûts de gestion et d'élimination des déchets"
+        },
+        "bacaHavalandirmaKanaliCapHesabi": {
+          "title": "Calculateur de diamètre de conduit de cheminée/ventilation"
+        },
+        "batchYieldCalculator": {
+          "title": "Calculateur de rendement de lot"
+        },
+        "boilerEfficiencyCalculator": {
+          "title": "Calculateur de rendement de chaudière"
+        },
+        "boruAgirlikHesaplamaCelikPaslanmaz": {
+          "title": "Calculateur de poids de tube acier inox"
+        },
+        "boruHattiSurtunmeVePompaEnerjiKayipCalculator": {
+          "title": "Calculateur de pertes de charge et énergie pompe"
+        },
+        "boyaKaplamaSarfiyatiMBasinaHesabi": {
+          "title": "Calculateur de consommation peinture/m²"
+        },
+        "boyaVeApreRecetesiMaliyetOptimizasyonCalculator": {
+          "title": "Optimisation coût recette peinture et apprêt"
+        },
+        "breakEvenCalculator": {
+          "title": "Calculateur de seuil de rentabilité"
+        },
+        "brickCalculator": {
+          "title": "Calculateur de briques"
+        },
+        "buharKapaniSteamTrapKacakVeEnerjiKayipCalculator": {
+          "title": "Calculateur de fuites purgeur vapeur et pertes énergie"
+        },
+        "cashFlowGapCalculator": {
+          "title": "Calculateur d'écart de trésorerie"
+        },
+        "cayKahveSuTuketimMaliyeti": {
+          "title": "Coût consommation thé/café/eau"
+        },
+        "celikCatiMakasYaklasikAgirligi": {
+          "title": "Poids approximatif ferme toiture acier"
+        },
+        "celikRafDepoRafiYukKapasitesi": {
+          "title": "Capacité charge rayonnage acier"
+        },
+        "cleaningCostCalculator": {
+          "title": "Calculateur de coût de nettoyage"
+        },
+        "cncCycleTimeCalculator": {
+          "title": "Calculateur de temps cycle CNC"
+        },
+        "cobotVsManuelIscilikKarsilastirmaCalculator": {
+          "title": "Comparatif cobot vs main-d'œuvre manuelle"
+        },
+        "compressorEnergyCostCalculator": {
+          "title": "Calculateur coût énergie compresseur"
+        },
+        "concreteBagCalculator": {
+          "title": "Calculateur de sacs de béton"
+        },
+        "concreteVolumeCalculator": {
+          "title": "Calculateur de volume de béton"
+        },
+        "cpkPpkHataMaliyetiPpmCalculator": {
+          "title": "Calculateur Cpk/Ppk coût défaut ppm"
+        },
+        "cropYieldCalculator": {
+          "title": "Calculateur de rendement cultural"
+        },
+        "cuttingSpeedCalculator": {
+          "title": "Calculateur de vitesse de coupe"
+        },
+        "deliveryCostCalculator": {
+          "title": "Calculateur de coût de livraison"
+        },
+        "depoRafPaletYerlesimOptimizasyonu": {
+          "title": "Optimisation disposition palettes rayonnage"
+        },
+        "depoYerlesimiVeToplamaRotasiOptimizasyonCalculator": {
+          "title": "Optimisation entrepôt et itinéraire picking"
+        },
+        "depreciationCalculator": {
+          "title": "Calculateur d'amortissement"
+        },
+        "desiCalculator": {
+          "title": "Calculateur de desi"
+        },
+        "disliModulCapHesaplama": {
+          "title": "Calculateur module et diamètre engrenage"
+        },
+        "dizelBenzinMaliyetKarsilastirma": {
+          "title": "Comparatif coût diesel/essence"
+        },
+        "donguselEkonomiVeUrunOmruUzatmaRoiCalculator": {
+          "title": "ROI économie circulaire et prolongation durée vie produit"
+        },
+        "dovmeEkstruzyonProsesKuvvetVePresKapasiteCalculator": {
+          "title": "Calculateur force forgeage/extrusion et capacité presse"
+        },
+        "drywallCalculator": {
+          "title": "Calculateur de cloison sèche"
+        },
+        "electricityBillCalculator": {
+          "title": "Calculateur de facture d'électricité"
+        },
+        "energyConsumptionCheck": {
+          "title": "Vérification consommation énergie"
+        },
+        "enerjiIzlemeSistemiYatirimVeTasarrufTahminCalculator": {
+          "title": "Estimation investissement/économies système suivi énergie"
+        },
+        "enflasyonFiyatEskalasyonuHesaplama": {
+          "title": "Calculateur d'escalade prix inflation"
+        },
+        "enjeksiyonDokumCekmePayiHesabi": {
+          "title": "Calculateur retrait moulage injection"
+        },
+        "enjeksiyonSogutmaSuresiVeCevrimOptimizasyonCalculator": {
+          "title": "Optimisation temps refroidissement et cycle injection"
+        },
+        "excavationVolumeCalculator": {
+          "title": "Calculateur de volume d'excavation"
+        },
+        "fazlaMesaiUcretiHesaplama": {
+          "title": "Calculateur de salaire heures sup"
+        },
+        "fazlaMesaiVsYeniIseAlimBasabasCalculator": {
+          "title": "Comparatif heures sup vs nouvelle embauche"
+        },
+        "fertilizerDosageCalculator": {
+          "title": "Calculateur de dosage engrais"
+        },
+        "filamentRecineTozMaliyetVeFireKarsilastirmaCalculator": {
+          "title": "Comparatif coût filament/résine/poudre et rebut"
+        },
+        "fiyatArtisiVeTalepEsnekligiKarlilikSimulasyonCalculator": {
+          "title": "Simulation rentabilité hausse prix et élasticité demande"
+        },
+        "flooringCalculator": {
+          "title": "Calculateur de revêtement de sol"
+        },
+        "foodCostCalculator": {
+          "title": "Calculateur de coût alimentaire"
+        },
+        "forkliftTranspaletKullanimMaliyeti": {
+          "title": "Coût d'utilisation du transpalette à fourche"
+        },
+        "fotokopiYaziciTonerSayfaMaliyeti": {
+          "title": "Coût par page du toner d'imprimante/copieur"
+        },
+        "freightCostCalculator": {
+          "title": "Calculateur de coût de fret"
+        },
+        "fuelCostCalculator": {
+          "title": "Calculateur de coût de carburant"
+        },
+        "fuelTravelCalculator": {
+          "title": "Calculateur de voyage en carburant"
+        },
+        "gecisGradeChangeOffSpecVeYikamaKayipCalculator": {
+          "title": "Calculateur de pertes de changement de grade et de lavage"
+        },
+        "geriDonusumGelirMaliyetHesabi": {
+          "title": "Calcul des revenus et coûts de recyclage"
+        },
+        "hafriyatVeDolguDengesiOptimizasyonCalculator": {
+          "title": "Calculateur d'optimisation du terrassement et du remblai"
+        },
+        "hourlyRateCalculator": {
+          "title": "Calculateur de taux horaire"
+        },
+        "irrigationCostCheck": {
+          "title": "Vérification du coût d'irrigation"
+        },
+        "irsaliyeFaturaAdediBasinaSevkiyatMaliyeti": {
+          "title": "Coût d'expédition par nombre de factures/bons de livraison"
+        },
+        "isElbisesiKkdKisiselKoruyucuDonanimSarfiyati": {
+          "title": "Consommation de vêtements de travail et EPI"
+        },
+        "isiDegistiriciEsanjorKapasiteHesabi": {
+          "title": "Calcul de capacité d'échangeur de chaleur"
+        },
+        "isiDegistiriciEsanjorKirlenmeVeVerimKaybiCalculator": {
+          "title": "Calculateur d'encrassement et perte d'efficacité d'échangeur"
+        },
+        "isiYukuVeIsitmaSogutmaKapasiteOptimizasyonCalculator": {
+          "title": "Calculateur d'optimisation de charge thermique et capacité CVC"
+        },
+        "isitmaSogutmaYukuKcalKwHesabi": {
+          "title": "Calcul de charge de chauffage/refroidissement en kcal/kW"
+        },
+        "iskeleVeKalipKullanimSuresiOptimizasyonCalculator": {
+          "title": "Calculateur d'optimisation de durée d'utilisation d'échafaudage/coffrage"
+        },
+        "isletmeSermayesiVeNakitDongusuOptimizasyonCalculator": {
+          "title": "Calculateur d'optimisation du fonds de roulement et du cycle de trésorerie"
+        },
+        "iso50001EnerjiYonetimiTabanCizgisiVeTasarrufCalculator": {
+          "title": "Calculateur de base et d'économies ISO 50001"
+        },
+        "istatistikselProsesKontrolSpcLimitHesabi": {
+          "title": "Calcul des limites SPC"
+        },
+        "jeneratorKapasitesiSecimHesaplama": {
+          "title": "Calcul de sélection de capacité de générateur"
+        },
+        "kaizenKazancTakipVeOnceliklendirmeCalculator": {
+          "title": "Calculateur de suivi et priorisation des gains Kaizen"
+        },
+        "kaynakDikisHacmiMaliyetiHesabi": {
+          "title": "Calcul du coût du volume de soudure"
+        },
+        "kaynakMaliyetiVeDolguMetaliTuketimCalculator": {
+          "title": "Calculateur de coût de soudure et consommation de métal d'apport"
+        },
+        "kazaMaliyetiDogrudanVeDolayliToplamKayipCalculator": {
+          "title": "Calculateur de coût d'accident (pertes directes et indirectes)"
+        },
+        "kesmeParametreleriTakimOmruOptimizasyonCalculator": {
+          "title": "Calculateur d'optimisation des paramètres de coupe et durée de vie d'outil"
+        },
+        "kirisKolonYaklasikAgirlikHesabi": {
+          "title": "Calcul approximatif du poids des poutres/poteaux"
+        },
+        "klimaBtuSecimHesaplama": {
+          "title": "Calcul de sélection de climatisation en BTU"
+        },
+        "kokNedenAnaliziRcaTekrarlayanArizaBirikimliMaliyetCalculator": {
+          "title": "Calculateur de coût cumulé des pannes récurrentes (RCA)"
+        },
+        "kompresorDebisiTankHacmiHesabi": {
+          "title": "Calcul du débit et volume de réservoir de compresseur"
+        },
+        "konteynerYuklemeKapasitesiTeuHesabi": {
+          "title": "Calcul de capacité de chargement conteneur (TEU)"
+        },
+        "koruyucuBakimFrekansiVeMaliyetOptimizasyonCalculator": {
+          "title": "Calculateur d'optimisation de fréquence et coût de maintenance préventive"
+        },
+        "kosebentLamaAgirlikHesaplama": {
+          "title": "Calcul du poids des cornières/plats"
+        },
+        "kritikYolCpmGecikmeCezasiVeHizlandirmaOptimizasyonCalculator": {
+          "title": "Calculateur d'optimisation CPM, pénalités de retard et accélération"
+        },
+        "kumasSerimVeKesimOptimizasyonFireCalculator": {
+          "title": "Calculateur d'optimisation de déchet de déroulage/coupe de tissu"
+        },
+        "kumlamaRaspaKumSarfiyatiHesabi": {
+          "title": "Calcul de consommation de sable de sablage/grenaillage"
+        },
+        "kutleDengesiVeFireTakipCalculator": {
+          "title": "Calculateur de bilan massique et suivi des pertes"
+        },
+        "kwhConsumptionCheck": {
+          "title": "Vérification de consommation kWh"
+        },
+        "kwhCostCalculator": {
+          "title": "Calculateur de coût kWh"
+        },
+        "laboratuvarAnalizMaliyetiVeNumuneAlmaOptimizasyonCalculator": {
+          "title": "Calculateur d'optimisation du coût d'analyse et d'échantillonnage"
+        },
+        "lastikOmruDegisimKmHesaplama": {
+          "title": "Calcul de durée de vie et kilométrage de remplacement des pneus"
+        },
+        "lpgBenzinTasarrufKarsilastirma": {
+          "title": "Comparaison d'économies LPG/Essence"
+        },
+        "machineHourRateCalculator": {
+          "title": "Calculateur de taux horaire machine"
+        },
+        "makineEkonomikOmruHurdaDegerHesabi": {
+          "title": "Calcul de durée de vie économique et valeur de rebut de machine"
+        },
+        "matkapKilavuzDelikCapiTablosu": {
+          "title": "Tableau des diamètres de perçage pour taraudage"
+        },
+        "milAksCapiHesabiEgilmeBurulma": {
+          "title": "Calcul de diamètre d'arbre en flexion-torsion"
+        },
+        "milkYieldCheck": {
+          "title": "Vérification du rendement laitier"
+        },
+        "mtbfMttrVeKullanilabilirlikFinansalCalculator": {
+          "title": "Calculateur financier MTBF, MTTR et disponibilité"
+        },
+        "musteriYasamBoyuDegerClvVeEdinmeMaliyetiCacCalculator": {
+          "title": "Calculateur CLV et CAC client"
+        },
+        "npuNpiProfilAgirlikHesaplama": {
+          "title": "Calcul du poids des profilés NPU/NPI"
+        },
+        "ofisKirtasiyeSarfiyatHesabi": {
+          "title": "Calcul de consommation de fournitures de bureau"
+        },
+        "ogrenmeEgrisiVePartiSureTahminCalculator": {
+          "title": "Calculateur de courbe d'apprentissage et estimation de temps par lot"
+        },
+        "otoServisIsEmriVeYedekParcaTeklifTutarlilikCalculator": {
+          "title": "Calculateur de cohérence des ordres de réparation et devis pièces auto"
+        },
+        "paintCoverageCalculator": {
+          "title": "Calculateur de couverture de peinture"
+        },
+        "paketlemeMalzemesiStrecKoliSarfiyati": {
+          "title": "Consommation de film étirable et cartons d'emballage"
+        },
+        "paletAmbalajKeresteHesabi": {
+          "title": "Calcul de bois pour palettes et emballages"
+        },
+        "paslanmazCelikAluminyumAyirtEtmeHesaplayicisiYogunlukBazli": {
+          "title": "Calculateur de distinction acier inox/aluminium par densité"
+        },
+        "personelDevamsizlikMaliyetiHesaplama": {
+          "title": "Calcul du coût d'absentéisme du personnel"
+        },
+        "plastikEnjeksiyonCevrimSuresiTahmini": {
+          "title": "Estimation du temps de cycle d'injection plastique"
+        },
+        "pokaYokeHataOnlemeYatirimGeriDonusCalculator": {
+          "title": "Calculateur ROI d'investissement Poka-Yoke"
+        },
+        "pompaGucuBasmaYuksekligiHesabi": {
+          "title": "Calcul de puissance et hauteur de refoulement de pompe"
+        },
+        "portionCostCalculator": {
+          "title": "Calculateur de coût par portion"
+        },
+        "prefabrikKonteynerOfisMMaliyeti": {
+          "title": "Coût au m² de bureau conteneur préfabriqué"
+        },
+        "printJobCostCheck": {
+          "title": "Vérification du coût d'impression"
+        },
+        "projectCostCalculator": {
+          "title": "Calculateur de coût de projet"
+        },
+        "radyatorPetekBoyuHesaplama": {
+          "title": "Calcul de longueur de radiateur"
+        },
+        "rebarWeightCalculator": {
+          "title": "Calculateur de poids des barres d'armature"
+        },
+        "receteMaliyetiVeAlternatifHammaddeEtkiCalculator": {
+          "title": "Calculateur de coût de recette et impact des matières alternatives"
+        },
+        "recipeCostCheck": {
+          "title": "Vérification du coût de recette"
+        },
+        "restoranTabakMaliyetiVePorsiyonOptimizasyonCalculator": {
+          "title": "Calculateur de coût d'assiette et optimisation des portions"
+        },
+        "roofingSquareCostCheck": {
+          "title": "Vérification du coût au carré de toiture"
+        },
+        "routeCostCalculator": {
+          "title": "Calculateur de coût d'itinéraire"
+        },
+        "ruzgarTurbiniYaklasikUretimHesabi": {
+          "title": "Estimation de production d'éolienne"
+        },
+        "salaryCostCalculator": {
+          "title": "Calculateur de coût salarial"
+        },
+        "satisKanaliKarlilikKarsilastirmaCalculator": {
+          "title": "Calculateur de comparaison de rentabilité par canal de vente"
+        },
+        "seedRateCalculator": {
+          "title": "Calculateur de densité de semis"
+        },
+        "sesYalitimiDesibelAzaltimiHesabi": {
+          "title": "Calcul d'isolation acoustique et réduction en décibels"
+        },
+        "sheetMetalWeightCalculator": {
+          "title": "Calculateur de poids de tôle"
+        },
+        "smedSetupSuresiVeEkonomikPartiCalculator": {
+          "title": "Calculateur SMED de temps de réglage et lot économique"
+        },
+        "soforOperatorGunlukYevmiyeMaliyeti": {
+          "title": "Coût journalier d'un chauffeur/opérateur"
+        },
+        "sogukOdaSogutmaYukuHesabi": {
+          "title": "Calcul de charge de refroidissement de chambre froide"
+        },
+        "solarPanelOutputCalculator": {
+          "title": "Calculateur de production de panneaux solaires"
+        },
+        "squareFootageCalculator": {
+          "title": "Calculateur de superficie en pieds carrés"
+        },
+        "suDebisiLitreDakikaHesaplama": {
+          "title": "Calcul de débit d'eau en litres/minute"
+        },
+        "suIsitmaKazanBoylerKapasiteHesabi": {
+          "title": "Calcul de capacité de chaudière/chauffe-eau"
+        },
+        "taguchiKaliteKayipFonksiyonuCalculator": {
+          "title": "Calculateur de fonction de perte de qualité Taguchi"
+        },
+        "tahtaMdfSuntaMAgirlikHesabi": {
+          "title": "Calcul de poids au m² de bois/MDF/panneau de particules"
+        },
+        "takimTutucuVeBaglamaAparatiSetupSuresiCalculator": {
+          "title": "Calculateur de temps de réglage porte-outil et dispositif de serrage"
+        },
+        "talepTahminHatasiVeStokStokYokluguMaliyetCalculator": {
+          "title": "Calculateur d'erreur de prévision et coût de rupture de stock"
+        },
+        "temizlikMalzemesiSarfiyatHesabi": {
+          "title": "Calculateur de consommation de produits d'entretien"
+        },
+        "temizlikVeHijyenKimyasalTuketimOptimizasyonCalculator": {
+          "title": "Calculateur d'optimisation de la consommation de produits chimiques d'hygiène et de nettoyage"
+        },
+        "tileCalculator": {
+          "title": "Calculateur de carrelage"
+        },
+        "tirKamyonYukKapasitesiHesaplama": {
+          "title": "Calcul de capacité de chargement de camion TIR"
+        },
+        "toleranceDriftCalculator": {
+          "title": "Calculateur de dérive de tolérance"
+        },
+        "toolLifeCalculator": {
+          "title": "Calculateur de durée de vie d'outil"
+        },
+        "toplantiSaatiMaliyetiHesaplama": {
+          "title": "Calcul du coût horaire de réunion"
+        },
+        "topolojiOptimizasyonuHafiflikVeYakitTasarrufuCalculator": {
+          "title": "Calculateur d'optimisation topologique pour allègement et économie de carburant"
+        },
+        "unitCostCalculator": {
+          "title": "Calculateur de coût unitaire"
+        },
+        "unitPriceCalculator": {
+          "title": "Calculateur de prix unitaire"
+        },
+        "upsKesintisizGucKaynagiSecimi": {
+          "title": "Sélection d'onduleur UPS"
+        },
+        "urunKarmasiKarmasiklikMaliyetiHiddenFactoryCalculator": {
+          "title": "Calculateur de coût de complexité du mix produit (usine cachée)"
+        },
+        "vadeFarkiVeErkenOdemeIskontosuOptimizasyonCalculator": {
+          "title": "Calculateur d'optimisation de l'escompte pour paiement anticipé et différence d'échéance"
+        },
+        "vakumSistemiKacakVeEnerjiKayipCalculator": {
+          "title": "Calculateur de fuites et pertes d'énergie du système de vide"
+        },
+        "vidaSomunAdimDisUstuCapHesabi": {
+          "title": "Calcul du pas et du diamètre extérieur de vis-écrou"
+        },
+        "volumetricWeightCalculator": {
+          "title": "Calculateur de poids volumétrique"
+        },
+        "warehouseStorageCostCalculator": {
+          "title": "Calculateur de coût de stockage en entrepôt"
+        },
+        "waterUsageCalculator": {
+          "title": "Calculateur de consommation d'eau"
+        },
+        "yalitimMalzemesiMHesaplama": {
+          "title": "Calcul de matériau d'isolation en mètres"
+        },
+        "yapistiriciVeSizdirmazlikMalzemesiTuketimOptimizasyonCalculator": {
+          "title": "Calculateur d'optimisation de la consommation d'adhésif et de mastic"
+        },
+        "yayHeliselKuvvetUzamaHesabi": {
+          "title": "Calcul de force et d'allongement de ressort hélicoïdal"
+        },
+        "yedekParcaStokSeviyesiVeDurusRiskiOptimizasyonCalculator": {
+          "title": "Calculateur d'optimisation du niveau de stock de pièces de rechange et du risque d'arrêt"
+        },
+        "yemekTabldotMaliyetHesaplama": {
+          "title": "Calcul du coût de repas en restauration collective"
+        },
+        "zamanEtuduVeStandartSureCalculator": {
+          "title": "Calculateur d'étude de temps et de temps standard"
+        },
+        "akuKapasitesiCalismaSuresiHesabi": {
+          "title": "Calcul de capacité et d'autonomie de batterie"
+        },
+        "aqlKabulOrneklemesiRiskVeMaliyetCalculator": {
+          "title": "Calculateur de risque et coût d'échantillonnage d'acceptation AQL"
+        },
+        "aydinlatmaArmaturSayisiHesaplama": {
+          "title": "Calcul du nombre de luminaires d'éclairage"
+        },
+        "boruCapiAkisHiziHesaplama": {
+          "title": "Calcul du diamètre de tuyau et du débit"
+        },
+        "cabinetCostEstimator": {
+          "title": "Estimateur de coût d'armoire"
+        },
+        "citKorkulukMalzemeHesabi": {
+          "title": "Calcul de matériau pour clôture et garde-corps"
+        },
+        "egitimYatirimiVeVerimlilikArtisiGeriDonusCalculator": {
+          "title": "Calculateur de retour sur investissement formation et gain de productivité"
+        },
+        "esnekUretimHucresiYatirimVeGeriDonusCalculator": {
+          "title": "Calculateur d'investissement et retour sur cellule de production flexible"
+        },
+        "fuelConsumptionCalculator": {
+          "title": "Calculateur de consommation de carburant"
+        },
+        "iotSensorVeOngorucuBakimYatirimGeriDonusCalculator": {
+          "title": "Calculateur de retour sur investissement capteurs IoT et maintenance prédictive"
+        },
+        "kapasitePlanlamaVeDarbogazYatirimOnceliklendirmeCalculator": {
+          "title": "Calculateur de planification de capacité et priorisation d'investissement pour goulots"
+        },
+        "kazanilmisDegerYonetimiEvmTamamlanmaMaliyetTahminCalculator": {
+          "title": "Calculateur d'estimation du coût d'achèvement EVM (gestion de la valeur acquise)"
+        },
+        "kesmeBukmeAbkantTonajHesabi": {
+          "title": "Calcul de tonnage de pliage et cintrage (presse-plieuse)"
+        },
+        "kritiklikRiskMatrisiVeBakimStratejisiSecimCalculator": {
+          "title": "Calculateur de matrice de criticité/risque et sélection de stratégie de maintenance"
+        },
+        "laserCuttingTimeCheck": {
+          "title": "Vérification du temps de découpe laser"
+        },
+        "motorGucuKwHpCevirici": {
+          "title": "Convertisseur de puissance moteur kW/HP"
+        },
+        "musteriKaybiChurnVeKaybedilenGelirCalculator": {
+          "title": "Calculateur de perte de clients (churn) et de revenus perdus"
+        },
+        "silindirHacmiHesaplama": {
+          "title": "Calcul du volume d'un cylindre"
+        },
+        "sogutmaSivisiKarisimOraniAntifrizBorYagiHesaplama": {
+          "title": "Calcul du rapport de mélange du liquide de refroidissement (antigel, huile de bore)"
+        },
+        "squareMeterCalculator": {
+          "title": "Calculateur de mètres carrés"
+        },
+        "telKabloUzunluguAgirlikHesabi": {
+          "title": "Calcul de longueur et poids de câble/fil"
+        },
+        "titresimFrekansPeriyotHesaplama": {
+          "title": "Calcul de la fréquence et de la période de vibration"
+        },
+        "toplamSahipOlmaMaliyetiTcoEkipmanKarsilastirmaCalculator": {
+          "title": "Calculateur de comparaison d'équipements TCO (Coût total de possession)"
+        },
+        "vehicleDepreciationCalculator": {
+          "title": "Calculateur d'amortissement de véhicule"
+        },
+        "weldingCostEstimator": {
+          "title": "Estimateur de coût de soudage"
+        },
+        "yamazumiIsYukuDengelemeKayipCalculator": {
+          "title": "Calculateur de perte d'équilibrage de charge de travail Yamazumi"
+        },
+        "yatakRulmanOmurHesabiL10": {
+          "title": "Calcul de durée de vie de roulement L10"
+        },
+        "tesisYerlesimiVeMalzemeAkisMesafeOptimizasyonCalculator": {
+          "title": "Calculateur d'optimisation de l'implantation d'usine et des distances de flux de matériaux"
+        }
+      }
+    }
+  },
+  "legalCommon": {
+    "eyebrow": "Legal",
+    "readPrivacy": "Politique de confidentialité",
+    "readTerms": "Conditions d'utilisation",
+    "readRefund": "Politique de remboursement",
+    "seeAlso": "Voir aussi",
+    "termsFooter": "Lisez notre <privacy>Politique de confidentialité</privacy> et notre <refund>Politique de remboursement</refund>.",
+    "privacyFooter": "Voir aussi <terms>Conditions d'utilisation</terms> et <refund>Politique de remboursement</refund>.",
+    "refundFooter": "Voir aussi <terms>Conditions d'utilisation</terms> et <privacy>Politique de confidentialité</privacy>.",
+    "contactIntro": "Pour toute question, contactez-nous via les coordonnées ci-dessous.",
+    "dataControllerIntro": "Le responsable du traitement des données pour SectorCalc est :",
+    "refundContactIntro": "Pour les demandes de remboursement ou les questions de facturation, contactez-nous via les coordonnées ci-dessous."
+  },
+  "terms": {
+    "meta": {
+      "title": "Conditions d'utilisation",
+      "description": "Conditions légales d'utilisation des calculateurs et services SectorCalc."
+    },
+    "heroDescription": "En accédant ou en utilisant SectorCalc, vous acceptez ces Conditions d'utilisation.",
+    "title": "Conditions d'utilisation",
+    "lastUpdated": "Dernière mise à jour : {date}",
+    "lastUpdatedDate": "15 juin 2026",
+    "intro": "Bienvenue sur SectorCalc. En accédant ou en utilisant notre site web et nos outils de calcul, vous acceptez d'être lié par ces Conditions d'utilisation.",
+    "section1": {
+      "title": "1. Nos services",
+      "content": "SectorCalc fournit des calculateurs industriels et commerciaux à des fins d'information et d'aide à la décision. Nos outils ne constituent pas des conseils professionnels en ingénierie, financiers ou juridiques. Vous êtes seul responsable de la vérification des résultats avant de prendre des décisions commerciales."
+    },
+    "section2": {
+      "title": "2. Fonctionnalités Premium et crédits",
+      "content": "Les outils Premium nécessitent des crédits. Les crédits sont non remboursables et expirent 12 mois après l'achat. Vous pouvez acheter des packs de crédits via notre prestataire de paiement sécurisé. Les crédits inutilisés ne sont pas reportés."
+    },
+    "section3": {
+      "title": "3. Comptes utilisateur",
+      "content": "Vous devez créer un compte pour accéder aux fonctionnalités Premium. Vous êtes responsable de la confidentialité de vos identifiants de connexion et de toutes les activités effectuées sous votre compte."
+    },
+    "section4": {
+      "title": "4. Propriété intellectuelle",
+      "content": "Tout le contenu, formules, algorithmes, designs et marques sont la propriété exclusive de Sector Calculator (opérant sous le nom SectorCalc). Vous ne pouvez pas reproduire, distribuer ou créer des œuvres dérivées sans autorisation écrite préalable."
+    },
+    "section5": {
+      "title": "5. Limitation de responsabilité",
+      "content": "Dans toute la mesure permise par la loi, Sector Calculator ne pourra être tenu responsable des dommages indirects, accessoires, spéciaux, consécutifs ou punitifs découlant de votre utilisation de nos services."
+    },
+    "section6": {
+      "title": "6. Modifications",
+      "content": "Nous pouvons mettre à jour ces Conditions à tout moment. L'utilisation continue du service après les modifications constitue une acceptation des nouvelles Conditions."
+    },
+    "section7": {
+      "title": "7. Coordonnées",
+      "content": "Pour toute question sur ces Conditions, contactez-nous via les coordonnées ci-dessous."
+    }
+  },
+  "privacy": {
+    "meta": {
+      "title": "Politique de confidentialité",
+      "description": "Comment SectorCalc collecte, utilise et protège vos données personnelles."
+    },
+    "heroDescription": "Quelles données nous collectons, comment nous les utilisons et vos droits.",
+    "title": "Politique de confidentialité",
+    "effective": "En vigueur : 15 juin 2026",
+    "intro": "Votre vie privée est importante pour nous. Cette politique explique quelles données nous collectons, comment nous les utilisons et vos droits.",
+    "section1": {
+      "title": "1. Informations que nous collectons",
+      "content": "Nous collectons les informations personnelles que vous fournissez (par exemple, votre adresse e-mail lors de l'inscription). Nous collectons également automatiquement des données d'utilisation (adresse IP, type de navigateur, pages visitées) pour améliorer nos outils."
+    },
+    "section2": {
+      "title": "2. Comment nous utilisons vos informations",
+      "content": "Nous utilisons vos données pour exploiter, maintenir et améliorer SectorCalc, traiter les paiements et communiquer avec vous concernant votre compte ou les mises à jour."
+    },
+    "section3": {
+      "title": "3. Cookies et suivi",
+      "content": "Nous utilisons des cookies essentiels pour l'authentification et des cookies analytiques optionnels (par exemple, Google Analytics) pour analyser l'utilisation. Vous pouvez désactiver les cookies non essentiels dans les paramètres de votre navigateur."
+    },
+    "section4": {
+      "title": "4. Partage des données",
+      "content": "Nous ne vendons pas vos données personnelles. Nous partageons les données uniquement avec des services tiers de confiance (processeurs de paiement — Stripe/Paddle, hébergement — Vercel) nécessaires à la fourniture de nos services."
+    },
+    "section5": {
+      "title": "5. Conservation et sécurité des données",
+      "content": "Nous conservons vos données tant que votre compte est actif. Nous mettons en œuvre des mesures de sécurité raisonnables, mais aucune méthode de transmission sur Internet n'est totalement sécurisée."
+    },
+    "section6": {
+      "title": "6. Vos droits",
+      "content": "Vous pouvez demander l'accès, la correction ou la suppression de vos données personnelles en nous contactant à info@sectorcalc.com."
+    },
+    "section7": {
+      "title": "7. Confidentialité des enfants",
+      "content": "Nos services ne sont pas destinés aux personnes de moins de 16 ans. Nous ne collectons pas sciemment d'informations personnelles auprès d'enfants."
+    },
+    "section8": {
+      "title": "8. Modifications de cette politique",
+      "content": "Nous pouvons mettre à jour cette politique de temps à autre. La date d'« Entrée en vigueur » en haut indique quand la dernière version a été publiée."
+    },
+    "section9": {
+      "title": "9. Responsable du traitement",
+      "content": "Le responsable du traitement pour SectorCalc est :"
+    }
+  },
+  "refundPolicy": {
+    "meta": {
+      "title": "Politique de remboursement",
+      "description": "Conditions de remboursement pour les achats de crédits et abonnements sur SectorCalc."
+    },
+    "heroDescription": "Conditions de remboursement pour les achats de crédits et abonnements.",
+    "title": "Politique de remboursement",
+    "lastUpdated": "Dernière mise à jour : 15 juin 2026",
+    "intro": "Nous souhaitons que vous soyez satisfait de votre achat. Veuillez lire attentivement cette politique de remboursement.",
+    "section1": {
+      "title": "1. Crédits et abonnements",
+      "content": "Crédits : Les achats de crédits sont définitifs et non remboursables. Les crédits inutilisés expirent 12 mois après l'achat. Aucun remboursement en espèces ne sera accordé pour les crédits inutilisés. Abonnements : Si vous souscrivez un abonnement récurrent, vous pouvez demander un remboursement complet dans les 14 jours suivant votre premier paiement, à condition de n'avoir utilisé aucun outil Premium pendant cette période. Passé 14 jours ou après la première utilisation, les frais d'abonnement sont non remboursables."
+    },
+    "section2": {
+      "title": "2. Outils défectueux ou incorrects",
+      "content": "Si un outil Premium produit des résultats manifestement incorrects en raison d'un bug de notre système, nous rembourserons les crédits utilisés pour ce calcul (jusqu'au nombre de crédits dépensés) ou fournirons des crédits de remplacement. Veuillez signaler le problème avec des captures d'écran et des détails à info@sectorcalc.com."
+    },
+    "section3": {
+      "title": "3. Comment demander un remboursement",
+      "content": "Pour demander un remboursement, contactez-nous à info@sectorcalc.com avec votre identifiant de transaction (fourni par votre prestataire de paiement) et la raison de la demande. Nous répondrons sous 7 à 14 jours ouvrés."
+    },
+    "section4": {
+      "title": "4. Contestations de paiement",
+      "content": "Si vous initiez une contestation de paiement sans nous contacter au préalable, nous pourrons suspendre votre compte jusqu'à résolution du litige."
+    },
+    "section5": {
+      "title": "5. Modifications de cette politique",
+      "content": "Nous nous réservons le droit de modifier cette politique de remboursement à tout moment. Les modifications seront publiées sur cette page."
+    },
+    "section6": {
+      "title": "6. Coordonnées",
+      "content": "Pour les demandes de remboursement ou les questions de facturation, contactez-nous via les coordonnées ci-dessous."
+    }
+  },
+  "creditsPricing": {
+    "meta": {
+      "title": "Tarifs – Crédits SectorCalc",
+      "description": "Achetez des crédits pour débloquer des calculatrices industrielles Premium. Les forfaits commencent à 1,99 $."
+    },
+    "title": "Choisissez vos crédits",
+    "subtitle": "Un crédit débloque un calcul Premium. Les crédits expirent 12 mois après l'achat.",
+    "creditsLabel": "{count} crédits",
+    "perCredit": "/ crédit",
+    "buyNow": "Acheter des crédits",
+    "popular": "Le plus populaire",
+    "legalNote": "Tous les prix sont en USD. Les crédits sont non remboursables et expirent 12 mois après l'achat."
   }
 }
