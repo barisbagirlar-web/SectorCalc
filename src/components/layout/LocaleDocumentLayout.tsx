@@ -1,4 +1,4 @@
-import { Barlow, Inter, JetBrains_Mono, Noto_Sans_Arabic } from "next/font/google";
+import { Barlow, Inter, JetBrains_Mono } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { AuthorAuthorityHeadLinks } from "@/components/seo/AuthorAuthorityHeadLinks";
@@ -12,18 +12,14 @@ import { getServerRegion } from "@/lib/compliance/server-region";
 import { SkipToMainLink } from "@/components/layout/SkipToMainLink";
 import { RegionProvider } from "@/lib/compliance/region-context";
 import { ServiceWorkerRegister } from "@/components/field-mode/ServiceWorkerRegister";
+import { AttributionBootstrap } from "@/components/campaign/AttributionBootstrap";
 import { GeoLocaleBootstrapScript } from "@/components/i18n/GeoLocaleBootstrapScript";
 import { THEME_COLOR } from "@/config/organization-trust";
+import { notoSansArabic } from "@/lib/fonts/noto-sans-arabic";
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
   variable: "--font-inter",
-  display: "swap",
-});
-
-const notoSansArabic = Noto_Sans_Arabic({
-  subsets: ["arabic"],
-  variable: "--font-arabic",
   display: "swap",
 });
 
