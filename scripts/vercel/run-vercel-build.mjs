@@ -3,7 +3,7 @@
  * Vercel production build entry — deterministic clean, artifact sync, fallback Next build.
  */
 import { spawnSync } from "node:child_process";
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { cleanNextArtifacts } from "../clean-next-artifacts.mjs";
 import {
@@ -34,19 +34,56 @@ function envEnabled(name, defaultOnVercel) {
   return defaultOnVercel && process.env.VERCEL === "1";
 }
 
-/** @param {string} command @param {string[]} args */
-function runStep(command, args) {
+/** @param {string} rel @param {number} [maxChars] */
+function readTail(rel, maxChars = 24_000) {
+  const abs = join(ROOT, rel);
+  if (!existsSync(abs)) {
+    return "";
+  }
+  const full = readFileSync(abs, "utf8");
+  return full.length > maxChars ? full.slice(-maxChars) : full;
+}
+
+/** @param {string} command @param {string[]} args @param {{ label?: string, dumpNextBuildLog?: boolean }} [options] */
+function runStep(command, args, options = {}) {
+  const label = options.label ?? `${command} ${args.join(" ")}`;
+  console.log(`run-vercel-build: ▶ ${label}`);
+
   const result = spawnSync(command, args, {
     cwd: ROOT,
     stdio: "inherit",
     env: {
       ...process.env,
-      NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=6144",
+      NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192",
     },
   });
-  if (result.status !== 0) {
-    process.exit(result.status ?? 1);
+
+  if (result.status === 0) {
+    return;
   }
+
+  const status = result.status ?? 1;
+  const signal = result.signal ?? "none";
+  console.error(`run-vercel-build: ✗ step failed — ${label}`);
+  console.error(`run-vercel-build: exit status=${status}, signal=${signal}`);
+
+  if (result.error) {
+    const message = result.error instanceof Error ? result.error.message : String(result.error);
+    console.error(`run-vercel-build: spawn error: ${message}`);
+  }
+
+  if (options.dumpNextBuildLog) {
+    const tail =
+      readTail(".vercel-last-build.log") ||
+      readTail(".next/last-next-build.log");
+    if (tail) {
+      console.error("run-vercel-build: last-next-build.log (tail):\n" + tail);
+    } else {
+      console.error("run-vercel-build: no .next/last-next-build.log found");
+    }
+  }
+
+  process.exit(status);
 }
 
 function configureVercelBuildEnv() {
@@ -140,7 +177,10 @@ function main() {
       console.log("run-vercel-build: skipping test:generated (SECTORCALC_SKIP_TEST_GENERATED=1)");
     }
 
-    runStep("node", ["scripts/next-build-with-500-fallback.mjs"]);
+    runStep("node", ["scripts/next-build-with-500-fallback.mjs"], {
+      label: "next build (with 500 fallback)",
+      dumpNextBuildLog: true,
+    });
 
     if (process.env.VERCEL === "1") {
       stripVercelExportMarkers(NEXT_DIR);

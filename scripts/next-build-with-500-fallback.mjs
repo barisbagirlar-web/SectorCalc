@@ -21,6 +21,7 @@ const ROOT = process.cwd();
 const NEXT_DIR = join(ROOT, ".next");
 const BUILD_LOCK = join(NEXT_DIR, ".build.lock");
 const BUILD_LOG = join(NEXT_DIR, "last-next-build.log");
+const PERSISTENT_BUILD_LOG = join(ROOT, ".vercel-last-build.log");
 const useGlobalLock = process.env.VERCEL !== "1";
 
 /** Minimal routes stub — satisfies next-env.d.ts until Next regenerates types. */
@@ -112,6 +113,23 @@ function interruptedBuild(log, status) {
   return status === 143 || status === 130 || /SIGTERM|SIGINT|ENOMEM|JavaScript heap out of memory/i.test(log);
 }
 
+function preserveBuildLogForDiagnostics() {
+  if (!existsSync(BUILD_LOG)) {
+    return;
+  }
+  const chunk = readFileSync(BUILD_LOG, "utf8");
+  const prior = existsSync(PERSISTENT_BUILD_LOG) ? readFileSync(PERSISTENT_BUILD_LOG, "utf8") : "";
+  writeFileSync(PERSISTENT_BUILD_LOG, `${prior}\n--- build attempt ---\n${chunk}`, "utf8");
+}
+
+function readPersistentBuildLogTail(maxChars = 48_000) {
+  if (!existsSync(PERSISTENT_BUILD_LOG)) {
+    return "";
+  }
+  const full = readFileSync(PERSISTENT_BUILD_LOG, "utf8");
+  return full.length > maxChars ? full.slice(-maxChars) : full;
+}
+
 function readBuildLogTail(maxChars = 200_000) {
   if (!existsSync(BUILD_LOG)) {
     return "";
@@ -157,6 +175,9 @@ function finalizeAndValidate() {
     env: process.env,
   });
   if ((finalize.status ?? 1) !== 0) {
+    console.error(
+      `next-build-with-500-fallback: finalize-next-build failed (status=${finalize.status ?? 1})`,
+    );
     return false;
   }
 
@@ -168,7 +189,13 @@ function finalizeAndValidate() {
     stdio: "inherit",
     env: process.env,
   });
-  return (validate.status ?? 1) === 0;
+  if ((validate.status ?? 1) !== 0) {
+    console.error(
+      `next-build-with-500-fallback: validate-next-build failed (status=${validate.status ?? 1})`,
+    );
+    return false;
+  }
+  return true;
 }
 
 function shouldRecover500Export(result) {
@@ -196,6 +223,9 @@ let lastOutput = "";
 
 try {
   acquireBuildLock();
+  if (existsSync(PERSISTENT_BUILD_LOG)) {
+    rmSync(PERSISTENT_BUILD_LOG, { force: true });
+  }
   ensureNextTypeAndBuildManifestStubs();
 
   for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt += 1) {
@@ -230,6 +260,7 @@ try {
 
     if (shouldRetryWithFullClean(result) && attempt < MAX_ATTEMPTS) {
       console.warn("next-build-with-500-fallback: SSG race detected — full clean retry…");
+      preserveBuildLogForDiagnostics();
       cleanNextArtifacts();
       acquireBuildLock();
       ensureNextTypeAndBuildManifestStubs();
@@ -238,13 +269,20 @@ try {
 
     if (attempt < MAX_ATTEMPTS) {
       console.warn("next-build-with-500-fallback: full clean before next attempt…");
+      preserveBuildLogForDiagnostics();
       cleanNextArtifacts();
       acquireBuildLock();
       ensureNextTypeAndBuildManifestStubs();
     }
   }
 
-  process.stderr.write(lastOutput || readBuildLogTail());
+  process.stderr.write("\nnext-build-with-500-fallback: all attempts exhausted.\n");
+  const diagnosticLog = readPersistentBuildLogTail() || lastOutput || readBuildLogTail();
+  if (diagnosticLog) {
+    process.stderr.write(diagnosticLog);
+  } else {
+    process.stderr.write("next-build-with-500-fallback: no build log captured.\n");
+  }
   process.exit(1);
 } finally {
   releaseBuildLock();

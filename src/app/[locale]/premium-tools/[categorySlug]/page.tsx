@@ -8,6 +8,7 @@ import { Container } from "@/components/ui/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Link } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/metadata";
+import { limitStaticParamsForPreview } from "@/lib/build/preview-static-params";
 import {
   getPremiumCatalogCategoryDetail,
   listPremiumCatalogCategorySlugs,
@@ -25,7 +26,11 @@ export const dynamic = "force-static";
 export const dynamicParams = true;
 
 export async function generateStaticParams(): Promise<Array<{ categorySlug: string }>> {
-  return listPremiumCatalogCategorySlugs().map((categorySlug) => ({ categorySlug }));
+  const params = listPremiumCatalogCategorySlugs().map((categorySlug) => ({ categorySlug }));
+  return limitStaticParamsForPreview(params, {
+    family: "premium-tools-category",
+    slugKey: "categorySlug",
+  });
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

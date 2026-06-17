@@ -5,6 +5,7 @@ export type StaticParamRecord = Record<string, string>;
 export type PreviewStaticParamFamily =
   | "free-tools"
   | "premium-tools"
+  | "premium-tools-category"
   | "premium-schema"
   | "premium-schema-print"
   | "generated-tools"
@@ -30,6 +31,12 @@ const FAMILY_KEEP_SLUGS: Record<PreviewStaticParamFamily, readonly string[]> = {
     PROBLEM_SLUG,
     "3d-print-job-margin-tool",
     "3d-print-cost-check",
+  ],
+  "premium-tools-category": [
+    "lean-production",
+    "cnc-manufacturing",
+    "construction",
+    "logistics-transport",
   ],
   "premium-schema": [
     "cnc-oee-loss",
