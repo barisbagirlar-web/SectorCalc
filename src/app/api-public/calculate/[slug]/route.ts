@@ -158,7 +158,10 @@ export async function POST(
           code: 422,
           details: unknownKeys.map((field) => ({
             field,
-            message: `Unknown input field "${field}" for tool "${slug}".`,
+            message: formatApiPublicMessage(locale, "unknownInputFieldMessage", {
+              field,
+              slug,
+            }),
           })),
           expected_format: {
             inputs: describeExpectedInputFormat(toolSchema.inputs),

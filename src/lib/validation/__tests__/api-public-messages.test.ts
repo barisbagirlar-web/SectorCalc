@@ -54,4 +54,20 @@ describe("api-public-messages", () => {
       expect(message).toContain("z-score-calculator");
     }
   });
+
+  test("unknownInputFieldMessage is localized for every supported locale", () => {
+    for (const locale of SUPPORTED_LOCALES) {
+      const message = formatApiPublicMessage(locale, "unknownInputFieldMessage", {
+        field: "total_work_content",
+        slug: "oee-downtime-calculator",
+      });
+      expect(message).toContain("total_work_content");
+      expect(message).toContain("oee-downtime-calculator");
+      if (locale === "en") {
+        expect(message).toContain("Unknown input field");
+      } else {
+        expect(message).not.toMatch(/^Unknown input field/);
+      }
+    }
+  });
 });

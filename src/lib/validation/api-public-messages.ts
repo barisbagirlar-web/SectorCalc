@@ -15,6 +15,7 @@ export type ApiPublicMessageKey =
   | "schemaNotFoundError"
   | "schemaNotFoundMessage"
   | "invalidInputError"
+  | "unknownInputFieldMessage"
   | "engineNotFoundError"
   | "engineNotFoundMessage"
   | "invalidResultError"
@@ -123,6 +124,14 @@ export const API_PUBLIC_MESSAGES = assertCompleteCatalog({
     fr: "Paramètres d'entrée invalides (hallucination IA détectée)",
     es: "Parámetros de entrada no válidos (alucinación de IA detectada)",
     ar: "معلمات إدخال غير صالحة (تم رصد هلوسة الذكاء الاصطناعي)",
+  },
+  unknownInputFieldMessage: {
+    en: 'Unknown input field "{field}" for tool "{slug}".',
+    tr: '"{slug}" aracı için bilinmeyen girdi alanı: "{field}".',
+    de: 'Unbekanntes Eingabefeld "{field}" für Tool "{slug}".',
+    fr: 'Champ d\'entrée inconnu « {field} » pour l\'outil « {slug} ».',
+    es: 'Campo de entrada desconocido "{field}" para la herramienta "{slug}".',
+    ar: 'حقل إدخال غير معروف "{field}" للأداة "{slug}".',
   },
   engineNotFoundError: {
     en: "Calculator engine not found",
