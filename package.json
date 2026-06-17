@@ -2,6 +2,12 @@
   "name": "sectorcalc",
   "version": "0.1.0",
   "private": true,
+  "browserslist": [
+    "chrome >= 90",
+    "firefox >= 90",
+    "safari >= 15",
+    "edge >= 90"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "NODE_OPTIONS='--max-old-space-size=8192' node scripts/next-build-with-500-fallback.mjs",
@@ -315,5 +321,11 @@
     "tsx": "^4.22.4",
     "typescript": "^5",
     "vitest": "^4.1.8"
-  }
+  },
+  "browserslist": [
+    "chrome >= 93",
+    "edge >= 93",
+    "firefox >= 92",
+    "safari >= 15"
+  ]
 }

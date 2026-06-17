@@ -6,8 +6,18 @@ export const BRAND_ASSETS = {
  logo: {
  default: "/img/brand/sectorcalc-logo.png",
  onDark: "/img/brand/sectorcalc-logo-on-dark.png",
+ /** Header/LCP — 2× display size; master PNGs kept for schema and print. */
+ headerDefault: "/img/brand/sectorcalc-logo-header.png",
+ headerOnDark: "/img/brand/sectorcalc-logo-on-dark-header.png",
+ /** Intrinsic asset dimensions (PNG master). */
  width: 1024,
  height: 268,
+ /** Header asset dimensions (520×136 PNG). */
+ headerWidth: 520,
+ headerHeight: 136,
+ /** Max rendered size in header — used for Next/Image `sizes` and layout. */
+ displayWidth: 260,
+ displayHeight: 68,
  },
  favicon: {
  master: "/img/brand/sectorcalc-favicon.png",

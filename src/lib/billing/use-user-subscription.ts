@@ -23,7 +23,7 @@ const INITIAL_STATE: UseUserSubscriptionState = {
   user: null,
   subscription: null,
   isActive: false,
-  loading: true,
+  loading: false,
   error: null,
 };
 
@@ -44,9 +44,28 @@ function setStoreState(next: UseUserSubscriptionState) {
   emitStore();
 }
 
+function stripLocalePrefix(pathname: string): string {
+  return pathname.replace(/^\/(tr|de|fr|es|ar)(?=\/|$)/, "") || "/";
+}
+
+/** Routes that need Firebase auth on first paint (account, checkout, premium tools). */
+function isAuthRequiredPath(): boolean {
+  if (typeof window === "undefined") {
+    return false;
+  }
+  const bare = stripLocalePrefix(window.location.pathname);
+  return (
+    /^\/(account|login|pricing)(\/|$)/.test(bare) ||
+    /^\/tools\/(premium|premium-schema)\//.test(bare) ||
+    /^\/admin(\/|$)/.test(bare)
+  );
+}
+
 function subscribeStore(listener: StoreListener): () => void {
   storeListeners.add(listener);
-  bootstrapAuthStore();
+  if (isAuthRequiredPath()) {
+    bootstrapAuthStore();
+  }
   return () => {
     storeListeners.delete(listener);
   };
@@ -61,6 +80,7 @@ function bootstrapAuthStore() {
     return;
   }
   authBootstrapped = true;
+  setStoreState({ ...storeState, loading: true, error: null });
 
   const auth = getFirebaseAuth();
   if (!auth) {

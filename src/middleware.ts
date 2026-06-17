@@ -28,8 +28,6 @@ import {
 } from "@/lib/i18n/locale-routing";
 import { migrateGeneratedToolSlugPath } from "@/lib/tools/generated-tool-slug-redirects";
 import { shouldAllowToolPageFraming } from "@/lib/tools/embed-policy";
-import { SITE_URL } from "@/lib/semantic/site-url";
-
 /**
  * Locale routing (root English + prefixed locales) + regional compliance.
  */
@@ -51,15 +49,6 @@ function applyToolFramingHeaders(response: NextResponse, pathname: string): void
     response.headers.set("X-Frame-Options", "DENY");
     response.headers.set("Content-Security-Policy", "frame-ancestors 'none'");
   }
-}
-
-function applyCanonicalHeader(response: NextResponse, request: NextRequest): void {
-  const { pathname } = request.nextUrl;
-  if (pathname.startsWith("/api/") || pathname.startsWith("/_next/")) {
-    return;
-  }
-  const canonicalPath = pathname === "/" ? "" : pathname;
-  response.headers.set("Link", `<${SITE_URL}${canonicalPath}>; rel="canonical"`);
 }
 
 function applyRegionHeaders(response: NextResponse, request: NextRequest): NextResponse {
@@ -105,7 +94,6 @@ function applyRegionHeaders(response: NextResponse, request: NextRequest): NextR
   }
 
   applyToolFramingHeaders(response, request.nextUrl.pathname);
-  applyCanonicalHeader(response, request);
   return response;
 }
 

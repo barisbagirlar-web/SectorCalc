@@ -1,13 +1,6 @@
-/** Predictive preconnect for fonts used by next/font. */
+/** Reserved for future high-value origin hints — fonts are self-hosted via next/font. */
 export function SeoHeadLinks() {
-  return (
-    <>
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link rel="preconnect" href="https://firebase.googleapis.com" />
-      <link rel="dns-prefetch" href="https://firebase.googleapis.com" />
-    </>
-  );
+  return null;
 }
 
 export function LlmsTxtLink() {

@@ -44,9 +44,13 @@ for (const rel of required) {
   }
 }
 
-const siteUrl = readFileSync(join(ROOT, "src/lib/semantic/site-url.ts"), "utf8");
-if (!siteUrl.includes('export const SITE_URL = "https://www.sectorcalc.com"')) {
-  failures.push("SITE_URL is not https://www.sectorcalc.com");
+const siteConfig = readFileSync(join(ROOT, "src/config/site.ts"), "utf8");
+if (!siteConfig.includes('const DEFAULT_SITE_URL = "https://www.sectorcalc.com"')) {
+  failures.push("DEFAULT_SITE_URL is not https://www.sectorcalc.com");
+}
+const siteUrlModule = readFileSync(join(ROOT, "src/lib/semantic/site-url.ts"), "utf8");
+if (!siteUrlModule.includes('import { siteUrl } from "@/config/site"')) {
+  failures.push("SITE_URL must re-export siteUrl from src/config/site.ts");
 }
 
 const semanticJsonLd = readFileSync(join(ROOT, "src/components/semantic/SemanticJsonLd.tsx"), "utf8");

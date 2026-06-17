@@ -18,7 +18,9 @@ export function SiteLogo({
   className = "",
 }: SiteLogoProps) {
   const wordmark =
-    variant === "on-dark" ? BRAND_ASSETS.logo.onDark : BRAND_ASSETS.logo.default;
+    variant === "on-dark"
+      ? BRAND_ASSETS.logo.headerOnDark
+      : BRAND_ASSETS.logo.headerDefault;
 
   return (
     <Link
@@ -30,10 +32,11 @@ export function SiteLogo({
       <Image
         src={wordmark}
         alt="SectorCalc"
-        width={BRAND_ASSETS.logo.width}
-        height={BRAND_ASSETS.logo.height}
+        width={BRAND_ASSETS.logo.displayWidth}
+        height={BRAND_ASSETS.logo.displayHeight}
+        sizes="(max-width: 767px) 144px, 260px"
+        quality={85}
         priority={priority}
-        unoptimized
         className="site-logo__img sc-site-logo__wordmark"
       />
     </Link>

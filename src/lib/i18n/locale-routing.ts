@@ -53,7 +53,15 @@ const MIDDLEWARE_EXCLUDED_EXACT = new Set([
   "/manifest.json",
 ]);
 
-const MIDDLEWARE_EXCLUDED_PREFIXES = ["/api", "/admin", "/_next", "/assets", "/images", "/icons"] as const;
+const MIDDLEWARE_EXCLUDED_PREFIXES = [
+  "/api",
+  "/admin",
+  "/_next",
+  "/assets",
+  "/images",
+  "/icons",
+  "/sitemap",
+] as const;
 
 const STATIC_FILE_EXTENSION =
   /\.(?:ico|png|jpe?g|gif|webp|svg|txt|xml|json|jsonl|woff2?|ttf|eot|css|js|map)$/i;

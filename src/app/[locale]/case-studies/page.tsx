@@ -9,8 +9,10 @@ import {
   type CaseStudyDatabaseFilters,
   type CaseStudySavingsBand,
 } from "@/lib/case-studies/academic-database";
-import { buildCaseStudyIndexSummaryLine } from "@/lib/case-studies/case-study-featured-snippet";
-import { buildCaseStudyIndexJsonLd } from "@/lib/case-studies/case-study-seo";
+import {
+  buildCaseStudyIndexJsonLd,
+  buildCaseStudyIndexSummaryLine,
+} from "@/lib/case-studies/case-study-seo";
 import { listMergedPublishedCaseStudies } from "@/lib/case-studies/firestore-case-studies";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { createPageMetadata } from "@/lib/metadata";

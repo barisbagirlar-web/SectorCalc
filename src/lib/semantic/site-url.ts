@@ -1,4 +1,7 @@
-export const SITE_URL = "https://www.sectorcalc.com";
+import { siteUrl } from "@/config/site";
+
+/** Canonical public origin — single source of truth via `src/config/site.ts`. */
+export const SITE_URL = siteUrl;
 
 export function absoluteUrl(path: string): string {
   const safePath = path.startsWith("/") ? path : `/${path}`;

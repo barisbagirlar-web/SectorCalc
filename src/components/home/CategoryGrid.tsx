@@ -75,7 +75,7 @@ export async function CategoryGrid({ locale }: CategoryGridProps) {
                       strokeWidth={1.5}
                     />
                     <h4 className="line-clamp-2 text-sm font-bold text-gray-800">{title}</h4>
-                    <p className="mt-1 text-xs text-gray-400">
+                    <p className="mt-1 text-xs text-gray-600">
                       {t("coverage.toolCount", { count: toolCount })}
                     </p>
                     {tags.length > 0 ? (

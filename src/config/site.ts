@@ -1,7 +1,16 @@
-const DEFAULT_SITE_URL = "https://sectorcalc.com";
+const DEFAULT_SITE_URL = "https://www.sectorcalc.com";
 
 function normalizeSiteUrl(value: string): string {
- return value.trim().replace(/\/$/, "");
+ const trimmed = value.trim().replace(/\/$/, "");
+ try {
+  const url = new URL(trimmed);
+  if (url.hostname === "sectorcalc.com") {
+   url.hostname = "www.sectorcalc.com";
+  }
+  return url.origin;
+ } catch {
+  return DEFAULT_SITE_URL;
+ }
 }
 
 /** Canonical public origin; override with NEXT_PUBLIC_SITE_URL at deploy time. */

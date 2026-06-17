@@ -1,6 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { buildCaseStudySnippetCopy } from "@/lib/case-studies/case-study-featured-snippet";
-import { buildCaseStudyJsonLd, computeCaseStudySeoPreview } from "@/lib/case-studies/case-study-seo";
+import {
+  buildCaseStudyJsonLd,
+  buildCaseStudySnippetCopy,
+  computeCaseStudySeoPreview,
+} from "@/lib/case-studies/case-study-seo";
 import type { CaseStudy } from "@/lib/case-studies/types";
 
 const labels = {

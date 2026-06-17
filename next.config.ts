@@ -43,6 +43,19 @@ const nextConfig: NextConfig = {
     staticGenerationMaxConcurrency: 1,
     staticGenerationMinPagesPerWorker: 1,
   },
+  async headers() {
+    return [
+      {
+        source: "/sitemap/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=3600, stale-while-revalidate=86400",
+          },
+        ],
+      },
+    ];
+  },
   async redirects() {
     return [
       { source: "/tools/free/:slug", destination: "/tools/generated/:slug", permanent: true },
@@ -73,6 +86,10 @@ const nextConfig: NextConfig = {
     return {
       beforeFiles: [
         ...indexNowVerification,
+        {
+          source: "/sitemap/:locale.xml",
+          destination: "/sitemap/:locale",
+        },
         { source: "/", destination: "/en" },
         {
           source: `/:path((?!${LOCALE_REWRITE_EXCLUDE}).*)`,

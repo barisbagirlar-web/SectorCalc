@@ -15,6 +15,10 @@ const SENSITIVE_FILENAME_ALLOWLIST = new Set([".env.example"]);
 const ENV_EXAMPLE_PUBLIC_FLAG_LINE =
   /^\s*#?\s*NEXT_PUBLIC_[A-Z0-9_]+\s*=\s*(?:true|false)\s*$/;
 
+/** Public canonical origin in .env.example — not a secret. */
+const ENV_EXAMPLE_PUBLIC_SITE_URL_LINE =
+  /^\s*#?\s*NEXT_PUBLIC_SITE_URL\s*=\s*https:\/\/[^\s#]+\s*$/;
+
 const DIFF_SECRET_PATTERNS = [
   /BEGIN PRIVATE KEY/,
   /BEGIN RSA PRIVATE KEY/,
@@ -73,7 +77,7 @@ function checkEnvExampleDiff() {
       continue;
     }
 
-    if (!ENV_EXAMPLE_PUBLIC_FLAG_LINE.test(trimmed)) {
+    if (!ENV_EXAMPLE_PUBLIC_FLAG_LINE.test(trimmed) && !ENV_EXAMPLE_PUBLIC_SITE_URL_LINE.test(trimmed)) {
       violations.push(trimmed);
     }
   }

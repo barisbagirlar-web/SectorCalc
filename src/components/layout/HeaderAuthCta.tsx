@@ -2,7 +2,7 @@
 
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
-import { useUserSubscription } from "@/lib/billing/use-user-subscription";
+import { useUserSubscription, warmUserSubscriptionStore } from "@/lib/billing/use-user-subscription";
 
 interface HeaderAuthCtaProps {
   onNavigate?: () => void;
@@ -37,10 +37,26 @@ export function HeaderAuthCta({ onNavigate, mobile = false }: HeaderAuthCtaProps
   if (!user) {
     return (
       <div className={groupClass}>
-        <Link href="/login" prefetch={false} onClick={onNavigate} className={linkClass}>
+        <Link
+          href="/login"
+          prefetch={false}
+          onClick={() => {
+            warmUserSubscriptionStore();
+            onNavigate?.();
+          }}
+          className={linkClass}
+        >
           {t("login")}
         </Link>
-        <Link href="/login?next=/pricing" prefetch={false} onClick={onNavigate} className={signUpClass}>
+        <Link
+          href="/login?next=/pricing"
+          prefetch={false}
+          onClick={() => {
+            warmUserSubscriptionStore();
+            onNavigate?.();
+          }}
+          className={signUpClass}
+        >
           {t("signUp")}
         </Link>
       </div>
