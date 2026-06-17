@@ -11,7 +11,7 @@ export type AdminCaseStudyListItem = {
   readonly title: string;
   readonly industry: string;
   readonly publishedAt: string;
-  readonly source: "published" | "draft";
+  readonly source: "published" | "draft" | "firestore";
 };
 
 export function listPublishedAdminCaseStudies(): AdminCaseStudyListItem[] {

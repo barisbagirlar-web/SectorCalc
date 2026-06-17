@@ -7,14 +7,18 @@ import {
   getCaseStudyBySlug,
   listAllCaseStudySlugs,
 } from "@/lib/case-studies/case-study-registry";
+import { resolveCaseStudyPageDescription } from "@/lib/case-studies/case-study-featured-snippet";
 import {
   getPublishedCaseStudyBySlug,
   isPublishedCaseStudySlug,
 } from "@/lib/case-studies/published-case-study-locale";
+import { resolvePublishedCaseStudyBySlug } from "@/lib/case-studies/firestore-case-studies";
 import { createPageMetadata } from "@/lib/metadata";
 import { locales, type AppLocale } from "@/i18n/routing";
 import { limitStaticParamsForPreview } from "@/lib/build/preview-static-params";
 import "@/styles/academic-case-studies-database.css";
+
+export const revalidate = 60;
 
 type PageProps = { params: Promise<{ locale: string; slug: string }> };
 
@@ -30,11 +34,12 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale, slug } = await params;
-  const published = getPublishedCaseStudyBySlug(slug, locale);
+  const published =
+    getPublishedCaseStudyBySlug(slug, locale) ?? (await resolvePublishedCaseStudyBySlug(slug, locale));
   if (published) {
     return createPageMetadata({
       title: published.title,
-      description: published.subtitle,
+      description: resolveCaseStudyPageDescription(published),
       path: `/case-studies/${slug}`,
       locale: locale as AppLocale,
     });
@@ -62,13 +67,13 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
 
-  if (isPublishedCaseStudySlug(slug)) {
-    const published = getPublishedCaseStudyBySlug(slug, locale);
-    if (!published) {
-      notFound();
-    }
-
+  const published = await resolvePublishedCaseStudyBySlug(slug, locale);
+  if (published) {
     return <AcademicPublishedCaseStudyRecord study={published} locale={locale} />;
+  }
+
+  if (isPublishedCaseStudySlug(slug)) {
+    notFound();
   }
 
   const entry = getCaseStudyBySlug(slug);

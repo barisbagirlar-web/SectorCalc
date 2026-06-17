@@ -138,6 +138,12 @@ service cloud.firestore {
       // Client writes are forbidden — Admin SDK only
       allow create, update, delete: if false;
     }
+
+    // Published success stories (runtime CMS via Admin API + ISR public pages)
+    match /caseStudies/{studyId} {
+      allow read: if true;
+      allow create, update, delete: if isAuthenticatedAdmin();
+    }
   }
 }
 

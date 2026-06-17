@@ -20,11 +20,12 @@ const tableHeadClass = "px-4 py-3 text-left text-xs font-semibold uppercase trac
 const tableCellClass = "px-4 py-3 text-sm text-deep-navy";
 
 function SourceBadge({ source }: { source: AdminCaseStudyListItem["source"] }) {
-  const label = source === "published" ? "Live" : "Draft";
+  const label =
+    source === "published" ? "Live (static)" : source === "firestore" ? "Live (Firestore)" : "Draft";
   const className =
-    source === "published"
-      ? "border-emerald-200 bg-emerald-50 text-emerald-800"
-      : "border-amber-200 bg-amber-50 text-amber-900";
+    source === "draft"
+      ? "border-amber-200 bg-amber-50 text-amber-900"
+      : "border-emerald-200 bg-emerald-50 text-emerald-800";
   return (
     <span className={`inline-flex rounded-full border px-2.5 py-0.5 text-xs font-semibold ${className}`}>
       {label}
@@ -33,8 +34,9 @@ function SourceBadge({ source }: { source: AdminCaseStudyListItem["source"] }) {
 }
 
 export function CaseStudiesAdminClient() {
-  const { loading: authLoading, isAdmin } = useAdminAuth();
+  const { loading: authLoading, isAdmin, getIdToken } = useAdminAuth();
   const [drafts, setDrafts] = useState<CaseStudyDraftRecord[]>([]);
+  const [firestoreRows, setFirestoreRows] = useState<AdminCaseStudyListItem[]>([]);
   const [refreshKey, setRefreshKey] = useState(0);
 
   const publishedRows = useMemo(() => listPublishedAdminCaseStudies(), [refreshKey]);
@@ -54,10 +56,10 @@ export function CaseStudiesAdminClient() {
 
   const rows = useMemo(
     () =>
-      [...publishedRows, ...draftRows].sort((a, b) =>
+      [...publishedRows, ...firestoreRows, ...draftRows].sort((a, b) =>
         b.publishedAt.localeCompare(a.publishedAt),
       ),
-    [draftRows, publishedRows],
+    [draftRows, firestoreRows, publishedRows],
   );
 
   const reloadDrafts = useCallback(() => {
@@ -65,9 +67,57 @@ export function CaseStudiesAdminClient() {
     setRefreshKey((value) => value + 1);
   }, []);
 
+  const reloadFirestoreRows = useCallback(async () => {
+    const token = await getIdToken();
+    if (!token) {
+      setFirestoreRows([]);
+      return;
+    }
+
+    try {
+      const response = await fetch("/api/admin/case-studies", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (!response.ok) {
+        setFirestoreRows([]);
+        return;
+      }
+
+      const payload = (await response.json()) as Array<{
+        id: string;
+        slug: string;
+        title: string;
+        industry: string;
+        publishedAt: string;
+      }>;
+
+      setFirestoreRows(
+        payload.map((study) => ({
+          id: study.id,
+          slug: study.slug,
+          title: study.title,
+          industry: study.industry || "—",
+          publishedAt: study.publishedAt,
+          source: "firestore" as const,
+        })),
+      );
+    } catch (error) {
+      console.error("Failed to load Firestore case studies:", error);
+      setFirestoreRows([]);
+    }
+  }, [getIdToken]);
+
   useEffect(() => {
     reloadDrafts();
   }, [reloadDrafts]);
+
+  useEffect(() => {
+    if (!isAdmin) {
+      setFirestoreRows([]);
+      return;
+    }
+    void reloadFirestoreRows();
+  }, [isAdmin, refreshKey, reloadFirestoreRows]);
 
   const handleDeleteDraft = (id: string) => {
     if (!window.confirm("Delete this browser draft? Live published stories require a repo edit.")) {
@@ -75,6 +125,26 @@ export function CaseStudiesAdminClient() {
     }
     deleteCaseStudyDraft(id);
     reloadDrafts();
+  };
+
+  const handleDeleteFirestore = async (id: string, title: string) => {
+    if (!window.confirm(`Delete Firestore story "${title}"? This cannot be undone.`)) {
+      return;
+    }
+
+    const token = await getIdToken(true);
+    if (!token) {
+      return;
+    }
+
+    const response = await fetch(`/api/admin/case-studies/${encodeURIComponent(id)}`, {
+      method: "DELETE",
+      headers: { Authorization: `Bearer ${token}` },
+    });
+
+    if (response.ok) {
+      void reloadFirestoreRows();
+    }
   };
 
   if (authLoading) {
@@ -93,8 +163,8 @@ export function CaseStudiesAdminClient() {
         <>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-sm text-text-secondary">
-              Published stories are static build content. Drafts save in this browser and export JSON
-              for commit to <code className="text-xs">data.ts</code> / locale files.
+              Static stories ship with the build. Firestore stories publish instantly (ISR ~60s).
+              Browser drafts export JSON for legacy static commits.
             </p>
             <Link href="/admin/case-studies/new" className={buttonPrimaryClass}>
               <Plus className="h-4 w-4" aria-hidden="true" />
@@ -122,7 +192,7 @@ export function CaseStudiesAdminClient() {
                   {rows.map((row) => (
                     <tr key={`${row.source}-${row.id}`} className="hover:bg-off-white/60">
                       <td className={tableCellClass}>
-                        {row.source === "published" ? (
+                        {row.source === "published" || row.source === "firestore" ? (
                           <Link
                             href={`/case-studies/${row.slug}`}
                             className="inline-flex items-center gap-1 font-medium text-professional-blue hover:underline"
@@ -153,6 +223,16 @@ export function CaseStudiesAdminClient() {
                             onClick={() => handleDeleteDraft(row.id)}
                             className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center text-red-600 hover:text-red-800"
                             aria-label={`Delete draft ${row.title}`}
+                          >
+                            <Trash2 className="h-4 w-4" aria-hidden="true" />
+                          </button>
+                        ) : null}
+                        {row.source === "firestore" ? (
+                          <button
+                            type="button"
+                            onClick={() => void handleDeleteFirestore(row.id, row.title)}
+                            className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center text-red-600 hover:text-red-800"
+                            aria-label={`Delete Firestore story ${row.title}`}
                           >
                             <Trash2 className="h-4 w-4" aria-hidden="true" />
                           </button>

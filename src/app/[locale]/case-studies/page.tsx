@@ -9,12 +9,17 @@ import {
   type CaseStudyDatabaseFilters,
   type CaseStudySavingsBand,
 } from "@/lib/case-studies/academic-database";
-import { listPublishedCaseStudies } from "@/lib/case-studies/published-case-study-locale";
+import { buildCaseStudyIndexSummaryLine } from "@/lib/case-studies/case-study-featured-snippet";
+import { buildCaseStudyIndexJsonLd } from "@/lib/case-studies/case-study-seo";
+import { listMergedPublishedCaseStudies } from "@/lib/case-studies/firestore-case-studies";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { createPageMetadata } from "@/lib/metadata";
 import type { AppLocale } from "@/i18n/routing";
 import type { SupportedLocale } from "@/lib/i18n/locale-config";
 import { addLocaleToPath } from "@/lib/i18n/locale-routing";
 import "@/styles/academic-case-studies-database.css";
+
+export const revalidate = 60;
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -47,7 +52,7 @@ export default async function CaseStudiesPage({ params, searchParams }: PageProp
   setRequestLocale(locale);
 
   const t = await getTranslations("caseStudies.database");
-  const studies = listPublishedCaseStudies(locale);
+  const studies = await listMergedPublishedCaseStudies(locale);
   const filters: CaseStudyDatabaseFilters = {
     industry: query.industry ?? "",
     country: query.country ?? "",
@@ -158,6 +163,22 @@ export default async function CaseStudiesPage({ params, searchParams }: PageProp
         <div className="filter-line" />
       </div>
 
+      <section className="index-snippet-summary" aria-labelledby="case-studies-snippet-heading">
+        <h2 id="case-studies-snippet-heading" className="index-snippet-heading">
+          {t("indexSummaryHeading")}
+        </h2>
+        <p className="sc-featured-answer__answer index-snippet-intro">{t("indexSummaryIntro")}</p>
+        <ul className="sc-featured-answer__list index-snippet-list">
+          {studies.map((study) => (
+            <li key={study.slug}>
+              <Link href={`/case-studies/${study.slug}`}>
+                {buildCaseStudyIndexSummaryLine(study, locale)}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
       <div className="table-wrapper">
         <table className="data-table">
           <thead>
@@ -214,6 +235,8 @@ export default async function CaseStudiesPage({ params, searchParams }: PageProp
           </tbody>
         </table>
       </div>
+
+      <JsonLd data={buildCaseStudyIndexJsonLd(studies, locale, t("indexSummaryHeading"))} />
 
       <footer className="footer">
         <div className="footer-line" />
