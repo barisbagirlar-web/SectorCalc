@@ -1,0 +1,240 @@
+.academic-database {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  background: #ffffff;
+  color: #000000;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 16px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+.academic-database a {
+  color: #003366;
+  text-decoration: underline;
+}
+
+.academic-database a:hover {
+  color: #000000;
+}
+
+.academic-database .header {
+  padding: 16px 0 8px;
+}
+
+.academic-database .header-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000000;
+  text-decoration: none;
+}
+
+.academic-database .header-title:hover {
+  text-decoration: underline;
+}
+
+.academic-database .header-line {
+  margin-top: 8px;
+  border-bottom: 1px solid #ccc;
+}
+
+.academic-database .breadcrumb {
+  padding: 8px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.academic-database .breadcrumb .sep {
+  margin: 0 6px;
+}
+
+.academic-database .authority-bar {
+  padding: 12px 0 8px;
+  font-size: 14px;
+  color: #333;
+  border-bottom: 1px solid #000;
+}
+
+.academic-database .authority-line-1 {
+  margin-bottom: 2px;
+}
+
+.academic-database .authority-line-2 {
+  font-size: 13px;
+  color: #555;
+}
+
+.academic-database .filter-area {
+  padding: 16px 0 8px;
+}
+
+.academic-database .filter-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 20px;
+}
+
+.academic-database .filter-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.academic-database .filter-group label {
+  font-size: 14px;
+  color: #000;
+}
+
+.academic-database .filter-select {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 14px;
+  padding: 2px 4px;
+  border: 1px solid #000;
+  background: #fff;
+  color: #000;
+  border-radius: 0;
+  appearance: auto;
+}
+
+.academic-database .filter-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.academic-database .filter-submit {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 14px;
+  padding: 2px 12px;
+  border: 1px solid #000;
+  background: #fff;
+  color: #000;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+.academic-database .filter-submit:hover {
+  background: #eee;
+}
+
+.academic-database .filter-csv {
+  font-size: 14px;
+  color: #003366;
+  text-decoration: underline;
+}
+
+.academic-database .filter-line {
+  margin-top: 8px;
+  border-bottom: 1px solid #000;
+}
+
+.academic-database .table-wrapper {
+  overflow-x: auto;
+  padding: 12px 0 4px;
+}
+
+.academic-database .data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  font-family: "Times New Roman", Times, serif;
+  border: 1px solid #000;
+}
+
+.academic-database .data-table th,
+.academic-database .data-table td {
+  border: 1px solid #000;
+  padding: 6px 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.academic-database .data-table th {
+  background: #fff;
+  font-weight: bold;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.academic-database .data-table td {
+  background: #fff;
+}
+
+.academic-database .data-table .numeric {
+  text-align: right;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.academic-database .data-table .empty-row {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.academic-database .table-link {
+  color: #003366;
+  text-decoration: underline;
+  font-size: 13px;
+}
+
+.academic-database .table-link:hover {
+  color: #000;
+}
+
+.academic-database .footer {
+  padding: 12px 0 20px;
+}
+
+.academic-database .footer-line {
+  border-top: 1px solid #ccc;
+  margin-bottom: 8px;
+}
+
+.academic-database .footer-text {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.academic-database .footer-text div {
+  margin-bottom: 2px;
+}
+
+.academic-database .footer-link {
+  color: #003366;
+  text-decoration: underline;
+}
+
+.academic-database .footer-link:hover {
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .academic-database .filter-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .academic-database .filter-group {
+    justify-content: space-between;
+  }
+
+  .academic-database .filter-actions {
+    justify-content: flex-start;
+  }
+
+  .academic-database .data-table {
+    font-size: 12px;
+  }
+
+  .academic-database .data-table th,
+  .academic-database .data-table td {
+    padding: 4px 6px;
+  }
+
+  .academic-database .header-title {
+    font-size: 20px;
+  }
+}

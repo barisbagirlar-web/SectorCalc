@@ -564,6 +564,11 @@ export function getPublishedCaseStudyBySlug(slug: string, locale: string): CaseS
     publishedAt: base.publishedAt,
     readTime: base.readTime,
     coverImage: base.coverImage,
+    id: base.id,
+    country: base.country,
+    city: base.city,
+    projectDuration: base.projectDuration,
+    savingsEur: base.savingsEur,
     ...content,
   };
 }

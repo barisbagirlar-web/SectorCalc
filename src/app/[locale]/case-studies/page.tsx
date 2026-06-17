@@ -1,17 +1,36 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { PublishedCaseStudyCard } from "@/components/case-studies/PublishedCaseStudyCard";
-import { PageLayout } from "@/components/layout/PageLayout";
-import { Container } from "@/components/ui/Container";
+import { Link } from "@/i18n/routing";
+import {
+  filterCaseStudiesForDatabase,
+  formatEuroAmount,
+  getPrimaryResultRow,
+  resolveCaseStudySavingsEur,
+  type CaseStudyDatabaseFilters,
+  type CaseStudySavingsBand,
+} from "@/lib/case-studies/academic-database";
 import { listPublishedCaseStudies } from "@/lib/case-studies/published-case-study-locale";
 import { createPageMetadata } from "@/lib/metadata";
 import type { AppLocale } from "@/i18n/routing";
+import "@/styles/academic-case-studies-database.css";
 
-type PageProps = { params: Promise<{ locale: string }> };
+type PageProps = {
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<{
+    industry?: string;
+    country?: string;
+    year?: string;
+    savings?: string;
+  }>;
+};
+
+function isSavingsBand(value: string | undefined): value is CaseStudySavingsBand {
+  return value === "0-100k" || value === "100k-500k" || value === "500k-1m" || value === "1m+";
+}
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "caseStudies" });
+  const t = await getTranslations({ locale, namespace: "caseStudies.database" });
   return createPageMetadata({
     title: t("metaTitle"),
     description: t("metaDescription"),
@@ -20,36 +39,187 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   });
 }
 
-export default async function CaseStudiesIndexPage({ params }: PageProps) {
+export default async function CaseStudiesPage({ params, searchParams }: PageProps) {
   const { locale } = await params;
+  const query = await searchParams;
   setRequestLocale(locale);
-  const t = await getTranslations("caseStudies");
-  const published = listPublishedCaseStudies(locale);
+
+  const t = await getTranslations("caseStudies.database");
+  const studies = listPublishedCaseStudies(locale);
+  const filters: CaseStudyDatabaseFilters = {
+    industry: query.industry ?? "",
+    country: query.country ?? "",
+    year: query.year ?? "",
+    savings: isSavingsBand(query.savings) ? query.savings : "",
+  };
+  const filteredStudies = filterCaseStudiesForDatabase(studies, filters);
+
+  const industries = [...new Set(studies.map((study) => study.industry))].filter(Boolean).sort();
+  const countries = [...new Set(studies.map((study) => study.country ?? "Germany"))].filter(Boolean).sort();
+  const years = [...new Set(studies.map((study) => study.publishedAt.slice(0, 4)))].filter(Boolean).sort();
+
+  const updatedOn = new Date().toLocaleDateString(locale);
+  const totalCases = studies.length;
 
   return (
-    <PageLayout>
-      <section className="sc-craft-section sc-craft-section--white sc-craft-section--border">
-        <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0">
-          <p className="sc-craft-eyebrow">{t("eyebrow")}</p>
-          <h1 className="sc-craft-headline">{t("publishedTitle")}</h1>
-          <p className="sc-craft-lead max-w-3xl">{t("publishedSubtitle")}</p>
-        </Container>
-      </section>
+    <div className="academic-database">
+      <header className="header">
+        <div className="header-inner">
+          <Link href="/" className="header-title">
+            {t("headerTitle")}
+          </Link>
+        </div>
+        <div className="header-line" />
+      </header>
 
-      <section className="sc-craft-section sc-craft-section--alt overflow-x-hidden">
-        <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0">
-          <div className="grid min-w-0 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {published.map((study) => (
-              <PublishedCaseStudyCard
-                key={study.slug}
-                study={study}
-                locale={locale}
-                readTimeLabel={t("readTime", { count: study.readTime })}
-              />
-            ))}
+      <div className="breadcrumb">
+        <Link href="/">{t("breadcrumbHome")}</Link>
+        <span className="sep">/</span>
+        <span>{t("breadcrumbCurrent")}</span>
+      </div>
+
+      <div className="authority-bar">
+        <div className="authority-line-1">{t("authorityLine1")}</div>
+        <div className="authority-line-2">
+          {t("authorityLine2", { date: updatedOn, total: totalCases })}
+        </div>
+      </div>
+
+      <div className="filter-area">
+        <form method="GET" action={`/${locale}/case-studies`} className="filter-form">
+          <div className="filter-group">
+            <label htmlFor="industry">{t("filterIndustry")}</label>
+            <select
+              name="industry"
+              id="industry"
+              className="filter-select"
+              defaultValue={filters.industry}
+            >
+              <option value="">{t("filterAll")}</option>
+              {industries.map((industry) => (
+                <option key={industry} value={industry}>
+                  {industry}
+                </option>
+              ))}
+            </select>
           </div>
-        </Container>
-      </section>
-    </PageLayout>
+          <div className="filter-group">
+            <label htmlFor="country">{t("filterCountry")}</label>
+            <select
+              name="country"
+              id="country"
+              className="filter-select"
+              defaultValue={filters.country}
+            >
+              <option value="">{t("filterAll")}</option>
+              {countries.map((country) => (
+                <option key={country} value={country}>
+                  {country}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="filter-group">
+            <label htmlFor="year">{t("filterYear")}</label>
+            <select name="year" id="year" className="filter-select" defaultValue={filters.year}>
+              <option value="">{t("filterAll")}</option>
+              {years.map((year) => (
+                <option key={year} value={year}>
+                  {year}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="filter-group">
+            <label htmlFor="savings">{t("filterSavings")}</label>
+            <select name="savings" id="savings" className="filter-select" defaultValue={filters.savings}>
+              <option value="">{t("filterSavingsAll")}</option>
+              <option value="0-100k">{t("filterSavings0To100k")}</option>
+              <option value="100k-500k">{t("filterSavings100kTo500k")}</option>
+              <option value="500k-1m">{t("filterSavings500kTo1m")}</option>
+              <option value="1m+">{t("filterSavings1mPlus")}</option>
+            </select>
+          </div>
+          <div className="filter-actions">
+            <input type="submit" value={t("filterApply")} className="filter-submit" />
+            <a href="/data/case-studies.csv" className="filter-csv">
+              {t("filterCsv")}
+            </a>
+          </div>
+        </form>
+        <div className="filter-line" />
+      </div>
+
+      <div className="table-wrapper">
+        <table className="data-table">
+          <thead>
+            <tr>
+              <th>{t("colIndex")}</th>
+              <th>{t("colCompany")}</th>
+              <th>{t("colCity")}</th>
+              <th>{t("colCountry")}</th>
+              <th>{t("colIndustry")}</th>
+              <th>{t("colProjectDuration")}</th>
+              <th>{t("colBefore")}</th>
+              <th>{t("colAfter")}</th>
+              <th>{t("colSavings")}</th>
+              <th>{t("colYear")}</th>
+              <th>{t("colDetail")}</th>
+              <th>{t("colPdf")}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredStudies.length === 0 ? (
+              <tr>
+                <td colSpan={12} className="empty-row">
+                  {t("noResults")}
+                </td>
+              </tr>
+            ) : (
+              filteredStudies.map((study, index) => {
+                const primaryResult = getPrimaryResultRow(study);
+                const savingsEur = resolveCaseStudySavingsEur(study);
+                const year = study.publishedAt.slice(0, 4);
+
+                return (
+                  <tr key={study.id ?? study.slug}>
+                    <td>{index + 1}</td>
+                    <td>{study.testimonial?.company ?? t("unspecified")}</td>
+                    <td>{study.city ?? t("emDash")}</td>
+                    <td>{study.country ?? "Germany"}</td>
+                    <td>{study.industry}</td>
+                    <td>{study.projectDuration ?? t("emDash")}</td>
+                    <td className="numeric">{primaryResult?.before ?? t("emDash")}</td>
+                    <td className="numeric">{primaryResult?.after ?? t("emDash")}</td>
+                    <td className="numeric">{formatEuroAmount(savingsEur, locale)}</td>
+                    <td>{year}</td>
+                    <td>
+                      <Link href={`/case-studies/${study.slug}`} className="table-link">
+                        {t("detailLink")}
+                      </Link>
+                    </td>
+                    <td>{t("emDash")}</td>
+                  </tr>
+                );
+              })
+            )}
+          </tbody>
+        </table>
+      </div>
+
+      <footer className="footer">
+        <div className="footer-line" />
+        <div className="footer-text">
+          <div>{t("footerLine1")}</div>
+          <div>{t("footerLine2")}</div>
+          <div>
+            {t("footerContact")}{" "}
+            <a href="mailto:info@sectorcalc.com" className="footer-link">
+              info@sectorcalc.com
+            </a>
+          </div>
+        </div>
+      </footer>
+    </div>
   );
 }
