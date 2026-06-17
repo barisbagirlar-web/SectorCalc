@@ -4,6 +4,7 @@
  */
 import { existsSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
+import { stripVercelExportMarkers } from "./lib/strip-vercel-export-markers.mjs";
 
 const ROOT = process.cwd();
 const NEXT = join(ROOT, ".next");
@@ -116,6 +117,10 @@ function main() {
   }
 
   errors.push(...assertCriticalHubRoutes());
+
+  if (process.env.VERCEL === "1") {
+    stripVercelExportMarkers(NEXT);
+  }
 
   if (process.env.VERCEL === "1" && existsSync(join(NEXT, "export-marker.json"))) {
     errors.push(

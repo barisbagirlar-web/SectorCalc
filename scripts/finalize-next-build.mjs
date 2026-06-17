@@ -68,11 +68,15 @@ function main() {
   ensure500StaticFiles();
 
   // Firebase Hosting expects export markers; Vercel App Router must stay serverless.
-  // Stale cached export-marker.json on Vercel triggers static-export routing → www NOT_FOUND.
-  stripVercelExportMarkers(NEXT);
   if (process.env.VERCEL !== "1") {
     ensureExportMarker();
     ensureExportDetail();
+  }
+
+  // Strip after all writes — Next.js or cached stubs must not reach Vercel validation.
+  const { removed } = stripVercelExportMarkers(NEXT);
+  if (process.env.VERCEL === "1" && removed.length > 0) {
+    console.log(`finalize-next-build: removed ${removed.join(", ")}`);
   }
 
   const buildId = readFileSync(join(NEXT, "BUILD_ID"), "utf8").trim();

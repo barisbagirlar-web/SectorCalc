@@ -15,6 +15,7 @@ import {
   acquireGlobalBuildLock,
   releaseGlobalBuildLock,
 } from "./lib/global-build-lock.mjs";
+import { stripVercelExportMarkers } from "./lib/strip-vercel-export-markers.mjs";
 
 const ROOT = process.cwd();
 const NEXT_DIR = join(ROOT, ".next");
@@ -153,14 +154,19 @@ function finalizeAndValidate() {
   const finalize = spawnSync(process.execPath, ["scripts/finalize-next-build.mjs"], {
     cwd: ROOT,
     stdio: "inherit",
+    env: process.env,
   });
   if ((finalize.status ?? 1) !== 0) {
     return false;
   }
 
+  // Last-chance strip between finalize and validate (cached export-marker.json → Vercel NOT_FOUND).
+  stripVercelExportMarkers(NEXT_DIR);
+
   const validate = spawnSync(process.execPath, ["scripts/validate-next-build.mjs"], {
     cwd: ROOT,
     stdio: "inherit",
+    env: process.env,
   });
   return (validate.status ?? 1) === 0;
 }

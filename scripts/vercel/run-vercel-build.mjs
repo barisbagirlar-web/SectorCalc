@@ -141,6 +141,10 @@ function main() {
     }
 
     runStep("node", ["scripts/next-build-with-500-fallback.mjs"]);
+
+    if (process.env.VERCEL === "1") {
+      stripVercelExportMarkers(NEXT_DIR);
+    }
   } finally {
     if (useGlobalLock) {
       releaseGlobalBuildLock();
