@@ -80,7 +80,9 @@ export default async function FreeToolsPage({ params, searchParams }: PageProps)
       <JsonLd data={jsonLd} />
       <section className="sc-pro-section sc-pro-section--border">
         <ToolsPageSearchProvider>
-          <CatalogSearchUrlSync />
+          <Suspense fallback={null}>
+            <CatalogSearchUrlSync />
+          </Suspense>
           <ToolsPageLayout
             title={tPage("title")}
             subtitle={tPage("subtitle")}
