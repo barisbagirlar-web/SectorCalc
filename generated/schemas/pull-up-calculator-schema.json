@@ -2,69 +2,52 @@
   "toolName": "pull-up-calculator",
   "inputs": [
     {
-      "id": "supplyVoltage",
-      "label": "Besleme Voltajı",
+      "id": "loadWeight",
+      "label": "Load Weight",
       "type": "number",
-      "unit": "V",
-      "default": 5,
-      "businessContext": "Devrenin besleme gerilimi"
+      "unit": "kg",
+      "default": 100,
+      "businessContext": "Weight of the load to be pulled up."
     },
     {
-      "id": "minHighVoltage",
-      "label": "Minimum Yüksek Seviye Gerilimi",
+      "id": "inclineAngle",
+      "label": "Incline Angle",
       "type": "number",
-      "unit": "V",
-      "default": 3.5,
-      "businessContext": "Girişin '1' olarak algılaması için gereken minimum gerilim"
+      "unit": "°",
+      "default": 30,
+      "businessContext": "Angle of the incline from horizontal."
     },
     {
-      "id": "inputLeakageHigh",
-      "label": "Yüksek Seviye Kaçak Akımı",
+      "id": "frictionCoefficient",
+      "label": "Friction Coefficient",
       "type": "number",
-      "unit": "A",
-      "default": 0.000001,
-      "businessContext": "Giriş '1' durumundayken çekilen kaçak akım"
+      "unit": "",
+      "default": 0.2,
+      "businessContext": "Coefficient of friction between load and surface."
     },
     {
-      "id": "numberOfLoads",
-      "label": "Yük Sayısı",
+      "id": "mechanicalAdvantage",
+      "label": "Mechanical Advantage",
       "type": "number",
-      "unit": "adet",
+      "unit": "",
       "default": 1,
-      "businessContext": "Hatta bağlı giriş sayısı"
-    },
-    {
-      "id": "outputLowVoltage",
-      "label": "Maksimum Çıkış Düşük Seviye Gerilimi",
-      "type": "number",
-      "unit": "V",
-      "default": 0.4,
-      "businessContext": "Çıkış '0' durumundayken izin verilen maksimum gerilim"
-    },
-    {
-      "id": "outputSinkCurrent",
-      "label": "Maksimum Çıkış Akımı",
-      "type": "number",
-      "unit": "A",
-      "default": 0.016,
-      "businessContext": "Çıkışın '0' durumunda çekebileceği maksimum akım"
+      "businessContext": "Mechanical advantage from pulley systems (1 for direct pull)."
     }
   ],
   "formulas": {
-    "maxPullUpResistance": "(supplyVoltage - minHighVoltage) / (numberOfLoads * inputLeakageHigh)",
-    "minPullUpResistance": "(supplyVoltage - outputLowVoltage) / outputSinkCurrent"
+    "gravitationalForceComponent": "loadWeight * 9.81 * Math.sin(inclineAngle * Math.PI / 180)",
+    "frictionForce": "frictionCoefficient * loadWeight * 9.81 * Math.cos(inclineAngle * Math.PI / 180)",
+    "totalRequiredForce": "(gravitationalForceComponent + frictionForce) / mechanicalAdvantage"
   },
   "outputs": {
-    "primary": "maxPullUpResistance",
+    "primary": "totalRequiredForce",
     "breakdown": [
-      "maxPullUpResistance",
-      "minPullUpResistance"
+      "gravitationalForceComponent",
+      "frictionForce",
+      "totalRequiredForce"
     ]
   },
   "category": "Teknik & Mühendislik",
   "sector": "Teknik & Mühendislik",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "premiumRequired": false
 }

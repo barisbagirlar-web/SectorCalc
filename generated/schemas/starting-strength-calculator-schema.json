@@ -2,64 +2,51 @@
   "toolName": "starting-strength-calculator",
   "inputs": [
     {
-      "id": "bodyWeight",
-      "label": "Vücut Ağırlığı",
-      "type": "number",
-      "unit": "kg",
-      "default": 80,
-      "businessContext": "Liftçi vücut ağırlığı"
-    },
-    {
-      "id": "squatMax",
-      "label": "Squat Maksimum",
+      "id": "weight",
+      "label": "Weight Lifted",
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "Squat 1RM veya 5RM tahmini"
+      "businessContext": "The weight you can lift for the given number of reps with good form."
     },
     {
-      "id": "benchMax",
-      "label": "Bench Press Maksimum",
+      "id": "reps",
+      "label": "Reps Performed",
+      "type": "number",
+      "unit": "reps",
+      "default": 5,
+      "businessContext": "Number of consecutive repetitions performed with the given weight."
+    },
+    {
+      "id": "startingPercentage",
+      "label": "Starting Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "businessContext": "Percentage of estimated 1RM to use as starting weight for the program."
+    },
+    {
+      "id": "bodyweight",
+      "label": "Bodyweight",
       "type": "number",
       "unit": "kg",
       "default": 80,
-      "businessContext": "Bench press maksimum"
-    },
-    {
-      "id": "deadliftMax",
-      "label": "Deadlift Maksimum",
-      "type": "number",
-      "unit": "kg",
-      "default": 140,
-      "businessContext": "Deadlift maksimum"
-    },
-    {
-      "id": "pressMax",
-      "label": "Overhead Press Maksimum",
-      "type": "number",
-      "unit": "kg",
-      "default": 50,
-      "businessContext": "Press maksimum"
+      "businessContext": "Your current bodyweight, used for reference and progression context."
     }
   ],
   "formulas": {
-    "startingSquat": "Math.round(squatMax * 0.9 / 2.5) * 2.5",
-    "startingBench": "Math.round(benchMax * 0.9 / 2.5) * 2.5",
-    "startingDeadlift": "Math.round(deadliftMax * 0.9 / 2.5) * 2.5",
-    "startingPress": "Math.round(pressMax * 0.9 / 2.5) * 2.5"
+    "estimated1RM": "weight * (1 + reps/30)",
+    "startingWeight": "estimated1RM * (startingPercentage/100)",
+    "weightRatio": "startingWeight / bodyweight"
   },
   "outputs": {
-    "primary": "Squat başlangıç: ${startingSquat} kg",
+    "primary": "startingWeight",
     "breakdown": [
-      "Bench: ${startingBench} kg",
-      "Deadlift: ${startingDeadlift} kg",
-      "Press: ${startingPress} kg"
+      "estimated1RM",
+      "weightRatio"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Teknik & Mühendislik",
   "sector": "Teknik & Mühendislik",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "premiumRequired": false
 }

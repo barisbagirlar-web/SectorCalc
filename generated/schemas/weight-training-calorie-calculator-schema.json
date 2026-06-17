@@ -2,54 +2,52 @@
   "toolName": "weight-training-calorie-calculator",
   "inputs": [
     {
-      "id": "weight",
-      "label": "Weight",
+      "id": "bodyWeight",
+      "label": "Vücut Ağırlığı",
       "type": "number",
       "unit": "kg",
-      "default": 70,
-      "businessContext": "Trainee body weight in kilograms."
+      "default": 75,
+      "businessContext": "Kullanıcının vücut ağırlığı (kg)"
     },
     {
-      "id": "duration",
-      "label": "Duration",
+      "id": "durationHours",
+      "label": "Süre (Saat)",
       "type": "number",
-      "unit": "min",
-      "default": 30,
-      "businessContext": "Total duration of the weight training session in minutes."
+      "unit": "saat",
+      "default": 0,
+      "businessContext": "Antrenman süresi saat cinsinden"
     },
     {
-      "id": "intensity",
-      "label": "Intensity",
+      "id": "durationMinutes",
+      "label": "Süre (Dakika)",
       "type": "number",
-      "unit": "scale (1-10)",
-      "default": 5,
-      "businessContext": "Perceived intensity of the training on a scale of 1 (light) to 10 (maximal). Used to estimate MET."
+      "unit": "dk",
+      "default": 45,
+      "businessContext": "Antrenman süresi dakika cinsinden"
     },
     {
-      "id": "restPeriod",
-      "label": "Average Rest Period",
+      "id": "metValue",
+      "label": "MET Değeri",
       "type": "number",
-      "unit": "min",
-      "default": 2,
-      "businessContext": "Average rest period between sets in minutes, for future use."
+      "unit": "MET",
+      "default": 4,
+      "businessContext": "Aktivitenin MET (Metabolik Eşdeğer) değeri. Ağırlık antrenmanı için genellikle 3-6 arası"
     }
   ],
   "formulas": {
-    "Total Calories Burned": "((weight * (intensity * 0.6 + 2) * 3.5) / 200) * duration",
-    "Calories per Minute": "((weight * (intensity * 0.6 + 2) * 3.5) / 200)",
-    "MET-minutes": "(intensity * 0.6 + 2) * duration"
+    "totalDurationHours": "durationHours + durationMinutes / 60",
+    "caloriesBurned": "metValue * bodyWeight * totalDurationHours",
+    "totalMinutes": "durationHours * 60 + durationMinutes",
+    "caloriesPerMinute": "caloriesBurned / totalMinutes"
   },
   "outputs": {
-    "primary": "Total Calories Burned",
+    "primary": "caloriesBurned",
     "breakdown": [
-      "Calories per Minute",
-      "MET-minutes"
+      "totalDurationHours",
+      "caloriesPerMinute"
     ]
   },
   "category": "Ölçüm & Dönüşüm",
   "sector": "Teknik & Mühendislik",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "premiumRequired": false
 }

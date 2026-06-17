@@ -2,86 +2,70 @@
   "toolName": "hiit-calorie-calculator",
   "inputs": [
     {
-      "id": "weight_kg",
-      "label": "Body Weight (kg)",
+      "id": "weight",
+      "label": "Body Weight",
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "User's body weight in kilograms"
+      "businessContext": "User's body weight in kilograms."
     },
     {
-      "id": "work_duration_min",
-      "label": "High-Intensity Work Duration (min)",
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "User's height in centimeters."
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "User's age in years."
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "0 for female, 1 for male."
+    },
+    {
+      "id": "duration",
+      "label": "Workout Duration",
       "type": "number",
       "unit": "minutes",
-      "default": 20,
-      "businessContext": "Total time spent in high-intensity intervals"
+      "default": 30,
+      "businessContext": "Total duration of the HIIT session in minutes."
     },
     {
-      "id": "rest_duration_min",
-      "label": "Rest Duration (min)",
-      "type": "number",
-      "unit": "minutes",
-      "default": 10,
-      "businessContext": "Total time spent in rest/recovery periods"
-    },
-    {
-      "id": "MET_high",
-      "label": "MET Value for High Intensity",
+      "id": "met",
+      "label": "MET Value",
       "type": "number",
       "unit": "MET",
-      "default": 12,
-      "businessContext": "Metabolic Equivalent of Task for high-intensity exercise; typical HIIT 10-15"
-    },
-    {
-      "id": "MET_rest",
-      "label": "MET Value for Rest",
-      "type": "number",
-      "unit": "MET",
-      "default": 6,
-      "businessContext": "MET value for rest period; e.g., standing/walking recovery"
+      "default": 8,
+      "businessContext": "Metabolic Equivalent of Task for HIIT (typically 8-12)."
     }
   ],
   "formulas": {
-    "total_duration_min": {
-      "expression": "work_duration_min + rest_duration_min",
-      "unit": "minutes"
-    },
-    "avg_MET": {
-      "expression": "(MET_high * work_duration_min + MET_rest * rest_duration_min) / total_duration_min",
-      "unit": "MET"
-    },
-    "calories": {
-      "expression": "avg_MET * weight_kg * (total_duration_min / 60)",
-      "unit": "kcal"
-    }
+    "bmr_male": "88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age)",
+    "bmr_female": "447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age)",
+    "bmr": "gender === 1 ? bmr_male : bmr_female",
+    "hourlyBmr": "bmr / 24",
+    "calories": "hourlyBmr * met * (duration / 60)",
+    "caloriesPerMinute": "calories / duration"
   },
   "outputs": {
-    "primary": {
-      "id": "calories",
-      "label": "Total Calories Burned",
-      "unit": "kcal",
-      "formulaId": "calories"
-    },
+    "primary": "calories",
     "breakdown": [
-      {
-        "id": "total_duration_min",
-        "label": "Total Workout Duration",
-        "unit": "minutes",
-        "formulaId": "total_duration_min"
-      },
-      {
-        "id": "avg_MET",
-        "label": "Average MET",
-        "unit": "MET",
-        "formulaId": "avg_MET"
-      }
+      "caloriesPerMinute",
+      "bmr"
     ]
   },
   "category": "Ölçüm & Dönüşüm",
   "sector": "Teknik & Mühendislik",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "premiumRequired": false
 }

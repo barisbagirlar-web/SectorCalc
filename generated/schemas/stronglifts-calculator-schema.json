@@ -2,54 +2,51 @@
   "toolName": "stronglifts-calculator",
   "inputs": [
     {
-      "id": "loadWeight",
-      "label": "Yük Ağırlığı",
+      "id": "startingWeight",
+      "label": "Starting Weight",
       "type": "number",
       "unit": "kg",
-      "default": 1000,
-      "businessContext": "Kaldırılacak nesnenin toplam ağırlığı"
+      "default": 20,
+      "businessContext": "Initial weight lifted in the first session"
     },
     {
-      "id": "numberOfSlings",
-      "label": "Sling Sayısı",
+      "id": "incrementPerSession",
+      "label": "Increment per Session",
       "type": "number",
-      "unit": "adet",
+      "unit": "kg",
+      "default": 2.5,
+      "businessContext": "Weight added after each completed session"
+    },
+    {
+      "id": "sessionsPerWeek",
+      "label": "Sessions per Week",
+      "type": "number",
+      "unit": "sessions/week",
+      "default": 3,
+      "businessContext": "Training frequency per week"
+    },
+    {
+      "id": "weeks",
+      "label": "Number of Weeks",
+      "type": "number",
+      "unit": "weeks",
       "default": 4,
-      "businessContext": "Kaldırmada kullanılan sling/bağlantı noktası sayısı"
-    },
-    {
-      "id": "angleFromVertical",
-      "label": "Dikeyden Açı",
-      "type": "number",
-      "unit": "°",
-      "default": 30,
-      "businessContext": "Sling'in dikey eksenle yaptığı açı (0-60° arası önerilir)"
-    },
-    {
-      "id": "safetyFactor",
-      "label": "Emniyet Katsayısı",
-      "type": "number",
-      "unit": "",
-      "default": 5,
-      "businessContext": "Ekipman tipine ve yönetmeliğe göre emniyet katsayısı (ör. 4, 5, 6)"
+      "businessContext": "Duration of training cycle"
     }
   ],
   "formulas": {
-    "requiredCapacityPerSlingKg": "loadWeight * safetyFactor / (numberOfSlings * Math.cos(angleFromVertical * Math.PI / 180))",
-    "tensionPerSlingKg": "loadWeight / (numberOfSlings * Math.cos(angleFromVertical * Math.PI / 180))",
-    "angleMultiplier": "1 / Math.cos(angleFromVertical * Math.PI / 180)"
+    "totalSessions": "weeks * sessionsPerWeek",
+    "finalWeight": "startingWeight + totalSessions * incrementPerSession",
+    "estimated1RM": "finalWeight * (1 + 0.0333 * 5)"
   },
   "outputs": {
-    "primary": "requiredCapacityPerSlingKg",
+    "primary": "finalWeight",
     "breakdown": [
-      "tensionPerSlingKg",
-      "angleMultiplier"
+      "totalSessions",
+      "estimated1RM"
     ]
   },
-  "category": "İnşaat & Saha",
-  "sector": "İnşaat & Saha",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false
 }

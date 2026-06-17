@@ -2,54 +2,49 @@
   "toolName": "strength-standard-calculator",
   "inputs": [
     {
-      "id": "weight",
-      "label": "Kaldırılan Ağırlık (kg)",
+      "id": "weightLifted",
+      "label": "Weight Lifted",
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "Kaldırılan ağırlık"
+      "businessContext": "The total weight used in the exercise, including barbell if applicable"
     },
     {
       "id": "reps",
-      "label": "Tekrar Sayısı",
+      "label": "Repetitions",
       "type": "number",
-      "unit": "adet",
+      "unit": "reps",
       "default": 5,
-      "businessContext": "Tamamlanan tekrar sayısı"
+      "businessContext": "Number of repetitions completed with the given weight"
     },
     {
       "id": "bodyWeight",
-      "label": "Vücut Ağırlığı (kg)",
+      "label": "Body Weight",
       "type": "number",
       "unit": "kg",
       "default": 80,
-      "businessContext": "Kullanıcının vücut ağırlığı"
+      "businessContext": "Lifter's body weight for relative strength calculation"
     },
     {
-      "id": "gender",
-      "label": "Cinsiyet (0: Erkek, 1: Kadın)",
+      "id": "age",
+      "label": "Age",
       "type": "number",
-      "unit": "-",
-      "default": 0,
-      "businessContext": "Cinsiyet seçimi"
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Lifter's age (optional, for future age-adjusted standards)"
     }
   ],
   "formulas": {
-    "oneRepMax": "weight * (1 + reps/30)",
-    "strengthRatio": "oneRepMax / bodyWeight",
-    "strengthLevel": "(gender == 0) ? (strengthRatio < 1.0 ? 0 : strengthRatio < 1.5 ? 1 : strengthRatio < 2.0 ? 2 : strengthRatio < 2.5 ? 3 : 4) : (strengthRatio < 0.8 ? 0 : strengthRatio < 1.2 ? 1 : strengthRatio < 1.6 ? 2 : strengthRatio < 2.0 ? 3 : 4)"
+    "estimatedOneRM": "weightLifted * (1 + reps / 30)",
+    "strengthRatio": "estimatedOneRM / bodyWeight"
   },
   "outputs": {
-    "primary": "oneRepMax",
+    "primary": "estimatedOneRM",
     "breakdown": [
-      "strengthRatio",
-      "strengthLevel"
+      "strengthRatio"
     ]
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Ölçüm & Dönüşüm",
   "sector": "Teknik & Mühendislik",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "premiumRequired": false
 }

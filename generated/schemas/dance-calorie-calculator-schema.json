@@ -3,53 +3,50 @@
   "inputs": [
     {
       "id": "weight",
-      "label": "Weight",
+      "label": "Body Weight",
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Body weight in kilograms"
+      "businessContext": "User body weight in kilograms for personalized calorie calculation based on metabolic energy expenditure."
     },
     {
       "id": "duration",
-      "label": "Duration",
+      "label": "Dance Duration",
       "type": "number",
       "unit": "min",
       "default": 30,
-      "businessContext": "Duration of dance activity in minutes"
+      "businessContext": "Total time spent dancing in minutes, used to compute total calorie burn."
     },
     {
       "id": "met",
-      "label": "MET",
+      "label": "MET Value",
       "type": "number",
       "unit": "MET",
       "default": 5,
-      "businessContext": "Metabolic Equivalent of Task for dance style (e.g., 3.5 for slow, 5.5 for moderate, 7.0 for fast)"
+      "businessContext": "Metabolic Equivalent of Task representing intensity of dancing; typical values: 3-10 where 1 MET = 3.5 ml O2/kg/min."
     },
     {
       "id": "intensityFactor",
-      "label": "Intensity Factor",
+      "label": "Intensity Adjustment Factor",
       "type": "number",
-      "unit": "",
+      "unit": "factor",
       "default": 1,
-      "businessContext": "Multiplier for personal intensity (1.0 = normal, 1.2 = high)"
+      "businessContext": "Multiplier to adjust calculated calories for perceived effort (0.5 = half effort, 2.0 = twice effort)."
     }
   ],
   "formulas": {
-    "totalCalories": "weight * met * (duration / 60) * intensityFactor",
-    "caloriesPerMinute": "(weight * met * intensityFactor) / 60",
-    "caloriesPerHour": "weight * met * intensityFactor"
+    "caloriesBurned": "met * weight * intensityFactor * (duration / 60)",
+    "caloriesPerMinute": "met * weight * intensityFactor / 60",
+    "totalHours": "duration / 60"
   },
   "outputs": {
-    "primary": "totalCalories",
+    "primary": "caloriesBurned",
     "breakdown": [
       "caloriesPerMinute",
-      "caloriesPerHour"
+      "totalHours"
     ]
   },
   "category": "Ölçüm & Dönüşüm",
   "sector": "Teknik & Mühendislik",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "premiumRequired": false
 }

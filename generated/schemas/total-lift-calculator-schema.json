@@ -3,73 +3,67 @@
   "inputs": [
     {
       "id": "loadMass",
-      "label": "Load Mass",
+      "label": "Yük Kütlesi",
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Weight of the object to be lifted"
-    },
-    {
-      "id": "safetyFactor",
-      "label": "Safety Factor",
-      "type": "number",
-      "unit": "",
-      "default": 1.5,
-      "businessContext": "Safety margin to ensure reliable lifting (e.g., 1.5 for general lifting)"
-    },
-    {
-      "id": "liftPoints",
-      "label": "Number of Lifting Points",
-      "type": "number",
-      "unit": "",
-      "default": 1,
-      "businessContext": "Number of ropes, chains, or hydraulic cylinders sharing the load"
-    },
-    {
-      "id": "angleFromVertical",
-      "label": "Angle from Vertical",
-      "type": "number",
-      "unit": "deg",
-      "default": 0,
-      "businessContext": "Angle of the lifting sling from vertical; 0° means straight vertical lift"
-    },
-    {
-      "id": "dynamicFactor",
-      "label": "Dynamic Factor",
-      "type": "number",
-      "unit": "",
-      "default": 1.1,
-      "businessContext": "Multiplier to account for acceleration and deceleration forces during lifting"
+      "businessContext": "Kaldırılacak ana yükün kütlesi (rigging hariç)."
     },
     {
       "id": "gravity",
-      "label": "Gravity",
+      "label": "Yerçekimi İvmesi",
       "type": "number",
       "unit": "m/s²",
       "default": 9.81,
-      "businessContext": "Acceleration due to gravity; standard Earth gravity is 9.81 m/s²"
+      "businessContext": "Yerel yerçekimi ivmesi değeri."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Güvenlik Katsayısı",
+      "type": "number",
+      "unit": "boyutsuz",
+      "default": 1.5,
+      "businessContext": "Standartlara uygun güvenlik faktörü (EN 13001 vb.)."
+    },
+    {
+      "id": "additionalLoad",
+      "label": "Ek Yük (Rigging)",
+      "type": "number",
+      "unit": "kg",
+      "default": 100,
+      "businessContext": "Sapan, kanca, travers gibi ekipmanların toplam kütlesi."
+    },
+    {
+      "id": "liftAcceleration",
+      "label": "Kaldırma İvmesi",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 0.5,
+      "businessContext": "Kaldırma sırasındaki ivme (dinamik yük etkisi)."
+    },
+    {
+      "id": "frictionCoefficient",
+      "label": "Sürtünme Katsayısı",
+      "type": "number",
+      "unit": "boyutsuz",
+      "default": 0.05,
+      "businessContext": "Kaldırma mekanizmasındaki sürtünme kayıp katsayısı."
     }
   ],
   "formulas": {
-    "staticLoadForce": "loadMass * gravity * safetyFactor",
-    "dynamicTotalForce": "staticLoadForce * dynamicFactor",
-    "angleFactor": "1 / Math.cos(angleFromVertical * Math.PI / 180)",
-    "pointsFactor": "1 / liftPoints",
-    "requiredLiftForce": "dynamicTotalForce * angleFactor * pointsFactor"
+    "netWeight": "(loadMass + additionalLoad) * gravity",
+    "dynamicForce": "(loadMass + additionalLoad) * (gravity + liftAcceleration)",
+    "totalLiftForce": "dynamicForce * (1 + frictionCoefficient) * safetyFactor"
   },
   "outputs": {
-    "primary": "requiredLiftForce",
+    "primary": "totalLiftForce",
     "breakdown": [
-      "staticLoadForce",
-      "dynamicTotalForce",
-      "angleFactor",
-      "pointsFactor"
+      "netWeight",
+      "dynamicForce",
+      "totalLiftForce"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "category": "İnşaat & Saha",
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false
 }

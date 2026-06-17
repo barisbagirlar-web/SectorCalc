@@ -2,20 +2,28 @@
   "toolName": "strength-training-calculator",
   "inputs": [
     {
-      "id": "weight",
-      "label": "Lifted Weight",
+      "id": "weightLifted",
+      "label": "Weight Lifted",
       "type": "number",
       "unit": "kg",
-      "default": 80,
-      "businessContext": "The weight lifted in kilograms"
+      "default": 100,
+      "businessContext": "The load lifted during training, representing the external force applied."
     },
     {
-      "id": "reps",
+      "id": "repetitions",
       "label": "Repetitions",
       "type": "number",
       "unit": "reps",
-      "default": 8,
-      "businessContext": "Number of repetitions performed"
+      "default": 10,
+      "businessContext": "Number of consecutive repetitions performed with the given weight, indicating muscular endurance."
+    },
+    {
+      "id": "bodyWeight",
+      "label": "Body Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 75,
+      "businessContext": "Lifter's body weight for relative strength calculations."
     },
     {
       "id": "sets",
@@ -23,33 +31,42 @@
       "type": "number",
       "unit": "sets",
       "default": 3,
-      "businessContext": "Number of sets performed"
+      "businessContext": "Number of sets performed, influencing total training volume."
     },
     {
-      "id": "bodyWeight",
-      "label": "Body Weight",
+      "id": "restPeriod",
+      "label": "Rest Period",
       "type": "number",
-      "unit": "kg",
-      "default": 70,
-      "businessContext": "Body weight of the lifter for relative strength calculation"
+      "unit": "s",
+      "default": 60,
+      "businessContext": "Rest interval between sets, affecting recovery and subsequent performance."
+    },
+    {
+      "id": "fatigueFactor",
+      "label": "Fatigue Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Estimated fatigue accumulation per set, affecting effective load capacity."
     }
   ],
   "formulas": {
-    "oneRepMax": "weight * (1 + reps / 30)",
-    "totalVolume": "weight * reps * sets",
-    "relativeStrength": "weight * (1 + reps / 30) / bodyWeight"
-  },
-  "outputs": {
-    "primary": "oneRepMax",
+    "primary": "weightLifted * (1 + repetitions / 30)",
     "breakdown": [
-      "totalVolume",
-      "relativeStrength"
+      "(weightLifted * (1 + repetitions / 30)) / bodyWeight",
+      "weightLifted * repetitions * sets",
+      "weightLifted * (1 + repetitions / 30) * (1 - fatigueFactor/100 * sets)"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "outputs": {
+    "primary": "Estimated 1RM (kg)",
+    "breakdown": [
+      "Relative Strength (kg per kg BW)",
+      "Volume Load (kg*reps)",
+      "Effective Training Load (kg)"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false
 }

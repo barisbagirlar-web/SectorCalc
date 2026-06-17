@@ -2,74 +2,63 @@
   "toolName": "barbell-row-calculator",
   "inputs": [
     {
-      "id": "barbellWeight",
-      "label": "Barbell Weight",
+      "id": "barbellDiameter",
+      "label": "Barbell Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 28,
+      "businessContext": "Diameter of the barbell shaft for section modulus calculation."
+    },
+    {
+      "id": "barbellLength",
+      "label": "Barbell Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 2200,
+      "businessContext": "Length of the barbell between supports for bending moment calculation."
+    },
+    {
+      "id": "loadWeight",
+      "label": "Load Weight",
       "type": "number",
       "unit": "kg",
-      "default": 20,
-      "businessContext": "Weight of the barbell, standard Olympic bar is 20 kg."
+      "default": 100,
+      "businessContext": "Weight of the plates loaded on the barbell, including bar weight if not centered."
     },
     {
-      "id": "addedWeight",
-      "label": "Added Weight",
+      "id": "yieldStrength",
+      "label": "Material Yield Strength",
       "type": "number",
-      "unit": "kg",
-      "default": 40,
-      "businessContext": "Total weight plates added (both sides)."
+      "unit": "MPa",
+      "default": 250,
+      "businessContext": "Yield strength of the barbell material for allowable stress calculation."
     },
     {
-      "id": "reps",
-      "label": "Repetitions per Set",
+      "id": "safetyFactor",
+      "label": "Safety Factor",
       "type": "number",
-      "unit": "count",
-      "default": 8,
-      "businessContext": "Number of repetitions performed in one set."
-    },
-    {
-      "id": "sets",
-      "label": "Number of Sets",
-      "type": "number",
-      "unit": "count",
+      "unit": "",
       "default": 3,
-      "businessContext": "Total number of sets performed."
-    },
-    {
-      "id": "liftDistance",
-      "label": "Lift Distance",
-      "type": "number",
-      "unit": "m",
-      "default": 0.5,
-      "businessContext": "Vertical distance the barbell moves per repetition (range of motion)."
-    },
-    {
-      "id": "timePerRep",
-      "label": "Time per Rep",
-      "type": "number",
-      "unit": "s",
-      "default": 2,
-      "businessContext": "Average time to complete one repetition, including concentric and eccentric phases."
+      "businessContext": "Design safety factor to ensure safe load capacity."
     }
   ],
   "formulas": {
-    "totalWeight": "barbellWeight + addedWeight",
-    "volumeLoad": "totalWeight * reps * sets",
-    "workPerRep": "totalWeight * 9.81 * liftDistance",
-    "totalWork": "workPerRep * reps * sets",
-    "totalTime": "timePerRep * reps * sets",
-    "power": "totalWork / totalTime"
+    "bendingMoment": "(loadWeight * 9.81 * barbellLength) / 4",
+    "sectionModulus": "Math.PI * Math.pow(barbellDiameter, 3) / 32",
+    "maxBendingStress": "bendingMoment / sectionModulus",
+    "allowableStress": "yieldStrength / safetyFactor",
+    "safetyMargin": "allowableStress - maxBendingStress"
   },
   "outputs": {
-    "primary": "totalWork",
+    "primary": "maxBendingStress",
     "breakdown": [
-      "volumeLoad",
-      "power",
-      "totalTime"
+      "bendingMoment",
+      "sectionModulus",
+      "allowableStress",
+      "safetyMargin"
     ]
   },
   "category": "Teknik & Mühendislik",
   "sector": "Teknik & Mühendislik",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "premiumRequired": false
 }

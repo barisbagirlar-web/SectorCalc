@@ -2,73 +2,67 @@
   "toolName": "ipf-gl-calculator",
   "inputs": [
     {
-      "id": "productionVolume",
-      "label": "Production Volume",
+      "id": "thermal_conductivity",
+      "label": "Thermal Conductivity (k)",
       "type": "number",
-      "unit": "units",
-      "default": 1000,
-      "businessContext": "Total number of units produced"
+      "unit": "W/(m·K)",
+      "default": 0.04,
+      "businessContext": "Material's thermal conductivity"
     },
     {
-      "id": "materialCostPerUnit",
-      "label": "Material Cost per Unit",
+      "id": "thickness",
+      "label": "Insulation Thickness",
       "type": "number",
-      "unit": "USD",
-      "default": 5,
-      "businessContext": "Direct material cost per unit"
+      "unit": "mm",
+      "default": 100,
+      "businessContext": "Thickness of insulation layer"
     },
     {
-      "id": "laborCostPerUnit",
-      "label": "Labor Cost per Unit",
+      "id": "area",
+      "label": "Surface Area",
       "type": "number",
-      "unit": "USD",
-      "default": 3,
-      "businessContext": "Direct labor cost per unit"
+      "unit": "m²",
+      "default": 10,
+      "businessContext": "Area of insulated surface"
     },
     {
-      "id": "overheadCostPerUnit",
-      "label": "Overhead Cost per Unit",
+      "id": "temp_hot",
+      "label": "Hot Side Temperature",
       "type": "number",
-      "unit": "USD",
-      "default": 2,
-      "businessContext": "Manufacturing overhead cost per unit"
+      "unit": "°C",
+      "default": 80,
+      "businessContext": "Temperature on the hot side"
     },
     {
-      "id": "defectRate",
-      "label": "Defect Rate",
+      "id": "temp_cold",
+      "label": "Cold Side Temperature",
       "type": "number",
-      "unit": "%",
-      "default": 5,
-      "businessContext": "Percentage of defective units produced"
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Temperature on the cold side"
     },
     {
-      "id": "sellingPricePerUnit",
-      "label": "Selling Price per Unit",
+      "id": "u_target",
+      "label": "Target U-value",
       "type": "number",
-      "unit": "USD",
-      "default": 15,
-      "businessContext": "Price at which finished goods are sold"
+      "unit": "W/(m²·K)",
+      "default": 0.5,
+      "businessContext": "Required maximum U-value per GL guidelines"
     }
   ],
   "formulas": {
-    "totalCost": "productionVolume * (materialCostPerUnit + laborCostPerUnit + overheadCostPerUnit)",
-    "defectiveUnits": "productionVolume * defectRate / 100",
-    "defectLoss": "defectiveUnits * (materialCostPerUnit + laborCostPerUnit + overheadCostPerUnit)",
-    "grossRevenue": "productionVolume * sellingPricePerUnit",
-    "grossLoss": "totalCost + defectLoss - grossRevenue"
+    "u_actual": "(thermal_conductivity * 1000) / thickness",
+    "ipf": "u_target / ((thermal_conductivity * 1000) / thickness)",
+    "heat_loss": "((thermal_conductivity * 1000) / thickness) * area * (temp_hot - temp_cold)"
   },
   "outputs": {
-    "primary": "grossLoss",
+    "primary": "ipf",
     "breakdown": [
-      "totalCost",
-      "defectLoss",
-      "grossRevenue"
+      "u_actual",
+      "heat_loss"
     ]
   },
-  "category": "Maliyet & Marj",
-  "sector": "Üretim & İmalat",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "category": "Teknik & Mühendislik",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false
 }

@@ -2,54 +2,52 @@
   "toolName": "dots-calculator",
   "inputs": [
     {
-      "id": "regularHours",
-      "label": "Regular Hours",
+      "id": "onHandInventory",
+      "label": "On-Hand Inventory",
       "type": "number",
-      "unit": "h",
-      "default": 8,
-      "businessContext": "Standard working hours per day"
+      "unit": "units",
+      "default": 5000,
+      "businessContext": "Current quantity of items available in stock."
     },
     {
-      "id": "overtimeHours",
-      "label": "Overtime Hours",
+      "id": "averageDailyUsage",
+      "label": "Average Daily Usage",
       "type": "number",
-      "unit": "h",
-      "default": 2,
-      "businessContext": "Overtime hours worked"
+      "unit": "units/day",
+      "default": 200,
+      "businessContext": "Average number of units consumed per day."
     },
     {
-      "id": "regularRate",
-      "label": "Regular Rate",
+      "id": "safetyStock",
+      "label": "Safety Stock",
       "type": "number",
-      "unit": "currency/h",
-      "default": 50,
-      "businessContext": "Hourly pay rate for regular hours"
+      "unit": "units",
+      "default": 1000,
+      "businessContext": "Buffer inventory held to prevent stockouts from variability."
     },
     {
-      "id": "overtimeMultiplier",
-      "label": "Overtime Multiplier",
+      "id": "leadTimeDays",
+      "label": "Lead Time",
       "type": "number",
-      "unit": "",
-      "default": 1.5,
-      "businessContext": "Multiplier applied to regular rate for overtime"
+      "unit": "days",
+      "default": 7,
+      "businessContext": "Average time (in days) from order placement to delivery."
     }
   ],
   "formulas": {
-    "primary": "regularHours * regularRate + overtimeHours * regularRate * overtimeMultiplier",
-    "regularPay": "regularHours * regularRate",
-    "overtimePay": "overtimeHours * regularRate * overtimeMultiplier"
+    "dos": "onHandInventory / averageDailyUsage",
+    "dosWithSafety": "(onHandInventory + safetyStock) / averageDailyUsage",
+    "reorderPoint": "leadTimeDays * averageDailyUsage"
   },
   "outputs": {
-    "primary": "Total Daily Pay",
+    "primary": "dos",
     "breakdown": [
-      "Regular Pay",
-      "Overtime Pay"
+      "dos",
+      "dosWithSafety",
+      "reorderPoint"
     ]
   },
-  "category": "Finans & Kredi",
-  "sector": "Finans & İK",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false
 }

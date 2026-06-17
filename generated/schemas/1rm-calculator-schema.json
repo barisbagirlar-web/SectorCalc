@@ -2,57 +2,69 @@
   "toolName": "1rm-calculator",
   "inputs": [
     {
-      "id": "weight_lifted",
-      "label": "Weight Lifted",
+      "id": "weight1",
+      "label": "Set 1 Ağırlık (kg)",
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "The weight you lifted for the given number of repetitions."
+      "businessContext": "İlk sette kaldırılan ağırlık"
     },
     {
-      "id": "reps_performed",
-      "label": "Repetitions Performed",
+      "id": "reps1",
+      "label": "Set 1 Tekrar",
       "type": "number",
-      "unit": "reps",
-      "default": 5,
-      "businessContext": "The number of repetitions you completed with the given weight."
+      "unit": "adet",
+      "default": 10,
+      "businessContext": "İlk sette tükenişe yakın yapılan tekrar sayısı"
     },
     {
-      "id": "rir",
-      "label": "Reps in Reserve (RIR)",
+      "id": "weight2",
+      "label": "Set 2 Ağırlık (kg)",
       "type": "number",
-      "unit": "reps",
-      "default": 0,
-      "businessContext": "Estimated repetitions you had left in the tank before failure. 0 means you trained to failure, 1 means you could have done 1 more rep, etc."
+      "unit": "kg",
+      "default": 80,
+      "businessContext": "İkinci sette kaldırılan ağırlık"
     },
     {
-      "id": "fatigue_percent",
-      "label": "Fatigue Percentage",
+      "id": "reps2",
+      "label": "Set 2 Tekrar",
       "type": "number",
-      "unit": "%",
-      "default": 0,
-      "businessContext": "Estimated performance reduction due to fatigue from previous sets, as a percentage of maximum capacity. 0% means fully fresh."
+      "unit": "adet",
+      "default": 15,
+      "businessContext": "İkinci sette tükenişe yakın yapılan tekrar sayısı"
+    },
+    {
+      "id": "weight3",
+      "label": "Set 3 Ağırlık (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 60,
+      "businessContext": "Üçüncü sette kaldırılan ağırlık"
+    },
+    {
+      "id": "reps3",
+      "label": "Set 3 Tekrar",
+      "type": "number",
+      "unit": "adet",
+      "default": 20,
+      "businessContext": "Üçüncü sette tükenişe yakın yapılan tekrar sayısı"
     }
   ],
   "formulas": {
-    "adjusted_reps": "reps_performed + rir",
-    "raw_1rm": "weight_lifted * (1 + (adjusted_reps / 30))",
-    "fatigue_adjustment": "1 - (fatigue_percent / 100)",
-    "estimated_1rm": "raw_1rm * fatigue_adjustment",
-    "weight_5rm": "estimated_1rm / (1 + 5/30)",
-    "weight_10rm": "estimated_1rm / (1 + 10/30)"
+    "set1Estimate": "weight1 * (1 + reps1 / 30)",
+    "set2Estimate": "weight2 * (1 + reps2 / 30)",
+    "set3Estimate": "weight3 * (1 + reps3 / 30)",
+    "estimated1RM": "(set1Estimate + set2Estimate + set3Estimate) / 3"
   },
   "outputs": {
-    "primary": "estimated_1rm",
+    "primary": "estimated1RM",
     "breakdown": [
-      "weight_5rm",
-      "weight_10rm"
+      "set1Estimate",
+      "set2Estimate",
+      "set3Estimate"
     ]
   },
   "category": "Ölçüm & Dönüşüm",
   "sector": "Teknik & Mühendislik",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "premiumRequired": false
 }

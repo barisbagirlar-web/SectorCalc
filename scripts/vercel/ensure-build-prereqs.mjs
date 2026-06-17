@@ -85,6 +85,37 @@ function removeDuplicateBareSchemas() {
   }
 }
 
+/** Remove generated/*.ts files with no matching schema JSON (stale bare-slug artifacts). */
+function pruneOrphanGeneratedTools() {
+  if (!fs.existsSync(schemasDir) || !fs.existsSync(generatedDir)) {
+    return;
+  }
+
+  const schemaSlugs = new Set(
+    fs
+      .readdirSync(schemasDir)
+      .filter((name) => name.endsWith("-schema.json"))
+      .map((name) => name.replace(/-schema\.json$/, "")),
+  );
+
+  let removed = 0;
+  for (const name of fs.readdirSync(generatedDir)) {
+    if (!name.endsWith(".ts")) {
+      continue;
+    }
+    const slug = name.replace(/\.ts$/, "");
+    if (schemaSlugs.has(slug)) {
+      continue;
+    }
+    fs.unlinkSync(path.join(generatedDir, name));
+    removed += 1;
+  }
+
+  if (removed > 0) {
+    console.log(`ensure-build-prereqs: pruned ${removed} orphan generated tool file(s)`);
+  }
+}
+
 for (const dir of [generatedDir, schemasDir, publicDiagramsDir]) {
   fs.mkdirSync(dir, { recursive: true });
 }
@@ -92,5 +123,6 @@ for (const dir of [generatedDir, schemasDir, publicDiagramsDir]) {
 assertTsconfigTarget();
 assertNoDotAllRegexFlags();
 removeDuplicateBareSchemas();
+pruneOrphanGeneratedTools();
 
 console.log("ensure-build-prereqs: generated/schemas + public/generated/schemas ready");

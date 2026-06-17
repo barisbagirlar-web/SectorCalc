@@ -2,67 +2,59 @@
   "toolName": "tabata-calculator",
   "inputs": [
     {
-      "id": "workDurationSec",
-      "label": "Work Duration (sec)",
+      "id": "workDuration",
+      "label": "Work Interval (s)",
       "type": "number",
       "unit": "seconds",
       "default": 20,
-      "businessContext": "Duration of high-intensity exercise per interval."
+      "businessContext": "Duration of high-intensity work interval"
     },
     {
-      "id": "restDurationSec",
-      "label": "Rest Duration (sec)",
+      "id": "restDuration",
+      "label": "Rest Interval (s)",
       "type": "number",
       "unit": "seconds",
       "default": 10,
-      "businessContext": "Duration of rest between intervals within a cycle."
+      "businessContext": "Duration of rest interval between work intervals"
     },
     {
-      "id": "numCycles",
-      "label": "Number of Cycles",
-      "type": "number",
-      "unit": "cycles",
-      "default": 8,
-      "businessContext": "Number of work-rest cycles per round."
-    },
-    {
-      "id": "numRounds",
+      "id": "rounds",
       "label": "Number of Rounds",
       "type": "number",
-      "unit": "rounds",
-      "default": 1,
-      "businessContext": "Number of complete Tabata rounds."
+      "unit": "",
+      "default": 8,
+      "businessContext": "Number of work-rest cycles"
     },
     {
-      "id": "restBetweenRoundsSec",
-      "label": "Rest Between Rounds (sec)",
+      "id": "preparationTime",
+      "label": "Preparation Time (s)",
       "type": "number",
       "unit": "seconds",
-      "default": 60,
-      "businessContext": "Rest duration between consecutive rounds."
+      "default": 0,
+      "businessContext": "Time allocated before the first work interval"
+    },
+    {
+      "id": "coolDownTime",
+      "label": "Cool Down Time (s)",
+      "type": "number",
+      "unit": "seconds",
+      "default": 0,
+      "businessContext": "Time allocated after the last rest interval"
     }
   ],
   "formulas": {
-    "totalWorkSec": "workDurationSec * numCycles * numRounds",
-    "totalRestSec": "restDurationSec * numCycles * numRounds",
-    "totalRestBetweenRoundsSec": "(numRounds - 1) * restBetweenRoundsSec",
-    "totalTimeSec": "totalWorkSec + totalRestSec + totalRestBetweenRoundsSec",
-    "totalTimeMin": "totalTimeSec / 60",
-    "workPercentage": "(totalWorkSec / totalTimeSec) * 100",
-    "restPercentage": "(totalRestSec / totalTimeSec) * 100"
+    "totalWorkTime": "workDuration * rounds",
+    "totalRestTime": "restDuration * rounds",
+    "totalWorkoutTime": "preparationTime + coolDownTime + rounds * (workDuration + restDuration)"
   },
   "outputs": {
-    "primary": "Total Workout Duration: {totalTimeSec} seconds ({totalTimeMin} minutes)",
+    "primary": "totalWorkoutTime",
     "breakdown": [
-      "High-Intensity Work: {totalWorkSec} sec ({workPercentage}%)",
-      "Active Recovery (within cycles): {totalRestSec} sec ({restPercentage}%)",
-      "Rest Between Rounds: {totalRestBetweenRoundsSec} sec"
+      "totalWorkTime",
+      "totalRestTime"
     ]
   },
   "category": "Ölçüm & Dönüşüm",
   "sector": "Teknik & Mühendislik",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "premiumRequired": false
 }

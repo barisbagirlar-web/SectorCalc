@@ -2,54 +2,47 @@
   "toolName": "circuit-training-calculator",
   "inputs": [
     {
-      "id": "sourceVoltage",
-      "label": "Source Voltage",
+      "id": "voltage",
+      "label": "Supply Voltage",
       "type": "number",
       "unit": "V",
       "default": 12,
-      "businessContext": "Source voltage in volts"
+      "businessContext": "Voltage supplied to the circuit"
     },
     {
-      "id": "resistor1",
-      "label": "Resistor 1",
+      "id": "resistance1",
+      "label": "Resistance R1",
       "type": "number",
       "unit": "Ω",
-      "default": 100,
-      "businessContext": "Resistance 1 in ohms"
+      "default": 1000,
+      "businessContext": "Resistance of the first resistor"
     },
     {
-      "id": "resistor2",
-      "label": "Resistor 2",
+      "id": "resistance2",
+      "label": "Resistance R2",
       "type": "number",
       "unit": "Ω",
-      "default": 200,
-      "businessContext": "Resistance 2 in ohms"
-    },
-    {
-      "id": "connectionType",
-      "label": "Connection Type",
-      "type": "number",
-      "unit": "",
-      "default": 1,
-      "businessContext": "1 = Series, 2 = Parallel"
+      "default": 2200,
+      "businessContext": "Resistance of the second resistor"
     }
   ],
   "formulas": {
-    "totalResistance": "connectionType === 1 ? resistor1 + resistor2 : 1 / (1 / resistor1 + 1 / resistor2)",
-    "totalCurrent": "sourceVoltage / totalResistance",
-    "totalPower": "sourceVoltage * totalCurrent"
+    "totalResistance": "resistance1 + resistance2",
+    "current": "voltage / totalResistance",
+    "powerTotal": "voltage * current",
+    "powerR1": "current * current * resistance1",
+    "powerR2": "current * current * resistance2"
   },
   "outputs": {
-    "primary": "Total Current (A)",
+    "primary": "current",
     "breakdown": [
-      "Total Resistance (Ω)",
-      "Total Power (W)"
+      "totalResistance",
+      "powerTotal",
+      "powerR1",
+      "powerR2"
     ]
   },
   "category": "Teknik & Mühendislik",
   "sector": "Teknik & Mühendislik",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "premiumRequired": false
 }

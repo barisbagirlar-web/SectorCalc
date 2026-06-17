@@ -130,11 +130,12 @@ function smokeProduction() {
 
 function deployFromCwd(cwd) {
   console.log(`deploy-vercel-production: deploying from ${cwd}…`);
-  const status = run(
-    "vercel",
-    ["deploy", "--prod", "--yes", "--scope", VERCEL_TEAM],
-    { cwd },
-  );
+  const args = ["deploy", "--prod", "--yes"];
+  const scope = process.env.VERCEL_SCOPE?.trim();
+  if (scope) {
+    args.push("--scope", scope);
+  }
+  const status = run("vercel", args, { cwd });
   if (status !== 0) {
     process.exit(status);
   }

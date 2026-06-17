@@ -3,27 +3,27 @@
   "inputs": [
     {
       "id": "mass",
-      "label": "Object Mass",
+      "label": "Mass",
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "Mass of the object to be pushed up the incline."
+      "businessContext": "Mass of the object being pushed up"
     },
     {
       "id": "angle",
       "label": "Incline Angle",
       "type": "number",
-      "unit": "°",
+      "unit": "degree",
       "default": 30,
-      "businessContext": "Angle of the inclined plane relative to horizontal."
+      "businessContext": "Angle of incline relative to horizontal"
     },
     {
-      "id": "mu",
-      "label": "Friction Coefficient",
+      "id": "frictionCoeff",
+      "label": "Coefficient of Friction",
       "type": "number",
-      "unit": "",
+      "unit": "dimensionless",
       "default": 0.3,
-      "businessContext": "Coefficient of friction between the object and the surface."
+      "businessContext": "Friction coefficient between object and surface"
     },
     {
       "id": "distance",
@@ -31,41 +31,42 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Distance the object is pushed along the incline."
+      "businessContext": "Distance the object is pushed along the incline"
     },
     {
       "id": "time",
-      "label": "Push Time",
+      "label": "Time to Push",
       "type": "number",
       "unit": "s",
       "default": 10,
-      "businessContext": "Time taken to push the object the given distance."
+      "businessContext": "Time taken to push the object over the distance, used for power calculation"
     },
     {
-      "id": "g",
+      "id": "gravity",
       "label": "Gravitational Acceleration",
       "type": "number",
       "unit": "m/s²",
       "default": 9.81,
-      "businessContext": "Acceleration due to gravity (standard Earth gravity)."
+      "businessContext": "Gravitational acceleration constant, default Earth gravity"
     }
   ],
   "formulas": {
-    "pushForce": "mass * g * (Math.sin(angle * Math.PI / 180) + mu * Math.cos(angle * Math.PI / 180))",
-    "work": "mass * g * (Math.sin(angle * Math.PI / 180) + mu * Math.cos(angle * Math.PI / 180)) * distance",
-    "power": "mass * g * (Math.sin(angle * Math.PI / 180) + mu * Math.cos(angle * Math.PI / 180)) * distance / time"
+    "angleRad": "angle * Math.PI / 180",
+    "fgParallel": "mass * gravity * Math.sin(angleRad)",
+    "fn": "mass * gravity * Math.cos(angleRad)",
+    "ff": "frictionCoeff * fn",
+    "totalForce": "fgParallel + ff",
+    "work": "totalForce * distance",
+    "power": "time !== 0 ? work / time : 0"
   },
   "outputs": {
-    "primary": "pushForce",
+    "primary": "totalForce",
     "breakdown": [
       "work",
       "power"
     ]
   },
   "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false
 }

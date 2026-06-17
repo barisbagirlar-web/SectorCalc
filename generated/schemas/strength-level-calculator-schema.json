@@ -2,62 +2,51 @@
   "toolName": "strength-level-calculator",
   "inputs": [
     {
-      "id": "bodyWeight",
-      "label": "Body Weight",
+      "id": "appliedForce",
+      "label": "Uygulanan Kuvvet",
       "type": "number",
-      "unit": "kg",
-      "default": 75,
-      "businessContext": "User's body weight in kilograms"
+      "unit": "N",
+      "default": 1000,
+      "businessContext": "Parçaya uygulanan kuvvet"
     },
     {
-      "id": "liftWeight",
-      "label": "Lifted Weight",
+      "id": "crossSectionArea",
+      "label": "Kesit Alanı",
       "type": "number",
-      "unit": "kg",
-      "default": 100,
-      "businessContext": "Weight lifted during the exercise in kilograms"
+      "unit": "mm²",
+      "default": 50,
+      "businessContext": "Parçanın yükü taşıyan kesit alanı"
     },
     {
-      "id": "reps",
-      "label": "Repetitions",
+      "id": "yieldStrength",
+      "label": "Akma Dayanımı",
       "type": "number",
-      "unit": "reps",
-      "default": 5,
-      "businessContext": "Number of repetitions performed"
+      "unit": "MPa",
+      "default": 250,
+      "businessContext": "Malzemenin akma dayanımı"
     },
     {
-      "id": "age",
-      "label": "Age",
+      "id": "safetyFactor",
+      "label": "Emniyet Katsayısı",
       "type": "number",
-      "unit": "years",
-      "default": 30,
-      "businessContext": "Age of the user for classification reference"
-    },
-    {
-      "id": "gender",
-      "label": "Gender",
-      "type": "number",
-      "unit": "code",
-      "default": 0,
-      "businessContext": "0 for male, 1 for female"
+      "unit": "",
+      "default": 1.5,
+      "businessContext": "Tasarım emniyet katsayısı"
     }
   ],
   "formulas": {
-    "estimated1RM": "liftWeight*(1+reps/30)",
-    "relativeStrength": "(liftWeight*(1+reps/30))/bodyWeight",
-    "strengthLevel": "gender===0?((liftWeight*(1+reps/30))/bodyWeight>=2?'Elite':(liftWeight*(1+reps/30))/bodyWeight>=1.5?'Advanced':(liftWeight*(1+reps/30))/bodyWeight>=1.25?'Intermediate':(liftWeight*(1+reps/30))/bodyWeight>=1?'Novice':'Beginner'):((liftWeight*(1+reps/30))/bodyWeight>=1.5?'Elite':(liftWeight*(1+reps/30))/bodyWeight>=1?'Advanced':(liftWeight*(1+reps/30))/bodyWeight>=0.75?'Intermediate':(liftWeight*(1+reps/30))/bodyWeight>=0.5?'Novice':'Beginner')"
+    "strengthLevel": "(yieldStrength / ((appliedForce / crossSectionArea) * safetyFactor)) * 100",
+    "workingStress": "appliedForce / crossSectionArea",
+    "allowableStress": "yieldStrength / safetyFactor"
   },
   "outputs": {
     "primary": "strengthLevel",
     "breakdown": [
-      "estimated1RM",
-      "relativeStrength"
+      "workingStress",
+      "allowableStress"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Teknik & Mühendislik",
   "sector": "Teknik & Mühendislik",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "premiumRequired": false
 }

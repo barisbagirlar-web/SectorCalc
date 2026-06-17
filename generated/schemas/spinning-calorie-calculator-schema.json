@@ -2,78 +2,59 @@
   "toolName": "spinning-calorie-calculator",
   "inputs": [
     {
-      "id": "weight",
-      "label": "Weight",
+      "id": "duration_min",
+      "label": "Süre (dk)",
+      "type": "number",
+      "unit": "min",
+      "default": 30,
+      "businessContext": "Spinning seansının dakika cinsinden süresi"
+    },
+    {
+      "id": "speed_kmh",
+      "label": "Ortalama Hız",
+      "type": "number",
+      "unit": "km/h",
+      "default": 20,
+      "businessContext": "Seans boyunca ortalama pedal çevirme hızı"
+    },
+    {
+      "id": "resistance_level",
+      "label": "Direnç Seviyesi",
+      "type": "number",
+      "unit": "1-10",
+      "default": 5,
+      "businessContext": "Bisiklet direncinin 1 ile 10 arasındaki seviyesi"
+    },
+    {
+      "id": "weight_kg",
+      "label": "Ağırlık",
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "User's body weight in kilograms."
+      "businessContext": "Kullanıcının vücut ağırlığı"
     },
     {
-      "id": "duration",
-      "label": "Duration",
-      "type": "number",
-      "unit": "minutes",
-      "default": 30,
-      "businessContext": "Duration of the spinning session."
-    },
-    {
-      "id": "met",
-      "label": "MET Value",
-      "type": "number",
-      "unit": "MET",
-      "default": 8.5,
-      "businessContext": "Metabolic Equivalent of Task for spinning, indicating exercise intensity."
-    },
-    {
-      "id": "age",
-      "label": "Age",
+      "id": "age_years",
+      "label": "Yaş",
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "User's age for more accurate estimation."
-    },
-    {
-      "id": "restingHR",
-      "label": "Resting Heart Rate",
-      "type": "number",
-      "unit": "bpm",
-      "default": 70,
-      "businessContext": "User's resting heart rate for heart rate based calculation."
-    },
-    {
-      "id": "averageHR",
-      "label": "Average Heart Rate",
-      "type": "number",
-      "unit": "bpm",
-      "default": 150,
-      "businessContext": "Average heart rate during exercise."
-    },
-    {
-      "id": "gender",
-      "label": "Gender (1=Male, 0=Female)",
-      "type": "number",
-      "unit": "",
-      "default": 1,
-      "businessContext": "User's gender: 1 for male, 0 for female."
+      "businessContext": "Kullanıcının yaşı (opsiyonel, formülde doğrudan kullanılmaz)"
     }
   ],
   "formulas": {
-    "caloriesBurned": "weight * met * (duration / 60)",
-    "metBasedCalories": "weight * met * (duration / 60)",
-    "hrBasedCalories": "gender === 1 ? ((age * 0.2017) + (weight * 0.09036) + (averageHR * 0.6309) - 55.0969) * duration / 4.184 : ((age * 0.074) + (weight * 0.05741) + (averageHR * 0.4472) - 20.4022) * duration / 4.184"
+    "met_value": "3.5 + (speed_kmh * 0.2) + (resistance_level * 0.5)",
+    "total_calories": "met_value * weight_kg * (duration_min / 60)",
+    "calories_per_minute": "total_calories / duration_min"
   },
   "outputs": {
-    "primary": "caloriesBurned",
+    "primary": "total_calories",
     "breakdown": [
-      "metBasedCalories",
-      "hrBasedCalories"
+      "met_value",
+      "calories_per_minute"
     ]
   },
   "category": "Ölçüm & Dönüşüm",
   "sector": "Teknik & Mühendislik",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "premiumRequired": false
 }

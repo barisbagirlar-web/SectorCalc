@@ -3,27 +3,19 @@
   "inputs": [
     {
       "id": "weight",
-      "label": "Weight",
+      "label": "Body Weight",
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "User's body weight in kilograms."
+      "businessContext": "User's weight in kilograms."
     },
     {
-      "id": "duration",
-      "label": "Duration",
+      "id": "height",
+      "label": "Height",
       "type": "number",
-      "unit": "minutes",
-      "default": 30,
-      "businessContext": "Duration of the exercise session in minutes."
-    },
-    {
-      "id": "met",
-      "label": "MET Value",
-      "type": "number",
-      "unit": "",
-      "default": 5,
-      "businessContext": "Metabolic Equivalent of Task for the specific exercise."
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "User's height in centimeters."
     },
     {
       "id": "age",
@@ -35,37 +27,42 @@
     },
     {
       "id": "gender",
-      "label": "Gender (0=female, 1=male)",
+      "label": "Gender",
       "type": "number",
       "unit": "",
       "default": 1,
-      "businessContext": "Gender factor for BMR adjustment."
+      "businessContext": "0 for female, 1 for male."
     },
     {
-      "id": "height",
-      "label": "Height",
+      "id": "duration",
+      "label": "Exercise Duration",
       "type": "number",
-      "unit": "cm",
-      "default": 175,
-      "businessContext": "User's height in centimeters."
+      "unit": "min",
+      "default": 30,
+      "businessContext": "Duration of exercise in minutes."
+    },
+    {
+      "id": "met",
+      "label": "MET Value",
+      "type": "number",
+      "unit": "",
+      "default": 8,
+      "businessContext": "Metabolic Equivalent of Task for the activity (e.g., running 8 METs)."
     }
   ],
   "formulas": {
-    "bmr": "10 * weight + 6.25 * height - 5 * age + (gender === 1 ? 5 : -161)",
-    "caloriesBurned": "met * 3.5 * weight / 200 * duration",
-    "totalCalories": "caloriesBurned + bmr / 1440 * duration"
+    "bmr": "gender === 1 ? 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age) : 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age)",
+    "caloriesBurned": "met * weight * (duration / 60)",
+    "caloriesPerMinute": "met * weight * (1 / 60)"
   },
   "outputs": {
-    "primary": "totalCalories",
+    "primary": "caloriesBurned",
     "breakdown": [
-      "caloriesBurned",
-      "bmr"
+      "bmr",
+      "caloriesPerMinute"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Perakende & Gıda",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false
 }

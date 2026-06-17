@@ -3,53 +3,50 @@
   "inputs": [
     {
       "id": "weight",
-      "label": "Vücut Ağırlığı",
+      "label": "Body Weight",
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Kullanıcının vücut ağırlığı (kg)"
+      "businessContext": "Athlete's body weight in kilograms, used to estimate energy expenditure."
     },
     {
       "id": "duration",
-      "label": "Antrenman Süresi",
+      "label": "Workout Duration",
       "type": "number",
-      "unit": "dk",
+      "unit": "minutes",
       "default": 30,
-      "businessContext": "CrossFit antrenman süresi (dakika)"
+      "businessContext": "Total duration of the CrossFit workout in minutes."
     },
     {
-      "id": "met",
-      "label": "MET Değeri",
+      "id": "metValue",
+      "label": "MET Value",
       "type": "number",
       "unit": "MET",
       "default": 8,
-      "businessContext": "CrossFit için metabolik eşdeğer (MET) değeri; tipik olarak 8-10 arası"
+      "businessContext": "Metabolic Equivalent of Task (MET) for the workout intensity. CrossFit typically ranges 6-12 METs."
     },
     {
-      "id": "intensity_modifier",
-      "label": "Yoğunluk Katsayısı",
+      "id": "genderFactor",
+      "label": "Gender Adjustment Factor",
       "type": "number",
-      "unit": "%",
-      "default": 100,
-      "businessContext": "Antrenman yoğunluğuna bağlı kalori düzeltme yüzdesi (%100 normal)"
+      "unit": "factor",
+      "default": 1,
+      "businessContext": "Multiplier to adjust calories for gender differences (commonly 1.0 for males, 0.9 for females)."
     }
   ],
   "formulas": {
-    "total_calories": "met * weight * (duration / 60) * (intensity_modifier / 100)",
-    "unmodified_calories": "met * weight * (duration / 60)",
-    "calories_per_minute": "met * weight / 60 * (intensity_modifier / 100)"
+    "totalCalories": "genderFactor * metValue * weight * (duration / 60)",
+    "caloriesPerMinute": "genderFactor * metValue * weight / 60",
+    "caloriesPerHour": "genderFactor * metValue * weight"
   },
   "outputs": {
-    "primary": "total_calories",
+    "primary": "totalCalories",
     "breakdown": [
-      "unmodified_calories",
-      "calories_per_minute"
+      "caloriesPerMinute",
+      "caloriesPerHour"
     ]
   },
   "category": "Ölçüm & Dönüşüm",
   "sector": "Teknik & Mühendislik",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "premiumRequired": false
 }

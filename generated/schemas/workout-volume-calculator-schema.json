@@ -2,52 +2,51 @@
   "toolName": "workout-volume-calculator",
   "inputs": [
     {
-      "id": "exercises",
-      "label": "Number of Exercises",
+      "id": "length",
+      "label": "Length",
       "type": "number",
-      "unit": "exercises",
-      "default": 5,
-      "businessContext": "Total number of different exercises performed in the workout session."
-    },
-    {
-      "id": "sets",
-      "label": "Average Sets per Exercise",
-      "type": "number",
-      "unit": "sets",
-      "default": 3,
-      "businessContext": "Average number of sets completed for each exercise."
-    },
-    {
-      "id": "reps",
-      "label": "Average Reps per Set",
-      "type": "number",
-      "unit": "reps",
+      "unit": "m",
       "default": 10,
-      "businessContext": "Average number of repetitions performed in each set."
+      "businessContext": "Room length along the longer side"
     },
     {
-      "id": "weight",
-      "label": "Average Weight per Rep",
+      "id": "width",
+      "label": "Width",
       "type": "number",
-      "unit": "kg",
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Room width"
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "businessContext": "Ceiling height"
+    },
+    {
+      "id": "fill_factor",
+      "label": "Fill Factor",
+      "type": "number",
+      "unit": "%",
       "default": 50,
-      "businessContext": "Average weight lifted in kilograms for each repetition."
+      "businessContext": "Percentage of volume occupied by equipment (0-100)"
     }
   ],
   "formulas": {
-    "totalVolume": "exercises * sets * reps * weight",
-    "averageVolumePerExercise": "sets * reps * weight"
+    "total_volume": "length * width * height",
+    "usable_volume": "total_volume * (fill_factor / 100)",
+    "unused_volume": "total_volume - usable_volume"
   },
   "outputs": {
-    "primary": "totalVolume",
+    "primary": "usable_volume",
     "breakdown": [
-      "averageVolumePerExercise"
+      "total_volume",
+      "unused_volume"
     ]
   },
   "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "sector": "İnşaat & Saha",
+  "premiumRequired": false
 }

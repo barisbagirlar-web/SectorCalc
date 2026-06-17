@@ -3,53 +3,50 @@
   "inputs": [
     {
       "id": "weight",
-      "label": "Body Weight",
+      "label": "Weight",
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Employee's body weight for accurate energy expenditure estimation during workplace wellness Zumba sessions."
+      "businessContext": "User's body weight in kilograms"
     },
     {
       "id": "duration",
-      "label": "Session Duration",
+      "label": "Duration",
       "type": "number",
-      "unit": "min",
+      "unit": "minutes",
       "default": 60,
-      "businessContext": "Duration of the Zumba session, typically 45–90 minutes for corporate fitness programs."
+      "businessContext": "Total duration of Zumba session in minutes"
     },
     {
-      "id": "met",
+      "id": "MET",
       "label": "MET Value",
       "type": "number",
-      "unit": "",
-      "default": 7,
-      "businessContext": "Metabolic Equivalent of Task for Zumba; typical range 6–8 depending on intensity, used to calculate calorie burn."
+      "unit": "MET",
+      "default": 7.5,
+      "businessContext": "Metabolic Equivalent of Task for Zumba, typically 6-8"
     },
     {
-      "id": "adjustmentFactor",
-      "label": "Individual Adjustment Factor",
+      "id": "intensityFactor",
+      "label": "Intensity Factor",
       "type": "number",
-      "unit": "",
+      "unit": "factor",
       "default": 1,
-      "businessContext": "Correction factor for individual metabolic variations, e.g., 1.05 for high metabolism, 0.95 for low."
+      "businessContext": "Multiplier to adjust for effort level (1.0 moderate, 1.2 high, 0.8 low)"
     }
   ],
   "formulas": {
-    "estimatedCalories": "met * weight * (duration / 60) * adjustmentFactor",
-    "caloriesPerMinute": "met * weight * (1 / 60) * adjustmentFactor",
-    "baseCalories": "met * weight * (duration / 60)"
+    "caloriesBurned": "weight * MET * (duration / 60) * intensityFactor",
+    "hours": "duration / 60"
   },
   "outputs": {
-    "primary": "estimatedCalories",
+    "primary": "Calories Burned",
     "breakdown": [
-      "caloriesPerMinute",
-      "baseCalories"
+      "Total Time (hours)",
+      "MET Value",
+      "Intensity Factor"
     ]
   },
   "category": "Ölçüm & Dönüşüm",
   "sector": "Teknik & Mühendislik",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "premiumRequired": false
 }

@@ -3,57 +3,62 @@
   "inputs": [
     {
       "id": "bodyweight",
-      "label": "Body Weight (kg)",
+      "label": "Vücut Ağırlığı",
       "type": "number",
       "unit": "kg",
       "default": 80,
-      "businessContext": "The lifter's body weight in kilograms."
+      "businessContext": "Haltercinin vücut ağırlığı (kg)"
     },
     {
-      "id": "snatch",
-      "label": "Snatch (kg)",
+      "id": "totalLifted",
+      "label": "Toplam Kaldırılan Ağırlık",
       "type": "number",
       "unit": "kg",
-      "default": 120,
-      "businessContext": "Weight lifted in the snatch discipline."
+      "default": 200,
+      "businessContext": "Koparma ve silkme toplamı (kg)"
     },
     {
-      "id": "cleanAndJerk",
-      "label": "Clean & Jerk (kg)",
-      "type": "number",
-      "unit": "kg",
-      "default": 150,
-      "businessContext": "Weight lifted in the clean and jerk discipline."
-    },
-    {
-      "id": "gender",
-      "label": "Gender (0=Male, 1=Female)",
+      "id": "coefficientA",
+      "label": "Sinclair Katsayısı A",
       "type": "number",
       "unit": "",
-      "default": 0,
-      "businessContext": "0 for male athletes, 1 for female athletes."
+      "default": 0.722762521,
+      "businessContext": "Sinclair formülü A katsayısı (boyutsuz)"
+    },
+    {
+      "id": "coefficientB",
+      "label": "Sinclair Katsayısı b",
+      "type": "number",
+      "unit": "kg",
+      "default": 193.609,
+      "businessContext": "Sinclair formülü b referans ağırlığı (kg)"
     }
   ],
   "formulas": {
-    "total": "snatch + cleanAndJerk",
-    "A": "gender === 0 ? 0.784780654 : 0.933700289",
-    "b": "gender === 0 ? 193.609 : 153.655",
-    "X": "Math.log10(bodyweight / b)",
-    "coefficient": "Math.pow(10, A * Math.pow(X, 2))",
-    "sinclairTotal": "total * coefficient"
+    "sinclairScore": "totalLifted * Math.pow(10, coefficientA * Math.pow(Math.log(bodyweight / coefficientB) / Math.log(10), 2))",
+    "adjustedFactor": "Math.pow(10, coefficientA * Math.pow(Math.log(bodyweight / coefficientB) / Math.log(10), 2))",
+    "bodyweightRatio": "bodyweight / coefficientB"
   },
   "outputs": {
-    "primary": "sinclairTotal",
+    "primary": {
+      "id": "sinclairScore",
+      "label": "Sinclair Puanı",
+      "unit": "puan"
+    },
     "breakdown": [
-      "total",
-      "coefficient",
-      "sinclairTotal"
+      {
+        "id": "adjustedFactor",
+        "label": "Düzeltme Faktörü",
+        "unit": ""
+      },
+      {
+        "id": "bodyweightRatio",
+        "label": "Ağırlık Oranı",
+        "unit": ""
+      }
     ]
   },
   "category": "Ölçüm & Dönüşüm",
   "sector": "Teknik & Mühendislik",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "premiumRequired": false
 }

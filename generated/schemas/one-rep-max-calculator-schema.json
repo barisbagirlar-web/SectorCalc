@@ -7,33 +7,32 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "The weight you lifted for the given number of repetitions."
+      "businessContext": "The weight used for the lift, in kilograms."
     },
     {
       "id": "reps",
       "label": "Repetitions",
       "type": "number",
       "unit": "reps",
-      "default": 5,
-      "businessContext": "The number of repetitions you performed with the given weight (must be greater than 1 for Epley)."
+      "default": 10,
+      "businessContext": "Number of repetitions performed to failure or near failure."
     }
   ],
   "formulas": {
-    "epley": "weight * (1 + reps / 30)",
-    "brzycki": "weight * (36 / (37 - reps))",
-    "lombardi": "weight * reps ** 0.1"
+    "oneRepMax": "weight * (1 + reps / 30)",
+    "weight": "weight",
+    "reps": "reps",
+    "multiplier": "1 + reps / 30"
   },
   "outputs": {
-    "primary": "epley",
+    "primary": "oneRepMax",
     "breakdown": [
-      "brzycki",
-      "lombardi"
+      "weight",
+      "reps",
+      "multiplier"
     ]
   },
   "category": "Ölçüm & Dönüşüm",
   "sector": "Teknik & Mühendislik",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "premiumRequired": false
 }

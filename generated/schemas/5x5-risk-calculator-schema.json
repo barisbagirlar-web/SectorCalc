@@ -1,0 +1,54 @@
+{
+  "toolName": "5x5-risk-calculator",
+  "inputs": [
+    {
+      "id": "probability",
+      "label": "Olasılık",
+      "type": "number",
+      "unit": "-",
+      "default": 5,
+      "businessContext": "Olayın gerçekleşme olasılığı (1–5)"
+    },
+    {
+      "id": "impact",
+      "label": "Etki",
+      "type": "number",
+      "unit": "-",
+      "default": 5,
+      "businessContext": "Olayın etki derecesi (1–5)"
+    },
+    {
+      "id": "probabilityWeight",
+      "label": "Olasılık Ağırlık",
+      "type": "number",
+      "unit": "-",
+      "default": 1,
+      "businessContext": "Olasılık çarpanı (ör. düzeltici faktör)"
+    },
+    {
+      "id": "impactWeight",
+      "label": "Etki Ağırlık",
+      "type": "number",
+      "unit": "-",
+      "default": 1,
+      "businessContext": "Etki çarpanı (ör. tolerans faktörü)"
+    }
+  ],
+  "formulas": {
+    "weightedProb": "probability * probabilityWeight",
+    "weightedImpact": "impact * impactWeight",
+    "riskScore": "weightedProb * weightedImpact",
+    "riskPercentage": "riskScore / 25 * 100"
+  },
+  "outputs": {
+    "primary": "riskScore",
+    "breakdown": [
+      "weightedProb",
+      "weightedImpact",
+      "riskPercentage"
+    ]
+  },
+  "category": "Teknik & Mühendislik",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false
+}

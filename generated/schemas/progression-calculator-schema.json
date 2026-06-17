@@ -3,64 +3,50 @@
   "inputs": [
     {
       "id": "firstTerm",
-      "label": "First Term (a)",
+      "label": "First Term (a1)",
       "type": "number",
       "unit": "",
       "default": 1,
-      "businessContext": "Initial term of the progression"
+      "businessContext": "Starting value of the arithmetic progression"
     },
     {
       "id": "commonDifference",
       "label": "Common Difference (d)",
       "type": "number",
       "unit": "",
-      "default": 0,
-      "businessContext": "For arithmetic progression"
+      "default": 1,
+      "businessContext": "Constant difference between consecutive terms"
     },
     {
-      "id": "commonRatio",
-      "label": "Common Ratio (r)",
+      "id": "startIndex",
+      "label": "Start Term Index",
       "type": "number",
       "unit": "",
       "default": 1,
-      "businessContext": "For geometric progression"
+      "businessContext": "Index of the first term to include in the segment (1-based)"
     },
     {
-      "id": "numberOfTerms",
-      "label": "Number of Terms (n)",
+      "id": "endIndex",
+      "label": "End Term Index",
       "type": "number",
       "unit": "",
-      "default": 5,
-      "businessContext": "Total numbers in sequence"
-    },
-    {
-      "id": "progressionType",
-      "label": "Type (1=Arithmetic, 0=Geometric)",
-      "type": "number",
-      "unit": "",
-      "default": 1,
-      "businessContext": "1 for Arithmetic, 0 for Geometric"
+      "default": 10,
+      "businessContext": "Index of the last term to include in the segment (must be ≥ startIndex)"
     }
   ],
   "formulas": {
-    "nthTerm": "progressionType === 1 ? firstTerm + (numberOfTerms - 1) * commonDifference : firstTerm * (commonRatio ** (numberOfTerms - 1))",
-    "sum": "progressionType === 1 ? (numberOfTerms/2) * (2*firstTerm + (numberOfTerms-1)*commonDifference) : (commonRatio === 1 ? firstTerm * numberOfTerms : firstTerm * (1 - commonRatio ** numberOfTerms) / (1 - commonRatio))"
+    "sum": "((endIndex - startIndex + 1) * (2 * firstTerm + commonDifference * (startIndex + endIndex - 2))) / 2",
+    "startValue": "firstTerm + commonDifference * (startIndex - 1)",
+    "endValue": "firstTerm + commonDifference * (endIndex - 1)"
   },
   "outputs": {
-    "primary": "nthTerm",
+    "primary": "sum",
     "breakdown": [
-      "sum",
-      "firstTerm",
-      "commonDifference",
-      "commonRatio",
-      "numberOfTerms",
-      "progressionType"
+      "startValue",
+      "endValue"
     ]
   },
   "category": "Teknik & Mühendislik",
   "sector": "Teknik & Mühendislik",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "premiumRequired": false
 }
