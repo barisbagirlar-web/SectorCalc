@@ -19,8 +19,9 @@ const nextConfig: NextConfig = {
   // Large generated-tool SSG can exceed the default 60s per page.
   staticPageGenerationTimeout: 180,
   webpack: (config, { dev }) => {
-    // Filesystem pack cache races with controlled .next retries on large SSG trees (ENOENT rename).
-    if (!dev) {
+    // Local Firebase builds: disable pack cache to avoid ENOENT rename races on retry.
+    // Vercel: keep filesystem cache so app route chunks exist before SSG workers load them.
+    if (!dev && process.env.VERCEL !== "1") {
       config.cache = false;
     }
     config.resolve.alias = {
@@ -36,11 +37,11 @@ const nextConfig: NextConfig = {
     },
     optimizePackageImports: ["lucide-react", "@heroicons/react"],
     staticGenerationRetryCount: 5,
-    // Avoid flaky MODULE_NOT_FOUND / ENOENT races during large SSG on local + Firebase builds.
+    // Avoid SSG worker batching races (missing page.js) on large locale trees.
     cpus: 1,
     workerThreads: false,
     staticGenerationMaxConcurrency: 1,
-    staticGenerationMinPagesPerWorker: 500,
+    staticGenerationMinPagesPerWorker: 1,
   },
   async redirects() {
     return [

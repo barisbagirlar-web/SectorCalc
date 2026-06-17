@@ -47,7 +47,8 @@ Build ve batch işlemleri sonrası oluşan, **commit edilmemesi gereken** artefa
 | Dosya / klasör | Açıklama |
 |----------------|----------|
 | `.next/` | Next.js build çıktısı |
-| `.next-deploy.lock` | Eşzamanlı deploy kilidi |
+| `.sectorcalc-build.lock` | Global build/deploy kilidi (npm run build, deploy:hosting, vercel-build local) |
+| `npm run stop:builds` | Çakışan build/deploy süreçlerini durdur + kilitleri temizle |
 | `node_modules/.cache/` | Derleme önbelleği |
 | `.batch-progress.json` | Batch ilerleme durumu |
 | `scripts/data/omni-batch.pid` | Çalışan batch PID |
