@@ -70,7 +70,7 @@ export async function CategoryGrid({ locale }: CategoryGridProps) {
                     data-category-icon-name={id}
                   >
                     <Icon
-                      className="mb-3 h-12 w-12 text-gray-700 transition group-hover:text-[#d4af37]"
+                      className="mb-3 h-12 w-12 text-[#C45A2C] transition group-hover:text-[#9a3412]"
                       aria-hidden="true"
                       strokeWidth={1.5}
                     />

@@ -58,6 +58,7 @@ export const HOMEPAGE_POPULAR_CATEGORY_GROUP_ID: Readonly<Record<string, string>
   engineering: "technicalEngineering",
   construction: "constructionField",
   energy: "energyCarbon",
+  finance: "financeHr",
 };
 
 export const HOMEPAGE_POPULAR_TOOLS: readonly HomepagePopularToolDef[] = [
@@ -90,6 +91,16 @@ export const HOMEPAGE_POPULAR_TOOLS: readonly HomepagePopularToolDef[] = [
     categoryKey: "energy",
     groupId: "energyCarbon",
     tool: { id: "compressorLeak", slug: "compressor-leak-cost-calculator", tier: "premium-schema" },
+  },
+  {
+    categoryKey: "production",
+    groupId: "productionManufacturing",
+    tool: { id: "cuttingSpeed", slug: "cutting-speed-calculator", tier: "free" },
+  },
+  {
+    categoryKey: "finance",
+    groupId: "financeHr",
+    tool: { id: "vat", slug: "vat-calculator", tier: "free" },
   },
 ];
 

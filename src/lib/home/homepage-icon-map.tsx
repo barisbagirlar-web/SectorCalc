@@ -70,4 +70,6 @@ export const HOMEPAGE_POPULAR_TOOL_ICON_MAP: Record<string, LucideIcon> = {
   boltTorque: Wrench,
   concreteVolume: Ruler,
   compressorLeak: Zap,
+  cuttingSpeed: Gauge,
+  vat: Calculator,
 };
