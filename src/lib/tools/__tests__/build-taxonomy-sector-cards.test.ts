@@ -27,6 +27,6 @@ describe("buildTaxonomySectorCards", () => {
     const cards = buildTaxonomySectorCards([{ sectorKey: "makine" }], "en");
     const makine = cards.find((card) => card.sector.id === "makine");
 
-    expect(makine?.label).toBe("Machinery & Equipment");
+    expect(makine?.label).toBe("Machinery & Manufacturing");
   });
 });

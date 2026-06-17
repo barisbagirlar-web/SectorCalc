@@ -1,4 +1,4 @@
-import { SECTORS, type Sector } from "@/lib/tools/taxonomy";
+import { OTHER_SECTOR, SECTORS, type Sector } from "@/lib/tools/taxonomy";
 
 export type TaxonomySectorCard = {
   readonly sector: Sector;
@@ -37,14 +37,8 @@ export function buildTaxonomySectorCards(
   const otherCount = sectorCounts.get("diger") ?? 0;
   if (otherCount > 0) {
     cards.push({
-      sector: {
-        id: "diger",
-        label: "Diğer",
-        labelEn: "Other",
-        professions: [],
-        keywords: [],
-      },
-      label: resolveTaxonomySectorLabel(locale, "Diğer", "Other"),
+      sector: OTHER_SECTOR,
+      label: resolveTaxonomySectorLabel(locale, OTHER_SECTOR.label, OTHER_SECTOR.labelEn),
       count: otherCount,
       countLabel: String(otherCount),
     });

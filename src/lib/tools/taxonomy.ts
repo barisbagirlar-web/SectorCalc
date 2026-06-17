@@ -937,6 +937,16 @@ export const SECTORS: Sector[] = [
   },
 ];
 
+/** Catch-all sector for tools that do not map to a primary taxonomy sector. */
+export const OTHER_SECTOR: Sector = {
+  id: "diger",
+  label: "Diğer",
+  labelEn: "Other",
+  icon: "📂",
+  professions: [],
+  keywords: [],
+};
+
 // ============================================================
 // 2. KATEGORİLER (Hesaplama Türü)
 // ============================================================

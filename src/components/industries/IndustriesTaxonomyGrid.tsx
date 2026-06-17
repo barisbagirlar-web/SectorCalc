@@ -69,6 +69,7 @@ export function IndustriesTaxonomyGrid({
       {visibleSectors.map(({ sector, label, countLabel }) => {
         const iconMeta = getCategoryCardIcon(sector.id);
         const Icon = iconMeta.icon;
+        const sectorSymbol = sector.icon;
         const active = selectedSectorId === sector.id;
         const href = active
           ? basePath
@@ -88,11 +89,20 @@ export function IndustriesTaxonomyGrid({
               active ? tone.active : "border-slate-200",
             )}
           >
-            <Icon
-              className={cn("mb-3 h-12 w-12 transition", tone.icon, tone.iconHover)}
-              aria-hidden="true"
-              strokeWidth={1.5}
-            />
+            {sectorSymbol ? (
+              <span
+                className="mb-3 flex h-12 w-12 items-center justify-center text-[2.5rem] leading-none transition group-hover:scale-105"
+                aria-hidden="true"
+              >
+                {sectorSymbol}
+              </span>
+            ) : (
+              <Icon
+                className={cn("mb-3 h-12 w-12 transition", tone.icon, tone.iconHover)}
+                aria-hidden="true"
+                strokeWidth={1.5}
+              />
+            )}
             <span className="line-clamp-2 text-sm font-bold text-gray-800">{label}</span>
             <span className="mt-2 text-xs font-medium text-slate-500">
               {countLabel}
