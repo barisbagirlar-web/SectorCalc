@@ -20,6 +20,7 @@ function evaluateAllFormulas(input: Mebibytes_to_megabytes_calculatorInput): Rec
   try { const v = Math.pow(2, input.binaryBase) / Math.pow(10, input.metricBase); results["factor"] = Number.isFinite(v) ? v : 0; } catch { results["factor"] = 0; }
   try { const v = input.mebibytes * (results["factor"] ?? 0); results["megabytes"] = Number.isFinite(v) ? v : 0; } catch { results["megabytes"] = 0; }
   try { const v = Math.round((results["megabytes"] ?? 0) * Math.pow(10, input.precision)) / Math.pow(10, input.precision); results["roundedMegabytes"] = Number.isFinite(v) ? v : 0; } catch { results["roundedMegabytes"] = 0; }
+  results["2__binaryBase____10__metricBase_____fact"] = 0;
   return results;
 }
 

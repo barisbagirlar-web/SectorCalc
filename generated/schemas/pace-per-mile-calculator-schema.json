@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "h",
       "default": 0,
-      "businessContext": "Time spent in hours"
+      "businessContext": "Time spent in hours",
+      "label_i18n": {
+        "en": "Hours",
+        "tr": "Hours",
+        "de": "Hours",
+        "fr": "Hours",
+        "es": "Hours",
+        "ar": "Hours"
+      }
     },
     {
       "id": "minutes",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "min",
       "default": 0,
-      "businessContext": "Time spent in minutes"
+      "businessContext": "Time spent in minutes",
+      "label_i18n": {
+        "en": "Minutes",
+        "tr": "Minutes",
+        "de": "Minutes",
+        "fr": "Minutes",
+        "es": "Minutes",
+        "ar": "Minutes"
+      }
     },
     {
       "id": "seconds",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "s",
       "default": 0,
-      "businessContext": "Time spent in seconds"
+      "businessContext": "Time spent in seconds",
+      "label_i18n": {
+        "en": "Seconds",
+        "tr": "Seconds",
+        "de": "Seconds",
+        "fr": "Seconds",
+        "es": "Seconds",
+        "ar": "Seconds"
+      }
     },
     {
       "id": "distance",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "miles",
       "default": 1,
-      "businessContext": "Total distance covered in miles"
+      "businessContext": "Total distance covered in miles",
+      "label_i18n": {
+        "en": "Distance",
+        "tr": "Distance",
+        "de": "Distance",
+        "fr": "Distance",
+        "es": "Distance",
+        "ar": "Distance"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "total_time_min"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

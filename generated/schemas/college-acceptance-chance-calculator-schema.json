@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "scale 0-4",
       "default": 3,
-      "businessContext": "Cumulative high school GPA on a 4.0 scale"
+      "businessContext": "Cumulative high school GPA on a 4.0 scale",
+      "label_i18n": {
+        "en": "GPA",
+        "tr": "GPA",
+        "de": "GPA",
+        "fr": "GPA",
+        "es": "GPA",
+        "ar": "GPA"
+      }
     },
     {
       "id": "sat",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "points",
       "default": 1200,
-      "businessContext": "Total SAT score (out of 1600)"
+      "businessContext": "Total SAT score (out of 1600)",
+      "label_i18n": {
+        "en": "SAT Score",
+        "tr": "SAT Score",
+        "de": "SAT Score",
+        "fr": "SAT Score",
+        "es": "SAT Score",
+        "ar": "SAT Score"
+      }
     },
     {
       "id": "extracurriculars",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "count",
       "default": 5,
-      "businessContext": "Number of significant extracurricular activities"
+      "businessContext": "Number of significant extracurricular activities",
+      "label_i18n": {
+        "en": "Extracurriculars",
+        "tr": "Extracurriculars",
+        "de": "Extracurriculars",
+        "fr": "Extracurriculars",
+        "es": "Extracurriculars",
+        "ar": "Extracurriculars"
+      }
     },
     {
       "id": "essay",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "scale 1-5",
       "default": 3,
-      "businessContext": "Quality rating of application essay on a 1-5 scale"
+      "businessContext": "Quality rating of application essay on a 1-5 scale",
+      "label_i18n": {
+        "en": "Essay Rating",
+        "tr": "Essay Rating",
+        "de": "Essay Rating",
+        "fr": "Essay Rating",
+        "es": "Essay Rating",
+        "ar": "Essay Rating"
+      }
     },
     {
       "id": "interview",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "scale 1-5",
       "default": 3,
-      "businessContext": "Performance score in alumni/interview"
+      "businessContext": "Performance score in alumni/interview",
+      "label_i18n": {
+        "en": "Interview Score",
+        "tr": "Interview Score",
+        "de": "Interview Score",
+        "fr": "Interview Score",
+        "es": "Interview Score",
+        "ar": "Interview Score"
+      }
     }
   ],
   "formulas": {
@@ -61,8 +101,8 @@
       "extracurricularContribution"
     ]
   },
-  "category": "Kalite & Süreç Kontrol",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

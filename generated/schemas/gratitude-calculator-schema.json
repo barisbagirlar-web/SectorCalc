@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "acts",
       "default": 3,
-      "businessContext": "Number of gratitude practices performed per day"
+      "businessContext": "Number of gratitude practices performed per day",
+      "label_i18n": {
+        "en": "Daily Acts of Gratitude",
+        "tr": "Daily Acts of Gratitude",
+        "de": "Daily Acts of Gratitude",
+        "fr": "Daily Acts of Gratitude",
+        "es": "Daily Acts of Gratitude",
+        "ar": "Daily Acts of Gratitude"
+      }
     },
     {
       "id": "days_practiced",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "days",
       "default": 30,
-      "businessContext": "Total days gratitude practice has been maintained"
+      "businessContext": "Total days gratitude practice has been maintained",
+      "label_i18n": {
+        "en": "Days Practiced",
+        "tr": "Days Practiced",
+        "de": "Days Practiced",
+        "fr": "Days Practiced",
+        "es": "Days Practiced",
+        "ar": "Days Practiced"
+      }
     },
     {
       "id": "intensity_factor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "1-10",
       "default": 7,
-      "businessContext": "Self-rated intensity of gratitude experience (1=low, 10=high)"
+      "businessContext": "Self-rated intensity of gratitude experience (1=low, 10=high)",
+      "label_i18n": {
+        "en": "Intensity Factor",
+        "tr": "Intensity Factor",
+        "de": "Intensity Factor",
+        "fr": "Intensity Factor",
+        "es": "Intensity Factor",
+        "ar": "Intensity Factor"
+      }
     },
     {
       "id": "social_shares",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "shares",
       "default": 2,
-      "businessContext": "Number of times gratitude is expressed to others per day"
+      "businessContext": "Number of times gratitude is expressed to others per day",
+      "label_i18n": {
+        "en": "Social Shares",
+        "tr": "Social Shares",
+        "de": "Social Shares",
+        "fr": "Social Shares",
+        "es": "Social Shares",
+        "ar": "Social Shares"
+      }
     },
     {
       "id": "journal_entries",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "entries",
       "default": 1,
-      "businessContext": "Number of gratitude journal entries per day"
+      "businessContext": "Number of gratitude journal entries per day",
+      "label_i18n": {
+        "en": "Journal Entries",
+        "tr": "Journal Entries",
+        "de": "Journal Entries",
+        "fr": "Journal Entries",
+        "es": "Journal Entries",
+        "ar": "Journal Entries"
+      }
     },
     {
       "id": "baseline_happiness",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "1-10",
       "default": 5,
-      "businessContext": "Self-rated happiness level before starting practice"
+      "businessContext": "Self-rated happiness level before starting practice",
+      "label_i18n": {
+        "en": "Baseline Happiness",
+        "tr": "Baseline Happiness",
+        "de": "Baseline Happiness",
+        "fr": "Baseline Happiness",
+        "es": "Baseline Happiness",
+        "ar": "Baseline Happiness"
+      }
     }
   ],
   "formulas": {
@@ -66,8 +114,8 @@
       "happiness_gain: Estimated increase in happiness level"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

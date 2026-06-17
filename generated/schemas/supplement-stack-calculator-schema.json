@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 5,
-      "businessContext": "Amount of active ingredient per serving of supplement 1"
+      "businessContext": "Amount of active ingredient per serving of supplement 1",
+      "label_i18n": {
+        "en": "Supplement 1 Active (g)",
+        "tr": "Supplement 1 Active (g)",
+        "de": "Supplement 1 Active (g)",
+        "fr": "Supplement 1 Active (g)",
+        "es": "Supplement 1 Active (g)",
+        "ar": "Supplement 1 Active (g)"
+      }
     },
     {
       "id": "supp1Price",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 30,
-      "businessContext": "Price per container of supplement 1"
+      "businessContext": "Price per container of supplement 1",
+      "label_i18n": {
+        "en": "Supplement 1 Price",
+        "tr": "Supplement 1 Price",
+        "de": "Supplement 1 Price",
+        "fr": "Supplement 1 Price",
+        "es": "Supplement 1 Price",
+        "ar": "Supplement 1 Price"
+      }
     },
     {
       "id": "supp1ContainerServings",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "servings",
       "default": 30,
-      "businessContext": "Number of servings per container of supplement 1"
+      "businessContext": "Number of servings per container of supplement 1",
+      "label_i18n": {
+        "en": "Supplement 1 Container Servings",
+        "tr": "Supplement 1 Container Servings",
+        "de": "Supplement 1 Container Servings",
+        "fr": "Supplement 1 Container Servings",
+        "es": "Supplement 1 Container Servings",
+        "ar": "Supplement 1 Container Servings"
+      }
     },
     {
       "id": "supp1DailyServings",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "servings",
       "default": 2,
-      "businessContext": "Number of servings taken per day of supplement 1"
+      "businessContext": "Number of servings taken per day of supplement 1",
+      "label_i18n": {
+        "en": "Supplement 1 Daily Servings",
+        "tr": "Supplement 1 Daily Servings",
+        "de": "Supplement 1 Daily Servings",
+        "fr": "Supplement 1 Daily Servings",
+        "es": "Supplement 1 Daily Servings",
+        "ar": "Supplement 1 Daily Servings"
+      }
     },
     {
       "id": "supp2Amount",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "g",
       "default": 3,
-      "businessContext": "Amount of active ingredient per serving of supplement 2"
+      "businessContext": "Amount of active ingredient per serving of supplement 2",
+      "label_i18n": {
+        "en": "Supplement 2 Active (g)",
+        "tr": "Supplement 2 Active (g)",
+        "de": "Supplement 2 Active (g)",
+        "fr": "Supplement 2 Active (g)",
+        "es": "Supplement 2 Active (g)",
+        "ar": "Supplement 2 Active (g)"
+      }
     },
     {
       "id": "supp2Price",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 25,
-      "businessContext": "Price per container of supplement 2"
+      "businessContext": "Price per container of supplement 2",
+      "label_i18n": {
+        "en": "Supplement 2 Price",
+        "tr": "Supplement 2 Price",
+        "de": "Supplement 2 Price",
+        "fr": "Supplement 2 Price",
+        "es": "Supplement 2 Price",
+        "ar": "Supplement 2 Price"
+      }
     },
     {
       "id": "supp2ContainerServings",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "servings",
       "default": 60,
-      "businessContext": "Number of servings per container of supplement 2"
+      "businessContext": "Number of servings per container of supplement 2",
+      "label_i18n": {
+        "en": "Supplement 2 Container Servings",
+        "tr": "Supplement 2 Container Servings",
+        "de": "Supplement 2 Container Servings",
+        "fr": "Supplement 2 Container Servings",
+        "es": "Supplement 2 Container Servings",
+        "ar": "Supplement 2 Container Servings"
+      }
     },
     {
       "id": "supp2DailyServings",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "servings",
       "default": 1,
-      "businessContext": "Number of servings taken per day of supplement 2"
+      "businessContext": "Number of servings taken per day of supplement 2",
+      "label_i18n": {
+        "en": "Supplement 2 Daily Servings",
+        "tr": "Supplement 2 Daily Servings",
+        "de": "Supplement 2 Daily Servings",
+        "fr": "Supplement 2 Daily Servings",
+        "es": "Supplement 2 Daily Servings",
+        "ar": "Supplement 2 Daily Servings"
+      }
     }
   ],
   "formulas": {
@@ -79,8 +143,8 @@
       "costPerGram"
     ]
   },
-  "category": "Maliyet & Bütçeleme",
-  "sector": "Perakende & Tüketici",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

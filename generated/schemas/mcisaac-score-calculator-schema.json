@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Patient age in years"
+      "businessContext": "Patient age in years",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "exudate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "1 if tonsillar exudate present, 0 otherwise"
+      "businessContext": "1 if tonsillar exudate present, 0 otherwise",
+      "label_i18n": {
+        "en": "Tonsillar Exudate",
+        "tr": "Tonsillar Exudate",
+        "de": "Tonsillar Exudate",
+        "fr": "Tonsillar Exudate",
+        "es": "Tonsillar Exudate",
+        "ar": "Tonsillar Exudate"
+      }
     },
     {
       "id": "tenderLymph",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "1 if tender anterior cervical lymphadenopathy, 0 otherwise"
+      "businessContext": "1 if tender anterior cervical lymphadenopathy, 0 otherwise",
+      "label_i18n": {
+        "en": "Tender Anterior Cervical Lymph Nodes",
+        "tr": "Tender Anterior Cervical Lymph Nodes",
+        "de": "Tender Anterior Cervical Lymph Nodes",
+        "fr": "Tender Anterior Cervical Lymph Nodes",
+        "es": "Tender Anterior Cervical Lymph Nodes",
+        "ar": "Tender Anterior Cervical Lymph Nodes"
+      }
     },
     {
       "id": "feverTemp",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 37,
-      "businessContext": "Body temperature in degrees Celsius"
+      "businessContext": "Body temperature in degrees Celsius",
+      "label_i18n": {
+        "en": "Fever Temperature",
+        "tr": "Fever Temperature",
+        "de": "Fever Temperature",
+        "fr": "Fever Temperature",
+        "es": "Fever Temperature",
+        "ar": "Fever Temperature"
+      }
     },
     {
       "id": "cough",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "1 if cough present, 0 if absent"
+      "businessContext": "1 if cough present, 0 if absent",
+      "label_i18n": {
+        "en": "Cough",
+        "tr": "Cough",
+        "de": "Cough",
+        "fr": "Cough",
+        "es": "Cough",
+        "ar": "Cough"
+      }
     }
   ],
   "formulas": {
@@ -60,8 +100,8 @@
       "coughPoints"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

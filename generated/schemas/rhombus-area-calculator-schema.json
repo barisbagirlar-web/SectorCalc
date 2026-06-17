@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Length of the first diagonal of the rhombus"
+      "businessContext": "Length of the first diagonal of the rhombus",
+      "label_i18n": {
+        "en": "Diagonal 1 (d1)",
+        "tr": "Diagonal 1 (d1)",
+        "de": "Diagonal 1 (d1)",
+        "fr": "Diagonal 1 (d1)",
+        "es": "Diagonal 1 (d1)",
+        "ar": "Diagonal 1 (d1)"
+      }
     },
     {
       "id": "diagonal2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Length of the second diagonal of the rhombus"
+      "businessContext": "Length of the second diagonal of the rhombus",
+      "label_i18n": {
+        "en": "Diagonal 2 (d2)",
+        "tr": "Diagonal 2 (d2)",
+        "de": "Diagonal 2 (d2)",
+        "fr": "Diagonal 2 (d2)",
+        "es": "Diagonal 2 (d2)",
+        "ar": "Diagonal 2 (d2)"
+      }
     },
     {
       "id": "sideLength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Length of one side of the rhombus"
+      "businessContext": "Length of one side of the rhombus",
+      "label_i18n": {
+        "en": "Side Length (a)",
+        "tr": "Side Length (a)",
+        "de": "Side Length (a)",
+        "fr": "Side Length (a)",
+        "es": "Side Length (a)",
+        "ar": "Side Length (a)"
+      }
     },
     {
       "id": "height",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Perpendicular height between two sides"
+      "businessContext": "Perpendicular height between two sides",
+      "label_i18n": {
+        "en": "Height (h)",
+        "tr": "Height (h)",
+        "de": "Height (h)",
+        "fr": "Height (h)",
+        "es": "Height (h)",
+        "ar": "Height (h)"
+      }
     },
     {
       "id": "angle",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "deg",
       "default": 0,
-      "businessContext": "Angle between two adjacent sides (in degrees)"
+      "businessContext": "Angle between two adjacent sides (in degrees)",
+      "label_i18n": {
+        "en": "Angle (θ)",
+        "tr": "Angle (θ)",
+        "de": "Angle (θ)",
+        "fr": "Angle (θ)",
+        "es": "Angle (θ)",
+        "ar": "Angle (θ)"
+      }
     }
   ],
   "formulas": {
@@ -54,8 +94,8 @@
       "diagonalProduct"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

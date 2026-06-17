@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kcal",
       "default": 2000,
-      "businessContext": "Total daily energy intake target in kilocalories."
+      "businessContext": "Total daily energy intake target in kilocalories.",
+      "label_i18n": {
+        "en": "Daily Calorie Intake",
+        "tr": "Daily Calorie Intake",
+        "de": "Daily Calorie Intake",
+        "fr": "Daily Calorie Intake",
+        "es": "Daily Calorie Intake",
+        "ar": "Daily Calorie Intake"
+      }
     },
     {
       "id": "proteinPct",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 30,
-      "businessContext": "Percentage of calories from protein. Must sum to 100 with other macros."
+      "businessContext": "Percentage of calories from protein. Must sum to 100 with other macros.",
+      "label_i18n": {
+        "en": "Protein %",
+        "tr": "Protein %",
+        "de": "Protein %",
+        "fr": "Protein %",
+        "es": "Protein %",
+        "ar": "Protein %"
+      }
     },
     {
       "id": "carbsPct",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 40,
-      "businessContext": "Percentage of calories from carbohydrates. Must sum to 100 with other macros."
+      "businessContext": "Percentage of calories from carbohydrates. Must sum to 100 with other macros.",
+      "label_i18n": {
+        "en": "Carbohydrates %",
+        "tr": "Carbohydrates %",
+        "de": "Carbohydrates %",
+        "fr": "Carbohydrates %",
+        "es": "Carbohydrates %",
+        "ar": "Carbohydrates %"
+      }
     },
     {
       "id": "fatPct",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 30,
-      "businessContext": "Percentage of calories from fat. Must sum to 100 with other macros."
+      "businessContext": "Percentage of calories from fat. Must sum to 100 with other macros.",
+      "label_i18n": {
+        "en": "Fat %",
+        "tr": "Fat %",
+        "de": "Fat %",
+        "fr": "Fat %",
+        "es": "Fat %",
+        "ar": "Fat %"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "fatGrams"
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "Enerji & Elektrik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "food-cooking",
   "sectorSlug": "restaurant",

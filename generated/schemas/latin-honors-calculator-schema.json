@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "scale of 4.0",
       "default": 3.5,
-      "businessContext": "Student's cumulative grade point average on a 4.0 scale"
+      "businessContext": "Student's cumulative grade point average on a 4.0 scale",
+      "label_i18n": {
+        "en": "Cumulative GPA",
+        "tr": "Cumulative GPA",
+        "de": "Cumulative GPA",
+        "fr": "Cumulative GPA",
+        "es": "Cumulative GPA",
+        "ar": "Cumulative GPA"
+      }
     },
     {
       "id": "cumLaudeMin",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "GPA",
       "default": 3.5,
-      "businessContext": "Minimum GPA required for Cum Laude honors"
+      "businessContext": "Minimum GPA required for Cum Laude honors",
+      "label_i18n": {
+        "en": "Cum Laude Threshold",
+        "tr": "Cum Laude Threshold",
+        "de": "Cum Laude Threshold",
+        "fr": "Cum Laude Threshold",
+        "es": "Cum Laude Threshold",
+        "ar": "Cum Laude Threshold"
+      }
     },
     {
       "id": "magnaMin",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "GPA",
       "default": 3.7,
-      "businessContext": "Minimum GPA for Magna Cum Laude honors"
+      "businessContext": "Minimum GPA for Magna Cum Laude honors",
+      "label_i18n": {
+        "en": "Magna Cum Laude Threshold",
+        "tr": "Magna Cum Laude Threshold",
+        "de": "Magna Cum Laude Threshold",
+        "fr": "Magna Cum Laude Threshold",
+        "es": "Magna Cum Laude Threshold",
+        "ar": "Magna Cum Laude Threshold"
+      }
     },
     {
       "id": "summaMin",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "GPA",
       "default": 3.9,
-      "businessContext": "Minimum GPA for Summa Cum Laude honors"
+      "businessContext": "Minimum GPA for Summa Cum Laude honors",
+      "label_i18n": {
+        "en": "Summa Cum Laude Threshold",
+        "tr": "Summa Cum Laude Threshold",
+        "de": "Summa Cum Laude Threshold",
+        "fr": "Summa Cum Laude Threshold",
+        "es": "Summa Cum Laude Threshold",
+        "ar": "Summa Cum Laude Threshold"
+      }
     },
     {
       "id": "totalCredits",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "credits",
       "default": 120,
-      "businessContext": "Total credit hours completed by the student"
+      "businessContext": "Total credit hours completed by the student",
+      "label_i18n": {
+        "en": "Total Credits Completed",
+        "tr": "Total Credits Completed",
+        "de": "Total Credits Completed",
+        "fr": "Total Credits Completed",
+        "es": "Total Credits Completed",
+        "ar": "Total Credits Completed"
+      }
     },
     {
       "id": "creditsRequired",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "credits",
       "default": 120,
-      "businessContext": "Minimum total credits required to be eligible for Latin honors"
+      "businessContext": "Minimum total credits required to be eligible for Latin honors",
+      "label_i18n": {
+        "en": "Credits Required for Honors",
+        "tr": "Credits Required for Honors",
+        "de": "Credits Required for Honors",
+        "fr": "Credits Required for Honors",
+        "es": "Credits Required for Honors",
+        "ar": "Credits Required for Honors"
+      }
     }
   ],
   "formulas": {
@@ -66,8 +114,8 @@
       "thresholdsInfo"
     ]
   },
-  "category": "Finans & Yatırım",
-  "sector": "Finans & Sigorta",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",

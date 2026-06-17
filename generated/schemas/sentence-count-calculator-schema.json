@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "words",
       "default": 0,
-      "businessContext": "Total number of words in the text."
+      "businessContext": "Total number of words in the text.",
+      "label_i18n": {
+        "en": "Total Words",
+        "tr": "Total Words",
+        "de": "Total Words",
+        "fr": "Total Words",
+        "es": "Total Words",
+        "ar": "Total Words"
+      }
     },
     {
       "id": "avgWordsPerSentence",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "words/sentence",
       "default": 15,
-      "businessContext": "Average number of words per sentence (typically 15-20)."
+      "businessContext": "Average number of words per sentence (typically 15-20).",
+      "label_i18n": {
+        "en": "Avg Words per Sentence",
+        "tr": "Avg Words per Sentence",
+        "de": "Avg Words per Sentence",
+        "fr": "Avg Words per Sentence",
+        "es": "Avg Words per Sentence",
+        "ar": "Avg Words per Sentence"
+      }
     },
     {
       "id": "totalCharacters",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "chars",
       "default": 0,
-      "businessContext": "Total number of characters including spaces."
+      "businessContext": "Total number of characters including spaces.",
+      "label_i18n": {
+        "en": "Total Characters",
+        "tr": "Total Characters",
+        "de": "Total Characters",
+        "fr": "Total Characters",
+        "es": "Total Characters",
+        "ar": "Total Characters"
+      }
     },
     {
       "id": "avgCharsPerSentence",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "chars/sentence",
       "default": 100,
-      "businessContext": "Average characters per sentence."
+      "businessContext": "Average characters per sentence.",
+      "label_i18n": {
+        "en": "Avg Chars per Sentence",
+        "tr": "Avg Chars per Sentence",
+        "de": "Avg Chars per Sentence",
+        "fr": "Avg Chars per Sentence",
+        "es": "Avg Chars per Sentence",
+        "ar": "Avg Chars per Sentence"
+      }
     },
     {
       "id": "totalParagraphs",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "paragraphs",
       "default": 0,
-      "businessContext": "Total number of paragraphs."
+      "businessContext": "Total number of paragraphs.",
+      "label_i18n": {
+        "en": "Total Paragraphs",
+        "tr": "Total Paragraphs",
+        "de": "Total Paragraphs",
+        "fr": "Total Paragraphs",
+        "es": "Total Paragraphs",
+        "ar": "Total Paragraphs"
+      }
     },
     {
       "id": "avgSentencesPerParagraph",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "sentences/paragraph",
       "default": 3,
-      "businessContext": "Average sentences per paragraph."
+      "businessContext": "Average sentences per paragraph.",
+      "label_i18n": {
+        "en": "Avg Sentences per Paragraph",
+        "tr": "Avg Sentences per Paragraph",
+        "de": "Avg Sentences per Paragraph",
+        "fr": "Avg Sentences per Paragraph",
+        "es": "Avg Sentences per Paragraph",
+        "ar": "Avg Sentences per Paragraph"
+      }
     },
     {
       "id": "lineCount",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "lines",
       "default": 0,
-      "businessContext": "Total number of lines (if line-based formatting)."
+      "businessContext": "Total number of lines (if line-based formatting).",
+      "label_i18n": {
+        "en": "Line Count",
+        "tr": "Line Count",
+        "de": "Line Count",
+        "fr": "Line Count",
+        "es": "Line Count",
+        "ar": "Line Count"
+      }
     },
     {
       "id": "wordsPerLine",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "words/line",
       "default": 10,
-      "businessContext": "Average words per line."
+      "businessContext": "Average words per line.",
+      "label_i18n": {
+        "en": "Words per Line",
+        "tr": "Words per Line",
+        "de": "Words per Line",
+        "fr": "Words per Line",
+        "es": "Words per Line",
+        "ar": "Words per Line"
+      }
     }
   ],
   "formulas": {
@@ -82,8 +146,8 @@
       "estimateFromLines"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",

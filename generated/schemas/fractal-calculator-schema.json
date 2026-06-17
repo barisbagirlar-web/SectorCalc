@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 3,
-      "businessContext": "In fractal generation, the number of smaller self-similar pieces."
+      "businessContext": "In fractal generation, the number of smaller self-similar pieces.",
+      "label_i18n": {
+        "en": "Number of Copies (N)",
+        "tr": "Number of Copies (N)",
+        "de": "Number of Copies (N)",
+        "fr": "Number of Copies (N)",
+        "es": "Number of Copies (N)",
+        "ar": "Number of Copies (N)"
+      }
     },
     {
       "id": "scalingFactor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ratio",
       "default": 0.333,
-      "businessContext": "The linear scaling factor applied to get each smaller copy."
+      "businessContext": "The linear scaling factor applied to get each smaller copy.",
+      "label_i18n": {
+        "en": "Scaling Factor (r)",
+        "tr": "Scaling Factor (r)",
+        "de": "Scaling Factor (r)",
+        "fr": "Scaling Factor (r)",
+        "es": "Scaling Factor (r)",
+        "ar": "Scaling Factor (r)"
+      }
     },
     {
       "id": "iterationCount",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "iteration",
       "default": 1,
-      "businessContext": "Number of iterations for computing total length or number of pieces."
+      "businessContext": "Number of iterations for computing total length or number of pieces.",
+      "label_i18n": {
+        "en": "Iteration Count (n)",
+        "tr": "Iteration Count (n)",
+        "de": "Iteration Count (n)",
+        "fr": "Iteration Count (n)",
+        "es": "Iteration Count (n)",
+        "ar": "Iteration Count (n)"
+      }
     },
     {
       "id": "initialLength",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Initial length of the curve segment or initiator."
+      "businessContext": "Initial length of the curve segment or initiator.",
+      "label_i18n": {
+        "en": "Initial Length (L0)",
+        "tr": "Initial Length (L0)",
+        "de": "Initial Length (L0)",
+        "fr": "Initial Length (L0)",
+        "es": "Initial Length (L0)",
+        "ar": "Initial Length (L0)"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "totalLength"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

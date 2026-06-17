@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cycles",
       "default": 1000,
-      "businessContext": "Number of applied cycles at stress level 1"
+      "businessContext": "Number of applied cycles at stress level 1",
+      "label_i18n": {
+        "en": "Applied Cycles (n₁)",
+        "tr": "Applied Cycles (n₁)",
+        "de": "Applied Cycles (n₁)",
+        "fr": "Applied Cycles (n₁)",
+        "es": "Applied Cycles (n₁)",
+        "ar": "Applied Cycles (n₁)"
+      }
     },
     {
       "id": "N1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cycles",
       "default": 1000000,
-      "businessContext": "Cycles to failure at stress level 1"
+      "businessContext": "Cycles to failure at stress level 1",
+      "label_i18n": {
+        "en": "Endurance Cycles (N₁)",
+        "tr": "Endurance Cycles (N₁)",
+        "de": "Endurance Cycles (N₁)",
+        "fr": "Endurance Cycles (N₁)",
+        "es": "Endurance Cycles (N₁)",
+        "ar": "Endurance Cycles (N₁)"
+      }
     },
     {
       "id": "n2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cycles",
       "default": 5000,
-      "businessContext": "Number of applied cycles at stress level 2"
+      "businessContext": "Number of applied cycles at stress level 2",
+      "label_i18n": {
+        "en": "Applied Cycles (n₂)",
+        "tr": "Applied Cycles (n₂)",
+        "de": "Applied Cycles (n₂)",
+        "fr": "Applied Cycles (n₂)",
+        "es": "Applied Cycles (n₂)",
+        "ar": "Applied Cycles (n₂)"
+      }
     },
     {
       "id": "N2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cycles",
       "default": 500000,
-      "businessContext": "Cycles to failure at stress level 2"
+      "businessContext": "Cycles to failure at stress level 2",
+      "label_i18n": {
+        "en": "Endurance Cycles (N₂)",
+        "tr": "Endurance Cycles (N₂)",
+        "de": "Endurance Cycles (N₂)",
+        "fr": "Endurance Cycles (N₂)",
+        "es": "Endurance Cycles (N₂)",
+        "ar": "Endurance Cycles (N₂)"
+      }
     },
     {
       "id": "n3",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "cycles",
       "default": 10000,
-      "businessContext": "Number of applied cycles at stress level 3"
+      "businessContext": "Number of applied cycles at stress level 3",
+      "label_i18n": {
+        "en": "Applied Cycles (n₃)",
+        "tr": "Applied Cycles (n₃)",
+        "de": "Applied Cycles (n₃)",
+        "fr": "Applied Cycles (n₃)",
+        "es": "Applied Cycles (n₃)",
+        "ar": "Applied Cycles (n₃)"
+      }
     },
     {
       "id": "N3",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "cycles",
       "default": 200000,
-      "businessContext": "Cycles to failure at stress level 3"
+      "businessContext": "Cycles to failure at stress level 3",
+      "label_i18n": {
+        "en": "Endurance Cycles (N₃)",
+        "tr": "Endurance Cycles (N₃)",
+        "de": "Endurance Cycles (N₃)",
+        "fr": "Endurance Cycles (N₃)",
+        "es": "Endurance Cycles (N₃)",
+        "ar": "Endurance Cycles (N₃)"
+      }
     }
   ],
   "formulas": {
@@ -64,8 +112,8 @@
       "damage3"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "gaming-entertainment",
   "sectorSlug": "ecommerce",

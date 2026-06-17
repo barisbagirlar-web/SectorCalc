@@ -23,6 +23,8 @@ function evaluateAllFormulas(input: Treadmill_pace_calculatorInput): Record<stri
   try { const v = (input.distance * 3600) / (results["totalSeconds"] ?? 0); results["speedKmh"] = Number.isFinite(v) ? v : 0; } catch { results["speedKmh"] = 0; }
   try { const v = (results["paceSecondsPerKm"] ?? 0) * 1.60934 / 60; results["paceMinPerMile"] = Number.isFinite(v) ? v : 0; } catch { results["paceMinPerMile"] = 0; }
   try { const v = Math.floor((results["paceMinPerKm"] ?? 0)) + ':' + ((results["paceSecondsPerKm"] ?? 0) % 60 < 10 ? '0' : '') + ((results["paceSecondsPerKm"] ?? 0) % 60) + ' min/km'; results["paceDisplay"] = Number.isFinite(v) ? v : 0; } catch { results["paceDisplay"] = 0; }
+  results["speedKmh_km_sa"] = 0;
+  results["paceMinPerMile_dk_mil"] = 0;
   return results;
 }
 

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "yd",
       "default": 40,
-      "businessContext": "Standard test distance for NFL Combine is 40 yards."
+      "businessContext": "Standard test distance for NFL Combine is 40 yards.",
+      "label_i18n": {
+        "en": "Distance (yards)",
+        "tr": "Distance (yards)",
+        "de": "Distance (yards)",
+        "fr": "Distance (yards)",
+        "es": "Distance (yards)",
+        "ar": "Distance (yards)"
+      }
     },
     {
       "id": "time_seconds",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "s",
       "default": 4.5,
-      "businessContext": "Recorded time for the 40-yard dash."
+      "businessContext": "Recorded time for the 40-yard dash.",
+      "label_i18n": {
+        "en": "Time (seconds)",
+        "tr": "Time (seconds)",
+        "de": "Time (seconds)",
+        "fr": "Time (seconds)",
+        "es": "Time (seconds)",
+        "ar": "Time (seconds)"
+      }
     },
     {
       "id": "weight_lbs",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "lbs",
       "default": 220,
-      "businessContext": "Body weight of the athlete to estimate power output."
+      "businessContext": "Body weight of the athlete to estimate power output.",
+      "label_i18n": {
+        "en": "Player Weight (lbs)",
+        "tr": "Player Weight (lbs)",
+        "de": "Player Weight (lbs)",
+        "fr": "Player Weight (lbs)",
+        "es": "Player Weight (lbs)",
+        "ar": "Player Weight (lbs)"
+      }
     },
     {
       "id": "wind_mph",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mph",
       "default": 0,
-      "businessContext": "Wind speed, positive for tailwind, negative for headwind, to adjust effective time."
+      "businessContext": "Wind speed, positive for tailwind, negative for headwind, to adjust effective time.",
+      "label_i18n": {
+        "en": "Wind Speed (mph)",
+        "tr": "Wind Speed (mph)",
+        "de": "Wind Speed (mph)",
+        "fr": "Wind Speed (mph)",
+        "es": "Wind Speed (mph)",
+        "ar": "Wind Speed (mph)"
+      }
     }
   ],
   "formulas": {
@@ -55,8 +87,8 @@
       "power_hp"
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "Enerji & Elektrik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

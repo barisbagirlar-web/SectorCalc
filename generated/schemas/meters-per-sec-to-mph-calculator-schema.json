@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 1,
-      "businessContext": "Input speed in meters per second"
+      "businessContext": "Input speed in meters per second",
+      "label_i18n": {
+        "en": "Speed (m/s)",
+        "tr": "Speed (m/s)",
+        "de": "Speed (m/s)",
+        "fr": "Speed (m/s)",
+        "es": "Speed (m/s)",
+        "ar": "Speed (m/s)"
+      }
     },
     {
       "id": "factor_m_to_mi",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mi/m",
       "default": 0.000621371,
-      "businessContext": "Conversion factor from meters to miles"
+      "businessContext": "Conversion factor from meters to miles",
+      "label_i18n": {
+        "en": "Meters to Miles Factor",
+        "tr": "Meters to Miles Factor",
+        "de": "Meters to Miles Factor",
+        "fr": "Meters to Miles Factor",
+        "es": "Meters to Miles Factor",
+        "ar": "Meters to Miles Factor"
+      }
     },
     {
       "id": "factor_s_to_h",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "s/h",
       "default": 3600,
-      "businessContext": "Conversion factor from seconds to hours"
+      "businessContext": "Conversion factor from seconds to hours",
+      "label_i18n": {
+        "en": "Seconds to Hours Factor",
+        "tr": "Seconds to Hours Factor",
+        "de": "Seconds to Hours Factor",
+        "fr": "Seconds to Hours Factor",
+        "es": "Seconds to Hours Factor",
+        "ar": "Seconds to Hours Factor"
+      }
     },
     {
       "id": "decimal_places",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "places",
       "default": 2,
-      "businessContext": "Number of decimal places for rounding output"
+      "businessContext": "Number of decimal places for rounding output",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "speed_mph_unrounded"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

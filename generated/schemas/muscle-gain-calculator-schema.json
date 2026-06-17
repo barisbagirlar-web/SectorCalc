@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Vücut ağırlığı (kg)"
+      "businessContext": "Vücut ağırlığı (kg)",
+      "label_i18n": {
+        "en": "Body Weight",
+        "tr": "Body Weight",
+        "de": "Body Weight",
+        "fr": "Body Weight",
+        "es": "Body Weight",
+        "ar": "Body Weight"
+      }
     },
     {
       "id": "height",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 175,
-      "businessContext": "Boy (cm)"
+      "businessContext": "Boy (cm)",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "Height",
+        "fr": "Height",
+        "es": "Height",
+        "ar": "Height"
+      }
     },
     {
       "id": "age",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 25,
-      "businessContext": "Yaş (yıl)"
+      "businessContext": "Yaş (yıl)",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "gender",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "(0=Female, 1=Male)",
       "default": 1,
-      "businessContext": "Cinsiyet: 0 kadın, 1 erkek"
+      "businessContext": "Cinsiyet: 0 kadın, 1 erkek",
+      "label_i18n": {
+        "en": "Gender",
+        "tr": "Gender",
+        "de": "Gender",
+        "fr": "Gender",
+        "es": "Gender",
+        "ar": "Gender"
+      }
     },
     {
       "id": "activityLevel",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1.55,
-      "businessContext": "Aktivite seviyesi çarpanı (1.2: sedanter, 1.55: orta, 1.9: çok aktif)"
+      "businessContext": "Aktivite seviyesi çarpanı (1.2: sedanter, 1.55: orta, 1.9: çok aktif)",
+      "label_i18n": {
+        "en": "Activity Level",
+        "tr": "Activity Level",
+        "de": "Activity Level",
+        "fr": "Activity Level",
+        "es": "Activity Level",
+        "ar": "Activity Level"
+      }
     },
     {
       "id": "calorieSurplus",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kcal",
       "default": 300,
-      "businessContext": "Günlük kalori fazlası (kcal/gün)"
+      "businessContext": "Günlük kalori fazlası (kcal/gün)",
+      "label_i18n": {
+        "en": "Daily Calorie Surplus",
+        "tr": "Daily Calorie Surplus",
+        "de": "Daily Calorie Surplus",
+        "fr": "Daily Calorie Surplus",
+        "es": "Daily Calorie Surplus",
+        "ar": "Daily Calorie Surplus"
+      }
     },
     {
       "id": "proteinIntake",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "g",
       "default": 160,
-      "businessContext": "Günlük protein alımı (g/gün)"
+      "businessContext": "Günlük protein alımı (g/gün)",
+      "label_i18n": {
+        "en": "Daily Protein Intake",
+        "tr": "Daily Protein Intake",
+        "de": "Daily Protein Intake",
+        "fr": "Daily Protein Intake",
+        "es": "Daily Protein Intake",
+        "ar": "Daily Protein Intake"
+      }
     }
   ],
   "formulas": {
@@ -74,8 +130,8 @@
       "maxMuscleGain"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

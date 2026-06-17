@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "unit²",
       "default": 0.1,
-      "businessContext": "Gauge R&R study result"
+      "businessContext": "Gauge R&R study result",
+      "label_i18n": {
+        "en": "Measurement Variance (σ²)",
+        "tr": "Measurement Variance (σ²)",
+        "de": "Measurement Variance (σ²)",
+        "fr": "Measurement Variance (σ²)",
+        "es": "Measurement Variance (σ²)",
+        "ar": "Measurement Variance (σ²)"
+      }
     },
     {
       "id": "operator_error_rate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Defect logs analysis"
+      "businessContext": "Defect logs analysis",
+      "label_i18n": {
+        "en": "Operator Error Rate (%)",
+        "tr": "Operator Error Rate (%)",
+        "de": "Operator Error Rate (%)",
+        "fr": "Operator Error Rate (%)",
+        "es": "Operator Error Rate (%)",
+        "ar": "Operator Error Rate (%)"
+      }
     },
     {
       "id": "machine_downtime",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ratio",
       "default": 0.05,
-      "businessContext": "OEE tracking database"
+      "businessContext": "OEE tracking database",
+      "label_i18n": {
+        "en": "Machine Downtime Ratio",
+        "tr": "Machine Downtime Ratio",
+        "de": "Machine Downtime Ratio",
+        "fr": "Machine Downtime Ratio",
+        "es": "Machine Downtime Ratio",
+        "ar": "Machine Downtime Ratio"
+      }
     },
     {
       "id": "defect_rate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 1.5,
-      "businessContext": "Production records"
+      "businessContext": "Production records",
+      "label_i18n": {
+        "en": "Historical Defect Rate (%)",
+        "tr": "Historical Defect Rate (%)",
+        "de": "Historical Defect Rate (%)",
+        "fr": "Historical Defect Rate (%)",
+        "es": "Historical Defect Rate (%)",
+        "ar": "Historical Defect Rate (%)"
+      }
     },
     {
       "id": "process_temperature_variance",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "°C",
       "default": 2.1,
-      "businessContext": "Process logs"
+      "businessContext": "Process logs",
+      "label_i18n": {
+        "en": "Temperature Fluctuation (σ)",
+        "tr": "Temperature Fluctuation (σ)",
+        "de": "Temperature Fluctuation (σ)",
+        "fr": "Temperature Fluctuation (σ)",
+        "es": "Temperature Fluctuation (σ)",
+        "ar": "Temperature Fluctuation (σ)"
+      }
     },
     {
       "id": "noise_level",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "dB",
       "default": 75,
-      "businessContext": "Workplace safety measurements"
+      "businessContext": "Workplace safety measurements",
+      "label_i18n": {
+        "en": "Noise Level (dB)",
+        "tr": "Noise Level (dB)",
+        "de": "Noise Level (dB)",
+        "fr": "Noise Level (dB)",
+        "es": "Noise Level (dB)",
+        "ar": "Noise Level (dB)"
+      }
     }
   ],
   "formulas": {
@@ -66,8 +114,8 @@
       "environmental_factor"
     ]
   },
-  "category": "Verimlilik & OEE",
-  "sector": "Bilişim & Yazılım",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m3",
       "default": 1,
-      "businessContext": "Nominal volume of the batch reactor vessel."
+      "businessContext": "Nominal volume of the batch reactor vessel.",
+      "label_i18n": {
+        "en": "Reactor Volume",
+        "tr": "Reactor Volume",
+        "de": "Reactor Volume",
+        "fr": "Reactor Volume",
+        "es": "Reactor Volume",
+        "ar": "Reactor Volume"
+      }
     },
     {
       "id": "initial_concentration",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kmol/m3",
       "default": 1,
-      "businessContext": "Initial concentration of reactant A in the feed."
+      "businessContext": "Initial concentration of reactant A in the feed.",
+      "label_i18n": {
+        "en": "Initial Concentration (C_A0)",
+        "tr": "Initial Concentration (C_A0)",
+        "de": "Initial Concentration (C_A0)",
+        "fr": "Initial Concentration (C_A0)",
+        "es": "Initial Concentration (C_A0)",
+        "ar": "Initial Concentration (C_A0)"
+      }
     },
     {
       "id": "rate_constant",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "1/s",
       "default": 0.1,
-      "businessContext": "First-order rate constant for the reaction."
+      "businessContext": "First-order rate constant for the reaction.",
+      "label_i18n": {
+        "en": "Rate Constant (k)",
+        "tr": "Rate Constant (k)",
+        "de": "Rate Constant (k)",
+        "fr": "Rate Constant (k)",
+        "es": "Rate Constant (k)",
+        "ar": "Rate Constant (k)"
+      }
     },
     {
       "id": "conversion",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "fraction",
       "default": 0.9,
-      "businessContext": "Target fractional conversion of reactant A (0 to 1)."
+      "businessContext": "Target fractional conversion of reactant A (0 to 1).",
+      "label_i18n": {
+        "en": "Desired Conversion (X)",
+        "tr": "Desired Conversion (X)",
+        "de": "Desired Conversion (X)",
+        "fr": "Desired Conversion (X)",
+        "es": "Desired Conversion (X)",
+        "ar": "Desired Conversion (X)"
+      }
     }
   ],
   "formulas": {
@@ -47,8 +79,8 @@
       "product_moles"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Kimya & İlaç",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

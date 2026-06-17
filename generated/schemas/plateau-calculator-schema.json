@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "birim/saat",
       "default": 10,
-      "businessContext": "Öğrenme eğrisinin başlangıç noktasındaki saatlik çıktı miktarı"
+      "businessContext": "Öğrenme eğrisinin başlangıç noktasındaki saatlik çıktı miktarı",
+      "label_i18n": {
+        "en": "Başlangıç Performansı",
+        "tr": "Başlangıç Performansı",
+        "de": "Başlangıç Performansı",
+        "fr": "Başlangıç Performansı",
+        "es": "Başlangıç Performansı",
+        "ar": "Başlangıç Performansı"
+      }
     },
     {
       "id": "outputAfterPeriod",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "birim/saat",
       "default": 20,
-      "businessContext": "Belirli bir öğrenme süresi sonunda ulaşılan saatlik çıktı"
+      "businessContext": "Belirli bir öğrenme süresi sonunda ulaşılan saatlik çıktı",
+      "label_i18n": {
+        "en": "Öğrenme Sonrası Performans",
+        "tr": "Öğrenme Sonrası Performans",
+        "de": "Öğrenme Sonrası Performans",
+        "fr": "Öğrenme Sonrası Performans",
+        "es": "Öğrenme Sonrası Performans",
+        "ar": "Öğrenme Sonrası Performans"
+      }
     },
     {
       "id": "timePeriod",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "hafta",
       "default": 8,
-      "businessContext": "Performans ölçümleri arasındaki geçen hafta sayısı"
+      "businessContext": "Performans ölçümleri arasındaki geçen hafta sayısı",
+      "label_i18n": {
+        "en": "Öğrenme Süresi",
+        "tr": "Öğrenme Süresi",
+        "de": "Öğrenme Süresi",
+        "fr": "Öğrenme Süresi",
+        "es": "Öğrenme Süresi",
+        "ar": "Öğrenme Süresi"
+      }
     },
     {
       "id": "learningRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "1/hafta",
       "default": 0.25,
-      "businessContext": "Öğrenme eğrisinin diklik katsayısı, üstel yaklaşım modeli için"
+      "businessContext": "Öğrenme eğrisinin diklik katsayısı, üstel yaklaşım modeli için",
+      "label_i18n": {
+        "en": "Öğrenme Hızı Sabiti",
+        "tr": "Öğrenme Hızı Sabiti",
+        "de": "Öğrenme Hızı Sabiti",
+        "fr": "Öğrenme Hızı Sabiti",
+        "es": "Öğrenme Hızı Sabiti",
+        "ar": "Öğrenme Hızı Sabiti"
+      }
     }
   ],
   "formulas": {
@@ -56,8 +88,8 @@
       }
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "categorySlug": "technology-ai-cloud-cyber",
   "catalogCategory": "health-body",

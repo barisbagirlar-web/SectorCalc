@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "chips",
       "default": 0,
-      "businessContext": "The size of the pot before the opponent's bet."
+      "businessContext": "The size of the pot before the opponent's bet.",
+      "label_i18n": {
+        "en": "Pot Size Before Bet",
+        "tr": "Pot Size Before Bet",
+        "de": "Pot Size Before Bet",
+        "fr": "Pot Size Before Bet",
+        "es": "Pot Size Before Bet",
+        "ar": "Pot Size Before Bet"
+      }
     },
     {
       "id": "opponentBet",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "chips",
       "default": 0,
-      "businessContext": "The amount the opponent bets."
+      "businessContext": "The amount the opponent bets.",
+      "label_i18n": {
+        "en": "Opponent's Bet",
+        "tr": "Opponent's Bet",
+        "de": "Opponent's Bet",
+        "fr": "Opponent's Bet",
+        "es": "Opponent's Bet",
+        "ar": "Opponent's Bet"
+      }
     },
     {
       "id": "callAmount",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "chips",
       "default": 0,
-      "businessContext": "The amount required to call. Usually equal to the opponent's bet."
+      "businessContext": "The amount required to call. Usually equal to the opponent's bet.",
+      "label_i18n": {
+        "en": "Call Amount",
+        "tr": "Call Amount",
+        "de": "Call Amount",
+        "fr": "Call Amount",
+        "es": "Call Amount",
+        "ar": "Call Amount"
+      }
     }
   ],
   "formulas": {
@@ -38,8 +62,8 @@
       "totalPotAfterCall"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

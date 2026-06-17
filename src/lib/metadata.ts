@@ -129,6 +129,7 @@ export function createPageMetadata(options: PageMetadataOptions = {}): Metadata 
       ...hreflang,
     },
     verification: {
+      google: "YC4-K4Q1XVrErVW2UE9eNe4Tni2hhFFmBhF8dZjcVoY",
       other: {
         "msvalidate.01": "C97289CA0F699D6B9053113A5E8FAD2A",
       },

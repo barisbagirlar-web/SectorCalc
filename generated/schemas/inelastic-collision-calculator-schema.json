@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "Mass of the first object in the collision."
+      "businessContext": "Mass of the first object in the collision.",
+      "label_i18n": {
+        "en": "Mass of Object 1",
+        "tr": "Mass of Object 1",
+        "de": "Mass of Object 1",
+        "fr": "Mass of Object 1",
+        "es": "Mass of Object 1",
+        "ar": "Mass of Object 1"
+      }
     },
     {
       "id": "velocity1Initial",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 10,
-      "businessContext": "Initial velocity of object 1 before collision, positive direction."
+      "businessContext": "Initial velocity of object 1 before collision, positive direction.",
+      "label_i18n": {
+        "en": "Initial Velocity of Object 1",
+        "tr": "Initial Velocity of Object 1",
+        "de": "Initial Velocity of Object 1",
+        "fr": "Initial Velocity of Object 1",
+        "es": "Initial Velocity of Object 1",
+        "ar": "Initial Velocity of Object 1"
+      }
     },
     {
       "id": "mass2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 2,
-      "businessContext": "Mass of the second object in the collision."
+      "businessContext": "Mass of the second object in the collision.",
+      "label_i18n": {
+        "en": "Mass of Object 2",
+        "tr": "Mass of Object 2",
+        "de": "Mass of Object 2",
+        "fr": "Mass of Object 2",
+        "es": "Mass of Object 2",
+        "ar": "Mass of Object 2"
+      }
     },
     {
       "id": "velocity2Initial",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m/s",
       "default": -5,
-      "businessContext": "Initial velocity of object 2 before collision, negative if opposite direction."
+      "businessContext": "Initial velocity of object 2 before collision, negative if opposite direction.",
+      "label_i18n": {
+        "en": "Initial Velocity of Object 2",
+        "tr": "Initial Velocity of Object 2",
+        "de": "Initial Velocity of Object 2",
+        "fr": "Initial Velocity of Object 2",
+        "es": "Initial Velocity of Object 2",
+        "ar": "Initial Velocity of Object 2"
+      }
     },
     {
       "id": "restitutionCoefficient",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0.5,
-      "businessContext": "Ratio of relative speed after collision to before collision. Range 0 to 1."
+      "businessContext": "Ratio of relative speed after collision to before collision. Range 0 to 1.",
+      "label_i18n": {
+        "en": "Coefficient of Restitution",
+        "tr": "Coefficient of Restitution",
+        "de": "Coefficient of Restitution",
+        "fr": "Coefficient of Restitution",
+        "es": "Coefficient of Restitution",
+        "ar": "Coefficient of Restitution"
+      }
     }
   ],
   "formulas": {
@@ -54,8 +94,8 @@
       "energyLoss"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "İnşaat & Yapı",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

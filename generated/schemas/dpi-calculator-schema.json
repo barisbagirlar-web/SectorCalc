@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "px",
       "default": 1920,
-      "businessContext": "Horizontal pixel count of the display or image"
+      "businessContext": "Horizontal pixel count of the display or image",
+      "label_i18n": {
+        "en": "Width (pixels)",
+        "tr": "Width (pixels)",
+        "de": "Width (pixels)",
+        "fr": "Width (pixels)",
+        "es": "Width (pixels)",
+        "ar": "Width (pixels)"
+      }
     },
     {
       "id": "heightPixels",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "px",
       "default": 1080,
-      "businessContext": "Vertical pixel count of the display or image"
+      "businessContext": "Vertical pixel count of the display or image",
+      "label_i18n": {
+        "en": "Height (pixels)",
+        "tr": "Height (pixels)",
+        "de": "Height (pixels)",
+        "fr": "Height (pixels)",
+        "es": "Height (pixels)",
+        "ar": "Height (pixels)"
+      }
     },
     {
       "id": "widthInches",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "in",
       "default": 13.6,
-      "businessContext": "Physical width of the display area in inches"
+      "businessContext": "Physical width of the display area in inches",
+      "label_i18n": {
+        "en": "Width (inches)",
+        "tr": "Width (inches)",
+        "de": "Width (inches)",
+        "fr": "Width (inches)",
+        "es": "Width (inches)",
+        "ar": "Width (inches)"
+      }
     },
     {
       "id": "heightInches",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "in",
       "default": 7.65,
-      "businessContext": "Physical height of the display area in inches"
+      "businessContext": "Physical height of the display area in inches",
+      "label_i18n": {
+        "en": "Height (inches)",
+        "tr": "Height (inches)",
+        "de": "Height (inches)",
+        "fr": "Height (inches)",
+        "es": "Height (inches)",
+        "ar": "Height (inches)"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "Vertical DPI: verticalDpi"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

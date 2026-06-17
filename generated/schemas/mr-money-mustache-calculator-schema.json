@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100000,
-      "businessContext": "Total annual after-tax income"
+      "businessContext": "Total annual after-tax income",
+      "label_i18n": {
+        "en": "Annual Income",
+        "tr": "Annual Income",
+        "de": "Annual Income",
+        "fr": "Annual Income",
+        "es": "Annual Income",
+        "ar": "Annual Income"
+      }
     },
     {
       "id": "annualExpenses",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 40000,
-      "businessContext": "Total annual living expenses"
+      "businessContext": "Total annual living expenses",
+      "label_i18n": {
+        "en": "Annual Expenses",
+        "tr": "Annual Expenses",
+        "de": "Annual Expenses",
+        "fr": "Annual Expenses",
+        "es": "Annual Expenses",
+        "ar": "Annual Expenses"
+      }
     },
     {
       "id": "currentPortfolio",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Current invested portfolio value"
+      "businessContext": "Current invested portfolio value",
+      "label_i18n": {
+        "en": "Current Portfolio",
+        "tr": "Current Portfolio",
+        "de": "Current Portfolio",
+        "fr": "Current Portfolio",
+        "es": "Current Portfolio",
+        "ar": "Current Portfolio"
+      }
     },
     {
       "id": "expectedReturn",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 7,
-      "businessContext": "Expected annual real investment return (after inflation)"
+      "businessContext": "Expected annual real investment return (after inflation)",
+      "label_i18n": {
+        "en": "Expected Return",
+        "tr": "Expected Return",
+        "de": "Expected Return",
+        "fr": "Expected Return",
+        "es": "Expected Return",
+        "ar": "Expected Return"
+      }
     },
     {
       "id": "safeWithdrawalRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 4,
-      "businessContext": "Safe withdrawal rate for retirement (e.g., 4% rule)"
+      "businessContext": "Safe withdrawal rate for retirement (e.g., 4% rule)",
+      "label_i18n": {
+        "en": "Safe Withdrawal Rate",
+        "tr": "Safe Withdrawal Rate",
+        "de": "Safe Withdrawal Rate",
+        "fr": "Safe Withdrawal Rate",
+        "es": "Safe Withdrawal Rate",
+        "ar": "Safe Withdrawal Rate"
+      }
     }
   ],
   "formulas": {
@@ -56,8 +96,8 @@
       "futurePortfolioNeeded"
     ]
   },
-  "category": "Finans & Yatırım",
-  "sector": "Finans & Sigorta",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

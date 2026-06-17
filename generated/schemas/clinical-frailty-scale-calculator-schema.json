@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 75,
-      "businessContext": "Hastanın yaşı"
+      "businessContext": "Hastanın yaşı",
+      "label_i18n": {
+        "en": "Yaş",
+        "tr": "Yaş",
+        "de": "Yaş",
+        "fr": "Yaş",
+        "es": "Yaş",
+        "ar": "Yaş"
+      }
     },
     {
       "id": "comorbidities",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 2,
-      "businessContext": "Eşlik eden kronik hastalık sayısı"
+      "businessContext": "Eşlik eden kronik hastalık sayısı",
+      "label_i18n": {
+        "en": "Komorbidite Sayısı",
+        "tr": "Komorbidite Sayısı",
+        "de": "Komorbidite Sayısı",
+        "fr": "Komorbidite Sayısı",
+        "es": "Komorbidite Sayısı",
+        "ar": "Komorbidite Sayısı"
+      }
     },
     {
       "id": "adl",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "puan",
       "default": 5,
-      "businessContext": "Barthel İndeksi benzeri fonksiyonel bağımsızlık ölçümü (7: tam bağımsız, 0: tam bağımlı)"
+      "businessContext": "Barthel İndeksi benzeri fonksiyonel bağımsızlık ölçümü (7: tam bağımsız, 0: tam bağımlı)",
+      "label_i18n": {
+        "en": "Günlük Yaşam Aktiviteleri Skoru (0-7)",
+        "tr": "Günlük Yaşam Aktiviteleri Skoru (0-7)",
+        "de": "Günlük Yaşam Aktiviteleri Skoru (0-7)",
+        "fr": "Günlük Yaşam Aktiviteleri Skoru (0-7)",
+        "es": "Günlük Yaşam Aktiviteleri Skoru (0-7)",
+        "ar": "Günlük Yaşam Aktiviteleri Skoru (0-7)"
+      }
     }
   ],
   "formulas": {
@@ -42,8 +66,8 @@
       "adlEffect"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Sağlık & Medikal",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

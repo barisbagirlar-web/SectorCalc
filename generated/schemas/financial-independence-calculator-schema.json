@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Age of the individual, used for retirement planning context."
+      "businessContext": "Age of the individual, used for retirement planning context.",
+      "label_i18n": {
+        "en": "Current Age",
+        "tr": "Current Age",
+        "de": "Current Age",
+        "fr": "Current Age",
+        "es": "Current Age",
+        "ar": "Current Age"
+      }
     },
     {
       "id": "currentPortfolio",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "$",
       "default": 50000,
-      "businessContext": "Total current invested assets, the starting point for future growth."
+      "businessContext": "Total current invested assets, the starting point for future growth.",
+      "label_i18n": {
+        "en": "Current Portfolio",
+        "tr": "Current Portfolio",
+        "de": "Current Portfolio",
+        "fr": "Current Portfolio",
+        "es": "Current Portfolio",
+        "ar": "Current Portfolio"
+      }
     },
     {
       "id": "monthlySavings",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$",
       "default": 2000,
-      "businessContext": "Amount saved each month, assumed to be invested consistently."
+      "businessContext": "Amount saved each month, assumed to be invested consistently.",
+      "label_i18n": {
+        "en": "Monthly Savings",
+        "tr": "Monthly Savings",
+        "de": "Monthly Savings",
+        "fr": "Monthly Savings",
+        "es": "Monthly Savings",
+        "ar": "Monthly Savings"
+      }
     },
     {
       "id": "annualExpenses",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "$",
       "default": 40000,
-      "businessContext": "Expected annual living expenses after reaching financial independence."
+      "businessContext": "Expected annual living expenses after reaching financial independence.",
+      "label_i18n": {
+        "en": "Annual Expenses in Retirement",
+        "tr": "Annual Expenses in Retirement",
+        "de": "Annual Expenses in Retirement",
+        "fr": "Annual Expenses in Retirement",
+        "es": "Annual Expenses in Retirement",
+        "ar": "Annual Expenses in Retirement"
+      }
     },
     {
       "id": "annualReturn",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 7,
-      "businessContext": "Expected annual investment return rate (e.g., 7% for a diversified portfolio)."
+      "businessContext": "Expected annual investment return rate (e.g., 7% for a diversified portfolio).",
+      "label_i18n": {
+        "en": "Annual Return",
+        "tr": "Annual Return",
+        "de": "Annual Return",
+        "fr": "Annual Return",
+        "es": "Annual Return",
+        "ar": "Annual Return"
+      }
     },
     {
       "id": "safeWithdrawalRate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 4,
-      "businessContext": "The percentage of the portfolio withdrawn annually to cover expenses without depleting principal (commonly 4%)."
+      "businessContext": "The percentage of the portfolio withdrawn annually to cover expenses without depleting principal (commonly 4%).",
+      "label_i18n": {
+        "en": "Safe Withdrawal Rate",
+        "tr": "Safe Withdrawal Rate",
+        "de": "Safe Withdrawal Rate",
+        "fr": "Safe Withdrawal Rate",
+        "es": "Safe Withdrawal Rate",
+        "ar": "Safe Withdrawal Rate"
+      }
     }
   ],
   "formulas": {
@@ -62,8 +110,8 @@
       "annualSavings"
     ]
   },
-  "category": "Maliyet & Bütçeleme",
-  "sector": "Otomotiv & Taşıt",
+  "category": "Vergi & Finansal Raporlama",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

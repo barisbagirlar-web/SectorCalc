@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "customers",
       "default": 1000,
-      "businessContext": "Number of customers at the beginning of the measurement period."
+      "businessContext": "Number of customers at the beginning of the measurement period.",
+      "label_i18n": {
+        "en": "Starting Customers",
+        "tr": "Starting Customers",
+        "de": "Starting Customers",
+        "fr": "Starting Customers",
+        "es": "Starting Customers",
+        "ar": "Starting Customers"
+      }
     },
     {
       "id": "customersEnd",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "customers",
       "default": 900,
-      "businessContext": "Number of customers at the end of the measurement period."
+      "businessContext": "Number of customers at the end of the measurement period.",
+      "label_i18n": {
+        "en": "Ending Customers",
+        "tr": "Ending Customers",
+        "de": "Ending Customers",
+        "fr": "Ending Customers",
+        "es": "Ending Customers",
+        "ar": "Ending Customers"
+      }
     },
     {
       "id": "newCustomers",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "customers",
       "default": 200,
-      "businessContext": "Number of new customers acquired during the measurement period."
+      "businessContext": "Number of new customers acquired during the measurement period.",
+      "label_i18n": {
+        "en": "New Customers",
+        "tr": "New Customers",
+        "de": "New Customers",
+        "fr": "New Customers",
+        "es": "New Customers",
+        "ar": "New Customers"
+      }
     },
     {
       "id": "periodDays",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "days",
       "default": 30,
-      "businessContext": "Length of the measurement period in days (optional, can be used for annualization)."
+      "businessContext": "Length of the measurement period in days (optional, can be used for annualization).",
+      "label_i18n": {
+        "en": "Period Length",
+        "tr": "Period Length",
+        "de": "Period Length",
+        "fr": "Period Length",
+        "es": "Period Length",
+        "ar": "Period Length"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "churnRate"
     ]
   },
-  "category": "Kalite & Süreç Kontrol",
-  "sector": "Perakende & Tüketici",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

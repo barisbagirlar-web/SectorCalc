@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft",
       "default": 12,
-      "businessContext": "Total length of the wall where wainscoting will be installed."
+      "businessContext": "Total length of the wall where wainscoting will be installed.",
+      "label_i18n": {
+        "en": "Wall Length",
+        "tr": "Wall Length",
+        "de": "Wall Length",
+        "fr": "Wall Length",
+        "es": "Wall Length",
+        "ar": "Wall Length"
+      }
     },
     {
       "id": "wainscotingHeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ft",
       "default": 3,
-      "businessContext": "Height of the wainscoting paneling from floor to top rail."
+      "businessContext": "Height of the wainscoting paneling from floor to top rail.",
+      "label_i18n": {
+        "en": "Wainscoting Height",
+        "tr": "Wainscoting Height",
+        "de": "Wainscoting Height",
+        "fr": "Wainscoting Height",
+        "es": "Wainscoting Height",
+        "ar": "Wainscoting Height"
+      }
     },
     {
       "id": "panelWidth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ft",
       "default": 2,
-      "businessContext": "Width of each individual wainscoting panel (excluding stiles)."
+      "businessContext": "Width of each individual wainscoting panel (excluding stiles).",
+      "label_i18n": {
+        "en": "Panel Width",
+        "tr": "Panel Width",
+        "de": "Panel Width",
+        "fr": "Panel Width",
+        "es": "Panel Width",
+        "ar": "Panel Width"
+      }
     },
     {
       "id": "stileWidth",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "ft",
       "default": 0.25,
-      "businessContext": "Width of the vertical trim pieces separating panels (includes end stiles)."
+      "businessContext": "Width of the vertical trim pieces separating panels (includes end stiles).",
+      "label_i18n": {
+        "en": "Stile Width",
+        "tr": "Stile Width",
+        "de": "Stile Width",
+        "fr": "Stile Width",
+        "es": "Stile Width",
+        "ar": "Stile Width"
+      }
     },
     {
       "id": "sheetLength",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "ft",
       "default": 8,
-      "businessContext": "Length of a standard plywood sheet (typically 8 ft)."
+      "businessContext": "Length of a standard plywood sheet (typically 8 ft).",
+      "label_i18n": {
+        "en": "Plywood Sheet Length",
+        "tr": "Plywood Sheet Length",
+        "de": "Plywood Sheet Length",
+        "fr": "Plywood Sheet Length",
+        "es": "Plywood Sheet Length",
+        "ar": "Plywood Sheet Length"
+      }
     },
     {
       "id": "sheetWidth",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "ft",
       "default": 4,
-      "businessContext": "Width of a standard plywood sheet (typically 4 ft)."
+      "businessContext": "Width of a standard plywood sheet (typically 4 ft).",
+      "label_i18n": {
+        "en": "Plywood Sheet Width",
+        "tr": "Plywood Sheet Width",
+        "de": "Plywood Sheet Width",
+        "fr": "Plywood Sheet Width",
+        "es": "Plywood Sheet Width",
+        "ar": "Plywood Sheet Width"
+      }
     }
   ],
   "formulas": {
@@ -64,8 +112,8 @@
       "plywoodSheets"
     ]
   },
-  "category": "Diğer",
-  "sector": "Metal & Sac İşleme",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",

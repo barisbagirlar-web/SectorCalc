@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 100000,
-      "businessContext": "The total principal amount of the loan."
+      "businessContext": "The total principal amount of the loan.",
+      "label_i18n": {
+        "en": "Loan Amount",
+        "tr": "Loan Amount",
+        "de": "Loan Amount",
+        "fr": "Loan Amount",
+        "es": "Loan Amount",
+        "ar": "Loan Amount"
+      }
     },
     {
       "id": "annualInterestRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 5.5,
-      "businessContext": "The nominal annual interest rate as a percentage."
+      "businessContext": "The nominal annual interest rate as a percentage.",
+      "label_i18n": {
+        "en": "Annual Interest Rate",
+        "tr": "Annual Interest Rate",
+        "de": "Annual Interest Rate",
+        "fr": "Annual Interest Rate",
+        "es": "Annual Interest Rate",
+        "ar": "Annual Interest Rate"
+      }
     },
     {
       "id": "monthlyPayment",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 1000,
-      "businessContext": "The regular monthly payment amount."
+      "businessContext": "The regular monthly payment amount.",
+      "label_i18n": {
+        "en": "Monthly Payment",
+        "tr": "Monthly Payment",
+        "de": "Monthly Payment",
+        "fr": "Monthly Payment",
+        "es": "Monthly Payment",
+        "ar": "Monthly Payment"
+      }
     },
     {
       "id": "extraMonthlyPayment",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 0,
-      "businessContext": "Additional amount paid each month to accelerate payoff."
+      "businessContext": "Additional amount paid each month to accelerate payoff.",
+      "label_i18n": {
+        "en": "Extra Monthly Payment",
+        "tr": "Extra Monthly Payment",
+        "de": "Extra Monthly Payment",
+        "fr": "Extra Monthly Payment",
+        "es": "Extra Monthly Payment",
+        "ar": "Extra Monthly Payment"
+      }
     }
   ],
   "formulas": {
@@ -49,8 +81,8 @@
       "totalInterest"
     ]
   },
-  "category": "Finans & Yatırım",
-  "sector": "Finans & Sigorta",
+  "category": "Vergi & Finansal Raporlama",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

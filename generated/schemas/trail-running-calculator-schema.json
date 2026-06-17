@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 10,
-      "businessContext": "Kilometre cinsinden parkur uzunluğu"
+      "businessContext": "Kilometre cinsinden parkur uzunluğu",
+      "label_i18n": {
+        "en": "Mesafe",
+        "tr": "Mesafe",
+        "de": "Mesafe",
+        "fr": "Mesafe",
+        "es": "Mesafe",
+        "ar": "Mesafe"
+      }
     },
     {
       "id": "elevation_gain",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 500,
-      "businessContext": "Metre cinsinden toplam tırmanış (pozitif irtifa kazancı)"
+      "businessContext": "Metre cinsinden toplam tırmanış (pozitif irtifa kazancı)",
+      "label_i18n": {
+        "en": "Tırmanış",
+        "tr": "Tırmanış",
+        "de": "Tırmanış",
+        "fr": "Tırmanış",
+        "es": "Tırmanış",
+        "ar": "Tırmanış"
+      }
     },
     {
       "id": "elevation_loss",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 500,
-      "businessContext": "Metre cinsinden toplam iniş (negatif irtifa kaybı)"
+      "businessContext": "Metre cinsinden toplam iniş (negatif irtifa kaybı)",
+      "label_i18n": {
+        "en": "İniş",
+        "tr": "İniş",
+        "de": "İniş",
+        "fr": "İniş",
+        "es": "İniş",
+        "ar": "İniş"
+      }
     },
     {
       "id": "base_pace",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "min/km",
       "default": 6,
-      "businessContext": "Düz zeminde koşu temposu (dakika:km)"
+      "businessContext": "Düz zeminde koşu temposu (dakika:km)",
+      "label_i18n": {
+        "en": "Düz Tempo",
+        "tr": "Düz Tempo",
+        "de": "Düz Tempo",
+        "fr": "Düz Tempo",
+        "es": "Düz Tempo",
+        "ar": "Düz Tempo"
+      }
     },
     {
       "id": "ascent_factor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "min/m",
       "default": 0.1,
-      "businessContext": "Her bir metre tırmanış için eklenen süre (dakika)"
+      "businessContext": "Her bir metre tırmanış için eklenen süre (dakika)",
+      "label_i18n": {
+        "en": "Tırmanış Faktörü",
+        "tr": "Tırmanış Faktörü",
+        "de": "Tırmanış Faktörü",
+        "fr": "Tırmanış Faktörü",
+        "es": "Tırmanış Faktörü",
+        "ar": "Tırmanış Faktörü"
+      }
     },
     {
       "id": "descent_factor",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "min/m",
       "default": 0.05,
-      "businessContext": "Her bir metre iniş için eklenen süre (dakika)"
+      "businessContext": "Her bir metre iniş için eklenen süre (dakika)",
+      "label_i18n": {
+        "en": "İniş Faktörü",
+        "tr": "İniş Faktörü",
+        "de": "İniş Faktörü",
+        "fr": "İniş Faktörü",
+        "es": "İniş Faktörü",
+        "ar": "İniş Faktörü"
+      }
     }
   ],
   "formulas": {
@@ -64,8 +112,8 @@
       "descentTime"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100,
-      "businessContext": "The price per unit at which the asset is purchased."
+      "businessContext": "The price per unit at which the asset is purchased.",
+      "label_i18n": {
+        "en": "Buy Price",
+        "tr": "Buy Price",
+        "de": "Buy Price",
+        "fr": "Buy Price",
+        "es": "Buy Price",
+        "ar": "Buy Price"
+      }
     },
     {
       "id": "sellPrice",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 105,
-      "businessContext": "The price per unit at which the asset is sold."
+      "businessContext": "The price per unit at which the asset is sold.",
+      "label_i18n": {
+        "en": "Sell Price",
+        "tr": "Sell Price",
+        "de": "Sell Price",
+        "fr": "Sell Price",
+        "es": "Sell Price",
+        "ar": "Sell Price"
+      }
     },
     {
       "id": "quantity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "units",
       "default": 10,
-      "businessContext": "The number of units traded in the arbitrage transaction."
+      "businessContext": "The number of units traded in the arbitrage transaction.",
+      "label_i18n": {
+        "en": "Quantity",
+        "tr": "Quantity",
+        "de": "Quantity",
+        "fr": "Quantity",
+        "es": "Quantity",
+        "ar": "Quantity"
+      }
     },
     {
       "id": "buyFee",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 5,
-      "businessContext": "Fixed fee incurred when buying the asset."
+      "businessContext": "Fixed fee incurred when buying the asset.",
+      "label_i18n": {
+        "en": "Buy Transaction Fee",
+        "tr": "Buy Transaction Fee",
+        "de": "Buy Transaction Fee",
+        "fr": "Buy Transaction Fee",
+        "es": "Buy Transaction Fee",
+        "ar": "Buy Transaction Fee"
+      }
     },
     {
       "id": "sellFee",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD",
       "default": 5,
-      "businessContext": "Fixed fee incurred when selling the asset."
+      "businessContext": "Fixed fee incurred when selling the asset.",
+      "label_i18n": {
+        "en": "Sell Transaction Fee",
+        "tr": "Sell Transaction Fee",
+        "de": "Sell Transaction Fee",
+        "fr": "Sell Transaction Fee",
+        "es": "Sell Transaction Fee",
+        "ar": "Sell Transaction Fee"
+      }
     }
   ],
   "formulas": {
@@ -56,8 +96,8 @@
       "breakEvenVolume"
     ]
   },
-  "category": "Maliyet & Bütçeleme",
-  "sector": "Perakende & Tüketici",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",

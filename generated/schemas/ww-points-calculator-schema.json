@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kcal",
       "default": 0,
-      "businessContext": "Energy content per serving"
+      "businessContext": "Energy content per serving",
+      "label_i18n": {
+        "en": "Calories (kcal)",
+        "tr": "Calories (kcal)",
+        "de": "Calories (kcal)",
+        "fr": "Calories (kcal)",
+        "es": "Calories (kcal)",
+        "ar": "Calories (kcal)"
+      }
     },
     {
       "id": "saturatedFat",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Saturated fat content per serving"
+      "businessContext": "Saturated fat content per serving",
+      "label_i18n": {
+        "en": "Saturated Fat (g)",
+        "tr": "Saturated Fat (g)",
+        "de": "Saturated Fat (g)",
+        "fr": "Saturated Fat (g)",
+        "es": "Saturated Fat (g)",
+        "ar": "Saturated Fat (g)"
+      }
     },
     {
       "id": "protein",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Protein content per serving"
+      "businessContext": "Protein content per serving",
+      "label_i18n": {
+        "en": "Protein (g)",
+        "tr": "Protein (g)",
+        "de": "Protein (g)",
+        "fr": "Protein (g)",
+        "es": "Protein (g)",
+        "ar": "Protein (g)"
+      }
     },
     {
       "id": "fiber",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Dietary fiber content per serving (optional for adjustment)"
+      "businessContext": "Dietary fiber content per serving (optional for adjustment)",
+      "label_i18n": {
+        "en": "Dietary Fiber (g)",
+        "tr": "Dietary Fiber (g)",
+        "de": "Dietary Fiber (g)",
+        "fr": "Dietary Fiber (g)",
+        "es": "Dietary Fiber (g)",
+        "ar": "Dietary Fiber (g)"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "proteinComponent"
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "Enerji & Elektrik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "categorySlug": "technology-ai-cloud-cyber",
   "catalogCategory": "health-body",

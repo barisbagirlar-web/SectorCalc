@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km/h",
       "default": 10,
-      "businessContext": "Runner's average speed in kilometers per hour"
+      "businessContext": "Runner's average speed in kilometers per hour",
+      "label_i18n": {
+        "en": "Average Running Speed",
+        "tr": "Average Running Speed",
+        "de": "Average Running Speed",
+        "fr": "Average Running Speed",
+        "es": "Average Running Speed",
+        "ar": "Average Running Speed"
+      }
     },
     {
       "id": "hours",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hours",
       "default": 0,
-      "businessContext": "Running time in hours"
+      "businessContext": "Running time in hours",
+      "label_i18n": {
+        "en": "Hours",
+        "tr": "Hours",
+        "de": "Hours",
+        "fr": "Hours",
+        "es": "Hours",
+        "ar": "Hours"
+      }
     },
     {
       "id": "minutes",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 30,
-      "businessContext": "Running time in minutes"
+      "businessContext": "Running time in minutes",
+      "label_i18n": {
+        "en": "Minutes",
+        "tr": "Minutes",
+        "de": "Minutes",
+        "fr": "Minutes",
+        "es": "Minutes",
+        "ar": "Minutes"
+      }
     },
     {
       "id": "seconds",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "seconds",
       "default": 0,
-      "businessContext": "Running time in seconds"
+      "businessContext": "Running time in seconds",
+      "label_i18n": {
+        "en": "Seconds",
+        "tr": "Seconds",
+        "de": "Seconds",
+        "fr": "Seconds",
+        "es": "Seconds",
+        "ar": "Seconds"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "pace_per_km"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

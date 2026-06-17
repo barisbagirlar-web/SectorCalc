@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "units",
       "default": 1,
-      "businessContext": "Starting quantity before exponential change."
+      "businessContext": "Starting quantity before exponential change.",
+      "label_i18n": {
+        "en": "Initial Value (a)",
+        "tr": "Initial Value (a)",
+        "de": "Initial Value (a)",
+        "fr": "Initial Value (a)",
+        "es": "Initial Value (a)",
+        "ar": "Initial Value (a)"
+      }
     },
     {
       "id": "rateConstant",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "per time",
       "default": 0.1,
-      "businessContext": "Continuous growth (positive) or decay (negative) rate per unit time."
+      "businessContext": "Continuous growth (positive) or decay (negative) rate per unit time.",
+      "label_i18n": {
+        "en": "Rate Constant (k)",
+        "tr": "Rate Constant (k)",
+        "de": "Rate Constant (k)",
+        "fr": "Rate Constant (k)",
+        "es": "Rate Constant (k)",
+        "ar": "Rate Constant (k)"
+      }
     },
     {
       "id": "time",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "time",
       "default": 1,
-      "businessContext": "Elapsed time for the exponential process."
+      "businessContext": "Elapsed time for the exponential process.",
+      "label_i18n": {
+        "en": "Time (t)",
+        "tr": "Time (t)",
+        "de": "Time (t)",
+        "fr": "Time (t)",
+        "es": "Time (t)",
+        "ar": "Time (t)"
+      }
     },
     {
       "id": "decimalPlaces",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "digits",
       "default": 4,
-      "businessContext": "Rounding precision for the final result."
+      "businessContext": "Rounding precision for the final result.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "expFactor"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Gıda & İçecek",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

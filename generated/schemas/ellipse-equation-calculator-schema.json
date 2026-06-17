@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "X-coordinate of the ellipse center."
+      "businessContext": "X-coordinate of the ellipse center.",
+      "label_i18n": {
+        "en": "Center X (h)",
+        "tr": "Center X (h)",
+        "de": "Center X (h)",
+        "fr": "Center X (h)",
+        "es": "Center X (h)",
+        "ar": "Center X (h)"
+      }
     },
     {
       "id": "centerY",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Y-coordinate of the ellipse center."
+      "businessContext": "Y-coordinate of the ellipse center.",
+      "label_i18n": {
+        "en": "Center Y (k)",
+        "tr": "Center Y (k)",
+        "de": "Center Y (k)",
+        "fr": "Center Y (k)",
+        "es": "Center Y (k)",
+        "ar": "Center Y (k)"
+      }
     },
     {
       "id": "semiMajor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 5,
-      "businessContext": "Length of the semi-major axis."
+      "businessContext": "Length of the semi-major axis.",
+      "label_i18n": {
+        "en": "Semi-major axis (a)",
+        "tr": "Semi-major axis (a)",
+        "de": "Semi-major axis (a)",
+        "fr": "Semi-major axis (a)",
+        "es": "Semi-major axis (a)",
+        "ar": "Semi-major axis (a)"
+      }
     },
     {
       "id": "semiMinor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 3,
-      "businessContext": "Length of the semi-minor axis."
+      "businessContext": "Length of the semi-minor axis.",
+      "label_i18n": {
+        "en": "Semi-minor axis (b)",
+        "tr": "Semi-minor axis (b)",
+        "de": "Semi-minor axis (b)",
+        "fr": "Semi-minor axis (b)",
+        "es": "Semi-minor axis (b)",
+        "ar": "Semi-minor axis (b)"
+      }
     },
     {
       "id": "rotation",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "deg",
       "default": 0,
-      "businessContext": "Rotation angle of the ellipse axes relative to coordinate axes."
+      "businessContext": "Rotation angle of the ellipse axes relative to coordinate axes.",
+      "label_i18n": {
+        "en": "Rotation angle (θ)",
+        "tr": "Rotation angle (θ)",
+        "de": "Rotation angle (θ)",
+        "fr": "Rotation angle (θ)",
+        "es": "Rotation angle (θ)",
+        "ar": "Rotation angle (θ)"
+      }
     }
   ],
   "formulas": {
@@ -56,8 +96,8 @@
       "fociDistance"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

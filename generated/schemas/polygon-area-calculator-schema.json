@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "X-coordinate of vertex 1"
+      "businessContext": "X-coordinate of vertex 1",
+      "label_i18n": {
+        "en": "X₁",
+        "tr": "X₁",
+        "de": "X₁",
+        "fr": "X₁",
+        "es": "X₁",
+        "ar": "X₁"
+      }
     },
     {
       "id": "y1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Y-coordinate of vertex 1"
+      "businessContext": "Y-coordinate of vertex 1",
+      "label_i18n": {
+        "en": "Y₁",
+        "tr": "Y₁",
+        "de": "Y₁",
+        "fr": "Y₁",
+        "es": "Y₁",
+        "ar": "Y₁"
+      }
     },
     {
       "id": "x2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "X-coordinate of vertex 2"
+      "businessContext": "X-coordinate of vertex 2",
+      "label_i18n": {
+        "en": "X₂",
+        "tr": "X₂",
+        "de": "X₂",
+        "fr": "X₂",
+        "es": "X₂",
+        "ar": "X₂"
+      }
     },
     {
       "id": "y2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Y-coordinate of vertex 2"
+      "businessContext": "Y-coordinate of vertex 2",
+      "label_i18n": {
+        "en": "Y₂",
+        "tr": "Y₂",
+        "de": "Y₂",
+        "fr": "Y₂",
+        "es": "Y₂",
+        "ar": "Y₂"
+      }
     },
     {
       "id": "x3",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "X-coordinate of vertex 3"
+      "businessContext": "X-coordinate of vertex 3",
+      "label_i18n": {
+        "en": "X₃",
+        "tr": "X₃",
+        "de": "X₃",
+        "fr": "X₃",
+        "es": "X₃",
+        "ar": "X₃"
+      }
     },
     {
       "id": "y3",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Y-coordinate of vertex 3"
+      "businessContext": "Y-coordinate of vertex 3",
+      "label_i18n": {
+        "en": "Y₃",
+        "tr": "Y₃",
+        "de": "Y₃",
+        "fr": "Y₃",
+        "es": "Y₃",
+        "ar": "Y₃"
+      }
     },
     {
       "id": "x4",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "X-coordinate of vertex 4"
+      "businessContext": "X-coordinate of vertex 4",
+      "label_i18n": {
+        "en": "X₄",
+        "tr": "X₄",
+        "de": "X₄",
+        "fr": "X₄",
+        "es": "X₄",
+        "ar": "X₄"
+      }
     },
     {
       "id": "y4",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Y-coordinate of vertex 4"
+      "businessContext": "Y-coordinate of vertex 4",
+      "label_i18n": {
+        "en": "Y₄",
+        "tr": "Y₄",
+        "de": "Y₄",
+        "fr": "Y₄",
+        "es": "Y₄",
+        "ar": "Y₄"
+      }
     }
   ],
   "formulas": {
@@ -78,8 +142,8 @@
       "sum2"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

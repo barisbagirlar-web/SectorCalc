@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Tüketilen standart içki sayısı"
+      "businessContext": "Tüketilen standart içki sayısı",
+      "label_i18n": {
+        "en": "İçki sayısı",
+        "tr": "İçki sayısı",
+        "de": "İçki sayısı",
+        "fr": "İçki sayısı",
+        "es": "İçki sayısı",
+        "ar": "İçki sayısı"
+      }
     },
     {
       "id": "alcoholPerDrink",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g",
       "default": 14,
-      "businessContext": "Bir standart içkide bulunan saf alkol gramajı (ör: bir bira yaklaşık 14 g)"
+      "businessContext": "Bir standart içkide bulunan saf alkol gramajı (ör: bir bira yaklaşık 14 g)",
+      "label_i18n": {
+        "en": "Bir içkideki alkol miktarı",
+        "tr": "Bir içkideki alkol miktarı",
+        "de": "Bir içkideki alkol miktarı",
+        "fr": "Bir içkideki alkol miktarı",
+        "es": "Bir içkideki alkol miktarı",
+        "ar": "Bir içkideki alkol miktarı"
+      }
     },
     {
       "id": "weightKg",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Kişinin kilogram cinsinden ağırlığı"
+      "businessContext": "Kişinin kilogram cinsinden ağırlığı",
+      "label_i18n": {
+        "en": "Vücut ağırlığı",
+        "tr": "Vücut ağırlığı",
+        "de": "Vücut ağırlığı",
+        "fr": "Vücut ağırlığı",
+        "es": "Vücut ağırlığı",
+        "ar": "Vücut ağırlığı"
+      }
     },
     {
       "id": "genderCode",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "0: Erkek, 1: Kadın",
       "default": 0,
-      "businessContext": "0 erkek, 1 kadın dağılım katsayısı seçimi"
+      "businessContext": "0 erkek, 1 kadın dağılım katsayısı seçimi",
+      "label_i18n": {
+        "en": "Cinsiyet",
+        "tr": "Cinsiyet",
+        "de": "Cinsiyet",
+        "fr": "Cinsiyet",
+        "es": "Cinsiyet",
+        "ar": "Cinsiyet"
+      }
     },
     {
       "id": "timeHours",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "saat",
       "default": 1,
-      "businessContext": "İçmeye başlandıktan sonra geçen saat cinsinden süre"
+      "businessContext": "İçmeye başlandıktan sonra geçen saat cinsinden süre",
+      "label_i18n": {
+        "en": "İlk içkiden itibaren geçen süre",
+        "tr": "İlk içkiden itibaren geçen süre",
+        "de": "İlk içkiden itibaren geçen süre",
+        "fr": "İlk içkiden itibaren geçen süre",
+        "es": "İlk içkiden itibaren geçen süre",
+        "ar": "İlk içkiden itibaren geçen süre"
+      }
     }
   ],
   "formulas": {
@@ -56,8 +96,8 @@
       "totalAlcohol"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

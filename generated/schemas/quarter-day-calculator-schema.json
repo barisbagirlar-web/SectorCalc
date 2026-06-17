@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "gün",
       "default": 0,
-      "businessContext": "Tam gün sayısı"
+      "businessContext": "Tam gün sayısı",
+      "label_i18n": {
+        "en": "Gün",
+        "tr": "Gün",
+        "de": "Gün",
+        "fr": "Gün",
+        "es": "Gün",
+        "ar": "Gün"
+      }
     },
     {
       "id": "hours",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "saat",
       "default": 0,
-      "businessContext": "Ek saat miktarı"
+      "businessContext": "Ek saat miktarı",
+      "label_i18n": {
+        "en": "Saat",
+        "tr": "Saat",
+        "de": "Saat",
+        "fr": "Saat",
+        "es": "Saat",
+        "ar": "Saat"
+      }
     },
     {
       "id": "minutes",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dakika",
       "default": 0,
-      "businessContext": "Ek dakika miktarı"
+      "businessContext": "Ek dakika miktarı",
+      "label_i18n": {
+        "en": "Dakika",
+        "tr": "Dakika",
+        "de": "Dakika",
+        "fr": "Dakika",
+        "es": "Dakika",
+        "ar": "Dakika"
+      }
     },
     {
       "id": "seconds",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "saniye",
       "default": 0,
-      "businessContext": "Ek saniye miktarı"
+      "businessContext": "Ek saniye miktarı",
+      "label_i18n": {
+        "en": "Saniye",
+        "tr": "Saniye",
+        "de": "Saniye",
+        "fr": "Saniye",
+        "es": "Saniye",
+        "ar": "Saniye"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "remainingHours"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "date-time",
   "sectorSlug": "daily-renovation",

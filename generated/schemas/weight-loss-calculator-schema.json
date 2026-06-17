@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "Weight of the material before the drying process."
+      "businessContext": "Weight of the material before the drying process.",
+      "label_i18n": {
+        "en": "Initial Weight",
+        "tr": "Initial Weight",
+        "de": "Initial Weight",
+        "fr": "Initial Weight",
+        "es": "Initial Weight",
+        "ar": "Initial Weight"
+      }
     },
     {
       "id": "initialMoisture",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "Moisture content of the material before drying as a percentage of total weight."
+      "businessContext": "Moisture content of the material before drying as a percentage of total weight.",
+      "label_i18n": {
+        "en": "Initial Moisture Content",
+        "tr": "Initial Moisture Content",
+        "de": "Initial Moisture Content",
+        "fr": "Initial Moisture Content",
+        "es": "Initial Moisture Content",
+        "ar": "Initial Moisture Content"
+      }
     },
     {
       "id": "finalMoisture",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Desired moisture content after drying as a percentage of total weight."
+      "businessContext": "Desired moisture content after drying as a percentage of total weight.",
+      "label_i18n": {
+        "en": "Final Moisture Content",
+        "tr": "Final Moisture Content",
+        "de": "Final Moisture Content",
+        "fr": "Final Moisture Content",
+        "es": "Final Moisture Content",
+        "ar": "Final Moisture Content"
+      }
     },
     {
       "id": "targetWeightLoss",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 40,
-      "businessContext": "Expected weight loss based on process specifications for comparison."
+      "businessContext": "Expected weight loss based on process specifications for comparison.",
+      "label_i18n": {
+        "en": "Target Weight Loss",
+        "tr": "Target Weight Loss",
+        "de": "Target Weight Loss",
+        "fr": "Target Weight Loss",
+        "es": "Target Weight Loss",
+        "ar": "Target Weight Loss"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "targetDelta"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Gıda & İçecek",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

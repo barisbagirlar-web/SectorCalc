@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Average temperature during the curing period."
+      "businessContext": "Average temperature during the curing period.",
+      "label_i18n": {
+        "en": "Curing Temperature",
+        "tr": "Curing Temperature",
+        "de": "Curing Temperature",
+        "fr": "Curing Temperature",
+        "es": "Curing Temperature",
+        "ar": "Curing Temperature"
+      }
     },
     {
       "id": "curingTimeHours",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hours",
       "default": 168,
-      "businessContext": "Total duration of curing in hours."
+      "businessContext": "Total duration of curing in hours.",
+      "label_i18n": {
+        "en": "Curing Time",
+        "tr": "Curing Time",
+        "de": "Curing Time",
+        "fr": "Curing Time",
+        "es": "Curing Time",
+        "ar": "Curing Time"
+      }
     },
     {
       "id": "datumTemperature",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": -10,
-      "businessContext": "Temperature below which hydration ceases for the specific concrete mix."
+      "businessContext": "Temperature below which hydration ceases for the specific concrete mix.",
+      "label_i18n": {
+        "en": "Datum Temperature",
+        "tr": "Datum Temperature",
+        "de": "Datum Temperature",
+        "fr": "Datum Temperature",
+        "es": "Datum Temperature",
+        "ar": "Datum Temperature"
+      }
     },
     {
       "id": "strengthCoefficientA",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 20,
-      "businessContext": "Intercept of the maturity-strength logarithmic relationship."
+      "businessContext": "Intercept of the maturity-strength logarithmic relationship.",
+      "label_i18n": {
+        "en": "Strength Coefficient A",
+        "tr": "Strength Coefficient A",
+        "de": "Strength Coefficient A",
+        "fr": "Strength Coefficient A",
+        "es": "Strength Coefficient A",
+        "ar": "Strength Coefficient A"
+      }
     },
     {
       "id": "strengthCoefficientB",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 10,
-      "businessContext": "Slope of the maturity-strength logarithmic relationship."
+      "businessContext": "Slope of the maturity-strength logarithmic relationship.",
+      "label_i18n": {
+        "en": "Strength Coefficient B",
+        "tr": "Strength Coefficient B",
+        "de": "Strength Coefficient B",
+        "fr": "Strength Coefficient B",
+        "es": "Strength Coefficient B",
+        "ar": "Strength Coefficient B"
+      }
     }
   ],
   "formulas": {
@@ -53,8 +93,8 @@
       "estimatedStrength"
     ]
   },
-  "category": "Diğer",
-  "sector": "İnşaat & Yapı",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "food-cooking",
   "sectorSlug": "restaurant",

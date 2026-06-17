@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "İntegrasyon başlangıç noktası"
+      "businessContext": "İntegrasyon başlangıç noktası",
+      "label_i18n": {
+        "en": "Alt Sınır (a)",
+        "tr": "Alt Sınır (a)",
+        "de": "Alt Sınır (a)",
+        "fr": "Alt Sınır (a)",
+        "es": "Alt Sınır (a)",
+        "ar": "Alt Sınır (a)"
+      }
     },
     {
       "id": "upperLimit",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "İntegrasyon bitiş noktası"
+      "businessContext": "İntegrasyon bitiş noktası",
+      "label_i18n": {
+        "en": "Üst Sınır (b)",
+        "tr": "Üst Sınır (b)",
+        "de": "Üst Sınır (b)",
+        "fr": "Üst Sınır (b)",
+        "es": "Üst Sınır (b)",
+        "ar": "Üst Sınır (b)"
+      }
     },
     {
       "id": "intervals",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "adet",
       "default": 10,
-      "businessContext": "Trapezoid bölme sayısı"
+      "businessContext": "Trapezoid bölme sayısı",
+      "label_i18n": {
+        "en": "Aralık Sayısı (n)",
+        "tr": "Aralık Sayısı (n)",
+        "de": "Aralık Sayısı (n)",
+        "fr": "Aralık Sayısı (n)",
+        "es": "Aralık Sayısı (n)",
+        "ar": "Aralık Sayısı (n)"
+      }
     },
     {
       "id": "fa",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "Alt sınırda fonksiyon değeri"
+      "businessContext": "Alt sınırda fonksiyon değeri",
+      "label_i18n": {
+        "en": "f(a) Değeri",
+        "tr": "f(a) Değeri",
+        "de": "f(a) Değeri",
+        "fr": "f(a) Değeri",
+        "es": "f(a) Değeri",
+        "ar": "f(a) Değeri"
+      }
     },
     {
       "id": "fb",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "Üst sınırda fonksiyon değeri"
+      "businessContext": "Üst sınırda fonksiyon değeri",
+      "label_i18n": {
+        "en": "f(b) Değeri",
+        "tr": "f(b) Değeri",
+        "de": "f(b) Değeri",
+        "fr": "f(b) Değeri",
+        "es": "f(b) Değeri",
+        "ar": "f(b) Değeri"
+      }
     },
     {
       "id": "sumMid",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "Tüm ara noktalardaki f(x) değerleri toplamı"
+      "businessContext": "Tüm ara noktalardaki f(x) değerleri toplamı",
+      "label_i18n": {
+        "en": "İç Nokta Değerleri Toplamı",
+        "tr": "İç Nokta Değerleri Toplamı",
+        "de": "İç Nokta Değerleri Toplamı",
+        "fr": "İç Nokta Değerleri Toplamı",
+        "es": "İç Nokta Değerleri Toplamı",
+        "ar": "İç Nokta Değerleri Toplamı"
+      }
     }
   ],
   "formulas": {
@@ -64,8 +112,8 @@
       "sumOfInterior"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

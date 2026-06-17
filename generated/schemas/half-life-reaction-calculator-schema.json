@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 100,
-      "businessContext": "The initial mass or amount of substance at time zero."
+      "businessContext": "The initial mass or amount of substance at time zero.",
+      "label_i18n": {
+        "en": "Initial Quantity",
+        "tr": "Initial Quantity",
+        "de": "Initial Quantity",
+        "fr": "Initial Quantity",
+        "es": "Initial Quantity",
+        "ar": "Initial Quantity"
+      }
     },
     {
       "id": "tolerancePercent",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Measurement uncertainty or tolerance percentage applied to the initial quantity (e.g., ±5%)."
+      "businessContext": "Measurement uncertainty or tolerance percentage applied to the initial quantity (e.g., ±5%).",
+      "label_i18n": {
+        "en": "Tolerance",
+        "tr": "Tolerance",
+        "de": "Tolerance",
+        "fr": "Tolerance",
+        "es": "Tolerance",
+        "ar": "Tolerance"
+      }
     },
     {
       "id": "halfLife",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "s",
       "default": 10,
-      "businessContext": "The half-life of the substance in consistent time units."
+      "businessContext": "The half-life of the substance in consistent time units.",
+      "label_i18n": {
+        "en": "Half-Life",
+        "tr": "Half-Life",
+        "de": "Half-Life",
+        "fr": "Half-Life",
+        "es": "Half-Life",
+        "ar": "Half-Life"
+      }
     },
     {
       "id": "elapsedTime",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "s",
       "default": 20,
-      "businessContext": "The total elapsed time since start, in the same time unit as half-life."
+      "businessContext": "The total elapsed time since start, in the same time unit as half-life.",
+      "label_i18n": {
+        "en": "Elapsed Time",
+        "tr": "Elapsed Time",
+        "de": "Elapsed Time",
+        "fr": "Elapsed Time",
+        "es": "Elapsed Time",
+        "ar": "Elapsed Time"
+      }
     }
   ],
   "formulas": {
@@ -50,8 +82,8 @@
       "upperBound"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Kimya & İlaç",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

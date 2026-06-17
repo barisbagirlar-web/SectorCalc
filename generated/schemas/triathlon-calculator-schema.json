@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 1500,
-      "businessContext": "Total swimming distance in meters"
+      "businessContext": "Total swimming distance in meters",
+      "label_i18n": {
+        "en": "Swim Distance",
+        "tr": "Swim Distance",
+        "de": "Swim Distance",
+        "fr": "Swim Distance",
+        "es": "Swim Distance",
+        "ar": "Swim Distance"
+      }
     },
     {
       "id": "bikeDistance",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "km",
       "default": 40,
-      "businessContext": "Total cycling distance in kilometers"
+      "businessContext": "Total cycling distance in kilometers",
+      "label_i18n": {
+        "en": "Bike Distance",
+        "tr": "Bike Distance",
+        "de": "Bike Distance",
+        "fr": "Bike Distance",
+        "es": "Bike Distance",
+        "ar": "Bike Distance"
+      }
     },
     {
       "id": "runDistance",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "km",
       "default": 10,
-      "businessContext": "Total running distance in kilometers"
+      "businessContext": "Total running distance in kilometers",
+      "label_i18n": {
+        "en": "Run Distance",
+        "tr": "Run Distance",
+        "de": "Run Distance",
+        "fr": "Run Distance",
+        "es": "Run Distance",
+        "ar": "Run Distance"
+      }
     },
     {
       "id": "swimPace",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "min/100m",
       "default": 2,
-      "businessContext": "Average swimming time per 100 meters in minutes"
+      "businessContext": "Average swimming time per 100 meters in minutes",
+      "label_i18n": {
+        "en": "Swim Pace",
+        "tr": "Swim Pace",
+        "de": "Swim Pace",
+        "fr": "Swim Pace",
+        "es": "Swim Pace",
+        "ar": "Swim Pace"
+      }
     },
     {
       "id": "bikeSpeed",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "km/h",
       "default": 30,
-      "businessContext": "Average cycling speed in kilometers per hour"
+      "businessContext": "Average cycling speed in kilometers per hour",
+      "label_i18n": {
+        "en": "Bike Speed",
+        "tr": "Bike Speed",
+        "de": "Bike Speed",
+        "fr": "Bike Speed",
+        "es": "Bike Speed",
+        "ar": "Bike Speed"
+      }
     },
     {
       "id": "runPace",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "min/km",
       "default": 5,
-      "businessContext": "Average running time per kilometer in minutes"
+      "businessContext": "Average running time per kilometer in minutes",
+      "label_i18n": {
+        "en": "Run Pace",
+        "tr": "Run Pace",
+        "de": "Run Pace",
+        "fr": "Run Pace",
+        "es": "Run Pace",
+        "ar": "Run Pace"
+      }
     }
   ],
   "formulas": {
@@ -64,8 +112,8 @@
       "runTime"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

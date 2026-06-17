@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "The total weight used in the exercise, including barbell if applicable"
+      "businessContext": "The total weight used in the exercise, including barbell if applicable",
+      "label_i18n": {
+        "en": "Weight Lifted",
+        "tr": "Weight Lifted",
+        "de": "Weight Lifted",
+        "fr": "Weight Lifted",
+        "es": "Weight Lifted",
+        "ar": "Weight Lifted"
+      }
     },
     {
       "id": "reps",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "reps",
       "default": 5,
-      "businessContext": "Number of repetitions completed with the given weight"
+      "businessContext": "Number of repetitions completed with the given weight",
+      "label_i18n": {
+        "en": "Repetitions",
+        "tr": "Repetitions",
+        "de": "Repetitions",
+        "fr": "Repetitions",
+        "es": "Repetitions",
+        "ar": "Repetitions"
+      }
     },
     {
       "id": "bodyWeight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 80,
-      "businessContext": "Lifter's body weight for relative strength calculation"
+      "businessContext": "Lifter's body weight for relative strength calculation",
+      "label_i18n": {
+        "en": "Body Weight",
+        "tr": "Body Weight",
+        "de": "Body Weight",
+        "fr": "Body Weight",
+        "es": "Body Weight",
+        "ar": "Body Weight"
+      }
     },
     {
       "id": "age",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Lifter's age (optional, for future age-adjusted standards)"
+      "businessContext": "Lifter's age (optional, for future age-adjusted standards)",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     }
   ],
   "formulas": {
@@ -44,8 +76,8 @@
       "strengthRatio"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Telekomünikasyon",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "categorySlug": "technology-ai-cloud-cyber",
   "catalogCategory": "health-body",

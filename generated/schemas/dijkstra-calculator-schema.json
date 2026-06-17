@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 10,
-      "businessContext": "Direct distance between location A and B"
+      "businessContext": "Direct distance between location A and B",
+      "label_i18n": {
+        "en": "Distance A-B",
+        "tr": "Distance A-B",
+        "de": "Distance A-B",
+        "fr": "Distance A-B",
+        "es": "Distance A-B",
+        "ar": "Distance A-B"
+      }
     },
     {
       "id": "d_AC",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "km",
       "default": 15,
-      "businessContext": "Direct distance between location A and C"
+      "businessContext": "Direct distance between location A and C",
+      "label_i18n": {
+        "en": "Distance A-C",
+        "tr": "Distance A-C",
+        "de": "Distance A-C",
+        "fr": "Distance A-C",
+        "es": "Distance A-C",
+        "ar": "Distance A-C"
+      }
     },
     {
       "id": "d_AD",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "km",
       "default": 20,
-      "businessContext": "Direct distance between location A and D"
+      "businessContext": "Direct distance between location A and D",
+      "label_i18n": {
+        "en": "Distance A-D",
+        "tr": "Distance A-D",
+        "de": "Distance A-D",
+        "fr": "Distance A-D",
+        "es": "Distance A-D",
+        "ar": "Distance A-D"
+      }
     },
     {
       "id": "d_BC",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "km",
       "default": 5,
-      "businessContext": "Direct distance between location B and C"
+      "businessContext": "Direct distance between location B and C",
+      "label_i18n": {
+        "en": "Distance B-C",
+        "tr": "Distance B-C",
+        "de": "Distance B-C",
+        "fr": "Distance B-C",
+        "es": "Distance B-C",
+        "ar": "Distance B-C"
+      }
     },
     {
       "id": "d_BD",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "km",
       "default": 10,
-      "businessContext": "Direct distance between location B and D"
+      "businessContext": "Direct distance between location B and D",
+      "label_i18n": {
+        "en": "Distance B-D",
+        "tr": "Distance B-D",
+        "de": "Distance B-D",
+        "fr": "Distance B-D",
+        "es": "Distance B-D",
+        "ar": "Distance B-D"
+      }
     },
     {
       "id": "d_CD",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "km",
       "default": 20,
-      "businessContext": "Direct distance between location C and D"
+      "businessContext": "Direct distance between location C and D",
+      "label_i18n": {
+        "en": "Distance C-D",
+        "tr": "Distance C-D",
+        "de": "Distance C-D",
+        "fr": "Distance C-D",
+        "es": "Distance C-D",
+        "ar": "Distance C-D"
+      }
     }
   ],
   "formulas": {
@@ -68,8 +116,8 @@
       "path_ACBD"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

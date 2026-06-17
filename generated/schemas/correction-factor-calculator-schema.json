@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m³",
       "default": 1000,
-      "businessContext": "Gerçek çalışma koşullarında ölçülen hacim"
+      "businessContext": "Gerçek çalışma koşullarında ölçülen hacim",
+      "label_i18n": {
+        "en": "Measured Volume",
+        "tr": "Measured Volume",
+        "de": "Measured Volume",
+        "fr": "Measured Volume",
+        "es": "Measured Volume",
+        "ar": "Measured Volume"
+      }
     },
     {
       "id": "measuredTemperature",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Gerçek çalışma sıcaklığı"
+      "businessContext": "Gerçek çalışma sıcaklığı",
+      "label_i18n": {
+        "en": "Measured Temperature",
+        "tr": "Measured Temperature",
+        "de": "Measured Temperature",
+        "fr": "Measured Temperature",
+        "es": "Measured Temperature",
+        "ar": "Measured Temperature"
+      }
     },
     {
       "id": "measuredPressure",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "bar",
       "default": 1.01325,
-      "businessContext": "Gerçek çalışma basıncı (mutlak)"
+      "businessContext": "Gerçek çalışma basıncı (mutlak)",
+      "label_i18n": {
+        "en": "Measured Pressure",
+        "tr": "Measured Pressure",
+        "de": "Measured Pressure",
+        "fr": "Measured Pressure",
+        "es": "Measured Pressure",
+        "ar": "Measured Pressure"
+      }
     },
     {
       "id": "standardTemperature",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 0,
-      "businessContext": "Referans standart sıcaklık"
+      "businessContext": "Referans standart sıcaklık",
+      "label_i18n": {
+        "en": "Standard Temperature",
+        "tr": "Standard Temperature",
+        "de": "Standard Temperature",
+        "fr": "Standard Temperature",
+        "es": "Standard Temperature",
+        "ar": "Standard Temperature"
+      }
     },
     {
       "id": "standardPressure",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "bar",
       "default": 1.01325,
-      "businessContext": "Referans standart basınç (mutlak)"
+      "businessContext": "Referans standart basınç (mutlak)",
+      "label_i18n": {
+        "en": "Standard Pressure",
+        "tr": "Standard Pressure",
+        "de": "Standard Pressure",
+        "fr": "Standard Pressure",
+        "es": "Standard Pressure",
+        "ar": "Standard Pressure"
+      }
     },
     {
       "id": "compressibilityFactor",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Gaz sıkıştırılabilirlik faktörü (ideal gaz için 1)"
+      "businessContext": "Gaz sıkıştırılabilirlik faktörü (ideal gaz için 1)",
+      "label_i18n": {
+        "en": "Compressibility Factor (Z)",
+        "tr": "Compressibility Factor (Z)",
+        "de": "Compressibility Factor (Z)",
+        "fr": "Compressibility Factor (Z)",
+        "es": "Compressibility Factor (Z)",
+        "ar": "Compressibility Factor (Z)"
+      }
     }
   ],
   "formulas": {
@@ -60,8 +108,8 @@
       "correctedVolume"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

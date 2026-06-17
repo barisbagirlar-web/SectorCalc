@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mol/L",
       "default": 1,
-      "businessContext": "Başlangıç konsantrasyonu (mol/L cinsinden)"
+      "businessContext": "Başlangıç konsantrasyonu (mol/L cinsinden)",
+      "label_i18n": {
+        "en": "Initial Concentration (C₀)",
+        "tr": "Initial Concentration (C₀)",
+        "de": "Initial Concentration (C₀)",
+        "fr": "Initial Concentration (C₀)",
+        "es": "Initial Concentration (C₀)",
+        "ar": "Initial Concentration (C₀)"
+      }
     },
     {
       "id": "k",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "1/s",
       "default": 0.1,
-      "businessContext": "Birinci derece reaksiyon hız sabiti (s⁻¹ cinsinden)"
+      "businessContext": "Birinci derece reaksiyon hız sabiti (s⁻¹ cinsinden)",
+      "label_i18n": {
+        "en": "Rate Constant (k)",
+        "tr": "Rate Constant (k)",
+        "de": "Rate Constant (k)",
+        "fr": "Rate Constant (k)",
+        "es": "Rate Constant (k)",
+        "ar": "Rate Constant (k)"
+      }
     },
     {
       "id": "t",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "s",
       "default": 10,
-      "businessContext": "Reaksiyon süresi (saniye cinsinden)"
+      "businessContext": "Reaksiyon süresi (saniye cinsinden)",
+      "label_i18n": {
+        "en": "Time (t)",
+        "tr": "Time (t)",
+        "de": "Time (t)",
+        "fr": "Time (t)",
+        "es": "Time (t)",
+        "ar": "Time (t)"
+      }
     },
     {
       "id": "order",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "–",
       "default": 1,
-      "businessContext": "Reaksiyon mertebesi (birinci derece için sabit 1)"
+      "businessContext": "Reaksiyon mertebesi (birinci derece için sabit 1)",
+      "label_i18n": {
+        "en": "Reaction Order",
+        "tr": "Reaction Order",
+        "de": "Reaction Order",
+        "fr": "Reaction Order",
+        "es": "Reaction Order",
+        "ar": "Reaction Order"
+      }
     }
   ],
   "formulas": {
@@ -54,8 +86,8 @@
       }
     ]
   },
-  "category": "Diğer",
-  "sector": "Kimya & İlaç",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "gal (imp)",
       "default": 1,
-      "businessContext": "The volume in imperial gallons to convert."
+      "businessContext": "The volume in imperial gallons to convert.",
+      "label_i18n": {
+        "en": "Imperial Gallons",
+        "tr": "Imperial Gallons",
+        "de": "Imperial Gallons",
+        "fr": "Imperial Gallons",
+        "es": "Imperial Gallons",
+        "ar": "Imperial Gallons"
+      }
     },
     {
       "id": "batchSize",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "units",
       "default": 1,
-      "businessContext": "Number of batches or containers being converted."
+      "businessContext": "Number of batches or containers being converted.",
+      "label_i18n": {
+        "en": "Batch Size",
+        "tr": "Batch Size",
+        "de": "Batch Size",
+        "fr": "Batch Size",
+        "es": "Batch Size",
+        "ar": "Batch Size"
+      }
     },
     {
       "id": "tolerance",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Allowable measurement tolerance as percentage."
+      "businessContext": "Allowable measurement tolerance as percentage.",
+      "label_i18n": {
+        "en": "Tolerance",
+        "tr": "Tolerance",
+        "de": "Tolerance",
+        "fr": "Tolerance",
+        "es": "Tolerance",
+        "ar": "Tolerance"
+      }
     },
     {
       "id": "temperature",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Ambient temperature for density correction (if applicable)."
+      "businessContext": "Ambient temperature for density correction (if applicable).",
+      "label_i18n": {
+        "en": "Temperature",
+        "tr": "Temperature",
+        "de": "Temperature",
+        "fr": "Temperature",
+        "es": "Temperature",
+        "ar": "Temperature"
+      }
     }
   ],
   "formulas": {
@@ -47,8 +79,8 @@
       "usGallonsMax"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Denizcilik & Gemi",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",

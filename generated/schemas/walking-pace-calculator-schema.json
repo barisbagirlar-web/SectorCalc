@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 1000,
-      "businessContext": "Total walking distance in meters, e.g., from one workstation to another in a factory layout."
+      "businessContext": "Total walking distance in meters, e.g., from one workstation to another in a factory layout.",
+      "label_i18n": {
+        "en": "Distance (meters)",
+        "tr": "Distance (meters)",
+        "de": "Distance (meters)",
+        "fr": "Distance (meters)",
+        "es": "Distance (meters)",
+        "ar": "Distance (meters)"
+      }
     },
     {
       "id": "timeHours",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "h",
       "default": 0,
-      "businessContext": "Hours part of the walking time."
+      "businessContext": "Hours part of the walking time.",
+      "label_i18n": {
+        "en": "Time (hours)",
+        "tr": "Time (hours)",
+        "de": "Time (hours)",
+        "fr": "Time (hours)",
+        "es": "Time (hours)",
+        "ar": "Time (hours)"
+      }
     },
     {
       "id": "timeMinutes",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "min",
       "default": 15,
-      "businessContext": "Minutes part of the walking time."
+      "businessContext": "Minutes part of the walking time.",
+      "label_i18n": {
+        "en": "Time (minutes)",
+        "tr": "Time (minutes)",
+        "de": "Time (minutes)",
+        "fr": "Time (minutes)",
+        "es": "Time (minutes)",
+        "ar": "Time (minutes)"
+      }
     },
     {
       "id": "timeSeconds",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "s",
       "default": 0,
-      "businessContext": "Seconds part of the walking time."
+      "businessContext": "Seconds part of the walking time.",
+      "label_i18n": {
+        "en": "Time (seconds)",
+        "tr": "Time (seconds)",
+        "de": "Time (seconds)",
+        "fr": "Time (seconds)",
+        "es": "Time (seconds)",
+        "ar": "Time (seconds)"
+      }
     },
     {
       "id": "strideLengthCm",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "cm",
       "default": 0,
-      "businessContext": "Optional: average stride length in centimeters for step-based distance calculation."
+      "businessContext": "Optional: average stride length in centimeters for step-based distance calculation.",
+      "label_i18n": {
+        "en": "Stride Length (cm)",
+        "tr": "Stride Length (cm)",
+        "de": "Stride Length (cm)",
+        "fr": "Stride Length (cm)",
+        "es": "Stride Length (cm)",
+        "ar": "Stride Length (cm)"
+      }
     },
     {
       "id": "steps",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "count",
       "default": 0,
-      "businessContext": "Optional: number of steps taken. Used with stride length to estimate distance if distance is not directly entered."
+      "businessContext": "Optional: number of steps taken. Used with stride length to estimate distance if distance is not directly entered.",
+      "label_i18n": {
+        "en": "Steps",
+        "tr": "Steps",
+        "de": "Steps",
+        "fr": "Steps",
+        "es": "Steps",
+        "ar": "Steps"
+      }
     }
   ],
   "formulas": {
@@ -64,8 +112,8 @@
       "totalDistanceKm"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

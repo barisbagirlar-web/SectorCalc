@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 100,
-      "businessContext": "Initial quantity of substance before decay begins"
+      "businessContext": "Initial quantity of substance before decay begins",
+      "label_i18n": {
+        "en": "Initial Amount",
+        "tr": "Initial Amount",
+        "de": "Initial Amount",
+        "fr": "Initial Amount",
+        "es": "Initial Amount",
+        "ar": "Initial Amount"
+      }
     },
     {
       "id": "halfLife",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "time_unit",
       "default": 10,
-      "businessContext": "Time required for half of the substance to decay"
+      "businessContext": "Time required for half of the substance to decay",
+      "label_i18n": {
+        "en": "Half-Life",
+        "tr": "Half-Life",
+        "de": "Half-Life",
+        "fr": "Half-Life",
+        "es": "Half-Life",
+        "ar": "Half-Life"
+      }
     },
     {
       "id": "elapsedTime",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "time_unit",
       "default": 10,
-      "businessContext": "Time passed since initial measurement"
+      "businessContext": "Time passed since initial measurement",
+      "label_i18n": {
+        "en": "Elapsed Time",
+        "tr": "Elapsed Time",
+        "de": "Elapsed Time",
+        "fr": "Elapsed Time",
+        "es": "Elapsed Time",
+        "ar": "Elapsed Time"
+      }
     },
     {
       "id": "targetAmount",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "g",
       "default": 50,
-      "businessContext": "Desired remaining quantity to compute required time"
+      "businessContext": "Desired remaining quantity to compute required time",
+      "label_i18n": {
+        "en": "Target Amount",
+        "tr": "Target Amount",
+        "de": "Target Amount",
+        "fr": "Target Amount",
+        "es": "Target Amount",
+        "ar": "Target Amount"
+      }
     }
   ],
   "formulas": {
@@ -50,8 +82,8 @@
       "timeToReachTarget"
     ]
   },
-  "category": "Kalite & Süreç Kontrol",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",

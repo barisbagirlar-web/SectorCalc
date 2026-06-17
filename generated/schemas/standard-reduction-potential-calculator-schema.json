@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "V",
       "default": 0,
-      "businessContext": "The standard reduction potential of the half-reaction under standard conditions (1 M, 1 atm, 25°C)."
+      "businessContext": "The standard reduction potential of the half-reaction under standard conditions (1 M, 1 atm, 25°C).",
+      "label_i18n": {
+        "en": "Standard Reduction Potential (E°)",
+        "tr": "Standard Reduction Potential (E°)",
+        "de": "Standard Reduction Potential (E°)",
+        "fr": "Standard Reduction Potential (E°)",
+        "es": "Standard Reduction Potential (E°)",
+        "ar": "Standard Reduction Potential (E°)"
+      }
     },
     {
       "id": "T",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "K",
       "default": 298.15,
-      "businessContext": "Temperature in Kelvin."
+      "businessContext": "Temperature in Kelvin.",
+      "label_i18n": {
+        "en": "Temperature (T)",
+        "tr": "Temperature (T)",
+        "de": "Temperature (T)",
+        "fr": "Temperature (T)",
+        "es": "Temperature (T)",
+        "ar": "Temperature (T)"
+      }
     },
     {
       "id": "n",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Stoichiometric number of electrons in the half-reaction."
+      "businessContext": "Stoichiometric number of electrons in the half-reaction.",
+      "label_i18n": {
+        "en": "Number of Electrons Transferred (n)",
+        "tr": "Number of Electrons Transferred (n)",
+        "de": "Number of Electrons Transferred (n)",
+        "fr": "Number of Electrons Transferred (n)",
+        "es": "Number of Electrons Transferred (n)",
+        "ar": "Number of Electrons Transferred (n)"
+      }
     },
     {
       "id": "Ox",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mol/L",
       "default": 1,
-      "businessContext": "Molar concentration of the oxidized species (reactant)."
+      "businessContext": "Molar concentration of the oxidized species (reactant).",
+      "label_i18n": {
+        "en": "Concentration of Oxidized Species [Ox]",
+        "tr": "Concentration of Oxidized Species [Ox]",
+        "de": "Concentration of Oxidized Species [Ox]",
+        "fr": "Concentration of Oxidized Species [Ox]",
+        "es": "Concentration of Oxidized Species [Ox]",
+        "ar": "Concentration of Oxidized Species [Ox]"
+      }
     },
     {
       "id": "Red",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mol/L",
       "default": 1,
-      "businessContext": "Molar concentration of the reduced species (product)."
+      "businessContext": "Molar concentration of the reduced species (product).",
+      "label_i18n": {
+        "en": "Concentration of Reduced Species [Red]",
+        "tr": "Concentration of Reduced Species [Red]",
+        "de": "Concentration of Reduced Species [Red]",
+        "fr": "Concentration of Reduced Species [Red]",
+        "es": "Concentration of Reduced Species [Red]",
+        "ar": "Concentration of Reduced Species [Red]"
+      }
     },
     {
       "id": "a",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Coefficient for the oxidized species in the balanced half-reaction: aOx + ne- → bRed."
+      "businessContext": "Coefficient for the oxidized species in the balanced half-reaction: aOx + ne- → bRed.",
+      "label_i18n": {
+        "en": "Stoichiometric Coefficient of Oxidized Species (a)",
+        "tr": "Stoichiometric Coefficient of Oxidized Species (a)",
+        "de": "Stoichiometric Coefficient of Oxidized Species (a)",
+        "fr": "Stoichiometric Coefficient of Oxidized Species (a)",
+        "es": "Stoichiometric Coefficient of Oxidized Species (a)",
+        "ar": "Stoichiometric Coefficient of Oxidized Species (a)"
+      }
     },
     {
       "id": "b",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Coefficient for the reduced species in the balanced half-reaction."
+      "businessContext": "Coefficient for the reduced species in the balanced half-reaction.",
+      "label_i18n": {
+        "en": "Stoichiometric Coefficient of Reduced Species (b)",
+        "tr": "Stoichiometric Coefficient of Reduced Species (b)",
+        "de": "Stoichiometric Coefficient of Reduced Species (b)",
+        "fr": "Stoichiometric Coefficient of Reduced Species (b)",
+        "es": "Stoichiometric Coefficient of Reduced Species (b)",
+        "ar": "Stoichiometric Coefficient of Reduced Species (b)"
+      }
     }
   ],
   "formulas": {
@@ -70,8 +126,8 @@
       "lnQ"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Kimya & İlaç",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

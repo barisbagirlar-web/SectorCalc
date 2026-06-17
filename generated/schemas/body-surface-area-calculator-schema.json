@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Enter body weight in kilograms. If not available, use weight in pounds instead."
+      "businessContext": "Enter body weight in kilograms. If not available, use weight in pounds instead.",
+      "label_i18n": {
+        "en": "Weight (kg)",
+        "tr": "Weight (kg)",
+        "de": "Weight (kg)",
+        "fr": "Weight (kg)",
+        "es": "Weight (kg)",
+        "ar": "Weight (kg)"
+      }
     },
     {
       "id": "height_cm",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Enter body height in centimeters. If not available, use height in inches instead."
+      "businessContext": "Enter body height in centimeters. If not available, use height in inches instead.",
+      "label_i18n": {
+        "en": "Height (cm)",
+        "tr": "Height (cm)",
+        "de": "Height (cm)",
+        "fr": "Height (cm)",
+        "es": "Height (cm)",
+        "ar": "Height (cm)"
+      }
     },
     {
       "id": "weight_lb",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "lb",
       "default": 154,
-      "businessContext": "Alternative: enter body weight in pounds. Ignored if weight in kg is provided."
+      "businessContext": "Alternative: enter body weight in pounds. Ignored if weight in kg is provided.",
+      "label_i18n": {
+        "en": "Weight (lb)",
+        "tr": "Weight (lb)",
+        "de": "Weight (lb)",
+        "fr": "Weight (lb)",
+        "es": "Weight (lb)",
+        "ar": "Weight (lb)"
+      }
     },
     {
       "id": "height_in",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "in",
       "default": 67,
-      "businessContext": "Alternative: enter body height in inches. Ignored if height in cm is provided."
+      "businessContext": "Alternative: enter body height in inches. Ignored if height in cm is provided.",
+      "label_i18n": {
+        "en": "Height (in)",
+        "tr": "Height (in)",
+        "de": "Height (in)",
+        "fr": "Height (in)",
+        "es": "Height (in)",
+        "ar": "Height (in)"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "bsa_dubois_ft2"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

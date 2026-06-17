@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "The stated annual interest rate before compounding."
+      "businessContext": "The stated annual interest rate before compounding.",
+      "label_i18n": {
+        "en": "Nominal Annual Rate",
+        "tr": "Nominal Annual Rate",
+        "de": "Nominal Annual Rate",
+        "fr": "Nominal Annual Rate",
+        "es": "Nominal Annual Rate",
+        "ar": "Nominal Annual Rate"
+      }
     },
     {
       "id": "compoundingPeriods",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "per year",
       "default": 12,
-      "businessContext": "Number of times interest is compounded annually."
+      "businessContext": "Number of times interest is compounded annually.",
+      "label_i18n": {
+        "en": "Compounding Periods per Year",
+        "tr": "Compounding Periods per Year",
+        "de": "Compounding Periods per Year",
+        "fr": "Compounding Periods per Year",
+        "es": "Compounding Periods per Year",
+        "ar": "Compounding Periods per Year"
+      }
     },
     {
       "id": "years",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 1,
-      "businessContext": "Investment duration in years for growth factor computation."
+      "businessContext": "Investment duration in years for growth factor computation.",
+      "label_i18n": {
+        "en": "Time Period",
+        "tr": "Time Period",
+        "de": "Time Period",
+        "fr": "Time Period",
+        "es": "Time Period",
+        "ar": "Time Period"
+      }
     },
     {
       "id": "principal",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency",
       "default": 1,
-      "businessContext": "Initial investment amount (use 1 for factor-only calculations)."
+      "businessContext": "Initial investment amount (use 1 for factor-only calculations).",
+      "label_i18n": {
+        "en": "Principal Amount",
+        "tr": "Principal Amount",
+        "de": "Principal Amount",
+        "fr": "Principal Amount",
+        "es": "Principal Amount",
+        "ar": "Principal Amount"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "futureValue"
     ]
   },
-  "category": "Finans & Yatırım",
-  "sector": "Finans & Sigorta",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 2024,
-      "businessContext": "Embriyo transferinin yapıldığı yıl"
+      "businessContext": "Embriyo transferinin yapıldığı yıl",
+      "label_i18n": {
+        "en": "Transfer Yıl",
+        "tr": "Transfer Yıl",
+        "de": "Transfer Yıl",
+        "fr": "Transfer Yıl",
+        "es": "Transfer Yıl",
+        "ar": "Transfer Yıl"
+      }
     },
     {
       "id": "transferMonth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ay",
       "default": 1,
-      "businessContext": "Embriyo transfer ayı (1-12)"
+      "businessContext": "Embriyo transfer ayı (1-12)",
+      "label_i18n": {
+        "en": "Transfer Ay",
+        "tr": "Transfer Ay",
+        "de": "Transfer Ay",
+        "fr": "Transfer Ay",
+        "es": "Transfer Ay",
+        "ar": "Transfer Ay"
+      }
     },
     {
       "id": "transferDay",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "gün",
       "default": 1,
-      "businessContext": "Embriyo transfer günü (1-31)"
+      "businessContext": "Embriyo transfer günü (1-31)",
+      "label_i18n": {
+        "en": "Transfer Gün",
+        "tr": "Transfer Gün",
+        "de": "Transfer Gün",
+        "fr": "Transfer Gün",
+        "es": "Transfer Gün",
+        "ar": "Transfer Gün"
+      }
     },
     {
       "id": "embryoAge",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "gün",
       "default": 3,
-      "businessContext": "Transfer anındaki embriyo yaşı (örn. 3 veya 5 gün)"
+      "businessContext": "Transfer anındaki embriyo yaşı (örn. 3 veya 5 gün)",
+      "label_i18n": {
+        "en": "Embriyo Yaşı",
+        "tr": "Embriyo Yaşı",
+        "de": "Embriyo Yaşı",
+        "fr": "Embriyo Yaşı",
+        "es": "Embriyo Yaşı",
+        "ar": "Embriyo Yaşı"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "daysToAdd"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

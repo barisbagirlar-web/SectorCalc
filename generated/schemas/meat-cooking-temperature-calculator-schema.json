@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "Weight of the meat in kilograms."
+      "businessContext": "Weight of the meat in kilograms.",
+      "label_i18n": {
+        "en": "Meat Weight",
+        "tr": "Meat Weight",
+        "de": "Meat Weight",
+        "fr": "Meat Weight",
+        "es": "Meat Weight",
+        "ar": "Meat Weight"
+      }
     },
     {
       "id": "startTemp",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Internal temperature of meat before cooking."
+      "businessContext": "Internal temperature of meat before cooking.",
+      "label_i18n": {
+        "en": "Starting Temperature",
+        "tr": "Starting Temperature",
+        "de": "Starting Temperature",
+        "fr": "Starting Temperature",
+        "es": "Starting Temperature",
+        "ar": "Starting Temperature"
+      }
     },
     {
       "id": "targetTemp",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 70,
-      "businessContext": "Desired final internal temperature."
+      "businessContext": "Desired final internal temperature.",
+      "label_i18n": {
+        "en": "Target Internal Temperature",
+        "tr": "Target Internal Temperature",
+        "de": "Target Internal Temperature",
+        "fr": "Target Internal Temperature",
+        "es": "Target Internal Temperature",
+        "ar": "Target Internal Temperature"
+      }
     },
     {
       "id": "ovenTemp",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 180,
-      "businessContext": "Temperature of the oven or cooking environment."
+      "businessContext": "Temperature of the oven or cooking environment.",
+      "label_i18n": {
+        "en": "Oven Temperature",
+        "tr": "Oven Temperature",
+        "de": "Oven Temperature",
+        "fr": "Oven Temperature",
+        "es": "Oven Temperature",
+        "ar": "Oven Temperature"
+      }
     },
     {
       "id": "thermalFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "min·kg⁻²/³",
       "default": 20,
-      "businessContext": "Empirical constant: ≈20 for beef, ≈25 for pork, ≈15 for poultry. Accounts for shape and thermal properties."
+      "businessContext": "Empirical constant: ≈20 for beef, ≈25 for pork, ≈15 for poultry. Accounts for shape and thermal properties.",
+      "label_i18n": {
+        "en": "Thermal Factor",
+        "tr": "Thermal Factor",
+        "de": "Thermal Factor",
+        "fr": "Thermal Factor",
+        "es": "Thermal Factor",
+        "ar": "Thermal Factor"
+      }
     }
   ],
   "formulas": {
@@ -54,8 +94,8 @@
       "logFactor"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Gıda & İçecek",
+  "category": "Malzeme & Metalurji",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

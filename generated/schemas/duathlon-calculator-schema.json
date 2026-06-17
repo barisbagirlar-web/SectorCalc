@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 5,
-      "businessContext": "İlk koşu etabının mesafesi"
+      "businessContext": "İlk koşu etabının mesafesi",
+      "label_i18n": {
+        "en": "1. Koşu Mesafesi",
+        "tr": "1. Koşu Mesafesi",
+        "de": "1. Koşu Mesafesi",
+        "fr": "1. Koşu Mesafesi",
+        "es": "1. Koşu Mesafesi",
+        "ar": "1. Koşu Mesafesi"
+      }
     },
     {
       "id": "run1Time",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dakika",
       "default": 25,
-      "businessContext": "İlk koşu etabının süresi"
+      "businessContext": "İlk koşu etabının süresi",
+      "label_i18n": {
+        "en": "1. Koşu Süresi",
+        "tr": "1. Koşu Süresi",
+        "de": "1. Koşu Süresi",
+        "fr": "1. Koşu Süresi",
+        "es": "1. Koşu Süresi",
+        "ar": "1. Koşu Süresi"
+      }
     },
     {
       "id": "transition1",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dakika",
       "default": 1,
-      "businessContext": "Koşudan bisiklete geçiş süresi"
+      "businessContext": "Koşudan bisiklete geçiş süresi",
+      "label_i18n": {
+        "en": "1. Geçiş Süresi (T1)",
+        "tr": "1. Geçiş Süresi (T1)",
+        "de": "1. Geçiş Süresi (T1)",
+        "fr": "1. Geçiş Süresi (T1)",
+        "es": "1. Geçiş Süresi (T1)",
+        "ar": "1. Geçiş Süresi (T1)"
+      }
     },
     {
       "id": "bikeDistance",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "km",
       "default": 20,
-      "businessContext": "Bisiklet etabının mesafesi"
+      "businessContext": "Bisiklet etabının mesafesi",
+      "label_i18n": {
+        "en": "Bisiklet Mesafesi",
+        "tr": "Bisiklet Mesafesi",
+        "de": "Bisiklet Mesafesi",
+        "fr": "Bisiklet Mesafesi",
+        "es": "Bisiklet Mesafesi",
+        "ar": "Bisiklet Mesafesi"
+      }
     },
     {
       "id": "bikeTime",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "dakika",
       "default": 40,
-      "businessContext": "Bisiklet etabının süresi"
+      "businessContext": "Bisiklet etabının süresi",
+      "label_i18n": {
+        "en": "Bisiklet Süresi",
+        "tr": "Bisiklet Süresi",
+        "de": "Bisiklet Süresi",
+        "fr": "Bisiklet Süresi",
+        "es": "Bisiklet Süresi",
+        "ar": "Bisiklet Süresi"
+      }
     },
     {
       "id": "transition2",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "dakika",
       "default": 1,
-      "businessContext": "Bisikletten ikinci koşuya geçiş süresi"
+      "businessContext": "Bisikletten ikinci koşuya geçiş süresi",
+      "label_i18n": {
+        "en": "2. Geçiş Süresi (T2)",
+        "tr": "2. Geçiş Süresi (T2)",
+        "de": "2. Geçiş Süresi (T2)",
+        "fr": "2. Geçiş Süresi (T2)",
+        "es": "2. Geçiş Süresi (T2)",
+        "ar": "2. Geçiş Süresi (T2)"
+      }
     },
     {
       "id": "run2Distance",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "km",
       "default": 2.5,
-      "businessContext": "İkinci koşu etabının mesafesi"
+      "businessContext": "İkinci koşu etabının mesafesi",
+      "label_i18n": {
+        "en": "2. Koşu Mesafesi",
+        "tr": "2. Koşu Mesafesi",
+        "de": "2. Koşu Mesafesi",
+        "fr": "2. Koşu Mesafesi",
+        "es": "2. Koşu Mesafesi",
+        "ar": "2. Koşu Mesafesi"
+      }
     },
     {
       "id": "run2Time",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "dakika",
       "default": 12,
-      "businessContext": "İkinci koşu etabının süresi"
+      "businessContext": "İkinci koşu etabının süresi",
+      "label_i18n": {
+        "en": "2. Koşu Süresi",
+        "tr": "2. Koşu Süresi",
+        "de": "2. Koşu Süresi",
+        "fr": "2. Koşu Süresi",
+        "es": "2. Koşu Süresi",
+        "ar": "2. Koşu Süresi"
+      }
     }
   ],
   "formulas": {
@@ -84,8 +148,8 @@
       "totalDistanceKm"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

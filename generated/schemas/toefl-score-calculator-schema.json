@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Score for the Reading section (0-30)"
+      "businessContext": "Score for the Reading section (0-30)",
+      "label_i18n": {
+        "en": "Reading Score",
+        "tr": "Reading Score",
+        "de": "Reading Score",
+        "fr": "Reading Score",
+        "es": "Reading Score",
+        "ar": "Reading Score"
+      }
     },
     {
       "id": "listening",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Score for the Listening section (0-30)"
+      "businessContext": "Score for the Listening section (0-30)",
+      "label_i18n": {
+        "en": "Listening Score",
+        "tr": "Listening Score",
+        "de": "Listening Score",
+        "fr": "Listening Score",
+        "es": "Listening Score",
+        "ar": "Listening Score"
+      }
     },
     {
       "id": "speaking",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Score for the Speaking section (0-30)"
+      "businessContext": "Score for the Speaking section (0-30)",
+      "label_i18n": {
+        "en": "Speaking Score",
+        "tr": "Speaking Score",
+        "de": "Speaking Score",
+        "fr": "Speaking Score",
+        "es": "Speaking Score",
+        "ar": "Speaking Score"
+      }
     },
     {
       "id": "writing",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Score for the Writing section (0-30)"
+      "businessContext": "Score for the Writing section (0-30)",
+      "label_i18n": {
+        "en": "Writing Score",
+        "tr": "Writing Score",
+        "de": "Writing Score",
+        "fr": "Writing Score",
+        "es": "Writing Score",
+        "ar": "Writing Score"
+      }
     }
   ],
   "formulas": {
@@ -50,8 +82,8 @@
       "writingScore"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 180,
-      "businessContext": "Measure the circumference of the horse's chest just behind the elbows and withers."
+      "businessContext": "Measure the circumference of the horse's chest just behind the elbows and withers.",
+      "label_i18n": {
+        "en": "Heart Girth (cm)",
+        "tr": "Heart Girth (cm)",
+        "de": "Heart Girth (cm)",
+        "fr": "Heart Girth (cm)",
+        "es": "Heart Girth (cm)",
+        "ar": "Heart Girth (cm)"
+      }
     },
     {
       "id": "bodyLengthCm",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Measure from the point of shoulder to the point of buttock in a straight line."
+      "businessContext": "Measure from the point of shoulder to the point of buttock in a straight line.",
+      "label_i18n": {
+        "en": "Body Length (cm)",
+        "tr": "Body Length (cm)",
+        "de": "Body Length (cm)",
+        "fr": "Body Length (cm)",
+        "es": "Body Length (cm)",
+        "ar": "Body Length (cm)"
+      }
     },
     {
       "id": "heightCm",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 155,
-      "businessContext": "Measure from the ground to the highest point of the withers (optional)."
+      "businessContext": "Measure from the ground to the highest point of the withers (optional).",
+      "label_i18n": {
+        "en": "Height at Withers (cm)",
+        "tr": "Height at Withers (cm)",
+        "de": "Height at Withers (cm)",
+        "fr": "Height at Withers (cm)",
+        "es": "Height at Withers (cm)",
+        "ar": "Height at Withers (cm)"
+      }
     },
     {
       "id": "ageYears",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "years",
       "default": 7,
-      "businessContext": "Age of the horse in years (optional)."
+      "businessContext": "Age of the horse in years (optional).",
+      "label_i18n": {
+        "en": "Age (years)",
+        "tr": "Age (years)",
+        "de": "Age (years)",
+        "fr": "Age (years)",
+        "es": "Age (years)",
+        "ar": "Age (years)"
+      }
     }
   ],
   "formulas": {
@@ -44,8 +76,8 @@
       "weightLbs"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",

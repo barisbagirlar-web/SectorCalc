@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 150,
-      "businessContext": "The amount paid per day of care"
+      "businessContext": "The amount paid per day of care",
+      "label_i18n": {
+        "en": "Daily Benefit Amount",
+        "tr": "Daily Benefit Amount",
+        "de": "Daily Benefit Amount",
+        "fr": "Daily Benefit Amount",
+        "es": "Daily Benefit Amount",
+        "ar": "Daily Benefit Amount"
+      }
     },
     {
       "id": "benefitPeriodYears",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "years",
       "default": 3,
-      "businessContext": "Maximum number of years benefits are paid"
+      "businessContext": "Maximum number of years benefits are paid",
+      "label_i18n": {
+        "en": "Benefit Period (Years)",
+        "tr": "Benefit Period (Years)",
+        "de": "Benefit Period (Years)",
+        "fr": "Benefit Period (Years)",
+        "es": "Benefit Period (Years)",
+        "ar": "Benefit Period (Years)"
+      }
     },
     {
       "id": "eliminationDays",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "days",
       "default": 90,
-      "businessContext": "Waiting period before benefits start"
+      "businessContext": "Waiting period before benefits start",
+      "label_i18n": {
+        "en": "Elimination Period (Days)",
+        "tr": "Elimination Period (Days)",
+        "de": "Elimination Period (Days)",
+        "fr": "Elimination Period (Days)",
+        "es": "Elimination Period (Days)",
+        "ar": "Elimination Period (Days)"
+      }
     },
     {
       "id": "inflationProtection",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 3,
-      "businessContext": "Yearly percentage increase in daily benefit (informative, not used in core calculation)"
+      "businessContext": "Yearly percentage increase in daily benefit (informative, not used in core calculation)",
+      "label_i18n": {
+        "en": "Annual Inflation Protection",
+        "tr": "Annual Inflation Protection",
+        "de": "Annual Inflation Protection",
+        "fr": "Annual Inflation Protection",
+        "es": "Annual Inflation Protection",
+        "ar": "Annual Inflation Protection"
+      }
     }
   ],
   "formulas": {
@@ -45,8 +77,8 @@
       "dailyBenefit"
     ]
   },
-  "category": "İK & Personel",
-  "sector": "Finans & Sigorta",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "s",
       "default": 0,
-      "businessContext": "Half-life of the radioactive substance"
+      "businessContext": "Half-life of the radioactive substance",
+      "label_i18n": {
+        "en": "Half-life",
+        "tr": "Half-life",
+        "de": "Half-life",
+        "fr": "Half-life",
+        "es": "Half-life",
+        "ar": "Half-life"
+      }
     },
     {
       "id": "meanLifetime",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "s",
       "default": 0,
-      "businessContext": "Average lifetime (tau)"
+      "businessContext": "Average lifetime (tau)",
+      "label_i18n": {
+        "en": "Mean Lifetime",
+        "tr": "Mean Lifetime",
+        "de": "Mean Lifetime",
+        "fr": "Mean Lifetime",
+        "es": "Mean Lifetime",
+        "ar": "Mean Lifetime"
+      }
     },
     {
       "id": "initialQuantity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "atoms",
       "default": 0,
-      "businessContext": "Initial amount of substance"
+      "businessContext": "Initial amount of substance",
+      "label_i18n": {
+        "en": "Initial Quantity",
+        "tr": "Initial Quantity",
+        "de": "Initial Quantity",
+        "fr": "Initial Quantity",
+        "es": "Initial Quantity",
+        "ar": "Initial Quantity"
+      }
     },
     {
       "id": "finalQuantity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "atoms",
       "default": 0,
-      "businessContext": "Final amount after time t"
+      "businessContext": "Final amount after time t",
+      "label_i18n": {
+        "en": "Final Quantity",
+        "tr": "Final Quantity",
+        "de": "Final Quantity",
+        "fr": "Final Quantity",
+        "es": "Final Quantity",
+        "ar": "Final Quantity"
+      }
     },
     {
       "id": "timeElapsed",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "s",
       "default": 0,
-      "businessContext": "Elapsed time between measurements"
+      "businessContext": "Elapsed time between measurements",
+      "label_i18n": {
+        "en": "Time Elapsed",
+        "tr": "Time Elapsed",
+        "de": "Time Elapsed",
+        "fr": "Time Elapsed",
+        "es": "Time Elapsed",
+        "ar": "Time Elapsed"
+      }
     },
     {
       "id": "timeUnitConversion",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1,
-      "businessContext": "Multiplier to convert time units (e.g., 1 for seconds, 60 for minutes, 3600 for hours, 86400 for days) to get decay constant in desired reciprocal time unit. Output will be in 1/(converted unit)."
+      "businessContext": "Multiplier to convert time units (e.g., 1 for seconds, 60 for minutes, 3600 for hours, 86400 for days) to get decay constant in desired reciprocal time unit. Output will be in 1/(converted unit).",
+      "label_i18n": {
+        "en": "Time Unit Conversion Factor",
+        "tr": "Time Unit Conversion Factor",
+        "de": "Time Unit Conversion Factor",
+        "fr": "Time Unit Conversion Factor",
+        "es": "Time Unit Conversion Factor",
+        "ar": "Time Unit Conversion Factor"
+      }
     }
   ],
   "formulas": {
@@ -65,8 +113,8 @@
       "quantityBased"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Telekomünikasyon",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

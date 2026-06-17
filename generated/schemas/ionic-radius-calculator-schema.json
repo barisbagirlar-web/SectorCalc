@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Number of protons in the nucleus of the atom."
+      "businessContext": "Number of protons in the nucleus of the atom.",
+      "label_i18n": {
+        "en": "Atomic Number (Z)",
+        "tr": "Atomic Number (Z)",
+        "de": "Atomic Number (Z)",
+        "fr": "Atomic Number (Z)",
+        "es": "Atomic Number (Z)",
+        "ar": "Atomic Number (Z)"
+      }
     },
     {
       "id": "shieldingConstant",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "e (elementary charge)",
       "default": 0,
-      "businessContext": "Screening constant due to inner electrons reducing the effective nuclear charge."
+      "businessContext": "Screening constant due to inner electrons reducing the effective nuclear charge.",
+      "label_i18n": {
+        "en": "Shielding Constant (S)",
+        "tr": "Shielding Constant (S)",
+        "de": "Shielding Constant (S)",
+        "fr": "Shielding Constant (S)",
+        "es": "Shielding Constant (S)",
+        "ar": "Shielding Constant (S)"
+      }
     },
     {
       "id": "principalQuantumNumber",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Principal quantum number of the outermost electron shell."
+      "businessContext": "Principal quantum number of the outermost electron shell.",
+      "label_i18n": {
+        "en": "Principal Quantum Number (n)",
+        "tr": "Principal Quantum Number (n)",
+        "de": "Principal Quantum Number (n)",
+        "fr": "Principal Quantum Number (n)",
+        "es": "Principal Quantum Number (n)",
+        "ar": "Principal Quantum Number (n)"
+      }
     },
     {
       "id": "scalingFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Empirical adjustment factor to match experimental ionic radii."
+      "businessContext": "Empirical adjustment factor to match experimental ionic radii.",
+      "label_i18n": {
+        "en": "Scaling Factor",
+        "tr": "Scaling Factor",
+        "de": "Scaling Factor",
+        "fr": "Scaling Factor",
+        "es": "Scaling Factor",
+        "ar": "Scaling Factor"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "rawHydrogenicRadius"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

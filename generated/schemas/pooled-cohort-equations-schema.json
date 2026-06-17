@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 55,
-      "businessContext": "Patient age in years"
+      "businessContext": "Patient age in years",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "sex",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "0=female,1=male",
       "default": 0,
-      "businessContext": "Sex assigned at birth"
+      "businessContext": "Sex assigned at birth",
+      "label_i18n": {
+        "en": "Sex",
+        "tr": "Sex",
+        "de": "Sex",
+        "fr": "Sex",
+        "es": "Sex",
+        "ar": "Sex"
+      }
     },
     {
       "id": "totalCholesterol",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 200,
-      "businessContext": "Total cholesterol level"
+      "businessContext": "Total cholesterol level",
+      "label_i18n": {
+        "en": "Total Cholesterol",
+        "tr": "Total Cholesterol",
+        "de": "Total Cholesterol",
+        "fr": "Total Cholesterol",
+        "es": "Total Cholesterol",
+        "ar": "Total Cholesterol"
+      }
     },
     {
       "id": "hdlCholesterol",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 50,
-      "businessContext": "HDL cholesterol level"
+      "businessContext": "HDL cholesterol level",
+      "label_i18n": {
+        "en": "HDL Cholesterol",
+        "tr": "HDL Cholesterol",
+        "de": "HDL Cholesterol",
+        "fr": "HDL Cholesterol",
+        "es": "HDL Cholesterol",
+        "ar": "HDL Cholesterol"
+      }
     },
     {
       "id": "systolicBP",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mmHg",
       "default": 120,
-      "businessContext": "Systolic blood pressure"
+      "businessContext": "Systolic blood pressure",
+      "label_i18n": {
+        "en": "Systolic Blood Pressure",
+        "tr": "Systolic Blood Pressure",
+        "de": "Systolic Blood Pressure",
+        "fr": "Systolic Blood Pressure",
+        "es": "Systolic Blood Pressure",
+        "ar": "Systolic Blood Pressure"
+      }
     },
     {
       "id": "treatedHypertension",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "0=no,1=yes",
       "default": 0,
-      "businessContext": "Whether hypertension is treated"
+      "businessContext": "Whether hypertension is treated",
+      "label_i18n": {
+        "en": "Treated Hypertension",
+        "tr": "Treated Hypertension",
+        "de": "Treated Hypertension",
+        "fr": "Treated Hypertension",
+        "es": "Treated Hypertension",
+        "ar": "Treated Hypertension"
+      }
     },
     {
       "id": "diabetes",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "0=no,1=yes",
       "default": 0,
-      "businessContext": "Diabetes status"
+      "businessContext": "Diabetes status",
+      "label_i18n": {
+        "en": "Diabetes",
+        "tr": "Diabetes",
+        "de": "Diabetes",
+        "fr": "Diabetes",
+        "es": "Diabetes",
+        "ar": "Diabetes"
+      }
     },
     {
       "id": "smoker",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "0=no,1=yes",
       "default": 0,
-      "businessContext": "Current smoker status"
+      "businessContext": "Current smoker status",
+      "label_i18n": {
+        "en": "Smoker",
+        "tr": "Smoker",
+        "de": "Smoker",
+        "fr": "Smoker",
+        "es": "Smoker",
+        "ar": "Smoker"
+      }
     }
   ],
   "formulas": {
@@ -97,8 +161,8 @@
       "riskScoreMale"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

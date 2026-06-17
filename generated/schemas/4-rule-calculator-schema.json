@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 1000000,
-      "businessContext": "Total investment portfolio value at retirement"
+      "businessContext": "Total investment portfolio value at retirement",
+      "label_i18n": {
+        "en": "Portfolio Value",
+        "tr": "Portfolio Value",
+        "de": "Portfolio Value",
+        "fr": "Portfolio Value",
+        "es": "Portfolio Value",
+        "ar": "Portfolio Value"
+      }
     },
     {
       "id": "withdrawalRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 4,
-      "businessContext": "Annual withdrawal rate as a percentage of portfolio"
+      "businessContext": "Annual withdrawal rate as a percentage of portfolio",
+      "label_i18n": {
+        "en": "Withdrawal Rate",
+        "tr": "Withdrawal Rate",
+        "de": "Withdrawal Rate",
+        "fr": "Withdrawal Rate",
+        "es": "Withdrawal Rate",
+        "ar": "Withdrawal Rate"
+      }
     },
     {
       "id": "retirementYears",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Expected duration of retirement in years"
+      "businessContext": "Expected duration of retirement in years",
+      "label_i18n": {
+        "en": "Retirement Years",
+        "tr": "Retirement Years",
+        "de": "Retirement Years",
+        "fr": "Retirement Years",
+        "es": "Retirement Years",
+        "ar": "Retirement Years"
+      }
     },
     {
       "id": "inflationRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Expected annual inflation rate"
+      "businessContext": "Expected annual inflation rate",
+      "label_i18n": {
+        "en": "Inflation Rate",
+        "tr": "Inflation Rate",
+        "de": "Inflation Rate",
+        "fr": "Inflation Rate",
+        "es": "Inflation Rate",
+        "ar": "Inflation Rate"
+      }
     },
     {
       "id": "expectedReturn",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 7,
-      "businessContext": "Expected annual portfolio return"
+      "businessContext": "Expected annual portfolio return",
+      "label_i18n": {
+        "en": "Expected Return",
+        "tr": "Expected Return",
+        "de": "Expected Return",
+        "fr": "Expected Return",
+        "es": "Expected Return",
+        "ar": "Expected Return"
+      }
     }
   ],
   "formulas": {
@@ -58,8 +98,8 @@
       "finalPortfolioValue"
     ]
   },
-  "category": "Finans & Yatırım",
-  "sector": "Otomotiv & Taşıt",
+  "category": "Otomotiv",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

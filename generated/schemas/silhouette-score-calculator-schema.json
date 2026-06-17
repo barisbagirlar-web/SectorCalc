@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Mean distance from point 1 to other points in its own cluster."
+      "businessContext": "Mean distance from point 1 to other points in its own cluster.",
+      "label_i18n": {
+        "en": "Point 1 Intra-cluster Distance (a)",
+        "tr": "Point 1 Intra-cluster Distance (a)",
+        "de": "Point 1 Intra-cluster Distance (a)",
+        "fr": "Point 1 Intra-cluster Distance (a)",
+        "es": "Point 1 Intra-cluster Distance (a)",
+        "ar": "Point 1 Intra-cluster Distance (a)"
+      }
     },
     {
       "id": "b1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Mean distance from point 1 to points in the nearest neighboring cluster."
+      "businessContext": "Mean distance from point 1 to points in the nearest neighboring cluster.",
+      "label_i18n": {
+        "en": "Point 1 Nearest-cluster Distance (b)",
+        "tr": "Point 1 Nearest-cluster Distance (b)",
+        "de": "Point 1 Nearest-cluster Distance (b)",
+        "fr": "Point 1 Nearest-cluster Distance (b)",
+        "es": "Point 1 Nearest-cluster Distance (b)",
+        "ar": "Point 1 Nearest-cluster Distance (b)"
+      }
     },
     {
       "id": "a2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Mean distance from point 2 to other points in its own cluster."
+      "businessContext": "Mean distance from point 2 to other points in its own cluster.",
+      "label_i18n": {
+        "en": "Point 2 Intra-cluster Distance (a)",
+        "tr": "Point 2 Intra-cluster Distance (a)",
+        "de": "Point 2 Intra-cluster Distance (a)",
+        "fr": "Point 2 Intra-cluster Distance (a)",
+        "es": "Point 2 Intra-cluster Distance (a)",
+        "ar": "Point 2 Intra-cluster Distance (a)"
+      }
     },
     {
       "id": "b2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Mean distance from point 2 to points in the nearest neighboring cluster."
+      "businessContext": "Mean distance from point 2 to points in the nearest neighboring cluster.",
+      "label_i18n": {
+        "en": "Point 2 Nearest-cluster Distance (b)",
+        "tr": "Point 2 Nearest-cluster Distance (b)",
+        "de": "Point 2 Nearest-cluster Distance (b)",
+        "fr": "Point 2 Nearest-cluster Distance (b)",
+        "es": "Point 2 Nearest-cluster Distance (b)",
+        "ar": "Point 2 Nearest-cluster Distance (b)"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "silhouette2"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

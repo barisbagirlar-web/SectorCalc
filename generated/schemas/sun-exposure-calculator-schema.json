@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "UVI",
       "default": 5,
-      "businessContext": "The ultraviolet index value from weather report (0-11+)"
+      "businessContext": "The ultraviolet index value from weather report (0-11+)",
+      "label_i18n": {
+        "en": "UV Index",
+        "tr": "UV Index",
+        "de": "UV Index",
+        "fr": "UV Index",
+        "es": "UV Index",
+        "ar": "UV Index"
+      }
     },
     {
       "id": "skinType",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Fitzpatrick (1-6)",
       "default": 3,
-      "businessContext": "Fitzpatrick skin phototype: 1=very fair, 6=deeply pigmented"
+      "businessContext": "Fitzpatrick skin phototype: 1=very fair, 6=deeply pigmented",
+      "label_i18n": {
+        "en": "Skin Type",
+        "tr": "Skin Type",
+        "de": "Skin Type",
+        "fr": "Skin Type",
+        "es": "Skin Type",
+        "ar": "Skin Type"
+      }
     },
     {
       "id": "spf",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "SPF",
       "default": 15,
-      "businessContext": "Sun Protection Factor of applied sunscreen"
+      "businessContext": "Sun Protection Factor of applied sunscreen",
+      "label_i18n": {
+        "en": "Sunscreen SPF",
+        "tr": "Sunscreen SPF",
+        "de": "Sunscreen SPF",
+        "fr": "Sunscreen SPF",
+        "es": "Sunscreen SPF",
+        "ar": "Sunscreen SPF"
+      }
     },
     {
       "id": "cloudCover",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Percentage of sky covered by clouds reducing UV"
+      "businessContext": "Percentage of sky covered by clouds reducing UV",
+      "label_i18n": {
+        "en": "Cloud Cover",
+        "tr": "Cloud Cover",
+        "de": "Cloud Cover",
+        "fr": "Cloud Cover",
+        "es": "Cloud Cover",
+        "ar": "Cloud Cover"
+      }
     },
     {
       "id": "altitude",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Elevation above sea level; UV increases ~5% per 1000m"
+      "businessContext": "Elevation above sea level; UV increases ~5% per 1000m",
+      "label_i18n": {
+        "en": "Altitude",
+        "tr": "Altitude",
+        "de": "Altitude",
+        "fr": "Altitude",
+        "es": "Altitude",
+        "ar": "Altitude"
+      }
     }
   ],
   "formulas": {
@@ -58,8 +98,8 @@
       "medTimeMinutes"
     ]
   },
-  "category": "Diğer",
-  "sector": "Bilişim & Yazılım",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

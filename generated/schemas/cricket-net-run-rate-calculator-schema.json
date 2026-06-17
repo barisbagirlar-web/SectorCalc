@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "runs",
       "default": 0,
-      "businessContext": "Runs scored by the team in the tournament."
+      "businessContext": "Runs scored by the team in the tournament.",
+      "label_i18n": {
+        "en": "Total Runs Scored",
+        "tr": "Total Runs Scored",
+        "de": "Total Runs Scored",
+        "fr": "Total Runs Scored",
+        "es": "Total Runs Scored",
+        "ar": "Total Runs Scored"
+      }
     },
     {
       "id": "oversFaced",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "overs",
       "default": 0,
-      "businessContext": "Total overs faced by the team, expressed as a decimal (e.g., 50.3 for 50 overs and 3 balls)."
+      "businessContext": "Total overs faced by the team, expressed as a decimal (e.g., 50.3 for 50 overs and 3 balls).",
+      "label_i18n": {
+        "en": "Overs Faced",
+        "tr": "Overs Faced",
+        "de": "Overs Faced",
+        "fr": "Overs Faced",
+        "es": "Overs Faced",
+        "ar": "Overs Faced"
+      }
     },
     {
       "id": "runsConceded",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "runs",
       "default": 0,
-      "businessContext": "Runs conceded by the team in the tournament."
+      "businessContext": "Runs conceded by the team in the tournament.",
+      "label_i18n": {
+        "en": "Total Runs Conceded",
+        "tr": "Total Runs Conceded",
+        "de": "Total Runs Conceded",
+        "fr": "Total Runs Conceded",
+        "es": "Total Runs Conceded",
+        "ar": "Total Runs Conceded"
+      }
     },
     {
       "id": "oversBowled",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "overs",
       "default": 0,
-      "businessContext": "Total overs bowled by the team, expressed as a decimal (e.g., 50.3 for 50 overs and 3 balls)."
+      "businessContext": "Total overs bowled by the team, expressed as a decimal (e.g., 50.3 for 50 overs and 3 balls).",
+      "label_i18n": {
+        "en": "Overs Bowled",
+        "tr": "Overs Bowled",
+        "de": "Overs Bowled",
+        "fr": "Overs Bowled",
+        "es": "Overs Bowled",
+        "ar": "Overs Bowled"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "bowlingRunRate"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

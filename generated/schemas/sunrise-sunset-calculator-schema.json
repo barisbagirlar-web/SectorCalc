@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°",
       "default": 40.7128,
-      "businessContext": "Latitude of the location in decimal degrees (north positive)."
+      "businessContext": "Latitude of the location in decimal degrees (north positive).",
+      "label_i18n": {
+        "en": "Latitude",
+        "tr": "Latitude",
+        "de": "Latitude",
+        "fr": "Latitude",
+        "es": "Latitude",
+        "ar": "Latitude"
+      }
     },
     {
       "id": "longitude",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°",
       "default": -74.006,
-      "businessContext": "Longitude of the location in decimal degrees (east positive)."
+      "businessContext": "Longitude of the location in decimal degrees (east positive).",
+      "label_i18n": {
+        "en": "Longitude",
+        "tr": "Longitude",
+        "de": "Longitude",
+        "fr": "Longitude",
+        "es": "Longitude",
+        "ar": "Longitude"
+      }
     },
     {
       "id": "dayOfYear",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "days",
       "default": 172,
-      "businessContext": "Day number of the year (1-365 or 1-366 for leap year)."
+      "businessContext": "Day number of the year (1-365 or 1-366 for leap year).",
+      "label_i18n": {
+        "en": "Day of Year",
+        "tr": "Day of Year",
+        "de": "Day of Year",
+        "fr": "Day of Year",
+        "es": "Day of Year",
+        "ar": "Day of Year"
+      }
     },
     {
       "id": "timezoneOffset",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "hours",
       "default": -4,
-      "businessContext": "Offset from UTC in hours (e.g., -4 for EDT)."
+      "businessContext": "Offset from UTC in hours (e.g., -4 for EDT).",
+      "label_i18n": {
+        "en": "Timezone Offset",
+        "tr": "Timezone Offset",
+        "de": "Timezone Offset",
+        "fr": "Timezone Offset",
+        "es": "Timezone Offset",
+        "ar": "Timezone Offset"
+      }
     }
   ],
   "formulas": {
@@ -50,8 +82,8 @@
       "dayLength"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "date-time",
   "sectorSlug": "daily-renovation",

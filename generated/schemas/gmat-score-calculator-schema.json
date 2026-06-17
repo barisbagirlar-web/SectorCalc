@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "points",
       "default": 40,
-      "businessContext": "Scaled score (0-60) on the Quantitative section of the GMAT."
+      "businessContext": "Scaled score (0-60) on the Quantitative section of the GMAT.",
+      "label_i18n": {
+        "en": "Quantitative Scaled Score",
+        "tr": "Quantitative Scaled Score",
+        "de": "Quantitative Scaled Score",
+        "fr": "Quantitative Scaled Score",
+        "es": "Quantitative Scaled Score",
+        "ar": "Quantitative Scaled Score"
+      }
     },
     {
       "id": "verbalScaled",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "points",
       "default": 40,
-      "businessContext": "Scaled score (0-60) on the Verbal section of the GMAT."
+      "businessContext": "Scaled score (0-60) on the Verbal section of the GMAT.",
+      "label_i18n": {
+        "en": "Verbal Scaled Score",
+        "tr": "Verbal Scaled Score",
+        "de": "Verbal Scaled Score",
+        "fr": "Verbal Scaled Score",
+        "es": "Verbal Scaled Score",
+        "ar": "Verbal Scaled Score"
+      }
     },
     {
       "id": "integratedReasoning",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "score",
       "default": 5,
-      "businessContext": "Score on the Integrated Reasoning section (1-8)."
+      "businessContext": "Score on the Integrated Reasoning section (1-8).",
+      "label_i18n": {
+        "en": "Integrated Reasoning Score",
+        "tr": "Integrated Reasoning Score",
+        "de": "Integrated Reasoning Score",
+        "fr": "Integrated Reasoning Score",
+        "es": "Integrated Reasoning Score",
+        "ar": "Integrated Reasoning Score"
+      }
     },
     {
       "id": "analyticalWriting",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "score",
       "default": 4.5,
-      "businessContext": "Score on the Analytical Writing Assessment (0-6, in 0.5 increments)."
+      "businessContext": "Score on the Analytical Writing Assessment (0-6, in 0.5 increments).",
+      "label_i18n": {
+        "en": "Analytical Writing Assessment Score",
+        "tr": "Analytical Writing Assessment Score",
+        "de": "Analytical Writing Assessment Score",
+        "fr": "Analytical Writing Assessment Score",
+        "es": "Analytical Writing Assessment Score",
+        "ar": "Analytical Writing Assessment Score"
+      }
     }
   ],
   "formulas": {
@@ -51,8 +83,8 @@
       "awaScore"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",

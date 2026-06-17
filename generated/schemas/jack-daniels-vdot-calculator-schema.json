@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "meters",
       "default": 5000,
-      "businessContext": "The distance of the recent race used to calculate VDOT."
+      "businessContext": "The distance of the recent race used to calculate VDOT.",
+      "label_i18n": {
+        "en": "Race Distance",
+        "tr": "Race Distance",
+        "de": "Race Distance",
+        "fr": "Race Distance",
+        "es": "Race Distance",
+        "ar": "Race Distance"
+      }
     },
     {
       "id": "raceTimeMinutes",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 20,
-      "businessContext": "The whole minutes component of the race time."
+      "businessContext": "The whole minutes component of the race time.",
+      "label_i18n": {
+        "en": "Race Time (minutes)",
+        "tr": "Race Time (minutes)",
+        "de": "Race Time (minutes)",
+        "fr": "Race Time (minutes)",
+        "es": "Race Time (minutes)",
+        "ar": "Race Time (minutes)"
+      }
     },
     {
       "id": "raceTimeSeconds",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "seconds",
       "default": 0,
-      "businessContext": "The seconds component of the race time."
+      "businessContext": "The seconds component of the race time.",
+      "label_i18n": {
+        "en": "Race Time (seconds)",
+        "tr": "Race Time (seconds)",
+        "de": "Race Time (seconds)",
+        "fr": "Race Time (seconds)",
+        "es": "Race Time (seconds)",
+        "ar": "Race Time (seconds)"
+      }
     },
     {
       "id": "targetDistance",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "meters",
       "default": 10000,
-      "businessContext": "The distance for which to predict a race time using the calculated VDOT."
+      "businessContext": "The distance for which to predict a race time using the calculated VDOT.",
+      "label_i18n": {
+        "en": "Target Distance",
+        "tr": "Target Distance",
+        "de": "Target Distance",
+        "fr": "Target Distance",
+        "es": "Target Distance",
+        "ar": "Target Distance"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "velocity"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

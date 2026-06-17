@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 250000,
-      "businessContext": "Total principal borrowed."
+      "businessContext": "Total principal borrowed.",
+      "label_i18n": {
+        "en": "Loan Amount",
+        "tr": "Loan Amount",
+        "de": "Loan Amount",
+        "fr": "Loan Amount",
+        "es": "Loan Amount",
+        "ar": "Loan Amount"
+      }
     },
     {
       "id": "annualRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 6.5,
-      "businessContext": "Annual interest rate as a percentage."
+      "businessContext": "Annual interest rate as a percentage.",
+      "label_i18n": {
+        "en": "Annual Interest Rate",
+        "tr": "Annual Interest Rate",
+        "de": "Annual Interest Rate",
+        "fr": "Annual Interest Rate",
+        "es": "Annual Interest Rate",
+        "ar": "Annual Interest Rate"
+      }
     },
     {
       "id": "termYears",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Original loan term in years."
+      "businessContext": "Original loan term in years.",
+      "label_i18n": {
+        "en": "Loan Term",
+        "tr": "Loan Term",
+        "de": "Loan Term",
+        "fr": "Loan Term",
+        "es": "Loan Term",
+        "ar": "Loan Term"
+      }
     },
     {
       "id": "extraBiweekly",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Additional amount paid each biweekly period beyond the half-monthly equivalent."
+      "businessContext": "Additional amount paid each biweekly period beyond the half-monthly equivalent.",
+      "label_i18n": {
+        "en": "Extra Biweekly Payment",
+        "tr": "Extra Biweekly Payment",
+        "de": "Extra Biweekly Payment",
+        "fr": "Extra Biweekly Payment",
+        "es": "Extra Biweekly Payment",
+        "ar": "Extra Biweekly Payment"
+      }
     }
   ],
   "formulas": {
@@ -57,8 +89,8 @@
       "payoffYearsBiweekly"
     ]
   },
-  "category": "Finans & Yatırım",
-  "sector": "Finans & Sigorta",
+  "category": "Vergi & Finansal Raporlama",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

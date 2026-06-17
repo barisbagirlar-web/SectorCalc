@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 30000,
-      "businessContext": "Yıllık yaşam giderleri"
+      "businessContext": "Yıllık yaşam giderleri",
+      "label_i18n": {
+        "en": "Yıllık Harcamalar",
+        "tr": "Yıllık Harcamalar",
+        "de": "Yıllık Harcamalar",
+        "fr": "Yıllık Harcamalar",
+        "es": "Yıllık Harcamalar",
+        "ar": "Yıllık Harcamalar"
+      }
     },
     {
       "id": "currentSavings",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 50000,
-      "businessContext": "Şu anki toplam birikim"
+      "businessContext": "Şu anki toplam birikim",
+      "label_i18n": {
+        "en": "Mevcut Birikim",
+        "tr": "Mevcut Birikim",
+        "de": "Mevcut Birikim",
+        "fr": "Mevcut Birikim",
+        "es": "Mevcut Birikim",
+        "ar": "Mevcut Birikim"
+      }
     },
     {
       "id": "monthlyContribution",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 1000,
-      "businessContext": "Her ay yapılan düzenli yatırım"
+      "businessContext": "Her ay yapılan düzenli yatırım",
+      "label_i18n": {
+        "en": "Aylık Katkı",
+        "tr": "Aylık Katkı",
+        "de": "Aylık Katkı",
+        "fr": "Aylık Katkı",
+        "es": "Aylık Katkı",
+        "ar": "Aylık Katkı"
+      }
     },
     {
       "id": "annualReturnRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 7,
-      "businessContext": "Beklenen yıllık bileşik getiri oranı"
+      "businessContext": "Beklenen yıllık bileşik getiri oranı",
+      "label_i18n": {
+        "en": "Yıllık Getiri Oranı",
+        "tr": "Yıllık Getiri Oranı",
+        "de": "Yıllık Getiri Oranı",
+        "fr": "Yıllık Getiri Oranı",
+        "es": "Yıllık Getiri Oranı",
+        "ar": "Yıllık Getiri Oranı"
+      }
     },
     {
       "id": "safeWithdrawalRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 4,
-      "businessContext": "Sürdürülebilir yıllık çekim oranı (ör. %4 kuralı)"
+      "businessContext": "Sürdürülebilir yıllık çekim oranı (ör. %4 kuralı)",
+      "label_i18n": {
+        "en": "Güvenli Çekim Oranı",
+        "tr": "Güvenli Çekim Oranı",
+        "de": "Güvenli Çekim Oranı",
+        "fr": "Güvenli Çekim Oranı",
+        "es": "Güvenli Çekim Oranı",
+        "ar": "Güvenli Çekim Oranı"
+      }
     }
   ],
   "formulas": {
@@ -56,8 +96,8 @@
       "monthlySafeWithdrawal"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Yalın Üretim",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "1/s",
       "default": 0,
-      "businessContext": "Kısmi türev: x-bileşeninin x’e göre değişimi"
+      "businessContext": "Kısmi türev: x-bileşeninin x’e göre değişimi",
+      "label_i18n": {
+        "en": "∂F_x/∂x",
+        "tr": "∂F_x/∂x",
+        "de": "∂F_x/∂x",
+        "fr": "∂F_x/∂x",
+        "es": "∂F_x/∂x",
+        "ar": "∂F_x/∂x"
+      }
     },
     {
       "id": "dFy_dy",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "1/s",
       "default": 0,
-      "businessContext": "Kısmi türev: y-bileşeninin y’ye göre değişimi"
+      "businessContext": "Kısmi türev: y-bileşeninin y’ye göre değişimi",
+      "label_i18n": {
+        "en": "∂F_y/∂y",
+        "tr": "∂F_y/∂y",
+        "de": "∂F_y/∂y",
+        "fr": "∂F_y/∂y",
+        "es": "∂F_y/∂y",
+        "ar": "∂F_y/∂y"
+      }
     },
     {
       "id": "dFz_dz",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "1/s",
       "default": 0,
-      "businessContext": "Kısmi türev: z-bileşeninin z’ye göre değişimi"
+      "businessContext": "Kısmi türev: z-bileşeninin z’ye göre değişimi",
+      "label_i18n": {
+        "en": "∂F_z/∂z",
+        "tr": "∂F_z/∂z",
+        "de": "∂F_z/∂z",
+        "fr": "∂F_z/∂z",
+        "es": "∂F_z/∂z",
+        "ar": "∂F_z/∂z"
+      }
     },
     {
       "id": "x",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Değerlendirme noktasının x koordinatı"
+      "businessContext": "Değerlendirme noktasının x koordinatı",
+      "label_i18n": {
+        "en": "x-koordinatı",
+        "tr": "x-koordinatı",
+        "de": "x-koordinatı",
+        "fr": "x-koordinatı",
+        "es": "x-koordinatı",
+        "ar": "x-koordinatı"
+      }
     },
     {
       "id": "y",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Değerlendirme noktasının y koordinatı"
+      "businessContext": "Değerlendirme noktasının y koordinatı",
+      "label_i18n": {
+        "en": "y-koordinatı",
+        "tr": "y-koordinatı",
+        "de": "y-koordinatı",
+        "fr": "y-koordinatı",
+        "es": "y-koordinatı",
+        "ar": "y-koordinatı"
+      }
     },
     {
       "id": "z",
@@ -47,14 +87,25 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Değerlendirme noktasının z koordinatı"
+      "businessContext": "Değerlendirme noktasının z koordinatı",
+      "label_i18n": {
+        "en": "z-koordinatı",
+        "tr": "z-koordinatı",
+        "de": "z-koordinatı",
+        "fr": "z-koordinatı",
+        "es": "z-koordinatı",
+        "ar": "z-koordinatı"
+      }
     }
   ],
   "formulas": {
     "divergence": "dFx_dx + dFy_dy + dFz_dz",
     "contributionX": "dFx_dx",
     "contributionY": "dFy_dy",
-    "contributionZ": "dFz_dz"
+    "contributionZ": "dFz_dz",
+    "_F_x__x___contributionX": "∂F_x/∂x = contributionX",
+    "_F_y__y___contributionY": "∂F_y/∂y = contributionY",
+    "_F_z__z___contributionZ": "∂F_z/∂z = contributionZ"
   },
   "outputs": {
     "primary": "divergence",
@@ -65,8 +116,8 @@
       "Toplam diverjans = divergence"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

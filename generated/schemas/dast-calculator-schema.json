@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "N",
       "default": 1000,
-      "businessContext": "Çekme testinde ölçülen maksimum kuvvet"
+      "businessContext": "Çekme testinde ölçülen maksimum kuvvet",
+      "label_i18n": {
+        "en": "Uygulanan Kuvvet",
+        "tr": "Uygulanan Kuvvet",
+        "de": "Uygulanan Kuvvet",
+        "fr": "Uygulanan Kuvvet",
+        "es": "Uygulanan Kuvvet",
+        "ar": "Uygulanan Kuvvet"
+      }
     },
     {
       "id": "area",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm²",
       "default": 100,
-      "businessContext": "Test numunesinin yapışma yüzey alanı"
+      "businessContext": "Test numunesinin yapışma yüzey alanı",
+      "label_i18n": {
+        "en": "Yapışma Alanı",
+        "tr": "Yapışma Alanı",
+        "de": "Yapışma Alanı",
+        "fr": "Yapışma Alanı",
+        "es": "Yapışma Alanı",
+        "ar": "Yapışma Alanı"
+      }
     },
     {
       "id": "temperature",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 23,
-      "businessContext": "Test ortamının sıcaklığı"
+      "businessContext": "Test ortamının sıcaklığı",
+      "label_i18n": {
+        "en": "Sıcaklık",
+        "tr": "Sıcaklık",
+        "de": "Sıcaklık",
+        "fr": "Sıcaklık",
+        "es": "Sıcaklık",
+        "ar": "Sıcaklık"
+      }
     },
     {
       "id": "humidity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "Test ortamının bağıl nemi"
+      "businessContext": "Test ortamının bağıl nemi",
+      "label_i18n": {
+        "en": "Bağıl Nem",
+        "tr": "Bağıl Nem",
+        "de": "Bağıl Nem",
+        "fr": "Bağıl Nem",
+        "es": "Bağıl Nem",
+        "ar": "Bağıl Nem"
+      }
     },
     {
       "id": "speed",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm/dak",
       "default": 10,
-      "businessContext": "Test sırasında çene hareket hızı"
+      "businessContext": "Test sırasında çene hareket hızı",
+      "label_i18n": {
+        "en": "Çekme Hızı",
+        "tr": "Çekme Hızı",
+        "de": "Çekme Hızı",
+        "fr": "Çekme Hızı",
+        "es": "Çekme Hızı",
+        "ar": "Çekme Hızı"
+      }
     }
   ],
   "formulas": {
@@ -58,8 +98,8 @@
       "speedFactor"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

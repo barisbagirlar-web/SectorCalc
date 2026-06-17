@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 30,
-      "businessContext": "Diameter of first pizza"
+      "businessContext": "Diameter of first pizza",
+      "label_i18n": {
+        "en": "Pizza 1 Diameter",
+        "tr": "Pizza 1 Diameter",
+        "de": "Pizza 1 Diameter",
+        "fr": "Pizza 1 Diameter",
+        "es": "Pizza 1 Diameter",
+        "ar": "Pizza 1 Diameter"
+      }
     },
     {
       "id": "price1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 10,
-      "businessContext": "Price of first pizza"
+      "businessContext": "Price of first pizza",
+      "label_i18n": {
+        "en": "Pizza 1 Price",
+        "tr": "Pizza 1 Price",
+        "de": "Pizza 1 Price",
+        "fr": "Pizza 1 Price",
+        "es": "Pizza 1 Price",
+        "ar": "Pizza 1 Price"
+      }
     },
     {
       "id": "diameter2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 40,
-      "businessContext": "Diameter of second pizza"
+      "businessContext": "Diameter of second pizza",
+      "label_i18n": {
+        "en": "Pizza 2 Diameter",
+        "tr": "Pizza 2 Diameter",
+        "de": "Pizza 2 Diameter",
+        "fr": "Pizza 2 Diameter",
+        "es": "Pizza 2 Diameter",
+        "ar": "Pizza 2 Diameter"
+      }
     },
     {
       "id": "price2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 15,
-      "businessContext": "Price of second pizza"
+      "businessContext": "Price of second pizza",
+      "label_i18n": {
+        "en": "Pizza 2 Price",
+        "tr": "Pizza 2 Price",
+        "de": "Pizza 2 Price",
+        "fr": "Pizza 2 Price",
+        "es": "Pizza 2 Price",
+        "ar": "Pizza 2 Price"
+      }
     }
   ],
   "formulas": {
@@ -50,8 +82,8 @@
       "pricePerArea2"
     ]
   },
-  "category": "Maliyet & Bütçeleme",
-  "sector": "Perakende & Tüketici",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

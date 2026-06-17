@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 100,
-      "businessContext": "Initial mass of the radioactive substance in grams"
+      "businessContext": "Initial mass of the radioactive substance in grams",
+      "label_i18n": {
+        "en": "Initial Mass",
+        "tr": "Initial Mass",
+        "de": "Initial Mass",
+        "fr": "Initial Mass",
+        "es": "Initial Mass",
+        "ar": "Initial Mass"
+      }
     },
     {
       "id": "halfLife",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "years",
       "default": 10,
-      "businessContext": "Time required for half of the substance to decay"
+      "businessContext": "Time required for half of the substance to decay",
+      "label_i18n": {
+        "en": "Half-Life",
+        "tr": "Half-Life",
+        "de": "Half-Life",
+        "fr": "Half-Life",
+        "es": "Half-Life",
+        "ar": "Half-Life"
+      }
     },
     {
       "id": "startTime",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 0,
-      "businessContext": "Starting point of the decay period"
+      "businessContext": "Starting point of the decay period",
+      "label_i18n": {
+        "en": "Start Time",
+        "tr": "Start Time",
+        "de": "Start Time",
+        "fr": "Start Time",
+        "es": "Start Time",
+        "ar": "Start Time"
+      }
     },
     {
       "id": "endTime",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "years",
       "default": 5,
-      "businessContext": "Ending point of the decay period"
+      "businessContext": "Ending point of the decay period",
+      "label_i18n": {
+        "en": "End Time",
+        "tr": "End Time",
+        "de": "End Time",
+        "fr": "End Time",
+        "es": "End Time",
+        "ar": "End Time"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "numberOfHalfLives"
     ]
   },
-  "category": "Diğer",
-  "sector": "Telekomünikasyon",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",

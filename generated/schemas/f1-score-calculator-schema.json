@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "count",
       "default": 50,
-      "businessContext": "Number of correctly predicted positive instances."
+      "businessContext": "Number of correctly predicted positive instances.",
+      "label_i18n": {
+        "en": "True Positives (TP)",
+        "tr": "True Positives (TP)",
+        "de": "True Positives (TP)",
+        "fr": "True Positives (TP)",
+        "es": "True Positives (TP)",
+        "ar": "True Positives (TP)"
+      }
     },
     {
       "id": "falsePositives",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "count",
       "default": 10,
-      "businessContext": "Number of incorrectly predicted positive instances."
+      "businessContext": "Number of incorrectly predicted positive instances.",
+      "label_i18n": {
+        "en": "False Positives (FP)",
+        "tr": "False Positives (FP)",
+        "de": "False Positives (FP)",
+        "fr": "False Positives (FP)",
+        "es": "False Positives (FP)",
+        "ar": "False Positives (FP)"
+      }
     },
     {
       "id": "falseNegatives",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "count",
       "default": 5,
-      "businessContext": "Number of incorrectly predicted negative instances."
+      "businessContext": "Number of incorrectly predicted negative instances.",
+      "label_i18n": {
+        "en": "False Negatives (FN)",
+        "tr": "False Negatives (FN)",
+        "de": "False Negatives (FN)",
+        "fr": "False Negatives (FN)",
+        "es": "False Negatives (FN)",
+        "ar": "False Negatives (FN)"
+      }
     },
     {
       "id": "trueNegatives",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "count",
       "default": 100,
-      "businessContext": "Number of correctly predicted negative instances. Optional for F1 but useful for other metrics."
+      "businessContext": "Number of correctly predicted negative instances. Optional for F1 but useful for other metrics.",
+      "label_i18n": {
+        "en": "True Negatives (TN)",
+        "tr": "True Negatives (TN)",
+        "de": "True Negatives (TN)",
+        "fr": "True Negatives (TN)",
+        "es": "True Negatives (TN)",
+        "ar": "True Negatives (TN)"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "recall"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

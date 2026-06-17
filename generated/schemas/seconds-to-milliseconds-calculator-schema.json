@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "s",
       "default": 1,
-      "businessContext": "Input time in seconds"
+      "businessContext": "Input time in seconds",
+      "label_i18n": {
+        "en": "Seconds",
+        "tr": "Seconds",
+        "de": "Seconds",
+        "fr": "Seconds",
+        "es": "Seconds",
+        "ar": "Seconds"
+      }
     },
     {
       "id": "milliseconds",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ms",
       "default": 1000,
-      "businessContext": "Output time in milliseconds"
+      "businessContext": "Output time in milliseconds",
+      "label_i18n": {
+        "en": "Milliseconds",
+        "tr": "Milliseconds",
+        "de": "Milliseconds",
+        "fr": "Milliseconds",
+        "es": "Milliseconds",
+        "ar": "Milliseconds"
+      }
     },
     {
       "id": "minutes",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "min",
       "default": 0.0166666667,
-      "businessContext": "Equivalent time in minutes"
+      "businessContext": "Equivalent time in minutes",
+      "label_i18n": {
+        "en": "Minutes",
+        "tr": "Minutes",
+        "de": "Minutes",
+        "fr": "Minutes",
+        "es": "Minutes",
+        "ar": "Minutes"
+      }
     },
     {
       "id": "hours",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "h",
       "default": 0.00027777778,
-      "businessContext": "Equivalent time in hours"
+      "businessContext": "Equivalent time in hours",
+      "label_i18n": {
+        "en": "Hours",
+        "tr": "Hours",
+        "de": "Hours",
+        "fr": "Hours",
+        "es": "Hours",
+        "ar": "Hours"
+      }
     },
     {
       "id": "days",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "d",
       "default": 0.000011574074,
-      "businessContext": "Equivalent time in days"
+      "businessContext": "Equivalent time in days",
+      "label_i18n": {
+        "en": "Days",
+        "tr": "Days",
+        "de": "Days",
+        "fr": "Days",
+        "es": "Days",
+        "ar": "Days"
+      }
     }
   ],
   "formulas": {
@@ -56,8 +96,8 @@
       "days"
     ]
   },
-  "category": "Diğer",
-  "sector": "Makine & Ekipman",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

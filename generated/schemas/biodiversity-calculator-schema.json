@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "individuals",
       "default": 0,
-      "businessContext": "Number of individuals observed for species 1 in the sample"
+      "businessContext": "Number of individuals observed for species 1 in the sample",
+      "label_i18n": {
+        "en": "Species 1 Count",
+        "tr": "Species 1 Count",
+        "de": "Species 1 Count",
+        "fr": "Species 1 Count",
+        "es": "Species 1 Count",
+        "ar": "Species 1 Count"
+      }
     },
     {
       "id": "sp2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "individuals",
       "default": 0,
-      "businessContext": "Number of individuals observed for species 2 in the sample"
+      "businessContext": "Number of individuals observed for species 2 in the sample",
+      "label_i18n": {
+        "en": "Species 2 Count",
+        "tr": "Species 2 Count",
+        "de": "Species 2 Count",
+        "fr": "Species 2 Count",
+        "es": "Species 2 Count",
+        "ar": "Species 2 Count"
+      }
     },
     {
       "id": "sp3",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "individuals",
       "default": 0,
-      "businessContext": "Number of individuals observed for species 3 in the sample"
+      "businessContext": "Number of individuals observed for species 3 in the sample",
+      "label_i18n": {
+        "en": "Species 3 Count",
+        "tr": "Species 3 Count",
+        "de": "Species 3 Count",
+        "fr": "Species 3 Count",
+        "es": "Species 3 Count",
+        "ar": "Species 3 Count"
+      }
     },
     {
       "id": "sp4",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "individuals",
       "default": 0,
-      "businessContext": "Number of individuals observed for species 4 in the sample"
+      "businessContext": "Number of individuals observed for species 4 in the sample",
+      "label_i18n": {
+        "en": "Species 4 Count",
+        "tr": "Species 4 Count",
+        "de": "Species 4 Count",
+        "fr": "Species 4 Count",
+        "es": "Species 4 Count",
+        "ar": "Species 4 Count"
+      }
     },
     {
       "id": "sp5",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "individuals",
       "default": 0,
-      "businessContext": "Number of individuals observed for species 5 in the sample"
+      "businessContext": "Number of individuals observed for species 5 in the sample",
+      "label_i18n": {
+        "en": "Species 5 Count",
+        "tr": "Species 5 Count",
+        "de": "Species 5 Count",
+        "fr": "Species 5 Count",
+        "es": "Species 5 Count",
+        "ar": "Species 5 Count"
+      }
     }
   ],
   "formulas": {
@@ -54,8 +94,8 @@
       "speciesRichness"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Çevre & Emisyon",
+  "sector": "Sürdürülebilirlik",
   "premiumRequired": false,
   "catalogCategory": "ecology-environment",
   "sectorSlug": "energy-carbon",

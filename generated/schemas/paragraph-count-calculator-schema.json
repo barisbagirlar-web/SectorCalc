@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "words",
       "default": 1000,
-      "businessContext": "Total word count of the document"
+      "businessContext": "Total word count of the document",
+      "label_i18n": {
+        "en": "Total Words",
+        "tr": "Total Words",
+        "de": "Total Words",
+        "fr": "Total Words",
+        "es": "Total Words",
+        "ar": "Total Words"
+      }
     },
     {
       "id": "wordsPerParagraph",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "words/paragraph",
       "default": 100,
-      "businessContext": "Average number of words in a paragraph"
+      "businessContext": "Average number of words in a paragraph",
+      "label_i18n": {
+        "en": "Average Words per Paragraph",
+        "tr": "Average Words per Paragraph",
+        "de": "Average Words per Paragraph",
+        "fr": "Average Words per Paragraph",
+        "es": "Average Words per Paragraph",
+        "ar": "Average Words per Paragraph"
+      }
     },
     {
       "id": "totalCharacters",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "characters",
       "default": 0,
-      "businessContext": "Total character count (including spaces) for verification"
+      "businessContext": "Total character count (including spaces) for verification",
+      "label_i18n": {
+        "en": "Total Characters",
+        "tr": "Total Characters",
+        "de": "Total Characters",
+        "fr": "Total Characters",
+        "es": "Total Characters",
+        "ar": "Total Characters"
+      }
     },
     {
       "id": "charactersPerWord",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "characters/word",
       "default": 5,
-      "businessContext": "Average length of words used to validate word count"
+      "businessContext": "Average length of words used to validate word count",
+      "label_i18n": {
+        "en": "Average Characters per Word",
+        "tr": "Average Characters per Word",
+        "de": "Average Characters per Word",
+        "fr": "Average Characters per Word",
+        "es": "Average Characters per Word",
+        "ar": "Average Characters per Word"
+      }
     },
     {
       "id": "totalPages",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "pages",
       "default": 0,
-      "businessContext": "Number of pages if known, for alternative calculation"
+      "businessContext": "Number of pages if known, for alternative calculation",
+      "label_i18n": {
+        "en": "Total Pages",
+        "tr": "Total Pages",
+        "de": "Total Pages",
+        "fr": "Total Pages",
+        "es": "Total Pages",
+        "ar": "Total Pages"
+      }
     },
     {
       "id": "linesPerPage",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "lines/page",
       "default": 25,
-      "businessContext": "Average number of lines on a page"
+      "businessContext": "Average number of lines on a page",
+      "label_i18n": {
+        "en": "Lines per Page",
+        "tr": "Lines per Page",
+        "de": "Lines per Page",
+        "fr": "Lines per Page",
+        "es": "Lines per Page",
+        "ar": "Lines per Page"
+      }
     },
     {
       "id": "wordsPerLine",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "words/line",
       "default": 10,
-      "businessContext": "Average words per line"
+      "businessContext": "Average words per line",
+      "label_i18n": {
+        "en": "Words per Line",
+        "tr": "Words per Line",
+        "de": "Words per Line",
+        "fr": "Words per Line",
+        "es": "Words per Line",
+        "ar": "Words per Line"
+      }
     },
     {
       "id": "paragraphsPerPage",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "paragraphs/page",
       "default": 5,
-      "businessContext": "Typical paragraphs on a page, used for page-based estimate"
+      "businessContext": "Typical paragraphs on a page, used for page-based estimate",
+      "label_i18n": {
+        "en": "Paragraphs per Page",
+        "tr": "Paragraphs per Page",
+        "de": "Paragraphs per Page",
+        "fr": "Paragraphs per Page",
+        "es": "Paragraphs per Page",
+        "ar": "Paragraphs per Page"
+      }
     }
   ],
   "formulas": {
@@ -78,8 +142,8 @@
       "validatedTotalWords"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",

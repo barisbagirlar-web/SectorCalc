@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 400,
-      "businessContext": "Swim distance in meters"
+      "businessContext": "Swim distance in meters",
+      "label_i18n": {
+        "en": "Swim Distance",
+        "tr": "Swim Distance",
+        "de": "Swim Distance",
+        "fr": "Swim Distance",
+        "es": "Swim Distance",
+        "ar": "Swim Distance"
+      }
     },
     {
       "id": "bikeDistance",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "km",
       "default": 20,
-      "businessContext": "Bike distance in kilometers"
+      "businessContext": "Bike distance in kilometers",
+      "label_i18n": {
+        "en": "Bike Distance",
+        "tr": "Bike Distance",
+        "de": "Bike Distance",
+        "fr": "Bike Distance",
+        "es": "Bike Distance",
+        "ar": "Bike Distance"
+      }
     },
     {
       "id": "runDistance",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "km",
       "default": 5,
-      "businessContext": "Run distance in kilometers"
+      "businessContext": "Run distance in kilometers",
+      "label_i18n": {
+        "en": "Run Distance",
+        "tr": "Run Distance",
+        "de": "Run Distance",
+        "fr": "Run Distance",
+        "es": "Run Distance",
+        "ar": "Run Distance"
+      }
     },
     {
       "id": "swimPace",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "s/100m",
       "default": 120,
-      "businessContext": "Swim pace in seconds per 100 meters"
+      "businessContext": "Swim pace in seconds per 100 meters",
+      "label_i18n": {
+        "en": "Swim Pace",
+        "tr": "Swim Pace",
+        "de": "Swim Pace",
+        "fr": "Swim Pace",
+        "es": "Swim Pace",
+        "ar": "Swim Pace"
+      }
     },
     {
       "id": "bikeSpeed",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "km/h",
       "default": 30,
-      "businessContext": "Average bike speed in kilometers per hour"
+      "businessContext": "Average bike speed in kilometers per hour",
+      "label_i18n": {
+        "en": "Bike Speed",
+        "tr": "Bike Speed",
+        "de": "Bike Speed",
+        "fr": "Bike Speed",
+        "es": "Bike Speed",
+        "ar": "Bike Speed"
+      }
     },
     {
       "id": "runPace",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "s/km",
       "default": 300,
-      "businessContext": "Run pace in seconds per kilometer"
+      "businessContext": "Run pace in seconds per kilometer",
+      "label_i18n": {
+        "en": "Run Pace",
+        "tr": "Run Pace",
+        "de": "Run Pace",
+        "fr": "Run Pace",
+        "es": "Run Pace",
+        "ar": "Run Pace"
+      }
     }
   ],
   "formulas": {
@@ -64,8 +112,8 @@
       "runTimeMinutes"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

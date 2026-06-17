@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "MIDI",
       "default": 69,
-      "businessContext": "MIDI note number of the reference pitch (e.g., A4 = 69)."
+      "businessContext": "MIDI note number of the reference pitch (e.g., A4 = 69).",
+      "label_i18n": {
+        "en": "Reference Note MIDI Number",
+        "tr": "Reference Note MIDI Number",
+        "de": "Reference Note MIDI Number",
+        "fr": "Reference Note MIDI Number",
+        "es": "Reference Note MIDI Number",
+        "ar": "Reference Note MIDI Number"
+      }
     },
     {
       "id": "referenceFreq",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 440,
-      "businessContext": "Standard tuning frequency of the reference note in Hertz."
+      "businessContext": "Standard tuning frequency of the reference note in Hertz.",
+      "label_i18n": {
+        "en": "Reference Frequency",
+        "tr": "Reference Frequency",
+        "de": "Reference Frequency",
+        "fr": "Reference Frequency",
+        "es": "Reference Frequency",
+        "ar": "Reference Frequency"
+      }
     },
     {
       "id": "targetMidi",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "MIDI",
       "default": 60,
-      "businessContext": "MIDI note number of the key to tune."
+      "businessContext": "MIDI note number of the key to tune.",
+      "label_i18n": {
+        "en": "Target Note MIDI Number",
+        "tr": "Target Note MIDI Number",
+        "de": "Target Note MIDI Number",
+        "fr": "Target Note MIDI Number",
+        "es": "Target Note MIDI Number",
+        "ar": "Target Note MIDI Number"
+      }
     },
     {
       "id": "detuneCents",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cents",
       "default": 0,
-      "businessContext": "Tuning offset in cents (1/100 semitone) for historical temperaments or artistic adjustment."
+      "businessContext": "Tuning offset in cents (1/100 semitone) for historical temperaments or artistic adjustment.",
+      "label_i18n": {
+        "en": "Detuning Offset",
+        "tr": "Detuning Offset",
+        "de": "Detuning Offset",
+        "fr": "Detuning Offset",
+        "es": "Detuning Offset",
+        "ar": "Detuning Offset"
+      }
     },
     {
       "id": "inharmonicityCoeff",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Inharmonicity coefficient for stretch tuning. Typical for a piano: B ≈ 0.0004. Set to 0 for pure equal temperament."
+      "businessContext": "Inharmonicity coefficient for stretch tuning. Typical for a piano: B ≈ 0.0004. Set to 0 for pure equal temperament.",
+      "label_i18n": {
+        "en": "Inharmonicity Coefficient (B)",
+        "tr": "Inharmonicity Coefficient (B)",
+        "de": "Inharmonicity Coefficient (B)",
+        "fr": "Inharmonicity Coefficient (B)",
+        "es": "Inharmonicity Coefficient (B)",
+        "ar": "Inharmonicity Coefficient (B)"
+      }
     }
   ],
   "formulas": {
@@ -55,8 +95,8 @@
       "finalFrequency"
     ]
   },
-  "category": "Diğer",
-  "sector": "Telekomünikasyon",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 60,
-      "businessContext": "The length of the reptile enclosure in centimeters."
+      "businessContext": "The length of the reptile enclosure in centimeters.",
+      "label_i18n": {
+        "en": "Enclosure Length",
+        "tr": "Enclosure Length",
+        "de": "Enclosure Length",
+        "fr": "Enclosure Length",
+        "es": "Enclosure Length",
+        "ar": "Enclosure Length"
+      }
     },
     {
       "id": "enclosureWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 45,
-      "businessContext": "The width of the reptile enclosure in centimeters."
+      "businessContext": "The width of the reptile enclosure in centimeters.",
+      "label_i18n": {
+        "en": "Enclosure Width",
+        "tr": "Enclosure Width",
+        "de": "Enclosure Width",
+        "fr": "Enclosure Width",
+        "es": "Enclosure Width",
+        "ar": "Enclosure Width"
+      }
     },
     {
       "id": "enclosureHeight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 45,
-      "businessContext": "The height of the reptile enclosure in centimeters."
+      "businessContext": "The height of the reptile enclosure in centimeters.",
+      "label_i18n": {
+        "en": "Enclosure Height",
+        "tr": "Enclosure Height",
+        "de": "Enclosure Height",
+        "fr": "Enclosure Height",
+        "es": "Enclosure Height",
+        "ar": "Enclosure Height"
+      }
     },
     {
       "id": "ambientTemp",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "The room temperature outside the enclosure in degrees Celsius."
+      "businessContext": "The room temperature outside the enclosure in degrees Celsius.",
+      "label_i18n": {
+        "en": "Ambient Temperature",
+        "tr": "Ambient Temperature",
+        "de": "Ambient Temperature",
+        "fr": "Ambient Temperature",
+        "es": "Ambient Temperature",
+        "ar": "Ambient Temperature"
+      }
     },
     {
       "id": "desiredTemp",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "°C",
       "default": 35,
-      "businessContext": "The target temperature for the basking spot inside the enclosure in degrees Celsius."
+      "businessContext": "The target temperature for the basking spot inside the enclosure in degrees Celsius.",
+      "label_i18n": {
+        "en": "Desired Basking Temperature",
+        "tr": "Desired Basking Temperature",
+        "de": "Desired Basking Temperature",
+        "fr": "Desired Basking Temperature",
+        "es": "Desired Basking Temperature",
+        "ar": "Desired Basking Temperature"
+      }
     },
     {
       "id": "insulationFactor",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "W/(m²·K)",
       "default": 5,
-      "businessContext": "Thermal transmittance (U-value) of enclosure material. Typical glass: 5-6, insulated: 1-2."
+      "businessContext": "Thermal transmittance (U-value) of enclosure material. Typical glass: 5-6, insulated: 1-2.",
+      "label_i18n": {
+        "en": "Insulation Factor (U-value)",
+        "tr": "Insulation Factor (U-value)",
+        "de": "Insulation Factor (U-value)",
+        "fr": "Insulation Factor (U-value)",
+        "es": "Insulation Factor (U-value)",
+        "ar": "Insulation Factor (U-value)"
+      }
     }
   ],
   "formulas": {
@@ -64,8 +112,8 @@
       "deltaT"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

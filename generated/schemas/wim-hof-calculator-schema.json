@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 30,
-      "businessContext": "Kullanıcının yaşı"
+      "businessContext": "Kullanıcının yaşı",
+      "label_i18n": {
+        "en": "Yaş",
+        "tr": "Yaş",
+        "de": "Yaş",
+        "fr": "Yaş",
+        "es": "Yaş",
+        "ar": "Yaş"
+      }
     },
     {
       "id": "weight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Kullanıcının kilosu"
+      "businessContext": "Kullanıcının kilosu",
+      "label_i18n": {
+        "en": "Vücut Ağırlığı",
+        "tr": "Vücut Ağırlığı",
+        "de": "Vücut Ağırlığı",
+        "fr": "Vücut Ağırlığı",
+        "es": "Vücut Ağırlığı",
+        "ar": "Vücut Ağırlığı"
+      }
     },
     {
       "id": "height",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Kullanıcının boyu"
+      "businessContext": "Kullanıcının boyu",
+      "label_i18n": {
+        "en": "Boy",
+        "tr": "Boy",
+        "de": "Boy",
+        "fr": "Boy",
+        "es": "Boy",
+        "ar": "Boy"
+      }
     },
     {
       "id": "coreTemp",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 37,
-      "businessContext": "Başlangıç vücut sıcaklığı"
+      "businessContext": "Başlangıç vücut sıcaklığı",
+      "label_i18n": {
+        "en": "Çekirdek Vücut Sıcaklığı",
+        "tr": "Çekirdek Vücut Sıcaklığı",
+        "de": "Çekirdek Vücut Sıcaklığı",
+        "fr": "Çekirdek Vücut Sıcaklığı",
+        "es": "Çekirdek Vücut Sıcaklığı",
+        "ar": "Çekirdek Vücut Sıcaklığı"
+      }
     },
     {
       "id": "ambientTemp",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "°C",
       "default": 10,
-      "businessContext": "Soğuk maruziyet sıcaklığı"
+      "businessContext": "Soğuk maruziyet sıcaklığı",
+      "label_i18n": {
+        "en": "Çevre Sıcaklığı",
+        "tr": "Çevre Sıcaklığı",
+        "de": "Çevre Sıcaklığı",
+        "fr": "Çevre Sıcaklığı",
+        "es": "Çevre Sıcaklığı",
+        "ar": "Çevre Sıcaklığı"
+      }
     },
     {
       "id": "exposureTime",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "dk",
       "default": 10,
-      "businessContext": "Soğuk maruziyet süresi"
+      "businessContext": "Soğuk maruziyet süresi",
+      "label_i18n": {
+        "en": "Maruziyet Süresi",
+        "tr": "Maruziyet Süresi",
+        "de": "Maruziyet Süresi",
+        "fr": "Maruziyet Süresi",
+        "es": "Maruziyet Süresi",
+        "ar": "Maruziyet Süresi"
+      }
     }
   ],
   "formulas": {
@@ -70,8 +118,8 @@
       }
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

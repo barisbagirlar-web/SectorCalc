@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°",
       "default": 0,
-      "businessContext": "Enter the angle in decimal degrees if known. Leave 0 to use degrees, minutes, seconds."
+      "businessContext": "Enter the angle in decimal degrees if known. Leave 0 to use degrees, minutes, seconds.",
+      "label_i18n": {
+        "en": "Decimal Degrees",
+        "tr": "Decimal Degrees",
+        "de": "Decimal Degrees",
+        "fr": "Decimal Degrees",
+        "es": "Decimal Degrees",
+        "ar": "Decimal Degrees"
+      }
     },
     {
       "id": "degrees",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°",
       "default": 0,
-      "businessContext": "Whole degrees part."
+      "businessContext": "Whole degrees part.",
+      "label_i18n": {
+        "en": "Degrees",
+        "tr": "Degrees",
+        "de": "Degrees",
+        "fr": "Degrees",
+        "es": "Degrees",
+        "ar": "Degrees"
+      }
     },
     {
       "id": "minutes",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "arcmin",
       "default": 0,
-      "businessContext": "Arcminutes. 1 arcminute = 1/60 degree."
+      "businessContext": "Arcminutes. 1 arcminute = 1/60 degree.",
+      "label_i18n": {
+        "en": "Minutes",
+        "tr": "Minutes",
+        "de": "Minutes",
+        "fr": "Minutes",
+        "es": "Minutes",
+        "ar": "Minutes"
+      }
     },
     {
       "id": "seconds",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "arcsec",
       "default": 0,
-      "businessContext": "Arcseconds. 1 arcsecond = 1/60 arcminute."
+      "businessContext": "Arcseconds. 1 arcsecond = 1/60 arcminute.",
+      "label_i18n": {
+        "en": "Seconds",
+        "tr": "Seconds",
+        "de": "Seconds",
+        "fr": "Seconds",
+        "es": "Seconds",
+        "ar": "Seconds"
+      }
     },
     {
       "id": "precision",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "decimal places",
       "default": 2,
-      "businessContext": "Number of decimal places in the output."
+      "businessContext": "Number of decimal places in the output.",
+      "label_i18n": {
+        "en": "Output Precision",
+        "tr": "Output Precision",
+        "de": "Output Precision",
+        "fr": "Output Precision",
+        "es": "Output Precision",
+        "ar": "Output Precision"
+      }
     }
   ],
   "formulas": {
@@ -55,8 +95,8 @@
       "dmsRepresentation"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "bits",
       "default": 0,
-      "businessContext": "Number of bits to convert into bytes"
+      "businessContext": "Number of bits to convert into bytes",
+      "label_i18n": {
+        "en": "Bits",
+        "tr": "Bits",
+        "de": "Bits",
+        "fr": "Bits",
+        "es": "Bits",
+        "ar": "Bits"
+      }
     },
     {
       "id": "kilobits",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Kbits",
       "default": 0,
-      "businessContext": "Number of kilobits (1 Kbit = 1000 bits)"
+      "businessContext": "Number of kilobits (1 Kbit = 1000 bits)",
+      "label_i18n": {
+        "en": "Kilobits",
+        "tr": "Kilobits",
+        "de": "Kilobits",
+        "fr": "Kilobits",
+        "es": "Kilobits",
+        "ar": "Kilobits"
+      }
     },
     {
       "id": "megabits",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Mbits",
       "default": 0,
-      "businessContext": "Number of megabits (1 Mbit = 1,000,000 bits)"
+      "businessContext": "Number of megabits (1 Mbit = 1,000,000 bits)",
+      "label_i18n": {
+        "en": "Megabits",
+        "tr": "Megabits",
+        "de": "Megabits",
+        "fr": "Megabits",
+        "es": "Megabits",
+        "ar": "Megabits"
+      }
     },
     {
       "id": "gigabits",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "Gbits",
       "default": 0,
-      "businessContext": "Number of gigabits (1 Gbit = 1,000,000,000 bits)"
+      "businessContext": "Number of gigabits (1 Gbit = 1,000,000,000 bits)",
+      "label_i18n": {
+        "en": "Gigabits",
+        "tr": "Gigabits",
+        "de": "Gigabits",
+        "fr": "Gigabits",
+        "es": "Gigabits",
+        "ar": "Gigabits"
+      }
     },
     {
       "id": "terabits",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "Tbits",
       "default": 0,
-      "businessContext": "Number of terabits (1 Tbit = 1,000,000,000,000 bits)"
+      "businessContext": "Number of terabits (1 Tbit = 1,000,000,000,000 bits)",
+      "label_i18n": {
+        "en": "Terabits",
+        "tr": "Terabits",
+        "de": "Terabits",
+        "fr": "Terabits",
+        "es": "Terabits",
+        "ar": "Terabits"
+      }
     }
   ],
   "formulas": {
@@ -58,8 +98,8 @@
       "terabytes"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

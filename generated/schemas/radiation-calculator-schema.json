@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Ci",
       "default": 1,
-      "businessContext": "Radyoaktif kaynağın aktivite değeri (Curie cinsinden)."
+      "businessContext": "Radyoaktif kaynağın aktivite değeri (Curie cinsinden).",
+      "label_i18n": {
+        "en": "Kaynak Aktivitesi (Ci)",
+        "tr": "Kaynak Aktivitesi (Ci)",
+        "de": "Kaynak Aktivitesi (Ci)",
+        "fr": "Kaynak Aktivitesi (Ci)",
+        "es": "Kaynak Aktivitesi (Ci)",
+        "ar": "Kaynak Aktivitesi (Ci)"
+      }
     },
     {
       "id": "distance",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Kaynaktan hedef noktaya olan mesafe."
+      "businessContext": "Kaynaktan hedef noktaya olan mesafe.",
+      "label_i18n": {
+        "en": "Mesafe (m)",
+        "tr": "Mesafe (m)",
+        "de": "Mesafe (m)",
+        "fr": "Mesafe (m)",
+        "es": "Mesafe (m)",
+        "ar": "Mesafe (m)"
+      }
     },
     {
       "id": "shieldingThickness",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 0,
-      "businessContext": "Kullanılan zırh malzemesinin kalınlığı (örneğin kurşun)."
+      "businessContext": "Kullanılan zırh malzemesinin kalınlığı (örneğin kurşun).",
+      "label_i18n": {
+        "en": "Zırhlama Kalınlığı (cm)",
+        "tr": "Zırhlama Kalınlığı (cm)",
+        "de": "Zırhlama Kalınlığı (cm)",
+        "fr": "Zırhlama Kalınlığı (cm)",
+        "es": "Zırhlama Kalınlığı (cm)",
+        "ar": "Zırhlama Kalınlığı (cm)"
+      }
     },
     {
       "id": "halfValueLayer",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cm",
       "default": 0.5,
-      "businessContext": "Zırh malzemesinin radyasyonu yarıya indiren kalınlık değeri."
+      "businessContext": "Zırh malzemesinin radyasyonu yarıya indiren kalınlık değeri.",
+      "label_i18n": {
+        "en": "Yarı Değer Kalınlığı (cm)",
+        "tr": "Yarı Değer Kalınlığı (cm)",
+        "de": "Yarı Değer Kalınlığı (cm)",
+        "fr": "Yarı Değer Kalınlığı (cm)",
+        "es": "Yarı Değer Kalınlığı (cm)",
+        "ar": "Yarı Değer Kalınlığı (cm)"
+      }
     },
     {
       "id": "exposureTime",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "saat",
       "default": 1,
-      "businessContext": "Radyasyona maruz kalınan toplam süre."
+      "businessContext": "Radyasyona maruz kalınan toplam süre.",
+      "label_i18n": {
+        "en": "Maruziyet Süresi (saat)",
+        "tr": "Maruziyet Süresi (saat)",
+        "de": "Maruziyet Süresi (saat)",
+        "fr": "Maruziyet Süresi (saat)",
+        "es": "Maruziyet Süresi (saat)",
+        "ar": "Maruziyet Süresi (saat)"
+      }
     },
     {
       "id": "gammaConstant",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "R·m²/(Ci·saat)",
       "default": 1.32,
-      "businessContext": "Kaynağın gama ışını sabiti (örneğin Co-60 için 1.32)."
+      "businessContext": "Kaynağın gama ışını sabiti (örneğin Co-60 için 1.32).",
+      "label_i18n": {
+        "en": "Gama Sabiti (R·m²/(Ci·saat))",
+        "tr": "Gama Sabiti (R·m²/(Ci·saat))",
+        "de": "Gama Sabiti (R·m²/(Ci·saat))",
+        "fr": "Gama Sabiti (R·m²/(Ci·saat))",
+        "es": "Gama Sabiti (R·m²/(Ci·saat))",
+        "ar": "Gama Sabiti (R·m²/(Ci·saat))"
+      }
     }
   ],
   "formulas": {
@@ -65,8 +113,8 @@
       "totalDose"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",

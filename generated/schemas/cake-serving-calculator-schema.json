@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "none",
       "default": 0,
-      "businessContext": "0 for round, 1 for rectangular"
+      "businessContext": "0 for round, 1 for rectangular",
+      "label_i18n": {
+        "en": "Cake Shape",
+        "tr": "Cake Shape",
+        "de": "Cake Shape",
+        "fr": "Cake Shape",
+        "es": "Cake Shape",
+        "ar": "Cake Shape"
+      }
     },
     {
       "id": "dim1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 20,
-      "businessContext": "Primary dimension of the cake"
+      "businessContext": "Primary dimension of the cake",
+      "label_i18n": {
+        "en": "Diameter (round) / Length (rectangular)",
+        "tr": "Diameter (round) / Length (rectangular)",
+        "de": "Diameter (round) / Length (rectangular)",
+        "fr": "Diameter (round) / Length (rectangular)",
+        "es": "Diameter (round) / Length (rectangular)",
+        "ar": "Diameter (round) / Length (rectangular)"
+      }
     },
     {
       "id": "dim2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 0,
-      "businessContext": "Secondary dimension, only for rectangular cakes"
+      "businessContext": "Secondary dimension, only for rectangular cakes",
+      "label_i18n": {
+        "en": "Width (rectangular, enter 0 for round)",
+        "tr": "Width (rectangular, enter 0 for round)",
+        "de": "Width (rectangular, enter 0 for round)",
+        "fr": "Width (rectangular, enter 0 for round)",
+        "es": "Width (rectangular, enter 0 for round)",
+        "ar": "Width (rectangular, enter 0 for round)"
+      }
     },
     {
       "id": "servingArea",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cm²",
       "default": 25,
-      "businessContext": "Typical area per serving (e.g., 25 cm²)"
+      "businessContext": "Typical area per serving (e.g., 25 cm²)",
+      "label_i18n": {
+        "en": "Area per Serving",
+        "tr": "Area per Serving",
+        "de": "Area per Serving",
+        "fr": "Area per Serving",
+        "es": "Area per Serving",
+        "ar": "Area per Serving"
+      }
     }
   ],
   "formulas": {
@@ -45,8 +77,8 @@
       "totalServings"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "food-cooking",
   "sectorSlug": "restaurant",

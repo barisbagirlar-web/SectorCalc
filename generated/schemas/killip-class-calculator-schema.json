@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Percentage of lung fields with crackles/rales on auscultation."
+      "businessContext": "Percentage of lung fields with crackles/rales on auscultation.",
+      "label_i18n": {
+        "en": "Rales Coverage (% of lung fields)",
+        "tr": "Rales Coverage (% of lung fields)",
+        "de": "Rales Coverage (% of lung fields)",
+        "fr": "Rales Coverage (% of lung fields)",
+        "es": "Rales Coverage (% of lung fields)",
+        "ar": "Rales Coverage (% of lung fields)"
+      }
     },
     {
       "id": "s3_gallop",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "Presence of an S3 gallop (0 = No, 1 = Yes)."
+      "businessContext": "Presence of an S3 gallop (0 = No, 1 = Yes).",
+      "label_i18n": {
+        "en": "S3 Gallop Present",
+        "tr": "S3 Gallop Present",
+        "de": "S3 Gallop Present",
+        "fr": "S3 Gallop Present",
+        "es": "S3 Gallop Present",
+        "ar": "S3 Gallop Present"
+      }
     },
     {
       "id": "systolic_bp",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mmHg",
       "default": 120,
-      "businessContext": "Systolic blood pressure measurement."
+      "businessContext": "Systolic blood pressure measurement.",
+      "label_i18n": {
+        "en": "Systolic Blood Pressure",
+        "tr": "Systolic Blood Pressure",
+        "de": "Systolic Blood Pressure",
+        "fr": "Systolic Blood Pressure",
+        "es": "Systolic Blood Pressure",
+        "ar": "Systolic Blood Pressure"
+      }
     },
     {
       "id": "hypoperfusion",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "Clinical signs of peripheral hypoperfusion (0 = No, 1 = Yes)."
+      "businessContext": "Clinical signs of peripheral hypoperfusion (0 = No, 1 = Yes).",
+      "label_i18n": {
+        "en": "Signs of Hypoperfusion",
+        "tr": "Signs of Hypoperfusion",
+        "de": "Signs of Hypoperfusion",
+        "fr": "Signs of Hypoperfusion",
+        "es": "Signs of Hypoperfusion",
+        "ar": "Signs of Hypoperfusion"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "description"
     ]
   },
-  "category": "Kalite & Süreç Kontrol",
-  "sector": "Sağlık & Medikal",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

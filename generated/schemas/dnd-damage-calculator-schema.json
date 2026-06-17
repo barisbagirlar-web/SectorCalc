@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "hp",
       "default": 4.5,
-      "businessContext": "Average damage from weapon dice (e.g., d8=4.5)"
+      "businessContext": "Average damage from weapon dice (e.g., d8=4.5)",
+      "label_i18n": {
+        "en": "Weapon Damage Dice Average",
+        "tr": "Weapon Damage Dice Average",
+        "de": "Weapon Damage Dice Average",
+        "fr": "Weapon Damage Dice Average",
+        "es": "Weapon Damage Dice Average",
+        "ar": "Weapon Damage Dice Average"
+      }
     },
     {
       "id": "abilityModifier",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hp",
       "default": 3,
-      "businessContext": "Strength or Dexterity modifier applied to damage"
+      "businessContext": "Strength or Dexterity modifier applied to damage",
+      "label_i18n": {
+        "en": "Ability Modifier",
+        "tr": "Ability Modifier",
+        "de": "Ability Modifier",
+        "fr": "Ability Modifier",
+        "es": "Ability Modifier",
+        "ar": "Ability Modifier"
+      }
     },
     {
       "id": "proficiencyBonus",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "hp",
       "default": 2,
-      "businessContext": "Bonus added to attack rolls, not damage, but used for certain features"
+      "businessContext": "Bonus added to attack rolls, not damage, but used for certain features",
+      "label_i18n": {
+        "en": "Proficiency Bonus",
+        "tr": "Proficiency Bonus",
+        "de": "Proficiency Bonus",
+        "fr": "Proficiency Bonus",
+        "es": "Proficiency Bonus",
+        "ar": "Proficiency Bonus"
+      }
     },
     {
       "id": "magicBonus",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "hp",
       "default": 0,
-      "businessContext": "Additional damage from magical enhancement"
+      "businessContext": "Additional damage from magical enhancement",
+      "label_i18n": {
+        "en": "Magic Weapon Bonus",
+        "tr": "Magic Weapon Bonus",
+        "de": "Magic Weapon Bonus",
+        "fr": "Magic Weapon Bonus",
+        "es": "Magic Weapon Bonus",
+        "ar": "Magic Weapon Bonus"
+      }
     },
     {
       "id": "criticalHitChance",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Probability of scoring a critical hit (normally 5%)"
+      "businessContext": "Probability of scoring a critical hit (normally 5%)",
+      "label_i18n": {
+        "en": "Critical Hit Chance (%)",
+        "tr": "Critical Hit Chance (%)",
+        "de": "Critical Hit Chance (%)",
+        "fr": "Critical Hit Chance (%)",
+        "es": "Critical Hit Chance (%)",
+        "ar": "Critical Hit Chance (%)"
+      }
     },
     {
       "id": "extraDamageDice",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "hp",
       "default": 0,
-      "businessContext": "Average damage from extra dice (e.g., sneak attack, smite)"
+      "businessContext": "Average damage from extra dice (e.g., sneak attack, smite)",
+      "label_i18n": {
+        "en": "Extra Damage Dice Average",
+        "tr": "Extra Damage Dice Average",
+        "de": "Extra Damage Dice Average",
+        "fr": "Extra Damage Dice Average",
+        "es": "Extra Damage Dice Average",
+        "ar": "Extra Damage Dice Average"
+      }
     },
     {
       "id": "damageMultiplier",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "x",
       "default": 1,
-      "businessContext": "Multiplier for vulnerabilities or resistances (e.g., 0.5 for resistance)"
+      "businessContext": "Multiplier for vulnerabilities or resistances (e.g., 0.5 for resistance)",
+      "label_i18n": {
+        "en": "Damage Multiplier",
+        "tr": "Damage Multiplier",
+        "de": "Damage Multiplier",
+        "fr": "Damage Multiplier",
+        "es": "Damage Multiplier",
+        "ar": "Damage Multiplier"
+      }
     }
   ],
   "formulas": {
@@ -72,8 +128,8 @@
       "averageDamagePerHit"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

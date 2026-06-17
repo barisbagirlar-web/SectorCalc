@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "The true class (0 or 1) for observation 1."
+      "businessContext": "The true class (0 or 1) for observation 1.",
+      "label_i18n": {
+        "en": "Actual Value 1",
+        "tr": "Actual Value 1",
+        "de": "Actual Value 1",
+        "fr": "Actual Value 1",
+        "es": "Actual Value 1",
+        "ar": "Actual Value 1"
+      }
     },
     {
       "id": "predicted1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "probability",
       "default": 0.5,
-      "businessContext": "The predicted probability of class 1 for observation 1."
+      "businessContext": "The predicted probability of class 1 for observation 1.",
+      "label_i18n": {
+        "en": "Predicted Probability 1",
+        "tr": "Predicted Probability 1",
+        "de": "Predicted Probability 1",
+        "fr": "Predicted Probability 1",
+        "es": "Predicted Probability 1",
+        "ar": "Predicted Probability 1"
+      }
     },
     {
       "id": "actual2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "The true class (0 or 1) for observation 2."
+      "businessContext": "The true class (0 or 1) for observation 2.",
+      "label_i18n": {
+        "en": "Actual Value 2",
+        "tr": "Actual Value 2",
+        "de": "Actual Value 2",
+        "fr": "Actual Value 2",
+        "es": "Actual Value 2",
+        "ar": "Actual Value 2"
+      }
     },
     {
       "id": "predicted2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "probability",
       "default": 0.5,
-      "businessContext": "The predicted probability of class 1 for observation 2."
+      "businessContext": "The predicted probability of class 1 for observation 2.",
+      "label_i18n": {
+        "en": "Predicted Probability 2",
+        "tr": "Predicted Probability 2",
+        "de": "Predicted Probability 2",
+        "fr": "Predicted Probability 2",
+        "es": "Predicted Probability 2",
+        "ar": "Predicted Probability 2"
+      }
     },
     {
       "id": "actual3",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "The true class (0 or 1) for observation 3."
+      "businessContext": "The true class (0 or 1) for observation 3.",
+      "label_i18n": {
+        "en": "Actual Value 3",
+        "tr": "Actual Value 3",
+        "de": "Actual Value 3",
+        "fr": "Actual Value 3",
+        "es": "Actual Value 3",
+        "ar": "Actual Value 3"
+      }
     },
     {
       "id": "predicted3",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "probability",
       "default": 0.5,
-      "businessContext": "The predicted probability of class 1 for observation 3."
+      "businessContext": "The predicted probability of class 1 for observation 3.",
+      "label_i18n": {
+        "en": "Predicted Probability 3",
+        "tr": "Predicted Probability 3",
+        "de": "Predicted Probability 3",
+        "fr": "Predicted Probability 3",
+        "es": "Predicted Probability 3",
+        "ar": "Predicted Probability 3"
+      }
     },
     {
       "id": "actual4",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "The true class (0 or 1) for observation 4."
+      "businessContext": "The true class (0 or 1) for observation 4.",
+      "label_i18n": {
+        "en": "Actual Value 4",
+        "tr": "Actual Value 4",
+        "de": "Actual Value 4",
+        "fr": "Actual Value 4",
+        "es": "Actual Value 4",
+        "ar": "Actual Value 4"
+      }
     },
     {
       "id": "predicted4",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "probability",
       "default": 0.5,
-      "businessContext": "The predicted probability of class 1 for observation 4."
+      "businessContext": "The predicted probability of class 1 for observation 4.",
+      "label_i18n": {
+        "en": "Predicted Probability 4",
+        "tr": "Predicted Probability 4",
+        "de": "Predicted Probability 4",
+        "fr": "Predicted Probability 4",
+        "es": "Predicted Probability 4",
+        "ar": "Predicted Probability 4"
+      }
     }
   ],
   "formulas": {
@@ -78,8 +142,8 @@
       "sampleCount"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

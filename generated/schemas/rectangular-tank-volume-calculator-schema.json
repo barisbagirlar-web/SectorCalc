@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "External length of the tank including wall thickness"
+      "businessContext": "External length of the tank including wall thickness",
+      "label_i18n": {
+        "en": "Outer Length",
+        "tr": "Outer Length",
+        "de": "Outer Length",
+        "fr": "Outer Length",
+        "es": "Outer Length",
+        "ar": "Outer Length"
+      }
     },
     {
       "id": "outerWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 1.5,
-      "businessContext": "External width of the tank including wall thickness"
+      "businessContext": "External width of the tank including wall thickness",
+      "label_i18n": {
+        "en": "Outer Width",
+        "tr": "Outer Width",
+        "de": "Outer Width",
+        "fr": "Outer Width",
+        "es": "Outer Width",
+        "ar": "Outer Width"
+      }
     },
     {
       "id": "outerHeight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "External height of the tank including top and bottom"
+      "businessContext": "External height of the tank including top and bottom",
+      "label_i18n": {
+        "en": "Outer Height",
+        "tr": "Outer Height",
+        "de": "Outer Height",
+        "fr": "Outer Height",
+        "es": "Outer Height",
+        "ar": "Outer Height"
+      }
     },
     {
       "id": "wallThickness",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.05,
-      "businessContext": "Uniform thickness of walls, roof, and floor"
+      "businessContext": "Uniform thickness of walls, roof, and floor",
+      "label_i18n": {
+        "en": "Wall Thickness",
+        "tr": "Wall Thickness",
+        "de": "Wall Thickness",
+        "fr": "Wall Thickness",
+        "es": "Wall Thickness",
+        "ar": "Wall Thickness"
+      }
     },
     {
       "id": "fillLevel",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.8,
-      "businessContext": "Liquid height measured from inside bottom, must not exceed inner height"
+      "businessContext": "Liquid height measured from inside bottom, must not exceed inner height",
+      "label_i18n": {
+        "en": "Fill Level",
+        "tr": "Fill Level",
+        "de": "Fill Level",
+        "fr": "Fill Level",
+        "es": "Fill Level",
+        "ar": "Fill Level"
+      }
     }
   ],
   "formulas": {
@@ -56,8 +96,8 @@
       "materialVolume"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "İnşaat & Yapı",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

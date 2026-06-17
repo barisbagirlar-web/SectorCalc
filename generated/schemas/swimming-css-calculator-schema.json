@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 400,
-      "businessContext": "Typically the 400m distance for the CSS test"
+      "businessContext": "Typically the 400m distance for the CSS test",
+      "label_i18n": {
+        "en": "Longer Distance",
+        "tr": "Longer Distance",
+        "de": "Longer Distance",
+        "fr": "Longer Distance",
+        "es": "Longer Distance",
+        "ar": "Longer Distance"
+      }
     },
     {
       "id": "time1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "seconds",
       "default": 300,
-      "businessContext": "Total time in seconds to complete the longer distance"
+      "businessContext": "Total time in seconds to complete the longer distance",
+      "label_i18n": {
+        "en": "Time for Longer Distance",
+        "tr": "Time for Longer Distance",
+        "de": "Time for Longer Distance",
+        "fr": "Time for Longer Distance",
+        "es": "Time for Longer Distance",
+        "ar": "Time for Longer Distance"
+      }
     },
     {
       "id": "dist2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 200,
-      "businessContext": "Typically the 200m distance for the CSS test"
+      "businessContext": "Typically the 200m distance for the CSS test",
+      "label_i18n": {
+        "en": "Shorter Distance",
+        "tr": "Shorter Distance",
+        "de": "Shorter Distance",
+        "fr": "Shorter Distance",
+        "es": "Shorter Distance",
+        "ar": "Shorter Distance"
+      }
     },
     {
       "id": "time2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "seconds",
       "default": 140,
-      "businessContext": "Total time in seconds to complete the shorter distance"
+      "businessContext": "Total time in seconds to complete the shorter distance",
+      "label_i18n": {
+        "en": "Time for Shorter Distance",
+        "tr": "Time for Shorter Distance",
+        "de": "Time for Shorter Distance",
+        "fr": "Time for Shorter Distance",
+        "es": "Time for Shorter Distance",
+        "ar": "Time for Shorter Distance"
+      }
     }
   ],
   "formulas": {
@@ -44,8 +76,8 @@
       "css_speed_ms"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

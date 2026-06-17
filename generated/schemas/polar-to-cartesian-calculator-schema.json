@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Radial distance from origin"
+      "businessContext": "Radial distance from origin",
+      "label_i18n": {
+        "en": "Radius (r)",
+        "tr": "Radius (r)",
+        "de": "Radius (r)",
+        "fr": "Radius (r)",
+        "es": "Radius (r)",
+        "ar": "Radius (r)"
+      }
     },
     {
       "id": "theta",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "deg",
       "default": 0,
-      "businessContext": "Angle in degrees"
+      "businessContext": "Angle in degrees",
+      "label_i18n": {
+        "en": "Angle (θ)",
+        "tr": "Angle (θ)",
+        "de": "Angle (θ)",
+        "fr": "Angle (θ)",
+        "es": "Angle (θ)",
+        "ar": "Angle (θ)"
+      }
     },
     {
       "id": "cx",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "X-coordinate of origin offset"
+      "businessContext": "X-coordinate of origin offset",
+      "label_i18n": {
+        "en": "Center X",
+        "tr": "Center X",
+        "de": "Center X",
+        "fr": "Center X",
+        "es": "Center X",
+        "ar": "Center X"
+      }
     },
     {
       "id": "cy",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Y-coordinate of origin offset"
+      "businessContext": "Y-coordinate of origin offset",
+      "label_i18n": {
+        "en": "Center Y",
+        "tr": "Center Y",
+        "de": "Center Y",
+        "fr": "Center Y",
+        "es": "Center Y",
+        "ar": "Center Y"
+      }
     }
   ],
   "formulas": {
@@ -44,8 +76,8 @@
       "y"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

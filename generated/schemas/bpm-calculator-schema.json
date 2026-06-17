@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "bpm",
       "default": 120,
-      "businessContext": "Tempo or cycle rate of the process"
+      "businessContext": "Tempo or cycle rate of the process",
+      "label_i18n": {
+        "en": "BPM (Beats/Cycles per Minute)",
+        "tr": "BPM (Beats/Cycles per Minute)",
+        "de": "BPM (Beats/Cycles per Minute)",
+        "fr": "BPM (Beats/Cycles per Minute)",
+        "es": "BPM (Beats/Cycles per Minute)",
+        "ar": "BPM (Beats/Cycles per Minute)"
+      }
     },
     {
       "id": "sampleRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 44100,
-      "businessContext": "Sampling frequency for digital measurement"
+      "businessContext": "Sampling frequency for digital measurement",
+      "label_i18n": {
+        "en": "Sample Rate",
+        "tr": "Sample Rate",
+        "de": "Sample Rate",
+        "fr": "Sample Rate",
+        "es": "Sample Rate",
+        "ar": "Sample Rate"
+      }
     },
     {
       "id": "beats",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "count",
       "default": 4,
-      "businessContext": "Number of beats or cycles to calculate duration for"
+      "businessContext": "Number of beats or cycles to calculate duration for",
+      "label_i18n": {
+        "en": "Number of Beats/Cycles",
+        "tr": "Number of Beats/Cycles",
+        "de": "Number of Beats/Cycles",
+        "fr": "Number of Beats/Cycles",
+        "es": "Number of Beats/Cycles",
+        "ar": "Number of Beats/Cycles"
+      }
     },
     {
       "id": "division",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "factor",
       "default": 1,
-      "businessContext": "Multiplier for note subdivisions (1=quarter, 2=eighth, 0.5=half)"
+      "businessContext": "Multiplier for note subdivisions (1=quarter, 2=eighth, 0.5=half)",
+      "label_i18n": {
+        "en": "Beat Division Multiplier",
+        "tr": "Beat Division Multiplier",
+        "de": "Beat Division Multiplier",
+        "fr": "Beat Division Multiplier",
+        "es": "Beat Division Multiplier",
+        "ar": "Beat Division Multiplier"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "totalTimeSamples"
     ]
   },
-  "category": "Kalite & Süreç Kontrol",
-  "sector": "Gıda & İçecek",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "gaming-entertainment",
   "sectorSlug": "ecommerce",

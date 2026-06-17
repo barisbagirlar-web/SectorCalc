@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "min",
       "default": 0,
-      "businessContext": "Minutes portion of total swim time"
+      "businessContext": "Minutes portion of total swim time",
+      "label_i18n": {
+        "en": "Time (minutes)",
+        "tr": "Time (minutes)",
+        "de": "Time (minutes)",
+        "fr": "Time (minutes)",
+        "es": "Time (minutes)",
+        "ar": "Time (minutes)"
+      }
     },
     {
       "id": "timeSeconds",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "s",
       "default": 0,
-      "businessContext": "Seconds portion of total swim time"
+      "businessContext": "Seconds portion of total swim time",
+      "label_i18n": {
+        "en": "Time (seconds)",
+        "tr": "Time (seconds)",
+        "de": "Time (seconds)",
+        "fr": "Time (seconds)",
+        "es": "Time (seconds)",
+        "ar": "Time (seconds)"
+      }
     },
     {
       "id": "totalStrokes",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "strokes",
       "default": 0,
-      "businessContext": "Total number of strokes over the entire swim"
+      "businessContext": "Total number of strokes over the entire swim",
+      "label_i18n": {
+        "en": "Total strokes",
+        "tr": "Total strokes",
+        "de": "Total strokes",
+        "fr": "Total strokes",
+        "es": "Total strokes",
+        "ar": "Total strokes"
+      }
     },
     {
       "id": "numberOfLengths",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "lengths",
       "default": 1,
-      "businessContext": "Number of pool lengths swam"
+      "businessContext": "Number of pool lengths swam",
+      "label_i18n": {
+        "en": "Number of lengths",
+        "tr": "Number of lengths",
+        "de": "Number of lengths",
+        "fr": "Number of lengths",
+        "es": "Number of lengths",
+        "ar": "Number of lengths"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "totalTimeSeconds"
     ]
   },
-  "category": "Diğer",
-  "sector": "Otomotiv & Taşıt",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

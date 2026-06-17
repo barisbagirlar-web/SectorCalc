@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "yd",
       "default": 1,
-      "businessContext": "First length measurement in yards"
+      "businessContext": "First length measurement in yards",
+      "label_i18n": {
+        "en": "1st Length (Yards)",
+        "tr": "1st Length (Yards)",
+        "de": "1st Length (Yards)",
+        "fr": "1st Length (Yards)",
+        "es": "1st Length (Yards)",
+        "ar": "1st Length (Yards)"
+      }
     },
     {
       "id": "yards2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "yd",
       "default": 0,
-      "businessContext": "Second length measurement in yards"
+      "businessContext": "Second length measurement in yards",
+      "label_i18n": {
+        "en": "2nd Length (Yards)",
+        "tr": "2nd Length (Yards)",
+        "de": "2nd Length (Yards)",
+        "fr": "2nd Length (Yards)",
+        "es": "2nd Length (Yards)",
+        "ar": "2nd Length (Yards)"
+      }
     },
     {
       "id": "yards3",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "yd",
       "default": 0,
-      "businessContext": "Third length measurement in yards"
+      "businessContext": "Third length measurement in yards",
+      "label_i18n": {
+        "en": "3rd Length (Yards)",
+        "tr": "3rd Length (Yards)",
+        "de": "3rd Length (Yards)",
+        "fr": "3rd Length (Yards)",
+        "es": "3rd Length (Yards)",
+        "ar": "3rd Length (Yards)"
+      }
     },
     {
       "id": "yards4",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "yd",
       "default": 0,
-      "businessContext": "Fourth length measurement in yards"
+      "businessContext": "Fourth length measurement in yards",
+      "label_i18n": {
+        "en": "4th Length (Yards)",
+        "tr": "4th Length (Yards)",
+        "de": "4th Length (Yards)",
+        "fr": "4th Length (Yards)",
+        "es": "4th Length (Yards)",
+        "ar": "4th Length (Yards)"
+      }
     }
   ],
   "formulas": {
@@ -53,8 +85,8 @@
       "totalMeters"
     ]
   },
-  "category": "Kalite & Süreç Kontrol",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

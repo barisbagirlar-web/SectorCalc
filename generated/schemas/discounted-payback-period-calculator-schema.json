@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 10000,
-      "businessContext": "Total upfront capital expenditure for the project"
+      "businessContext": "Total upfront capital expenditure for the project",
+      "label_i18n": {
+        "en": "Initial Investment",
+        "tr": "Initial Investment",
+        "de": "Initial Investment",
+        "fr": "Initial Investment",
+        "es": "Initial Investment",
+        "ar": "Initial Investment"
+      }
     },
     {
       "id": "discountRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Annual discount rate reflecting cost of capital or required return"
+      "businessContext": "Annual discount rate reflecting cost of capital or required return",
+      "label_i18n": {
+        "en": "Discount Rate",
+        "tr": "Discount Rate",
+        "de": "Discount Rate",
+        "fr": "Discount Rate",
+        "es": "Discount Rate",
+        "ar": "Discount Rate"
+      }
     },
     {
       "id": "annualCashFlow",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$",
       "default": 3000,
-      "businessContext": "Expected constant annual net cash inflow from the project"
+      "businessContext": "Expected constant annual net cash inflow from the project",
+      "label_i18n": {
+        "en": "Annual Cash Flow",
+        "tr": "Annual Cash Flow",
+        "de": "Annual Cash Flow",
+        "fr": "Annual Cash Flow",
+        "es": "Annual Cash Flow",
+        "ar": "Annual Cash Flow"
+      }
     },
     {
       "id": "maxYears",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "years",
       "default": 50,
-      "businessContext": "Maximum number of years to consider for payback; beyond this, payback is not achieved"
+      "businessContext": "Maximum number of years to consider for payback; beyond this, payback is not achieved",
+      "label_i18n": {
+        "en": "Maximum Evaluation Period",
+        "tr": "Maximum Evaluation Period",
+        "de": "Maximum Evaluation Period",
+        "fr": "Maximum Evaluation Period",
+        "es": "Maximum Evaluation Period",
+        "ar": "Maximum Evaluation Period"
+      }
     }
   ],
   "formulas": {
@@ -52,8 +84,8 @@
       "annualCashFlow"
     ]
   },
-  "category": "Finans & Yatırım",
-  "sector": "Finans & Sigorta",
+  "category": "Proje & Yatırım",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g/mol",
       "default": 12,
-      "businessContext": "Mass of the first isotope in grams per mole"
+      "businessContext": "Mass of the first isotope in grams per mole",
+      "label_i18n": {
+        "en": "Isotope 1 Mass",
+        "tr": "Isotope 1 Mass",
+        "de": "Isotope 1 Mass",
+        "fr": "Isotope 1 Mass",
+        "es": "Isotope 1 Mass",
+        "ar": "Isotope 1 Mass"
+      }
     },
     {
       "id": "isotope2_mass",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g/mol",
       "default": 13.003354835,
-      "businessContext": "Mass of the second isotope in grams per mole"
+      "businessContext": "Mass of the second isotope in grams per mole",
+      "label_i18n": {
+        "en": "Isotope 2 Mass",
+        "tr": "Isotope 2 Mass",
+        "de": "Isotope 2 Mass",
+        "fr": "Isotope 2 Mass",
+        "es": "Isotope 2 Mass",
+        "ar": "Isotope 2 Mass"
+      }
     },
     {
       "id": "abundance1",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 98.93,
-      "businessContext": "Natural abundance percentage of the first isotope"
+      "businessContext": "Natural abundance percentage of the first isotope",
+      "label_i18n": {
+        "en": "Abundance 1",
+        "tr": "Abundance 1",
+        "de": "Abundance 1",
+        "fr": "Abundance 1",
+        "es": "Abundance 1",
+        "ar": "Abundance 1"
+      }
     },
     {
       "id": "abundance2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 1.07,
-      "businessContext": "Natural abundance percentage of the second isotope"
+      "businessContext": "Natural abundance percentage of the second isotope",
+      "label_i18n": {
+        "en": "Abundance 2",
+        "tr": "Abundance 2",
+        "de": "Abundance 2",
+        "fr": "Abundance 2",
+        "es": "Abundance 2",
+        "ar": "Abundance 2"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "isotope2_contribution"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "chemistry-science",
   "sectorSlug": "energy-consumption",

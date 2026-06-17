@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "count",
       "default": 4,
-      "businessContext": "Total graph vertices count"
+      "businessContext": "Total graph vertices count",
+      "label_i18n": {
+        "en": "Number of Vertices (V)",
+        "tr": "Number of Vertices (V)",
+        "de": "Number of Vertices (V)",
+        "fr": "Number of Vertices (V)",
+        "es": "Number of Vertices (V)",
+        "ar": "Number of Vertices (V)"
+      }
     },
     {
       "id": "edges",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "count",
       "default": 6,
-      "businessContext": "Total graph edges count"
+      "businessContext": "Total graph edges count",
+      "label_i18n": {
+        "en": "Number of Edges (E)",
+        "tr": "Number of Edges (E)",
+        "de": "Number of Edges (E)",
+        "fr": "Number of Edges (E)",
+        "es": "Number of Edges (E)",
+        "ar": "Number of Edges (E)"
+      }
     },
     {
       "id": "faces",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "count",
       "default": 4,
-      "businessContext": "Planar graph faces count (including outer face)"
+      "businessContext": "Planar graph faces count (including outer face)",
+      "label_i18n": {
+        "en": "Number of Faces (F)",
+        "tr": "Number of Faces (F)",
+        "de": "Number of Faces (F)",
+        "fr": "Number of Faces (F)",
+        "es": "Number of Faces (F)",
+        "ar": "Number of Faces (F)"
+      }
     },
     {
       "id": "components",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "count",
       "default": 1,
-      "businessContext": "Connected components in the graph"
+      "businessContext": "Connected components in the graph",
+      "label_i18n": {
+        "en": "Number of Components (C)",
+        "tr": "Number of Components (C)",
+        "de": "Number of Components (C)",
+        "fr": "Number of Components (C)",
+        "es": "Number of Components (C)",
+        "ar": "Number of Components (C)"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "maxEdgesPlanar"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

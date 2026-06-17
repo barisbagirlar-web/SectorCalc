@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Theoretical exact X coordinate from drawing"
+      "businessContext": "Theoretical exact X coordinate from drawing",
+      "label_i18n": {
+        "en": "Basic X (Nominal)",
+        "tr": "Basic X (Nominal)",
+        "de": "Basic X (Nominal)",
+        "fr": "Basic X (Nominal)",
+        "es": "Basic X (Nominal)",
+        "ar": "Basic X (Nominal)"
+      }
     },
     {
       "id": "basicY",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Theoretical exact Y coordinate from drawing"
+      "businessContext": "Theoretical exact Y coordinate from drawing",
+      "label_i18n": {
+        "en": "Basic Y (Nominal)",
+        "tr": "Basic Y (Nominal)",
+        "de": "Basic Y (Nominal)",
+        "fr": "Basic Y (Nominal)",
+        "es": "Basic Y (Nominal)",
+        "ar": "Basic Y (Nominal)"
+      }
     },
     {
       "id": "actualX",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Actual measured X coordinate"
+      "businessContext": "Actual measured X coordinate",
+      "label_i18n": {
+        "en": "Measured X",
+        "tr": "Measured X",
+        "de": "Measured X",
+        "fr": "Measured X",
+        "es": "Measured X",
+        "ar": "Measured X"
+      }
     },
     {
       "id": "actualY",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Actual measured Y coordinate"
+      "businessContext": "Actual measured Y coordinate",
+      "label_i18n": {
+        "en": "Measured Y",
+        "tr": "Measured Y",
+        "de": "Measured Y",
+        "fr": "Measured Y",
+        "es": "Measured Y",
+        "ar": "Measured Y"
+      }
     },
     {
       "id": "holeDiaNom",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Nominal diameter of the hole"
+      "businessContext": "Nominal diameter of the hole",
+      "label_i18n": {
+        "en": "Hole Diameter (Nominal)",
+        "tr": "Hole Diameter (Nominal)",
+        "de": "Hole Diameter (Nominal)",
+        "fr": "Hole Diameter (Nominal)",
+        "es": "Hole Diameter (Nominal)",
+        "ar": "Hole Diameter (Nominal)"
+      }
     },
     {
       "id": "holeDiaTolLower",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0.1,
-      "businessContext": "Absolute deviation from nominal to smallest permissible size (e.g., 0.1 for hole at MMC = nominal - 0.1)"
+      "businessContext": "Absolute deviation from nominal to smallest permissible size (e.g., 0.1 for hole at MMC = nominal - 0.1)",
+      "label_i18n": {
+        "en": "Lower Tolerance (MMC)",
+        "tr": "Lower Tolerance (MMC)",
+        "de": "Lower Tolerance (MMC)",
+        "fr": "Lower Tolerance (MMC)",
+        "es": "Lower Tolerance (MMC)",
+        "ar": "Lower Tolerance (MMC)"
+      }
     },
     {
       "id": "holeDiaActual",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "mm",
       "default": 9.95,
-      "businessContext": "Measured diameter of the produced hole"
+      "businessContext": "Measured diameter of the produced hole",
+      "label_i18n": {
+        "en": "Actual Hole Diameter",
+        "tr": "Actual Hole Diameter",
+        "de": "Actual Hole Diameter",
+        "fr": "Actual Hole Diameter",
+        "es": "Actual Hole Diameter",
+        "ar": "Actual Hole Diameter"
+      }
     },
     {
       "id": "positionTol",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0.2,
-      "businessContext": "Position tolerance value from the drawing feature control frame"
+      "businessContext": "Position tolerance value from the drawing feature control frame",
+      "label_i18n": {
+        "en": "Specified Position Tolerance",
+        "tr": "Specified Position Tolerance",
+        "de": "Specified Position Tolerance",
+        "fr": "Specified Position Tolerance",
+        "es": "Specified Position Tolerance",
+        "ar": "Specified Position Tolerance"
+      }
     }
   ],
   "formulas": {
@@ -84,8 +148,8 @@
       "totalTolMsg"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Havacılık & Savunma",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

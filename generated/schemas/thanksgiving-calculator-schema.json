@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "people",
       "default": 4,
-      "businessContext": "Total adult guests"
+      "businessContext": "Total adult guests",
+      "label_i18n": {
+        "en": "Number of Adults",
+        "tr": "Number of Adults",
+        "de": "Number of Adults",
+        "fr": "Number of Adults",
+        "es": "Number of Adults",
+        "ar": "Number of Adults"
+      }
     },
     {
       "id": "children",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "people",
       "default": 2,
-      "businessContext": "Total children (under 12)"
+      "businessContext": "Total children (under 12)",
+      "label_i18n": {
+        "en": "Number of Children",
+        "tr": "Number of Children",
+        "de": "Number of Children",
+        "fr": "Number of Children",
+        "es": "Number of Children",
+        "ar": "Number of Children"
+      }
     },
     {
       "id": "leftoverDays",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "days",
       "default": 1,
-      "businessContext": "Days of leftovers desired"
+      "businessContext": "Days of leftovers desired",
+      "label_i18n": {
+        "en": "Desired Leftover Days",
+        "tr": "Desired Leftover Days",
+        "de": "Desired Leftover Days",
+        "fr": "Desired Leftover Days",
+        "es": "Desired Leftover Days",
+        "ar": "Desired Leftover Days"
+      }
     },
     {
       "id": "adultWeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "lbs",
       "default": 1.5,
-      "businessContext": "Recommended turkey weight per adult"
+      "businessContext": "Recommended turkey weight per adult",
+      "label_i18n": {
+        "en": "Turkey per Adult (lbs)",
+        "tr": "Turkey per Adult (lbs)",
+        "de": "Turkey per Adult (lbs)",
+        "fr": "Turkey per Adult (lbs)",
+        "es": "Turkey per Adult (lbs)",
+        "ar": "Turkey per Adult (lbs)"
+      }
     },
     {
       "id": "childWeight",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "lbs",
       "default": 0.75,
-      "businessContext": "Recommended turkey weight per child"
+      "businessContext": "Recommended turkey weight per child",
+      "label_i18n": {
+        "en": "Turkey per Child (lbs)",
+        "tr": "Turkey per Child (lbs)",
+        "de": "Turkey per Child (lbs)",
+        "fr": "Turkey per Child (lbs)",
+        "es": "Turkey per Child (lbs)",
+        "ar": "Turkey per Child (lbs)"
+      }
     }
   ],
   "formulas": {
@@ -57,8 +97,8 @@
       "estimatedServings"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

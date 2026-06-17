@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "strokes",
       "default": 85,
-      "businessContext": "Your actual strokes for the round, before any adjustments."
+      "businessContext": "Your actual strokes for the round, before any adjustments.",
+      "label_i18n": {
+        "en": "Gross Score",
+        "tr": "Gross Score",
+        "de": "Gross Score",
+        "fr": "Gross Score",
+        "es": "Gross Score",
+        "ar": "Gross Score"
+      }
     },
     {
       "id": "courseRating",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "rating",
       "default": 72,
-      "businessContext": "The USGA Course Rating from the tee you played, typically between 67 and 77."
+      "businessContext": "The USGA Course Rating from the tee you played, typically between 67 and 77.",
+      "label_i18n": {
+        "en": "Course Rating",
+        "tr": "Course Rating",
+        "de": "Course Rating",
+        "fr": "Course Rating",
+        "es": "Course Rating",
+        "ar": "Course Rating"
+      }
     },
     {
       "id": "slopeRating",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "rating",
       "default": 113,
-      "businessContext": "The USGA Slope Rating, indicates relative difficulty for bogey golfers compared to scratch golfers, range 55-155."
+      "businessContext": "The USGA Slope Rating, indicates relative difficulty for bogey golfers compared to scratch golfers, range 55-155.",
+      "label_i18n": {
+        "en": "Slope Rating",
+        "tr": "Slope Rating",
+        "de": "Slope Rating",
+        "fr": "Slope Rating",
+        "es": "Slope Rating",
+        "ar": "Slope Rating"
+      }
     },
     {
       "id": "par",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "strokes",
       "default": 72,
-      "businessContext": "The total par for the course, needed for Course Handicap calculation."
+      "businessContext": "The total par for the course, needed for Course Handicap calculation.",
+      "label_i18n": {
+        "en": "Par",
+        "tr": "Par",
+        "de": "Par",
+        "fr": "Par",
+        "es": "Par",
+        "ar": "Par"
+      }
     },
     {
       "id": "handicapIndex",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "index",
       "default": 0,
-      "businessContext": "Your current Handicap Index, if known, to calculate Course Handicap."
+      "businessContext": "Your current Handicap Index, if known, to calculate Course Handicap.",
+      "label_i18n": {
+        "en": "Handicap Index",
+        "tr": "Handicap Index",
+        "de": "Handicap Index",
+        "fr": "Handicap Index",
+        "es": "Handicap Index",
+        "ar": "Handicap Index"
+      }
     }
   ],
   "formulas": {
@@ -53,8 +93,8 @@
       "courseHandicap"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

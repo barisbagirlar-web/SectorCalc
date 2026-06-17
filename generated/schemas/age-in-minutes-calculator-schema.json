@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 0,
-      "businessContext": "Whole years of age"
+      "businessContext": "Whole years of age",
+      "label_i18n": {
+        "en": "Years",
+        "tr": "Years",
+        "de": "Years",
+        "fr": "Years",
+        "es": "Years",
+        "ar": "Years"
+      }
     },
     {
       "id": "months",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "months",
       "default": 0,
-      "businessContext": "Additional months of age"
+      "businessContext": "Additional months of age",
+      "label_i18n": {
+        "en": "Months",
+        "tr": "Months",
+        "de": "Months",
+        "fr": "Months",
+        "es": "Months",
+        "ar": "Months"
+      }
     },
     {
       "id": "days",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "days",
       "default": 0,
-      "businessContext": "Additional days of age"
+      "businessContext": "Additional days of age",
+      "label_i18n": {
+        "en": "Days",
+        "tr": "Days",
+        "de": "Days",
+        "fr": "Days",
+        "es": "Days",
+        "ar": "Days"
+      }
     },
     {
       "id": "hours",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "hours",
       "default": 0,
-      "businessContext": "Additional hours of age"
+      "businessContext": "Additional hours of age",
+      "label_i18n": {
+        "en": "Hours",
+        "tr": "Hours",
+        "de": "Hours",
+        "fr": "Hours",
+        "es": "Hours",
+        "ar": "Hours"
+      }
     },
     {
       "id": "minutes",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 0,
-      "businessContext": "Additional minutes of age"
+      "businessContext": "Additional minutes of age",
+      "label_i18n": {
+        "en": "Minutes",
+        "tr": "Minutes",
+        "de": "Minutes",
+        "fr": "Minutes",
+        "es": "Minutes",
+        "ar": "Minutes"
+      }
     }
   ],
   "formulas": {
@@ -59,8 +99,8 @@
       "minutes"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "date-time",
   "sectorSlug": "daily-renovation",

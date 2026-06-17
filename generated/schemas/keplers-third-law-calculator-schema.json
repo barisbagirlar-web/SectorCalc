@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 149597870691,
-      "businessContext": "Average distance from the primary body, e.g., 1 AU = 149,597,870,691 m."
+      "businessContext": "Average distance from the primary body, e.g., 1 AU = 149,597,870,691 m.",
+      "label_i18n": {
+        "en": "Semi-major axis",
+        "tr": "Semi-major axis",
+        "de": "Semi-major axis",
+        "fr": "Semi-major axis",
+        "es": "Semi-major axis",
+        "ar": "Semi-major axis"
+      }
     },
     {
       "id": "primaryMass",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1.989e+30,
-      "businessContext": "Mass of the central body, e.g., Sun mass = 1.989 × 10^30 kg."
+      "businessContext": "Mass of the central body, e.g., Sun mass = 1.989 × 10^30 kg.",
+      "label_i18n": {
+        "en": "Mass of primary body",
+        "tr": "Mass of primary body",
+        "de": "Mass of primary body",
+        "fr": "Mass of primary body",
+        "es": "Mass of primary body",
+        "ar": "Mass of primary body"
+      }
     },
     {
       "id": "secondaryMass",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 5.972e+24,
-      "businessContext": "Mass of the orbiting body, e.g., Earth mass = 5.972 × 10^24 kg."
+      "businessContext": "Mass of the orbiting body, e.g., Earth mass = 5.972 × 10^24 kg.",
+      "label_i18n": {
+        "en": "Mass of secondary body",
+        "tr": "Mass of secondary body",
+        "de": "Mass of secondary body",
+        "fr": "Mass of secondary body",
+        "es": "Mass of secondary body",
+        "ar": "Mass of secondary body"
+      }
     },
     {
       "id": "gravitationalConstant",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m^3 kg^-1 s^-2",
       "default": 6.6743e-11,
-      "businessContext": "Universal gravitational constant, standard value 6.67430 × 10^{-11} m^3 kg^{-1} s^{-2}."
+      "businessContext": "Universal gravitational constant, standard value 6.67430 × 10^{-11} m^3 kg^{-1} s^{-2}.",
+      "label_i18n": {
+        "en": "Gravitational constant",
+        "tr": "Gravitational constant",
+        "de": "Gravitational constant",
+        "fr": "Gravitational constant",
+        "es": "Gravitational constant",
+        "ar": "Gravitational constant"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "orbitalPeriodDays"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

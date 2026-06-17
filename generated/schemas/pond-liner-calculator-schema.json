@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "The maximum length of the pond at its longest point."
+      "businessContext": "The maximum length of the pond at its longest point.",
+      "label_i18n": {
+        "en": "Pond Length",
+        "tr": "Pond Length",
+        "de": "Pond Length",
+        "fr": "Pond Length",
+        "es": "Pond Length",
+        "ar": "Pond Length"
+      }
     },
     {
       "id": "pondWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "The maximum width of the pond at its widest point."
+      "businessContext": "The maximum width of the pond at its widest point.",
+      "label_i18n": {
+        "en": "Pond Width",
+        "tr": "Pond Width",
+        "de": "Pond Width",
+        "fr": "Pond Width",
+        "es": "Pond Width",
+        "ar": "Pond Width"
+      }
     },
     {
       "id": "pondDepth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "The average or maximum depth of the pond."
+      "businessContext": "The average or maximum depth of the pond.",
+      "label_i18n": {
+        "en": "Pond Depth",
+        "tr": "Pond Depth",
+        "de": "Pond Depth",
+        "fr": "Pond Depth",
+        "es": "Pond Depth",
+        "ar": "Pond Depth"
+      }
     },
     {
       "id": "overlap",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.5,
-      "businessContext": "Extra material beyond the pond edge for securing the liner (overhang on each side)."
+      "businessContext": "Extra material beyond the pond edge for securing the liner (overhang on each side).",
+      "label_i18n": {
+        "en": "Edge Overlap",
+        "tr": "Edge Overlap",
+        "de": "Edge Overlap",
+        "fr": "Edge Overlap",
+        "es": "Edge Overlap",
+        "ar": "Edge Overlap"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "linerWidth"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",

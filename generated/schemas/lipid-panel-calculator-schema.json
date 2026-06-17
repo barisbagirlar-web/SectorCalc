@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 200,
-      "businessContext": "Total cholesterol level measured in mg/dL."
+      "businessContext": "Total cholesterol level measured in mg/dL.",
+      "label_i18n": {
+        "en": "Total Cholesterol",
+        "tr": "Total Cholesterol",
+        "de": "Total Cholesterol",
+        "fr": "Total Cholesterol",
+        "es": "Total Cholesterol",
+        "ar": "Total Cholesterol"
+      }
     },
     {
       "id": "hdlCholesterol",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 50,
-      "businessContext": "High-density lipoprotein cholesterol."
+      "businessContext": "High-density lipoprotein cholesterol.",
+      "label_i18n": {
+        "en": "HDL Cholesterol",
+        "tr": "HDL Cholesterol",
+        "de": "HDL Cholesterol",
+        "fr": "HDL Cholesterol",
+        "es": "HDL Cholesterol",
+        "ar": "HDL Cholesterol"
+      }
     },
     {
       "id": "triglycerides",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 150,
-      "businessContext": "Triglyceride level; Friedewald formula valid if <400 mg/dL."
+      "businessContext": "Triglyceride level; Friedewald formula valid if <400 mg/dL.",
+      "label_i18n": {
+        "en": "Triglycerides",
+        "tr": "Triglycerides",
+        "de": "Triglycerides",
+        "fr": "Triglycerides",
+        "es": "Triglycerides",
+        "ar": "Triglycerides"
+      }
     },
     {
       "id": "age",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Patient age in years (used for reference, not in calculation)."
+      "businessContext": "Patient age in years (used for reference, not in calculation).",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     }
   ],
   "formulas": {
@@ -50,8 +82,8 @@
       "VLDL"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

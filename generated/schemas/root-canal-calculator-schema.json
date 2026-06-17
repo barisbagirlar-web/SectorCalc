@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0.15,
-      "businessContext": "Kök kanalının apikal bölgesindeki başlangıç çapı, genellikle 0.10-0.30 mm arası."
+      "businessContext": "Kök kanalının apikal bölgesindeki başlangıç çapı, genellikle 0.10-0.30 mm arası.",
+      "label_i18n": {
+        "en": "Apikal Çap (D0)",
+        "tr": "Apikal Çap (D0)",
+        "de": "Apikal Çap (D0)",
+        "fr": "Apikal Çap (D0)",
+        "es": "Apikal Çap (D0)",
+        "ar": "Apikal Çap (D0)"
+      }
     },
     {
       "id": "d16Diameter",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 1,
-      "businessContext": "Aletin 16 mm gerisindeki çapı (standart ISO aletler için tipik 1.0 mm)."
+      "businessContext": "Aletin 16 mm gerisindeki çapı (standart ISO aletler için tipik 1.0 mm).",
+      "label_i18n": {
+        "en": "D16 Çapı",
+        "tr": "D16 Çapı",
+        "de": "D16 Çapı",
+        "fr": "D16 Çapı",
+        "es": "D16 Çapı",
+        "ar": "D16 Çapı"
+      }
     },
     {
       "id": "workingLength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 22,
-      "businessContext": "Referans noktasından apikale kadar olan çalışma uzunluğu."
+      "businessContext": "Referans noktasından apikale kadar olan çalışma uzunluğu.",
+      "label_i18n": {
+        "en": "Çalışma Boyu",
+        "tr": "Çalışma Boyu",
+        "de": "Çalışma Boyu",
+        "fr": "Çalışma Boyu",
+        "es": "Çalışma Boyu",
+        "ar": "Çalışma Boyu"
+      }
     },
     {
       "id": "desiredOrificeDiameter",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 1.2,
-      "businessContext": "İstenen koronal genişlik (orifis çapı)."
+      "businessContext": "İstenen koronal genişlik (orifis çapı).",
+      "label_i18n": {
+        "en": "Hedef Koronal Çap",
+        "tr": "Hedef Koronal Çap",
+        "de": "Hedef Koronal Çap",
+        "fr": "Hedef Koronal Çap",
+        "es": "Hedef Koronal Çap",
+        "ar": "Hedef Koronal Çap"
+      }
     }
   ],
   "formulas": {
@@ -47,8 +79,8 @@
       "canalVolume"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

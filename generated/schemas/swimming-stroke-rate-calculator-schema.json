@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "strokes",
       "default": 20,
-      "businessContext": "Total stroke count during the measured interval."
+      "businessContext": "Total stroke count during the measured interval.",
+      "label_i18n": {
+        "en": "Number of Strokes",
+        "tr": "Number of Strokes",
+        "de": "Number of Strokes",
+        "fr": "Number of Strokes",
+        "es": "Number of Strokes",
+        "ar": "Number of Strokes"
+      }
     },
     {
       "id": "time",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "s",
       "default": 30,
-      "businessContext": "Duration of the measurement in seconds."
+      "businessContext": "Duration of the measurement in seconds.",
+      "label_i18n": {
+        "en": "Time",
+        "tr": "Time",
+        "de": "Time",
+        "fr": "Time",
+        "es": "Time",
+        "ar": "Time"
+      }
     },
     {
       "id": "laps",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "laps",
       "default": 1,
-      "businessContext": "Number of pool lengths completed."
+      "businessContext": "Number of pool lengths completed.",
+      "label_i18n": {
+        "en": "Number of Laps",
+        "tr": "Number of Laps",
+        "de": "Number of Laps",
+        "fr": "Number of Laps",
+        "es": "Number of Laps",
+        "ar": "Number of Laps"
+      }
     },
     {
       "id": "poolLength",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 25,
-      "businessContext": "Standard length of the swimming pool."
+      "businessContext": "Standard length of the swimming pool.",
+      "label_i18n": {
+        "en": "Pool Length",
+        "tr": "Pool Length",
+        "de": "Pool Length",
+        "fr": "Pool Length",
+        "es": "Pool Length",
+        "ar": "Pool Length"
+      }
     }
   ],
   "formulas": {
@@ -54,8 +86,8 @@
       }
     ]
   },
-  "category": "Kalite & Süreç Kontrol",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

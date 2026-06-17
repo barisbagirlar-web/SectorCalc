@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 700,
-      "businessContext": "Bisiklet tekerleğinin dış çapı, lastik dahil (mm)"
+      "businessContext": "Bisiklet tekerleğinin dış çapı, lastik dahil (mm)",
+      "label_i18n": {
+        "en": "Tekerlek Çapı (mm)",
+        "tr": "Tekerlek Çapı (mm)",
+        "de": "Tekerlek Çapı (mm)",
+        "fr": "Tekerlek Çapı (mm)",
+        "es": "Tekerlek Çapı (mm)",
+        "ar": "Tekerlek Çapı (mm)"
+      }
     },
     {
       "id": "cadence",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "rpm",
       "default": 80,
-      "businessContext": "Dakikadaki pedal çevirme sayısı"
+      "businessContext": "Dakikadaki pedal çevirme sayısı",
+      "label_i18n": {
+        "en": "Pedal Devri (rpm)",
+        "tr": "Pedal Devri (rpm)",
+        "de": "Pedal Devri (rpm)",
+        "fr": "Pedal Devri (rpm)",
+        "es": "Pedal Devri (rpm)",
+        "ar": "Pedal Devri (rpm)"
+      }
     },
     {
       "id": "frontTeeth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "diş",
       "default": 50,
-      "businessContext": "Aynakol dişlisi üzerindeki diş sayısı"
+      "businessContext": "Aynakol dişlisi üzerindeki diş sayısı",
+      "label_i18n": {
+        "en": "Ön Dişli Sayısı",
+        "tr": "Ön Dişli Sayısı",
+        "de": "Ön Dişli Sayısı",
+        "fr": "Ön Dişli Sayısı",
+        "es": "Ön Dişli Sayısı",
+        "ar": "Ön Dişli Sayısı"
+      }
     },
     {
       "id": "rearTeeth",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "diş",
       "default": 15,
-      "businessContext": "Rubie dişlisi üzerindeki diş sayısı"
+      "businessContext": "Rubie dişlisi üzerindeki diş sayısı",
+      "label_i18n": {
+        "en": "Arka Dişli Sayısı",
+        "tr": "Arka Dişli Sayısı",
+        "de": "Arka Dişli Sayısı",
+        "fr": "Arka Dişli Sayısı",
+        "es": "Arka Dişli Sayısı",
+        "ar": "Arka Dişli Sayısı"
+      }
     },
     {
       "id": "timeMinutes",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "dk",
       "default": 60,
-      "businessContext": "Toplam sürüş süresi (dakika)"
+      "businessContext": "Toplam sürüş süresi (dakika)",
+      "label_i18n": {
+        "en": "Süre (dk)",
+        "tr": "Süre (dk)",
+        "de": "Süre (dk)",
+        "fr": "Süre (dk)",
+        "es": "Süre (dk)",
+        "ar": "Süre (dk)"
+      }
     }
   ],
   "formulas": {
@@ -54,8 +94,8 @@
       "totalRotations"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

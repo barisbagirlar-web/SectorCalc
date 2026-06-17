@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 299792458,
-      "businessContext": "Fundamental constant"
+      "businessContext": "Fundamental constant",
+      "label_i18n": {
+        "en": "Speed of Light in Vacuum",
+        "tr": "Speed of Light in Vacuum",
+        "de": "Speed of Light in Vacuum",
+        "fr": "Speed of Light in Vacuum",
+        "es": "Speed of Light in Vacuum",
+        "ar": "Speed of Light in Vacuum"
+      }
     },
     {
       "id": "n",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Medium property"
+      "businessContext": "Medium property",
+      "label_i18n": {
+        "en": "Refractive Index",
+        "tr": "Refractive Index",
+        "de": "Refractive Index",
+        "fr": "Refractive Index",
+        "es": "Refractive Index",
+        "ar": "Refractive Index"
+      }
     },
     {
       "id": "f",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 500000000000000,
-      "businessContext": "Wave property"
+      "businessContext": "Wave property",
+      "label_i18n": {
+        "en": "Frequency",
+        "tr": "Frequency",
+        "de": "Frequency",
+        "fr": "Frequency",
+        "es": "Frequency",
+        "ar": "Frequency"
+      }
     },
     {
       "id": "d",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Signal propagation"
+      "businessContext": "Signal propagation",
+      "label_i18n": {
+        "en": "Propagation Distance",
+        "tr": "Propagation Distance",
+        "de": "Propagation Distance",
+        "fr": "Propagation Distance",
+        "es": "Propagation Distance",
+        "ar": "Propagation Distance"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "wavelength_in_medium"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Telekomünikasyon",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",

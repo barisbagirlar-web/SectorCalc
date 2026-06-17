@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "count",
       "default": 0,
-      "businessContext": "Observed frequency for the first row, first column"
+      "businessContext": "Observed frequency for the first row, first column",
+      "label_i18n": {
+        "en": "Cell (1,1) Observed",
+        "tr": "Cell (1,1) Observed",
+        "de": "Cell (1,1) Observed",
+        "fr": "Cell (1,1) Observed",
+        "es": "Cell (1,1) Observed",
+        "ar": "Cell (1,1) Observed"
+      }
     },
     {
       "id": "cell12",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "count",
       "default": 0,
-      "businessContext": "Observed frequency for the first row, second column"
+      "businessContext": "Observed frequency for the first row, second column",
+      "label_i18n": {
+        "en": "Cell (1,2) Observed",
+        "tr": "Cell (1,2) Observed",
+        "de": "Cell (1,2) Observed",
+        "fr": "Cell (1,2) Observed",
+        "es": "Cell (1,2) Observed",
+        "ar": "Cell (1,2) Observed"
+      }
     },
     {
       "id": "cell21",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "count",
       "default": 0,
-      "businessContext": "Observed frequency for the second row, first column"
+      "businessContext": "Observed frequency for the second row, first column",
+      "label_i18n": {
+        "en": "Cell (2,1) Observed",
+        "tr": "Cell (2,1) Observed",
+        "de": "Cell (2,1) Observed",
+        "fr": "Cell (2,1) Observed",
+        "es": "Cell (2,1) Observed",
+        "ar": "Cell (2,1) Observed"
+      }
     },
     {
       "id": "cell22",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "count",
       "default": 0,
-      "businessContext": "Observed frequency for the second row, second column"
+      "businessContext": "Observed frequency for the second row, second column",
+      "label_i18n": {
+        "en": "Cell (2,2) Observed",
+        "tr": "Cell (2,2) Observed",
+        "de": "Cell (2,2) Observed",
+        "fr": "Cell (2,2) Observed",
+        "es": "Cell (2,2) Observed",
+        "ar": "Cell (2,2) Observed"
+      }
     }
   ],
   "formulas": {
@@ -59,8 +91,8 @@
       "chiSq22"
     ]
   },
-  "category": "Diğer",
-  "sector": "Telekomünikasyon",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

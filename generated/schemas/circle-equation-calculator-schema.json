@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "X-coordinate of the circle's center point"
+      "businessContext": "X-coordinate of the circle's center point",
+      "label_i18n": {
+        "en": "Center X-coordinate",
+        "tr": "Center X-coordinate",
+        "de": "Center X-coordinate",
+        "fr": "Center X-coordinate",
+        "es": "Center X-coordinate",
+        "ar": "Center X-coordinate"
+      }
     },
     {
       "id": "centerY",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Y-coordinate of the circle's center point"
+      "businessContext": "Y-coordinate of the circle's center point",
+      "label_i18n": {
+        "en": "Center Y-coordinate",
+        "tr": "Center Y-coordinate",
+        "de": "Center Y-coordinate",
+        "fr": "Center Y-coordinate",
+        "es": "Center Y-coordinate",
+        "ar": "Center Y-coordinate"
+      }
     },
     {
       "id": "pointX",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "unit",
       "default": 1,
-      "businessContext": "X-coordinate of a point lying on the circle"
+      "businessContext": "X-coordinate of a point lying on the circle",
+      "label_i18n": {
+        "en": "Point on Circle X",
+        "tr": "Point on Circle X",
+        "de": "Point on Circle X",
+        "fr": "Point on Circle X",
+        "es": "Point on Circle X",
+        "ar": "Point on Circle X"
+      }
     },
     {
       "id": "pointY",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Y-coordinate of a point lying on the circle"
+      "businessContext": "Y-coordinate of a point lying on the circle",
+      "label_i18n": {
+        "en": "Point on Circle Y",
+        "tr": "Point on Circle Y",
+        "de": "Point on Circle Y",
+        "fr": "Point on Circle Y",
+        "es": "Point on Circle Y",
+        "ar": "Point on Circle Y"
+      }
     }
   ],
   "formulas": {
@@ -52,8 +84,8 @@
       "centerText"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

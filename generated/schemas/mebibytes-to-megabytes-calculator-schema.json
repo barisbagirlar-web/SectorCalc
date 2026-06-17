@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "MiB",
       "default": 1,
-      "businessContext": "Quantity in mebibytes to be converted"
+      "businessContext": "Quantity in mebibytes to be converted",
+      "label_i18n": {
+        "en": "Mebibytes (MiB)",
+        "tr": "Mebibytes (MiB)",
+        "de": "Mebibytes (MiB)",
+        "fr": "Mebibytes (MiB)",
+        "es": "Mebibytes (MiB)",
+        "ar": "Mebibytes (MiB)"
+      }
     },
     {
       "id": "binaryBase",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 20,
-      "businessContext": "Exponent for binary base; standard MiB uses 20"
+      "businessContext": "Exponent for binary base; standard MiB uses 20",
+      "label_i18n": {
+        "en": "Binary Base Exponent (2^n)",
+        "tr": "Binary Base Exponent (2^n)",
+        "de": "Binary Base Exponent (2^n)",
+        "fr": "Binary Base Exponent (2^n)",
+        "es": "Binary Base Exponent (2^n)",
+        "ar": "Binary Base Exponent (2^n)"
+      }
     },
     {
       "id": "metricBase",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 6,
-      "businessContext": "Exponent for metric base; standard MB uses 6"
+      "businessContext": "Exponent for metric base; standard MB uses 6",
+      "label_i18n": {
+        "en": "Metric Base Exponent (10^n)",
+        "tr": "Metric Base Exponent (10^n)",
+        "de": "Metric Base Exponent (10^n)",
+        "fr": "Metric Base Exponent (10^n)",
+        "es": "Metric Base Exponent (10^n)",
+        "ar": "Metric Base Exponent (10^n)"
+      }
     },
     {
       "id": "precision",
@@ -31,13 +55,22 @@
       "type": "number",
       "unit": "decimal places",
       "default": 2,
-      "businessContext": "Number of decimal places to round the result"
+      "businessContext": "Number of decimal places to round the result",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     }
   ],
   "formulas": {
     "factor": "Math.pow(2, binaryBase) / Math.pow(10, metricBase)",
     "megabytes": "mebibytes * factor",
-    "roundedMegabytes": "Math.round(megabytes * Math.pow(10, precision)) / Math.pow(10, precision)"
+    "roundedMegabytes": "Math.round(megabytes * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "2__binaryBase____10__metricBase_____fact": "2^{binaryBase} / 10^{metricBase} = {factor}"
   },
   "outputs": {
     "primary": "factor",
@@ -47,8 +80,8 @@
       "Rounded to {precision} decimal places: {roundedMegabytes} MB"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

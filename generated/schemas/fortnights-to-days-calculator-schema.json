@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "pt",
       "default": 1,
-      "businessContext": "Number of fortnights to convert"
+      "businessContext": "Number of fortnights to convert",
+      "label_i18n": {
+        "en": "Fortnights",
+        "tr": "Fortnights",
+        "de": "Fortnights",
+        "fr": "Fortnights",
+        "es": "Fortnights",
+        "ar": "Fortnights"
+      }
     },
     {
       "id": "daysPerFortnight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "days/fortnight",
       "default": 14,
-      "businessContext": "Conversion factor, standard 14 days per fortnight"
+      "businessContext": "Conversion factor, standard 14 days per fortnight",
+      "label_i18n": {
+        "en": "Days per Fortnight",
+        "tr": "Days per Fortnight",
+        "de": "Days per Fortnight",
+        "fr": "Days per Fortnight",
+        "es": "Days per Fortnight",
+        "ar": "Days per Fortnight"
+      }
     },
     {
       "id": "decimalPlaces",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "places",
       "default": 2,
-      "businessContext": "Number of decimal places for rounded output"
+      "businessContext": "Number of decimal places for rounded output",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "batchSize",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "items",
       "default": 1,
-      "businessContext": "Multiplier for bulk conversions (e.g., number of projects)"
+      "businessContext": "Multiplier for bulk conversions (e.g., number of projects)",
+      "label_i18n": {
+        "en": "Batch Size",
+        "tr": "Batch Size",
+        "de": "Batch Size",
+        "fr": "Batch Size",
+        "es": "Batch Size",
+        "ar": "Batch Size"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "batchTotal"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

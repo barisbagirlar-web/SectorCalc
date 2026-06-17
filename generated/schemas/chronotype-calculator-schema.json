@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "hour",
       "default": 23,
-      "businessContext": "Typical bedtime on workdays, in decimal hours (e.g., 23.5 = 11:30 PM)"
+      "businessContext": "Typical bedtime on workdays, in decimal hours (e.g., 23.5 = 11:30 PM)",
+      "label_i18n": {
+        "en": "Workday Bedtime",
+        "tr": "Workday Bedtime",
+        "de": "Workday Bedtime",
+        "fr": "Workday Bedtime",
+        "es": "Workday Bedtime",
+        "ar": "Workday Bedtime"
+      }
     },
     {
       "id": "workdayWaketime",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hour",
       "default": 7,
-      "businessContext": "Typical wake time on workdays, in decimal hours (e.g., 7.0 = 7:00 AM)"
+      "businessContext": "Typical wake time on workdays, in decimal hours (e.g., 7.0 = 7:00 AM)",
+      "label_i18n": {
+        "en": "Workday Wake Time",
+        "tr": "Workday Wake Time",
+        "de": "Workday Wake Time",
+        "fr": "Workday Wake Time",
+        "es": "Workday Wake Time",
+        "ar": "Workday Wake Time"
+      }
     },
     {
       "id": "freeDayBedtime",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "hour",
       "default": 0,
-      "businessContext": "Typical bedtime on free days, in decimal hours (e.g., 0 = midnight, 1.5 = 1:30 AM)"
+      "businessContext": "Typical bedtime on free days, in decimal hours (e.g., 0 = midnight, 1.5 = 1:30 AM)",
+      "label_i18n": {
+        "en": "Free Day Bedtime",
+        "tr": "Free Day Bedtime",
+        "de": "Free Day Bedtime",
+        "fr": "Free Day Bedtime",
+        "es": "Free Day Bedtime",
+        "ar": "Free Day Bedtime"
+      }
     },
     {
       "id": "freeDayWaketime",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "hour",
       "default": 8,
-      "businessContext": "Typical wake time on free days, in decimal hours (e.g., 8 = 8:00 AM)"
+      "businessContext": "Typical wake time on free days, in decimal hours (e.g., 8 = 8:00 AM)",
+      "label_i18n": {
+        "en": "Free Day Wake Time",
+        "tr": "Free Day Wake Time",
+        "de": "Free Day Wake Time",
+        "fr": "Free Day Wake Time",
+        "es": "Free Day Wake Time",
+        "ar": "Free Day Wake Time"
+      }
     }
   ],
   "formulas": {
@@ -50,8 +82,8 @@
       "freeDaySleep"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

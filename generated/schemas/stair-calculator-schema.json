@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 280,
-      "businessContext": "floor-to-floor height"
+      "businessContext": "floor-to-floor height",
+      "label_i18n": {
+        "en": "Total Rise",
+        "tr": "Total Rise",
+        "de": "Total Rise",
+        "fr": "Total Rise",
+        "es": "Total Rise",
+        "ar": "Total Rise"
+      }
     },
     {
       "id": "numberOfRisers",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "count",
       "default": 15,
-      "businessContext": "desired number of steps (risers)"
+      "businessContext": "desired number of steps (risers)",
+      "label_i18n": {
+        "en": "Number of Risers",
+        "tr": "Number of Risers",
+        "de": "Number of Risers",
+        "fr": "Number of Risers",
+        "es": "Number of Risers",
+        "ar": "Number of Risers"
+      }
     },
     {
       "id": "treadDepth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 28,
-      "businessContext": "horizontal depth of each tread"
+      "businessContext": "horizontal depth of each tread",
+      "label_i18n": {
+        "en": "Tread Depth",
+        "tr": "Tread Depth",
+        "de": "Tread Depth",
+        "fr": "Tread Depth",
+        "es": "Tread Depth",
+        "ar": "Tread Depth"
+      }
     },
     {
       "id": "stairWidth",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cm",
       "default": 100,
-      "businessContext": "width of the staircase"
+      "businessContext": "width of the staircase",
+      "label_i18n": {
+        "en": "Stair Width",
+        "tr": "Stair Width",
+        "de": "Stair Width",
+        "fr": "Stair Width",
+        "es": "Stair Width",
+        "ar": "Stair Width"
+      }
     }
   ],
   "formulas": {
@@ -50,8 +82,8 @@
       "stairAngle"
     ]
   },
-  "category": "Diğer",
-  "sector": "İnşaat & Yapı",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "points",
       "default": 10,
-      "businessContext": "Ability score for melee attacks and carrying capacity."
+      "businessContext": "Ability score for melee attacks and carrying capacity.",
+      "label_i18n": {
+        "en": "Strength Score",
+        "tr": "Strength Score",
+        "de": "Strength Score",
+        "fr": "Strength Score",
+        "es": "Strength Score",
+        "ar": "Strength Score"
+      }
     },
     {
       "id": "dexterity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "points",
       "default": 10,
-      "businessContext": "Ability score for ranged attacks and armor class."
+      "businessContext": "Ability score for ranged attacks and armor class.",
+      "label_i18n": {
+        "en": "Dexterity Score",
+        "tr": "Dexterity Score",
+        "de": "Dexterity Score",
+        "fr": "Dexterity Score",
+        "es": "Dexterity Score",
+        "ar": "Dexterity Score"
+      }
     },
     {
       "id": "constitution",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "points",
       "default": 10,
-      "businessContext": "Ability score for hit points and concentration."
+      "businessContext": "Ability score for hit points and concentration.",
+      "label_i18n": {
+        "en": "Constitution Score",
+        "tr": "Constitution Score",
+        "de": "Constitution Score",
+        "fr": "Constitution Score",
+        "es": "Constitution Score",
+        "ar": "Constitution Score"
+      }
     },
     {
       "id": "intelligence",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "points",
       "default": 10,
-      "businessContext": "Ability score for spellcasting and knowledge skills."
+      "businessContext": "Ability score for spellcasting and knowledge skills.",
+      "label_i18n": {
+        "en": "Intelligence Score",
+        "tr": "Intelligence Score",
+        "de": "Intelligence Score",
+        "fr": "Intelligence Score",
+        "es": "Intelligence Score",
+        "ar": "Intelligence Score"
+      }
     },
     {
       "id": "wisdom",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "points",
       "default": 10,
-      "businessContext": "Ability score for perception and insight."
+      "businessContext": "Ability score for perception and insight.",
+      "label_i18n": {
+        "en": "Wisdom Score",
+        "tr": "Wisdom Score",
+        "de": "Wisdom Score",
+        "fr": "Wisdom Score",
+        "es": "Wisdom Score",
+        "ar": "Wisdom Score"
+      }
     },
     {
       "id": "charisma",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "points",
       "default": 10,
-      "businessContext": "Ability score for social interactions and spellcasting."
+      "businessContext": "Ability score for social interactions and spellcasting.",
+      "label_i18n": {
+        "en": "Charisma Score",
+        "tr": "Charisma Score",
+        "de": "Charisma Score",
+        "fr": "Charisma Score",
+        "es": "Charisma Score",
+        "ar": "Charisma Score"
+      }
     },
     {
       "id": "proficiency_bonus",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "points",
       "default": 2,
-      "businessContext": "Bonus added to proficient skills and attacks."
+      "businessContext": "Bonus added to proficient skills and attacks.",
+      "label_i18n": {
+        "en": "Proficiency Bonus",
+        "tr": "Proficiency Bonus",
+        "de": "Proficiency Bonus",
+        "fr": "Proficiency Bonus",
+        "es": "Proficiency Bonus",
+        "ar": "Proficiency Bonus"
+      }
     },
     {
       "id": "level",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "level",
       "default": 1,
-      "businessContext": "Determines proficiency bonus and class features."
+      "businessContext": "Determines proficiency bonus and class features.",
+      "label_i18n": {
+        "en": "Character Level",
+        "tr": "Character Level",
+        "de": "Character Level",
+        "fr": "Character Level",
+        "es": "Character Level",
+        "ar": "Character Level"
+      }
     }
   ],
   "formulas": {
@@ -84,8 +148,8 @@
       "hit_points"
     ]
   },
-  "category": "Diğer",
-  "sector": "Metal & Sac İşleme",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

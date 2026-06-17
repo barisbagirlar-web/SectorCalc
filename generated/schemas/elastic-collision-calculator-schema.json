@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "Mass of the first object"
+      "businessContext": "Mass of the first object",
+      "label_i18n": {
+        "en": "Mass 1",
+        "tr": "Mass 1",
+        "de": "Mass 1",
+        "fr": "Mass 1",
+        "es": "Mass 1",
+        "ar": "Mass 1"
+      }
     },
     {
       "id": "m2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "Mass of the second object"
+      "businessContext": "Mass of the second object",
+      "label_i18n": {
+        "en": "Mass 2",
+        "tr": "Mass 2",
+        "de": "Mass 2",
+        "fr": "Mass 2",
+        "es": "Mass 2",
+        "ar": "Mass 2"
+      }
     },
     {
       "id": "v1i",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 10,
-      "businessContext": "Initial velocity of the first object"
+      "businessContext": "Initial velocity of the first object",
+      "label_i18n": {
+        "en": "Initial Velocity 1",
+        "tr": "Initial Velocity 1",
+        "de": "Initial Velocity 1",
+        "fr": "Initial Velocity 1",
+        "es": "Initial Velocity 1",
+        "ar": "Initial Velocity 1"
+      }
     },
     {
       "id": "v2i",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 0,
-      "businessContext": "Initial velocity of the second object"
+      "businessContext": "Initial velocity of the second object",
+      "label_i18n": {
+        "en": "Initial Velocity 2",
+        "tr": "Initial Velocity 2",
+        "de": "Initial Velocity 2",
+        "fr": "Initial Velocity 2",
+        "es": "Initial Velocity 2",
+        "ar": "Initial Velocity 2"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "KE_after"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

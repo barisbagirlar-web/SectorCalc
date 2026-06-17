@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "AH",
       "default": 1445,
-      "businessContext": "Islamic lunar calendar year (Hijri)"
+      "businessContext": "Islamic lunar calendar year (Hijri)",
+      "label_i18n": {
+        "en": "Hijri Year",
+        "tr": "Hijri Year",
+        "de": "Hijri Year",
+        "fr": "Hijri Year",
+        "es": "Hijri Year",
+        "ar": "Hijri Year"
+      }
     },
     {
       "id": "hijri_month",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "month",
       "default": 1,
-      "businessContext": "Month number (1-12)"
+      "businessContext": "Month number (1-12)",
+      "label_i18n": {
+        "en": "Hijri Month",
+        "tr": "Hijri Month",
+        "de": "Hijri Month",
+        "fr": "Hijri Month",
+        "es": "Hijri Month",
+        "ar": "Hijri Month"
+      }
     },
     {
       "id": "hijri_day",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "day",
       "default": 1,
-      "businessContext": "Day of the month"
+      "businessContext": "Day of the month",
+      "label_i18n": {
+        "en": "Hijri Day",
+        "tr": "Hijri Day",
+        "de": "Hijri Day",
+        "fr": "Hijri Day",
+        "es": "Hijri Day",
+        "ar": "Hijri Day"
+      }
     },
     {
       "id": "jd_epoch",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "days",
       "default": 1948439.5,
-      "businessContext": "Julian Day Number of 1 Muharram 1 AH (16 July 622 CE Julian)"
+      "businessContext": "Julian Day Number of 1 Muharram 1 AH (16 July 622 CE Julian)",
+      "label_i18n": {
+        "en": "Epoch (Julian Day)",
+        "tr": "Epoch (Julian Day)",
+        "de": "Epoch (Julian Day)",
+        "fr": "Epoch (Julian Day)",
+        "es": "Epoch (Julian Day)",
+        "ar": "Epoch (Julian Day)"
+      }
     }
   ],
   "formulas": {
@@ -44,8 +76,8 @@
       "days_from_epoch"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

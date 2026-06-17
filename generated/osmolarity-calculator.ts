@@ -19,6 +19,8 @@ function evaluateAllFormulas(input: Osmolarity_calculatorInput): Record<string, 
   const results: Record<string, number> = {};
   try { const v = 2 * input.sodium + input.glucose / 18 + input.bun / 2.8; results["calculatedOsmolarity"] = Number.isFinite(v) ? v : 0; } catch { results["calculatedOsmolarity"] = 0; }
   try { const v = input.measuredOsmolarity - (2 * input.sodium + input.glucose / 18 + input.bun / 2.8); results["osmolarGap"] = Number.isFinite(v) ? v : 0; } catch { results["osmolarGap"] = 0; }
+  results["Serum_Ozmolaritesi__mOsm_L____2___Na___G"] = 0;
+  results["Ozmolal_Gap____l__len_Ozmolarite___Hesap"] = 0;
   return results;
 }
 

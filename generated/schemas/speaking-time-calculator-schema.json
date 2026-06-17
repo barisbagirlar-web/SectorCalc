@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "words",
       "default": 1000,
-      "businessContext": "Number of words in the speech or text to be spoken."
+      "businessContext": "Number of words in the speech or text to be spoken.",
+      "label_i18n": {
+        "en": "Total Words",
+        "tr": "Total Words",
+        "de": "Total Words",
+        "fr": "Total Words",
+        "es": "Total Words",
+        "ar": "Total Words"
+      }
     },
     {
       "id": "slowWPM",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "words/min",
       "default": 120,
-      "businessContext": "Speaking rate for a slow-paced delivery."
+      "businessContext": "Speaking rate for a slow-paced delivery.",
+      "label_i18n": {
+        "en": "Slow Speaking Rate",
+        "tr": "Slow Speaking Rate",
+        "de": "Slow Speaking Rate",
+        "fr": "Slow Speaking Rate",
+        "es": "Slow Speaking Rate",
+        "ar": "Slow Speaking Rate"
+      }
     },
     {
       "id": "normalWPM",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "words/min",
       "default": 150,
-      "businessContext": "Average or normal speaking rate."
+      "businessContext": "Average or normal speaking rate.",
+      "label_i18n": {
+        "en": "Normal Speaking Rate",
+        "tr": "Normal Speaking Rate",
+        "de": "Normal Speaking Rate",
+        "fr": "Normal Speaking Rate",
+        "es": "Normal Speaking Rate",
+        "ar": "Normal Speaking Rate"
+      }
     },
     {
       "id": "fastWPM",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "words/min",
       "default": 180,
-      "businessContext": "Speaking rate for a fast-paced delivery."
+      "businessContext": "Speaking rate for a fast-paced delivery.",
+      "label_i18n": {
+        "en": "Fast Speaking Rate",
+        "tr": "Fast Speaking Rate",
+        "de": "Fast Speaking Rate",
+        "fr": "Fast Speaking Rate",
+        "es": "Fast Speaking Rate",
+        "ar": "Fast Speaking Rate"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "fastTime"
     ]
   },
-  "category": "Lojistik & Rota",
-  "sector": "Lojistik & Depolama",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",

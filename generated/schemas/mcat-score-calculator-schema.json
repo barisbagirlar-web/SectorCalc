@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "correct answers",
       "default": 30,
-      "businessContext": "Chemical and Physical Foundations of Biological Systems bölümünde doğru cevap sayısı (0-59)"
+      "businessContext": "Chemical and Physical Foundations of Biological Systems bölümünde doğru cevap sayısı (0-59)",
+      "label_i18n": {
+        "en": "CPBS Doğru Sayısı",
+        "tr": "CPBS Doğru Sayısı",
+        "de": "CPBS Doğru Sayısı",
+        "fr": "CPBS Doğru Sayısı",
+        "es": "CPBS Doğru Sayısı",
+        "ar": "CPBS Doğru Sayısı"
+      }
     },
     {
       "id": "raw-cars",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "correct answers",
       "default": 27,
-      "businessContext": "Critical Analysis and Reasoning Skills bölümünde doğru cevap sayısı (0-53)"
+      "businessContext": "Critical Analysis and Reasoning Skills bölümünde doğru cevap sayısı (0-53)",
+      "label_i18n": {
+        "en": "CARS Doğru Sayısı",
+        "tr": "CARS Doğru Sayısı",
+        "de": "CARS Doğru Sayısı",
+        "fr": "CARS Doğru Sayısı",
+        "es": "CARS Doğru Sayısı",
+        "ar": "CARS Doğru Sayısı"
+      }
     },
     {
       "id": "raw-bbls",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "correct answers",
       "default": 30,
-      "businessContext": "Biological and Biochemical Foundations of Living Systems bölümünde doğru cevap sayısı (0-59)"
+      "businessContext": "Biological and Biochemical Foundations of Living Systems bölümünde doğru cevap sayısı (0-59)",
+      "label_i18n": {
+        "en": "BBLS Doğru Sayısı",
+        "tr": "BBLS Doğru Sayısı",
+        "de": "BBLS Doğru Sayısı",
+        "fr": "BBLS Doğru Sayısı",
+        "es": "BBLS Doğru Sayısı",
+        "ar": "BBLS Doğru Sayısı"
+      }
     },
     {
       "id": "raw-psbb",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "correct answers",
       "default": 30,
-      "businessContext": "Psychological, Social, and Biological Foundations of Behavior bölümünde doğru cevap sayısı (0-59)"
+      "businessContext": "Psychological, Social, and Biological Foundations of Behavior bölümünde doğru cevap sayısı (0-59)",
+      "label_i18n": {
+        "en": "PSBB Doğru Sayısı",
+        "tr": "PSBB Doğru Sayısı",
+        "de": "PSBB Doğru Sayısı",
+        "fr": "PSBB Doğru Sayısı",
+        "es": "PSBB Doğru Sayısı",
+        "ar": "PSBB Doğru Sayısı"
+      }
     }
   ],
   "formulas": {
@@ -50,8 +82,8 @@
       "scaledPSBB"
     ]
   },
-  "category": "Diğer",
-  "sector": "Kimya & İlaç",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",

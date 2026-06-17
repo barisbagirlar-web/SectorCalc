@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 200,
-      "businessContext": "Total cholesterol measured from blood test (mg/dL)"
+      "businessContext": "Total cholesterol measured from blood test (mg/dL)",
+      "label_i18n": {
+        "en": "Total Cholesterol",
+        "tr": "Total Cholesterol",
+        "de": "Total Cholesterol",
+        "fr": "Total Cholesterol",
+        "es": "Total Cholesterol",
+        "ar": "Total Cholesterol"
+      }
     },
     {
       "id": "hdlCholesterol",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 50,
-      "businessContext": "High-density lipoprotein cholesterol (mg/dL)"
+      "businessContext": "High-density lipoprotein cholesterol (mg/dL)",
+      "label_i18n": {
+        "en": "HDL Cholesterol",
+        "tr": "HDL Cholesterol",
+        "de": "HDL Cholesterol",
+        "fr": "HDL Cholesterol",
+        "es": "HDL Cholesterol",
+        "ar": "HDL Cholesterol"
+      }
     },
     {
       "id": "triglycerides",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 150,
-      "businessContext": "Triglycerides level from blood test (mg/dL)"
+      "businessContext": "Triglycerides level from blood test (mg/dL)",
+      "label_i18n": {
+        "en": "Triglycerides",
+        "tr": "Triglycerides",
+        "de": "Triglycerides",
+        "fr": "Triglycerides",
+        "es": "Triglycerides",
+        "ar": "Triglycerides"
+      }
     },
     {
       "id": "ldlCholesterol",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": null,
-      "businessContext": "Low-density lipoprotein cholesterol, if known; otherwise computed from other values"
+      "businessContext": "Low-density lipoprotein cholesterol, if known; otherwise computed from other values",
+      "label_i18n": {
+        "en": "LDL Cholesterol (optional)",
+        "tr": "LDL Cholesterol (optional)",
+        "de": "LDL Cholesterol (optional)",
+        "fr": "LDL Cholesterol (optional)",
+        "es": "LDL Cholesterol (optional)",
+        "ar": "LDL Cholesterol (optional)"
+      }
     }
   ],
   "formulas": {
@@ -47,8 +79,8 @@
       "nonHDL"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

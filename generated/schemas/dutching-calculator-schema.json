@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 100,
-      "businessContext": "The total amount to bet across all selections."
+      "businessContext": "The total amount to bet across all selections.",
+      "label_i18n": {
+        "en": "Total Stake",
+        "tr": "Total Stake",
+        "de": "Total Stake",
+        "fr": "Total Stake",
+        "es": "Total Stake",
+        "ar": "Total Stake"
+      }
     },
     {
       "id": "oddsA",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "decimal",
       "default": 2,
-      "businessContext": "Decimal odds for the first selection."
+      "businessContext": "Decimal odds for the first selection.",
+      "label_i18n": {
+        "en": "Odds Selection A",
+        "tr": "Odds Selection A",
+        "de": "Odds Selection A",
+        "fr": "Odds Selection A",
+        "es": "Odds Selection A",
+        "ar": "Odds Selection A"
+      }
     },
     {
       "id": "oddsB",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "decimal",
       "default": 2,
-      "businessContext": "Decimal odds for the second selection."
+      "businessContext": "Decimal odds for the second selection.",
+      "label_i18n": {
+        "en": "Odds Selection B",
+        "tr": "Odds Selection B",
+        "de": "Odds Selection B",
+        "fr": "Odds Selection B",
+        "es": "Odds Selection B",
+        "ar": "Odds Selection B"
+      }
     },
     {
       "id": "oddsC",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "decimal",
       "default": 2,
-      "businessContext": "Decimal odds for the third selection."
+      "businessContext": "Decimal odds for the third selection.",
+      "label_i18n": {
+        "en": "Odds Selection C",
+        "tr": "Odds Selection C",
+        "de": "Odds Selection C",
+        "fr": "Odds Selection C",
+        "es": "Odds Selection C",
+        "ar": "Odds Selection C"
+      }
     },
     {
       "id": "oddsD",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "decimal",
       "default": 2,
-      "businessContext": "Decimal odds for the fourth selection."
+      "businessContext": "Decimal odds for the fourth selection.",
+      "label_i18n": {
+        "en": "Odds Selection D",
+        "tr": "Odds Selection D",
+        "de": "Odds Selection D",
+        "fr": "Odds Selection D",
+        "es": "Odds Selection D",
+        "ar": "Odds Selection D"
+      }
     }
   ],
   "formulas": {
@@ -58,8 +98,8 @@
       "stakeD"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 1000,
-      "businessContext": "Cost or time required to produce the first unit (in any currency or hour unit). Serves as basis for learning curve calculation."
+      "businessContext": "Cost or time required to produce the first unit (in any currency or hour unit). Serves as basis for learning curve calculation.",
+      "label_i18n": {
+        "en": "First Unit Cost",
+        "tr": "First Unit Cost",
+        "de": "First Unit Cost",
+        "fr": "First Unit Cost",
+        "es": "First Unit Cost",
+        "ar": "First Unit Cost"
+      }
     },
     {
       "id": "learningRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "The percentage of cost retained when cumulative output doubles. Typical values range from 70% to 100% (no learning)."
+      "businessContext": "The percentage of cost retained when cumulative output doubles. Typical values range from 70% to 100% (no learning).",
+      "label_i18n": {
+        "en": "Learning Rate",
+        "tr": "Learning Rate",
+        "de": "Learning Rate",
+        "fr": "Learning Rate",
+        "es": "Learning Rate",
+        "ar": "Learning Rate"
+      }
     },
     {
       "id": "unitNumber",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "units",
       "default": 100,
-      "businessContext": "The cumulative unit number for which the individual cost is estimated."
+      "businessContext": "The cumulative unit number for which the individual cost is estimated.",
+      "label_i18n": {
+        "en": "Unit Number",
+        "tr": "Unit Number",
+        "de": "Unit Number",
+        "fr": "Unit Number",
+        "es": "Unit Number",
+        "ar": "Unit Number"
+      }
     },
     {
       "id": "batchSize",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "units",
       "default": 1000,
-      "businessContext": "Total number of units in the production batch for total cost calculation."
+      "businessContext": "Total number of units in the production batch for total cost calculation.",
+      "label_i18n": {
+        "en": "Batch Size",
+        "tr": "Batch Size",
+        "de": "Batch Size",
+        "fr": "Batch Size",
+        "es": "Batch Size",
+        "ar": "Batch Size"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "totalBatchCost"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Maliyet & Bütçeleme",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

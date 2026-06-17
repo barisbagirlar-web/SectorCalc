@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 1000,
-      "businessContext": "Direnç değeri, ohm cinsinden."
+      "businessContext": "Direnç değeri, ohm cinsinden.",
+      "label_i18n": {
+        "en": "Direnç (R)",
+        "tr": "Direnç (R)",
+        "de": "Direnç (R)",
+        "fr": "Direnç (R)",
+        "es": "Direnç (R)",
+        "ar": "Direnç (R)"
+      }
     },
     {
       "id": "C",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "F",
       "default": 0.000001,
-      "businessContext": "Kapasite değeri, farad cinsinden."
+      "businessContext": "Kapasite değeri, farad cinsinden.",
+      "label_i18n": {
+        "en": "Kapasite (C)",
+        "tr": "Kapasite (C)",
+        "de": "Kapasite (C)",
+        "fr": "Kapasite (C)",
+        "es": "Kapasite (C)",
+        "ar": "Kapasite (C)"
+      }
     },
     {
       "id": "V0",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "V",
       "default": 5,
-      "businessContext": "Uygulanan gerilim değeri, volt cinsinden."
+      "businessContext": "Uygulanan gerilim değeri, volt cinsinden.",
+      "label_i18n": {
+        "en": "Uygulanan Gerilim (V₀)",
+        "tr": "Uygulanan Gerilim (V₀)",
+        "de": "Uygulanan Gerilim (V₀)",
+        "fr": "Uygulanan Gerilim (V₀)",
+        "es": "Uygulanan Gerilim (V₀)",
+        "ar": "Uygulanan Gerilim (V₀)"
+      }
     },
     {
       "id": "t",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "s",
       "default": 0.001,
-      "businessContext": "Geçen zaman, saniye cinsinden."
+      "businessContext": "Geçen zaman, saniye cinsinden.",
+      "label_i18n": {
+        "en": "Zaman (t)",
+        "tr": "Zaman (t)",
+        "de": "Zaman (t)",
+        "fr": "Zaman (t)",
+        "es": "Zaman (t)",
+        "ar": "Zaman (t)"
+      }
     }
   ],
   "formulas": {
@@ -44,8 +76,8 @@
       "Vc"
     ]
   },
-  "category": "Diğer",
-  "sector": "İnşaat & Yapı",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

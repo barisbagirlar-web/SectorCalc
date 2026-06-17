@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°C",
       "default": 25,
-      "businessContext": "Ambient air temperature measured by a standard thermometer."
+      "businessContext": "Ambient air temperature measured by a standard thermometer.",
+      "label_i18n": {
+        "en": "Dry Bulb Temperature",
+        "tr": "Dry Bulb Temperature",
+        "de": "Dry Bulb Temperature",
+        "fr": "Dry Bulb Temperature",
+        "es": "Dry Bulb Temperature",
+        "ar": "Dry Bulb Temperature"
+      }
     },
     {
       "id": "relativeHumidity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "Percentage of water vapor in the air relative to saturation."
+      "businessContext": "Percentage of water vapor in the air relative to saturation.",
+      "label_i18n": {
+        "en": "Relative Humidity",
+        "tr": "Relative Humidity",
+        "de": "Relative Humidity",
+        "fr": "Relative Humidity",
+        "es": "Relative Humidity",
+        "ar": "Relative Humidity"
+      }
     },
     {
       "id": "atmosphericPressure",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kPa",
       "default": 101.325,
-      "businessContext": "Standard sea-level atmospheric pressure."
+      "businessContext": "Standard sea-level atmospheric pressure.",
+      "label_i18n": {
+        "en": "Atmospheric Pressure",
+        "tr": "Atmospheric Pressure",
+        "de": "Atmospheric Pressure",
+        "fr": "Atmospheric Pressure",
+        "es": "Atmospheric Pressure",
+        "ar": "Atmospheric Pressure"
+      }
     }
   ],
   "formulas": {
@@ -44,8 +68,8 @@
       "dewPoint"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",

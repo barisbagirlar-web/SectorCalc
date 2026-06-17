@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "İntegrasyonun başlangıç noktası"
+      "businessContext": "İntegrasyonun başlangıç noktası",
+      "label_i18n": {
+        "en": "Alt Sınır (a)",
+        "tr": "Alt Sınır (a)",
+        "de": "Alt Sınır (a)",
+        "fr": "Alt Sınır (a)",
+        "es": "Alt Sınır (a)",
+        "ar": "Alt Sınır (a)"
+      }
     },
     {
       "id": "upperLimit",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 4,
-      "businessContext": "İntegrasyonun bitiş noktası"
+      "businessContext": "İntegrasyonun bitiş noktası",
+      "label_i18n": {
+        "en": "Üst Sınır (b)",
+        "tr": "Üst Sınır (b)",
+        "de": "Üst Sınır (b)",
+        "fr": "Üst Sınır (b)",
+        "es": "Üst Sınır (b)",
+        "ar": "Üst Sınır (b)"
+      }
     },
     {
       "id": "y0",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "f(a) fonksiyon değeri"
+      "businessContext": "f(a) fonksiyon değeri",
+      "label_i18n": {
+        "en": "y₀ (a noktasındaki değer)",
+        "tr": "y₀ (a noktasındaki değer)",
+        "de": "y₀ (a noktasındaki değer)",
+        "fr": "y₀ (a noktasındaki değer)",
+        "es": "y₀ (a noktasındaki değer)",
+        "ar": "y₀ (a noktasındaki değer)"
+      }
     },
     {
       "id": "y1",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "f(a+h) fonksiyon değeri"
+      "businessContext": "f(a+h) fonksiyon değeri",
+      "label_i18n": {
+        "en": "y₁ (a+h noktasındaki değer)",
+        "tr": "y₁ (a+h noktasındaki değer)",
+        "de": "y₁ (a+h noktasındaki değer)",
+        "fr": "y₁ (a+h noktasındaki değer)",
+        "es": "y₁ (a+h noktasındaki değer)",
+        "ar": "y₁ (a+h noktasındaki değer)"
+      }
     },
     {
       "id": "y2",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "f(a+2h) fonksiyon değeri"
+      "businessContext": "f(a+2h) fonksiyon değeri",
+      "label_i18n": {
+        "en": "y₂ (a+2h noktasındaki değer)",
+        "tr": "y₂ (a+2h noktasındaki değer)",
+        "de": "y₂ (a+2h noktasındaki değer)",
+        "fr": "y₂ (a+2h noktasındaki değer)",
+        "es": "y₂ (a+2h noktasındaki değer)",
+        "ar": "y₂ (a+2h noktasındaki değer)"
+      }
     },
     {
       "id": "y3",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "f(a+3h) fonksiyon değeri"
+      "businessContext": "f(a+3h) fonksiyon değeri",
+      "label_i18n": {
+        "en": "y₃ (a+3h noktasındaki değer)",
+        "tr": "y₃ (a+3h noktasındaki değer)",
+        "de": "y₃ (a+3h noktasındaki değer)",
+        "fr": "y₃ (a+3h noktasındaki değer)",
+        "es": "y₃ (a+3h noktasındaki değer)",
+        "ar": "y₃ (a+3h noktasındaki değer)"
+      }
     },
     {
       "id": "y4",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "f(b) fonksiyon değeri"
+      "businessContext": "f(b) fonksiyon değeri",
+      "label_i18n": {
+        "en": "y₄ (b noktasındaki değer)",
+        "tr": "y₄ (b noktasındaki değer)",
+        "de": "y₄ (b noktasındaki değer)",
+        "fr": "y₄ (b noktasındaki değer)",
+        "es": "y₄ (b noktasındaki değer)",
+        "ar": "y₄ (b noktasındaki değer)"
+      }
     }
   ],
   "formulas": {
@@ -65,12 +121,12 @@
   "outputs": {
     "primary": "integral",
     "breakdown": [
-      "Aralık h = (b - a) / 4",
-      "İntegral ≈ (h/3) × (y₀ + 4y₁ + 2y₂ + 4y₃ + y₄)"
+      "h",
+      "integral"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

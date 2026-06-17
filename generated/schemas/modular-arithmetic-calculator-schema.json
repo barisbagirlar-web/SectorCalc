@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 7,
-      "businessContext": "The modulus for arithmetic operations, must be a positive integer."
+      "businessContext": "The modulus for arithmetic operations, must be a positive integer.",
+      "label_i18n": {
+        "en": "Modulus (m)",
+        "tr": "Modulus (m)",
+        "de": "Modulus (m)",
+        "fr": "Modulus (m)",
+        "es": "Modulus (m)",
+        "ar": "Modulus (m)"
+      }
     },
     {
       "id": "a",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 5,
-      "businessContext": "First operand."
+      "businessContext": "First operand.",
+      "label_i18n": {
+        "en": "Number a",
+        "tr": "Number a",
+        "de": "Number a",
+        "fr": "Number a",
+        "es": "Number a",
+        "ar": "Number a"
+      }
     },
     {
       "id": "b",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 3,
-      "businessContext": "Second operand, used in addition, subtraction, multiplication."
+      "businessContext": "Second operand, used in addition, subtraction, multiplication.",
+      "label_i18n": {
+        "en": "Number b",
+        "tr": "Number b",
+        "de": "Number b",
+        "fr": "Number b",
+        "es": "Number b",
+        "ar": "Number b"
+      }
     },
     {
       "id": "exponent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 2,
-      "businessContext": "Exponent for modular exponentiation (a^exponent mod m)."
+      "businessContext": "Exponent for modular exponentiation (a^exponent mod m).",
+      "label_i18n": {
+        "en": "Exponent",
+        "tr": "Exponent",
+        "de": "Exponent",
+        "fr": "Exponent",
+        "es": "Exponent",
+        "ar": "Exponent"
+      }
     }
   ],
   "formulas": {
@@ -49,8 +81,8 @@
       "power"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 100,
-      "businessContext": "Count of words in the document"
+      "businessContext": "Count of words in the document",
+      "label_i18n": {
+        "en": "Total Words",
+        "tr": "Total Words",
+        "de": "Total Words",
+        "fr": "Total Words",
+        "es": "Total Words",
+        "ar": "Total Words"
+      }
     },
     {
       "id": "totalSentences",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 10,
-      "businessContext": "Count of sentences"
+      "businessContext": "Count of sentences",
+      "label_i18n": {
+        "en": "Total Sentences",
+        "tr": "Total Sentences",
+        "de": "Total Sentences",
+        "fr": "Total Sentences",
+        "es": "Total Sentences",
+        "ar": "Total Sentences"
+      }
     },
     {
       "id": "totalSyllables",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "adet",
       "default": 150,
-      "businessContext": "Count of syllables"
+      "businessContext": "Count of syllables",
+      "label_i18n": {
+        "en": "Total Syllables",
+        "tr": "Total Syllables",
+        "de": "Total Syllables",
+        "fr": "Total Syllables",
+        "es": "Total Syllables",
+        "ar": "Total Syllables"
+      }
     },
     {
       "id": "complexWords",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "adet",
       "default": 20,
-      "businessContext": "Number of words with 3 or more syllables"
+      "businessContext": "Number of words with 3 or more syllables",
+      "label_i18n": {
+        "en": "Complex Words (≥3 syllables)",
+        "tr": "Complex Words (≥3 syllables)",
+        "de": "Complex Words (≥3 syllables)",
+        "fr": "Complex Words (≥3 syllables)",
+        "es": "Complex Words (≥3 syllables)",
+        "ar": "Complex Words (≥3 syllables)"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "percentComplexWords"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

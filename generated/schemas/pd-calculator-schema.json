@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.1,
-      "businessContext": "Borunun iç çapı (metre)"
+      "businessContext": "Borunun iç çapı (metre)",
+      "label_i18n": {
+        "en": "Boru Çapı",
+        "tr": "Boru Çapı",
+        "de": "Boru Çapı",
+        "fr": "Boru Çapı",
+        "es": "Boru Çapı",
+        "ar": "Boru Çapı"
+      }
     },
     {
       "id": "length",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 100,
-      "businessContext": "Borunun toplam uzunluğu (metre)"
+      "businessContext": "Borunun toplam uzunluğu (metre)",
+      "label_i18n": {
+        "en": "Boru Uzunluğu",
+        "tr": "Boru Uzunluğu",
+        "de": "Boru Uzunluğu",
+        "fr": "Boru Uzunluğu",
+        "es": "Boru Uzunluğu",
+        "ar": "Boru Uzunluğu"
+      }
     },
     {
       "id": "flowRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m3/s",
       "default": 0.01,
-      "businessContext": "Hacimsel akış debisi (metreküp/saniye)"
+      "businessContext": "Hacimsel akış debisi (metreküp/saniye)",
+      "label_i18n": {
+        "en": "Debi",
+        "tr": "Debi",
+        "de": "Debi",
+        "fr": "Debi",
+        "es": "Debi",
+        "ar": "Debi"
+      }
     },
     {
       "id": "density",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg/m3",
       "default": 998.2,
-      "businessContext": "Akışkanın kütle yoğunluğu (kg/m³) [Su için ~998]"
+      "businessContext": "Akışkanın kütle yoğunluğu (kg/m³) [Su için ~998]",
+      "label_i18n": {
+        "en": "Akışkan Yoğunluğu",
+        "tr": "Akışkan Yoğunluğu",
+        "de": "Akışkan Yoğunluğu",
+        "fr": "Akışkan Yoğunluğu",
+        "es": "Akışkan Yoğunluğu",
+        "ar": "Akışkan Yoğunluğu"
+      }
     },
     {
       "id": "viscosity",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "Pa·s",
       "default": 0.001002,
-      "businessContext": "Akışkanın dinamik viskozitesi (Pa·s) [Su için ~0.001]"
+      "businessContext": "Akışkanın dinamik viskozitesi (Pa·s) [Su için ~0.001]",
+      "label_i18n": {
+        "en": "Dinamik Viskozite",
+        "tr": "Dinamik Viskozite",
+        "de": "Dinamik Viskozite",
+        "fr": "Dinamik Viskozite",
+        "es": "Dinamik Viskozite",
+        "ar": "Dinamik Viskozite"
+      }
     },
     {
       "id": "roughness",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.000046,
-      "businessContext": "Boru iç yüzeyi mutlak pürüzlülüğü (m) [Çelik için ~4.6e-5]"
+      "businessContext": "Boru iç yüzeyi mutlak pürüzlülüğü (m) [Çelik için ~4.6e-5]",
+      "label_i18n": {
+        "en": "Yüzey Pürüzlülüğü",
+        "tr": "Yüzey Pürüzlülüğü",
+        "de": "Yüzey Pürüzlülüğü",
+        "fr": "Yüzey Pürüzlülüğü",
+        "es": "Yüzey Pürüzlülüğü",
+        "ar": "Yüzey Pürüzlülüğü"
+      }
     }
   ],
   "formulas": {
@@ -66,8 +114,8 @@
       "frictionFactor"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Akışkanlar & Termodinamik",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

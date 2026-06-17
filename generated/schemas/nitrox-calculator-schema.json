@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "%",
       "default": 32,
-      "businessContext": "Solunan nitroks gazındaki oksijen yüzdesi. Genellikle %21-40 arasındadır."
+      "businessContext": "Solunan nitroks gazındaki oksijen yüzdesi. Genellikle %21-40 arasındadır.",
+      "label_i18n": {
+        "en": "Oksijen Yüzdesi (FO2)",
+        "tr": "Oksijen Yüzdesi (FO2)",
+        "de": "Oksijen Yüzdesi (FO2)",
+        "fr": "Oksijen Yüzdesi (FO2)",
+        "es": "Oksijen Yüzdesi (FO2)",
+        "ar": "Oksijen Yüzdesi (FO2)"
+      }
     },
     {
       "id": "po2_work",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "bar",
       "default": 1.4,
-      "businessContext": "Çalışma safhasında maksimum kısmi oksijen basıncı. Standart olarak 1.4 bar."
+      "businessContext": "Çalışma safhasında maksimum kısmi oksijen basıncı. Standart olarak 1.4 bar.",
+      "label_i18n": {
+        "en": "Çalışma PO2",
+        "tr": "Çalışma PO2",
+        "de": "Çalışma PO2",
+        "fr": "Çalışma PO2",
+        "es": "Çalışma PO2",
+        "ar": "Çalışma PO2"
+      }
     },
     {
       "id": "po2_deco",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "bar",
       "default": 1.6,
-      "businessContext": "Dekompresyon duraklarında izin verilen maksimum kısmi oksijen basıncı. Genellikle 1.6 bar."
+      "businessContext": "Dekompresyon duraklarında izin verilen maksimum kısmi oksijen basıncı. Genellikle 1.6 bar.",
+      "label_i18n": {
+        "en": "Dekompresyon PO2",
+        "tr": "Dekompresyon PO2",
+        "de": "Dekompresyon PO2",
+        "fr": "Dekompresyon PO2",
+        "es": "Dekompresyon PO2",
+        "ar": "Dekompresyon PO2"
+      }
     },
     {
       "id": "depth",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 30,
-      "businessContext": "Eşdeğer hava derinliği (EAD) hesaplaması için gerçek dalış derinliği."
+      "businessContext": "Eşdeğer hava derinliği (EAD) hesaplaması için gerçek dalış derinliği.",
+      "label_i18n": {
+        "en": "Gerçek Derinlik",
+        "tr": "Gerçek Derinlik",
+        "de": "Gerçek Derinlik",
+        "fr": "Gerçek Derinlik",
+        "es": "Gerçek Derinlik",
+        "ar": "Gerçek Derinlik"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "ead"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

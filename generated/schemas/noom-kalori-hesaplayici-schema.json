@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Kullanıcının vücut ağırlığı (kg)"
+      "businessContext": "Kullanıcının vücut ağırlığı (kg)",
+      "label_i18n": {
+        "en": "Kilo",
+        "tr": "Kilo",
+        "de": "Kilo",
+        "fr": "Kilo",
+        "es": "Kilo",
+        "ar": "Kilo"
+      }
     },
     {
       "id": "height",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Kullanıcının boy uzunluğu (cm)"
+      "businessContext": "Kullanıcının boy uzunluğu (cm)",
+      "label_i18n": {
+        "en": "Boy",
+        "tr": "Boy",
+        "de": "Boy",
+        "fr": "Boy",
+        "es": "Boy",
+        "ar": "Boy"
+      }
     },
     {
       "id": "age",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 30,
-      "businessContext": "Kullanıcının yaşı (yıl)"
+      "businessContext": "Kullanıcının yaşı (yıl)",
+      "label_i18n": {
+        "en": "Yaş",
+        "tr": "Yaş",
+        "de": "Yaş",
+        "fr": "Yaş",
+        "es": "Yaş",
+        "ar": "Yaş"
+      }
     },
     {
       "id": "gender",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "0: Erkek, 1: Kadın",
       "default": 0,
-      "businessContext": "Cinsiyet seçimi: 0 = Erkek, 1 = Kadın"
+      "businessContext": "Cinsiyet seçimi: 0 = Erkek, 1 = Kadın",
+      "label_i18n": {
+        "en": "Cinsiyet",
+        "tr": "Cinsiyet",
+        "de": "Cinsiyet",
+        "fr": "Cinsiyet",
+        "es": "Cinsiyet",
+        "ar": "Cinsiyet"
+      }
     },
     {
       "id": "activityLevel",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "çarpan",
       "default": 1.2,
-      "businessContext": "Fiziksel aktivite çarpanı: 1.2 (sedanter), 1.375 (hafif), 1.55 (orta), 1.725 (yoğun), 1.9 (çok yoğun)"
+      "businessContext": "Fiziksel aktivite çarpanı: 1.2 (sedanter), 1.375 (hafif), 1.55 (orta), 1.725 (yoğun), 1.9 (çok yoğun)",
+      "label_i18n": {
+        "en": "Aktivite Seviyesi",
+        "tr": "Aktivite Seviyesi",
+        "de": "Aktivite Seviyesi",
+        "fr": "Aktivite Seviyesi",
+        "es": "Aktivite Seviyesi",
+        "ar": "Aktivite Seviyesi"
+      }
     }
   ],
   "formulas": {
@@ -61,8 +101,8 @@
       }
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "categorySlug": "technology-ai-cloud-cyber",
   "catalogCategory": "everyday-life",

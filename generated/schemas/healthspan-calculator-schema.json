@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "The individual's current age."
+      "businessContext": "The individual's current age.",
+      "label_i18n": {
+        "en": "Current Age",
+        "tr": "Current Age",
+        "de": "Current Age",
+        "fr": "Current Age",
+        "es": "Current Age",
+        "ar": "Current Age"
+      }
     },
     {
       "id": "smokingYears",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "years",
       "default": 0,
-      "businessContext": "Number of years the individual has smoked."
+      "businessContext": "Number of years the individual has smoked.",
+      "label_i18n": {
+        "en": "Smoking Years",
+        "tr": "Smoking Years",
+        "de": "Smoking Years",
+        "fr": "Smoking Years",
+        "es": "Smoking Years",
+        "ar": "Smoking Years"
+      }
     },
     {
       "id": "bmi",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg/m²",
       "default": 25,
-      "businessContext": "Body Mass Index."
+      "businessContext": "Body Mass Index.",
+      "label_i18n": {
+        "en": "BMI",
+        "tr": "BMI",
+        "de": "BMI",
+        "fr": "BMI",
+        "es": "BMI",
+        "ar": "BMI"
+      }
     },
     {
       "id": "exerciseHoursPerWeek",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "hours",
       "default": 3,
-      "businessContext": "Number of hours spent exercising per week."
+      "businessContext": "Number of hours spent exercising per week.",
+      "label_i18n": {
+        "en": "Exercise Hours per Week",
+        "tr": "Exercise Hours per Week",
+        "de": "Exercise Hours per Week",
+        "fr": "Exercise Hours per Week",
+        "es": "Exercise Hours per Week",
+        "ar": "Exercise Hours per Week"
+      }
     },
     {
       "id": "dietQualityScore",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "score (0-100)",
       "default": 70,
-      "businessContext": "A score between 0 and 100 indicating diet quality."
+      "businessContext": "A score between 0 and 100 indicating diet quality.",
+      "label_i18n": {
+        "en": "Diet Quality Score",
+        "tr": "Diet Quality Score",
+        "de": "Diet Quality Score",
+        "fr": "Diet Quality Score",
+        "es": "Diet Quality Score",
+        "ar": "Diet Quality Score"
+      }
     },
     {
       "id": "alcoholUnitsPerWeek",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "units",
       "default": 2,
-      "businessContext": "Number of alcohol units consumed per week."
+      "businessContext": "Number of alcohol units consumed per week.",
+      "label_i18n": {
+        "en": "Alcohol Units per Week",
+        "tr": "Alcohol Units per Week",
+        "de": "Alcohol Units per Week",
+        "fr": "Alcohol Units per Week",
+        "es": "Alcohol Units per Week",
+        "ar": "Alcohol Units per Week"
+      }
     }
   ],
   "formulas": {
@@ -70,8 +118,8 @@
       "alcoholLoss"
     ]
   },
-  "category": "Kalite & Süreç Kontrol",
-  "sector": "Sağlık & Medikal",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 90,
-      "businessContext": "Bel çevresi ölçüsü santimetre cinsinden"
+      "businessContext": "Bel çevresi ölçüsü santimetre cinsinden",
+      "label_i18n": {
+        "en": "Bel Çevresi (cm)",
+        "tr": "Bel Çevresi (cm)",
+        "de": "Bel Çevresi (cm)",
+        "fr": "Bel Çevresi (cm)",
+        "es": "Bel Çevresi (cm)",
+        "ar": "Bel Çevresi (cm)"
+      }
     },
     {
       "id": "height_cm",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Boy uzunluğu santimetre cinsinden"
+      "businessContext": "Boy uzunluğu santimetre cinsinden",
+      "label_i18n": {
+        "en": "Boy (cm)",
+        "tr": "Boy (cm)",
+        "de": "Boy (cm)",
+        "fr": "Boy (cm)",
+        "es": "Boy (cm)",
+        "ar": "Boy (cm)"
+      }
     },
     {
       "id": "waist_in",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "in",
       "default": 35.43,
-      "businessContext": "Bel çevresi ölçüsü inç cinsinden"
+      "businessContext": "Bel çevresi ölçüsü inç cinsinden",
+      "label_i18n": {
+        "en": "Bel Çevresi (in)",
+        "tr": "Bel Çevresi (in)",
+        "de": "Bel Çevresi (in)",
+        "fr": "Bel Çevresi (in)",
+        "es": "Bel Çevresi (in)",
+        "ar": "Bel Çevresi (in)"
+      }
     },
     {
       "id": "height_in",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "in",
       "default": 66.93,
-      "businessContext": "Boy uzunluğu inç cinsinden"
+      "businessContext": "Boy uzunluğu inç cinsinden",
+      "label_i18n": {
+        "en": "Boy (in)",
+        "tr": "Boy (in)",
+        "de": "Boy (in)",
+        "fr": "Boy (in)",
+        "es": "Boy (in)",
+        "ar": "Boy (in)"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "heightUsedCm"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

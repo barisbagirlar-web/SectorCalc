@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "atm",
       "default": 1,
-      "businessContext": "Pressure of the gas at the initial state"
+      "businessContext": "Pressure of the gas at the initial state",
+      "label_i18n": {
+        "en": "Initial Pressure",
+        "tr": "Initial Pressure",
+        "de": "Initial Pressure",
+        "fr": "Initial Pressure",
+        "es": "Initial Pressure",
+        "ar": "Initial Pressure"
+      }
     },
     {
       "id": "V1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "L",
       "default": 1,
-      "businessContext": "Volume of the gas at the initial state"
+      "businessContext": "Volume of the gas at the initial state",
+      "label_i18n": {
+        "en": "Initial Volume",
+        "tr": "Initial Volume",
+        "de": "Initial Volume",
+        "fr": "Initial Volume",
+        "es": "Initial Volume",
+        "ar": "Initial Volume"
+      }
     },
     {
       "id": "T1",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "K",
       "default": 273.15,
-      "businessContext": "Absolute temperature of the gas at the initial state"
+      "businessContext": "Absolute temperature of the gas at the initial state",
+      "label_i18n": {
+        "en": "Initial Temperature",
+        "tr": "Initial Temperature",
+        "de": "Initial Temperature",
+        "fr": "Initial Temperature",
+        "es": "Initial Temperature",
+        "ar": "Initial Temperature"
+      }
     },
     {
       "id": "V2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "L",
       "default": 1,
-      "businessContext": "Volume of the gas at the final state"
+      "businessContext": "Volume of the gas at the final state",
+      "label_i18n": {
+        "en": "Final Volume",
+        "tr": "Final Volume",
+        "de": "Final Volume",
+        "fr": "Final Volume",
+        "es": "Final Volume",
+        "ar": "Final Volume"
+      }
     },
     {
       "id": "T2",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "K",
       "default": 273.15,
-      "businessContext": "Absolute temperature of the gas at the final state"
+      "businessContext": "Absolute temperature of the gas at the final state",
+      "label_i18n": {
+        "en": "Final Temperature",
+        "tr": "Final Temperature",
+        "de": "Final Temperature",
+        "fr": "Final Temperature",
+        "es": "Final Temperature",
+        "ar": "Final Temperature"
+      }
     }
   ],
   "formulas": {
@@ -52,8 +92,8 @@
       "constantK"
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

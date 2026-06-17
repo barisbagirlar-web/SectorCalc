@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mIU/mL",
       "default": 100,
-      "businessContext": "Current HCG concentration in blood or urine sample"
+      "businessContext": "Current HCG concentration in blood or urine sample",
+      "label_i18n": {
+        "en": "HCG Level (mIU/mL)",
+        "tr": "HCG Level (mIU/mL)",
+        "de": "HCG Level (mIU/mL)",
+        "fr": "HCG Level (mIU/mL)",
+        "es": "HCG Level (mIU/mL)",
+        "ar": "HCG Level (mIU/mL)"
+      }
     },
     {
       "id": "doubling_time_hours",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hours",
       "default": 48,
-      "businessContext": "Expected time for HCG level to double in early pregnancy"
+      "businessContext": "Expected time for HCG level to double in early pregnancy",
+      "label_i18n": {
+        "en": "Doubling Time (hours)",
+        "tr": "Doubling Time (hours)",
+        "de": "Doubling Time (hours)",
+        "fr": "Doubling Time (hours)",
+        "es": "Doubling Time (hours)",
+        "ar": "Doubling Time (hours)"
+      }
     },
     {
       "id": "time_elapsed_hours",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "hours",
       "default": 24,
-      "businessContext": "Time interval since the last measurement"
+      "businessContext": "Time interval since the last measurement",
+      "label_i18n": {
+        "en": "Time Elapsed (hours)",
+        "tr": "Time Elapsed (hours)",
+        "de": "Time Elapsed (hours)",
+        "fr": "Time Elapsed (hours)",
+        "es": "Time Elapsed (hours)",
+        "ar": "Time Elapsed (hours)"
+      }
     },
     {
       "id": "initial_hcg",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mIU/mL",
       "default": 50,
-      "businessContext": "Previous HCG measurement for comparison"
+      "businessContext": "Previous HCG measurement for comparison",
+      "label_i18n": {
+        "en": "Initial HCG Level (mIU/mL)",
+        "tr": "Initial HCG Level (mIU/mL)",
+        "de": "Initial HCG Level (mIU/mL)",
+        "fr": "Initial HCG Level (mIU/mL)",
+        "es": "Initial HCG Level (mIU/mL)",
+        "ar": "Initial HCG Level (mIU/mL)"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "percent_increase"
     ]
   },
-  "category": "Kalite & Süreç Kontrol",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

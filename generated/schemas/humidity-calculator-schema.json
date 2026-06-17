@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°C",
       "default": 25,
-      "businessContext": "Dry bulb temperature in Celsius"
+      "businessContext": "Dry bulb temperature in Celsius",
+      "label_i18n": {
+        "en": "Sıcaklık (°C)",
+        "tr": "Sıcaklık (°C)",
+        "de": "Sıcaklık (°C)",
+        "fr": "Sıcaklık (°C)",
+        "es": "Sıcaklık (°C)",
+        "ar": "Sıcaklık (°C)"
+      }
     },
     {
       "id": "relativeHumidity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 60,
-      "businessContext": "Relative humidity percentage"
+      "businessContext": "Relative humidity percentage",
+      "label_i18n": {
+        "en": "Bağıl Nem (%)",
+        "tr": "Bağıl Nem (%)",
+        "de": "Bağıl Nem (%)",
+        "fr": "Bağıl Nem (%)",
+        "es": "Bağıl Nem (%)",
+        "ar": "Bağıl Nem (%)"
+      }
     },
     {
       "id": "pressure",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "hPa",
       "default": 1013.25,
-      "businessContext": "Actual atmospheric pressure in hPa"
+      "businessContext": "Actual atmospheric pressure in hPa",
+      "label_i18n": {
+        "en": "Atmosfer Basıncı (hPa)",
+        "tr": "Atmosfer Basıncı (hPa)",
+        "de": "Atmosfer Basıncı (hPa)",
+        "fr": "Atmosfer Basıncı (hPa)",
+        "es": "Atmosfer Basıncı (hPa)",
+        "ar": "Atmosfer Basıncı (hPa)"
+      }
     },
     {
       "id": "altitude",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Altitude above sea level in meters (for pressure estimation if pressure not available)"
+      "businessContext": "Altitude above sea level in meters (for pressure estimation if pressure not available)",
+      "label_i18n": {
+        "en": "Rakım (m)",
+        "tr": "Rakım (m)",
+        "de": "Rakım (m)",
+        "fr": "Rakım (m)",
+        "es": "Rakım (m)",
+        "ar": "Rakım (m)"
+      }
     }
   ],
   "formulas": {
@@ -50,8 +82,8 @@
       "mixingRatio"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",

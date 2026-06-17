@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "unitless",
       "default": 0.1,
-      "businessContext": "Maximum difference between empirical cumulative distribution functions"
+      "businessContext": "Maximum difference between empirical cumulative distribution functions",
+      "label_i18n": {
+        "en": "Test Statistic D",
+        "tr": "Test Statistic D",
+        "de": "Test Statistic D",
+        "fr": "Test Statistic D",
+        "es": "Test Statistic D",
+        "ar": "Test Statistic D"
+      }
     },
     {
       "id": "n1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "samples",
       "default": 30,
-      "businessContext": "Number of observations in first sample"
+      "businessContext": "Number of observations in first sample",
+      "label_i18n": {
+        "en": "Sample Size 1",
+        "tr": "Sample Size 1",
+        "de": "Sample Size 1",
+        "fr": "Sample Size 1",
+        "es": "Sample Size 1",
+        "ar": "Sample Size 1"
+      }
     },
     {
       "id": "n2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "samples",
       "default": 30,
-      "businessContext": "Number of observations in second sample"
+      "businessContext": "Number of observations in second sample",
+      "label_i18n": {
+        "en": "Sample Size 2",
+        "tr": "Sample Size 2",
+        "de": "Sample Size 2",
+        "fr": "Sample Size 2",
+        "es": "Sample Size 2",
+        "ar": "Sample Size 2"
+      }
     },
     {
       "id": "alpha",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "probability",
       "default": 0.05,
-      "businessContext": "Type I error probability threshold"
+      "businessContext": "Type I error probability threshold",
+      "label_i18n": {
+        "en": "Significance Level",
+        "tr": "Significance Level",
+        "de": "Significance Level",
+        "fr": "Significance Level",
+        "es": "Significance Level",
+        "ar": "Significance Level"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "decision"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

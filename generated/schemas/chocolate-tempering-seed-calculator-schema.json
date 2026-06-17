@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "Mass of melted chocolate to be tempered."
+      "businessContext": "Mass of melted chocolate to be tempered.",
+      "label_i18n": {
+        "en": "Melted Chocolate Mass",
+        "tr": "Melted Chocolate Mass",
+        "de": "Melted Chocolate Mass",
+        "fr": "Melted Chocolate Mass",
+        "es": "Melted Chocolate Mass",
+        "ar": "Melted Chocolate Mass"
+      }
     },
     {
       "id": "meltedTemp",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°C",
       "default": 45,
-      "businessContext": "Temperature of the chocolate after melting."
+      "businessContext": "Temperature of the chocolate after melting.",
+      "label_i18n": {
+        "en": "Melted Chocolate Temperature",
+        "tr": "Melted Chocolate Temperature",
+        "de": "Melted Chocolate Temperature",
+        "fr": "Melted Chocolate Temperature",
+        "es": "Melted Chocolate Temperature",
+        "ar": "Melted Chocolate Temperature"
+      }
     },
     {
       "id": "targetTemp",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 31,
-      "businessContext": "Desired working temperature for tempered chocolate."
+      "businessContext": "Desired working temperature for tempered chocolate.",
+      "label_i18n": {
+        "en": "Target Working Temperature",
+        "tr": "Target Working Temperature",
+        "de": "Target Working Temperature",
+        "fr": "Target Working Temperature",
+        "es": "Target Working Temperature",
+        "ar": "Target Working Temperature"
+      }
     },
     {
       "id": "seedTemp",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Temperature of the seed chocolate (room temperature)."
+      "businessContext": "Temperature of the seed chocolate (room temperature).",
+      "label_i18n": {
+        "en": "Seed Chocolate Temperature",
+        "tr": "Seed Chocolate Temperature",
+        "de": "Seed Chocolate Temperature",
+        "fr": "Seed Chocolate Temperature",
+        "es": "Seed Chocolate Temperature",
+        "ar": "Seed Chocolate Temperature"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       }
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

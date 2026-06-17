@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 2800,
-      "businessContext": "The total vertical height between finished floor levels."
+      "businessContext": "The total vertical height between finished floor levels.",
+      "label_i18n": {
+        "en": "Total Rise (Floor-to-Floor Height)",
+        "tr": "Total Rise (Floor-to-Floor Height)",
+        "de": "Total Rise (Floor-to-Floor Height)",
+        "fr": "Total Rise (Floor-to-Floor Height)",
+        "es": "Total Rise (Floor-to-Floor Height)",
+        "ar": "Total Rise (Floor-to-Floor Height)"
+      }
     },
     {
       "id": "totalRun",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 3500,
-      "businessContext": "The total horizontal distance available for the staircase."
+      "businessContext": "The total horizontal distance available for the staircase.",
+      "label_i18n": {
+        "en": "Total Run Available",
+        "tr": "Total Run Available",
+        "de": "Total Run Available",
+        "fr": "Total Run Available",
+        "es": "Total Run Available",
+        "ar": "Total Run Available"
+      }
     },
     {
       "id": "maxRiserHeight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 190,
-      "businessContext": "The maximum allowed riser height as per local building regulations."
+      "businessContext": "The maximum allowed riser height as per local building regulations.",
+      "label_i18n": {
+        "en": "Maximum Riser Height (Code)",
+        "tr": "Maximum Riser Height (Code)",
+        "de": "Maximum Riser Height (Code)",
+        "fr": "Maximum Riser Height (Code)",
+        "es": "Maximum Riser Height (Code)",
+        "ar": "Maximum Riser Height (Code)"
+      }
     },
     {
       "id": "minTreadDepth",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 250,
-      "businessContext": "The minimum required tread depth (going) as per local building regulations."
+      "businessContext": "The minimum required tread depth (going) as per local building regulations.",
+      "label_i18n": {
+        "en": "Minimum Tread Depth (Code)",
+        "tr": "Minimum Tread Depth (Code)",
+        "de": "Minimum Tread Depth (Code)",
+        "fr": "Minimum Tread Depth (Code)",
+        "es": "Minimum Tread Depth (Code)",
+        "ar": "Minimum Tread Depth (Code)"
+      }
     },
     {
       "id": "desiredRise",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm",
       "default": 175,
-      "businessContext": "The preferred riser height for comfort, typically between 150-190 mm."
+      "businessContext": "The preferred riser height for comfort, typically between 150-190 mm.",
+      "label_i18n": {
+        "en": "Desired Riser Height",
+        "tr": "Desired Riser Height",
+        "de": "Desired Riser Height",
+        "fr": "Desired Riser Height",
+        "es": "Desired Riser Height",
+        "ar": "Desired Riser Height"
+      }
     },
     {
       "id": "nosing",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "mm",
       "default": 25,
-      "businessContext": "The distance the tread extends beyond the riser face. Used for precise tread dimensioning."
+      "businessContext": "The distance the tread extends beyond the riser face. Used for precise tread dimensioning.",
+      "label_i18n": {
+        "en": "Nosing Overhang",
+        "tr": "Nosing Overhang",
+        "de": "Nosing Overhang",
+        "fr": "Nosing Overhang",
+        "es": "Nosing Overhang",
+        "ar": "Nosing Overhang"
+      }
     }
   ],
   "formulas": {
@@ -71,8 +119,8 @@
       "breakdown_4"
     ]
   },
-  "category": "Diğer",
-  "sector": "İnşaat & Yapı",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",

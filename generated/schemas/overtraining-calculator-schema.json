@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "saat",
       "default": 2,
-      "businessContext": "Operatörün ortalama günlük eğitim süresi."
+      "businessContext": "Operatörün ortalama günlük eğitim süresi.",
+      "label_i18n": {
+        "en": "Günlük Eğitim Saati",
+        "tr": "Günlük Eğitim Saati",
+        "de": "Günlük Eğitim Saati",
+        "fr": "Günlük Eğitim Saati",
+        "es": "Günlük Eğitim Saati",
+        "ar": "Günlük Eğitim Saati"
+      }
     },
     {
       "id": "trainingDays",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "gün",
       "default": 5,
-      "businessContext": "Bir haftada eğitim yapılan gün sayısı."
+      "businessContext": "Bir haftada eğitim yapılan gün sayısı.",
+      "label_i18n": {
+        "en": "Haftalık Eğitim Günü",
+        "tr": "Haftalık Eğitim Günü",
+        "de": "Haftalık Eğitim Günü",
+        "fr": "Haftalık Eğitim Günü",
+        "es": "Haftalık Eğitim Günü",
+        "ar": "Haftalık Eğitim Günü"
+      }
     },
     {
       "id": "recoveryFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "puan (1-10)",
       "default": 7,
-      "businessContext": "Uyku, beslenme ve dinlenme kalitesini yansıtan 1-10 arası puan."
+      "businessContext": "Uyku, beslenme ve dinlenme kalitesini yansıtan 1-10 arası puan.",
+      "label_i18n": {
+        "en": "Dinlenme Faktörü",
+        "tr": "Dinlenme Faktörü",
+        "de": "Dinlenme Faktörü",
+        "fr": "Dinlenme Faktörü",
+        "es": "Dinlenme Faktörü",
+        "ar": "Dinlenme Faktörü"
+      }
     },
     {
       "id": "experience",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 2,
-      "businessContext": "Operatörün ilgili görevdeki toplam deneyim süresi."
+      "businessContext": "Operatörün ilgili görevdeki toplam deneyim süresi.",
+      "label_i18n": {
+        "en": "Deneyim (yıl)",
+        "tr": "Deneyim (yıl)",
+        "de": "Deneyim (yıl)",
+        "fr": "Deneyim (yıl)",
+        "es": "Deneyim (yıl)",
+        "ar": "Deneyim (yıl)"
+      }
     },
     {
       "id": "taskComplexity",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "seviye (1-5)",
       "default": 3,
-      "businessContext": "Yapılan işin zorluk ve karmaşıklık derecesi (1: basit, 5: çok karmaşık)."
+      "businessContext": "Yapılan işin zorluk ve karmaşıklık derecesi (1: basit, 5: çok karmaşık).",
+      "label_i18n": {
+        "en": "İş Karmaşıklığı",
+        "tr": "İş Karmaşıklığı",
+        "de": "İş Karmaşıklığı",
+        "fr": "İş Karmaşıklığı",
+        "es": "İş Karmaşıklığı",
+        "ar": "İş Karmaşıklığı"
+      }
     }
   ],
   "formulas": {
@@ -56,8 +96,8 @@
       "scoreInterpretation"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "Weight of material at the start of the drying process"
+      "businessContext": "Weight of material at the start of the drying process",
+      "label_i18n": {
+        "en": "Initial Weight",
+        "tr": "Initial Weight",
+        "de": "Initial Weight",
+        "fr": "Initial Weight",
+        "es": "Initial Weight",
+        "ar": "Initial Weight"
+      }
     },
     {
       "id": "dryWeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 20,
-      "businessContext": "Asymptotic bone-dry weight of the material (lowest attainable weight)"
+      "businessContext": "Asymptotic bone-dry weight of the material (lowest attainable weight)",
+      "label_i18n": {
+        "en": "Dry Weight",
+        "tr": "Dry Weight",
+        "de": "Dry Weight",
+        "fr": "Dry Weight",
+        "es": "Dry Weight",
+        "ar": "Dry Weight"
+      }
     },
     {
       "id": "targetWeight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 25,
-      "businessContext": "Desired final weight after drying (must be > dryWeight)"
+      "businessContext": "Desired final weight after drying (must be > dryWeight)",
+      "label_i18n": {
+        "en": "Target Weight",
+        "tr": "Target Weight",
+        "de": "Target Weight",
+        "fr": "Target Weight",
+        "es": "Target Weight",
+        "ar": "Target Weight"
+      }
     },
     {
       "id": "dryingRateConstant",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "1/h",
       "default": 0.1,
-      "businessContext": "Exponential drying constant (k) characterizing the speed of moisture removal"
+      "businessContext": "Exponential drying constant (k) characterizing the speed of moisture removal",
+      "label_i18n": {
+        "en": "Drying Rate Constant",
+        "tr": "Drying Rate Constant",
+        "de": "Drying Rate Constant",
+        "fr": "Drying Rate Constant",
+        "es": "Drying Rate Constant",
+        "ar": "Drying Rate Constant"
+      }
     },
     {
       "id": "processEfficiency",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Efficiency factor (0–100) scaling the effective drying rate"
+      "businessContext": "Efficiency factor (0–100) scaling the effective drying rate",
+      "label_i18n": {
+        "en": "Process Efficiency",
+        "tr": "Process Efficiency",
+        "de": "Process Efficiency",
+        "fr": "Process Efficiency",
+        "es": "Process Efficiency",
+        "ar": "Process Efficiency"
+      }
     },
     {
       "id": "setupTime",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "h",
       "default": 0.5,
-      "businessContext": "Initial handling or delay time before active drying begins"
+      "businessContext": "Initial handling or delay time before active drying begins",
+      "label_i18n": {
+        "en": "Setup Time",
+        "tr": "Setup Time",
+        "de": "Setup Time",
+        "fr": "Setup Time",
+        "es": "Setup Time",
+        "ar": "Setup Time"
+      }
     }
   ],
   "formulas": {
@@ -65,8 +113,8 @@
       "weightLossAmount"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Gıda & İçecek",
+  "category": "İmalat & Üretim",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

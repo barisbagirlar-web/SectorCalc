@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "credit",
       "default": 0,
-      "businessContext": "Credit hours for the first course"
+      "businessContext": "Credit hours for the first course",
+      "label_i18n": {
+        "en": "Course 1 Credits",
+        "tr": "Course 1 Credits",
+        "de": "Course 1 Credits",
+        "fr": "Course 1 Credits",
+        "es": "Course 1 Credits",
+        "ar": "Course 1 Credits"
+      }
     },
     {
       "id": "grade1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "point",
       "default": 0,
-      "businessContext": "Grade points earned in the first course (e.g., 4.0 scale)"
+      "businessContext": "Grade points earned in the first course (e.g., 4.0 scale)",
+      "label_i18n": {
+        "en": "Course 1 Grade",
+        "tr": "Course 1 Grade",
+        "de": "Course 1 Grade",
+        "fr": "Course 1 Grade",
+        "es": "Course 1 Grade",
+        "ar": "Course 1 Grade"
+      }
     },
     {
       "id": "credit2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "credit",
       "default": 0,
-      "businessContext": "Credit hours for the second course"
+      "businessContext": "Credit hours for the second course",
+      "label_i18n": {
+        "en": "Course 2 Credits",
+        "tr": "Course 2 Credits",
+        "de": "Course 2 Credits",
+        "fr": "Course 2 Credits",
+        "es": "Course 2 Credits",
+        "ar": "Course 2 Credits"
+      }
     },
     {
       "id": "grade2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "point",
       "default": 0,
-      "businessContext": "Grade points earned in the second course"
+      "businessContext": "Grade points earned in the second course",
+      "label_i18n": {
+        "en": "Course 2 Grade",
+        "tr": "Course 2 Grade",
+        "de": "Course 2 Grade",
+        "fr": "Course 2 Grade",
+        "es": "Course 2 Grade",
+        "ar": "Course 2 Grade"
+      }
     },
     {
       "id": "credit3",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "credit",
       "default": 0,
-      "businessContext": "Credit hours for the third course"
+      "businessContext": "Credit hours for the third course",
+      "label_i18n": {
+        "en": "Course 3 Credits",
+        "tr": "Course 3 Credits",
+        "de": "Course 3 Credits",
+        "fr": "Course 3 Credits",
+        "es": "Course 3 Credits",
+        "ar": "Course 3 Credits"
+      }
     },
     {
       "id": "grade3",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "point",
       "default": 0,
-      "businessContext": "Grade points earned in the third course"
+      "businessContext": "Grade points earned in the third course",
+      "label_i18n": {
+        "en": "Course 3 Grade",
+        "tr": "Course 3 Grade",
+        "de": "Course 3 Grade",
+        "fr": "Course 3 Grade",
+        "es": "Course 3 Grade",
+        "ar": "Course 3 Grade"
+      }
     },
     {
       "id": "credit4",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "credit",
       "default": 0,
-      "businessContext": "Credit hours for the fourth course"
+      "businessContext": "Credit hours for the fourth course",
+      "label_i18n": {
+        "en": "Course 4 Credits",
+        "tr": "Course 4 Credits",
+        "de": "Course 4 Credits",
+        "fr": "Course 4 Credits",
+        "es": "Course 4 Credits",
+        "ar": "Course 4 Credits"
+      }
     },
     {
       "id": "grade4",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "point",
       "default": 0,
-      "businessContext": "Grade points earned in the fourth course"
+      "businessContext": "Grade points earned in the fourth course",
+      "label_i18n": {
+        "en": "Course 4 Grade",
+        "tr": "Course 4 Grade",
+        "de": "Course 4 Grade",
+        "fr": "Course 4 Grade",
+        "es": "Course 4 Grade",
+        "ar": "Course 4 Grade"
+      }
     }
   ],
   "formulas": {
@@ -78,8 +142,8 @@
       "totalCredits"
     ]
   },
-  "category": "Finans & Yatırım",
-  "sector": "Finans & Sigorta",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

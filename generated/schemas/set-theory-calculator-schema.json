@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "elements",
       "default": 0,
-      "businessContext": "Cardinality of set A"
+      "businessContext": "Cardinality of set A",
+      "label_i18n": {
+        "en": "|A|",
+        "tr": "|A|",
+        "de": "|A|",
+        "fr": "|A|",
+        "es": "|A|",
+        "ar": "|A|"
+      }
     },
     {
       "id": "sizeB",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "elements",
       "default": 0,
-      "businessContext": "Cardinality of set B"
+      "businessContext": "Cardinality of set B",
+      "label_i18n": {
+        "en": "|B|",
+        "tr": "|B|",
+        "de": "|B|",
+        "fr": "|B|",
+        "es": "|B|",
+        "ar": "|B|"
+      }
     },
     {
       "id": "sizeC",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "elements",
       "default": 0,
-      "businessContext": "Cardinality of set C"
+      "businessContext": "Cardinality of set C",
+      "label_i18n": {
+        "en": "|C|",
+        "tr": "|C|",
+        "de": "|C|",
+        "fr": "|C|",
+        "es": "|C|",
+        "ar": "|C|"
+      }
     },
     {
       "id": "intersectAB",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "elements",
       "default": 0,
-      "businessContext": "Cardinality of intersection of A and B"
+      "businessContext": "Cardinality of intersection of A and B",
+      "label_i18n": {
+        "en": "|A ∩ B|",
+        "tr": "|A ∩ B|",
+        "de": "|A ∩ B|",
+        "fr": "|A ∩ B|",
+        "es": "|A ∩ B|",
+        "ar": "|A ∩ B|"
+      }
     },
     {
       "id": "intersectAC",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "elements",
       "default": 0,
-      "businessContext": "Cardinality of intersection of A and C"
+      "businessContext": "Cardinality of intersection of A and C",
+      "label_i18n": {
+        "en": "|A ∩ C|",
+        "tr": "|A ∩ C|",
+        "de": "|A ∩ C|",
+        "fr": "|A ∩ C|",
+        "es": "|A ∩ C|",
+        "ar": "|A ∩ C|"
+      }
     },
     {
       "id": "intersectBC",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "elements",
       "default": 0,
-      "businessContext": "Cardinality of intersection of B and C"
+      "businessContext": "Cardinality of intersection of B and C",
+      "label_i18n": {
+        "en": "|B ∩ C|",
+        "tr": "|B ∩ C|",
+        "de": "|B ∩ C|",
+        "fr": "|B ∩ C|",
+        "es": "|B ∩ C|",
+        "ar": "|B ∩ C|"
+      }
     },
     {
       "id": "intersectABC",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "elements",
       "default": 0,
-      "businessContext": "Cardinality of triple intersection"
+      "businessContext": "Cardinality of triple intersection",
+      "label_i18n": {
+        "en": "|A ∩ B ∩ C|",
+        "tr": "|A ∩ B ∩ C|",
+        "de": "|A ∩ B ∩ C|",
+        "fr": "|A ∩ B ∩ C|",
+        "es": "|A ∩ B ∩ C|",
+        "ar": "|A ∩ B ∩ C|"
+      }
     }
   ],
   "formulas": {
@@ -78,8 +134,8 @@
       "symmetricDifferenceAB"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

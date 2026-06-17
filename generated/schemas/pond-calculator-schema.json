@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Pond dimensions for construction and liner sizing"
+      "businessContext": "Pond dimensions for construction and liner sizing",
+      "label_i18n": {
+        "en": "Pond Length",
+        "tr": "Pond Length",
+        "de": "Pond Length",
+        "fr": "Pond Length",
+        "es": "Pond Length",
+        "ar": "Pond Length"
+      }
     },
     {
       "id": "pondWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "Pond dimensions for construction and liner sizing"
+      "businessContext": "Pond dimensions for construction and liner sizing",
+      "label_i18n": {
+        "en": "Pond Width",
+        "tr": "Pond Width",
+        "de": "Pond Width",
+        "fr": "Pond Width",
+        "es": "Pond Width",
+        "ar": "Pond Width"
+      }
     },
     {
       "id": "pondDepth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 1.5,
-      "businessContext": "Pond dimensions for construction and liner sizing"
+      "businessContext": "Pond dimensions for construction and liner sizing",
+      "label_i18n": {
+        "en": "Average Depth",
+        "tr": "Average Depth",
+        "de": "Average Depth",
+        "fr": "Average Depth",
+        "es": "Average Depth",
+        "ar": "Average Depth"
+      }
     },
     {
       "id": "linerOverlap",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.5,
-      "businessContext": "Overlap allowance for pond liner installation"
+      "businessContext": "Overlap allowance for pond liner installation",
+      "label_i18n": {
+        "en": "Liner Overlap",
+        "tr": "Liner Overlap",
+        "de": "Liner Overlap",
+        "fr": "Liner Overlap",
+        "es": "Liner Overlap",
+        "ar": "Liner Overlap"
+      }
     }
   ],
   "formulas": {
@@ -50,8 +82,8 @@
       "linerWidth"
     ]
   },
-  "category": "Diğer",
-  "sector": "İnşaat & Yapı",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",

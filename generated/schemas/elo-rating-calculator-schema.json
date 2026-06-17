@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Elo",
       "default": 1200,
-      "businessContext": "Current Elo rating of player A."
+      "businessContext": "Current Elo rating of player A.",
+      "label_i18n": {
+        "en": "Player A Rating",
+        "tr": "Player A Rating",
+        "de": "Player A Rating",
+        "fr": "Player A Rating",
+        "es": "Player A Rating",
+        "ar": "Player A Rating"
+      }
     },
     {
       "id": "ratingB",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Elo",
       "default": 1200,
-      "businessContext": "Current Elo rating of player B."
+      "businessContext": "Current Elo rating of player B.",
+      "label_i18n": {
+        "en": "Player B Rating",
+        "tr": "Player B Rating",
+        "de": "Player B Rating",
+        "fr": "Player B Rating",
+        "es": "Player B Rating",
+        "ar": "Player B Rating"
+      }
     },
     {
       "id": "scoreA",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "score",
       "default": 0.5,
-      "businessContext": "Match score for player A: 1 = win, 0.5 = draw, 0 = loss."
+      "businessContext": "Match score for player A: 1 = win, 0.5 = draw, 0 = loss.",
+      "label_i18n": {
+        "en": "Score for Player A",
+        "tr": "Score for Player A",
+        "de": "Score for Player A",
+        "fr": "Score for Player A",
+        "es": "Score for Player A",
+        "ar": "Score for Player A"
+      }
     },
     {
       "id": "kFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "factor",
       "default": 32,
-      "businessContext": "Development coefficient (e.g., 32 for amateurs, 16 for professionals)."
+      "businessContext": "Development coefficient (e.g., 32 for amateurs, 16 for professionals).",
+      "label_i18n": {
+        "en": "K-factor",
+        "tr": "K-factor",
+        "de": "K-factor",
+        "fr": "K-factor",
+        "es": "K-factor",
+        "ar": "K-factor"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "ratingChange"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "gaming-entertainment",
   "sectorSlug": "ecommerce",

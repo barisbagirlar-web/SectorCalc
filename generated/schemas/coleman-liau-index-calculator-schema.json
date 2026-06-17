@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "letters",
       "default": 0,
-      "businessContext": "Total number of characters that are letters (A-Z, a-z) in the text"
+      "businessContext": "Total number of characters that are letters (A-Z, a-z) in the text",
+      "label_i18n": {
+        "en": "Total Letters",
+        "tr": "Total Letters",
+        "de": "Total Letters",
+        "fr": "Total Letters",
+        "es": "Total Letters",
+        "ar": "Total Letters"
+      }
     },
     {
       "id": "totalWords",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "words",
       "default": 0,
-      "businessContext": "Total number of words in the text"
+      "businessContext": "Total number of words in the text",
+      "label_i18n": {
+        "en": "Total Words",
+        "tr": "Total Words",
+        "de": "Total Words",
+        "fr": "Total Words",
+        "es": "Total Words",
+        "ar": "Total Words"
+      }
     },
     {
       "id": "totalSentences",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "sentences",
       "default": 0,
-      "businessContext": "Total number of sentences in the text"
+      "businessContext": "Total number of sentences in the text",
+      "label_i18n": {
+        "en": "Total Sentences",
+        "tr": "Total Sentences",
+        "de": "Total Sentences",
+        "fr": "Total Sentences",
+        "es": "Total Sentences",
+        "ar": "Total Sentences"
+      }
     },
     {
       "id": "normalizationWordCount",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "words",
       "default": 100,
-      "businessContext": "Number of words to normalize to (typically 100 for Coleman-Liau)"
+      "businessContext": "Number of words to normalize to (typically 100 for Coleman-Liau)",
+      "label_i18n": {
+        "en": "Normalization Word Count",
+        "tr": "Normalization Word Count",
+        "de": "Normalization Word Count",
+        "fr": "Normalization Word Count",
+        "es": "Normalization Word Count",
+        "ar": "Normalization Word Count"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "S"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

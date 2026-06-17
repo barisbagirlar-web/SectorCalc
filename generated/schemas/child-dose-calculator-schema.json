@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mg",
       "default": 500,
-      "businessContext": "The standard adult dose of the medication in milligrams."
+      "businessContext": "The standard adult dose of the medication in milligrams.",
+      "label_i18n": {
+        "en": "Adult Dose",
+        "tr": "Adult Dose",
+        "de": "Adult Dose",
+        "fr": "Adult Dose",
+        "es": "Adult Dose",
+        "ar": "Adult Dose"
+      }
     },
     {
       "id": "childAge",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "years",
       "default": 5,
-      "businessContext": "Age of the child in years."
+      "businessContext": "Age of the child in years.",
+      "label_i18n": {
+        "en": "Child Age",
+        "tr": "Child Age",
+        "de": "Child Age",
+        "fr": "Child Age",
+        "es": "Child Age",
+        "ar": "Child Age"
+      }
     },
     {
       "id": "childWeight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 20,
-      "businessContext": "Weight of the child in kilograms."
+      "businessContext": "Weight of the child in kilograms.",
+      "label_i18n": {
+        "en": "Child Weight",
+        "tr": "Child Weight",
+        "de": "Child Weight",
+        "fr": "Child Weight",
+        "es": "Child Weight",
+        "ar": "Child Weight"
+      }
     },
     {
       "id": "childHeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cm",
       "default": 110,
-      "businessContext": "Height of the child in centimeters (required for body surface area calculation)."
+      "businessContext": "Height of the child in centimeters (required for body surface area calculation).",
+      "label_i18n": {
+        "en": "Child Height",
+        "tr": "Child Height",
+        "de": "Child Height",
+        "fr": "Child Height",
+        "es": "Child Height",
+        "ar": "Child Height"
+      }
     }
   ],
   "formulas": {
@@ -49,8 +81,8 @@
       "methodBSA"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Makine & Ekipman",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

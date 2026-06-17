@@ -22,6 +22,7 @@ function evaluateAllFormulas(input: Swimming_pace_calculatorInput): Record<strin
   try { const v = (results["totalTimeSeconds"] ?? 0) / (input.distance / input.poolLength); results["pacePerLap"] = Number.isFinite(v) ? v : 0; } catch { results["pacePerLap"] = 0; }
   try { const v = input.distance / (results["totalTimeSeconds"] ?? 0); results["speedMps"] = Number.isFinite(v) ? v : 0; } catch { results["speedMps"] = 0; }
   try { const v = (results["speedMps"] ?? 0) * 3.6; results["speedKmph"] = Number.isFinite(v) ? v : 0; } catch { results["speedKmph"] = 0; }
+  results["_speedKmph__km_h"] = 0;
   return results;
 }
 

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Length of the swimming pool"
+      "businessContext": "Length of the swimming pool",
+      "label_i18n": {
+        "en": "Pool Length",
+        "tr": "Pool Length",
+        "de": "Pool Length",
+        "fr": "Pool Length",
+        "es": "Pool Length",
+        "ar": "Pool Length"
+      }
     },
     {
       "id": "poolWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Width of the swimming pool"
+      "businessContext": "Width of the swimming pool",
+      "label_i18n": {
+        "en": "Pool Width",
+        "tr": "Pool Width",
+        "de": "Pool Width",
+        "fr": "Pool Width",
+        "es": "Pool Width",
+        "ar": "Pool Width"
+      }
     },
     {
       "id": "shallowDepth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Depth at the shallow end"
+      "businessContext": "Depth at the shallow end",
+      "label_i18n": {
+        "en": "Shallow End Depth",
+        "tr": "Shallow End Depth",
+        "de": "Shallow End Depth",
+        "fr": "Shallow End Depth",
+        "es": "Shallow End Depth",
+        "ar": "Shallow End Depth"
+      }
     },
     {
       "id": "deepDepth",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "Depth at the deep end"
+      "businessContext": "Depth at the deep end",
+      "label_i18n": {
+        "en": "Deep End Depth",
+        "tr": "Deep End Depth",
+        "de": "Deep End Depth",
+        "fr": "Deep End Depth",
+        "es": "Deep End Depth",
+        "ar": "Deep End Depth"
+      }
     }
   ],
   "formulas": {
@@ -49,8 +81,8 @@
       "volumeLiters"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

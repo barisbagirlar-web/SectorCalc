@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mg/mL",
       "default": 100,
-      "businessContext": "Stok çözelti konsantrasyonu"
+      "businessContext": "Stok çözelti konsantrasyonu",
+      "label_i18n": {
+        "en": "Başlangıç Konsantrasyonu (C1)",
+        "tr": "Başlangıç Konsantrasyonu (C1)",
+        "de": "Başlangıç Konsantrasyonu (C1)",
+        "fr": "Başlangıç Konsantrasyonu (C1)",
+        "es": "Başlangıç Konsantrasyonu (C1)",
+        "ar": "Başlangıç Konsantrasyonu (C1)"
+      }
     },
     {
       "id": "v1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mL",
       "default": 10,
-      "businessContext": "Kullanılacak stok miktarı"
+      "businessContext": "Kullanılacak stok miktarı",
+      "label_i18n": {
+        "en": "Başlangıç Hacmi (V1)",
+        "tr": "Başlangıç Hacmi (V1)",
+        "de": "Başlangıç Hacmi (V1)",
+        "fr": "Başlangıç Hacmi (V1)",
+        "es": "Başlangıç Hacmi (V1)",
+        "ar": "Başlangıç Hacmi (V1)"
+      }
     },
     {
       "id": "c2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mg/mL",
       "default": 20,
-      "businessContext": "İstenen son konsantrasyon"
+      "businessContext": "İstenen son konsantrasyon",
+      "label_i18n": {
+        "en": "Hedef Konsantrasyon (C2)",
+        "tr": "Hedef Konsantrasyon (C2)",
+        "de": "Hedef Konsantrasyon (C2)",
+        "fr": "Hedef Konsantrasyon (C2)",
+        "es": "Hedef Konsantrasyon (C2)",
+        "ar": "Hedef Konsantrasyon (C2)"
+      }
     },
     {
       "id": "fire",
@@ -31,12 +55,22 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Proses sırasında oluşabilecek kayıp için eklenen fazlalık yüzdesi"
+      "businessContext": "Proses sırasında oluşabilecek kayıp için eklenen fazlalık yüzdesi",
+      "label_i18n": {
+        "en": "Fire Payı (%)",
+        "tr": "Fire Payı (%)",
+        "de": "Fire Payı (%)",
+        "fr": "Fire Payı (%)",
+        "es": "Fire Payı (%)",
+        "ar": "Fire Payı (%)"
+      }
     }
   ],
   "formulas": {
     "v2_ideal": "(c1 * v1) / c2",
-    "v2_actual": "((c1 * v1) / c2) * (1 + fire / 100)"
+    "v2_actual": "((c1 * v1) / c2) * (1 + fire / 100)",
+    "_c1___v1____c2": "(c1 * v1) / c2",
+    "v2_ideal____1___fire_100_": "v2_ideal * (1 + fire/100)"
   },
   "outputs": {
     "primary": "v2_actual",
@@ -45,8 +79,8 @@
       "v2_actual: v2_ideal * (1 + fire/100)"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

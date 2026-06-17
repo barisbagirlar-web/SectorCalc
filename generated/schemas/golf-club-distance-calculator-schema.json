@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mph",
       "default": 100,
-      "businessContext": "Club head speed at impact, typical driver 90-110 mph."
+      "businessContext": "Club head speed at impact, typical driver 90-110 mph.",
+      "label_i18n": {
+        "en": "Swing Speed",
+        "tr": "Swing Speed",
+        "de": "Swing Speed",
+        "fr": "Swing Speed",
+        "es": "Swing Speed",
+        "ar": "Swing Speed"
+      }
     },
     {
       "id": "loft",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "deg",
       "default": 10.5,
-      "businessContext": "Effective loft angle of the club. Driver ~9-12°, irons higher."
+      "businessContext": "Effective loft angle of the club. Driver ~9-12°, irons higher.",
+      "label_i18n": {
+        "en": "Loft Angle",
+        "tr": "Loft Angle",
+        "de": "Loft Angle",
+        "fr": "Loft Angle",
+        "es": "Loft Angle",
+        "ar": "Loft Angle"
+      }
     },
     {
       "id": "elevation",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ft",
       "default": 0,
-      "businessContext": "Elevation above sea level affecting air density. Higher elevation = longer carry."
+      "businessContext": "Elevation above sea level affecting air density. Higher elevation = longer carry.",
+      "label_i18n": {
+        "en": "Elevation",
+        "tr": "Elevation",
+        "de": "Elevation",
+        "fr": "Elevation",
+        "es": "Elevation",
+        "ar": "Elevation"
+      }
     },
     {
       "id": "wind",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mph",
       "default": 0,
-      "businessContext": "Wind speed in mph. Positive = tailwind, negative = headwind."
+      "businessContext": "Wind speed in mph. Positive = tailwind, negative = headwind.",
+      "label_i18n": {
+        "en": "Wind Speed",
+        "tr": "Wind Speed",
+        "de": "Wind Speed",
+        "fr": "Wind Speed",
+        "es": "Wind Speed",
+        "ar": "Wind Speed"
+      }
     },
     {
       "id": "temperature",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "°F",
       "default": 70,
-      "businessContext": "Ambient temperature in Fahrenheit. Warmer air less dense = longer carry."
+      "businessContext": "Ambient temperature in Fahrenheit. Warmer air less dense = longer carry.",
+      "label_i18n": {
+        "en": "Temperature",
+        "tr": "Temperature",
+        "de": "Temperature",
+        "fr": "Temperature",
+        "es": "Temperature",
+        "ar": "Temperature"
+      }
     }
   ],
   "formulas": {
@@ -58,8 +98,8 @@
       "tempFactor"
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "Havacılık & Savunma",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

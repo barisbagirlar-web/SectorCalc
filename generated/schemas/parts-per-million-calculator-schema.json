@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "The mass of the substance being measured (solute)."
+      "businessContext": "The mass of the substance being measured (solute).",
+      "label_i18n": {
+        "en": "Mass of Solute",
+        "tr": "Mass of Solute",
+        "de": "Mass of Solute",
+        "fr": "Mass of Solute",
+        "es": "Mass of Solute",
+        "ar": "Mass of Solute"
+      }
     },
     {
       "id": "solutionMass",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g",
       "default": 1,
-      "businessContext": "Total mass of the solution (solute + solvent)."
+      "businessContext": "Total mass of the solution (solute + solvent).",
+      "label_i18n": {
+        "en": "Mass of Solution",
+        "tr": "Mass of Solution",
+        "de": "Mass of Solution",
+        "fr": "Mass of Solution",
+        "es": "Mass of Solution",
+        "ar": "Mass of Solution"
+      }
     },
     {
       "id": "soluteVolume",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mL",
       "default": 0,
-      "businessContext": "The volume of the substance being measured (solute)."
+      "businessContext": "The volume of the substance being measured (solute).",
+      "label_i18n": {
+        "en": "Volume of Solute",
+        "tr": "Volume of Solute",
+        "de": "Volume of Solute",
+        "fr": "Volume of Solute",
+        "es": "Volume of Solute",
+        "ar": "Volume of Solute"
+      }
     },
     {
       "id": "solutionVolume",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mL",
       "default": 1,
-      "businessContext": "Total volume of the solution (solute + solvent)."
+      "businessContext": "Total volume of the solution (solute + solvent).",
+      "label_i18n": {
+        "en": "Volume of Solution",
+        "tr": "Volume of Solution",
+        "de": "Volume of Solution",
+        "fr": "Volume of Solution",
+        "es": "Volume of Solution",
+        "ar": "Volume of Solution"
+      }
     }
   ],
   "formulas": {
@@ -44,8 +76,8 @@
       "ppmVolume"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Makine & Ekipman",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

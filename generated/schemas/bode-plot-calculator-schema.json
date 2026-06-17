@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "V/V",
       "default": 1,
-      "businessContext": "System static gain (K)"
+      "businessContext": "System static gain (K)",
+      "label_i18n": {
+        "en": "DC Gain",
+        "tr": "DC Gain",
+        "de": "DC Gain",
+        "fr": "DC Gain",
+        "es": "DC Gain",
+        "ar": "DC Gain"
+      }
     },
     {
       "id": "poleFreq",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 1000,
-      "businessContext": "Cut-off frequency of dominant pole (>0 Hz)"
+      "businessContext": "Cut-off frequency of dominant pole (>0 Hz)",
+      "label_i18n": {
+        "en": "Pole Frequency",
+        "tr": "Pole Frequency",
+        "de": "Pole Frequency",
+        "fr": "Pole Frequency",
+        "es": "Pole Frequency",
+        "ar": "Pole Frequency"
+      }
     },
     {
       "id": "zeroFreq",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 10000,
-      "businessContext": "Frequency of zero (>0 Hz)"
+      "businessContext": "Frequency of zero (>0 Hz)",
+      "label_i18n": {
+        "en": "Zero Frequency",
+        "tr": "Zero Frequency",
+        "de": "Zero Frequency",
+        "fr": "Zero Frequency",
+        "es": "Zero Frequency",
+        "ar": "Zero Frequency"
+      }
     },
     {
       "id": "freq",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 1000,
-      "businessContext": "Frequency at which to evaluate magnitude"
+      "businessContext": "Frequency at which to evaluate magnitude",
+      "label_i18n": {
+        "en": "Test Frequency",
+        "tr": "Test Frequency",
+        "de": "Test Frequency",
+        "fr": "Test Frequency",
+        "es": "Test Frequency",
+        "ar": "Test Frequency"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "poleContrib"
     ]
   },
-  "category": "Diğer",
-  "sector": "Telekomünikasyon",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",

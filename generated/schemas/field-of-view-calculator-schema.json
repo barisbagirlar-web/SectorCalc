@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 6.4,
-      "businessContext": "Width of the image sensor in millimeters"
+      "businessContext": "Width of the image sensor in millimeters",
+      "label_i18n": {
+        "en": "Sensor Width (mm)",
+        "tr": "Sensor Width (mm)",
+        "de": "Sensor Width (mm)",
+        "fr": "Sensor Width (mm)",
+        "es": "Sensor Width (mm)",
+        "ar": "Sensor Width (mm)"
+      }
     },
     {
       "id": "sensorHeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 4.8,
-      "businessContext": "Height of the image sensor in millimeters"
+      "businessContext": "Height of the image sensor in millimeters",
+      "label_i18n": {
+        "en": "Sensor Height (mm)",
+        "tr": "Sensor Height (mm)",
+        "de": "Sensor Height (mm)",
+        "fr": "Sensor Height (mm)",
+        "es": "Sensor Height (mm)",
+        "ar": "Sensor Height (mm)"
+      }
     },
     {
       "id": "focalLength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 4,
-      "businessContext": "Lens focal length in millimeters"
+      "businessContext": "Lens focal length in millimeters",
+      "label_i18n": {
+        "en": "Focal Length (mm)",
+        "tr": "Focal Length (mm)",
+        "de": "Focal Length (mm)",
+        "fr": "Focal Length (mm)",
+        "es": "Focal Length (mm)",
+        "ar": "Focal Length (mm)"
+      }
     },
     {
       "id": "distance",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Distance from lens to object plane in meters"
+      "businessContext": "Distance from lens to object plane in meters",
+      "label_i18n": {
+        "en": "Working Distance (m)",
+        "tr": "Working Distance (m)",
+        "de": "Working Distance (m)",
+        "fr": "Working Distance (m)",
+        "es": "Working Distance (m)",
+        "ar": "Working Distance (m)"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "diagonal_linear_fov"
     ]
   },
-  "category": "Diğer",
-  "sector": "Havacılık & Savunma",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "gaming-entertainment",
   "sectorSlug": "ecommerce",

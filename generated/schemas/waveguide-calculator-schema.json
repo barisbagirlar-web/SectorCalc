@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 22.86,
-      "businessContext": "Dalga kılavuzu geniş iç boyutu"
+      "businessContext": "Dalga kılavuzu geniş iç boyutu",
+      "label_i18n": {
+        "en": "Genişlik (a)",
+        "tr": "Genişlik (a)",
+        "de": "Genişlik (a)",
+        "fr": "Genişlik (a)",
+        "es": "Genişlik (a)",
+        "ar": "Genişlik (a)"
+      }
     },
     {
       "id": "height",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10.16,
-      "businessContext": "Dalga kılavuzu dar iç boyutu"
+      "businessContext": "Dalga kılavuzu dar iç boyutu",
+      "label_i18n": {
+        "en": "Yükseklik (b)",
+        "tr": "Yükseklik (b)",
+        "de": "Yükseklik (b)",
+        "fr": "Yükseklik (b)",
+        "es": "Yükseklik (b)",
+        "ar": "Yükseklik (b)"
+      }
     },
     {
       "id": "frequency",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "GHz",
       "default": 10,
-      "businessContext": "İşletim frekansı"
+      "businessContext": "İşletim frekansı",
+      "label_i18n": {
+        "en": "Çalışma Frekansı",
+        "tr": "Çalışma Frekansı",
+        "de": "Çalışma Frekansı",
+        "fr": "Çalışma Frekansı",
+        "es": "Çalışma Frekansı",
+        "ar": "Çalışma Frekansı"
+      }
     },
     {
       "id": "permittivity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "boyutsuz",
       "default": 1,
-      "businessContext": "İç dielektrik malzeme (hava için 1)"
+      "businessContext": "İç dielektrik malzeme (hava için 1)",
+      "label_i18n": {
+        "en": "Bağıl Dielektrik Sabiti",
+        "tr": "Bağıl Dielektrik Sabiti",
+        "de": "Bağıl Dielektrik Sabiti",
+        "fr": "Bağıl Dielektrik Sabiti",
+        "es": "Bağıl Dielektrik Sabiti",
+        "ar": "Bağıl Dielektrik Sabiti"
+      }
     }
   ],
   "formulas": {
@@ -66,8 +98,8 @@
       }
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Piramit tabanının uzun kenar ölçüsü (metre)"
+      "businessContext": "Piramit tabanının uzun kenar ölçüsü (metre)",
+      "label_i18n": {
+        "en": "Taban Uzunluğu",
+        "tr": "Taban Uzunluğu",
+        "de": "Taban Uzunluğu",
+        "fr": "Taban Uzunluğu",
+        "es": "Taban Uzunluğu",
+        "ar": "Taban Uzunluğu"
+      }
     },
     {
       "id": "width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Piramit tabanının kısa kenar ölçüsü (metre)"
+      "businessContext": "Piramit tabanının kısa kenar ölçüsü (metre)",
+      "label_i18n": {
+        "en": "Taban Genişliği",
+        "tr": "Taban Genişliği",
+        "de": "Taban Genişliği",
+        "fr": "Taban Genişliği",
+        "es": "Taban Genişliği",
+        "ar": "Taban Genişliği"
+      }
     },
     {
       "id": "height",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Piramidin dik yüksekliği (tabandan tepe noktasına)"
+      "businessContext": "Piramidin dik yüksekliği (tabandan tepe noktasına)",
+      "label_i18n": {
+        "en": "Yükseklik",
+        "tr": "Yükseklik",
+        "de": "Yükseklik",
+        "fr": "Yükseklik",
+        "es": "Yükseklik",
+        "ar": "Yükseklik"
+      }
     },
     {
       "id": "quantity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 1,
-      "businessContext": "Aynı boyutlardaki piramit sayısı (toplu hacim hesabı için)"
+      "businessContext": "Aynı boyutlardaki piramit sayısı (toplu hacim hesabı için)",
+      "label_i18n": {
+        "en": "Adet",
+        "tr": "Adet",
+        "de": "Adet",
+        "fr": "Adet",
+        "es": "Adet",
+        "ar": "Adet"
+      }
     }
   ],
   "formulas": {
@@ -44,8 +76,8 @@
       "baseArea"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

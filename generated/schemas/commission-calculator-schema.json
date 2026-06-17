@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 5000,
-      "businessContext": "Satış temsilcisinin toplam satış tutarı"
+      "businessContext": "Satış temsilcisinin toplam satış tutarı",
+      "label_i18n": {
+        "en": "Toplam Satış",
+        "tr": "Toplam Satış",
+        "de": "Toplam Satış",
+        "fr": "Toplam Satış",
+        "es": "Toplam Satış",
+        "ar": "Toplam Satış"
+      }
     },
     {
       "id": "baseCommissionRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Temel seviyedeki komisyon yüzdesi"
+      "businessContext": "Temel seviyedeki komisyon yüzdesi",
+      "label_i18n": {
+        "en": "Temel Komisyon Oranı",
+        "tr": "Temel Komisyon Oranı",
+        "de": "Temel Komisyon Oranı",
+        "fr": "Temel Komisyon Oranı",
+        "es": "Temel Komisyon Oranı",
+        "ar": "Temel Komisyon Oranı"
+      }
     },
     {
       "id": "highTierThreshold",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 10000,
-      "businessContext": "Yüksek komisyon oranının uygulanacağı satış eşiği"
+      "businessContext": "Yüksek komisyon oranının uygulanacağı satış eşiği",
+      "label_i18n": {
+        "en": "Yüksek Kademe Eşiği",
+        "tr": "Yüksek Kademe Eşiği",
+        "de": "Yüksek Kademe Eşiği",
+        "fr": "Yüksek Kademe Eşiği",
+        "es": "Yüksek Kademe Eşiği",
+        "ar": "Yüksek Kademe Eşiği"
+      }
     },
     {
       "id": "highTierRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Yüksek satış seviyesinde uygulanacak komisyon yüzdesi"
+      "businessContext": "Yüksek satış seviyesinde uygulanacak komisyon yüzdesi",
+      "label_i18n": {
+        "en": "Yüksek Kademe Oranı",
+        "tr": "Yüksek Kademe Oranı",
+        "de": "Yüksek Kademe Oranı",
+        "fr": "Yüksek Kademe Oranı",
+        "es": "Yüksek Kademe Oranı",
+        "ar": "Yüksek Kademe Oranı"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "tier2Commission"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

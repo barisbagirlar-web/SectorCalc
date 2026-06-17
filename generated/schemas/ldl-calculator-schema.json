@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 200,
-      "businessContext": "Lipid panel total cholesterol measurement (typical range: 100–400 mg/dL)"
+      "businessContext": "Lipid panel total cholesterol measurement (typical range: 100–400 mg/dL)",
+      "label_i18n": {
+        "en": "Total Cholesterol",
+        "tr": "Total Cholesterol",
+        "de": "Total Cholesterol",
+        "fr": "Total Cholesterol",
+        "es": "Total Cholesterol",
+        "ar": "Total Cholesterol"
+      }
     },
     {
       "id": "hdl",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 50,
-      "businessContext": "High-density lipoprotein measurement (typical range: 20–100 mg/dL)"
+      "businessContext": "High-density lipoprotein measurement (typical range: 20–100 mg/dL)",
+      "label_i18n": {
+        "en": "HDL Cholesterol",
+        "tr": "HDL Cholesterol",
+        "de": "HDL Cholesterol",
+        "fr": "HDL Cholesterol",
+        "es": "HDL Cholesterol",
+        "ar": "HDL Cholesterol"
+      }
     },
     {
       "id": "triglycerides",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 150,
-      "businessContext": "Triglycerides measurement (must be ≤400 mg/dL for Friedewald formula validity)"
+      "businessContext": "Triglycerides measurement (must be ≤400 mg/dL for Friedewald formula validity)",
+      "label_i18n": {
+        "en": "Triglycerides",
+        "tr": "Triglycerides",
+        "de": "Triglycerides",
+        "fr": "Triglycerides",
+        "es": "Triglycerides",
+        "ar": "Triglycerides"
+      }
     },
     {
       "id": "directLdl",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 0,
-      "businessContext": "Set to >0 to override calculation with direct LDL measurement; 0 triggers Friedewald computation"
+      "businessContext": "Set to >0 to override calculation with direct LDL measurement; 0 triggers Friedewald computation",
+      "label_i18n": {
+        "en": "Direct LDL (if available)",
+        "tr": "Direct LDL (if available)",
+        "de": "Direct LDL (if available)",
+        "fr": "Direct LDL (if available)",
+        "es": "Direct LDL (if available)",
+        "ar": "Direct LDL (if available)"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "nonHdl"
     ]
   },
-  "category": "Kalite & Süreç Kontrol",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

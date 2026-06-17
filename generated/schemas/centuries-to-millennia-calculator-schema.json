@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "century",
       "default": 1,
-      "businessContext": "Number of centuries to convert to millennia."
+      "businessContext": "Number of centuries to convert to millennia.",
+      "label_i18n": {
+        "en": "Centuries",
+        "tr": "Centuries",
+        "de": "Centuries",
+        "fr": "Centuries",
+        "es": "Centuries",
+        "ar": "Centuries"
+      }
     },
     {
       "id": "centuryYears",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "years",
       "default": 100,
-      "businessContext": "Definition of a century in years. Normally 100."
+      "businessContext": "Definition of a century in years. Normally 100.",
+      "label_i18n": {
+        "en": "Years per Century",
+        "tr": "Years per Century",
+        "de": "Years per Century",
+        "fr": "Years per Century",
+        "es": "Years per Century",
+        "ar": "Years per Century"
+      }
     },
     {
       "id": "millenniumYears",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 1000,
-      "businessContext": "Definition of a millennium in years. Normally 1000."
+      "businessContext": "Definition of a millennium in years. Normally 1000.",
+      "label_i18n": {
+        "en": "Years per Millennium",
+        "tr": "Years per Millennium",
+        "de": "Years per Millennium",
+        "fr": "Years per Millennium",
+        "es": "Years per Millennium",
+        "ar": "Years per Millennium"
+      }
     },
     {
       "id": "precision",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dp",
       "default": 2,
-      "businessContext": "Number of decimal places for the result."
+      "businessContext": "Number of decimal places for the result.",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     }
   ],
   "formulas": {
@@ -44,8 +76,8 @@
       "rawMillennia"
     ]
   },
-  "category": "Diğer",
-  "sector": "Makine & Ekipman",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.5,
-      "businessContext": "Komşuluk yarıçapı (maksimum mesafe)"
+      "businessContext": "Komşuluk yarıçapı (maksimum mesafe)",
+      "label_i18n": {
+        "en": "Epsilon (ε)",
+        "tr": "Epsilon (ε)",
+        "de": "Epsilon (ε)",
+        "fr": "Epsilon (ε)",
+        "es": "Epsilon (ε)",
+        "ar": "Epsilon (ε)"
+      }
     },
     {
       "id": "minPoints",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 5,
-      "businessContext": "Yoğun bölge için minimum nokta sayısı"
+      "businessContext": "Yoğun bölge için minimum nokta sayısı",
+      "label_i18n": {
+        "en": "Minimum Nokta (MinPts)",
+        "tr": "Minimum Nokta (MinPts)",
+        "de": "Minimum Nokta (MinPts)",
+        "fr": "Minimum Nokta (MinPts)",
+        "es": "Minimum Nokta (MinPts)",
+        "ar": "Minimum Nokta (MinPts)"
+      }
     },
     {
       "id": "neighborCount",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "adet",
       "default": 4,
-      "businessContext": "ε yarıçapı içindeki nokta sayısı"
+      "businessContext": "ε yarıçapı içindeki nokta sayısı",
+      "label_i18n": {
+        "en": "Komşu Sayısı",
+        "tr": "Komşu Sayısı",
+        "de": "Komşu Sayısı",
+        "fr": "Komşu Sayısı",
+        "es": "Komşu Sayısı",
+        "ar": "Komşu Sayısı"
+      }
     }
   ],
   "formulas": {
@@ -38,8 +62,8 @@
       "neighborCountOut"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

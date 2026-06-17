@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 1,
-      "businessContext": "Frequency at which the transfer function magnitude is evaluated."
+      "businessContext": "Frequency at which the transfer function magnitude is evaluated.",
+      "label_i18n": {
+        "en": "Frequency",
+        "tr": "Frequency",
+        "de": "Frequency",
+        "fr": "Frequency",
+        "es": "Frequency",
+        "ar": "Frequency"
+      }
     },
     {
       "id": "pole1_real",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 1,
-      "businessContext": "Real part of the first pole location in the s-plane."
+      "businessContext": "Real part of the first pole location in the s-plane.",
+      "label_i18n": {
+        "en": "Pole 1 - Real Part",
+        "tr": "Pole 1 - Real Part",
+        "de": "Pole 1 - Real Part",
+        "fr": "Pole 1 - Real Part",
+        "es": "Pole 1 - Real Part",
+        "ar": "Pole 1 - Real Part"
+      }
     },
     {
       "id": "pole1_imag",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 0,
-      "businessContext": "Imaginary part of the first pole location in the s-plane."
+      "businessContext": "Imaginary part of the first pole location in the s-plane.",
+      "label_i18n": {
+        "en": "Pole 1 - Imaginary Part",
+        "tr": "Pole 1 - Imaginary Part",
+        "de": "Pole 1 - Imaginary Part",
+        "fr": "Pole 1 - Imaginary Part",
+        "es": "Pole 1 - Imaginary Part",
+        "ar": "Pole 1 - Imaginary Part"
+      }
     },
     {
       "id": "pole2_real",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 10,
-      "businessContext": "Real part of the second pole location in the s-plane."
+      "businessContext": "Real part of the second pole location in the s-plane.",
+      "label_i18n": {
+        "en": "Pole 2 - Real Part",
+        "tr": "Pole 2 - Real Part",
+        "de": "Pole 2 - Real Part",
+        "fr": "Pole 2 - Real Part",
+        "es": "Pole 2 - Real Part",
+        "ar": "Pole 2 - Real Part"
+      }
     },
     {
       "id": "pole2_imag",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 0,
-      "businessContext": "Imaginary part of the second pole location in the s-plane."
+      "businessContext": "Imaginary part of the second pole location in the s-plane.",
+      "label_i18n": {
+        "en": "Pole 2 - Imaginary Part",
+        "tr": "Pole 2 - Imaginary Part",
+        "de": "Pole 2 - Imaginary Part",
+        "fr": "Pole 2 - Imaginary Part",
+        "es": "Pole 2 - Imaginary Part",
+        "ar": "Pole 2 - Imaginary Part"
+      }
     },
     {
       "id": "zero1_real",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 100,
-      "businessContext": "Real part of the first zero location in the s-plane."
+      "businessContext": "Real part of the first zero location in the s-plane.",
+      "label_i18n": {
+        "en": "Zero 1 - Real Part",
+        "tr": "Zero 1 - Real Part",
+        "de": "Zero 1 - Real Part",
+        "fr": "Zero 1 - Real Part",
+        "es": "Zero 1 - Real Part",
+        "ar": "Zero 1 - Real Part"
+      }
     },
     {
       "id": "zero1_imag",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 0,
-      "businessContext": "Imaginary part of the first zero location in the s-plane."
+      "businessContext": "Imaginary part of the first zero location in the s-plane.",
+      "label_i18n": {
+        "en": "Zero 1 - Imaginary Part",
+        "tr": "Zero 1 - Imaginary Part",
+        "de": "Zero 1 - Imaginary Part",
+        "fr": "Zero 1 - Imaginary Part",
+        "es": "Zero 1 - Imaginary Part",
+        "ar": "Zero 1 - Imaginary Part"
+      }
     }
   ],
   "formulas": {
@@ -72,8 +128,8 @@
       "mag_linear"
     ]
   },
-  "category": "Diğer",
-  "sector": "Havacılık & Savunma",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",

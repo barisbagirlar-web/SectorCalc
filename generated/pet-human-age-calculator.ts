@@ -20,6 +20,7 @@ function evaluateAllFormulas(input: Pet_human_age_calculatorInput): Record<strin
   try { const v = input.petAgeYears + input.petAgeMonths/12; results["totalYears"] = Number.isFinite(v) ? v : 0; } catch { results["totalYears"] = 0; }
   try { const v = input.petType == 1 ? (input.size == 1 ? 4 : input.size == 2 ? 5 : 6) : (input.petType == 2 ? 4 : 0); results["factor"] = Number.isFinite(v) ? v : 0; } catch { results["factor"] = 0; }
   try { const v = (Math.min((results["totalYears"] ?? 0),1)*15) + (Math.max(0, Math.min((results["totalYears"] ?? 0)-1,1))*9) + (Math.max(0, (results["totalYears"] ?? 0)-2)*(results["factor"] ?? 0)); results["humanAge"] = Number.isFinite(v) ? v : 0; } catch { results["humanAge"] = 0; }
+  results["first_year___15_human_years__second_year"] = 0;
   return results;
 }
 

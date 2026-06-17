@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 1000,
-      "businessContext": "Frequency emitted by the source in Hertz"
+      "businessContext": "Frequency emitted by the source in Hertz",
+      "label_i18n": {
+        "en": "Source Frequency",
+        "tr": "Source Frequency",
+        "de": "Source Frequency",
+        "fr": "Source Frequency",
+        "es": "Source Frequency",
+        "ar": "Source Frequency"
+      }
     },
     {
       "id": "waveSpeed",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 343,
-      "businessContext": "Speed of sound in the medium (e.g., 343 m/s in air at 20°C)"
+      "businessContext": "Speed of sound in the medium (e.g., 343 m/s in air at 20°C)",
+      "label_i18n": {
+        "en": "Wave Speed",
+        "tr": "Wave Speed",
+        "de": "Wave Speed",
+        "fr": "Wave Speed",
+        "es": "Wave Speed",
+        "ar": "Wave Speed"
+      }
     },
     {
       "id": "sourceVelocity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 0,
-      "businessContext": "Velocity of the source relative to the medium; positive when moving towards the observer"
+      "businessContext": "Velocity of the source relative to the medium; positive when moving towards the observer",
+      "label_i18n": {
+        "en": "Source Velocity",
+        "tr": "Source Velocity",
+        "de": "Source Velocity",
+        "fr": "Source Velocity",
+        "es": "Source Velocity",
+        "ar": "Source Velocity"
+      }
     },
     {
       "id": "observerVelocity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 0,
-      "businessContext": "Velocity of the observer relative to the medium; positive when moving towards the source"
+      "businessContext": "Velocity of the observer relative to the medium; positive when moving towards the source",
+      "label_i18n": {
+        "en": "Observer Velocity",
+        "tr": "Observer Velocity",
+        "de": "Observer Velocity",
+        "fr": "Observer Velocity",
+        "es": "Observer Velocity",
+        "ar": "Observer Velocity"
+      }
     }
   ],
   "formulas": {
@@ -47,8 +79,8 @@
       "observedFrequency"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Telekomünikasyon",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",

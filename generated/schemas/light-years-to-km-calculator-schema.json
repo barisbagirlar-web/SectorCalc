@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ly",
       "default": 1,
-      "businessContext": "Astronomical distance input"
+      "businessContext": "Astronomical distance input",
+      "label_i18n": {
+        "en": "Distance in Light-Years",
+        "tr": "Distance in Light-Years",
+        "de": "Distance in Light-Years",
+        "fr": "Distance in Light-Years",
+        "es": "Distance in Light-Years",
+        "ar": "Distance in Light-Years"
+      }
     },
     {
       "id": "significantDigits",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "count",
       "default": 6,
-      "businessContext": "Precision for output formatting"
+      "businessContext": "Precision for output formatting",
+      "label_i18n": {
+        "en": "Significant Digits",
+        "tr": "Significant Digits",
+        "de": "Significant Digits",
+        "fr": "Significant Digits",
+        "es": "Significant Digits",
+        "ar": "Significant Digits"
+      }
     },
     {
       "id": "outputFormat",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "toggle",
       "default": 0,
-      "businessContext": "0 = standard, 1 = scientific notation"
+      "businessContext": "0 = standard, 1 = scientific notation",
+      "label_i18n": {
+        "en": "Output Format",
+        "tr": "Output Format",
+        "de": "Output Format",
+        "fr": "Output Format",
+        "es": "Output Format",
+        "ar": "Output Format"
+      }
     },
     {
       "id": "roundingMode",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mode",
       "default": 0,
-      "businessContext": "0 = half-up, 1 = floor, 2 = ceiling"
+      "businessContext": "0 = half-up, 1 = floor, 2 = ceiling",
+      "label_i18n": {
+        "en": "Rounding Mode",
+        "tr": "Rounding Mode",
+        "de": "Rounding Mode",
+        "fr": "Rounding Mode",
+        "es": "Rounding Mode",
+        "ar": "Rounding Mode"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "kmRounded"
     ]
   },
-  "category": "Diğer",
-  "sector": "İnşaat & Yapı",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

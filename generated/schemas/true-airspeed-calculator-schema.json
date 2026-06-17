@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "knot",
       "default": 150,
-      "businessContext": "Pitot-statik sistemden okunan hız (knot)."
+      "businessContext": "Pitot-statik sistemden okunan hız (knot).",
+      "label_i18n": {
+        "en": "Gösterge Hava Hızı (IAS)",
+        "tr": "Gösterge Hava Hızı (IAS)",
+        "de": "Gösterge Hava Hızı (IAS)",
+        "fr": "Gösterge Hava Hızı (IAS)",
+        "es": "Gösterge Hava Hızı (IAS)",
+        "ar": "Gösterge Hava Hızı (IAS)"
+      }
     },
     {
       "id": "pressureAltitude",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "feet",
       "default": 10000,
-      "businessContext": "Standart basınç ayarı (29.92 inHg) ile ölçülen irtifa (feet)."
+      "businessContext": "Standart basınç ayarı (29.92 inHg) ile ölçülen irtifa (feet).",
+      "label_i18n": {
+        "en": "Basınç İrtifası",
+        "tr": "Basınç İrtifası",
+        "de": "Basınç İrtifası",
+        "fr": "Basınç İrtifası",
+        "es": "Basınç İrtifası",
+        "ar": "Basınç İrtifası"
+      }
     },
     {
       "id": "outsideAirTemperature",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": -5,
-      "businessContext": "Serbest hava sıcaklığı (°C)."
+      "businessContext": "Serbest hava sıcaklığı (°C).",
+      "label_i18n": {
+        "en": "Dış Hava Sıcaklığı (OAT)",
+        "tr": "Dış Hava Sıcaklığı (OAT)",
+        "de": "Dış Hava Sıcaklığı (OAT)",
+        "fr": "Dış Hava Sıcaklığı (OAT)",
+        "es": "Dış Hava Sıcaklığı (OAT)",
+        "ar": "Dış Hava Sıcaklığı (OAT)"
+      }
     }
   ],
   "formulas": {
@@ -40,8 +64,8 @@
       "theta"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

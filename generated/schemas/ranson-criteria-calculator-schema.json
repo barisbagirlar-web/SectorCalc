@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 55,
-      "businessContext": "Patient's age at admission"
+      "businessContext": "Patient's age at admission",
+      "label_i18n": {
+        "en": "Age (years)",
+        "tr": "Age (years)",
+        "de": "Age (years)",
+        "fr": "Age (years)",
+        "es": "Age (years)",
+        "ar": "Age (years)"
+      }
     },
     {
       "id": "wbc",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cells/mm³",
       "default": 16000,
-      "businessContext": "White blood cell count at admission"
+      "businessContext": "White blood cell count at admission",
+      "label_i18n": {
+        "en": "WBC count",
+        "tr": "WBC count",
+        "de": "WBC count",
+        "fr": "WBC count",
+        "es": "WBC count",
+        "ar": "WBC count"
+      }
     },
     {
       "id": "glucose",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 200,
-      "businessContext": "Blood glucose level at admission"
+      "businessContext": "Blood glucose level at admission",
+      "label_i18n": {
+        "en": "Blood Glucose",
+        "tr": "Blood Glucose",
+        "de": "Blood Glucose",
+        "fr": "Blood Glucose",
+        "es": "Blood Glucose",
+        "ar": "Blood Glucose"
+      }
     },
     {
       "id": "ldh",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "IU/L",
       "default": 350,
-      "businessContext": "Lactate dehydrogenase level at admission"
+      "businessContext": "Lactate dehydrogenase level at admission",
+      "label_i18n": {
+        "en": "LDH",
+        "tr": "LDH",
+        "de": "LDH",
+        "fr": "LDH",
+        "es": "LDH",
+        "ar": "LDH"
+      }
     },
     {
       "id": "ast",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "IU/L",
       "default": 250,
-      "businessContext": "Aspartate aminotransferase level at admission"
+      "businessContext": "Aspartate aminotransferase level at admission",
+      "label_i18n": {
+        "en": "AST",
+        "tr": "AST",
+        "de": "AST",
+        "fr": "AST",
+        "es": "AST",
+        "ar": "AST"
+      }
     }
   ],
   "formulas": {
@@ -60,8 +100,8 @@
       "astCriteria"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

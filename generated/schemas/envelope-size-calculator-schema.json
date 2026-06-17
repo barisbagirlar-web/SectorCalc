@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 229,
-      "businessContext": "Width of the envelope in millimeters"
+      "businessContext": "Width of the envelope in millimeters",
+      "label_i18n": {
+        "en": "Envelope Width",
+        "tr": "Envelope Width",
+        "de": "Envelope Width",
+        "fr": "Envelope Width",
+        "es": "Envelope Width",
+        "ar": "Envelope Width"
+      }
     },
     {
       "id": "height",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 162,
-      "businessContext": "Height of the envelope in millimeters"
+      "businessContext": "Height of the envelope in millimeters",
+      "label_i18n": {
+        "en": "Envelope Height",
+        "tr": "Envelope Height",
+        "de": "Envelope Height",
+        "fr": "Envelope Height",
+        "es": "Envelope Height",
+        "ar": "Envelope Height"
+      }
     },
     {
       "id": "flapLength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 30,
-      "businessContext": "Length of the envelope flap in millimeters"
+      "businessContext": "Length of the envelope flap in millimeters",
+      "label_i18n": {
+        "en": "Flap Length",
+        "tr": "Flap Length",
+        "de": "Flap Length",
+        "fr": "Flap Length",
+        "es": "Flap Length",
+        "ar": "Flap Length"
+      }
     },
     {
       "id": "paperThickness",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0.1,
-      "businessContext": "Thickness of the paper used in millimeters"
+      "businessContext": "Thickness of the paper used in millimeters",
+      "label_i18n": {
+        "en": "Paper Thickness",
+        "tr": "Paper Thickness",
+        "de": "Paper Thickness",
+        "fr": "Paper Thickness",
+        "es": "Paper Thickness",
+        "ar": "Paper Thickness"
+      }
     },
     {
       "id": "quantity",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 1000,
-      "businessContext": "Number of envelopes to be produced"
+      "businessContext": "Number of envelopes to be produced",
+      "label_i18n": {
+        "en": "Quantity",
+        "tr": "Quantity",
+        "de": "Quantity",
+        "fr": "Quantity",
+        "es": "Quantity",
+        "ar": "Quantity"
+      }
     }
   ],
   "formulas": {
@@ -57,8 +97,8 @@
       "totalSurfaceArea"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Makine & Ekipman",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",

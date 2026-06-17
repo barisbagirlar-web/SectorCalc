@@ -20,6 +20,8 @@ function evaluateAllFormulas(input: Pace_per_kilometer_calculatorInput): Record<
   try { const v = Math.floor((results["paceSecondsPerKm"] ?? 0) / 60); results["paceMinutes"] = Number.isFinite(v) ? v : 0; } catch { results["paceMinutes"] = 0; }
   try { const v = Math.round((results["paceSecondsPerKm"] ?? 0) % 60); results["paceSeconds"] = Number.isFinite(v) ? v : 0; } catch { results["paceSeconds"] = 0; }
   try { const v = (results["paceMinutes"] ?? 0) + ':' + ((results["paceSeconds"] ?? 0) < 10 ? '0' : '') + (results["paceSeconds"] ?? 0); results["paceFormatted"] = Number.isFinite(v) ? v : 0; } catch { results["paceFormatted"] = 0; }
+  try { const v = (results["paceMinutes"] ?? 0) + ' min ' + (results["paceSeconds"] ?? 0) + ' sec per km'; results["paceMinutes_____min_____paceSeconds_____"] = Number.isFinite(v) ? v : 0; } catch { results["paceMinutes_____min_____paceSeconds_____"] = 0; }
+  try { const v = (results["paceSecondsPerKm"] ?? 0) + ' seconds per km'; results["paceSecondsPerKm_____seconds_per_km_"] = Number.isFinite(v) ? v : 0; } catch { results["paceSecondsPerKm_____seconds_per_km_"] = 0; }
   return results;
 }
 

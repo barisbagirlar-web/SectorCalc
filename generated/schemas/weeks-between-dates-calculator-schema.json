@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "day",
       "default": 1,
-      "businessContext": "Day of the start date (1-31)"
+      "businessContext": "Day of the start date (1-31)",
+      "label_i18n": {
+        "en": "Start Day",
+        "tr": "Start Day",
+        "de": "Start Day",
+        "fr": "Start Day",
+        "es": "Start Day",
+        "ar": "Start Day"
+      }
     },
     {
       "id": "startMonth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "month",
       "default": 1,
-      "businessContext": "Month of the start date (1-12)"
+      "businessContext": "Month of the start date (1-12)",
+      "label_i18n": {
+        "en": "Start Month",
+        "tr": "Start Month",
+        "de": "Start Month",
+        "fr": "Start Month",
+        "es": "Start Month",
+        "ar": "Start Month"
+      }
     },
     {
       "id": "startYear",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "year",
       "default": 2025,
-      "businessContext": "Year of the start date"
+      "businessContext": "Year of the start date",
+      "label_i18n": {
+        "en": "Start Year",
+        "tr": "Start Year",
+        "de": "Start Year",
+        "fr": "Start Year",
+        "es": "Start Year",
+        "ar": "Start Year"
+      }
     },
     {
       "id": "endDay",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "day",
       "default": 15,
-      "businessContext": "Day of the end date (1-31)"
+      "businessContext": "Day of the end date (1-31)",
+      "label_i18n": {
+        "en": "End Day",
+        "tr": "End Day",
+        "de": "End Day",
+        "fr": "End Day",
+        "es": "End Day",
+        "ar": "End Day"
+      }
     },
     {
       "id": "endMonth",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "month",
       "default": 1,
-      "businessContext": "Month of the end date (1-12)"
+      "businessContext": "Month of the end date (1-12)",
+      "label_i18n": {
+        "en": "End Month",
+        "tr": "End Month",
+        "de": "End Month",
+        "fr": "End Month",
+        "es": "End Month",
+        "ar": "End Month"
+      }
     },
     {
       "id": "endYear",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "year",
       "default": 2025,
-      "businessContext": "Year of the end date"
+      "businessContext": "Year of the end date",
+      "label_i18n": {
+        "en": "End Year",
+        "tr": "End Year",
+        "de": "End Year",
+        "fr": "End Year",
+        "es": "End Year",
+        "ar": "End Year"
+      }
     }
   ],
   "formulas": {
@@ -62,8 +110,8 @@
       "remainingDays"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

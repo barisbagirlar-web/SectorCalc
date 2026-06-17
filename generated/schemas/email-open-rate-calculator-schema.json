@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "count",
       "default": 1000,
-      "businessContext": "Total number of emails sent in the campaign"
+      "businessContext": "Total number of emails sent in the campaign",
+      "label_i18n": {
+        "en": "Emails Sent",
+        "tr": "Emails Sent",
+        "de": "Emails Sent",
+        "fr": "Emails Sent",
+        "es": "Emails Sent",
+        "ar": "Emails Sent"
+      }
     },
     {
       "id": "bounceCount",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "count",
       "default": 50,
-      "businessContext": "Number of emails that bounced (hard and soft bounces)"
+      "businessContext": "Number of emails that bounced (hard and soft bounces)",
+      "label_i18n": {
+        "en": "Bounces",
+        "tr": "Bounces",
+        "de": "Bounces",
+        "fr": "Bounces",
+        "es": "Bounces",
+        "ar": "Bounces"
+      }
     },
     {
       "id": "openCount",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "count",
       "default": 200,
-      "businessContext": "Number of emails opened (total opens, not necessarily unique)"
+      "businessContext": "Number of emails opened (total opens, not necessarily unique)",
+      "label_i18n": {
+        "en": "Opens",
+        "tr": "Opens",
+        "de": "Opens",
+        "fr": "Opens",
+        "es": "Opens",
+        "ar": "Opens"
+      }
     },
     {
       "id": "clickCount",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "count",
       "default": 80,
-      "businessContext": "Number of link clicks received"
+      "businessContext": "Number of link clicks received",
+      "label_i18n": {
+        "en": "Clicks",
+        "tr": "Clicks",
+        "de": "Clicks",
+        "fr": "Clicks",
+        "es": "Clicks",
+        "ar": "Clicks"
+      }
     }
   ],
   "formulas": {
@@ -69,8 +101,8 @@
       }
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

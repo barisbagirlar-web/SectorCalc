@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Total linear length of railing including posts."
+      "businessContext": "Total linear length of railing including posts.",
+      "label_i18n": {
+        "en": "Total Railing Length",
+        "tr": "Total Railing Length",
+        "de": "Total Railing Length",
+        "fr": "Total Railing Length",
+        "es": "Total Railing Length",
+        "ar": "Total Railing Length"
+      }
     },
     {
       "id": "postWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.1,
-      "businessContext": "Width of a single post."
+      "businessContext": "Width of a single post.",
+      "label_i18n": {
+        "en": "Post Width",
+        "tr": "Post Width",
+        "de": "Post Width",
+        "fr": "Post Width",
+        "es": "Post Width",
+        "ar": "Post Width"
+      }
     },
     {
       "id": "numberOfPosts",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 2,
-      "businessContext": "Total number of posts in the railing run (minimum 2 for ends)."
+      "businessContext": "Total number of posts in the railing run (minimum 2 for ends).",
+      "label_i18n": {
+        "en": "Number of Posts",
+        "tr": "Number of Posts",
+        "de": "Number of Posts",
+        "fr": "Number of Posts",
+        "es": "Number of Posts",
+        "ar": "Number of Posts"
+      }
     },
     {
       "id": "balusterWidth",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.02,
-      "businessContext": "Width of a single baluster."
+      "businessContext": "Width of a single baluster.",
+      "label_i18n": {
+        "en": "Baluster Width",
+        "tr": "Baluster Width",
+        "de": "Baluster Width",
+        "fr": "Baluster Width",
+        "es": "Baluster Width",
+        "ar": "Baluster Width"
+      }
     },
     {
       "id": "maxGap",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.1,
-      "businessContext": "Maximum gap between balusters as per safety code (commonly 4 inches = 0.1016 m)."
+      "businessContext": "Maximum gap between balusters as per safety code (commonly 4 inches = 0.1016 m).",
+      "label_i18n": {
+        "en": "Maximum Allowed Gap",
+        "tr": "Maximum Allowed Gap",
+        "de": "Maximum Allowed Gap",
+        "fr": "Maximum Allowed Gap",
+        "es": "Maximum Allowed Gap",
+        "ar": "Maximum Allowed Gap"
+      }
     }
   ],
   "formulas": {
@@ -54,8 +94,8 @@
       "actualSpacing"
     ]
   },
-  "category": "İSG & Risk",
-  "sector": "Bilişim & Yazılım",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",

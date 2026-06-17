@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "The score achieved in the first assignment."
+      "businessContext": "The score achieved in the first assignment.",
+      "label_i18n": {
+        "en": "Grade 1",
+        "tr": "Grade 1",
+        "de": "Grade 1",
+        "fr": "Grade 1",
+        "es": "Grade 1",
+        "ar": "Grade 1"
+      }
     },
     {
       "id": "weight1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "The weight of the first assignment as percentage of total."
+      "businessContext": "The weight of the first assignment as percentage of total.",
+      "label_i18n": {
+        "en": "Weight 1",
+        "tr": "Weight 1",
+        "de": "Weight 1",
+        "fr": "Weight 1",
+        "es": "Weight 1",
+        "ar": "Weight 1"
+      }
     },
     {
       "id": "grade2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "The score achieved in the second assignment."
+      "businessContext": "The score achieved in the second assignment.",
+      "label_i18n": {
+        "en": "Grade 2",
+        "tr": "Grade 2",
+        "de": "Grade 2",
+        "fr": "Grade 2",
+        "es": "Grade 2",
+        "ar": "Grade 2"
+      }
     },
     {
       "id": "weight2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "The weight of the second assignment as percentage of total."
+      "businessContext": "The weight of the second assignment as percentage of total.",
+      "label_i18n": {
+        "en": "Weight 2",
+        "tr": "Weight 2",
+        "de": "Weight 2",
+        "fr": "Weight 2",
+        "es": "Weight 2",
+        "ar": "Weight 2"
+      }
     },
     {
       "id": "grade3",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "The score achieved in the third assignment."
+      "businessContext": "The score achieved in the third assignment.",
+      "label_i18n": {
+        "en": "Grade 3",
+        "tr": "Grade 3",
+        "de": "Grade 3",
+        "fr": "Grade 3",
+        "es": "Grade 3",
+        "ar": "Grade 3"
+      }
     },
     {
       "id": "weight3",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "The weight of the third assignment as percentage of total."
+      "businessContext": "The weight of the third assignment as percentage of total.",
+      "label_i18n": {
+        "en": "Weight 3",
+        "tr": "Weight 3",
+        "de": "Weight 3",
+        "fr": "Weight 3",
+        "es": "Weight 3",
+        "ar": "Weight 3"
+      }
     },
     {
       "id": "grade4",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "The score achieved in the fourth assignment."
+      "businessContext": "The score achieved in the fourth assignment.",
+      "label_i18n": {
+        "en": "Grade 4",
+        "tr": "Grade 4",
+        "de": "Grade 4",
+        "fr": "Grade 4",
+        "es": "Grade 4",
+        "ar": "Grade 4"
+      }
     },
     {
       "id": "weight4",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "The weight of the fourth assignment as percentage of total."
+      "businessContext": "The weight of the fourth assignment as percentage of total.",
+      "label_i18n": {
+        "en": "Weight 4",
+        "tr": "Weight 4",
+        "de": "Weight 4",
+        "fr": "Weight 4",
+        "es": "Weight 4",
+        "ar": "Weight 4"
+      }
     }
   ],
   "formulas": {
@@ -84,8 +148,8 @@
       "totalWeight"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",

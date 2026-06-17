@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "chains",
       "default": 1,
-      "businessContext": "Number of chains to convert"
+      "businessContext": "Number of chains to convert",
+      "label_i18n": {
+        "en": "Chains",
+        "tr": "Chains",
+        "de": "Chains",
+        "fr": "Chains",
+        "es": "Chains",
+        "ar": "Chains"
+      }
     },
     {
       "id": "linksPerChain",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "links/chain",
       "default": 100,
-      "businessContext": "Number of links in one chain (standard Gunter's chain = 100)"
+      "businessContext": "Number of links in one chain (standard Gunter's chain = 100)",
+      "label_i18n": {
+        "en": "Links per Chain",
+        "tr": "Links per Chain",
+        "de": "Links per Chain",
+        "fr": "Links per Chain",
+        "es": "Links per Chain",
+        "ar": "Links per Chain"
+      }
     },
     {
       "id": "decimalPlaces",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "decimal places",
       "default": 2,
-      "businessContext": "Number of decimal places for output rounding"
+      "businessContext": "Number of decimal places for output rounding",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "roundingMethod",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "-",
       "default": 0,
-      "businessContext": "0 = standard round, 1 = floor, 2 = ceil"
+      "businessContext": "0 = standard round, 1 = floor, 2 = ceil",
+      "label_i18n": {
+        "en": "Rounding Method",
+        "tr": "Rounding Method",
+        "de": "Rounding Method",
+        "fr": "Rounding Method",
+        "es": "Rounding Method",
+        "ar": "Rounding Method"
+      }
     }
   ],
   "formulas": {
@@ -45,8 +77,8 @@
       "roundedLinks"
     ]
   },
-  "category": "Diğer",
-  "sector": "İnşaat & Yapı",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

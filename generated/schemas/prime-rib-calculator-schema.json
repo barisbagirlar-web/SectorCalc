@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "lb",
       "default": 10,
-      "businessContext": "Weight of the prime rib roast in pounds"
+      "businessContext": "Weight of the prime rib roast in pounds",
+      "label_i18n": {
+        "en": "Weight of Prime Rib",
+        "tr": "Weight of Prime Rib",
+        "de": "Weight of Prime Rib",
+        "fr": "Weight of Prime Rib",
+        "es": "Weight of Prime Rib",
+        "ar": "Weight of Prime Rib"
+      }
     },
     {
       "id": "minutesPerPound",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "min/lb",
       "default": 5,
-      "businessContext": "Cooking time factor per pound, typically 5 for rare at 500°F"
+      "businessContext": "Cooking time factor per pound, typically 5 for rare at 500°F",
+      "label_i18n": {
+        "en": "Minutes per Pound",
+        "tr": "Minutes per Pound",
+        "de": "Minutes per Pound",
+        "fr": "Minutes per Pound",
+        "es": "Minutes per Pound",
+        "ar": "Minutes per Pound"
+      }
     },
     {
       "id": "baseTime",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "min",
       "default": 0,
-      "businessContext": "Any additional base cooking time, e.g., for searing, in minutes"
+      "businessContext": "Any additional base cooking time, e.g., for searing, in minutes",
+      "label_i18n": {
+        "en": "Base Time",
+        "tr": "Base Time",
+        "de": "Base Time",
+        "fr": "Base Time",
+        "es": "Base Time",
+        "ar": "Base Time"
+      }
     },
     {
       "id": "restingTime",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "min",
       "default": 15,
-      "businessContext": "Time to rest the roast after cooking, in minutes"
+      "businessContext": "Time to rest the roast after cooking, in minutes",
+      "label_i18n": {
+        "en": "Resting Time",
+        "tr": "Resting Time",
+        "de": "Resting Time",
+        "fr": "Resting Time",
+        "es": "Resting Time",
+        "ar": "Resting Time"
+      }
     }
   ],
   "formulas": {
@@ -45,8 +77,8 @@
       "restingTime"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cans",
       "default": 1,
-      "businessContext": "Quantity of soda consumed"
+      "businessContext": "Quantity of soda consumed",
+      "label_i18n": {
+        "en": "Number of Cans/Bottles",
+        "tr": "Number of Cans/Bottles",
+        "de": "Number of Cans/Bottles",
+        "fr": "Number of Cans/Bottles",
+        "es": "Number of Cans/Bottles",
+        "ar": "Number of Cans/Bottles"
+      }
     },
     {
       "id": "caffeinePerServing",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mg",
       "default": 34,
-      "businessContext": "Caffeine content per serving (typical 12oz cola is 34mg)"
+      "businessContext": "Caffeine content per serving (typical 12oz cola is 34mg)",
+      "label_i18n": {
+        "en": "Caffeine per Serving",
+        "tr": "Caffeine per Serving",
+        "de": "Caffeine per Serving",
+        "fr": "Caffeine per Serving",
+        "es": "Caffeine per Serving",
+        "ar": "Caffeine per Serving"
+      }
     },
     {
       "id": "servingSize",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "fl oz",
       "default": 12,
-      "businessContext": "Volume per serving"
+      "businessContext": "Volume per serving",
+      "label_i18n": {
+        "en": "Serving Size",
+        "tr": "Serving Size",
+        "de": "Serving Size",
+        "fr": "Serving Size",
+        "es": "Serving Size",
+        "ar": "Serving Size"
+      }
     },
     {
       "id": "bodyWeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "User's weight for safe limit calculation"
+      "businessContext": "User's weight for safe limit calculation",
+      "label_i18n": {
+        "en": "Body Weight",
+        "tr": "Body Weight",
+        "de": "Body Weight",
+        "fr": "Body Weight",
+        "es": "Body Weight",
+        "ar": "Body Weight"
+      }
     },
     {
       "id": "safeLimitPerKg",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mg/kg",
       "default": 2.5,
-      "businessContext": "Recommended safe daily caffeine intake per kg body weight (commonly 2.5mg/kg)"
+      "businessContext": "Recommended safe daily caffeine intake per kg body weight (commonly 2.5mg/kg)",
+      "label_i18n": {
+        "en": "Safe Limit per kg",
+        "tr": "Safe Limit per kg",
+        "de": "Safe Limit per kg",
+        "fr": "Safe Limit per kg",
+        "es": "Safe Limit per kg",
+        "ar": "Safe Limit per kg"
+      }
     },
     {
       "id": "coffeeCaffeinePerCup",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "mg",
       "default": 95,
-      "businessContext": "Average caffeine in an 8oz cup of coffee for equivalence"
+      "businessContext": "Average caffeine in an 8oz cup of coffee for equivalence",
+      "label_i18n": {
+        "en": "Coffee Caffeine per Cup",
+        "tr": "Coffee Caffeine per Cup",
+        "de": "Coffee Caffeine per Cup",
+        "fr": "Coffee Caffeine per Cup",
+        "es": "Coffee Caffeine per Cup",
+        "ar": "Coffee Caffeine per Cup"
+      }
     }
   ],
   "formulas": {
@@ -64,8 +112,8 @@
       "coffeeEquiv"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "food-cooking",
   "sectorSlug": "restaurant",

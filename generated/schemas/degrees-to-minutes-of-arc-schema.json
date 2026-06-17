@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°",
       "default": 0,
-      "businessContext": "Açı değeri (derece cinsinden)"
+      "businessContext": "Açı değeri (derece cinsinden)",
+      "label_i18n": {
+        "en": "Derece",
+        "tr": "Derece",
+        "de": "Derece",
+        "fr": "Derece",
+        "es": "Derece",
+        "ar": "Derece"
+      }
     },
     {
       "id": "minutes",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "'",
       "default": 0,
-      "businessContext": "Açı değeri (dakika cinsinden)"
+      "businessContext": "Açı değeri (dakika cinsinden)",
+      "label_i18n": {
+        "en": "Dakika",
+        "tr": "Dakika",
+        "de": "Dakika",
+        "fr": "Dakika",
+        "es": "Dakika",
+        "ar": "Dakika"
+      }
     },
     {
       "id": "seconds",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "\"",
       "default": 0,
-      "businessContext": "Açı değeri (saniye cinsinden)"
+      "businessContext": "Açı değeri (saniye cinsinden)",
+      "label_i18n": {
+        "en": "Saniye",
+        "tr": "Saniye",
+        "de": "Saniye",
+        "fr": "Saniye",
+        "es": "Saniye",
+        "ar": "Saniye"
+      }
     },
     {
       "id": "decimalDegrees",
@@ -31,13 +55,25 @@
       "type": "number",
       "unit": "°",
       "default": 0,
-      "businessContext": "Ondalık derece cinsinden açı değeri"
+      "businessContext": "Ondalık derece cinsinden açı değeri",
+      "label_i18n": {
+        "en": "Ondalık Derece",
+        "tr": "Ondalık Derece",
+        "de": "Ondalık Derece",
+        "fr": "Ondalık Derece",
+        "es": "Ondalık Derece",
+        "ar": "Ondalık Derece"
+      }
     }
   ],
   "formulas": {
     "totalMinutes": "(degrees * 60) + minutes + (seconds / 60)",
     "totalDecimalDegrees": "decimalDegrees",
-    "minutesFromDecimal": "decimalDegrees * 60"
+    "minutesFromDecimal": "decimalDegrees * 60",
+    "degrees___60": "degrees * 60",
+    "seconds___60": "seconds / 60",
+    "_degrees___60____minutes____seconds___60": "(degrees * 60) + minutes + (seconds / 60)",
+    "decimalDegrees___60": "decimalDegrees * 60"
   },
   "outputs": {
     "primary": "totalMinutes",
@@ -48,8 +84,8 @@
       "Ondalık Derece → Dakika: decimalDegrees * 60"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 100000,
-      "businessContext": "Mevcut birikim ve yatırımların toplam değeri"
+      "businessContext": "Mevcut birikim ve yatırımların toplam değeri",
+      "label_i18n": {
+        "en": "Mevcut Net Varlık ($)",
+        "tr": "Mevcut Net Varlık ($)",
+        "de": "Mevcut Net Varlık ($)",
+        "fr": "Mevcut Net Varlık ($)",
+        "es": "Mevcut Net Varlık ($)",
+        "ar": "Mevcut Net Varlık ($)"
+      }
     },
     {
       "id": "annualIncome",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "$",
       "default": 100000,
-      "businessContext": "Yıllık toplam gelir (vergiler hariç)"
+      "businessContext": "Yıllık toplam gelir (vergiler hariç)",
+      "label_i18n": {
+        "en": "Yıllık Gelir ($)",
+        "tr": "Yıllık Gelir ($)",
+        "de": "Yıllık Gelir ($)",
+        "fr": "Yıllık Gelir ($)",
+        "es": "Yıllık Gelir ($)",
+        "ar": "Yıllık Gelir ($)"
+      }
     },
     {
       "id": "savingsRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Gelirin yatırıma ayrılan yüzdesi"
+      "businessContext": "Gelirin yatırıma ayrılan yüzdesi",
+      "label_i18n": {
+        "en": "Tasarruf Oranı (%)",
+        "tr": "Tasarruf Oranı (%)",
+        "de": "Tasarruf Oranı (%)",
+        "fr": "Tasarruf Oranı (%)",
+        "es": "Tasarruf Oranı (%)",
+        "ar": "Tasarruf Oranı (%)"
+      }
     },
     {
       "id": "annualReturn",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 7,
-      "businessContext": "Yatırım portföyünün ortalama yıllık nominal getirisi"
+      "businessContext": "Yatırım portföyünün ortalama yıllık nominal getirisi",
+      "label_i18n": {
+        "en": "Yıllık Getiri (%)",
+        "tr": "Yıllık Getiri (%)",
+        "de": "Yıllık Getiri (%)",
+        "fr": "Yıllık Getiri (%)",
+        "es": "Yıllık Getiri (%)",
+        "ar": "Yıllık Getiri (%)"
+      }
     },
     {
       "id": "desiredNetWorth",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "$",
       "default": 1000000000,
-      "businessContext": "Ulaşılmak istenen servet miktarı (varsayılan 1 milyar)"
+      "businessContext": "Ulaşılmak istenen servet miktarı (varsayılan 1 milyar)",
+      "label_i18n": {
+        "en": "Hedef Net Varlık ($)",
+        "tr": "Hedef Net Varlık ($)",
+        "de": "Hedef Net Varlık ($)",
+        "fr": "Hedef Net Varlık ($)",
+        "es": "Hedef Net Varlık ($)",
+        "ar": "Hedef Net Varlık ($)"
+      }
     }
   ],
   "formulas": {
@@ -58,8 +98,8 @@
       "totalInterestEarned"
     ]
   },
-  "category": "Diğer",
-  "sector": "Denizcilik & Gemi",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "L",
       "default": 1,
-      "businessContext": "Volume of gas at initial state"
+      "businessContext": "Volume of gas at initial state",
+      "label_i18n": {
+        "en": "Initial Volume",
+        "tr": "Initial Volume",
+        "de": "Initial Volume",
+        "fr": "Initial Volume",
+        "es": "Initial Volume",
+        "ar": "Initial Volume"
+      }
     },
     {
       "id": "initialTemperature",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "K",
       "default": 273.15,
-      "businessContext": "Absolute temperature at initial state"
+      "businessContext": "Absolute temperature at initial state",
+      "label_i18n": {
+        "en": "Initial Temperature",
+        "tr": "Initial Temperature",
+        "de": "Initial Temperature",
+        "fr": "Initial Temperature",
+        "es": "Initial Temperature",
+        "ar": "Initial Temperature"
+      }
     },
     {
       "id": "finalTemperature",
@@ -23,13 +39,24 @@
       "type": "number",
       "unit": "K",
       "default": 373.15,
-      "businessContext": "Absolute temperature at final state"
+      "businessContext": "Absolute temperature at final state",
+      "label_i18n": {
+        "en": "Final Temperature",
+        "tr": "Final Temperature",
+        "de": "Final Temperature",
+        "fr": "Final Temperature",
+        "es": "Final Temperature",
+        "ar": "Final Temperature"
+      }
     }
   ],
   "formulas": {
     "finalVolume": "initialVolume * finalTemperature / initialTemperature",
     "volumeChange": "finalVolume - initialVolume",
-    "volumeChangePercent": "(volumeChange / initialVolume) * 100"
+    "volumeChangePercent": "(volumeChange / initialVolume) * 100",
+    "finalVolume___initialVolume___finalTempe": "finalVolume = initialVolume * finalTemperature / initialTemperature",
+    "volumeChange___finalVolume___initialVolu": "volumeChange = finalVolume - initialVolume",
+    "volumeChangePercent____volumeChange___in": "volumeChangePercent = (volumeChange / initialVolume) * 100"
   },
   "outputs": {
     "primary": "finalVolume",
@@ -39,8 +66,8 @@
       "volumeChangePercent = (volumeChange / initialVolume) * 100"
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

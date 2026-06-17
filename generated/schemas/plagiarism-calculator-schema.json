@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kelime",
       "default": 0,
-      "businessContext": "Her iki belgede bulunan aynı kelimelerin sayısı"
+      "businessContext": "Her iki belgede bulunan aynı kelimelerin sayısı",
+      "label_i18n": {
+        "en": "Eşleşen Kelime Sayısı",
+        "tr": "Eşleşen Kelime Sayısı",
+        "de": "Eşleşen Kelime Sayısı",
+        "fr": "Eşleşen Kelime Sayısı",
+        "es": "Eşleşen Kelime Sayısı",
+        "ar": "Eşleşen Kelime Sayısı"
+      }
     },
     {
       "id": "totalWordsDocA",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kelime",
       "default": 0,
-      "businessContext": "Belge A'nın toplam kelime sayısı"
+      "businessContext": "Belge A'nın toplam kelime sayısı",
+      "label_i18n": {
+        "en": "Belge A Toplam Kelime",
+        "tr": "Belge A Toplam Kelime",
+        "de": "Belge A Toplam Kelime",
+        "fr": "Belge A Toplam Kelime",
+        "es": "Belge A Toplam Kelime",
+        "ar": "Belge A Toplam Kelime"
+      }
     },
     {
       "id": "totalWordsDocB",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kelime",
       "default": 0,
-      "businessContext": "Belge B'nin toplam kelime sayısı"
+      "businessContext": "Belge B'nin toplam kelime sayısı",
+      "label_i18n": {
+        "en": "Belge B Toplam Kelime",
+        "tr": "Belge B Toplam Kelime",
+        "de": "Belge B Toplam Kelime",
+        "fr": "Belge B Toplam Kelime",
+        "es": "Belge B Toplam Kelime",
+        "ar": "Belge B Toplam Kelime"
+      }
     },
     {
       "id": "matchingCitations",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "atıf",
       "default": 0,
-      "businessContext": "İki belge arasındaki ortak atıf sayısı"
+      "businessContext": "İki belge arasındaki ortak atıf sayısı",
+      "label_i18n": {
+        "en": "Eşleşen Atıf Sayısı",
+        "tr": "Eşleşen Atıf Sayısı",
+        "de": "Eşleşen Atıf Sayısı",
+        "fr": "Eşleşen Atıf Sayısı",
+        "es": "Eşleşen Atıf Sayısı",
+        "ar": "Eşleşen Atıf Sayısı"
+      }
     },
     {
       "id": "totalCitationsA",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "atıf",
       "default": 0,
-      "businessContext": "Belge A'daki toplam atıf sayısı"
+      "businessContext": "Belge A'daki toplam atıf sayısı",
+      "label_i18n": {
+        "en": "Belge A Toplam Atıf",
+        "tr": "Belge A Toplam Atıf",
+        "de": "Belge A Toplam Atıf",
+        "fr": "Belge A Toplam Atıf",
+        "es": "Belge A Toplam Atıf",
+        "ar": "Belge A Toplam Atıf"
+      }
     },
     {
       "id": "totalCitationsB",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "atıf",
       "default": 0,
-      "businessContext": "Belge B'deki toplam atıf sayısı"
+      "businessContext": "Belge B'deki toplam atıf sayısı",
+      "label_i18n": {
+        "en": "Belge B Toplam Atıf",
+        "tr": "Belge B Toplam Atıf",
+        "de": "Belge B Toplam Atıf",
+        "fr": "Belge B Toplam Atıf",
+        "es": "Belge B Toplam Atıf",
+        "ar": "Belge B Toplam Atıf"
+      }
     }
   ],
   "formulas": {
@@ -72,8 +120,8 @@
       }
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",

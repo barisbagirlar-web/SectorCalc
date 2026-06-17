@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 1000,
-      "businessContext": "Total quantity of items to be palletized."
+      "businessContext": "Total quantity of items to be palletized.",
+      "label_i18n": {
+        "en": "Total Items",
+        "tr": "Total Items",
+        "de": "Total Items",
+        "fr": "Total Items",
+        "es": "Total Items",
+        "ar": "Total Items"
+      }
     },
     {
       "id": "itemsPerLayer",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "pcs/layer",
       "default": 20,
-      "businessContext": "Number of items that fit in one layer on the pallet."
+      "businessContext": "Number of items that fit in one layer on the pallet.",
+      "label_i18n": {
+        "en": "Items per Layer",
+        "tr": "Items per Layer",
+        "de": "Items per Layer",
+        "fr": "Items per Layer",
+        "es": "Items per Layer",
+        "ar": "Items per Layer"
+      }
     },
     {
       "id": "layersPerPallet",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "layers",
       "default": 5,
-      "businessContext": "Maximum number of layers stackable per pallet."
+      "businessContext": "Maximum number of layers stackable per pallet.",
+      "label_i18n": {
+        "en": "Layers per Pallet",
+        "tr": "Layers per Pallet",
+        "de": "Layers per Pallet",
+        "fr": "Layers per Pallet",
+        "es": "Layers per Pallet",
+        "ar": "Layers per Pallet"
+      }
     },
     {
       "id": "itemWeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 10,
-      "businessContext": "Weight of a single item."
+      "businessContext": "Weight of a single item.",
+      "label_i18n": {
+        "en": "Item Weight",
+        "tr": "Item Weight",
+        "de": "Item Weight",
+        "fr": "Item Weight",
+        "es": "Item Weight",
+        "ar": "Item Weight"
+      }
     },
     {
       "id": "maxPalletWeight",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg",
       "default": 500,
-      "businessContext": "Maximum load capacity of one pallet."
+      "businessContext": "Maximum load capacity of one pallet.",
+      "label_i18n": {
+        "en": "Max Pallet Weight",
+        "tr": "Max Pallet Weight",
+        "de": "Max Pallet Weight",
+        "fr": "Max Pallet Weight",
+        "es": "Max Pallet Weight",
+        "ar": "Max Pallet Weight"
+      }
     }
   ],
   "formulas": {
@@ -60,8 +100,8 @@
       "weightUtilization"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 30,
-      "businessContext": "Standard serving size in grams as indicated on the product label."
+      "businessContext": "Standard serving size in grams as indicated on the product label.",
+      "label_i18n": {
+        "en": "Serving Size",
+        "tr": "Serving Size",
+        "de": "Serving Size",
+        "fr": "Serving Size",
+        "es": "Serving Size",
+        "ar": "Serving Size"
+      }
     },
     {
       "id": "proteinPerServing",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g",
       "default": 25,
-      "businessContext": "Amount of protein in grams per serving according to nutrition facts."
+      "businessContext": "Amount of protein in grams per serving according to nutrition facts.",
+      "label_i18n": {
+        "en": "Protein per Serving",
+        "tr": "Protein per Serving",
+        "de": "Protein per Serving",
+        "fr": "Protein per Serving",
+        "es": "Protein per Serving",
+        "ar": "Protein per Serving"
+      }
     },
     {
       "id": "scoopsUsed",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "count",
       "default": 1,
-      "businessContext": "Number of scoops typically consumed per serving."
+      "businessContext": "Number of scoops typically consumed per serving.",
+      "label_i18n": {
+        "en": "Scoops Used",
+        "tr": "Scoops Used",
+        "de": "Scoops Used",
+        "fr": "Scoops Used",
+        "es": "Scoops Used",
+        "ar": "Scoops Used"
+      }
     },
     {
       "id": "containerSize",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "g",
       "default": 1000,
-      "businessContext": "Net weight of protein powder in the container."
+      "businessContext": "Net weight of protein powder in the container.",
+      "label_i18n": {
+        "en": "Container Size",
+        "tr": "Container Size",
+        "de": "Container Size",
+        "fr": "Container Size",
+        "es": "Container Size",
+        "ar": "Container Size"
+      }
     },
     {
       "id": "containerPrice",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "€",
       "default": 29.99,
-      "businessContext": "Total price paid for the container."
+      "businessContext": "Total price paid for the container.",
+      "label_i18n": {
+        "en": "Container Price",
+        "tr": "Container Price",
+        "de": "Container Price",
+        "fr": "Container Price",
+        "es": "Container Price",
+        "ar": "Container Price"
+      }
     }
   ],
   "formulas": {
@@ -55,8 +95,8 @@
       "costPerGram"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Perakende & Tüketici",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

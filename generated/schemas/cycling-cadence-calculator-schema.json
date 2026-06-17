@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km/h",
       "default": 25,
-      "businessContext": "Input riding speed in kilometers per hour"
+      "businessContext": "Input riding speed in kilometers per hour",
+      "label_i18n": {
+        "en": "Speed",
+        "tr": "Speed",
+        "de": "Speed",
+        "fr": "Speed",
+        "es": "Speed",
+        "ar": "Speed"
+      }
     },
     {
       "id": "frontTeeth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "teeth",
       "default": 50,
-      "businessContext": "Number of teeth on the front chainring"
+      "businessContext": "Number of teeth on the front chainring",
+      "label_i18n": {
+        "en": "Front Chainring Teeth",
+        "tr": "Front Chainring Teeth",
+        "de": "Front Chainring Teeth",
+        "fr": "Front Chainring Teeth",
+        "es": "Front Chainring Teeth",
+        "ar": "Front Chainring Teeth"
+      }
     },
     {
       "id": "rearTeeth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "teeth",
       "default": 15,
-      "businessContext": "Number of teeth on the rear cog"
+      "businessContext": "Number of teeth on the rear cog",
+      "label_i18n": {
+        "en": "Rear Cog Teeth",
+        "tr": "Rear Cog Teeth",
+        "de": "Rear Cog Teeth",
+        "fr": "Rear Cog Teeth",
+        "es": "Rear Cog Teeth",
+        "ar": "Rear Cog Teeth"
+      }
     },
     {
       "id": "wheelDiameter",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 700,
-      "businessContext": "Nominal wheel diameter in millimeters (e.g., 700 for road bikes)"
+      "businessContext": "Nominal wheel diameter in millimeters (e.g., 700 for road bikes)",
+      "label_i18n": {
+        "en": "Wheel Diameter",
+        "tr": "Wheel Diameter",
+        "de": "Wheel Diameter",
+        "fr": "Wheel Diameter",
+        "es": "Wheel Diameter",
+        "ar": "Wheel Diameter"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "distancePerRev"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Makine & Ekipman",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 30,
-      "businessContext": "Omuzdan kuyruk sokumuna kadar ölçülen uzunluk"
+      "businessContext": "Omuzdan kuyruk sokumuna kadar ölçülen uzunluk",
+      "label_i18n": {
+        "en": "Vücut Uzunluğu",
+        "tr": "Vücut Uzunluğu",
+        "de": "Vücut Uzunluğu",
+        "fr": "Vücut Uzunluğu",
+        "es": "Vücut Uzunluğu",
+        "ar": "Vücut Uzunluğu"
+      }
     },
     {
       "id": "girth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 35,
-      "businessContext": "Ön bacakların hemen arkasından alınan göğüs çevresi ölçüsü"
+      "businessContext": "Ön bacakların hemen arkasından alınan göğüs çevresi ölçüsü",
+      "label_i18n": {
+        "en": "Göğüs Çevresi",
+        "tr": "Göğüs Çevresi",
+        "de": "Göğüs Çevresi",
+        "fr": "Göğüs Çevresi",
+        "es": "Göğüs Çevresi",
+        "ar": "Göğüs Çevresi"
+      }
     },
     {
       "id": "breedFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "faktor",
       "default": 1,
-      "businessContext": "Irk büyüklüğüne göre düzeltme faktörü (Örn: Maine Coon 1.2, Siyam 0.9)"
+      "businessContext": "Irk büyüklüğüne göre düzeltme faktörü (Örn: Maine Coon 1.2, Siyam 0.9)",
+      "label_i18n": {
+        "en": "Irk Faktörü",
+        "tr": "Irk Faktörü",
+        "de": "Irk Faktörü",
+        "fr": "Irk Faktörü",
+        "es": "Irk Faktörü",
+        "ar": "Irk Faktörü"
+      }
     },
     {
       "id": "sexFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "faktor",
       "default": 1,
-      "businessContext": "Erkek: 1.0, Dişi: 0.9"
+      "businessContext": "Erkek: 1.0, Dişi: 0.9",
+      "label_i18n": {
+        "en": "Cinsiyet Faktörü",
+        "tr": "Cinsiyet Faktörü",
+        "de": "Cinsiyet Faktörü",
+        "fr": "Cinsiyet Faktörü",
+        "es": "Cinsiyet Faktörü",
+        "ar": "Cinsiyet Faktörü"
+      }
     }
   ],
   "formulas": {
@@ -47,8 +79,8 @@
       "volume"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

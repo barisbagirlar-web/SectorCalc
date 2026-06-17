@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 1000000,
-      "businessContext": "Net income after taxes and all expenses"
+      "businessContext": "Net income after taxes and all expenses",
+      "label_i18n": {
+        "en": "Net Income",
+        "tr": "Net Income",
+        "de": "Net Income",
+        "fr": "Net Income",
+        "es": "Net Income",
+        "ar": "Net Income"
+      }
     },
     {
       "id": "revenue",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 5000000,
-      "businessContext": "Total sales or revenue"
+      "businessContext": "Total sales or revenue",
+      "label_i18n": {
+        "en": "Revenue",
+        "tr": "Revenue",
+        "de": "Revenue",
+        "fr": "Revenue",
+        "es": "Revenue",
+        "ar": "Revenue"
+      }
     },
     {
       "id": "totalAssets",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 10000000,
-      "businessContext": "Total assets on balance sheet"
+      "businessContext": "Total assets on balance sheet",
+      "label_i18n": {
+        "en": "Total Assets",
+        "tr": "Total Assets",
+        "de": "Total Assets",
+        "fr": "Total Assets",
+        "es": "Total Assets",
+        "ar": "Total Assets"
+      }
     },
     {
       "id": "shareholdersEquity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 4000000,
-      "businessContext": "Total shareholders' equity"
+      "businessContext": "Total shareholders' equity",
+      "label_i18n": {
+        "en": "Shareholders' Equity",
+        "tr": "Shareholders' Equity",
+        "de": "Shareholders' Equity",
+        "fr": "Shareholders' Equity",
+        "es": "Shareholders' Equity",
+        "ar": "Shareholders' Equity"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "equityMultiplier"
     ]
   },
-  "category": "Maliyet & Bütçeleme",
-  "sector": "Metal & Sac İşleme",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

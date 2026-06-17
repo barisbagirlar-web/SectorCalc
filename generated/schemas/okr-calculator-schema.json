@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "%",
       "default": 25,
-      "businessContext": "Weight of Key Result 1 as a percentage of total (0-100)"
+      "businessContext": "Weight of Key Result 1 as a percentage of total (0-100)",
+      "label_i18n": {
+        "en": "KR1 Weight",
+        "tr": "KR1 Weight",
+        "de": "KR1 Weight",
+        "fr": "KR1 Weight",
+        "es": "KR1 Weight",
+        "ar": "KR1 Weight"
+      }
     },
     {
       "id": "kr1Progress",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Completion percentage of Key Result 1 (0-100)"
+      "businessContext": "Completion percentage of Key Result 1 (0-100)",
+      "label_i18n": {
+        "en": "KR1 Progress",
+        "tr": "KR1 Progress",
+        "de": "KR1 Progress",
+        "fr": "KR1 Progress",
+        "es": "KR1 Progress",
+        "ar": "KR1 Progress"
+      }
     },
     {
       "id": "kr2Weight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 25,
-      "businessContext": "Weight of Key Result 2 as a percentage of total (0-100)"
+      "businessContext": "Weight of Key Result 2 as a percentage of total (0-100)",
+      "label_i18n": {
+        "en": "KR2 Weight",
+        "tr": "KR2 Weight",
+        "de": "KR2 Weight",
+        "fr": "KR2 Weight",
+        "es": "KR2 Weight",
+        "ar": "KR2 Weight"
+      }
     },
     {
       "id": "kr2Progress",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Completion percentage of Key Result 2 (0-100)"
+      "businessContext": "Completion percentage of Key Result 2 (0-100)",
+      "label_i18n": {
+        "en": "KR2 Progress",
+        "tr": "KR2 Progress",
+        "de": "KR2 Progress",
+        "fr": "KR2 Progress",
+        "es": "KR2 Progress",
+        "ar": "KR2 Progress"
+      }
     },
     {
       "id": "kr3Weight",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 25,
-      "businessContext": "Weight of Key Result 3 as a percentage of total (0-100)"
+      "businessContext": "Weight of Key Result 3 as a percentage of total (0-100)",
+      "label_i18n": {
+        "en": "KR3 Weight",
+        "tr": "KR3 Weight",
+        "de": "KR3 Weight",
+        "fr": "KR3 Weight",
+        "es": "KR3 Weight",
+        "ar": "KR3 Weight"
+      }
     },
     {
       "id": "kr3Progress",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Completion percentage of Key Result 3 (0-100)"
+      "businessContext": "Completion percentage of Key Result 3 (0-100)",
+      "label_i18n": {
+        "en": "KR3 Progress",
+        "tr": "KR3 Progress",
+        "de": "KR3 Progress",
+        "fr": "KR3 Progress",
+        "es": "KR3 Progress",
+        "ar": "KR3 Progress"
+      }
     },
     {
       "id": "kr4Weight",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 25,
-      "businessContext": "Weight of Key Result 4 as a percentage of total (0-100)"
+      "businessContext": "Weight of Key Result 4 as a percentage of total (0-100)",
+      "label_i18n": {
+        "en": "KR4 Weight",
+        "tr": "KR4 Weight",
+        "de": "KR4 Weight",
+        "fr": "KR4 Weight",
+        "es": "KR4 Weight",
+        "ar": "KR4 Weight"
+      }
     },
     {
       "id": "kr4Progress",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Completion percentage of Key Result 4 (0-100)"
+      "businessContext": "Completion percentage of Key Result 4 (0-100)",
+      "label_i18n": {
+        "en": "KR4 Progress",
+        "tr": "KR4 Progress",
+        "de": "KR4 Progress",
+        "fr": "KR4 Progress",
+        "es": "KR4 Progress",
+        "ar": "KR4 Progress"
+      }
     }
   ],
   "formulas": {
@@ -82,8 +146,8 @@
       "kr4Contribution"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

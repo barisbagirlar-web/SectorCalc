@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "unitless",
       "default": 1,
-      "businessContext": "Variance of the first variable"
+      "businessContext": "Variance of the first variable",
+      "label_i18n": {
+        "en": "Variance of X",
+        "tr": "Variance of X",
+        "de": "Variance of X",
+        "fr": "Variance of X",
+        "es": "Variance of X",
+        "ar": "Variance of X"
+      }
     },
     {
       "id": "varianceY",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "unitless",
       "default": 1,
-      "businessContext": "Variance of the second variable"
+      "businessContext": "Variance of the second variable",
+      "label_i18n": {
+        "en": "Variance of Y",
+        "tr": "Variance of Y",
+        "de": "Variance of Y",
+        "fr": "Variance of Y",
+        "es": "Variance of Y",
+        "ar": "Variance of Y"
+      }
     },
     {
       "id": "covarianceXY",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "unitless",
       "default": 0,
-      "businessContext": "Covariance between X and Y"
+      "businessContext": "Covariance between X and Y",
+      "label_i18n": {
+        "en": "Covariance(X, Y)",
+        "tr": "Covariance(X, Y)",
+        "de": "Covariance(X, Y)",
+        "fr": "Covariance(X, Y)",
+        "es": "Covariance(X, Y)",
+        "ar": "Covariance(X, Y)"
+      }
     },
     {
       "id": "scaling",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "unitless",
       "default": 1,
-      "businessContext": "Multiplier applied to all matrix entries before eigendecomposition"
+      "businessContext": "Multiplier applied to all matrix entries before eigendecomposition",
+      "label_i18n": {
+        "en": "Scaling Factor",
+        "tr": "Scaling Factor",
+        "de": "Scaling Factor",
+        "fr": "Scaling Factor",
+        "es": "Scaling Factor",
+        "ar": "Scaling Factor"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "proportionExplained"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

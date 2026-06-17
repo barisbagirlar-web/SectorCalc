@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Age of the individual in years."
+      "businessContext": "Age of the individual in years.",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "restingHeartRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "bpm",
       "default": 60,
-      "businessContext": "Resting heart rate, typically measured upon waking."
+      "businessContext": "Resting heart rate, typically measured upon waking.",
+      "label_i18n": {
+        "en": "Resting Heart Rate",
+        "tr": "Resting Heart Rate",
+        "de": "Resting Heart Rate",
+        "fr": "Resting Heart Rate",
+        "es": "Resting Heart Rate",
+        "ar": "Resting Heart Rate"
+      }
     },
     {
       "id": "maxHeartRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "bpm",
       "default": 0,
-      "businessContext": "Maximum heart rate in beats per minute. Enter 0 to estimate from age (220 - age)."
+      "businessContext": "Maximum heart rate in beats per minute. Enter 0 to estimate from age (220 - age).",
+      "label_i18n": {
+        "en": "Maximum Heart Rate",
+        "tr": "Maximum Heart Rate",
+        "de": "Maximum Heart Rate",
+        "fr": "Maximum Heart Rate",
+        "es": "Maximum Heart Rate",
+        "ar": "Maximum Heart Rate"
+      }
     },
     {
       "id": "intensity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 85,
-      "businessContext": "Percentage of heart rate reserve used for anaerobic threshold (commonly 80-90%)."
+      "businessContext": "Percentage of heart rate reserve used for anaerobic threshold (commonly 80-90%).",
+      "label_i18n": {
+        "en": "Intensity",
+        "tr": "Intensity",
+        "de": "Intensity",
+        "fr": "Intensity",
+        "es": "Intensity",
+        "ar": "Intensity"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "heartRateReserve"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

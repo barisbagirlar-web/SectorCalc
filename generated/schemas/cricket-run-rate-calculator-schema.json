@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "runs",
       "default": 0,
-      "businessContext": "Total runs scored so far in the innings"
+      "businessContext": "Total runs scored so far in the innings",
+      "label_i18n": {
+        "en": "Runs Scored",
+        "tr": "Runs Scored",
+        "de": "Runs Scored",
+        "fr": "Runs Scored",
+        "es": "Runs Scored",
+        "ar": "Runs Scored"
+      }
     },
     {
       "id": "oversFaced",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "overs",
       "default": 0,
-      "businessContext": "Overs bowled so far, as decimal (e.g., 15.4 = 15 overs, 4 balls)"
+      "businessContext": "Overs bowled so far, as decimal (e.g., 15.4 = 15 overs, 4 balls)",
+      "label_i18n": {
+        "en": "Overs Faced",
+        "tr": "Overs Faced",
+        "de": "Overs Faced",
+        "fr": "Overs Faced",
+        "es": "Overs Faced",
+        "ar": "Overs Faced"
+      }
     },
     {
       "id": "targetRuns",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "runs",
       "default": 0,
-      "businessContext": "Target runs to achieve"
+      "businessContext": "Target runs to achieve",
+      "label_i18n": {
+        "en": "Target Runs",
+        "tr": "Target Runs",
+        "de": "Target Runs",
+        "fr": "Target Runs",
+        "es": "Target Runs",
+        "ar": "Target Runs"
+      }
     },
     {
       "id": "totalOvers",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "overs",
       "default": 20,
-      "businessContext": "Total overs available for the innings"
+      "businessContext": "Total overs available for the innings",
+      "label_i18n": {
+        "en": "Total Overs",
+        "tr": "Total Overs",
+        "de": "Total Overs",
+        "fr": "Total Overs",
+        "es": "Total Overs",
+        "ar": "Total Overs"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "oversRemaining"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg/s",
       "default": 10,
-      "businessContext": "Mass flow rate of the hot fluid entering the heat exchanger."
+      "businessContext": "Mass flow rate of the hot fluid entering the heat exchanger.",
+      "label_i18n": {
+        "en": "Hot Fluid Mass Flow Rate",
+        "tr": "Hot Fluid Mass Flow Rate",
+        "de": "Hot Fluid Mass Flow Rate",
+        "fr": "Hot Fluid Mass Flow Rate",
+        "es": "Hot Fluid Mass Flow Rate",
+        "ar": "Hot Fluid Mass Flow Rate"
+      }
     },
     {
       "id": "cpHot",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kJ/(kg·K)",
       "default": 4.2,
-      "businessContext": "Specific heat capacity of the hot fluid."
+      "businessContext": "Specific heat capacity of the hot fluid.",
+      "label_i18n": {
+        "en": "Hot Fluid Specific Heat",
+        "tr": "Hot Fluid Specific Heat",
+        "de": "Hot Fluid Specific Heat",
+        "fr": "Hot Fluid Specific Heat",
+        "es": "Hot Fluid Specific Heat",
+        "ar": "Hot Fluid Specific Heat"
+      }
     },
     {
       "id": "tempHotIn",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 90,
-      "businessContext": "Inlet temperature of the hot fluid."
+      "businessContext": "Inlet temperature of the hot fluid.",
+      "label_i18n": {
+        "en": "Hot Fluid Inlet Temperature",
+        "tr": "Hot Fluid Inlet Temperature",
+        "de": "Hot Fluid Inlet Temperature",
+        "fr": "Hot Fluid Inlet Temperature",
+        "es": "Hot Fluid Inlet Temperature",
+        "ar": "Hot Fluid Inlet Temperature"
+      }
     },
     {
       "id": "tempHotOut",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 60,
-      "businessContext": "Desired outlet temperature of the hot fluid."
+      "businessContext": "Desired outlet temperature of the hot fluid.",
+      "label_i18n": {
+        "en": "Hot Fluid Outlet Temperature",
+        "tr": "Hot Fluid Outlet Temperature",
+        "de": "Hot Fluid Outlet Temperature",
+        "fr": "Hot Fluid Outlet Temperature",
+        "es": "Hot Fluid Outlet Temperature",
+        "ar": "Hot Fluid Outlet Temperature"
+      }
     },
     {
       "id": "massFlowCold",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg/s",
       "default": 15,
-      "businessContext": "Mass flow rate of the cold fluid."
+      "businessContext": "Mass flow rate of the cold fluid.",
+      "label_i18n": {
+        "en": "Cold Fluid Mass Flow Rate",
+        "tr": "Cold Fluid Mass Flow Rate",
+        "de": "Cold Fluid Mass Flow Rate",
+        "fr": "Cold Fluid Mass Flow Rate",
+        "es": "Cold Fluid Mass Flow Rate",
+        "ar": "Cold Fluid Mass Flow Rate"
+      }
     },
     {
       "id": "cpCold",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kJ/(kg·K)",
       "default": 4.18,
-      "businessContext": "Specific heat capacity of the cold fluid."
+      "businessContext": "Specific heat capacity of the cold fluid.",
+      "label_i18n": {
+        "en": "Cold Fluid Specific Heat",
+        "tr": "Cold Fluid Specific Heat",
+        "de": "Cold Fluid Specific Heat",
+        "fr": "Cold Fluid Specific Heat",
+        "es": "Cold Fluid Specific Heat",
+        "ar": "Cold Fluid Specific Heat"
+      }
     },
     {
       "id": "tempColdIn",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Inlet temperature of the cold fluid."
+      "businessContext": "Inlet temperature of the cold fluid.",
+      "label_i18n": {
+        "en": "Cold Fluid Inlet Temperature",
+        "tr": "Cold Fluid Inlet Temperature",
+        "de": "Cold Fluid Inlet Temperature",
+        "fr": "Cold Fluid Inlet Temperature",
+        "es": "Cold Fluid Inlet Temperature",
+        "ar": "Cold Fluid Inlet Temperature"
+      }
     },
     {
       "id": "overallHeatTransferCoeff",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "W/(m²·K)",
       "default": 500,
-      "businessContext": "Overall heat transfer coefficient of the heat exchanger."
+      "businessContext": "Overall heat transfer coefficient of the heat exchanger.",
+      "label_i18n": {
+        "en": "Overall Heat Transfer Coefficient",
+        "tr": "Overall Heat Transfer Coefficient",
+        "de": "Overall Heat Transfer Coefficient",
+        "fr": "Overall Heat Transfer Coefficient",
+        "es": "Overall Heat Transfer Coefficient",
+        "ar": "Overall Heat Transfer Coefficient"
+      }
     }
   ],
   "formulas": {
@@ -81,8 +145,8 @@
       "area"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Danışmanlık",
+  "category": "Akışkanlar & Termodinamik",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dB",
       "default": 80,
-      "businessContext": "SPL of first source"
+      "businessContext": "SPL of first source",
+      "label_i18n": {
+        "en": "Sound Pressure Level 1",
+        "tr": "Sound Pressure Level 1",
+        "de": "Sound Pressure Level 1",
+        "fr": "Sound Pressure Level 1",
+        "es": "Sound Pressure Level 1",
+        "ar": "Sound Pressure Level 1"
+      }
     },
     {
       "id": "spl2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dB",
       "default": 0,
-      "businessContext": "SPL of second source (set 0 if not used)"
+      "businessContext": "SPL of second source (set 0 if not used)",
+      "label_i18n": {
+        "en": "Sound Pressure Level 2",
+        "tr": "Sound Pressure Level 2",
+        "de": "Sound Pressure Level 2",
+        "fr": "Sound Pressure Level 2",
+        "es": "Sound Pressure Level 2",
+        "ar": "Sound Pressure Level 2"
+      }
     },
     {
       "id": "spl3",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dB",
       "default": 0,
-      "businessContext": "SPL of third source (set 0 if not used)"
+      "businessContext": "SPL of third source (set 0 if not used)",
+      "label_i18n": {
+        "en": "Sound Pressure Level 3",
+        "tr": "Sound Pressure Level 3",
+        "de": "Sound Pressure Level 3",
+        "fr": "Sound Pressure Level 3",
+        "es": "Sound Pressure Level 3",
+        "ar": "Sound Pressure Level 3"
+      }
     },
     {
       "id": "spl4",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dB",
       "default": 0,
-      "businessContext": "SPL of fourth source (set 0 if not used)"
+      "businessContext": "SPL of fourth source (set 0 if not used)",
+      "label_i18n": {
+        "en": "Sound Pressure Level 4",
+        "tr": "Sound Pressure Level 4",
+        "de": "Sound Pressure Level 4",
+        "fr": "Sound Pressure Level 4",
+        "es": "Sound Pressure Level 4",
+        "ar": "Sound Pressure Level 4"
+      }
     },
     {
       "id": "spl5",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "dB",
       "default": 0,
-      "businessContext": "SPL of fifth source (set 0 if not used)"
+      "businessContext": "SPL of fifth source (set 0 if not used)",
+      "label_i18n": {
+        "en": "Sound Pressure Level 5",
+        "tr": "Sound Pressure Level 5",
+        "de": "Sound Pressure Level 5",
+        "fr": "Sound Pressure Level 5",
+        "es": "Sound Pressure Level 5",
+        "ar": "Sound Pressure Level 5"
+      }
     }
   ],
   "formulas": {
@@ -60,8 +100,8 @@
       "spl5Result"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "gaming-entertainment",
   "sectorSlug": "ecommerce",

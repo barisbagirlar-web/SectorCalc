@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "The larger diameter of the tapered section"
+      "businessContext": "The larger diameter of the tapered section",
+      "label_i18n": {
+        "en": "Large Diameter (D)",
+        "tr": "Large Diameter (D)",
+        "de": "Large Diameter (D)",
+        "fr": "Large Diameter (D)",
+        "es": "Large Diameter (D)",
+        "ar": "Large Diameter (D)"
+      }
     },
     {
       "id": "smallDiameter",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 50,
-      "businessContext": "The smaller diameter of the tapered section"
+      "businessContext": "The smaller diameter of the tapered section",
+      "label_i18n": {
+        "en": "Small Diameter (d)",
+        "tr": "Small Diameter (d)",
+        "de": "Small Diameter (d)",
+        "fr": "Small Diameter (d)",
+        "es": "Small Diameter (d)",
+        "ar": "Small Diameter (d)"
+      }
     },
     {
       "id": "length",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 200,
-      "businessContext": "The length over which the taper is measured"
+      "businessContext": "The length over which the taper is measured",
+      "label_i18n": {
+        "en": "Length (L)",
+        "tr": "Length (L)",
+        "de": "Length (L)",
+        "fr": "Length (L)",
+        "es": "Length (L)",
+        "ar": "Length (L)"
+      }
     },
     {
       "id": "referenceLength",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "A standard length over which to compute the diameter reduction (e.g., 100 mm)"
+      "businessContext": "A standard length over which to compute the diameter reduction (e.g., 100 mm)",
+      "label_i18n": {
+        "en": "Reference Length",
+        "tr": "Reference Length",
+        "de": "Reference Length",
+        "fr": "Reference Length",
+        "es": "Reference Length",
+        "ar": "Reference Length"
+      }
     }
   ],
   "formulas": {
@@ -47,8 +79,8 @@
       "taperAngleDeg"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

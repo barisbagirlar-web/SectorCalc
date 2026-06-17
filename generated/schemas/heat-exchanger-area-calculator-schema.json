@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kW",
       "default": 100,
-      "businessContext": "Required thermal power to be transferred"
+      "businessContext": "Required thermal power to be transferred",
+      "label_i18n": {
+        "en": "Heat Duty",
+        "tr": "Heat Duty",
+        "de": "Heat Duty",
+        "fr": "Heat Duty",
+        "es": "Heat Duty",
+        "ar": "Heat Duty"
+      }
     },
     {
       "id": "overallCoefficient",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "W/m²·K",
       "default": 500,
-      "businessContext": "Combined conductive and convective heat transfer coefficient"
+      "businessContext": "Combined conductive and convective heat transfer coefficient",
+      "label_i18n": {
+        "en": "Overall Heat Transfer Coefficient",
+        "tr": "Overall Heat Transfer Coefficient",
+        "de": "Overall Heat Transfer Coefficient",
+        "fr": "Overall Heat Transfer Coefficient",
+        "es": "Overall Heat Transfer Coefficient",
+        "ar": "Overall Heat Transfer Coefficient"
+      }
     },
     {
       "id": "hotInletTemp",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 150,
-      "businessContext": "Temperature of hot fluid entering the exchanger"
+      "businessContext": "Temperature of hot fluid entering the exchanger",
+      "label_i18n": {
+        "en": "Hot Fluid Inlet Temperature",
+        "tr": "Hot Fluid Inlet Temperature",
+        "de": "Hot Fluid Inlet Temperature",
+        "fr": "Hot Fluid Inlet Temperature",
+        "es": "Hot Fluid Inlet Temperature",
+        "ar": "Hot Fluid Inlet Temperature"
+      }
     },
     {
       "id": "hotOutletTemp",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 100,
-      "businessContext": "Temperature of hot fluid leaving the exchanger"
+      "businessContext": "Temperature of hot fluid leaving the exchanger",
+      "label_i18n": {
+        "en": "Hot Fluid Outlet Temperature",
+        "tr": "Hot Fluid Outlet Temperature",
+        "de": "Hot Fluid Outlet Temperature",
+        "fr": "Hot Fluid Outlet Temperature",
+        "es": "Hot Fluid Outlet Temperature",
+        "ar": "Hot Fluid Outlet Temperature"
+      }
     },
     {
       "id": "coldInletTemp",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "°C",
       "default": 30,
-      "businessContext": "Temperature of cold fluid entering the exchanger"
+      "businessContext": "Temperature of cold fluid entering the exchanger",
+      "label_i18n": {
+        "en": "Cold Fluid Inlet Temperature",
+        "tr": "Cold Fluid Inlet Temperature",
+        "de": "Cold Fluid Inlet Temperature",
+        "fr": "Cold Fluid Inlet Temperature",
+        "es": "Cold Fluid Inlet Temperature",
+        "ar": "Cold Fluid Inlet Temperature"
+      }
     },
     {
       "id": "coldOutletTemp",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "°C",
       "default": 80,
-      "businessContext": "Temperature of cold fluid leaving the exchanger"
+      "businessContext": "Temperature of cold fluid leaving the exchanger",
+      "label_i18n": {
+        "en": "Cold Fluid Outlet Temperature",
+        "tr": "Cold Fluid Outlet Temperature",
+        "de": "Cold Fluid Outlet Temperature",
+        "fr": "Cold Fluid Outlet Temperature",
+        "es": "Cold Fluid Outlet Temperature",
+        "ar": "Cold Fluid Outlet Temperature"
+      }
     }
   ],
   "formulas": {
@@ -64,8 +112,8 @@
       "heatDutyW"
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "Enerji & Elektrik",
+  "category": "Akışkanlar & Termodinamik",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

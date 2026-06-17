@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mmol/L",
       "default": 140,
-      "businessContext": "Serum sodium concentration for osmolality calculation."
+      "businessContext": "Serum sodium concentration for osmolality calculation.",
+      "label_i18n": {
+        "en": "Sodium (Na⁺)",
+        "tr": "Sodium (Na⁺)",
+        "de": "Sodium (Na⁺)",
+        "fr": "Sodium (Na⁺)",
+        "es": "Sodium (Na⁺)",
+        "ar": "Sodium (Na⁺)"
+      }
     },
     {
       "id": "glucose",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 90,
-      "businessContext": "Blood glucose level contributing to osmolality."
+      "businessContext": "Blood glucose level contributing to osmolality.",
+      "label_i18n": {
+        "en": "Glucose",
+        "tr": "Glucose",
+        "de": "Glucose",
+        "fr": "Glucose",
+        "es": "Glucose",
+        "ar": "Glucose"
+      }
     },
     {
       "id": "bun",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 14,
-      "businessContext": "BUN concentration affecting osmolality."
+      "businessContext": "BUN concentration affecting osmolality.",
+      "label_i18n": {
+        "en": "Blood Urea Nitrogen (BUN)",
+        "tr": "Blood Urea Nitrogen (BUN)",
+        "de": "Blood Urea Nitrogen (BUN)",
+        "fr": "Blood Urea Nitrogen (BUN)",
+        "es": "Blood Urea Nitrogen (BUN)",
+        "ar": "Blood Urea Nitrogen (BUN)"
+      }
     },
     {
       "id": "measuredOsm",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mOsm/kg",
       "default": 0,
-      "businessContext": "Measured serum osmolality for osmolar gap calculation; leave 0 if not available."
+      "businessContext": "Measured serum osmolality for osmolar gap calculation; leave 0 if not available.",
+      "label_i18n": {
+        "en": "Measured Osmolality (optional)",
+        "tr": "Measured Osmolality (optional)",
+        "de": "Measured Osmolality (optional)",
+        "fr": "Measured Osmolality (optional)",
+        "es": "Measured Osmolality (optional)",
+        "ar": "Measured Osmolality (optional)"
+      }
     }
   ],
   "formulas": {
@@ -50,8 +82,8 @@
       "osmolarGap"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "chemistry-science",
   "sectorSlug": "energy-consumption",

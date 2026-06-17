@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 10,
-      "businessContext": "Total distance cycled in kilometers."
+      "businessContext": "Total distance cycled in kilometers.",
+      "label_i18n": {
+        "en": "Distance",
+        "tr": "Distance",
+        "de": "Distance",
+        "fr": "Distance",
+        "es": "Distance",
+        "ar": "Distance"
+      }
     },
     {
       "id": "hours",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "h",
       "default": 0,
-      "businessContext": "Hours component of the elapsed time."
+      "businessContext": "Hours component of the elapsed time.",
+      "label_i18n": {
+        "en": "Hours",
+        "tr": "Hours",
+        "de": "Hours",
+        "fr": "Hours",
+        "es": "Hours",
+        "ar": "Hours"
+      }
     },
     {
       "id": "minutes",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "min",
       "default": 30,
-      "businessContext": "Minutes component of the elapsed time."
+      "businessContext": "Minutes component of the elapsed time.",
+      "label_i18n": {
+        "en": "Minutes",
+        "tr": "Minutes",
+        "de": "Minutes",
+        "fr": "Minutes",
+        "es": "Minutes",
+        "ar": "Minutes"
+      }
     },
     {
       "id": "seconds",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "s",
       "default": 0,
-      "businessContext": "Seconds component of the elapsed time."
+      "businessContext": "Seconds component of the elapsed time.",
+      "label_i18n": {
+        "en": "Seconds",
+        "tr": "Seconds",
+        "de": "Seconds",
+        "fr": "Seconds",
+        "es": "Seconds",
+        "ar": "Seconds"
+      }
     }
   ],
   "formulas": {
@@ -47,8 +79,8 @@
       "speed"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

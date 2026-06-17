@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "MHz",
       "default": 144,
-      "businessContext": "Çalışma frekansı (MHz)"
+      "businessContext": "Çalışma frekansı (MHz)",
+      "label_i18n": {
+        "en": "Frekans",
+        "tr": "Frekans",
+        "de": "Frekans",
+        "fr": "Frekans",
+        "es": "Frekans",
+        "ar": "Frekans"
+      }
     },
     {
       "id": "numElements",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 3,
-      "businessContext": "Reflektör ve sürücü dahil toplam eleman sayısı"
+      "businessContext": "Reflektör ve sürücü dahil toplam eleman sayısı",
+      "label_i18n": {
+        "en": "Eleman Sayısı",
+        "tr": "Eleman Sayısı",
+        "de": "Eleman Sayısı",
+        "fr": "Eleman Sayısı",
+        "es": "Eleman Sayısı",
+        "ar": "Eleman Sayısı"
+      }
     },
     {
       "id": "velocityFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "birimsiz",
       "default": 0.95,
-      "businessContext": "Kabuk etkisi düzeltme katsayısı, genelde 0.95"
+      "businessContext": "Kabuk etkisi düzeltme katsayısı, genelde 0.95",
+      "label_i18n": {
+        "en": "Hız Faktörü",
+        "tr": "Hız Faktörü",
+        "de": "Hız Faktörü",
+        "fr": "Hız Faktörü",
+        "es": "Hız Faktörü",
+        "ar": "Hız Faktörü"
+      }
     },
     {
       "id": "spacingFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "birimsiz",
       "default": 0.2,
-      "businessContext": "Elemanlar arası dalga boyu oranı (ör. 0.2λ)"
+      "businessContext": "Elemanlar arası dalga boyu oranı (ör. 0.2λ)",
+      "label_i18n": {
+        "en": "Aralık Katsayısı",
+        "tr": "Aralık Katsayısı",
+        "de": "Aralık Katsayısı",
+        "fr": "Aralık Katsayısı",
+        "es": "Aralık Katsayısı",
+        "ar": "Aralık Katsayısı"
+      }
     }
   ],
   "formulas": {
@@ -53,8 +85,8 @@
       "director3"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "HV",
       "default": 200,
-      "businessContext": "Material hardness measured in Vickers (HV)."
+      "businessContext": "Material hardness measured in Vickers (HV).",
+      "label_i18n": {
+        "en": "Material Hardness",
+        "tr": "Material Hardness",
+        "de": "Material Hardness",
+        "fr": "Material Hardness",
+        "es": "Material Hardness",
+        "ar": "Material Hardness"
+      }
     },
     {
       "id": "surfaceRoughness",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "µm",
       "default": 0.8,
-      "businessContext": "Average surface roughness (Ra) in micrometers."
+      "businessContext": "Average surface roughness (Ra) in micrometers.",
+      "label_i18n": {
+        "en": "Surface Roughness",
+        "tr": "Surface Roughness",
+        "de": "Surface Roughness",
+        "fr": "Surface Roughness",
+        "es": "Surface Roughness",
+        "ar": "Surface Roughness"
+      }
     },
     {
       "id": "cuttingSpeed",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m/min",
       "default": 100,
-      "businessContext": "Linear speed of the cutting tool relative to the workpiece."
+      "businessContext": "Linear speed of the cutting tool relative to the workpiece.",
+      "label_i18n": {
+        "en": "Cutting Speed",
+        "tr": "Cutting Speed",
+        "de": "Cutting Speed",
+        "fr": "Cutting Speed",
+        "es": "Cutting Speed",
+        "ar": "Cutting Speed"
+      }
     },
     {
       "id": "feedRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm/rev",
       "default": 0.1,
-      "businessContext": "Distance the tool advances per revolution."
+      "businessContext": "Distance the tool advances per revolution.",
+      "label_i18n": {
+        "en": "Feed Rate",
+        "tr": "Feed Rate",
+        "de": "Feed Rate",
+        "fr": "Feed Rate",
+        "es": "Feed Rate",
+        "ar": "Feed Rate"
+      }
     },
     {
       "id": "depthOfCut",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm",
       "default": 1,
-      "businessContext": "Thickness of material removed in a single pass."
+      "businessContext": "Thickness of material removed in a single pass.",
+      "label_i18n": {
+        "en": "Depth of Cut",
+        "tr": "Depth of Cut",
+        "de": "Depth of Cut",
+        "fr": "Depth of Cut",
+        "es": "Depth of Cut",
+        "ar": "Depth of Cut"
+      }
     }
   ],
   "formulas": {
@@ -56,8 +96,8 @@
       "logComponent"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Makine & Ekipman",
+  "category": "İmalat & Üretim",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

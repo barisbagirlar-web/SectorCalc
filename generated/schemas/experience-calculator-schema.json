@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "saat",
       "default": 10,
-      "businessContext": "İlk birimin üretim süresi. Öğrenme eğrisi hesaplamalarında temel değerdir."
+      "businessContext": "İlk birimin üretim süresi. Öğrenme eğrisi hesaplamalarında temel değerdir.",
+      "label_i18n": {
+        "en": "İlk Birim Zamanı",
+        "tr": "İlk Birim Zamanı",
+        "de": "İlk Birim Zamanı",
+        "fr": "İlk Birim Zamanı",
+        "es": "İlk Birim Zamanı",
+        "ar": "İlk Birim Zamanı"
+      }
     },
     {
       "id": "learningRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 80,
-      "businessContext": "Birikimli üretim iki katına çıktığında birim zamanındaki düşüş yüzdesi. Tipik değerler 70-90 arasındadır."
+      "businessContext": "Birikimli üretim iki katına çıktığında birim zamanındaki düşüş yüzdesi. Tipik değerler 70-90 arasındadır.",
+      "label_i18n": {
+        "en": "Öğrenme Oranı",
+        "tr": "Öğrenme Oranı",
+        "de": "Öğrenme Oranı",
+        "fr": "Öğrenme Oranı",
+        "es": "Öğrenme Oranı",
+        "ar": "Öğrenme Oranı"
+      }
     },
     {
       "id": "cumulativeUnits",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "adet",
       "default": 100,
-      "businessContext": "Deneyim kazanımının hesaplanacağı kümülatif birim adedi."
+      "businessContext": "Deneyim kazanımının hesaplanacağı kümülatif birim adedi.",
+      "label_i18n": {
+        "en": "Toplam Birim Sayısı",
+        "tr": "Toplam Birim Sayısı",
+        "de": "Toplam Birim Sayısı",
+        "fr": "Toplam Birim Sayısı",
+        "es": "Toplam Birim Sayısı",
+        "ar": "Toplam Birim Sayısı"
+      }
     }
   ],
   "formulas": {
@@ -39,8 +63,8 @@
       "timeLastUnit"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "gaming-entertainment",
   "sectorSlug": "ecommerce",

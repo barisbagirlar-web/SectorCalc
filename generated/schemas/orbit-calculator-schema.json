@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 200,
-      "businessContext": "Altitude of the orbit's closest point to Earth above the surface."
+      "businessContext": "Altitude of the orbit's closest point to Earth above the surface.",
+      "label_i18n": {
+        "en": "Perigee Altitude",
+        "tr": "Perigee Altitude",
+        "de": "Perigee Altitude",
+        "fr": "Perigee Altitude",
+        "es": "Perigee Altitude",
+        "ar": "Perigee Altitude"
+      }
     },
     {
       "id": "apogeeAltitude",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "km",
       "default": 2000,
-      "businessContext": "Altitude of the orbit's farthest point from Earth above the surface."
+      "businessContext": "Altitude of the orbit's farthest point from Earth above the surface.",
+      "label_i18n": {
+        "en": "Apogee Altitude",
+        "tr": "Apogee Altitude",
+        "de": "Apogee Altitude",
+        "fr": "Apogee Altitude",
+        "es": "Apogee Altitude",
+        "ar": "Apogee Altitude"
+      }
     },
     {
       "id": "earthRadius",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "km",
       "default": 6371,
-      "businessContext": "Mean radius of the Earth. Default is 6371 km."
+      "businessContext": "Mean radius of the Earth. Default is 6371 km.",
+      "label_i18n": {
+        "en": "Earth Radius",
+        "tr": "Earth Radius",
+        "de": "Earth Radius",
+        "fr": "Earth Radius",
+        "es": "Earth Radius",
+        "ar": "Earth Radius"
+      }
     },
     {
       "id": "mu",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "km³/s²",
       "default": 398600.4418,
-      "businessContext": "Standard gravitational parameter for Earth. μ = G*M."
+      "businessContext": "Standard gravitational parameter for Earth. μ = G*M.",
+      "label_i18n": {
+        "en": "Gravitational Parameter μ",
+        "tr": "Gravitational Parameter μ",
+        "de": "Gravitational Parameter μ",
+        "fr": "Gravitational Parameter μ",
+        "es": "Gravitational Parameter μ",
+        "ar": "Gravitational Parameter μ"
+      }
     }
   ],
   "formulas": {
@@ -50,8 +82,8 @@
       "apogeeVelocity"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",

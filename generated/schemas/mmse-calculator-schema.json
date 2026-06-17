@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "-",
       "default": 0,
-      "businessContext": "İlk ölçülen gerçek değer."
+      "businessContext": "İlk ölçülen gerçek değer.",
+      "label_i18n": {
+        "en": "Gerçek Değer 1",
+        "tr": "Gerçek Değer 1",
+        "de": "Gerçek Değer 1",
+        "fr": "Gerçek Değer 1",
+        "es": "Gerçek Değer 1",
+        "ar": "Gerçek Değer 1"
+      }
     },
     {
       "id": "predictedValue1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "-",
       "default": 0,
-      "businessContext": "İlk tahmin edilen veya model çıktısı değer."
+      "businessContext": "İlk tahmin edilen veya model çıktısı değer.",
+      "label_i18n": {
+        "en": "Tahmini Değer 1",
+        "tr": "Tahmini Değer 1",
+        "de": "Tahmini Değer 1",
+        "fr": "Tahmini Değer 1",
+        "es": "Tahmini Değer 1",
+        "ar": "Tahmini Değer 1"
+      }
     },
     {
       "id": "actualValue2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "-",
       "default": 0,
-      "businessContext": "İkinci gerçek değer."
+      "businessContext": "İkinci gerçek değer.",
+      "label_i18n": {
+        "en": "Gerçek Değer 2",
+        "tr": "Gerçek Değer 2",
+        "de": "Gerçek Değer 2",
+        "fr": "Gerçek Değer 2",
+        "es": "Gerçek Değer 2",
+        "ar": "Gerçek Değer 2"
+      }
     },
     {
       "id": "predictedValue2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "-",
       "default": 0,
-      "businessContext": "İkinci tahmin edilen değer."
+      "businessContext": "İkinci tahmin edilen değer.",
+      "label_i18n": {
+        "en": "Tahmini Değer 2",
+        "tr": "Tahmini Değer 2",
+        "de": "Tahmini Değer 2",
+        "fr": "Tahmini Değer 2",
+        "es": "Tahmini Değer 2",
+        "ar": "Tahmini Değer 2"
+      }
     }
   ],
   "formulas": {
@@ -50,8 +82,8 @@
       "sampleSize"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

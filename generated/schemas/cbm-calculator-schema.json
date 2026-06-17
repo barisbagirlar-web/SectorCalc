@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 100,
-      "businessContext": "Cargo length in centimeters"
+      "businessContext": "Cargo length in centimeters",
+      "label_i18n": {
+        "en": "Length",
+        "tr": "Length",
+        "de": "Length",
+        "fr": "Length",
+        "es": "Length",
+        "ar": "Length"
+      }
     },
     {
       "id": "width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 100,
-      "businessContext": "Cargo width in centimeters"
+      "businessContext": "Cargo width in centimeters",
+      "label_i18n": {
+        "en": "Width",
+        "tr": "Width",
+        "de": "Width",
+        "fr": "Width",
+        "es": "Width",
+        "ar": "Width"
+      }
     },
     {
       "id": "height",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 100,
-      "businessContext": "Cargo height in centimeters"
+      "businessContext": "Cargo height in centimeters",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "Height",
+        "fr": "Height",
+        "es": "Height",
+        "ar": "Height"
+      }
     },
     {
       "id": "quantity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 1,
-      "businessContext": "Number of identical packages"
+      "businessContext": "Number of identical packages",
+      "label_i18n": {
+        "en": "Quantity",
+        "tr": "Quantity",
+        "de": "Quantity",
+        "fr": "Quantity",
+        "es": "Quantity",
+        "ar": "Quantity"
+      }
     }
   ],
   "formulas": {
@@ -45,8 +77,8 @@
       "total_cbm"
     ]
   },
-  "category": "Lojistik & Rota",
-  "sector": "Denizcilik & Gemi",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",

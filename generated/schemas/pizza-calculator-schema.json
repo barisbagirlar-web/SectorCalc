@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 30,
-      "businessContext": "Pizzanın çapı (cm)"
+      "businessContext": "Pizzanın çapı (cm)",
+      "label_i18n": {
+        "en": "Pizza Çapı",
+        "tr": "Pizza Çapı",
+        "de": "Pizza Çapı",
+        "fr": "Pizza Çapı",
+        "es": "Pizza Çapı",
+        "ar": "Pizza Çapı"
+      }
     },
     {
       "id": "pizzaPrice",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 10,
-      "businessContext": "Bir pizzanın satış fiyatı"
+      "businessContext": "Bir pizzanın satış fiyatı",
+      "label_i18n": {
+        "en": "Pizza Fiyatı",
+        "tr": "Pizza Fiyatı",
+        "de": "Pizza Fiyatı",
+        "fr": "Pizza Fiyatı",
+        "es": "Pizza Fiyatı",
+        "ar": "Pizza Fiyatı"
+      }
     },
     {
       "id": "quantity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Sipariş edilen pizza adedi"
+      "businessContext": "Sipariş edilen pizza adedi",
+      "label_i18n": {
+        "en": "Adet",
+        "tr": "Adet",
+        "de": "Adet",
+        "fr": "Adet",
+        "es": "Adet",
+        "ar": "Adet"
+      }
     },
     {
       "id": "discountRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Uygulanacak indirim yüzdesi"
+      "businessContext": "Uygulanacak indirim yüzdesi",
+      "label_i18n": {
+        "en": "İndirim Oranı",
+        "tr": "İndirim Oranı",
+        "de": "İndirim Oranı",
+        "fr": "İndirim Oranı",
+        "es": "İndirim Oranı",
+        "ar": "İndirim Oranı"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "pricePerSquareCm"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

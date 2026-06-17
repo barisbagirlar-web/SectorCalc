@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Mass of solute in grams"
+      "businessContext": "Mass of solute in grams",
+      "label_i18n": {
+        "en": "Solute Mass",
+        "tr": "Solute Mass",
+        "de": "Solute Mass",
+        "fr": "Solute Mass",
+        "es": "Solute Mass",
+        "ar": "Solute Mass"
+      }
     },
     {
       "id": "molarMass",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g/mol",
       "default": 0,
-      "businessContext": "Molar mass of the solute"
+      "businessContext": "Molar mass of the solute",
+      "label_i18n": {
+        "en": "Molar Mass",
+        "tr": "Molar Mass",
+        "de": "Molar Mass",
+        "fr": "Molar Mass",
+        "es": "Molar Mass",
+        "ar": "Molar Mass"
+      }
     },
     {
       "id": "volume",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "L",
       "default": 0,
-      "businessContext": "Total volume of the solution in liters"
+      "businessContext": "Total volume of the solution in liters",
+      "label_i18n": {
+        "en": "Solution Volume",
+        "tr": "Solution Volume",
+        "de": "Solution Volume",
+        "fr": "Solution Volume",
+        "es": "Solution Volume",
+        "ar": "Solution Volume"
+      }
     }
   ],
   "formulas": {
@@ -41,8 +65,8 @@
       }
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "chemistry-science",
   "sectorSlug": "energy-consumption",

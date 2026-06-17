@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "D",
       "default": 0,
-      "businessContext": "Spectacle sphere power in diopters"
+      "businessContext": "Spectacle sphere power in diopters",
+      "label_i18n": {
+        "en": "Sphere (SPH)",
+        "tr": "Sphere (SPH)",
+        "de": "Sphere (SPH)",
+        "fr": "Sphere (SPH)",
+        "es": "Sphere (SPH)",
+        "ar": "Sphere (SPH)"
+      }
     },
     {
       "id": "cylinder",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "D",
       "default": 0,
-      "businessContext": "Spectacle cylinder power in diopters"
+      "businessContext": "Spectacle cylinder power in diopters",
+      "label_i18n": {
+        "en": "Cylinder (CYL)",
+        "tr": "Cylinder (CYL)",
+        "de": "Cylinder (CYL)",
+        "fr": "Cylinder (CYL)",
+        "es": "Cylinder (CYL)",
+        "ar": "Cylinder (CYL)"
+      }
     },
     {
       "id": "axis",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°",
       "default": 0,
-      "businessContext": "Cylinder axis in degrees"
+      "businessContext": "Cylinder axis in degrees",
+      "label_i18n": {
+        "en": "Axis",
+        "tr": "Axis",
+        "de": "Axis",
+        "fr": "Axis",
+        "es": "Axis",
+        "ar": "Axis"
+      }
     },
     {
       "id": "vertexDistance",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 12,
-      "businessContext": "Distance from spectacle lens to cornea in mm"
+      "businessContext": "Distance from spectacle lens to cornea in mm",
+      "label_i18n": {
+        "en": "Vertex Distance",
+        "tr": "Vertex Distance",
+        "de": "Vertex Distance",
+        "fr": "Vertex Distance",
+        "es": "Vertex Distance",
+        "ar": "Vertex Distance"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "contactAxis"
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "Enerji & Elektrik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "strokes",
       "default": 96,
-      "businessContext": "The expected score for a bogey golfer under normal course and weather conditions."
+      "businessContext": "The expected score for a bogey golfer under normal course and weather conditions.",
+      "label_i18n": {
+        "en": "Bogey Rating",
+        "tr": "Bogey Rating",
+        "de": "Bogey Rating",
+        "fr": "Bogey Rating",
+        "es": "Bogey Rating",
+        "ar": "Bogey Rating"
+      }
     },
     {
       "id": "scratchRating",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "strokes",
       "default": 72,
-      "businessContext": "The expected score for a scratch golfer under normal course and weather conditions."
+      "businessContext": "The expected score for a scratch golfer under normal course and weather conditions.",
+      "label_i18n": {
+        "en": "Scratch Course Rating",
+        "tr": "Scratch Course Rating",
+        "de": "Scratch Course Rating",
+        "fr": "Scratch Course Rating",
+        "es": "Scratch Course Rating",
+        "ar": "Scratch Course Rating"
+      }
     },
     {
       "id": "slopeFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 5.381,
-      "businessContext": "Constant multiplier to convert rating difference to slope (5.381 for men, 4.24 for women)."
+      "businessContext": "Constant multiplier to convert rating difference to slope (5.381 for men, 4.24 for women).",
+      "label_i18n": {
+        "en": "Slope Factor",
+        "tr": "Slope Factor",
+        "de": "Slope Factor",
+        "fr": "Slope Factor",
+        "es": "Slope Factor",
+        "ar": "Slope Factor"
+      }
     },
     {
       "id": "score",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "strokes",
       "default": 90,
-      "businessContext": "Actual strokes taken by the player in the round."
+      "businessContext": "Actual strokes taken by the player in the round.",
+      "label_i18n": {
+        "en": "Gross Score",
+        "tr": "Gross Score",
+        "de": "Gross Score",
+        "fr": "Gross Score",
+        "es": "Gross Score",
+        "ar": "Gross Score"
+      }
     }
   ],
   "formulas": {
@@ -45,8 +77,8 @@
       "handicapDifferential"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

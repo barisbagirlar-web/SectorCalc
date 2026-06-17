@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°",
       "default": 0,
-      "businessContext": "Starting angular position in degrees"
+      "businessContext": "Starting angular position in degrees",
+      "label_i18n": {
+        "en": "Initial Angle (Degrees)",
+        "tr": "Initial Angle (Degrees)",
+        "de": "Initial Angle (Degrees)",
+        "fr": "Initial Angle (Degrees)",
+        "es": "Initial Angle (Degrees)",
+        "ar": "Initial Angle (Degrees)"
+      }
     },
     {
       "id": "finalAngleDeg",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°",
       "default": 0,
-      "businessContext": "Ending angular position in degrees"
+      "businessContext": "Ending angular position in degrees",
+      "label_i18n": {
+        "en": "Final Angle (Degrees)",
+        "tr": "Final Angle (Degrees)",
+        "de": "Final Angle (Degrees)",
+        "fr": "Final Angle (Degrees)",
+        "es": "Final Angle (Degrees)",
+        "ar": "Final Angle (Degrees)"
+      }
     },
     {
       "id": "time",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "s",
       "default": 1,
-      "businessContext": "Time interval for angular displacement"
+      "businessContext": "Time interval for angular displacement",
+      "label_i18n": {
+        "en": "Time",
+        "tr": "Time",
+        "de": "Time",
+        "fr": "Time",
+        "es": "Time",
+        "ar": "Time"
+      }
     },
     {
       "id": "radius",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Radius of circular path"
+      "businessContext": "Radius of circular path",
+      "label_i18n": {
+        "en": "Radius",
+        "tr": "Radius",
+        "de": "Radius",
+        "fr": "Radius",
+        "es": "Radius",
+        "ar": "Radius"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "arcLength"
     ]
   },
-  "category": "Sürdürülebilirlik",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

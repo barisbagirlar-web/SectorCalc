@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "degree",
       "default": "30",
-      "businessContext": "Angle of the snowboarding slope relative to horizontal."
+      "businessContext": "Angle of the snowboarding slope relative to horizontal.",
+      "label_i18n": {
+        "en": "Slope Angle",
+        "tr": "Slope Angle",
+        "de": "Slope Angle",
+        "fr": "Slope Angle",
+        "es": "Slope Angle",
+        "ar": "Slope Angle"
+      }
     },
     {
       "id": "slopeLength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": "100",
-      "businessContext": "Length of the slope surface."
+      "businessContext": "Length of the slope surface.",
+      "label_i18n": {
+        "en": "Slope Length",
+        "tr": "Slope Length",
+        "de": "Slope Length",
+        "fr": "Slope Length",
+        "es": "Slope Length",
+        "ar": "Slope Length"
+      }
     },
     {
       "id": "frictionCoeff",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": "0.1",
-      "businessContext": "Coefficient of kinetic friction between snowboard and snow."
+      "businessContext": "Coefficient of kinetic friction between snowboard and snow.",
+      "label_i18n": {
+        "en": "Friction Coefficient",
+        "tr": "Friction Coefficient",
+        "de": "Friction Coefficient",
+        "fr": "Friction Coefficient",
+        "es": "Friction Coefficient",
+        "ar": "Friction Coefficient"
+      }
     },
     {
       "id": "mass",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": "75",
-      "businessContext": "Total mass of the snowboarder and equipment."
+      "businessContext": "Total mass of the snowboarder and equipment.",
+      "label_i18n": {
+        "en": "Rider + Board Mass",
+        "tr": "Rider + Board Mass",
+        "de": "Rider + Board Mass",
+        "fr": "Rider + Board Mass",
+        "es": "Rider + Board Mass",
+        "ar": "Rider + Board Mass"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "kineticEnergy"
     ]
   },
-  "category": "Diğer",
-  "sector": "Makine & Ekipman",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",

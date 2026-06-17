@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 80,
-      "businessContext": "Testin pozitif olarak belirlediği gerçek pozitif vaka sayısı."
+      "businessContext": "Testin pozitif olarak belirlediği gerçek pozitif vaka sayısı.",
+      "label_i18n": {
+        "en": "Doğru Pozitif (DP)",
+        "tr": "Doğru Pozitif (DP)",
+        "de": "Doğru Pozitif (DP)",
+        "fr": "Doğru Pozitif (DP)",
+        "es": "Doğru Pozitif (DP)",
+        "ar": "Doğru Pozitif (DP)"
+      }
     },
     {
       "id": "falsePositive",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 20,
-      "businessContext": "Testin pozitif olarak belirlediği fakat gerçekte negatif olan vaka sayısı."
+      "businessContext": "Testin pozitif olarak belirlediği fakat gerçekte negatif olan vaka sayısı.",
+      "label_i18n": {
+        "en": "Yanlış Pozitif (YP)",
+        "tr": "Yanlış Pozitif (YP)",
+        "de": "Yanlış Pozitif (YP)",
+        "fr": "Yanlış Pozitif (YP)",
+        "es": "Yanlış Pozitif (YP)",
+        "ar": "Yanlış Pozitif (YP)"
+      }
     },
     {
       "id": "falseNegative",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "adet",
       "default": 10,
-      "businessContext": "Testin negatif olarak belirlediği fakat gerçekte pozitif olan vaka sayısı."
+      "businessContext": "Testin negatif olarak belirlediği fakat gerçekte pozitif olan vaka sayısı.",
+      "label_i18n": {
+        "en": "Yanlış Negatif (YN)",
+        "tr": "Yanlış Negatif (YN)",
+        "de": "Yanlış Negatif (YN)",
+        "fr": "Yanlış Negatif (YN)",
+        "es": "Yanlış Negatif (YN)",
+        "ar": "Yanlış Negatif (YN)"
+      }
     },
     {
       "id": "trueNegative",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "adet",
       "default": 90,
-      "businessContext": "Testin negatif olarak belirlediği gerçek negatif vaka sayısı."
+      "businessContext": "Testin negatif olarak belirlediği gerçek negatif vaka sayısı.",
+      "label_i18n": {
+        "en": "Doğru Negatif (DN)",
+        "tr": "Doğru Negatif (DN)",
+        "de": "Doğru Negatif (DN)",
+        "fr": "Doğru Negatif (DN)",
+        "es": "Doğru Negatif (DN)",
+        "ar": "Doğru Negatif (DN)"
+      }
     }
   ],
   "formulas": {
@@ -50,8 +82,8 @@
       "accuracy"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

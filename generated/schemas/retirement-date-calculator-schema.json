@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "The current age of the individual."
+      "businessContext": "The current age of the individual.",
+      "label_i18n": {
+        "en": "Current Age",
+        "tr": "Current Age",
+        "de": "Current Age",
+        "fr": "Current Age",
+        "es": "Current Age",
+        "ar": "Current Age"
+      }
     },
     {
       "id": "currentSavings",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 50000,
-      "businessContext": "Total amount currently saved for retirement."
+      "businessContext": "Total amount currently saved for retirement.",
+      "label_i18n": {
+        "en": "Current Savings",
+        "tr": "Current Savings",
+        "de": "Current Savings",
+        "fr": "Current Savings",
+        "es": "Current Savings",
+        "ar": "Current Savings"
+      }
     },
     {
       "id": "monthlyContribution",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 1000,
-      "businessContext": "Amount contributed to retirement savings each month."
+      "businessContext": "Amount contributed to retirement savings each month.",
+      "label_i18n": {
+        "en": "Monthly Contribution",
+        "tr": "Monthly Contribution",
+        "de": "Monthly Contribution",
+        "fr": "Monthly Contribution",
+        "es": "Monthly Contribution",
+        "ar": "Monthly Contribution"
+      }
     },
     {
       "id": "annualReturnPercent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 7,
-      "businessContext": "Expected average annual investment return rate."
+      "businessContext": "Expected average annual investment return rate.",
+      "label_i18n": {
+        "en": "Annual Return Rate",
+        "tr": "Annual Return Rate",
+        "de": "Annual Return Rate",
+        "fr": "Annual Return Rate",
+        "es": "Annual Return Rate",
+        "ar": "Annual Return Rate"
+      }
     },
     {
       "id": "targetCorpus",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD",
       "default": 1000000,
-      "businessContext": "The total savings target required to retire comfortably."
+      "businessContext": "The total savings target required to retire comfortably.",
+      "label_i18n": {
+        "en": "Target Retirement Corpus",
+        "tr": "Target Retirement Corpus",
+        "de": "Target Retirement Corpus",
+        "fr": "Target Retirement Corpus",
+        "es": "Target Retirement Corpus",
+        "ar": "Target Retirement Corpus"
+      }
     }
   ],
   "formulas": {
@@ -54,8 +94,8 @@
       "totalContributions"
     ]
   },
-  "category": "Finans & Yatırım",
-  "sector": "Otomotiv & Taşıt",
+  "category": "Otomotiv",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "date-time",
   "sectorSlug": "daily-renovation",

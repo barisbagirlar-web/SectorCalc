@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "gün",
       "default": 0,
-      "businessContext": "Gün cinsinden süre, saniyeye çevrilecek"
+      "businessContext": "Gün cinsinden süre, saniyeye çevrilecek",
+      "label_i18n": {
+        "en": "Gün",
+        "tr": "Gün",
+        "de": "Gün",
+        "fr": "Gün",
+        "es": "Gün",
+        "ar": "Gün"
+      }
     },
     {
       "id": "hours",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "saat",
       "default": 0,
-      "businessContext": "Saat cinsinden süre, saniyeye çevrilecek"
+      "businessContext": "Saat cinsinden süre, saniyeye çevrilecek",
+      "label_i18n": {
+        "en": "Saat",
+        "tr": "Saat",
+        "de": "Saat",
+        "fr": "Saat",
+        "es": "Saat",
+        "ar": "Saat"
+      }
     },
     {
       "id": "minutes",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dk",
       "default": 0,
-      "businessContext": "Dakika cinsinden süre (ana girdi), saniyeye çevrilecek"
+      "businessContext": "Dakika cinsinden süre (ana girdi), saniyeye çevrilecek",
+      "label_i18n": {
+        "en": "Dakika",
+        "tr": "Dakika",
+        "de": "Dakika",
+        "fr": "Dakika",
+        "es": "Dakika",
+        "ar": "Dakika"
+      }
     },
     {
       "id": "seconds",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "s",
       "default": 0,
-      "businessContext": "Doğrudan saniye olarak eklenecek süre"
+      "businessContext": "Doğrudan saniye olarak eklenecek süre",
+      "label_i18n": {
+        "en": "Saniye",
+        "tr": "Saniye",
+        "de": "Saniye",
+        "fr": "Saniye",
+        "es": "Saniye",
+        "ar": "Saniye"
+      }
     },
     {
       "id": "decimalPlaces",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "-",
       "default": 0,
-      "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı (0 tam sayıya yuvarlar, en fazla 10 önerilir)"
+      "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı (0 tam sayıya yuvarlar, en fazla 10 önerilir)",
+      "label_i18n": {
+        "en": "Ondalık Basamak",
+        "tr": "Ondalık Basamak",
+        "de": "Ondalık Basamak",
+        "fr": "Ondalık Basamak",
+        "es": "Ondalık Basamak",
+        "ar": "Ondalık Basamak"
+      }
     }
   ],
   "formulas": {
@@ -58,8 +98,8 @@
       "seconds"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "€",
       "default": -1000,
-      "businessContext": "The initial cash flow at time 0, typically negative for investment"
+      "businessContext": "The initial cash flow at time 0, typically negative for investment",
+      "label_i18n": {
+        "en": "Initial Investment (negative for outflow)",
+        "tr": "Initial Investment (negative for outflow)",
+        "de": "Initial Investment (negative for outflow)",
+        "fr": "Initial Investment (negative for outflow)",
+        "es": "Initial Investment (negative for outflow)",
+        "ar": "Initial Investment (negative for outflow)"
+      }
     },
     {
       "id": "year1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "€",
       "default": 300,
-      "businessContext": "Net cash flow at end of year 1"
+      "businessContext": "Net cash flow at end of year 1",
+      "label_i18n": {
+        "en": "Year 1 Cash Flow",
+        "tr": "Year 1 Cash Flow",
+        "de": "Year 1 Cash Flow",
+        "fr": "Year 1 Cash Flow",
+        "es": "Year 1 Cash Flow",
+        "ar": "Year 1 Cash Flow"
+      }
     },
     {
       "id": "year2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "€",
       "default": 400,
-      "businessContext": "Net cash flow at end of year 2"
+      "businessContext": "Net cash flow at end of year 2",
+      "label_i18n": {
+        "en": "Year 2 Cash Flow",
+        "tr": "Year 2 Cash Flow",
+        "de": "Year 2 Cash Flow",
+        "fr": "Year 2 Cash Flow",
+        "es": "Year 2 Cash Flow",
+        "ar": "Year 2 Cash Flow"
+      }
     },
     {
       "id": "year3",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "€",
       "default": 500,
-      "businessContext": "Net cash flow at end of year 3"
+      "businessContext": "Net cash flow at end of year 3",
+      "label_i18n": {
+        "en": "Year 3 Cash Flow",
+        "tr": "Year 3 Cash Flow",
+        "de": "Year 3 Cash Flow",
+        "fr": "Year 3 Cash Flow",
+        "es": "Year 3 Cash Flow",
+        "ar": "Year 3 Cash Flow"
+      }
     },
     {
       "id": "year4",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "€",
       "default": 500,
-      "businessContext": "Net cash flow at end of year 4"
+      "businessContext": "Net cash flow at end of year 4",
+      "label_i18n": {
+        "en": "Year 4 Cash Flow",
+        "tr": "Year 4 Cash Flow",
+        "de": "Year 4 Cash Flow",
+        "fr": "Year 4 Cash Flow",
+        "es": "Year 4 Cash Flow",
+        "ar": "Year 4 Cash Flow"
+      }
     },
     {
       "id": "year5",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "€",
       "default": 400,
-      "businessContext": "Net cash flow at end of year 5"
+      "businessContext": "Net cash flow at end of year 5",
+      "label_i18n": {
+        "en": "Year 5 Cash Flow",
+        "tr": "Year 5 Cash Flow",
+        "de": "Year 5 Cash Flow",
+        "fr": "Year 5 Cash Flow",
+        "es": "Year 5 Cash Flow",
+        "ar": "Year 5 Cash Flow"
+      }
     },
     {
       "id": "guess",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Starting estimate for iterative IRR calculation"
+      "businessContext": "Starting estimate for iterative IRR calculation",
+      "label_i18n": {
+        "en": "Initial Guess (%)",
+        "tr": "Initial Guess (%)",
+        "de": "Initial Guess (%)",
+        "fr": "Initial Guess (%)",
+        "es": "Initial Guess (%)",
+        "ar": "Initial Guess (%)"
+      }
     }
   ],
   "formulas": {
@@ -69,8 +125,8 @@
       "npvAtIrr"
     ]
   },
-  "category": "Finans & Yatırım",
-  "sector": "Finans & Sigorta",
+  "category": "Proje & Yatırım",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

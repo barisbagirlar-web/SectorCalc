@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 100,
-      "businessContext": "The length of the rectangular field in meters."
+      "businessContext": "The length of the rectangular field in meters.",
+      "label_i18n": {
+        "en": "Field Length",
+        "tr": "Field Length",
+        "de": "Field Length",
+        "fr": "Field Length",
+        "es": "Field Length",
+        "ar": "Field Length"
+      }
     },
     {
       "id": "fieldWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 50,
-      "businessContext": "The width of the rectangular field in meters."
+      "businessContext": "The width of the rectangular field in meters.",
+      "label_i18n": {
+        "en": "Field Width",
+        "tr": "Field Width",
+        "de": "Field Width",
+        "fr": "Field Width",
+        "es": "Field Width",
+        "ar": "Field Width"
+      }
     },
     {
       "id": "treeSpacing",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 4,
-      "businessContext": "The distance between trees within the same row, in meters."
+      "businessContext": "The distance between trees within the same row, in meters.",
+      "label_i18n": {
+        "en": "Tree Spacing (In-Row)",
+        "tr": "Tree Spacing (In-Row)",
+        "de": "Tree Spacing (In-Row)",
+        "fr": "Tree Spacing (In-Row)",
+        "es": "Tree Spacing (In-Row)",
+        "ar": "Tree Spacing (In-Row)"
+      }
     },
     {
       "id": "rowSpacing",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "The distance between adjacent rows, in meters."
+      "businessContext": "The distance between adjacent rows, in meters.",
+      "label_i18n": {
+        "en": "Row Spacing (Between Rows)",
+        "tr": "Row Spacing (Between Rows)",
+        "de": "Row Spacing (Between Rows)",
+        "fr": "Row Spacing (Between Rows)",
+        "es": "Row Spacing (Between Rows)",
+        "ar": "Row Spacing (Between Rows)"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "plantingDensity"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",

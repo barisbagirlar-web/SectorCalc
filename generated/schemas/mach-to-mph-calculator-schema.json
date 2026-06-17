@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "The ratio of true airspeed to the speed of sound."
+      "businessContext": "The ratio of true airspeed to the speed of sound.",
+      "label_i18n": {
+        "en": "Mach Number",
+        "tr": "Mach Number",
+        "de": "Mach Number",
+        "fr": "Mach Number",
+        "es": "Mach Number",
+        "ar": "Mach Number"
+      }
     },
     {
       "id": "temperature",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°C",
       "default": 15,
-      "businessContext": "Outside air temperature in Celsius. Used if 'Use ISA' is 0."
+      "businessContext": "Outside air temperature in Celsius. Used if 'Use ISA' is 0.",
+      "label_i18n": {
+        "en": "Ambient Temperature",
+        "tr": "Ambient Temperature",
+        "de": "Ambient Temperature",
+        "fr": "Ambient Temperature",
+        "es": "Ambient Temperature",
+        "ar": "Ambient Temperature"
+      }
     },
     {
       "id": "altitude",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ft",
       "default": 0,
-      "businessContext": "Altitude above sea level. Required for ISA temperature calculation."
+      "businessContext": "Altitude above sea level. Required for ISA temperature calculation.",
+      "label_i18n": {
+        "en": "Altitude",
+        "tr": "Altitude",
+        "de": "Altitude",
+        "fr": "Altitude",
+        "es": "Altitude",
+        "ar": "Altitude"
+      }
     },
     {
       "id": "useISA",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "0=No, 1=Yes",
       "default": 0,
-      "businessContext": "Set to 1 to calculate standard temperature from altitude. Otherwise, use the input temperature."
+      "businessContext": "Set to 1 to calculate standard temperature from altitude. Otherwise, use the input temperature.",
+      "label_i18n": {
+        "en": "Use ISA Temperature",
+        "tr": "Use ISA Temperature",
+        "de": "Use ISA Temperature",
+        "fr": "Use ISA Temperature",
+        "es": "Use ISA Temperature",
+        "ar": "Use ISA Temperature"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "temperatureEffective"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

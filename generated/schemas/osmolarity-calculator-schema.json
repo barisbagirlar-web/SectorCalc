@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mmol/L",
       "default": 140,
-      "businessContext": "Serum sodyum konsantrasyonu"
+      "businessContext": "Serum sodyum konsantrasyonu",
+      "label_i18n": {
+        "en": "Sodyum (Na⁺)",
+        "tr": "Sodyum (Na⁺)",
+        "de": "Sodyum (Na⁺)",
+        "fr": "Sodyum (Na⁺)",
+        "es": "Sodyum (Na⁺)",
+        "ar": "Sodyum (Na⁺)"
+      }
     },
     {
       "id": "glucose",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 90,
-      "businessContext": "Serum glukoz konsantrasyonu"
+      "businessContext": "Serum glukoz konsantrasyonu",
+      "label_i18n": {
+        "en": "Glukoz",
+        "tr": "Glukoz",
+        "de": "Glukoz",
+        "fr": "Glukoz",
+        "es": "Glukoz",
+        "ar": "Glukoz"
+      }
     },
     {
       "id": "bun",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 14,
-      "businessContext": "Serum BUN konsantrasyonu"
+      "businessContext": "Serum BUN konsantrasyonu",
+      "label_i18n": {
+        "en": "Kan Üre Azotu (BUN)",
+        "tr": "Kan Üre Azotu (BUN)",
+        "de": "Kan Üre Azotu (BUN)",
+        "fr": "Kan Üre Azotu (BUN)",
+        "es": "Kan Üre Azotu (BUN)",
+        "ar": "Kan Üre Azotu (BUN)"
+      }
     },
     {
       "id": "measuredOsmolarity",
@@ -31,12 +55,22 @@
       "type": "number",
       "unit": "mOsm/L",
       "default": 285,
-      "businessContext": "Ölçülen serum ozmolaritesi (opsiyonel)"
+      "businessContext": "Ölçülen serum ozmolaritesi (opsiyonel)",
+      "label_i18n": {
+        "en": "Ölçülen Osmolarite",
+        "tr": "Ölçülen Osmolarite",
+        "de": "Ölçülen Osmolarite",
+        "fr": "Ölçülen Osmolarite",
+        "es": "Ölçülen Osmolarite",
+        "ar": "Ölçülen Osmolarite"
+      }
     }
   ],
   "formulas": {
     "calculatedOsmolarity": "2 * sodium + glucose / 18 + bun / 2.8",
-    "osmolarGap": "measuredOsmolarity - (2 * sodium + glucose / 18 + bun / 2.8)"
+    "osmolarGap": "measuredOsmolarity - (2 * sodium + glucose / 18 + bun / 2.8)",
+    "Serum_Ozmolaritesi__mOsm_L____2___Na___G": "Serum Ozmolaritesi (mOsm/L) = 2 × Na + Glukoz/18 + BUN/2.8",
+    "Ozmolal_Gap____l__len_Ozmolarite___Hesap": "Ozmolal Gap = Ölçülen Ozmolarite - Hesaplanan Ozmolarite"
   },
   "outputs": {
     "primary": "calculatedOsmolarity",
@@ -45,8 +79,8 @@
       "Ozmolal Gap = Ölçülen Ozmolarite - Hesaplanan Ozmolarite"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "chemistry-science",
   "sectorSlug": "energy-consumption",

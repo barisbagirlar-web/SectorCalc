@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 5.972e+24,
-      "businessContext": "Mass of the central body (e.g., Earth: 5.972×10^24 kg)"
+      "businessContext": "Mass of the central body (e.g., Earth: 5.972×10^24 kg)",
+      "label_i18n": {
+        "en": "Central Body Mass",
+        "tr": "Central Body Mass",
+        "de": "Central Body Mass",
+        "fr": "Central Body Mass",
+        "es": "Central Body Mass",
+        "ar": "Central Body Mass"
+      }
     },
     {
       "id": "centralBodyRadius",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 6371000,
-      "businessContext": "Radius of the central body (e.g., Earth: 6,371,000 m)"
+      "businessContext": "Radius of the central body (e.g., Earth: 6,371,000 m)",
+      "label_i18n": {
+        "en": "Central Body Radius",
+        "tr": "Central Body Radius",
+        "de": "Central Body Radius",
+        "fr": "Central Body Radius",
+        "es": "Central Body Radius",
+        "ar": "Central Body Radius"
+      }
     },
     {
       "id": "altitude",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Altitude of the satellite above the central body's surface"
+      "businessContext": "Altitude of the satellite above the central body's surface",
+      "label_i18n": {
+        "en": "Orbit Altitude",
+        "tr": "Orbit Altitude",
+        "de": "Orbit Altitude",
+        "fr": "Orbit Altitude",
+        "es": "Orbit Altitude",
+        "ar": "Orbit Altitude"
+      }
     },
     {
       "id": "gravitationalConstant",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m^3/(kg·s^2)",
       "default": 6.6743e-11,
-      "businessContext": "Universal gravitational constant (G = 6.67430×10^-11 m^3/(kg·s^2))"
+      "businessContext": "Universal gravitational constant (G = 6.67430×10^-11 m^3/(kg·s^2))",
+      "label_i18n": {
+        "en": "Gravitational Constant",
+        "tr": "Gravitational Constant",
+        "de": "Gravitational Constant",
+        "fr": "Gravitational Constant",
+        "es": "Gravitational Constant",
+        "ar": "Gravitational Constant"
+      }
     }
   ],
   "formulas": {
@@ -54,8 +86,8 @@
       }
     ]
   },
-  "category": "Diğer",
-  "sector": "Havacılık & Savunma",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",

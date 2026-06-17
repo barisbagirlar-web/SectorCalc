@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 5,
-      "businessContext": "Karşılaştırılan sıralı veri çiftlerinin sayısı"
+      "businessContext": "Karşılaştırılan sıralı veri çiftlerinin sayısı",
+      "label_i18n": {
+        "en": "Gözlem Sayısı (n)",
+        "tr": "Gözlem Sayısı (n)",
+        "de": "Gözlem Sayısı (n)",
+        "fr": "Gözlem Sayısı (n)",
+        "es": "Gözlem Sayısı (n)",
+        "ar": "Gözlem Sayısı (n)"
+      }
     },
     {
       "id": "P",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 10,
-      "businessContext": "Her iki sıralamada aynı yönde olan gözlem çifti sayısı"
+      "businessContext": "Her iki sıralamada aynı yönde olan gözlem çifti sayısı",
+      "label_i18n": {
+        "en": "Uyumlu Çiftler (P)",
+        "tr": "Uyumlu Çiftler (P)",
+        "de": "Uyumlu Çiftler (P)",
+        "fr": "Uyumlu Çiftler (P)",
+        "es": "Uyumlu Çiftler (P)",
+        "ar": "Uyumlu Çiftler (P)"
+      }
     },
     {
       "id": "Q",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Her iki sıralamada ters yönde olan gözlem çifti sayısı"
+      "businessContext": "Her iki sıralamada ters yönde olan gözlem çifti sayısı",
+      "label_i18n": {
+        "en": "Uyumsuz Çiftler (Q)",
+        "tr": "Uyumsuz Çiftler (Q)",
+        "de": "Uyumsuz Çiftler (Q)",
+        "fr": "Uyumsuz Çiftler (Q)",
+        "es": "Uyumsuz Çiftler (Q)",
+        "ar": "Uyumsuz Çiftler (Q)"
+      }
     },
     {
       "id": "T",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Sadece X sıralamasında eşit olan çift sayısı"
+      "businessContext": "Sadece X sıralamasında eşit olan çift sayısı",
+      "label_i18n": {
+        "en": "X Tied Çiftler (T)",
+        "tr": "X Tied Çiftler (T)",
+        "de": "X Tied Çiftler (T)",
+        "fr": "X Tied Çiftler (T)",
+        "es": "X Tied Çiftler (T)",
+        "ar": "X Tied Çiftler (T)"
+      }
     },
     {
       "id": "U",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Sadece Y sıralamasında eşit olan çift sayısı"
+      "businessContext": "Sadece Y sıralamasında eşit olan çift sayısı",
+      "label_i18n": {
+        "en": "Y Tied Çiftler (U)",
+        "tr": "Y Tied Çiftler (U)",
+        "de": "Y Tied Çiftler (U)",
+        "fr": "Y Tied Çiftler (U)",
+        "es": "Y Tied Çiftler (U)",
+        "ar": "Y Tied Çiftler (U)"
+      }
     }
   ],
   "formulas": {
@@ -54,8 +94,8 @@
       "denominator"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

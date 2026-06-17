@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 25,
-      "businessContext": "Length of the swimming pool in meters."
+      "businessContext": "Length of the swimming pool in meters.",
+      "label_i18n": {
+        "en": "Pool Length",
+        "tr": "Pool Length",
+        "de": "Pool Length",
+        "fr": "Pool Length",
+        "es": "Pool Length",
+        "ar": "Pool Length"
+      }
     },
     {
       "id": "numLaps",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "laps",
       "default": 10,
-      "businessContext": "Total number of laps to be swum."
+      "businessContext": "Total number of laps to be swum.",
+      "label_i18n": {
+        "en": "Number of Laps",
+        "tr": "Number of Laps",
+        "de": "Number of Laps",
+        "fr": "Number of Laps",
+        "es": "Number of Laps",
+        "ar": "Number of Laps"
+      }
     },
     {
       "id": "pacePer100m",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "s",
       "default": 120,
-      "businessContext": "Swimmer's pace in seconds per 100 meters."
+      "businessContext": "Swimmer's pace in seconds per 100 meters.",
+      "label_i18n": {
+        "en": "Pace per 100m",
+        "tr": "Pace per 100m",
+        "de": "Pace per 100m",
+        "fr": "Pace per 100m",
+        "es": "Pace per 100m",
+        "ar": "Pace per 100m"
+      }
     },
     {
       "id": "restBetweenLaps",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "s",
       "default": 15,
-      "businessContext": "Rest time in seconds taken after each lap (except the last)."
+      "businessContext": "Rest time in seconds taken after each lap (except the last).",
+      "label_i18n": {
+        "en": "Rest Between Laps",
+        "tr": "Rest Between Laps",
+        "de": "Rest Between Laps",
+        "fr": "Rest Between Laps",
+        "es": "Rest Between Laps",
+        "ar": "Rest Between Laps"
+      }
     }
   ],
   "formulas": {
@@ -50,8 +82,8 @@
       "effectivePacePer100m"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

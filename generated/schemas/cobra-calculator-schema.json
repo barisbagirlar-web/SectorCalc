@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 500,
-      "businessContext": "Sağlık planının aylık brüt prim tutarı"
+      "businessContext": "Sağlık planının aylık brüt prim tutarı",
+      "label_i18n": {
+        "en": "Aylık Prim",
+        "tr": "Aylık Prim",
+        "de": "Aylık Prim",
+        "fr": "Aylık Prim",
+        "es": "Aylık Prim",
+        "ar": "Aylık Prim"
+      }
     },
     {
       "id": "beneficiaries",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kişi",
       "default": 1,
-      "businessContext": "COBRA kapsamındaki kişi sayısı"
+      "businessContext": "COBRA kapsamındaki kişi sayısı",
+      "label_i18n": {
+        "en": "Yararlanıcı Sayısı",
+        "tr": "Yararlanıcı Sayısı",
+        "de": "Yararlanıcı Sayısı",
+        "fr": "Yararlanıcı Sayısı",
+        "es": "Yararlanıcı Sayısı",
+        "ar": "Yararlanıcı Sayısı"
+      }
     },
     {
       "id": "adminFeeRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Yasal COBRA yönetim ücreti oranı"
+      "businessContext": "Yasal COBRA yönetim ücreti oranı",
+      "label_i18n": {
+        "en": "Yönetim Ücreti Oranı",
+        "tr": "Yönetim Ücreti Oranı",
+        "de": "Yönetim Ücreti Oranı",
+        "fr": "Yönetim Ücreti Oranı",
+        "es": "Yönetim Ücreti Oranı",
+        "ar": "Yönetim Ücreti Oranı"
+      }
     },
     {
       "id": "coverageMonths",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "ay",
       "default": 18,
-      "businessContext": "COBRA kapsamının devam edeceği ay sayısı"
+      "businessContext": "COBRA kapsamının devam edeceği ay sayısı",
+      "label_i18n": {
+        "en": "Kapsam Süresi",
+        "tr": "Kapsam Süresi",
+        "de": "Kapsam Süresi",
+        "fr": "Kapsam Süresi",
+        "es": "Kapsam Süresi",
+        "ar": "Kapsam Süresi"
+      }
     },
     {
       "id": "employerContributionRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "İşverenin COBRA maliyetine katkı yüzdesi (varsa)"
+      "businessContext": "İşverenin COBRA maliyetine katkı yüzdesi (varsa)",
+      "label_i18n": {
+        "en": "İşveren Katkı Oranı",
+        "tr": "İşveren Katkı Oranı",
+        "de": "İşveren Katkı Oranı",
+        "fr": "İşveren Katkı Oranı",
+        "es": "İşveren Katkı Oranı",
+        "ar": "İşveren Katkı Oranı"
+      }
     }
   ],
   "formulas": {
@@ -58,8 +98,8 @@
       "totalEmployeeCost"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

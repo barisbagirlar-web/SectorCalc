@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "The lower bound of the measured data set."
+      "businessContext": "The lower bound of the measured data set.",
+      "label_i18n": {
+        "en": "Minimum Value",
+        "tr": "Minimum Value",
+        "de": "Minimum Value",
+        "fr": "Minimum Value",
+        "es": "Minimum Value",
+        "ar": "Minimum Value"
+      }
     },
     {
       "id": "maxValue",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "The upper bound of the measured data set."
+      "businessContext": "The upper bound of the measured data set.",
+      "label_i18n": {
+        "en": "Maximum Value",
+        "tr": "Maximum Value",
+        "de": "Maximum Value",
+        "fr": "Maximum Value",
+        "es": "Maximum Value",
+        "ar": "Maximum Value"
+      }
     },
     {
       "id": "nominalValue",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 50,
-      "businessContext": "The target or expected value for the measurement."
+      "businessContext": "The target or expected value for the measurement.",
+      "label_i18n": {
+        "en": "Nominal Value",
+        "tr": "Nominal Value",
+        "de": "Nominal Value",
+        "fr": "Nominal Value",
+        "es": "Nominal Value",
+        "ar": "Nominal Value"
+      }
     },
     {
       "id": "tolerance",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "The permissible deviation from nominal; used to compute out-of-tolerance margins."
+      "businessContext": "The permissible deviation from nominal; used to compute out-of-tolerance margins.",
+      "label_i18n": {
+        "en": "Tolerance",
+        "tr": "Tolerance",
+        "de": "Tolerance",
+        "fr": "Tolerance",
+        "es": "Tolerance",
+        "ar": "Tolerance"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "toleranceMargin"
     ]
   },
-  "category": "Maliyet & Bütçeleme",
-  "sector": "Perakende & Tüketici",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

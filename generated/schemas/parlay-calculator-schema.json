@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 100,
-      "businessContext": "Amount wagered"
+      "businessContext": "Amount wagered",
+      "label_i18n": {
+        "en": "Stake",
+        "tr": "Stake",
+        "de": "Stake",
+        "fr": "Stake",
+        "es": "Stake",
+        "ar": "Stake"
+      }
     },
     {
       "id": "odds1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "decimal",
       "default": 1,
-      "businessContext": "Decimal odds for first selection"
+      "businessContext": "Decimal odds for first selection",
+      "label_i18n": {
+        "en": "Leg 1 Odds",
+        "tr": "Leg 1 Odds",
+        "de": "Leg 1 Odds",
+        "fr": "Leg 1 Odds",
+        "es": "Leg 1 Odds",
+        "ar": "Leg 1 Odds"
+      }
     },
     {
       "id": "odds2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "decimal",
       "default": 1,
-      "businessContext": "Decimal odds for second selection"
+      "businessContext": "Decimal odds for second selection",
+      "label_i18n": {
+        "en": "Leg 2 Odds",
+        "tr": "Leg 2 Odds",
+        "de": "Leg 2 Odds",
+        "fr": "Leg 2 Odds",
+        "es": "Leg 2 Odds",
+        "ar": "Leg 2 Odds"
+      }
     },
     {
       "id": "odds3",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "decimal",
       "default": 1,
-      "businessContext": "Decimal odds for third selection"
+      "businessContext": "Decimal odds for third selection",
+      "label_i18n": {
+        "en": "Leg 3 Odds",
+        "tr": "Leg 3 Odds",
+        "de": "Leg 3 Odds",
+        "fr": "Leg 3 Odds",
+        "es": "Leg 3 Odds",
+        "ar": "Leg 3 Odds"
+      }
     },
     {
       "id": "odds4",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "decimal",
       "default": 1,
-      "businessContext": "Decimal odds for fourth selection"
+      "businessContext": "Decimal odds for fourth selection",
+      "label_i18n": {
+        "en": "Leg 4 Odds",
+        "tr": "Leg 4 Odds",
+        "de": "Leg 4 Odds",
+        "fr": "Leg 4 Odds",
+        "es": "Leg 4 Odds",
+        "ar": "Leg 4 Odds"
+      }
     },
     {
       "id": "odds5",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "decimal",
       "default": 1,
-      "businessContext": "Decimal odds for fifth selection"
+      "businessContext": "Decimal odds for fifth selection",
+      "label_i18n": {
+        "en": "Leg 5 Odds",
+        "tr": "Leg 5 Odds",
+        "de": "Leg 5 Odds",
+        "fr": "Leg 5 Odds",
+        "es": "Leg 5 Odds",
+        "ar": "Leg 5 Odds"
+      }
     }
   ],
   "formulas": {
@@ -62,8 +110,8 @@
       "potentialProfit"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",

@@ -23,6 +23,7 @@ function evaluateAllFormulas(input: Cups_to_ml_calculatorInput): Record<string, 
   const results: Record<string, number> = {};
   try { const v = input.cups * input.cupSize * input.batchSize + 0 * input.temperature + 0 * input.altitude; results["millilitersUnrounded"] = Number.isFinite(v) ? v : 0; } catch { results["millilitersUnrounded"] = 0; }
   try { const v = Math.round((results["millilitersUnrounded"] ?? 0) * Math.pow(10, input.precision)) / Math.pow(10, input.precision); results["milliliters"] = Number.isFinite(v) ? v : 0; } catch { results["milliliters"] = 0; }
+  results["_cupSize__ml_cup"] = 0;
   return results;
 }
 

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "year",
       "default": 1990,
-      "businessContext": "Kişinin doğum yılını giriniz."
+      "businessContext": "Kişinin doğum yılını giriniz.",
+      "label_i18n": {
+        "en": "Doğum Yılı",
+        "tr": "Doğum Yılı",
+        "de": "Doğum Yılı",
+        "fr": "Doğum Yılı",
+        "es": "Doğum Yılı",
+        "ar": "Doğum Yılı"
+      }
     },
     {
       "id": "birthMonth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "month",
       "default": 1,
-      "businessContext": "1-12 arası değer giriniz (1=Ocak)."
+      "businessContext": "1-12 arası değer giriniz (1=Ocak).",
+      "label_i18n": {
+        "en": "Doğum Ayı",
+        "tr": "Doğum Ayı",
+        "de": "Doğum Ayı",
+        "fr": "Doğum Ayı",
+        "es": "Doğum Ayı",
+        "ar": "Doğum Ayı"
+      }
     },
     {
       "id": "birthDay",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "day",
       "default": 1,
-      "businessContext": "1-31 arası değer giriniz."
+      "businessContext": "1-31 arası değer giriniz.",
+      "label_i18n": {
+        "en": "Doğum Günü",
+        "tr": "Doğum Günü",
+        "de": "Doğum Günü",
+        "fr": "Doğum Günü",
+        "es": "Doğum Günü",
+        "ar": "Doğum Günü"
+      }
     },
     {
       "id": "referenceYear",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "year",
       "default": 2025,
-      "businessContext": "Yaşın hesaplanacağı referans yıl."
+      "businessContext": "Yaşın hesaplanacağı referans yıl.",
+      "label_i18n": {
+        "en": "Referans Yılı",
+        "tr": "Referans Yılı",
+        "de": "Referans Yılı",
+        "fr": "Referans Yılı",
+        "es": "Referans Yılı",
+        "ar": "Referans Yılı"
+      }
     },
     {
       "id": "referenceMonth",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "month",
       "default": 1,
-      "businessContext": "1-12 arası değer giriniz (1=Ocak)."
+      "businessContext": "1-12 arası değer giriniz (1=Ocak).",
+      "label_i18n": {
+        "en": "Referans Ayı",
+        "tr": "Referans Ayı",
+        "de": "Referans Ayı",
+        "fr": "Referans Ayı",
+        "es": "Referans Ayı",
+        "ar": "Referans Ayı"
+      }
     },
     {
       "id": "referenceDay",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "day",
       "default": 1,
-      "businessContext": "1-31 arası değer giriniz."
+      "businessContext": "1-31 arası değer giriniz.",
+      "label_i18n": {
+        "en": "Referans Günü",
+        "tr": "Referans Günü",
+        "de": "Referans Günü",
+        "fr": "Referans Günü",
+        "es": "Referans Günü",
+        "ar": "Referans Günü"
+      }
     }
   ],
   "formulas": {
@@ -65,8 +113,8 @@
       "ageInWeeks"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "date-time",
   "sectorSlug": "daily-renovation",

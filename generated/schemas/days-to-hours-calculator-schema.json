@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "days",
       "default": 1,
-      "businessContext": "Number of days to convert."
+      "businessContext": "Number of days to convert.",
+      "label_i18n": {
+        "en": "Days",
+        "tr": "Days",
+        "de": "Days",
+        "fr": "Days",
+        "es": "Days",
+        "ar": "Days"
+      }
     },
     {
       "id": "hoursPerDay",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hours/day",
       "default": 24,
-      "businessContext": "Conversion factor: hours in one day."
+      "businessContext": "Conversion factor: hours in one day.",
+      "label_i18n": {
+        "en": "Hours per Day",
+        "tr": "Hours per Day",
+        "de": "Hours per Day",
+        "fr": "Hours per Day",
+        "es": "Hours per Day",
+        "ar": "Hours per Day"
+      }
     },
     {
       "id": "minutesPerHour",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "minutes/hour",
       "default": 60,
-      "businessContext": "Minutes in an hour for breakdown into minutes."
+      "businessContext": "Minutes in an hour for breakdown into minutes.",
+      "label_i18n": {
+        "en": "Minutes per Hour",
+        "tr": "Minutes per Hour",
+        "de": "Minutes per Hour",
+        "fr": "Minutes per Hour",
+        "es": "Minutes per Hour",
+        "ar": "Minutes per Hour"
+      }
     },
     {
       "id": "secondsPerMinute",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "seconds/minute",
       "default": 60,
-      "businessContext": "Seconds in a minute for breakdown into seconds."
+      "businessContext": "Seconds in a minute for breakdown into seconds.",
+      "label_i18n": {
+        "en": "Seconds per Minute",
+        "tr": "Seconds per Minute",
+        "de": "Seconds per Minute",
+        "fr": "Seconds per Minute",
+        "es": "Seconds per Minute",
+        "ar": "Seconds per Minute"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "totalSeconds"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

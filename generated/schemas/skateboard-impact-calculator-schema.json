@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 75,
-      "businessContext": "Kaykayı kullanan kişinin kütlesi"
+      "businessContext": "Kaykayı kullanan kişinin kütlesi",
+      "label_i18n": {
+        "en": "Sürücü Ağırlığı",
+        "tr": "Sürücü Ağırlığı",
+        "de": "Sürücü Ağırlığı",
+        "fr": "Sürücü Ağırlığı",
+        "es": "Sürücü Ağırlığı",
+        "ar": "Sürücü Ağırlığı"
+      }
     },
     {
       "id": "boardMass",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 2.5,
-      "businessContext": "Kaykay tahtasının kütlesi"
+      "businessContext": "Kaykay tahtasının kütlesi",
+      "label_i18n": {
+        "en": "Kaykay Ağırlığı",
+        "tr": "Kaykay Ağırlığı",
+        "de": "Kaykay Ağırlığı",
+        "fr": "Kaykay Ağırlığı",
+        "es": "Kaykay Ağırlığı",
+        "ar": "Kaykay Ağırlığı"
+      }
     },
     {
       "id": "dropHeight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 1.5,
-      "businessContext": "Rampa veya engelden serbest düşüş yapılan dikey mesafe"
+      "businessContext": "Rampa veya engelden serbest düşüş yapılan dikey mesafe",
+      "label_i18n": {
+        "en": "Düşüş Yüksekliği",
+        "tr": "Düşüş Yüksekliği",
+        "de": "Düşüş Yüksekliği",
+        "fr": "Düşüş Yüksekliği",
+        "es": "Düşüş Yüksekliği",
+        "ar": "Düşüş Yüksekliği"
+      }
     },
     {
       "id": "stoppingDistance",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.05,
-      "businessContext": "İniş anında kaykayın esneme ve tekerlek sıkışma mesafesi (enerji emilim uzaklığı)"
+      "businessContext": "İniş anında kaykayın esneme ve tekerlek sıkışma mesafesi (enerji emilim uzaklığı)",
+      "label_i18n": {
+        "en": "Durma Mesafesi",
+        "tr": "Durma Mesafesi",
+        "de": "Durma Mesafesi",
+        "fr": "Durma Mesafesi",
+        "es": "Durma Mesafesi",
+        "ar": "Durma Mesafesi"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "kineticEnergy"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

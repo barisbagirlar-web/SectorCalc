@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Pa",
       "default": 101325,
-      "businessContext": "Actual pressure of the gas"
+      "businessContext": "Actual pressure of the gas",
+      "label_i18n": {
+        "en": "Pressure",
+        "tr": "Pressure",
+        "de": "Pressure",
+        "fr": "Pressure",
+        "es": "Pressure",
+        "ar": "Pressure"
+      }
     },
     {
       "id": "volume",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m³",
       "default": 0.0224,
-      "businessContext": "Actual volume of the gas"
+      "businessContext": "Actual volume of the gas",
+      "label_i18n": {
+        "en": "Volume",
+        "tr": "Volume",
+        "de": "Volume",
+        "fr": "Volume",
+        "es": "Volume",
+        "ar": "Volume"
+      }
     },
     {
       "id": "moles",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mol",
       "default": 1,
-      "businessContext": "Amount of gas in moles"
+      "businessContext": "Amount of gas in moles",
+      "label_i18n": {
+        "en": "Moles",
+        "tr": "Moles",
+        "de": "Moles",
+        "fr": "Moles",
+        "es": "Moles",
+        "ar": "Moles"
+      }
     },
     {
       "id": "temperature",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "K",
       "default": 273.15,
-      "businessContext": "Absolute temperature"
+      "businessContext": "Absolute temperature",
+      "label_i18n": {
+        "en": "Temperature",
+        "tr": "Temperature",
+        "de": "Temperature",
+        "fr": "Temperature",
+        "es": "Temperature",
+        "ar": "Temperature"
+      }
     },
     {
       "id": "gasConstant",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "J/(mol·K)",
       "default": 8.314,
-      "businessContext": "Universal gas constant, adjust for units"
+      "businessContext": "Universal gas constant, adjust for units",
+      "label_i18n": {
+        "en": "Gas Constant",
+        "tr": "Gas Constant",
+        "de": "Gas Constant",
+        "fr": "Gas Constant",
+        "es": "Gas Constant",
+        "ar": "Gas Constant"
+      }
     }
   ],
   "formulas": {
@@ -54,8 +94,8 @@
       "percentDeviation"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

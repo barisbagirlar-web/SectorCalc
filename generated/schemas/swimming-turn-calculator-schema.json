@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 1.5,
-      "businessContext": "Distance from wall where the swimmer initiates the turn"
+      "businessContext": "Distance from wall where the swimmer initiates the turn",
+      "label_i18n": {
+        "en": "Approach Distance",
+        "tr": "Approach Distance",
+        "de": "Approach Distance",
+        "fr": "Approach Distance",
+        "es": "Approach Distance",
+        "ar": "Approach Distance"
+      }
     },
     {
       "id": "approachVelocity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 2,
-      "businessContext": "Velocity of the swimmer during the approach"
+      "businessContext": "Velocity of the swimmer during the approach",
+      "label_i18n": {
+        "en": "Approach Velocity",
+        "tr": "Approach Velocity",
+        "de": "Approach Velocity",
+        "fr": "Approach Velocity",
+        "es": "Approach Velocity",
+        "ar": "Approach Velocity"
+      }
     },
     {
       "id": "turnTime",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "s",
       "default": 1.2,
-      "businessContext": "Time taken to execute the turn on the wall"
+      "businessContext": "Time taken to execute the turn on the wall",
+      "label_i18n": {
+        "en": "Turn Execution Time",
+        "tr": "Turn Execution Time",
+        "de": "Turn Execution Time",
+        "fr": "Turn Execution Time",
+        "es": "Turn Execution Time",
+        "ar": "Turn Execution Time"
+      }
     },
     {
       "id": "pushOffVelocity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 2.5,
-      "businessContext": "Velocity of the swimmer after push-off from the wall"
+      "businessContext": "Velocity of the swimmer after push-off from the wall",
+      "label_i18n": {
+        "en": "Push-off Velocity",
+        "tr": "Push-off Velocity",
+        "de": "Push-off Velocity",
+        "fr": "Push-off Velocity",
+        "es": "Push-off Velocity",
+        "ar": "Push-off Velocity"
+      }
     },
     {
       "id": "breakOutDistance",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Distance from wall to the point of breakout (first stroke)"
+      "businessContext": "Distance from wall to the point of breakout (first stroke)",
+      "label_i18n": {
+        "en": "Breakout Distance",
+        "tr": "Breakout Distance",
+        "de": "Breakout Distance",
+        "fr": "Breakout Distance",
+        "es": "Breakout Distance",
+        "ar": "Breakout Distance"
+      }
     }
   ],
   "formulas": {
@@ -56,8 +96,8 @@
       "pushOffTime"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 20,
-      "businessContext": "Initial weight lifted in the first session"
+      "businessContext": "Initial weight lifted in the first session",
+      "label_i18n": {
+        "en": "Starting Weight",
+        "tr": "Starting Weight",
+        "de": "Starting Weight",
+        "fr": "Starting Weight",
+        "es": "Starting Weight",
+        "ar": "Starting Weight"
+      }
     },
     {
       "id": "incrementPerSession",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 2.5,
-      "businessContext": "Weight added after each completed session"
+      "businessContext": "Weight added after each completed session",
+      "label_i18n": {
+        "en": "Increment per Session",
+        "tr": "Increment per Session",
+        "de": "Increment per Session",
+        "fr": "Increment per Session",
+        "es": "Increment per Session",
+        "ar": "Increment per Session"
+      }
     },
     {
       "id": "sessionsPerWeek",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "sessions/week",
       "default": 3,
-      "businessContext": "Training frequency per week"
+      "businessContext": "Training frequency per week",
+      "label_i18n": {
+        "en": "Sessions per Week",
+        "tr": "Sessions per Week",
+        "de": "Sessions per Week",
+        "fr": "Sessions per Week",
+        "es": "Sessions per Week",
+        "ar": "Sessions per Week"
+      }
     },
     {
       "id": "weeks",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "weeks",
       "default": 4,
-      "businessContext": "Duration of training cycle"
+      "businessContext": "Duration of training cycle",
+      "label_i18n": {
+        "en": "Number of Weeks",
+        "tr": "Number of Weeks",
+        "de": "Number of Weeks",
+        "fr": "Number of Weeks",
+        "es": "Number of Weeks",
+        "ar": "Number of Weeks"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "estimated1RM"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Telekomünikasyon",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "categorySlug": "technology-ai-cloud-cyber",
   "catalogCategory": "health-body",

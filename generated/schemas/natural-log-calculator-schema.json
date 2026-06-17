@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 2.71828,
-      "businessContext": "Value to compute natural logarithm of (e.g., process ratio, dimensionless parameter)"
+      "businessContext": "Value to compute natural logarithm of (e.g., process ratio, dimensionless parameter)",
+      "label_i18n": {
+        "en": "Input Value",
+        "tr": "Input Value",
+        "de": "Input Value",
+        "fr": "Input Value",
+        "es": "Input Value",
+        "ar": "Input Value"
+      }
     },
     {
       "id": "precision",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "digits",
       "default": 4,
-      "businessContext": "Number of decimal places for output"
+      "businessContext": "Number of decimal places for output",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     },
     {
       "id": "scaleFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0.434294,
-      "businessContext": "Multiply the natural log by this factor (e.g., 0.434294 converts to log10)"
+      "businessContext": "Multiply the natural log by this factor (e.g., 0.434294 converts to log10)",
+      "label_i18n": {
+        "en": "Scale Factor",
+        "tr": "Scale Factor",
+        "de": "Scale Factor",
+        "fr": "Scale Factor",
+        "es": "Scale Factor",
+        "ar": "Scale Factor"
+      }
     },
     {
       "id": "offset",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Add or subtract an offset to the scaled log value"
+      "businessContext": "Add or subtract an offset to the scaled log value",
+      "label_i18n": {
+        "en": "Offset",
+        "tr": "Offset",
+        "de": "Offset",
+        "fr": "Offset",
+        "es": "Offset",
+        "ar": "Offset"
+      }
     },
     {
       "id": "expDisplay",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Set to 1 to output e^x instead of the scaled natural log"
+      "businessContext": "Set to 1 to output e^x instead of the scaled natural log",
+      "label_i18n": {
+        "en": "Display e^x",
+        "tr": "Display e^x",
+        "de": "Display e^x",
+        "fr": "Display e^x",
+        "es": "Display e^x",
+        "ar": "Display e^x"
+      }
     }
   ],
   "formulas": {
@@ -56,8 +96,8 @@
       "exponentialValue"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Gıda & İçecek",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

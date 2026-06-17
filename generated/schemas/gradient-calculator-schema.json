@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Başlangıç noktasının doğu yönündeki koordinatı (metre)"
+      "businessContext": "Başlangıç noktasının doğu yönündeki koordinatı (metre)",
+      "label_i18n": {
+        "en": "Başlangıç Doğu",
+        "tr": "Başlangıç Doğu",
+        "de": "Başlangıç Doğu",
+        "fr": "Başlangıç Doğu",
+        "es": "Başlangıç Doğu",
+        "ar": "Başlangıç Doğu"
+      }
     },
     {
       "id": "startNorthing",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Başlangıç noktasının kuzey yönündeki koordinatı (metre)"
+      "businessContext": "Başlangıç noktasının kuzey yönündeki koordinatı (metre)",
+      "label_i18n": {
+        "en": "Başlangıç Kuzey",
+        "tr": "Başlangıç Kuzey",
+        "de": "Başlangıç Kuzey",
+        "fr": "Başlangıç Kuzey",
+        "es": "Başlangıç Kuzey",
+        "ar": "Başlangıç Kuzey"
+      }
     },
     {
       "id": "startElevation",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Başlangıç noktasının rakımı (metre)"
+      "businessContext": "Başlangıç noktasının rakımı (metre)",
+      "label_i18n": {
+        "en": "Başlangıç Yükseklik",
+        "tr": "Başlangıç Yükseklik",
+        "de": "Başlangıç Yükseklik",
+        "fr": "Başlangıç Yükseklik",
+        "es": "Başlangıç Yükseklik",
+        "ar": "Başlangıç Yükseklik"
+      }
     },
     {
       "id": "endEasting",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Bitiş noktasının doğu yönündeki koordinatı (metre)"
+      "businessContext": "Bitiş noktasının doğu yönündeki koordinatı (metre)",
+      "label_i18n": {
+        "en": "Bitiş Doğu",
+        "tr": "Bitiş Doğu",
+        "de": "Bitiş Doğu",
+        "fr": "Bitiş Doğu",
+        "es": "Bitiş Doğu",
+        "ar": "Bitiş Doğu"
+      }
     },
     {
       "id": "endNorthing",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Bitiş noktasının kuzey yönündeki koordinatı (metre)"
+      "businessContext": "Bitiş noktasının kuzey yönündeki koordinatı (metre)",
+      "label_i18n": {
+        "en": "Bitiş Kuzey",
+        "tr": "Bitiş Kuzey",
+        "de": "Bitiş Kuzey",
+        "fr": "Bitiş Kuzey",
+        "es": "Bitiş Kuzey",
+        "ar": "Bitiş Kuzey"
+      }
     },
     {
       "id": "endElevation",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Bitiş noktasının rakımı (metre)"
+      "businessContext": "Bitiş noktasının rakımı (metre)",
+      "label_i18n": {
+        "en": "Bitiş Yükseklik",
+        "tr": "Bitiş Yükseklik",
+        "de": "Bitiş Yükseklik",
+        "fr": "Bitiş Yükseklik",
+        "es": "Bitiş Yükseklik",
+        "ar": "Bitiş Yükseklik"
+      }
     }
   ],
   "formulas": {
@@ -66,8 +114,8 @@
       "run"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

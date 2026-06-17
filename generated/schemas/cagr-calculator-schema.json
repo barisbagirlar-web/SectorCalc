@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 1000,
-      "businessContext": "Initial investment or asset value"
+      "businessContext": "Initial investment or asset value",
+      "label_i18n": {
+        "en": "Beginning Value",
+        "tr": "Beginning Value",
+        "de": "Beginning Value",
+        "fr": "Beginning Value",
+        "es": "Beginning Value",
+        "ar": "Beginning Value"
+      }
     },
     {
       "id": "endingValue",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 2000,
-      "businessContext": "Final investment or asset value"
+      "businessContext": "Final investment or asset value",
+      "label_i18n": {
+        "en": "Ending Value",
+        "tr": "Ending Value",
+        "de": "Ending Value",
+        "fr": "Ending Value",
+        "es": "Ending Value",
+        "ar": "Ending Value"
+      }
     },
     {
       "id": "startYear",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "year",
       "default": 2020,
-      "businessContext": "Year of initial investment"
+      "businessContext": "Year of initial investment",
+      "label_i18n": {
+        "en": "Start Year",
+        "tr": "Start Year",
+        "de": "Start Year",
+        "fr": "Start Year",
+        "es": "Start Year",
+        "ar": "Start Year"
+      }
     },
     {
       "id": "endYear",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "year",
       "default": 2025,
-      "businessContext": "Year of final valuation"
+      "businessContext": "Year of final valuation",
+      "label_i18n": {
+        "en": "End Year",
+        "tr": "End Year",
+        "de": "End Year",
+        "fr": "End Year",
+        "es": "End Year",
+        "ar": "End Year"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "numberOfPeriods"
     ]
   },
-  "category": "Finans & Yatırım",
-  "sector": "Finans & Sigorta",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

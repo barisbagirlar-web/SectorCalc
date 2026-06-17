@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "İlk noktanın x koordinatı"
+      "businessContext": "İlk noktanın x koordinatı",
+      "label_i18n": {
+        "en": "X₁ Koordinatı",
+        "tr": "X₁ Koordinatı",
+        "de": "X₁ Koordinatı",
+        "fr": "X₁ Koordinatı",
+        "es": "X₁ Koordinatı",
+        "ar": "X₁ Koordinatı"
+      }
     },
     {
       "id": "y1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "İlk noktanın y koordinatı"
+      "businessContext": "İlk noktanın y koordinatı",
+      "label_i18n": {
+        "en": "Y₁ Koordinatı",
+        "tr": "Y₁ Koordinatı",
+        "de": "Y₁ Koordinatı",
+        "fr": "Y₁ Koordinatı",
+        "es": "Y₁ Koordinatı",
+        "ar": "Y₁ Koordinatı"
+      }
     },
     {
       "id": "x2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "İkinci noktanın x koordinatı"
+      "businessContext": "İkinci noktanın x koordinatı",
+      "label_i18n": {
+        "en": "X₂ Koordinatı",
+        "tr": "X₂ Koordinatı",
+        "de": "X₂ Koordinatı",
+        "fr": "X₂ Koordinatı",
+        "es": "X₂ Koordinatı",
+        "ar": "X₂ Koordinatı"
+      }
     },
     {
       "id": "y2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "İkinci noktanın y koordinatı"
+      "businessContext": "İkinci noktanın y koordinatı",
+      "label_i18n": {
+        "en": "Y₂ Koordinatı",
+        "tr": "Y₂ Koordinatı",
+        "de": "Y₂ Koordinatı",
+        "fr": "Y₂ Koordinatı",
+        "es": "Y₂ Koordinatı",
+        "ar": "Y₂ Koordinatı"
+      }
     },
     {
       "id": "w",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "boyutsuz",
       "default": 1,
-      "businessContext": "Mesafe ağırlık katsayısı"
+      "businessContext": "Mesafe ağırlık katsayısı",
+      "label_i18n": {
+        "en": "Ağırlık Faktörü",
+        "tr": "Ağırlık Faktörü",
+        "de": "Ağırlık Faktörü",
+        "fr": "Ağırlık Faktörü",
+        "es": "Ağırlık Faktörü",
+        "ar": "Ağırlık Faktörü"
+      }
     }
   ],
   "formulas": {
@@ -58,8 +98,8 @@
       "sqrt"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 10,
-      "businessContext": "Planlanan yürüyüş mesafesi"
+      "businessContext": "Planlanan yürüyüş mesafesi",
+      "label_i18n": {
+        "en": "Mesafe",
+        "tr": "Mesafe",
+        "de": "Mesafe",
+        "fr": "Mesafe",
+        "es": "Mesafe",
+        "ar": "Mesafe"
+      }
     },
     {
       "id": "elevationGain",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 500,
-      "businessContext": "Toplam tırmanılan yükseklik"
+      "businessContext": "Toplam tırmanılan yükseklik",
+      "label_i18n": {
+        "en": "İrtifa Kazancı",
+        "tr": "İrtifa Kazancı",
+        "de": "İrtifa Kazancı",
+        "fr": "İrtifa Kazancı",
+        "es": "İrtifa Kazancı",
+        "ar": "İrtifa Kazancı"
+      }
     },
     {
       "id": "averageSpeed",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "km/h",
       "default": 5,
-      "businessContext": "Düz zeminde yürüyüş hızı"
+      "businessContext": "Düz zeminde yürüyüş hızı",
+      "label_i18n": {
+        "en": "Ortalama Hız",
+        "tr": "Ortalama Hız",
+        "de": "Ortalama Hız",
+        "fr": "Ortalama Hız",
+        "es": "Ortalama Hız",
+        "ar": "Ortalama Hız"
+      }
     },
     {
       "id": "backpackWeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Sırt çantasının ağırlığı"
+      "businessContext": "Sırt çantasının ağırlığı",
+      "label_i18n": {
+        "en": "Çanta Ağırlığı",
+        "tr": "Çanta Ağırlığı",
+        "de": "Çanta Ağırlığı",
+        "fr": "Çanta Ağırlığı",
+        "es": "Çanta Ağırlığı",
+        "ar": "Çanta Ağırlığı"
+      }
     }
   ],
   "formulas": {
@@ -57,8 +89,8 @@
       }
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",

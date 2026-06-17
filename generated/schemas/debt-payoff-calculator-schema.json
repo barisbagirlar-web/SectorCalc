@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 10000,
-      "businessContext": "Total outstanding debt balance"
+      "businessContext": "Total outstanding debt balance",
+      "label_i18n": {
+        "en": "Total Debt Amount",
+        "tr": "Total Debt Amount",
+        "de": "Total Debt Amount",
+        "fr": "Total Debt Amount",
+        "es": "Total Debt Amount",
+        "ar": "Total Debt Amount"
+      }
     },
     {
       "id": "interestRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Annual percentage rate on the debt"
+      "businessContext": "Annual percentage rate on the debt",
+      "label_i18n": {
+        "en": "Annual Interest Rate",
+        "tr": "Annual Interest Rate",
+        "de": "Annual Interest Rate",
+        "fr": "Annual Interest Rate",
+        "es": "Annual Interest Rate",
+        "ar": "Annual Interest Rate"
+      }
     },
     {
       "id": "monthlyPayment",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 500,
-      "businessContext": "Fixed monthly payment amount"
+      "businessContext": "Fixed monthly payment amount",
+      "label_i18n": {
+        "en": "Monthly Payment",
+        "tr": "Monthly Payment",
+        "de": "Monthly Payment",
+        "fr": "Monthly Payment",
+        "es": "Monthly Payment",
+        "ar": "Monthly Payment"
+      }
     },
     {
       "id": "extraPayment",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Additional amount paid each month"
+      "businessContext": "Additional amount paid each month",
+      "label_i18n": {
+        "en": "Extra Monthly Payment",
+        "tr": "Extra Monthly Payment",
+        "de": "Extra Monthly Payment",
+        "fr": "Extra Monthly Payment",
+        "es": "Extra Monthly Payment",
+        "ar": "Extra Monthly Payment"
+      }
     },
     {
       "id": "numDebts",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "count",
       "default": 1,
-      "businessContext": "Number of separate debts to consolidate"
+      "businessContext": "Number of separate debts to consolidate",
+      "label_i18n": {
+        "en": "Number of Debts",
+        "tr": "Number of Debts",
+        "de": "Number of Debts",
+        "fr": "Number of Debts",
+        "es": "Number of Debts",
+        "ar": "Number of Debts"
+      }
     }
   ],
   "formulas": {
@@ -59,8 +99,8 @@
       "totalInterestAvalanche"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Vergi & Finansal Raporlama",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

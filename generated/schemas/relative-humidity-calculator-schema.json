@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°C",
       "default": 25,
-      "businessContext": "The ambient air temperature measured by a standard thermometer."
+      "businessContext": "The ambient air temperature measured by a standard thermometer.",
+      "label_i18n": {
+        "en": "Dry Bulb Temperature",
+        "tr": "Dry Bulb Temperature",
+        "de": "Dry Bulb Temperature",
+        "fr": "Dry Bulb Temperature",
+        "es": "Dry Bulb Temperature",
+        "ar": "Dry Bulb Temperature"
+      }
     },
     {
       "id": "wetBulbTemp",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Temperature measured by a wet-bulb thermometer, indicating evaporative cooling capacity."
+      "businessContext": "Temperature measured by a wet-bulb thermometer, indicating evaporative cooling capacity.",
+      "label_i18n": {
+        "en": "Wet Bulb Temperature",
+        "tr": "Wet Bulb Temperature",
+        "de": "Wet Bulb Temperature",
+        "fr": "Wet Bulb Temperature",
+        "es": "Wet Bulb Temperature",
+        "ar": "Wet Bulb Temperature"
+      }
     },
     {
       "id": "atmosphericPressure",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "hPa",
       "default": 1013.25,
-      "businessContext": "Barometric pressure at the measurement location, required for psychrometric calculation."
+      "businessContext": "Barometric pressure at the measurement location, required for psychrometric calculation.",
+      "label_i18n": {
+        "en": "Atmospheric Pressure",
+        "tr": "Atmospheric Pressure",
+        "de": "Atmospheric Pressure",
+        "fr": "Atmospheric Pressure",
+        "es": "Atmospheric Pressure",
+        "ar": "Atmospheric Pressure"
+      }
     },
     {
       "id": "psychrometricConstant",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C⁻¹",
       "default": 0.00066,
-      "businessContext": "Empirical constant depending on ventilation type; 0.00066 for aspirated, 0.0008 for sling psychrometer."
+      "businessContext": "Empirical constant depending on ventilation type; 0.00066 for aspirated, 0.0008 for sling psychrometer.",
+      "label_i18n": {
+        "en": "Psychrometric Constant",
+        "tr": "Psychrometric Constant",
+        "de": "Psychrometric Constant",
+        "fr": "Psychrometric Constant",
+        "es": "Psychrometric Constant",
+        "ar": "Psychrometric Constant"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "actualVaporPressure"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",

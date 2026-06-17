@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Parabolik çanağın çapı (metre cinsinden)."
+      "businessContext": "Parabolik çanağın çapı (metre cinsinden).",
+      "label_i18n": {
+        "en": "Çap (D)",
+        "tr": "Çap (D)",
+        "de": "Çap (D)",
+        "fr": "Çap (D)",
+        "es": "Çap (D)",
+        "ar": "Çap (D)"
+      }
     },
     {
       "id": "derinlik",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.25,
-      "businessContext": "Çanağın merkez derinliği."
+      "businessContext": "Çanağın merkez derinliği.",
+      "label_i18n": {
+        "en": "Derinlik (d)",
+        "tr": "Derinlik (d)",
+        "de": "Derinlik (d)",
+        "fr": "Derinlik (d)",
+        "es": "Derinlik (d)",
+        "ar": "Derinlik (d)"
+      }
     },
     {
       "id": "frekans",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "MHz",
       "default": 3000,
-      "businessContext": "İşletim frekansı (MHz)."
+      "businessContext": "İşletim frekansı (MHz).",
+      "label_i18n": {
+        "en": "Frekans (f)",
+        "tr": "Frekans (f)",
+        "de": "Frekans (f)",
+        "fr": "Frekans (f)",
+        "es": "Frekans (f)",
+        "ar": "Frekans (f)"
+      }
     },
     {
       "id": "verim",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 60,
-      "businessContext": "Açıklık verimliliği (yüzde olarak, örn. 60 → %60)."
+      "businessContext": "Açıklık verimliliği (yüzde olarak, örn. 60 → %60).",
+      "label_i18n": {
+        "en": "Verim (η)",
+        "tr": "Verim (η)",
+        "de": "Verim (η)",
+        "fr": "Verim (η)",
+        "es": "Verim (η)",
+        "ar": "Verim (η)"
+      }
     }
   ],
   "formulas": {
@@ -52,8 +84,8 @@
       "Yarım Güç Hüzme Genişliği (°)"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°Bx",
       "default": 75,
-      "businessContext": "Sakkaroz konsantrasyonu (Brix derecesi)"
+      "businessContext": "Sakkaroz konsantrasyonu (Brix derecesi)",
+      "label_i18n": {
+        "en": "Brix (°Bx)",
+        "tr": "Brix (°Bx)",
+        "de": "Brix (°Bx)",
+        "fr": "Brix (°Bx)",
+        "es": "Brix (°Bx)",
+        "ar": "Brix (°Bx)"
+      }
     },
     {
       "id": "purity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "Şeker likörünün saflığı"
+      "businessContext": "Şeker likörünün saflığı",
+      "label_i18n": {
+        "en": "Saflık (%)",
+        "tr": "Saflık (%)",
+        "de": "Saflık (%)",
+        "fr": "Saflık (%)",
+        "es": "Saflık (%)",
+        "ar": "Saflık (%)"
+      }
     },
     {
       "id": "temperature",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 65,
-      "businessContext": "Kaynatma kütlesinin sıcaklığı"
+      "businessContext": "Kaynatma kütlesinin sıcaklığı",
+      "label_i18n": {
+        "en": "Sıcaklık (°C)",
+        "tr": "Sıcaklık (°C)",
+        "de": "Sıcaklık (°C)",
+        "fr": "Sıcaklık (°C)",
+        "es": "Sıcaklık (°C)",
+        "ar": "Sıcaklık (°C)"
+      }
     },
     {
       "id": "seedSize",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0.5,
-      "businessContext": "Eklenen tohum kristallerinin boyutu"
+      "businessContext": "Eklenen tohum kristallerinin boyutu",
+      "label_i18n": {
+        "en": "Tohum Kristal Boyutu (mm)",
+        "tr": "Tohum Kristal Boyutu (mm)",
+        "de": "Tohum Kristal Boyutu (mm)",
+        "fr": "Tohum Kristal Boyutu (mm)",
+        "es": "Tohum Kristal Boyutu (mm)",
+        "ar": "Tohum Kristal Boyutu (mm)"
+      }
     },
     {
       "id": "seedMass",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "Eklenen tohum kristallerinin kütlesi"
+      "businessContext": "Eklenen tohum kristallerinin kütlesi",
+      "label_i18n": {
+        "en": "Tohum Kristal Kütlesi (kg)",
+        "tr": "Tohum Kristal Kütlesi (kg)",
+        "de": "Tohum Kristal Kütlesi (kg)",
+        "fr": "Tohum Kristal Kütlesi (kg)",
+        "es": "Tohum Kristal Kütlesi (kg)",
+        "ar": "Tohum Kristal Kütlesi (kg)"
+      }
     },
     {
       "id": "vacuumPressure",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kPa",
       "default": -90,
-      "businessContext": "Vakum panosundaki basınç (negatif gösterge)"
+      "businessContext": "Vakum panosundaki basınç (negatif gösterge)",
+      "label_i18n": {
+        "en": "Vakum Basıncı (kPa)",
+        "tr": "Vakum Basıncı (kPa)",
+        "de": "Vakum Basıncı (kPa)",
+        "fr": "Vakum Basıncı (kPa)",
+        "es": "Vakum Basıncı (kPa)",
+        "ar": "Vakum Basıncı (kPa)"
+      }
     },
     {
       "id": "residenceTime",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "saat",
       "default": 4,
-      "businessContext": "Kristal büyüme süresi"
+      "businessContext": "Kristal büyüme süresi",
+      "label_i18n": {
+        "en": "Bekleme Süresi (saat)",
+        "tr": "Bekleme Süresi (saat)",
+        "de": "Bekleme Süresi (saat)",
+        "fr": "Bekleme Süresi (saat)",
+        "es": "Bekleme Süresi (saat)",
+        "ar": "Bekleme Süresi (saat)"
+      }
     }
   ],
   "formulas": {
@@ -73,8 +129,8 @@
       "evaporationRate"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "food-cooking",
   "sectorSlug": "restaurant",

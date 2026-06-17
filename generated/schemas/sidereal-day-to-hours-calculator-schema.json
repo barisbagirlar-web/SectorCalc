@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "sidereal days",
       "default": 1,
-      "businessContext": "Quantity of sidereal days to convert to standard hours"
+      "businessContext": "Quantity of sidereal days to convert to standard hours",
+      "label_i18n": {
+        "en": "Number of Sidereal Days",
+        "tr": "Number of Sidereal Days",
+        "de": "Number of Sidereal Days",
+        "fr": "Number of Sidereal Days",
+        "es": "Number of Sidereal Days",
+        "ar": "Number of Sidereal Days"
+      }
     },
     {
       "id": "hours",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hours",
       "default": 23,
-      "businessContext": "Hours component of one sidereal day"
+      "businessContext": "Hours component of one sidereal day",
+      "label_i18n": {
+        "en": "Hours per Sidereal Day",
+        "tr": "Hours per Sidereal Day",
+        "de": "Hours per Sidereal Day",
+        "fr": "Hours per Sidereal Day",
+        "es": "Hours per Sidereal Day",
+        "ar": "Hours per Sidereal Day"
+      }
     },
     {
       "id": "minutes",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 56,
-      "businessContext": "Minutes component of one sidereal day"
+      "businessContext": "Minutes component of one sidereal day",
+      "label_i18n": {
+        "en": "Minutes per Sidereal Day",
+        "tr": "Minutes per Sidereal Day",
+        "de": "Minutes per Sidereal Day",
+        "fr": "Minutes per Sidereal Day",
+        "es": "Minutes per Sidereal Day",
+        "ar": "Minutes per Sidereal Day"
+      }
     },
     {
       "id": "seconds",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "seconds",
       "default": 4.0916,
-      "businessContext": "Seconds component of one sidereal day"
+      "businessContext": "Seconds component of one sidereal day",
+      "label_i18n": {
+        "en": "Seconds per Sidereal Day",
+        "tr": "Seconds per Sidereal Day",
+        "de": "Seconds per Sidereal Day",
+        "fr": "Seconds per Sidereal Day",
+        "es": "Seconds per Sidereal Day",
+        "ar": "Seconds per Sidereal Day"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "verboseResult"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

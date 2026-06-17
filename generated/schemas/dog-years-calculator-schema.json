@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 5,
-      "businessContext": "Köpeğin insan yaşı cinsinden yaşı"
+      "businessContext": "Köpeğin insan yaşı cinsinden yaşı",
+      "label_i18n": {
+        "en": "İnsan Yaşı",
+        "tr": "İnsan Yaşı",
+        "de": "İnsan Yaşı",
+        "fr": "İnsan Yaşı",
+        "es": "İnsan Yaşı",
+        "ar": "İnsan Yaşı"
+      }
     },
     {
       "id": "breedSize",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "indeks",
       "default": 2,
-      "businessContext": "1: Küçük (ör. Chihuahua), 2: Orta (ör. Beagle), 3: Büyük (ör. Labrador), 4: Dev (ör. Danua)"
+      "businessContext": "1: Küçük (ör. Chihuahua), 2: Orta (ör. Beagle), 3: Büyük (ör. Labrador), 4: Dev (ör. Danua)",
+      "label_i18n": {
+        "en": "Irk Boyutu",
+        "tr": "Irk Boyutu",
+        "de": "Irk Boyutu",
+        "fr": "Irk Boyutu",
+        "es": "Irk Boyutu",
+        "ar": "Irk Boyutu"
+      }
     },
     {
       "id": "weight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 15,
-      "businessContext": "Köpeğin yaklaşık ağırlığı (kg cinsinden)"
+      "businessContext": "Köpeğin yaklaşık ağırlığı (kg cinsinden)",
+      "label_i18n": {
+        "en": "Köpeğin Ağırlığı",
+        "tr": "Köpeğin Ağırlığı",
+        "de": "Köpeğin Ağırlığı",
+        "fr": "Köpeğin Ağırlığı",
+        "es": "Köpeğin Ağırlığı",
+        "ar": "Köpeğin Ağırlığı"
+      }
     },
     {
       "id": "activityLevel",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "puan",
       "default": 2,
-      "businessContext": "1: Düşük, 2: Orta, 3: Yüksek"
+      "businessContext": "1: Düşük, 2: Orta, 3: Yüksek",
+      "label_i18n": {
+        "en": "Aktivite Seviyesi",
+        "tr": "Aktivite Seviyesi",
+        "de": "Aktivite Seviyesi",
+        "fr": "Aktivite Seviyesi",
+        "es": "Aktivite Seviyesi",
+        "ar": "Aktivite Seviyesi"
+      }
     }
   ],
   "formulas": {
@@ -47,8 +79,8 @@
       "dogYearsAdjusted"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

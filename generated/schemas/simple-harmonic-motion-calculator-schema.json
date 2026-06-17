@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Maximum displacement from equilibrium (meters). Critical parameter for vibration amplitude in machinery monitoring."
+      "businessContext": "Maximum displacement from equilibrium (meters). Critical parameter for vibration amplitude in machinery monitoring.",
+      "label_i18n": {
+        "en": "Amplitude",
+        "tr": "Amplitude",
+        "de": "Amplitude",
+        "fr": "Amplitude",
+        "es": "Amplitude",
+        "ar": "Amplitude"
+      }
     },
     {
       "id": "f",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 1,
-      "businessContext": "Oscillation frequency in Hertz. Typically derived from FFT analysis in predictive maintenance."
+      "businessContext": "Oscillation frequency in Hertz. Typically derived from FFT analysis in predictive maintenance.",
+      "label_i18n": {
+        "en": "Frequency",
+        "tr": "Frequency",
+        "de": "Frequency",
+        "fr": "Frequency",
+        "es": "Frequency",
+        "ar": "Frequency"
+      }
     },
     {
       "id": "phi",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "rad",
       "default": 0,
-      "businessContext": "Initial phase angle (radians), accounting for the starting point of the oscillation cycle."
+      "businessContext": "Initial phase angle (radians), accounting for the starting point of the oscillation cycle.",
+      "label_i18n": {
+        "en": "Phase Constant",
+        "tr": "Phase Constant",
+        "de": "Phase Constant",
+        "fr": "Phase Constant",
+        "es": "Phase Constant",
+        "ar": "Phase Constant"
+      }
     },
     {
       "id": "t",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "s",
       "default": 0,
-      "businessContext": "Point in time (seconds) for calculating instantaneous displacement, velocity, etc."
+      "businessContext": "Point in time (seconds) for calculating instantaneous displacement, velocity, etc.",
+      "label_i18n": {
+        "en": "Time",
+        "tr": "Time",
+        "de": "Time",
+        "fr": "Time",
+        "es": "Time",
+        "ar": "Time"
+      }
     },
     {
       "id": "m",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "Mass of the vibrating component (kg). Used for energy calculations; default 1 if energy analysis is not required."
+      "businessContext": "Mass of the vibrating component (kg). Used for energy calculations; default 1 if energy analysis is not required.",
+      "label_i18n": {
+        "en": "Mass",
+        "tr": "Mass",
+        "de": "Mass",
+        "fr": "Mass",
+        "es": "Mass",
+        "ar": "Mass"
+      }
     }
   ],
   "formulas": {
@@ -65,8 +105,8 @@
       "E"
     ]
   },
-  "category": "Verimlilik & OEE",
-  "sector": "Makine & Ekipman",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

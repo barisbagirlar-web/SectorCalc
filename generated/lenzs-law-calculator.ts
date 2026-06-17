@@ -21,6 +21,7 @@ function evaluateAllFormulas(input: Lenzs_law_calculatorInput): Record<string, n
   const results: Record<string, number> = {};
   try { const v = input.n * input.dB * input.A * Math.cos(input.theta * Math.PI / 180) / input.dt; results["inducedEMF"] = Number.isFinite(v) ? v : 0; } catch { results["inducedEMF"] = 0; }
   try { const v = Math.abs(input.n * input.dB * input.A * Math.cos(input.theta * Math.PI / 180) / input.dt); results["inducedEMFAbs"] = Number.isFinite(v) ? v : 0; } catch { results["inducedEMFAbs"] = 0; }
+  results["Induced_EMF_______N____B___A___cos______"] = 0;
   return results;
 }
 

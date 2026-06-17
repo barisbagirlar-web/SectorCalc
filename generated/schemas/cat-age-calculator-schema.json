@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 1,
-      "businessContext": "The whole number of years the cat has lived. Minimum 0."
+      "businessContext": "The whole number of years the cat has lived. Minimum 0.",
+      "label_i18n": {
+        "en": "Cat Age (Years)",
+        "tr": "Cat Age (Years)",
+        "de": "Cat Age (Years)",
+        "fr": "Cat Age (Years)",
+        "es": "Cat Age (Years)",
+        "ar": "Cat Age (Years)"
+      }
     },
     {
       "id": "cat_months",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "months",
       "default": 0,
-      "businessContext": "Additional months beyond whole years, from 0 to 11. For cats under 1 year, use years=0 and enter months here."
+      "businessContext": "Additional months beyond whole years, from 0 to 11. For cats under 1 year, use years=0 and enter months here.",
+      "label_i18n": {
+        "en": "Cat Age (Additional Months)",
+        "tr": "Cat Age (Additional Months)",
+        "de": "Cat Age (Additional Months)",
+        "fr": "Cat Age (Additional Months)",
+        "es": "Cat Age (Additional Months)",
+        "ar": "Cat Age (Additional Months)"
+      }
     },
     {
       "id": "lifestyle_factor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1,
-      "businessContext": "Adjustment for indoor/outdoor lifestyle: Indoor only = 1.0, Outdoor access = 0.9, Feral = 0.8. Lower factor means slower aging in human years."
+      "businessContext": "Adjustment for indoor/outdoor lifestyle: Indoor only = 1.0, Outdoor access = 0.9, Feral = 0.8. Lower factor means slower aging in human years.",
+      "label_i18n": {
+        "en": "Lifestyle Factor",
+        "tr": "Lifestyle Factor",
+        "de": "Lifestyle Factor",
+        "fr": "Lifestyle Factor",
+        "es": "Lifestyle Factor",
+        "ar": "Lifestyle Factor"
+      }
     },
     {
       "id": "diet_factor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1,
-      "businessContext": "Adjustment for diet quality: Premium diet = 0.95, Normal diet = 1.0, Poor diet = 1.1. Higher factor means faster aging."
+      "businessContext": "Adjustment for diet quality: Premium diet = 0.95, Normal diet = 1.0, Poor diet = 1.1. Higher factor means faster aging.",
+      "label_i18n": {
+        "en": "Diet Quality Factor",
+        "tr": "Diet Quality Factor",
+        "de": "Diet Quality Factor",
+        "fr": "Diet Quality Factor",
+        "es": "Diet Quality Factor",
+        "ar": "Diet Quality Factor"
+      }
     },
     {
       "id": "neuter_factor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1,
-      "businessContext": "Adjustment if neutered/spayed: Yes = 1.0, No = 1.05. Intact cats may age slightly faster due to stress."
+      "businessContext": "Adjustment if neutered/spayed: Yes = 1.0, No = 1.05. Intact cats may age slightly faster due to stress.",
+      "label_i18n": {
+        "en": "Neutered/Spayed Factor",
+        "tr": "Neutered/Spayed Factor",
+        "de": "Neutered/Spayed Factor",
+        "fr": "Neutered/Spayed Factor",
+        "es": "Neutered/Spayed Factor",
+        "ar": "Neutered/Spayed Factor"
+      }
     }
   ],
   "formulas": {
@@ -58,8 +98,8 @@
       "Final adjusted human age: adjusted_human_age"
     ]
   },
-  "category": "Kalite & Süreç Kontrol",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",

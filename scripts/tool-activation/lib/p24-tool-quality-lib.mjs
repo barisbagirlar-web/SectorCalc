@@ -8,6 +8,8 @@ export const P24_REPORT_PATH = path.join(ROOT, "scripts/.cache/p24-tool-quality-
 
 const INDEX_FILE = path.join(ROOT, "public/ai-tool-index.json");
 const SCHEMAS_DIR = path.join(ROOT, "src/lib/premium-schema/schemas");
+const GENERATED_SCHEMAS_DIR = path.join(ROOT, "generated/schemas");
+const GENERATED_CALCULATORS_DIR = path.join(ROOT, "generated");
 const CONTRACTS_DIR = path.join(ROOT, "src/lib/formula-governance/contracts");
 const FORMULA_REGISTRY_FILE = path.join(ROOT, "src/lib/premium-schema/formula-registry.ts");
 const PREMIUM_SCHEMA_I18N_FILE = path.join(ROOT, "src/lib/premium-schema/premium-schema-i18n.ts");
@@ -182,6 +184,113 @@ function buildSchemaIndex() {
   }
 
   return index;
+}
+
+function buildGeneratedSchemaIndex() {
+  /** @type {Map<string, { path: string, inputs: object[], outputs: object[], painStatement: string }>} */
+  const index = new Map();
+  if (!fs.existsSync(GENERATED_SCHEMAS_DIR)) return index;
+
+  for (const file of fs.readdirSync(GENERATED_SCHEMAS_DIR)) {
+    if (!file.endsWith("-schema.json")) continue;
+    const absolutePath = path.join(GENERATED_SCHEMAS_DIR, file);
+    const slug = file.replace(/-schema\.json$/, "");
+    let raw;
+    try {
+      raw = JSON.parse(fs.readFileSync(absolutePath, "utf8"));
+    } catch {
+      continue;
+    }
+
+    const inputs = Array.isArray(raw.inputs)
+      ? raw.inputs
+          .filter((input) => input && typeof input === "object")
+          .map((input) => ({
+            id: typeof input.id === "string" ? input.id : "",
+            label: typeof input.label === "string" ? input.label : "",
+            type: typeof input.type === "string" ? input.type : "unknown",
+            unit: typeof input.unit === "string" ? input.unit : "",
+            required: input.required !== false,
+            optional: input.required === false,
+            helper: typeof input.helperText === "string" ? input.helperText : "",
+          }))
+          .filter((input) => input.id)
+      : [];
+
+    const outputs = [];
+    if (raw.outputs && typeof raw.outputs === "object") {
+      if (typeof raw.outputs.primary === "string") {
+        outputs.push({ id: raw.outputs.primary });
+      }
+      if (Array.isArray(raw.outputs.breakdown)) {
+        for (const entry of raw.outputs.breakdown) {
+          if (typeof entry === "string") {
+            outputs.push({ id: entry });
+          }
+        }
+      }
+    }
+
+    index.set(slug, {
+      path: path.relative(ROOT, absolutePath),
+      inputs,
+      outputs,
+      painStatement: typeof raw.painStatement === "string" ? raw.painStatement : "",
+    });
+  }
+
+  return index;
+}
+
+function mergeSchemaIndexes(premiumIndex, generatedIndex) {
+  const merged = new Map(premiumIndex);
+  for (const [slug, schema] of generatedIndex) {
+    if (!merged.has(slug)) {
+      merged.set(slug, schema);
+    }
+  }
+  return merged;
+}
+
+function buildGeneratedCalculatorSlugs() {
+  const slugs = new Set();
+  if (!fs.existsSync(GENERATED_CALCULATORS_DIR)) return slugs;
+
+  for (const file of fs.readdirSync(GENERATED_CALCULATORS_DIR)) {
+    if (!file.endsWith(".ts") || file === "index.ts") continue;
+    slugs.add(file.replace(/\.ts$/, ""));
+  }
+
+  return slugs;
+}
+
+function resolveGeneratedCalculatorSlug(slug, generatedCalculatorSlugs) {
+  if (generatedCalculatorSlugs.has(slug)) {
+    return slug;
+  }
+  const withCalculator = `${slug}-calculator`;
+  if (generatedCalculatorSlugs.has(withCalculator)) {
+    return withCalculator;
+  }
+  if (slug.endsWith("-calculator")) {
+    const withoutCalculator = slug.replace(/-calculator$/, "");
+    if (generatedCalculatorSlugs.has(withoutCalculator)) {
+      return withoutCalculator;
+    }
+  }
+  return null;
+}
+
+function resolveIndexedSchema(slug, schemaIndex, generatedCalculatorSlugs) {
+  const direct = schemaIndex.get(slug);
+  if (direct) {
+    return direct;
+  }
+  const generatedSlug = resolveGeneratedCalculatorSlug(slug, generatedCalculatorSlugs);
+  if (generatedSlug) {
+    return schemaIndex.get(generatedSlug) ?? null;
+  }
+  return null;
 }
 
 function buildContractIndex() {
@@ -518,6 +627,7 @@ function isActiveTool(tool) {
 }
 
 function hasCalculatorImplementation(slug, index) {
+  if (resolveGeneratedCalculatorSlug(slug, index.generatedCalculatorSlugs)) return true;
   if (index.freeTrafficCalculatorSlugs.has(slug)) return true;
   if (index.revenuePairs.freeToPaid.has(slug)) return true;
   if (index.legacyCalculatorSlugs.has(slug)) return true;
@@ -535,7 +645,7 @@ function hasCalculatorImplementation(slug, index) {
 
 function auditTool(tool, index) {
   const findings = [];
-  const schema = index.schemaIndex.get(tool.slug);
+  const schema = resolveIndexedSchema(tool.slug, index.schemaIndex, index.generatedCalculatorSlugs);
   const contract = index.contractIndex.get(tool.slug);
   const hasContract = hasFormulaContract(tool.slug) || Boolean(contract);
   const hasValidation = index.validationSlugs.has(tool.slug);
@@ -996,7 +1106,7 @@ function summarize(tools) {
 
 export function buildIndexes() {
   return {
-    schemaIndex: buildSchemaIndex(),
+    schemaIndex: mergeSchemaIndexes(buildSchemaIndex(), buildGeneratedSchemaIndex()),
     contractIndex: buildContractIndex(),
     locatorSlugs: buildSlugSetFromFiles(LOCATOR_FILES, /slug:\s*"([^"]+)"/g),
     oracleSlugs: buildSlugSetFromFiles(ORACLE_FILES, /slug:\s*"([^"]+)"/g),
@@ -1005,6 +1115,7 @@ export function buildIndexes() {
     revenuePairs: buildRevenuePairs(),
     legacyCalculatorSlugs: buildLegacyCalculatorSlugs(),
     freeTrafficCalculatorSlugs: buildFreeCalculatorSlugs(),
+    generatedCalculatorSlugs: buildGeneratedCalculatorSlugs(),
     premiumSchemaI18nSlugs: buildPremiumSchemaI18nSlugs(),
     localePremiumKeys: buildLocalePremiumKeys(),
     validationSlugs: buildValidationIndex(),

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°",
       "default": 0,
-      "businessContext": "Angle in decimal degrees if not using DMS"
+      "businessContext": "Angle in decimal degrees if not using DMS",
+      "label_i18n": {
+        "en": "Decimal Degrees",
+        "tr": "Decimal Degrees",
+        "de": "Decimal Degrees",
+        "fr": "Decimal Degrees",
+        "es": "Decimal Degrees",
+        "ar": "Decimal Degrees"
+      }
     },
     {
       "id": "useDMS",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "boolean (0 or 1)",
       "default": 0,
-      "businessContext": "Set to 1 to input angle as degrees, minutes, seconds"
+      "businessContext": "Set to 1 to input angle as degrees, minutes, seconds",
+      "label_i18n": {
+        "en": "Use DMS Input",
+        "tr": "Use DMS Input",
+        "de": "Use DMS Input",
+        "fr": "Use DMS Input",
+        "es": "Use DMS Input",
+        "ar": "Use DMS Input"
+      }
     },
     {
       "id": "degreesDMS",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°",
       "default": 0,
-      "businessContext": "Whole degrees part (DMS)"
+      "businessContext": "Whole degrees part (DMS)",
+      "label_i18n": {
+        "en": "Degrees",
+        "tr": "Degrees",
+        "de": "Degrees",
+        "fr": "Degrees",
+        "es": "Degrees",
+        "ar": "Degrees"
+      }
     },
     {
       "id": "minutes",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "'",
       "default": 0,
-      "businessContext": "Minutes part (DMS)"
+      "businessContext": "Minutes part (DMS)",
+      "label_i18n": {
+        "en": "Minutes",
+        "tr": "Minutes",
+        "de": "Minutes",
+        "fr": "Minutes",
+        "es": "Minutes",
+        "ar": "Minutes"
+      }
     },
     {
       "id": "seconds",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "''",
       "default": 0,
-      "businessContext": "Seconds part (DMS)"
+      "businessContext": "Seconds part (DMS)",
+      "label_i18n": {
+        "en": "Seconds",
+        "tr": "Seconds",
+        "de": "Seconds",
+        "fr": "Seconds",
+        "es": "Seconds",
+        "ar": "Seconds"
+      }
     },
     {
       "id": "precision",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "decimal places",
       "default": 4,
-      "businessContext": "Number of decimal places for output rounding"
+      "businessContext": "Number of decimal places for output rounding",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     }
   ],
   "formulas": {
@@ -64,8 +112,8 @@
       "gradians"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

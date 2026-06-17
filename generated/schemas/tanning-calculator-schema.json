@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Weight of raw hides to be tanned."
+      "businessContext": "Weight of raw hides to be tanned.",
+      "label_i18n": {
+        "en": "Hide Weight",
+        "tr": "Hide Weight",
+        "de": "Hide Weight",
+        "fr": "Hide Weight",
+        "es": "Hide Weight",
+        "ar": "Hide Weight"
+      }
     },
     {
       "id": "desiredCr2O3Offer",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 6,
-      "businessContext": "Percentage of Cr₂O₃ on hide weight, typically 6-8% for chrome tanning."
+      "businessContext": "Percentage of Cr₂O₃ on hide weight, typically 6-8% for chrome tanning.",
+      "label_i18n": {
+        "en": "Desired Cr₂O₃ Offer",
+        "tr": "Desired Cr₂O₃ Offer",
+        "de": "Desired Cr₂O₃ Offer",
+        "fr": "Desired Cr₂O₃ Offer",
+        "es": "Desired Cr₂O₃ Offer",
+        "ar": "Desired Cr₂O₃ Offer"
+      }
     },
     {
       "id": "bcsCr2O3Content",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 25,
-      "businessContext": "Chromium oxide content in basic chromium sulfate powder, typically 25-26%."
+      "businessContext": "Chromium oxide content in basic chromium sulfate powder, typically 25-26%.",
+      "label_i18n": {
+        "en": "BCS Cr₂O₃ Content",
+        "tr": "BCS Cr₂O₃ Content",
+        "de": "BCS Cr₂O₃ Content",
+        "fr": "BCS Cr₂O₃ Content",
+        "es": "BCS Cr₂O₃ Content",
+        "ar": "BCS Cr₂O₃ Content"
+      }
     },
     {
       "id": "floatVolume",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "L",
       "default": 2000,
-      "businessContext": "Volume of float (water) used for tanning, often 200-300% on hide weight."
+      "businessContext": "Volume of float (water) used for tanning, often 200-300% on hide weight.",
+      "label_i18n": {
+        "en": "Float Volume",
+        "tr": "Float Volume",
+        "de": "Float Volume",
+        "fr": "Float Volume",
+        "es": "Float Volume",
+        "ar": "Float Volume"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "concentrationInFloat"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

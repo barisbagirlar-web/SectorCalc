@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Patient age in years. Used in Hofstetter's formulas for accommodative amplitude."
+      "businessContext": "Patient age in years. Used in Hofstetter's formulas for accommodative amplitude.",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "refractiveError",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "D",
       "default": 0,
-      "businessContext": "Refractive error in diopters (D). Negative for myopia, positive for hyperopia. Typically the distance prescription."
+      "businessContext": "Refractive error in diopters (D). Negative for myopia, positive for hyperopia. Typically the distance prescription.",
+      "label_i18n": {
+        "en": "Refractive Error",
+        "tr": "Refractive Error",
+        "de": "Refractive Error",
+        "fr": "Refractive Error",
+        "es": "Refractive Error",
+        "ar": "Refractive Error"
+      }
     },
     {
       "id": "amplitudeMethod",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "code",
       "default": 1,
-      "businessContext": "Select method for calculating accommodative amplitude. 1: Hofstetter minimum (15 - 0.25*age), 2: Hofstetter average (18.5 - 0.30*age), 3: Hofstetter maximum (25 - 0.40*age), 0: Direct input using 'directAmplitude'."
+      "businessContext": "Select method for calculating accommodative amplitude. 1: Hofstetter minimum (15 - 0.25*age), 2: Hofstetter average (18.5 - 0.30*age), 3: Hofstetter maximum (25 - 0.40*age), 0: Direct input using 'directAmplitude'.",
+      "label_i18n": {
+        "en": "Amplitude Method",
+        "tr": "Amplitude Method",
+        "de": "Amplitude Method",
+        "fr": "Amplitude Method",
+        "es": "Amplitude Method",
+        "ar": "Amplitude Method"
+      }
     },
     {
       "id": "directAmplitude",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "D",
       "default": 2.5,
-      "businessContext": "Direct accommodative amplitude in diopters (D). Used only when Amplitude Method is 0."
+      "businessContext": "Direct accommodative amplitude in diopters (D). Used only when Amplitude Method is 0.",
+      "label_i18n": {
+        "en": "Direct Amplitude",
+        "tr": "Direct Amplitude",
+        "de": "Direct Amplitude",
+        "fr": "Direct Amplitude",
+        "es": "Direct Amplitude",
+        "ar": "Direct Amplitude"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "nearPointDistanceMeters"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

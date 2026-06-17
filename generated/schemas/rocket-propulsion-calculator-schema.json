@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 50000,
-      "businessContext": "Total initial mass of the rocket including propellant."
+      "businessContext": "Total initial mass of the rocket including propellant.",
+      "label_i18n": {
+        "en": "Initial Mass",
+        "tr": "Initial Mass",
+        "de": "Initial Mass",
+        "fr": "Initial Mass",
+        "es": "Initial Mass",
+        "ar": "Initial Mass"
+      }
     },
     {
       "id": "finalMass",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 10000,
-      "businessContext": "Final mass after propellant burnout (dry mass)."
+      "businessContext": "Final mass after propellant burnout (dry mass).",
+      "label_i18n": {
+        "en": "Final Mass",
+        "tr": "Final Mass",
+        "de": "Final Mass",
+        "fr": "Final Mass",
+        "es": "Final Mass",
+        "ar": "Final Mass"
+      }
     },
     {
       "id": "specificImpulse",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "s",
       "default": 300,
-      "businessContext": "Specific impulse of the rocket engine, a measure of efficiency."
+      "businessContext": "Specific impulse of the rocket engine, a measure of efficiency.",
+      "label_i18n": {
+        "en": "Specific Impulse (Isp)",
+        "tr": "Specific Impulse (Isp)",
+        "de": "Specific Impulse (Isp)",
+        "fr": "Specific Impulse (Isp)",
+        "es": "Specific Impulse (Isp)",
+        "ar": "Specific Impulse (Isp)"
+      }
     },
     {
       "id": "gravitationalAcceleration",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m/s²",
       "default": 9.81,
-      "businessContext": "Standard gravitational acceleration at Earth's surface."
+      "businessContext": "Standard gravitational acceleration at Earth's surface.",
+      "label_i18n": {
+        "en": "Gravitational Acceleration",
+        "tr": "Gravitational Acceleration",
+        "de": "Gravitational Acceleration",
+        "fr": "Gravitational Acceleration",
+        "es": "Gravitational Acceleration",
+        "ar": "Gravitational Acceleration"
+      }
     },
     {
       "id": "massFlowRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg/s",
       "default": 500,
-      "businessContext": "Propellant mass flow rate through the engine."
+      "businessContext": "Propellant mass flow rate through the engine.",
+      "label_i18n": {
+        "en": "Mass Flow Rate",
+        "tr": "Mass Flow Rate",
+        "de": "Mass Flow Rate",
+        "fr": "Mass Flow Rate",
+        "es": "Mass Flow Rate",
+        "ar": "Mass Flow Rate"
+      }
     }
   ],
   "formulas": {
@@ -60,8 +100,8 @@
       "propellantMass"
     ]
   },
-  "category": "Verimlilik & OEE",
-  "sector": "Otomotiv & Taşıt",
+  "category": "Akışkanlar & Termodinamik",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

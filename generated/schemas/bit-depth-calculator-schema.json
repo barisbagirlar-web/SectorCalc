@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "bit",
       "default": 16,
-      "businessContext": "Number of bits used to represent each sample. Determines dynamic range and number of possible values."
+      "businessContext": "Number of bits used to represent each sample. Determines dynamic range and number of possible values.",
+      "label_i18n": {
+        "en": "Bit Depth",
+        "tr": "Bit Depth",
+        "de": "Bit Depth",
+        "fr": "Bit Depth",
+        "es": "Bit Depth",
+        "ar": "Bit Depth"
+      }
     },
     {
       "id": "sampleRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 44100,
-      "businessContext": "Samples per second. Common values: 44.1 kHz for CD, 48 kHz for video, 96 kHz for high‑res."
+      "businessContext": "Samples per second. Common values: 44.1 kHz for CD, 48 kHz for video, 96 kHz for high‑res.",
+      "label_i18n": {
+        "en": "Sample Rate",
+        "tr": "Sample Rate",
+        "de": "Sample Rate",
+        "fr": "Sample Rate",
+        "es": "Sample Rate",
+        "ar": "Sample Rate"
+      }
     },
     {
       "id": "numChannels",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "channels",
       "default": 2,
-      "businessContext": "1 for mono, 2 for stereo, 5.1 for surround, etc."
+      "businessContext": "1 for mono, 2 for stereo, 5.1 for surround, etc.",
+      "label_i18n": {
+        "en": "Number of Channels",
+        "tr": "Number of Channels",
+        "de": "Number of Channels",
+        "fr": "Number of Channels",
+        "es": "Number of Channels",
+        "ar": "Number of Channels"
+      }
     },
     {
       "id": "duration",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "seconds",
       "default": 300,
-      "businessContext": "Duration of the audio stream in seconds."
+      "businessContext": "Duration of the audio stream in seconds.",
+      "label_i18n": {
+        "en": "Duration",
+        "tr": "Duration",
+        "de": "Duration",
+        "fr": "Duration",
+        "es": "Duration",
+        "ar": "Duration"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "fileSize"
     ]
   },
-  "category": "Diğer",
-  "sector": "Madencilik & Doğal Kaynaklar",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "gaming-entertainment",
   "sectorSlug": "ecommerce",

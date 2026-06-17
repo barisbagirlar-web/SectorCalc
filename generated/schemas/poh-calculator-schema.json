@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mol/L",
       "default": 1e-7,
-      "businessContext": "Concentration of hydroxide ions [OH-] in moles per liter. Typical values range from 1e-14 to 1e0."
+      "businessContext": "Concentration of hydroxide ions [OH-] in moles per liter. Typical values range from 1e-14 to 1e0.",
+      "label_i18n": {
+        "en": "Hydroxide Concentration",
+        "tr": "Hydroxide Concentration",
+        "de": "Hydroxide Concentration",
+        "fr": "Hydroxide Concentration",
+        "es": "Hydroxide Concentration",
+        "ar": "Hydroxide Concentration"
+      }
     },
     {
       "id": "temperature",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°C",
       "default": 25,
-      "businessContext": "Temperature in degrees Celsius. Used to calculate water autoionization constant pKw. Standard pOH assumes 25°C where Kw = 1e-14."
+      "businessContext": "Temperature in degrees Celsius. Used to calculate water autoionization constant pKw. Standard pOH assumes 25°C where Kw = 1e-14.",
+      "label_i18n": {
+        "en": "Temperature",
+        "tr": "Temperature",
+        "de": "Temperature",
+        "fr": "Temperature",
+        "es": "Temperature",
+        "ar": "Temperature"
+      }
     },
     {
       "id": "sampleVolume",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "L",
       "default": 1,
-      "businessContext": "Volume of the aqueous sample in liters. For reference and scaling calculations."
+      "businessContext": "Volume of the aqueous sample in liters. For reference and scaling calculations.",
+      "label_i18n": {
+        "en": "Sample Volume",
+        "tr": "Sample Volume",
+        "de": "Sample Volume",
+        "fr": "Sample Volume",
+        "es": "Sample Volume",
+        "ar": "Sample Volume"
+      }
     },
     {
       "id": "measurementUncertainty",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0.1,
-      "businessContext": "Relative uncertainty of the hydroxide measurement, expressed as a percentage. For quality assurance documentation."
+      "businessContext": "Relative uncertainty of the hydroxide measurement, expressed as a percentage. For quality assurance documentation.",
+      "label_i18n": {
+        "en": "Measurement Uncertainty",
+        "tr": "Measurement Uncertainty",
+        "de": "Measurement Uncertainty",
+        "fr": "Measurement Uncertainty",
+        "es": "Measurement Uncertainty",
+        "ar": "Measurement Uncertainty"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "hConcentration"
     ]
   },
-  "category": "Kalite & Süreç Kontrol",
-  "sector": "Diğer",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "chemistry-science",
   "sectorSlug": "energy-consumption",

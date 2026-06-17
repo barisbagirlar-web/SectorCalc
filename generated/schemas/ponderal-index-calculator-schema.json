@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Body weight in kilograms for metric ponderal index calculation."
+      "businessContext": "Body weight in kilograms for metric ponderal index calculation.",
+      "label_i18n": {
+        "en": "Weight (kg)",
+        "tr": "Weight (kg)",
+        "de": "Weight (kg)",
+        "fr": "Weight (kg)",
+        "es": "Weight (kg)",
+        "ar": "Weight (kg)"
+      }
     },
     {
       "id": "height_cm",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Height in centimeters for metric ponderal index calculation."
+      "businessContext": "Height in centimeters for metric ponderal index calculation.",
+      "label_i18n": {
+        "en": "Height (cm)",
+        "tr": "Height (cm)",
+        "de": "Height (cm)",
+        "fr": "Height (cm)",
+        "es": "Height (cm)",
+        "ar": "Height (cm)"
+      }
     },
     {
       "id": "mass_lb",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "lb",
       "default": 154.32,
-      "businessContext": "Body weight in pounds for imperial ponderal index calculation."
+      "businessContext": "Body weight in pounds for imperial ponderal index calculation.",
+      "label_i18n": {
+        "en": "Weight (lb)",
+        "tr": "Weight (lb)",
+        "de": "Weight (lb)",
+        "fr": "Weight (lb)",
+        "es": "Weight (lb)",
+        "ar": "Weight (lb)"
+      }
     },
     {
       "id": "height_in",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "in",
       "default": 66.93,
-      "businessContext": "Height in inches for imperial ponderal index calculation."
+      "businessContext": "Height in inches for imperial ponderal index calculation.",
+      "label_i18n": {
+        "en": "Height (in)",
+        "tr": "Height (in)",
+        "de": "Height (in)",
+        "fr": "Height (in)",
+        "es": "Height (in)",
+        "ar": "Height (in)"
+      }
     }
   ],
   "formulas": {
@@ -45,8 +77,8 @@
       "metricPI"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

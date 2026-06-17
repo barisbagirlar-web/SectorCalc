@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Length of the rectangular prism base"
+      "businessContext": "Length of the rectangular prism base",
+      "label_i18n": {
+        "en": "Length",
+        "tr": "Length",
+        "de": "Length",
+        "fr": "Length",
+        "es": "Length",
+        "ar": "Length"
+      }
     },
     {
       "id": "width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 50,
-      "businessContext": "Width of the rectangular prism base"
+      "businessContext": "Width of the rectangular prism base",
+      "label_i18n": {
+        "en": "Width",
+        "tr": "Width",
+        "de": "Width",
+        "fr": "Width",
+        "es": "Width",
+        "ar": "Width"
+      }
     },
     {
       "id": "height",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 200,
-      "businessContext": "Height (prism height) of the prism"
+      "businessContext": "Height (prism height) of the prism",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "Height",
+        "fr": "Height",
+        "es": "Height",
+        "ar": "Height"
+      }
     },
     {
       "id": "quantity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 1,
-      "businessContext": "Number of identical prisms"
+      "businessContext": "Number of identical prisms",
+      "label_i18n": {
+        "en": "Quantity",
+        "tr": "Quantity",
+        "de": "Quantity",
+        "fr": "Quantity",
+        "es": "Quantity",
+        "ar": "Quantity"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "lateralArea"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "W/m²",
       "default": 1,
-      "businessContext": "Initial light intensity before any polarizer"
+      "businessContext": "Initial light intensity before any polarizer",
+      "label_i18n": {
+        "en": "Incident Intensity",
+        "tr": "Incident Intensity",
+        "de": "Incident Intensity",
+        "fr": "Incident Intensity",
+        "es": "Incident Intensity",
+        "ar": "Incident Intensity"
+      }
     },
     {
       "id": "incident_angle",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "deg",
       "default": 0,
-      "businessContext": "Polarization angle of incident light relative to reference axis"
+      "businessContext": "Polarization angle of incident light relative to reference axis",
+      "label_i18n": {
+        "en": "Incident Polarization Angle",
+        "tr": "Incident Polarization Angle",
+        "de": "Incident Polarization Angle",
+        "fr": "Incident Polarization Angle",
+        "es": "Incident Polarization Angle",
+        "ar": "Incident Polarization Angle"
+      }
     },
     {
       "id": "polarizer1_angle",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "deg",
       "default": 0,
-      "businessContext": "Transmission axis angle of the first polarizer"
+      "businessContext": "Transmission axis angle of the first polarizer",
+      "label_i18n": {
+        "en": "First Polarizer Angle",
+        "tr": "First Polarizer Angle",
+        "de": "First Polarizer Angle",
+        "fr": "First Polarizer Angle",
+        "es": "First Polarizer Angle",
+        "ar": "First Polarizer Angle"
+      }
     },
     {
       "id": "polarizer2_angle",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "deg",
       "default": 45,
-      "businessContext": "Transmission axis angle of the second polarizer"
+      "businessContext": "Transmission axis angle of the second polarizer",
+      "label_i18n": {
+        "en": "Second Polarizer Angle",
+        "tr": "Second Polarizer Angle",
+        "de": "Second Polarizer Angle",
+        "fr": "Second Polarizer Angle",
+        "es": "Second Polarizer Angle",
+        "ar": "Second Polarizer Angle"
+      }
     }
   ],
   "formulas": {
@@ -55,8 +87,8 @@
       }
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",

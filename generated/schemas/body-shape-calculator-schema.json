@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 90,
-      "businessContext": "Göğüs çevresi (cm)"
+      "businessContext": "Göğüs çevresi (cm)",
+      "label_i18n": {
+        "en": "Bust",
+        "tr": "Bust",
+        "de": "Bust",
+        "fr": "Bust",
+        "es": "Bust",
+        "ar": "Bust"
+      }
     },
     {
       "id": "waist",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 70,
-      "businessContext": "Bel çevresi (cm)"
+      "businessContext": "Bel çevresi (cm)",
+      "label_i18n": {
+        "en": "Waist",
+        "tr": "Waist",
+        "de": "Waist",
+        "fr": "Waist",
+        "es": "Waist",
+        "ar": "Waist"
+      }
     },
     {
       "id": "highHip",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 95,
-      "businessContext": "Yüksek kalça çevresi (cm)"
+      "businessContext": "Yüksek kalça çevresi (cm)",
+      "label_i18n": {
+        "en": "High Hip",
+        "tr": "High Hip",
+        "de": "High Hip",
+        "fr": "High Hip",
+        "es": "High Hip",
+        "ar": "High Hip"
+      }
     },
     {
       "id": "hip",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cm",
       "default": 100,
-      "businessContext": "Kalça çevresi (cm)"
+      "businessContext": "Kalça çevresi (cm)",
+      "label_i18n": {
+        "en": "Hip",
+        "tr": "Hip",
+        "de": "Hip",
+        "fr": "Hip",
+        "es": "Hip",
+        "ar": "Hip"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "waistHipRatio"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

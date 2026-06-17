@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Partial derivative of the z-component of the vector field with respect to y"
+      "businessContext": "Partial derivative of the z-component of the vector field with respect to y",
+      "label_i18n": {
+        "en": "∂Fz/∂y",
+        "tr": "∂Fz/∂y",
+        "de": "∂Fz/∂y",
+        "fr": "∂Fz/∂y",
+        "es": "∂Fz/∂y",
+        "ar": "∂Fz/∂y"
+      }
     },
     {
       "id": "dFy_dz",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Partial derivative of the y-component of the vector field with respect to z"
+      "businessContext": "Partial derivative of the y-component of the vector field with respect to z",
+      "label_i18n": {
+        "en": "∂Fy/∂z",
+        "tr": "∂Fy/∂z",
+        "de": "∂Fy/∂z",
+        "fr": "∂Fy/∂z",
+        "es": "∂Fy/∂z",
+        "ar": "∂Fy/∂z"
+      }
     },
     {
       "id": "dFx_dz",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Partial derivative of the x-component of the vector field with respect to z"
+      "businessContext": "Partial derivative of the x-component of the vector field with respect to z",
+      "label_i18n": {
+        "en": "∂Fx/∂z",
+        "tr": "∂Fx/∂z",
+        "de": "∂Fx/∂z",
+        "fr": "∂Fx/∂z",
+        "es": "∂Fx/∂z",
+        "ar": "∂Fx/∂z"
+      }
     },
     {
       "id": "dFz_dx",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Partial derivative of the z-component of the vector field with respect to x"
+      "businessContext": "Partial derivative of the z-component of the vector field with respect to x",
+      "label_i18n": {
+        "en": "∂Fz/∂x",
+        "tr": "∂Fz/∂x",
+        "de": "∂Fz/∂x",
+        "fr": "∂Fz/∂x",
+        "es": "∂Fz/∂x",
+        "ar": "∂Fz/∂x"
+      }
     },
     {
       "id": "dFy_dx",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Partial derivative of the y-component of the vector field with respect to x"
+      "businessContext": "Partial derivative of the y-component of the vector field with respect to x",
+      "label_i18n": {
+        "en": "∂Fy/∂x",
+        "tr": "∂Fy/∂x",
+        "de": "∂Fy/∂x",
+        "fr": "∂Fy/∂x",
+        "es": "∂Fy/∂x",
+        "ar": "∂Fy/∂x"
+      }
     },
     {
       "id": "dFx_dy",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Partial derivative of the x-component of the vector field with respect to y"
+      "businessContext": "Partial derivative of the x-component of the vector field with respect to y",
+      "label_i18n": {
+        "en": "∂Fx/∂y",
+        "tr": "∂Fx/∂y",
+        "de": "∂Fx/∂y",
+        "fr": "∂Fx/∂y",
+        "es": "∂Fx/∂y",
+        "ar": "∂Fx/∂y"
+      }
     }
   ],
   "formulas": {
@@ -64,8 +112,8 @@
       "curl_z"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

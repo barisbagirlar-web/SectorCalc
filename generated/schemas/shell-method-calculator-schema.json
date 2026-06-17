@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "units",
       "default": 0,
-      "businessContext": "Lower limit of integration (x = a)"
+      "businessContext": "Lower limit of integration (x = a)",
+      "label_i18n": {
+        "en": "Lower Bound",
+        "tr": "Lower Bound",
+        "de": "Lower Bound",
+        "fr": "Lower Bound",
+        "es": "Lower Bound",
+        "ar": "Lower Bound"
+      }
     },
     {
       "id": "upper",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "units",
       "default": 2,
-      "businessContext": "Upper limit of integration (x = b)"
+      "businessContext": "Upper limit of integration (x = b)",
+      "label_i18n": {
+        "en": "Upper Bound",
+        "tr": "Upper Bound",
+        "de": "Upper Bound",
+        "fr": "Upper Bound",
+        "es": "Upper Bound",
+        "ar": "Upper Bound"
+      }
     },
     {
       "id": "a",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "1/units",
       "default": 0,
-      "businessContext": "Coefficient of x² in f(x)"
+      "businessContext": "Coefficient of x² in f(x)",
+      "label_i18n": {
+        "en": "Coefficient a",
+        "tr": "Coefficient a",
+        "de": "Coefficient a",
+        "fr": "Coefficient a",
+        "es": "Coefficient a",
+        "ar": "Coefficient a"
+      }
     },
     {
       "id": "b",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Coefficient of x in f(x)"
+      "businessContext": "Coefficient of x in f(x)",
+      "label_i18n": {
+        "en": "Coefficient b",
+        "tr": "Coefficient b",
+        "de": "Coefficient b",
+        "fr": "Coefficient b",
+        "es": "Coefficient b",
+        "ar": "Coefficient b"
+      }
     },
     {
       "id": "c",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "units",
       "default": 0,
-      "businessContext": "Constant term in f(x)"
+      "businessContext": "Constant term in f(x)",
+      "label_i18n": {
+        "en": "Coefficient c",
+        "tr": "Coefficient c",
+        "de": "Coefficient c",
+        "fr": "Coefficient c",
+        "es": "Coefficient c",
+        "ar": "Coefficient c"
+      }
     }
   ],
   "formulas": {
@@ -54,8 +94,8 @@
       "shellFactor"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

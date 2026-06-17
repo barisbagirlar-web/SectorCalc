@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "The mass of the object being subjected to force."
+      "businessContext": "The mass of the object being subjected to force.",
+      "label_i18n": {
+        "en": "Mass",
+        "tr": "Mass",
+        "de": "Mass",
+        "fr": "Mass",
+        "es": "Mass",
+        "ar": "Mass"
+      }
     },
     {
       "id": "initialVelocity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 0,
-      "businessContext": "The initial velocity of the object before the force is applied."
+      "businessContext": "The initial velocity of the object before the force is applied.",
+      "label_i18n": {
+        "en": "Initial Velocity",
+        "tr": "Initial Velocity",
+        "de": "Initial Velocity",
+        "fr": "Initial Velocity",
+        "es": "Initial Velocity",
+        "ar": "Initial Velocity"
+      }
     },
     {
       "id": "finalVelocity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 10,
-      "businessContext": "The final velocity of the object after the force is applied."
+      "businessContext": "The final velocity of the object after the force is applied.",
+      "label_i18n": {
+        "en": "Final Velocity",
+        "tr": "Final Velocity",
+        "de": "Final Velocity",
+        "fr": "Final Velocity",
+        "es": "Final Velocity",
+        "ar": "Final Velocity"
+      }
     },
     {
       "id": "time",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "s",
       "default": 1,
-      "businessContext": "The duration over which the force is applied to change the velocity."
+      "businessContext": "The duration over which the force is applied to change the velocity.",
+      "label_i18n": {
+        "en": "Time",
+        "tr": "Time",
+        "de": "Time",
+        "fr": "Time",
+        "es": "Time",
+        "ar": "Time"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "impulse"
     ]
   },
-  "category": "Diğer",
-  "sector": "Danışmanlık",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",

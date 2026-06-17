@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cups",
       "default": 1,
-      "businessContext": "Input volume in US customary cups"
+      "businessContext": "Input volume in US customary cups",
+      "label_i18n": {
+        "en": "Volume in cups",
+        "tr": "Volume in cups",
+        "de": "Volume in cups",
+        "fr": "Volume in cups",
+        "es": "Volume in cups",
+        "ar": "Volume in cups"
+      }
     },
     {
       "id": "cupSize",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ml/cup",
       "default": 236.588,
-      "businessContext": "Milliliters per cup (US customary: 236.588, US legal: 240, Metric: 250)"
+      "businessContext": "Milliliters per cup (US customary: 236.588, US legal: 240, Metric: 250)",
+      "label_i18n": {
+        "en": "Cup size",
+        "tr": "Cup size",
+        "de": "Cup size",
+        "fr": "Cup size",
+        "es": "Cup size",
+        "ar": "Cup size"
+      }
     },
     {
       "id": "precision",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "places",
       "default": 2,
-      "businessContext": "Number of decimal places for rounding"
+      "businessContext": "Number of decimal places for rounding",
+      "label_i18n": {
+        "en": "Decimal precision",
+        "tr": "Decimal precision",
+        "de": "Decimal precision",
+        "fr": "Decimal precision",
+        "es": "Decimal precision",
+        "ar": "Decimal precision"
+      }
     },
     {
       "id": "batchSize",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1,
-      "businessContext": "Factor for scaling to multiple batches or portions"
+      "businessContext": "Factor for scaling to multiple batches or portions",
+      "label_i18n": {
+        "en": "Batch multiplier",
+        "tr": "Batch multiplier",
+        "de": "Batch multiplier",
+        "fr": "Batch multiplier",
+        "es": "Batch multiplier",
+        "ar": "Batch multiplier"
+      }
     },
     {
       "id": "temperature",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Temperature for potential thermal expansion correction (currently not used in formula)"
+      "businessContext": "Temperature for potential thermal expansion correction (currently not used in formula)",
+      "label_i18n": {
+        "en": "Temperature",
+        "tr": "Temperature",
+        "de": "Temperature",
+        "fr": "Temperature",
+        "es": "Temperature",
+        "ar": "Temperature"
+      }
     },
     {
       "id": "altitude",
@@ -47,12 +87,21 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Altitude for potential pressure adjustment (currently not used in formula)"
+      "businessContext": "Altitude for potential pressure adjustment (currently not used in formula)",
+      "label_i18n": {
+        "en": "Altitude",
+        "tr": "Altitude",
+        "de": "Altitude",
+        "fr": "Altitude",
+        "es": "Altitude",
+        "ar": "Altitude"
+      }
     }
   ],
   "formulas": {
     "millilitersUnrounded": "cups * cupSize * batchSize + 0 * temperature + 0 * altitude",
-    "milliliters": "Math.round(millilitersUnrounded * Math.pow(10, precision)) / Math.pow(10, precision)"
+    "milliliters": "Math.round(millilitersUnrounded * Math.pow(10, precision)) / Math.pow(10, precision)",
+    "_cupSize__ml_cup": "{cupSize} ml/cup"
   },
   "outputs": {
     "primary": "millilitersUnrounded",
@@ -64,8 +113,8 @@
       "Rounded to {precision} decimal(s): {milliliters} ml"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Makine & Ekipman",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

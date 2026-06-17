@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "knots",
       "default": 100,
-      "businessContext": "Airspeed shown on the airspeed indicator"
+      "businessContext": "Airspeed shown on the airspeed indicator",
+      "label_i18n": {
+        "en": "Indicated Airspeed",
+        "tr": "Indicated Airspeed",
+        "de": "Indicated Airspeed",
+        "fr": "Indicated Airspeed",
+        "es": "Indicated Airspeed",
+        "ar": "Indicated Airspeed"
+      }
     },
     {
       "id": "indicatedAltitude",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "feet",
       "default": 5000,
-      "businessContext": "Altitude shown on the altimeter with a given altimeter setting"
+      "businessContext": "Altitude shown on the altimeter with a given altimeter setting",
+      "label_i18n": {
+        "en": "Indicated Altitude",
+        "tr": "Indicated Altitude",
+        "de": "Indicated Altitude",
+        "fr": "Indicated Altitude",
+        "es": "Indicated Altitude",
+        "ar": "Indicated Altitude"
+      }
     },
     {
       "id": "altimeterSetting",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "inHg",
       "default": 29.92,
-      "businessContext": "Current altimeter setting from weather station"
+      "businessContext": "Current altimeter setting from weather station",
+      "label_i18n": {
+        "en": "Altimeter Setting",
+        "tr": "Altimeter Setting",
+        "de": "Altimeter Setting",
+        "fr": "Altimeter Setting",
+        "es": "Altimeter Setting",
+        "ar": "Altimeter Setting"
+      }
     },
     {
       "id": "oat",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 15,
-      "businessContext": "OAT measured in Celsius"
+      "businessContext": "OAT measured in Celsius",
+      "label_i18n": {
+        "en": "Outside Air Temperature",
+        "tr": "Outside Air Temperature",
+        "de": "Outside Air Temperature",
+        "fr": "Outside Air Temperature",
+        "es": "Outside Air Temperature",
+        "ar": "Outside Air Temperature"
+      }
     }
   ],
   "formulas": {
@@ -51,8 +83,8 @@
       "mach"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",

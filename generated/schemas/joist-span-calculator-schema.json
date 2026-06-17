@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "in",
       "default": 1.5,
-      "businessContext": "Actual width of the joist in inches (e.g., 1.5 for a nominal 2x)."
+      "businessContext": "Actual width of the joist in inches (e.g., 1.5 for a nominal 2x).",
+      "label_i18n": {
+        "en": "Joist Width",
+        "tr": "Joist Width",
+        "de": "Joist Width",
+        "fr": "Joist Width",
+        "es": "Joist Width",
+        "ar": "Joist Width"
+      }
     },
     {
       "id": "joist_depth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "in",
       "default": 9.25,
-      "businessContext": "Actual depth of the joist in inches (e.g., 9.25 for a nominal 2x10)."
+      "businessContext": "Actual depth of the joist in inches (e.g., 9.25 for a nominal 2x10).",
+      "label_i18n": {
+        "en": "Joist Depth",
+        "tr": "Joist Depth",
+        "de": "Joist Depth",
+        "fr": "Joist Depth",
+        "es": "Joist Depth",
+        "ar": "Joist Depth"
+      }
     },
     {
       "id": "spacing",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "in",
       "default": 16,
-      "businessContext": "Center-to-center spacing between joists in inches."
+      "businessContext": "Center-to-center spacing between joists in inches.",
+      "label_i18n": {
+        "en": "Joist Spacing",
+        "tr": "Joist Spacing",
+        "de": "Joist Spacing",
+        "fr": "Joist Spacing",
+        "es": "Joist Spacing",
+        "ar": "Joist Spacing"
+      }
     },
     {
       "id": "live_load",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "psf",
       "default": 40,
-      "businessContext": "Design live load in pounds per square foot (e.g., residential floor = 40 psf)."
+      "businessContext": "Design live load in pounds per square foot (e.g., residential floor = 40 psf).",
+      "label_i18n": {
+        "en": "Live Load",
+        "tr": "Live Load",
+        "de": "Live Load",
+        "fr": "Live Load",
+        "es": "Live Load",
+        "ar": "Live Load"
+      }
     },
     {
       "id": "dead_load",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "psf",
       "default": 10,
-      "businessContext": "Superimposed dead load in pounds per square foot (e.g., flooring, ceiling = 10 psf)."
+      "businessContext": "Superimposed dead load in pounds per square foot (e.g., flooring, ceiling = 10 psf).",
+      "label_i18n": {
+        "en": "Dead Load",
+        "tr": "Dead Load",
+        "de": "Dead Load",
+        "fr": "Dead Load",
+        "es": "Dead Load",
+        "ar": "Dead Load"
+      }
     },
     {
       "id": "fb",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "psi",
       "default": 1000,
-      "businessContext": "Allowable bending stress for the lumber species and grade (e.g., #2 Douglas Fir-Larch = 900-1000 psi)."
+      "businessContext": "Allowable bending stress for the lumber species and grade (e.g., #2 Douglas Fir-Larch = 900-1000 psi).",
+      "label_i18n": {
+        "en": "Bending Design Value (Fb)",
+        "tr": "Bending Design Value (Fb)",
+        "de": "Bending Design Value (Fb)",
+        "fr": "Bending Design Value (Fb)",
+        "es": "Bending Design Value (Fb)",
+        "ar": "Bending Design Value (Fb)"
+      }
     }
   ],
   "formulas": {
@@ -68,8 +116,8 @@
       "max_span_in"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "İnşaat & Yapı",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",

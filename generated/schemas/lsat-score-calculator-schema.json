@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "questions",
       "default": 15,
-      "businessContext": "Number of correct answers in Logical Reasoning section 1 (out of 25)."
+      "businessContext": "Number of correct answers in Logical Reasoning section 1 (out of 25).",
+      "label_i18n": {
+        "en": "Logical Reasoning 1 Correct",
+        "tr": "Logical Reasoning 1 Correct",
+        "de": "Logical Reasoning 1 Correct",
+        "fr": "Logical Reasoning 1 Correct",
+        "es": "Logical Reasoning 1 Correct",
+        "ar": "Logical Reasoning 1 Correct"
+      }
     },
     {
       "id": "lr2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "questions",
       "default": 16,
-      "businessContext": "Number of correct answers in Logical Reasoning section 2 (out of 26)."
+      "businessContext": "Number of correct answers in Logical Reasoning section 2 (out of 26).",
+      "label_i18n": {
+        "en": "Logical Reasoning 2 Correct",
+        "tr": "Logical Reasoning 2 Correct",
+        "de": "Logical Reasoning 2 Correct",
+        "fr": "Logical Reasoning 2 Correct",
+        "es": "Logical Reasoning 2 Correct",
+        "ar": "Logical Reasoning 2 Correct"
+      }
     },
     {
       "id": "ar",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "questions",
       "default": 14,
-      "businessContext": "Number of correct answers in Analytical Reasoning (Logic Games) section (out of 23)."
+      "businessContext": "Number of correct answers in Analytical Reasoning (Logic Games) section (out of 23).",
+      "label_i18n": {
+        "en": "Analytical Reasoning Correct",
+        "tr": "Analytical Reasoning Correct",
+        "de": "Analytical Reasoning Correct",
+        "fr": "Analytical Reasoning Correct",
+        "es": "Analytical Reasoning Correct",
+        "ar": "Analytical Reasoning Correct"
+      }
     },
     {
       "id": "rc",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "questions",
       "default": 15,
-      "businessContext": "Number of correct answers in Reading Comprehension section (out of 27)."
+      "businessContext": "Number of correct answers in Reading Comprehension section (out of 27).",
+      "label_i18n": {
+        "en": "Reading Comprehension Correct",
+        "tr": "Reading Comprehension Correct",
+        "de": "Reading Comprehension Correct",
+        "fr": "Reading Comprehension Correct",
+        "es": "Reading Comprehension Correct",
+        "ar": "Reading Comprehension Correct"
+      }
     }
   ],
   "formulas": {
@@ -45,8 +77,8 @@
       "scaledScore"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",

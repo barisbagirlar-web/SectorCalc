@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 45,
-      "businessContext": "Patient's age in years"
+      "businessContext": "Patient's age in years",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "bmi",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg/m²",
       "default": 25,
-      "businessContext": "Body Mass Index"
+      "businessContext": "Body Mass Index",
+      "label_i18n": {
+        "en": "BMI",
+        "tr": "BMI",
+        "de": "BMI",
+        "fr": "BMI",
+        "es": "BMI",
+        "ar": "BMI"
+      }
     },
     {
       "id": "waist",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 90,
-      "businessContext": "Waist measurement in centimeters"
+      "businessContext": "Waist measurement in centimeters",
+      "label_i18n": {
+        "en": "Waist Circumference",
+        "tr": "Waist Circumference",
+        "de": "Waist Circumference",
+        "fr": "Waist Circumference",
+        "es": "Waist Circumference",
+        "ar": "Waist Circumference"
+      }
     },
     {
       "id": "fastingGlucose",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 100,
-      "businessContext": "Fasting blood glucose level"
+      "businessContext": "Fasting blood glucose level",
+      "label_i18n": {
+        "en": "Fasting Glucose",
+        "tr": "Fasting Glucose",
+        "de": "Fasting Glucose",
+        "fr": "Fasting Glucose",
+        "es": "Fasting Glucose",
+        "ar": "Fasting Glucose"
+      }
     },
     {
       "id": "hdl",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 50,
-      "businessContext": "High-density lipoprotein cholesterol"
+      "businessContext": "High-density lipoprotein cholesterol",
+      "label_i18n": {
+        "en": "HDL Cholesterol",
+        "tr": "HDL Cholesterol",
+        "de": "HDL Cholesterol",
+        "fr": "HDL Cholesterol",
+        "es": "HDL Cholesterol",
+        "ar": "HDL Cholesterol"
+      }
     },
     {
       "id": "systolicBP",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "mmHg",
       "default": 120,
-      "businessContext": "Systolic blood pressure"
+      "businessContext": "Systolic blood pressure",
+      "label_i18n": {
+        "en": "Systolic BP",
+        "tr": "Systolic BP",
+        "de": "Systolic BP",
+        "fr": "Systolic BP",
+        "es": "Systolic BP",
+        "ar": "Systolic BP"
+      }
     }
   ],
   "formulas": {
@@ -70,8 +118,8 @@
       "bpRisk"
     ]
   },
-  "category": "Kalite & Süreç Kontrol",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

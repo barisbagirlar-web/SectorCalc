@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 2000,
-      "businessContext": "Distance rowed in meters"
+      "businessContext": "Distance rowed in meters",
+      "label_i18n": {
+        "en": "Distance (m)",
+        "tr": "Distance (m)",
+        "de": "Distance (m)",
+        "fr": "Distance (m)",
+        "es": "Distance (m)",
+        "ar": "Distance (m)"
+      }
     },
     {
       "id": "time_minutes",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "min",
       "default": 0,
-      "businessContext": "Minutes part of total time"
+      "businessContext": "Minutes part of total time",
+      "label_i18n": {
+        "en": "Time (minutes)",
+        "tr": "Time (minutes)",
+        "de": "Time (minutes)",
+        "fr": "Time (minutes)",
+        "es": "Time (minutes)",
+        "ar": "Time (minutes)"
+      }
     },
     {
       "id": "time_seconds",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "s",
       "default": 0,
-      "businessContext": "Seconds part of total time"
+      "businessContext": "Seconds part of total time",
+      "label_i18n": {
+        "en": "Time (seconds)",
+        "tr": "Time (seconds)",
+        "de": "Time (seconds)",
+        "fr": "Time (seconds)",
+        "es": "Time (seconds)",
+        "ar": "Time (seconds)"
+      }
     },
     {
       "id": "target_distance",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 2000,
-      "businessContext": "Target distance for time projection"
+      "businessContext": "Target distance for time projection",
+      "label_i18n": {
+        "en": "Target Distance (m)",
+        "tr": "Target Distance (m)",
+        "de": "Target Distance (m)",
+        "fr": "Target Distance (m)",
+        "es": "Target Distance (m)",
+        "ar": "Target Distance (m)"
+      }
     }
   ],
   "formulas": {
@@ -49,8 +81,8 @@
       "speed_kmh"
     ]
   },
-  "category": "Diğer",
-  "sector": "Havacılık & Savunma",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

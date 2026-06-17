@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "C",
       "default": 0.000001,
-      "businessContext": "Total electric charge enclosed by the Gaussian surface"
+      "businessContext": "Total electric charge enclosed by the Gaussian surface",
+      "label_i18n": {
+        "en": "Total Charge (Q)",
+        "tr": "Total Charge (Q)",
+        "de": "Total Charge (Q)",
+        "fr": "Total Charge (Q)",
+        "es": "Total Charge (Q)",
+        "ar": "Total Charge (Q)"
+      }
     },
     {
       "id": "permittivity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "F/m",
       "default": 8.854187817e-12,
-      "businessContext": "Permittivity of the medium (vacuum default)"
+      "businessContext": "Permittivity of the medium (vacuum default)",
+      "label_i18n": {
+        "en": "Permittivity (ε)",
+        "tr": "Permittivity (ε)",
+        "de": "Permittivity (ε)",
+        "fr": "Permittivity (ε)",
+        "es": "Permittivity (ε)",
+        "ar": "Permittivity (ε)"
+      }
     },
     {
       "id": "radius",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.1,
-      "businessContext": "Radius of the spherical Gaussian surface"
+      "businessContext": "Radius of the spherical Gaussian surface",
+      "label_i18n": {
+        "en": "Radius (r)",
+        "tr": "Radius (r)",
+        "de": "Radius (r)",
+        "fr": "Radius (r)",
+        "es": "Radius (r)",
+        "ar": "Radius (r)"
+      }
     },
     {
       "id": "angle",
@@ -31,13 +55,24 @@
       "type": "number",
       "unit": "°",
       "default": 0,
-      "businessContext": "Angle between electric field and area vector (0 for perpendicular)"
+      "businessContext": "Angle between electric field and area vector (0 for perpendicular)",
+      "label_i18n": {
+        "en": "Angle (θ)",
+        "tr": "Angle (θ)",
+        "de": "Angle (θ)",
+        "fr": "Angle (θ)",
+        "es": "Angle (θ)",
+        "ar": "Angle (θ)"
+      }
     }
   ],
   "formulas": {
     "electricFlux": "charge / permittivity",
     "electricField": "charge / (4 * Math.PI * permittivity * radius * radius)",
-    "fluxThroughSurface": "electricField * (4 * Math.PI * radius * radius) * Math.cos(angle * Math.PI / 180)"
+    "fluxThroughSurface": "electricField * (4 * Math.PI * radius * radius) * Math.cos(angle * Math.PI / 180)",
+    "electricFlux___charge___permittivity": "electricFlux = charge / permittivity",
+    "electricField___charge____4___________r_": "electricField = charge / (4 * π * ε * r²)",
+    "fluxThroughSurface___E___A___cos___": "fluxThroughSurface = E * A * cos(θ)"
   },
   "outputs": {
     "primary": "electricFlux",
@@ -47,8 +82,8 @@
       "fluxThroughSurface = E * A * cos(θ)"
     ]
   },
-  "category": "Diğer",
-  "sector": "Enerji & Elektrik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

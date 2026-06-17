@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°F",
       "default": 32,
-      "businessContext": "Measured temperature in Fahrenheit"
+      "businessContext": "Measured temperature in Fahrenheit",
+      "label_i18n": {
+        "en": "Temperature (°F)",
+        "tr": "Temperature (°F)",
+        "de": "Temperature (°F)",
+        "fr": "Temperature (°F)",
+        "es": "Temperature (°F)",
+        "ar": "Temperature (°F)"
+      }
     },
     {
       "id": "subtractOffset",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°F",
       "default": 32,
-      "businessContext": "Offset to subtract for zero-point alignment (freezing point of water in °F)"
+      "businessContext": "Offset to subtract for zero-point alignment (freezing point of water in °F)",
+      "label_i18n": {
+        "en": "Subtract Offset",
+        "tr": "Subtract Offset",
+        "de": "Subtract Offset",
+        "fr": "Subtract Offset",
+        "es": "Subtract Offset",
+        "ar": "Subtract Offset"
+      }
     },
     {
       "id": "multiplyFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "none",
       "default": 0.5555555555555556,
-      "businessContext": "Conversion factor from Fahrenheit difference to Kelvin difference (5/9)"
+      "businessContext": "Conversion factor from Fahrenheit difference to Kelvin difference (5/9)",
+      "label_i18n": {
+        "en": "Multiply Factor",
+        "tr": "Multiply Factor",
+        "de": "Multiply Factor",
+        "fr": "Multiply Factor",
+        "es": "Multiply Factor",
+        "ar": "Multiply Factor"
+      }
     },
     {
       "id": "addOffset",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "K",
       "default": 273.15,
-      "businessContext": "Absolute zero offset in Kelvin"
+      "businessContext": "Absolute zero offset in Kelvin",
+      "label_i18n": {
+        "en": "Add Offset",
+        "tr": "Add Offset",
+        "de": "Add Offset",
+        "fr": "Add Offset",
+        "es": "Add Offset",
+        "ar": "Add Offset"
+      }
     },
     {
       "id": "precision",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "places",
       "default": 2,
-      "businessContext": "Number of decimal places for rounded output"
+      "businessContext": "Number of decimal places for rounded output",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     }
   ],
   "formulas": {
@@ -56,8 +96,8 @@
       "kelvin"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

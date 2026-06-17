@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Total mass of the rocket at launch, including propellant (wet mass)."
+      "businessContext": "Total mass of the rocket at launch, including propellant (wet mass).",
+      "label_i18n": {
+        "en": "Initial Mass",
+        "tr": "Initial Mass",
+        "de": "Initial Mass",
+        "fr": "Initial Mass",
+        "es": "Initial Mass",
+        "ar": "Initial Mass"
+      }
     },
     {
       "id": "finalMass",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "Mass of the rocket after propellant is expended (dry mass)."
+      "businessContext": "Mass of the rocket after propellant is expended (dry mass).",
+      "label_i18n": {
+        "en": "Final Mass",
+        "tr": "Final Mass",
+        "de": "Final Mass",
+        "fr": "Final Mass",
+        "es": "Final Mass",
+        "ar": "Final Mass"
+      }
     },
     {
       "id": "specificImpulse",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "s",
       "default": 300,
-      "businessContext": "Engine efficiency: thrust per weight flow rate of propellant at Earth's surface."
+      "businessContext": "Engine efficiency: thrust per weight flow rate of propellant at Earth's surface.",
+      "label_i18n": {
+        "en": "Specific Impulse",
+        "tr": "Specific Impulse",
+        "de": "Specific Impulse",
+        "fr": "Specific Impulse",
+        "es": "Specific Impulse",
+        "ar": "Specific Impulse"
+      }
     },
     {
       "id": "gravity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m/s²",
       "default": 9.81,
-      "businessContext": "Acceleration due to gravity, used to convert specific impulse to exhaust velocity."
+      "businessContext": "Acceleration due to gravity, used to convert specific impulse to exhaust velocity.",
+      "label_i18n": {
+        "en": "Standard Gravity",
+        "tr": "Standard Gravity",
+        "de": "Standard Gravity",
+        "fr": "Standard Gravity",
+        "es": "Standard Gravity",
+        "ar": "Standard Gravity"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "propellantMass"
     ]
   },
-  "category": "Verimlilik & OEE",
-  "sector": "Otomotiv & Taşıt",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",

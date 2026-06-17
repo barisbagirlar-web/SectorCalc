@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "year",
       "default": 2023,
-      "businessContext": "Başlangıç yılı"
+      "businessContext": "Başlangıç yılı",
+      "label_i18n": {
+        "en": "Start Year",
+        "tr": "Start Year",
+        "de": "Start Year",
+        "fr": "Start Year",
+        "es": "Start Year",
+        "ar": "Start Year"
+      }
     },
     {
       "id": "startMonth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "month",
       "default": 1,
-      "businessContext": "Başlangıç ayı"
+      "businessContext": "Başlangıç ayı",
+      "label_i18n": {
+        "en": "Start Month",
+        "tr": "Start Month",
+        "de": "Start Month",
+        "fr": "Start Month",
+        "es": "Start Month",
+        "ar": "Start Month"
+      }
     },
     {
       "id": "endYear",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "year",
       "default": 2024,
-      "businessContext": "Bitiş yılı"
+      "businessContext": "Bitiş yılı",
+      "label_i18n": {
+        "en": "End Year",
+        "tr": "End Year",
+        "de": "End Year",
+        "fr": "End Year",
+        "es": "End Year",
+        "ar": "End Year"
+      }
     },
     {
       "id": "endMonth",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "month",
       "default": 1,
-      "businessContext": "Bitiş ayı"
+      "businessContext": "Bitiş ayı",
+      "label_i18n": {
+        "en": "End Month",
+        "tr": "End Month",
+        "de": "End Month",
+        "fr": "End Month",
+        "es": "End Month",
+        "ar": "End Month"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "months"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

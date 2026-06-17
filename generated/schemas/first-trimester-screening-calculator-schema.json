@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Maternal age in years at the date of screening."
+      "businessContext": "Maternal age in years at the date of screening.",
+      "label_i18n": {
+        "en": "Maternal Age",
+        "tr": "Maternal Age",
+        "de": "Maternal Age",
+        "fr": "Maternal Age",
+        "es": "Maternal Age",
+        "ar": "Maternal Age"
+      }
     },
     {
       "id": "nuchalTranslucency",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 1.5,
-      "businessContext": "Nuchal translucency measurement from ultrasound."
+      "businessContext": "Nuchal translucency measurement from ultrasound.",
+      "label_i18n": {
+        "en": "Nuchal Translucency (NT)",
+        "tr": "Nuchal Translucency (NT)",
+        "de": "Nuchal Translucency (NT)",
+        "fr": "Nuchal Translucency (NT)",
+        "es": "Nuchal Translucency (NT)",
+        "ar": "Nuchal Translucency (NT)"
+      }
     },
     {
       "id": "crownRumpLength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 65,
-      "businessContext": "Crown-rump length from ultrasound for gestational age and NT normalization."
+      "businessContext": "Crown-rump length from ultrasound for gestational age and NT normalization.",
+      "label_i18n": {
+        "en": "Crown-Rump Length (CRL)",
+        "tr": "Crown-Rump Length (CRL)",
+        "de": "Crown-Rump Length (CRL)",
+        "fr": "Crown-Rump Length (CRL)",
+        "es": "Crown-Rump Length (CRL)",
+        "ar": "Crown-Rump Length (CRL)"
+      }
     },
     {
       "id": "pappA",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "MoM",
       "default": 1,
-      "businessContext": "Pregnancy-associated plasma protein A (PAPP-A) multiples of median."
+      "businessContext": "Pregnancy-associated plasma protein A (PAPP-A) multiples of median.",
+      "label_i18n": {
+        "en": "PAPP-A MoM",
+        "tr": "PAPP-A MoM",
+        "de": "PAPP-A MoM",
+        "fr": "PAPP-A MoM",
+        "es": "PAPP-A MoM",
+        "ar": "PAPP-A MoM"
+      }
     },
     {
       "id": "freeBetaHCG",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "MoM",
       "default": 1,
-      "businessContext": "Free beta human chorionic gonadotropin multiples of median."
+      "businessContext": "Free beta human chorionic gonadotropin multiples of median.",
+      "label_i18n": {
+        "en": "Free β-hCG MoM",
+        "tr": "Free β-hCG MoM",
+        "de": "Free β-hCG MoM",
+        "fr": "Free β-hCG MoM",
+        "es": "Free β-hCG MoM",
+        "ar": "Free β-hCG MoM"
+      }
     }
   ],
   "formulas": {
@@ -57,8 +97,8 @@
       "ntMoM"
     ]
   },
-  "category": "Kalite & Süreç Kontrol",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

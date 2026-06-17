@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 200,
-      "businessContext": "Parçaya uygulanan alternatif gerilim genliği"
+      "businessContext": "Parçaya uygulanan alternatif gerilim genliği",
+      "label_i18n": {
+        "en": "Gerilim Genliği (σ_a)",
+        "tr": "Gerilim Genliği (σ_a)",
+        "de": "Gerilim Genliği (σ_a)",
+        "fr": "Gerilim Genliği (σ_a)",
+        "es": "Gerilim Genliği (σ_a)",
+        "ar": "Gerilim Genliği (σ_a)"
+      }
     },
     {
       "id": "mean_stress",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 0,
-      "businessContext": "Çevrimdeki ortalama statik gerilim"
+      "businessContext": "Çevrimdeki ortalama statik gerilim",
+      "label_i18n": {
+        "en": "Ortalama Gerilim (σ_m)",
+        "tr": "Ortalama Gerilim (σ_m)",
+        "de": "Ortalama Gerilim (σ_m)",
+        "fr": "Ortalama Gerilim (σ_m)",
+        "es": "Ortalama Gerilim (σ_m)",
+        "ar": "Ortalama Gerilim (σ_m)"
+      }
     },
     {
       "id": "ultimate_tensile_strength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 600,
-      "businessContext": "Malzemenin kopma (çekme) dayanımı"
+      "businessContext": "Malzemenin kopma (çekme) dayanımı",
+      "label_i18n": {
+        "en": "Çekme Dayanımı (σ_u)",
+        "tr": "Çekme Dayanımı (σ_u)",
+        "de": "Çekme Dayanımı (σ_u)",
+        "fr": "Çekme Dayanımı (σ_u)",
+        "es": "Çekme Dayanımı (σ_u)",
+        "ar": "Çekme Dayanımı (σ_u)"
+      }
     },
     {
       "id": "fatigue_strength_coefficient",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 900,
-      "businessContext": "Basquin denklemindeki yorulma dayanım katsayısı"
+      "businessContext": "Basquin denklemindeki yorulma dayanım katsayısı",
+      "label_i18n": {
+        "en": "Yorulma Dayanım Katsayısı (σ_f')",
+        "tr": "Yorulma Dayanım Katsayısı (σ_f')",
+        "de": "Yorulma Dayanım Katsayısı (σ_f')",
+        "fr": "Yorulma Dayanım Katsayısı (σ_f')",
+        "es": "Yorulma Dayanım Katsayısı (σ_f')",
+        "ar": "Yorulma Dayanım Katsayısı (σ_f')"
+      }
     },
     {
       "id": "fatigue_strength_exponent",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "boyutsuz",
       "default": -0.1,
-      "businessContext": "Basquin denklemindeki yorulma dayanım üsteli (genellikle negatif)"
+      "businessContext": "Basquin denklemindeki yorulma dayanım üsteli (genellikle negatif)",
+      "label_i18n": {
+        "en": "Yorulma Dayanım Üsteli (b)",
+        "tr": "Yorulma Dayanım Üsteli (b)",
+        "de": "Yorulma Dayanım Üsteli (b)",
+        "fr": "Yorulma Dayanım Üsteli (b)",
+        "es": "Yorulma Dayanım Üsteli (b)",
+        "ar": "Yorulma Dayanım Üsteli (b)"
+      }
     }
   ],
   "formulas": {
@@ -54,8 +94,8 @@
       "log_cycles"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Makine & Tasarım",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",

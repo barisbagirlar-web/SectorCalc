@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 10,
-      "businessContext": "The mass of the solute substance in grams."
+      "businessContext": "The mass of the solute substance in grams.",
+      "label_i18n": {
+        "en": "Mass of Solute",
+        "tr": "Mass of Solute",
+        "de": "Mass of Solute",
+        "fr": "Mass of Solute",
+        "es": "Mass of Solute",
+        "ar": "Mass of Solute"
+      }
     },
     {
       "id": "molarMass",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g/mol",
       "default": 58.44,
-      "businessContext": "Molar mass of the solute, e.g., 58.44 g/mol for NaCl."
+      "businessContext": "Molar mass of the solute, e.g., 58.44 g/mol for NaCl.",
+      "label_i18n": {
+        "en": "Molar Mass",
+        "tr": "Molar Mass",
+        "de": "Molar Mass",
+        "fr": "Molar Mass",
+        "es": "Molar Mass",
+        "ar": "Molar Mass"
+      }
     },
     {
       "id": "solventMass",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "g",
       "default": 500,
-      "businessContext": "The mass of the solvent in grams."
+      "businessContext": "The mass of the solvent in grams.",
+      "label_i18n": {
+        "en": "Mass of Solvent",
+        "tr": "Mass of Solvent",
+        "de": "Mass of Solvent",
+        "fr": "Mass of Solvent",
+        "es": "Mass of Solvent",
+        "ar": "Mass of Solvent"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +72,8 @@
       }
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "chemistry-science",
   "sectorSlug": "energy-consumption",

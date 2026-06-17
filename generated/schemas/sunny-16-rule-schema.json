@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "f",
       "default": 16,
-      "businessContext": "Lens aperture setting"
+      "businessContext": "Lens aperture setting",
+      "label_i18n": {
+        "en": "Aperture (f-stop)",
+        "tr": "Aperture (f-stop)",
+        "de": "Aperture (f-stop)",
+        "fr": "Aperture (f-stop)",
+        "es": "Aperture (f-stop)",
+        "ar": "Aperture (f-stop)"
+      }
     },
     {
       "id": "iso",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ISO",
       "default": 100,
-      "businessContext": "Film or sensor sensitivity"
+      "businessContext": "Film or sensor sensitivity",
+      "label_i18n": {
+        "en": "ISO",
+        "tr": "ISO",
+        "de": "ISO",
+        "fr": "ISO",
+        "es": "ISO",
+        "ar": "ISO"
+      }
     },
     {
       "id": "lightCondition",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "EV",
       "default": 0,
-      "businessContext": "Adjustment for sunny 16 baseline: 0 for bright sun, +1 for slight overcast, -1 for open shade, etc."
+      "businessContext": "Adjustment for sunny 16 baseline: 0 for bright sun, +1 for slight overcast, -1 for open shade, etc.",
+      "label_i18n": {
+        "en": "Light Condition (EV offset)",
+        "tr": "Light Condition (EV offset)",
+        "de": "Light Condition (EV offset)",
+        "fr": "Light Condition (EV offset)",
+        "es": "Light Condition (EV offset)",
+        "ar": "Light Condition (EV offset)"
+      }
     },
     {
       "id": "ndFilter",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "stops",
       "default": 0,
-      "businessContext": "Neutral density filter reduction in stops"
+      "businessContext": "Neutral density filter reduction in stops",
+      "label_i18n": {
+        "en": "ND Filter (stops)",
+        "tr": "ND Filter (stops)",
+        "de": "ND Filter (stops)",
+        "fr": "ND Filter (stops)",
+        "es": "ND Filter (stops)",
+        "ar": "ND Filter (stops)"
+      }
     }
   ],
   "formulas": {
@@ -52,8 +84,8 @@
       "apertureAdjustment"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "gaming-entertainment",
   "sectorSlug": "ecommerce",

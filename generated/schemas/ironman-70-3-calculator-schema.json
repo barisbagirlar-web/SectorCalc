@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dk/100m",
       "default": 2,
-      "businessContext": "1.9 km yüzme için ortalama tempo."
+      "businessContext": "1.9 km yüzme için ortalama tempo.",
+      "label_i18n": {
+        "en": "Yüzme Temposu (dk/100m)",
+        "tr": "Yüzme Temposu (dk/100m)",
+        "de": "Yüzme Temposu (dk/100m)",
+        "fr": "Yüzme Temposu (dk/100m)",
+        "es": "Yüzme Temposu (dk/100m)",
+        "ar": "Yüzme Temposu (dk/100m)"
+      }
     },
     {
       "id": "bike_speed",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "km/sa",
       "default": 30,
-      "businessContext": "90 km bisiklet için ortalama hız."
+      "businessContext": "90 km bisiklet için ortalama hız.",
+      "label_i18n": {
+        "en": "Bisiklet Hızı (km/sa)",
+        "tr": "Bisiklet Hızı (km/sa)",
+        "de": "Bisiklet Hızı (km/sa)",
+        "fr": "Bisiklet Hızı (km/sa)",
+        "es": "Bisiklet Hızı (km/sa)",
+        "ar": "Bisiklet Hızı (km/sa)"
+      }
     },
     {
       "id": "run_pace",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dk/km",
       "default": 5.5,
-      "businessContext": "21.1 km koşu için ortalama tempo."
+      "businessContext": "21.1 km koşu için ortalama tempo.",
+      "label_i18n": {
+        "en": "Koşu Temposu (dk/km)",
+        "tr": "Koşu Temposu (dk/km)",
+        "de": "Koşu Temposu (dk/km)",
+        "fr": "Koşu Temposu (dk/km)",
+        "es": "Koşu Temposu (dk/km)",
+        "ar": "Koşu Temposu (dk/km)"
+      }
     },
     {
       "id": "t1",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dk",
       "default": 3,
-      "businessContext": "Yüzmeden bisiklete geçiş süresi."
+      "businessContext": "Yüzmeden bisiklete geçiş süresi.",
+      "label_i18n": {
+        "en": "T1 Süresi (dk)",
+        "tr": "T1 Süresi (dk)",
+        "de": "T1 Süresi (dk)",
+        "fr": "T1 Süresi (dk)",
+        "es": "T1 Süresi (dk)",
+        "ar": "T1 Süresi (dk)"
+      }
     },
     {
       "id": "t2",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "dk",
       "default": 2,
-      "businessContext": "Bisikletten koşuya geçiş süresi."
+      "businessContext": "Bisikletten koşuya geçiş süresi.",
+      "label_i18n": {
+        "en": "T2 Süresi (dk)",
+        "tr": "T2 Süresi (dk)",
+        "de": "T2 Süresi (dk)",
+        "fr": "T2 Süresi (dk)",
+        "es": "T2 Süresi (dk)",
+        "ar": "T2 Süresi (dk)"
+      }
     }
   ],
   "formulas": {
@@ -59,8 +99,8 @@
       "transition_time"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

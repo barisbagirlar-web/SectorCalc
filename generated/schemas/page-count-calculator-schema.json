@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kelime",
       "default": 2000,
-      "businessContext": "Belgedeki toplam kelime adedi"
+      "businessContext": "Belgedeki toplam kelime adedi",
+      "label_i18n": {
+        "en": "Toplam Kelime Sayısı",
+        "tr": "Toplam Kelime Sayısı",
+        "de": "Toplam Kelime Sayısı",
+        "fr": "Toplam Kelime Sayısı",
+        "es": "Toplam Kelime Sayısı",
+        "ar": "Toplam Kelime Sayısı"
+      }
     },
     {
       "id": "wordsPerPage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kelime/sayfa",
       "default": 250,
-      "businessContext": "Bir sayfaya sığan ortalama kelime sayısı (yazı tipi, boyut, aralıklara göre değişir)"
+      "businessContext": "Bir sayfaya sığan ortalama kelime sayısı (yazı tipi, boyut, aralıklara göre değişir)",
+      "label_i18n": {
+        "en": "Sayfa Başına Kelime",
+        "tr": "Sayfa Başına Kelime",
+        "de": "Sayfa Başına Kelime",
+        "fr": "Sayfa Başına Kelime",
+        "es": "Sayfa Başına Kelime",
+        "ar": "Sayfa Başına Kelime"
+      }
     },
     {
       "id": "imagesFullPage",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Tam sayfa kaplayan görsel sayısı"
+      "businessContext": "Tam sayfa kaplayan görsel sayısı",
+      "label_i18n": {
+        "en": "Tam Sayfa Görsel",
+        "tr": "Tam Sayfa Görsel",
+        "de": "Tam Sayfa Görsel",
+        "fr": "Tam Sayfa Görsel",
+        "es": "Tam Sayfa Görsel",
+        "ar": "Tam Sayfa Görsel"
+      }
     },
     {
       "id": "imagesHalfPage",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Yarım sayfa kaplayan görsel sayısı"
+      "businessContext": "Yarım sayfa kaplayan görsel sayısı",
+      "label_i18n": {
+        "en": "Yarım Sayfa Görsel",
+        "tr": "Yarım Sayfa Görsel",
+        "de": "Yarım Sayfa Görsel",
+        "fr": "Yarım Sayfa Görsel",
+        "es": "Yarım Sayfa Görsel",
+        "ar": "Yarım Sayfa Görsel"
+      }
     },
     {
       "id": "tablesFullPage",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Tam sayfa kaplayan tablo sayısı"
+      "businessContext": "Tam sayfa kaplayan tablo sayısı",
+      "label_i18n": {
+        "en": "Tam Sayfa Tablo",
+        "tr": "Tam Sayfa Tablo",
+        "de": "Tam Sayfa Tablo",
+        "fr": "Tam Sayfa Tablo",
+        "es": "Tam Sayfa Tablo",
+        "ar": "Tam Sayfa Tablo"
+      }
     },
     {
       "id": "tablesHalfPage",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Yarım sayfa kaplayan tablo sayısı"
+      "businessContext": "Yarım sayfa kaplayan tablo sayısı",
+      "label_i18n": {
+        "en": "Yarım Sayfa Tablo",
+        "tr": "Yarım Sayfa Tablo",
+        "de": "Yarım Sayfa Tablo",
+        "fr": "Yarım Sayfa Tablo",
+        "es": "Yarım Sayfa Tablo",
+        "ar": "Yarım Sayfa Tablo"
+      }
     }
   ],
   "formulas": {
@@ -64,8 +112,8 @@
       "tablePages"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",

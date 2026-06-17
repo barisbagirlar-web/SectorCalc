@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Toplam ürün miktarı (kg)"
+      "businessContext": "Toplam ürün miktarı (kg)",
+      "label_i18n": {
+        "en": "Ürün Kütlesi",
+        "tr": "Ürün Kütlesi",
+        "de": "Ürün Kütlesi",
+        "fr": "Ürün Kütlesi",
+        "es": "Ürün Kütlesi",
+        "ar": "Ürün Kütlesi"
+      }
     },
     {
       "id": "target_sugar_pct",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Üründe istenen şeker yüzdesi"
+      "businessContext": "Üründe istenen şeker yüzdesi",
+      "label_i18n": {
+        "en": "Hedef Şeker Oranı",
+        "tr": "Hedef Şeker Oranı",
+        "de": "Hedef Şeker Oranı",
+        "fr": "Hedef Şeker Oranı",
+        "es": "Hedef Şeker Oranı",
+        "ar": "Hedef Şeker Oranı"
+      }
     },
     {
       "id": "sugar_purity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 99.5,
-      "businessContext": "Kullanılan şekerin saflık oranı"
+      "businessContext": "Kullanılan şekerin saflık oranı",
+      "label_i18n": {
+        "en": "Şeker Saflığı",
+        "tr": "Şeker Saflığı",
+        "de": "Şeker Saflığı",
+        "fr": "Şeker Saflığı",
+        "es": "Şeker Saflığı",
+        "ar": "Şeker Saflığı"
+      }
     },
     {
       "id": "sugar_price",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TL/kg",
       "default": 5,
-      "businessContext": "Şekerin kg başına maliyeti"
+      "businessContext": "Şekerin kg başına maliyeti",
+      "label_i18n": {
+        "en": "Şeker Birim Fiyatı",
+        "tr": "Şeker Birim Fiyatı",
+        "de": "Şeker Birim Fiyatı",
+        "fr": "Şeker Birim Fiyatı",
+        "es": "Şeker Birim Fiyatı",
+        "ar": "Şeker Birim Fiyatı"
+      }
     },
     {
       "id": "batch_size",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Üretilecek parti sayısı"
+      "businessContext": "Üretilecek parti sayısı",
+      "label_i18n": {
+        "en": "Parti Adedi",
+        "tr": "Parti Adedi",
+        "de": "Parti Adedi",
+        "fr": "Parti Adedi",
+        "es": "Parti Adedi",
+        "ar": "Parti Adedi"
+      }
     }
   ],
   "formulas": {
@@ -54,8 +94,8 @@
       "actual_sugar"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kW",
       "default": 100,
-      "businessContext": "Highest power demand during peak hours"
+      "businessContext": "Highest power demand during peak hours",
+      "label_i18n": {
+        "en": "Peak Demand",
+        "tr": "Peak Demand",
+        "de": "Peak Demand",
+        "fr": "Peak Demand",
+        "es": "Peak Demand",
+        "ar": "Peak Demand"
+      }
     },
     {
       "id": "offPeakDemand",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kW",
       "default": 50,
-      "businessContext": "Power demand during off-peak hours"
+      "businessContext": "Power demand during off-peak hours",
+      "label_i18n": {
+        "en": "Off-Peak Demand",
+        "tr": "Off-Peak Demand",
+        "de": "Off-Peak Demand",
+        "fr": "Off-Peak Demand",
+        "es": "Off-Peak Demand",
+        "ar": "Off-Peak Demand"
+      }
     },
     {
       "id": "peakHours",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "hours",
       "default": 8,
-      "businessContext": "Number of peak hours per day"
+      "businessContext": "Number of peak hours per day",
+      "label_i18n": {
+        "en": "Peak Hours",
+        "tr": "Peak Hours",
+        "de": "Peak Hours",
+        "fr": "Peak Hours",
+        "es": "Peak Hours",
+        "ar": "Peak Hours"
+      }
     },
     {
       "id": "offPeakHours",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "hours",
       "default": 16,
-      "businessContext": "Number of off-peak hours per day"
+      "businessContext": "Number of off-peak hours per day",
+      "label_i18n": {
+        "en": "Off-Peak Hours",
+        "tr": "Off-Peak Hours",
+        "de": "Off-Peak Hours",
+        "fr": "Off-Peak Hours",
+        "es": "Off-Peak Hours",
+        "ar": "Off-Peak Hours"
+      }
     },
     {
       "id": "peakRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency/kWh",
       "default": 0.15,
-      "businessContext": "Electricity rate during peak hours"
+      "businessContext": "Electricity rate during peak hours",
+      "label_i18n": {
+        "en": "Peak Rate",
+        "tr": "Peak Rate",
+        "de": "Peak Rate",
+        "fr": "Peak Rate",
+        "es": "Peak Rate",
+        "ar": "Peak Rate"
+      }
     },
     {
       "id": "offPeakRate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "currency/kWh",
       "default": 0.05,
-      "businessContext": "Electricity rate during off-peak hours"
+      "businessContext": "Electricity rate during off-peak hours",
+      "label_i18n": {
+        "en": "Off-Peak Rate",
+        "tr": "Off-Peak Rate",
+        "de": "Off-Peak Rate",
+        "fr": "Off-Peak Rate",
+        "es": "Off-Peak Rate",
+        "ar": "Off-Peak Rate"
+      }
     }
   ],
   "formulas": {
@@ -62,8 +110,8 @@
       "offPeakEnergyCost"
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "Enerji & Elektrik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

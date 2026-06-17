@@ -20,6 +20,10 @@ function evaluateAllFormulas(input: Degrees_to_minutes_of_arcInput): Record<stri
   try { const v = (input.degrees * 60) + input.minutes + (input.seconds / 60); results["totalMinutes"] = Number.isFinite(v) ? v : 0; } catch { results["totalMinutes"] = 0; }
   try { const v = input.decimalDegrees; results["totalDecimalDegrees"] = Number.isFinite(v) ? v : 0; } catch { results["totalDecimalDegrees"] = 0; }
   try { const v = input.decimalDegrees * 60; results["minutesFromDecimal"] = Number.isFinite(v) ? v : 0; } catch { results["minutesFromDecimal"] = 0; }
+  try { const v = input.degrees * 60; results["degrees___60"] = Number.isFinite(v) ? v : 0; } catch { results["degrees___60"] = 0; }
+  try { const v = input.seconds / 60; results["seconds___60"] = Number.isFinite(v) ? v : 0; } catch { results["seconds___60"] = 0; }
+  try { const v = (input.degrees * 60) + input.minutes + (input.seconds / 60); results["_degrees___60____minutes____seconds___60"] = Number.isFinite(v) ? v : 0; } catch { results["_degrees___60____minutes____seconds___60"] = 0; }
+  try { const v = input.decimalDegrees * 60; results["decimalDegrees___60"] = Number.isFinite(v) ? v : 0; } catch { results["decimalDegrees___60"] = 0; }
   return results;
 }
 

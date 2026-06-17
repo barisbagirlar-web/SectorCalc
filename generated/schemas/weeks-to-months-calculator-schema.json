@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "weeks",
       "default": 4,
-      "businessContext": "Total weeks to convert"
+      "businessContext": "Total weeks to convert",
+      "label_i18n": {
+        "en": "Number of Weeks",
+        "tr": "Number of Weeks",
+        "de": "Number of Weeks",
+        "fr": "Number of Weeks",
+        "es": "Number of Weeks",
+        "ar": "Number of Weeks"
+      }
     },
     {
       "id": "daysPerWeek",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "days",
       "default": 7,
-      "businessContext": "Calendar days per week (typically 7)"
+      "businessContext": "Calendar days per week (typically 7)",
+      "label_i18n": {
+        "en": "Days per Week",
+        "tr": "Days per Week",
+        "de": "Days per Week",
+        "fr": "Days per Week",
+        "es": "Days per Week",
+        "ar": "Days per Week"
+      }
     },
     {
       "id": "daysPerMonth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "days",
       "default": 30.44,
-      "businessContext": "Average days per month for calendar conversion (e.g., 30.44 for average, 30 for financial)"
+      "businessContext": "Average days per month for calendar conversion (e.g., 30.44 for average, 30 for financial)",
+      "label_i18n": {
+        "en": "Days per Month",
+        "tr": "Days per Month",
+        "de": "Days per Month",
+        "fr": "Days per Month",
+        "es": "Days per Month",
+        "ar": "Days per Month"
+      }
     },
     {
       "id": "workDaysPerWeek",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "days",
       "default": 5,
-      "businessContext": "Working days per week (typically 5)"
+      "businessContext": "Working days per week (typically 5)",
+      "label_i18n": {
+        "en": "Work Days per Week",
+        "tr": "Work Days per Week",
+        "de": "Work Days per Week",
+        "fr": "Work Days per Week",
+        "es": "Work Days per Week",
+        "ar": "Work Days per Week"
+      }
     },
     {
       "id": "workDaysPerMonth",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "days",
       "default": 22,
-      "businessContext": "Average working days per month for business conversion (e.g., 22)"
+      "businessContext": "Average working days per month for business conversion (e.g., 22)",
+      "label_i18n": {
+        "en": "Work Days per Month",
+        "tr": "Work Days per Month",
+        "de": "Work Days per Month",
+        "fr": "Work Days per Month",
+        "es": "Work Days per Month",
+        "ar": "Work Days per Month"
+      }
     },
     {
       "id": "precision",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "places",
       "default": 2,
-      "businessContext": "Number of decimal places for the primary output"
+      "businessContext": "Number of decimal places for the primary output",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     }
   ],
   "formulas": {
@@ -62,8 +110,8 @@
       "monthsWorking"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

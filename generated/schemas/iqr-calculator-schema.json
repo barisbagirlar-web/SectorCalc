@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "Veri setindeki en küçük değer"
+      "businessContext": "Veri setindeki en küçük değer",
+      "label_i18n": {
+        "en": "Minimum Değer",
+        "tr": "Minimum Değer",
+        "de": "Minimum Değer",
+        "fr": "Minimum Değer",
+        "es": "Minimum Değer",
+        "ar": "Minimum Değer"
+      }
     },
     {
       "id": "q1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "Veri setinin birinci çeyreği (25. yüzdelik)"
+      "businessContext": "Veri setinin birinci çeyreği (25. yüzdelik)",
+      "label_i18n": {
+        "en": "1. Çeyrek (Q1)",
+        "tr": "1. Çeyrek (Q1)",
+        "de": "1. Çeyrek (Q1)",
+        "fr": "1. Çeyrek (Q1)",
+        "es": "1. Çeyrek (Q1)",
+        "ar": "1. Çeyrek (Q1)"
+      }
     },
     {
       "id": "median",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "Veri setinin medyanı (50. yüzdelik)"
+      "businessContext": "Veri setinin medyanı (50. yüzdelik)",
+      "label_i18n": {
+        "en": "Medyan (Q2)",
+        "tr": "Medyan (Q2)",
+        "de": "Medyan (Q2)",
+        "fr": "Medyan (Q2)",
+        "es": "Medyan (Q2)",
+        "ar": "Medyan (Q2)"
+      }
     },
     {
       "id": "q3",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "Veri setinin üçüncü çeyreği (75. yüzdelik)"
+      "businessContext": "Veri setinin üçüncü çeyreği (75. yüzdelik)",
+      "label_i18n": {
+        "en": "3. Çeyrek (Q3)",
+        "tr": "3. Çeyrek (Q3)",
+        "de": "3. Çeyrek (Q3)",
+        "fr": "3. Çeyrek (Q3)",
+        "es": "3. Çeyrek (Q3)",
+        "ar": "3. Çeyrek (Q3)"
+      }
     },
     {
       "id": "max",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "Veri setindeki en büyük değer"
+      "businessContext": "Veri setindeki en büyük değer",
+      "label_i18n": {
+        "en": "Maksimum Değer",
+        "tr": "Maksimum Değer",
+        "de": "Maksimum Değer",
+        "fr": "Maksimum Değer",
+        "es": "Maksimum Değer",
+        "ar": "Maksimum Değer"
+      }
     }
   ],
   "formulas": {
@@ -55,8 +95,8 @@
       "upperFence"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 280,
-      "businessContext": "Floor-to-floor vertical distance in centimeters"
+      "businessContext": "Floor-to-floor vertical distance in centimeters",
+      "label_i18n": {
+        "en": "Total Height (floor-to-floor)",
+        "tr": "Total Height (floor-to-floor)",
+        "de": "Total Height (floor-to-floor)",
+        "fr": "Total Height (floor-to-floor)",
+        "es": "Total Height (floor-to-floor)",
+        "ar": "Total Height (floor-to-floor)"
+      }
     },
     {
       "id": "stepHeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 18,
-      "businessContext": "Preferred riser height, typically 15-20 cm"
+      "businessContext": "Preferred riser height, typically 15-20 cm",
+      "label_i18n": {
+        "en": "Desired Step Height (Riser)",
+        "tr": "Desired Step Height (Riser)",
+        "de": "Desired Step Height (Riser)",
+        "fr": "Desired Step Height (Riser)",
+        "es": "Desired Step Height (Riser)",
+        "ar": "Desired Step Height (Riser)"
+      }
     },
     {
       "id": "stepDepth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 28,
-      "businessContext": "Horizontal depth of each step, typically 25-30 cm"
+      "businessContext": "Horizontal depth of each step, typically 25-30 cm",
+      "label_i18n": {
+        "en": "Step Depth (Tread)",
+        "tr": "Step Depth (Tread)",
+        "de": "Step Depth (Tread)",
+        "fr": "Step Depth (Tread)",
+        "es": "Step Depth (Tread)",
+        "ar": "Step Depth (Tread)"
+      }
     },
     {
       "id": "landingWidth",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cm",
       "default": 100,
-      "businessContext": "Width of any intermediate landing, or 0 if none"
+      "businessContext": "Width of any intermediate landing, or 0 if none",
+      "label_i18n": {
+        "en": "Landing Width",
+        "tr": "Landing Width",
+        "de": "Landing Width",
+        "fr": "Landing Width",
+        "es": "Landing Width",
+        "ar": "Landing Width"
+      }
     },
     {
       "id": "headroom",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "cm",
       "default": 210,
-      "businessContext": "Vertical clearance above stairs for safety compliance"
+      "businessContext": "Vertical clearance above stairs for safety compliance",
+      "label_i18n": {
+        "en": "Headroom Height",
+        "tr": "Headroom Height",
+        "de": "Headroom Height",
+        "fr": "Headroom Height",
+        "es": "Headroom Height",
+        "ar": "Headroom Height"
+      }
     }
   ],
   "formulas": {
@@ -58,8 +98,8 @@
       "headroomCompliant"
     ]
   },
-  "category": "İSG & Risk",
-  "sector": "İnşaat & Yapı",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

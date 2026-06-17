@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 60,
-      "businessContext": "External length of the cage."
+      "businessContext": "External length of the cage.",
+      "label_i18n": {
+        "en": "Cage Length",
+        "tr": "Cage Length",
+        "de": "Cage Length",
+        "fr": "Cage Length",
+        "es": "Cage Length",
+        "ar": "Cage Length"
+      }
     },
     {
       "id": "width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 40,
-      "businessContext": "External width of the cage."
+      "businessContext": "External width of the cage.",
+      "label_i18n": {
+        "en": "Cage Width",
+        "tr": "Cage Width",
+        "de": "Cage Width",
+        "fr": "Cage Width",
+        "es": "Cage Width",
+        "ar": "Cage Width"
+      }
     },
     {
       "id": "height",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 50,
-      "businessContext": "External height of the cage."
+      "businessContext": "External height of the cage.",
+      "label_i18n": {
+        "en": "Cage Height",
+        "tr": "Cage Height",
+        "de": "Cage Height",
+        "fr": "Cage Height",
+        "es": "Cage Height",
+        "ar": "Cage Height"
+      }
     },
     {
       "id": "barSpacing",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cm",
       "default": 1.5,
-      "businessContext": "Center-to-center distance between wire bars."
+      "businessContext": "Center-to-center distance between wire bars.",
+      "label_i18n": {
+        "en": "Bar Spacing",
+        "tr": "Bar Spacing",
+        "de": "Bar Spacing",
+        "fr": "Bar Spacing",
+        "es": "Bar Spacing",
+        "ar": "Bar Spacing"
+      }
     },
     {
       "id": "wireDiameter",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "cm",
       "default": 0.2,
-      "businessContext": "Diameter of the wire used."
+      "businessContext": "Diameter of the wire used.",
+      "label_i18n": {
+        "en": "Wire Diameter",
+        "tr": "Wire Diameter",
+        "de": "Wire Diameter",
+        "fr": "Wire Diameter",
+        "es": "Wire Diameter",
+        "ar": "Wire Diameter"
+      }
     }
   ],
   "formulas": {
@@ -70,8 +110,8 @@
       }
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",

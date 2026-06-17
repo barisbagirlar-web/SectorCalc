@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TL",
       "default": 60000,
-      "businessContext": "Yıl bazında toplam harcamalar"
+      "businessContext": "Yıl bazında toplam harcamalar",
+      "label_i18n": {
+        "en": "Yıllık Giderler",
+        "tr": "Yıllık Giderler",
+        "de": "Yıllık Giderler",
+        "fr": "Yıllık Giderler",
+        "es": "Yıllık Giderler",
+        "ar": "Yıllık Giderler"
+      }
     },
     {
       "id": "withdrawalRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 4,
-      "businessContext": "Yıllık portföy çekim yüzdesi (genelde %4)"
+      "businessContext": "Yıllık portföy çekim yüzdesi (genelde %4)",
+      "label_i18n": {
+        "en": "Güvenli Çekim Oranı",
+        "tr": "Güvenli Çekim Oranı",
+        "de": "Güvenli Çekim Oranı",
+        "fr": "Güvenli Çekim Oranı",
+        "es": "Güvenli Çekim Oranı",
+        "ar": "Güvenli Çekim Oranı"
+      }
     },
     {
       "id": "currentSavings",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Şu anki toplam yatırım portföyü değeri"
+      "businessContext": "Şu anki toplam yatırım portföyü değeri",
+      "label_i18n": {
+        "en": "Mevcut Birikim",
+        "tr": "Mevcut Birikim",
+        "de": "Mevcut Birikim",
+        "fr": "Mevcut Birikim",
+        "es": "Mevcut Birikim",
+        "ar": "Mevcut Birikim"
+      }
     },
     {
       "id": "annualSavings",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TL",
       "default": 20000,
-      "businessContext": "Her yıl düzenli olarak yatırıma eklenen tutar"
+      "businessContext": "Her yıl düzenli olarak yatırıma eklenen tutar",
+      "label_i18n": {
+        "en": "Yıllık Tasarruf",
+        "tr": "Yıllık Tasarruf",
+        "de": "Yıllık Tasarruf",
+        "fr": "Yıllık Tasarruf",
+        "es": "Yıllık Tasarruf",
+        "ar": "Yıllık Tasarruf"
+      }
     },
     {
       "id": "expectedReturn",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 7,
-      "businessContext": "Portföyün yıllık ortalama nominal getiri beklentisi"
+      "businessContext": "Portföyün yıllık ortalama nominal getiri beklentisi",
+      "label_i18n": {
+        "en": "Beklenen Yıllık Getiri",
+        "tr": "Beklenen Yıllık Getiri",
+        "de": "Beklenen Yıllık Getiri",
+        "fr": "Beklenen Yıllık Getiri",
+        "es": "Beklenen Yıllık Getiri",
+        "ar": "Beklenen Yıllık Getiri"
+      }
     },
     {
       "id": "inflationRate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Uzun vadeli yıllık enflasyon tahmini"
+      "businessContext": "Uzun vadeli yıllık enflasyon tahmini",
+      "label_i18n": {
+        "en": "Enflasyon Oranı",
+        "tr": "Enflasyon Oranı",
+        "de": "Enflasyon Oranı",
+        "fr": "Enflasyon Oranı",
+        "es": "Enflasyon Oranı",
+        "ar": "Enflasyon Oranı"
+      }
     }
   ],
   "formulas": {
@@ -62,8 +110,8 @@
       "realReturn"
     ]
   },
-  "category": "Diğer",
-  "sector": "Denizcilik & Gemi",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

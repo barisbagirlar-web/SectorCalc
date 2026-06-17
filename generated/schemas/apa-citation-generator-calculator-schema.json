@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "year",
       "default": 2024,
-      "businessContext": "The current year for age calculation."
+      "businessContext": "The current year for age calculation.",
+      "label_i18n": {
+        "en": "Current Year",
+        "tr": "Current Year",
+        "de": "Current Year",
+        "fr": "Current Year",
+        "es": "Current Year",
+        "ar": "Current Year"
+      }
     },
     {
       "id": "publicationYear",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "year",
       "default": 2020,
-      "businessContext": "The year the cited work was published."
+      "businessContext": "The year the cited work was published.",
+      "label_i18n": {
+        "en": "Publication Year",
+        "tr": "Publication Year",
+        "de": "Publication Year",
+        "fr": "Publication Year",
+        "es": "Publication Year",
+        "ar": "Publication Year"
+      }
     },
     {
       "id": "authorCount",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "count",
       "default": 1,
-      "businessContext": "The total number of authors of the cited work."
+      "businessContext": "The total number of authors of the cited work.",
+      "label_i18n": {
+        "en": "Number of Authors",
+        "tr": "Number of Authors",
+        "de": "Number of Authors",
+        "fr": "Number of Authors",
+        "es": "Number of Authors",
+        "ar": "Number of Authors"
+      }
     },
     {
       "id": "citationCount",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "count",
       "default": 10,
-      "businessContext": "Number of times the work has been cited, for impact estimation."
+      "businessContext": "Number of times the work has been cited, for impact estimation.",
+      "label_i18n": {
+        "en": "Citation Count",
+        "tr": "Citation Count",
+        "de": "Citation Count",
+        "fr": "Citation Count",
+        "es": "Citation Count",
+        "ar": "Citation Count"
+      }
     }
   ],
   "formulas": {
@@ -50,8 +82,8 @@
       "citationImpact"
     ]
   },
-  "category": "Diğer",
-  "sector": "Enerji & Elektrik",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "The radius of the circle from which the segment is taken."
+      "businessContext": "The radius of the circle from which the segment is taken.",
+      "label_i18n": {
+        "en": "Radius",
+        "tr": "Radius",
+        "de": "Radius",
+        "fr": "Radius",
+        "es": "Radius",
+        "ar": "Radius"
+      }
     },
     {
       "id": "centralAngle",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°",
       "default": 90,
-      "businessContext": "The central angle of the segment in degrees."
+      "businessContext": "The central angle of the segment in degrees.",
+      "label_i18n": {
+        "en": "Central Angle",
+        "tr": "Central Angle",
+        "de": "Central Angle",
+        "fr": "Central Angle",
+        "es": "Central Angle",
+        "ar": "Central Angle"
+      }
     },
     {
       "id": "scaleFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "-",
       "default": 1,
-      "businessContext": "Factor to account for safety or overage, e.g., 1.1 for 10% extra."
+      "businessContext": "Factor to account for safety or overage, e.g., 1.1 for 10% extra.",
+      "label_i18n": {
+        "en": "Scale Factor",
+        "tr": "Scale Factor",
+        "de": "Scale Factor",
+        "fr": "Scale Factor",
+        "es": "Scale Factor",
+        "ar": "Scale Factor"
+      }
     },
     {
       "id": "numberOfSegments",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 1,
-      "businessContext": "Number of identical segments to calculate total area."
+      "businessContext": "Number of identical segments to calculate total area.",
+      "label_i18n": {
+        "en": "Number of Segments",
+        "tr": "Number of Segments",
+        "de": "Number of Segments",
+        "fr": "Number of Segments",
+        "es": "Number of Segments",
+        "ar": "Number of Segments"
+      }
     }
   ],
   "formulas": {
@@ -52,8 +84,8 @@
       "thetaRad"
     ]
   },
-  "category": "İSG & Risk",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 1000,
-      "businessContext": "Length of the rectangular prism in millimeters"
+      "businessContext": "Length of the rectangular prism in millimeters",
+      "label_i18n": {
+        "en": "Length",
+        "tr": "Length",
+        "de": "Length",
+        "fr": "Length",
+        "es": "Length",
+        "ar": "Length"
+      }
     },
     {
       "id": "width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 500,
-      "businessContext": "Width of the rectangular prism in millimeters"
+      "businessContext": "Width of the rectangular prism in millimeters",
+      "label_i18n": {
+        "en": "Width",
+        "tr": "Width",
+        "de": "Width",
+        "fr": "Width",
+        "es": "Width",
+        "ar": "Width"
+      }
     },
     {
       "id": "height",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 300,
-      "businessContext": "Height of the rectangular prism in millimeters"
+      "businessContext": "Height of the rectangular prism in millimeters",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "Height",
+        "fr": "Height",
+        "es": "Height",
+        "ar": "Height"
+      }
     },
     {
       "id": "quantity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 1,
-      "businessContext": "Number of identical prisms"
+      "businessContext": "Number of identical prisms",
+      "label_i18n": {
+        "en": "Quantity",
+        "tr": "Quantity",
+        "de": "Quantity",
+        "fr": "Quantity",
+        "es": "Quantity",
+        "ar": "Quantity"
+      }
     }
   ],
   "formulas": {
@@ -45,8 +77,8 @@
       "volume_m3"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Makine & Ekipman",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

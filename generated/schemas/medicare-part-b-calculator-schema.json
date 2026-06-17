@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD/year",
       "default": 0,
-      "businessContext": "Annual income used to determine Income Related Monthly Adjustment Amount (IRMAA)"
+      "businessContext": "Annual income used to determine Income Related Monthly Adjustment Amount (IRMAA)",
+      "label_i18n": {
+        "en": "Modified Adjusted Gross Income (MAGI)",
+        "tr": "Modified Adjusted Gross Income (MAGI)",
+        "de": "Modified Adjusted Gross Income (MAGI)",
+        "fr": "Modified Adjusted Gross Income (MAGI)",
+        "es": "Modified Adjusted Gross Income (MAGI)",
+        "ar": "Modified Adjusted Gross Income (MAGI)"
+      }
     },
     {
       "id": "filingStatus",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "code (0 = single/individual, 1 = married filing jointly)",
       "default": 0,
-      "businessContext": "IRS tax filing status that determines IRMAA brackets"
+      "businessContext": "IRS tax filing status that determines IRMAA brackets",
+      "label_i18n": {
+        "en": "Filing Status",
+        "tr": "Filing Status",
+        "de": "Filing Status",
+        "fr": "Filing Status",
+        "es": "Filing Status",
+        "ar": "Filing Status"
+      }
     },
     {
       "id": "standardPremium",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD/month",
       "default": 174.7,
-      "businessContext": "Current year base monthly premium without adjustments"
+      "businessContext": "Current year base monthly premium without adjustments",
+      "label_i18n": {
+        "en": "Standard Part B Monthly Premium",
+        "tr": "Standard Part B Monthly Premium",
+        "de": "Standard Part B Monthly Premium",
+        "fr": "Standard Part B Monthly Premium",
+        "es": "Standard Part B Monthly Premium",
+        "ar": "Standard Part B Monthly Premium"
+      }
     },
     {
       "id": "lateEnrollmentMonths",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "months",
       "default": 0,
-      "businessContext": "Number of months past Initial Enrollment Period without Part B or creditable coverage; used to compute penalty"
+      "businessContext": "Number of months past Initial Enrollment Period without Part B or creditable coverage; used to compute penalty",
+      "label_i18n": {
+        "en": "Late Enrollment Period in Months",
+        "tr": "Late Enrollment Period in Months",
+        "de": "Late Enrollment Period in Months",
+        "fr": "Late Enrollment Period in Months",
+        "es": "Late Enrollment Period in Months",
+        "ar": "Late Enrollment Period in Months"
+      }
     }
   ],
   "formulas": {
@@ -50,8 +82,8 @@
       "annualCost"
     ]
   },
-  "category": "Finans & Yatırım",
-  "sector": "Finans & Sigorta",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

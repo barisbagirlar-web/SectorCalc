@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 1000,
-      "businessContext": "The par or principal amount of the bond"
+      "businessContext": "The par or principal amount of the bond",
+      "label_i18n": {
+        "en": "Face Value",
+        "tr": "Face Value",
+        "de": "Face Value",
+        "fr": "Face Value",
+        "es": "Face Value",
+        "ar": "Face Value"
+      }
     },
     {
       "id": "couponRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Annual coupon rate as a percentage of face value"
+      "businessContext": "Annual coupon rate as a percentage of face value",
+      "label_i18n": {
+        "en": "Coupon Rate (%)",
+        "tr": "Coupon Rate (%)",
+        "de": "Coupon Rate (%)",
+        "fr": "Coupon Rate (%)",
+        "es": "Coupon Rate (%)",
+        "ar": "Coupon Rate (%)"
+      }
     },
     {
       "id": "frequency",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "times/year",
       "default": 2,
-      "businessContext": "Number of coupon payments per year (e.g., 2 for semi-annual)"
+      "businessContext": "Number of coupon payments per year (e.g., 2 for semi-annual)",
+      "label_i18n": {
+        "en": "Payment Frequency",
+        "tr": "Payment Frequency",
+        "de": "Payment Frequency",
+        "fr": "Payment Frequency",
+        "es": "Payment Frequency",
+        "ar": "Payment Frequency"
+      }
     },
     {
       "id": "yearsToMaturity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "years",
       "default": 10,
-      "businessContext": "Remaining time until bond matures"
+      "businessContext": "Remaining time until bond matures",
+      "label_i18n": {
+        "en": "Years to Maturity",
+        "tr": "Years to Maturity",
+        "de": "Years to Maturity",
+        "fr": "Years to Maturity",
+        "es": "Years to Maturity",
+        "ar": "Years to Maturity"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "totalCoupons"
     ]
   },
-  "category": "Diğer",
-  "sector": "Telekomünikasyon",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

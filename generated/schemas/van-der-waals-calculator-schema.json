@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "L",
       "default": 1,
-      "businessContext": "Gazın kapladığı hacim (litre)"
+      "businessContext": "Gazın kapladığı hacim (litre)",
+      "label_i18n": {
+        "en": "Hacim (V)",
+        "tr": "Hacim (V)",
+        "de": "Hacim (V)",
+        "fr": "Hacim (V)",
+        "es": "Hacim (V)",
+        "ar": "Hacim (V)"
+      }
     },
     {
       "id": "temperature",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "K",
       "default": 273.15,
-      "businessContext": "Gazın mutlak sıcaklığı (Kelvin)"
+      "businessContext": "Gazın mutlak sıcaklığı (Kelvin)",
+      "label_i18n": {
+        "en": "Sıcaklık (T)",
+        "tr": "Sıcaklık (T)",
+        "de": "Sıcaklık (T)",
+        "fr": "Sıcaklık (T)",
+        "es": "Sıcaklık (T)",
+        "ar": "Sıcaklık (T)"
+      }
     },
     {
       "id": "moles",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mol",
       "default": 1,
-      "businessContext": "Gazın mol miktarı"
+      "businessContext": "Gazın mol miktarı",
+      "label_i18n": {
+        "en": "Mol Sayısı (n)",
+        "tr": "Mol Sayısı (n)",
+        "de": "Mol Sayısı (n)",
+        "fr": "Mol Sayısı (n)",
+        "es": "Mol Sayısı (n)",
+        "ar": "Mol Sayısı (n)"
+      }
     },
     {
       "id": "a",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "L²·atm/mol²",
       "default": 1.355,
-      "businessContext": "Çekim kuvveti sabiti (a)"
+      "businessContext": "Çekim kuvveti sabiti (a)",
+      "label_i18n": {
+        "en": "Van der Waals Sabiti a",
+        "tr": "Van der Waals Sabiti a",
+        "de": "Van der Waals Sabiti a",
+        "fr": "Van der Waals Sabiti a",
+        "es": "Van der Waals Sabiti a",
+        "ar": "Van der Waals Sabiti a"
+      }
     },
     {
       "id": "b",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "L/mol",
       "default": 0.032,
-      "businessContext": "Molekül hacim sabiti (b)"
+      "businessContext": "Molekül hacim sabiti (b)",
+      "label_i18n": {
+        "en": "Van der Waals Sabiti b",
+        "tr": "Van der Waals Sabiti b",
+        "de": "Van der Waals Sabiti b",
+        "fr": "Van der Waals Sabiti b",
+        "es": "Van der Waals Sabiti b",
+        "ar": "Van der Waals Sabiti b"
+      }
     },
     {
       "id": "R",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "L·atm/(mol·K)",
       "default": 0.082057,
-      "businessContext": "İdeal gaz sabiti"
+      "businessContext": "İdeal gaz sabiti",
+      "label_i18n": {
+        "en": "Gaz Sabiti (R)",
+        "tr": "Gaz Sabiti (R)",
+        "de": "Gaz Sabiti (R)",
+        "fr": "Gaz Sabiti (R)",
+        "es": "Gaz Sabiti (R)",
+        "ar": "Gaz Sabiti (R)"
+      }
     }
   ],
   "formulas": {
@@ -62,8 +110,8 @@
       "attractiveTerm"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "chemistry-science",
   "sectorSlug": "energy-consumption",

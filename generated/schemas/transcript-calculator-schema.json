@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Öğrenci not ortalaması hesaplama - 1. ders notu"
+      "businessContext": "Öğrenci not ortalaması hesaplama - 1. ders notu",
+      "label_i18n": {
+        "en": "1. Ders Notu",
+        "tr": "1. Ders Notu",
+        "de": "1. Ders Notu",
+        "fr": "1. Ders Notu",
+        "es": "1. Ders Notu",
+        "ar": "1. Ders Notu"
+      }
     },
     {
       "id": "credit1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "credit",
       "default": 3,
-      "businessContext": "Öğrenci not ortalaması hesaplama - 1. ders kredisi"
+      "businessContext": "Öğrenci not ortalaması hesaplama - 1. ders kredisi",
+      "label_i18n": {
+        "en": "1. Ders Kredisi",
+        "tr": "1. Ders Kredisi",
+        "de": "1. Ders Kredisi",
+        "fr": "1. Ders Kredisi",
+        "es": "1. Ders Kredisi",
+        "ar": "1. Ders Kredisi"
+      }
     },
     {
       "id": "grade2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Öğrenci not ortalaması hesaplama - 2. ders notu"
+      "businessContext": "Öğrenci not ortalaması hesaplama - 2. ders notu",
+      "label_i18n": {
+        "en": "2. Ders Notu",
+        "tr": "2. Ders Notu",
+        "de": "2. Ders Notu",
+        "fr": "2. Ders Notu",
+        "es": "2. Ders Notu",
+        "ar": "2. Ders Notu"
+      }
     },
     {
       "id": "credit2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "credit",
       "default": 3,
-      "businessContext": "Öğrenci not ortalaması hesaplama - 2. ders kredisi"
+      "businessContext": "Öğrenci not ortalaması hesaplama - 2. ders kredisi",
+      "label_i18n": {
+        "en": "2. Ders Kredisi",
+        "tr": "2. Ders Kredisi",
+        "de": "2. Ders Kredisi",
+        "fr": "2. Ders Kredisi",
+        "es": "2. Ders Kredisi",
+        "ar": "2. Ders Kredisi"
+      }
     },
     {
       "id": "grade3",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Öğrenci not ortalaması hesaplama - 3. ders notu"
+      "businessContext": "Öğrenci not ortalaması hesaplama - 3. ders notu",
+      "label_i18n": {
+        "en": "3. Ders Notu",
+        "tr": "3. Ders Notu",
+        "de": "3. Ders Notu",
+        "fr": "3. Ders Notu",
+        "es": "3. Ders Notu",
+        "ar": "3. Ders Notu"
+      }
     },
     {
       "id": "credit3",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "credit",
       "default": 3,
-      "businessContext": "Öğrenci not ortalaması hesaplama - 3. ders kredisi"
+      "businessContext": "Öğrenci not ortalaması hesaplama - 3. ders kredisi",
+      "label_i18n": {
+        "en": "3. Ders Kredisi",
+        "tr": "3. Ders Kredisi",
+        "de": "3. Ders Kredisi",
+        "fr": "3. Ders Kredisi",
+        "es": "3. Ders Kredisi",
+        "ar": "3. Ders Kredisi"
+      }
     },
     {
       "id": "grade4",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Öğrenci not ortalaması hesaplama - 4. ders notu"
+      "businessContext": "Öğrenci not ortalaması hesaplama - 4. ders notu",
+      "label_i18n": {
+        "en": "4. Ders Notu",
+        "tr": "4. Ders Notu",
+        "de": "4. Ders Notu",
+        "fr": "4. Ders Notu",
+        "es": "4. Ders Notu",
+        "ar": "4. Ders Notu"
+      }
     },
     {
       "id": "credit4",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "credit",
       "default": 3,
-      "businessContext": "Öğrenci not ortalaması hesaplama - 4. ders kredisi"
+      "businessContext": "Öğrenci not ortalaması hesaplama - 4. ders kredisi",
+      "label_i18n": {
+        "en": "4. Ders Kredisi",
+        "tr": "4. Ders Kredisi",
+        "de": "4. Ders Kredisi",
+        "fr": "4. Ders Kredisi",
+        "es": "4. Ders Kredisi",
+        "ar": "4. Ders Kredisi"
+      }
     }
   ],
   "formulas": {
@@ -78,8 +142,8 @@
       "totalCredits"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",

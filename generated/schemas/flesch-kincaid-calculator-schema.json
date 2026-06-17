@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "words",
       "default": 0,
-      "businessContext": "Total number of words in the text to analyze."
+      "businessContext": "Total number of words in the text to analyze.",
+      "label_i18n": {
+        "en": "Total Words",
+        "tr": "Total Words",
+        "de": "Total Words",
+        "fr": "Total Words",
+        "es": "Total Words",
+        "ar": "Total Words"
+      }
     },
     {
       "id": "totalSentences",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "sentences",
       "default": 0,
-      "businessContext": "Total number of sentences in the text."
+      "businessContext": "Total number of sentences in the text.",
+      "label_i18n": {
+        "en": "Total Sentences",
+        "tr": "Total Sentences",
+        "de": "Total Sentences",
+        "fr": "Total Sentences",
+        "es": "Total Sentences",
+        "ar": "Total Sentences"
+      }
     },
     {
       "id": "totalSyllables",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "syllables",
       "default": 0,
-      "businessContext": "Total number of syllables across all words."
+      "businessContext": "Total number of syllables across all words.",
+      "label_i18n": {
+        "en": "Total Syllables",
+        "tr": "Total Syllables",
+        "de": "Total Syllables",
+        "fr": "Total Syllables",
+        "es": "Total Syllables",
+        "ar": "Total Syllables"
+      }
     },
     {
       "id": "totalCharacters",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "characters",
       "default": 0,
-      "businessContext": "Total character count including spaces; used to compute average characters per word."
+      "businessContext": "Total character count including spaces; used to compute average characters per word.",
+      "label_i18n": {
+        "en": "Total Characters (with spaces)",
+        "tr": "Total Characters (with spaces)",
+        "de": "Total Characters (with spaces)",
+        "fr": "Total Characters (with spaces)",
+        "es": "Total Characters (with spaces)",
+        "ar": "Total Characters (with spaces)"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "averageCharactersPerWord"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",

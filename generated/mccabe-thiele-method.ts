@@ -28,6 +28,8 @@ function evaluateAllFormulas(input: Mccabe_thiele_methodInput): Record<string, n
   try { const v = input.xf/(1-input.q); results["feedLineIntercept"] = Number.isFinite(v) ? v : 0; } catch { results["feedLineIntercept"] = 0; }
   try { const v = input.r/(input.r+1); results["operatingLineSlope"] = Number.isFinite(v) ? v : 0; } catch { results["operatingLineSlope"] = 0; }
   try { const v = input.xd/(input.r+1); results["operatingLineIntercept"] = Number.isFinite(v) ? v : 0; } catch { results["operatingLineIntercept"] = 0; }
+  results["Slope_of_operating_line__rectifying_sect"] = 0;
+  results["Intercept_of_operating_line__rectifying_"] = 0;
   return results;
 }
 

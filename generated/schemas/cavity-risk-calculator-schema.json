@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°C",
       "default": 720,
-      "businessContext": "Metal eriyik sıcaklığı, gaz çözünürlüğünü ve akışkanlığı etkiler. Yüksek sıcaklık gözenek riskini artırabilir."
+      "businessContext": "Metal eriyik sıcaklığı, gaz çözünürlüğünü ve akışkanlığı etkiler. Yüksek sıcaklık gözenek riskini artırabilir.",
+      "label_i18n": {
+        "en": "Eriyik Sıcaklığı",
+        "tr": "Eriyik Sıcaklığı",
+        "de": "Eriyik Sıcaklığı",
+        "fr": "Eriyik Sıcaklığı",
+        "es": "Eriyik Sıcaklığı",
+        "ar": "Eriyik Sıcaklığı"
+      }
     },
     {
       "id": "moldTemp",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°C",
       "default": 180,
-      "businessContext": "Kalıp sıcaklığı katılaşma hızını belirler. Uygun olmayan kalıp sıcaklığı çekme boşluklarına yol açar."
+      "businessContext": "Kalıp sıcaklığı katılaşma hızını belirler. Uygun olmayan kalıp sıcaklığı çekme boşluklarına yol açar.",
+      "label_i18n": {
+        "en": "Kalıp Sıcaklığı",
+        "tr": "Kalıp Sıcaklığı",
+        "de": "Kalıp Sıcaklığı",
+        "fr": "Kalıp Sıcaklığı",
+        "es": "Kalıp Sıcaklığı",
+        "ar": "Kalıp Sıcaklığı"
+      }
     },
     {
       "id": "injectionPressure",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 100,
-      "businessContext": "Basınç, metalin kalıbı tam doldurmasını sağlar. Düşük basınç boşluk oluşumuna neden olur."
+      "businessContext": "Basınç, metalin kalıbı tam doldurmasını sağlar. Düşük basınç boşluk oluşumuna neden olur.",
+      "label_i18n": {
+        "en": "Enjeksiyon Basıncı",
+        "tr": "Enjeksiyon Basıncı",
+        "de": "Enjeksiyon Basıncı",
+        "fr": "Enjeksiyon Basıncı",
+        "es": "Enjeksiyon Basıncı",
+        "ar": "Enjeksiyon Basıncı"
+      }
     },
     {
       "id": "coolingRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C/s",
       "default": 50,
-      "businessContext": "Hızlı soğuma, metalin besleme yapamadan katılaşmasına ve mikro boşluklara yol açabilir."
+      "businessContext": "Hızlı soğuma, metalin besleme yapamadan katılaşmasına ve mikro boşluklara yol açabilir.",
+      "label_i18n": {
+        "en": "Soğuma Hızı",
+        "tr": "Soğuma Hızı",
+        "de": "Soğuma Hızı",
+        "fr": "Soğuma Hızı",
+        "es": "Soğuma Hızı",
+        "ar": "Soğuma Hızı"
+      }
     },
     {
       "id": "alloyPurity",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 99.5,
-      "businessContext": "Safsızlıklar gaz kabarcıklarına ve yapısal kusurlara neden olur. Saflık arttıkça risk azalır."
+      "businessContext": "Safsızlıklar gaz kabarcıklarına ve yapısal kusurlara neden olur. Saflık arttıkça risk azalır.",
+      "label_i18n": {
+        "en": "Alaşım Saflığı",
+        "tr": "Alaşım Saflığı",
+        "de": "Alaşım Saflığı",
+        "fr": "Alaşım Saflığı",
+        "es": "Alaşım Saflığı",
+        "ar": "Alaşım Saflığı"
+      }
     },
     {
       "id": "ventingEfficiency",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "Havalandırma, kalıp içindeki havanın tahliyesini sağlar. Yetersiz havalandırma gaz sıkışmasına bağlı boşluklar oluşturur."
+      "businessContext": "Havalandırma, kalıp içindeki havanın tahliyesini sağlar. Yetersiz havalandırma gaz sıkışmasına bağlı boşluklar oluşturur.",
+      "label_i18n": {
+        "en": "Havalandırma Verimi",
+        "tr": "Havalandırma Verimi",
+        "de": "Havalandırma Verimi",
+        "fr": "Havalandırma Verimi",
+        "es": "Havalandırma Verimi",
+        "ar": "Havalandırma Verimi"
+      }
     }
   ],
   "formulas": {
@@ -68,8 +116,8 @@
       "ventingFactor"
     ]
   },
-  "category": "İSG & Risk",
-  "sector": "Metal & Sac İşleme",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

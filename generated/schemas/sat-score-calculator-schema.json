@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "questions",
       "default": 0,
-      "businessContext": "Number of correct answers in the Reading section (max 52)"
+      "businessContext": "Number of correct answers in the Reading section (max 52)",
+      "label_i18n": {
+        "en": "Reading Raw Score",
+        "tr": "Reading Raw Score",
+        "de": "Reading Raw Score",
+        "fr": "Reading Raw Score",
+        "es": "Reading Raw Score",
+        "ar": "Reading Raw Score"
+      }
     },
     {
       "id": "writingRaw",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "questions",
       "default": 0,
-      "businessContext": "Number of correct answers in the Writing & Language section (max 44)"
+      "businessContext": "Number of correct answers in the Writing & Language section (max 44)",
+      "label_i18n": {
+        "en": "Writing & Language Raw Score",
+        "tr": "Writing & Language Raw Score",
+        "de": "Writing & Language Raw Score",
+        "fr": "Writing & Language Raw Score",
+        "es": "Writing & Language Raw Score",
+        "ar": "Writing & Language Raw Score"
+      }
     },
     {
       "id": "mathNoCalcRaw",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "questions",
       "default": 0,
-      "businessContext": "Number of correct answers in the Math No Calculator section (max 20)"
+      "businessContext": "Number of correct answers in the Math No Calculator section (max 20)",
+      "label_i18n": {
+        "en": "Math No Calculator Raw Score",
+        "tr": "Math No Calculator Raw Score",
+        "de": "Math No Calculator Raw Score",
+        "fr": "Math No Calculator Raw Score",
+        "es": "Math No Calculator Raw Score",
+        "ar": "Math No Calculator Raw Score"
+      }
     },
     {
       "id": "mathCalcRaw",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "questions",
       "default": 0,
-      "businessContext": "Number of correct answers in the Math Calculator section (max 38)"
+      "businessContext": "Number of correct answers in the Math Calculator section (max 38)",
+      "label_i18n": {
+        "en": "Math Calculator Raw Score",
+        "tr": "Math Calculator Raw Score",
+        "de": "Math Calculator Raw Score",
+        "fr": "Math Calculator Raw Score",
+        "es": "Math Calculator Raw Score",
+        "ar": "Math Calculator Raw Score"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "mathScore"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",

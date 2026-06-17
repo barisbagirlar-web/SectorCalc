@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kcal",
       "default": 0,
-      "businessContext": "Total energy content per serving."
+      "businessContext": "Total energy content per serving.",
+      "label_i18n": {
+        "en": "Calories",
+        "tr": "Calories",
+        "de": "Calories",
+        "fr": "Calories",
+        "es": "Calories",
+        "ar": "Calories"
+      }
     },
     {
       "id": "saturatedFat",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Grams of saturated fat per serving."
+      "businessContext": "Grams of saturated fat per serving.",
+      "label_i18n": {
+        "en": "Saturated Fat",
+        "tr": "Saturated Fat",
+        "de": "Saturated Fat",
+        "fr": "Saturated Fat",
+        "es": "Saturated Fat",
+        "ar": "Saturated Fat"
+      }
     },
     {
       "id": "sugar",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Grams of sugar per serving."
+      "businessContext": "Grams of sugar per serving.",
+      "label_i18n": {
+        "en": "Sugar",
+        "tr": "Sugar",
+        "de": "Sugar",
+        "fr": "Sugar",
+        "es": "Sugar",
+        "ar": "Sugar"
+      }
     },
     {
       "id": "protein",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Grams of protein per serving."
+      "businessContext": "Grams of protein per serving.",
+      "label_i18n": {
+        "en": "Protein",
+        "tr": "Protein",
+        "de": "Protein",
+        "fr": "Protein",
+        "es": "Protein",
+        "ar": "Protein"
+      }
     }
   ],
   "formulas": {
@@ -52,8 +84,8 @@
       "proteinContrib"
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "Enerji & Elektrik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "categorySlug": "technology-ai-cloud-cyber",
   "catalogCategory": "everyday-life",

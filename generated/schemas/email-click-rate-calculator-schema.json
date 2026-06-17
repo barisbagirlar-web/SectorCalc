@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "clicks",
       "default": 0,
-      "businessContext": "Total number of unique clicks on links in the email campaign."
+      "businessContext": "Total number of unique clicks on links in the email campaign.",
+      "label_i18n": {
+        "en": "Total Clicks",
+        "tr": "Total Clicks",
+        "de": "Total Clicks",
+        "fr": "Total Clicks",
+        "es": "Total Clicks",
+        "ar": "Total Clicks"
+      }
     },
     {
       "id": "totalDelivered",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "emails",
       "default": 0,
-      "businessContext": "Total number of emails successfully delivered to recipients' inboxes."
+      "businessContext": "Total number of emails successfully delivered to recipients' inboxes.",
+      "label_i18n": {
+        "en": "Total Delivered Emails",
+        "tr": "Total Delivered Emails",
+        "de": "Total Delivered Emails",
+        "fr": "Total Delivered Emails",
+        "es": "Total Delivered Emails",
+        "ar": "Total Delivered Emails"
+      }
     },
     {
       "id": "totalOpens",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "opens",
       "default": 0,
-      "businessContext": "Total number of times the email was opened (optional, for click-to-open rate)."
+      "businessContext": "Total number of times the email was opened (optional, for click-to-open rate).",
+      "label_i18n": {
+        "en": "Total Opens",
+        "tr": "Total Opens",
+        "de": "Total Opens",
+        "fr": "Total Opens",
+        "es": "Total Opens",
+        "ar": "Total Opens"
+      }
     },
     {
       "id": "totalSent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "emails",
       "default": 0,
-      "businessContext": "Total number of emails sent in the campaign."
+      "businessContext": "Total number of emails sent in the campaign.",
+      "label_i18n": {
+        "en": "Total Sent Emails",
+        "tr": "Total Sent Emails",
+        "de": "Total Sent Emails",
+        "fr": "Total Sent Emails",
+        "es": "Total Sent Emails",
+        "ar": "Total Sent Emails"
+      }
     },
     {
       "id": "bouncedEmails",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "emails",
       "default": 0,
-      "businessContext": "Number of emails that were not delivered due to hard or soft bounces."
+      "businessContext": "Number of emails that were not delivered due to hard or soft bounces.",
+      "label_i18n": {
+        "en": "Bounced Emails",
+        "tr": "Bounced Emails",
+        "de": "Bounced Emails",
+        "fr": "Bounced Emails",
+        "es": "Bounced Emails",
+        "ar": "Bounced Emails"
+      }
     }
   ],
   "formulas": {
@@ -54,8 +94,8 @@
       "deliveryRate"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

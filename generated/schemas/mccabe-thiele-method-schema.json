@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mol/mol",
       "default": 0.95,
-      "businessContext": "Mole fraction of more volatile component in distillate"
+      "businessContext": "Mole fraction of more volatile component in distillate",
+      "label_i18n": {
+        "en": "Distillate mole fraction (xD)",
+        "tr": "Distillate mole fraction (xD)",
+        "de": "Distillate mole fraction (xD)",
+        "fr": "Distillate mole fraction (xD)",
+        "es": "Distillate mole fraction (xD)",
+        "ar": "Distillate mole fraction (xD)"
+      }
     },
     {
       "id": "xb",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mol/mol",
       "default": 0.05,
-      "businessContext": "Mole fraction of more volatile component in bottoms"
+      "businessContext": "Mole fraction of more volatile component in bottoms",
+      "label_i18n": {
+        "en": "Bottoms mole fraction (xB)",
+        "tr": "Bottoms mole fraction (xB)",
+        "de": "Bottoms mole fraction (xB)",
+        "fr": "Bottoms mole fraction (xB)",
+        "es": "Bottoms mole fraction (xB)",
+        "ar": "Bottoms mole fraction (xB)"
+      }
     },
     {
       "id": "xf",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mol/mol",
       "default": 0.5,
-      "businessContext": "Mole fraction of more volatile component in feed"
+      "businessContext": "Mole fraction of more volatile component in feed",
+      "label_i18n": {
+        "en": "Feed mole fraction (xF)",
+        "tr": "Feed mole fraction (xF)",
+        "de": "Feed mole fraction (xF)",
+        "fr": "Feed mole fraction (xF)",
+        "es": "Feed mole fraction (xF)",
+        "ar": "Feed mole fraction (xF)"
+      }
     },
     {
       "id": "r",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1.5,
-      "businessContext": "Ratio of liquid returned to column to distillate removed"
+      "businessContext": "Ratio of liquid returned to column to distillate removed",
+      "label_i18n": {
+        "en": "Reflux ratio (R)",
+        "tr": "Reflux ratio (R)",
+        "de": "Reflux ratio (R)",
+        "fr": "Reflux ratio (R)",
+        "es": "Reflux ratio (R)",
+        "ar": "Reflux ratio (R)"
+      }
     },
     {
       "id": "alpha",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 2.5,
-      "businessContext": "Relative volatility of more volatile component"
+      "businessContext": "Relative volatility of more volatile component",
+      "label_i18n": {
+        "en": "Relative volatility (α)",
+        "tr": "Relative volatility (α)",
+        "de": "Relative volatility (α)",
+        "fr": "Relative volatility (α)",
+        "es": "Relative volatility (α)",
+        "ar": "Relative volatility (α)"
+      }
     },
     {
       "id": "q",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Fraction of feed that is liquid (1 for saturated liquid, 0 for saturated vapor)"
+      "businessContext": "Fraction of feed that is liquid (1 for saturated liquid, 0 for saturated vapor)",
+      "label_i18n": {
+        "en": "Feed quality (q)",
+        "tr": "Feed quality (q)",
+        "de": "Feed quality (q)",
+        "fr": "Feed quality (q)",
+        "es": "Feed quality (q)",
+        "ar": "Feed quality (q)"
+      }
     }
   ],
   "formulas": {
@@ -57,7 +105,9 @@
     "feedLineSlope": "q/(q-1)",
     "feedLineIntercept": "xf/(1-q)",
     "operatingLineSlope": "r/(r+1)",
-    "operatingLineIntercept": "xd/(r+1)"
+    "operatingLineIntercept": "xd/(r+1)",
+    "Slope_of_operating_line__rectifying_sect": "Slope of operating line (rectifying section)",
+    "Intercept_of_operating_line__rectifying_": "Intercept of operating line (rectifying section)"
   },
   "outputs": {
     "primary": "nActual",
@@ -71,8 +121,8 @@
       "operatingLineIntercept: Intercept of operating line (rectifying section)"
     ]
   },
-  "category": "Kalite & Süreç Kontrol",
-  "sector": "Diğer",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",

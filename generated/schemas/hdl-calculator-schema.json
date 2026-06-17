@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 200,
-      "businessContext": "Total cholesterol level from a blood lipid panel"
+      "businessContext": "Total cholesterol level from a blood lipid panel",
+      "label_i18n": {
+        "en": "Total Cholesterol",
+        "tr": "Total Cholesterol",
+        "de": "Total Cholesterol",
+        "fr": "Total Cholesterol",
+        "es": "Total Cholesterol",
+        "ar": "Total Cholesterol"
+      }
     },
     {
       "id": "hdlCholesterol",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 50,
-      "businessContext": "High-density lipoprotein (good) cholesterol"
+      "businessContext": "High-density lipoprotein (good) cholesterol",
+      "label_i18n": {
+        "en": "HDL Cholesterol",
+        "tr": "HDL Cholesterol",
+        "de": "HDL Cholesterol",
+        "fr": "HDL Cholesterol",
+        "es": "HDL Cholesterol",
+        "ar": "HDL Cholesterol"
+      }
     },
     {
       "id": "ldlCholesterol",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 100,
-      "businessContext": "Low-density lipoprotein cholesterol (direct measurement), optional for Friedewald comparison"
+      "businessContext": "Low-density lipoprotein cholesterol (direct measurement), optional for Friedewald comparison",
+      "label_i18n": {
+        "en": "LDL Cholesterol (Direct)",
+        "tr": "LDL Cholesterol (Direct)",
+        "de": "LDL Cholesterol (Direct)",
+        "fr": "LDL Cholesterol (Direct)",
+        "es": "LDL Cholesterol (Direct)",
+        "ar": "LDL Cholesterol (Direct)"
+      }
     },
     {
       "id": "triglycerides",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 150,
-      "businessContext": "Triglycerides level, used in VLDL and Friedewald calculation"
+      "businessContext": "Triglycerides level, used in VLDL and Friedewald calculation",
+      "label_i18n": {
+        "en": "Triglycerides",
+        "tr": "Triglycerides",
+        "de": "Triglycerides",
+        "fr": "Triglycerides",
+        "es": "Triglycerides",
+        "ar": "Triglycerides"
+      }
     }
   ],
   "formulas": {
@@ -54,8 +86,8 @@
       "ldlDifference"
     ]
   },
-  "category": "Kalite & Süreç Kontrol",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

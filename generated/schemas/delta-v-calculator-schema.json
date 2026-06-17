@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Total mass of the vehicle including propellant before burn."
+      "businessContext": "Total mass of the vehicle including propellant before burn.",
+      "label_i18n": {
+        "en": "Initial Mass (m0)",
+        "tr": "Initial Mass (m0)",
+        "de": "Initial Mass (m0)",
+        "fr": "Initial Mass (m0)",
+        "es": "Initial Mass (m0)",
+        "ar": "Initial Mass (m0)"
+      }
     },
     {
       "id": "finalMass",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 500,
-      "businessContext": "Mass of the vehicle after propellant is expended."
+      "businessContext": "Mass of the vehicle after propellant is expended.",
+      "label_i18n": {
+        "en": "Final Mass (mf)",
+        "tr": "Final Mass (mf)",
+        "de": "Final Mass (mf)",
+        "fr": "Final Mass (mf)",
+        "es": "Final Mass (mf)",
+        "ar": "Final Mass (mf)"
+      }
     },
     {
       "id": "specificImpulse",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "s",
       "default": 300,
-      "businessContext": "Measure of engine efficiency, thrust per weight flow rate."
+      "businessContext": "Measure of engine efficiency, thrust per weight flow rate.",
+      "label_i18n": {
+        "en": "Specific Impulse (Isp)",
+        "tr": "Specific Impulse (Isp)",
+        "de": "Specific Impulse (Isp)",
+        "fr": "Specific Impulse (Isp)",
+        "es": "Specific Impulse (Isp)",
+        "ar": "Specific Impulse (Isp)"
+      }
     },
     {
       "id": "gravity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m/s²",
       "default": 9.81,
-      "businessContext": "Acceleration due to gravity at sea level, used to convert specific impulse to exhaust velocity."
+      "businessContext": "Acceleration due to gravity at sea level, used to convert specific impulse to exhaust velocity.",
+      "label_i18n": {
+        "en": "Standard Gravity (g0)",
+        "tr": "Standard Gravity (g0)",
+        "de": "Standard Gravity (g0)",
+        "fr": "Standard Gravity (g0)",
+        "es": "Standard Gravity (g0)",
+        "ar": "Standard Gravity (g0)"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "logMassRatio"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Otomotiv & Taşıt",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",

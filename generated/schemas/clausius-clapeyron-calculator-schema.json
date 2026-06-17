@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°C",
       "default": 100,
-      "businessContext": "Birinci sıcaklık değeri (Santigrat)"
+      "businessContext": "Birinci sıcaklık değeri (Santigrat)",
+      "label_i18n": {
+        "en": "Sıcaklık 1",
+        "tr": "Sıcaklık 1",
+        "de": "Sıcaklık 1",
+        "fr": "Sıcaklık 1",
+        "es": "Sıcaklık 1",
+        "ar": "Sıcaklık 1"
+      }
     },
     {
       "id": "P1_kPa",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kPa",
       "default": 101.325,
-      "businessContext": "Birinci basınç değeri (kPa)"
+      "businessContext": "Birinci basınç değeri (kPa)",
+      "label_i18n": {
+        "en": "Basınç 1",
+        "tr": "Basınç 1",
+        "de": "Basınç 1",
+        "fr": "Basınç 1",
+        "es": "Basınç 1",
+        "ar": "Basınç 1"
+      }
     },
     {
       "id": "T2_C",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 120,
-      "businessContext": "İkinci sıcaklık değeri (Santigrat)"
+      "businessContext": "İkinci sıcaklık değeri (Santigrat)",
+      "label_i18n": {
+        "en": "Sıcaklık 2",
+        "tr": "Sıcaklık 2",
+        "de": "Sıcaklık 2",
+        "fr": "Sıcaklık 2",
+        "es": "Sıcaklık 2",
+        "ar": "Sıcaklık 2"
+      }
     },
     {
       "id": "P2_kPa",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kPa",
       "default": 198.5,
-      "businessContext": "İkinci basınç değeri (kPa)"
+      "businessContext": "İkinci basınç değeri (kPa)",
+      "label_i18n": {
+        "en": "Basınç 2",
+        "tr": "Basınç 2",
+        "de": "Basınç 2",
+        "fr": "Basınç 2",
+        "es": "Basınç 2",
+        "ar": "Basınç 2"
+      }
     },
     {
       "id": "R_JmolK",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "J/(mol·K)",
       "default": 8.314,
-      "businessContext": "İdeal gaz sabiti, genellikle 8.314 J/(mol·K)"
+      "businessContext": "İdeal gaz sabiti, genellikle 8.314 J/(mol·K)",
+      "label_i18n": {
+        "en": "Gaz Sabiti (R)",
+        "tr": "Gaz Sabiti (R)",
+        "de": "Gaz Sabiti (R)",
+        "fr": "Gaz Sabiti (R)",
+        "es": "Gaz Sabiti (R)",
+        "ar": "Gaz Sabiti (R)"
+      }
     },
     {
       "id": "M_gmol",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "g/mol",
       "default": 18.015,
-      "businessContext": "Maddenin molekül ağırlığı (isteğe bağlı, kütleye özgü ısı hesabı için)"
+      "businessContext": "Maddenin molekül ağırlığı (isteğe bağlı, kütleye özgü ısı hesabı için)",
+      "label_i18n": {
+        "en": "Molekül Ağırlığı",
+        "tr": "Molekül Ağırlığı",
+        "de": "Molekül Ağırlığı",
+        "fr": "Molekül Ağırlığı",
+        "es": "Molekül Ağırlığı",
+        "ar": "Molekül Ağırlığı"
+      }
     }
   ],
   "formulas": {
@@ -62,8 +110,8 @@
       "logPressureRatio"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

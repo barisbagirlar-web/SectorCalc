@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "N·m²/C²",
       "default": 8990000000,
-      "businessContext": "Coulomb's constant (8.99×10⁹ N·m²/C² for vacuum, adjust for medium)"
+      "businessContext": "Coulomb's constant (8.99×10⁹ N·m²/C² for vacuum, adjust for medium)",
+      "label_i18n": {
+        "en": "Coulomb Constant (k)",
+        "tr": "Coulomb Constant (k)",
+        "de": "Coulomb Constant (k)",
+        "fr": "Coulomb Constant (k)",
+        "es": "Coulomb Constant (k)",
+        "ar": "Coulomb Constant (k)"
+      }
     },
     {
       "id": "q1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "C",
       "default": 0,
-      "businessContext": "Electric charge of first point charge in Coulombs"
+      "businessContext": "Electric charge of first point charge in Coulombs",
+      "label_i18n": {
+        "en": "Charge 1 (q₁)",
+        "tr": "Charge 1 (q₁)",
+        "de": "Charge 1 (q₁)",
+        "fr": "Charge 1 (q₁)",
+        "es": "Charge 1 (q₁)",
+        "ar": "Charge 1 (q₁)"
+      }
     },
     {
       "id": "r1",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Distance from charge 1 to the point of interest in meters"
+      "businessContext": "Distance from charge 1 to the point of interest in meters",
+      "label_i18n": {
+        "en": "Distance 1 (r₁)",
+        "tr": "Distance 1 (r₁)",
+        "de": "Distance 1 (r₁)",
+        "fr": "Distance 1 (r₁)",
+        "es": "Distance 1 (r₁)",
+        "ar": "Distance 1 (r₁)"
+      }
     },
     {
       "id": "q2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "C",
       "default": 0,
-      "businessContext": "Electric charge of second point charge"
+      "businessContext": "Electric charge of second point charge",
+      "label_i18n": {
+        "en": "Charge 2 (q₂)",
+        "tr": "Charge 2 (q₂)",
+        "de": "Charge 2 (q₂)",
+        "fr": "Charge 2 (q₂)",
+        "es": "Charge 2 (q₂)",
+        "ar": "Charge 2 (q₂)"
+      }
     },
     {
       "id": "r2",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Distance from charge 2 to the point"
+      "businessContext": "Distance from charge 2 to the point",
+      "label_i18n": {
+        "en": "Distance 2 (r₂)",
+        "tr": "Distance 2 (r₂)",
+        "de": "Distance 2 (r₂)",
+        "fr": "Distance 2 (r₂)",
+        "es": "Distance 2 (r₂)",
+        "ar": "Distance 2 (r₂)"
+      }
     },
     {
       "id": "q3",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "C",
       "default": 0,
-      "businessContext": "Electric charge of third point charge"
+      "businessContext": "Electric charge of third point charge",
+      "label_i18n": {
+        "en": "Charge 3 (q₃)",
+        "tr": "Charge 3 (q₃)",
+        "de": "Charge 3 (q₃)",
+        "fr": "Charge 3 (q₃)",
+        "es": "Charge 3 (q₃)",
+        "ar": "Charge 3 (q₃)"
+      }
     },
     {
       "id": "r3",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Distance from charge 3 to the point"
+      "businessContext": "Distance from charge 3 to the point",
+      "label_i18n": {
+        "en": "Distance 3 (r₃)",
+        "tr": "Distance 3 (r₃)",
+        "de": "Distance 3 (r₃)",
+        "fr": "Distance 3 (r₃)",
+        "es": "Distance 3 (r₃)",
+        "ar": "Distance 3 (r₃)"
+      }
     }
   ],
   "formulas": {
@@ -72,8 +128,8 @@
       "potential3"
     ]
   },
-  "category": "Diğer",
-  "sector": "Enerji & Elektrik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",

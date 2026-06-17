@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mag",
       "default": 0,
-      "businessContext": "The observed brightness of the celestial object"
+      "businessContext": "The observed brightness of the celestial object",
+      "label_i18n": {
+        "en": "Apparent Magnitude (m)",
+        "tr": "Apparent Magnitude (m)",
+        "de": "Apparent Magnitude (m)",
+        "fr": "Apparent Magnitude (m)",
+        "es": "Apparent Magnitude (m)",
+        "ar": "Apparent Magnitude (m)"
+      }
     },
     {
       "id": "apparentMagnitudeError",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mag",
       "default": 0.01,
-      "businessContext": "1-sigma uncertainty in m"
+      "businessContext": "1-sigma uncertainty in m",
+      "label_i18n": {
+        "en": "Apparent Magnitude Error",
+        "tr": "Apparent Magnitude Error",
+        "de": "Apparent Magnitude Error",
+        "fr": "Apparent Magnitude Error",
+        "es": "Apparent Magnitude Error",
+        "ar": "Apparent Magnitude Error"
+      }
     },
     {
       "id": "absoluteMagnitude",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mag",
       "default": 0,
-      "businessContext": "The intrinsic brightness of the object"
+      "businessContext": "The intrinsic brightness of the object",
+      "label_i18n": {
+        "en": "Absolute Magnitude (M)",
+        "tr": "Absolute Magnitude (M)",
+        "de": "Absolute Magnitude (M)",
+        "fr": "Absolute Magnitude (M)",
+        "es": "Absolute Magnitude (M)",
+        "ar": "Absolute Magnitude (M)"
+      }
     },
     {
       "id": "absoluteMagnitudeError",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mag",
       "default": 0.1,
-      "businessContext": "1-sigma uncertainty in M"
+      "businessContext": "1-sigma uncertainty in M",
+      "label_i18n": {
+        "en": "Absolute Magnitude Error",
+        "tr": "Absolute Magnitude Error",
+        "de": "Absolute Magnitude Error",
+        "fr": "Absolute Magnitude Error",
+        "es": "Absolute Magnitude Error",
+        "ar": "Absolute Magnitude Error"
+      }
     },
     {
       "id": "extinction",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mag",
       "default": 0,
-      "businessContext": "Interstellar extinction in the observed band"
+      "businessContext": "Interstellar extinction in the observed band",
+      "label_i18n": {
+        "en": "Extinction (A)",
+        "tr": "Extinction (A)",
+        "de": "Extinction (A)",
+        "fr": "Extinction (A)",
+        "es": "Extinction (A)",
+        "ar": "Extinction (A)"
+      }
     },
     {
       "id": "extinctionError",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "mag",
       "default": 0,
-      "businessContext": "1-sigma uncertainty in A"
+      "businessContext": "1-sigma uncertainty in A",
+      "label_i18n": {
+        "en": "Extinction Error",
+        "tr": "Extinction Error",
+        "de": "Extinction Error",
+        "fr": "Extinction Error",
+        "es": "Extinction Error",
+        "ar": "Extinction Error"
+      }
     }
   ],
   "formulas": {
@@ -66,8 +114,8 @@
       "distanceError"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

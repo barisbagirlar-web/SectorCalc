@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "The total bill amount before service charge and taxes."
+      "businessContext": "The total bill amount before service charge and taxes.",
+      "label_i18n": {
+        "en": "Bill Subtotal",
+        "tr": "Bill Subtotal",
+        "de": "Bill Subtotal",
+        "fr": "Bill Subtotal",
+        "es": "Bill Subtotal",
+        "ar": "Bill Subtotal"
+      }
     },
     {
       "id": "serviceChargeRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "percentage",
       "default": 18,
-      "businessContext": "Common service charge rate, e.g., 18% for large parties."
+      "businessContext": "Common service charge rate, e.g., 18% for large parties.",
+      "label_i18n": {
+        "en": "Service Charge Rate",
+        "tr": "Service Charge Rate",
+        "de": "Service Charge Rate",
+        "fr": "Service Charge Rate",
+        "es": "Service Charge Rate",
+        "ar": "Service Charge Rate"
+      }
     },
     {
       "id": "minServiceCharge",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 5,
-      "businessContext": "A minimum service charge to be applied regardless of percentage."
+      "businessContext": "A minimum service charge to be applied regardless of percentage.",
+      "label_i18n": {
+        "en": "Minimum Service Charge",
+        "tr": "Minimum Service Charge",
+        "de": "Minimum Service Charge",
+        "fr": "Minimum Service Charge",
+        "es": "Minimum Service Charge",
+        "ar": "Minimum Service Charge"
+      }
     },
     {
       "id": "partySize",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "persons",
       "default": 1,
-      "businessContext": "Number of people in the party; some restaurants apply service charge only for parties above a threshold."
+      "businessContext": "Number of people in the party; some restaurants apply service charge only for parties above a threshold.",
+      "label_i18n": {
+        "en": "Party Size",
+        "tr": "Party Size",
+        "de": "Party Size",
+        "fr": "Party Size",
+        "es": "Party Size",
+        "ar": "Party Size"
+      }
     },
     {
       "id": "partyThreshold",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "persons",
       "default": 6,
-      "businessContext": "If party size is above this threshold, service charge is mandatory."
+      "businessContext": "If party size is above this threshold, service charge is mandatory.",
+      "label_i18n": {
+        "en": "Service Charge Threshold",
+        "tr": "Service Charge Threshold",
+        "de": "Service Charge Threshold",
+        "fr": "Service Charge Threshold",
+        "es": "Service Charge Threshold",
+        "ar": "Service Charge Threshold"
+      }
     }
   ],
   "formulas": {
@@ -54,8 +94,8 @@
       "effectiveRate"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

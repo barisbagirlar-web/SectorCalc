@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Uncontrolled hypertension"
+      "businessContext": "Uncontrolled hypertension",
+      "label_i18n": {
+        "en": "Hypertension (SBP>160mmHg)",
+        "tr": "Hypertension (SBP>160mmHg)",
+        "de": "Hypertension (SBP>160mmHg)",
+        "fr": "Hypertension (SBP>160mmHg)",
+        "es": "Hypertension (SBP>160mmHg)",
+        "ar": "Hypertension (SBP>160mmHg)"
+      }
     },
     {
       "id": "abnormalRenal",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Chronic dialysis, renal transplant, serum creatinine ≥2.26 mg/dL or ≥200 µmol/L"
+      "businessContext": "Chronic dialysis, renal transplant, serum creatinine ≥2.26 mg/dL or ≥200 µmol/L",
+      "label_i18n": {
+        "en": "Abnormal Renal Function (dialysis, transplant, Cr>2.26mg/dL or >200µmol/L)",
+        "tr": "Abnormal Renal Function (dialysis, transplant, Cr>2.26mg/dL or >200µmol/L)",
+        "de": "Abnormal Renal Function (dialysis, transplant, Cr>2.26mg/dL or >200µmol/L)",
+        "fr": "Abnormal Renal Function (dialysis, transplant, Cr>2.26mg/dL or >200µmol/L)",
+        "es": "Abnormal Renal Function (dialysis, transplant, Cr>2.26mg/dL or >200µmol/L)",
+        "ar": "Abnormal Renal Function (dialysis, transplant, Cr>2.26mg/dL or >200µmol/L)"
+      }
     },
     {
       "id": "abnormalLiver",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Chronic hepatic disease (cirrhosis) or biochemical evidence of significant hepatic derangement"
+      "businessContext": "Chronic hepatic disease (cirrhosis) or biochemical evidence of significant hepatic derangement",
+      "label_i18n": {
+        "en": "Abnormal Liver Function (cirrhosis, bilirubin >2x ULN, AST/ALT/ALP >3x ULN)",
+        "tr": "Abnormal Liver Function (cirrhosis, bilirubin >2x ULN, AST/ALT/ALP >3x ULN)",
+        "de": "Abnormal Liver Function (cirrhosis, bilirubin >2x ULN, AST/ALT/ALP >3x ULN)",
+        "fr": "Abnormal Liver Function (cirrhosis, bilirubin >2x ULN, AST/ALT/ALP >3x ULN)",
+        "es": "Abnormal Liver Function (cirrhosis, bilirubin >2x ULN, AST/ALT/ALP >3x ULN)",
+        "ar": "Abnormal Liver Function (cirrhosis, bilirubin >2x ULN, AST/ALT/ALP >3x ULN)"
+      }
     },
     {
       "id": "stroke",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Previous stroke, transient ischemic attack, or thromboembolism"
+      "businessContext": "Previous stroke, transient ischemic attack, or thromboembolism",
+      "label_i18n": {
+        "en": "Stroke History",
+        "tr": "Stroke History",
+        "de": "Stroke History",
+        "fr": "Stroke History",
+        "es": "Stroke History",
+        "ar": "Stroke History"
+      }
     },
     {
       "id": "bleeding",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "History of major bleeding or predisposition to bleeding (e.g., bleeding diathesis, anemia)"
+      "businessContext": "History of major bleeding or predisposition to bleeding (e.g., bleeding diathesis, anemia)",
+      "label_i18n": {
+        "en": "Bleeding History or Predisposition",
+        "tr": "Bleeding History or Predisposition",
+        "de": "Bleeding History or Predisposition",
+        "fr": "Bleeding History or Predisposition",
+        "es": "Bleeding History or Predisposition",
+        "ar": "Bleeding History or Predisposition"
+      }
     },
     {
       "id": "labileINR",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Labile international normalized ratio (INR), unstable or high INRs, or poor time in therapeutic range (<60%)"
+      "businessContext": "Labile international normalized ratio (INR), unstable or high INRs, or poor time in therapeutic range (<60%)",
+      "label_i18n": {
+        "en": "Labile INR (unstable/high, TTR <60%)",
+        "tr": "Labile INR (unstable/high, TTR <60%)",
+        "de": "Labile INR (unstable/high, TTR <60%)",
+        "fr": "Labile INR (unstable/high, TTR <60%)",
+        "es": "Labile INR (unstable/high, TTR <60%)",
+        "ar": "Labile INR (unstable/high, TTR <60%)"
+      }
     },
     {
       "id": "elderly",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Age >65 years"
+      "businessContext": "Age >65 years",
+      "label_i18n": {
+        "en": "Elderly (age >65 years)",
+        "tr": "Elderly (age >65 years)",
+        "de": "Elderly (age >65 years)",
+        "fr": "Elderly (age >65 years)",
+        "es": "Elderly (age >65 years)",
+        "ar": "Elderly (age >65 years)"
+      }
     },
     {
       "id": "drugsAlcohol",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Concomitant use of antiplatelet agents or non-steroidal anti-inflammatory drugs, or alcohol excess ≥8 drinks/week"
+      "businessContext": "Concomitant use of antiplatelet agents or non-steroidal anti-inflammatory drugs, or alcohol excess ≥8 drinks/week",
+      "label_i18n": {
+        "en": "Drugs/Alcohol (antiplatelet agents, NSAIDs, alcohol abuse ≥8 drinks/week)",
+        "tr": "Drugs/Alcohol (antiplatelet agents, NSAIDs, alcohol abuse ≥8 drinks/week)",
+        "de": "Drugs/Alcohol (antiplatelet agents, NSAIDs, alcohol abuse ≥8 drinks/week)",
+        "fr": "Drugs/Alcohol (antiplatelet agents, NSAIDs, alcohol abuse ≥8 drinks/week)",
+        "es": "Drugs/Alcohol (antiplatelet agents, NSAIDs, alcohol abuse ≥8 drinks/week)",
+        "ar": "Drugs/Alcohol (antiplatelet agents, NSAIDs, alcohol abuse ≥8 drinks/week)"
+      }
     }
   ],
   "formulas": {
@@ -76,8 +140,8 @@
       "riskCategory"
     ]
   },
-  "category": "Kalite & Süreç Kontrol",
-  "sector": "Kimya & İlaç",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

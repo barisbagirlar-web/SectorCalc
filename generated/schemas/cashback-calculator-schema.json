@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Toplam satış faturası tutarı (TL)"
+      "businessContext": "Toplam satış faturası tutarı (TL)",
+      "label_i18n": {
+        "en": "Satın Alma Tutarı",
+        "tr": "Satın Alma Tutarı",
+        "de": "Satın Alma Tutarı",
+        "fr": "Satın Alma Tutarı",
+        "es": "Satın Alma Tutarı",
+        "ar": "Satın Alma Tutarı"
+      }
     },
     {
       "id": "cashbackRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Nakit iade yüzdesi"
+      "businessContext": "Nakit iade yüzdesi",
+      "label_i18n": {
+        "en": "Nakit İade Oranı",
+        "tr": "Nakit İade Oranı",
+        "de": "Nakit İade Oranı",
+        "fr": "Nakit İade Oranı",
+        "es": "Nakit İade Oranı",
+        "ar": "Nakit İade Oranı"
+      }
     },
     {
       "id": "minSpend",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Nakit iade kazanmak için gerekli minimum harcama limiti"
+      "businessContext": "Nakit iade kazanmak için gerekli minimum harcama limiti",
+      "label_i18n": {
+        "en": "Minimum Harcama",
+        "tr": "Minimum Harcama",
+        "de": "Minimum Harcama",
+        "fr": "Minimum Harcama",
+        "es": "Minimum Harcama",
+        "ar": "Minimum Harcama"
+      }
     },
     {
       "id": "maxCashback",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Maksimum nakit iade miktarı (0 = limitsiz)"
+      "businessContext": "Maksimum nakit iade miktarı (0 = limitsiz)",
+      "label_i18n": {
+        "en": "Maksimum İade Limiti",
+        "tr": "Maksimum İade Limiti",
+        "de": "Maksimum İade Limiti",
+        "fr": "Maksimum İade Limiti",
+        "es": "Maksimum İade Limiti",
+        "ar": "Maksimum İade Limiti"
+      }
     },
     {
       "id": "campaignMultiplier",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "çarpan",
       "default": 1,
-      "businessContext": "Özel dönem kampanya katsayısı"
+      "businessContext": "Özel dönem kampanya katsayısı",
+      "label_i18n": {
+        "en": "Kampanya Çarpanı",
+        "tr": "Kampanya Çarpanı",
+        "de": "Kampanya Çarpanı",
+        "fr": "Kampanya Çarpanı",
+        "es": "Kampanya Çarpanı",
+        "ar": "Kampanya Çarpanı"
+      }
     }
   ],
   "formulas": {
@@ -54,8 +94,8 @@
       "qualifyingSpend"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

@@ -19,6 +19,8 @@ function evaluateAllFormulas(input: C1v1_equals_c2v2_calculatorInput): Record<st
   const results: Record<string, number> = {};
   try { const v = (input.c1 * input.v1) / input.c2; results["v2_ideal"] = Number.isFinite(v) ? v : 0; } catch { results["v2_ideal"] = 0; }
   try { const v = ((input.c1 * input.v1) / input.c2) * (1 + input.fire / 100); results["v2_actual"] = Number.isFinite(v) ? v : 0; } catch { results["v2_actual"] = 0; }
+  try { const v = (input.c1 * input.v1) / input.c2; results["_c1___v1____c2"] = Number.isFinite(v) ? v : 0; } catch { results["_c1___v1____c2"] = 0; }
+  try { const v = (results["v2_ideal"] ?? 0) * (1 + input.fire/100); results["v2_ideal____1___fire_100_"] = Number.isFinite(v) ? v : 0; } catch { results["v2_ideal____1___fire_100_"] = 0; }
   return results;
 }
 

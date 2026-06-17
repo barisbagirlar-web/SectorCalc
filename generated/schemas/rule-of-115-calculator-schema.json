@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "%",
       "default": 8,
-      "businessContext": "Yatırımın yıllık nominal getiri oranı."
+      "businessContext": "Yatırımın yıllık nominal getiri oranı.",
+      "label_i18n": {
+        "en": "Yıllık Faiz Oranı (%)",
+        "tr": "Yıllık Faiz Oranı (%)",
+        "de": "Yıllık Faiz Oranı (%)",
+        "fr": "Yıllık Faiz Oranı (%)",
+        "es": "Yıllık Faiz Oranı (%)",
+        "ar": "Yıllık Faiz Oranı (%)"
+      }
     },
     {
       "id": "taxRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Getiri üzerinden alınan vergi oranı (0 ise vergi yok)."
+      "businessContext": "Getiri üzerinden alınan vergi oranı (0 ise vergi yok).",
+      "label_i18n": {
+        "en": "Vergi Oranı (%)",
+        "tr": "Vergi Oranı (%)",
+        "de": "Vergi Oranı (%)",
+        "fr": "Vergi Oranı (%)",
+        "es": "Vergi Oranı (%)",
+        "ar": "Vergi Oranı (%)"
+      }
     },
     {
       "id": "compoundingFrequency",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dönem/yıl",
       "default": 1,
-      "businessContext": "Faizin yılda kaç kez bileşiklendiği (ör. aylık için 12)."
+      "businessContext": "Faizin yılda kaç kez bileşiklendiği (ör. aylık için 12).",
+      "label_i18n": {
+        "en": "Bileşik Dönemi (yıl başına)",
+        "tr": "Bileşik Dönemi (yıl başına)",
+        "de": "Bileşik Dönemi (yıl başına)",
+        "fr": "Bileşik Dönemi (yıl başına)",
+        "es": "Bileşik Dönemi (yıl başına)",
+        "ar": "Bileşik Dönemi (yıl başına)"
+      }
     },
     {
       "id": "principal",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TL",
       "default": 1000,
-      "businessContext": "Opsiyonel: 3 katına çıkacak başlangıç tutarı."
+      "businessContext": "Opsiyonel: 3 katına çıkacak başlangıç tutarı.",
+      "label_i18n": {
+        "en": "Başlangıç Anapara",
+        "tr": "Başlangıç Anapara",
+        "de": "Başlangıç Anapara",
+        "fr": "Başlangıç Anapara",
+        "es": "Başlangıç Anapara",
+        "ar": "Başlangıç Anapara"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "targetAmount"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Vergi & Finansal Raporlama",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

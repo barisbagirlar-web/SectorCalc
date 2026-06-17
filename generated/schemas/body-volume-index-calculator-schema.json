@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Ayakta, ayakkabısız ölçülen boy uzunluğu"
+      "businessContext": "Ayakta, ayakkabısız ölçülen boy uzunluğu",
+      "label_i18n": {
+        "en": "Boy (cm)",
+        "tr": "Boy (cm)",
+        "de": "Boy (cm)",
+        "fr": "Boy (cm)",
+        "es": "Boy (cm)",
+        "ar": "Boy (cm)"
+      }
     },
     {
       "id": "weight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Dijital terazi ile ölçülen vücut ağırlığı"
+      "businessContext": "Dijital terazi ile ölçülen vücut ağırlığı",
+      "label_i18n": {
+        "en": "Ağırlık (kg)",
+        "tr": "Ağırlık (kg)",
+        "de": "Ağırlık (kg)",
+        "fr": "Ağırlık (kg)",
+        "es": "Ağırlık (kg)",
+        "ar": "Ağırlık (kg)"
+      }
     },
     {
       "id": "waist",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 80,
-      "businessContext": "En dar noktadan (genellikle göbek deliğinin hemen üstü) ölçülen bel çevresi"
+      "businessContext": "En dar noktadan (genellikle göbek deliğinin hemen üstü) ölçülen bel çevresi",
+      "label_i18n": {
+        "en": "Bel Çevresi (cm)",
+        "tr": "Bel Çevresi (cm)",
+        "de": "Bel Çevresi (cm)",
+        "fr": "Bel Çevresi (cm)",
+        "es": "Bel Çevresi (cm)",
+        "ar": "Bel Çevresi (cm)"
+      }
     },
     {
       "id": "hip",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cm",
       "default": 95,
-      "businessContext": "En geniş noktadan (kalça çıkıntısı üzerinden) ölçülen kalça çevresi"
+      "businessContext": "En geniş noktadan (kalça çıkıntısı üzerinden) ölçülen kalça çevresi",
+      "label_i18n": {
+        "en": "Kalça Çevresi (cm)",
+        "tr": "Kalça Çevresi (cm)",
+        "de": "Kalça Çevresi (cm)",
+        "fr": "Kalça Çevresi (cm)",
+        "es": "Kalça Çevresi (cm)",
+        "ar": "Kalça Çevresi (cm)"
+      }
     },
     {
       "id": "chest",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "cm",
       "default": 100,
-      "businessContext": "Koltuk altı hizasından, normal solunumda ölçülen göğüs çevresi"
+      "businessContext": "Koltuk altı hizasından, normal solunumda ölçülen göğüs çevresi",
+      "label_i18n": {
+        "en": "Göğüs Çevresi (cm)",
+        "tr": "Göğüs Çevresi (cm)",
+        "de": "Göğüs Çevresi (cm)",
+        "fr": "Göğüs Çevresi (cm)",
+        "es": "Göğüs Çevresi (cm)",
+        "ar": "Göğüs Çevresi (cm)"
+      }
     }
   ],
   "formulas": {
@@ -52,8 +92,8 @@
       "bodyVolume"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

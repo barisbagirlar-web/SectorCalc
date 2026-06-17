@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TL",
       "default": 10000,
-      "businessContext": "Toplam dağıtılacak maliyet veya gelir tutarı"
+      "businessContext": "Toplam dağıtılacak maliyet veya gelir tutarı",
+      "label_i18n": {
+        "en": "Dağıtılacak Toplam Tutar",
+        "tr": "Dağıtılacak Toplam Tutar",
+        "de": "Dağıtılacak Toplam Tutar",
+        "fr": "Dağıtılacak Toplam Tutar",
+        "es": "Dağıtılacak Toplam Tutar",
+        "ar": "Dağıtılacak Toplam Tutar"
+      }
     },
     {
       "id": "factor1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "saat",
       "default": 50,
-      "businessContext": "Birinci atıf faktörünün katkı miktarı (ör. makine saati)"
+      "businessContext": "Birinci atıf faktörünün katkı miktarı (ör. makine saati)",
+      "label_i18n": {
+        "en": "1. Faktör Katkısı",
+        "tr": "1. Faktör Katkısı",
+        "de": "1. Faktör Katkısı",
+        "fr": "1. Faktör Katkısı",
+        "es": "1. Faktör Katkısı",
+        "ar": "1. Faktör Katkısı"
+      }
     },
     {
       "id": "factor2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "saat",
       "default": 30,
-      "businessContext": "İkinci atıf faktörünün katkı miktarı"
+      "businessContext": "İkinci atıf faktörünün katkı miktarı",
+      "label_i18n": {
+        "en": "2. Faktör Katkısı",
+        "tr": "2. Faktör Katkısı",
+        "de": "2. Faktör Katkısı",
+        "fr": "2. Faktör Katkısı",
+        "es": "2. Faktör Katkısı",
+        "ar": "2. Faktör Katkısı"
+      }
     },
     {
       "id": "factor3",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "saat",
       "default": 10,
-      "businessContext": "Üçüncü atıf faktörünün katkı miktarı"
+      "businessContext": "Üçüncü atıf faktörünün katkı miktarı",
+      "label_i18n": {
+        "en": "3. Faktör Katkısı",
+        "tr": "3. Faktör Katkısı",
+        "de": "3. Faktör Katkısı",
+        "fr": "3. Faktör Katkısı",
+        "es": "3. Faktör Katkısı",
+        "ar": "3. Faktör Katkısı"
+      }
     },
     {
       "id": "factor4",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "saat",
       "default": 10,
-      "businessContext": "Dördüncü atıf faktörünün katkı miktarı"
+      "businessContext": "Dördüncü atıf faktörünün katkı miktarı",
+      "label_i18n": {
+        "en": "4. Faktör Katkısı",
+        "tr": "4. Faktör Katkısı",
+        "de": "4. Faktör Katkısı",
+        "fr": "4. Faktör Katkısı",
+        "es": "4. Faktör Katkısı",
+        "ar": "4. Faktör Katkısı"
+      }
     }
   ],
   "formulas": {
@@ -59,8 +99,8 @@
       "attributed4"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

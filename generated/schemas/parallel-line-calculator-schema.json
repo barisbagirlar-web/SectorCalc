@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 1,
-      "businessContext": "Resistance value of the first resistor in the parallel network."
+      "businessContext": "Resistance value of the first resistor in the parallel network.",
+      "label_i18n": {
+        "en": "Resistor R1",
+        "tr": "Resistor R1",
+        "de": "Resistor R1",
+        "fr": "Resistor R1",
+        "es": "Resistor R1",
+        "ar": "Resistor R1"
+      }
     },
     {
       "id": "R2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 1,
-      "businessContext": "Resistance value of the second resistor in the parallel network."
+      "businessContext": "Resistance value of the second resistor in the parallel network.",
+      "label_i18n": {
+        "en": "Resistor R2",
+        "tr": "Resistor R2",
+        "de": "Resistor R2",
+        "fr": "Resistor R2",
+        "es": "Resistor R2",
+        "ar": "Resistor R2"
+      }
     },
     {
       "id": "R3",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 1,
-      "businessContext": "Resistance value of the third resistor in the parallel network."
+      "businessContext": "Resistance value of the third resistor in the parallel network.",
+      "label_i18n": {
+        "en": "Resistor R3",
+        "tr": "Resistor R3",
+        "de": "Resistor R3",
+        "fr": "Resistor R3",
+        "es": "Resistor R3",
+        "ar": "Resistor R3"
+      }
     },
     {
       "id": "R4",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 1,
-      "businessContext": "Resistance value of the fourth resistor in the parallel network."
+      "businessContext": "Resistance value of the fourth resistor in the parallel network.",
+      "label_i18n": {
+        "en": "Resistor R4",
+        "tr": "Resistor R4",
+        "de": "Resistor R4",
+        "fr": "Resistor R4",
+        "es": "Resistor R4",
+        "ar": "Resistor R4"
+      }
     }
   ],
   "formulas": {
@@ -52,8 +84,8 @@
       "totalConductance"
     ]
   },
-  "category": "Diğer",
-  "sector": "Telekomünikasyon",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

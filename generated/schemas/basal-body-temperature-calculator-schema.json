@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°C",
       "default": 36.5,
-      "businessContext": "Basal body temperature reading for day 1"
+      "businessContext": "Basal body temperature reading for day 1",
+      "label_i18n": {
+        "en": "Day 1 Temperature",
+        "tr": "Day 1 Temperature",
+        "de": "Day 1 Temperature",
+        "fr": "Day 1 Temperature",
+        "es": "Day 1 Temperature",
+        "ar": "Day 1 Temperature"
+      }
     },
     {
       "id": "day2Temp",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°C",
       "default": 36.6,
-      "businessContext": "Basal body temperature reading for day 2"
+      "businessContext": "Basal body temperature reading for day 2",
+      "label_i18n": {
+        "en": "Day 2 Temperature",
+        "tr": "Day 2 Temperature",
+        "de": "Day 2 Temperature",
+        "fr": "Day 2 Temperature",
+        "es": "Day 2 Temperature",
+        "ar": "Day 2 Temperature"
+      }
     },
     {
       "id": "day3Temp",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 36.7,
-      "businessContext": "Basal body temperature reading for day 3"
+      "businessContext": "Basal body temperature reading for day 3",
+      "label_i18n": {
+        "en": "Day 3 Temperature",
+        "tr": "Day 3 Temperature",
+        "de": "Day 3 Temperature",
+        "fr": "Day 3 Temperature",
+        "es": "Day 3 Temperature",
+        "ar": "Day 3 Temperature"
+      }
     },
     {
       "id": "baselineTemp",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 36.5,
-      "businessContext": "Average temperature from previous cycle or reference"
+      "businessContext": "Average temperature from previous cycle or reference",
+      "label_i18n": {
+        "en": "Baseline Temperature",
+        "tr": "Baseline Temperature",
+        "de": "Baseline Temperature",
+        "fr": "Baseline Temperature",
+        "es": "Baseline Temperature",
+        "ar": "Baseline Temperature"
+      }
     },
     {
       "id": "threshold",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "°C",
       "default": 0.2,
-      "businessContext": "Temperature increase threshold to indicate shift"
+      "businessContext": "Temperature increase threshold to indicate shift",
+      "label_i18n": {
+        "en": "Threshold Rise",
+        "tr": "Threshold Rise",
+        "de": "Threshold Rise",
+        "fr": "Threshold Rise",
+        "es": "Threshold Rise",
+        "ar": "Threshold Rise"
+      }
     },
     {
       "id": "daysToConfirm",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "days",
       "default": 3,
-      "businessContext": "Number of consecutive days above threshold to confirm shift"
+      "businessContext": "Number of consecutive days above threshold to confirm shift",
+      "label_i18n": {
+        "en": "Days to Confirm",
+        "tr": "Days to Confirm",
+        "de": "Days to Confirm",
+        "fr": "Days to Confirm",
+        "es": "Days to Confirm",
+        "ar": "Days to Confirm"
+      }
     }
   ],
   "formulas": {
@@ -62,8 +110,8 @@
       "daysAboveThreshold"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

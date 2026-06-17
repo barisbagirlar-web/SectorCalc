@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "DPI",
       "default": 300,
-      "businessContext": "Dots per inch of the original image, defining pixel density"
+      "businessContext": "Dots per inch of the original image, defining pixel density",
+      "label_i18n": {
+        "en": "Original Image DPI",
+        "tr": "Original Image DPI",
+        "de": "Original Image DPI",
+        "fr": "Original Image DPI",
+        "es": "Original Image DPI",
+        "ar": "Original Image DPI"
+      }
     },
     {
       "id": "originalWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "inches",
       "default": 8.5,
-      "businessContext": "Physical width of the original image"
+      "businessContext": "Physical width of the original image",
+      "label_i18n": {
+        "en": "Original Width",
+        "tr": "Original Width",
+        "de": "Original Width",
+        "fr": "Original Width",
+        "es": "Original Width",
+        "ar": "Original Width"
+      }
     },
     {
       "id": "originalHeight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "inches",
       "default": 11,
-      "businessContext": "Physical height of the original image"
+      "businessContext": "Physical height of the original image",
+      "label_i18n": {
+        "en": "Original Height",
+        "tr": "Original Height",
+        "de": "Original Height",
+        "fr": "Original Height",
+        "es": "Original Height",
+        "ar": "Original Height"
+      }
     },
     {
       "id": "displayWidth",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "inches",
       "default": 5,
-      "businessContext": "Desired physical width for display"
+      "businessContext": "Desired physical width for display",
+      "label_i18n": {
+        "en": "Display Width",
+        "tr": "Display Width",
+        "de": "Display Width",
+        "fr": "Display Width",
+        "es": "Display Width",
+        "ar": "Display Width"
+      }
     },
     {
       "id": "displayHeight",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "inches",
       "default": 7,
-      "businessContext": "Desired physical height for display"
+      "businessContext": "Desired physical height for display",
+      "label_i18n": {
+        "en": "Display Height",
+        "tr": "Display Height",
+        "de": "Display Height",
+        "fr": "Display Height",
+        "es": "Display Height",
+        "ar": "Display Height"
+      }
     }
   ],
   "formulas": {
@@ -71,8 +111,8 @@
       }
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

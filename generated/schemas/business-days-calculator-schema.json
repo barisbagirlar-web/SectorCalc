@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "days",
       "default": 0,
-      "businessContext": "Toplam takvim günü sayısı (bitiş tarihi - başlangıç tarihi)."
+      "businessContext": "Toplam takvim günü sayısı (bitiş tarihi - başlangıç tarihi).",
+      "label_i18n": {
+        "en": "Total Calendar Days",
+        "tr": "Total Calendar Days",
+        "de": "Total Calendar Days",
+        "fr": "Total Calendar Days",
+        "es": "Total Calendar Days",
+        "ar": "Total Calendar Days"
+      }
     },
     {
       "id": "saturdays",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "days",
       "default": 0,
-      "businessContext": "Dönem içindeki Cumartesi günlerinin sayısı."
+      "businessContext": "Dönem içindeki Cumartesi günlerinin sayısı.",
+      "label_i18n": {
+        "en": "Number of Saturdays",
+        "tr": "Number of Saturdays",
+        "de": "Number of Saturdays",
+        "fr": "Number of Saturdays",
+        "es": "Number of Saturdays",
+        "ar": "Number of Saturdays"
+      }
     },
     {
       "id": "sundays",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "days",
       "default": 0,
-      "businessContext": "Dönem içindeki Pazar günlerinin sayısı."
+      "businessContext": "Dönem içindeki Pazar günlerinin sayısı.",
+      "label_i18n": {
+        "en": "Number of Sundays",
+        "tr": "Number of Sundays",
+        "de": "Number of Sundays",
+        "fr": "Number of Sundays",
+        "es": "Number of Sundays",
+        "ar": "Number of Sundays"
+      }
     },
     {
       "id": "holidays",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "days",
       "default": 0,
-      "businessContext": "Hafta içi resmî tatil günleri sayısı."
+      "businessContext": "Hafta içi resmî tatil günleri sayısı.",
+      "label_i18n": {
+        "en": "Number of Weekday Holidays",
+        "tr": "Number of Weekday Holidays",
+        "de": "Number of Weekday Holidays",
+        "fr": "Number of Weekday Holidays",
+        "es": "Number of Weekday Holidays",
+        "ar": "Number of Weekday Holidays"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "totalNonWorkingDays"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "date-time",
   "sectorSlug": "daily-renovation",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "meters",
       "default": 100,
-      "businessContext": "Total distance swum in meters"
+      "businessContext": "Total distance swum in meters",
+      "label_i18n": {
+        "en": "Distance",
+        "tr": "Distance",
+        "de": "Distance",
+        "fr": "Distance",
+        "es": "Distance",
+        "ar": "Distance"
+      }
     },
     {
       "id": "timeMinutes",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 2,
-      "businessContext": "Total time in minutes"
+      "businessContext": "Total time in minutes",
+      "label_i18n": {
+        "en": "Time (minutes)",
+        "tr": "Time (minutes)",
+        "de": "Time (minutes)",
+        "fr": "Time (minutes)",
+        "es": "Time (minutes)",
+        "ar": "Time (minutes)"
+      }
     },
     {
       "id": "timeSeconds",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "seconds",
       "default": 0,
-      "businessContext": "Additional seconds component of total time"
+      "businessContext": "Additional seconds component of total time",
+      "label_i18n": {
+        "en": "Time (seconds)",
+        "tr": "Time (seconds)",
+        "de": "Time (seconds)",
+        "fr": "Time (seconds)",
+        "es": "Time (seconds)",
+        "ar": "Time (seconds)"
+      }
     },
     {
       "id": "poolLength",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "meters",
       "default": 25,
-      "businessContext": "Length of the swimming pool in meters"
+      "businessContext": "Length of the swimming pool in meters",
+      "label_i18n": {
+        "en": "Pool Length",
+        "tr": "Pool Length",
+        "de": "Pool Length",
+        "fr": "Pool Length",
+        "es": "Pool Length",
+        "ar": "Pool Length"
+      }
     }
   ],
   "formulas": {
@@ -39,7 +71,8 @@
     "pacePer100m": "totalTimeSeconds / (distance / 100)",
     "pacePerLap": "totalTimeSeconds / (distance / poolLength)",
     "speedMps": "distance / totalTimeSeconds",
-    "speedKmph": "speedMps * 3.6"
+    "speedKmph": "speedMps * 3.6",
+    "_speedKmph__km_h": "{speedKmph} km/h"
   },
   "outputs": {
     "primary": "pacePer100m",
@@ -49,8 +82,8 @@
       "Speed: {speedKmph} km/h"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

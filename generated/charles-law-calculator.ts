@@ -18,6 +18,9 @@ function evaluateAllFormulas(input: Charles_law_calculatorInput): Record<string,
   try { const v = input.initialVolume * input.finalTemperature / input.initialTemperature; results["finalVolume"] = Number.isFinite(v) ? v : 0; } catch { results["finalVolume"] = 0; }
   try { const v = (results["finalVolume"] ?? 0) - input.initialVolume; results["volumeChange"] = Number.isFinite(v) ? v : 0; } catch { results["volumeChange"] = 0; }
   try { const v = ((results["volumeChange"] ?? 0) / input.initialVolume) * 100; results["volumeChangePercent"] = Number.isFinite(v) ? v : 0; } catch { results["volumeChangePercent"] = 0; }
+  try { const v = input.initialVolume * input.finalTemperature / input.initialTemperature; results["finalVolume___initialVolume___finalTempe"] = Number.isFinite(v) ? v : 0; } catch { results["finalVolume___initialVolume___finalTempe"] = 0; }
+  try { const v = (results["finalVolume"] ?? 0) - input.initialVolume; results["volumeChange___finalVolume___initialVolu"] = Number.isFinite(v) ? v : 0; } catch { results["volumeChange___finalVolume___initialVolu"] = 0; }
+  try { const v = ((results["volumeChange"] ?? 0) / input.initialVolume) * 100; results["volumeChangePercent____volumeChange___in"] = Number.isFinite(v) ? v : 0; } catch { results["volumeChangePercent____volumeChange___in"] = 0; }
   return results;
 }
 

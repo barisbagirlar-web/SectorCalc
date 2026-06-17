@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "min",
       "default": 30,
-      "businessContext": "Total running or walking time in minutes."
+      "businessContext": "Total running or walking time in minutes.",
+      "label_i18n": {
+        "en": "Total Time (minutes)",
+        "tr": "Total Time (minutes)",
+        "de": "Total Time (minutes)",
+        "fr": "Total Time (minutes)",
+        "es": "Total Time (minutes)",
+        "ar": "Total Time (minutes)"
+      }
     },
     {
       "id": "totalSeconds",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "s",
       "default": 0,
-      "businessContext": "Additional seconds beyond total minutes."
+      "businessContext": "Additional seconds beyond total minutes.",
+      "label_i18n": {
+        "en": "Total Time (seconds)",
+        "tr": "Total Time (seconds)",
+        "de": "Total Time (seconds)",
+        "fr": "Total Time (seconds)",
+        "es": "Total Time (seconds)",
+        "ar": "Total Time (seconds)"
+      }
     },
     {
       "id": "distanceKm",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "km",
       "default": 5,
-      "businessContext": "Total distance covered in kilometers."
+      "businessContext": "Total distance covered in kilometers.",
+      "label_i18n": {
+        "en": "Distance (kilometers)",
+        "tr": "Distance (kilometers)",
+        "de": "Distance (kilometers)",
+        "fr": "Distance (kilometers)",
+        "es": "Distance (kilometers)",
+        "ar": "Distance (kilometers)"
+      }
     }
   ],
   "formulas": {
@@ -31,7 +55,9 @@
     "paceSecondsPerKm": "totalTimeSeconds / distanceKm",
     "paceMinutes": "Math.floor(paceSecondsPerKm / 60)",
     "paceSeconds": "Math.round(paceSecondsPerKm % 60)",
-    "paceFormatted": "paceMinutes + ':' + (paceSeconds < 10 ? '0' : '') + paceSeconds"
+    "paceFormatted": "paceMinutes + ':' + (paceSeconds < 10 ? '0' : '') + paceSeconds",
+    "paceMinutes_____min_____paceSeconds_____": "paceMinutes + ' min ' + paceSeconds + ' sec per km'",
+    "paceSecondsPerKm_____seconds_per_km_": "paceSecondsPerKm + ' seconds per km'"
   },
   "outputs": {
     "primary": "paceFormatted",
@@ -40,8 +66,8 @@
       "paceSecondsPerKm + ' seconds per km'"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

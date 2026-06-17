@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "words",
       "default": 1000,
-      "businessContext": "Total word count of the document"
+      "businessContext": "Total word count of the document",
+      "label_i18n": {
+        "en": "Word Count",
+        "tr": "Word Count",
+        "de": "Word Count",
+        "fr": "Word Count",
+        "es": "Word Count",
+        "ar": "Word Count"
+      }
     },
     {
       "id": "pages",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "pages",
       "default": 5,
-      "businessContext": "Total number of pages"
+      "businessContext": "Total number of pages",
+      "label_i18n": {
+        "en": "Number of Pages",
+        "tr": "Number of Pages",
+        "de": "Number of Pages",
+        "fr": "Number of Pages",
+        "es": "Number of Pages",
+        "ar": "Number of Pages"
+      }
     },
     {
       "id": "authorsPerCitation",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "count",
       "default": 2,
-      "businessContext": "Average number of authors per citation"
+      "businessContext": "Average number of authors per citation",
+      "label_i18n": {
+        "en": "Avg Authors per Citation",
+        "tr": "Avg Authors per Citation",
+        "de": "Avg Authors per Citation",
+        "fr": "Avg Authors per Citation",
+        "es": "Avg Authors per Citation",
+        "ar": "Avg Authors per Citation"
+      }
     },
     {
       "id": "sourcesPerPage",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "count",
       "default": 3,
-      "businessContext": "Average number of distinct sources cited per page"
+      "businessContext": "Average number of distinct sources cited per page",
+      "label_i18n": {
+        "en": "Sources per Page",
+        "tr": "Sources per Page",
+        "de": "Sources per Page",
+        "fr": "Sources per Page",
+        "es": "Sources per Page",
+        "ar": "Sources per Page"
+      }
     },
     {
       "id": "inTextFrequency",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "citations per page",
       "default": 2,
-      "businessContext": "How many in-text citations appear per page"
+      "businessContext": "How many in-text citations appear per page",
+      "label_i18n": {
+        "en": "In-text Citation Frequency",
+        "tr": "In-text Citation Frequency",
+        "de": "In-text Citation Frequency",
+        "fr": "In-text Citation Frequency",
+        "es": "In-text Citation Frequency",
+        "ar": "In-text Citation Frequency"
+      }
     },
     {
       "id": "bibliographyEntries",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "count",
       "default": 10,
-      "businessContext": "Total number of bibliography entries"
+      "businessContext": "Total number of bibliography entries",
+      "label_i18n": {
+        "en": "Bibliography Entries",
+        "tr": "Bibliography Entries",
+        "de": "Bibliography Entries",
+        "fr": "Bibliography Entries",
+        "es": "Bibliography Entries",
+        "ar": "Bibliography Entries"
+      }
     }
   ],
   "formulas": {
@@ -62,8 +110,8 @@
       "wordsPerCitation"
     ]
   },
-  "category": "Diğer",
-  "sector": "Enerji & Elektrik",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

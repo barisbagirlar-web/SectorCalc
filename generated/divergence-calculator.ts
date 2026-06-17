@@ -25,6 +25,9 @@ function evaluateAllFormulas(input: Divergence_calculatorInput): Record<string, 
   try { const v = input.dFx_dx; results["contributionX"] = Number.isFinite(v) ? v : 0; } catch { results["contributionX"] = 0; }
   try { const v = input.dFy_dy; results["contributionY"] = Number.isFinite(v) ? v : 0; } catch { results["contributionY"] = 0; }
   try { const v = input.dFz_dz; results["contributionZ"] = Number.isFinite(v) ? v : 0; } catch { results["contributionZ"] = 0; }
+  results["_F_x__x___contributionX"] = 0;
+  results["_F_y__y___contributionY"] = 0;
+  results["_F_z__z___contributionZ"] = 0;
   return results;
 }
 

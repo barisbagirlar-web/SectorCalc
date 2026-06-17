@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Length of side a opposite angle A"
+      "businessContext": "Length of side a opposite angle A",
+      "label_i18n": {
+        "en": "Side a",
+        "tr": "Side a",
+        "de": "Side a",
+        "fr": "Side a",
+        "es": "Side a",
+        "ar": "Side a"
+      }
     },
     {
       "id": "side_b",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Length of side b opposite angle B"
+      "businessContext": "Length of side b opposite angle B",
+      "label_i18n": {
+        "en": "Side b",
+        "tr": "Side b",
+        "de": "Side b",
+        "fr": "Side b",
+        "es": "Side b",
+        "ar": "Side b"
+      }
     },
     {
       "id": "angle_C",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°",
       "default": 60,
-      "businessContext": "Angle between sides a and b (in degrees)"
+      "businessContext": "Angle between sides a and b (in degrees)",
+      "label_i18n": {
+        "en": "Angle C",
+        "tr": "Angle C",
+        "de": "Angle C",
+        "fr": "Angle C",
+        "es": "Angle C",
+        "ar": "Angle C"
+      }
     }
   ],
   "formulas": {
@@ -39,8 +63,8 @@
       "side_c = {side_c} m"
     ]
   },
-  "category": "Diğer",
-  "sector": "İnşaat & Yapı",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

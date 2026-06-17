@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 5.972e+24,
-      "businessContext": "Mass of the first object (e.g., Earth)"
+      "businessContext": "Mass of the first object (e.g., Earth)",
+      "label_i18n": {
+        "en": "Mass 1",
+        "tr": "Mass 1",
+        "de": "Mass 1",
+        "fr": "Mass 1",
+        "es": "Mass 1",
+        "ar": "Mass 1"
+      }
     },
     {
       "id": "mass2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "Mass of the second object (e.g., a small object)"
+      "businessContext": "Mass of the second object (e.g., a small object)",
+      "label_i18n": {
+        "en": "Mass 2",
+        "tr": "Mass 2",
+        "de": "Mass 2",
+        "fr": "Mass 2",
+        "es": "Mass 2",
+        "ar": "Mass 2"
+      }
     },
     {
       "id": "distance",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 6371000,
-      "businessContext": "Distance between centers of the two masses"
+      "businessContext": "Distance between centers of the two masses",
+      "label_i18n": {
+        "en": "Distance",
+        "tr": "Distance",
+        "de": "Distance",
+        "fr": "Distance",
+        "es": "Distance",
+        "ar": "Distance"
+      }
     },
     {
       "id": "gravitationalConstant",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m³/(kg·s²)",
       "default": 6.6743e-11,
-      "businessContext": "Universal gravitational constant"
+      "businessContext": "Universal gravitational constant",
+      "label_i18n": {
+        "en": "Gravitational Constant (G)",
+        "tr": "Gravitational Constant (G)",
+        "de": "Gravitational Constant (G)",
+        "fr": "Gravitational Constant (G)",
+        "es": "Gravitational Constant (G)",
+        "ar": "Gravitational Constant (G)"
+      }
     }
   ],
   "formulas": {
@@ -47,8 +79,8 @@
       "force"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",

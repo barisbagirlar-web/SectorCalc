@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "deliveries",
       "default": 100,
-      "businessContext": "Number of deliveries made on time"
+      "businessContext": "Number of deliveries made on time",
+      "label_i18n": {
+        "en": "On-time Deliveries",
+        "tr": "On-time Deliveries",
+        "de": "On-time Deliveries",
+        "fr": "On-time Deliveries",
+        "es": "On-time Deliveries",
+        "ar": "On-time Deliveries"
+      }
     },
     {
       "id": "totalDeliveries",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "deliveries",
       "default": 120,
-      "businessContext": "Total number of deliveries"
+      "businessContext": "Total number of deliveries",
+      "label_i18n": {
+        "en": "Total Deliveries",
+        "tr": "Total Deliveries",
+        "de": "Total Deliveries",
+        "fr": "Total Deliveries",
+        "es": "Total Deliveries",
+        "ar": "Total Deliveries"
+      }
     },
     {
       "id": "correctOrders",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "orders",
       "default": 110,
-      "businessContext": "Number of orders delivered with correct items and quantity"
+      "businessContext": "Number of orders delivered with correct items and quantity",
+      "label_i18n": {
+        "en": "Correct Orders",
+        "tr": "Correct Orders",
+        "de": "Correct Orders",
+        "fr": "Correct Orders",
+        "es": "Correct Orders",
+        "ar": "Correct Orders"
+      }
     },
     {
       "id": "totalOrders",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "orders",
       "default": 120,
-      "businessContext": "Total number of orders delivered"
+      "businessContext": "Total number of orders delivered",
+      "label_i18n": {
+        "en": "Total Orders",
+        "tr": "Total Orders",
+        "de": "Total Orders",
+        "fr": "Total Orders",
+        "es": "Total Orders",
+        "ar": "Total Orders"
+      }
     },
     {
       "id": "damageFreeShipments",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "shipments",
       "default": 115,
-      "businessContext": "Number of shipments without any damaged items"
+      "businessContext": "Number of shipments without any damaged items",
+      "label_i18n": {
+        "en": "Damage-free Shipments",
+        "tr": "Damage-free Shipments",
+        "de": "Damage-free Shipments",
+        "fr": "Damage-free Shipments",
+        "es": "Damage-free Shipments",
+        "ar": "Damage-free Shipments"
+      }
     },
     {
       "id": "totalShipments",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "shipments",
       "default": 120,
-      "businessContext": "Total number of shipments"
+      "businessContext": "Total number of shipments",
+      "label_i18n": {
+        "en": "Total Shipments",
+        "tr": "Total Shipments",
+        "de": "Total Shipments",
+        "fr": "Total Shipments",
+        "es": "Total Shipments",
+        "ar": "Total Shipments"
+      }
     }
   ],
   "formulas": {
@@ -64,8 +112,8 @@
       "damageFreeRate"
     ]
   },
-  "category": "Lojistik & Rota",
-  "sector": "Denizcilik & Gemi",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",

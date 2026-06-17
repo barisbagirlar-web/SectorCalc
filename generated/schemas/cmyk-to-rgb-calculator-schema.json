@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Cyan component percentage (0-100)"
+      "businessContext": "Cyan component percentage (0-100)",
+      "label_i18n": {
+        "en": "Cyan",
+        "tr": "Cyan",
+        "de": "Cyan",
+        "fr": "Cyan",
+        "es": "Cyan",
+        "ar": "Cyan"
+      }
     },
     {
       "id": "magenta",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Magenta component percentage (0-100)"
+      "businessContext": "Magenta component percentage (0-100)",
+      "label_i18n": {
+        "en": "Magenta",
+        "tr": "Magenta",
+        "de": "Magenta",
+        "fr": "Magenta",
+        "es": "Magenta",
+        "ar": "Magenta"
+      }
     },
     {
       "id": "yellow",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Yellow component percentage (0-100)"
+      "businessContext": "Yellow component percentage (0-100)",
+      "label_i18n": {
+        "en": "Yellow",
+        "tr": "Yellow",
+        "de": "Yellow",
+        "fr": "Yellow",
+        "es": "Yellow",
+        "ar": "Yellow"
+      }
     },
     {
       "id": "black",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Black (Key) component percentage (0-100)"
+      "businessContext": "Black (Key) component percentage (0-100)",
+      "label_i18n": {
+        "en": "Black (Key)",
+        "tr": "Black (Key)",
+        "de": "Black (Key)",
+        "fr": "Black (Key)",
+        "es": "Black (Key)",
+        "ar": "Black (Key)"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "b"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

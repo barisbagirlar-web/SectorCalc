@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 2.5,
-      "businessContext": "Thickness of the steak."
+      "businessContext": "Thickness of the steak.",
+      "label_i18n": {
+        "en": "Steak Thickness",
+        "tr": "Steak Thickness",
+        "de": "Steak Thickness",
+        "fr": "Steak Thickness",
+        "es": "Steak Thickness",
+        "ar": "Steak Thickness"
+      }
     },
     {
       "id": "initialTemp",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°C",
       "default": 5,
-      "businessContext": "Starting temperature of the steak (e.g., from fridge)."
+      "businessContext": "Starting temperature of the steak (e.g., from fridge).",
+      "label_i18n": {
+        "en": "Initial Temperature",
+        "tr": "Initial Temperature",
+        "de": "Initial Temperature",
+        "fr": "Initial Temperature",
+        "es": "Initial Temperature",
+        "ar": "Initial Temperature"
+      }
     },
     {
       "id": "targetTemp",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 55,
-      "businessContext": "Internal temperature for desired doneness (e.g., 55°C for medium-rare)."
+      "businessContext": "Internal temperature for desired doneness (e.g., 55°C for medium-rare).",
+      "label_i18n": {
+        "en": "Target Doneness Temperature",
+        "tr": "Target Doneness Temperature",
+        "de": "Target Doneness Temperature",
+        "fr": "Target Doneness Temperature",
+        "es": "Target Doneness Temperature",
+        "ar": "Target Doneness Temperature"
+      }
     },
     {
       "id": "grillTemp",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 200,
-      "businessContext": "Temperature of the cooking surface or oven."
+      "businessContext": "Temperature of the cooking surface or oven.",
+      "label_i18n": {
+        "en": "Grill/Oven Temperature",
+        "tr": "Grill/Oven Temperature",
+        "de": "Grill/Oven Temperature",
+        "fr": "Grill/Oven Temperature",
+        "es": "Grill/Oven Temperature",
+        "ar": "Grill/Oven Temperature"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "driveFactor"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

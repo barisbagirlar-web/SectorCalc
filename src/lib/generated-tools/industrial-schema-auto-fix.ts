@@ -236,7 +236,7 @@ export function applyIndustrialSchemaAutoFix(
       if (!expression || isFormulaKey(expression, Object.keys(formulas))) {
         continue;
       }
-      if (!looksLikeExpression(expression) || /=/.test(expression.split(/[<>!=]=?/)[0] ?? expression)) {
+      if (!looksLikeExpression(expression) || /=/.test(expression) || /[≈×₀₁₂₃₄]/.test(expression)) {
         continue;
       }
       const key =

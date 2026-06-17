@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Sum of squares for factor A (between rows)"
+      "businessContext": "Sum of squares for factor A (between rows)",
+      "label_i18n": {
+        "en": "Sum of Squares (Factor A)",
+        "tr": "Sum of Squares (Factor A)",
+        "de": "Sum of Squares (Factor A)",
+        "fr": "Sum of Squares (Factor A)",
+        "es": "Sum of Squares (Factor A)",
+        "ar": "Sum of Squares (Factor A)"
+      }
     },
     {
       "id": "SSB",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Sum of squares for factor B (between columns)"
+      "businessContext": "Sum of squares for factor B (between columns)",
+      "label_i18n": {
+        "en": "Sum of Squares (Factor B)",
+        "tr": "Sum of Squares (Factor B)",
+        "de": "Sum of Squares (Factor B)",
+        "fr": "Sum of Squares (Factor B)",
+        "es": "Sum of Squares (Factor B)",
+        "ar": "Sum of Squares (Factor B)"
+      }
     },
     {
       "id": "SSAB",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Sum of squares for the interaction between A and B"
+      "businessContext": "Sum of squares for the interaction between A and B",
+      "label_i18n": {
+        "en": "Sum of Squares (Interaction AxB)",
+        "tr": "Sum of Squares (Interaction AxB)",
+        "de": "Sum of Squares (Interaction AxB)",
+        "fr": "Sum of Squares (Interaction AxB)",
+        "es": "Sum of Squares (Interaction AxB)",
+        "ar": "Sum of Squares (Interaction AxB)"
+      }
     },
     {
       "id": "SSE",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Sum of squares for the error (within groups)"
+      "businessContext": "Sum of squares for the error (within groups)",
+      "label_i18n": {
+        "en": "Error Sum of Squares",
+        "tr": "Error Sum of Squares",
+        "de": "Error Sum of Squares",
+        "fr": "Error Sum of Squares",
+        "es": "Error Sum of Squares",
+        "ar": "Error Sum of Squares"
+      }
     },
     {
       "id": "dfA",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Degrees of freedom for factor A (r - 1)"
+      "businessContext": "Degrees of freedom for factor A (r - 1)",
+      "label_i18n": {
+        "en": "Degrees of Freedom (Factor A)",
+        "tr": "Degrees of Freedom (Factor A)",
+        "de": "Degrees of Freedom (Factor A)",
+        "fr": "Degrees of Freedom (Factor A)",
+        "es": "Degrees of Freedom (Factor A)",
+        "ar": "Degrees of Freedom (Factor A)"
+      }
     },
     {
       "id": "dfB",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Degrees of freedom for factor B (c - 1)"
+      "businessContext": "Degrees of freedom for factor B (c - 1)",
+      "label_i18n": {
+        "en": "Degrees of Freedom (Factor B)",
+        "tr": "Degrees of Freedom (Factor B)",
+        "de": "Degrees of Freedom (Factor B)",
+        "fr": "Degrees of Freedom (Factor B)",
+        "es": "Degrees of Freedom (Factor B)",
+        "ar": "Degrees of Freedom (Factor B)"
+      }
     },
     {
       "id": "dfAB",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Degrees of freedom for interaction ((r-1)*(c-1))"
+      "businessContext": "Degrees of freedom for interaction ((r-1)*(c-1))",
+      "label_i18n": {
+        "en": "Degrees of Freedom (Interaction)",
+        "tr": "Degrees of Freedom (Interaction)",
+        "de": "Degrees of Freedom (Interaction)",
+        "fr": "Degrees of Freedom (Interaction)",
+        "es": "Degrees of Freedom (Interaction)",
+        "ar": "Degrees of Freedom (Interaction)"
+      }
     },
     {
       "id": "dfE",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Degrees of freedom for error (N - r*c)"
+      "businessContext": "Degrees of freedom for error (N - r*c)",
+      "label_i18n": {
+        "en": "Degrees of Freedom (Error)",
+        "tr": "Degrees of Freedom (Error)",
+        "de": "Degrees of Freedom (Error)",
+        "fr": "Degrees of Freedom (Error)",
+        "es": "Degrees of Freedom (Error)",
+        "ar": "Degrees of Freedom (Error)"
+      }
     }
   ],
   "formulas": {
@@ -82,8 +146,8 @@
       "FB"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

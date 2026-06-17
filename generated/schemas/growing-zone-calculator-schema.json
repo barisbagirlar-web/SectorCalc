@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Length of the growing bed"
+      "businessContext": "Length of the growing bed",
+      "label_i18n": {
+        "en": "Bed Length",
+        "tr": "Bed Length",
+        "de": "Bed Length",
+        "fr": "Bed Length",
+        "es": "Bed Length",
+        "ar": "Bed Length"
+      }
     },
     {
       "id": "width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Width of the growing bed"
+      "businessContext": "Width of the growing bed",
+      "label_i18n": {
+        "en": "Bed Width",
+        "tr": "Bed Width",
+        "de": "Bed Width",
+        "fr": "Bed Width",
+        "es": "Bed Width",
+        "ar": "Bed Width"
+      }
     },
     {
       "id": "plantSpacing",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 30,
-      "businessContext": "Spacing between plants along the row"
+      "businessContext": "Spacing between plants along the row",
+      "label_i18n": {
+        "en": "In-row Spacing",
+        "tr": "In-row Spacing",
+        "de": "In-row Spacing",
+        "fr": "In-row Spacing",
+        "es": "In-row Spacing",
+        "ar": "In-row Spacing"
+      }
     },
     {
       "id": "rowSpacing",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cm",
       "default": 40,
-      "businessContext": "Spacing between rows"
+      "businessContext": "Spacing between rows",
+      "label_i18n": {
+        "en": "Row Spacing",
+        "tr": "Row Spacing",
+        "de": "Row Spacing",
+        "fr": "Row Spacing",
+        "es": "Row Spacing",
+        "ar": "Row Spacing"
+      }
     },
     {
       "id": "edgeOffset",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "cm",
       "default": 15,
-      "businessContext": "Space left from all edges to the first plant"
+      "businessContext": "Space left from all edges to the first plant",
+      "label_i18n": {
+        "en": "Edge Offset",
+        "tr": "Edge Offset",
+        "de": "Edge Offset",
+        "fr": "Edge Offset",
+        "es": "Edge Offset",
+        "ar": "Edge Offset"
+      }
     }
   ],
   "formulas": {
@@ -61,8 +101,8 @@
       "columns"
     ]
   },
-  "category": "Diğer",
-  "sector": "Havacılık & Savunma",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 0,
-      "businessContext": "The age of the pet in completed years."
+      "businessContext": "The age of the pet in completed years.",
+      "label_i18n": {
+        "en": "Pet Age (Years)",
+        "tr": "Pet Age (Years)",
+        "de": "Pet Age (Years)",
+        "fr": "Pet Age (Years)",
+        "es": "Pet Age (Years)",
+        "ar": "Pet Age (Years)"
+      }
     },
     {
       "id": "petAgeMonths",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "months",
       "default": 0,
-      "businessContext": "Additional months beyond years, from 0 to 11."
+      "businessContext": "Additional months beyond years, from 0 to 11.",
+      "label_i18n": {
+        "en": "Pet Age (Months)",
+        "tr": "Pet Age (Months)",
+        "de": "Pet Age (Months)",
+        "fr": "Pet Age (Months)",
+        "es": "Pet Age (Months)",
+        "ar": "Pet Age (Months)"
+      }
     },
     {
       "id": "petType",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "code",
       "default": 1,
-      "businessContext": "1 for Dog, 2 for Cat."
+      "businessContext": "1 for Dog, 2 for Cat.",
+      "label_i18n": {
+        "en": "Pet Type",
+        "tr": "Pet Type",
+        "de": "Pet Type",
+        "fr": "Pet Type",
+        "es": "Pet Type",
+        "ar": "Pet Type"
+      }
     },
     {
       "id": "size",
@@ -31,13 +55,22 @@
       "type": "number",
       "unit": "code",
       "default": 1,
-      "businessContext": "1 for Small (<10 kg), 2 for Medium (10-25 kg), 3 for Large (>25 kg). Only used for dogs."
+      "businessContext": "1 for Small (<10 kg), 2 for Medium (10-25 kg), 3 for Large (>25 kg). Only used for dogs.",
+      "label_i18n": {
+        "en": "Dog Size (if applicable)",
+        "tr": "Dog Size (if applicable)",
+        "de": "Dog Size (if applicable)",
+        "fr": "Dog Size (if applicable)",
+        "es": "Dog Size (if applicable)",
+        "ar": "Dog Size (if applicable)"
+      }
     }
   ],
   "formulas": {
     "totalYears": "petAgeYears + petAgeMonths/12",
     "factor": "petType == 1 ? (size == 1 ? 4 : size == 2 ? 5 : 6) : (petType == 2 ? 4 : 0)",
-    "humanAge": "(Math.min(totalYears,1)*15) + (Math.max(0, Math.min(totalYears-1,1))*9) + (Math.max(0, totalYears-2)*factor)"
+    "humanAge": "(Math.min(totalYears,1)*15) + (Math.max(0, Math.min(totalYears-1,1))*9) + (Math.max(0, totalYears-2)*factor)",
+    "first_year___15_human_years__second_year": "first year = 15 human years, second year = 9, then each additional year varies by size (small: 4, medium: 5, large: 6)."
   },
   "outputs": {
     "primary": "humanAge",
@@ -47,8 +80,8 @@
       "For cats: first year = 15, second year = 9, each additional year = 4."
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Telekomünikasyon",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

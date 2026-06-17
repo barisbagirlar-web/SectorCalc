@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "chars",
       "default": 0,
-      "businessContext": "The total number of characters in the text, including spaces and punctuation."
+      "businessContext": "The total number of characters in the text, including spaces and punctuation.",
+      "label_i18n": {
+        "en": "Total Characters (including spaces)",
+        "tr": "Total Characters (including spaces)",
+        "de": "Total Characters (including spaces)",
+        "fr": "Total Characters (including spaces)",
+        "es": "Total Characters (including spaces)",
+        "ar": "Total Characters (including spaces)"
+      }
     },
     {
       "id": "totalWordsManual",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "words",
       "default": 0,
-      "businessContext": "If you already know the exact word count, enter it here; otherwise, it will be estimated."
+      "businessContext": "If you already know the exact word count, enter it here; otherwise, it will be estimated.",
+      "label_i18n": {
+        "en": "Total Words (if known, otherwise leave 0)",
+        "tr": "Total Words (if known, otherwise leave 0)",
+        "de": "Total Words (if known, otherwise leave 0)",
+        "fr": "Total Words (if known, otherwise leave 0)",
+        "es": "Total Words (if known, otherwise leave 0)",
+        "ar": "Total Words (if known, otherwise leave 0)"
+      }
     },
     {
       "id": "averageWordLength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "chars/word",
       "default": 5,
-      "businessContext": "Typical average word length in English is about 5 characters. Adjust based on language/content."
+      "businessContext": "Typical average word length in English is about 5 characters. Adjust based on language/content.",
+      "label_i18n": {
+        "en": "Average Word Length",
+        "tr": "Average Word Length",
+        "de": "Average Word Length",
+        "fr": "Average Word Length",
+        "es": "Average Word Length",
+        "ar": "Average Word Length"
+      }
     },
     {
       "id": "readingSpeed",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "wpm",
       "default": 200,
-      "businessContext": "Average reading speed for adults is around 200-250 words per minute."
+      "businessContext": "Average reading speed for adults is around 200-250 words per minute.",
+      "label_i18n": {
+        "en": "Reading Speed",
+        "tr": "Reading Speed",
+        "de": "Reading Speed",
+        "fr": "Reading Speed",
+        "es": "Reading Speed",
+        "ar": "Reading Speed"
+      }
     },
     {
       "id": "totalPages",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "pages",
       "default": 0,
-      "businessContext": "If known, number of pages, used for page-based estimates (average 250-300 words per page)."
+      "businessContext": "If known, number of pages, used for page-based estimates (average 250-300 words per page).",
+      "label_i18n": {
+        "en": "Total Pages",
+        "tr": "Total Pages",
+        "de": "Total Pages",
+        "fr": "Total Pages",
+        "es": "Total Pages",
+        "ar": "Total Pages"
+      }
     },
     {
       "id": "wordsPerPage",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "words/page",
       "default": 275,
-      "businessContext": "Standard words per page assuming double-spaced, 12pt font."
+      "businessContext": "Standard words per page assuming double-spaced, 12pt font.",
+      "label_i18n": {
+        "en": "Words Per Page",
+        "tr": "Words Per Page",
+        "de": "Words Per Page",
+        "fr": "Words Per Page",
+        "es": "Words Per Page",
+        "ar": "Words Per Page"
+      }
     }
   ],
   "formulas": {
@@ -64,8 +112,8 @@
       "charactersCount"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",

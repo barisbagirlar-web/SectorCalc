@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 100,
-      "businessContext": "The horizontal run of the slope."
+      "businessContext": "The horizontal run of the slope.",
+      "label_i18n": {
+        "en": "Horizontal Distance",
+        "tr": "Horizontal Distance",
+        "de": "Horizontal Distance",
+        "fr": "Horizontal Distance",
+        "es": "Horizontal Distance",
+        "ar": "Horizontal Distance"
+      }
     },
     {
       "id": "verticalRise",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "The vertical height gained along the slope."
+      "businessContext": "The vertical height gained along the slope.",
+      "label_i18n": {
+        "en": "Vertical Rise",
+        "tr": "Vertical Rise",
+        "de": "Vertical Rise",
+        "fr": "Vertical Rise",
+        "es": "Vertical Rise",
+        "ar": "Vertical Rise"
+      }
     },
     {
       "id": "angleInput",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "degrees",
       "default": 0,
-      "businessContext": "Known angle of the slope; set to 0 to compute from rise/run."
+      "businessContext": "Known angle of the slope; set to 0 to compute from rise/run.",
+      "label_i18n": {
+        "en": "Angle (optional)",
+        "tr": "Angle (optional)",
+        "de": "Angle (optional)",
+        "fr": "Angle (optional)",
+        "es": "Angle (optional)",
+        "ar": "Angle (optional)"
+      }
     },
     {
       "id": "slopeLengthInput",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Known length of the slope (hypotenuse); set to 0 to compute from rise/run."
+      "businessContext": "Known length of the slope (hypotenuse); set to 0 to compute from rise/run.",
+      "label_i18n": {
+        "en": "Slope Length (optional)",
+        "tr": "Slope Length (optional)",
+        "de": "Slope Length (optional)",
+        "fr": "Slope Length (optional)",
+        "es": "Slope Length (optional)",
+        "ar": "Slope Length (optional)"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "slopeLength"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

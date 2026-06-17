@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 1000,
-      "businessContext": "Resistor value in ohms"
+      "businessContext": "Resistor value in ohms",
+      "label_i18n": {
+        "en": "Resistance (R)",
+        "tr": "Resistance (R)",
+        "de": "Resistance (R)",
+        "fr": "Resistance (R)",
+        "es": "Resistance (R)",
+        "ar": "Resistance (R)"
+      }
     },
     {
       "id": "r_tol",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Resistor tolerance (±%)"
+      "businessContext": "Resistor tolerance (±%)",
+      "label_i18n": {
+        "en": "Resistance Tolerance",
+        "tr": "Resistance Tolerance",
+        "de": "Resistance Tolerance",
+        "fr": "Resistance Tolerance",
+        "es": "Resistance Tolerance",
+        "ar": "Resistance Tolerance"
+      }
     },
     {
       "id": "c",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "F",
       "default": 0.000001,
-      "businessContext": "Capacitor value in farads"
+      "businessContext": "Capacitor value in farads",
+      "label_i18n": {
+        "en": "Capacitance (C)",
+        "tr": "Capacitance (C)",
+        "de": "Capacitance (C)",
+        "fr": "Capacitance (C)",
+        "es": "Capacitance (C)",
+        "ar": "Capacitance (C)"
+      }
     },
     {
       "id": "c_tol",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Capacitor tolerance (±%)"
+      "businessContext": "Capacitor tolerance (±%)",
+      "label_i18n": {
+        "en": "Capacitance Tolerance",
+        "tr": "Capacitance Tolerance",
+        "de": "Capacitance Tolerance",
+        "fr": "Capacitance Tolerance",
+        "es": "Capacitance Tolerance",
+        "ar": "Capacitance Tolerance"
+      }
     },
     {
       "id": "fin",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 100,
-      "businessContext": "Frequency of the input signal for attenuation calculation"
+      "businessContext": "Frequency of the input signal for attenuation calculation",
+      "label_i18n": {
+        "en": "Input Signal Frequency",
+        "tr": "Input Signal Frequency",
+        "de": "Input Signal Frequency",
+        "fr": "Input Signal Frequency",
+        "es": "Input Signal Frequency",
+        "ar": "Input Signal Frequency"
+      }
     }
   ],
   "formulas": {
@@ -58,8 +98,8 @@
       "fc_max"
     ]
   },
-  "category": "Diğer",
-  "sector": "Telekomünikasyon",
+  "category": "Elektrik & Otomasyon",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

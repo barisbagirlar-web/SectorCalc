@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1000,
-      "businessContext": "Ölçüm döneminin başındaki aktif müşteri sayısı"
+      "businessContext": "Ölçüm döneminin başındaki aktif müşteri sayısı",
+      "label_i18n": {
+        "en": "Dönem Başı Müşteri Sayısı",
+        "tr": "Dönem Başı Müşteri Sayısı",
+        "de": "Dönem Başı Müşteri Sayısı",
+        "fr": "Dönem Başı Müşteri Sayısı",
+        "es": "Dönem Başı Müşteri Sayısı",
+        "ar": "Dönem Başı Müşteri Sayısı"
+      }
     },
     {
       "id": "lostCustomers",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 50,
-      "businessContext": "Dönem içinde kaybedilen (churn eden) müşteri sayısı"
+      "businessContext": "Dönem içinde kaybedilen (churn eden) müşteri sayısı",
+      "label_i18n": {
+        "en": "Kaybedilen Müşteri Sayısı",
+        "tr": "Kaybedilen Müşteri Sayısı",
+        "de": "Kaybedilen Müşteri Sayısı",
+        "fr": "Kaybedilen Müşteri Sayısı",
+        "es": "Kaybedilen Müşteri Sayısı",
+        "ar": "Kaybedilen Müşteri Sayısı"
+      }
     },
     {
       "id": "startingMRR",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "TL",
       "default": 10000,
-      "businessContext": "Dönem başındaki toplam aylık yinelenen gelir"
+      "businessContext": "Dönem başındaki toplam aylık yinelenen gelir",
+      "label_i18n": {
+        "en": "Dönem Başı Aylık Yinelenen Gelir (MRR)",
+        "tr": "Dönem Başı Aylık Yinelenen Gelir (MRR)",
+        "de": "Dönem Başı Aylık Yinelenen Gelir (MRR)",
+        "fr": "Dönem Başı Aylık Yinelenen Gelir (MRR)",
+        "es": "Dönem Başı Aylık Yinelenen Gelir (MRR)",
+        "ar": "Dönem Başı Aylık Yinelenen Gelir (MRR)"
+      }
     },
     {
       "id": "lostMRR",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TL",
       "default": 500,
-      "businessContext": "Kaybedilen müşterilerden gelen aylık yinelenen gelir kaybı"
+      "businessContext": "Kaybedilen müşterilerden gelen aylık yinelenen gelir kaybı",
+      "label_i18n": {
+        "en": "Kaybedilen MRR",
+        "tr": "Kaybedilen MRR",
+        "de": "Kaybedilen MRR",
+        "fr": "Kaybedilen MRR",
+        "es": "Kaybedilen MRR",
+        "ar": "Kaybedilen MRR"
+      }
     },
     {
       "id": "periodMonths",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "ay",
       "default": 1,
-      "businessContext": "Kayıp oranının hesaplandığı dönem (genellikle aylık)"
+      "businessContext": "Kayıp oranının hesaplandığı dönem (genellikle aylık)",
+      "label_i18n": {
+        "en": "Ölçüm Dönemi (Ay)",
+        "tr": "Ölçüm Dönemi (Ay)",
+        "de": "Ölçüm Dönemi (Ay)",
+        "fr": "Ölçüm Dönemi (Ay)",
+        "es": "Ölçüm Dönemi (Ay)",
+        "ar": "Ölçüm Dönemi (Ay)"
+      }
     }
   ],
   "formulas": {
@@ -53,8 +93,8 @@
       "revenueChurnRate"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

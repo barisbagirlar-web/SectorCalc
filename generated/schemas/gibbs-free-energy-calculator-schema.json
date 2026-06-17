@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "K",
       "default": 298.15,
-      "businessContext": "Temperature in Kelvin"
+      "businessContext": "Temperature in Kelvin",
+      "label_i18n": {
+        "en": "Temperature",
+        "tr": "Temperature",
+        "de": "Temperature",
+        "fr": "Temperature",
+        "es": "Temperature",
+        "ar": "Temperature"
+      }
     },
     {
       "id": "gasConstant",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kJ/(mol·K)",
       "default": 0.008314,
-      "businessContext": "Ideal gas constant (default 0.008314 kJ/(mol·K))"
+      "businessContext": "Ideal gas constant (default 0.008314 kJ/(mol·K))",
+      "label_i18n": {
+        "en": "Gas Constant",
+        "tr": "Gas Constant",
+        "de": "Gas Constant",
+        "fr": "Gas Constant",
+        "es": "Gas Constant",
+        "ar": "Gas Constant"
+      }
     },
     {
       "id": "standardDeltaG",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kJ/mol",
       "default": 0,
-      "businessContext": "Standard Gibbs free energy change of reaction (ΔG°) in kJ/mol"
+      "businessContext": "Standard Gibbs free energy change of reaction (ΔG°) in kJ/mol",
+      "label_i18n": {
+        "en": "Standard ΔG°",
+        "tr": "Standard ΔG°",
+        "de": "Standard ΔG°",
+        "fr": "Standard ΔG°",
+        "es": "Standard ΔG°",
+        "ar": "Standard ΔG°"
+      }
     },
     {
       "id": "reactionQuotient",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Reaction quotient Q (dimensionless)"
+      "businessContext": "Reaction quotient Q (dimensionless)",
+      "label_i18n": {
+        "en": "Reaction Quotient",
+        "tr": "Reaction Quotient",
+        "de": "Reaction Quotient",
+        "fr": "Reaction Quotient",
+        "es": "Reaction Quotient",
+        "ar": "Reaction Quotient"
+      }
     }
   ],
   "formulas": {
@@ -53,8 +85,8 @@
       }
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "Kimya & İlaç",
+  "category": "Enerji & Sürdürülebilirlik",
+  "sector": "Enerji & Karbon",
   "premiumRequired": false,
   "catalogCategory": "energy-carbon",
   "sectorSlug": "energy-carbon",

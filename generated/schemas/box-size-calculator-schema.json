@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 10,
-      "businessContext": "Ürünün boyu (uzunluk)"
+      "businessContext": "Ürünün boyu (uzunluk)",
+      "label_i18n": {
+        "en": "Ürün Uzunluğu",
+        "tr": "Ürün Uzunluğu",
+        "de": "Ürün Uzunluğu",
+        "fr": "Ürün Uzunluğu",
+        "es": "Ürün Uzunluğu",
+        "ar": "Ürün Uzunluğu"
+      }
     },
     {
       "id": "objectWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 5,
-      "businessContext": "Ürünün eni (genişlik)"
+      "businessContext": "Ürünün eni (genişlik)",
+      "label_i18n": {
+        "en": "Ürün Genişliği",
+        "tr": "Ürün Genişliği",
+        "de": "Ürün Genişliği",
+        "fr": "Ürün Genişliği",
+        "es": "Ürün Genişliği",
+        "ar": "Ürün Genişliği"
+      }
     },
     {
       "id": "objectHeight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 3,
-      "businessContext": "Ürünün yüksekliği"
+      "businessContext": "Ürünün yüksekliği",
+      "label_i18n": {
+        "en": "Ürün Yüksekliği",
+        "tr": "Ürün Yüksekliği",
+        "de": "Ürün Yüksekliği",
+        "fr": "Ürün Yüksekliği",
+        "es": "Ürün Yüksekliği",
+        "ar": "Ürün Yüksekliği"
+      }
     },
     {
       "id": "clearance",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cm",
       "default": 0.5,
-      "businessContext": "Ürün ile kutu arasındaki boşluk (her kenarda eşit)"
+      "businessContext": "Ürün ile kutu arasındaki boşluk (her kenarda eşit)",
+      "label_i18n": {
+        "en": "Boşluk Payı",
+        "tr": "Boşluk Payı",
+        "de": "Boşluk Payı",
+        "fr": "Boşluk Payı",
+        "es": "Boşluk Payı",
+        "ar": "Boşluk Payı"
+      }
     },
     {
       "id": "wallThickness",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "cm",
       "default": 0.3,
-      "businessContext": "Kutu malzemesinin kalınlığı"
+      "businessContext": "Kutu malzemesinin kalınlığı",
+      "label_i18n": {
+        "en": "Kutu Et Kalınlığı",
+        "tr": "Kutu Et Kalınlığı",
+        "de": "Kutu Et Kalınlığı",
+        "fr": "Kutu Et Kalınlığı",
+        "es": "Kutu Et Kalınlığı",
+        "ar": "Kutu Et Kalınlığı"
+      }
     }
   ],
   "formulas": {
@@ -62,8 +102,8 @@
       "outerVolume"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",

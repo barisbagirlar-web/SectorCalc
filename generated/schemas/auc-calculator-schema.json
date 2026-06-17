@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "s",
       "default": 0,
-      "businessContext": "First time point"
+      "businessContext": "First time point",
+      "label_i18n": {
+        "en": "X1",
+        "tr": "X1",
+        "de": "X1",
+        "fr": "X1",
+        "es": "X1",
+        "ar": "X1"
+      }
     },
     {
       "id": "y1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "First value"
+      "businessContext": "First value",
+      "label_i18n": {
+        "en": "Y1",
+        "tr": "Y1",
+        "de": "Y1",
+        "fr": "Y1",
+        "es": "Y1",
+        "ar": "Y1"
+      }
     },
     {
       "id": "x2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "s",
       "default": 1,
-      "businessContext": "Second time point"
+      "businessContext": "Second time point",
+      "label_i18n": {
+        "en": "X2",
+        "tr": "X2",
+        "de": "X2",
+        "fr": "X2",
+        "es": "X2",
+        "ar": "X2"
+      }
     },
     {
       "id": "y2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "unit",
       "default": 2,
-      "businessContext": "Second value"
+      "businessContext": "Second value",
+      "label_i18n": {
+        "en": "Y2",
+        "tr": "Y2",
+        "de": "Y2",
+        "fr": "Y2",
+        "es": "Y2",
+        "ar": "Y2"
+      }
     },
     {
       "id": "x3",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "s",
       "default": 2,
-      "businessContext": "Third time point"
+      "businessContext": "Third time point",
+      "label_i18n": {
+        "en": "X3",
+        "tr": "X3",
+        "de": "X3",
+        "fr": "X3",
+        "es": "X3",
+        "ar": "X3"
+      }
     },
     {
       "id": "y3",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "unit",
       "default": 4,
-      "businessContext": "Third value"
+      "businessContext": "Third value",
+      "label_i18n": {
+        "en": "Y3",
+        "tr": "Y3",
+        "de": "Y3",
+        "fr": "Y3",
+        "es": "Y3",
+        "ar": "Y3"
+      }
     },
     {
       "id": "x4",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "s",
       "default": 3,
-      "businessContext": "Fourth time point"
+      "businessContext": "Fourth time point",
+      "label_i18n": {
+        "en": "X4",
+        "tr": "X4",
+        "de": "X4",
+        "fr": "X4",
+        "es": "X4",
+        "ar": "X4"
+      }
     },
     {
       "id": "y4",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "unit",
       "default": 6,
-      "businessContext": "Fourth value"
+      "businessContext": "Fourth value",
+      "label_i18n": {
+        "en": "Y4",
+        "tr": "Y4",
+        "de": "Y4",
+        "fr": "Y4",
+        "es": "Y4",
+        "ar": "Y4"
+      }
     }
   ],
   "formulas": {
@@ -80,8 +144,8 @@
       "area3"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

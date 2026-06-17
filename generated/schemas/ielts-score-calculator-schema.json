@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "band",
       "default": 0,
-      "businessContext": "IELTS Listening section score (0-9 in 0.5 increments)"
+      "businessContext": "IELTS Listening section score (0-9 in 0.5 increments)",
+      "label_i18n": {
+        "en": "Listening Score",
+        "tr": "Listening Score",
+        "de": "Listening Score",
+        "fr": "Listening Score",
+        "es": "Listening Score",
+        "ar": "Listening Score"
+      }
     },
     {
       "id": "reading",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "band",
       "default": 0,
-      "businessContext": "IELTS Reading section score (0-9 in 0.5 increments)"
+      "businessContext": "IELTS Reading section score (0-9 in 0.5 increments)",
+      "label_i18n": {
+        "en": "Reading Score",
+        "tr": "Reading Score",
+        "de": "Reading Score",
+        "fr": "Reading Score",
+        "es": "Reading Score",
+        "ar": "Reading Score"
+      }
     },
     {
       "id": "writing",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "band",
       "default": 0,
-      "businessContext": "IELTS Writing section score (0-9 in 0.5 increments)"
+      "businessContext": "IELTS Writing section score (0-9 in 0.5 increments)",
+      "label_i18n": {
+        "en": "Writing Score",
+        "tr": "Writing Score",
+        "de": "Writing Score",
+        "fr": "Writing Score",
+        "es": "Writing Score",
+        "ar": "Writing Score"
+      }
     },
     {
       "id": "speaking",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "band",
       "default": 0,
-      "businessContext": "IELTS Speaking section score (0-9 in 0.5 increments)"
+      "businessContext": "IELTS Speaking section score (0-9 in 0.5 increments)",
+      "label_i18n": {
+        "en": "Speaking Score",
+        "tr": "Speaking Score",
+        "de": "Speaking Score",
+        "fr": "Speaking Score",
+        "es": "Speaking Score",
+        "ar": "Speaking Score"
+      }
     }
   ],
   "formulas": {
@@ -45,8 +77,8 @@
       "overallBand"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",

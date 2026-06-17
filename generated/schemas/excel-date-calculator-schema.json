@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Excel seri no",
       "default": 44927,
-      "businessContext": "Başlangıç tarihinin Excel seri numarası (örn. 44927 = 2023-01-01)"
+      "businessContext": "Başlangıç tarihinin Excel seri numarası (örn. 44927 = 2023-01-01)",
+      "label_i18n": {
+        "en": "Başlangıç Tarihi Seri Numarası",
+        "tr": "Başlangıç Tarihi Seri Numarası",
+        "de": "Başlangıç Tarihi Seri Numarası",
+        "fr": "Başlangıç Tarihi Seri Numarası",
+        "es": "Başlangıç Tarihi Seri Numarası",
+        "ar": "Başlangıç Tarihi Seri Numarası"
+      }
     },
     {
       "id": "endSerial",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Excel seri no",
       "default": 44927,
-      "businessContext": "Bitiş tarihinin Excel seri numarası"
+      "businessContext": "Bitiş tarihinin Excel seri numarası",
+      "label_i18n": {
+        "en": "Bitiş Tarihi Seri Numarası",
+        "tr": "Bitiş Tarihi Seri Numarası",
+        "de": "Bitiş Tarihi Seri Numarası",
+        "fr": "Bitiş Tarihi Seri Numarası",
+        "es": "Bitiş Tarihi Seri Numarası",
+        "ar": "Bitiş Tarihi Seri Numarası"
+      }
     },
     {
       "id": "daysOffset",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "gün",
       "default": 0,
-      "businessContext": "Başlangıç tarihine eklenecek (pozitif) veya çıkarılacak (negatif) gün sayısı"
+      "businessContext": "Başlangıç tarihine eklenecek (pozitif) veya çıkarılacak (negatif) gün sayısı",
+      "label_i18n": {
+        "en": "Gün Kaydırma",
+        "tr": "Gün Kaydırma",
+        "de": "Gün Kaydırma",
+        "fr": "Gün Kaydırma",
+        "es": "Gün Kaydırma",
+        "ar": "Gün Kaydırma"
+      }
     },
     {
       "id": "adjustStart",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "bayrak (0/1)",
       "default": 0,
-      "businessContext": "Gün farkı hesaplamasında başlangıç gününü dahil et: 0 = Hayır, 1 = Evet"
+      "businessContext": "Gün farkı hesaplamasında başlangıç gününü dahil et: 0 = Hayır, 1 = Evet",
+      "label_i18n": {
+        "en": "Başlangıcı Dahil Et",
+        "tr": "Başlangıcı Dahil Et",
+        "de": "Başlangıcı Dahil Et",
+        "fr": "Başlangıcı Dahil Et",
+        "es": "Başlangıcı Dahil Et",
+        "ar": "Başlangıcı Dahil Et"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "rawDifference"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "date-time",
   "sectorSlug": "daily-renovation",

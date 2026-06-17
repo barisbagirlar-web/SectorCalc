@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Dış çap"
+      "businessContext": "Dış çap",
+      "label_i18n": {
+        "en": "Pipe Outer Diameter",
+        "tr": "Pipe Outer Diameter",
+        "de": "Pipe Outer Diameter",
+        "fr": "Pipe Outer Diameter",
+        "es": "Pipe Outer Diameter",
+        "ar": "Pipe Outer Diameter"
+      }
     },
     {
       "id": "insulation_thickness",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 50,
-      "businessContext": "Yalıtım kalınlığı"
+      "businessContext": "Yalıtım kalınlığı",
+      "label_i18n": {
+        "en": "Insulation Thickness",
+        "tr": "Insulation Thickness",
+        "de": "Insulation Thickness",
+        "fr": "Insulation Thickness",
+        "es": "Insulation Thickness",
+        "ar": "Insulation Thickness"
+      }
     },
     {
       "id": "pipe_length",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Boru uzunluğu"
+      "businessContext": "Boru uzunluğu",
+      "label_i18n": {
+        "en": "Pipe Length",
+        "tr": "Pipe Length",
+        "de": "Pipe Length",
+        "fr": "Pipe Length",
+        "es": "Pipe Length",
+        "ar": "Pipe Length"
+      }
     },
     {
       "id": "thermal_conductivity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "W/(m·K)",
       "default": 0.035,
-      "businessContext": "Isı iletkenlik katsayısı"
+      "businessContext": "Isı iletkenlik katsayısı",
+      "label_i18n": {
+        "en": "Thermal Conductivity",
+        "tr": "Thermal Conductivity",
+        "de": "Thermal Conductivity",
+        "fr": "Thermal Conductivity",
+        "es": "Thermal Conductivity",
+        "ar": "Thermal Conductivity"
+      }
     },
     {
       "id": "inner_temperature",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "°C",
       "default": 150,
-      "businessContext": "İç sıcaklık"
+      "businessContext": "İç sıcaklık",
+      "label_i18n": {
+        "en": "Inner Temperature",
+        "tr": "Inner Temperature",
+        "de": "Inner Temperature",
+        "fr": "Inner Temperature",
+        "es": "Inner Temperature",
+        "ar": "Inner Temperature"
+      }
     },
     {
       "id": "ambient_temperature",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "°C",
       "default": 25,
-      "businessContext": "Ortam sıcaklığı"
+      "businessContext": "Ortam sıcaklığı",
+      "label_i18n": {
+        "en": "Ambient Temperature",
+        "tr": "Ambient Temperature",
+        "de": "Ambient Temperature",
+        "fr": "Ambient Temperature",
+        "es": "Ambient Temperature",
+        "ar": "Ambient Temperature"
+      }
     },
     {
       "id": "convection_coefficient",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "W/(m²·K)",
       "default": 10,
-      "businessContext": "Taşınım katsayısı"
+      "businessContext": "Taşınım katsayısı",
+      "label_i18n": {
+        "en": "Convection Coefficient",
+        "tr": "Convection Coefficient",
+        "de": "Convection Coefficient",
+        "fr": "Convection Coefficient",
+        "es": "Convection Coefficient",
+        "ar": "Convection Coefficient"
+      }
     }
   ],
   "formulas": {
@@ -76,8 +132,8 @@
       "R_total"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Akışkanlar & Termodinamik",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",

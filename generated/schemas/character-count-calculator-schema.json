@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "words",
       "default": 0,
-      "businessContext": "Number of words in the text"
+      "businessContext": "Number of words in the text",
+      "label_i18n": {
+        "en": "Word Count",
+        "tr": "Word Count",
+        "de": "Word Count",
+        "fr": "Word Count",
+        "es": "Word Count",
+        "ar": "Word Count"
+      }
     },
     {
       "id": "avgCharsPerWord",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "chars/word",
       "default": 5,
-      "businessContext": "Average number of characters per word"
+      "businessContext": "Average number of characters per word",
+      "label_i18n": {
+        "en": "Avg. Characters per Word",
+        "tr": "Avg. Characters per Word",
+        "de": "Avg. Characters per Word",
+        "fr": "Avg. Characters per Word",
+        "es": "Avg. Characters per Word",
+        "ar": "Avg. Characters per Word"
+      }
     },
     {
       "id": "punctuationCount",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "marks",
       "default": 0,
-      "businessContext": "Number of punctuation marks"
+      "businessContext": "Number of punctuation marks",
+      "label_i18n": {
+        "en": "Punctuation Marks",
+        "tr": "Punctuation Marks",
+        "de": "Punctuation Marks",
+        "fr": "Punctuation Marks",
+        "es": "Punctuation Marks",
+        "ar": "Punctuation Marks"
+      }
     },
     {
       "id": "spaceCount",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "spaces",
       "default": 0,
-      "businessContext": "Number of spaces"
+      "businessContext": "Number of spaces",
+      "label_i18n": {
+        "en": "Spaces",
+        "tr": "Spaces",
+        "de": "Spaces",
+        "fr": "Spaces",
+        "es": "Spaces",
+        "ar": "Spaces"
+      }
     },
     {
       "id": "extraChars",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "chars",
       "default": 0,
-      "businessContext": "Any additional characters not accounted for"
+      "businessContext": "Any additional characters not accounted for",
+      "label_i18n": {
+        "en": "Extra Characters",
+        "tr": "Extra Characters",
+        "de": "Extra Characters",
+        "fr": "Extra Characters",
+        "es": "Extra Characters",
+        "ar": "Extra Characters"
+      }
     }
   ],
   "formulas": {
@@ -58,8 +98,8 @@
       "charsFromExtra"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
   "sectorSlug": "ecommerce",

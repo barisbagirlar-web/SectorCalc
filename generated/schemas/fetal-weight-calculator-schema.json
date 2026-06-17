@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 9.5,
-      "businessContext": "Ultrasound measurement of fetal head"
+      "businessContext": "Ultrasound measurement of fetal head",
+      "label_i18n": {
+        "en": "Biparietal Diameter (BPD)",
+        "tr": "Biparietal Diameter (BPD)",
+        "de": "Biparietal Diameter (BPD)",
+        "fr": "Biparietal Diameter (BPD)",
+        "es": "Biparietal Diameter (BPD)",
+        "ar": "Biparietal Diameter (BPD)"
+      }
     },
     {
       "id": "hc",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 33,
-      "businessContext": "Fetal head circumference"
+      "businessContext": "Fetal head circumference",
+      "label_i18n": {
+        "en": "Head Circumference (HC)",
+        "tr": "Head Circumference (HC)",
+        "de": "Head Circumference (HC)",
+        "fr": "Head Circumference (HC)",
+        "es": "Head Circumference (HC)",
+        "ar": "Head Circumference (HC)"
+      }
     },
     {
       "id": "ac",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 34,
-      "businessContext": "Fetal abdominal circumference"
+      "businessContext": "Fetal abdominal circumference",
+      "label_i18n": {
+        "en": "Abdominal Circumference (AC)",
+        "tr": "Abdominal Circumference (AC)",
+        "de": "Abdominal Circumference (AC)",
+        "fr": "Abdominal Circumference (AC)",
+        "es": "Abdominal Circumference (AC)",
+        "ar": "Abdominal Circumference (AC)"
+      }
     },
     {
       "id": "fl",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cm",
       "default": 7,
-      "businessContext": "Fetal femur length"
+      "businessContext": "Fetal femur length",
+      "label_i18n": {
+        "en": "Femur Length (FL)",
+        "tr": "Femur Length (FL)",
+        "de": "Femur Length (FL)",
+        "fr": "Femur Length (FL)",
+        "es": "Femur Length (FL)",
+        "ar": "Femur Length (FL)"
+      }
     }
   ],
   "formulas": {
@@ -45,8 +77,8 @@
       "EFW_g"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

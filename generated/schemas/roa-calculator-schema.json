@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Annual net income from income statement"
+      "businessContext": "Annual net income from income statement",
+      "label_i18n": {
+        "en": "Net Income",
+        "tr": "Net Income",
+        "de": "Net Income",
+        "fr": "Net Income",
+        "es": "Net Income",
+        "ar": "Net Income"
+      }
     },
     {
       "id": "beginningAssets",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Total assets at the start of the period"
+      "businessContext": "Total assets at the start of the period",
+      "label_i18n": {
+        "en": "Beginning Total Assets",
+        "tr": "Beginning Total Assets",
+        "de": "Beginning Total Assets",
+        "fr": "Beginning Total Assets",
+        "es": "Beginning Total Assets",
+        "ar": "Beginning Total Assets"
+      }
     },
     {
       "id": "endingAssets",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Total assets at the end of the period"
+      "businessContext": "Total assets at the end of the period",
+      "label_i18n": {
+        "en": "Ending Total Assets",
+        "tr": "Ending Total Assets",
+        "de": "Ending Total Assets",
+        "fr": "Ending Total Assets",
+        "es": "Ending Total Assets",
+        "ar": "Ending Total Assets"
+      }
     },
     {
       "id": "averageAssetsOverride",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "If provided, use as average total assets instead of computing from beginning and ending"
+      "businessContext": "If provided, use as average total assets instead of computing from beginning and ending",
+      "label_i18n": {
+        "en": "Average Assets Override",
+        "tr": "Average Assets Override",
+        "de": "Average Assets Override",
+        "fr": "Average Assets Override",
+        "es": "Average Assets Override",
+        "ar": "Average Assets Override"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "roa"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

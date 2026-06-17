@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Current age in years"
+      "businessContext": "Current age in years",
+      "label_i18n": {
+        "en": "Chronological Age",
+        "tr": "Chronological Age",
+        "de": "Chronological Age",
+        "fr": "Chronological Age",
+        "es": "Chronological Age",
+        "ar": "Chronological Age"
+      }
     },
     {
       "id": "systolicBP",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mmHg",
       "default": 120,
-      "businessContext": "Top number of blood pressure reading"
+      "businessContext": "Top number of blood pressure reading",
+      "label_i18n": {
+        "en": "Systolic Blood Pressure",
+        "tr": "Systolic Blood Pressure",
+        "de": "Systolic Blood Pressure",
+        "fr": "Systolic Blood Pressure",
+        "es": "Systolic Blood Pressure",
+        "ar": "Systolic Blood Pressure"
+      }
     },
     {
       "id": "bmi",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg/m²",
       "default": 24,
-      "businessContext": "Weight in kg divided by height in meters squared"
+      "businessContext": "Weight in kg divided by height in meters squared",
+      "label_i18n": {
+        "en": "Body Mass Index (BMI)",
+        "tr": "Body Mass Index (BMI)",
+        "de": "Body Mass Index (BMI)",
+        "fr": "Body Mass Index (BMI)",
+        "es": "Body Mass Index (BMI)",
+        "ar": "Body Mass Index (BMI)"
+      }
     },
     {
       "id": "fastingGlucose",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 90,
-      "businessContext": "Blood sugar level after fasting"
+      "businessContext": "Blood sugar level after fasting",
+      "label_i18n": {
+        "en": "Fasting Glucose",
+        "tr": "Fasting Glucose",
+        "de": "Fasting Glucose",
+        "fr": "Fasting Glucose",
+        "es": "Fasting Glucose",
+        "ar": "Fasting Glucose"
+      }
     },
     {
       "id": "totalCholesterol",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 180,
-      "businessContext": "Total cholesterol level in blood"
+      "businessContext": "Total cholesterol level in blood",
+      "label_i18n": {
+        "en": "Total Cholesterol",
+        "tr": "Total Cholesterol",
+        "de": "Total Cholesterol",
+        "fr": "Total Cholesterol",
+        "es": "Total Cholesterol",
+        "ar": "Total Cholesterol"
+      }
     },
     {
       "id": "weeklyExercise",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "hours",
       "default": 3,
-      "businessContext": "Average hours of exercise per week"
+      "businessContext": "Average hours of exercise per week",
+      "label_i18n": {
+        "en": "Weekly Exercise",
+        "tr": "Weekly Exercise",
+        "de": "Weekly Exercise",
+        "fr": "Weekly Exercise",
+        "es": "Weekly Exercise",
+        "ar": "Weekly Exercise"
+      }
     },
     {
       "id": "smoking",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "pack-years",
       "default": 0,
-      "businessContext": "Number of packs per day times years smoked"
+      "businessContext": "Number of packs per day times years smoked",
+      "label_i18n": {
+        "en": "Smoking (pack-years)",
+        "tr": "Smoking (pack-years)",
+        "de": "Smoking (pack-years)",
+        "fr": "Smoking (pack-years)",
+        "es": "Smoking (pack-years)",
+        "ar": "Smoking (pack-years)"
+      }
     },
     {
       "id": "restingHeartRate",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "bpm",
       "default": 70,
-      "businessContext": "Heart beats per minute at rest"
+      "businessContext": "Heart beats per minute at rest",
+      "label_i18n": {
+        "en": "Resting Heart Rate",
+        "tr": "Resting Heart Rate",
+        "de": "Resting Heart Rate",
+        "fr": "Resting Heart Rate",
+        "es": "Resting Heart Rate",
+        "ar": "Resting Heart Rate"
+      }
     }
   ],
   "formulas": {
@@ -88,8 +152,8 @@
       "hrYears"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

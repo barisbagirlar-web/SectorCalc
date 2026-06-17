@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 100,
-      "businessContext": "Distance covered during skating drill or game shift, in meters"
+      "businessContext": "Distance covered during skating drill or game shift, in meters",
+      "label_i18n": {
+        "en": "Distance",
+        "tr": "Distance",
+        "de": "Distance",
+        "fr": "Distance",
+        "es": "Distance",
+        "ar": "Distance"
+      }
     },
     {
       "id": "time",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "s",
       "default": 10,
-      "businessContext": "Time taken to cover the distance, in seconds"
+      "businessContext": "Time taken to cover the distance, in seconds",
+      "label_i18n": {
+        "en": "Time",
+        "tr": "Time",
+        "de": "Time",
+        "fr": "Time",
+        "es": "Time",
+        "ar": "Time"
+      }
     },
     {
       "id": "strideLength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 1.5,
-      "businessContext": "Average length of one full skating stride, in meters"
+      "businessContext": "Average length of one full skating stride, in meters",
+      "label_i18n": {
+        "en": "Stride Length",
+        "tr": "Stride Length",
+        "de": "Stride Length",
+        "fr": "Stride Length",
+        "es": "Stride Length",
+        "ar": "Stride Length"
+      }
     },
     {
       "id": "strideFrequency",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "strides/s",
       "default": 2,
-      "businessContext": "Number of strides per second (stride rate)"
+      "businessContext": "Number of strides per second (stride rate)",
+      "label_i18n": {
+        "en": "Stride Frequency",
+        "tr": "Stride Frequency",
+        "de": "Stride Frequency",
+        "fr": "Stride Frequency",
+        "es": "Stride Frequency",
+        "ar": "Stride Frequency"
+      }
     }
   ],
   "formulas": {
@@ -50,8 +82,8 @@
       "speedDiffPercent"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Makine & Ekipman",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

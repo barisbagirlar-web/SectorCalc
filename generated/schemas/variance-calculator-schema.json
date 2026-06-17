@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Veri setindeki gözlem sayısı (örn. 10)"
+      "businessContext": "Veri setindeki gözlem sayısı (örn. 10)",
+      "label_i18n": {
+        "en": "Gözlem Sayısı",
+        "tr": "Gözlem Sayısı",
+        "de": "Gözlem Sayısı",
+        "fr": "Gözlem Sayısı",
+        "es": "Gözlem Sayısı",
+        "ar": "Gözlem Sayısı"
+      }
     },
     {
       "id": "sumX",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "Tüm gözlem değerlerinin toplamı"
+      "businessContext": "Tüm gözlem değerlerinin toplamı",
+      "label_i18n": {
+        "en": "Toplam (∑x)",
+        "tr": "Toplam (∑x)",
+        "de": "Toplam (∑x)",
+        "fr": "Toplam (∑x)",
+        "es": "Toplam (∑x)",
+        "ar": "Toplam (∑x)"
+      }
     },
     {
       "id": "sumX2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "birim²",
       "default": 0,
-      "businessContext": "Her bir gözlem değerinin karesinin toplamı"
+      "businessContext": "Her bir gözlem değerinin karesinin toplamı",
+      "label_i18n": {
+        "en": "Kareler Toplamı (∑x²)",
+        "tr": "Kareler Toplamı (∑x²)",
+        "de": "Kareler Toplamı (∑x²)",
+        "fr": "Kareler Toplamı (∑x²)",
+        "es": "Kareler Toplamı (∑x²)",
+        "ar": "Kareler Toplamı (∑x²)"
+      }
     },
     {
       "id": "isPopulation",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "yok",
       "default": 1,
-      "businessContext": "1: Popülasyon varyansı, 0: Örneklem varyansı"
+      "businessContext": "1: Popülasyon varyansı, 0: Örneklem varyansı",
+      "label_i18n": {
+        "en": "Popülasyon mu?",
+        "tr": "Popülasyon mu?",
+        "de": "Popülasyon mu?",
+        "fr": "Popülasyon mu?",
+        "es": "Popülasyon mu?",
+        "ar": "Popülasyon mu?"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "sumOfSquaredDeviations"
     ]
   },
-  "category": "Diğer",
-  "sector": "Plastik & Enjeksiyon",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

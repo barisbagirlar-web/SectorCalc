@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100000,
-      "businessContext": "Net profit after all expenses"
+      "businessContext": "Net profit after all expenses",
+      "label_i18n": {
+        "en": "Net Income",
+        "tr": "Net Income",
+        "de": "Net Income",
+        "fr": "Net Income",
+        "es": "Net Income",
+        "ar": "Net Income"
+      }
     },
     {
       "id": "revenue",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 500000,
-      "businessContext": "Total sales revenue"
+      "businessContext": "Total sales revenue",
+      "label_i18n": {
+        "en": "Revenue",
+        "tr": "Revenue",
+        "de": "Revenue",
+        "fr": "Revenue",
+        "es": "Revenue",
+        "ar": "Revenue"
+      }
     },
     {
       "id": "totalAssets",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 400000,
-      "businessContext": "Sum of all assets owned by the company"
+      "businessContext": "Sum of all assets owned by the company",
+      "label_i18n": {
+        "en": "Total Assets",
+        "tr": "Total Assets",
+        "de": "Total Assets",
+        "fr": "Total Assets",
+        "es": "Total Assets",
+        "ar": "Total Assets"
+      }
     },
     {
       "id": "equity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 200000,
-      "businessContext": "Total equity from shareholders"
+      "businessContext": "Total equity from shareholders",
+      "label_i18n": {
+        "en": "Shareholders' Equity",
+        "tr": "Shareholders' Equity",
+        "de": "Shareholders' Equity",
+        "fr": "Shareholders' Equity",
+        "es": "Shareholders' Equity",
+        "ar": "Shareholders' Equity"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "equityMultiplier"
     ]
   },
-  "category": "Maliyet & Bütçeleme",
-  "sector": "Perakende & Tüketici",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

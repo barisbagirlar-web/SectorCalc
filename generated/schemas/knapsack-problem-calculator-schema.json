@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "Maksimum yük kapasitesi"
+      "businessContext": "Maksimum yük kapasitesi",
+      "label_i18n": {
+        "en": "Kapasite",
+        "tr": "Kapasite",
+        "de": "Kapasite",
+        "fr": "Kapasite",
+        "es": "Kapasite",
+        "ar": "Kapasite"
+      }
     },
     {
       "id": "weight1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 10,
-      "businessContext": "Ürün 1 ağırlığı"
+      "businessContext": "Ürün 1 ağırlığı",
+      "label_i18n": {
+        "en": "Ürün 1 Ağırlık",
+        "tr": "Ürün 1 Ağırlık",
+        "de": "Ürün 1 Ağırlık",
+        "fr": "Ürün 1 Ağırlık",
+        "es": "Ürün 1 Ağırlık",
+        "ar": "Ürün 1 Ağırlık"
+      }
     },
     {
       "id": "value1",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "TL",
       "default": 50,
-      "businessContext": "Ürün 1 değeri"
+      "businessContext": "Ürün 1 değeri",
+      "label_i18n": {
+        "en": "Ürün 1 Değer",
+        "tr": "Ürün 1 Değer",
+        "de": "Ürün 1 Değer",
+        "fr": "Ürün 1 Değer",
+        "es": "Ürün 1 Değer",
+        "ar": "Ürün 1 Değer"
+      }
     },
     {
       "id": "weight2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 20,
-      "businessContext": "Ürün 2 ağırlığı"
+      "businessContext": "Ürün 2 ağırlığı",
+      "label_i18n": {
+        "en": "Ürün 2 Ağırlık",
+        "tr": "Ürün 2 Ağırlık",
+        "de": "Ürün 2 Ağırlık",
+        "fr": "Ürün 2 Ağırlık",
+        "es": "Ürün 2 Ağırlık",
+        "ar": "Ürün 2 Ağırlık"
+      }
     },
     {
       "id": "value2",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "TL",
       "default": 100,
-      "businessContext": "Ürün 2 değeri"
+      "businessContext": "Ürün 2 değeri",
+      "label_i18n": {
+        "en": "Ürün 2 Değer",
+        "tr": "Ürün 2 Değer",
+        "de": "Ürün 2 Değer",
+        "fr": "Ürün 2 Değer",
+        "es": "Ürün 2 Değer",
+        "ar": "Ürün 2 Değer"
+      }
     },
     {
       "id": "weight3",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kg",
       "default": 30,
-      "businessContext": "Ürün 3 ağırlığı"
+      "businessContext": "Ürün 3 ağırlığı",
+      "label_i18n": {
+        "en": "Ürün 3 Ağırlık",
+        "tr": "Ürün 3 Ağırlık",
+        "de": "Ürün 3 Ağırlık",
+        "fr": "Ürün 3 Ağırlık",
+        "es": "Ürün 3 Ağırlık",
+        "ar": "Ürün 3 Ağırlık"
+      }
     },
     {
       "id": "value3",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "TL",
       "default": 150,
-      "businessContext": "Ürün 3 değeri"
+      "businessContext": "Ürün 3 değeri",
+      "label_i18n": {
+        "en": "Ürün 3 Değer",
+        "tr": "Ürün 3 Değer",
+        "de": "Ürün 3 Değer",
+        "fr": "Ürün 3 Değer",
+        "es": "Ürün 3 Değer",
+        "ar": "Ürün 3 Değer"
+      }
     }
   ],
   "formulas": {
@@ -80,8 +136,8 @@
       "itemCount"
     ]
   },
-  "category": "Diğer",
-  "sector": "İnşaat & Yapı",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

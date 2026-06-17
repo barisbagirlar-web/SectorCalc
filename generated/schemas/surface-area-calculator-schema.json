@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "Length of the bottom rectangle"
+      "businessContext": "Length of the bottom rectangle",
+      "label_i18n": {
+        "en": "Bottom Length (a)",
+        "tr": "Bottom Length (a)",
+        "de": "Bottom Length (a)",
+        "fr": "Bottom Length (a)",
+        "es": "Bottom Length (a)",
+        "ar": "Bottom Length (a)"
+      }
     },
     {
       "id": "bottomWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 1.5,
-      "businessContext": "Width of the bottom rectangle"
+      "businessContext": "Width of the bottom rectangle",
+      "label_i18n": {
+        "en": "Bottom Width (b)",
+        "tr": "Bottom Width (b)",
+        "de": "Bottom Width (b)",
+        "fr": "Bottom Width (b)",
+        "es": "Bottom Width (b)",
+        "ar": "Bottom Width (b)"
+      }
     },
     {
       "id": "topLength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Length of the top rectangle"
+      "businessContext": "Length of the top rectangle",
+      "label_i18n": {
+        "en": "Top Length (c)",
+        "tr": "Top Length (c)",
+        "de": "Top Length (c)",
+        "fr": "Top Length (c)",
+        "es": "Top Length (c)",
+        "ar": "Top Length (c)"
+      }
     },
     {
       "id": "topWidth",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.8,
-      "businessContext": "Width of the top rectangle"
+      "businessContext": "Width of the top rectangle",
+      "label_i18n": {
+        "en": "Top Width (d)",
+        "tr": "Top Width (d)",
+        "de": "Top Width (d)",
+        "fr": "Top Width (d)",
+        "es": "Top Width (d)",
+        "ar": "Top Width (d)"
+      }
     },
     {
       "id": "height",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "Vertical height between bottom and top rectangles"
+      "businessContext": "Vertical height between bottom and top rectangles",
+      "label_i18n": {
+        "en": "Height (h)",
+        "tr": "Height (h)",
+        "de": "Height (h)",
+        "fr": "Height (h)",
+        "es": "Height (h)",
+        "ar": "Height (h)"
+      }
     }
   ],
   "formulas": {
@@ -60,8 +100,8 @@
       "lateralAreaWidth"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

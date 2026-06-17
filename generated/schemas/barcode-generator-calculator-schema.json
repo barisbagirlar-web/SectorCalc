@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "characters",
       "default": 10,
-      "businessContext": "Number of alphanumeric characters to encode"
+      "businessContext": "Number of alphanumeric characters to encode",
+      "label_i18n": {
+        "en": "Data Length (characters)",
+        "tr": "Data Length (characters)",
+        "de": "Data Length (characters)",
+        "fr": "Data Length (characters)",
+        "es": "Data Length (characters)",
+        "ar": "Data Length (characters)"
+      }
     },
     {
       "id": "moduleWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0.25,
-      "businessContext": "Width of the narrowest element (X-dimension)"
+      "businessContext": "Width of the narrowest element (X-dimension)",
+      "label_i18n": {
+        "en": "Module Width",
+        "tr": "Module Width",
+        "de": "Module Width",
+        "fr": "Module Width",
+        "es": "Module Width",
+        "ar": "Module Width"
+      }
     },
     {
       "id": "quietZoneLeft",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "modules",
       "default": 10,
-      "businessContext": "Left quiet zone width in modules"
+      "businessContext": "Left quiet zone width in modules",
+      "label_i18n": {
+        "en": "Left Quiet Zone",
+        "tr": "Left Quiet Zone",
+        "de": "Left Quiet Zone",
+        "fr": "Left Quiet Zone",
+        "es": "Left Quiet Zone",
+        "ar": "Left Quiet Zone"
+      }
     },
     {
       "id": "quietZoneRight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "modules",
       "default": 10,
-      "businessContext": "Right quiet zone width in modules"
+      "businessContext": "Right quiet zone width in modules",
+      "label_i18n": {
+        "en": "Right Quiet Zone",
+        "tr": "Right Quiet Zone",
+        "de": "Right Quiet Zone",
+        "fr": "Right Quiet Zone",
+        "es": "Right Quiet Zone",
+        "ar": "Right Quiet Zone"
+      }
     }
   ],
   "formulas": {
@@ -56,8 +88,8 @@
       "stopWidth"
     ]
   },
-  "category": "Diğer",
-  "sector": "Bilişim & Yazılım",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

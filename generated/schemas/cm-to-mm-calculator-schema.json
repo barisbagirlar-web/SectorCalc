@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 100,
-      "businessContext": "Measured length at reference temperature (20°C) in centimeters."
+      "businessContext": "Measured length at reference temperature (20°C) in centimeters.",
+      "label_i18n": {
+        "en": "Length (cm)",
+        "tr": "Length (cm)",
+        "de": "Length (cm)",
+        "fr": "Length (cm)",
+        "es": "Length (cm)",
+        "ar": "Length (cm)"
+      }
     },
     {
       "id": "correction_factor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "none",
       "default": 1,
-      "businessContext": "Systematic measurement correction factor (dimensionless)."
+      "businessContext": "Systematic measurement correction factor (dimensionless).",
+      "label_i18n": {
+        "en": "Correction Factor",
+        "tr": "Correction Factor",
+        "de": "Correction Factor",
+        "fr": "Correction Factor",
+        "es": "Correction Factor",
+        "ar": "Correction Factor"
+      }
     },
     {
       "id": "temperature_c",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Ambient temperature in degrees Celsius."
+      "businessContext": "Ambient temperature in degrees Celsius.",
+      "label_i18n": {
+        "en": "Temperature (°C)",
+        "tr": "Temperature (°C)",
+        "de": "Temperature (°C)",
+        "fr": "Temperature (°C)",
+        "es": "Temperature (°C)",
+        "ar": "Temperature (°C)"
+      }
     },
     {
       "id": "expansion_coefficient",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "1/°C",
       "default": 0.000012,
-      "businessContext": "Linear thermal expansion coefficient of material in per degree Celsius."
+      "businessContext": "Linear thermal expansion coefficient of material in per degree Celsius.",
+      "label_i18n": {
+        "en": "Expansion Coefficient",
+        "tr": "Expansion Coefficient",
+        "de": "Expansion Coefficient",
+        "fr": "Expansion Coefficient",
+        "es": "Expansion Coefficient",
+        "ar": "Expansion Coefficient"
+      }
     },
     {
       "id": "tolerance_cm",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "cm",
       "default": 0.1,
-      "businessContext": "Manufacturing tolerance limit in centimeters."
+      "businessContext": "Manufacturing tolerance limit in centimeters.",
+      "label_i18n": {
+        "en": "Tolerance (cm)",
+        "tr": "Tolerance (cm)",
+        "de": "Tolerance (cm)",
+        "fr": "Tolerance (cm)",
+        "es": "Tolerance (cm)",
+        "ar": "Tolerance (cm)"
+      }
     },
     {
       "id": "batch_quantity",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "pieces",
       "default": 1,
-      "businessContext": "Number of identical pieces."
+      "businessContext": "Number of identical pieces.",
+      "label_i18n": {
+        "en": "Batch Quantity",
+        "tr": "Batch Quantity",
+        "de": "Batch Quantity",
+        "fr": "Batch Quantity",
+        "es": "Batch Quantity",
+        "ar": "Batch Quantity"
+      }
     },
     {
       "id": "decimal_places",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "dp",
       "default": 2,
-      "businessContext": "Number of decimal places for output formatting."
+      "businessContext": "Number of decimal places for output formatting.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -73,8 +129,8 @@
       "total_batch_mm"
     ]
   },
-  "category": "Kalite & Süreç Kontrol",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "conversion",
   "sectorSlug": "ecommerce",

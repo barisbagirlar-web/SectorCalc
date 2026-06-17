@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "items",
       "default": 0,
-      "businessContext": "Number of elements uniquely belonging to set A, including overlaps"
+      "businessContext": "Number of elements uniquely belonging to set A, including overlaps",
+      "label_i18n": {
+        "en": "Set A size",
+        "tr": "Set A size",
+        "de": "Set A size",
+        "fr": "Set A size",
+        "es": "Set A size",
+        "ar": "Set A size"
+      }
     },
     {
       "id": "sizeB",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "items",
       "default": 0,
-      "businessContext": "Number of elements uniquely belonging to set B, including overlaps"
+      "businessContext": "Number of elements uniquely belonging to set B, including overlaps",
+      "label_i18n": {
+        "en": "Set B size",
+        "tr": "Set B size",
+        "de": "Set B size",
+        "fr": "Set B size",
+        "es": "Set B size",
+        "ar": "Set B size"
+      }
     },
     {
       "id": "sizeC",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "items",
       "default": 0,
-      "businessContext": "Number of elements uniquely belonging to set C, including overlaps"
+      "businessContext": "Number of elements uniquely belonging to set C, including overlaps",
+      "label_i18n": {
+        "en": "Set C size",
+        "tr": "Set C size",
+        "de": "Set C size",
+        "fr": "Set C size",
+        "es": "Set C size",
+        "ar": "Set C size"
+      }
     },
     {
       "id": "intersectAB",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "items",
       "default": 0,
-      "businessContext": "Number of elements common to sets A and B, possibly also in C"
+      "businessContext": "Number of elements common to sets A and B, possibly also in C",
+      "label_i18n": {
+        "en": "A ∩ B size",
+        "tr": "A ∩ B size",
+        "de": "A ∩ B size",
+        "fr": "A ∩ B size",
+        "es": "A ∩ B size",
+        "ar": "A ∩ B size"
+      }
     },
     {
       "id": "intersectAC",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "items",
       "default": 0,
-      "businessContext": "Number of elements common to sets A and C, possibly also in B"
+      "businessContext": "Number of elements common to sets A and C, possibly also in B",
+      "label_i18n": {
+        "en": "A ∩ C size",
+        "tr": "A ∩ C size",
+        "de": "A ∩ C size",
+        "fr": "A ∩ C size",
+        "es": "A ∩ C size",
+        "ar": "A ∩ C size"
+      }
     },
     {
       "id": "intersectBC",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "items",
       "default": 0,
-      "businessContext": "Number of elements common to sets B and C, possibly also in A"
+      "businessContext": "Number of elements common to sets B and C, possibly also in A",
+      "label_i18n": {
+        "en": "B ∩ C size",
+        "tr": "B ∩ C size",
+        "de": "B ∩ C size",
+        "fr": "B ∩ C size",
+        "es": "B ∩ C size",
+        "ar": "B ∩ C size"
+      }
     },
     {
       "id": "intersectABC",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "items",
       "default": 0,
-      "businessContext": "Number of elements common to all three sets A, B, and C"
+      "businessContext": "Number of elements common to all three sets A, B, and C",
+      "label_i18n": {
+        "en": "A ∩ B ∩ C size",
+        "tr": "A ∩ B ∩ C size",
+        "de": "A ∩ B ∩ C size",
+        "fr": "A ∩ B ∩ C size",
+        "es": "A ∩ B ∩ C size",
+        "ar": "A ∩ B ∩ C size"
+      }
     },
     {
       "id": "universal",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "items",
       "default": 0,
-      "businessContext": "Total number of elements in the entire universe, including those outside A, B, and C"
+      "businessContext": "Total number of elements in the entire universe, including those outside A, B, and C",
+      "label_i18n": {
+        "en": "Universal set size",
+        "tr": "Universal set size",
+        "de": "Universal set size",
+        "fr": "Universal set size",
+        "es": "Universal set size",
+        "ar": "Universal set size"
+      }
     }
   ],
   "formulas": {
@@ -86,8 +150,8 @@
       "none"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Otomotiv & Taşıt",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

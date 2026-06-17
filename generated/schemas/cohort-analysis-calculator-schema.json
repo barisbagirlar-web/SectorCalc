@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "users",
       "default": 1000,
-      "businessContext": "Initial number of users in Cohort A"
+      "businessContext": "Initial number of users in Cohort A",
+      "label_i18n": {
+        "en": "Cohort A Size",
+        "tr": "Cohort A Size",
+        "de": "Cohort A Size",
+        "fr": "Cohort A Size",
+        "es": "Cohort A Size",
+        "ar": "Cohort A Size"
+      }
     },
     {
       "id": "cohortBSize",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "users",
       "default": 800,
-      "businessContext": "Initial number of users in Cohort B"
+      "businessContext": "Initial number of users in Cohort B",
+      "label_i18n": {
+        "en": "Cohort B Size",
+        "tr": "Cohort B Size",
+        "de": "Cohort B Size",
+        "fr": "Cohort B Size",
+        "es": "Cohort B Size",
+        "ar": "Cohort B Size"
+      }
     },
     {
       "id": "retentionRateA",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%/period",
       "default": 80,
-      "businessContext": "Period-over-period retention rate for Cohort A (as percentage)"
+      "businessContext": "Period-over-period retention rate for Cohort A (as percentage)",
+      "label_i18n": {
+        "en": "Retention Rate A",
+        "tr": "Retention Rate A",
+        "de": "Retention Rate A",
+        "fr": "Retention Rate A",
+        "es": "Retention Rate A",
+        "ar": "Retention Rate A"
+      }
     },
     {
       "id": "retentionRateB",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%/period",
       "default": 75,
-      "businessContext": "Period-over-period retention rate for Cohort B (as percentage)"
+      "businessContext": "Period-over-period retention rate for Cohort B (as percentage)",
+      "label_i18n": {
+        "en": "Retention Rate B",
+        "tr": "Retention Rate B",
+        "de": "Retention Rate B",
+        "fr": "Retention Rate B",
+        "es": "Retention Rate B",
+        "ar": "Retention Rate B"
+      }
     },
     {
       "id": "periods",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "periods",
       "default": 12,
-      "businessContext": "Time periods to project (e.g., months)"
+      "businessContext": "Time periods to project (e.g., months)",
+      "label_i18n": {
+        "en": "Number of Periods",
+        "tr": "Number of Periods",
+        "de": "Number of Periods",
+        "fr": "Number of Periods",
+        "es": "Number of Periods",
+        "ar": "Number of Periods"
+      }
     }
   ],
   "formulas": {
@@ -54,8 +94,8 @@
       "retainedB"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

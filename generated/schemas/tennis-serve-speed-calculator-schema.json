@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 18.29,
-      "businessContext": "Typical straight serve distance from baseline to service line"
+      "businessContext": "Typical straight serve distance from baseline to service line",
+      "label_i18n": {
+        "en": "Distance from contact to landing",
+        "tr": "Distance from contact to landing",
+        "de": "Distance from contact to landing",
+        "fr": "Distance from contact to landing",
+        "es": "Distance from contact to landing",
+        "ar": "Distance from contact to landing"
+      }
     },
     {
       "id": "timeOfFlight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "s",
       "default": 0.5,
-      "businessContext": "Measured time from ball contact to landing"
+      "businessContext": "Measured time from ball contact to landing",
+      "label_i18n": {
+        "en": "Time of flight",
+        "tr": "Time of flight",
+        "de": "Time of flight",
+        "fr": "Time of flight",
+        "es": "Time of flight",
+        "ar": "Time of flight"
+      }
     },
     {
       "id": "ballMass",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0.0577,
-      "businessContext": "Standard tennis ball mass"
+      "businessContext": "Standard tennis ball mass",
+      "label_i18n": {
+        "en": "Ball mass",
+        "tr": "Ball mass",
+        "de": "Ball mass",
+        "fr": "Ball mass",
+        "es": "Ball mass",
+        "ar": "Ball mass"
+      }
     },
     {
       "id": "launchHeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 2.6,
-      "businessContext": "Height of ball at serve contact point"
+      "businessContext": "Height of ball at serve contact point",
+      "label_i18n": {
+        "en": "Height at contact",
+        "tr": "Height at contact",
+        "de": "Height at contact",
+        "fr": "Height at contact",
+        "es": "Height at contact",
+        "ar": "Height at contact"
+      }
     },
     {
       "id": "landingHeight",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Height of ball at landing, typically ground level"
+      "businessContext": "Height of ball at landing, typically ground level",
+      "label_i18n": {
+        "en": "Height at landing",
+        "tr": "Height at landing",
+        "de": "Height at landing",
+        "fr": "Height at landing",
+        "es": "Height at landing",
+        "ar": "Height at landing"
+      }
     }
   ],
   "formulas": {
@@ -58,8 +98,8 @@
       "angleDeg"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

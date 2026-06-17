@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mIU/mL",
       "default": 100,
-      "businessContext": "Initial quantitative beta-hCG measurement"
+      "businessContext": "Initial quantitative beta-hCG measurement",
+      "label_i18n": {
+        "en": "First β-hCG Level",
+        "tr": "First β-hCG Level",
+        "de": "First β-hCG Level",
+        "fr": "First β-hCG Level",
+        "es": "First β-hCG Level",
+        "ar": "First β-hCG Level"
+      }
     },
     {
       "id": "hcg2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mIU/mL",
       "default": 200,
-      "businessContext": "Follow-up beta-hCG measurement taken after time interval"
+      "businessContext": "Follow-up beta-hCG measurement taken after time interval",
+      "label_i18n": {
+        "en": "Second β-hCG Level",
+        "tr": "Second β-hCG Level",
+        "de": "Second β-hCG Level",
+        "fr": "Second β-hCG Level",
+        "es": "Second β-hCG Level",
+        "ar": "Second β-hCG Level"
+      }
     },
     {
       "id": "timeInterval",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "hours",
       "default": 48,
-      "businessContext": "Time elapsed between the two blood draws"
+      "businessContext": "Time elapsed between the two blood draws",
+      "label_i18n": {
+        "en": "Time Between Tests",
+        "tr": "Time Between Tests",
+        "de": "Time Between Tests",
+        "fr": "Time Between Tests",
+        "es": "Time Between Tests",
+        "ar": "Time Between Tests"
+      }
     }
   ],
   "formulas": {
@@ -38,8 +62,8 @@
       "growthRate"
     ]
   },
-  "category": "Kalite & Süreç Kontrol",
-  "sector": "Diğer",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

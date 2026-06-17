@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "%",
       "default": 7,
-      "businessContext": "Yatırımın yıllık bileşik faiz oranı."
+      "businessContext": "Yatırımın yıllık bileşik faiz oranı.",
+      "label_i18n": {
+        "en": "Yıllık Faiz Oranı",
+        "tr": "Yıllık Faiz Oranı",
+        "de": "Yıllık Faiz Oranı",
+        "fr": "Yıllık Faiz Oranı",
+        "es": "Yıllık Faiz Oranı",
+        "ar": "Yıllık Faiz Oranı"
+      }
     },
     {
       "id": "compoundingPeriods",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kez",
       "default": 1,
-      "businessContext": "Faizin yılda kaç kez bileşiklendiği."
+      "businessContext": "Faizin yılda kaç kez bileşiklendiği.",
+      "label_i18n": {
+        "en": "Yıllık Bileşik Dönem Sayısı",
+        "tr": "Yıllık Bileşik Dönem Sayısı",
+        "de": "Yıllık Bileşik Dönem Sayısı",
+        "fr": "Yıllık Bileşik Dönem Sayısı",
+        "es": "Yıllık Bileşik Dönem Sayısı",
+        "ar": "Yıllık Bileşik Dönem Sayısı"
+      }
     },
     {
       "id": "initialInvestment",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "birim",
       "default": 1000,
-      "businessContext": "Başlangıçta yatırılan ana para."
+      "businessContext": "Başlangıçta yatırılan ana para.",
+      "label_i18n": {
+        "en": "Başlangıç Yatırımı",
+        "tr": "Başlangıç Yatırımı",
+        "de": "Başlangıç Yatırımı",
+        "fr": "Başlangıç Yatırımı",
+        "es": "Başlangıç Yatırımı",
+        "ar": "Başlangıç Yatırımı"
+      }
     },
     {
       "id": "targetMultiplier",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kat",
       "default": 2,
-      "businessContext": "Yatırımın kaç katına çıkmasının hedeflendiği."
+      "businessContext": "Yatırımın kaç katına çıkmasının hedeflendiği.",
+      "label_i18n": {
+        "en": "Hedef Çarpan",
+        "tr": "Hedef Çarpan",
+        "de": "Hedef Çarpan",
+        "fr": "Hedef Çarpan",
+        "es": "Hedef Çarpan",
+        "ar": "Hedef Çarpan"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "difference"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Proje & Yatırım",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

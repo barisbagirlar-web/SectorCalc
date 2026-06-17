@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mag",
       "default": 0,
-      "businessContext": "Gök cisminin gözlemlenen parlaklık değeri"
+      "businessContext": "Gök cisminin gözlemlenen parlaklık değeri",
+      "label_i18n": {
+        "en": "Görünür Parlaklık (m)",
+        "tr": "Görünür Parlaklık (m)",
+        "de": "Görünür Parlaklık (m)",
+        "fr": "Görünür Parlaklık (m)",
+        "es": "Görünür Parlaklık (m)",
+        "ar": "Görünür Parlaklık (m)"
+      }
     },
     {
       "id": "distanceParsecs",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "pc",
       "default": 10,
-      "businessContext": "Gök cisminin Dünya'ya olan uzaklığı (parsek cinsinden)"
+      "businessContext": "Gök cisminin Dünya'ya olan uzaklığı (parsek cinsinden)",
+      "label_i18n": {
+        "en": "Uzaklık (d)",
+        "tr": "Uzaklık (d)",
+        "de": "Uzaklık (d)",
+        "fr": "Uzaklık (d)",
+        "es": "Uzaklık (d)",
+        "ar": "Uzaklık (d)"
+      }
     },
     {
       "id": "extinction",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mag",
       "default": 0,
-      "businessContext": "Yıldızlararası toz nedeniyle parlaklık kaybı"
+      "businessContext": "Yıldızlararası toz nedeniyle parlaklık kaybı",
+      "label_i18n": {
+        "en": "Sönümleme (A_V)",
+        "tr": "Sönümleme (A_V)",
+        "de": "Sönümleme (A_V)",
+        "fr": "Sönümleme (A_V)",
+        "es": "Sönümleme (A_V)",
+        "ar": "Sönümleme (A_V)"
+      }
     },
     {
       "id": "bolometricCorrection",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mag",
       "default": 0,
-      "businessContext": "Görsel parlaklıktan bolometrik parlaklığa geçiş düzeltmesi"
+      "businessContext": "Görsel parlaklıktan bolometrik parlaklığa geçiş düzeltmesi",
+      "label_i18n": {
+        "en": "Bolometrik Düzeltme (BC)",
+        "tr": "Bolometrik Düzeltme (BC)",
+        "de": "Bolometrik Düzeltme (BC)",
+        "fr": "Bolometrik Düzeltme (BC)",
+        "es": "Bolometrik Düzeltme (BC)",
+        "ar": "Bolometrik Düzeltme (BC)"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "absoluteBolometricMagnitude"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "First number for arithmetic"
+      "businessContext": "First number for arithmetic",
+      "label_i18n": {
+        "en": "Number 1",
+        "tr": "Number 1",
+        "de": "Number 1",
+        "fr": "Number 1",
+        "es": "Number 1",
+        "ar": "Number 1"
+      }
     },
     {
       "id": "num2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Second number for arithmetic"
+      "businessContext": "Second number for arithmetic",
+      "label_i18n": {
+        "en": "Number 2",
+        "tr": "Number 2",
+        "de": "Number 2",
+        "fr": "Number 2",
+        "es": "Number 2",
+        "ar": "Number 2"
+      }
     },
     {
       "id": "num3",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Third number (optional, set to 1 if unused in multiplication, or 0 if unused in addition)"
+      "businessContext": "Third number (optional, set to 1 if unused in multiplication, or 0 if unused in addition)",
+      "label_i18n": {
+        "en": "Number 3",
+        "tr": "Number 3",
+        "de": "Number 3",
+        "fr": "Number 3",
+        "es": "Number 3",
+        "ar": "Number 3"
+      }
     },
     {
       "id": "num4",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Fourth number (optional, set to 1 if unused in multiplication, or 0 if unused in addition)"
+      "businessContext": "Fourth number (optional, set to 1 if unused in multiplication, or 0 if unused in addition)",
+      "label_i18n": {
+        "en": "Number 4",
+        "tr": "Number 4",
+        "de": "Number 4",
+        "fr": "Number 4",
+        "es": "Number 4",
+        "ar": "Number 4"
+      }
     },
     {
       "id": "operation",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "code",
       "default": 1,
-      "businessContext": "1 = addition/subtraction (rounds to fewest decimal places), 2 = multiplication/division (rounds to fewest significant figures)"
+      "businessContext": "1 = addition/subtraction (rounds to fewest decimal places), 2 = multiplication/division (rounds to fewest significant figures)",
+      "label_i18n": {
+        "en": "Operation",
+        "tr": "Operation",
+        "de": "Operation",
+        "fr": "Operation",
+        "es": "Operation",
+        "ar": "Operation"
+      }
     }
   ],
   "formulas": {
@@ -56,8 +96,8 @@
       "minSigFigs"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

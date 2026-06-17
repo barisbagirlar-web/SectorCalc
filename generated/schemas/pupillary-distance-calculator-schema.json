@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 30,
-      "businessContext": "Sağ göz için merkezden pupile olan monoküler PD mesafesi (burun köprüsü merkezinden ölçülür)."
+      "businessContext": "Sağ göz için merkezden pupile olan monoküler PD mesafesi (burun köprüsü merkezinden ölçülür).",
+      "label_i18n": {
+        "en": "Sağ Göz PD (mm)",
+        "tr": "Sağ Göz PD (mm)",
+        "de": "Sağ Göz PD (mm)",
+        "fr": "Sağ Göz PD (mm)",
+        "es": "Sağ Göz PD (mm)",
+        "ar": "Sağ Göz PD (mm)"
+      }
     },
     {
       "id": "leftPd",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 30,
-      "businessContext": "Sol göz için merkezden pupile olan monoküler PD mesafesi (burun köprüsü merkezinden ölçülür)."
+      "businessContext": "Sol göz için merkezden pupile olan monoküler PD mesafesi (burun köprüsü merkezinden ölçülür).",
+      "label_i18n": {
+        "en": "Sol Göz PD (mm)",
+        "tr": "Sol Göz PD (mm)",
+        "de": "Sol Göz PD (mm)",
+        "fr": "Sol Göz PD (mm)",
+        "es": "Sol Göz PD (mm)",
+        "ar": "Sol Göz PD (mm)"
+      }
     },
     {
       "id": "workingDistance",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 40,
-      "businessContext": "Tipik okuma veya yakın çalışma mesafesi (santimetre cinsinden)."
+      "businessContext": "Tipik okuma veya yakın çalışma mesafesi (santimetre cinsinden).",
+      "label_i18n": {
+        "en": "Yakın Çalışma Mesafesi (cm)",
+        "tr": "Yakın Çalışma Mesafesi (cm)",
+        "de": "Yakın Çalışma Mesafesi (cm)",
+        "fr": "Yakın Çalışma Mesafesi (cm)",
+        "es": "Yakın Çalışma Mesafesi (cm)",
+        "ar": "Yakın Çalışma Mesafesi (cm)"
+      }
     },
     {
       "id": "vertexDistance",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 12,
-      "businessContext": "Göz yüzeyi ile gözlük camı arasındaki mesafe (genellikle 12 mm)."
+      "businessContext": "Göz yüzeyi ile gözlük camı arasındaki mesafe (genellikle 12 mm).",
+      "label_i18n": {
+        "en": "Tepe Mesafesi (mm)",
+        "tr": "Tepe Mesafesi (mm)",
+        "de": "Tepe Mesafesi (mm)",
+        "fr": "Tepe Mesafesi (mm)",
+        "es": "Tepe Mesafesi (mm)",
+        "ar": "Tepe Mesafesi (mm)"
+      }
     },
     {
       "id": "centerRotationDistance",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm",
       "default": 15,
-      "businessContext": "Korneadan gözün dönme merkezine olan mesafe (tipik 15 mm)."
+      "businessContext": "Korneadan gözün dönme merkezine olan mesafe (tipik 15 mm).",
+      "label_i18n": {
+        "en": "Dönme Merkezi Mesafesi (mm)",
+        "tr": "Dönme Merkezi Mesafesi (mm)",
+        "de": "Dönme Merkezi Mesafesi (mm)",
+        "fr": "Dönme Merkezi Mesafesi (mm)",
+        "es": "Dönme Merkezi Mesafesi (mm)",
+        "ar": "Dönme Merkezi Mesafesi (mm)"
+      }
     }
   ],
   "formulas": {
@@ -58,8 +98,8 @@
       "leftNearPd"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

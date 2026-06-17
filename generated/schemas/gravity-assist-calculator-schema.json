@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km/s",
       "default": 29.8,
-      "businessContext": "The orbital speed of the planet relative to the Sun."
+      "businessContext": "The orbital speed of the planet relative to the Sun.",
+      "label_i18n": {
+        "en": "Planet Orbital Speed",
+        "tr": "Planet Orbital Speed",
+        "de": "Planet Orbital Speed",
+        "fr": "Planet Orbital Speed",
+        "es": "Planet Orbital Speed",
+        "ar": "Planet Orbital Speed"
+      }
     },
     {
       "id": "v_inf",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "km/s",
       "default": 3,
-      "businessContext": "The spacecraft's speed relative to the planet at an infinite distance (approach velocity)."
+      "businessContext": "The spacecraft's speed relative to the planet at an infinite distance (approach velocity).",
+      "label_i18n": {
+        "en": "Hyperbolic Excess Speed",
+        "tr": "Hyperbolic Excess Speed",
+        "de": "Hyperbolic Excess Speed",
+        "fr": "Hyperbolic Excess Speed",
+        "es": "Hyperbolic Excess Speed",
+        "ar": "Hyperbolic Excess Speed"
+      }
     },
     {
       "id": "r_p",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "km",
       "default": 6671,
-      "businessContext": "Distance from planet center at closest approach."
+      "businessContext": "Distance from planet center at closest approach.",
+      "label_i18n": {
+        "en": "Periapsis Distance",
+        "tr": "Periapsis Distance",
+        "de": "Periapsis Distance",
+        "fr": "Periapsis Distance",
+        "es": "Periapsis Distance",
+        "ar": "Periapsis Distance"
+      }
     },
     {
       "id": "mu",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "km³/s²",
       "default": 398600.4418,
-      "businessContext": "Standard gravitational parameter (GM) of the planet."
+      "businessContext": "Standard gravitational parameter (GM) of the planet.",
+      "label_i18n": {
+        "en": "Gravitational Parameter",
+        "tr": "Gravitational Parameter",
+        "de": "Gravitational Parameter",
+        "fr": "Gravitational Parameter",
+        "es": "Gravitational Parameter",
+        "ar": "Gravitational Parameter"
+      }
     }
   ],
   "formulas": {
@@ -56,8 +88,8 @@
       }
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Havacılık & Savunma",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

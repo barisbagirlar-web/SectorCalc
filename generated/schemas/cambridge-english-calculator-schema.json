@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Raw score from the Reading section (0-25)"
+      "businessContext": "Raw score from the Reading section (0-25)",
+      "label_i18n": {
+        "en": "Reading Score",
+        "tr": "Reading Score",
+        "de": "Reading Score",
+        "fr": "Reading Score",
+        "es": "Reading Score",
+        "ar": "Reading Score"
+      }
     },
     {
       "id": "writingScore",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Raw score from the Writing section (0-25)"
+      "businessContext": "Raw score from the Writing section (0-25)",
+      "label_i18n": {
+        "en": "Writing Score",
+        "tr": "Writing Score",
+        "de": "Writing Score",
+        "fr": "Writing Score",
+        "es": "Writing Score",
+        "ar": "Writing Score"
+      }
     },
     {
       "id": "listeningScore",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Raw score from the Listening section (0-25)"
+      "businessContext": "Raw score from the Listening section (0-25)",
+      "label_i18n": {
+        "en": "Listening Score",
+        "tr": "Listening Score",
+        "de": "Listening Score",
+        "fr": "Listening Score",
+        "es": "Listening Score",
+        "ar": "Listening Score"
+      }
     },
     {
       "id": "speakingScore",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Raw score from the Speaking section (0-25)"
+      "businessContext": "Raw score from the Speaking section (0-25)",
+      "label_i18n": {
+        "en": "Speaking Score",
+        "tr": "Speaking Score",
+        "de": "Speaking Score",
+        "fr": "Speaking Score",
+        "es": "Speaking Score",
+        "ar": "Speaking Score"
+      }
     },
     {
       "id": "useOfEnglishScore",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Raw score from the Use of English section (0-25)"
+      "businessContext": "Raw score from the Use of English section (0-25)",
+      "label_i18n": {
+        "en": "Use of English Score",
+        "tr": "Use of English Score",
+        "de": "Use of English Score",
+        "fr": "Use of English Score",
+        "es": "Use of English Score",
+        "ar": "Use of English Score"
+      }
     }
   ],
   "formulas": {
@@ -54,8 +94,8 @@
       "cefrLevel"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

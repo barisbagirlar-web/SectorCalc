@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "outs",
       "default": 9,
-      "businessContext": "Number of cards that complete your winning hand."
+      "businessContext": "Number of cards that complete your winning hand.",
+      "label_i18n": {
+        "en": "Outs",
+        "tr": "Outs",
+        "de": "Outs",
+        "fr": "Outs",
+        "es": "Outs",
+        "ar": "Outs"
+      }
     },
     {
       "id": "streets",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "streets",
       "default": 2,
-      "businessContext": "Number of community cards remaining (1 for river only, 2 for turn and river)."
+      "businessContext": "Number of community cards remaining (1 for river only, 2 for turn and river).",
+      "label_i18n": {
+        "en": "Streets to Come",
+        "tr": "Streets to Come",
+        "de": "Streets to Come",
+        "fr": "Streets to Come",
+        "es": "Streets to Come",
+        "ar": "Streets to Come"
+      }
     },
     {
       "id": "potSize",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "chips",
       "default": 100,
-      "businessContext": "Current size of the pot before calling."
+      "businessContext": "Current size of the pot before calling.",
+      "label_i18n": {
+        "en": "Pot Size",
+        "tr": "Pot Size",
+        "de": "Pot Size",
+        "fr": "Pot Size",
+        "es": "Pot Size",
+        "ar": "Pot Size"
+      }
     },
     {
       "id": "betToCall",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "chips",
       "default": 50,
-      "businessContext": "Amount you must call to stay in the hand."
+      "businessContext": "Amount you must call to stay in the hand.",
+      "label_i18n": {
+        "en": "Bet to Call",
+        "tr": "Bet to Call",
+        "de": "Bet to Call",
+        "fr": "Bet to Call",
+        "es": "Bet to Call",
+        "ar": "Bet to Call"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "Break-even Equity (%)"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "gaming-entertainment",
   "sectorSlug": "ecommerce",

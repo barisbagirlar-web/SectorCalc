@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "First point mass"
+      "businessContext": "First point mass",
+      "label_i18n": {
+        "en": "Mass 1",
+        "tr": "Mass 1",
+        "de": "Mass 1",
+        "fr": "Mass 1",
+        "es": "Mass 1",
+        "ar": "Mass 1"
+      }
     },
     {
       "id": "x1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "X coordinate of mass 1"
+      "businessContext": "X coordinate of mass 1",
+      "label_i18n": {
+        "en": "X Position 1",
+        "tr": "X Position 1",
+        "de": "X Position 1",
+        "fr": "X Position 1",
+        "es": "X Position 1",
+        "ar": "X Position 1"
+      }
     },
     {
       "id": "y1",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Y coordinate of mass 1"
+      "businessContext": "Y coordinate of mass 1",
+      "label_i18n": {
+        "en": "Y Position 1",
+        "tr": "Y Position 1",
+        "de": "Y Position 1",
+        "fr": "Y Position 1",
+        "es": "Y Position 1",
+        "ar": "Y Position 1"
+      }
     },
     {
       "id": "mass2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Second point mass"
+      "businessContext": "Second point mass",
+      "label_i18n": {
+        "en": "Mass 2",
+        "tr": "Mass 2",
+        "de": "Mass 2",
+        "fr": "Mass 2",
+        "es": "Mass 2",
+        "ar": "Mass 2"
+      }
     },
     {
       "id": "x2",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "X coordinate of mass 2"
+      "businessContext": "X coordinate of mass 2",
+      "label_i18n": {
+        "en": "X Position 2",
+        "tr": "X Position 2",
+        "de": "X Position 2",
+        "fr": "X Position 2",
+        "es": "X Position 2",
+        "ar": "X Position 2"
+      }
     },
     {
       "id": "y2",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Y coordinate of mass 2"
+      "businessContext": "Y coordinate of mass 2",
+      "label_i18n": {
+        "en": "Y Position 2",
+        "tr": "Y Position 2",
+        "de": "Y Position 2",
+        "fr": "Y Position 2",
+        "es": "Y Position 2",
+        "ar": "Y Position 2"
+      }
     }
   ],
   "formulas": {
@@ -61,8 +109,8 @@
       "y_cg"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

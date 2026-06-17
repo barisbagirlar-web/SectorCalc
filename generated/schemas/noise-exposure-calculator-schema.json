@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dB(A)",
       "default": 90,
-      "businessContext": "Measured continuous noise level in A-weighted decibels"
+      "businessContext": "Measured continuous noise level in A-weighted decibels",
+      "label_i18n": {
+        "en": "Noise Level",
+        "tr": "Noise Level",
+        "de": "Noise Level",
+        "fr": "Noise Level",
+        "es": "Noise Level",
+        "ar": "Noise Level"
+      }
     },
     {
       "id": "exposureTime",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hours",
       "default": 8,
-      "businessContext": "Total daily noise exposure duration"
+      "businessContext": "Total daily noise exposure duration",
+      "label_i18n": {
+        "en": "Exposure Time",
+        "tr": "Exposure Time",
+        "de": "Exposure Time",
+        "fr": "Exposure Time",
+        "es": "Exposure Time",
+        "ar": "Exposure Time"
+      }
     },
     {
       "id": "exchangeRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dB",
       "default": 3,
-      "businessContext": "Decibel exchange rate (3 for equal energy, 5 for OSHA)"
+      "businessContext": "Decibel exchange rate (3 for equal energy, 5 for OSHA)",
+      "label_i18n": {
+        "en": "Exchange Rate",
+        "tr": "Exchange Rate",
+        "de": "Exchange Rate",
+        "fr": "Exchange Rate",
+        "es": "Exchange Rate",
+        "ar": "Exchange Rate"
+      }
     },
     {
       "id": "criterionLevel",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dB(A)",
       "default": 85,
-      "businessContext": "Permissible noise level for an 8-hour shift"
+      "businessContext": "Permissible noise level for an 8-hour shift",
+      "label_i18n": {
+        "en": "Criterion Level",
+        "tr": "Criterion Level",
+        "de": "Criterion Level",
+        "fr": "Criterion Level",
+        "es": "Criterion Level",
+        "ar": "Criterion Level"
+      }
     },
     {
       "id": "thresholdLevel",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "dB(A)",
       "default": 0,
-      "businessContext": "Level below which noise is ignored (0 = no threshold)"
+      "businessContext": "Level below which noise is ignored (0 = no threshold)",
+      "label_i18n": {
+        "en": "Threshold Level",
+        "tr": "Threshold Level",
+        "de": "Threshold Level",
+        "fr": "Threshold Level",
+        "es": "Threshold Level",
+        "ar": "Threshold Level"
+      }
     }
   ],
   "formulas": {
@@ -62,8 +102,8 @@
       }
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Enerji & Elektrik",
+  "category": "İSG & Risk Yönetimi",
+  "sector": "İSG & Risk",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

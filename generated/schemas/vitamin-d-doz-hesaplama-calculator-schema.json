@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ng/mL",
       "default": 20,
-      "businessContext": "Hastanın son ölçülen 25(OH)D seviyesi"
+      "businessContext": "Hastanın son ölçülen 25(OH)D seviyesi",
+      "label_i18n": {
+        "en": "Mevcut D vitamini (ng/mL)",
+        "tr": "Mevcut D vitamini (ng/mL)",
+        "de": "Mevcut D vitamini (ng/mL)",
+        "fr": "Mevcut D vitamini (ng/mL)",
+        "es": "Mevcut D vitamini (ng/mL)",
+        "ar": "Mevcut D vitamini (ng/mL)"
+      }
     },
     {
       "id": "targetD",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ng/mL",
       "default": 50,
-      "businessContext": "Ulaşılmak istenen hedef seviye"
+      "businessContext": "Ulaşılmak istenen hedef seviye",
+      "label_i18n": {
+        "en": "Hedef D vitamini (ng/mL)",
+        "tr": "Hedef D vitamini (ng/mL)",
+        "de": "Hedef D vitamini (ng/mL)",
+        "fr": "Hedef D vitamini (ng/mL)",
+        "es": "Hedef D vitamini (ng/mL)",
+        "ar": "Hedef D vitamini (ng/mL)"
+      }
     },
     {
       "id": "weight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Hastanın vücut ağırlığı"
+      "businessContext": "Hastanın vücut ağırlığı",
+      "label_i18n": {
+        "en": "Vücut ağırlığı (kg)",
+        "tr": "Vücut ağırlığı (kg)",
+        "de": "Vücut ağırlığı (kg)",
+        "fr": "Vücut ağırlığı (kg)",
+        "es": "Vücut ağırlığı (kg)",
+        "ar": "Vücut ağırlığı (kg)"
+      }
     },
     {
       "id": "age",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 30,
-      "businessContext": "Hastanın yaşı"
+      "businessContext": "Hastanın yaşı",
+      "label_i18n": {
+        "en": "Yaş (yıl)",
+        "tr": "Yaş (yıl)",
+        "de": "Yaş (yıl)",
+        "fr": "Yaş (yıl)",
+        "es": "Yaş (yıl)",
+        "ar": "Yaş (yıl)"
+      }
     }
   ],
   "formulas": {
@@ -47,8 +79,8 @@
       "weeklyIU"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

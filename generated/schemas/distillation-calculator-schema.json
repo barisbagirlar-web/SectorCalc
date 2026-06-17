@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kmol/h",
       "default": 100,
-      "businessContext": "Besleme akış hızı (F)"
+      "businessContext": "Besleme akış hızı (F)",
+      "label_i18n": {
+        "en": "Feed Flow Rate",
+        "tr": "Feed Flow Rate",
+        "de": "Feed Flow Rate",
+        "fr": "Feed Flow Rate",
+        "es": "Feed Flow Rate",
+        "ar": "Feed Flow Rate"
+      }
     },
     {
       "id": "feedComposition",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mol/mol",
       "default": 0.5,
-      "businessContext": "Besleme bileşimi (hafif bileşen mol kesri, xF)"
+      "businessContext": "Besleme bileşimi (hafif bileşen mol kesri, xF)",
+      "label_i18n": {
+        "en": "Feed Composition",
+        "tr": "Feed Composition",
+        "de": "Feed Composition",
+        "fr": "Feed Composition",
+        "es": "Feed Composition",
+        "ar": "Feed Composition"
+      }
     },
     {
       "id": "distillateComposition",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mol/mol",
       "default": 0.95,
-      "businessContext": "Üst ürün bileşimi (xD)"
+      "businessContext": "Üst ürün bileşimi (xD)",
+      "label_i18n": {
+        "en": "Distillate Composition",
+        "tr": "Distillate Composition",
+        "de": "Distillate Composition",
+        "fr": "Distillate Composition",
+        "es": "Distillate Composition",
+        "ar": "Distillate Composition"
+      }
     },
     {
       "id": "bottomsComposition",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mol/mol",
       "default": 0.05,
-      "businessContext": "Dip ürün bileşimi (xB)"
+      "businessContext": "Dip ürün bileşimi (xB)",
+      "label_i18n": {
+        "en": "Bottoms Composition",
+        "tr": "Bottoms Composition",
+        "de": "Bottoms Composition",
+        "fr": "Bottoms Composition",
+        "es": "Bottoms Composition",
+        "ar": "Bottoms Composition"
+      }
     },
     {
       "id": "relativeVolatility",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 2.5,
-      "businessContext": "Bağıl uçuculuk (alfa)"
+      "businessContext": "Bağıl uçuculuk (alfa)",
+      "label_i18n": {
+        "en": "Relative Volatility",
+        "tr": "Relative Volatility",
+        "de": "Relative Volatility",
+        "fr": "Relative Volatility",
+        "es": "Relative Volatility",
+        "ar": "Relative Volatility"
+      }
     }
   ],
   "formulas": {
@@ -56,8 +96,8 @@
       "minimumTheoreticalPlates"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Diğer",
+  "category": "Akışkanlar & Termodinamik",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
   "sectorSlug": "cnc-manufacturing",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 5.972e+24,
-      "businessContext": "Mass of the celestial body (e.g., Earth = 5.972 × 10^24 kg)"
+      "businessContext": "Mass of the celestial body (e.g., Earth = 5.972 × 10^24 kg)",
+      "label_i18n": {
+        "en": "Mass",
+        "tr": "Mass",
+        "de": "Mass",
+        "fr": "Mass",
+        "es": "Mass",
+        "ar": "Mass"
+      }
     },
     {
       "id": "radius",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 6371000,
-      "businessContext": "Radius of the celestial body (e.g., Earth = 6,371 km)"
+      "businessContext": "Radius of the celestial body (e.g., Earth = 6,371 km)",
+      "label_i18n": {
+        "en": "Radius",
+        "tr": "Radius",
+        "de": "Radius",
+        "fr": "Radius",
+        "es": "Radius",
+        "ar": "Radius"
+      }
     },
     {
       "id": "altitude",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Altitude above the surface (0 for surface launch)"
+      "businessContext": "Altitude above the surface (0 for surface launch)",
+      "label_i18n": {
+        "en": "Altitude",
+        "tr": "Altitude",
+        "de": "Altitude",
+        "fr": "Altitude",
+        "es": "Altitude",
+        "ar": "Altitude"
+      }
     },
     {
       "id": "G",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m^3 kg^-1 s^-2",
       "default": 6.6743e-11,
-      "businessContext": "Universal gravitational constant (default 6.67430×10^-11 m^3 kg^-1 s^-2)"
+      "businessContext": "Universal gravitational constant (default 6.67430×10^-11 m^3 kg^-1 s^-2)",
+      "label_i18n": {
+        "en": "Gravitational Constant",
+        "tr": "Gravitational Constant",
+        "de": "Gravitational Constant",
+        "fr": "Gravitational Constant",
+        "es": "Gravitational Constant",
+        "ar": "Gravitational Constant"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "escVelKMPS"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",

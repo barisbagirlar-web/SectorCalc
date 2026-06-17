@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "V",
       "default": 0.34,
-      "businessContext": "Standard reduction potential of the cathode half-reaction, e.g., Cu²⁺ + 2e⁻ → Cu is 0.34 V."
+      "businessContext": "Standard reduction potential of the cathode half-reaction, e.g., Cu²⁺ + 2e⁻ → Cu is 0.34 V.",
+      "label_i18n": {
+        "en": "Cathode Standard Reduction Potential (E°_cathode)",
+        "tr": "Cathode Standard Reduction Potential (E°_cathode)",
+        "de": "Cathode Standard Reduction Potential (E°_cathode)",
+        "fr": "Cathode Standard Reduction Potential (E°_cathode)",
+        "es": "Cathode Standard Reduction Potential (E°_cathode)",
+        "ar": "Cathode Standard Reduction Potential (E°_cathode)"
+      }
     },
     {
       "id": "anodeStandardPotential",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "V",
       "default": -0.76,
-      "businessContext": "Standard reduction potential of the anode half-reaction, e.g., Zn²⁺ + 2e⁻ → Zn is -0.76 V."
+      "businessContext": "Standard reduction potential of the anode half-reaction, e.g., Zn²⁺ + 2e⁻ → Zn is -0.76 V.",
+      "label_i18n": {
+        "en": "Anode Standard Reduction Potential (E°_anode)",
+        "tr": "Anode Standard Reduction Potential (E°_anode)",
+        "de": "Anode Standard Reduction Potential (E°_anode)",
+        "fr": "Anode Standard Reduction Potential (E°_anode)",
+        "es": "Anode Standard Reduction Potential (E°_anode)",
+        "ar": "Anode Standard Reduction Potential (E°_anode)"
+      }
     },
     {
       "id": "temperature",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "K",
       "default": 298.15,
-      "businessContext": "Temperature in Kelvin. Standard conditions are 298.15 K (25°C)."
+      "businessContext": "Temperature in Kelvin. Standard conditions are 298.15 K (25°C).",
+      "label_i18n": {
+        "en": "Temperature (T)",
+        "tr": "Temperature (T)",
+        "de": "Temperature (T)",
+        "fr": "Temperature (T)",
+        "es": "Temperature (T)",
+        "ar": "Temperature (T)"
+      }
     },
     {
       "id": "numberOfElectrons",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 2,
-      "businessContext": "Number of moles of electrons transferred according to the balanced redox reaction."
+      "businessContext": "Number of moles of electrons transferred according to the balanced redox reaction.",
+      "label_i18n": {
+        "en": "Number of Electrons Transferred (n)",
+        "tr": "Number of Electrons Transferred (n)",
+        "de": "Number of Electrons Transferred (n)",
+        "fr": "Number of Electrons Transferred (n)",
+        "es": "Number of Electrons Transferred (n)",
+        "ar": "Number of Electrons Transferred (n)"
+      }
     },
     {
       "id": "reactionQuotient",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Ratio of product activities to reactant activities at given concentrations/pressures. For aA + bB → cC + dD, Q = [C]^c[D]^d / [A]^a[B]^b."
+      "businessContext": "Ratio of product activities to reactant activities at given concentrations/pressures. For aA + bB → cC + dD, Q = [C]^c[D]^d / [A]^a[B]^b.",
+      "label_i18n": {
+        "en": "Reaction Quotient (Q)",
+        "tr": "Reaction Quotient (Q)",
+        "de": "Reaction Quotient (Q)",
+        "fr": "Reaction Quotient (Q)",
+        "es": "Reaction Quotient (Q)",
+        "ar": "Reaction Quotient (Q)"
+      }
     }
   ],
   "formulas": {
@@ -54,8 +94,8 @@
       "nernstCorrection"
     ]
   },
-  "category": "Diğer",
-  "sector": "Kimya & İlaç",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "chemistry-science",
   "sectorSlug": "energy-consumption",

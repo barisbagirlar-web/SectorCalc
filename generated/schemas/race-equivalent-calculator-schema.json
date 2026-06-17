@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 10,
-      "businessContext": "Distance of the race you have completed"
+      "businessContext": "Distance of the race you have completed",
+      "label_i18n": {
+        "en": "Known Distance",
+        "tr": "Known Distance",
+        "de": "Known Distance",
+        "fr": "Known Distance",
+        "es": "Known Distance",
+        "ar": "Known Distance"
+      }
     },
     {
       "id": "knownTimeHours",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "h",
       "default": 0,
-      "businessContext": "Hours part of your known race time"
+      "businessContext": "Hours part of your known race time",
+      "label_i18n": {
+        "en": "Hours",
+        "tr": "Hours",
+        "de": "Hours",
+        "fr": "Hours",
+        "es": "Hours",
+        "ar": "Hours"
+      }
     },
     {
       "id": "knownTimeMinutes",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "min",
       "default": 50,
-      "businessContext": "Minutes part of your known race time"
+      "businessContext": "Minutes part of your known race time",
+      "label_i18n": {
+        "en": "Minutes",
+        "tr": "Minutes",
+        "de": "Minutes",
+        "fr": "Minutes",
+        "es": "Minutes",
+        "ar": "Minutes"
+      }
     },
     {
       "id": "knownTimeSeconds",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "s",
       "default": 0,
-      "businessContext": "Seconds part of your known race time"
+      "businessContext": "Seconds part of your known race time",
+      "label_i18n": {
+        "en": "Seconds",
+        "tr": "Seconds",
+        "de": "Seconds",
+        "fr": "Seconds",
+        "es": "Seconds",
+        "ar": "Seconds"
+      }
     },
     {
       "id": "targetDistance",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "km",
       "default": 42.195,
-      "businessContext": "Distance of the race you want to predict"
+      "businessContext": "Distance of the race you want to predict",
+      "label_i18n": {
+        "en": "Target Distance",
+        "tr": "Target Distance",
+        "de": "Target Distance",
+        "fr": "Target Distance",
+        "es": "Target Distance",
+        "ar": "Target Distance"
+      }
     }
   ],
   "formulas": {
@@ -54,8 +94,8 @@
       "equivalentPaceSecondsPerKm"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

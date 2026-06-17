@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 100,
-      "businessContext": "Original price before GST"
+      "businessContext": "Original price before GST",
+      "label_i18n": {
+        "en": "Amount (excl. GST)",
+        "tr": "Amount (excl. GST)",
+        "de": "Amount (excl. GST)",
+        "fr": "Amount (excl. GST)",
+        "es": "Amount (excl. GST)",
+        "ar": "Amount (excl. GST)"
+      }
     },
     {
       "id": "gstRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "percent",
       "default": 10,
-      "businessContext": "Applicable GST percentage (e.g., 5, 10, 12, 18)"
+      "businessContext": "Applicable GST percentage (e.g., 5, 10, 12, 18)",
+      "label_i18n": {
+        "en": "GST Rate (%)",
+        "tr": "GST Rate (%)",
+        "de": "GST Rate (%)",
+        "fr": "GST Rate (%)",
+        "es": "GST Rate (%)",
+        "ar": "GST Rate (%)"
+      }
     },
     {
       "id": "country",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "code",
       "default": 1,
-      "businessContext": "1=Australia, 2=Canada, 3=India"
+      "businessContext": "1=Australia, 2=Canada, 3=India",
+      "label_i18n": {
+        "en": "Country",
+        "tr": "Country",
+        "de": "Country",
+        "fr": "Country",
+        "es": "Country",
+        "ar": "Country"
+      }
     }
   ],
   "formulas": {
@@ -40,8 +64,8 @@
       "amountExclGst"
     ]
   },
-  "category": "Maliyet & Bütçeleme",
-  "sector": "Perakende & Tüketici",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

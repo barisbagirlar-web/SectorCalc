@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "grad",
       "default": 100,
-      "businessContext": "Angle measured in gradians to be converted to degrees."
+      "businessContext": "Angle measured in gradians to be converted to degrees.",
+      "label_i18n": {
+        "en": "Gradians",
+        "tr": "Gradians",
+        "de": "Gradians",
+        "fr": "Gradians",
+        "es": "Gradians",
+        "ar": "Gradians"
+      }
     },
     {
       "id": "instrumentGain",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "factor",
       "default": 0.9,
-      "businessContext": "Calibration gain (multiplicative factor) for the conversion. Default 0.9 represents the standard gradians-to-degrees ratio."
+      "businessContext": "Calibration gain (multiplicative factor) for the conversion. Default 0.9 represents the standard gradians-to-degrees ratio.",
+      "label_i18n": {
+        "en": "Instrument Gain",
+        "tr": "Instrument Gain",
+        "de": "Instrument Gain",
+        "fr": "Instrument Gain",
+        "es": "Instrument Gain",
+        "ar": "Instrument Gain"
+      }
     },
     {
       "id": "instrumentOffset",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°",
       "default": 0,
-      "businessContext": "Calibration offset in degrees added after conversion to correct systematic error."
+      "businessContext": "Calibration offset in degrees added after conversion to correct systematic error.",
+      "label_i18n": {
+        "en": "Instrument Offset",
+        "tr": "Instrument Offset",
+        "de": "Instrument Offset",
+        "fr": "Instrument Offset",
+        "es": "Instrument Offset",
+        "ar": "Instrument Offset"
+      }
     },
     {
       "id": "roundingDecimals",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "places",
       "default": 2,
-      "businessContext": "Number of decimal places for the final degrees output. e.g., 2 results in two decimal places."
+      "businessContext": "Number of decimal places for the final degrees output. e.g., 2 results in two decimal places.",
+      "label_i18n": {
+        "en": "Rounding Decimals",
+        "tr": "Rounding Decimals",
+        "de": "Rounding Decimals",
+        "fr": "Rounding Decimals",
+        "es": "Rounding Decimals",
+        "ar": "Rounding Decimals"
+      }
     }
   ],
   "formulas": {
@@ -49,8 +81,8 @@
       "appliedOffset"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

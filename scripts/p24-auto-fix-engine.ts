@@ -17,7 +17,7 @@ function main(): void {
     slug: string;
     status: string;
   }>;
-  const toFix = audit.filter((item) => item.status !== "PASS" && item.status !== "WARN");
+  const toFix = audit.filter((item) => item.status !== "PASS");
   let fixed = 0;
   let skipped = 0;
 

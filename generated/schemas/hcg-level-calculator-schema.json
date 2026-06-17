@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "Birinci öğenin kütlesi"
+      "businessContext": "Birinci öğenin kütlesi",
+      "label_i18n": {
+        "en": "1. Kütle (kg)",
+        "tr": "1. Kütle (kg)",
+        "de": "1. Kütle (kg)",
+        "fr": "1. Kütle (kg)",
+        "es": "1. Kütle (kg)",
+        "ar": "1. Kütle (kg)"
+      }
     },
     {
       "id": "x1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "Birinci öğenin yatay referans noktasına uzaklığı"
+      "businessContext": "Birinci öğenin yatay referans noktasına uzaklığı",
+      "label_i18n": {
+        "en": "1. Pozisyon (m)",
+        "tr": "1. Pozisyon (m)",
+        "de": "1. Pozisyon (m)",
+        "fr": "1. Pozisyon (m)",
+        "es": "1. Pozisyon (m)",
+        "ar": "1. Pozisyon (m)"
+      }
     },
     {
       "id": "mass2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 200,
-      "businessContext": "İkinci öğenin kütlesi"
+      "businessContext": "İkinci öğenin kütlesi",
+      "label_i18n": {
+        "en": "2. Kütle (kg)",
+        "tr": "2. Kütle (kg)",
+        "de": "2. Kütle (kg)",
+        "fr": "2. Kütle (kg)",
+        "es": "2. Kütle (kg)",
+        "ar": "2. Kütle (kg)"
+      }
     },
     {
       "id": "x2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "İkinci öğenin yatay referans noktasına uzaklığı"
+      "businessContext": "İkinci öğenin yatay referans noktasına uzaklığı",
+      "label_i18n": {
+        "en": "2. Pozisyon (m)",
+        "tr": "2. Pozisyon (m)",
+        "de": "2. Pozisyon (m)",
+        "fr": "2. Pozisyon (m)",
+        "es": "2. Pozisyon (m)",
+        "ar": "2. Pozisyon (m)"
+      }
     },
     {
       "id": "mass3",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg",
       "default": 150,
-      "businessContext": "Üçüncü öğenin kütlesi"
+      "businessContext": "Üçüncü öğenin kütlesi",
+      "label_i18n": {
+        "en": "3. Kütle (kg)",
+        "tr": "3. Kütle (kg)",
+        "de": "3. Kütle (kg)",
+        "fr": "3. Kütle (kg)",
+        "es": "3. Kütle (kg)",
+        "ar": "3. Kütle (kg)"
+      }
     },
     {
       "id": "x3",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Üçüncü öğenin yatay referans noktasına uzaklığı"
+      "businessContext": "Üçüncü öğenin yatay referans noktasına uzaklığı",
+      "label_i18n": {
+        "en": "3. Pozisyon (m)",
+        "tr": "3. Pozisyon (m)",
+        "de": "3. Pozisyon (m)",
+        "fr": "3. Pozisyon (m)",
+        "es": "3. Pozisyon (m)",
+        "ar": "3. Pozisyon (m)"
+      }
     },
     {
       "id": "mass4",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "kg",
       "default": 50,
-      "businessContext": "Dördüncü öğenin kütlesi"
+      "businessContext": "Dördüncü öğenin kütlesi",
+      "label_i18n": {
+        "en": "4. Kütle (kg)",
+        "tr": "4. Kütle (kg)",
+        "de": "4. Kütle (kg)",
+        "fr": "4. Kütle (kg)",
+        "es": "4. Kütle (kg)",
+        "ar": "4. Kütle (kg)"
+      }
     },
     {
       "id": "x4",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "m",
       "default": 8,
-      "businessContext": "Dördüncü öğenin yatay referans noktasına uzaklığı"
+      "businessContext": "Dördüncü öğenin yatay referans noktasına uzaklığı",
+      "label_i18n": {
+        "en": "4. Pozisyon (m)",
+        "tr": "4. Pozisyon (m)",
+        "de": "4. Pozisyon (m)",
+        "fr": "4. Pozisyon (m)",
+        "es": "4. Pozisyon (m)",
+        "ar": "4. Pozisyon (m)"
+      }
     }
   ],
   "formulas": {
@@ -86,8 +150,8 @@
       }
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

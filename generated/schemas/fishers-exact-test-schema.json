@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "count",
       "default": 5,
-      "businessContext": "Number of successes in group 1"
+      "businessContext": "Number of successes in group 1",
+      "label_i18n": {
+        "en": "Cell a (top-left)",
+        "tr": "Cell a (top-left)",
+        "de": "Cell a (top-left)",
+        "fr": "Cell a (top-left)",
+        "es": "Cell a (top-left)",
+        "ar": "Cell a (top-left)"
+      }
     },
     {
       "id": "b",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "count",
       "default": 1,
-      "businessContext": "Number of failures in group 1"
+      "businessContext": "Number of failures in group 1",
+      "label_i18n": {
+        "en": "Cell b (top-right)",
+        "tr": "Cell b (top-right)",
+        "de": "Cell b (top-right)",
+        "fr": "Cell b (top-right)",
+        "es": "Cell b (top-right)",
+        "ar": "Cell b (top-right)"
+      }
     },
     {
       "id": "c",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "count",
       "default": 2,
-      "businessContext": "Number of successes in group 2"
+      "businessContext": "Number of successes in group 2",
+      "label_i18n": {
+        "en": "Cell c (bottom-left)",
+        "tr": "Cell c (bottom-left)",
+        "de": "Cell c (bottom-left)",
+        "fr": "Cell c (bottom-left)",
+        "es": "Cell c (bottom-left)",
+        "ar": "Cell c (bottom-left)"
+      }
     },
     {
       "id": "d",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "count",
       "default": 6,
-      "businessContext": "Number of failures in group 2"
+      "businessContext": "Number of failures in group 2",
+      "label_i18n": {
+        "en": "Cell d (bottom-right)",
+        "tr": "Cell d (bottom-right)",
+        "de": "Cell d (bottom-right)",
+        "fr": "Cell d (bottom-right)",
+        "es": "Cell d (bottom-right)",
+        "ar": "Cell d (bottom-right)"
+      }
     }
   ],
   "formulas": {
@@ -54,8 +86,8 @@
       "col2"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

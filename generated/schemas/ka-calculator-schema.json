@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mol/L",
       "default": 0.1,
-      "businessContext": "Molar concentration of the weak acid form."
+      "businessContext": "Molar concentration of the weak acid form.",
+      "label_i18n": {
+        "en": "Weak Acid Concentration [HA]",
+        "tr": "Weak Acid Concentration [HA]",
+        "de": "Weak Acid Concentration [HA]",
+        "fr": "Weak Acid Concentration [HA]",
+        "es": "Weak Acid Concentration [HA]",
+        "ar": "Weak Acid Concentration [HA]"
+      }
     },
     {
       "id": "concentrationA",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mol/L",
       "default": 0.1,
-      "businessContext": "Molar concentration of the conjugate base form."
+      "businessContext": "Molar concentration of the conjugate base form.",
+      "label_i18n": {
+        "en": "Conjugate Base Concentration [A-]",
+        "tr": "Conjugate Base Concentration [A-]",
+        "de": "Conjugate Base Concentration [A-]",
+        "fr": "Conjugate Base Concentration [A-]",
+        "es": "Conjugate Base Concentration [A-]",
+        "ar": "Conjugate Base Concentration [A-]"
+      }
     },
     {
       "id": "ph",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "pH",
       "default": 5,
-      "businessContext": "Measured pH of the buffer solution."
+      "businessContext": "Measured pH of the buffer solution.",
+      "label_i18n": {
+        "en": "Solution pH",
+        "tr": "Solution pH",
+        "de": "Solution pH",
+        "fr": "Solution pH",
+        "es": "Solution pH",
+        "ar": "Solution pH"
+      }
     },
     {
       "id": "temperature",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 25,
-      "businessContext": "Temperature of the solution (reference, not used in standard calculation)."
+      "businessContext": "Temperature of the solution (reference, not used in standard calculation).",
+      "label_i18n": {
+        "en": "Temperature",
+        "tr": "Temperature",
+        "de": "Temperature",
+        "fr": "Temperature",
+        "es": "Temperature",
+        "ar": "Temperature"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "ratio"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Kalite & Laboratuvar",
+  "sector": "Kalite, SPC & Altı Sigma",
   "premiumRequired": false,
   "catalogCategory": "chemistry-science",
   "sectorSlug": "energy-consumption",

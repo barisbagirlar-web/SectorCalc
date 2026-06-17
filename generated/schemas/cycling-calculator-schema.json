@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 622,
-      "businessContext": "ISO 5775'te tanımlı standart jant çapı (ETRTO 622 - 700C)"
+      "businessContext": "ISO 5775'te tanımlı standart jant çapı (ETRTO 622 - 700C)",
+      "label_i18n": {
+        "en": "Tekerlek Çapı",
+        "tr": "Tekerlek Çapı",
+        "de": "Tekerlek Çapı",
+        "fr": "Tekerlek Çapı",
+        "es": "Tekerlek Çapı",
+        "ar": "Tekerlek Çapı"
+      }
     },
     {
       "id": "cadence",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "RPM",
       "default": 90,
-      "businessContext": "Pedal çevirme sıklığı (dakikadaki devir sayısı)"
+      "businessContext": "Pedal çevirme sıklığı (dakikadaki devir sayısı)",
+      "label_i18n": {
+        "en": "Kadans",
+        "tr": "Kadans",
+        "de": "Kadans",
+        "fr": "Kadans",
+        "es": "Kadans",
+        "ar": "Kadans"
+      }
     },
     {
       "id": "chainringTeeth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "diş",
       "default": 50,
-      "businessContext": "Ön aynakol dişli sayısı"
+      "businessContext": "Ön aynakol dişli sayısı",
+      "label_i18n": {
+        "en": "Ayna Dişli",
+        "tr": "Ayna Dişli",
+        "de": "Ayna Dişli",
+        "fr": "Ayna Dişli",
+        "es": "Ayna Dişli",
+        "ar": "Ayna Dişli"
+      }
     },
     {
       "id": "cogTeeth",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "diş",
       "default": 17,
-      "businessContext": "Arka rubik dişli sayısı"
+      "businessContext": "Arka rubik dişli sayısı",
+      "label_i18n": {
+        "en": "Rubik Dişli",
+        "tr": "Rubik Dişli",
+        "de": "Rubik Dişli",
+        "fr": "Rubik Dişli",
+        "es": "Rubik Dişli",
+        "ar": "Rubik Dişli"
+      }
     },
     {
       "id": "timeMinutes",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "dk",
       "default": 60,
-      "businessContext": "Hesaplama süresi (dakika)"
+      "businessContext": "Hesaplama süresi (dakika)",
+      "label_i18n": {
+        "en": "Süre",
+        "tr": "Süre",
+        "de": "Süre",
+        "fr": "Süre",
+        "es": "Süre",
+        "ar": "Süre"
+      }
     }
   ],
   "formulas": {
@@ -54,8 +94,8 @@
       "distance"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
   "sectorSlug": "landscaping-lawn-care",

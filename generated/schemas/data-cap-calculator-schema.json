@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "GB",
       "default": 100,
-      "businessContext": "The total data allowance in gigabytes for the billing period."
+      "businessContext": "The total data allowance in gigabytes for the billing period.",
+      "label_i18n": {
+        "en": "Monthly Data Cap",
+        "tr": "Monthly Data Cap",
+        "de": "Monthly Data Cap",
+        "fr": "Monthly Data Cap",
+        "es": "Monthly Data Cap",
+        "ar": "Monthly Data Cap"
+      }
     },
     {
       "id": "dataUsed",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "GB",
       "default": 20,
-      "businessContext": "Amount of data consumed so far in the current billing period."
+      "businessContext": "Amount of data consumed so far in the current billing period.",
+      "label_i18n": {
+        "en": "Data Used So Far",
+        "tr": "Data Used So Far",
+        "de": "Data Used So Far",
+        "fr": "Data Used So Far",
+        "es": "Data Used So Far",
+        "ar": "Data Used So Far"
+      }
     },
     {
       "id": "billingCycleDays",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "days",
       "default": 30,
-      "businessContext": "Total days in the billing cycle."
+      "businessContext": "Total days in the billing cycle.",
+      "label_i18n": {
+        "en": "Billing Cycle Days",
+        "tr": "Billing Cycle Days",
+        "de": "Billing Cycle Days",
+        "fr": "Billing Cycle Days",
+        "es": "Billing Cycle Days",
+        "ar": "Billing Cycle Days"
+      }
     },
     {
       "id": "daysElapsed",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "days",
       "default": 10,
-      "businessContext": "Number of days that have passed in the current billing cycle."
+      "businessContext": "Number of days that have passed in the current billing cycle.",
+      "label_i18n": {
+        "en": "Days Elapsed",
+        "tr": "Days Elapsed",
+        "de": "Days Elapsed",
+        "fr": "Days Elapsed",
+        "es": "Days Elapsed",
+        "ar": "Days Elapsed"
+      }
     },
     {
       "id": "overageFeePerGB",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "$/GB",
       "default": 10,
-      "businessContext": "Cost charged per gigabyte when exceeding the data cap."
+      "businessContext": "Cost charged per gigabyte when exceeding the data cap.",
+      "label_i18n": {
+        "en": "Overage Fee per GB",
+        "tr": "Overage Fee per GB",
+        "de": "Overage Fee per GB",
+        "fr": "Overage Fee per GB",
+        "es": "Overage Fee per GB",
+        "ar": "Overage Fee per GB"
+      }
     }
   ],
   "formulas": {
@@ -78,8 +118,8 @@
       }
     ]
   },
-  "category": "Maliyet & Bütçeleme",
-  "sector": "Bilişim & Yazılım",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

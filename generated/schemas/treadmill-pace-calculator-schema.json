@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 5,
-      "businessContext": "Koşu bandında katedilen mesafe"
+      "businessContext": "Koşu bandında katedilen mesafe",
+      "label_i18n": {
+        "en": "Mesafe (km)",
+        "tr": "Mesafe (km)",
+        "de": "Mesafe (km)",
+        "fr": "Mesafe (km)",
+        "es": "Mesafe (km)",
+        "ar": "Mesafe (km)"
+      }
     },
     {
       "id": "hours",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "saat",
       "default": 0,
-      "businessContext": "Koşu süresinin saat kısmı"
+      "businessContext": "Koşu süresinin saat kısmı",
+      "label_i18n": {
+        "en": "Saat",
+        "tr": "Saat",
+        "de": "Saat",
+        "fr": "Saat",
+        "es": "Saat",
+        "ar": "Saat"
+      }
     },
     {
       "id": "minutes",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dk",
       "default": 30,
-      "businessContext": "Koşu süresinin dakika kısmı"
+      "businessContext": "Koşu süresinin dakika kısmı",
+      "label_i18n": {
+        "en": "Dakika",
+        "tr": "Dakika",
+        "de": "Dakika",
+        "fr": "Dakika",
+        "es": "Dakika",
+        "ar": "Dakika"
+      }
     },
     {
       "id": "seconds",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "sn",
       "default": 0,
-      "businessContext": "Koşu süresinin saniye kısmı"
+      "businessContext": "Koşu süresinin saniye kısmı",
+      "label_i18n": {
+        "en": "Saniye",
+        "tr": "Saniye",
+        "de": "Saniye",
+        "fr": "Saniye",
+        "es": "Saniye",
+        "ar": "Saniye"
+      }
     }
   ],
   "formulas": {
@@ -40,7 +72,9 @@
     "paceMinPerKm": "paceSecondsPerKm / 60",
     "speedKmh": "(distance * 3600) / totalSeconds",
     "paceMinPerMile": "paceSecondsPerKm * 1.60934 / 60",
-    "paceDisplay": "Math.floor(paceMinPerKm) + ':' + (paceSecondsPerKm % 60 < 10 ? '0' : '') + (paceSecondsPerKm % 60) + ' min/km'"
+    "paceDisplay": "Math.floor(paceMinPerKm) + ':' + (paceSecondsPerKm % 60 < 10 ? '0' : '') + (paceSecondsPerKm % 60) + ' min/km'",
+    "speedKmh_km_sa": "speedKmh km/sa",
+    "paceMinPerMile_dk_mil": "paceMinPerMile dk/mil"
   },
   "outputs": {
     "primary": "paceDisplay",
@@ -49,8 +83,8 @@
       "paceMinPerMile dk/mil"
     ]
   },
-  "category": "Diğer",
-  "sector": "Makine & Ekipman",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 50,
-      "businessContext": "Operating frequency of the AC circuit"
+      "businessContext": "Operating frequency of the AC circuit",
+      "label_i18n": {
+        "en": "Frequency",
+        "tr": "Frequency",
+        "de": "Frequency",
+        "fr": "Frequency",
+        "es": "Frequency",
+        "ar": "Frequency"
+      }
     },
     {
       "id": "capacitance",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "F",
       "default": 0.000001,
-      "businessContext": "Capacitance value of the capacitor"
+      "businessContext": "Capacitance value of the capacitor",
+      "label_i18n": {
+        "en": "Capacitance",
+        "tr": "Capacitance",
+        "de": "Capacitance",
+        "fr": "Capacitance",
+        "es": "Capacitance",
+        "ar": "Capacitance"
+      }
     },
     {
       "id": "inductance",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "H",
       "default": 0.1,
-      "businessContext": "Inductance value of the inductor"
+      "businessContext": "Inductance value of the inductor",
+      "label_i18n": {
+        "en": "Inductance",
+        "tr": "Inductance",
+        "de": "Inductance",
+        "fr": "Inductance",
+        "es": "Inductance",
+        "ar": "Inductance"
+      }
     },
     {
       "id": "connectionType",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "0=Series, 1=Parallel",
       "default": 0,
-      "businessContext": "Connection configuration of LC circuit"
+      "businessContext": "Connection configuration of LC circuit",
+      "label_i18n": {
+        "en": "Connection Type",
+        "tr": "Connection Type",
+        "de": "Connection Type",
+        "fr": "Connection Type",
+        "es": "Connection Type",
+        "ar": "Connection Type"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "Xl"
     ]
   },
-  "category": "Diğer",
-  "sector": "Telekomünikasyon",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
   "sectorSlug": "energy-consumption",

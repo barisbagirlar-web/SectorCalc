@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 10,
-      "businessContext": "Total cycling distance in kilometers."
+      "businessContext": "Total cycling distance in kilometers.",
+      "label_i18n": {
+        "en": "Distance",
+        "tr": "Distance",
+        "de": "Distance",
+        "fr": "Distance",
+        "es": "Distance",
+        "ar": "Distance"
+      }
     },
     {
       "id": "timeHours",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "h",
       "default": 0,
-      "businessContext": "Hours spent cycling (moving time)."
+      "businessContext": "Hours spent cycling (moving time).",
+      "label_i18n": {
+        "en": "Time (hours)",
+        "tr": "Time (hours)",
+        "de": "Time (hours)",
+        "fr": "Time (hours)",
+        "es": "Time (hours)",
+        "ar": "Time (hours)"
+      }
     },
     {
       "id": "timeMinutes",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "min",
       "default": 30,
-      "businessContext": "Minutes spent cycling (moving time)."
+      "businessContext": "Minutes spent cycling (moving time).",
+      "label_i18n": {
+        "en": "Time (minutes)",
+        "tr": "Time (minutes)",
+        "de": "Time (minutes)",
+        "fr": "Time (minutes)",
+        "es": "Time (minutes)",
+        "ar": "Time (minutes)"
+      }
     },
     {
       "id": "timeSeconds",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "s",
       "default": 0,
-      "businessContext": "Seconds spent cycling (moving time)."
+      "businessContext": "Seconds spent cycling (moving time).",
+      "label_i18n": {
+        "en": "Time (seconds)",
+        "tr": "Time (seconds)",
+        "de": "Time (seconds)",
+        "fr": "Time (seconds)",
+        "es": "Time (seconds)",
+        "ar": "Time (seconds)"
+      }
     },
     {
       "id": "breakTime",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "min",
       "default": 5,
-      "businessContext": "Total break time in minutes during the trip."
+      "businessContext": "Total break time in minutes during the trip.",
+      "label_i18n": {
+        "en": "Break Time",
+        "tr": "Break Time",
+        "de": "Break Time",
+        "fr": "Break Time",
+        "es": "Break Time",
+        "ar": "Break Time"
+      }
     }
   ],
   "formulas": {
@@ -56,8 +96,8 @@
       "totalTimeMinutes"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

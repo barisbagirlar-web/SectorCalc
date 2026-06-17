@@ -62,6 +62,7 @@ export async function LocaleDocumentLayout({ locale, children }: LocaleDocumentL
         <link rel="alternate" type="application/rss+xml" href="/guides/rss.xml" title="SectorCalc Guides" />
         <link rel="manifest" href="/manifest.webmanifest" />
         <meta name="theme-color" content={THEME_COLOR} />
+        <meta name="google-site-verification" content="YC4-K4Q1XVrErVW2UE9eNe4Tni2hhFFmBhF8dZjcVoY" />
         <meta name="msvalidate.01" content="C97289CA0F699D6B9053113A5E8FAD2A" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />

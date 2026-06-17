@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "words",
       "default": 100,
-      "businessContext": "Total number of words in the text to analyze."
+      "businessContext": "Total number of words in the text to analyze.",
+      "label_i18n": {
+        "en": "Total Words",
+        "tr": "Total Words",
+        "de": "Total Words",
+        "fr": "Total Words",
+        "es": "Total Words",
+        "ar": "Total Words"
+      }
     },
     {
       "id": "totalSentences",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "sentences",
       "default": 5,
-      "businessContext": "Total number of sentences. Must be greater than 0."
+      "businessContext": "Total number of sentences. Must be greater than 0.",
+      "label_i18n": {
+        "en": "Total Sentences",
+        "tr": "Total Sentences",
+        "de": "Total Sentences",
+        "fr": "Total Sentences",
+        "es": "Total Sentences",
+        "ar": "Total Sentences"
+      }
     },
     {
       "id": "complexWords",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "words",
       "default": 10,
-      "businessContext": "Number of words with 3 or more syllables (excluding proper nouns, common suffixes, etc. if exempt)."
+      "businessContext": "Number of words with 3 or more syllables (excluding proper nouns, common suffixes, etc. if exempt).",
+      "label_i18n": {
+        "en": "Complex Words",
+        "tr": "Complex Words",
+        "de": "Complex Words",
+        "fr": "Complex Words",
+        "es": "Complex Words",
+        "ar": "Complex Words"
+      }
     },
     {
       "id": "exemptWords",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "words",
       "default": 0,
-      "businessContext": "Number of complex words that are exempt from counting (e.g., proper nouns, compound words). Typically 0 if using simplified counting."
+      "businessContext": "Number of complex words that are exempt from counting (e.g., proper nouns, compound words). Typically 0 if using simplified counting.",
+      "label_i18n": {
+        "en": "Exempt Words",
+        "tr": "Exempt Words",
+        "de": "Exempt Words",
+        "fr": "Exempt Words",
+        "es": "Exempt Words",
+        "ar": "Exempt Words"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "pctComplexWords"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Birinci yükün kütlesi"
+      "businessContext": "Birinci yükün kütlesi",
+      "label_i18n": {
+        "en": "Yük 1 Ağırlık",
+        "tr": "Yük 1 Ağırlık",
+        "de": "Yük 1 Ağırlık",
+        "fr": "Yük 1 Ağırlık",
+        "es": "Yük 1 Ağırlık",
+        "ar": "Yük 1 Ağırlık"
+      }
     },
     {
       "id": "distance1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.5,
-      "businessContext": "Birinci yükün referans noktasına yatay mesafesi"
+      "businessContext": "Birinci yükün referans noktasına yatay mesafesi",
+      "label_i18n": {
+        "en": "Yük 1 Referans Mesafesi",
+        "tr": "Yük 1 Referans Mesafesi",
+        "de": "Yük 1 Referans Mesafesi",
+        "fr": "Yük 1 Referans Mesafesi",
+        "es": "Yük 1 Referans Mesafesi",
+        "ar": "Yük 1 Referans Mesafesi"
+      }
     },
     {
       "id": "weight2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 800,
-      "businessContext": "İkinci yükün kütlesi"
+      "businessContext": "İkinci yükün kütlesi",
+      "label_i18n": {
+        "en": "Yük 2 Ağırlık",
+        "tr": "Yük 2 Ağırlık",
+        "de": "Yük 2 Ağırlık",
+        "fr": "Yük 2 Ağırlık",
+        "es": "Yük 2 Ağırlık",
+        "ar": "Yük 2 Ağırlık"
+      }
     },
     {
       "id": "distance2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 1.2,
-      "businessContext": "İkinci yükün referans noktasına yatay mesafesi"
+      "businessContext": "İkinci yükün referans noktasına yatay mesafesi",
+      "label_i18n": {
+        "en": "Yük 2 Referans Mesafesi",
+        "tr": "Yük 2 Referans Mesafesi",
+        "de": "Yük 2 Referans Mesafesi",
+        "fr": "Yük 2 Referans Mesafesi",
+        "es": "Yük 2 Referans Mesafesi",
+        "ar": "Yük 2 Referans Mesafesi"
+      }
     },
     {
       "id": "weight3",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg",
       "default": 600,
-      "businessContext": "Üçüncü yükün kütlesi"
+      "businessContext": "Üçüncü yükün kütlesi",
+      "label_i18n": {
+        "en": "Yük 3 Ağırlık",
+        "tr": "Yük 3 Ağırlık",
+        "de": "Yük 3 Ağırlık",
+        "fr": "Yük 3 Ağırlık",
+        "es": "Yük 3 Ağırlık",
+        "ar": "Yük 3 Ağırlık"
+      }
     },
     {
       "id": "distance3",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "Üçüncü yükün referans noktasına yatay mesafesi"
+      "businessContext": "Üçüncü yükün referans noktasına yatay mesafesi",
+      "label_i18n": {
+        "en": "Yük 3 Referans Mesafesi",
+        "tr": "Yük 3 Referans Mesafesi",
+        "de": "Yük 3 Referans Mesafesi",
+        "fr": "Yük 3 Referans Mesafesi",
+        "es": "Yük 3 Referans Mesafesi",
+        "ar": "Yük 3 Referans Mesafesi"
+      }
     },
     {
       "id": "referencePoint",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Referans noktasının başlangıç pozisyonu (genellikle 0)"
+      "businessContext": "Referans noktasının başlangıç pozisyonu (genellikle 0)",
+      "label_i18n": {
+        "en": "Referans Noktası Konumu",
+        "tr": "Referans Noktası Konumu",
+        "de": "Referans Noktası Konumu",
+        "fr": "Referans Noktası Konumu",
+        "es": "Referans Noktası Konumu",
+        "ar": "Referans Noktası Konumu"
+      }
     }
   ],
   "formulas": {
@@ -70,8 +126,8 @@
       "totalMoment"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

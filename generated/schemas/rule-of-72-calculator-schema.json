@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "%",
       "default": 8,
-      "businessContext": "The nominal annual interest rate, before compounding effect."
+      "businessContext": "The nominal annual interest rate, before compounding effect.",
+      "label_i18n": {
+        "en": "Annual Interest Rate",
+        "tr": "Annual Interest Rate",
+        "de": "Annual Interest Rate",
+        "fr": "Annual Interest Rate",
+        "es": "Annual Interest Rate",
+        "ar": "Annual Interest Rate"
+      }
     },
     {
       "id": "compoundingFrequency",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "times/year",
       "default": 1,
-      "businessContext": "Number of compounding periods per year (e.g., 1 for annual, 12 for monthly)."
+      "businessContext": "Number of compounding periods per year (e.g., 1 for annual, 12 for monthly).",
+      "label_i18n": {
+        "en": "Compounding Frequency",
+        "tr": "Compounding Frequency",
+        "de": "Compounding Frequency",
+        "fr": "Compounding Frequency",
+        "es": "Compounding Frequency",
+        "ar": "Compounding Frequency"
+      }
     },
     {
       "id": "ruleConstant",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "year·%",
       "default": 72,
-      "businessContext": "The constant used in the rule of 72 (typically 72, but can be 70 or 69.3 for more precision)."
+      "businessContext": "The constant used in the rule of 72 (typically 72, but can be 70 or 69.3 for more precision).",
+      "label_i18n": {
+        "en": "Rule Constant",
+        "tr": "Rule Constant",
+        "de": "Rule Constant",
+        "fr": "Rule Constant",
+        "es": "Rule Constant",
+        "ar": "Rule Constant"
+      }
     },
     {
       "id": "initialInvestment",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency",
       "default": 10000,
-      "businessContext": "The initial amount invested."
+      "businessContext": "The initial amount invested.",
+      "label_i18n": {
+        "en": "Initial Investment",
+        "tr": "Initial Investment",
+        "de": "Initial Investment",
+        "fr": "Initial Investment",
+        "es": "Initial Investment",
+        "ar": "Initial Investment"
+      }
     }
   ],
   "formulas": {
@@ -50,8 +82,8 @@
       "finalApprox"
     ]
   },
-  "category": "Finans & Yatırım",
-  "sector": "Finans & Sigorta",
+  "category": "Proje & Yatırım",
+  "sector": "Finans & İK",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

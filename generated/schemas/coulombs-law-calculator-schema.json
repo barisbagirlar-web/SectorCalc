@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "C",
       "default": 0.000001,
-      "businessContext": "First point charge in coulombs"
+      "businessContext": "First point charge in coulombs",
+      "label_i18n": {
+        "en": "Charge 1",
+        "tr": "Charge 1",
+        "de": "Charge 1",
+        "fr": "Charge 1",
+        "es": "Charge 1",
+        "ar": "Charge 1"
+      }
     },
     {
       "id": "charge2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "C",
       "default": 0.000001,
-      "businessContext": "Second point charge in coulombs"
+      "businessContext": "Second point charge in coulombs",
+      "label_i18n": {
+        "en": "Charge 2",
+        "tr": "Charge 2",
+        "de": "Charge 2",
+        "fr": "Charge 2",
+        "es": "Charge 2",
+        "ar": "Charge 2"
+      }
     },
     {
       "id": "distance",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Separation distance between charges in meters"
+      "businessContext": "Separation distance between charges in meters",
+      "label_i18n": {
+        "en": "Distance",
+        "tr": "Distance",
+        "de": "Distance",
+        "fr": "Distance",
+        "es": "Distance",
+        "ar": "Distance"
+      }
     },
     {
       "id": "permittivity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "F/m",
       "default": 8.854187817e-12,
-      "businessContext": "Permittivity of the medium (vacuum default)"
+      "businessContext": "Permittivity of the medium (vacuum default)",
+      "label_i18n": {
+        "en": "Permittivity",
+        "tr": "Permittivity",
+        "de": "Permittivity",
+        "fr": "Permittivity",
+        "es": "Permittivity",
+        "ar": "Permittivity"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "forceDirection"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

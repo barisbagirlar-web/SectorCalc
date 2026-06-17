@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "s",
       "default": 60,
-      "businessContext": "Kronometre ile ölçülen çevrim süresi"
+      "businessContext": "Kronometre ile ölçülen çevrim süresi",
+      "label_i18n": {
+        "en": "Gözlemlenen Süre (saniye)",
+        "tr": "Gözlemlenen Süre (saniye)",
+        "de": "Gözlemlenen Süre (saniye)",
+        "fr": "Gözlemlenen Süre (saniye)",
+        "es": "Gözlemlenen Süre (saniye)",
+        "ar": "Gözlemlenen Süre (saniye)"
+      }
     },
     {
       "id": "cycles",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Ölçülen parça veya operasyon sayısı"
+      "businessContext": "Ölçülen parça veya operasyon sayısı",
+      "label_i18n": {
+        "en": "Tekrar Sayısı",
+        "tr": "Tekrar Sayısı",
+        "de": "Tekrar Sayısı",
+        "fr": "Tekrar Sayısı",
+        "es": "Tekrar Sayısı",
+        "ar": "Tekrar Sayısı"
+      }
     },
     {
       "id": "ratingFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "İşçinin normal tempoya göre performans yüzdesi (100 = normal)"
+      "businessContext": "İşçinin normal tempoya göre performans yüzdesi (100 = normal)",
+      "label_i18n": {
+        "en": "Tempo Takdiri (%)",
+        "tr": "Tempo Takdiri (%)",
+        "de": "Tempo Takdiri (%)",
+        "fr": "Tempo Takdiri (%)",
+        "es": "Tempo Takdiri (%)",
+        "ar": "Tempo Takdiri (%)"
+      }
     },
     {
       "id": "allowanceFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Dinlenme, gecikme ve kişisel ihtiyaç payı"
+      "businessContext": "Dinlenme, gecikme ve kişisel ihtiyaç payı",
+      "label_i18n": {
+        "en": "Pay (Avans) (%)",
+        "tr": "Pay (Avans) (%)",
+        "de": "Pay (Avans) (%)",
+        "fr": "Pay (Avans) (%)",
+        "es": "Pay (Avans) (%)",
+        "ar": "Pay (Avans) (%)"
+      }
     }
   ],
   "formulas": {
@@ -47,8 +79,8 @@
       "standardTime"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "categorySlug": "technology-ai-cloud-cyber",
   "catalogCategory": "health-body",

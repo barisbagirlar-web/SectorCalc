@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 18.015,
-      "businessContext": "Mass of the sample in grams"
+      "businessContext": "Mass of the sample in grams",
+      "label_i18n": {
+        "en": "Mass",
+        "tr": "Mass",
+        "de": "Mass",
+        "fr": "Mass",
+        "es": "Mass",
+        "ar": "Mass"
+      }
     },
     {
       "id": "molarMass",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g/mol",
       "default": 18.015,
-      "businessContext": "Molar mass of the substance"
+      "businessContext": "Molar mass of the substance",
+      "label_i18n": {
+        "en": "Molar Mass",
+        "tr": "Molar Mass",
+        "de": "Molar Mass",
+        "fr": "Molar Mass",
+        "es": "Molar Mass",
+        "ar": "Molar Mass"
+      }
     },
     {
       "id": "avogadro",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "particles/mol",
       "default": 6.02214076e+23,
-      "businessContext": "Number of particles per mole"
+      "businessContext": "Number of particles per mole",
+      "label_i18n": {
+        "en": "Avogadro's Number",
+        "tr": "Avogadro's Number",
+        "de": "Avogadro's Number",
+        "fr": "Avogadro's Number",
+        "es": "Avogadro's Number",
+        "ar": "Avogadro's Number"
+      }
     },
     {
       "id": "molarVolume",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "L/mol",
       "default": 22.414,
-      "businessContext": "Volume per mole of ideal gas at STP"
+      "businessContext": "Volume per mole of ideal gas at STP",
+      "label_i18n": {
+        "en": "Molar Volume",
+        "tr": "Molar Volume",
+        "de": "Molar Volume",
+        "fr": "Molar Volume",
+        "es": "Molar Volume",
+        "ar": "Molar Volume"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "volumeSTP"
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "chemistry-science",
   "sectorSlug": "energy-consumption",

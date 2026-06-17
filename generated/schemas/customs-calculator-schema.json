@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 1000,
-      "businessContext": "Mal bedeli + sigorta + navlun (CIF)"
+      "businessContext": "Mal bedeli + sigorta + navlun (CIF)",
+      "label_i18n": {
+        "en": "CIF Değeri",
+        "tr": "CIF Değeri",
+        "de": "CIF Değeri",
+        "fr": "CIF Değeri",
+        "es": "CIF Değeri",
+        "ar": "CIF Değeri"
+      }
     },
     {
       "id": "dutyRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Gümrük vergisi oranı"
+      "businessContext": "Gümrük vergisi oranı",
+      "label_i18n": {
+        "en": "Gümrük Vergisi Oranı (%)",
+        "tr": "Gümrük Vergisi Oranı (%)",
+        "de": "Gümrük Vergisi Oranı (%)",
+        "fr": "Gümrük Vergisi Oranı (%)",
+        "es": "Gümrük Vergisi Oranı (%)",
+        "ar": "Gümrük Vergisi Oranı (%)"
+      }
     },
     {
       "id": "vatRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 18,
-      "businessContext": "Katma Değer Vergisi oranı"
+      "businessContext": "Katma Değer Vergisi oranı",
+      "label_i18n": {
+        "en": "KDV Oranı (%)",
+        "tr": "KDV Oranı (%)",
+        "de": "KDV Oranı (%)",
+        "fr": "KDV Oranı (%)",
+        "es": "KDV Oranı (%)",
+        "ar": "KDV Oranı (%)"
+      }
     },
     {
       "id": "exciseRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Özel Tüketim Vergisi oranı (varsa)"
+      "businessContext": "Özel Tüketim Vergisi oranı (varsa)",
+      "label_i18n": {
+        "en": "ÖTV Oranı (%)",
+        "tr": "ÖTV Oranı (%)",
+        "de": "ÖTV Oranı (%)",
+        "fr": "ÖTV Oranı (%)",
+        "es": "ÖTV Oranı (%)",
+        "ar": "ÖTV Oranı (%)"
+      }
     },
     {
       "id": "fixedFee",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "Damga vergisi, gümrük sunum ücreti vb. sabit masraflar"
+      "businessContext": "Damga vergisi, gümrük sunum ücreti vb. sabit masraflar",
+      "label_i18n": {
+        "en": "Sabit Ücret",
+        "tr": "Sabit Ücret",
+        "de": "Sabit Ücret",
+        "fr": "Sabit Ücret",
+        "es": "Sabit Ücret",
+        "ar": "Sabit Ücret"
+      }
     }
   ],
   "formulas": {
@@ -58,8 +98,8 @@
       "totalFixedFee"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

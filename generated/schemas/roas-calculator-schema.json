@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Advertising cost on platform A"
+      "businessContext": "Advertising cost on platform A",
+      "label_i18n": {
+        "en": "Platform A Spend",
+        "tr": "Platform A Spend",
+        "de": "Platform A Spend",
+        "fr": "Platform A Spend",
+        "es": "Platform A Spend",
+        "ar": "Platform A Spend"
+      }
     },
     {
       "id": "spendB",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Advertising cost on platform B"
+      "businessContext": "Advertising cost on platform B",
+      "label_i18n": {
+        "en": "Platform B Spend",
+        "tr": "Platform B Spend",
+        "de": "Platform B Spend",
+        "fr": "Platform B Spend",
+        "es": "Platform B Spend",
+        "ar": "Platform B Spend"
+      }
     },
     {
       "id": "revenueA",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Revenue generated from platform A campaigns"
+      "businessContext": "Revenue generated from platform A campaigns",
+      "label_i18n": {
+        "en": "Revenue from Platform A",
+        "tr": "Revenue from Platform A",
+        "de": "Revenue from Platform A",
+        "fr": "Revenue from Platform A",
+        "es": "Revenue from Platform A",
+        "ar": "Revenue from Platform A"
+      }
     },
     {
       "id": "revenueB",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Revenue generated from platform B campaigns"
+      "businessContext": "Revenue generated from platform B campaigns",
+      "label_i18n": {
+        "en": "Revenue from Platform B",
+        "tr": "Revenue from Platform B",
+        "de": "Revenue from Platform B",
+        "fr": "Revenue from Platform B",
+        "es": "Revenue from Platform B",
+        "ar": "Revenue from Platform B"
+      }
     }
   ],
   "formulas": {
@@ -48,8 +80,8 @@
       "roasPercentage"
     ]
   },
-  "category": "Maliyet & Bütçeleme",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

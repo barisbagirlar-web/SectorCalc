@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 5,
-      "businessContext": "Total hiking distance in kilometers"
+      "businessContext": "Total hiking distance in kilometers",
+      "label_i18n": {
+        "en": "Distance (km)",
+        "tr": "Distance (km)",
+        "de": "Distance (km)",
+        "fr": "Distance (km)",
+        "es": "Distance (km)",
+        "ar": "Distance (km)"
+      }
     },
     {
       "id": "elevationGain",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 500,
-      "businessContext": "Total ascent in meters"
+      "businessContext": "Total ascent in meters",
+      "label_i18n": {
+        "en": "Elevation Gain (m)",
+        "tr": "Elevation Gain (m)",
+        "de": "Elevation Gain (m)",
+        "fr": "Elevation Gain (m)",
+        "es": "Elevation Gain (m)",
+        "ar": "Elevation Gain (m)"
+      }
     },
     {
       "id": "pace",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "min/km",
       "default": 12,
-      "businessContext": "Flat walking pace in minutes per kilometer"
+      "businessContext": "Flat walking pace in minutes per kilometer",
+      "label_i18n": {
+        "en": "Walking Pace (min/km)",
+        "tr": "Walking Pace (min/km)",
+        "de": "Walking Pace (min/km)",
+        "fr": "Walking Pace (min/km)",
+        "es": "Walking Pace (min/km)",
+        "ar": "Walking Pace (min/km)"
+      }
     },
     {
       "id": "terrainFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1,
-      "businessContext": "Multiplier for rough terrain (1 = easy, 1.5 = moderate, 2 = difficult)"
+      "businessContext": "Multiplier for rough terrain (1 = easy, 1.5 = moderate, 2 = difficult)",
+      "label_i18n": {
+        "en": "Terrain Factor",
+        "tr": "Terrain Factor",
+        "de": "Terrain Factor",
+        "fr": "Terrain Factor",
+        "es": "Terrain Factor",
+        "ar": "Terrain Factor"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "elevationTime"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

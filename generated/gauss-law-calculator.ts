@@ -20,6 +20,9 @@ function evaluateAllFormulas(input: Gauss_law_calculatorInput): Record<string, n
   try { const v = input.charge / input.permittivity; results["electricFlux"] = Number.isFinite(v) ? v : 0; } catch { results["electricFlux"] = 0; }
   try { const v = input.charge / (4 * Math.PI * input.permittivity * input.radius * input.radius); results["electricField"] = Number.isFinite(v) ? v : 0; } catch { results["electricField"] = 0; }
   try { const v = (results["electricField"] ?? 0) * (4 * Math.PI * input.radius * input.radius) * Math.cos(input.angle * Math.PI / 180); results["fluxThroughSurface"] = Number.isFinite(v) ? v : 0; } catch { results["fluxThroughSurface"] = 0; }
+  try { const v = input.charge / input.permittivity; results["electricFlux___charge___permittivity"] = Number.isFinite(v) ? v : 0; } catch { results["electricFlux___charge___permittivity"] = 0; }
+  results["electricField___charge____4___________r_"] = 0;
+  try { const v = E * A * cos(θ); results["fluxThroughSurface___E___A___cos___"] = Number.isFinite(v) ? v : 0; } catch { results["fluxThroughSurface___E___A___cos___"] = 0; }
   return results;
 }
 

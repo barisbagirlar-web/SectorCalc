@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Completed years of person 1"
+      "businessContext": "Completed years of person 1",
+      "label_i18n": {
+        "en": "Person 1 Age (years)",
+        "tr": "Person 1 Age (years)",
+        "de": "Person 1 Age (years)",
+        "fr": "Person 1 Age (years)",
+        "es": "Person 1 Age (years)",
+        "ar": "Person 1 Age (years)"
+      }
     },
     {
       "id": "person1Months",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "months",
       "default": 0,
-      "businessContext": "Additional months beyond completed years for person 1"
+      "businessContext": "Additional months beyond completed years for person 1",
+      "label_i18n": {
+        "en": "Person 1 Additional Months",
+        "tr": "Person 1 Additional Months",
+        "de": "Person 1 Additional Months",
+        "fr": "Person 1 Additional Months",
+        "es": "Person 1 Additional Months",
+        "ar": "Person 1 Additional Months"
+      }
     },
     {
       "id": "person2Years",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 25,
-      "businessContext": "Completed years of person 2"
+      "businessContext": "Completed years of person 2",
+      "label_i18n": {
+        "en": "Person 2 Age (years)",
+        "tr": "Person 2 Age (years)",
+        "de": "Person 2 Age (years)",
+        "fr": "Person 2 Age (years)",
+        "es": "Person 2 Age (years)",
+        "ar": "Person 2 Age (years)"
+      }
     },
     {
       "id": "person2Months",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "months",
       "default": 0,
-      "businessContext": "Additional months beyond completed years for person 2"
+      "businessContext": "Additional months beyond completed years for person 2",
+      "label_i18n": {
+        "en": "Person 2 Additional Months",
+        "tr": "Person 2 Additional Months",
+        "de": "Person 2 Additional Months",
+        "fr": "Person 2 Additional Months",
+        "es": "Person 2 Additional Months",
+        "ar": "Person 2 Additional Months"
+      }
     }
   ],
   "formulas": {
@@ -57,8 +89,8 @@
       }
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "date-time",
   "sectorSlug": "daily-renovation",

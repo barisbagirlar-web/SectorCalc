@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Parents' Adjusted Gross Income from tax return"
+      "businessContext": "Parents' Adjusted Gross Income from tax return",
+      "label_i18n": {
+        "en": "Parent AGI",
+        "tr": "Parent AGI",
+        "de": "Parent AGI",
+        "fr": "Parent AGI",
+        "es": "Parent AGI",
+        "ar": "Parent AGI"
+      }
     },
     {
       "id": "parentAssets",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Total net worth of parent assets (excluding home and retirement)"
+      "businessContext": "Total net worth of parent assets (excluding home and retirement)",
+      "label_i18n": {
+        "en": "Parent Assets",
+        "tr": "Parent Assets",
+        "de": "Parent Assets",
+        "fr": "Parent Assets",
+        "es": "Parent Assets",
+        "ar": "Parent Assets"
+      }
     },
     {
       "id": "studentIncome",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Student's income from all sources"
+      "businessContext": "Student's income from all sources",
+      "label_i18n": {
+        "en": "Student Income",
+        "tr": "Student Income",
+        "de": "Student Income",
+        "fr": "Student Income",
+        "es": "Student Income",
+        "ar": "Student Income"
+      }
     },
     {
       "id": "studentAssets",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Total net worth of student assets"
+      "businessContext": "Total net worth of student assets",
+      "label_i18n": {
+        "en": "Student Assets",
+        "tr": "Student Assets",
+        "de": "Student Assets",
+        "fr": "Student Assets",
+        "es": "Student Assets",
+        "ar": "Student Assets"
+      }
     },
     {
       "id": "familySize",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "count",
       "default": 4,
-      "businessContext": "Number of people in the household"
+      "businessContext": "Number of people in the household",
+      "label_i18n": {
+        "en": "Family Size",
+        "tr": "Family Size",
+        "de": "Family Size",
+        "fr": "Family Size",
+        "es": "Family Size",
+        "ar": "Family Size"
+      }
     },
     {
       "id": "numberInCollege",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "count",
       "default": 1,
-      "businessContext": "Number of household members attending college"
+      "businessContext": "Number of household members attending college",
+      "label_i18n": {
+        "en": "Number in College",
+        "tr": "Number in College",
+        "de": "Number in College",
+        "fr": "Number in College",
+        "es": "Number in College",
+        "ar": "Number in College"
+      }
     }
   ],
   "formulas": {
@@ -66,8 +114,8 @@
       "studentAssetContrib"
     ]
   },
-  "category": "Finans & Yatırım",
-  "sector": "Otomotiv & Taşıt",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

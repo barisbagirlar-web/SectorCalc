@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "gün",
       "default": 1,
-      "businessContext": "Başlangıç tarihinin gün bileşeni (1-31)"
+      "businessContext": "Başlangıç tarihinin gün bileşeni (1-31)",
+      "label_i18n": {
+        "en": "Başlangıç Günü",
+        "tr": "Başlangıç Günü",
+        "de": "Başlangıç Günü",
+        "fr": "Başlangıç Günü",
+        "es": "Başlangıç Günü",
+        "ar": "Başlangıç Günü"
+      }
     },
     {
       "id": "startMonth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ay",
       "default": 1,
-      "businessContext": "Başlangıç tarihinin ay bileşeni (1-12)"
+      "businessContext": "Başlangıç tarihinin ay bileşeni (1-12)",
+      "label_i18n": {
+        "en": "Başlangıç Ayı",
+        "tr": "Başlangıç Ayı",
+        "de": "Başlangıç Ayı",
+        "fr": "Başlangıç Ayı",
+        "es": "Başlangıç Ayı",
+        "ar": "Başlangıç Ayı"
+      }
     },
     {
       "id": "startYear",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 2025,
-      "businessContext": "Başlangıç tarihinin yıl bileşeni"
+      "businessContext": "Başlangıç tarihinin yıl bileşeni",
+      "label_i18n": {
+        "en": "Başlangıç Yılı",
+        "tr": "Başlangıç Yılı",
+        "de": "Başlangıç Yılı",
+        "fr": "Başlangıç Yılı",
+        "es": "Başlangıç Yılı",
+        "ar": "Başlangıç Yılı"
+      }
     },
     {
       "id": "endDay",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "gün",
       "default": 1,
-      "businessContext": "Bitiş tarihinin gün bileşeni (1-31)"
+      "businessContext": "Bitiş tarihinin gün bileşeni (1-31)",
+      "label_i18n": {
+        "en": "Bitiş Günü",
+        "tr": "Bitiş Günü",
+        "de": "Bitiş Günü",
+        "fr": "Bitiş Günü",
+        "es": "Bitiş Günü",
+        "ar": "Bitiş Günü"
+      }
     },
     {
       "id": "endMonth",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "ay",
       "default": 1,
-      "businessContext": "Bitiş tarihinin ay bileşeni (1-12)"
+      "businessContext": "Bitiş tarihinin ay bileşeni (1-12)",
+      "label_i18n": {
+        "en": "Bitiş Ayı",
+        "tr": "Bitiş Ayı",
+        "de": "Bitiş Ayı",
+        "fr": "Bitiş Ayı",
+        "es": "Bitiş Ayı",
+        "ar": "Bitiş Ayı"
+      }
     },
     {
       "id": "endYear",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 2025,
-      "businessContext": "Bitiş tarihinin yıl bileşeni"
+      "businessContext": "Bitiş tarihinin yıl bileşeni",
+      "label_i18n": {
+        "en": "Bitiş Yılı",
+        "tr": "Bitiş Yılı",
+        "de": "Bitiş Yılı",
+        "fr": "Bitiş Yılı",
+        "es": "Bitiş Yılı",
+        "ar": "Bitiş Yılı"
+      }
     }
   ],
   "formulas": {
@@ -62,8 +110,8 @@
       "totalMonths"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

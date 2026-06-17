@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 300,
-      "businessContext": "Mevcut raket kütlesi"
+      "businessContext": "Mevcut raket kütlesi",
+      "label_i18n": {
+        "en": "Racquet Mass (g)",
+        "tr": "Racquet Mass (g)",
+        "de": "Racquet Mass (g)",
+        "fr": "Racquet Mass (g)",
+        "es": "Racquet Mass (g)",
+        "ar": "Racquet Mass (g)"
+      }
     },
     {
       "id": "racquetBalance",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 32,
-      "businessContext": "Mevcut raket denge noktasının butt'a uzaklığı"
+      "businessContext": "Mevcut raket denge noktasının butt'a uzaklığı",
+      "label_i18n": {
+        "en": "Racquet Balance (cm from butt)",
+        "tr": "Racquet Balance (cm from butt)",
+        "de": "Racquet Balance (cm from butt)",
+        "fr": "Racquet Balance (cm from butt)",
+        "es": "Racquet Balance (cm from butt)",
+        "ar": "Racquet Balance (cm from butt)"
+      }
     },
     {
       "id": "racquetSwingWeight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg·cm²",
       "default": 320,
-      "businessContext": "Mevcut raket salınım ağırlığı"
+      "businessContext": "Mevcut raket salınım ağırlığı",
+      "label_i18n": {
+        "en": "Racquet Swing Weight (kg·cm²)",
+        "tr": "Racquet Swing Weight (kg·cm²)",
+        "de": "Racquet Swing Weight (kg·cm²)",
+        "fr": "Racquet Swing Weight (kg·cm²)",
+        "es": "Racquet Swing Weight (kg·cm²)",
+        "ar": "Racquet Swing Weight (kg·cm²)"
+      }
     },
     {
       "id": "addedMass",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "g",
       "default": 5,
-      "businessContext": "Eklenecek ağırlık"
+      "businessContext": "Eklenecek ağırlık",
+      "label_i18n": {
+        "en": "Added Mass (g)",
+        "tr": "Added Mass (g)",
+        "de": "Added Mass (g)",
+        "fr": "Added Mass (g)",
+        "es": "Added Mass (g)",
+        "ar": "Added Mass (g)"
+      }
     },
     {
       "id": "addedPosition",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "cm",
       "default": 68.5,
-      "businessContext": "Ağırlığın ekleneceği konum (butt'a uzaklık)"
+      "businessContext": "Ağırlığın ekleneceği konum (butt'a uzaklık)",
+      "label_i18n": {
+        "en": "Added Position (cm from butt)",
+        "tr": "Added Position (cm from butt)",
+        "de": "Added Position (cm from butt)",
+        "fr": "Added Position (cm from butt)",
+        "es": "Added Position (cm from butt)",
+        "ar": "Added Position (cm from butt)"
+      }
     }
   ],
   "formulas": {
@@ -54,8 +94,8 @@
       "newBalance"
     ]
   },
-  "category": "Dönüşüm & Ölçüm",
-  "sector": "Havacılık & Savunma",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

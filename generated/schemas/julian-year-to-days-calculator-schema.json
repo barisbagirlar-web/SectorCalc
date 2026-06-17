@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 1,
-      "businessContext": "Number of Julian years to convert"
+      "businessContext": "Number of Julian years to convert",
+      "label_i18n": {
+        "en": "Julian Years",
+        "tr": "Julian Years",
+        "de": "Julian Years",
+        "fr": "Julian Years",
+        "es": "Julian Years",
+        "ar": "Julian Years"
+      }
     },
     {
       "id": "daysPerYear",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "days/year",
       "default": 365.25,
-      "businessContext": "Standard length of a Julian year"
+      "businessContext": "Standard length of a Julian year",
+      "label_i18n": {
+        "en": "Days per Julian Year",
+        "tr": "Days per Julian Year",
+        "de": "Days per Julian Year",
+        "fr": "Days per Julian Year",
+        "es": "Days per Julian Year",
+        "ar": "Days per Julian Year"
+      }
     },
     {
       "id": "precision",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "decimal places",
       "default": 2,
-      "businessContext": "Number of decimal places in output"
+      "businessContext": "Number of decimal places in output",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     },
     {
       "id": "roundingMode",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mode (0=none, 1=round, 2=floor, 3=ceil)",
       "default": 0,
-      "businessContext": "Rounding method for result"
+      "businessContext": "Rounding method for result",
+      "label_i18n": {
+        "en": "Rounding Mode",
+        "tr": "Rounding Mode",
+        "de": "Rounding Mode",
+        "fr": "Rounding Mode",
+        "es": "Rounding Mode",
+        "ar": "Rounding Mode"
+      }
     }
   ],
   "formulas": {
@@ -46,8 +78,8 @@
       "daysPerYearUsed"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

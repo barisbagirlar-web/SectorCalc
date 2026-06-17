@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 30,
-      "businessContext": "Birinci grubun gözlem sayısı"
+      "businessContext": "Birinci grubun gözlem sayısı",
+      "label_i18n": {
+        "en": "Grup 1 Örneklem Büyüklüğü",
+        "tr": "Grup 1 Örneklem Büyüklüğü",
+        "de": "Grup 1 Örneklem Büyüklüğü",
+        "fr": "Grup 1 Örneklem Büyüklüğü",
+        "es": "Grup 1 Örneklem Büyüklüğü",
+        "ar": "Grup 1 Örneklem Büyüklüğü"
+      }
     },
     {
       "id": "n2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 30,
-      "businessContext": "İkinci grubun gözlem sayısı"
+      "businessContext": "İkinci grubun gözlem sayısı",
+      "label_i18n": {
+        "en": "Grup 2 Örneklem Büyüklüğü",
+        "tr": "Grup 2 Örneklem Büyüklüğü",
+        "de": "Grup 2 Örneklem Büyüklüğü",
+        "fr": "Grup 2 Örneklem Büyüklüğü",
+        "es": "Grup 2 Örneklem Büyüklüğü",
+        "ar": "Grup 2 Örneklem Büyüklüğü"
+      }
     },
     {
       "id": "d1",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "birim",
       "default": 0.5,
-      "businessContext": "Birinci bağımlı değişkende iki grup arasındaki ortalama farkı"
+      "businessContext": "Birinci bağımlı değişkende iki grup arasındaki ortalama farkı",
+      "label_i18n": {
+        "en": "Ortalama Farkı DV1",
+        "tr": "Ortalama Farkı DV1",
+        "de": "Ortalama Farkı DV1",
+        "fr": "Ortalama Farkı DV1",
+        "es": "Ortalama Farkı DV1",
+        "ar": "Ortalama Farkı DV1"
+      }
     },
     {
       "id": "d2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "birim",
       "default": 0.3,
-      "businessContext": "İkinci bağımlı değişkende iki grup arasındaki ortalama farkı"
+      "businessContext": "İkinci bağımlı değişkende iki grup arasındaki ortalama farkı",
+      "label_i18n": {
+        "en": "Ortalama Farkı DV2",
+        "tr": "Ortalama Farkı DV2",
+        "de": "Ortalama Farkı DV2",
+        "fr": "Ortalama Farkı DV2",
+        "es": "Ortalama Farkı DV2",
+        "ar": "Ortalama Farkı DV2"
+      }
     },
     {
       "id": "v1",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "birim^2",
       "default": 1,
-      "businessContext": "Birinci bağımlı değişken için iki grubun havuzlanmış varyansı"
+      "businessContext": "Birinci bağımlı değişken için iki grubun havuzlanmış varyansı",
+      "label_i18n": {
+        "en": "Havuzlanmış Varyans DV1",
+        "tr": "Havuzlanmış Varyans DV1",
+        "de": "Havuzlanmış Varyans DV1",
+        "fr": "Havuzlanmış Varyans DV1",
+        "es": "Havuzlanmış Varyans DV1",
+        "ar": "Havuzlanmış Varyans DV1"
+      }
     },
     {
       "id": "v2",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "birim^2",
       "default": 1,
-      "businessContext": "İkinci bağımlı değişken için iki grubun havuzlanmış varyansı"
+      "businessContext": "İkinci bağımlı değişken için iki grubun havuzlanmış varyansı",
+      "label_i18n": {
+        "en": "Havuzlanmış Varyans DV2",
+        "tr": "Havuzlanmış Varyans DV2",
+        "de": "Havuzlanmış Varyans DV2",
+        "fr": "Havuzlanmış Varyans DV2",
+        "es": "Havuzlanmış Varyans DV2",
+        "ar": "Havuzlanmış Varyans DV2"
+      }
     }
   ],
   "formulas": {
@@ -64,8 +112,8 @@
       "df2"
     ]
   },
-  "category": "Diğer",
-  "sector": "Diğer",
+  "category": "Üretim & İmalat",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",
