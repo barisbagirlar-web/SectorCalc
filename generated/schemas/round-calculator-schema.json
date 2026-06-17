@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 50,
-      "businessContext": "Yuvarlak çubuğun çapı"
+      "businessContext": "Yuvarlak çubuğun çapı",
+      "label_i18n": {
+        "en": "Çap (Diameter)",
+        "tr": "Çap (Diameter)",
+        "de": "Çap (Diameter)",
+        "fr": "Çap (Diameter)",
+        "es": "Çap (Diameter)",
+        "ar": "Çap (Diameter)"
+      }
     },
     {
       "id": "length",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 1000,
-      "businessContext": "Yuvarlak çubuğun uzunluğu"
+      "businessContext": "Yuvarlak çubuğun uzunluğu",
+      "label_i18n": {
+        "en": "Uzunluk (Length)",
+        "tr": "Uzunluk (Length)",
+        "de": "Uzunluk (Length)",
+        "fr": "Uzunluk (Length)",
+        "es": "Uzunluk (Length)",
+        "ar": "Uzunluk (Length)"
+      }
     },
     {
       "id": "density",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "g/cm³",
       "default": 7.85,
-      "businessContext": "Malzeme yoğunluğu (örn. çelik: 7.85 g/cm³)"
+      "businessContext": "Malzeme yoğunluğu (örn. çelik: 7.85 g/cm³)",
+      "label_i18n": {
+        "en": "Yoğunluk (Density)",
+        "tr": "Yoğunluk (Density)",
+        "de": "Yoğunluk (Density)",
+        "fr": "Yoğunluk (Density)",
+        "es": "Yoğunluk (Density)",
+        "ar": "Yoğunluk (Density)"
+      }
     },
     {
       "id": "quantity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Çubuk sayısı"
+      "businessContext": "Çubuk sayısı",
+      "label_i18n": {
+        "en": "Adet (Quantity)",
+        "tr": "Adet (Quantity)",
+        "de": "Adet (Quantity)",
+        "fr": "Adet (Quantity)",
+        "es": "Adet (Quantity)",
+        "ar": "Adet (Quantity)"
+      }
     }
   ],
   "formulas": {
@@ -50,7 +82,12 @@
       "surfaceAreaPerBar",
       "totalVolume",
       "totalSurfaceArea"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalSurfaceArea"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -60,5 +97,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

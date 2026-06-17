@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "User's age in years"
+      "businessContext": "User's age in years",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "restingHR",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "bpm",
       "default": 70,
-      "businessContext": "Resting heart rate in beats per minute"
+      "businessContext": "Resting heart rate in beats per minute",
+      "label_i18n": {
+        "en": "Resting Heart Rate",
+        "tr": "Resting Heart Rate",
+        "de": "Resting Heart Rate",
+        "fr": "Resting Heart Rate",
+        "es": "Resting Heart Rate",
+        "ar": "Resting Heart Rate"
+      }
     },
     {
       "id": "intensity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 70,
-      "businessContext": "Target intensity as a percentage (0-100)"
+      "businessContext": "Target intensity as a percentage (0-100)",
+      "label_i18n": {
+        "en": "Intensity",
+        "tr": "Intensity",
+        "de": "Intensity",
+        "fr": "Intensity",
+        "es": "Intensity",
+        "ar": "Intensity"
+      }
     },
     {
       "id": "maxHR",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "bpm",
       "default": 0,
-      "businessContext": "If known, enter maximum heart rate; 0 to estimate from age using Tanaka formula"
+      "businessContext": "If known, enter maximum heart rate; 0 to estimate from age using Tanaka formula",
+      "label_i18n": {
+        "en": "Maximum Heart Rate",
+        "tr": "Maximum Heart Rate",
+        "de": "Maximum Heart Rate",
+        "fr": "Maximum Heart Rate",
+        "es": "Maximum Heart Rate",
+        "ar": "Maximum Heart Rate"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "maxHeartRate",
       "heartRateReserve"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "targetHR"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -54,5 +91,10 @@
   "sectorSlug": "cleaning",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

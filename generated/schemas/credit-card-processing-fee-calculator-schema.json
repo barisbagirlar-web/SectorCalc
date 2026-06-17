@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100,
-      "businessContext": "Total amount charged to the customer for the transaction."
+      "businessContext": "Total amount charged to the customer for the transaction.",
+      "label_i18n": {
+        "en": "Transaction Amount",
+        "tr": "Transaction Amount",
+        "de": "Transaction Amount",
+        "fr": "Transaction Amount",
+        "es": "Transaction Amount",
+        "ar": "Transaction Amount"
+      }
     },
     {
       "id": "processingRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 2.9,
-      "businessContext": "Percentage fee charged by the processor on the transaction amount."
+      "businessContext": "Percentage fee charged by the processor on the transaction amount.",
+      "label_i18n": {
+        "en": "Processing Rate",
+        "tr": "Processing Rate",
+        "de": "Processing Rate",
+        "fr": "Processing Rate",
+        "es": "Processing Rate",
+        "ar": "Processing Rate"
+      }
     },
     {
       "id": "perTransactionFee",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0.3,
-      "businessContext": "Fixed fee charged per transaction by the processor."
+      "businessContext": "Fixed fee charged per transaction by the processor.",
+      "label_i18n": {
+        "en": "Per-Transaction Fee",
+        "tr": "Per-Transaction Fee",
+        "de": "Per-Transaction Fee",
+        "fr": "Per-Transaction Fee",
+        "es": "Per-Transaction Fee",
+        "ar": "Per-Transaction Fee"
+      }
     },
     {
       "id": "monthlyStatementFee",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 10,
-      "businessContext": "Fixed monthly fee for account maintenance, distributed across transactions."
+      "businessContext": "Fixed monthly fee for account maintenance, distributed across transactions.",
+      "label_i18n": {
+        "en": "Monthly Statement Fee",
+        "tr": "Monthly Statement Fee",
+        "de": "Monthly Statement Fee",
+        "fr": "Monthly Statement Fee",
+        "es": "Monthly Statement Fee",
+        "ar": "Monthly Statement Fee"
+      }
     },
     {
       "id": "numberOfTransactions",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "transactions",
       "default": 100,
-      "businessContext": "Total number of transactions processed per month."
+      "businessContext": "Total number of transactions processed per month.",
+      "label_i18n": {
+        "en": "Number of Monthly Transactions",
+        "tr": "Number of Monthly Transactions",
+        "de": "Number of Monthly Transactions",
+        "fr": "Number of Monthly Transactions",
+        "es": "Number of Monthly Transactions",
+        "ar": "Number of Monthly Transactions"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
       "totalFee",
       "effectiveRate",
       "monthlyTotalFee"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "monthlyTotalFee"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -64,5 +109,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

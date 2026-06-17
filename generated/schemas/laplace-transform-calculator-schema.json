@@ -99,16 +99,20 @@
     }
   ],
   "formulas": {
-    "numerator": "amplitude * Math.exp(-delay * s) * (frequency * Math.cos(phase) + (s + damping) * Math.sin(phase))",
     "denominator": "(s + damping) ** 2 + frequency ** 2",
-    "primary": "numerator / denominator"
+    "denominator_aux": "(s + damping) ** 2 + frequency ** 2"
   },
   "outputs": {
-    "primary": "primary",
+    "primary": "denominator_aux",
     "breakdown": [
       "numerator",
       "denominator"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "primary"
   },
   "category": "İK & Personel",
   "sector": "Finans & İK",
@@ -118,5 +122,10 @@
   "categorySlug": "workforce-hr",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

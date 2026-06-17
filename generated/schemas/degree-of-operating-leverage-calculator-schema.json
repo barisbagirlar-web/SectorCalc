@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1000,
-      "businessContext": "Satılan ürün miktarı"
+      "businessContext": "Satılan ürün miktarı",
+      "label_i18n": {
+        "en": "Miktar",
+        "tr": "Miktar",
+        "de": "Miktar",
+        "fr": "Miktar",
+        "es": "Miktar",
+        "ar": "Miktar"
+      }
     },
     {
       "id": "pricePerUnit",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "TL/adet",
       "default": 50,
-      "businessContext": "Ürün başına satış fiyatı"
+      "businessContext": "Ürün başına satış fiyatı",
+      "label_i18n": {
+        "en": "Birim Satış Fiyatı",
+        "tr": "Birim Satış Fiyatı",
+        "de": "Birim Satış Fiyatı",
+        "fr": "Birim Satış Fiyatı",
+        "es": "Birim Satış Fiyatı",
+        "ar": "Birim Satış Fiyatı"
+      }
     },
     {
       "id": "variableCostPerUnit",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "TL/adet",
       "default": 30,
-      "businessContext": "Ürün başına değişken maliyet"
+      "businessContext": "Ürün başına değişken maliyet",
+      "label_i18n": {
+        "en": "Birim Değişken Maliyet",
+        "tr": "Birim Değişken Maliyet",
+        "de": "Birim Değişken Maliyet",
+        "fr": "Birim Değişken Maliyet",
+        "es": "Birim Değişken Maliyet",
+        "ar": "Birim Değişken Maliyet"
+      }
     },
     {
       "id": "fixedCosts",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TL",
       "default": 10000,
-      "businessContext": "Toplam sabit işletme maliyetleri"
+      "businessContext": "Toplam sabit işletme maliyetleri",
+      "label_i18n": {
+        "en": "Sabit Maliyetler",
+        "tr": "Sabit Maliyetler",
+        "de": "Sabit Maliyetler",
+        "fr": "Sabit Maliyetler",
+        "es": "Sabit Maliyetler",
+        "ar": "Sabit Maliyetler"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "contributionMarginPerUnit",
       "totalContributionMargin",
       "operatingIncome"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "degreeOfOperatingLeverage"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -56,5 +93,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

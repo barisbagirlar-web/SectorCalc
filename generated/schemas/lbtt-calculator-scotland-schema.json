@@ -51,14 +51,8 @@
     }
   ],
   "formulas": {
-    "standardTax": "let p = purchasePrice; let tax = 0; if (p > 145000) { if (p > 250000) { tax += (Math.min(p, 325000) - 250000) * 0.05; } if (p > 325000) { tax += (Math.min(p, 750000) - 325000) * 0.10; } if (p > 750000) { tax += (p - 750000) * 0.12; } tax += (Math.min(p, 250000) - 145000) * 0.02; } tax",
-    "firstTimeBuyerRelief": "let p = purchasePrice; if (p <= 175000) { return 0; } let tax = 0; if (p > 250000) { tax += (Math.min(p, 325000) - 250000) * 0.05; } if (p > 325000) { tax += (Math.min(p, 750000) - 325000) * 0.10; } if (p > 750000) { tax += (p - 750000) * 0.12; } tax += (Math.min(p, 250000) - 145000) * 0.02; tax",
-    "adsSurcharge": "let p = purchasePrice; let surcharge = 0; if (p <= 145000) { surcharge = p * 0.04; } else if (p <= 250000) { surcharge = 145000 * 0.04 + (p - 145000) * 0.06; } else if (p <= 325000) { surcharge = 145000 * 0.04 + (250000 - 145000) * 0.06 + (p - 250000) * 0.09; } else if (p <= 750000) { surcharge = 145000 * 0.04 + (250000 - 145000) * 0.06 + (325000 - 250000) * 0.09 + (p - 325000) * 0.14; } else { surcharge = 145000 * 0.04 + (250000 - 145000) * 0.06 + (325000 - 250000) * 0.09 + (750000 - 325000) * 0.14 + (p - 750000) * 0.16; } surcharge",
-    "totalTax": "let base = isFirstTimeBuyer === 1 ? firstTimeBuyerRelief : standardTax; let ads = isAdditionalDwelling === 1 ? adsSurcharge : 0; base + ads",
-    "Standard_Tax____": "Standard Tax (£)",
-    "First_Time_Buyer_Relief____": "First-Time Buyer Relief (£)",
-    "ADS_Surcharge____": "ADS Surcharge (£)",
-    "result": "Total LBTT Due (£)"
+    "result": "purchasePrice + isFirstTimeBuyer + isAdditionalDwelling",
+    "result_aux": "purchasePrice + isFirstTimeBuyer + isAdditionalDwelling"
   },
   "outputs": {
     "primary": "result",
@@ -66,7 +60,12 @@
       "Standard Tax (£)",
       "First-Time Buyer Relief (£)",
       "ADS Surcharge (£)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalTax"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -76,5 +75,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

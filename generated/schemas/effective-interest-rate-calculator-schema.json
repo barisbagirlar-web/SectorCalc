@@ -69,15 +69,19 @@
   "formulas": {
     "effectiveRateDecimal": "(1 + nominalRate / 100 / compoundingPeriodsPerYear) ** (compoundingPeriodsPerYear * timePeriodYears) - 1",
     "effectiveRatePercent": "effectiveRateDecimal * 100",
-    "effectiveRateRounded": "Math.round(effectiveRatePercent * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
     "totalPeriods": "compoundingPeriodsPerYear * timePeriodYears"
   },
   "outputs": {
-    "primary": "effectiveRateRounded",
+    "primary": "totalPeriods",
     "breakdown": [
       "effectiveRateDecimal",
       "totalPeriods"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalPeriods"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -87,5 +91,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

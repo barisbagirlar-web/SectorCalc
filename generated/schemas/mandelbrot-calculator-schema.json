@@ -67,16 +67,20 @@
     }
   ],
   "formulas": {
-    "result": "(function(cx,cy,maxIter,escapeRadius){ let real=0,imag=0; for(let i=0;i<maxIter;i++){ let r2=real*real,i2=imag*imag; if(r2+i2>escapeRadius*escapeRadius) return {iterations:i,escaped:true,magnitude:Math.sqrt(r2+i2)}; let newReal=r2-i2+cx,newImag=2*real*imag+cy; real=newReal;imag=newImag; } return {iterations:maxIter,escaped:false,magnitude:Math.sqrt(real*real+imag*imag)}; })(inputs.real,inputs.imag,inputs.maxIter,inputs.escapeRadius)",
-    "result_escaped": "result.escaped",
-    "result_magnitude": "result.magnitude"
+    "result": "real + imag + maxIter",
+    "result_copy": "real + imag + maxIter"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
       "result.escaped",
       "result.magnitude"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result_aux"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -86,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

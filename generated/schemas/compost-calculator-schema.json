@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 10,
-      "businessContext": "Nitrojen zengini yeşil malzeme (ör. mutfak atıkları) ağırlığı."
+      "businessContext": "Nitrojen zengini yeşil malzeme (ör. mutfak atıkları) ağırlığı.",
+      "label_i18n": {
+        "en": "Yeşil Malzeme Ağırlığı",
+        "tr": "Yeşil Malzeme Ağırlığı",
+        "de": "Yeşil Malzeme Ağırlığı",
+        "fr": "Yeşil Malzeme Ağırlığı",
+        "es": "Yeşil Malzeme Ağırlığı",
+        "ar": "Yeşil Malzeme Ağırlığı"
+      }
     },
     {
       "id": "greenC",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Yeşil malzemedeki karbon yüzdesi (kuru ağırlıkça)."
+      "businessContext": "Yeşil malzemedeki karbon yüzdesi (kuru ağırlıkça).",
+      "label_i18n": {
+        "en": "Yeşil Malzeme Karbon Oranı",
+        "tr": "Yeşil Malzeme Karbon Oranı",
+        "de": "Yeşil Malzeme Karbon Oranı",
+        "fr": "Yeşil Malzeme Karbon Oranı",
+        "es": "Yeşil Malzeme Karbon Oranı",
+        "ar": "Yeşil Malzeme Karbon Oranı"
+      }
     },
     {
       "id": "greenN",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 1.5,
-      "businessContext": "Yeşil malzemedeki azot yüzdesi (kuru ağırlıkça)."
+      "businessContext": "Yeşil malzemedeki azot yüzdesi (kuru ağırlıkça).",
+      "label_i18n": {
+        "en": "Yeşil Malzeme Azot Oranı",
+        "tr": "Yeşil Malzeme Azot Oranı",
+        "de": "Yeşil Malzeme Azot Oranı",
+        "fr": "Yeşil Malzeme Azot Oranı",
+        "es": "Yeşil Malzeme Azot Oranı",
+        "ar": "Yeşil Malzeme Azot Oranı"
+      }
     },
     {
       "id": "brownWeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 10,
-      "businessContext": "Karbon zengini kahverengi malzeme (ör. kuru yapraklar) ağırlığı."
+      "businessContext": "Karbon zengini kahverengi malzeme (ör. kuru yapraklar) ağırlığı.",
+      "label_i18n": {
+        "en": "Kahverengi Malzeme Ağırlığı",
+        "tr": "Kahverengi Malzeme Ağırlığı",
+        "de": "Kahverengi Malzeme Ağırlığı",
+        "fr": "Kahverengi Malzeme Ağırlığı",
+        "es": "Kahverengi Malzeme Ağırlığı",
+        "ar": "Kahverengi Malzeme Ağırlığı"
+      }
     },
     {
       "id": "brownC",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "Kahverengi malzemedeki karbon yüzdesi (kuru ağırlıkça)."
+      "businessContext": "Kahverengi malzemedeki karbon yüzdesi (kuru ağırlıkça).",
+      "label_i18n": {
+        "en": "Kahverengi Malzeme Karbon Oranı",
+        "tr": "Kahverengi Malzeme Karbon Oranı",
+        "de": "Kahverengi Malzeme Karbon Oranı",
+        "fr": "Kahverengi Malzeme Karbon Oranı",
+        "es": "Kahverengi Malzeme Karbon Oranı",
+        "ar": "Kahverengi Malzeme Karbon Oranı"
+      }
     },
     {
       "id": "brownN",
@@ -47,15 +87,22 @@
       "type": "number",
       "unit": "%",
       "default": 1,
-      "businessContext": "Kahverengi malzemedeki azot yüzdesi (kuru ağırlıkça)."
+      "businessContext": "Kahverengi malzemedeki azot yüzdesi (kuru ağırlıkça).",
+      "label_i18n": {
+        "en": "Kahverengi Malzeme Azot Oranı",
+        "tr": "Kahverengi Malzeme Azot Oranı",
+        "de": "Kahverengi Malzeme Azot Oranı",
+        "fr": "Kahverengi Malzeme Azot Oranı",
+        "es": "Kahverengi Malzeme Azot Oranı",
+        "ar": "Kahverengi Malzeme Azot Oranı"
+      }
     }
   ],
   "formulas": {
     "totalCarbon": "greenWeight * greenC / 100 + brownWeight * brownC / 100",
     "totalNitrogen": "greenWeight * greenN / 100 + brownWeight * brownN / 100",
     "totalWeight": "greenWeight + brownWeight",
-    "resultingCNRatio": "totalCarbon / totalNitrogen",
-    "isOptimal": "resultingCNRatio >= 25 && resultingCNRatio <= 35"
+    "resultingCNRatio": "totalCarbon / totalNitrogen"
   },
   "outputs": {
     "primary": "resultingCNRatio",
@@ -64,7 +111,12 @@
       "totalNitrogen",
       "totalWeight",
       "isOptimal"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "resultingCNRatio"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -74,5 +126,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

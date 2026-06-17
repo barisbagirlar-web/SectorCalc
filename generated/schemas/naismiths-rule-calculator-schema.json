@@ -103,11 +103,7 @@
     "ascentTime": "(ascent / 100) * ascentTimePer100m",
     "descentTime": "(descent / 100) * descentTimePer100m",
     "totalTimeMin": "flatTime + ascentTime + descentTime",
-    "totalTimeHours": "totalTimeMin / 60",
-    "_flatTime__minutes": "{flatTime} minutes",
-    "_ascentTime__minutes": "{ascentTime} minutes",
-    "_descentTime__minutes": "{descentTime} minutes",
-    "_totalTimeMin__minutes": "{totalTimeMin} minutes"
+    "totalTimeHours": "totalTimeMin / 60"
   },
   "outputs": {
     "primary": "flatTime",
@@ -116,7 +112,12 @@
       "Ascent time: {ascentTime} minutes",
       "Descent time: {descentTime} minutes",
       "Total time: {totalTimeMin} minutes"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalTimeHours"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -126,5 +127,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

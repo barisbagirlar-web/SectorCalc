@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Length of the basement wall"
+      "businessContext": "Length of the basement wall",
+      "label_i18n": {
+        "en": "Wall Length",
+        "tr": "Wall Length",
+        "de": "Wall Length",
+        "fr": "Wall Length",
+        "es": "Wall Length",
+        "ar": "Wall Length"
+      }
     },
     {
       "id": "wall_height",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "Height of the basement wall"
+      "businessContext": "Height of the basement wall",
+      "label_i18n": {
+        "en": "Wall Height",
+        "tr": "Wall Height",
+        "de": "Wall Height",
+        "fr": "Wall Height",
+        "es": "Wall Height",
+        "ar": "Wall Height"
+      }
     },
     {
       "id": "wall_thickness",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.3,
-      "businessContext": "Thickness of the basement wall"
+      "businessContext": "Thickness of the basement wall",
+      "label_i18n": {
+        "en": "Wall Thickness",
+        "tr": "Wall Thickness",
+        "de": "Wall Thickness",
+        "fr": "Wall Thickness",
+        "es": "Wall Thickness",
+        "ar": "Wall Thickness"
+      }
     },
     {
       "id": "concrete_strength",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 25,
-      "businessContext": "Compressive strength of concrete"
+      "businessContext": "Compressive strength of concrete",
+      "label_i18n": {
+        "en": "Concrete Strength",
+        "tr": "Concrete Strength",
+        "de": "Concrete Strength",
+        "fr": "Concrete Strength",
+        "es": "Concrete Strength",
+        "ar": "Concrete Strength"
+      }
     },
     {
       "id": "steel_ratio",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 1.5,
-      "businessContext": "Percentage of steel reinforcement by volume"
+      "businessContext": "Percentage of steel reinforcement by volume",
+      "label_i18n": {
+        "en": "Steel Reinforcement Ratio",
+        "tr": "Steel Reinforcement Ratio",
+        "de": "Steel Reinforcement Ratio",
+        "fr": "Steel Reinforcement Ratio",
+        "es": "Steel Reinforcement Ratio",
+        "ar": "Steel Reinforcement Ratio"
+      }
     },
     {
       "id": "soil_pressure",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kN/m²",
       "default": 30,
-      "businessContext": "Lateral pressure from soil"
+      "businessContext": "Lateral pressure from soil",
+      "label_i18n": {
+        "en": "Soil Lateral Pressure",
+        "tr": "Soil Lateral Pressure",
+        "de": "Soil Lateral Pressure",
+        "fr": "Soil Lateral Pressure",
+        "es": "Soil Lateral Pressure",
+        "ar": "Soil Lateral Pressure"
+      }
     }
   ],
   "formulas": {
@@ -56,10 +104,8 @@
     "steel_volume": "wall_volume * (steel_ratio / 100)",
     "steel_weight": "steel_volume * 7850",
     "moment_capacity": "concrete_strength * wall_thickness * wall_thickness / 6",
-    "shear_capacity": "0.5 * Math.sqrt(concrete_strength) * wall_thickness * wall_height",
     "lateral_load": "soil_pressure * wall_height * wall_length / 2",
-    "safety_factor_moment": "moment_capacity / (lateral_load * wall_height / 3)",
-    "safety_factor_shear": "shear_capacity / lateral_load"
+    "safety_factor_moment": "moment_capacity / (lateral_load * wall_height / 3)"
   },
   "outputs": {
     "primary": "wall_volume",
@@ -71,7 +117,12 @@
       "lateral_load",
       "safety_factor_moment",
       "safety_factor_shear"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "safety_factor_shear"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -81,5 +132,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

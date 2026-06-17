@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 1000000,
-      "businessContext": "Total fair market value of all assets at time of death"
+      "businessContext": "Total fair market value of all assets at time of death",
+      "label_i18n": {
+        "en": "Gross Estate Value",
+        "tr": "Gross Estate Value",
+        "de": "Gross Estate Value",
+        "fr": "Gross Estate Value",
+        "es": "Gross Estate Value",
+        "ar": "Gross Estate Value"
+      }
     },
     {
       "id": "standardExemption",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "$",
       "default": 500000,
-      "businessContext": "Federal or jurisdictional exempt amount"
+      "businessContext": "Federal or jurisdictional exempt amount",
+      "label_i18n": {
+        "en": "Standard Exemption",
+        "tr": "Standard Exemption",
+        "de": "Standard Exemption",
+        "fr": "Standard Exemption",
+        "es": "Standard Exemption",
+        "ar": "Standard Exemption"
+      }
     },
     {
       "id": "otherDeductions",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Charitable, marital, debts, and other allowable deductions"
+      "businessContext": "Charitable, marital, debts, and other allowable deductions",
+      "label_i18n": {
+        "en": "Other Deductions",
+        "tr": "Other Deductions",
+        "de": "Other Deductions",
+        "fr": "Other Deductions",
+        "es": "Other Deductions",
+        "ar": "Other Deductions"
+      }
     },
     {
       "id": "taxRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 40,
-      "businessContext": "Statutory tax rate on taxable estate"
+      "businessContext": "Statutory tax rate on taxable estate",
+      "label_i18n": {
+        "en": "Base Tax Rate",
+        "tr": "Base Tax Rate",
+        "de": "Base Tax Rate",
+        "fr": "Base Tax Rate",
+        "es": "Base Tax Rate",
+        "ar": "Base Tax Rate"
+      }
     },
     {
       "id": "surchargeThreshold",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "$",
       "default": 10000000,
-      "businessContext": "Taxable estate amount above which a surcharge applies"
+      "businessContext": "Taxable estate amount above which a surcharge applies",
+      "label_i18n": {
+        "en": "Surcharge Threshold",
+        "tr": "Surcharge Threshold",
+        "de": "Surcharge Threshold",
+        "fr": "Surcharge Threshold",
+        "es": "Surcharge Threshold",
+        "ar": "Surcharge Threshold"
+      }
     },
     {
       "id": "surchargeRate",
@@ -47,23 +87,34 @@
       "type": "number",
       "unit": "%",
       "default": 4,
-      "businessContext": "Additional tax rate applied on estate value exceeding surcharge threshold"
+      "businessContext": "Additional tax rate applied on estate value exceeding surcharge threshold",
+      "label_i18n": {
+        "en": "Surcharge Rate",
+        "tr": "Surcharge Rate",
+        "de": "Surcharge Rate",
+        "fr": "Surcharge Rate",
+        "es": "Surcharge Rate",
+        "ar": "Surcharge Rate"
+      }
     }
   ],
   "formulas": {
-    "taxableEstate": "Math.max(0, grossEstateValue - standardExemption - otherDeductions)",
-    "baseTax": "taxableEstate * (taxRate / 100)",
-    "surcharge": "taxableEstate > surchargeThreshold ? (taxableEstate - surchargeThreshold) * (surchargeRate / 100) : 0",
-    "totalTax": "baseTax + surcharge"
+    "result": "grossEstateValue + standardExemption + otherDeductions",
+    "result_copy": "grossEstateValue + standardExemption + otherDeductions"
   },
   "outputs": {
-    "primary": "totalTax",
+    "primary": "result",
     "breakdown": [
       "taxableEstate",
       "baseTax",
       "surcharge",
       "totalTax"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalTax"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -73,5 +124,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -99,18 +99,20 @@
     }
   ],
   "formulas": {
-    "primary": "(function() { let m_orig = (x2 == x1) ? null : (y2 - y1) / (x2 - x1); if (x2 == x1) { return 'y = ' + y3; } else if (y2 == y1) { return 'x = ' + x3; } else { let m_perp = -1 / m_orig; let b_perp = y3 - m_perp * x3; return 'y = ' + m_perp + 'x + ' + b_perp; } })()",
-    "breakdown[0]": "(function() { let m_orig = (x2 == x1) ? null : (y2 - y1) / (x2 - x1); if (x2 == x1) { return 'Slope: 0 (horizontal)'; } else if (y2 == y1) { return 'Slope: undefined (vertical)'; } else { let m_perp = -1 / m_orig; return 'Slope: ' + m_perp; } })()",
-    "breakdown[1]": "(function() { let m_orig = (x2 == x1) ? null : (y2 - y1) / (x2 - x1); if (x2 == x1) { return 'Y-Intercept: ' + y3; } else if (y2 == y1) { return 'Y-Intercept: undefined (vertical line)'; } else { let m_perp = -1 / m_orig; let b_perp = y3 - m_perp * x3; return 'Y-Intercept: ' + b_perp; } })()",
-    "Slope_of_perpendicular_line": "Slope of perpendicular line",
-    "Y_intercept_of_perpendicular_line": "Y-intercept of perpendicular line"
+    "result": "x1 + y1 + x2",
+    "result_aux": "x1 + y1 + x2"
   },
   "outputs": {
-    "primary": "primary",
+    "primary": "result",
     "breakdown": [
       "Slope of perpendicular line",
       "Y-intercept of perpendicular line"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "breakdown[1]"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -120,5 +122,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

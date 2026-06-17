@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 10,
-      "businessContext": "Total number of active beehives in the apiary."
+      "businessContext": "Total number of active beehives in the apiary.",
+      "label_i18n": {
+        "en": "Number of Hives",
+        "tr": "Number of Hives",
+        "de": "Number of Hives",
+        "fr": "Number of Hives",
+        "es": "Number of Hives",
+        "ar": "Number of Hives"
+      }
     },
     {
       "id": "framesPerHive",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 10,
-      "businessContext": "Number of frames per hive, typically 10 for Langstroth."
+      "businessContext": "Number of frames per hive, typically 10 for Langstroth.",
+      "label_i18n": {
+        "en": "Frames per Hive",
+        "tr": "Frames per Hive",
+        "de": "Frames per Hive",
+        "fr": "Frames per Hive",
+        "es": "Frames per Hive",
+        "ar": "Frames per Hive"
+      }
     },
     {
       "id": "honeyPerFrame",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 2.5,
-      "businessContext": "Average honey yield per fully capped frame."
+      "businessContext": "Average honey yield per fully capped frame.",
+      "label_i18n": {
+        "en": "Honey per Frame",
+        "tr": "Honey per Frame",
+        "de": "Honey per Frame",
+        "fr": "Honey per Frame",
+        "es": "Honey per Frame",
+        "ar": "Honey per Frame"
+      }
     },
     {
       "id": "extractionLoss",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percentage of honey lost during extraction and filtering."
+      "businessContext": "Percentage of honey lost during extraction and filtering.",
+      "label_i18n": {
+        "en": "Extraction Loss",
+        "tr": "Extraction Loss",
+        "de": "Extraction Loss",
+        "fr": "Extraction Loss",
+        "es": "Extraction Loss",
+        "ar": "Extraction Loss"
+      }
     },
     {
       "id": "pricePerKg",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "TL",
       "default": 150,
-      "businessContext": "Selling price per kilogram of honey."
+      "businessContext": "Selling price per kilogram of honey.",
+      "label_i18n": {
+        "en": "Price per kg",
+        "tr": "Price per kg",
+        "de": "Price per kg",
+        "fr": "Price per kg",
+        "es": "Price per kg",
+        "ar": "Price per kg"
+      }
     },
     {
       "id": "costPerHive",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "TL",
       "default": 500,
-      "businessContext": "Annual operational cost per hive (feed, maintenance, etc.)."
+      "businessContext": "Annual operational cost per hive (feed, maintenance, etc.).",
+      "label_i18n": {
+        "en": "Cost per Hive",
+        "tr": "Cost per Hive",
+        "de": "Cost per Hive",
+        "fr": "Cost per Hive",
+        "es": "Cost per Hive",
+        "ar": "Cost per Hive"
+      }
     }
   ],
   "formulas": {
@@ -66,7 +114,12 @@
       "totalCost",
       "profit",
       "profitMargin"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "profitMargin"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -76,5 +129,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 3,
-      "businessContext": "Age of the pet in years"
+      "businessContext": "Age of the pet in years",
+      "label_i18n": {
+        "en": "Pet Age",
+        "tr": "Pet Age",
+        "de": "Pet Age",
+        "fr": "Pet Age",
+        "es": "Pet Age",
+        "ar": "Pet Age"
+      }
     },
     {
       "id": "breedRisk",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1,
-      "businessContext": "Risk factor assigned to the breed (1 = low risk, 3 = high risk)"
+      "businessContext": "Risk factor assigned to the breed (1 = low risk, 3 = high risk)",
+      "label_i18n": {
+        "en": "Breed Risk Factor",
+        "tr": "Breed Risk Factor",
+        "de": "Breed Risk Factor",
+        "fr": "Breed Risk Factor",
+        "es": "Breed Risk Factor",
+        "ar": "Breed Risk Factor"
+      }
     },
     {
       "id": "basePremium",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD/month",
       "default": 25,
-      "businessContext": "Starting monthly premium before adjustments"
+      "businessContext": "Starting monthly premium before adjustments",
+      "label_i18n": {
+        "en": "Base Monthly Premium",
+        "tr": "Base Monthly Premium",
+        "de": "Base Monthly Premium",
+        "fr": "Base Monthly Premium",
+        "es": "Base Monthly Premium",
+        "ar": "Base Monthly Premium"
+      }
     },
     {
       "id": "coverageLimit",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 5000,
-      "businessContext": "Maximum amount the policy will pay per year"
+      "businessContext": "Maximum amount the policy will pay per year",
+      "label_i18n": {
+        "en": "Annual Coverage Limit",
+        "tr": "Annual Coverage Limit",
+        "de": "Annual Coverage Limit",
+        "fr": "Annual Coverage Limit",
+        "es": "Annual Coverage Limit",
+        "ar": "Annual Coverage Limit"
+      }
     },
     {
       "id": "deductible",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD",
       "default": 200,
-      "businessContext": "Amount the owner must pay before insurance covers the rest"
+      "businessContext": "Amount the owner must pay before insurance covers the rest",
+      "label_i18n": {
+        "en": "Deductible",
+        "tr": "Deductible",
+        "de": "Deductible",
+        "fr": "Deductible",
+        "es": "Deductible",
+        "ar": "Deductible"
+      }
     },
     {
       "id": "reimbursement",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 80,
-      "businessContext": "Percentage of covered costs paid by the insurer after deductible"
+      "businessContext": "Percentage of covered costs paid by the insurer after deductible",
+      "label_i18n": {
+        "en": "Reimbursement Rate",
+        "tr": "Reimbursement Rate",
+        "de": "Reimbursement Rate",
+        "fr": "Reimbursement Rate",
+        "es": "Reimbursement Rate",
+        "ar": "Reimbursement Rate"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
       "riskMultiplier",
       "annualCost",
       "effectiveCoverage"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "effectiveCoverage"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -72,5 +125,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

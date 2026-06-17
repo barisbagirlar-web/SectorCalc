@@ -68,16 +68,19 @@
   ],
   "formulas": {
     "primary": "(grad * 0.9 + deg + rad * (180/Math.PI)) * multiplier",
-    "breakdown": "grad",
-    "Converted_Angle_in_Gradians": "Converted Angle in Gradians",
-    "Converted_Angle_in_Radians": "Converted Angle in Radians"
+    "breakdown": "grad"
   },
   "outputs": {
     "primary": "primary",
     "breakdown": [
       "Converted Angle in Gradians",
       "Converted Angle in Radians"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "breakdown"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -87,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

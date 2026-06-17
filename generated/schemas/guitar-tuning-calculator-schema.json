@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "count",
       "default": 22,
-      "businessContext": "Total frets on the guitar neck"
+      "businessContext": "Total frets on the guitar neck",
+      "label_i18n": {
+        "en": "Number of Frets",
+        "tr": "Number of Frets",
+        "de": "Number of Frets",
+        "fr": "Number of Frets",
+        "es": "Number of Frets",
+        "ar": "Number of Frets"
+      }
     },
     {
       "id": "scaleLength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 648,
-      "businessContext": "Distance from nut to bridge"
+      "businessContext": "Distance from nut to bridge",
+      "label_i18n": {
+        "en": "Scale Length",
+        "tr": "Scale Length",
+        "de": "Scale Length",
+        "fr": "Scale Length",
+        "es": "Scale Length",
+        "ar": "Scale Length"
+      }
     },
     {
       "id": "stringTension",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "N",
       "default": 90,
-      "businessContext": "Tension of the string in Newtons"
+      "businessContext": "Tension of the string in Newtons",
+      "label_i18n": {
+        "en": "String Tension",
+        "tr": "String Tension",
+        "de": "String Tension",
+        "fr": "String Tension",
+        "es": "String Tension",
+        "ar": "String Tension"
+      }
     },
     {
       "id": "linearDensity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg/m",
       "default": 0.001,
-      "businessContext": "Mass per unit length of the string"
+      "businessContext": "Mass per unit length of the string",
+      "label_i18n": {
+        "en": "Linear Density",
+        "tr": "Linear Density",
+        "de": "Linear Density",
+        "fr": "Linear Density",
+        "es": "Linear Density",
+        "ar": "Linear Density"
+      }
     },
     {
       "id": "openNoteFrequency",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 82.41,
-      "businessContext": "Frequency of the open string (e.g., E2 = 82.41 Hz)"
+      "businessContext": "Frequency of the open string (e.g., E2 = 82.41 Hz)",
+      "label_i18n": {
+        "en": "Open Note Frequency",
+        "tr": "Open Note Frequency",
+        "de": "Open Note Frequency",
+        "fr": "Open Note Frequency",
+        "es": "Open Note Frequency",
+        "ar": "Open Note Frequency"
+      }
     },
     {
       "id": "fretNumber",
@@ -47,21 +87,33 @@
       "type": "number",
       "unit": "count",
       "default": 5,
-      "businessContext": "Fret position to calculate frequency"
+      "businessContext": "Fret position to calculate frequency",
+      "label_i18n": {
+        "en": "Fret Number",
+        "tr": "Fret Number",
+        "de": "Fret Number",
+        "fr": "Fret Number",
+        "es": "Fret Number",
+        "ar": "Fret Number"
+      }
     }
   ],
   "formulas": {
-    "fretFrequency": "openNoteFrequency * Math.pow(2, fretNumber / 12)",
-    "stringVelocity": "Math.sqrt(stringTension / linearDensity)",
-    "fundamentalFrequency": "stringVelocity / (2 * scaleLength / 1000)"
+    "result": "fretCount + scaleLength + stringTension",
+    "result_copy": "fretCount + scaleLength + stringTension"
   },
   "outputs": {
-    "primary": "fretFrequency",
+    "primary": "result",
     "breakdown": [
       "fretFrequency = openNoteFrequency * 2^(fretNumber/12)",
       "stringVelocity = sqrt(tension / linearDensity)",
       "fundamentalFrequency = velocity / (2 * scaleLength)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "fundamentalFrequency"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -71,5 +123,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

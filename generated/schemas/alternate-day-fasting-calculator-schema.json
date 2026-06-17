@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kcal/day",
       "default": 2000,
-      "businessContext": "Average calorie consumption on normal eating days."
+      "businessContext": "Average calorie consumption on normal eating days.",
+      "label_i18n": {
+        "en": "Normal Day Calorie Intake",
+        "tr": "Normal Day Calorie Intake",
+        "de": "Normal Day Calorie Intake",
+        "fr": "Normal Day Calorie Intake",
+        "es": "Normal Day Calorie Intake",
+        "ar": "Normal Day Calorie Intake"
+      }
     },
     {
       "id": "fastingCal",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kcal/day",
       "default": 500,
-      "businessContext": "Calorie intake on fasting days (often 0-500 kcal)."
+      "businessContext": "Calorie intake on fasting days (often 0-500 kcal).",
+      "label_i18n": {
+        "en": "Fasting Day Calorie Intake",
+        "tr": "Fasting Day Calorie Intake",
+        "de": "Fasting Day Calorie Intake",
+        "fr": "Fasting Day Calorie Intake",
+        "es": "Fasting Day Calorie Intake",
+        "ar": "Fasting Day Calorie Intake"
+      }
     },
     {
       "id": "totalDays",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "days",
       "default": 30,
-      "businessContext": "Total number of days to calculate for the regimen."
+      "businessContext": "Total number of days to calculate for the regimen.",
+      "label_i18n": {
+        "en": "Number of Days",
+        "tr": "Number of Days",
+        "de": "Number of Days",
+        "fr": "Number of Days",
+        "es": "Number of Days",
+        "ar": "Number of Days"
+      }
     },
     {
       "id": "startDay",
@@ -31,21 +55,32 @@
       "type": "number",
       "unit": "unitless",
       "default": 0,
-      "businessContext": "0 if starting with a normal day, 1 if starting with a fasting day."
+      "businessContext": "0 if starting with a normal day, 1 if starting with a fasting day.",
+      "label_i18n": {
+        "en": "Starting Day Type",
+        "tr": "Starting Day Type",
+        "de": "Starting Day Type",
+        "fr": "Starting Day Type",
+        "es": "Starting Day Type",
+        "ar": "Starting Day Type"
+      }
     }
   ],
   "formulas": {
-    "fastingDays": "startDay === 0 ? Math.floor(totalDays / 2) : Math.ceil(totalDays / 2)",
-    "normalDays": "totalDays - fastingDays",
-    "totalCalories": "normalDays * normalCal + fastingDays * fastingCal",
-    "averageDailyCalories": "totalCalories / totalDays"
+    "result": "normalCal + fastingCal + totalDays",
+    "result_copy": "normalCal + fastingCal + totalDays"
   },
   "outputs": {
-    "primary": "totalCalories",
+    "primary": "result",
     "breakdown": [
       "averageDailyCalories",
       "fastingDays"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "averageDailyCalories"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -55,5 +90,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

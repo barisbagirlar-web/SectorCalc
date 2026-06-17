@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "V",
       "default": 1,
-      "businessContext": "Voltage applied to inverting input through resistor R1"
+      "businessContext": "Voltage applied to inverting input through resistor R1",
+      "label_i18n": {
+        "en": "Input Voltage V1",
+        "tr": "Input Voltage V1",
+        "de": "Input Voltage V1",
+        "fr": "Input Voltage V1",
+        "es": "Input Voltage V1",
+        "ar": "Input Voltage V1"
+      }
     },
     {
       "id": "V2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "V",
       "default": 2,
-      "businessContext": "Voltage applied to non-inverting input through resistor R3"
+      "businessContext": "Voltage applied to non-inverting input through resistor R3",
+      "label_i18n": {
+        "en": "Input Voltage V2",
+        "tr": "Input Voltage V2",
+        "de": "Input Voltage V2",
+        "fr": "Input Voltage V2",
+        "es": "Input Voltage V2",
+        "ar": "Input Voltage V2"
+      }
     },
     {
       "id": "R1",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 10000,
-      "businessContext": "Resistor connected between V1 and inverting input"
+      "businessContext": "Resistor connected between V1 and inverting input",
+      "label_i18n": {
+        "en": "Resistor R1",
+        "tr": "Resistor R1",
+        "de": "Resistor R1",
+        "fr": "Resistor R1",
+        "es": "Resistor R1",
+        "ar": "Resistor R1"
+      }
     },
     {
       "id": "R2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 10000,
-      "businessContext": "Feedback resistor connected between output and inverting input"
+      "businessContext": "Feedback resistor connected between output and inverting input",
+      "label_i18n": {
+        "en": "Resistor R2",
+        "tr": "Resistor R2",
+        "de": "Resistor R2",
+        "fr": "Resistor R2",
+        "es": "Resistor R2",
+        "ar": "Resistor R2"
+      }
     },
     {
       "id": "R3",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 10000,
-      "businessContext": "Resistor connected between V2 and non-inverting input"
+      "businessContext": "Resistor connected between V2 and non-inverting input",
+      "label_i18n": {
+        "en": "Resistor R3",
+        "tr": "Resistor R3",
+        "de": "Resistor R3",
+        "fr": "Resistor R3",
+        "es": "Resistor R3",
+        "ar": "Resistor R3"
+      }
     },
     {
       "id": "R4",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 10000,
-      "businessContext": "Resistor connected between non-inverting input and ground"
+      "businessContext": "Resistor connected between non-inverting input and ground",
+      "label_i18n": {
+        "en": "Resistor R4",
+        "tr": "Resistor R4",
+        "de": "Resistor R4",
+        "fr": "Resistor R4",
+        "es": "Resistor R4",
+        "ar": "Resistor R4"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +108,12 @@
     "breakdown": [
       "gain_inv",
       "gain_noninv"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "gain_noninv"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -70,5 +123,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

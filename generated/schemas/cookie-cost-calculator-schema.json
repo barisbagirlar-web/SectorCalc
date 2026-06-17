@@ -101,16 +101,19 @@
   "formulas": {
     "totalCost": "(flourCost * 0.5 + sugarCost * 0.3 + butterCost * 0.25 + eggCost * 2 + chocolateCost * 0.2) * (numberOfCookies / 12)",
     "costPerCookie": "totalCost / numberOfCookies",
-    "sellingPrice": "costPerCookie * 1.3",
-    "Cost_per_Cookie": "Cost per Cookie",
-    "Recommended_Selling_Price__30__margin_": "Recommended Selling Price (30% margin)"
+    "sellingPrice": "costPerCookie * 1.3"
   },
   "outputs": {
     "primary": "totalCost",
     "breakdown": [
       "Cost per Cookie",
       "Recommended Selling Price (30% margin)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "sellingPrice"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -120,5 +123,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

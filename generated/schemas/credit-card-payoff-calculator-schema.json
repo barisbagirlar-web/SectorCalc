@@ -51,16 +51,20 @@
     }
   ],
   "formulas": {
-    "monthsToPayoff": "Math.log(monthlyPayment / (monthlyPayment - balance * (annualInterestRate/100/12))) / Math.log(1 + (annualInterestRate/100/12))",
-    "totalAmountPaid": "monthlyPayment * monthsToPayoff",
-    "totalInterestPaid": "totalAmountPaid - balance"
+    "result": "balance + annualInterestRate + monthlyPayment",
+    "result_copy": "balance + annualInterestRate + monthlyPayment"
   },
   "outputs": {
-    "primary": "monthsToPayoff",
+    "primary": "result",
     "breakdown": [
       "totalInterestPaid",
       "totalAmountPaid"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalInterestPaid"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -70,5 +74,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 20,
-      "businessContext": "Günde içilen ortalama sigara sayısı"
+      "businessContext": "Günde içilen ortalama sigara sayısı",
+      "label_i18n": {
+        "en": "Günlük sigara tüketimi",
+        "tr": "Günlük sigara tüketimi",
+        "de": "Günlük sigara tüketimi",
+        "fr": "Günlük sigara tüketimi",
+        "es": "Günlük sigara tüketimi",
+        "ar": "Günlük sigara tüketimi"
+      }
     },
     {
       "id": "costPerPack",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "TL",
       "default": 30,
-      "businessContext": "Bir paketin ortalama satın alma fiyatı"
+      "businessContext": "Bir paketin ortalama satın alma fiyatı",
+      "label_i18n": {
+        "en": "Paket fiyatı",
+        "tr": "Paket fiyatı",
+        "de": "Paket fiyatı",
+        "fr": "Paket fiyatı",
+        "es": "Paket fiyatı",
+        "ar": "Paket fiyatı"
+      }
     },
     {
       "id": "yearsSmoking",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 10,
-      "businessContext": "Kaç yıldır sigara içildiği veya incelenecek süre"
+      "businessContext": "Kaç yıldır sigara içildiği veya incelenecek süre",
+      "label_i18n": {
+        "en": "İçilen yıl",
+        "tr": "İçilen yıl",
+        "de": "İçilen yıl",
+        "fr": "İçilen yıl",
+        "es": "İçilen yıl",
+        "ar": "İçilen yıl"
+      }
     },
     {
       "id": "packSize",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "adet",
       "default": 20,
-      "businessContext": "Bir pakette bulunan sigara adedi"
+      "businessContext": "Bir pakette bulunan sigara adedi",
+      "label_i18n": {
+        "en": "Paketteki sigara sayısı",
+        "tr": "Paketteki sigara sayısı",
+        "de": "Paketteki sigara sayısı",
+        "fr": "Paketteki sigara sayısı",
+        "es": "Paketteki sigara sayısı",
+        "ar": "Paketteki sigara sayısı"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "dailyCost",
       "yearlyCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -54,5 +91,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

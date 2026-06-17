@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Length of the concrete slab or formwork"
+      "businessContext": "Length of the concrete slab or formwork",
+      "label_i18n": {
+        "en": "Length",
+        "tr": "Length",
+        "de": "Length",
+        "fr": "Length",
+        "es": "Length",
+        "ar": "Length"
+      }
     },
     {
       "id": "width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Width of the concrete slab or formwork"
+      "businessContext": "Width of the concrete slab or formwork",
+      "label_i18n": {
+        "en": "Width",
+        "tr": "Width",
+        "de": "Width",
+        "fr": "Width",
+        "es": "Width",
+        "ar": "Width"
+      }
     },
     {
       "id": "thickness",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 15,
-      "businessContext": "Thickness (depth) of the concrete pour"
+      "businessContext": "Thickness (depth) of the concrete pour",
+      "label_i18n": {
+        "en": "Thickness",
+        "tr": "Thickness",
+        "de": "Thickness",
+        "fr": "Thickness",
+        "es": "Thickness",
+        "ar": "Thickness"
+      }
     },
     {
       "id": "wasteFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Additional percentage for spillage, over-excavation, and formwork inaccuracies"
+      "businessContext": "Additional percentage for spillage, over-excavation, and formwork inaccuracies",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     },
     {
       "id": "density",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 2400,
-      "businessContext": "Standard density for ready mix concrete (typically 2400 kg/m³)"
+      "businessContext": "Standard density for ready mix concrete (typically 2400 kg/m³)",
+      "label_i18n": {
+        "en": "Concrete Density",
+        "tr": "Concrete Density",
+        "de": "Concrete Density",
+        "fr": "Concrete Density",
+        "es": "Concrete Density",
+        "ar": "Concrete Density"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
       "netVolume",
       "wasteVolume",
       "totalWeight"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalWeight"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -64,5 +109,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

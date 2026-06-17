@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 5000,
-      "businessContext": "Mass of vehicle structure and engines, excluding fuel and payload."
+      "businessContext": "Mass of vehicle structure and engines, excluding fuel and payload.",
+      "label_i18n": {
+        "en": "Empty Mass",
+        "tr": "Empty Mass",
+        "de": "Empty Mass",
+        "fr": "Empty Mass",
+        "es": "Empty Mass",
+        "ar": "Empty Mass"
+      }
     },
     {
       "id": "fuelMass",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 3000,
-      "businessContext": "Mass of fuel onboard."
+      "businessContext": "Mass of fuel onboard.",
+      "label_i18n": {
+        "en": "Fuel Mass",
+        "tr": "Fuel Mass",
+        "de": "Fuel Mass",
+        "fr": "Fuel Mass",
+        "es": "Fuel Mass",
+        "ar": "Fuel Mass"
+      }
     },
     {
       "id": "payloadMass",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 2000,
-      "businessContext": "Mass of payload."
+      "businessContext": "Mass of payload.",
+      "label_i18n": {
+        "en": "Payload Mass",
+        "tr": "Payload Mass",
+        "de": "Payload Mass",
+        "fr": "Payload Mass",
+        "es": "Payload Mass",
+        "ar": "Payload Mass"
+      }
     },
     {
       "id": "thrust",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "N",
       "default": 120000,
-      "businessContext": "Total thrust produced by propulsion system."
+      "businessContext": "Total thrust produced by propulsion system.",
+      "label_i18n": {
+        "en": "Thrust",
+        "tr": "Thrust",
+        "de": "Thrust",
+        "fr": "Thrust",
+        "es": "Thrust",
+        "ar": "Thrust"
+      }
     },
     {
       "id": "gravity",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m/s^2",
       "default": 9.81,
-      "businessContext": "Standard gravity; use 9.81 for Earth surface."
+      "businessContext": "Standard gravity; use 9.81 for Earth surface.",
+      "label_i18n": {
+        "en": "Gravitational Acceleration",
+        "tr": "Gravitational Acceleration",
+        "de": "Gravitational Acceleration",
+        "fr": "Gravitational Acceleration",
+        "es": "Gravitational Acceleration",
+        "ar": "Gravitational Acceleration"
+      }
     }
   ],
   "formulas": {
@@ -53,7 +93,12 @@
       "totalMass",
       "weight",
       "thrustToWeightRatio"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "thrustToWeightRatio"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -63,5 +108,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

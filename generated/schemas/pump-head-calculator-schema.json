@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Elevation of fluid source surface relative to pump centerline (positive if source is above pump, negative if below)."
+      "businessContext": "Elevation of fluid source surface relative to pump centerline (positive if source is above pump, negative if below).",
+      "label_i18n": {
+        "en": "Suction Static Head",
+        "tr": "Suction Static Head",
+        "de": "Suction Static Head",
+        "fr": "Suction Static Head",
+        "es": "Suction Static Head",
+        "ar": "Suction Static Head"
+      }
     },
     {
       "id": "dischargeHead",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Elevation of discharge point relative to pump centerline."
+      "businessContext": "Elevation of discharge point relative to pump centerline.",
+      "label_i18n": {
+        "en": "Discharge Static Head",
+        "tr": "Discharge Static Head",
+        "de": "Discharge Static Head",
+        "fr": "Discharge Static Head",
+        "es": "Discharge Static Head",
+        "ar": "Discharge Static Head"
+      }
     },
     {
       "id": "flowRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "l/s",
       "default": 10,
-      "businessContext": "Volumetric flow rate of the fluid in liters per second."
+      "businessContext": "Volumetric flow rate of the fluid in liters per second.",
+      "label_i18n": {
+        "en": "Flow Rate",
+        "tr": "Flow Rate",
+        "de": "Flow Rate",
+        "fr": "Flow Rate",
+        "es": "Flow Rate",
+        "ar": "Flow Rate"
+      }
     },
     {
       "id": "pipeLength",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 50,
-      "businessContext": "Total length of straight pipe between suction and discharge."
+      "businessContext": "Total length of straight pipe between suction and discharge.",
+      "label_i18n": {
+        "en": "Pipe Length",
+        "tr": "Pipe Length",
+        "de": "Pipe Length",
+        "fr": "Pipe Length",
+        "es": "Pipe Length",
+        "ar": "Pipe Length"
+      }
     },
     {
       "id": "pipeDiameter",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Inner diameter of the pipe."
+      "businessContext": "Inner diameter of the pipe.",
+      "label_i18n": {
+        "en": "Pipe Internal Diameter",
+        "tr": "Pipe Internal Diameter",
+        "de": "Pipe Internal Diameter",
+        "fr": "Pipe Internal Diameter",
+        "es": "Pipe Internal Diameter",
+        "ar": "Pipe Internal Diameter"
+      }
     },
     {
       "id": "roughnessCoefficient",
@@ -47,22 +87,33 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 120,
-      "businessContext": "Pipe roughness coefficient (e.g., 120 for steel, 150 for PVC)."
+      "businessContext": "Pipe roughness coefficient (e.g., 120 for steel, 150 for PVC).",
+      "label_i18n": {
+        "en": "Hazen-Williams C-Factor",
+        "tr": "Hazen-Williams C-Factor",
+        "de": "Hazen-Williams C-Factor",
+        "fr": "Hazen-Williams C-Factor",
+        "es": "Hazen-Williams C-Factor",
+        "ar": "Hazen-Williams C-Factor"
+      }
     }
   ],
   "formulas": {
     "staticHead": "dischargeHead - suctionHead",
     "Q": "flowRate / 1000",
-    "d": "pipeDiameter / 1000",
-    "frictionLoss": "10.67 * pipeLength * Math.pow(Q / roughnessCoefficient, 1.852) / Math.pow(d, 4.87)",
-    "totalHead": "staticHead + frictionLoss"
+    "d": "pipeDiameter / 1000"
   },
   "outputs": {
-    "primary": "totalHead",
+    "primary": "d",
     "breakdown": [
       "staticHead",
       "frictionLoss"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalHead"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -72,5 +123,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "metal",
   "profession": "Sac Teknisyeni",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

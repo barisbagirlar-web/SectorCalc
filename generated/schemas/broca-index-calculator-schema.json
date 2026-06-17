@@ -75,7 +75,12 @@
     "breakdown": [
       "idealWeight",
       "difference"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "difference"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -85,5 +90,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

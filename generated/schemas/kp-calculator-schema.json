@@ -85,7 +85,6 @@
   "formulas": {
     "primary": "Kp_raw * safetyFactor",
     "Kp_raw": "(controllerType === 1 ? (timeConstant / (processGain * deadTime)) : (controllerType === 2 ? (0.9 * timeConstant / (processGain * deadTime)) : (1.2 * timeConstant / (processGain * deadTime))))",
-    "Ki": "(controllerType === 1 ? 0 : (controllerType === 2 ? (0.3 * timeConstant / (processGain * Math.pow(deadTime, 2))) : (0.6 * timeConstant / (processGain * Math.pow(deadTime, 2)))))",
     "Kd": "(controllerType === 3 ? (0.6 * timeConstant / processGain) : 0)"
   },
   "outputs": {
@@ -94,7 +93,12 @@
       "Kp_raw",
       "Ki",
       "Kd"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "Kd"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -104,5 +108,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

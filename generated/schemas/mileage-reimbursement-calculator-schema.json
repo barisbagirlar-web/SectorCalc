@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 100,
-      "businessContext": "Total distance traveled for business purposes"
+      "businessContext": "Total distance traveled for business purposes",
+      "label_i18n": {
+        "en": "Distance (km)",
+        "tr": "Distance (km)",
+        "de": "Distance (km)",
+        "fr": "Distance (km)",
+        "es": "Distance (km)",
+        "ar": "Distance (km)"
+      }
     },
     {
       "id": "ratePerKm",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "€/km",
       "default": 0.5,
-      "businessContext": "Rate per kilometer as per company policy or tax authority"
+      "businessContext": "Rate per kilometer as per company policy or tax authority",
+      "label_i18n": {
+        "en": "Reimbursement Rate (€/km)",
+        "tr": "Reimbursement Rate (€/km)",
+        "de": "Reimbursement Rate (€/km)",
+        "fr": "Reimbursement Rate (€/km)",
+        "es": "Reimbursement Rate (€/km)",
+        "ar": "Reimbursement Rate (€/km)"
+      }
     },
     {
       "id": "tolls",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "€",
       "default": 0,
-      "businessContext": "Total toll fees paid during the trip"
+      "businessContext": "Total toll fees paid during the trip",
+      "label_i18n": {
+        "en": "Tolls (€)",
+        "tr": "Tolls (€)",
+        "de": "Tolls (€)",
+        "fr": "Tolls (€)",
+        "es": "Tolls (€)",
+        "ar": "Tolls (€)"
+      }
     },
     {
       "id": "parking",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "€",
       "default": 0,
-      "businessContext": "Total parking fees incurred"
+      "businessContext": "Total parking fees incurred",
+      "label_i18n": {
+        "en": "Parking Fees (€)",
+        "tr": "Parking Fees (€)",
+        "de": "Parking Fees (€)",
+        "fr": "Parking Fees (€)",
+        "es": "Parking Fees (€)",
+        "ar": "Parking Fees (€)"
+      }
     },
     {
       "id": "flatAllowance",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "€",
       "default": 0,
-      "businessContext": "Any fixed allowance for the trip (e.g., meal per diem included in mileage claim)"
+      "businessContext": "Any fixed allowance for the trip (e.g., meal per diem included in mileage claim)",
+      "label_i18n": {
+        "en": "Flat Allowance (€)",
+        "tr": "Flat Allowance (€)",
+        "de": "Flat Allowance (€)",
+        "fr": "Flat Allowance (€)",
+        "es": "Flat Allowance (€)",
+        "ar": "Flat Allowance (€)"
+      }
     }
   ],
   "formulas": {
@@ -56,7 +96,12 @@
       "tolls",
       "parking",
       "flatAllowance"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "flatAllowance"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -66,5 +111,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

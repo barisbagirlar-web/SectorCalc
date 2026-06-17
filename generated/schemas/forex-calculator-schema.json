@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "lots",
       "default": 0.1,
-      "businessContext": "Number of standard lots (1 lot = 100,000 units)"
+      "businessContext": "Number of standard lots (1 lot = 100,000 units)",
+      "label_i18n": {
+        "en": "Lot Size",
+        "tr": "Lot Size",
+        "de": "Lot Size",
+        "fr": "Lot Size",
+        "es": "Lot Size",
+        "ar": "Lot Size"
+      }
     },
     {
       "id": "entryPrice",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "price",
       "default": 1.12,
-      "businessContext": "Exchange rate at which the position was entered"
+      "businessContext": "Exchange rate at which the position was entered",
+      "label_i18n": {
+        "en": "Entry Price",
+        "tr": "Entry Price",
+        "de": "Entry Price",
+        "fr": "Entry Price",
+        "es": "Entry Price",
+        "ar": "Entry Price"
+      }
     },
     {
       "id": "exitPrice",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "price",
       "default": 1.13,
-      "businessContext": "Exchange rate at which the position was closed"
+      "businessContext": "Exchange rate at which the position was closed",
+      "label_i18n": {
+        "en": "Exit Price",
+        "tr": "Exit Price",
+        "de": "Exit Price",
+        "fr": "Exit Price",
+        "es": "Exit Price",
+        "ar": "Exit Price"
+      }
     },
     {
       "id": "pipSize",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "price step",
       "default": 0.0001,
-      "businessContext": "Smallest price increment (e.g., 0.0001 for most pairs, 0.01 for JPY pairs)"
+      "businessContext": "Smallest price increment (e.g., 0.0001 for most pairs, 0.01 for JPY pairs)",
+      "label_i18n": {
+        "en": "Pip Size",
+        "tr": "Pip Size",
+        "de": "Pip Size",
+        "fr": "Pip Size",
+        "es": "Pip Size",
+        "ar": "Pip Size"
+      }
     },
     {
       "id": "pipValue",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "account currency per pip per lot",
       "default": 10,
-      "businessContext": "Monetary value of one pip per standard lot in the account currency"
+      "businessContext": "Monetary value of one pip per standard lot in the account currency",
+      "label_i18n": {
+        "en": "Pip Value",
+        "tr": "Pip Value",
+        "de": "Pip Value",
+        "fr": "Pip Value",
+        "es": "Pip Value",
+        "ar": "Pip Value"
+      }
     },
     {
       "id": "leverage",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "ratio",
       "default": 100,
-      "businessContext": "Leverage ratio provided by the broker (e.g., 100:1)"
+      "businessContext": "Leverage ratio provided by the broker (e.g., 100:1)",
+      "label_i18n": {
+        "en": "Leverage",
+        "tr": "Leverage",
+        "de": "Leverage",
+        "fr": "Leverage",
+        "es": "Leverage",
+        "ar": "Leverage"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +108,12 @@
     "breakdown": [
       "profitPips",
       "requiredMargin"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "requiredMargin"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -70,5 +123,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

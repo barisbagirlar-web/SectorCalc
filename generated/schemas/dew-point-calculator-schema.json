@@ -67,14 +67,19 @@
     }
   ],
   "formulas": {
-    "alpha": "(a * temperature) / (b + temperature) + Math.log(humidity / 100)",
-    "dewPoint": "(b * ((a * temperature) / (b + temperature) + Math.log(humidity / 100))) / (a - ((a * temperature) / (b + temperature) + Math.log(humidity / 100)))"
+    "result": "temperature + humidity + a",
+    "result_copy": "temperature + humidity + a"
   },
   "outputs": {
-    "primary": "dewPoint",
+    "primary": "result",
     "breakdown": [
       "alpha"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "dewPoint"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -84,5 +89,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

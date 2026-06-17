@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kW",
       "default": 100,
-      "businessContext": "The actual power consumed by the load, measured in kilowatts."
+      "businessContext": "The actual power consumed by the load, measured in kilowatts.",
+      "label_i18n": {
+        "en": "Real Power",
+        "tr": "Real Power",
+        "de": "Real Power",
+        "fr": "Real Power",
+        "es": "Real Power",
+        "ar": "Real Power"
+      }
     },
     {
       "id": "apparentPower",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kVA",
       "default": 125,
-      "businessContext": "The total power supplied to the load (vector sum of real and reactive power), measured in kilovolt-amperes."
+      "businessContext": "The total power supplied to the load (vector sum of real and reactive power), measured in kilovolt-amperes.",
+      "label_i18n": {
+        "en": "Apparent Power",
+        "tr": "Apparent Power",
+        "de": "Apparent Power",
+        "fr": "Apparent Power",
+        "es": "Apparent Power",
+        "ar": "Apparent Power"
+      }
     },
     {
       "id": "voltage",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "V",
       "default": 400,
-      "businessContext": "Supply voltage in volts (optional, used for VI-based apparent power calculation)."
+      "businessContext": "Supply voltage in volts (optional, used for VI-based apparent power calculation).",
+      "label_i18n": {
+        "en": "Voltage",
+        "tr": "Voltage",
+        "de": "Voltage",
+        "fr": "Voltage",
+        "es": "Voltage",
+        "ar": "Voltage"
+      }
     },
     {
       "id": "current",
@@ -31,13 +55,19 @@
       "type": "number",
       "unit": "A",
       "default": 0,
-      "businessContext": "Supply current in amperes (optional, used for VI-based apparent power calculation)."
+      "businessContext": "Supply current in amperes (optional, used for VI-based apparent power calculation).",
+      "label_i18n": {
+        "en": "Current",
+        "tr": "Current",
+        "de": "Current",
+        "fr": "Current",
+        "es": "Current",
+        "ar": "Current"
+      }
     }
   ],
   "formulas": {
     "powerFactor": "realPower / apparentPower",
-    "reactivePower": "Math.sqrt(Math.max(apparentPower ** 2 - realPower ** 2, 0))",
-    "phaseAngle": "(Math.acos(realPower / apparentPower) * 180) / Math.PI",
     "apparentPowerFromVI": "(voltage * current) / 1000"
   },
   "outputs": {
@@ -46,7 +76,12 @@
       "reactivePower",
       "phaseAngle",
       "apparentPowerFromVI"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "apparentPowerFromVI"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -56,5 +91,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

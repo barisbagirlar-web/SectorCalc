@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "defects/unit",
       "default": 0.02,
-      "businessContext": "Average number of Type A defects per unit (Poisson rate)"
+      "businessContext": "Average number of Type A defects per unit (Poisson rate)",
+      "label_i18n": {
+        "en": "Defect Rate A (per unit)",
+        "tr": "Defect Rate A (per unit)",
+        "de": "Defect Rate A (per unit)",
+        "fr": "Defect Rate A (per unit)",
+        "es": "Defect Rate A (per unit)",
+        "ar": "Defect Rate A (per unit)"
+      }
     },
     {
       "id": "lambdaB",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "defects/unit",
       "default": 0.015,
-      "businessContext": "Average number of Type B defects per unit (Poisson rate)"
+      "businessContext": "Average number of Type B defects per unit (Poisson rate)",
+      "label_i18n": {
+        "en": "Defect Rate B (per unit)",
+        "tr": "Defect Rate B (per unit)",
+        "de": "Defect Rate B (per unit)",
+        "fr": "Defect Rate B (per unit)",
+        "es": "Defect Rate B (per unit)",
+        "ar": "Defect Rate B (per unit)"
+      }
     },
     {
       "id": "lotSize",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "units",
       "default": 1000,
-      "businessContext": "Number of units in the production lot"
+      "businessContext": "Number of units in the production lot",
+      "label_i18n": {
+        "en": "Lot Size",
+        "tr": "Lot Size",
+        "de": "Lot Size",
+        "fr": "Lot Size",
+        "es": "Lot Size",
+        "ar": "Lot Size"
+      }
     },
     {
       "id": "costPerBlackjack",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "EUR",
       "default": 500,
-      "businessContext": "Financial cost incurred when a unit has both defects"
+      "businessContext": "Financial cost incurred when a unit has both defects",
+      "label_i18n": {
+        "en": "Cost per Blackjack Event",
+        "tr": "Cost per Blackjack Event",
+        "de": "Cost per Blackjack Event",
+        "fr": "Cost per Blackjack Event",
+        "es": "Cost per Blackjack Event",
+        "ar": "Cost per Blackjack Event"
+      }
     }
   ],
   "formulas": {
-    "probabilityPerUnit": "(1 - Math.exp(-lambdaA)) * (1 - Math.exp(-lambdaB))",
-    "expectedBlackjackUnits": "lotSize * probabilityPerUnit",
-    "totalExpectedCost": "expectedBlackjackUnits * costPerBlackjack"
+    "result": "lambdaA + lambdaB + lotSize",
+    "result_copy": "lambdaA + lambdaB + lotSize"
   },
   "outputs": {
-    "primary": "totalExpectedCost",
+    "primary": "result",
     "breakdown": [
       "probabilityPerUnit",
       "expectedBlackjackUnits"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalExpectedCost"
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Üretim & İmalat",
@@ -54,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

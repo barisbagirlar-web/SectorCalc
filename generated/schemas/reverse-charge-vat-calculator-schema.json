@@ -76,7 +76,12 @@
     "breakdown": [
       "netAmountLocal",
       "totalPayableToSupplier"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalPayableToSupplier"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -86,5 +91,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "zaman birimi",
       "default": 0,
-      "businessContext": "İlk olayın gerçekleştiği zaman (veya ilk aralığın sonu)."
+      "businessContext": "İlk olayın gerçekleştiği zaman (veya ilk aralığın sonu).",
+      "label_i18n": {
+        "en": "Zaman 1",
+        "tr": "Zaman 1",
+        "de": "Zaman 1",
+        "fr": "Zaman 1",
+        "es": "Zaman 1",
+        "ar": "Zaman 1"
+      }
     },
     {
       "id": "risk1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "İlk olaydan hemen önce risk altındaki denek sayısı."
+      "businessContext": "İlk olaydan hemen önce risk altındaki denek sayısı.",
+      "label_i18n": {
+        "en": "Risk Altındaki Sayı 1",
+        "tr": "Risk Altındaki Sayı 1",
+        "de": "Risk Altındaki Sayı 1",
+        "fr": "Risk Altındaki Sayı 1",
+        "es": "Risk Altındaki Sayı 1",
+        "ar": "Risk Altındaki Sayı 1"
+      }
     },
     {
       "id": "events1",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "Zaman 1'de meydana gelen olay (başarısızlık) sayısı."
+      "businessContext": "Zaman 1'de meydana gelen olay (başarısızlık) sayısı.",
+      "label_i18n": {
+        "en": "Olay Sayısı 1",
+        "tr": "Olay Sayısı 1",
+        "de": "Olay Sayısı 1",
+        "fr": "Olay Sayısı 1",
+        "es": "Olay Sayısı 1",
+        "ar": "Olay Sayısı 1"
+      }
     },
     {
       "id": "time2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "zaman birimi",
       "default": 0,
-      "businessContext": "İkinci olayın gerçekleştiği zaman."
+      "businessContext": "İkinci olayın gerçekleştiği zaman.",
+      "label_i18n": {
+        "en": "Zaman 2",
+        "tr": "Zaman 2",
+        "de": "Zaman 2",
+        "fr": "Zaman 2",
+        "es": "Zaman 2",
+        "ar": "Zaman 2"
+      }
     },
     {
       "id": "risk2",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "İkinci olaydan hemen önce risk altındaki denek sayısı (Zaman 1'deki kayıplar düşüldükten sonra)."
+      "businessContext": "İkinci olaydan hemen önce risk altındaki denek sayısı (Zaman 1'deki kayıplar düşüldükten sonra).",
+      "label_i18n": {
+        "en": "Risk Altındaki Sayı 2",
+        "tr": "Risk Altındaki Sayı 2",
+        "de": "Risk Altındaki Sayı 2",
+        "fr": "Risk Altındaki Sayı 2",
+        "es": "Risk Altındaki Sayı 2",
+        "ar": "Risk Altındaki Sayı 2"
+      }
     },
     {
       "id": "events2",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "Zaman 2'de meydana gelen olay sayısı."
+      "businessContext": "Zaman 2'de meydana gelen olay sayısı.",
+      "label_i18n": {
+        "en": "Olay Sayısı 2",
+        "tr": "Olay Sayısı 2",
+        "de": "Olay Sayısı 2",
+        "fr": "Olay Sayısı 2",
+        "es": "Olay Sayısı 2",
+        "ar": "Olay Sayısı 2"
+      }
     }
   ],
   "formulas": {
@@ -59,7 +107,12 @@
     "breakdown": [
       "survival1",
       "survival2"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "survival2"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -69,5 +122,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 30,
-      "businessContext": "Measure of tree trunk diameter at 1.3 m above ground; used in allometric equations."
+      "businessContext": "Measure of tree trunk diameter at 1.3 m above ground; used in allometric equations.",
+      "label_i18n": {
+        "en": "Tree Diameter at Breast Height (DBH)",
+        "tr": "Tree Diameter at Breast Height (DBH)",
+        "de": "Tree Diameter at Breast Height (DBH)",
+        "fr": "Tree Diameter at Breast Height (DBH)",
+        "es": "Tree Diameter at Breast Height (DBH)",
+        "ar": "Tree Diameter at Breast Height (DBH)"
+      }
     },
     {
       "id": "height_m",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 20,
-      "businessContext": "Total tree height; key variable in biomass estimation."
+      "businessContext": "Total tree height; key variable in biomass estimation.",
+      "label_i18n": {
+        "en": "Tree Height",
+        "tr": "Tree Height",
+        "de": "Tree Height",
+        "fr": "Tree Height",
+        "es": "Tree Height",
+        "ar": "Tree Height"
+      }
     },
     {
       "id": "wood_density",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "g/cm³",
       "default": 0.6,
-      "businessContext": "Oven-dry wood density; varies by species; affects biomass calculation."
+      "businessContext": "Oven-dry wood density; varies by species; affects biomass calculation.",
+      "label_i18n": {
+        "en": "Wood Density",
+        "tr": "Wood Density",
+        "de": "Wood Density",
+        "fr": "Wood Density",
+        "es": "Wood Density",
+        "ar": "Wood Density"
+      }
     },
     {
       "id": "tree_count",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "trees",
       "default": 100,
-      "businessContext": "Number of trees in the plot or stand for total biomass."
+      "businessContext": "Number of trees in the plot or stand for total biomass.",
+      "label_i18n": {
+        "en": "Number of Trees",
+        "tr": "Number of Trees",
+        "de": "Number of Trees",
+        "fr": "Number of Trees",
+        "es": "Number of Trees",
+        "ar": "Number of Trees"
+      }
     },
     {
       "id": "carbon_fraction",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "(fraction)",
       "default": 0.47,
-      "businessContext": "Default 0.47 from IPCC; fraction of biomass that is carbon."
+      "businessContext": "Default 0.47 from IPCC; fraction of biomass that is carbon.",
+      "label_i18n": {
+        "en": "Carbon Fraction of Biomass",
+        "tr": "Carbon Fraction of Biomass",
+        "de": "Carbon Fraction of Biomass",
+        "fr": "Carbon Fraction of Biomass",
+        "es": "Carbon Fraction of Biomass",
+        "ar": "Carbon Fraction of Biomass"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
       "biomass_per_tree_kg",
       "total_carbon_kg",
       "total_co2e_kg"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "total_co2e_kg"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -64,5 +109,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

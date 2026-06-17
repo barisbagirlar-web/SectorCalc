@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kW",
       "default": 100,
-      "businessContext": "Motor çıkış gücü (kW)"
+      "businessContext": "Motor çıkış gücü (kW)",
+      "label_i18n": {
+        "en": "Engine Power",
+        "tr": "Engine Power",
+        "de": "Engine Power",
+        "fr": "Engine Power",
+        "es": "Engine Power",
+        "ar": "Engine Power"
+      }
     },
     {
       "id": "vehicleMassKg",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1200,
-      "businessContext": "Araç boş ağırlığı (kg)"
+      "businessContext": "Araç boş ağırlığı (kg)",
+      "label_i18n": {
+        "en": "Vehicle Mass",
+        "tr": "Vehicle Mass",
+        "de": "Vehicle Mass",
+        "fr": "Vehicle Mass",
+        "es": "Vehicle Mass",
+        "ar": "Vehicle Mass"
+      }
     },
     {
       "id": "drivetrainEfficiencyPercent",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 85,
-      "businessContext": "Güç aktarım verimi (%)"
+      "businessContext": "Güç aktarım verimi (%)",
+      "label_i18n": {
+        "en": "Drivetrain Efficiency",
+        "tr": "Drivetrain Efficiency",
+        "de": "Drivetrain Efficiency",
+        "fr": "Drivetrain Efficiency",
+        "es": "Drivetrain Efficiency",
+        "ar": "Drivetrain Efficiency"
+      }
     },
     {
       "id": "payloadKg",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 200,
-      "businessContext": "Yük ve yolcu ağırlığı (kg)"
+      "businessContext": "Yük ve yolcu ağırlığı (kg)",
+      "label_i18n": {
+        "en": "Payload",
+        "tr": "Payload",
+        "de": "Payload",
+        "fr": "Payload",
+        "es": "Payload",
+        "ar": "Payload"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "effectivePower",
       "totalMass"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "powerToWeightRatio"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -54,5 +91,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "efficiency"
+  "categoryId": "efficiency",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

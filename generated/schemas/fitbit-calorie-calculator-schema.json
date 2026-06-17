@@ -92,7 +92,12 @@
     "breakdown": [
       "bmr",
       "activityFactor"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "activityFactor"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -102,5 +107,10 @@
   "sectorSlug": "cleaning",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

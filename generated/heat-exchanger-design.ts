@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from heat-exchanger-design-schema.json
 import * as z from 'zod';
 
@@ -23,30 +24,33 @@ export const Heat_exchanger_designInputSchema = z.object({
   overallHeatTransferCoeff: z.number().default(500),
 });
 
-function evaluateAllFormulas(input: Heat_exchanger_designInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.massFlowHot * input.cpHot * (input.tempHotIn - input.tempHotOut) * 1000; results["heatDuty"] = Number.isFinite(v) ? v : 0; } catch { results["heatDuty"] = 0; }
-  try { const v = input.tempColdIn + ((results["heatDuty"] ?? 0) / (input.massFlowCold * input.cpCold * 1000)); results["tempColdOut"] = Number.isFinite(v) ? v : 0; } catch { results["tempColdOut"] = 0; }
-  try { const v = ((input.tempHotIn - (results["tempColdOut"] ?? 0)) - (input.tempHotOut - input.tempColdIn)) / Math.log((input.tempHotIn - (results["tempColdOut"] ?? 0)) / (input.tempHotOut - input.tempColdIn)); results["lmtd"] = Number.isFinite(v) ? v : 0; } catch { results["lmtd"] = 0; }
-  try { const v = (results["heatDuty"] ?? 0) / (input.overallHeatTransferCoeff * (results["lmtd"] ?? 0)); results["area"] = Number.isFinite(v) ? v : 0; } catch { results["area"] = 0; }
-  results["_heatDuty__W"] = 0;
-  results["_tempColdOut___C"] = 0;
-  results["_lmtd___C"] = 0;
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Heat_exchanger_designInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.massFlowHot * input.cpHot * (input.tempHotIn - input.tempHotOut) * 1000; results["heatDuty"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["heatDuty"] = 0; }
+  try { const v = input.tempColdIn + ((asFormulaNumber(results["heatDuty"])) / (input.massFlowCold * input.cpCold * 1000)); results["tempColdOut"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["tempColdOut"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateHeat_exchanger_design(input: Heat_exchanger_designInput): Heat_exchanger_designOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["heatDuty"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["heatDuty"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

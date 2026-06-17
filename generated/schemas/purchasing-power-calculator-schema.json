@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 50000,
-      "businessContext": "The nominal income or amount to evaluate."
+      "businessContext": "The nominal income or amount to evaluate.",
+      "label_i18n": {
+        "en": "Initial Income",
+        "tr": "Initial Income",
+        "de": "Initial Income",
+        "fr": "Initial Income",
+        "es": "Initial Income",
+        "ar": "Initial Income"
+      }
     },
     {
       "id": "inflationRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 2.5,
-      "businessContext": "Average annual inflation rate."
+      "businessContext": "Average annual inflation rate.",
+      "label_i18n": {
+        "en": "Annual Inflation Rate",
+        "tr": "Annual Inflation Rate",
+        "de": "Annual Inflation Rate",
+        "fr": "Annual Inflation Rate",
+        "es": "Annual Inflation Rate",
+        "ar": "Annual Inflation Rate"
+      }
     },
     {
       "id": "fromYear",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "year",
       "default": 2020,
-      "businessContext": "Base year of the income."
+      "businessContext": "Base year of the income.",
+      "label_i18n": {
+        "en": "From Year",
+        "tr": "From Year",
+        "de": "From Year",
+        "fr": "From Year",
+        "es": "From Year",
+        "ar": "From Year"
+      }
     },
     {
       "id": "toYear",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "year",
       "default": 2025,
-      "businessContext": "Target year for purchasing power comparison."
+      "businessContext": "Target year for purchasing power comparison.",
+      "label_i18n": {
+        "en": "To Year",
+        "tr": "To Year",
+        "de": "To Year",
+        "fr": "To Year",
+        "es": "To Year",
+        "ar": "To Year"
+      }
     },
     {
       "id": "compoundFrequency",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "periods/year",
       "default": 1,
-      "businessContext": "Number of times inflation compounds per year (1 for annual, 12 for monthly)."
+      "businessContext": "Number of times inflation compounds per year (1 for annual, 12 for monthly).",
+      "label_i18n": {
+        "en": "Compounding Frequency",
+        "tr": "Compounding Frequency",
+        "de": "Compounding Frequency",
+        "fr": "Compounding Frequency",
+        "es": "Compounding Frequency",
+        "ar": "Compounding Frequency"
+      }
     }
   ],
   "formulas": {
@@ -55,7 +95,12 @@
     "breakdown": [
       "adjustedPurchasingPower",
       "purchasingPowerLoss"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "purchasingPowerLoss"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -65,5 +110,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

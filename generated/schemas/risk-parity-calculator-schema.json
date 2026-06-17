@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "The annualized volatility (standard deviation of returns) of Asset 1, expressed as a percentage. Used to determine its risk contribution."
+      "businessContext": "The annualized volatility (standard deviation of returns) of Asset 1, expressed as a percentage. Used to determine its risk contribution.",
+      "label_i18n": {
+        "en": "Annualized Volatility Asset 1 (%)",
+        "tr": "Annualized Volatility Asset 1 (%)",
+        "de": "Annualized Volatility Asset 1 (%)",
+        "fr": "Annualized Volatility Asset 1 (%)",
+        "es": "Annualized Volatility Asset 1 (%)",
+        "ar": "Annualized Volatility Asset 1 (%)"
+      }
     },
     {
       "id": "vol2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "The annualized volatility of Asset 2, as a percentage. Inputting a high value will reduce its weight."
+      "businessContext": "The annualized volatility of Asset 2, as a percentage. Inputting a high value will reduce its weight.",
+      "label_i18n": {
+        "en": "Annualized Volatility Asset 2 (%)",
+        "tr": "Annualized Volatility Asset 2 (%)",
+        "de": "Annualized Volatility Asset 2 (%)",
+        "fr": "Annualized Volatility Asset 2 (%)",
+        "es": "Annualized Volatility Asset 2 (%)",
+        "ar": "Annualized Volatility Asset 2 (%)"
+      }
     },
     {
       "id": "vol3",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "The annualized volatility of Asset 3. Use a very large number (e.g., 1e9) if this asset is not in the portfolio to effectively exclude it."
+      "businessContext": "The annualized volatility of Asset 3. Use a very large number (e.g., 1e9) if this asset is not in the portfolio to effectively exclude it.",
+      "label_i18n": {
+        "en": "Annualized Volatility Asset 3 (%)",
+        "tr": "Annualized Volatility Asset 3 (%)",
+        "de": "Annualized Volatility Asset 3 (%)",
+        "fr": "Annualized Volatility Asset 3 (%)",
+        "es": "Annualized Volatility Asset 3 (%)",
+        "ar": "Annualized Volatility Asset 3 (%)"
+      }
     },
     {
       "id": "vol4",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "The annualized volatility of Asset 4. Set to a very large number if unused."
+      "businessContext": "The annualized volatility of Asset 4. Set to a very large number if unused.",
+      "label_i18n": {
+        "en": "Annualized Volatility Asset 4 (%)",
+        "tr": "Annualized Volatility Asset 4 (%)",
+        "de": "Annualized Volatility Asset 4 (%)",
+        "fr": "Annualized Volatility Asset 4 (%)",
+        "es": "Annualized Volatility Asset 4 (%)",
+        "ar": "Annualized Volatility Asset 4 (%)"
+      }
     }
   ],
   "formulas": {
@@ -49,7 +81,12 @@
       "weight2",
       "weight3",
       "weight4"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalWeight"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -59,5 +96,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

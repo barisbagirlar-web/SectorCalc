@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 100,
-      "businessContext": "Üretim birim başına direkt malzeme maliyeti"
+      "businessContext": "Üretim birim başına direkt malzeme maliyeti",
+      "label_i18n": {
+        "en": "Hammadde Maliyeti (birim başına)",
+        "tr": "Hammadde Maliyeti (birim başına)",
+        "de": "Hammadde Maliyeti (birim başına)",
+        "fr": "Hammadde Maliyeti (birim başına)",
+        "es": "Hammadde Maliyeti (birim başına)",
+        "ar": "Hammadde Maliyeti (birim başına)"
+      }
     },
     {
       "id": "laborCost",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 50,
-      "businessContext": "Birim başı direkt işçilik maliyeti"
+      "businessContext": "Birim başı direkt işçilik maliyeti",
+      "label_i18n": {
+        "en": "İşçilik Maliyeti (birim başına)",
+        "tr": "İşçilik Maliyeti (birim başına)",
+        "de": "İşçilik Maliyeti (birim başına)",
+        "fr": "İşçilik Maliyeti (birim başına)",
+        "es": "İşçilik Maliyeti (birim başına)",
+        "ar": "İşçilik Maliyeti (birim başına)"
+      }
     },
     {
       "id": "energyCost",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 20,
-      "businessContext": "Üretim birim başı enerji tüketim maliyeti"
+      "businessContext": "Üretim birim başı enerji tüketim maliyeti",
+      "label_i18n": {
+        "en": "Enerji Maliyeti (birim başına)",
+        "tr": "Enerji Maliyeti (birim başına)",
+        "de": "Enerji Maliyeti (birim başına)",
+        "fr": "Enerji Maliyeti (birim başına)",
+        "es": "Enerji Maliyeti (birim başına)",
+        "ar": "Enerji Maliyeti (birim başına)"
+      }
     },
     {
       "id": "overheadRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 25,
-      "businessContext": "Direkt maliyetler üzerinden uygulanan genel üretim gider yüzdesi"
+      "businessContext": "Direkt maliyetler üzerinden uygulanan genel üretim gider yüzdesi",
+      "label_i18n": {
+        "en": "Genel Üretim Gider Oranı",
+        "tr": "Genel Üretim Gider Oranı",
+        "de": "Genel Üretim Gider Oranı",
+        "fr": "Genel Üretim Gider Oranı",
+        "es": "Genel Üretim Gider Oranı",
+        "ar": "Genel Üretim Gider Oranı"
+      }
     },
     {
       "id": "wasteRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Üretim sürecindeki fire oranı; etkin maliyet hesaplamasında kayıp oranı olarak kullanılır"
+      "businessContext": "Üretim sürecindeki fire oranı; etkin maliyet hesaplamasında kayıp oranı olarak kullanılır",
+      "label_i18n": {
+        "en": "Fire Oranı",
+        "tr": "Fire Oranı",
+        "de": "Fire Oranı",
+        "fr": "Fire Oranı",
+        "es": "Fire Oranı",
+        "ar": "Fire Oranı"
+      }
     }
   ],
   "formulas": {
@@ -55,7 +95,12 @@
       "directCost",
       "wasteCost",
       "overheadCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "trueCostPerUnit"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -65,5 +110,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

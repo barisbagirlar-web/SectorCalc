@@ -110,7 +110,12 @@
       "met",
       "weight",
       "durationMinutes"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "durationMinutes"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -120,5 +125,10 @@
   "sectorSlug": "cleaning",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

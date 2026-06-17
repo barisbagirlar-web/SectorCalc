@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency/kg",
       "default": 10,
-      "businessContext": "Cost per unit of first material"
+      "businessContext": "Cost per unit of first material",
+      "label_i18n": {
+        "en": "Material Cost 1",
+        "tr": "Material Cost 1",
+        "de": "Material Cost 1",
+        "fr": "Material Cost 1",
+        "es": "Material Cost 1",
+        "ar": "Material Cost 1"
+      }
     },
     {
       "id": "weight1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 5,
-      "businessContext": "Quantity of first material"
+      "businessContext": "Quantity of first material",
+      "label_i18n": {
+        "en": "Weight 1",
+        "tr": "Weight 1",
+        "de": "Weight 1",
+        "fr": "Weight 1",
+        "es": "Weight 1",
+        "ar": "Weight 1"
+      }
     },
     {
       "id": "cost2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency/kg",
       "default": 15,
-      "businessContext": "Cost per unit of second material"
+      "businessContext": "Cost per unit of second material",
+      "label_i18n": {
+        "en": "Material Cost 2",
+        "tr": "Material Cost 2",
+        "de": "Material Cost 2",
+        "fr": "Material Cost 2",
+        "es": "Material Cost 2",
+        "ar": "Material Cost 2"
+      }
     },
     {
       "id": "weight2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 3,
-      "businessContext": "Quantity of second material"
+      "businessContext": "Quantity of second material",
+      "label_i18n": {
+        "en": "Weight 2",
+        "tr": "Weight 2",
+        "de": "Weight 2",
+        "fr": "Weight 2",
+        "es": "Weight 2",
+        "ar": "Weight 2"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "totalCost",
       "totalWeight"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalWeight"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -54,5 +91,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

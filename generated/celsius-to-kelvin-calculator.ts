@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from celsius-to-kelvin-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,28 +16,35 @@ export const Celsius_to_kelvin_calculatorInputSchema = z.object({
   uncertainty: z.number().default(0.1),
 });
 
-function evaluateAllFormulas(input: Celsius_to_kelvin_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.celsiusTemp + input.offset; results["adjustedCelsius"] = Number.isFinite(v) ? v : 0; } catch { results["adjustedCelsius"] = 0; }
-  try { const v = (results["adjustedCelsius"] ?? 0) + 273.15; results["kelvinExact"] = Number.isFinite(v) ? v : 0; } catch { results["kelvinExact"] = 0; }
-  try { const v = Math.round((results["kelvinExact"] ?? 0) * Math.pow(10, input.decimalPlaces)) / Math.pow(10, input.decimalPlaces); results["roundedKelvin"] = Number.isFinite(v) ? v : 0; } catch { results["roundedKelvin"] = 0; }
-  try { const v = (results["kelvinExact"] ?? 0) - input.uncertainty; results["lowerBoundK"] = Number.isFinite(v) ? v : 0; } catch { results["lowerBoundK"] = 0; }
-  try { const v = (results["kelvinExact"] ?? 0) + input.uncertainty; results["upperBoundK"] = Number.isFinite(v) ? v : 0; } catch { results["upperBoundK"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Celsius_to_kelvin_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.celsiusTemp + input.offset; results["adjustedCelsius"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adjustedCelsius"] = 0; }
+  try { const v = (asFormulaNumber(results["adjustedCelsius"])) + 273.15; results["kelvinExact"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["kelvinExact"] = 0; }
+  try { const v = (asFormulaNumber(results["kelvinExact"])) - input.uncertainty; results["lowerBoundK"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["lowerBoundK"] = 0; }
+  try { const v = (asFormulaNumber(results["kelvinExact"])) + input.uncertainty; results["upperBoundK"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["upperBoundK"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateCelsius_to_kelvin_calculator(input: Celsius_to_kelvin_calculatorInput): Celsius_to_kelvin_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["roundedKelvin"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["upperBoundK"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

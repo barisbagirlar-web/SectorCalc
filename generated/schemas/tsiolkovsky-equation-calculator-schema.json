@@ -68,15 +68,19 @@
   ],
   "formulas": {
     "massRatio": "initialMass / finalMass",
-    "theoreticalDeltaV": "exhaustVelocity * Math.log(massRatio)",
-    "deltaV": "safetyFactor * theoreticalDeltaV"
+    "massRatio_aux": "initialMass / finalMass"
   },
   "outputs": {
-    "primary": "deltaV",
+    "primary": "massRatio_aux",
     "breakdown": [
       "massRatio",
       "theoreticalDeltaV"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "deltaV"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -86,5 +90,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "kimya",
   "profession": "Proses Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

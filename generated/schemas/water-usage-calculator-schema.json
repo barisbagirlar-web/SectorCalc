@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "people",
       "default": 4,
-      "businessContext": "Total number of individuals using water (family, employees, etc.)"
+      "businessContext": "Total number of individuals using water (family, employees, etc.)",
+      "label_i18n": {
+        "en": "Number of People",
+        "tr": "Number of People",
+        "de": "Number of People",
+        "fr": "Number of People",
+        "es": "Number of People",
+        "ar": "Number of People"
+      }
     },
     {
       "id": "showerMinutesPerDay",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 5,
-      "businessContext": "Average shower duration per person per day in minutes"
+      "businessContext": "Average shower duration per person per day in minutes",
+      "label_i18n": {
+        "en": "Shower Minutes per Day per Person",
+        "tr": "Shower Minutes per Day per Person",
+        "de": "Shower Minutes per Day per Person",
+        "fr": "Shower Minutes per Day per Person",
+        "es": "Shower Minutes per Day per Person",
+        "ar": "Shower Minutes per Day per Person"
+      }
     },
     {
       "id": "flowRateShower",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "L/min",
       "default": 9,
-      "businessContext": "Water flow rate of the shower head in liters per minute"
+      "businessContext": "Water flow rate of the shower head in liters per minute",
+      "label_i18n": {
+        "en": "Shower Flow Rate",
+        "tr": "Shower Flow Rate",
+        "de": "Shower Flow Rate",
+        "fr": "Shower Flow Rate",
+        "es": "Shower Flow Rate",
+        "ar": "Shower Flow Rate"
+      }
     },
     {
       "id": "toiletFlushesPerDay",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "flushes",
       "default": 5,
-      "businessContext": "Average number of toilet flushes per person per day"
+      "businessContext": "Average number of toilet flushes per person per day",
+      "label_i18n": {
+        "en": "Toilet Flushes per Day per Person",
+        "tr": "Toilet Flushes per Day per Person",
+        "de": "Toilet Flushes per Day per Person",
+        "fr": "Toilet Flushes per Day per Person",
+        "es": "Toilet Flushes per Day per Person",
+        "ar": "Toilet Flushes per Day per Person"
+      }
     },
     {
       "id": "flushVolume",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "L",
       "default": 6,
-      "businessContext": "Water volume per toilet flush in liters (modern dual-flush ~6L)"
+      "businessContext": "Water volume per toilet flush in liters (modern dual-flush ~6L)",
+      "label_i18n": {
+        "en": "Flush Volume",
+        "tr": "Flush Volume",
+        "de": "Flush Volume",
+        "fr": "Flush Volume",
+        "es": "Flush Volume",
+        "ar": "Flush Volume"
+      }
     },
     {
       "id": "washingMachineLoadsPerWeek",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "loads",
       "default": 5,
-      "businessContext": "Number of washing machine cycles per week (total for all people)"
+      "businessContext": "Number of washing machine cycles per week (total for all people)",
+      "label_i18n": {
+        "en": "Washing Machine Loads per Week",
+        "tr": "Washing Machine Loads per Week",
+        "de": "Washing Machine Loads per Week",
+        "fr": "Washing Machine Loads per Week",
+        "es": "Washing Machine Loads per Week",
+        "ar": "Washing Machine Loads per Week"
+      }
     },
     {
       "id": "waterPerLoad",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "L",
       "default": 50,
-      "businessContext": "Water consumption per washing machine cycle in liters"
+      "businessContext": "Water consumption per washing machine cycle in liters",
+      "label_i18n": {
+        "en": "Water per Load",
+        "tr": "Water per Load",
+        "de": "Water per Load",
+        "fr": "Water per Load",
+        "es": "Water per Load",
+        "ar": "Water per Load"
+      }
     },
     {
       "id": "otherDailyUsage",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "L",
       "default": 30,
-      "businessContext": "Additional water usage per person per day (drinking, cooking, cleaning, etc.)"
+      "businessContext": "Additional water usage per person per day (drinking, cooking, cleaning, etc.)",
+      "label_i18n": {
+        "en": "Other Daily Usage per Person",
+        "tr": "Other Daily Usage per Person",
+        "de": "Other Daily Usage per Person",
+        "fr": "Other Daily Usage per Person",
+        "es": "Other Daily Usage per Person",
+        "ar": "Other Daily Usage per Person"
+      }
     }
   ],
   "formulas": {
@@ -85,7 +149,12 @@
       "otherDailyUsage",
       "totalUsagePerMonth",
       "totalUsagePerYear"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalUsagePerYear"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -95,5 +164,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "hr"
+  "categoryId": "hr",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

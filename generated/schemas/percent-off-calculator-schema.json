@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "The initial price before any discounts."
+      "businessContext": "The initial price before any discounts.",
+      "label_i18n": {
+        "en": "Original Price",
+        "tr": "Original Price",
+        "de": "Original Price",
+        "fr": "Original Price",
+        "es": "Original Price",
+        "ar": "Original Price"
+      }
     },
     {
       "id": "discount_percent",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "The primary discount percentage."
+      "businessContext": "The primary discount percentage.",
+      "label_i18n": {
+        "en": "Discount Percent",
+        "tr": "Discount Percent",
+        "de": "Discount Percent",
+        "fr": "Discount Percent",
+        "es": "Discount Percent",
+        "ar": "Discount Percent"
+      }
     },
     {
       "id": "additional_discount_percent",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "An extra discount applied after the first discount (e.g., loyalty discount)."
+      "businessContext": "An extra discount applied after the first discount (e.g., loyalty discount).",
+      "label_i18n": {
+        "en": "Additional Discount Percent",
+        "tr": "Additional Discount Percent",
+        "de": "Additional Discount Percent",
+        "fr": "Additional Discount Percent",
+        "es": "Additional Discount Percent",
+        "ar": "Additional Discount Percent"
+      }
     },
     {
       "id": "tax_rate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Sales tax rate applied to the discounted price."
+      "businessContext": "Sales tax rate applied to the discounted price.",
+      "label_i18n": {
+        "en": "Tax Rate",
+        "tr": "Tax Rate",
+        "de": "Tax Rate",
+        "fr": "Tax Rate",
+        "es": "Tax Rate",
+        "ar": "Tax Rate"
+      }
     }
   ],
   "formulas": {
@@ -49,7 +81,12 @@
       "total_savings",
       "tax_amount",
       "final_price"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "display_original_price"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -59,5 +96,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

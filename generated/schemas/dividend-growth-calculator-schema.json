@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 2,
-      "businessContext": "The most recent annual dividend payment per share in dollars."
+      "businessContext": "The most recent annual dividend payment per share in dollars.",
+      "label_i18n": {
+        "en": "Current Annual Dividend Per Share",
+        "tr": "Current Annual Dividend Per Share",
+        "de": "Current Annual Dividend Per Share",
+        "fr": "Current Annual Dividend Per Share",
+        "es": "Current Annual Dividend Per Share",
+        "ar": "Current Annual Dividend Per Share"
+      }
     },
     {
       "id": "growthRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "The anticipated annual growth rate of the dividend, expressed as a percentage."
+      "businessContext": "The anticipated annual growth rate of the dividend, expressed as a percentage.",
+      "label_i18n": {
+        "en": "Expected Dividend Growth Rate",
+        "tr": "Expected Dividend Growth Rate",
+        "de": "Expected Dividend Growth Rate",
+        "fr": "Expected Dividend Growth Rate",
+        "es": "Expected Dividend Growth Rate",
+        "ar": "Expected Dividend Growth Rate"
+      }
     },
     {
       "id": "requiredRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "The investor's required rate of return or discount rate, expressed as a percentage."
+      "businessContext": "The investor's required rate of return or discount rate, expressed as a percentage.",
+      "label_i18n": {
+        "en": "Required Rate of Return",
+        "tr": "Required Rate of Return",
+        "de": "Required Rate of Return",
+        "fr": "Required Rate of Return",
+        "es": "Required Rate of Return",
+        "ar": "Required Rate of Return"
+      }
     },
     {
       "id": "years",
@@ -31,18 +55,31 @@
       "type": "number",
       "unit": "years",
       "default": 5,
-      "businessContext": "The number of years into the future for which the dividend is projected."
+      "businessContext": "The number of years into the future for which the dividend is projected.",
+      "label_i18n": {
+        "en": "Number of Years",
+        "tr": "Number of Years",
+        "de": "Number of Years",
+        "fr": "Number of Years",
+        "es": "Number of Years",
+        "ar": "Number of Years"
+      }
     }
   ],
   "formulas": {
-    "projectedDividend": "currentDividend * Math.pow(1 + growthRate / 100, years)",
-    "presentValue": "currentDividend * Math.pow(1 + growthRate / 100, years) / Math.pow(1 + requiredRate / 100, years)"
+    "result": "currentDividend + growthRate + requiredRate",
+    "result_copy": "currentDividend + growthRate + requiredRate"
   },
   "outputs": {
-    "primary": "projectedDividend",
+    "primary": "result",
     "breakdown": [
       "presentValue"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "presentValue"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -52,5 +89,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

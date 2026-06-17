@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 100,
-      "businessContext": "Havuzdaki toplam balık sayısı"
+      "businessContext": "Havuzdaki toplam balık sayısı",
+      "label_i18n": {
+        "en": "Balık Sayısı",
+        "tr": "Balık Sayısı",
+        "de": "Balık Sayısı",
+        "fr": "Balık Sayısı",
+        "es": "Balık Sayısı",
+        "ar": "Balık Sayısı"
+      }
     },
     {
       "id": "fishWeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0.5,
-      "businessContext": "Balık başına ortalama ağırlık"
+      "businessContext": "Balık başına ortalama ağırlık",
+      "label_i18n": {
+        "en": "Ortalama Balık Ağırlığı",
+        "tr": "Ortalama Balık Ağırlığı",
+        "de": "Ortalama Balık Ağırlığı",
+        "fr": "Ortalama Balık Ağırlığı",
+        "es": "Ortalama Balık Ağırlığı",
+        "ar": "Ortalama Balık Ağırlığı"
+      }
     },
     {
       "id": "feedRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%/gün",
       "default": 2,
-      "businessContext": "Günlük vücut ağırlığının yüzdesi olarak yem miktarı"
+      "businessContext": "Günlük vücut ağırlığının yüzdesi olarak yem miktarı",
+      "label_i18n": {
+        "en": "Günlük Yemleme Oranı",
+        "tr": "Günlük Yemleme Oranı",
+        "de": "Günlük Yemleme Oranı",
+        "fr": "Günlük Yemleme Oranı",
+        "es": "Günlük Yemleme Oranı",
+        "ar": "Günlük Yemleme Oranı"
+      }
     },
     {
       "id": "feedProtein",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 35,
-      "businessContext": "Yemdeki protein yüzdesi"
+      "businessContext": "Yemdeki protein yüzdesi",
+      "label_i18n": {
+        "en": "Yem Proteini",
+        "tr": "Yem Proteini",
+        "de": "Yem Proteini",
+        "fr": "Yem Proteini",
+        "es": "Yem Proteini",
+        "ar": "Yem Proteini"
+      }
     },
     {
       "id": "plantNitrogenUptake",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "g/m²/gün",
       "default": 1.5,
-      "businessContext": "Birim alan başına günlük azot alımı"
+      "businessContext": "Birim alan başına günlük azot alımı",
+      "label_i18n": {
+        "en": "Bitki Azot Alımı",
+        "tr": "Bitki Azot Alımı",
+        "de": "Bitki Azot Alımı",
+        "fr": "Bitki Azot Alımı",
+        "es": "Bitki Azot Alımı",
+        "ar": "Bitki Azot Alımı"
+      }
     },
     {
       "id": "fishDensity",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "balık/m³",
       "default": 30,
-      "businessContext": "Metreküp başına balık sayısı"
+      "businessContext": "Metreküp başına balık sayısı",
+      "label_i18n": {
+        "en": "Balık Yoğunluğu",
+        "tr": "Balık Yoğunluğu",
+        "de": "Balık Yoğunluğu",
+        "fr": "Balık Yoğunluğu",
+        "es": "Balık Yoğunluğu",
+        "ar": "Balık Yoğunluğu"
+      }
     }
   ],
   "formulas": {
@@ -64,7 +112,12 @@
       "dailyFeed",
       "tanProduction",
       "recirculationFlow"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "recirculationFlow"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -74,5 +127,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

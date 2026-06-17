@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from cup-to-gram-calculator-schema.json
 import * as z from 'zod';
 
@@ -17,26 +18,34 @@ export const Cup_to_gram_calculatorInputSchema = z.object({
   densityCorrectionFactor: z.number().default(0),
 });
 
-function evaluateAllFormulas(input: Cup_to_gram_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.density * (1 + input.densityCorrectionFactor * (input.temperature - 20)); results["correctedDensity"] = Number.isFinite(v) ? v : 0; } catch { results["correctedDensity"] = 0; }
-  try { const v = input.cups * input.cupVolume; results["volumeInML"] = Number.isFinite(v) ? v : 0; } catch { results["volumeInML"] = 0; }
-  try { const v = (results["volumeInML"] ?? 0) * (results["correctedDensity"] ?? 0); results["massInGrams"] = Number.isFinite(v) ? v : 0; } catch { results["massInGrams"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Cup_to_gram_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.density * (1 + input.densityCorrectionFactor * (input.temperature - 20)); results["correctedDensity"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["correctedDensity"] = 0; }
+  try { const v = input.cups * input.cupVolume; results["volumeInML"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["volumeInML"] = 0; }
+  try { const v = (asFormulaNumber(results["volumeInML"])) * (asFormulaNumber(results["correctedDensity"])); results["massInGrams"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["massInGrams"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateCup_to_gram_calculator(input: Cup_to_gram_calculatorInput): Cup_to_gram_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["massInGrams"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["massInGrams"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -84,15 +84,18 @@
   ],
   "formulas": {
     "eag_mgdl": "factor_mgdl * hba1c + offset_mgdl",
-    "eag_mmol": "factor_mmol * hba1c + offset_mmol",
-    "eag_mmol_toFixed_1______mmol_L_": "eag_mmol.toFixed(1) + ' mmol/L'",
-    "result": "eag_mgdl.toFixed(1) + ' mg/dL'"
+    "eag_mmol": "factor_mmol * hba1c + offset_mmol"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "eag_mmol",
     "breakdown": [
       "eag_mmol.toFixed(1) + ' mmol/L'"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -102,5 +105,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

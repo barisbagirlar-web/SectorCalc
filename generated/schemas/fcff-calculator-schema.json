@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 1000000,
-      "businessContext": "Total revenue from sales or services"
+      "businessContext": "Total revenue from sales or services",
+      "label_i18n": {
+        "en": "Revenue",
+        "tr": "Revenue",
+        "de": "Revenue",
+        "fr": "Revenue",
+        "es": "Revenue",
+        "ar": "Revenue"
+      }
     },
     {
       "id": "operatingExpenses",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 700000,
-      "businessContext": "Total operating expenses including depreciation and amortization"
+      "businessContext": "Total operating expenses including depreciation and amortization",
+      "label_i18n": {
+        "en": "Operating Expenses",
+        "tr": "Operating Expenses",
+        "de": "Operating Expenses",
+        "fr": "Operating Expenses",
+        "es": "Operating Expenses",
+        "ar": "Operating Expenses"
+      }
     },
     {
       "id": "depreciation",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 100000,
-      "businessContext": "Non-cash depreciation and amortization expense included in operating expenses"
+      "businessContext": "Non-cash depreciation and amortization expense included in operating expenses",
+      "label_i18n": {
+        "en": "Depreciation & Amortization",
+        "tr": "Depreciation & Amortization",
+        "de": "Depreciation & Amortization",
+        "fr": "Depreciation & Amortization",
+        "es": "Depreciation & Amortization",
+        "ar": "Depreciation & Amortization"
+      }
     },
     {
       "id": "taxRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "percentage",
       "default": 0.2,
-      "businessContext": "Corporate tax rate as a decimal (e.g., 0.20 for 20%)"
+      "businessContext": "Corporate tax rate as a decimal (e.g., 0.20 for 20%)",
+      "label_i18n": {
+        "en": "Tax Rate",
+        "tr": "Tax Rate",
+        "de": "Tax Rate",
+        "fr": "Tax Rate",
+        "es": "Tax Rate",
+        "ar": "Tax Rate"
+      }
     },
     {
       "id": "capitalExpenditures",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency",
       "default": 200000,
-      "businessContext": "Investment in fixed assets such as property, plant, and equipment"
+      "businessContext": "Investment in fixed assets such as property, plant, and equipment",
+      "label_i18n": {
+        "en": "Capital Expenditures (CapEx)",
+        "tr": "Capital Expenditures (CapEx)",
+        "de": "Capital Expenditures (CapEx)",
+        "fr": "Capital Expenditures (CapEx)",
+        "es": "Capital Expenditures (CapEx)",
+        "ar": "Capital Expenditures (CapEx)"
+      }
     },
     {
       "id": "changeInWorkingCapital",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "currency",
       "default": 50000,
-      "businessContext": "Increase in net working capital (current assets minus current liabilities)"
+      "businessContext": "Increase in net working capital (current assets minus current liabilities)",
+      "label_i18n": {
+        "en": "Change in Working Capital",
+        "tr": "Change in Working Capital",
+        "de": "Change in Working Capital",
+        "fr": "Change in Working Capital",
+        "es": "Change in Working Capital",
+        "ar": "Change in Working Capital"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +108,12 @@
     "breakdown": [
       "ebit",
       "nopat"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "fcff"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -70,5 +123,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

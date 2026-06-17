@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from ltt-calculator-wales-schema.json
 import * as z from 'zod';
 
@@ -21,29 +22,37 @@ export const Ltt_calculator_walesInputSchema = z.object({
   co2_emission_factor_kg_per_l: z.number().default(2.68),
 });
 
-function evaluateAllFormulas(input: Ltt_calculator_walesInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.distance_km * (input.fuel_consumption_l_per_100km / 100) * input.fuel_price_gbp_per_l; results["total_fuel_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_fuel_cost"] = 0; }
-  try { const v = input.distance_km / input.average_speed_kmh; results["travel_time_hours"] = Number.isFinite(v) ? v : 0; } catch { results["travel_time_hours"] = 0; }
-  try { const v = (results["travel_time_hours"] ?? 0) * input.driver_wage_gbp_per_hour; results["driver_cost"] = Number.isFinite(v) ? v : 0; } catch { results["driver_cost"] = 0; }
-  try { const v = (results["total_fuel_cost"] ?? 0) + (results["driver_cost"] ?? 0); results["total_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_cost"] = 0; }
-  try { const v = (results["total_cost"] ?? 0) / (input.distance_km * input.load_tonnes); results["cost_per_tonne_km"] = Number.isFinite(v) ? v : 0; } catch { results["cost_per_tonne_km"] = 0; }
-  try { const v = input.distance_km * (input.fuel_consumption_l_per_100km / 100) * input.co2_emission_factor_kg_per_l; results["total_co2_kg"] = Number.isFinite(v) ? v : 0; } catch { results["total_co2_kg"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Ltt_calculator_walesInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.distance_km * (input.fuel_consumption_l_per_100km / 100) * input.fuel_price_gbp_per_l; results["total_fuel_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["total_fuel_cost"] = 0; }
+  try { const v = input.distance_km / input.average_speed_kmh; results["travel_time_hours"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["travel_time_hours"] = 0; }
+  try { const v = (asFormulaNumber(results["travel_time_hours"])) * input.driver_wage_gbp_per_hour; results["driver_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["driver_cost"] = 0; }
+  try { const v = (asFormulaNumber(results["total_fuel_cost"])) + (asFormulaNumber(results["driver_cost"])); results["total_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["total_cost"] = 0; }
+  try { const v = (asFormulaNumber(results["total_cost"])) / (input.distance_km * input.load_tonnes); results["cost_per_tonne_km"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["cost_per_tonne_km"] = 0; }
+  try { const v = input.distance_km * (input.fuel_consumption_l_per_100km / 100) * input.co2_emission_factor_kg_per_l; results["total_co2_kg"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["total_co2_kg"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateLtt_calculator_wales(input: Ltt_calculator_walesInput): Ltt_calculator_walesOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["total_cost"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["total_cost"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kWh",
       "default": 3000,
-      "businessContext": "Annual electricity usage from grid"
+      "businessContext": "Annual electricity usage from grid",
+      "label_i18n": {
+        "en": "Electricity consumption",
+        "tr": "Electricity consumption",
+        "de": "Electricity consumption",
+        "fr": "Electricity consumption",
+        "es": "Electricity consumption",
+        "ar": "Electricity consumption"
+      }
     },
     {
       "id": "gas",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m³",
       "default": 1200,
-      "businessContext": "Annual natural gas usage"
+      "businessContext": "Annual natural gas usage",
+      "label_i18n": {
+        "en": "Natural gas consumption",
+        "tr": "Natural gas consumption",
+        "de": "Natural gas consumption",
+        "fr": "Natural gas consumption",
+        "es": "Natural gas consumption",
+        "ar": "Natural gas consumption"
+      }
     },
     {
       "id": "fuel",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "L",
       "default": 1000,
-      "businessContext": "Annual fuel usage for vehicles"
+      "businessContext": "Annual fuel usage for vehicles",
+      "label_i18n": {
+        "en": "Vehicle fuel consumption",
+        "tr": "Vehicle fuel consumption",
+        "de": "Vehicle fuel consumption",
+        "fr": "Vehicle fuel consumption",
+        "es": "Vehicle fuel consumption",
+        "ar": "Vehicle fuel consumption"
+      }
     },
     {
       "id": "waste",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 500,
-      "businessContext": "Annual waste generated"
+      "businessContext": "Annual waste generated",
+      "label_i18n": {
+        "en": "Waste generated",
+        "tr": "Waste generated",
+        "de": "Waste generated",
+        "fr": "Waste generated",
+        "es": "Waste generated",
+        "ar": "Waste generated"
+      }
     }
   ],
   "formulas": {
@@ -48,7 +80,12 @@
       "gasCO2",
       "fuelCO2",
       "wasteCO2"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "wasteCO2"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -58,5 +95,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

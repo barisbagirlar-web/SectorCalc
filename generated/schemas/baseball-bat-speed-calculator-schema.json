@@ -85,8 +85,7 @@
   "formulas": {
     "angularVelocityRadPerS": "angularVelocity * Math.PI / 180",
     "effectiveRadiusM": "(batLength - sweetSpotOffset - pivotDistance) / 100",
-    "batSpeed": "angularVelocity * Math.PI / 180 * (batLength - sweetSpotOffset - pivotDistance) / 100",
-    "kineticEnergy": "0.5 * (batMass / 1000) * Math.pow(angularVelocity * Math.PI / 180 * (batLength - sweetSpotOffset - pivotDistance) / 100, 2)"
+    "batSpeed": "angularVelocity * Math.PI / 180 * (batLength - sweetSpotOffset - pivotDistance) / 100"
   },
   "outputs": {
     "primary": "batSpeed",
@@ -94,7 +93,12 @@
       "angularVelocityRadPerS",
       "effectiveRadiusM",
       "kineticEnergy"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "kineticEnergy"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -104,5 +108,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "havacilik",
   "profession": "Tasarım Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

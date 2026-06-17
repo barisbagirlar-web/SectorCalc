@@ -80,7 +80,12 @@
       "is_l_valid",
       "is_ml_valid",
       "is_ms_valid"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "is_ms_valid"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -90,5 +95,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

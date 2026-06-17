@@ -100,19 +100,21 @@
   ],
   "formulas": {
     "gratitude_score": "daily_acts * days_practiced * (intensity_factor / 10)",
-    "social_impact": "social_shares * days_practiced * 0.5",
-    "reflection_depth": "journal_entries * days_practiced * Math.log(intensity_factor + 1)",
-    "happiness_gain": "(gratitude_score + social_impact + reflection_depth) / 100 + (baseline_happiness * 0.1)",
-    "overall_gratitude_index": "Math.sqrt(gratitude_score * social_impact * reflection_depth) + happiness_gain"
+    "social_impact": "social_shares * days_practiced * 0.5"
   },
   "outputs": {
-    "primary": "overall_gratitude_index",
+    "primary": "social_impact",
     "breakdown": [
       "gratitude_score: Total gratitude actions weighted by intensity",
       "social_impact: Effect of sharing gratitude with others",
       "reflection_depth: Depth of gratitude reflection through journaling",
       "happiness_gain: Estimated increase in happiness level"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "overall_gratitude_index"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -122,5 +124,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

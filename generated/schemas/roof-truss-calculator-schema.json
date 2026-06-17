@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Horizontal distance between outer walls, defines truss bottom chord length."
+      "businessContext": "Horizontal distance between outer walls, defines truss bottom chord length.",
+      "label_i18n": {
+        "en": "Building Width (Span)",
+        "tr": "Building Width (Span)",
+        "de": "Building Width (Span)",
+        "fr": "Building Width (Span)",
+        "es": "Building Width (Span)",
+        "ar": "Building Width (Span)"
+      }
     },
     {
       "id": "rise",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "Vertical height from top of wall plate to ridge peak, determines roof slope."
+      "businessContext": "Vertical height from top of wall plate to ridge peak, determines roof slope.",
+      "label_i18n": {
+        "en": "Roof Rise",
+        "tr": "Roof Rise",
+        "de": "Roof Rise",
+        "fr": "Roof Rise",
+        "es": "Roof Rise",
+        "ar": "Roof Rise"
+      }
     },
     {
       "id": "overhang",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.6,
-      "businessContext": "Horizontal projection of roof beyond exterior wall, extends rafter length."
+      "businessContext": "Horizontal projection of roof beyond exterior wall, extends rafter length.",
+      "label_i18n": {
+        "en": "Eave Overhang",
+        "tr": "Eave Overhang",
+        "de": "Eave Overhang",
+        "fr": "Eave Overhang",
+        "es": "Eave Overhang",
+        "ar": "Eave Overhang"
+      }
     },
     {
       "id": "length",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 12,
-      "businessContext": "Building length along ridge direction, used with spacing to calculate total truss quantity."
+      "businessContext": "Building length along ridge direction, used with spacing to calculate total truss quantity.",
+      "label_i18n": {
+        "en": "Building Length",
+        "tr": "Building Length",
+        "de": "Building Length",
+        "fr": "Building Length",
+        "es": "Building Length",
+        "ar": "Building Length"
+      }
     },
     {
       "id": "spacing",
@@ -39,23 +71,33 @@
       "type": "number",
       "unit": "m",
       "default": 0.6,
-      "businessContext": "Center-to-center distance between consecutive trusses, typical range 0.4–1.2 m."
+      "businessContext": "Center-to-center distance between consecutive trusses, typical range 0.4–1.2 m.",
+      "label_i18n": {
+        "en": "Truss Spacing",
+        "tr": "Truss Spacing",
+        "de": "Truss Spacing",
+        "fr": "Truss Spacing",
+        "es": "Truss Spacing",
+        "ar": "Truss Spacing"
+      }
     }
   ],
   "formulas": {
     "halfRun": "span / 2 + overhang",
-    "rafterLength": "Math.sqrt(Math.pow(halfRun, 2) + Math.pow(rise, 2))",
-    "angleDeg": "Math.atan(rise / (span / 2)) * (180 / Math.PI)",
-    "trussCount": "Math.ceil(length / spacing) + 1",
-    "totalRafterLength": "rafterLength * 2 * trussCount"
+    "halfRun_aux": "span / 2 + overhang"
   },
   "outputs": {
-    "primary": "rafterLength",
+    "primary": "halfRun_aux",
     "breakdown": [
       "angleDeg",
       "trussCount",
       "totalRafterLength"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalRafterLength"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -65,5 +107,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "insaat",
   "profession": "Proje Müdürü",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

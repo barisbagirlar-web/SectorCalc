@@ -87,21 +87,21 @@
     "step2_eff": "step2_dH * (number_of_steps >= 2 ? 1 : 0)",
     "step3_eff": "step3_dH * (number_of_steps >= 3 ? 1 : 0)",
     "step4_eff": "step4_dH * (number_of_steps >= 4 ? 1 : 0)",
-    "total": "step1_eff + step2_eff + step3_eff + step4_eff",
-    "_step1_eff__kJ_mol": "{step1_eff} kJ/mol",
-    "_step2_eff__kJ_mol": "{step2_eff} kJ/mol",
-    "_step3_eff__kJ_mol": "{step3_eff} kJ/mol",
-    "_step4_eff__kJ_mol": "{step4_eff} kJ/mol",
-    "result": "Toplam entalpi değişimi (ΔH_toplam): {total} kJ/mol"
+    "total": "step1_eff + step2_eff + step3_eff + step4_eff"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "total",
     "breakdown": [
       "1. adım katkısı: {step1_eff} kJ/mol",
       "2. adım katkısı: {step2_eff} kJ/mol",
       "3. adım katkısı: {step3_eff} kJ/mol",
       "4. adım katkısı: {step4_eff} kJ/mol"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "total"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -111,5 +111,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

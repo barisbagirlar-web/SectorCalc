@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "keV",
       "default": 100,
-      "businessContext": "Energy of incoming photon before scattering"
+      "businessContext": "Energy of incoming photon before scattering",
+      "label_i18n": {
+        "en": "Incident Photon Energy",
+        "tr": "Incident Photon Energy",
+        "de": "Incident Photon Energy",
+        "fr": "Incident Photon Energy",
+        "es": "Incident Photon Energy",
+        "ar": "Incident Photon Energy"
+      }
     },
     {
       "id": "incidentWavelength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "nm",
       "default": 0,
-      "businessContext": "Wavelength of incoming photon (if known); overrides energy when provided"
+      "businessContext": "Wavelength of incoming photon (if known); overrides energy when provided",
+      "label_i18n": {
+        "en": "Incident Photon Wavelength",
+        "tr": "Incident Photon Wavelength",
+        "de": "Incident Photon Wavelength",
+        "fr": "Incident Photon Wavelength",
+        "es": "Incident Photon Wavelength",
+        "ar": "Incident Photon Wavelength"
+      }
     },
     {
       "id": "scatteringAngle",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°",
       "default": 90,
-      "businessContext": "Angle between incident and scattered photon directions"
+      "businessContext": "Angle between incident and scattered photon directions",
+      "label_i18n": {
+        "en": "Scattering Angle",
+        "tr": "Scattering Angle",
+        "de": "Scattering Angle",
+        "fr": "Scattering Angle",
+        "es": "Scattering Angle",
+        "ar": "Scattering Angle"
+      }
     },
     {
       "id": "electronRestEnergy",
@@ -31,24 +55,34 @@
       "type": "number",
       "unit": "keV",
       "default": 511,
-      "businessContext": "Rest mass energy of the scattering particle (electron: 511 keV)"
+      "businessContext": "Rest mass energy of the scattering particle (electron: 511 keV)",
+      "label_i18n": {
+        "en": "Electron Rest Energy",
+        "tr": "Electron Rest Energy",
+        "de": "Electron Rest Energy",
+        "fr": "Electron Rest Energy",
+        "es": "Electron Rest Energy",
+        "ar": "Electron Rest Energy"
+      }
     }
   ],
   "formulas": {
     "thetaRad": "scatteringAngle * Math.PI / 180",
     "incidentEnergyKeV": "(incidentWavelength > 0) ? (1.24 / incidentWavelength) : incidentEnergy",
-    "scatteredEnergyKeV": "incidentEnergyKeV / (1 + (incidentEnergyKeV / electronRestEnergy) * (1 - Math.cos(thetaRad)))",
-    "electronEnergyKeV": "incidentEnergyKeV - scatteredEnergyKeV",
-    "incidentWavelengthNm": "(incidentWavelength > 0) ? incidentWavelength : (1.24 / incidentEnergyKeV)",
-    "scatteredWavelengthNm": "1.24 / scatteredEnergyKeV"
+    "incidentWavelengthNm": "(incidentWavelength > 0) ? incidentWavelength : (1.24 / incidentEnergyKeV)"
   },
   "outputs": {
-    "primary": "scatteredEnergyKeV",
+    "primary": "incidentWavelengthNm",
     "breakdown": [
       "electronEnergyKeV",
       "scatteredWavelengthNm",
       "incidentWavelengthNm"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "scatteredWavelengthNm"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -58,5 +92,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

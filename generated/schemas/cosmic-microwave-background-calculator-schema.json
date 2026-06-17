@@ -59,16 +59,20 @@
     }
   ],
   "formulas": {
-    "spectral_radiance": "2 * 6.62607015e-34 * Math.pow(frequency, 3) / Math.pow(299792458, 2) * 1 / (Math.exp(6.62607015e-34 * frequency / (1.380649e-23 * temperature)) - 1)",
     "peak_frequency": "5.878925e10 * temperature",
     "peak_wavelength": "0.002897771955 / temperature"
   },
   "outputs": {
-    "primary": "spectral_radiance",
+    "primary": "peak_wavelength",
     "breakdown": [
       "peak_frequency",
       "peak_wavelength"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "peak_wavelength"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -78,5 +82,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

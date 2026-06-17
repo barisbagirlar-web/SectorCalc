@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "User body weight in kilograms for personalized calorie calculation based on metabolic energy expenditure."
+      "businessContext": "User body weight in kilograms for personalized calorie calculation based on metabolic energy expenditure.",
+      "label_i18n": {
+        "en": "Body Weight",
+        "tr": "Body Weight",
+        "de": "Body Weight",
+        "fr": "Body Weight",
+        "es": "Body Weight",
+        "ar": "Body Weight"
+      }
     },
     {
       "id": "duration",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "min",
       "default": 30,
-      "businessContext": "Total time spent dancing in minutes, used to compute total calorie burn."
+      "businessContext": "Total time spent dancing in minutes, used to compute total calorie burn.",
+      "label_i18n": {
+        "en": "Dance Duration",
+        "tr": "Dance Duration",
+        "de": "Dance Duration",
+        "fr": "Dance Duration",
+        "es": "Dance Duration",
+        "ar": "Dance Duration"
+      }
     },
     {
       "id": "met",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "MET",
       "default": 5,
-      "businessContext": "Metabolic Equivalent of Task representing intensity of dancing; typical values: 3-10 where 1 MET = 3.5 ml O2/kg/min."
+      "businessContext": "Metabolic Equivalent of Task representing intensity of dancing; typical values: 3-10 where 1 MET = 3.5 ml O2/kg/min.",
+      "label_i18n": {
+        "en": "MET Value",
+        "tr": "MET Value",
+        "de": "MET Value",
+        "fr": "MET Value",
+        "es": "MET Value",
+        "ar": "MET Value"
+      }
     },
     {
       "id": "intensityFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "factor",
       "default": 1,
-      "businessContext": "Multiplier to adjust calculated calories for perceived effort (0.5 = half effort, 2.0 = twice effort)."
+      "businessContext": "Multiplier to adjust calculated calories for perceived effort (0.5 = half effort, 2.0 = twice effort).",
+      "label_i18n": {
+        "en": "Intensity Adjustment Factor",
+        "tr": "Intensity Adjustment Factor",
+        "de": "Intensity Adjustment Factor",
+        "fr": "Intensity Adjustment Factor",
+        "es": "Intensity Adjustment Factor",
+        "ar": "Intensity Adjustment Factor"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "caloriesPerMinute",
       "totalHours"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalHours"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +91,10 @@
   "sectorSlug": "cleaning",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

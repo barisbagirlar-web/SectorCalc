@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD/unit",
       "default": 100,
-      "businessContext": "Current market price of the underlying asset per unit."
+      "businessContext": "Current market price of the underlying asset per unit.",
+      "label_i18n": {
+        "en": "Spot Price",
+        "tr": "Spot Price",
+        "de": "Spot Price",
+        "fr": "Spot Price",
+        "es": "Spot Price",
+        "ar": "Spot Price"
+      }
     },
     {
       "id": "futuresPrice",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD/unit",
       "default": 105,
-      "businessContext": "Futures contract price for delivery at a future date."
+      "businessContext": "Futures contract price for delivery at a future date.",
+      "label_i18n": {
+        "en": "Futures Price",
+        "tr": "Futures Price",
+        "de": "Futures Price",
+        "fr": "Futures Price",
+        "es": "Futures Price",
+        "ar": "Futures Price"
+      }
     },
     {
       "id": "spotVol",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "decimal",
       "default": 0.25,
-      "businessContext": "Annualized standard deviation of spot price returns."
+      "businessContext": "Annualized standard deviation of spot price returns.",
+      "label_i18n": {
+        "en": "Spot Volatility (σ)",
+        "tr": "Spot Volatility (σ)",
+        "de": "Spot Volatility (σ)",
+        "fr": "Spot Volatility (σ)",
+        "es": "Spot Volatility (σ)",
+        "ar": "Spot Volatility (σ)"
+      }
     },
     {
       "id": "futuresVol",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "decimal",
       "default": 0.2,
-      "businessContext": "Annualized standard deviation of futures price returns."
+      "businessContext": "Annualized standard deviation of futures price returns.",
+      "label_i18n": {
+        "en": "Futures Volatility (σ)",
+        "tr": "Futures Volatility (σ)",
+        "de": "Futures Volatility (σ)",
+        "fr": "Futures Volatility (σ)",
+        "es": "Futures Volatility (σ)",
+        "ar": "Futures Volatility (σ)"
+      }
     },
     {
       "id": "correlation",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "decimal",
       "default": 0.9,
-      "businessContext": "Correlation coefficient between spot and futures returns."
+      "businessContext": "Correlation coefficient between spot and futures returns.",
+      "label_i18n": {
+        "en": "Correlation",
+        "tr": "Correlation",
+        "de": "Correlation",
+        "fr": "Correlation",
+        "es": "Correlation",
+        "ar": "Correlation"
+      }
     },
     {
       "id": "exposureUnits",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "units",
       "default": 10000,
-      "businessContext": "Total quantity of the asset to hedge (e.g., bushels, barrels)."
+      "businessContext": "Total quantity of the asset to hedge (e.g., bushels, barrels).",
+      "label_i18n": {
+        "en": "Exposure (Units)",
+        "tr": "Exposure (Units)",
+        "de": "Exposure (Units)",
+        "fr": "Exposure (Units)",
+        "es": "Exposure (Units)",
+        "ar": "Exposure (Units)"
+      }
     },
     {
       "id": "contractSize",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "units/contract",
       "default": 5000,
-      "businessContext": "Number of units of the underlying asset per futures contract."
+      "businessContext": "Number of units of the underlying asset per futures contract.",
+      "label_i18n": {
+        "en": "Contract Size",
+        "tr": "Contract Size",
+        "de": "Contract Size",
+        "fr": "Contract Size",
+        "es": "Contract Size",
+        "ar": "Contract Size"
+      }
     }
   ],
   "formulas": {
@@ -68,7 +124,12 @@
     "breakdown": [
       "optimalHedgeRatio",
       "totalHedgeUnits"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "numberOfContracts"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -78,5 +139,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "lojistik",
   "profession": "Lojistik Uzmanı",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

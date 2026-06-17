@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 0,
-      "businessContext": "The value of goods as stated on the commercial invoice."
+      "businessContext": "The value of goods as stated on the commercial invoice.",
+      "label_i18n": {
+        "en": "Invoice Value",
+        "tr": "Invoice Value",
+        "de": "Invoice Value",
+        "fr": "Invoice Value",
+        "es": "Invoice Value",
+        "ar": "Invoice Value"
+      }
     },
     {
       "id": "insuranceCost",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 0,
-      "businessContext": "Cost of insuring the shipment during transit."
+      "businessContext": "Cost of insuring the shipment during transit.",
+      "label_i18n": {
+        "en": "Insurance Cost",
+        "tr": "Insurance Cost",
+        "de": "Insurance Cost",
+        "fr": "Insurance Cost",
+        "es": "Insurance Cost",
+        "ar": "Insurance Cost"
+      }
     },
     {
       "id": "freightCost",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 0,
-      "businessContext": "Cost of transporting the goods to the destination port."
+      "businessContext": "Cost of transporting the goods to the destination port.",
+      "label_i18n": {
+        "en": "Freight Cost",
+        "tr": "Freight Cost",
+        "de": "Freight Cost",
+        "fr": "Freight Cost",
+        "es": "Freight Cost",
+        "ar": "Freight Cost"
+      }
     },
     {
       "id": "dutyRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Ad valorem customs duty rate for the imported goods."
+      "businessContext": "Ad valorem customs duty rate for the imported goods.",
+      "label_i18n": {
+        "en": "Duty Rate",
+        "tr": "Duty Rate",
+        "de": "Duty Rate",
+        "fr": "Duty Rate",
+        "es": "Duty Rate",
+        "ar": "Duty Rate"
+      }
     },
     {
       "id": "vatRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Value Added Tax rate applied to the tax base."
+      "businessContext": "Value Added Tax rate applied to the tax base.",
+      "label_i18n": {
+        "en": "VAT Rate",
+        "tr": "VAT Rate",
+        "de": "VAT Rate",
+        "fr": "VAT Rate",
+        "es": "VAT Rate",
+        "ar": "VAT Rate"
+      }
     },
     {
       "id": "additionalFees",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 0,
-      "businessContext": "Other costs such as customs brokering or terminal handling charges."
+      "businessContext": "Other costs such as customs brokering or terminal handling charges.",
+      "label_i18n": {
+        "en": "Additional Fees",
+        "tr": "Additional Fees",
+        "de": "Additional Fees",
+        "fr": "Additional Fees",
+        "es": "Additional Fees",
+        "ar": "Additional Fees"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
     "breakdown": [
       "dutyAmount",
       "vatAmount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalImportCost"
   },
   "category": "Lojistik & Tedarik Zinciri",
   "sector": "Lojistik & Sevkiyat",
@@ -72,5 +125,10 @@
   "categorySlug": "procurement-supply-chain",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "logistics"
+  "categoryId": "logistics",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

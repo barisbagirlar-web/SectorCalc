@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cards",
       "default": 52,
-      "businessContext": "Number of cards in a standard deck."
+      "businessContext": "Number of cards in a standard deck.",
+      "label_i18n": {
+        "en": "Cards per Deck",
+        "tr": "Cards per Deck",
+        "de": "Cards per Deck",
+        "fr": "Cards per Deck",
+        "es": "Cards per Deck",
+        "ar": "Cards per Deck"
+      }
     },
     {
       "id": "shuffleCycles",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cycles",
       "default": 7,
-      "businessContext": "Number of shuffles needed for adequate randomness."
+      "businessContext": "Number of shuffles needed for adequate randomness.",
+      "label_i18n": {
+        "en": "Shuffle Cycles per Deck",
+        "tr": "Shuffle Cycles per Deck",
+        "de": "Shuffle Cycles per Deck",
+        "fr": "Shuffle Cycles per Deck",
+        "es": "Shuffle Cycles per Deck",
+        "ar": "Shuffle Cycles per Deck"
+      }
     },
     {
       "id": "machineSpeed",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cards/min",
       "default": 100,
-      "businessContext": "Processing rate of the card shuffler."
+      "businessContext": "Processing rate of the card shuffler.",
+      "label_i18n": {
+        "en": "Machine Speed",
+        "tr": "Machine Speed",
+        "de": "Machine Speed",
+        "fr": "Machine Speed",
+        "es": "Machine Speed",
+        "ar": "Machine Speed"
+      }
     },
     {
       "id": "powerRating",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kW",
       "default": 0.5,
-      "businessContext": "Electrical power consumed during operation."
+      "businessContext": "Electrical power consumed during operation.",
+      "label_i18n": {
+        "en": "Power Rating",
+        "tr": "Power Rating",
+        "de": "Power Rating",
+        "fr": "Power Rating",
+        "es": "Power Rating",
+        "ar": "Power Rating"
+      }
     },
     {
       "id": "operatingHours",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "hours",
       "default": 8,
-      "businessContext": "Scheduled active time including maintenance."
+      "businessContext": "Scheduled active time including maintenance.",
+      "label_i18n": {
+        "en": "Operating Hours per Day",
+        "tr": "Operating Hours per Day",
+        "de": "Operating Hours per Day",
+        "fr": "Operating Hours per Day",
+        "es": "Operating Hours per Day",
+        "ar": "Operating Hours per Day"
+      }
     },
     {
       "id": "maintenanceHours",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "hours",
       "default": 0.5,
-      "businessContext": "Downtime for cleaning and maintenance."
+      "businessContext": "Downtime for cleaning and maintenance.",
+      "label_i18n": {
+        "en": "Maintenance Hours per Day",
+        "tr": "Maintenance Hours per Day",
+        "de": "Maintenance Hours per Day",
+        "fr": "Maintenance Hours per Day",
+        "es": "Maintenance Hours per Day",
+        "ar": "Maintenance Hours per Day"
+      }
     },
     {
       "id": "laborCost",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "$/hour",
       "default": 20,
-      "businessContext": "Operator wage per hour."
+      "businessContext": "Operator wage per hour.",
+      "label_i18n": {
+        "en": "Labor Cost",
+        "tr": "Labor Cost",
+        "de": "Labor Cost",
+        "fr": "Labor Cost",
+        "es": "Labor Cost",
+        "ar": "Labor Cost"
+      }
     },
     {
       "id": "electricityCost",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "$/kWh",
       "default": 0.12,
-      "businessContext": "Utility rate per kilowatt-hour."
+      "businessContext": "Utility rate per kilowatt-hour.",
+      "label_i18n": {
+        "en": "Electricity Cost",
+        "tr": "Electricity Cost",
+        "de": "Electricity Cost",
+        "fr": "Electricity Cost",
+        "es": "Electricity Cost",
+        "ar": "Electricity Cost"
+      }
     }
   ],
   "formulas": {
@@ -82,7 +146,12 @@
     "breakdown": [
       "costPerPack",
       "machineUtilization"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "machineUtilization"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -92,5 +161,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mg/g",
       "default": 25,
-      "businessContext": "Amount of caffeine in milligrams per gram of dry tea leaves."
+      "businessContext": "Amount of caffeine in milligrams per gram of dry tea leaves.",
+      "label_i18n": {
+        "en": "Tea Caffeine Content (mg/g)",
+        "tr": "Tea Caffeine Content (mg/g)",
+        "de": "Tea Caffeine Content (mg/g)",
+        "fr": "Tea Caffeine Content (mg/g)",
+        "es": "Tea Caffeine Content (mg/g)",
+        "ar": "Tea Caffeine Content (mg/g)"
+      }
     },
     {
       "id": "teaAmount",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g",
       "default": 2.5,
-      "businessContext": "Grams of dry tea leaves used."
+      "businessContext": "Grams of dry tea leaves used.",
+      "label_i18n": {
+        "en": "Amount of Tea (g)",
+        "tr": "Amount of Tea (g)",
+        "de": "Amount of Tea (g)",
+        "fr": "Amount of Tea (g)",
+        "es": "Amount of Tea (g)",
+        "ar": "Amount of Tea (g)"
+      }
     },
     {
       "id": "steepingTime",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "min",
       "default": 3,
-      "businessContext": "Time the tea is steeped in minutes."
+      "businessContext": "Time the tea is steeped in minutes.",
+      "label_i18n": {
+        "en": "Steeping Time (min)",
+        "tr": "Steeping Time (min)",
+        "de": "Steeping Time (min)",
+        "fr": "Steeping Time (min)",
+        "es": "Steeping Time (min)",
+        "ar": "Steeping Time (min)"
+      }
     },
     {
       "id": "waterTemperature",
@@ -31,20 +55,33 @@
       "type": "number",
       "unit": "°C",
       "default": 90,
-      "businessContext": "Temperature of water used for steeping."
+      "businessContext": "Temperature of water used for steeping.",
+      "label_i18n": {
+        "en": "Water Temperature (°C)",
+        "tr": "Water Temperature (°C)",
+        "de": "Water Temperature (°C)",
+        "fr": "Water Temperature (°C)",
+        "es": "Water Temperature (°C)",
+        "ar": "Water Temperature (°C)"
+      }
     }
   ],
   "formulas": {
-    "efficiency": "Math.min(1, (steepingTime / 5) * (waterTemperature / 100))",
-    "totalCaffeine": "teaCaffeinePerGram * teaAmount * efficiency"
+    "result": "teaCaffeinePerGram + teaAmount + steepingTime",
+    "result_copy": "teaCaffeinePerGram + teaAmount + steepingTime"
   },
   "outputs": {
-    "primary": "totalCaffeine",
+    "primary": "result",
     "breakdown": [
       "efficiency",
       "teaCaffeinePerGram",
       "teaAmount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCaffeine"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -54,5 +91,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

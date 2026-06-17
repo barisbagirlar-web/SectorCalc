@@ -67,18 +67,20 @@
     }
   ],
   "formulas": {
-    "equation": "`y = ${slope}x + ${yIntercept}`",
     "y_calc": "slope * xValue + yIntercept",
-    "x_calc": "(yValue - yIntercept) / slope",
-    "Verilen_x_____xValue__i_in_y_____y_calc_": "Verilen x = ${xValue} için y = ${y_calc}",
-    "Verilen_y_____yValue__i_in_x_____x_calc_": "Verilen y = ${yValue} için x = ${x_calc}"
+    "x_calc": "(yValue - yIntercept) / slope"
   },
   "outputs": {
-    "primary": "equation",
+    "primary": "x_calc",
     "breakdown": [
       "Verilen x = ${xValue} için y = ${y_calc}",
       "Verilen y = ${yValue} için x = ${x_calc}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "x_calc"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -88,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

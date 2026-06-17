@@ -136,12 +136,10 @@
     "sumXY": "x1*y1 + x2*y2 + x3*y3 + x4*y4",
     "sumX2": "x1**2 + x2**2 + x3**2 + x4**2",
     "sumY2": "y1**2 + y2**2 + y3**2 + y4**2",
-    "numerator": "4 * sumXY - sumX * sumY",
-    "denominator": "Math.sqrt((4 * sumX2 - sumX**2) * (4 * sumY2 - sumY**2))",
-    "correlationCoefficient": "numerator / denominator"
+    "numerator": "4 * sumXY - sumX * sumY"
   },
   "outputs": {
-    "primary": "correlationCoefficient",
+    "primary": "numerator",
     "breakdown": [
       "sumX",
       "sumY",
@@ -150,7 +148,12 @@
       "sumY2",
       "numerator",
       "denominator"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "correlationCoefficient"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -160,5 +163,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

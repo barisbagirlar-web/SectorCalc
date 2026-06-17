@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "Length of the depression at the top surface"
+      "businessContext": "Length of the depression at the top surface",
+      "label_i18n": {
+        "en": "Top Length",
+        "tr": "Top Length",
+        "de": "Top Length",
+        "fr": "Top Length",
+        "es": "Top Length",
+        "ar": "Top Length"
+      }
     },
     {
       "id": "topWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Width of the depression at the top surface"
+      "businessContext": "Width of the depression at the top surface",
+      "label_i18n": {
+        "en": "Top Width",
+        "tr": "Top Width",
+        "de": "Top Width",
+        "fr": "Top Width",
+        "es": "Top Width",
+        "ar": "Top Width"
+      }
     },
     {
       "id": "bottomLength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 1.5,
-      "businessContext": "Length of the depression at the bottom"
+      "businessContext": "Length of the depression at the bottom",
+      "label_i18n": {
+        "en": "Bottom Length",
+        "tr": "Bottom Length",
+        "de": "Bottom Length",
+        "fr": "Bottom Length",
+        "es": "Bottom Length",
+        "ar": "Bottom Length"
+      }
     },
     {
       "id": "bottomWidth",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.5,
-      "businessContext": "Width of the depression at the bottom"
+      "businessContext": "Width of the depression at the bottom",
+      "label_i18n": {
+        "en": "Bottom Width",
+        "tr": "Bottom Width",
+        "de": "Bottom Width",
+        "fr": "Bottom Width",
+        "es": "Bottom Width",
+        "ar": "Bottom Width"
+      }
     },
     {
       "id": "depth",
@@ -39,20 +71,32 @@
       "type": "number",
       "unit": "m",
       "default": 0.3,
-      "businessContext": "Depth of the depression from top to bottom"
+      "businessContext": "Depth of the depression from top to bottom",
+      "label_i18n": {
+        "en": "Depth",
+        "tr": "Depth",
+        "de": "Depth",
+        "fr": "Depth",
+        "es": "Depth",
+        "ar": "Depth"
+      }
     }
   ],
   "formulas": {
     "topArea": "topLength * topWidth",
-    "bottomArea": "bottomLength * bottomWidth",
-    "depressionVolume": "(depth / 3) * (topLength * topWidth + bottomLength * bottomWidth + Math.sqrt(topLength * topWidth * bottomLength * bottomWidth))"
+    "bottomArea": "bottomLength * bottomWidth"
   },
   "outputs": {
-    "primary": "depressionVolume",
+    "primary": "bottomArea",
     "breakdown": [
       "topArea",
       "bottomArea"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "depressionVolume"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -62,5 +106,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

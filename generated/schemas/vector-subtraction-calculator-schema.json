@@ -101,12 +101,7 @@
   "formulas": {
     "result_x": "a_x - b_x",
     "result_y": "a_y - b_y",
-    "result_z": "a_z - b_z",
-    "magnitude": "Math.sqrt((a_x - b_x)**2 + (a_y - b_y)**2 + (a_z - b_z)**2)",
-    "__a_x_____b_x______result_x__m": "({a_x} - {b_x}) = {result_x} m",
-    "__a_y_____b_y______result_y__m": "({a_y} - {b_y}) = {result_y} m",
-    "__a_z_____b_z______result_z__m": "({a_z} - {b_z}) = {result_z} m",
-    "___X_____Y_____Z______magnitude__m": "√(ΔX² + ΔY² + ΔZ²) = {magnitude} m"
+    "result_z": "a_z - b_z"
   },
   "outputs": {
     "primary": "result_x",
@@ -115,7 +110,12 @@
       "ΔY: ({a_y} - {b_y}) = {result_y} m",
       "ΔZ: ({a_z} - {b_z}) = {result_z} m",
       "Magnitude: √(ΔX² + ΔY² + ΔZ²) = {magnitude} m"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "magnitude"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -125,5 +125,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

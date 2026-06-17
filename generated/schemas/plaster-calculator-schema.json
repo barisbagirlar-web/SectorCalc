@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Sıvanacak duvarın yatay uzunluğu (metre). Tipik ev içi duvar: 3-6m."
+      "businessContext": "Sıvanacak duvarın yatay uzunluğu (metre). Tipik ev içi duvar: 3-6m.",
+      "label_i18n": {
+        "en": "Duvar Uzunluğu",
+        "tr": "Duvar Uzunluğu",
+        "de": "Duvar Uzunluğu",
+        "fr": "Duvar Uzunluğu",
+        "es": "Duvar Uzunluğu",
+        "ar": "Duvar Uzunluğu"
+      }
     },
     {
       "id": "wallHeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 2.5,
-      "businessContext": "Sıvanacak duvarın dikey yüksekliği (metre). Standart tavan yüksekliği: 2.4-2.7m."
+      "businessContext": "Sıvanacak duvarın dikey yüksekliği (metre). Standart tavan yüksekliği: 2.4-2.7m.",
+      "label_i18n": {
+        "en": "Duvar Yüksekliği",
+        "tr": "Duvar Yüksekliği",
+        "de": "Duvar Yüksekliği",
+        "fr": "Duvar Yüksekliği",
+        "es": "Duvar Yüksekliği",
+        "ar": "Duvar Yüksekliği"
+      }
     },
     {
       "id": "plasterThickness",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 2,
-      "businessContext": "Uygulanacak sıva kalınlığı (cm). Tipik iç sıva: 1-2cm, dış sıva: 2-3cm."
+      "businessContext": "Uygulanacak sıva kalınlığı (cm). Tipik iç sıva: 1-2cm, dış sıva: 2-3cm.",
+      "label_i18n": {
+        "en": "Sıva Kalınlığı",
+        "tr": "Sıva Kalınlığı",
+        "de": "Sıva Kalınlığı",
+        "fr": "Sıva Kalınlığı",
+        "es": "Sıva Kalınlığı",
+        "ar": "Sıva Kalınlığı"
+      }
     },
     {
       "id": "mixRatioCement",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kısım",
       "default": 1,
-      "businessContext": "Harç karışımında çimento miktarı (hacimce). Örn: 1:4 karışımda çimento=1, kum=4."
+      "businessContext": "Harç karışımında çimento miktarı (hacimce). Örn: 1:4 karışımda çimento=1, kum=4.",
+      "label_i18n": {
+        "en": "Çimento Oranı (Hacim)",
+        "tr": "Çimento Oranı (Hacim)",
+        "de": "Çimento Oranı (Hacim)",
+        "fr": "Çimento Oranı (Hacim)",
+        "es": "Çimento Oranı (Hacim)",
+        "ar": "Çimento Oranı (Hacim)"
+      }
     },
     {
       "id": "mixRatioSand",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kısım",
       "default": 4,
-      "businessContext": "Harç karışımında kum miktarı (hacimce). Örn: 1:4 karışımda kum=4."
+      "businessContext": "Harç karışımında kum miktarı (hacimce). Örn: 1:4 karışımda kum=4.",
+      "label_i18n": {
+        "en": "Kum Oranı (Hacim)",
+        "tr": "Kum Oranı (Hacim)",
+        "de": "Kum Oranı (Hacim)",
+        "fr": "Kum Oranı (Hacim)",
+        "es": "Kum Oranı (Hacim)",
+        "ar": "Kum Oranı (Hacim)"
+      }
     },
     {
       "id": "cementBagWeight",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kg",
       "default": 50,
-      "businessContext": "Bir torba çimentonun ağırlığı (kg). Tipik: 50 kg."
+      "businessContext": "Bir torba çimentonun ağırlığı (kg). Tipik: 50 kg.",
+      "label_i18n": {
+        "en": "Çimento Torba Ağırlığı",
+        "tr": "Çimento Torba Ağırlığı",
+        "de": "Çimento Torba Ağırlığı",
+        "fr": "Çimento Torba Ağırlığı",
+        "es": "Çimento Torba Ağırlığı",
+        "ar": "Çimento Torba Ağırlığı"
+      }
     },
     {
       "id": "wastageFactor",
@@ -55,25 +103,24 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Uygulama sırasında oluşan fire (yüzde). Genelde %5-15."
+      "businessContext": "Uygulama sırasında oluşan fire (yüzde). Genelde %5-15.",
+      "label_i18n": {
+        "en": "Fire Oranı",
+        "tr": "Fire Oranı",
+        "de": "Fire Oranı",
+        "fr": "Fire Oranı",
+        "es": "Fire Oranı",
+        "ar": "Fire Oranı"
+      }
     }
   ],
   "formulas": {
     "wallArea": "wallLength * wallHeight",
     "wetVolume": "wallArea * (plasterThickness / 100)",
-    "dryVolumeIncreaseFactor": "0.3",
-    "dryVolume": "wetVolume * (1 + dryVolumeIncreaseFactor)",
-    "totalVolume": "dryVolume * (1 + wastageFactor / 100)",
-    "totalMixParts": "mixRatioCement + mixRatioSand",
-    "cementVolume": "totalVolume * (mixRatioCement / totalMixParts)",
-    "sandVolume": "totalVolume * (mixRatioSand / totalMixParts)",
-    "cementDensity": "1440",
-    "cementWeight": "cementVolume * cementDensity",
-    "requiredBags": "cementWeight / cementBagWeight",
-    "recommendedBags": "Math.ceil(requiredBags)"
+    "totalMixParts": "mixRatioCement + mixRatioSand"
   },
   "outputs": {
-    "primary": "recommendedBags",
+    "primary": "totalMixParts",
     "breakdown": [
       "wallArea",
       "wetVolume",
@@ -83,7 +130,12 @@
       "sandVolume",
       "cementWeight",
       "requiredBags"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "recommendedBags"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -93,5 +145,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

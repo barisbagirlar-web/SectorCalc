@@ -84,21 +84,21 @@
   ],
   "formulas": {
     "baseFeet": "rods * feetPerRod",
-    "safetyFeet": "baseFeet * (1 + safetyFactor / 100)",
-    "totalFeet": "Math.round(safetyFeet * 10 ** decimalPlaces) / 10 ** decimalPlaces",
-    "_rods__rods____feetPerRod__ft_rod____bas": "{rods} rods × {feetPerRod} ft/rod = {baseFeet} ft",
-    "_safetyFeet__ft": "{safetyFeet} ft",
-    "_totalFeet__ft": "{totalFeet} ft",
-    "__tolerance__ft": "±{tolerance} ft"
+    "safetyFeet": "baseFeet * (1 + safetyFactor / 100)"
   },
   "outputs": {
-    "primary": "totalFeet",
+    "primary": "safetyFeet",
     "breakdown": [
       "Base conversion: {rods} rods × {feetPerRod} ft/rod = {baseFeet} ft",
       "After safety margin {safetyFactor}%: {safetyFeet} ft",
       "Rounded to {decimalPlaces} decimals: {totalFeet} ft",
       "Tolerance: ±{tolerance} ft"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalFeet"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -108,5 +108,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

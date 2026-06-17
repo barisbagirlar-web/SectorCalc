@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "The total property tax for the full year as assessed by the local government."
+      "businessContext": "The total property tax for the full year as assessed by the local government.",
+      "label_i18n": {
+        "en": "Annual Property Tax",
+        "tr": "Annual Property Tax",
+        "de": "Annual Property Tax",
+        "fr": "Annual Property Tax",
+        "es": "Annual Property Tax",
+        "ar": "Annual Property Tax"
+      }
     },
     {
       "id": "daysInTaxYear",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "days",
       "default": 365,
-      "businessContext": "The number of days in the tax year (typically 365, or 366 for a leap year)."
+      "businessContext": "The number of days in the tax year (typically 365, or 366 for a leap year).",
+      "label_i18n": {
+        "en": "Days in Tax Year",
+        "tr": "Days in Tax Year",
+        "de": "Days in Tax Year",
+        "fr": "Days in Tax Year",
+        "es": "Days in Tax Year",
+        "ar": "Days in Tax Year"
+      }
     },
     {
       "id": "daysOwned",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "days",
       "default": 0,
-      "businessContext": "Number of days the property was owned during the tax year."
+      "businessContext": "Number of days the property was owned during the tax year.",
+      "label_i18n": {
+        "en": "Days Owned",
+        "tr": "Days Owned",
+        "de": "Days Owned",
+        "fr": "Days Owned",
+        "es": "Days Owned",
+        "ar": "Days Owned"
+      }
     },
     {
       "id": "otherFees",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Any additional fees or adjustments (e.g., closing costs, penalties, credits)."
+      "businessContext": "Any additional fees or adjustments (e.g., closing costs, penalties, credits).",
+      "label_i18n": {
+        "en": "Other Fees",
+        "tr": "Other Fees",
+        "de": "Other Fees",
+        "fr": "Other Fees",
+        "es": "Other Fees",
+        "ar": "Other Fees"
+      }
     }
   ],
   "formulas": {
@@ -45,7 +77,12 @@
       "dailyTax",
       "proratedTax",
       "totalTaxDue"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalTaxDue"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -55,5 +92,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

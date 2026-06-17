@@ -134,7 +134,12 @@
       "onesPart",
       "tenthsPart",
       "hundredthsPart"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "hundredthsPart"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -144,5 +149,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

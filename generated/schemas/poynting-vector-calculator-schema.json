@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "V/m",
       "default": 0,
-      "businessContext": "X component of the electric field vector in volts per meter"
+      "businessContext": "X component of the electric field vector in volts per meter",
+      "label_i18n": {
+        "en": "Electric Field X-component (Ex)",
+        "tr": "Electric Field X-component (Ex)",
+        "de": "Electric Field X-component (Ex)",
+        "fr": "Electric Field X-component (Ex)",
+        "es": "Electric Field X-component (Ex)",
+        "ar": "Electric Field X-component (Ex)"
+      }
     },
     {
       "id": "Ey",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "V/m",
       "default": 0,
-      "businessContext": "Y component of the electric field vector in volts per meter"
+      "businessContext": "Y component of the electric field vector in volts per meter",
+      "label_i18n": {
+        "en": "Electric Field Y-component (Ey)",
+        "tr": "Electric Field Y-component (Ey)",
+        "de": "Electric Field Y-component (Ey)",
+        "fr": "Electric Field Y-component (Ey)",
+        "es": "Electric Field Y-component (Ey)",
+        "ar": "Electric Field Y-component (Ey)"
+      }
     },
     {
       "id": "Ez",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "V/m",
       "default": 0,
-      "businessContext": "Z component of the electric field vector in volts per meter"
+      "businessContext": "Z component of the electric field vector in volts per meter",
+      "label_i18n": {
+        "en": "Electric Field Z-component (Ez)",
+        "tr": "Electric Field Z-component (Ez)",
+        "de": "Electric Field Z-component (Ez)",
+        "fr": "Electric Field Z-component (Ez)",
+        "es": "Electric Field Z-component (Ez)",
+        "ar": "Electric Field Z-component (Ez)"
+      }
     },
     {
       "id": "Hx",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "A/m",
       "default": 0,
-      "businessContext": "X component of the magnetic field intensity vector in amperes per meter"
+      "businessContext": "X component of the magnetic field intensity vector in amperes per meter",
+      "label_i18n": {
+        "en": "Magnetic Field X-component (Hx)",
+        "tr": "Magnetic Field X-component (Hx)",
+        "de": "Magnetic Field X-component (Hx)",
+        "fr": "Magnetic Field X-component (Hx)",
+        "es": "Magnetic Field X-component (Hx)",
+        "ar": "Magnetic Field X-component (Hx)"
+      }
     },
     {
       "id": "Hy",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "A/m",
       "default": 0,
-      "businessContext": "Y component of the magnetic field intensity vector in amperes per meter"
+      "businessContext": "Y component of the magnetic field intensity vector in amperes per meter",
+      "label_i18n": {
+        "en": "Magnetic Field Y-component (Hy)",
+        "tr": "Magnetic Field Y-component (Hy)",
+        "de": "Magnetic Field Y-component (Hy)",
+        "fr": "Magnetic Field Y-component (Hy)",
+        "es": "Magnetic Field Y-component (Hy)",
+        "ar": "Magnetic Field Y-component (Hy)"
+      }
     },
     {
       "id": "Hz",
@@ -47,14 +87,21 @@
       "type": "number",
       "unit": "A/m",
       "default": 0,
-      "businessContext": "Z component of the magnetic field intensity vector in amperes per meter"
+      "businessContext": "Z component of the magnetic field intensity vector in amperes per meter",
+      "label_i18n": {
+        "en": "Magnetic Field Z-component (Hz)",
+        "tr": "Magnetic Field Z-component (Hz)",
+        "de": "Magnetic Field Z-component (Hz)",
+        "fr": "Magnetic Field Z-component (Hz)",
+        "es": "Magnetic Field Z-component (Hz)",
+        "ar": "Magnetic Field Z-component (Hz)"
+      }
     }
   ],
   "formulas": {
     "Sx": "Ey * Hz - Ez * Hy",
     "Sy": "Ez * Hx - Ex * Hz",
-    "Sz": "Ex * Hy - Ey * Hx",
-    "magnitude": "Math.sqrt(Math.pow(Ey * Hz - Ez * Hy, 2) + Math.pow(Ez * Hx - Ex * Hz, 2) + Math.pow(Ex * Hy - Ey * Hx, 2))"
+    "Sz": "Ex * Hy - Ey * Hx"
   },
   "outputs": {
     "primary": "Sx",
@@ -77,7 +124,12 @@
         "unit": "W/m²",
         "valueFormula": "Sz"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "magnitude"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -87,5 +139,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

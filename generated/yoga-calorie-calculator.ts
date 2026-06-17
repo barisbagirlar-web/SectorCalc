@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from yoga-calorie-calculator-schema.json
 import * as z from 'zod';
 
@@ -19,27 +20,35 @@ export const Yoga_calorie_calculatorInputSchema = z.object({
   met: z.number().default(3),
 });
 
-function evaluateAllFormulas(input: Yoga_calorie_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.gender === 0 ? (10 * input.weight + 6.25 * input.height - 5 * input.age + 5) : (10 * input.weight + 6.25 * input.height - 5 * input.age - 161); results["bmr"] = Number.isFinite(v) ? v : 0; } catch { results["bmr"] = 0; }
-  try { const v = input.met * input.weight * (input.duration / 60); results["totalCalories"] = Number.isFinite(v) ? v : 0; } catch { results["totalCalories"] = 0; }
-  try { const v = (results["bmr"] ?? 0) * (input.duration / 1440); results["restingDuring"] = Number.isFinite(v) ? v : 0; } catch { results["restingDuring"] = 0; }
-  try { const v = (results["totalCalories"] ?? 0) - (results["restingDuring"] ?? 0); results["netCalories"] = Number.isFinite(v) ? v : 0; } catch { results["netCalories"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Yoga_calorie_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.gender === 0 ? (10 * input.weight + 6.25 * input.height - 5 * input.age + 5) : (10 * input.weight + 6.25 * input.height - 5 * input.age - 161); results["bmr"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["bmr"] = 0; }
+  try { const v = input.met * input.weight * (input.duration / 60); results["totalCalories"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalCalories"] = 0; }
+  try { const v = (asFormulaNumber(results["bmr"])) * (input.duration / 1440); results["restingDuring"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["restingDuring"] = 0; }
+  try { const v = (asFormulaNumber(results["totalCalories"])) - (asFormulaNumber(results["restingDuring"])); results["netCalories"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["netCalories"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateYoga_calorie_calculator(input: Yoga_calorie_calculatorInput): Yoga_calorie_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["netCalories"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["netCalories"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

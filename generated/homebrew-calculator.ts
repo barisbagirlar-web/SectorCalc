@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from homebrew-calculator-schema.json
 import * as z from 'zod';
 
@@ -21,27 +22,34 @@ export const Homebrew_calculatorInputSchema = z.object({
   efficiency: z.number().default(75),
 });
 
-function evaluateAllFormulas(input: Homebrew_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = 1 + (input.grainWeight * 300 * (input.efficiency / 100)) / (input.boilVolume * 1000); results["originalGravity"] = Number.isFinite(v) ? v : 0; } catch { results["originalGravity"] = 0; }
-  try { const v = (results["originalGravity"] ?? 0) - ((results["originalGravity"] ?? 0) - 1) * (input.attenuation / 100); results["finalGravity"] = Number.isFinite(v) ? v : 0; } catch { results["finalGravity"] = 0; }
-  try { const v = ((results["originalGravity"] ?? 0) - (results["finalGravity"] ?? 0)) * 131.25; results["abv"] = Number.isFinite(v) ? v : 0; } catch { results["abv"] = 0; }
-  try { const v = (input.hopWeight * input.alphaAcid * (1.65 * Math.pow(0.000125, ((results["originalGravity"] ?? 0) - 1) * 1000) * (1 - Math.exp(-0.04 * input.boilTime)) / 4.15) * 1000) / input.boilVolume; results["ibu"] = Number.isFinite(v) ? v : 0; } catch { results["ibu"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Homebrew_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = 1 + (input.grainWeight * 300 * (input.efficiency / 100)) / (input.boilVolume * 1000); results["originalGravity"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["originalGravity"] = 0; }
+  try { const v = (asFormulaNumber(results["originalGravity"])) - ((asFormulaNumber(results["originalGravity"])) - 1) * (input.attenuation / 100); results["finalGravity"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["finalGravity"] = 0; }
+  try { const v = ((asFormulaNumber(results["originalGravity"])) - (asFormulaNumber(results["finalGravity"]))) * 131.25; results["abv"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["abv"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateHomebrew_calculator(input: Homebrew_calculatorInput): Homebrew_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["abv"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["abv"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

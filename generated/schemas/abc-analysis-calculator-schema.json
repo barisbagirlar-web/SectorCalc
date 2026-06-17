@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1200,
-      "businessContext": "Yıllık talep miktarı (adet)"
+      "businessContext": "Yıllık talep miktarı (adet)",
+      "label_i18n": {
+        "en": "Yıllık Talep Miktarı",
+        "tr": "Yıllık Talep Miktarı",
+        "de": "Yıllık Talep Miktarı",
+        "fr": "Yıllık Talep Miktarı",
+        "es": "Yıllık Talep Miktarı",
+        "ar": "Yıllık Talep Miktarı"
+      }
     },
     {
       "id": "unitCost",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "TL",
       "default": 25,
-      "businessContext": "Birim maliyet (TL)"
+      "businessContext": "Birim maliyet (TL)",
+      "label_i18n": {
+        "en": "Birim Maliyet",
+        "tr": "Birim Maliyet",
+        "de": "Birim Maliyet",
+        "fr": "Birim Maliyet",
+        "es": "Birim Maliyet",
+        "ar": "Birim Maliyet"
+      }
     },
     {
       "id": "totalUsageValue",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "TL",
       "default": 100000,
-      "businessContext": "Tüm stok kalemlerinin toplam yıllık kullanım değeri (TL)"
+      "businessContext": "Tüm stok kalemlerinin toplam yıllık kullanım değeri (TL)",
+      "label_i18n": {
+        "en": "Toplam Kullanım Değeri",
+        "tr": "Toplam Kullanım Değeri",
+        "de": "Toplam Kullanım Değeri",
+        "fr": "Toplam Kullanım Değeri",
+        "es": "Toplam Kullanım Değeri",
+        "ar": "Toplam Kullanım Değeri"
+      }
     },
     {
       "id": "aClassThreshold",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 70,
-      "businessContext": "A sınıfı için kümülatif değer yüzdesi eşiği"
+      "businessContext": "A sınıfı için kümülatif değer yüzdesi eşiği",
+      "label_i18n": {
+        "en": "A Sınıfı Eşiği",
+        "tr": "A Sınıfı Eşiği",
+        "de": "A Sınıfı Eşiği",
+        "fr": "A Sınıfı Eşiği",
+        "es": "A Sınıfı Eşiği",
+        "ar": "A Sınıfı Eşiği"
+      }
     },
     {
       "id": "bClassThreshold",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "B sınıfı için kümülatif değer yüzdesi eşiği"
+      "businessContext": "B sınıfı için kümülatif değer yüzdesi eşiği",
+      "label_i18n": {
+        "en": "B Sınıfı Eşiği",
+        "tr": "B Sınıfı Eşiği",
+        "de": "B Sınıfı Eşiği",
+        "fr": "B Sınıfı Eşiği",
+        "es": "B Sınıfı Eşiği",
+        "ar": "B Sınıfı Eşiği"
+      }
     }
   ],
   "formulas": {
@@ -51,7 +91,12 @@
     "breakdown": [
       "itemUsageValue",
       "percentageOfTotal"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "percentageOfTotal"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -61,5 +106,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

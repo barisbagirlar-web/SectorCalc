@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g/L",
       "default": 200,
-      "businessContext": "Sugar content of wort/must before fermentation"
+      "businessContext": "Sugar content of wort/must before fermentation",
+      "label_i18n": {
+        "en": "Initial Sugar Concentration",
+        "tr": "Initial Sugar Concentration",
+        "de": "Initial Sugar Concentration",
+        "fr": "Initial Sugar Concentration",
+        "es": "Initial Sugar Concentration",
+        "ar": "Initial Sugar Concentration"
+      }
     },
     {
       "id": "fermentationTime",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "h",
       "default": 48,
-      "businessContext": "Duration of active fermentation"
+      "businessContext": "Duration of active fermentation",
+      "label_i18n": {
+        "en": "Fermentation Time",
+        "tr": "Fermentation Time",
+        "de": "Fermentation Time",
+        "fr": "Fermentation Time",
+        "es": "Fermentation Time",
+        "ar": "Fermentation Time"
+      }
     },
     {
       "id": "temperature",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Average temperature during fermentation"
+      "businessContext": "Average temperature during fermentation",
+      "label_i18n": {
+        "en": "Fermentation Temperature",
+        "tr": "Fermentation Temperature",
+        "de": "Fermentation Temperature",
+        "fr": "Fermentation Temperature",
+        "es": "Fermentation Temperature",
+        "ar": "Fermentation Temperature"
+      }
     },
     {
       "id": "yeastPitchRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cells/mL",
       "default": 1000000,
-      "businessContext": "Initial viable yeast cell density"
+      "businessContext": "Initial viable yeast cell density",
+      "label_i18n": {
+        "en": "Yeast Pitch Rate",
+        "tr": "Yeast Pitch Rate",
+        "de": "Yeast Pitch Rate",
+        "fr": "Yeast Pitch Rate",
+        "es": "Yeast Pitch Rate",
+        "ar": "Yeast Pitch Rate"
+      }
     },
     {
       "id": "batchVolume",
@@ -39,22 +71,33 @@
       "type": "number",
       "unit": "L",
       "default": 1000,
-      "businessContext": "Total liquid volume"
+      "businessContext": "Total liquid volume",
+      "label_i18n": {
+        "en": "Batch Volume",
+        "tr": "Batch Volume",
+        "de": "Batch Volume",
+        "fr": "Batch Volume",
+        "es": "Batch Volume",
+        "ar": "Batch Volume"
+      }
     }
   ],
   "formulas": {
     "potentialABV": "initialSugar / 17",
-    "efficiency": "(1 / (1 + Math.exp(-(yeastPitchRate - 1000000)/1000000))) * Math.exp(-0.05 * (temperature - 20) ** 2) * (1 - Math.exp(-0.1 * fermentationTime))",
-    "actualABV": "potentialABV * efficiency",
     "co2Mass": "initialSugar * 0.5 * batchVolume"
   },
   "outputs": {
-    "primary": "actualABV",
+    "primary": "co2Mass",
     "breakdown": [
       "potentialABV",
       "efficiency",
       "co2Mass"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "co2Mass"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -64,5 +107,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

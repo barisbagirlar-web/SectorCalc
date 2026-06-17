@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 50,
-      "businessContext": "Age of the industrial system"
+      "businessContext": "Age of the industrial system",
+      "label_i18n": {
+        "en": "Equipment Age",
+        "tr": "Equipment Age",
+        "de": "Equipment Age",
+        "fr": "Equipment Age",
+        "es": "Equipment Age",
+        "ar": "Equipment Age"
+      }
     },
     {
       "id": "systolicPressure",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "psi",
       "default": 120,
-      "businessContext": "Systolic pressure equivalent in system"
+      "businessContext": "Systolic pressure equivalent in system",
+      "label_i18n": {
+        "en": "Operating Pressure",
+        "tr": "Operating Pressure",
+        "de": "Operating Pressure",
+        "fr": "Operating Pressure",
+        "es": "Operating Pressure",
+        "ar": "Operating Pressure"
+      }
     },
     {
       "id": "cholesterol",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ppm",
       "default": 200,
-      "businessContext": "Total contamination in lubricant"
+      "businessContext": "Total contamination in lubricant",
+      "label_i18n": {
+        "en": "Contamination Level",
+        "tr": "Contamination Level",
+        "de": "Contamination Level",
+        "fr": "Contamination Level",
+        "es": "Contamination Level",
+        "ar": "Contamination Level"
+      }
     },
     {
       "id": "hdlCholesterol",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "ppm",
       "default": 50,
-      "businessContext": "Protective additive concentration"
+      "businessContext": "Protective additive concentration",
+      "label_i18n": {
+        "en": "Additive Concentration",
+        "tr": "Additive Concentration",
+        "de": "Additive Concentration",
+        "fr": "Additive Concentration",
+        "es": "Additive Concentration",
+        "ar": "Additive Concentration"
+      }
     },
     {
       "id": "smokingStatus",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "0=No, 1=Yes"
+      "businessContext": "0=No, 1=Yes",
+      "label_i18n": {
+        "en": "Corrosive Environment",
+        "tr": "Corrosive Environment",
+        "de": "Corrosive Environment",
+        "fr": "Corrosive Environment",
+        "es": "Corrosive Environment",
+        "ar": "Corrosive Environment"
+      }
     },
     {
       "id": "bloodPressureTreatment",
@@ -47,19 +87,32 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "0=No, 1=Yes"
+      "businessContext": "0=No, 1=Yes",
+      "label_i18n": {
+        "en": "Pressure Regulation",
+        "tr": "Pressure Regulation",
+        "de": "Pressure Regulation",
+        "fr": "Pressure Regulation",
+        "es": "Pressure Regulation",
+        "ar": "Pressure Regulation"
+      }
     }
   ],
   "formulas": {
     "points": "0.1 * age + 0.02 * systolicPressure + 0.01 * cholesterol - 0.02 * hdlCholesterol + 0.3 * smokingStatus + 0.2 * bloodPressureTreatment",
-    "risk": "Math.round((1 - 0.95 ** Math.exp(points - 20)) * 100 * 100) / 100"
+    "points_aux": "0.1 * age + 0.02 * systolicPressure + 0.01 * cholesterol - 0.02 * hdlCholesterol + 0.3 * smokingStatus + 0.2 * bloodPressureTreatment"
   },
   "outputs": {
-    "primary": "risk",
+    "primary": "points_aux",
     "breakdown": [
       "points",
       "risk"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "risk"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -69,5 +122,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

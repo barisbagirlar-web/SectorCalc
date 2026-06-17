@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from football-40-yard-dash-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,32 +16,40 @@ export const Football_40_yard_dash_calculatorInputSchema = z.object({
   wind_mph: z.number().default(0),
 });
 
-function evaluateAllFormulas(input: Football_40_yard_dash_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.distance_yards * 0.9144; results["distance_m"] = Number.isFinite(v) ? v : 0; } catch { results["distance_m"] = 0; }
-  try { const v = input.time_seconds * (1 - 0.001 * input.wind_mph); results["time_eff"] = Number.isFinite(v) ? v : 0; } catch { results["time_eff"] = 0; }
-  try { const v = (input.distance_yards * 3600) / ((results["time_eff"] ?? 0) * 1760); results["speed_mph"] = Number.isFinite(v) ? v : 0; } catch { results["speed_mph"] = 0; }
-  try { const v = (results["speed_mph"] ?? 0) * 1.60934; results["speed_kmh"] = Number.isFinite(v) ? v : 0; } catch { results["speed_kmh"] = 0; }
-  try { const v = (results["distance_m"] ?? 0) / (results["time_eff"] ?? 0); results["speed_ms"] = Number.isFinite(v) ? v : 0; } catch { results["speed_ms"] = 0; }
-  try { const v = input.weight_lbs * 0.453592; results["mass_kg"] = Number.isFinite(v) ? v : 0; } catch { results["mass_kg"] = 0; }
-  try { const v = (2 * (results["distance_m"] ?? 0)) / ((results["time_eff"] ?? 0) * (results["time_eff"] ?? 0)); results["acceleration_mps2"] = Number.isFinite(v) ? v : 0; } catch { results["acceleration_mps2"] = 0; }
-  try { const v = (2 * (results["mass_kg"] ?? 0) * (results["distance_m"] ?? 0) * (results["distance_m"] ?? 0)) / ((results["time_eff"] ?? 0) * (results["time_eff"] ?? 0) * (results["time_eff"] ?? 0)); results["power_watts"] = Number.isFinite(v) ? v : 0; } catch { results["power_watts"] = 0; }
-  try { const v = (results["power_watts"] ?? 0) / 745.7; results["power_hp"] = Number.isFinite(v) ? v : 0; } catch { results["power_hp"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Football_40_yard_dash_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.distance_yards * 0.9144; results["distance_m"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["distance_m"] = 0; }
+  try { const v = input.time_seconds * (1 - 0.001 * input.wind_mph); results["time_eff"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["time_eff"] = 0; }
+  try { const v = (input.distance_yards * 3600) / ((asFormulaNumber(results["time_eff"])) * 1760); results["speed_mph"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["speed_mph"] = 0; }
+  try { const v = (asFormulaNumber(results["speed_mph"])) * 1.60934; results["speed_kmh"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["speed_kmh"] = 0; }
+  try { const v = (asFormulaNumber(results["distance_m"])) / (asFormulaNumber(results["time_eff"])); results["speed_ms"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["speed_ms"] = 0; }
+  try { const v = input.weight_lbs * 0.453592; results["mass_kg"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["mass_kg"] = 0; }
+  try { const v = (2 * (asFormulaNumber(results["distance_m"]))) / ((asFormulaNumber(results["time_eff"])) * (asFormulaNumber(results["time_eff"]))); results["acceleration_mps2"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["acceleration_mps2"] = 0; }
+  try { const v = (2 * (asFormulaNumber(results["mass_kg"])) * (asFormulaNumber(results["distance_m"])) * (asFormulaNumber(results["distance_m"]))) / ((asFormulaNumber(results["time_eff"])) * (asFormulaNumber(results["time_eff"])) * (asFormulaNumber(results["time_eff"]))); results["power_watts"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["power_watts"] = 0; }
+  try { const v = (asFormulaNumber(results["power_watts"])) / 745.7; results["power_hp"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["power_hp"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateFootball_40_yard_dash_calculator(input: Football_40_yard_dash_calculatorInput): Football_40_yard_dash_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["speed_mph"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["speed_mph"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

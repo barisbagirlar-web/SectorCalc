@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 100,
-      "businessContext": "Total trip distance in kilometers."
+      "businessContext": "Total trip distance in kilometers.",
+      "label_i18n": {
+        "en": "Distance",
+        "tr": "Distance",
+        "de": "Distance",
+        "fr": "Distance",
+        "es": "Distance",
+        "ar": "Distance"
+      }
     },
     {
       "id": "fuelEfficiency",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "L/100km",
       "default": 8,
-      "businessContext": "Average fuel consumption of the vehicle in liters per 100 kilometers."
+      "businessContext": "Average fuel consumption of the vehicle in liters per 100 kilometers.",
+      "label_i18n": {
+        "en": "Fuel Efficiency",
+        "tr": "Fuel Efficiency",
+        "de": "Fuel Efficiency",
+        "fr": "Fuel Efficiency",
+        "es": "Fuel Efficiency",
+        "ar": "Fuel Efficiency"
+      }
     },
     {
       "id": "fuelPrice",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD/L",
       "default": 1.5,
-      "businessContext": "Current price of fuel per liter in USD."
+      "businessContext": "Current price of fuel per liter in USD.",
+      "label_i18n": {
+        "en": "Fuel Price",
+        "tr": "Fuel Price",
+        "de": "Fuel Price",
+        "fr": "Fuel Price",
+        "es": "Fuel Price",
+        "ar": "Fuel Price"
+      }
     },
     {
       "id": "tolls",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 10,
-      "businessContext": "Total toll fees for the trip in USD."
+      "businessContext": "Total toll fees for the trip in USD.",
+      "label_i18n": {
+        "en": "Tolls",
+        "tr": "Tolls",
+        "de": "Tolls",
+        "fr": "Tolls",
+        "es": "Tolls",
+        "ar": "Tolls"
+      }
     },
     {
       "id": "otherCosts",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD",
       "default": 5,
-      "businessContext": "Additional costs such as parking, food, etc. in USD."
+      "businessContext": "Additional costs such as parking, food, etc. in USD.",
+      "label_i18n": {
+        "en": "Other Costs",
+        "tr": "Other Costs",
+        "de": "Other Costs",
+        "fr": "Other Costs",
+        "es": "Other Costs",
+        "ar": "Other Costs"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
       "fuelCost",
       "tollsCost",
       "otherCostsAmount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -64,5 +109,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0.1,
-      "businessContext": "Measured redshift of the galaxy from spectral lines"
+      "businessContext": "Measured redshift of the galaxy from spectral lines",
+      "label_i18n": {
+        "en": "Redshift (z)",
+        "tr": "Redshift (z)",
+        "de": "Redshift (z)",
+        "fr": "Redshift (z)",
+        "es": "Redshift (z)",
+        "ar": "Redshift (z)"
+      }
     },
     {
       "id": "hubbleConstant",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "km/s/Mpc",
       "default": 70,
-      "businessContext": "Current expansion rate of the universe"
+      "businessContext": "Current expansion rate of the universe",
+      "label_i18n": {
+        "en": "Hubble Constant (H0)",
+        "tr": "Hubble Constant (H0)",
+        "de": "Hubble Constant (H0)",
+        "fr": "Hubble Constant (H0)",
+        "es": "Hubble Constant (H0)",
+        "ar": "Hubble Constant (H0)"
+      }
     },
     {
       "id": "speedOfLight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "km/s",
       "default": 299792.458,
-      "businessContext": "Constant speed of light in vacuum"
+      "businessContext": "Constant speed of light in vacuum",
+      "label_i18n": {
+        "en": "Speed of Light (c)",
+        "tr": "Speed of Light (c)",
+        "de": "Speed of Light (c)",
+        "fr": "Speed of Light (c)",
+        "es": "Speed of Light (c)",
+        "ar": "Speed of Light (c)"
+      }
     },
     {
       "id": "matterDensity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0.3,
-      "businessContext": "Cosmological density parameter for matter"
+      "businessContext": "Cosmological density parameter for matter",
+      "label_i18n": {
+        "en": "Matter Density Parameter (Ωm)",
+        "tr": "Matter Density Parameter (Ωm)",
+        "de": "Matter Density Parameter (Ωm)",
+        "fr": "Matter Density Parameter (Ωm)",
+        "es": "Matter Density Parameter (Ωm)",
+        "ar": "Matter Density Parameter (Ωm)"
+      }
     },
     {
       "id": "darkEnergyDensity",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0.7,
-      "businessContext": "Cosmological density parameter for dark energy"
+      "businessContext": "Cosmological density parameter for dark energy",
+      "label_i18n": {
+        "en": "Dark Energy Density Parameter (ΩΛ)",
+        "tr": "Dark Energy Density Parameter (ΩΛ)",
+        "de": "Dark Energy Density Parameter (ΩΛ)",
+        "fr": "Dark Energy Density Parameter (ΩΛ)",
+        "es": "Dark Energy Density Parameter (ΩΛ)",
+        "ar": "Dark Energy Density Parameter (ΩΛ)"
+      }
     },
     {
       "id": "curvatureDensity",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Cosmological density parameter for curvature"
+      "businessContext": "Cosmological density parameter for curvature",
+      "label_i18n": {
+        "en": "Curvature Density Parameter (Ωk)",
+        "tr": "Curvature Density Parameter (Ωk)",
+        "de": "Curvature Density Parameter (Ωk)",
+        "fr": "Curvature Density Parameter (Ωk)",
+        "es": "Curvature Density Parameter (Ωk)",
+        "ar": "Curvature Density Parameter (Ωk)"
+      }
     }
   ],
   "formulas": {
@@ -66,7 +114,12 @@
       "lookbackTimeGyr",
       "comovingDistance",
       "luminosityDistance"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "luminosityDistance"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -76,5 +129,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

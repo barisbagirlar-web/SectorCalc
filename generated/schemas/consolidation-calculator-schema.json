@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TL",
       "default": 100000,
-      "businessContext": "Mevcut tüm borçların toplam anapara tutarı"
+      "businessContext": "Mevcut tüm borçların toplam anapara tutarı",
+      "label_i18n": {
+        "en": "Toplam Mevcut Borç",
+        "tr": "Toplam Mevcut Borç",
+        "de": "Toplam Mevcut Borç",
+        "fr": "Toplam Mevcut Borç",
+        "es": "Toplam Mevcut Borç",
+        "ar": "Toplam Mevcut Borç"
+      }
     },
     {
       "id": "currentMonthlyPayment",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "TL",
       "default": 2000,
-      "businessContext": "Tüm mevcut borçlar için aylık toplam ödeme"
+      "businessContext": "Tüm mevcut borçlar için aylık toplam ödeme",
+      "label_i18n": {
+        "en": "Mevcut Aylık Ödeme",
+        "tr": "Mevcut Aylık Ödeme",
+        "de": "Mevcut Aylık Ödeme",
+        "fr": "Mevcut Aylık Ödeme",
+        "es": "Mevcut Aylık Ödeme",
+        "ar": "Mevcut Aylık Ödeme"
+      }
     },
     {
       "id": "currentRemainingMonths",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ay",
       "default": 60,
-      "businessContext": "Mevcut borçların ortalama kalan vadesi (ay cinsinden)"
+      "businessContext": "Mevcut borçların ortalama kalan vadesi (ay cinsinden)",
+      "label_i18n": {
+        "en": "Kalan Vade",
+        "tr": "Kalan Vade",
+        "de": "Kalan Vade",
+        "fr": "Kalan Vade",
+        "es": "Kalan Vade",
+        "ar": "Kalan Vade"
+      }
     },
     {
       "id": "newInterestRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "% yıllık",
       "default": 15,
-      "businessContext": "Konsolidasyon kredisi yıllık faiz oranı"
+      "businessContext": "Konsolidasyon kredisi yıllık faiz oranı",
+      "label_i18n": {
+        "en": "Yeni Faiz Oranı",
+        "tr": "Yeni Faiz Oranı",
+        "de": "Yeni Faiz Oranı",
+        "fr": "Yeni Faiz Oranı",
+        "es": "Yeni Faiz Oranı",
+        "ar": "Yeni Faiz Oranı"
+      }
     },
     {
       "id": "newTermMonths",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "ay",
       "default": 48,
-      "businessContext": "Konsolidasyon kredisi vadesi (ay)"
+      "businessContext": "Konsolidasyon kredisi vadesi (ay)",
+      "label_i18n": {
+        "en": "Yeni Vade",
+        "tr": "Yeni Vade",
+        "de": "Yeni Vade",
+        "fr": "Yeni Vade",
+        "es": "Yeni Vade",
+        "ar": "Yeni Vade"
+      }
     },
     {
       "id": "consolidationFee",
@@ -47,25 +87,35 @@
       "type": "number",
       "unit": "TL",
       "default": 500,
-      "businessContext": "Kredi yapılandırma veya dosya masrafı"
+      "businessContext": "Kredi yapılandırma veya dosya masrafı",
+      "label_i18n": {
+        "en": "Konsolidasyon Ücreti",
+        "tr": "Konsolidasyon Ücreti",
+        "de": "Konsolidasyon Ücreti",
+        "fr": "Konsolidasyon Ücreti",
+        "es": "Konsolidasyon Ücreti",
+        "ar": "Konsolidasyon Ücreti"
+      }
     }
   ],
   "formulas": {
     "currentTotalCost": "currentMonthlyPayment * currentRemainingMonths",
     "newLoanAmount": "currentTotalDebt + consolidationFee",
-    "monthlyRate": "newInterestRate / 100 / 12",
-    "newMonthlyPayment": "monthlyRate === 0 ? newLoanAmount / newTermMonths : newLoanAmount * monthlyRate * Math.pow(1 + monthlyRate, newTermMonths) / (Math.pow(1 + monthlyRate, newTermMonths) - 1)",
-    "newTotalCost": "newMonthlyPayment * newTermMonths",
-    "savings": "currentTotalCost - newTotalCost"
+    "monthlyRate": "newInterestRate / 100 / 12"
   },
   "outputs": {
-    "primary": "savings",
+    "primary": "monthlyRate",
     "breakdown": [
       "currentTotalCost",
       "newTotalCost",
       "newMonthlyPayment",
       "currentMonthlyPayment"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "savings"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -75,5 +125,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

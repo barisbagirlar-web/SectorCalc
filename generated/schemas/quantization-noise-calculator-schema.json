@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "V",
       "default": 5,
-      "businessContext": "The total span of the ADC input voltage (max - min). For unipolar 0-5V, enter 5; for bipolar ±2.5V, enter 5."
+      "businessContext": "The total span of the ADC input voltage (max - min). For unipolar 0-5V, enter 5; for bipolar ±2.5V, enter 5.",
+      "label_i18n": {
+        "en": "Full-Scale Voltage Range (V)",
+        "tr": "Full-Scale Voltage Range (V)",
+        "de": "Full-Scale Voltage Range (V)",
+        "fr": "Full-Scale Voltage Range (V)",
+        "es": "Full-Scale Voltage Range (V)",
+        "ar": "Full-Scale Voltage Range (V)"
+      }
     },
     {
       "id": "bits",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "bits",
       "default": 12,
-      "businessContext": "Resolution of the ADC."
+      "businessContext": "Resolution of the ADC.",
+      "label_i18n": {
+        "en": "Number of Bits",
+        "tr": "Number of Bits",
+        "de": "Number of Bits",
+        "fr": "Number of Bits",
+        "es": "Number of Bits",
+        "ar": "Number of Bits"
+      }
     },
     {
       "id": "signalAmplitudePeak",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "V",
       "default": 2.5,
-      "businessContext": "Peak amplitude of the input sine wave. Typically ≤ voltageRange/2 for full-scale."
+      "businessContext": "Peak amplitude of the input sine wave. Typically ≤ voltageRange/2 for full-scale.",
+      "label_i18n": {
+        "en": "Signal Peak Amplitude (V)",
+        "tr": "Signal Peak Amplitude (V)",
+        "de": "Signal Peak Amplitude (V)",
+        "fr": "Signal Peak Amplitude (V)",
+        "es": "Signal Peak Amplitude (V)",
+        "ar": "Signal Peak Amplitude (V)"
+      }
     },
     {
       "id": "loadResistance",
@@ -31,26 +55,36 @@
       "type": "number",
       "unit": "Ω",
       "default": 50,
-      "businessContext": "Reference resistance for power calculations. Use 1 if only voltage quantities are needed."
+      "businessContext": "Reference resistance for power calculations. Use 1 if only voltage quantities are needed.",
+      "label_i18n": {
+        "en": "Load Resistance (Ω)",
+        "tr": "Load Resistance (Ω)",
+        "de": "Load Resistance (Ω)",
+        "fr": "Load Resistance (Ω)",
+        "es": "Load Resistance (Ω)",
+        "ar": "Load Resistance (Ω)"
+      }
     }
   ],
   "formulas": {
     "step_V": "input.voltageRange / (2**input.bits)",
     "noise_power_V2": "(input.voltageRange / (2**input.bits))**2 / 12",
-    "noise_RMS_V": "Math.sqrt((input.voltageRange / (2**input.bits))**2 / 12)",
-    "signal_power_V2": "(input.signalAmplitudePeak**2) / 2",
-    "SQNR_dB": "10 * Math.log10(((input.signalAmplitudePeak**2) / 2) / ((input.voltageRange / (2**input.bits))**2 / 12))",
-    "noise_power_dBm": "10 * Math.log10((((input.voltageRange / (2**input.bits))**2 / 12) / input.loadResistance) / 0.001)"
+    "signal_power_V2": "(input.signalAmplitudePeak**2) / 2"
   },
   "outputs": {
-    "primary": "SQNR_dB",
+    "primary": "signal_power_V2",
     "breakdown": [
       "step_V",
       "noise_RMS_V",
       "noise_power_V2",
       "signal_power_V2",
       "noise_power_dBm"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "noise_power_dBm"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -60,5 +94,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

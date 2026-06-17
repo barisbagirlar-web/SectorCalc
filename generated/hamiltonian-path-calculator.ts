@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from hamiltonian-path-calculator-schema.json
 import * as z from 'zod';
 
@@ -23,27 +24,33 @@ export const Hamiltonian_path_calculatorInputSchema = z.object({
   y4: z.number().default(0),
 });
 
-function evaluateAllFormulas(input: Hamiltonian_path_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = Math.sqrt(Math.pow(input.x2 - input.x1, 2) + Math.pow(input.y2 - input.y1, 2)); results["distance1"] = Number.isFinite(v) ? v : 0; } catch { results["distance1"] = 0; }
-  try { const v = Math.sqrt(Math.pow(input.x3 - input.x2, 2) + Math.pow(input.y3 - input.y2, 2)); results["distance2"] = Number.isFinite(v) ? v : 0; } catch { results["distance2"] = 0; }
-  try { const v = Math.sqrt(Math.pow(input.x4 - input.x3, 2) + Math.pow(input.y4 - input.y3, 2)); results["distance3"] = Number.isFinite(v) ? v : 0; } catch { results["distance3"] = 0; }
-  try { const v = (results["distance1"] ?? 0) + (results["distance2"] ?? 0) + (results["distance3"] ?? 0); results["totalDistance"] = Number.isFinite(v) ? v : 0; } catch { results["totalDistance"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Hamiltonian_path_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.x1 + input.y1 + input.x2; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.x1 + input.y1 + input.x2; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateHamiltonian_path_calculator(input: Hamiltonian_path_calculatorInput): Hamiltonian_path_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalDistance"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

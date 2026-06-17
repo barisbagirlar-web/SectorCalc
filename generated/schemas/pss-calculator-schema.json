@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "s",
       "default": 3.5,
-      "businessContext": "Generator inertia constant in seconds (per unit)."
+      "businessContext": "Generator inertia constant in seconds (per unit).",
+      "label_i18n": {
+        "en": "Inertia Constant (H)",
+        "tr": "Inertia Constant (H)",
+        "de": "Inertia Constant (H)",
+        "fr": "Inertia Constant (H)",
+        "es": "Inertia Constant (H)",
+        "ar": "Inertia Constant (H)"
+      }
     },
     {
       "id": "initialAngle",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "deg",
       "default": 30,
-      "businessContext": "Pre-fault rotor angle with respect to infinite bus."
+      "businessContext": "Pre-fault rotor angle with respect to infinite bus.",
+      "label_i18n": {
+        "en": "Initial Load Angle (δ₀)",
+        "tr": "Initial Load Angle (δ₀)",
+        "de": "Initial Load Angle (δ₀)",
+        "fr": "Initial Load Angle (δ₀)",
+        "es": "Initial Load Angle (δ₀)",
+        "ar": "Initial Load Angle (δ₀)"
+      }
     },
     {
       "id": "mechPower",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "p.u.",
       "default": 0.8,
-      "businessContext": "Turbine mechanical power on system base."
+      "businessContext": "Turbine mechanical power on system base.",
+      "label_i18n": {
+        "en": "Mechanical Power Input (Pₘ)",
+        "tr": "Mechanical Power Input (Pₘ)",
+        "de": "Mechanical Power Input (Pₘ)",
+        "fr": "Mechanical Power Input (Pₘ)",
+        "es": "Mechanical Power Input (Pₘ)",
+        "ar": "Mechanical Power Input (Pₘ)"
+      }
     },
     {
       "id": "maxElecPower",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "p.u.",
       "default": 1.5,
-      "businessContext": "Post-fault maximum of the power-angle curve."
+      "businessContext": "Post-fault maximum of the power-angle curve.",
+      "label_i18n": {
+        "en": "Maximum Electrical Power (Pₘₐₓ)",
+        "tr": "Maximum Electrical Power (Pₘₐₓ)",
+        "de": "Maximum Electrical Power (Pₘₐₓ)",
+        "fr": "Maximum Electrical Power (Pₘₐₓ)",
+        "es": "Maximum Electrical Power (Pₘₐₓ)",
+        "ar": "Maximum Electrical Power (Pₘₐₓ)"
+      }
     },
     {
       "id": "frequency",
@@ -39,31 +71,33 @@
       "type": "number",
       "unit": "Hz",
       "default": 50,
-      "businessContext": "Nominal system frequency (50 or 60 Hz)."
+      "businessContext": "Nominal system frequency (50 or 60 Hz).",
+      "label_i18n": {
+        "en": "System Frequency (f)",
+        "tr": "System Frequency (f)",
+        "de": "System Frequency (f)",
+        "fr": "System Frequency (f)",
+        "es": "System Frequency (f)",
+        "ar": "System Frequency (f)"
+      }
     }
   ],
   "formulas": {
-    "delta0_rad": "inputs.initialAngle * Math.PI / 180",
-    "pm": "inputs.mechPower",
-    "pmax": "inputs.maxElecPower",
-    "h": "inputs.inertiaConstant",
-    "freq": "inputs.frequency",
-    "delta1_rad": "Math.asin(pm / pmax)",
-    "delta_max_rad": "Math.PI - delta1_rad",
-    "cosDelta_cr": "(pm * (delta_max_rad - delta0_rad) + pmax * Math.cos(delta_max_rad)) / pmax",
-    "delta_cr_rad": "Math.acos(cosDelta_cr)",
-    "criticalClearingAngle": "delta_cr_rad * 180 / Math.PI",
-    "criticalClearingTime": "Math.sqrt((2 * h * (delta_cr_rad - delta0_rad)) / (Math.PI * freq * pm))",
-    "maxSwingAngle": "delta_max_rad * 180 / Math.PI",
-    "acceleratingEnergy": "pm * (delta_cr_rad - delta0_rad)"
+    "result": "inertiaConstant + initialAngle + mechPower",
+    "result_copy": "inertiaConstant + initialAngle + mechPower"
   },
   "outputs": {
-    "primary": "criticalClearingTime",
+    "primary": "result",
     "breakdown": [
       "criticalClearingAngle",
       "maxSwingAngle",
       "acceleratingEnergy"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "acceleratingEnergy"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -73,5 +107,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "engineering"
+  "categoryId": "engineering",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

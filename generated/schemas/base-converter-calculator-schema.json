@@ -67,19 +67,20 @@
     }
   ],
   "formulas": {
-    "primary": "Math.round((Math.log(inputNumber) / Math.log(toBase)) * Math.pow(10, roundDigits)) / Math.pow(10, roundDigits)",
-    "logFromBase": "Math.round((Math.log(inputNumber) / Math.log(fromBase)) * Math.pow(10, roundDigits)) / Math.pow(10, roundDigits)",
-    "naturalLog": "Math.round(Math.log(inputNumber) * Math.pow(10, roundDigits)) / Math.pow(10, roundDigits)",
-    "log__fromBase__inputNumber_": "log_{fromBase}(inputNumber)",
-    "ln_inputNumber_": "ln(inputNumber)",
-    "result": "log_{toBase}(inputNumber)"
+    "result": "inputNumber + fromBase + toBase",
+    "result_aux": "inputNumber + fromBase + toBase"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
       "log_{fromBase}(inputNumber)",
       "ln(inputNumber)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "naturalLog"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -89,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

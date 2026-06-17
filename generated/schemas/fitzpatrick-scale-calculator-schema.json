@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "scale 1-4",
       "default": 2,
-      "businessContext": "Natural color of the material surface (1: very light, 4: very dark)"
+      "businessContext": "Natural color of the material surface (1: very light, 4: very dark)",
+      "label_i18n": {
+        "en": "Base Surface Color",
+        "tr": "Base Surface Color",
+        "de": "Base Surface Color",
+        "fr": "Base Surface Color",
+        "es": "Base Surface Color",
+        "ar": "Base Surface Color"
+      }
     },
     {
       "id": "tanAbility",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "0-10",
       "default": 5,
-      "businessContext": "Ability to develop a tan or color change under UV exposure (0: no change, 10: maximum darkening)"
+      "businessContext": "Ability to develop a tan or color change under UV exposure (0: no change, 10: maximum darkening)",
+      "label_i18n": {
+        "en": "Tan Response",
+        "tr": "Tan Response",
+        "de": "Tan Response",
+        "fr": "Tan Response",
+        "es": "Tan Response",
+        "ar": "Tan Response"
+      }
     },
     {
       "id": "burnTendency",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "0-10",
       "default": 5,
-      "businessContext": "Tendency to burn or degrade under UV exposure (0: no burn, 10: severe burn)"
+      "businessContext": "Tendency to burn or degrade under UV exposure (0: no burn, 10: severe burn)",
+      "label_i18n": {
+        "en": "Burn Tendency",
+        "tr": "Burn Tendency",
+        "de": "Burn Tendency",
+        "fr": "Burn Tendency",
+        "es": "Burn Tendency",
+        "ar": "Burn Tendency"
+      }
     },
     {
       "id": "geneticFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "0-1",
       "default": 0.5,
-      "businessContext": "Inherent UV resistance factor based on material composition (0: least resistant, 1: most resistant)"
+      "businessContext": "Inherent UV resistance factor based on material composition (0: least resistant, 1: most resistant)",
+      "label_i18n": {
+        "en": "UV Resistance Factor",
+        "tr": "UV Resistance Factor",
+        "de": "UV Resistance Factor",
+        "fr": "UV Resistance Factor",
+        "es": "UV Resistance Factor",
+        "ar": "UV Resistance Factor"
+      }
     },
     {
       "id": "hairColor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "1-5",
       "default": 3,
-      "businessContext": "Color of surface texture (1: very light, 5: very dark)"
+      "businessContext": "Color of surface texture (1: very light, 5: very dark)",
+      "label_i18n": {
+        "en": "Surface Texture Color",
+        "tr": "Surface Texture Color",
+        "de": "Surface Texture Color",
+        "fr": "Surface Texture Color",
+        "es": "Surface Texture Color",
+        "ar": "Surface Texture Color"
+      }
     },
     {
       "id": "eyeColor",
@@ -47,18 +87,31 @@
       "type": "number",
       "unit": "1-5",
       "default": 3,
-      "businessContext": "Color of microstructural features (1: very light, 5: very dark)"
+      "businessContext": "Color of microstructural features (1: very light, 5: very dark)",
+      "label_i18n": {
+        "en": "Microstructure Color",
+        "tr": "Microstructure Color",
+        "de": "Microstructure Color",
+        "fr": "Microstructure Color",
+        "es": "Microstructure Color",
+        "ar": "Microstructure Color"
+      }
     }
   ],
   "formulas": {
     "score": "baseColor * 0.3 + (10 - tanAbility) * 0.2 + burnTendency * 0.25 + geneticFactor * 10 * 0.15 + hairColor * 0.05 + eyeColor * 0.05",
-    "type": "Math.round(Math.max(1, Math.min(6, score)))"
+    "score_aux": "baseColor * 0.3 + (10 - tanAbility) * 0.2 + burnTendency * 0.25 + geneticFactor * 10 * 0.15 + hairColor * 0.05 + eyeColor * 0.05"
   },
   "outputs": {
-    "primary": "type",
+    "primary": "score_aux",
     "breakdown": [
       "score"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "type"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -68,5 +121,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "danismanlik",
   "profession": "Strateji Uzmanı",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

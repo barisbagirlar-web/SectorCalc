@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "INR",
       "default": 0,
-      "businessContext": "Monthly basic salary component"
+      "businessContext": "Monthly basic salary component",
+      "label_i18n": {
+        "en": "Basic Salary (Monthly)",
+        "tr": "Basic Salary (Monthly)",
+        "de": "Basic Salary (Monthly)",
+        "fr": "Basic Salary (Monthly)",
+        "es": "Basic Salary (Monthly)",
+        "ar": "Basic Salary (Monthly)"
+      }
     },
     {
       "id": "da",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "INR",
       "default": 0,
-      "businessContext": "Monthly dearness allowance, if applicable"
+      "businessContext": "Monthly dearness allowance, if applicable",
+      "label_i18n": {
+        "en": "Dearness Allowance (Monthly)",
+        "tr": "Dearness Allowance (Monthly)",
+        "de": "Dearness Allowance (Monthly)",
+        "fr": "Dearness Allowance (Monthly)",
+        "es": "Dearness Allowance (Monthly)",
+        "ar": "Dearness Allowance (Monthly)"
+      }
     },
     {
       "id": "hraReceived",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "INR",
       "default": 0,
-      "businessContext": "Actual House Rent Allowance received per month"
+      "businessContext": "Actual House Rent Allowance received per month",
+      "label_i18n": {
+        "en": "HRA Received (Monthly)",
+        "tr": "HRA Received (Monthly)",
+        "de": "HRA Received (Monthly)",
+        "fr": "HRA Received (Monthly)",
+        "es": "HRA Received (Monthly)",
+        "ar": "HRA Received (Monthly)"
+      }
     },
     {
       "id": "rentPaid",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "INR",
       "default": 0,
-      "businessContext": "Monthly rent actually paid"
+      "businessContext": "Monthly rent actually paid",
+      "label_i18n": {
+        "en": "Rent Paid (Monthly)",
+        "tr": "Rent Paid (Monthly)",
+        "de": "Rent Paid (Monthly)",
+        "fr": "Rent Paid (Monthly)",
+        "es": "Rent Paid (Monthly)",
+        "ar": "Rent Paid (Monthly)"
+      }
     },
     {
       "id": "cityType",
@@ -39,20 +71,32 @@
       "type": "number",
       "unit": "1=Metro, 0=Non-metro",
       "default": 1,
-      "businessContext": "Indicates whether the city of residence is a metro (1) or non-metro (0)"
+      "businessContext": "Indicates whether the city of residence is a metro (1) or non-metro (0)",
+      "label_i18n": {
+        "en": "City Type",
+        "tr": "City Type",
+        "de": "City Type",
+        "fr": "City Type",
+        "es": "City Type",
+        "ar": "City Type"
+      }
     }
   ],
   "formulas": {
-    "exemption": "Math.min(inputs.hraReceived, (inputs.basicSalary + inputs.da) * (0.4 + 0.1 * inputs.cityType), inputs.rentPaid - 0.1 * (inputs.basicSalary + inputs.da))",
-    "taxableHRA": "Math.max(0, inputs.hraReceived - exemption)",
-    "annualTaxableHRA": "taxableHRA * 12"
+    "result": "basicSalary + da + hraReceived",
+    "result_copy": "basicSalary + da + hraReceived"
   },
   "outputs": {
-    "primary": "taxableHRA",
+    "primary": "result",
     "breakdown": [
       "exemption",
       "annualTaxableHRA"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "annualTaxableHRA"
   },
   "category": "İK & Personel",
   "sector": "Finans & İK",
@@ -62,5 +106,10 @@
   "categorySlug": "workforce-hr",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "hr"
+  "categoryId": "hr",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "bar",
       "default": 1,
-      "businessContext": "Pressure value to convert from bar to psi."
+      "businessContext": "Pressure value to convert from bar to psi.",
+      "label_i18n": {
+        "en": "Pressure (bar)",
+        "tr": "Pressure (bar)",
+        "de": "Pressure (bar)",
+        "fr": "Pressure (bar)",
+        "es": "Pressure (bar)",
+        "ar": "Pressure (bar)"
+      }
     },
     {
       "id": "refType",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "none",
       "default": 1,
-      "businessContext": "0 for absolute pressure, 1 for gauge pressure. If gauge, atmospheric pressure is added to obtain absolute pressure before conversion."
+      "businessContext": "0 for absolute pressure, 1 for gauge pressure. If gauge, atmospheric pressure is added to obtain absolute pressure before conversion.",
+      "label_i18n": {
+        "en": "Reference Type",
+        "tr": "Reference Type",
+        "de": "Reference Type",
+        "fr": "Reference Type",
+        "es": "Reference Type",
+        "ar": "Reference Type"
+      }
     },
     {
       "id": "atmBar",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "bar",
       "default": 1.01325,
-      "businessContext": "Standard atmospheric pressure at sea level. Used only when reference type is gauge."
+      "businessContext": "Standard atmospheric pressure at sea level. Used only when reference type is gauge.",
+      "label_i18n": {
+        "en": "Atmospheric Pressure",
+        "tr": "Atmospheric Pressure",
+        "de": "Atmospheric Pressure",
+        "fr": "Atmospheric Pressure",
+        "es": "Atmospheric Pressure",
+        "ar": "Atmospheric Pressure"
+      }
     },
     {
       "id": "precision",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "digits",
       "default": 2,
-      "businessContext": "Number of decimal places for the converted psi value."
+      "businessContext": "Number of decimal places for the converted psi value.",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     },
     {
       "id": "conversionFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "psi/bar",
       "default": 14.503773773,
-      "businessContext": "Custom conversion factor (default is 1 bar = 14.503773773 psi). Modify only if a different definition is required."
+      "businessContext": "Custom conversion factor (default is 1 bar = 14.503773773 psi). Modify only if a different definition is required.",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "tempC",
@@ -47,20 +87,32 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Ambient temperature at the measurement point (for documentation only, does not affect the conversion)."
+      "businessContext": "Ambient temperature at the measurement point (for documentation only, does not affect the conversion).",
+      "label_i18n": {
+        "en": "Measurement Temperature",
+        "tr": "Measurement Temperature",
+        "de": "Measurement Temperature",
+        "fr": "Measurement Temperature",
+        "es": "Measurement Temperature",
+        "ar": "Measurement Temperature"
+      }
     }
   ],
   "formulas": {
     "absoluteBar": "(refType === 1 ? (pressureBar + atmBar) : pressureBar)",
-    "exactPsi": "absoluteBar * conversionFactor",
-    "psi": "Math.round(exactPsi * Math.pow(10, precision)) / Math.pow(10, precision)"
+    "exactPsi": "absoluteBar * conversionFactor"
   },
   "outputs": {
-    "primary": "psi",
+    "primary": "exactPsi",
     "breakdown": [
       "absoluteBar",
       "exactPsi"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "psi"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -70,5 +122,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

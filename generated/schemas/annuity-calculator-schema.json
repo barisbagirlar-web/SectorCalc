@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 1000,
-      "businessContext": "The amount paid each period (end of period)."
+      "businessContext": "The amount paid each period (end of period).",
+      "label_i18n": {
+        "en": "Payment per Period",
+        "tr": "Payment per Period",
+        "de": "Payment per Period",
+        "fr": "Payment per Period",
+        "es": "Payment per Period",
+        "ar": "Payment per Period"
+      }
     },
     {
       "id": "annualRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Annual nominal interest rate in percent."
+      "businessContext": "Annual nominal interest rate in percent.",
+      "label_i18n": {
+        "en": "Annual Interest Rate",
+        "tr": "Annual Interest Rate",
+        "de": "Annual Interest Rate",
+        "fr": "Annual Interest Rate",
+        "es": "Annual Interest Rate",
+        "ar": "Annual Interest Rate"
+      }
     },
     {
       "id": "years",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 10,
-      "businessContext": "Total number of years."
+      "businessContext": "Total number of years.",
+      "label_i18n": {
+        "en": "Number of Years",
+        "tr": "Number of Years",
+        "de": "Number of Years",
+        "fr": "Number of Years",
+        "es": "Number of Years",
+        "ar": "Number of Years"
+      }
     },
     {
       "id": "compounding",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "times/year",
       "default": 12,
-      "businessContext": "Number of times interest compounds per year (e.g., 12 for monthly)."
+      "businessContext": "Number of times interest compounds per year (e.g., 12 for monthly).",
+      "label_i18n": {
+        "en": "Compounding Periods per Year",
+        "tr": "Compounding Periods per Year",
+        "de": "Compounding Periods per Year",
+        "fr": "Compounding Periods per Year",
+        "es": "Compounding Periods per Year",
+        "ar": "Compounding Periods per Year"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "futureValue",
       "totalPayments"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalPayments"
   },
   "category": "Proje & Yatırım",
   "sector": "Finans & İK",
@@ -54,5 +91,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

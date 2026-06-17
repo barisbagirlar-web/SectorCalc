@@ -68,10 +68,7 @@
   ],
   "formulas": {
     "caloriesBurned": "weight * MET * (duration / 60) * intensityFactor",
-    "hours": "duration / 60",
-    "Total_Time__hours_": "Total Time (hours)",
-    "MET_Value": "MET Value",
-    "Intensity_Factor": "Intensity Factor"
+    "hours": "duration / 60"
   },
   "outputs": {
     "primary": "caloriesBurned",
@@ -79,7 +76,12 @@
       "Total Time (hours)",
       "MET Value",
       "Intensity Factor"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "hours"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -89,5 +91,10 @@
   "sectorSlug": "cleaning",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

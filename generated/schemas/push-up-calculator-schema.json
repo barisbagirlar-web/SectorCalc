@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "Mass of the object being pushed up"
+      "businessContext": "Mass of the object being pushed up",
+      "label_i18n": {
+        "en": "Mass",
+        "tr": "Mass",
+        "de": "Mass",
+        "fr": "Mass",
+        "es": "Mass",
+        "ar": "Mass"
+      }
     },
     {
       "id": "angle",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "degree",
       "default": 30,
-      "businessContext": "Angle of incline relative to horizontal"
+      "businessContext": "Angle of incline relative to horizontal",
+      "label_i18n": {
+        "en": "Incline Angle",
+        "tr": "Incline Angle",
+        "de": "Incline Angle",
+        "fr": "Incline Angle",
+        "es": "Incline Angle",
+        "ar": "Incline Angle"
+      }
     },
     {
       "id": "frictionCoeff",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0.3,
-      "businessContext": "Friction coefficient between object and surface"
+      "businessContext": "Friction coefficient between object and surface",
+      "label_i18n": {
+        "en": "Coefficient of Friction",
+        "tr": "Coefficient of Friction",
+        "de": "Coefficient of Friction",
+        "fr": "Coefficient of Friction",
+        "es": "Coefficient of Friction",
+        "ar": "Coefficient of Friction"
+      }
     },
     {
       "id": "distance",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Distance the object is pushed along the incline"
+      "businessContext": "Distance the object is pushed along the incline",
+      "label_i18n": {
+        "en": "Push Distance",
+        "tr": "Push Distance",
+        "de": "Push Distance",
+        "fr": "Push Distance",
+        "es": "Push Distance",
+        "ar": "Push Distance"
+      }
     },
     {
       "id": "time",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "s",
       "default": 10,
-      "businessContext": "Time taken to push the object over the distance, used for power calculation"
+      "businessContext": "Time taken to push the object over the distance, used for power calculation",
+      "label_i18n": {
+        "en": "Time to Push",
+        "tr": "Time to Push",
+        "de": "Time to Push",
+        "fr": "Time to Push",
+        "es": "Time to Push",
+        "ar": "Time to Push"
+      }
     },
     {
       "id": "gravity",
@@ -47,24 +87,32 @@
       "type": "number",
       "unit": "m/s²",
       "default": 9.81,
-      "businessContext": "Gravitational acceleration constant, default Earth gravity"
+      "businessContext": "Gravitational acceleration constant, default Earth gravity",
+      "label_i18n": {
+        "en": "Gravitational Acceleration",
+        "tr": "Gravitational Acceleration",
+        "de": "Gravitational Acceleration",
+        "fr": "Gravitational Acceleration",
+        "es": "Gravitational Acceleration",
+        "ar": "Gravitational Acceleration"
+      }
     }
   ],
   "formulas": {
     "angleRad": "angle * Math.PI / 180",
-    "fgParallel": "mass * gravity * Math.sin(angleRad)",
-    "fn": "mass * gravity * Math.cos(angleRad)",
-    "ff": "frictionCoeff * fn",
-    "totalForce": "fgParallel + ff",
-    "work": "totalForce * distance",
-    "power": "time !== 0 ? work / time : 0"
+    "angleRad_aux": "angle * Math.PI / 180"
   },
   "outputs": {
-    "primary": "totalForce",
+    "primary": "angleRad_aux",
     "breakdown": [
       "work",
       "power"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "power"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -74,5 +122,10 @@
   "sectorSlug": "cleaning",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km/s",
       "default": 0,
-      "businessContext": "Enter the velocity of the moving object in kilometers per second."
+      "businessContext": "Enter the velocity of the moving object in kilometers per second.",
+      "label_i18n": {
+        "en": "Velocity (km/s)",
+        "tr": "Velocity (km/s)",
+        "de": "Velocity (km/s)",
+        "fr": "Velocity (km/s)",
+        "es": "Velocity (km/s)",
+        "ar": "Velocity (km/s)"
+      }
     },
     {
       "id": "properTime_s",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "s",
       "default": 1,
-      "businessContext": "Enter the proper time interval in seconds, i.e., the time experienced by the moving observer."
+      "businessContext": "Enter the proper time interval in seconds, i.e., the time experienced by the moving observer.",
+      "label_i18n": {
+        "en": "Proper Time (s)",
+        "tr": "Proper Time (s)",
+        "de": "Proper Time (s)",
+        "fr": "Proper Time (s)",
+        "es": "Proper Time (s)",
+        "ar": "Proper Time (s)"
+      }
     },
     {
       "id": "c_m_s",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 299792458,
-      "businessContext": "Enter the speed of light in meters per second (default is vacuum speed)."
+      "businessContext": "Enter the speed of light in meters per second (default is vacuum speed).",
+      "label_i18n": {
+        "en": "Speed of Light (m/s)",
+        "tr": "Speed of Light (m/s)",
+        "de": "Speed of Light (m/s)",
+        "fr": "Speed of Light (m/s)",
+        "es": "Speed of Light (m/s)",
+        "ar": "Speed of Light (m/s)"
+      }
     },
     {
       "id": "outputTimeFactor",
@@ -31,21 +55,32 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Enter the conversion factor to convert the dilated time from seconds to desired unit (e.g., 1 for seconds, 1/60 for minutes, 1/3600 for hours)."
+      "businessContext": "Enter the conversion factor to convert the dilated time from seconds to desired unit (e.g., 1 for seconds, 1/60 for minutes, 1/3600 for hours).",
+      "label_i18n": {
+        "en": "Output Time Unit Factor",
+        "tr": "Output Time Unit Factor",
+        "de": "Output Time Unit Factor",
+        "fr": "Output Time Unit Factor",
+        "es": "Output Time Unit Factor",
+        "ar": "Output Time Unit Factor"
+      }
     }
   ],
   "formulas": {
     "v_m_s": "velocity_km_s * 1000",
-    "gamma": "1 / Math.sqrt(1 - (v_m_s ** 2) / (c_m_s ** 2))",
-    "dilatedTime_s": "gamma * properTime_s",
-    "outputTime": "dilatedTime_s * outputTimeFactor"
+    "v_m_s_aux": "velocity_km_s * 1000"
   },
   "outputs": {
-    "primary": "outputTime",
+    "primary": "v_m_s_aux",
     "breakdown": [
       "gamma",
       "dilatedTime_s"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "outputTime"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -55,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

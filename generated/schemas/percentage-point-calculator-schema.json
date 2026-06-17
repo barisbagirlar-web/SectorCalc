@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "The first percentage value for comparison"
+      "businessContext": "The first percentage value for comparison",
+      "label_i18n": {
+        "en": "Percentage A",
+        "tr": "Percentage A",
+        "de": "Percentage A",
+        "fr": "Percentage A",
+        "es": "Percentage A",
+        "ar": "Percentage A"
+      }
     },
     {
       "id": "percentageB",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "The second percentage value for comparison"
+      "businessContext": "The second percentage value for comparison",
+      "label_i18n": {
+        "en": "Percentage B",
+        "tr": "Percentage B",
+        "de": "Percentage B",
+        "fr": "Percentage B",
+        "es": "Percentage B",
+        "ar": "Percentage B"
+      }
     },
     {
       "id": "absolute",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "binary (0=no, 1=yes)",
       "default": 1,
-      "businessContext": "Set to 1 to calculate absolute difference, 0 for signed difference"
+      "businessContext": "Set to 1 to calculate absolute difference, 0 for signed difference",
+      "label_i18n": {
+        "en": "Use Absolute Value",
+        "tr": "Use Absolute Value",
+        "de": "Use Absolute Value",
+        "fr": "Use Absolute Value",
+        "es": "Use Absolute Value",
+        "ar": "Use Absolute Value"
+      }
     },
     {
       "id": "decimalPlaces",
@@ -31,19 +55,32 @@
       "type": "number",
       "unit": "places",
       "default": 2,
-      "businessContext": "Number of decimal places in the result"
+      "businessContext": "Number of decimal places in the result",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
-    "difference": "(inputs.absolute === 1 ? Math.abs(inputs.percentageA - inputs.percentageB) : (inputs.percentageA - inputs.percentageB))",
-    "differenceRounded": "Math.round((inputs.absolute === 1 ? Math.abs(inputs.percentageA - inputs.percentageB) : (inputs.percentageA - inputs.percentageB)) * Math.pow(10, inputs.decimalPlaces)) / Math.pow(10, inputs.decimalPlaces)"
+    "result": "percentageA + percentageB + absolute",
+    "result_copy": "percentageA + percentageB + absolute"
   },
   "outputs": {
-    "primary": "differenceRounded",
+    "primary": "result",
     "breakdown": [
       "difference",
       "differenceRounded"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "differenceRounded"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -53,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

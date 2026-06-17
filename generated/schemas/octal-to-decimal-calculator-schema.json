@@ -67,23 +67,22 @@
     }
   ],
   "formulas": {
-    "decimal1": "parseInt(String(octalInput1), 8)",
-    "decimal2": "parseInt(String(octalInput2), 8)",
-    "decimal3": "parseInt(String(octalInput3), 8)",
-    "decimal4": "parseInt(String(octalInput4), 8)",
-    "__octalInput1_____Decimal____decimal1_": "${octalInput1} -> Decimal: ${decimal1}",
-    "__octalInput2_____Decimal____decimal2_": "${octalInput2} -> Decimal: ${decimal2}",
-    "__octalInput3_____Decimal____decimal3_": "${octalInput3} -> Decimal: ${decimal3}",
-    "__octalInput4_____Decimal____decimal4_": "${octalInput4} -> Decimal: ${decimal4}"
+    "result": "octalInput1 + octalInput2 + octalInput3",
+    "result_aux": "octalInput1 + octalInput2 + octalInput3"
   },
   "outputs": {
-    "primary": "decimal1",
+    "primary": "result",
     "breakdown": [
       "Octal Input 1: ${octalInput1} -> Decimal: ${decimal1}",
       "Octal Input 2: ${octalInput2} -> Decimal: ${decimal2}",
       "Octal Input 3: ${octalInput3} -> Decimal: ${decimal3}",
       "Octal Input 4: ${octalInput4} -> Decimal: ${decimal4}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -93,5 +92,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

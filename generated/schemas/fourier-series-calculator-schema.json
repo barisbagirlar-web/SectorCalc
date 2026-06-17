@@ -83,22 +83,22 @@
     }
   ],
   "formulas": {
-    "primary": "offset + (4*amplitude/Math.PI) * ((Math.sin(2*Math.PI*1*time/period) * (numHarmonics >= 1 ? 1 : 0) * (1/1)) + (Math.sin(2*Math.PI*3*time/period) * (numHarmonics >= 2 ? 1 : 0) * (1/3)) + (Math.sin(2*Math.PI*5*time/period) * (numHarmonics >= 3 ? 1 : 0) * (1/5)))",
     "breakdown": "offset",
-    "DC_Offset_Katk_s___mm_s_": "DC Offset Katkısı (mm/s)",
-    "1__Harmonik__f___Katk_s___mm_s_": "1. Harmonik (f₁) Katkısı (mm/s)",
-    "3__Harmonik__f___Katk_s___mm_s_": "3. Harmonik (f₃) Katkısı (mm/s)",
-    "5__Harmonik__f___Katk_s___mm_s_": "5. Harmonik (f₅) Katkısı (mm/s)",
-    "result": "Fourier Serisi Yaklaşık Değeri (mm/s)"
+    "breakdown_aux": "offset"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "breakdown",
     "breakdown": [
       "DC Offset Katkısı (mm/s)",
       "1. Harmonik (f₁) Katkısı (mm/s)",
       "3. Harmonik (f₃) Katkısı (mm/s)",
       "5. Harmonik (f₅) Katkısı (mm/s)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "breakdown"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -108,5 +108,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

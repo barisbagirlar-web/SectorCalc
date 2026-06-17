@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "sq mi",
       "default": 0,
-      "businessContext": "Area in square miles to convert."
+      "businessContext": "Area in square miles to convert.",
+      "label_i18n": {
+        "en": "Square Miles",
+        "tr": "Square Miles",
+        "de": "Square Miles",
+        "fr": "Square Miles",
+        "es": "Square Miles",
+        "ar": "Square Miles"
+      }
     },
     {
       "id": "cf",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "km²/sq mi",
       "default": 2.589988110336,
-      "businessContext": "Override standard conversion factor if needed (international definition: 1 mile = 1.609344 km, so 1 sq mi = (1.609344)^2 = 2.589988110336 km²)."
+      "businessContext": "Override standard conversion factor if needed (international definition: 1 mile = 1.609344 km, so 1 sq mi = (1.609344)^2 = 2.589988110336 km²).",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "dp",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "integer",
       "default": 4,
-      "businessContext": "Number of decimal places for the output (0-10)."
+      "businessContext": "Number of decimal places for the output (0-10).",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "sf",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Multiplier for areas in terms of scaling (e.g., if input is in thousands of sq mi, use 1000)."
+      "businessContext": "Multiplier for areas in terms of scaling (e.g., if input is in thousands of sq mi, use 1000).",
+      "label_i18n": {
+        "en": "Scaling Factor",
+        "tr": "Scaling Factor",
+        "de": "Scaling Factor",
+        "fr": "Scaling Factor",
+        "es": "Scaling Factor",
+        "ar": "Scaling Factor"
+      }
     },
     {
       "id": "cc",
@@ -39,20 +71,32 @@
       "type": "number",
       "unit": "km²",
       "default": 0,
-      "businessContext": "Additive constant to account for systematic measurement bias (e.g., survey calibration offset)."
+      "businessContext": "Additive constant to account for systematic measurement bias (e.g., survey calibration offset).",
+      "label_i18n": {
+        "en": "Calibration Constant",
+        "tr": "Calibration Constant",
+        "de": "Calibration Constant",
+        "fr": "Calibration Constant",
+        "es": "Calibration Constant",
+        "ar": "Calibration Constant"
+      }
     }
   ],
   "formulas": {
     "rawKm2": "sm * cf",
-    "scaledKm2": "rawKm2 * sf + cc",
-    "km2": "Math.round(scaledKm2 * Math.pow(10, dp)) / Math.pow(10, dp)"
+    "scaledKm2": "rawKm2 * sf + cc"
   },
   "outputs": {
-    "primary": "km2",
+    "primary": "scaledKm2",
     "breakdown": [
       "rawKm2",
       "scaledKm2"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "km2"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -62,5 +106,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

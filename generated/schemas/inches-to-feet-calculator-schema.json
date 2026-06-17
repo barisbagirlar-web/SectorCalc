@@ -83,22 +83,22 @@
     }
   ],
   "formulas": {
-    "primary": "Math.round((inch1 / 12) * 10 ** precision) / 10 ** precision",
     "breakdown": "inch1",
-    "Math_round__inch1___12____10____precisio": "Math.round((inch1 / 12) * 10 ** precision) / 10 ** precision",
-    "Math_round__inch2___12____10____precisio": "Math.round((inch2 / 12) * 10 ** precision) / 10 ** precision",
-    "Math_round__inch3___12____10____precisio": "Math.round((inch3 / 12) * 10 ** precision) / 10 ** precision",
-    "Math_round__inch4___12____10____precisio": "Math.round((inch4 / 12) * 10 ** precision) / 10 ** precision",
-    "result": "Math.round((inch1 / 12) * 10 ** precision) / 10 ** precision"
+    "breakdown_aux": "inch1"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "breakdown_aux",
     "breakdown": [
       "Math.round((inch1 / 12) * 10 ** precision) / 10 ** precision",
       "Math.round((inch2 / 12) * 10 ** precision) / 10 ** precision",
       "Math.round((inch3 / 12) * 10 ** precision) / 10 ** precision",
       "Math.round((inch4 / 12) * 10 ** precision) / 10 ** precision"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -108,5 +108,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

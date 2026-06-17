@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "porsiyon",
       "default": 4,
-      "businessContext": "Bu alan, tarifteki orijinal porsiyon sayısını belirtir."
+      "businessContext": "Bu alan, tarifteki orijinal porsiyon sayısını belirtir.",
+      "label_i18n": {
+        "en": "Orijinal Porsiyon",
+        "tr": "Orijinal Porsiyon",
+        "de": "Orijinal Porsiyon",
+        "fr": "Orijinal Porsiyon",
+        "es": "Orijinal Porsiyon",
+        "ar": "Orijinal Porsiyon"
+      }
     },
     {
       "id": "desiredServings",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "porsiyon",
       "default": 8,
-      "businessContext": "Bu alan, elde edilmek istenen hedef porsiyon sayısını belirtir."
+      "businessContext": "Bu alan, elde edilmek istenen hedef porsiyon sayısını belirtir.",
+      "label_i18n": {
+        "en": "Hedef Porsiyon",
+        "tr": "Hedef Porsiyon",
+        "de": "Hedef Porsiyon",
+        "fr": "Hedef Porsiyon",
+        "es": "Hedef Porsiyon",
+        "ar": "Hedef Porsiyon"
+      }
     },
     {
       "id": "ingredient1Amount",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "birim",
       "default": 200,
-      "businessContext": "Bu alan, ilk malzemenin orijinal miktarını belirtir (gram, ml vb.)."
+      "businessContext": "Bu alan, ilk malzemenin orijinal miktarını belirtir (gram, ml vb.).",
+      "label_i18n": {
+        "en": "Malzeme 1 Miktarı",
+        "tr": "Malzeme 1 Miktarı",
+        "de": "Malzeme 1 Miktarı",
+        "fr": "Malzeme 1 Miktarı",
+        "es": "Malzeme 1 Miktarı",
+        "ar": "Malzeme 1 Miktarı"
+      }
     },
     {
       "id": "ingredient2Amount",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "birim",
       "default": 100,
-      "businessContext": "Bu alan, ikinci malzemenin orijinal miktarını belirtir (gram, ml vb.)."
+      "businessContext": "Bu alan, ikinci malzemenin orijinal miktarını belirtir (gram, ml vb.).",
+      "label_i18n": {
+        "en": "Malzeme 2 Miktarı",
+        "tr": "Malzeme 2 Miktarı",
+        "de": "Malzeme 2 Miktarı",
+        "fr": "Malzeme 2 Miktarı",
+        "es": "Malzeme 2 Miktarı",
+        "ar": "Malzeme 2 Miktarı"
+      }
     },
     {
       "id": "ingredient3Amount",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "birim",
       "default": 50,
-      "businessContext": "Bu alan, üçüncü malzemenin orijinal miktarını belirtir (gram, ml vb.)."
+      "businessContext": "Bu alan, üçüncü malzemenin orijinal miktarını belirtir (gram, ml vb.).",
+      "label_i18n": {
+        "en": "Malzeme 3 Miktarı",
+        "tr": "Malzeme 3 Miktarı",
+        "de": "Malzeme 3 Miktarı",
+        "fr": "Malzeme 3 Miktarı",
+        "es": "Malzeme 3 Miktarı",
+        "ar": "Malzeme 3 Miktarı"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
       "scaled1",
       "scaled2",
       "scaled3"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "scaled3"
   },
   "category": "Gıda & Tarım",
   "sector": "Perakende & Gıda",
@@ -64,5 +109,10 @@
   "categorySlug": "food-cold-chain-hygiene",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

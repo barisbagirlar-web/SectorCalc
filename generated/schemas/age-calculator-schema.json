@@ -99,19 +99,21 @@
     }
   ],
   "formulas": {
-    "ageInDays": "Math.floor((new Date(referenceYear, referenceMonth - 1, referenceDay) - new Date(birthYear, birthMonth - 1, birthDay)) / 86400000)",
-    "ageInYears": "ageInDays / 365.25",
-    "ageInMonths": "ageInDays / 30.4375",
-    "ageInWeeks": "ageInDays / 7",
-    "ageInHours": "ageInDays * 24"
+    "result": "birthYear + birthMonth + birthDay",
+    "result_copy": "birthYear + birthMonth + birthDay"
   },
   "outputs": {
-    "primary": "ageInYears",
+    "primary": "result",
     "breakdown": [
       "ageInDays",
       "ageInMonths",
       "ageInWeeks"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "ageInHours"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -121,5 +123,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

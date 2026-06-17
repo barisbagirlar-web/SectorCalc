@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "atoms",
       "default": 1,
-      "businessContext": "Specify the number of carbon atoms in one molecule of the fuel."
+      "businessContext": "Specify the number of carbon atoms in one molecule of the fuel.",
+      "label_i18n": {
+        "en": "Number of Carbon Atoms in Fuel",
+        "tr": "Number of Carbon Atoms in Fuel",
+        "de": "Number of Carbon Atoms in Fuel",
+        "fr": "Number of Carbon Atoms in Fuel",
+        "es": "Number of Carbon Atoms in Fuel",
+        "ar": "Number of Carbon Atoms in Fuel"
+      }
     },
     {
       "id": "fuelHydrogen",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "atoms",
       "default": 4,
-      "businessContext": "Specify the number of hydrogen atoms in one molecule of the fuel."
+      "businessContext": "Specify the number of hydrogen atoms in one molecule of the fuel.",
+      "label_i18n": {
+        "en": "Number of Hydrogen Atoms in Fuel",
+        "tr": "Number of Hydrogen Atoms in Fuel",
+        "de": "Number of Hydrogen Atoms in Fuel",
+        "fr": "Number of Hydrogen Atoms in Fuel",
+        "es": "Number of Hydrogen Atoms in Fuel",
+        "ar": "Number of Hydrogen Atoms in Fuel"
+      }
     },
     {
       "id": "fuelSulfur",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "atoms",
       "default": 0,
-      "businessContext": "Specify the number of sulfur atoms in one molecule of the fuel (0 if none)."
+      "businessContext": "Specify the number of sulfur atoms in one molecule of the fuel (0 if none).",
+      "label_i18n": {
+        "en": "Number of Sulfur Atoms in Fuel",
+        "tr": "Number of Sulfur Atoms in Fuel",
+        "de": "Number of Sulfur Atoms in Fuel",
+        "fr": "Number of Sulfur Atoms in Fuel",
+        "es": "Number of Sulfur Atoms in Fuel",
+        "ar": "Number of Sulfur Atoms in Fuel"
+      }
     },
     {
       "id": "fuelOxygen",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "atoms",
       "default": 0,
-      "businessContext": "Specify the number of oxygen atoms in one molecule of the fuel (0 if none)."
+      "businessContext": "Specify the number of oxygen atoms in one molecule of the fuel (0 if none).",
+      "label_i18n": {
+        "en": "Number of Oxygen Atoms in Fuel",
+        "tr": "Number of Oxygen Atoms in Fuel",
+        "de": "Number of Oxygen Atoms in Fuel",
+        "fr": "Number of Oxygen Atoms in Fuel",
+        "es": "Number of Oxygen Atoms in Fuel",
+        "ar": "Number of Oxygen Atoms in Fuel"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "co2Moles",
       "waterMoles",
       "so2Moles"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "so2Moles"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -56,5 +93,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "kimya",
   "profession": "Proses Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

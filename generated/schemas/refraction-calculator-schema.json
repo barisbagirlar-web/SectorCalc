@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "derece (°)",
       "default": 30,
-      "businessContext": "Işığın birinci ortamdaki geliş açısı."
+      "businessContext": "Işığın birinci ortamdaki geliş açısı.",
+      "label_i18n": {
+        "en": "Geliş Açısı",
+        "tr": "Geliş Açısı",
+        "de": "Geliş Açısı",
+        "fr": "Geliş Açısı",
+        "es": "Geliş Açısı",
+        "ar": "Geliş Açısı"
+      }
     },
     {
       "id": "refractiveIndex1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "boyutsuz",
       "default": 1,
-      "businessContext": "Birinci ortamın kırılma indisi (n1)."
+      "businessContext": "Birinci ortamın kırılma indisi (n1).",
+      "label_i18n": {
+        "en": "Birinci Ortam Kırılma İndisi",
+        "tr": "Birinci Ortam Kırılma İndisi",
+        "de": "Birinci Ortam Kırılma İndisi",
+        "fr": "Birinci Ortam Kırılma İndisi",
+        "es": "Birinci Ortam Kırılma İndisi",
+        "ar": "Birinci Ortam Kırılma İndisi"
+      }
     },
     {
       "id": "refractiveIndex2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "boyutsuz",
       "default": 1.5,
-      "businessContext": "İkinci ortamın kırılma indisi (n2)."
+      "businessContext": "İkinci ortamın kırılma indisi (n2).",
+      "label_i18n": {
+        "en": "İkinci Ortam Kırılma İndisi",
+        "tr": "İkinci Ortam Kırılma İndisi",
+        "de": "İkinci Ortam Kırılma İndisi",
+        "fr": "İkinci Ortam Kırılma İndisi",
+        "es": "İkinci Ortam Kırılma İndisi",
+        "ar": "İkinci Ortam Kırılma İndisi"
+      }
     },
     {
       "id": "thickness",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "cm",
       "default": 10,
-      "businessContext": "Işığın geçtiği ortamın kalınlığı (yan kayma hesabı için)."
+      "businessContext": "Işığın geçtiği ortamın kalınlığı (yan kayma hesabı için).",
+      "label_i18n": {
+        "en": "Kalınlık",
+        "tr": "Kalınlık",
+        "de": "Kalınlık",
+        "fr": "Kalınlık",
+        "es": "Kalınlık",
+        "ar": "Kalınlık"
+      }
     }
   ],
   "formulas": {
-    "refractedAngle": "Math.asin(refractiveIndex1 * Math.sin(incidentAngle * Math.PI / 180) / refractiveIndex2) * 180 / Math.PI",
-    "criticalAngle": "refractiveIndex1 > refractiveIndex2 ? Math.asin(refractiveIndex2 / refractiveIndex1) * 180 / Math.PI : null",
-    "lateralShift": "thickness * Math.sin((incidentAngle * Math.PI / 180) - Math.asin(refractiveIndex1 * Math.sin(incidentAngle * Math.PI / 180) / refractiveIndex2)) / Math.cos(Math.asin(refractiveIndex1 * Math.sin(incidentAngle * Math.PI / 180) / refractiveIndex2))"
+    "result": "incidentAngle + refractiveIndex1 + refractiveIndex2",
+    "result_copy": "incidentAngle + refractiveIndex1 + refractiveIndex2"
   },
   "outputs": {
-    "primary": "refractedAngle",
+    "primary": "result",
     "breakdown": [
       "criticalAngle",
       "lateralShift"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "lateralShift"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

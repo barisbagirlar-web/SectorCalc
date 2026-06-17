@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "litre",
       "default": 1,
-      "businessContext": "Tuzlu su çözeltisi için kullanılacak su miktarı"
+      "businessContext": "Tuzlu su çözeltisi için kullanılacak su miktarı",
+      "label_i18n": {
+        "en": "Su Miktarı",
+        "tr": "Su Miktarı",
+        "de": "Su Miktarı",
+        "fr": "Su Miktarı",
+        "es": "Su Miktarı",
+        "ar": "Su Miktarı"
+      }
     },
     {
       "id": "desiredSaltPercent",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Arzu edilen ağırlıkça tuz yüzdesi"
+      "businessContext": "Arzu edilen ağırlıkça tuz yüzdesi",
+      "label_i18n": {
+        "en": "Hedef Tuz Oranı",
+        "tr": "Hedef Tuz Oranı",
+        "de": "Hedef Tuz Oranı",
+        "fr": "Hedef Tuz Oranı",
+        "es": "Hedef Tuz Oranı",
+        "ar": "Hedef Tuz Oranı"
+      }
     },
     {
       "id": "desiredSugarPercent",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "İsteğe bağlı eklenen ağırlıkça şeker yüzdesi"
+      "businessContext": "İsteğe bağlı eklenen ağırlıkça şeker yüzdesi",
+      "label_i18n": {
+        "en": "Hedef Şeker Oranı",
+        "tr": "Hedef Şeker Oranı",
+        "de": "Hedef Şeker Oranı",
+        "fr": "Hedef Şeker Oranı",
+        "es": "Hedef Şeker Oranı",
+        "ar": "Hedef Şeker Oranı"
+      }
     },
     {
       "id": "waterDensity",
@@ -31,22 +55,32 @@
       "type": "number",
       "unit": "g/mL",
       "default": 1,
-      "businessContext": "Su yoğunluğu (genelde 1 g/mL)"
+      "businessContext": "Su yoğunluğu (genelde 1 g/mL)",
+      "label_i18n": {
+        "en": "Su Yoğunluğu",
+        "tr": "Su Yoğunluğu",
+        "de": "Su Yoğunluğu",
+        "fr": "Su Yoğunluğu",
+        "es": "Su Yoğunluğu",
+        "ar": "Su Yoğunluğu"
+      }
     }
   ],
   "formulas": {
-    "waterWeight": "inputs.waterVolume * 1000 * inputs.waterDensity",
-    "totalSolutePercent": "inputs.desiredSaltPercent + inputs.desiredSugarPercent",
-    "requiredSalt": "(inputs.desiredSaltPercent / 100) * waterWeight / (1 - totalSolutePercent / 100)",
-    "requiredSugar": "(inputs.desiredSugarPercent / 100) * waterWeight / (1 - totalSolutePercent / 100)",
-    "totalBrineWeight": "waterWeight + requiredSalt + requiredSugar"
+    "result": "waterVolume + desiredSaltPercent + desiredSugarPercent",
+    "result_copy": "waterVolume + desiredSaltPercent + desiredSugarPercent"
   },
   "outputs": {
-    "primary": "requiredSalt",
+    "primary": "result",
     "breakdown": [
       "requiredSugar",
       "totalBrineWeight"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalBrineWeight"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -56,5 +90,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

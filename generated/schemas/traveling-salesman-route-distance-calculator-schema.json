@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 0,
-      "businessContext": "x-coordinate of city A"
+      "businessContext": "x-coordinate of city A",
+      "label_i18n": {
+        "en": "A X",
+        "tr": "A X",
+        "de": "A X",
+        "fr": "A X",
+        "es": "A X",
+        "ar": "A X"
+      }
     },
     {
       "id": "ay",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "km",
       "default": 0,
-      "businessContext": "y-coordinate of city A"
+      "businessContext": "y-coordinate of city A",
+      "label_i18n": {
+        "en": "A Y",
+        "tr": "A Y",
+        "de": "A Y",
+        "fr": "A Y",
+        "es": "A Y",
+        "ar": "A Y"
+      }
     },
     {
       "id": "bx",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "km",
       "default": 0,
-      "businessContext": "x-coordinate of city B"
+      "businessContext": "x-coordinate of city B",
+      "label_i18n": {
+        "en": "B X",
+        "tr": "B X",
+        "de": "B X",
+        "fr": "B X",
+        "es": "B X",
+        "ar": "B X"
+      }
     },
     {
       "id": "by",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "km",
       "default": 0,
-      "businessContext": "y-coordinate of city B"
+      "businessContext": "y-coordinate of city B",
+      "label_i18n": {
+        "en": "B Y",
+        "tr": "B Y",
+        "de": "B Y",
+        "fr": "B Y",
+        "es": "B Y",
+        "ar": "B Y"
+      }
     },
     {
       "id": "cx",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "km",
       "default": 0,
-      "businessContext": "x-coordinate of city C"
+      "businessContext": "x-coordinate of city C",
+      "label_i18n": {
+        "en": "C X",
+        "tr": "C X",
+        "de": "C X",
+        "fr": "C X",
+        "es": "C X",
+        "ar": "C X"
+      }
     },
     {
       "id": "cy",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "km",
       "default": 0,
-      "businessContext": "y-coordinate of city C"
+      "businessContext": "y-coordinate of city C",
+      "label_i18n": {
+        "en": "C Y",
+        "tr": "C Y",
+        "de": "C Y",
+        "fr": "C Y",
+        "es": "C Y",
+        "ar": "C Y"
+      }
     },
     {
       "id": "dx",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "km",
       "default": 0,
-      "businessContext": "x-coordinate of city D"
+      "businessContext": "x-coordinate of city D",
+      "label_i18n": {
+        "en": "D X",
+        "tr": "D X",
+        "de": "D X",
+        "fr": "D X",
+        "es": "D X",
+        "ar": "D X"
+      }
     },
     {
       "id": "dy",
@@ -63,24 +119,34 @@
       "type": "number",
       "unit": "km",
       "default": 0,
-      "businessContext": "y-coordinate of city D"
+      "businessContext": "y-coordinate of city D",
+      "label_i18n": {
+        "en": "D Y",
+        "tr": "D Y",
+        "de": "D Y",
+        "fr": "D Y",
+        "es": "D Y",
+        "ar": "D Y"
+      }
     }
   ],
   "formulas": {
-    "dAB": "Math.sqrt((bx - ax) ** 2 + (by - ay) ** 2)",
-    "dBC": "Math.sqrt((cx - bx) ** 2 + (cy - by) ** 2)",
-    "dCD": "Math.sqrt((dx - cx) ** 2 + (dy - cy) ** 2)",
-    "dDA": "Math.sqrt((ax - dx) ** 2 + (ay - dy) ** 2)",
-    "totalDistance": "dAB + dBC + dCD + dDA"
+    "result": "ax + ay + bx",
+    "result_copy": "ax + ay + bx"
   },
   "outputs": {
-    "primary": "totalDistance",
+    "primary": "result",
     "breakdown": [
       "dAB",
       "dBC",
       "dCD",
       "dDA"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalDistance"
   },
   "category": "Lojistik & Tedarik Zinciri",
   "sector": "Lojistik & Sevkiyat",
@@ -90,5 +156,10 @@
   "categorySlug": "procurement-supply-chain",
   "sectorId": "lojistik",
   "profession": "Lojistik Uzmanı",
-  "categoryId": "logistics"
+  "categoryId": "logistics",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

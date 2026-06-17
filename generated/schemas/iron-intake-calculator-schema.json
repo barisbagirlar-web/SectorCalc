@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "tons",
       "default": 100,
-      "businessContext": "Total mass of iron ore fed into the process"
+      "businessContext": "Total mass of iron ore fed into the process",
+      "label_i18n": {
+        "en": "Ore Mass",
+        "tr": "Ore Mass",
+        "de": "Ore Mass",
+        "fr": "Ore Mass",
+        "es": "Ore Mass",
+        "ar": "Ore Mass"
+      }
     },
     {
       "id": "ironConcentration",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 62,
-      "businessContext": "Mass percentage of iron in the ore"
+      "businessContext": "Mass percentage of iron in the ore",
+      "label_i18n": {
+        "en": "Iron Concentration",
+        "tr": "Iron Concentration",
+        "de": "Iron Concentration",
+        "fr": "Iron Concentration",
+        "es": "Iron Concentration",
+        "ar": "Iron Concentration"
+      }
     },
     {
       "id": "moistureContent",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 8,
-      "businessContext": "Moisture mass percentage in the ore"
+      "businessContext": "Moisture mass percentage in the ore",
+      "label_i18n": {
+        "en": "Moisture Content",
+        "tr": "Moisture Content",
+        "de": "Moisture Content",
+        "fr": "Moisture Content",
+        "es": "Moisture Content",
+        "ar": "Moisture Content"
+      }
     },
     {
       "id": "recoveryRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 95,
-      "businessContext": "Expected percentage of iron recovered from ore after processing"
+      "businessContext": "Expected percentage of iron recovered from ore after processing",
+      "label_i18n": {
+        "en": "Recovery Rate",
+        "tr": "Recovery Rate",
+        "de": "Recovery Rate",
+        "fr": "Recovery Rate",
+        "es": "Recovery Rate",
+        "ar": "Recovery Rate"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "dryMass",
       "ironMass"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "netIron"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

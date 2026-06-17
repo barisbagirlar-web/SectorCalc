@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100,
-      "businessContext": "Cost of raw materials"
+      "businessContext": "Cost of raw materials",
+      "label_i18n": {
+        "en": "Material Cost",
+        "tr": "Material Cost",
+        "de": "Material Cost",
+        "fr": "Material Cost",
+        "es": "Material Cost",
+        "ar": "Material Cost"
+      }
     },
     {
       "id": "laborHours",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hours",
       "default": 8,
-      "businessContext": "Total labor hours required"
+      "businessContext": "Total labor hours required",
+      "label_i18n": {
+        "en": "Labor Hours",
+        "tr": "Labor Hours",
+        "de": "Labor Hours",
+        "fr": "Labor Hours",
+        "es": "Labor Hours",
+        "ar": "Labor Hours"
+      }
     },
     {
       "id": "hourlyRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD/hour",
       "default": 25,
-      "businessContext": "Labor cost per hour"
+      "businessContext": "Labor cost per hour",
+      "label_i18n": {
+        "en": "Hourly Rate",
+        "tr": "Hourly Rate",
+        "de": "Hourly Rate",
+        "fr": "Hourly Rate",
+        "es": "Hourly Rate",
+        "ar": "Hourly Rate"
+      }
     },
     {
       "id": "overheadPercentage",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Overhead cost as percentage of direct costs"
+      "businessContext": "Overhead cost as percentage of direct costs",
+      "label_i18n": {
+        "en": "Overhead %",
+        "tr": "Overhead %",
+        "de": "Overhead %",
+        "fr": "Overhead %",
+        "es": "Overhead %",
+        "ar": "Overhead %"
+      }
     },
     {
       "id": "profitMarginPercentage",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Desired profit margin percentage"
+      "businessContext": "Desired profit margin percentage",
+      "label_i18n": {
+        "en": "Profit Margin %",
+        "tr": "Profit Margin %",
+        "de": "Profit Margin %",
+        "fr": "Profit Margin %",
+        "es": "Profit Margin %",
+        "ar": "Profit Margin %"
+      }
     }
   ],
   "formulas": {
@@ -56,7 +96,12 @@
       "laborCost",
       "overheadCost",
       "totalCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "sellingPrice"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -66,5 +111,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

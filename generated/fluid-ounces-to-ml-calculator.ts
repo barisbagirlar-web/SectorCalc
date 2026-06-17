@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from fluid-ounces-to-ml-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,27 +16,34 @@ export const Fluid_ounces_to_ml_calculatorInputSchema = z.object({
   batchSize: z.number().default(1),
 });
 
-function evaluateAllFormulas(input: Fluid_ounces_to_ml_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.ounceStandard === 0 ? 29.5735 : 28.4131; results["conversionFactor"] = Number.isFinite(v) ? v : 0; } catch { results["conversionFactor"] = 0; }
-  try { const v = input.fluidOunces * (results["conversionFactor"] ?? 0); results["mlPerItem"] = Number.isFinite(v) ? v : 0; } catch { results["mlPerItem"] = 0; }
-  try { const v = input.batchSize * (results["mlPerItem"] ?? 0); results["totalMl"] = Number.isFinite(v) ? v : 0; } catch { results["totalMl"] = 0; }
-  try { const v = Math.round((results["totalMl"] ?? 0) * Math.pow(10, input.precision)) / Math.pow(10, input.precision); results["roundedMl"] = Number.isFinite(v) ? v : 0; } catch { results["roundedMl"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Fluid_ounces_to_ml_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.ounceStandard === 0 ? 29.5735 : 28.4131; results["conversionFactor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["conversionFactor"] = 0; }
+  try { const v = input.fluidOunces * (asFormulaNumber(results["conversionFactor"])); results["mlPerItem"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["mlPerItem"] = 0; }
+  try { const v = input.batchSize * (asFormulaNumber(results["mlPerItem"])); results["totalMl"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalMl"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateFluid_ounces_to_ml_calculator(input: Fluid_ounces_to_ml_calculatorInput): Fluid_ounces_to_ml_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["roundedMl"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["totalMl"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

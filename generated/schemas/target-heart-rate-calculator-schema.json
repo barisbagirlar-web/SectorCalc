@@ -70,16 +70,19 @@
     "maxHeartRate": "220 - age",
     "heartRateReserve": "maxHeartRate - restingHeartRate",
     "targetMin": "heartRateReserve * (intensityMin / 100) + restingHeartRate",
-    "targetMax": "heartRateReserve * (intensityMax / 100) + restingHeartRate",
-    "_maxHeartRate__bpm": "{maxHeartRate} bpm",
-    "_heartRateReserve__bpm": "{heartRateReserve} bpm"
+    "targetMax": "heartRateReserve * (intensityMax / 100) + restingHeartRate"
   },
   "outputs": {
     "primary": "maxHeartRate",
     "breakdown": [
       "Maximum Heart Rate: {maxHeartRate} bpm",
       "Heart Rate Reserve: {heartRateReserve} bpm"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "targetMax"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -89,5 +92,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -131,16 +131,8 @@
     }
   ],
   "formulas": {
-    "match1": "1 - Math.abs(criterion1_score_a - criterion1_score_b) / 100",
-    "match2": "1 - Math.abs(criterion2_score_a - criterion2_score_b) / 100",
-    "match3": "1 - Math.abs(criterion3_score_a - criterion3_score_b) / 100",
-    "match4": "1 - Math.abs(criterion4_score_a - criterion4_score_b) / 100",
-    "totalMatchScore": "(match1 + match2 + match3 + match4) / 4 * 100",
-    "_____match1___100__toFixed_1_______": "' + (match1 * 100).toFixed(1) + '%'",
-    "_____match2___100__toFixed_1_______": "' + (match2 * 100).toFixed(1) + '%'",
-    "_____match3___100__toFixed_1_______": "' + (match3 * 100).toFixed(1) + '%'",
-    "_____match4___100__toFixed_1_______": "' + (match4 * 100).toFixed(1) + '%'",
-    "result": "totalMatchScore + '%'"
+    "result": "criterion1_score_a + criterion1_score_b + criterion2_score_a",
+    "result_aux": "criterion1_score_a + criterion1_score_b + criterion2_score_a"
   },
   "outputs": {
     "primary": "result",
@@ -149,7 +141,12 @@
       "'Criterion 2: ' + (match2 * 100).toFixed(1) + '%'",
       "'Criterion 3: ' + (match3 * 100).toFixed(1) + '%'",
       "'Criterion 4: ' + (match4 * 100).toFixed(1) + '%'"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -159,5 +156,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

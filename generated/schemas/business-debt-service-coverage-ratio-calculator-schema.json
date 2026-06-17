@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 100000,
-      "businessContext": "Annual net operating income from core business operations, before debt service and taxes."
+      "businessContext": "Annual net operating income from core business operations, before debt service and taxes.",
+      "label_i18n": {
+        "en": "Net Operating Income",
+        "tr": "Net Operating Income",
+        "de": "Net Operating Income",
+        "fr": "Net Operating Income",
+        "es": "Net Operating Income",
+        "ar": "Net Operating Income"
+      }
     },
     {
       "id": "principalRepayments",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 20000,
-      "businessContext": "Annual principal repayments on all business debts (loans, mortgages, etc.)."
+      "businessContext": "Annual principal repayments on all business debts (loans, mortgages, etc.).",
+      "label_i18n": {
+        "en": "Principal Repayments",
+        "tr": "Principal Repayments",
+        "de": "Principal Repayments",
+        "fr": "Principal Repayments",
+        "es": "Principal Repayments",
+        "ar": "Principal Repayments"
+      }
     },
     {
       "id": "interestPayments",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 10000,
-      "businessContext": "Annual interest payments on all business debts."
+      "businessContext": "Annual interest payments on all business debts.",
+      "label_i18n": {
+        "en": "Interest Payments",
+        "tr": "Interest Payments",
+        "de": "Interest Payments",
+        "fr": "Interest Payments",
+        "es": "Interest Payments",
+        "ar": "Interest Payments"
+      }
     },
     {
       "id": "leasePayments",
@@ -31,18 +55,31 @@
       "type": "number",
       "unit": "currency",
       "default": 5000,
-      "businessContext": "Annual lease payments considered as debt obligations. Enter 0 if none."
+      "businessContext": "Annual lease payments considered as debt obligations. Enter 0 if none.",
+      "label_i18n": {
+        "en": "Lease Payments",
+        "tr": "Lease Payments",
+        "de": "Lease Payments",
+        "fr": "Lease Payments",
+        "es": "Lease Payments",
+        "ar": "Lease Payments"
+      }
     }
   ],
   "formulas": {
-    "totalDebtService": "inputs.principalRepayments + inputs.interestPayments + inputs.leasePayments",
-    "dscr": "inputs.netOperatingIncome / (inputs.principalRepayments + inputs.interestPayments + inputs.leasePayments)"
+    "result": "netOperatingIncome + principalRepayments + interestPayments",
+    "result_copy": "netOperatingIncome + principalRepayments + interestPayments"
   },
   "outputs": {
-    "primary": "dscr",
+    "primary": "result",
     "breakdown": [
       "totalDebtService"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "dscr"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -52,5 +89,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

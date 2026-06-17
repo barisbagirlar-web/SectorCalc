@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "W",
       "default": 100,
-      "businessContext": "Power applied by the paddler in watts."
+      "businessContext": "Power applied by the paddler in watts.",
+      "label_i18n": {
+        "en": "Paddle Power",
+        "tr": "Paddle Power",
+        "de": "Paddle Power",
+        "fr": "Paddle Power",
+        "es": "Paddle Power",
+        "ar": "Paddle Power"
+      }
     },
     {
       "id": "dragCoefficient",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0.04,
-      "businessContext": "Drag coefficient of the canoe."
+      "businessContext": "Drag coefficient of the canoe.",
+      "label_i18n": {
+        "en": "Drag Coefficient",
+        "tr": "Drag Coefficient",
+        "de": "Drag Coefficient",
+        "fr": "Drag Coefficient",
+        "es": "Drag Coefficient",
+        "ar": "Drag Coefficient"
+      }
     },
     {
       "id": "waterDensity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1000,
-      "businessContext": "Density of water, typically 1000 kg/m³ for freshwater."
+      "businessContext": "Density of water, typically 1000 kg/m³ for freshwater.",
+      "label_i18n": {
+        "en": "Water Density",
+        "tr": "Water Density",
+        "de": "Water Density",
+        "fr": "Water Density",
+        "es": "Water Density",
+        "ar": "Water Density"
+      }
     },
     {
       "id": "frontalArea",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m²",
       "default": 0.5,
-      "businessContext": "Effective frontal area of canoe in water."
+      "businessContext": "Effective frontal area of canoe in water.",
+      "label_i18n": {
+        "en": "Frontal Area",
+        "tr": "Frontal Area",
+        "de": "Frontal Area",
+        "fr": "Frontal Area",
+        "es": "Frontal Area",
+        "ar": "Frontal Area"
+      }
     },
     {
       "id": "canoeWeight",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg",
       "default": 20,
-      "businessContext": "Weight of the canoe."
+      "businessContext": "Weight of the canoe.",
+      "label_i18n": {
+        "en": "Canoe Weight",
+        "tr": "Canoe Weight",
+        "de": "Canoe Weight",
+        "fr": "Canoe Weight",
+        "es": "Canoe Weight",
+        "ar": "Canoe Weight"
+      }
     },
     {
       "id": "paddlerWeight",
@@ -47,20 +87,32 @@
       "type": "number",
       "unit": "kg",
       "default": 75,
-      "businessContext": "Weight of the paddler."
+      "businessContext": "Weight of the paddler.",
+      "label_i18n": {
+        "en": "Paddler Weight",
+        "tr": "Paddler Weight",
+        "de": "Paddler Weight",
+        "fr": "Paddler Weight",
+        "es": "Paddler Weight",
+        "ar": "Paddler Weight"
+      }
     }
   ],
   "formulas": {
-    "speed": "Math.pow((2 * paddlePower) / (dragCoefficient * waterDensity * frontalArea), 1/3)",
-    "dragForce": "0.5 * dragCoefficient * waterDensity * frontalArea * Math.pow(speed, 2)",
-    "totalWeight": "canoeWeight + paddlerWeight"
+    "totalWeight": "canoeWeight + paddlerWeight",
+    "totalWeight_aux": "canoeWeight + paddlerWeight"
   },
   "outputs": {
-    "primary": "speed",
+    "primary": "totalWeight_aux",
     "breakdown": [
       "dragForce",
       "totalWeight"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalWeight"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -70,5 +122,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

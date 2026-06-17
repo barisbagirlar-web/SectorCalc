@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 500,
-      "businessContext": "Horse body weight in kilograms"
+      "businessContext": "Horse body weight in kilograms",
+      "label_i18n": {
+        "en": "Body Weight",
+        "tr": "Body Weight",
+        "de": "Body Weight",
+        "fr": "Body Weight",
+        "es": "Body Weight",
+        "ar": "Body Weight"
+      }
     },
     {
       "id": "activityLevel",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "factor",
       "default": 1.2,
-      "businessContext": "Multiplier for activity: 1.0 idle, 1.2 light, 1.4 moderate, 1.6 heavy, 1.8 very heavy"
+      "businessContext": "Multiplier for activity: 1.0 idle, 1.2 light, 1.4 moderate, 1.6 heavy, 1.8 very heavy",
+      "label_i18n": {
+        "en": "Activity Level",
+        "tr": "Activity Level",
+        "de": "Activity Level",
+        "fr": "Activity Level",
+        "es": "Activity Level",
+        "ar": "Activity Level"
+      }
     },
     {
       "id": "pregnancyStage",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "factor",
       "default": 1,
-      "businessContext": "Pregnancy multiplier: 1.0 not pregnant, 1.1 early pregnancy, 1.2 late pregnancy"
+      "businessContext": "Pregnancy multiplier: 1.0 not pregnant, 1.1 early pregnancy, 1.2 late pregnancy",
+      "label_i18n": {
+        "en": "Pregnancy Stage",
+        "tr": "Pregnancy Stage",
+        "de": "Pregnancy Stage",
+        "fr": "Pregnancy Stage",
+        "es": "Pregnancy Stage",
+        "ar": "Pregnancy Stage"
+      }
     },
     {
       "id": "lactationStage",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "factor",
       "default": 1,
-      "businessContext": "Lactation multiplier: 1.0 not lactating, 1.3 lactating"
+      "businessContext": "Lactation multiplier: 1.0 not lactating, 1.3 lactating",
+      "label_i18n": {
+        "en": "Lactation Stage",
+        "tr": "Lactation Stage",
+        "de": "Lactation Stage",
+        "fr": "Lactation Stage",
+        "es": "Lactation Stage",
+        "ar": "Lactation Stage"
+      }
     },
     {
       "id": "ageFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "factor",
       "default": 1,
-      "businessContext": "Age multiplier: 1.0 adult, 1.1 senior (>15 years), 1.2 growing (<3 years)"
+      "businessContext": "Age multiplier: 1.0 adult, 1.1 senior (>15 years), 1.2 growing (<3 years)",
+      "label_i18n": {
+        "en": "Age Factor",
+        "tr": "Age Factor",
+        "de": "Age Factor",
+        "fr": "Age Factor",
+        "es": "Age Factor",
+        "ar": "Age Factor"
+      }
     }
   ],
   "formulas": {
@@ -50,7 +90,12 @@
     "primary": "totalDailyDE",
     "breakdown": [
       "maintenanceDE"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalDailyDE"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -60,5 +105,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "havacilik",
   "profession": "Tasarım Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

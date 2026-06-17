@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "units",
       "default": 0,
-      "businessContext": "The current value of the metric to be improved."
+      "businessContext": "The current value of the metric to be improved.",
+      "label_i18n": {
+        "en": "Current Value",
+        "tr": "Current Value",
+        "de": "Current Value",
+        "fr": "Current Value",
+        "es": "Current Value",
+        "ar": "Current Value"
+      }
     },
     {
       "id": "targetValue",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "units",
       "default": 100,
-      "businessContext": "The desired target value for the metric."
+      "businessContext": "The desired target value for the metric.",
+      "label_i18n": {
+        "en": "Target Value",
+        "tr": "Target Value",
+        "de": "Target Value",
+        "fr": "Target Value",
+        "es": "Target Value",
+        "ar": "Target Value"
+      }
     },
     {
       "id": "timeframe",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "months",
       "default": 12,
-      "businessContext": "Timeframe to achieve the goal in months."
+      "businessContext": "Timeframe to achieve the goal in months.",
+      "label_i18n": {
+        "en": "Timeframe",
+        "tr": "Timeframe",
+        "de": "Timeframe",
+        "fr": "Timeframe",
+        "es": "Timeframe",
+        "ar": "Timeframe"
+      }
     },
     {
       "id": "resourceHours",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "hours/week",
       "default": 10,
-      "businessContext": "Weekly resource hours allocated to the goal."
+      "businessContext": "Weekly resource hours allocated to the goal.",
+      "label_i18n": {
+        "en": "Weekly Resource Hours",
+        "tr": "Weekly Resource Hours",
+        "de": "Weekly Resource Hours",
+        "fr": "Weekly Resource Hours",
+        "es": "Weekly Resource Hours",
+        "ar": "Weekly Resource Hours"
+      }
     },
     {
       "id": "costPerHour",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency",
       "default": 50,
-      "businessContext": "Cost per resource hour."
+      "businessContext": "Cost per resource hour.",
+      "label_i18n": {
+        "en": "Cost per Hour",
+        "tr": "Cost per Hour",
+        "de": "Cost per Hour",
+        "fr": "Cost per Hour",
+        "es": "Cost per Hour",
+        "ar": "Cost per Hour"
+      }
     },
     {
       "id": "initialInvestment",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "currency",
       "default": 1000,
-      "businessContext": "Initial investment required for the goal."
+      "businessContext": "Initial investment required for the goal.",
+      "label_i18n": {
+        "en": "Initial Investment",
+        "tr": "Initial Investment",
+        "de": "Initial Investment",
+        "fr": "Initial Investment",
+        "es": "Initial Investment",
+        "ar": "Initial Investment"
+      }
     },
     {
       "id": "expectedImprovementRate",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "% per month",
       "default": 5,
-      "businessContext": "Expected improvement rate per month (%)."
+      "businessContext": "Expected improvement rate per month (%).",
+      "label_i18n": {
+        "en": "Expected Improvement Rate",
+        "tr": "Expected Improvement Rate",
+        "de": "Expected Improvement Rate",
+        "fr": "Expected Improvement Rate",
+        "es": "Expected Improvement Rate",
+        "ar": "Expected Improvement Rate"
+      }
     }
   ],
   "formulas": {
@@ -70,7 +126,12 @@
       "totalCost",
       "requiredMonthlyImprovement",
       "expectedMonthlyImprovementRate"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "expectedMonthlyImprovementRate"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -80,5 +141,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Component of first vector along X-axis"
+      "businessContext": "Component of first vector along X-axis",
+      "label_i18n": {
+        "en": "Vector 1 X",
+        "tr": "Vector 1 X",
+        "de": "Vector 1 X",
+        "fr": "Vector 1 X",
+        "es": "Vector 1 X",
+        "ar": "Vector 1 X"
+      }
     },
     {
       "id": "v1y",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Component of first vector along Y-axis"
+      "businessContext": "Component of first vector along Y-axis",
+      "label_i18n": {
+        "en": "Vector 1 Y",
+        "tr": "Vector 1 Y",
+        "de": "Vector 1 Y",
+        "fr": "Vector 1 Y",
+        "es": "Vector 1 Y",
+        "ar": "Vector 1 Y"
+      }
     },
     {
       "id": "v1z",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Component of first vector along Z-axis"
+      "businessContext": "Component of first vector along Z-axis",
+      "label_i18n": {
+        "en": "Vector 1 Z",
+        "tr": "Vector 1 Z",
+        "de": "Vector 1 Z",
+        "fr": "Vector 1 Z",
+        "es": "Vector 1 Z",
+        "ar": "Vector 1 Z"
+      }
     },
     {
       "id": "v2x",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Component of second vector along X-axis"
+      "businessContext": "Component of second vector along X-axis",
+      "label_i18n": {
+        "en": "Vector 2 X",
+        "tr": "Vector 2 X",
+        "de": "Vector 2 X",
+        "fr": "Vector 2 X",
+        "es": "Vector 2 X",
+        "ar": "Vector 2 X"
+      }
     },
     {
       "id": "v2y",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Component of second vector along Y-axis"
+      "businessContext": "Component of second vector along Y-axis",
+      "label_i18n": {
+        "en": "Vector 2 Y",
+        "tr": "Vector 2 Y",
+        "de": "Vector 2 Y",
+        "fr": "Vector 2 Y",
+        "es": "Vector 2 Y",
+        "ar": "Vector 2 Y"
+      }
     },
     {
       "id": "v2z",
@@ -47,24 +87,34 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Component of second vector along Z-axis"
+      "businessContext": "Component of second vector along Z-axis",
+      "label_i18n": {
+        "en": "Vector 2 Z",
+        "tr": "Vector 2 Z",
+        "de": "Vector 2 Z",
+        "fr": "Vector 2 Z",
+        "es": "Vector 2 Z",
+        "ar": "Vector 2 Z"
+      }
     }
   ],
   "formulas": {
-    "angleBetween": "Math.acos((v1x*v2x + v1y*v2y + v1z*v2z) / (Math.sqrt(v1x**2 + v1y**2 + v1z**2) * Math.sqrt(v2x**2 + v2y**2 + v2z**2))) * (180 / Math.PI)",
-    "magnitudeV1": "Math.sqrt(v1x**2 + v1y**2 + v1z**2)",
-    "magnitudeV2": "Math.sqrt(v2x**2 + v2y**2 + v2z**2)",
     "dotProduct": "v1x*v2x + v1y*v2y + v1z*v2z",
-    "crossProductMagnitude": "Math.sqrt((v1y*v2z - v1z*v2y)**2 + (v1z*v2x - v1x*v2z)**2 + (v1x*v2y - v1y*v2x)**2)"
+    "dotProduct_aux": "v1x*v2x + v1y*v2y + v1z*v2z"
   },
   "outputs": {
-    "primary": "angleBetween",
+    "primary": "dotProduct_aux",
     "breakdown": [
       "magnitudeV1",
       "magnitudeV2",
       "dotProduct",
       "crossProductMagnitude"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "crossProductMagnitude"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -74,5 +124,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

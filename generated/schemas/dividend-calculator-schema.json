@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100,
-      "businessContext": "Market price per share at current time."
+      "businessContext": "Market price per share at current time.",
+      "label_i18n": {
+        "en": "Current Share Price",
+        "tr": "Current Share Price",
+        "de": "Current Share Price",
+        "fr": "Current Share Price",
+        "es": "Current Share Price",
+        "ar": "Current Share Price"
+      }
     },
     {
       "id": "purchasePrice",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100,
-      "businessContext": "The average price paid per share (cost basis)."
+      "businessContext": "The average price paid per share (cost basis).",
+      "label_i18n": {
+        "en": "Average Purchase Price per Share",
+        "tr": "Average Purchase Price per Share",
+        "de": "Average Purchase Price per Share",
+        "fr": "Average Purchase Price per Share",
+        "es": "Average Purchase Price per Share",
+        "ar": "Average Purchase Price per Share"
+      }
     },
     {
       "id": "annualDividendPerShare",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 5,
-      "businessContext": "Total dividends paid per share over the last fiscal year."
+      "businessContext": "Total dividends paid per share over the last fiscal year.",
+      "label_i18n": {
+        "en": "Annual Dividend per Share",
+        "tr": "Annual Dividend per Share",
+        "de": "Annual Dividend per Share",
+        "fr": "Annual Dividend per Share",
+        "es": "Annual Dividend per Share",
+        "ar": "Annual Dividend per Share"
+      }
     },
     {
       "id": "numberOfShares",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "shares",
       "default": 100,
-      "businessContext": "Total number of shares held in the portfolio."
+      "businessContext": "Total number of shares held in the portfolio.",
+      "label_i18n": {
+        "en": "Number of Shares Owned",
+        "tr": "Number of Shares Owned",
+        "de": "Number of Shares Owned",
+        "fr": "Number of Shares Owned",
+        "es": "Number of Shares Owned",
+        "ar": "Number of Shares Owned"
+      }
     },
     {
       "id": "dividendGrowthRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 3,
-      "businessContext": "Annual projected growth rate of dividends, as a percentage."
+      "businessContext": "Annual projected growth rate of dividends, as a percentage.",
+      "label_i18n": {
+        "en": "Expected Dividend Growth Rate",
+        "tr": "Expected Dividend Growth Rate",
+        "de": "Expected Dividend Growth Rate",
+        "fr": "Expected Dividend Growth Rate",
+        "es": "Expected Dividend Growth Rate",
+        "ar": "Expected Dividend Growth Rate"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
       "annualIncome",
       "yieldOnCost",
       "projectedAnnualIncome"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "projectedAnnualIncome"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -64,5 +109,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

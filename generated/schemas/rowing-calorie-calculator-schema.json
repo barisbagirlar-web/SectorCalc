@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "User's body weight in kilograms"
+      "businessContext": "User's body weight in kilograms",
+      "label_i18n": {
+        "en": "Body Weight",
+        "tr": "Body Weight",
+        "de": "Body Weight",
+        "fr": "Body Weight",
+        "es": "Body Weight",
+        "ar": "Body Weight"
+      }
     },
     {
       "id": "active_duration",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 30,
-      "businessContext": "Duration of active rowing in minutes"
+      "businessContext": "Duration of active rowing in minutes",
+      "label_i18n": {
+        "en": "Active Duration",
+        "tr": "Active Duration",
+        "de": "Active Duration",
+        "fr": "Active Duration",
+        "es": "Active Duration",
+        "ar": "Active Duration"
+      }
     },
     {
       "id": "rest_duration",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 5,
-      "businessContext": "Duration of rest intervals in minutes"
+      "businessContext": "Duration of rest intervals in minutes",
+      "label_i18n": {
+        "en": "Rest Duration",
+        "tr": "Rest Duration",
+        "de": "Rest Duration",
+        "fr": "Rest Duration",
+        "es": "Rest Duration",
+        "ar": "Rest Duration"
+      }
     },
     {
       "id": "met",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "MET",
       "default": 7,
-      "businessContext": "Metabolic Equivalent of Task for rowing intensity"
+      "businessContext": "Metabolic Equivalent of Task for rowing intensity",
+      "label_i18n": {
+        "en": "MET Value",
+        "tr": "MET Value",
+        "de": "MET Value",
+        "fr": "MET Value",
+        "es": "MET Value",
+        "ar": "MET Value"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
     "breakdown": [
       "calories_active",
       "calories_rest"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "total_calories"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -56,5 +93,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "havacilik",
   "profession": "Tasarım Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

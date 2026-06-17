@@ -87,21 +87,21 @@
     "item2_kg": "item2_tons * 907.18474",
     "item3_kg": "item3_tons * 907.18474",
     "item4_kg": "item4_tons * 907.18474",
-    "total_kg": "item1_kg + item2_kg + item3_kg + item4_kg",
-    "rounded_total": "Math.round(total_kg * Math.pow(10, precision)) / Math.pow(10, precision)",
-    "____item1_kg_toFixed_precision______kg_": "' + item1_kg.toFixed(precision) + ' kg'",
-    "____item2_kg_toFixed_precision______kg_": "' + item2_kg.toFixed(precision) + ' kg'",
-    "____item3_kg_toFixed_precision______kg_": "' + item3_kg.toFixed(precision) + ' kg'",
-    "____item4_kg_toFixed_precision______kg_": "' + item4_kg.toFixed(precision) + ' kg'"
+    "total_kg": "item1_kg + item2_kg + item3_kg + item4_kg"
   },
   "outputs": {
-    "primary": "rounded_total",
+    "primary": "total_kg",
     "breakdown": [
       "'Item 1: ' + item1_kg.toFixed(precision) + ' kg'",
       "'Item 2: ' + item2_kg.toFixed(precision) + ' kg'",
       "'Item 3: ' + item3_kg.toFixed(precision) + ' kg'",
       "'Item 4: ' + item4_kg.toFixed(precision) + ' kg'"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "rounded_total"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -111,5 +111,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

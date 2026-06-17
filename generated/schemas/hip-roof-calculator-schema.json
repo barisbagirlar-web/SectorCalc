@@ -84,20 +84,7 @@
   ],
   "formulas": {
     "roof_angle_rad": "roof_pitch * Math.PI / 180",
-    "rise": "building_width / 2 * Math.tan(roof_angle_rad)",
-    "common_rafter_length": "Math.sqrt((building_width / 2 + overhang) ** 2 + (rise + overhang * Math.tan(roof_angle_rad)) ** 2)",
-    "hip_rafter_length": "Math.sqrt((building_width / 2 + overhang) ** 2 + (building_length / 2 + overhang) ** 2 + (rise + overhang * Math.tan(roof_angle_rad)) ** 2)",
-    "jack_rafter_length": "common_rafter_length - ridge_beam_width / 2 * Math.tan(roof_angle_rad)",
-    "total_roof_area": "2 * (building_length + 2 * overhang) * common_rafter_length + 2 * (building_width + 2 * overhang) * common_rafter_length",
-    "number_of_common_rafters": "Math.ceil((building_length + 2 * overhang) / 0.6) + 1",
-    "number_of_hip_rafters": "4",
-    "number_of_jack_rafters": "2 * (Math.ceil((building_length + 2 * overhang) / 0.6) - 1)",
-    "Common_Rafter_Length": "Common Rafter Length",
-    "Hip_Rafter_Length": "Hip Rafter Length",
-    "Jack_Rafter_Length": "Jack Rafter Length",
-    "Number_of_Common_Rafters": "Number of Common Rafters",
-    "Number_of_Hip_Rafters": "Number of Hip Rafters",
-    "Number_of_Jack_Rafters": "Number of Jack Rafters"
+    "roof_angle_rad_aux": "roof_pitch * Math.PI / 180"
   },
   "outputs": {
     "primary": "roof_angle_rad",
@@ -108,7 +95,12 @@
       "Number of Common Rafters",
       "Number of Hip Rafters",
       "Number of Jack Rafters"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "number_of_jack_rafters"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -118,5 +110,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

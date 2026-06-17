@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m²/s",
       "default": 0.0001,
-      "businessContext": "Material property"
+      "businessContext": "Material property",
+      "label_i18n": {
+        "en": "Thermal Diffusivity (α)",
+        "tr": "Thermal Diffusivity (α)",
+        "de": "Thermal Diffusivity (α)",
+        "fr": "Thermal Diffusivity (α)",
+        "es": "Thermal Diffusivity (α)",
+        "ar": "Thermal Diffusivity (α)"
+      }
     },
     {
       "id": "length",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Domain size"
+      "businessContext": "Domain size",
+      "label_i18n": {
+        "en": "Rod Length (L)",
+        "tr": "Rod Length (L)",
+        "de": "Rod Length (L)",
+        "fr": "Rod Length (L)",
+        "es": "Rod Length (L)",
+        "ar": "Rod Length (L)"
+      }
     },
     {
       "id": "x",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.5,
-      "businessContext": "Measurement point"
+      "businessContext": "Measurement point",
+      "label_i18n": {
+        "en": "Position (x)",
+        "tr": "Position (x)",
+        "de": "Position (x)",
+        "fr": "Position (x)",
+        "es": "Position (x)",
+        "ar": "Position (x)"
+      }
     },
     {
       "id": "time",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "s",
       "default": 10,
-      "businessContext": "Elapsed time"
+      "businessContext": "Elapsed time",
+      "label_i18n": {
+        "en": "Time (t)",
+        "tr": "Time (t)",
+        "de": "Time (t)",
+        "fr": "Time (t)",
+        "es": "Time (t)",
+        "ar": "Time (t)"
+      }
     },
     {
       "id": "A1",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "K",
       "default": 100,
-      "businessContext": "First harmonic amplitude"
+      "businessContext": "First harmonic amplitude",
+      "label_i18n": {
+        "en": "Coefficient A1",
+        "tr": "Coefficient A1",
+        "de": "Coefficient A1",
+        "fr": "Coefficient A1",
+        "es": "Coefficient A1",
+        "ar": "Coefficient A1"
+      }
     },
     {
       "id": "A2",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "K",
       "default": 0,
-      "businessContext": "Second harmonic amplitude"
+      "businessContext": "Second harmonic amplitude",
+      "label_i18n": {
+        "en": "Coefficient A2",
+        "tr": "Coefficient A2",
+        "de": "Coefficient A2",
+        "fr": "Coefficient A2",
+        "es": "Coefficient A2",
+        "ar": "Coefficient A2"
+      }
     },
     {
       "id": "A3",
@@ -55,22 +103,33 @@
       "type": "number",
       "unit": "K",
       "default": 0,
-      "businessContext": "Third harmonic amplitude"
+      "businessContext": "Third harmonic amplitude",
+      "label_i18n": {
+        "en": "Coefficient A3",
+        "tr": "Coefficient A3",
+        "de": "Coefficient A3",
+        "fr": "Coefficient A3",
+        "es": "Coefficient A3",
+        "ar": "Coefficient A3"
+      }
     }
   ],
   "formulas": {
-    "temperature": "A1 * Math.exp(-alpha * (Math.PI / length)**2 * time) * Math.sin(Math.PI * x / length) + A2 * Math.exp(-alpha * (2*Math.PI / length)**2 * time) * Math.sin(2*Math.PI * x / length) + A3 * Math.exp(-alpha * (3*Math.PI / length)**2 * time) * Math.sin(3*Math.PI * x / length)",
-    "harmonic1": "A1 * Math.exp(-alpha * (Math.PI / length)**2 * time) * Math.sin(Math.PI * x / length)",
-    "harmonic2": "A2 * Math.exp(-alpha * (2*Math.PI / length)**2 * time) * Math.sin(2*Math.PI * x / length)",
-    "harmonic3": "A3 * Math.exp(-alpha * (3*Math.PI / length)**2 * time) * Math.sin(3*Math.PI * x / length)"
+    "result": "alpha + length + x",
+    "result_copy": "alpha + length + x"
   },
   "outputs": {
-    "primary": "temperature",
+    "primary": "result",
     "breakdown": [
       "harmonic1",
       "harmonic2",
       "harmonic3"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "harmonic3"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -80,5 +139,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

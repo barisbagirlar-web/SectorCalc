@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kcal",
       "default": 2000,
-      "businessContext": "Total daily caloric intake target for an individual or total batch energy content for a ketogenic product."
+      "businessContext": "Total daily caloric intake target for an individual or total batch energy content for a ketogenic product.",
+      "label_i18n": {
+        "en": "Total Daily Calories",
+        "tr": "Total Daily Calories",
+        "de": "Total Daily Calories",
+        "fr": "Total Daily Calories",
+        "es": "Total Daily Calories",
+        "ar": "Total Daily Calories"
+      }
     },
     {
       "id": "fatPercentage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 70,
-      "businessContext": "Percentage of total calories from fat. Standard ketogenic ratio is 70-75%."
+      "businessContext": "Percentage of total calories from fat. Standard ketogenic ratio is 70-75%.",
+      "label_i18n": {
+        "en": "Fat Percentage",
+        "tr": "Fat Percentage",
+        "de": "Fat Percentage",
+        "fr": "Fat Percentage",
+        "es": "Fat Percentage",
+        "ar": "Fat Percentage"
+      }
     },
     {
       "id": "proteinPercentage",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Percentage of total calories from protein. Standard ketogenic ratio is 20-25%."
+      "businessContext": "Percentage of total calories from protein. Standard ketogenic ratio is 20-25%.",
+      "label_i18n": {
+        "en": "Protein Percentage",
+        "tr": "Protein Percentage",
+        "de": "Protein Percentage",
+        "fr": "Protein Percentage",
+        "es": "Protein Percentage",
+        "ar": "Protein Percentage"
+      }
     },
     {
       "id": "carbPercentage",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Percentage of total calories from carbohydrates. Standard ketogenic ratio is 5-10%."
+      "businessContext": "Percentage of total calories from carbohydrates. Standard ketogenic ratio is 5-10%.",
+      "label_i18n": {
+        "en": "Carbohydrate Percentage",
+        "tr": "Carbohydrate Percentage",
+        "de": "Carbohydrate Percentage",
+        "fr": "Carbohydrate Percentage",
+        "es": "Carbohydrate Percentage",
+        "ar": "Carbohydrate Percentage"
+      }
     }
   ],
   "formulas": {
@@ -45,7 +77,12 @@
       "fatGrams",
       "proteinGrams",
       "carbGrams"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "carbGrams"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -55,5 +92,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

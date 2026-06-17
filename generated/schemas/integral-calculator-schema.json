@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "-",
       "default": 0,
-      "businessContext": "Polinomun x³ terimi katsayısı"
+      "businessContext": "Polinomun x³ terimi katsayısı",
+      "label_i18n": {
+        "en": "Kübik katsayı (a)",
+        "tr": "Kübik katsayı (a)",
+        "de": "Kübik katsayı (a)",
+        "fr": "Kübik katsayı (a)",
+        "es": "Kübik katsayı (a)",
+        "ar": "Kübik katsayı (a)"
+      }
     },
     {
       "id": "b",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "-",
       "default": 0,
-      "businessContext": "Polinomun x² terimi katsayısı"
+      "businessContext": "Polinomun x² terimi katsayısı",
+      "label_i18n": {
+        "en": "Kare katsayı (b)",
+        "tr": "Kare katsayı (b)",
+        "de": "Kare katsayı (b)",
+        "fr": "Kare katsayı (b)",
+        "es": "Kare katsayı (b)",
+        "ar": "Kare katsayı (b)"
+      }
     },
     {
       "id": "c",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "-",
       "default": 1,
-      "businessContext": "Polinomun x terimi katsayısı"
+      "businessContext": "Polinomun x terimi katsayısı",
+      "label_i18n": {
+        "en": "Doğrusal katsayı (c)",
+        "tr": "Doğrusal katsayı (c)",
+        "de": "Doğrusal katsayı (c)",
+        "fr": "Doğrusal katsayı (c)",
+        "es": "Doğrusal katsayı (c)",
+        "ar": "Doğrusal katsayı (c)"
+      }
     },
     {
       "id": "d",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "-",
       "default": 0,
-      "businessContext": "Polinomun sabit terimi"
+      "businessContext": "Polinomun sabit terimi",
+      "label_i18n": {
+        "en": "Sabit terim (d)",
+        "tr": "Sabit terim (d)",
+        "de": "Sabit terim (d)",
+        "fr": "Sabit terim (d)",
+        "es": "Sabit terim (d)",
+        "ar": "Sabit terim (d)"
+      }
     },
     {
       "id": "x1",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "-",
       "default": 0,
-      "businessContext": "İntegral alt sınırı"
+      "businessContext": "İntegral alt sınırı",
+      "label_i18n": {
+        "en": "Alt sınır (x₁)",
+        "tr": "Alt sınır (x₁)",
+        "de": "Alt sınır (x₁)",
+        "fr": "Alt sınır (x₁)",
+        "es": "Alt sınır (x₁)",
+        "ar": "Alt sınır (x₁)"
+      }
     },
     {
       "id": "x2",
@@ -47,20 +87,32 @@
       "type": "number",
       "unit": "-",
       "default": 1,
-      "businessContext": "İntegral üst sınırı"
+      "businessContext": "İntegral üst sınırı",
+      "label_i18n": {
+        "en": "Üst sınır (x₂)",
+        "tr": "Üst sınır (x₂)",
+        "de": "Üst sınır (x₂)",
+        "fr": "Üst sınır (x₂)",
+        "es": "Üst sınır (x₂)",
+        "ar": "Üst sınır (x₂)"
+      }
     }
   ],
   "formulas": {
-    "F_x2": "(a/4)*Math.pow(x2,4) + (b/3)*Math.pow(x2,3) + (c/2)*Math.pow(x2,2) + d*x2",
-    "F_x1": "(a/4)*Math.pow(x1,4) + (b/3)*Math.pow(x1,3) + (c/2)*Math.pow(x1,2) + d*x1",
-    "integral": "(a/4)*(Math.pow(x2,4)-Math.pow(x1,4)) + (b/3)*(Math.pow(x2,3)-Math.pow(x1,3)) + (c/2)*(Math.pow(x2,2)-Math.pow(x1,2)) + d*(x2-x1)"
+    "result": "a + b + c",
+    "result_copy": "a + b + c"
   },
   "outputs": {
-    "primary": "integral",
+    "primary": "result",
     "breakdown": [
       "F(x₂)",
       "F(x₁)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "integral"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -70,5 +122,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Toplam kullanılan hammadde miktarı"
+      "businessContext": "Toplam kullanılan hammadde miktarı",
+      "label_i18n": {
+        "en": "Toplam Malzeme (kg)",
+        "tr": "Toplam Malzeme (kg)",
+        "de": "Toplam Malzeme (kg)",
+        "fr": "Toplam Malzeme (kg)",
+        "es": "Toplam Malzeme (kg)",
+        "ar": "Toplam Malzeme (kg)"
+      }
     },
     {
       "id": "goodParts",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 800,
-      "businessContext": "Üretilen hatasız parça sayısı"
+      "businessContext": "Üretilen hatasız parça sayısı",
+      "label_i18n": {
+        "en": "Sağlam Parça Sayısı",
+        "tr": "Sağlam Parça Sayısı",
+        "de": "Sağlam Parça Sayısı",
+        "fr": "Sağlam Parça Sayısı",
+        "es": "Sağlam Parça Sayısı",
+        "ar": "Sağlam Parça Sayısı"
+      }
     },
     {
       "id": "unitWeight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "Her bir parçanın net ağırlığı"
+      "businessContext": "Her bir parçanın net ağırlığı",
+      "label_i18n": {
+        "en": "Parça Başı Net Ağırlık (kg)",
+        "tr": "Parça Başı Net Ağırlık (kg)",
+        "de": "Parça Başı Net Ağırlık (kg)",
+        "fr": "Parça Başı Net Ağırlık (kg)",
+        "es": "Parça Başı Net Ağırlık (kg)",
+        "ar": "Parça Başı Net Ağırlık (kg)"
+      }
     },
     {
       "id": "scrap",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 150,
-      "businessContext": "Üretimde oluşan hurda ağırlığı"
+      "businessContext": "Üretimde oluşan hurda ağırlığı",
+      "label_i18n": {
+        "en": "Hurda Miktarı (kg)",
+        "tr": "Hurda Miktarı (kg)",
+        "de": "Hurda Miktarı (kg)",
+        "fr": "Hurda Miktarı (kg)",
+        "es": "Hurda Miktarı (kg)",
+        "ar": "Hurda Miktarı (kg)"
+      }
     },
     {
       "id": "rework",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "adet",
       "default": 50,
-      "businessContext": "Düzeltme gerektiren parça sayısı"
+      "businessContext": "Düzeltme gerektiren parça sayısı",
+      "label_i18n": {
+        "en": "Yeniden İşlenen Parça Sayısı",
+        "tr": "Yeniden İşlenen Parça Sayısı",
+        "de": "Yeniden İşlenen Parça Sayısı",
+        "fr": "Yeniden İşlenen Parça Sayısı",
+        "es": "Yeniden İşlenen Parça Sayısı",
+        "ar": "Yeniden İşlenen Parça Sayısı"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "scrapRate",
       "reworkRate"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "reworkRate"
   },
   "category": "İmalat & Üretim",
   "sector": "Üretim & İmalat",
@@ -62,5 +107,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

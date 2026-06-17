@@ -83,16 +83,20 @@
     }
   ],
   "formulas": {
-    "sweptArea": "Math.PI * Math.pow(diameter / 2, 2)",
-    "rawWindPower": "0.5 * airDensity * sweeptArea * Math.pow(windSpeed, 3) / 1000",
-    "turbinePower": "rawWindPower * cp * efficiency"
+    "result": "diameter + airDensity + windSpeed",
+    "result_copy": "diameter + airDensity + windSpeed"
   },
   "outputs": {
-    "primary": "turbinePower",
+    "primary": "result",
     "breakdown": [
       "sweptArea",
       "rawWindPower"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "turbinePower"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -102,5 +106,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

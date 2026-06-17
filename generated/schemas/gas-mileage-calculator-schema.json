@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "miles",
       "default": 0,
-      "businessContext": "Initial odometer reading before trip"
+      "businessContext": "Initial odometer reading before trip",
+      "label_i18n": {
+        "en": "Start Odometer",
+        "tr": "Start Odometer",
+        "de": "Start Odometer",
+        "fr": "Start Odometer",
+        "es": "Start Odometer",
+        "ar": "Start Odometer"
+      }
     },
     {
       "id": "endOdometer",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "miles",
       "default": 0,
-      "businessContext": "Final odometer reading after trip"
+      "businessContext": "Final odometer reading after trip",
+      "label_i18n": {
+        "en": "End Odometer",
+        "tr": "End Odometer",
+        "de": "End Odometer",
+        "fr": "End Odometer",
+        "es": "End Odometer",
+        "ar": "End Odometer"
+      }
     },
     {
       "id": "fuelGallons",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "gallons",
       "default": 0,
-      "businessContext": "Volume of fuel consumed during trip"
+      "businessContext": "Volume of fuel consumed during trip",
+      "label_i18n": {
+        "en": "Fuel Used",
+        "tr": "Fuel Used",
+        "de": "Fuel Used",
+        "fr": "Fuel Used",
+        "es": "Fuel Used",
+        "ar": "Fuel Used"
+      }
     },
     {
       "id": "fuelPricePerGallon",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD/gallon",
       "default": 0,
-      "businessContext": "Price of fuel per gallon for cost calculation"
+      "businessContext": "Price of fuel per gallon for cost calculation",
+      "label_i18n": {
+        "en": "Fuel Price",
+        "tr": "Fuel Price",
+        "de": "Fuel Price",
+        "fr": "Fuel Price",
+        "es": "Fuel Price",
+        "ar": "Fuel Price"
+      }
     }
   ],
   "formulas": {
@@ -47,7 +79,12 @@
       "costPerMile",
       "totalDistance",
       "fuelCostTotal"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "fuelCostTotal"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -57,5 +94,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

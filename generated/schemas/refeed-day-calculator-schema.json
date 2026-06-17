@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "units/day",
       "default": 1000,
-      "businessContext": "Daily number of good units produced"
+      "businessContext": "Daily number of good units produced",
+      "label_i18n": {
+        "en": "Production Rate",
+        "tr": "Production Rate",
+        "de": "Production Rate",
+        "fr": "Production Rate",
+        "es": "Production Rate",
+        "ar": "Production Rate"
+      }
     },
     {
       "id": "scrapRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Scrap generated as percentage of good output"
+      "businessContext": "Scrap generated as percentage of good output",
+      "label_i18n": {
+        "en": "Scrap Rate",
+        "tr": "Scrap Rate",
+        "de": "Scrap Rate",
+        "fr": "Scrap Rate",
+        "es": "Scrap Rate",
+        "ar": "Scrap Rate"
+      }
     },
     {
       "id": "refeedTargetRatio",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Target percentage of total input material from refeed"
+      "businessContext": "Target percentage of total input material from refeed",
+      "label_i18n": {
+        "en": "Refeed Target Ratio",
+        "tr": "Refeed Target Ratio",
+        "de": "Refeed Target Ratio",
+        "fr": "Refeed Target Ratio",
+        "es": "Refeed Target Ratio",
+        "ar": "Refeed Target Ratio"
+      }
     },
     {
       "id": "refeedMaterialAvailability",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "units",
       "default": 500,
-      "businessContext": "Total refeed material available in inventory"
+      "businessContext": "Total refeed material available in inventory",
+      "label_i18n": {
+        "en": "Refeed Material Availability",
+        "tr": "Refeed Material Availability",
+        "de": "Refeed Material Availability",
+        "fr": "Refeed Material Availability",
+        "es": "Refeed Material Availability",
+        "ar": "Refeed Material Availability"
+      }
     },
     {
       "id": "maxRefeedCapacity",
@@ -39,25 +71,35 @@
       "type": "number",
       "unit": "units/day",
       "default": 0,
-      "businessContext": "Maximum refeed processing capacity per day (0 for unlimited)"
+      "businessContext": "Maximum refeed processing capacity per day (0 for unlimited)",
+      "label_i18n": {
+        "en": "Max Refeed Capacity",
+        "tr": "Max Refeed Capacity",
+        "de": "Max Refeed Capacity",
+        "fr": "Max Refeed Capacity",
+        "es": "Max Refeed Capacity",
+        "ar": "Max Refeed Capacity"
+      }
     }
   ],
   "formulas": {
     "scrapPerDay": "productionRate * (scrapRate / 100)",
     "totalInputPerDay": "productionRate + scrapPerDay",
-    "dailyRefeedTarget": "totalInputPerDay * (refeedTargetRatio / 100)",
-    "actualDailyRefeed": "maxRefeedCapacity > 0 ? Math.min(dailyRefeedTarget, maxRefeedCapacity) : dailyRefeedTarget",
-    "daysOfRefeed": "Math.floor(refeedMaterialAvailability / actualDailyRefeed)",
-    "refeedRatioAchieved": "actualDailyRefeed / totalInputPerDay * 100"
+    "dailyRefeedTarget": "totalInputPerDay * (refeedTargetRatio / 100)"
   },
   "outputs": {
-    "primary": "daysOfRefeed",
+    "primary": "dailyRefeedTarget",
     "breakdown": [
       "actualDailyRefeed",
       "totalInputPerDay",
       "scrapPerDay",
       "refeedRatioAchieved"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "refeedRatioAchieved"
   },
   "category": "Gıda & Tarım",
   "sector": "Perakende & Gıda",
@@ -67,5 +109,10 @@
   "categorySlug": "food-cold-chain-hygiene",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "logistics"
+  "categoryId": "logistics",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 1000000,
-      "businessContext": "The company's operating profit before interest and tax expenses."
+      "businessContext": "The company's operating profit before interest and tax expenses.",
+      "label_i18n": {
+        "en": "EBIT (Earnings Before Interest and Taxes)",
+        "tr": "EBIT (Earnings Before Interest and Taxes)",
+        "de": "EBIT (Earnings Before Interest and Taxes)",
+        "fr": "EBIT (Earnings Before Interest and Taxes)",
+        "es": "EBIT (Earnings Before Interest and Taxes)",
+        "ar": "EBIT (Earnings Before Interest and Taxes)"
+      }
     },
     {
       "id": "taxRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 30,
-      "businessContext": "Effective corporate tax rate as a percentage (e.g., 30 for 30%)."
+      "businessContext": "Effective corporate tax rate as a percentage (e.g., 30 for 30%).",
+      "label_i18n": {
+        "en": "Tax Rate",
+        "tr": "Tax Rate",
+        "de": "Tax Rate",
+        "fr": "Tax Rate",
+        "es": "Tax Rate",
+        "ar": "Tax Rate"
+      }
     },
     {
       "id": "depreciation",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 100000,
-      "businessContext": "Non-cash expenses from depreciation and amortization of assets."
+      "businessContext": "Non-cash expenses from depreciation and amortization of assets.",
+      "label_i18n": {
+        "en": "Depreciation & Amortization",
+        "tr": "Depreciation & Amortization",
+        "de": "Depreciation & Amortization",
+        "fr": "Depreciation & Amortization",
+        "es": "Depreciation & Amortization",
+        "ar": "Depreciation & Amortization"
+      }
     },
     {
       "id": "capex",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency",
       "default": 200000,
-      "businessContext": "Cash spent on acquiring or maintaining fixed assets (CapEx)."
+      "businessContext": "Cash spent on acquiring or maintaining fixed assets (CapEx).",
+      "label_i18n": {
+        "en": "Capital Expenditures",
+        "tr": "Capital Expenditures",
+        "de": "Capital Expenditures",
+        "fr": "Capital Expenditures",
+        "es": "Capital Expenditures",
+        "ar": "Capital Expenditures"
+      }
     },
     {
       "id": "changeNWC",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency",
       "default": 50000,
-      "businessContext": "Increase in net working capital (current assets minus current liabilities) that consumes cash."
+      "businessContext": "Increase in net working capital (current assets minus current liabilities) that consumes cash.",
+      "label_i18n": {
+        "en": "Change in Net Working Capital",
+        "tr": "Change in Net Working Capital",
+        "de": "Change in Net Working Capital",
+        "fr": "Change in Net Working Capital",
+        "es": "Change in Net Working Capital",
+        "ar": "Change in Net Working Capital"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "operatingCashFlow",
       "capitalInvestments"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "capitalInvestments"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -62,5 +107,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -142,59 +142,6 @@
       "businessContext_i18n": {
         "en": "Average ambient temperature at compressor location."
       }
-    },
-    {
-      "id": "altitude",
-      "label": "Altitude Above Sea Level",
-      "type": "number",
-      "unit": "ft",
-      "default": 0,
-      "min": 0,
-      "max": 10000,
-      "businessContext": "Site elevation for air density correction.",
-      "label_i18n": {
-        "en": "Altitude Above Sea Level"
-      },
-      "businessContext_i18n": {
-        "en": "Site elevation for air density correction."
-      }
-    },
-    {
-      "id": "systemLeakagePercent",
-      "label": "System Leakage Estimate",
-      "type": "number",
-      "unit": "%",
-      "default": 10,
-      "min": 0,
-      "max": 50,
-      "businessContext": "Estimated percentage of compressed air lost to leaks.",
-      "label_i18n": {
-        "en": "System Leakage Estimate"
-      },
-      "businessContext_i18n": {
-        "en": "Estimated percentage of compressed air lost to leaks."
-      }
-    },
-    {
-      "id": "applicationType",
-      "label": "Application Type",
-      "type": "select",
-      "options": [
-        "General Manufacturing",
-        "Pneumatic Tools",
-        "Instrument Air",
-        "Process Air",
-        "HVAC Control"
-      ],
-      "default": "General Manufacturing",
-      "businessContext": "Primary use case, influences safety factor.",
-      "label_i18n": {
-        "en": "Application Type"
-      },
-      "businessContext_i18n": {
-        "en": "Primary use case, influences safety factor."
-      },
-      "unit": "unit"
     }
   ],
   "validation": {
@@ -247,18 +194,18 @@
       }
     ]
   },
-  "formulas": [
-    "compressorFlowRate",
-    "compressorFlowRate",
-    "compressorFlowRate",
-    "compressorFlowRate",
-    "compressorFlowRate",
-    "compressorFlowRate",
-    "compressorFlowRate"
-  ],
+  "formulas": {
+    "result": "compressorFlowRate + demandFlowRate + peakDemandFlowRate",
+    "result_copy": "compressorFlowRate + demandFlowRate + peakDemandFlowRate"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

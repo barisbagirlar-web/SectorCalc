@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "GB",
       "default": 1,
-      "businessContext": "Size of the file to download, in gigabytes (GB)."
+      "businessContext": "Size of the file to download, in gigabytes (GB).",
+      "label_i18n": {
+        "en": "File Size",
+        "tr": "File Size",
+        "de": "File Size",
+        "fr": "File Size",
+        "es": "File Size",
+        "ar": "File Size"
+      }
     },
     {
       "id": "downloadSpeed",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Mbps",
       "default": 50,
-      "businessContext": "Nominal download speed of the internet connection, in megabits per second (Mbps)."
+      "businessContext": "Nominal download speed of the internet connection, in megabits per second (Mbps).",
+      "label_i18n": {
+        "en": "Download Speed",
+        "tr": "Download Speed",
+        "de": "Download Speed",
+        "fr": "Download Speed",
+        "es": "Download Speed",
+        "ar": "Download Speed"
+      }
     },
     {
       "id": "overheadPercentage",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Percentage of bandwidth lost due to network protocol overhead (e.g., TCP/IP)."
+      "businessContext": "Percentage of bandwidth lost due to network protocol overhead (e.g., TCP/IP).",
+      "label_i18n": {
+        "en": "Protocol Overhead",
+        "tr": "Protocol Overhead",
+        "de": "Protocol Overhead",
+        "fr": "Protocol Overhead",
+        "es": "Protocol Overhead",
+        "ar": "Protocol Overhead"
+      }
     },
     {
       "id": "parallelConnections",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "connections",
       "default": 1,
-      "businessContext": "Number of simultaneous download connections (assumes linear speed scaling)."
+      "businessContext": "Number of simultaneous download connections (assumes linear speed scaling).",
+      "label_i18n": {
+        "en": "Parallel Connections",
+        "tr": "Parallel Connections",
+        "de": "Parallel Connections",
+        "fr": "Parallel Connections",
+        "es": "Parallel Connections",
+        "ar": "Parallel Connections"
+      }
     }
   ],
   "formulas": {
@@ -47,7 +79,12 @@
       "downloadTimeSeconds",
       "downloadTimeMinutes",
       "downloadTimeHours"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "downloadTimeHours"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -57,5 +94,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

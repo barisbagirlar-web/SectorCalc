@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "THz",
       "default": 0,
-      "businessContext": "Girilen foton frekansı, terahertz cinsinden"
+      "businessContext": "Girilen foton frekansı, terahertz cinsinden",
+      "label_i18n": {
+        "en": "Frekans (THz)",
+        "tr": "Frekans (THz)",
+        "de": "Frekans (THz)",
+        "fr": "Frekans (THz)",
+        "es": "Frekans (THz)",
+        "ar": "Frekans (THz)"
+      }
     },
     {
       "id": "wave",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "nm",
       "default": 0,
-      "businessContext": "Girilen foton dalga boyu, nanometre cinsinden"
+      "businessContext": "Girilen foton dalga boyu, nanometre cinsinden",
+      "label_i18n": {
+        "en": "Dalga Boyu (nm)",
+        "tr": "Dalga Boyu (nm)",
+        "de": "Dalga Boyu (nm)",
+        "fr": "Dalga Boyu (nm)",
+        "es": "Dalga Boyu (nm)",
+        "ar": "Dalga Boyu (nm)"
+      }
     },
     {
       "id": "h",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "10⁻³⁴ J·s",
       "default": 6.62607015,
-      "businessContext": "Planck sabiti, evrensel fiziksel sabit"
+      "businessContext": "Planck sabiti, evrensel fiziksel sabit",
+      "label_i18n": {
+        "en": "Planck Sabiti (×10⁻³⁴ J·s)",
+        "tr": "Planck Sabiti (×10⁻³⁴ J·s)",
+        "de": "Planck Sabiti (×10⁻³⁴ J·s)",
+        "fr": "Planck Sabiti (×10⁻³⁴ J·s)",
+        "es": "Planck Sabiti (×10⁻³⁴ J·s)",
+        "ar": "Planck Sabiti (×10⁻³⁴ J·s)"
+      }
     },
     {
       "id": "c",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "10⁸ m/s",
       "default": 2.99792458,
-      "businessContext": "Vakum ışık hızı, standart değer"
+      "businessContext": "Vakum ışık hızı, standart değer",
+      "label_i18n": {
+        "en": "Işık Hızı (×10⁸ m/s)",
+        "tr": "Işık Hızı (×10⁸ m/s)",
+        "de": "Işık Hızı (×10⁸ m/s)",
+        "fr": "Işık Hızı (×10⁸ m/s)",
+        "es": "Işık Hızı (×10⁸ m/s)",
+        "ar": "Işık Hızı (×10⁸ m/s)"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "energy_J",
       "freq_hz",
       "wave_m"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "wave_m"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -56,5 +93,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

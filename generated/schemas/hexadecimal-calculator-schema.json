@@ -68,16 +68,19 @@
   ],
   "formulas": {
     "decimalResult": "operation === 1 ? operandA + operandB : operation === 2 ? operandA - operandB : operation === 3 ? operandA * operandB : operation === 4 ? (operandB !== 0 ? operandA / operandB : 'Error: Division by zero') : 'Error: Invalid operation'",
-    "roundedResult": "typeof decimalResult === 'number' ? parseFloat(decimalResult.toFixed(precision)) : decimalResult",
-    "hexResult": "typeof roundedResult === 'number' ? roundedResult.toString(16).toUpperCase() : roundedResult",
-    "operationName": "operation === 1 ? 'Addition' : operation === 2 ? 'Subtraction' : operation === 3 ? 'Multiplication' : operation === 4 ? 'Division' : 'Unknown'"
+    "decimalResult_aux": "operation === 1 ? operandA + operandB : operation === 2 ? operandA - operandB : operation === 3 ? operandA * operandB : operation === 4 ? (operandB !== 0 ? operandA / operandB : 'Error: Division by zero') : 'Error: Invalid operation'"
   },
   "outputs": {
-    "primary": "hexResult",
+    "primary": "decimalResult_aux",
     "breakdown": [
       "roundedResult",
       "operationName"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "operationName"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -87,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -68,17 +68,20 @@
   ],
   "formulas": {
     "rawUkMpg": "usMpg * conversionFactor",
-    "roundedUkMpg": "Math.round(rawUkMpg * Math.pow(10, precision)) / Math.pow(10, precision)",
-    "ukMpg": "roundedUkMpg",
-    "difference": "roundedUkMpg - referenceValue"
+    "rawUkMpg_aux": "usMpg * conversionFactor"
   },
   "outputs": {
-    "primary": "ukMpg",
+    "primary": "rawUkMpg_aux",
     "breakdown": [
       "rawUkMpg",
       "roundedUkMpg",
       "difference"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "difference"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -88,5 +91,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

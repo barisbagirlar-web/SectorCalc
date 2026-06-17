@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Odanın uzunluğu (metre cinsinden). Ör: 5"
+      "businessContext": "Odanın uzunluğu (metre cinsinden). Ör: 5",
+      "label_i18n": {
+        "en": "Oda Uzunluğu",
+        "tr": "Oda Uzunluğu",
+        "de": "Oda Uzunluğu",
+        "fr": "Oda Uzunluğu",
+        "es": "Oda Uzunluğu",
+        "ar": "Oda Uzunluğu"
+      }
     },
     {
       "id": "roomWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 4,
-      "businessContext": "Odanın genişliği (metre cinsinden). Ör: 4"
+      "businessContext": "Odanın genişliği (metre cinsinden). Ör: 4",
+      "label_i18n": {
+        "en": "Oda Genişliği",
+        "tr": "Oda Genişliği",
+        "de": "Oda Genişliği",
+        "fr": "Oda Genişliği",
+        "es": "Oda Genişliği",
+        "ar": "Oda Genişliği"
+      }
     },
     {
       "id": "roomHeight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 2.5,
-      "businessContext": "Duvar yüksekliği (metre cinsinden). Ör: 2.5"
+      "businessContext": "Duvar yüksekliği (metre cinsinden). Ör: 2.5",
+      "label_i18n": {
+        "en": "Oda Yüksekliği",
+        "tr": "Oda Yüksekliği",
+        "de": "Oda Yüksekliği",
+        "fr": "Oda Yüksekliği",
+        "es": "Oda Yüksekliği",
+        "ar": "Oda Yüksekliği"
+      }
     },
     {
       "id": "numberOfDoors",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Açıklık çıkarılacak kapı sayısı (her kapı 2 m²). Ör: 1"
+      "businessContext": "Açıklık çıkarılacak kapı sayısı (her kapı 2 m²). Ör: 1",
+      "label_i18n": {
+        "en": "Kapı Sayısı",
+        "tr": "Kapı Sayısı",
+        "de": "Kapı Sayısı",
+        "fr": "Kapı Sayısı",
+        "es": "Kapı Sayısı",
+        "ar": "Kapı Sayısı"
+      }
     },
     {
       "id": "numberOfWindows",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "adet",
       "default": 2,
-      "businessContext": "Açıklık çıkarılacak pencere sayısı (her pencere 1.5 m²). Ör: 2"
+      "businessContext": "Açıklık çıkarılacak pencere sayısı (her pencere 1.5 m²). Ör: 2",
+      "label_i18n": {
+        "en": "Pencere Sayısı",
+        "tr": "Pencere Sayısı",
+        "de": "Pencere Sayısı",
+        "fr": "Pencere Sayısı",
+        "es": "Pencere Sayısı",
+        "ar": "Pencere Sayısı"
+      }
     },
     {
       "id": "panelArea",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "m²",
       "default": 2.88,
-      "businessContext": "Tek bir alçıpan levhanın alanı (m²). Standart 1.2x2.4m = 2.88 m². Ör: 2.88"
+      "businessContext": "Tek bir alçıpan levhanın alanı (m²). Standart 1.2x2.4m = 2.88 m². Ör: 2.88",
+      "label_i18n": {
+        "en": "Alçıpan Alanı",
+        "tr": "Alçıpan Alanı",
+        "de": "Alçıpan Alanı",
+        "fr": "Alçıpan Alanı",
+        "es": "Alçıpan Alanı",
+        "ar": "Alçıpan Alanı"
+      }
     },
     {
       "id": "wasteFactor",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Kesim ve kayıp için eklenecek yüzde. Ör: 10"
+      "businessContext": "Kesim ve kayıp için eklenecek yüzde. Ör: 10",
+      "label_i18n": {
+        "en": "Fire Oranı",
+        "tr": "Fire Oranı",
+        "de": "Fire Oranı",
+        "fr": "Fire Oranı",
+        "es": "Fire Oranı",
+        "ar": "Fire Oranı"
+      }
     }
   ],
   "formulas": {
@@ -63,18 +119,21 @@
     "totalOpenings": "numberOfDoors * 2 + numberOfWindows * 1.5",
     "netArea": "totalWallArea - totalOpenings",
     "totalAreaWithWaste": "netArea * (1 + wasteFactor / 100)",
-    "totalPanels": "Math.ceil(totalAreaWithWaste / panelArea)",
     "compound_kg": "totalAreaWithWaste * 0.4",
-    "tape_m": "totalAreaWithWaste * 1.5",
-    "screws": "Math.ceil(totalAreaWithWaste * 15)"
+    "tape_m": "totalAreaWithWaste * 1.5"
   },
   "outputs": {
-    "primary": "totalPanels",
+    "primary": "tape_m",
     "breakdown": [
       "compound_kg",
       "tape_m",
       "screws"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "screws"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -84,5 +143,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

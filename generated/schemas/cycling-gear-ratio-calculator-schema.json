@@ -71,21 +71,21 @@
     "gearInches": "(chainringTeeth / cassetteTeeth) * (wheelDiameter / 25.4)",
     "development": "(Math.PI * wheelDiameter / 1000) * (chainringTeeth / cassetteTeeth)",
     "speedKmh": "(Math.PI * wheelDiameter * chainringTeeth * cadence * 60) / (cassetteTeeth * 1000000)",
-    "speedMph": "(chainringTeeth / cassetteTeeth) * (wheelDiameter / 25.4) * Math.PI * cadence * 60 / 63360",
-    "Gear_Ratio": "Gear Ratio",
-    "Gear_Inches": "Gear Inches",
-    "Development__m_": "Development (m)",
-    "Speed__mph_": "Speed (mph)",
-    "result": "Speed (km/h)"
+    "speedMph": "(chainringTeeth / cassetteTeeth) * (wheelDiameter / 25.4) * Math.PI * cadence * 60 / 63360"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "speedMph",
     "breakdown": [
       "Gear Ratio",
       "Gear Inches",
       "Development (m)",
       "Speed (mph)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -95,5 +95,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

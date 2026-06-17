@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100,
-      "businessContext": "Cost per credit hour"
+      "businessContext": "Cost per credit hour",
+      "label_i18n": {
+        "en": "Tuition per Credit",
+        "tr": "Tuition per Credit",
+        "de": "Tuition per Credit",
+        "fr": "Tuition per Credit",
+        "es": "Tuition per Credit",
+        "ar": "Tuition per Credit"
+      }
     },
     {
       "id": "numberOfCredits",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "credits",
       "default": 15,
-      "businessContext": "Total credit hours enrolled"
+      "businessContext": "Total credit hours enrolled",
+      "label_i18n": {
+        "en": "Number of Credits",
+        "tr": "Number of Credits",
+        "de": "Number of Credits",
+        "fr": "Number of Credits",
+        "es": "Number of Credits",
+        "ar": "Number of Credits"
+      }
     },
     {
       "id": "additionalFees",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Extra fees like lab, technology, etc."
+      "businessContext": "Extra fees like lab, technology, etc.",
+      "label_i18n": {
+        "en": "Additional Fees",
+        "tr": "Additional Fees",
+        "de": "Additional Fees",
+        "fr": "Additional Fees",
+        "es": "Additional Fees",
+        "ar": "Additional Fees"
+      }
     },
     {
       "id": "discountPercent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Percentage discount on subtotal"
+      "businessContext": "Percentage discount on subtotal",
+      "label_i18n": {
+        "en": "Discount Percentage",
+        "tr": "Discount Percentage",
+        "de": "Discount Percentage",
+        "fr": "Discount Percentage",
+        "es": "Discount Percentage",
+        "ar": "Discount Percentage"
+      }
     },
     {
       "id": "taxRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Tax rate applied after discount"
+      "businessContext": "Tax rate applied after discount",
+      "label_i18n": {
+        "en": "Tax Rate",
+        "tr": "Tax Rate",
+        "de": "Tax Rate",
+        "fr": "Tax Rate",
+        "es": "Tax Rate",
+        "ar": "Tax Rate"
+      }
     },
     {
       "id": "scholarship",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Scholarship amount to deduct"
+      "businessContext": "Scholarship amount to deduct",
+      "label_i18n": {
+        "en": "Scholarship",
+        "tr": "Scholarship",
+        "de": "Scholarship",
+        "fr": "Scholarship",
+        "es": "Scholarship",
+        "ar": "Scholarship"
+      }
     }
   ],
   "formulas": {
@@ -68,7 +116,12 @@
       "totalBeforeScholarship",
       "scholarship",
       "totalTuition"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalTuition"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -78,5 +131,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

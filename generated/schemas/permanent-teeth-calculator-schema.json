@@ -68,14 +68,19 @@
   ],
   "formulas": {
     "expectedTeeth": "(wisdomOverride == 1) ? 32 : ( (age < 6) ? 0 : ((age <= 12) ? (age - 6) / 6 * 28 : ((age <= 21) ? 28 + (age - 12) / 9 * 4 : 32) ) )",
-    "presentTeeth": "Math.max(0, expectedTeeth - extracted - missing)"
+    "expectedTeeth_aux": "(wisdomOverride == 1) ? 32 : ( (age < 6) ? 0 : ((age <= 12) ? (age - 6) / 6 * 28 : ((age <= 21) ? 28 + (age - 12) / 9 * 4 : 32) ) )"
   },
   "outputs": {
-    "primary": "presentTeeth",
+    "primary": "expectedTeeth_aux",
     "breakdown": [
       "expectedTeeth",
       "presentTeeth"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "presentTeeth"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -85,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

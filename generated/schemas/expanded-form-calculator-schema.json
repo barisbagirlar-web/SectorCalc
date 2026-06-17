@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 0,
-      "businessContext": "Direct labor cost in EUR"
+      "businessContext": "Direct labor cost in EUR",
+      "label_i18n": {
+        "en": "Labor Cost",
+        "tr": "Labor Cost",
+        "de": "Labor Cost",
+        "fr": "Labor Cost",
+        "es": "Labor Cost",
+        "ar": "Labor Cost"
+      }
     },
     {
       "id": "material",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 0,
-      "businessContext": "Direct material cost in EUR"
+      "businessContext": "Direct material cost in EUR",
+      "label_i18n": {
+        "en": "Material Cost",
+        "tr": "Material Cost",
+        "de": "Material Cost",
+        "fr": "Material Cost",
+        "es": "Material Cost",
+        "ar": "Material Cost"
+      }
     },
     {
       "id": "overhead",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 0,
-      "businessContext": "Overhead cost allocated to the product"
+      "businessContext": "Overhead cost allocated to the product",
+      "label_i18n": {
+        "en": "Overhead Cost",
+        "tr": "Overhead Cost",
+        "de": "Overhead Cost",
+        "fr": "Overhead Cost",
+        "es": "Overhead Cost",
+        "ar": "Overhead Cost"
+      }
     },
     {
       "id": "discountPercent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Discount given on subtotal as percentage"
+      "businessContext": "Discount given on subtotal as percentage",
+      "label_i18n": {
+        "en": "Discount Percentage",
+        "tr": "Discount Percentage",
+        "de": "Discount Percentage",
+        "fr": "Discount Percentage",
+        "es": "Discount Percentage",
+        "ar": "Discount Percentage"
+      }
     },
     {
       "id": "profitMargin",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Desired profit margin as percentage of cost after discount"
+      "businessContext": "Desired profit margin as percentage of cost after discount",
+      "label_i18n": {
+        "en": "Profit Margin",
+        "tr": "Profit Margin",
+        "de": "Profit Margin",
+        "fr": "Profit Margin",
+        "es": "Profit Margin",
+        "ar": "Profit Margin"
+      }
     },
     {
       "id": "taxRate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 18,
-      "businessContext": "Tax rate applied to taxable amount"
+      "businessContext": "Tax rate applied to taxable amount",
+      "label_i18n": {
+        "en": "Tax Rate",
+        "tr": "Tax Rate",
+        "de": "Tax Rate",
+        "fr": "Tax Rate",
+        "es": "Tax Rate",
+        "ar": "Tax Rate"
+      }
     }
   ],
   "formulas": {
@@ -69,7 +117,12 @@
       "Taxable Amount",
       "Tax",
       "Total"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "total"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -79,5 +132,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

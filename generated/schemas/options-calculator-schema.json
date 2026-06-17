@@ -99,19 +99,11 @@
     }
   ],
   "formulas": {
-    "normCDF": "function(x){ var a=[0.254829592,-0.284496736,1.421413741,-1.453152027,1.061405429],p=0.3275911,sign=x<0?-1:1; x=Math.abs(x)/Math.sqrt(2); var t=1/(1+p*x); var y=1-((((a[4]*t+a[3])*t+a[2])*t+a[1])*t+a[0])*t*Math.exp(-x*x); return 0.5*(1+sign*y); }",
     "r_dec": "r / 100",
-    "sigma_dec": "sigma / 100",
-    "d1": "(Math.log(S / K) + (r_dec + sigma_dec ** 2 / 2) * T) / (sigma_dec * Math.sqrt(T))",
-    "d2": "d1 - sigma_dec * Math.sqrt(T)",
-    "call": "S * normCDF(d1) - K * Math.exp(-r_dec * T) * normCDF(d2)",
-    "put": "K * Math.exp(-r_dec * T) * normCDF(-d2) - S * normCDF(-d1)",
-    "optionPrice": "optionType === 1 ? call : put",
-    "callDelta": "normCDF(d1)",
-    "putDelta": "normCDF(d1) - 1"
+    "sigma_dec": "sigma / 100"
   },
   "outputs": {
-    "primary": "optionPrice",
+    "primary": "sigma_dec",
     "breakdown": [
       "call",
       "put",
@@ -119,7 +111,12 @@
       "d2",
       "callDelta",
       "putDelta"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "putDelta"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -129,5 +126,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

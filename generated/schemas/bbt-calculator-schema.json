@@ -108,7 +108,12 @@
     "breakdown": [
       "powerLoss",
       "tempRise"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "bearingTemp"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -118,5 +123,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

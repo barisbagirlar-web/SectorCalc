@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 10,
-      "businessContext": "Current length of hair from scalp to tip."
+      "businessContext": "Current length of hair from scalp to tip.",
+      "label_i18n": {
+        "en": "Current Length",
+        "tr": "Current Length",
+        "de": "Current Length",
+        "fr": "Current Length",
+        "es": "Current Length",
+        "ar": "Current Length"
+      }
     },
     {
       "id": "targetLength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 30,
-      "businessContext": "Desired final hair length."
+      "businessContext": "Desired final hair length.",
+      "label_i18n": {
+        "en": "Target Length",
+        "tr": "Target Length",
+        "de": "Target Length",
+        "fr": "Target Length",
+        "es": "Target Length",
+        "ar": "Target Length"
+      }
     },
     {
       "id": "growthRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm/month",
       "default": 1.25,
-      "businessContext": "Average hair growth per month. Typical range 1-1.5 cm."
+      "businessContext": "Average hair growth per month. Typical range 1-1.5 cm.",
+      "label_i18n": {
+        "en": "Monthly Growth Rate",
+        "tr": "Monthly Growth Rate",
+        "de": "Monthly Growth Rate",
+        "fr": "Monthly Growth Rate",
+        "es": "Monthly Growth Rate",
+        "ar": "Monthly Growth Rate"
+      }
     },
     {
       "id": "healthFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1,
-      "businessContext": "Multiplier for individual health/diet effects (1 = average)."
+      "businessContext": "Multiplier for individual health/diet effects (1 = average).",
+      "label_i18n": {
+        "en": "Health & Nutrition Factor",
+        "tr": "Health & Nutrition Factor",
+        "de": "Health & Nutrition Factor",
+        "fr": "Health & Nutrition Factor",
+        "es": "Health & Nutrition Factor",
+        "ar": "Health & Nutrition Factor"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "weeksToTarget",
       "daysToTarget",
       "projectedLength6Months"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "projectedLength6Months"
   },
   "premiumRequired": false,
   "category": "Elektrik & Otomasyon",
@@ -56,5 +93,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "saglik",
   "profession": "Biyomedikal Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

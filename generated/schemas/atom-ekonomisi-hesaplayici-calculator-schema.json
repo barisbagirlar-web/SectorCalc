@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g/mol",
       "default": 100,
-      "businessContext": "Hedef ürünün molekül ağırlığı"
+      "businessContext": "Hedef ürünün molekül ağırlığı",
+      "label_i18n": {
+        "en": "Ürün Molekül Ağırlığı",
+        "tr": "Ürün Molekül Ağırlığı",
+        "de": "Ürün Molekül Ağırlığı",
+        "fr": "Ürün Molekül Ağırlığı",
+        "es": "Ürün Molekül Ağırlığı",
+        "ar": "Ürün Molekül Ağırlığı"
+      }
     },
     {
       "id": "reactantMW1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g/mol",
       "default": 50,
-      "businessContext": "Birinci reaktanın molekül ağırlığı"
+      "businessContext": "Birinci reaktanın molekül ağırlığı",
+      "label_i18n": {
+        "en": "Reaktan 1 Molekül Ağırlığı",
+        "tr": "Reaktan 1 Molekül Ağırlığı",
+        "de": "Reaktan 1 Molekül Ağırlığı",
+        "fr": "Reaktan 1 Molekül Ağırlığı",
+        "es": "Reaktan 1 Molekül Ağırlığı",
+        "ar": "Reaktan 1 Molekül Ağırlığı"
+      }
     },
     {
       "id": "reactantMW2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "g/mol",
       "default": 50,
-      "businessContext": "İkinci reaktanın molekül ağırlığı"
+      "businessContext": "İkinci reaktanın molekül ağırlığı",
+      "label_i18n": {
+        "en": "Reaktan 2 Molekül Ağırlığı",
+        "tr": "Reaktan 2 Molekül Ağırlığı",
+        "de": "Reaktan 2 Molekül Ağırlığı",
+        "fr": "Reaktan 2 Molekül Ağırlığı",
+        "es": "Reaktan 2 Molekül Ağırlığı",
+        "ar": "Reaktan 2 Molekül Ağırlığı"
+      }
     },
     {
       "id": "reactantMW3",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "g/mol",
       "default": 0,
-      "businessContext": "Üçüncü reaktanın molekül ağırlığı (isteğe bağlı)"
+      "businessContext": "Üçüncü reaktanın molekül ağırlığı (isteğe bağlı)",
+      "label_i18n": {
+        "en": "Reaktan 3 Molekül Ağırlığı",
+        "tr": "Reaktan 3 Molekül Ağırlığı",
+        "de": "Reaktan 3 Molekül Ağırlığı",
+        "fr": "Reaktan 3 Molekül Ağırlığı",
+        "es": "Reaktan 3 Molekül Ağırlığı",
+        "ar": "Reaktan 3 Molekül Ağırlığı"
+      }
     },
     {
       "id": "reactantMW4",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "g/mol",
       "default": 0,
-      "businessContext": "Dördüncü reaktanın molekül ağırlığı (isteğe bağlı)"
+      "businessContext": "Dördüncü reaktanın molekül ağırlığı (isteğe bağlı)",
+      "label_i18n": {
+        "en": "Reaktan 4 Molekül Ağırlığı",
+        "tr": "Reaktan 4 Molekül Ağırlığı",
+        "de": "Reaktan 4 Molekül Ağırlığı",
+        "fr": "Reaktan 4 Molekül Ağırlığı",
+        "es": "Reaktan 4 Molekül Ağırlığı",
+        "ar": "Reaktan 4 Molekül Ağırlığı"
+      }
     },
     {
       "id": "reactantMW5",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "g/mol",
       "default": 0,
-      "businessContext": "Beşinci reaktanın molekül ağırlığı (isteğe bağlı)"
+      "businessContext": "Beşinci reaktanın molekül ağırlığı (isteğe bağlı)",
+      "label_i18n": {
+        "en": "Reaktan 5 Molekül Ağırlığı",
+        "tr": "Reaktan 5 Molekül Ağırlığı",
+        "de": "Reaktan 5 Molekül Ağırlığı",
+        "fr": "Reaktan 5 Molekül Ağırlığı",
+        "es": "Reaktan 5 Molekül Ağırlığı",
+        "ar": "Reaktan 5 Molekül Ağırlığı"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +108,12 @@
     "breakdown": [
       "toplamReaktanAgirlik",
       "urunAgirlik"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "atomEkonomisi"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -70,5 +123,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

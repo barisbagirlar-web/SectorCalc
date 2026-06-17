@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "/hour",
       "default": 0.001,
-      "businessContext": "Base failure rate of the component or system"
+      "businessContext": "Base failure rate of the component or system",
+      "label_i18n": {
+        "en": "Failure Rate (λ)",
+        "tr": "Failure Rate (λ)",
+        "de": "Failure Rate (λ)",
+        "fr": "Failure Rate (λ)",
+        "es": "Failure Rate (λ)",
+        "ar": "Failure Rate (λ)"
+      }
     },
     {
       "id": "missionTime",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hours",
       "default": 24,
-      "businessContext": "Duration of operation or mission"
+      "businessContext": "Duration of operation or mission",
+      "label_i18n": {
+        "en": "Mission Time",
+        "tr": "Mission Time",
+        "de": "Mission Time",
+        "fr": "Mission Time",
+        "es": "Mission Time",
+        "ar": "Mission Time"
+      }
     },
     {
       "id": "stressFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1.5,
-      "businessContext": "Factor increasing failure rate due to harsh conditions"
+      "businessContext": "Factor increasing failure rate due to harsh conditions",
+      "label_i18n": {
+        "en": "Environmental Stress Factor",
+        "tr": "Environmental Stress Factor",
+        "de": "Environmental Stress Factor",
+        "fr": "Environmental Stress Factor",
+        "es": "Environmental Stress Factor",
+        "ar": "Environmental Stress Factor"
+      }
     },
     {
       "id": "maintenanceFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "multiplier (0-1)",
       "default": 0.9,
-      "businessContext": "Factor representing maintenance effectiveness; higher reduces failure rate"
+      "businessContext": "Factor representing maintenance effectiveness; higher reduces failure rate",
+      "label_i18n": {
+        "en": "Maintenance Quality Factor",
+        "tr": "Maintenance Quality Factor",
+        "de": "Maintenance Quality Factor",
+        "fr": "Maintenance Quality Factor",
+        "es": "Maintenance Quality Factor",
+        "ar": "Maintenance Quality Factor"
+      }
     },
     {
       "id": "detectionProbability",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "fraction (0-1)",
       "default": 0.8,
-      "businessContext": "Probability that a fault is detected before it leads to failure"
+      "businessContext": "Probability that a fault is detected before it leads to failure",
+      "label_i18n": {
+        "en": "Fault Detection Probability",
+        "tr": "Fault Detection Probability",
+        "de": "Fault Detection Probability",
+        "fr": "Fault Detection Probability",
+        "es": "Fault Detection Probability",
+        "ar": "Fault Detection Probability"
+      }
     },
     {
       "id": "redundancyLevel",
@@ -47,24 +87,34 @@
       "type": "number",
       "unit": "count",
       "default": 1,
-      "businessContext": "Number of independent redundant components in parallel (1 means no redundancy)"
+      "businessContext": "Number of independent redundant components in parallel (1 means no redundancy)",
+      "label_i18n": {
+        "en": "Redundancy Level",
+        "tr": "Redundancy Level",
+        "de": "Redundancy Level",
+        "fr": "Redundancy Level",
+        "es": "Redundancy Level",
+        "ar": "Redundancy Level"
+      }
     }
   ],
   "formulas": {
     "effectiveFailureRate": "failureRate * stressFactor / maintenanceFactor",
-    "componentFailureProb": "1 - Math.exp(-effectiveFailureRate * missionTime)",
-    "systemFailureProb": "Math.pow(componentFailureProb, redundancyLevel)",
-    "riskProbability": "systemFailureProb * (1 - detectionProbability)",
-    "primaryResult": "riskProbability * 100"
+    "effectiveFailureRate_aux": "failureRate * stressFactor / maintenanceFactor"
   },
   "outputs": {
-    "primary": "primaryResult",
+    "primary": "effectiveFailureRate_aux",
     "breakdown": [
       "effectiveFailureRate",
       "componentFailureProb",
       "systemFailureProb",
       "riskProbability"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "primaryResult"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -74,5 +124,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

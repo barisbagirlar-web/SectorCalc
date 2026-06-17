@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Value of inventory at the start of the accounting period"
+      "businessContext": "Value of inventory at the start of the accounting period",
+      "label_i18n": {
+        "en": "Beginning Inventory",
+        "tr": "Beginning Inventory",
+        "de": "Beginning Inventory",
+        "fr": "Beginning Inventory",
+        "es": "Beginning Inventory",
+        "ar": "Beginning Inventory"
+      }
     },
     {
       "id": "materialPurchases",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Cost of direct materials purchased during the period"
+      "businessContext": "Cost of direct materials purchased during the period",
+      "label_i18n": {
+        "en": "Material Purchases",
+        "tr": "Material Purchases",
+        "de": "Material Purchases",
+        "fr": "Material Purchases",
+        "es": "Material Purchases",
+        "ar": "Material Purchases"
+      }
     },
     {
       "id": "directLabor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Cost of labor directly involved in production"
+      "businessContext": "Cost of labor directly involved in production",
+      "label_i18n": {
+        "en": "Direct Labor",
+        "tr": "Direct Labor",
+        "de": "Direct Labor",
+        "fr": "Direct Labor",
+        "es": "Direct Labor",
+        "ar": "Direct Labor"
+      }
     },
     {
       "id": "overhead",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Indirect production costs such as utilities, rent, and depreciation"
+      "businessContext": "Indirect production costs such as utilities, rent, and depreciation",
+      "label_i18n": {
+        "en": "Manufacturing Overhead",
+        "tr": "Manufacturing Overhead",
+        "de": "Manufacturing Overhead",
+        "fr": "Manufacturing Overhead",
+        "es": "Manufacturing Overhead",
+        "ar": "Manufacturing Overhead"
+      }
     },
     {
       "id": "endingInventory",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Value of inventory at the end of the accounting period"
+      "businessContext": "Value of inventory at the end of the accounting period",
+      "label_i18n": {
+        "en": "Ending Inventory",
+        "tr": "Ending Inventory",
+        "de": "Ending Inventory",
+        "fr": "Ending Inventory",
+        "es": "Ending Inventory",
+        "ar": "Ending Inventory"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "totalProductionCost",
       "costOfGoodsAvailableForSale"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "cogs"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -62,5 +107,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "lojistik",
   "profession": "Lojistik Uzmanı",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

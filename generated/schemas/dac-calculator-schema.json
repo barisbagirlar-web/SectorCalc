@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m³/h",
       "default": 1000,
-      "businessContext": "The volumetric flow rate of air processed by the DAC system per hour."
+      "businessContext": "The volumetric flow rate of air processed by the DAC system per hour.",
+      "label_i18n": {
+        "en": "Air Flow Rate",
+        "tr": "Air Flow Rate",
+        "de": "Air Flow Rate",
+        "fr": "Air Flow Rate",
+        "es": "Air Flow Rate",
+        "ar": "Air Flow Rate"
+      }
     },
     {
       "id": "co2Concentration",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ppm",
       "default": 415,
-      "businessContext": "The atmospheric CO₂ concentration at the intake, typically around 415 ppm."
+      "businessContext": "The atmospheric CO₂ concentration at the intake, typically around 415 ppm.",
+      "label_i18n": {
+        "en": "CO₂ Concentration",
+        "tr": "CO₂ Concentration",
+        "de": "CO₂ Concentration",
+        "fr": "CO₂ Concentration",
+        "es": "CO₂ Concentration",
+        "ar": "CO₂ Concentration"
+      }
     },
     {
       "id": "captureEfficiency",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "The percentage of CO₂ removed from the processed air stream."
+      "businessContext": "The percentage of CO₂ removed from the processed air stream.",
+      "label_i18n": {
+        "en": "Capture Efficiency",
+        "tr": "Capture Efficiency",
+        "de": "Capture Efficiency",
+        "fr": "Capture Efficiency",
+        "es": "Capture Efficiency",
+        "ar": "Capture Efficiency"
+      }
     },
     {
       "id": "operatingHours",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "h",
       "default": 8000,
-      "businessContext": "The total number of hours the DAC plant operates annually."
+      "businessContext": "The total number of hours the DAC plant operates annually.",
+      "label_i18n": {
+        "en": "Operating Hours per Year",
+        "tr": "Operating Hours per Year",
+        "de": "Operating Hours per Year",
+        "fr": "Operating Hours per Year",
+        "es": "Operating Hours per Year",
+        "ar": "Operating Hours per Year"
+      }
     },
     {
       "id": "energyPerTon",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kWh/ton",
       "default": 2000,
-      "businessContext": "The electrical energy required to capture one metric ton of CO₂."
+      "businessContext": "The electrical energy required to capture one metric ton of CO₂.",
+      "label_i18n": {
+        "en": "Energy Consumption per Ton CO₂",
+        "tr": "Energy Consumption per Ton CO₂",
+        "de": "Energy Consumption per Ton CO₂",
+        "fr": "Energy Consumption per Ton CO₂",
+        "es": "Energy Consumption per Ton CO₂",
+        "ar": "Energy Consumption per Ton CO₂"
+      }
     },
     {
       "id": "electricityPrice",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "$/kWh",
       "default": 0.1,
-      "businessContext": "The cost of electricity per kilowatt-hour."
+      "businessContext": "The cost of electricity per kilowatt-hour.",
+      "label_i18n": {
+        "en": "Electricity Price",
+        "tr": "Electricity Price",
+        "de": "Electricity Price",
+        "fr": "Electricity Price",
+        "es": "Electricity Price",
+        "ar": "Electricity Price"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +108,12 @@
     "breakdown": [
       "annualEnergyConsumption",
       "annualElectricityCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "annualElectricityCost"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -70,5 +123,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

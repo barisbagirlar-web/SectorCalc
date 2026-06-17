@@ -115,18 +115,20 @@
     }
   ],
   "formulas": {
-    "primary": "if (denominator_order === 1) { return (F_s / denominator_coeffs) * Math.exp(-denominator_coeffs * time_value); } else if (denominator_order === 2) { let omega_n = natural_frequency; let zeta = damping_ratio; let omega_d = omega_n * Math.sqrt(1 - zeta * zeta); let numerator = F_s; let denominator = denominator_coeffs; return (numerator / denominator) * (1 - (Math.exp(-zeta * omega_n * time_value) / Math.sqrt(1 - zeta * zeta)) * Math.sin(omega_d * time_value + Math.acos(zeta))); } else { return 0; }",
     "breakdown": "F_s",
-    "Exponential_term": "Exponential term",
-    "Sinusoidal_term": "Sinusoidal term",
-    "result": "f(t) value"
+    "breakdown_aux": "F_s"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "breakdown",
     "breakdown": [
       "Exponential term",
       "Sinusoidal term"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "breakdown"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -136,5 +138,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

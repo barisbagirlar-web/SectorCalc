@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "days",
       "default": 0,
-      "businessContext": "The number of days since the first day of the last menstrual period."
+      "businessContext": "The number of days since the first day of the last menstrual period.",
+      "label_i18n": {
+        "en": "Days Since Last Menstrual Period",
+        "tr": "Days Since Last Menstrual Period",
+        "de": "Days Since Last Menstrual Period",
+        "fr": "Days Since Last Menstrual Period",
+        "es": "Days Since Last Menstrual Period",
+        "ar": "Days Since Last Menstrual Period"
+      }
     },
     {
       "id": "cycleLength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "days",
       "default": 28,
-      "businessContext": "Average length of the menstrual cycle, typically 28 days."
+      "businessContext": "Average length of the menstrual cycle, typically 28 days.",
+      "label_i18n": {
+        "en": "Menstrual Cycle Length",
+        "tr": "Menstrual Cycle Length",
+        "de": "Menstrual Cycle Length",
+        "fr": "Menstrual Cycle Length",
+        "es": "Menstrual Cycle Length",
+        "ar": "Menstrual Cycle Length"
+      }
     },
     {
       "id": "prePregnancyWeight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Weight before pregnancy in kilograms."
+      "businessContext": "Weight before pregnancy in kilograms.",
+      "label_i18n": {
+        "en": "Pre-pregnancy Weight",
+        "tr": "Pre-pregnancy Weight",
+        "de": "Pre-pregnancy Weight",
+        "fr": "Pre-pregnancy Weight",
+        "es": "Pre-pregnancy Weight",
+        "ar": "Pre-pregnancy Weight"
+      }
     },
     {
       "id": "currentWeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Current weight during pregnancy in kilograms."
+      "businessContext": "Current weight during pregnancy in kilograms.",
+      "label_i18n": {
+        "en": "Current Weight",
+        "tr": "Current Weight",
+        "de": "Current Weight",
+        "fr": "Current Weight",
+        "es": "Current Weight",
+        "ar": "Current Weight"
+      }
     },
     {
       "id": "height",
@@ -39,26 +71,37 @@
       "type": "number",
       "unit": "cm",
       "default": 0,
-      "businessContext": "Height in centimeters."
+      "businessContext": "Height in centimeters.",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "Height",
+        "fr": "Height",
+        "es": "Height",
+        "ar": "Height"
+      }
     }
   ],
   "formulas": {
-    "pregnancyWeek": "Math.floor(daysSinceLMP / 7) + 1",
-    "daysIntoWeek": "daysSinceLMP % 7",
     "daysUntilDue": "280 - daysSinceLMP",
     "estimatedConceptionDay": "daysSinceLMP - cycleLength + 14",
     "gestationalAgeInDays": "daysSinceLMP",
     "bmi": "currentWeight / ((height / 100) ** 2)"
   },
   "outputs": {
-    "primary": "pregnancyWeek",
+    "primary": "bmi",
     "breakdown": [
       "daysIntoWeek",
       "daysUntilDue",
       "estimatedConceptionDay",
       "gestationalAgeInDays",
       "bmi"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "bmi"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -68,5 +111,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

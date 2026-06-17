@@ -134,11 +134,7 @@
     "contact_pressure": "interference / ( (shaft_diameter/2) * ( (1/young_modulus_shaft) * (1 - poisson_shaft) + (1/young_modulus_hub) * ( (hub_diameter**2 + shaft_diameter**2) / (hub_diameter**2 - shaft_diameter**2) + poisson_hub ) ) )",
     "axial_force": "Math.PI * shaft_diameter * 1000 * contact_pressure * friction_coefficient * (shaft_diameter/2)",
     "torque_capacity": "Math.PI * shaft_diameter * 1000 * contact_pressure * friction_coefficient * (shaft_diameter/2) * (shaft_diameter/2)",
-    "von_mises_stress_hub": "contact_pressure * ( (hub_diameter**2 + shaft_diameter**2) / (hub_diameter**2 - shaft_diameter**2) )",
-    "_contact_pressure__MPa": "{contact_pressure} MPa",
-    "_axial_force__N": "{axial_force} N",
-    "_torque_capacity__N_mm": "{torque_capacity} N·mm",
-    "_von_mises_stress_hub__MPa": "{von_mises_stress_hub} MPa"
+    "von_mises_stress_hub": "contact_pressure * ( (hub_diameter**2 + shaft_diameter**2) / (hub_diameter**2 - shaft_diameter**2) )"
   },
   "outputs": {
     "primary": "contact_pressure",
@@ -147,7 +143,12 @@
       "Axial Force Capacity: {axial_force} N",
       "Torque Capacity: {torque_capacity} N·mm",
       "Von Mises Stress (Hub): {von_mises_stress_hub} MPa"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "von_mises_stress_hub"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -157,5 +158,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

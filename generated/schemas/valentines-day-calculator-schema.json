@@ -102,11 +102,7 @@
     "totalCost": "giftCost + dinnerCost + flowerCost + otherCost",
     "remainingBudget": "budget - totalCost",
     "costPerPerson": "totalCost / numPeople",
-    "budgetUtilization": "(totalCost / budget) * 100",
-    "romanceScore": "Math.min(100, (giftCost * 0.4 + dinnerCost * 0.3 + flowerCost * 0.2 + otherCost * 0.1) / (budget / 100))",
-    "_costPerPerson__TL": "{costPerPerson} TL",
-    "__budgetUtilization_": "%{budgetUtilization}",
-    "_romanceScore__100": "{romanceScore}/100"
+    "budgetUtilization": "(totalCost / budget) * 100"
   },
   "outputs": {
     "primary": "totalCost",
@@ -114,7 +110,12 @@
       "Kişi başı maliyet: {costPerPerson} TL",
       "Bütçe kullanım oranı: %{budgetUtilization}",
       "Romantizm puanı: {romanceScore}/100"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "_romanceScore__100"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -124,5 +125,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

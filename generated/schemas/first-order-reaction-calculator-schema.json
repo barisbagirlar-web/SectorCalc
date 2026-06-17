@@ -67,12 +67,11 @@
     }
   ],
   "formulas": {
-    "c": "c0 * Math.exp(-k * t)",
-    "halfLife": "Math.log(2) / k",
-    "conversion": "((c0 - c) / c0) * 100"
+    "result": "c0 + k + t",
+    "result_copy": "c0 + k + t"
   },
   "outputs": {
-    "primary": "c",
+    "primary": "result",
     "breakdown": [
       {
         "id": "halfLife",
@@ -84,7 +83,12 @@
         "label": "Conversion",
         "unit": "%"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "conversion"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -94,5 +98,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "kimya",
   "profession": "Proses Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "Total mass of substance undergoing phase change"
+      "businessContext": "Total mass of substance undergoing phase change",
+      "label_i18n": {
+        "en": "Mass",
+        "tr": "Mass",
+        "de": "Mass",
+        "fr": "Mass",
+        "es": "Mass",
+        "ar": "Mass"
+      }
     },
     {
       "id": "specificHeat",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "J/(kg·K)",
       "default": 4180,
-      "businessContext": "Specific heat capacity of the substance (e.g., water: 4180 J/(kg·K))"
+      "businessContext": "Specific heat capacity of the substance (e.g., water: 4180 J/(kg·K))",
+      "label_i18n": {
+        "en": "Specific Heat Capacity",
+        "tr": "Specific Heat Capacity",
+        "de": "Specific Heat Capacity",
+        "fr": "Specific Heat Capacity",
+        "es": "Specific Heat Capacity",
+        "ar": "Specific Heat Capacity"
+      }
     },
     {
       "id": "initialTemperature",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Starting temperature of the substance, must be ≤ melting point"
+      "businessContext": "Starting temperature of the substance, must be ≤ melting point",
+      "label_i18n": {
+        "en": "Initial Temperature",
+        "tr": "Initial Temperature",
+        "de": "Initial Temperature",
+        "fr": "Initial Temperature",
+        "es": "Initial Temperature",
+        "ar": "Initial Temperature"
+      }
     },
     {
       "id": "meltingTemperature",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 0,
-      "businessContext": "Melting point of the substance (e.g., ice: 0°C)"
+      "businessContext": "Melting point of the substance (e.g., ice: 0°C)",
+      "label_i18n": {
+        "en": "Melting Temperature",
+        "tr": "Melting Temperature",
+        "de": "Melting Temperature",
+        "fr": "Melting Temperature",
+        "es": "Melting Temperature",
+        "ar": "Melting Temperature"
+      }
     },
     {
       "id": "latentHeatOfFusion",
@@ -39,20 +71,32 @@
       "type": "number",
       "unit": "J/kg",
       "default": 334000,
-      "businessContext": "Energy per unit mass to change phase from solid to liquid (e.g., water: 334 kJ/kg)"
+      "businessContext": "Energy per unit mass to change phase from solid to liquid (e.g., water: 334 kJ/kg)",
+      "label_i18n": {
+        "en": "Latent Heat of Fusion",
+        "tr": "Latent Heat of Fusion",
+        "de": "Latent Heat of Fusion",
+        "fr": "Latent Heat of Fusion",
+        "es": "Latent Heat of Fusion",
+        "ar": "Latent Heat of Fusion"
+      }
     }
   ],
   "formulas": {
-    "sensibleHeat": "mass * specificHeat * Math.max(0, meltingTemperature - initialTemperature)",
     "latentHeat": "mass * latentHeatOfFusion",
-    "totalHeat": "sensibleHeat + latentHeat"
+    "latentHeat_aux": "mass * latentHeatOfFusion"
   },
   "outputs": {
-    "primary": "totalHeat",
+    "primary": "latentHeat_aux",
     "breakdown": [
       "sensibleHeat",
       "latentHeat"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalHeat"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -62,5 +106,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

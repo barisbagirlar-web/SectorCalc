@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from drain-size-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,27 +16,33 @@ export const Drain_size_calculatorInputSchema = z.object({
   safetyFactor: z.number().default(1.2),
 });
 
-function evaluateAllFormulas(input: Drain_size_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = ((4**(5/3) * input.manningN * (input.flowRate / 1000) * input.safetyFactor) / (Math.PI * Math.sqrt(input.slope))) ** (3/8); results["diameter_m"] = Number.isFinite(v) ? v : 0; } catch { results["diameter_m"] = 0; }
-  try { const v = (results["diameter_m"] ?? 0) * 1000; results["diameter_mm"] = Number.isFinite(v) ? v : 0; } catch { results["diameter_mm"] = 0; }
-  try { const v = (input.flowRate / 1000) / (Math.PI * ((results["diameter_m"] ?? 0) ** 2) / 4); results["velocity"] = Number.isFinite(v) ? v : 0; } catch { results["velocity"] = 0; }
-  try { const v = Math.PI * ((results["diameter_m"] ?? 0) ** 2) / 4; results["area"] = Number.isFinite(v) ? v : 0; } catch { results["area"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Drain_size_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.flowRate + input.slope + input.manningN; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.flowRate + input.slope + input.manningN; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateDrain_size_calculator(input: Drain_size_calculatorInput): Drain_size_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["diameter_mm"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -131,20 +131,22 @@
     }
   ],
   "formulas": {
-    "primary": "(function(){const g=(a,b)=>b?g(b,a%b):a;const s=(n,d)=>{if(d===0)return 'tanımsız';let x=g(Math.abs(n),Math.abs(d))||1;let sn=n/x,sd=d/x;if(sd<0){sn=-sn;sd=-sd;}return sn+'/'+sd;};return [s(num1,den1),s(num2,den2),s(num3,den3),s(num4,den4)].join(', ');})()",
-    "fraction1": "(function(){const g=(a,b)=>b?g(b,a%b):a;const d=den1;if(d===0)return 'tanımsız';let n=num1;let x=g(Math.abs(n),Math.abs(d))||1;let sn=n/x,sd=d/x;if(sd<0){sn=-sn;sd=-sd;}return sn+'/'+sd;})()",
-    "fraction2": "(function(){const g=(a,b)=>b?g(b,a%b):a;const d=den2;if(d===0)return 'tanımsız';let n=num2;let x=g(Math.abs(n),Math.abs(d))||1;let sn=n/x,sd=d/x;if(sd<0){sn=-sn;sd=-sd;}return sn+'/'+sd;})()",
-    "fraction3": "(function(){const g=(a,b)=>b?g(b,a%b):a;const d=den3;if(d===0)return 'tanımsız';let n=num3;let x=g(Math.abs(n),Math.abs(d))||1;let sn=n/x,sd=d/x;if(sd<0){sn=-sn;sd=-sd;}return sn+'/'+sd;})()",
-    "fraction4": "(function(){const g=(a,b)=>b?g(b,a%b):a;const d=den4;if(d===0)return 'tanımsız';let n=num4;let x=g(Math.abs(n),Math.abs(d))||1;let sn=n/x,sd=d/x;if(sd<0){sn=-sn;sd=-sd;}return sn+'/'+sd;})()"
+    "result": "num1 + den1 + num2",
+    "result_copy": "num1 + den1 + num2"
   },
   "outputs": {
-    "primary": "primary",
+    "primary": "result",
     "breakdown": [
       "fraction1",
       "fraction2",
       "fraction3",
       "fraction4"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "fraction4"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -154,5 +156,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

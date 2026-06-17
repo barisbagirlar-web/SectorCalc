@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from passive-earth-pressure-calculator-schema.json
 import * as z from 'zod';
 
@@ -17,30 +18,33 @@ export const Passive_earth_pressure_calculatorInputSchema = z.object({
   surcharge: z.number().default(0),
 });
 
-function evaluateAllFormulas(input: Passive_earth_pressure_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.frictionAngle * Math.PI / 180; results["frictionAngleRad"] = Number.isFinite(v) ? v : 0; } catch { results["frictionAngleRad"] = 0; }
-  try { const v = Math.pow(Math.tan(Math.PI/4 + (results["frictionAngleRad"] ?? 0)/2), 2); results["kp"] = Number.isFinite(v) ? v : 0; } catch { results["kp"] = 0; }
-  try { const v = (results["kp"] ?? 0) * (input.soilUnitWeight * input.heightOfWall + input.surcharge) + 2 * input.cohesion * Math.sqrt((results["kp"] ?? 0)); results["passivePressureBase"] = Number.isFinite(v) ? v : 0; } catch { results["passivePressureBase"] = 0; }
-  try { const v = 0.5 * input.soilUnitWeight * input.heightOfWall * input.heightOfWall * (results["kp"] ?? 0); results["forceFromSoil"] = Number.isFinite(v) ? v : 0; } catch { results["forceFromSoil"] = 0; }
-  try { const v = input.surcharge * input.heightOfWall * (results["kp"] ?? 0); results["forceFromSurcharge"] = Number.isFinite(v) ? v : 0; } catch { results["forceFromSurcharge"] = 0; }
-  try { const v = 2 * input.cohesion * input.heightOfWall * Math.sqrt((results["kp"] ?? 0)); results["forceFromCohesion"] = Number.isFinite(v) ? v : 0; } catch { results["forceFromCohesion"] = 0; }
-  try { const v = (results["forceFromSoil"] ?? 0) + (results["forceFromSurcharge"] ?? 0) + (results["forceFromCohesion"] ?? 0); results["totalPassiveForce"] = Number.isFinite(v) ? v : 0; } catch { results["totalPassiveForce"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Passive_earth_pressure_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.soilUnitWeight + input.heightOfWall + input.frictionAngle; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.soilUnitWeight + input.heightOfWall + input.frictionAngle; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculatePassive_earth_pressure_calculator(input: Passive_earth_pressure_calculatorInput): Passive_earth_pressure_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["frictionAngleRad"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

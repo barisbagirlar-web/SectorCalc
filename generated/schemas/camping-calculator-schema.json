@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "people",
       "default": 1,
-      "businessContext": "Total number of people on the camping trip"
+      "businessContext": "Total number of people on the camping trip",
+      "label_i18n": {
+        "en": "Number of Campers",
+        "tr": "Number of Campers",
+        "de": "Number of Campers",
+        "fr": "Number of Campers",
+        "es": "Number of Campers",
+        "ar": "Number of Campers"
+      }
     },
     {
       "id": "numberOfNights",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "nights",
       "default": 2,
-      "businessContext": "Duration of the camping trip in nights"
+      "businessContext": "Duration of the camping trip in nights",
+      "label_i18n": {
+        "en": "Number of Nights",
+        "tr": "Number of Nights",
+        "de": "Number of Nights",
+        "fr": "Number of Nights",
+        "es": "Number of Nights",
+        "ar": "Number of Nights"
+      }
     },
     {
       "id": "waterPerPerson",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "liters/day",
       "default": 5,
-      "businessContext": "Recommended water per person per day for drinking, cooking, and hygiene"
+      "businessContext": "Recommended water per person per day for drinking, cooking, and hygiene",
+      "label_i18n": {
+        "en": "Daily Water per Person",
+        "tr": "Daily Water per Person",
+        "de": "Daily Water per Person",
+        "fr": "Daily Water per Person",
+        "es": "Daily Water per Person",
+        "ar": "Daily Water per Person"
+      }
     },
     {
       "id": "foodPerPerson",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kcal/day",
       "default": 2500,
-      "businessContext": "Average daily calorie intake per person"
+      "businessContext": "Average daily calorie intake per person",
+      "label_i18n": {
+        "en": "Daily Food Energy per Person",
+        "tr": "Daily Food Energy per Person",
+        "de": "Daily Food Energy per Person",
+        "fr": "Daily Food Energy per Person",
+        "es": "Daily Food Energy per Person",
+        "ar": "Daily Food Energy per Person"
+      }
     },
     {
       "id": "firewoodPerNight",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg/night",
       "default": 10,
-      "businessContext": "Estimated firewood needed per evening campfire"
+      "businessContext": "Estimated firewood needed per evening campfire",
+      "label_i18n": {
+        "en": "Firewood per Night",
+        "tr": "Firewood per Night",
+        "de": "Firewood per Night",
+        "fr": "Firewood per Night",
+        "es": "Firewood per Night",
+        "ar": "Firewood per Night"
+      }
     },
     {
       "id": "temperatureAdjust",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "unitless",
       "default": 0,
-      "businessContext": "Adjust water needs: 0 for normal, positive for hot (e.g., 0.2 for >30°C), negative for cold"
+      "businessContext": "Adjust water needs: 0 for normal, positive for hot (e.g., 0.2 for >30°C), negative for cold",
+      "label_i18n": {
+        "en": "Temperature Adjustment Factor",
+        "tr": "Temperature Adjustment Factor",
+        "de": "Temperature Adjustment Factor",
+        "fr": "Temperature Adjustment Factor",
+        "es": "Temperature Adjustment Factor",
+        "ar": "Temperature Adjustment Factor"
+      }
     },
     {
       "id": "safetyMargin",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Percentage of extra supplies for unforeseen circumstances"
+      "businessContext": "Percentage of extra supplies for unforeseen circumstances",
+      "label_i18n": {
+        "en": "Safety Margin",
+        "tr": "Safety Margin",
+        "de": "Safety Margin",
+        "fr": "Safety Margin",
+        "es": "Safety Margin",
+        "ar": "Safety Margin"
+      }
     }
   ],
   "formulas": {
@@ -68,7 +124,12 @@
     "breakdown": [
       "totalFood",
       "totalFirewood"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalFirewood"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -78,5 +139,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -99,20 +99,22 @@
     }
   ],
   "formulas": {
-    "keplerThirdLaw": "Math.sqrt(semiMajorAxis**3 / massCentralBody)",
-    "orbitalPeriodFromSemiMajorAxis": "Math.sqrt(semiMajorAxis**3 / massCentralBody)",
     "semiMajorAxisFromPeriod": "(orbitalPeriod**2 * massCentralBody)**(1/3)",
-    "eccentricityFromDistances": "(distanceAtAphelion - distanceAtPerihelion) / (distanceAtAphelion + distanceAtPerihelion)",
-    "areaSweptPerTime": "0.5 * Math.sqrt(massCentralBody * semiMajorAxis * (1 - eccentricity**2))"
+    "eccentricityFromDistances": "(distanceAtAphelion - distanceAtPerihelion) / (distanceAtAphelion + distanceAtPerihelion)"
   },
   "outputs": {
-    "primary": "keplerThirdLaw",
+    "primary": "eccentricityFromDistances",
     "breakdown": [
       "orbitalPeriodFromSemiMajorAxis",
       "semiMajorAxisFromPeriod",
       "eccentricityFromDistances",
       "areaSweptPerTime"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "areaSweptPerTime"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -122,5 +124,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

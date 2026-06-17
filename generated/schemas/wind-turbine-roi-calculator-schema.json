@@ -136,78 +136,6 @@
       "businessContext_i18n": {
         "en": "Expected annual reduction in energy production due to blade wear, gearbox aging, and other factors."
       }
-    },
-    {
-      "id": "incentive_tax_credit",
-      "label": "Production Tax Credit (USD/MWh)",
-      "type": "number",
-      "unit": "USD/MWh",
-      "default": 0,
-      "min": 0,
-      "max": 30,
-      "businessContext": "Government incentive per MWh generated (e.g., US PTC).",
-      "label_i18n": {
-        "en": "Production Tax Credit (USD/MWh)"
-      },
-      "businessContext_i18n": {
-        "en": "Government incentive per MWh generated (e.g., US PTC)."
-      }
-    },
-    {
-      "id": "grid_availability",
-      "label": "Grid Availability (%)",
-      "type": "number",
-      "unit": "%",
-      "default": 97,
-      "min": 85,
-      "max": 100,
-      "businessContext": "Percentage of time the grid is available to accept power (curtailment factor).",
-      "label_i18n": {
-        "en": "Grid Availability (%)"
-      },
-      "businessContext_i18n": {
-        "en": "Percentage of time the grid is available to accept power (curtailment factor)."
-      }
-    },
-    {
-      "id": "turbine_type",
-      "label": "Turbine Type",
-      "type": "select",
-      "options": [
-        "Onshore - Geared",
-        "Onshore - Direct Drive",
-        "Offshore - Fixed Bottom",
-        "Offshore - Floating"
-      ],
-      "default": "Onshore - Geared",
-      "businessContext": "Technology classification affecting O&M cost profiles and reliability (ISO 61400-4).",
-      "label_i18n": {
-        "en": "Turbine Type"
-      },
-      "businessContext_i18n": {
-        "en": "Technology classification affecting O&M cost profiles and reliability (ISO 61400-4)."
-      },
-      "unit": "unit"
-    },
-    {
-      "id": "maintenance_strategy",
-      "label": "Maintenance Strategy",
-      "type": "select",
-      "options": [
-        "Corrective",
-        "Preventive",
-        "Condition-Based",
-        "Predictive"
-      ],
-      "default": "Preventive",
-      "businessContext": "Maintenance approach aligned with Lean/Six Sigma principles to minimize downtime and cost.",
-      "label_i18n": {
-        "en": "Maintenance Strategy"
-      },
-      "businessContext_i18n": {
-        "en": "Maintenance approach aligned with Lean/Six Sigma principles to minimize downtime and cost."
-      },
-      "unit": "unit"
     }
   ],
   "validation": {
@@ -246,18 +174,18 @@
       }
     ]
   },
-  "formulas": [
-    "turbine_capacity",
-    "turbine_capacity",
-    "turbine_capacity",
-    "turbine_capacity",
-    "turbine_capacity",
-    "turbine_capacity",
-    "turbine_capacity"
-  ],
+  "formulas": {
+    "result": "turbine_capacity + capacity_factor + capital_cost_per_mw",
+    "result_copy": "turbine_capacity + capacity_factor + capital_cost_per_mw"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

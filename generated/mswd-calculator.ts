@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from mswd-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,28 +16,34 @@ export const Mswd_calculatorInputSchema = z.object({
   significanceLevel: z.number().default(0.05),
 });
 
-function evaluateAllFormulas(input: Mswd_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = 1; results["1"] = Number.isFinite(v) ? v : 0; } catch { results["1"] = 0; }
-  try { const v = input.sumWeightedSquaredResiduals / (input.numberOfDataPoints - input.numberOfParameters); results["mswd"] = Number.isFinite(v) ? v : 0; } catch { results["mswd"] = 0; }
-  try { const v = input.sumWeightedSquaredResiduals; results["sumWeightedSquaredResiduals"] = Number.isFinite(v) ? v : 0; } catch { results["sumWeightedSquaredResiduals"] = 0; }
-  try { const v = input.numberOfDataPoints - input.numberOfParameters; results["numberOfDataPoints___numberOfParameters"] = Number.isFinite(v) ? v : 0; } catch { results["numberOfDataPoints___numberOfParameters"] = 0; }
-  try { const v = Math.sqrt(2 / (input.numberOfDataPoints - input.numberOfParameters)); results["Math_sqrt_2____numberOfDataPoints___numb"] = Number.isFinite(v) ? v : 0; } catch { results["Math_sqrt_2____numberOfDataPoints___numb"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Mswd_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.sumWeightedSquaredResiduals / (input.numberOfDataPoints - input.numberOfParameters); results["mswd"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["mswd"] = 0; }
+  try { const v = input.sumWeightedSquaredResiduals; results["sumWeightedSquaredResiduals"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["sumWeightedSquaredResiduals"] = 0; }
+  try { const v = input.numberOfDataPoints - input.numberOfParameters; results["numberOfDataPoints___numberOfParameters"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["numberOfDataPoints___numberOfParameters"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateMswd_calculator(input: Mswd_calculatorInput): Mswd_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["mswd"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["mswd"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

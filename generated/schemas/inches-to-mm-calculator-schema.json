@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "in",
       "default": 0,
-      "businessContext": "Length in inches to convert to millimeters"
+      "businessContext": "Length in inches to convert to millimeters",
+      "label_i18n": {
+        "en": "Inches",
+        "tr": "Inches",
+        "de": "Inches",
+        "fr": "Inches",
+        "es": "Inches",
+        "ar": "Inches"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm/in",
       "default": 25.4,
-      "businessContext": "Standard conversion factor (1 inch = 25.4 mm). Modify only for non-standard applications."
+      "businessContext": "Standard conversion factor (1 inch = 25.4 mm). Modify only for non-standard applications.",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "precision",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dp",
       "default": 2,
-      "businessContext": "Number of decimal places for the output."
+      "businessContext": "Number of decimal places for the output.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "tolerance",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0.01,
-      "businessContext": "Manufacturing tolerance for conversion accuracy."
+      "businessContext": "Manufacturing tolerance for conversion accuracy.",
+      "label_i18n": {
+        "en": "Tolerance",
+        "tr": "Tolerance",
+        "de": "Tolerance",
+        "fr": "Tolerance",
+        "es": "Tolerance",
+        "ar": "Tolerance"
+      }
     },
     {
       "id": "scaleFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "none",
       "default": 1,
-      "businessContext": "Optional scaling factor for batch conversions or scaling."
+      "businessContext": "Optional scaling factor for batch conversions or scaling.",
+      "label_i18n": {
+        "en": "Scale Factor",
+        "tr": "Scale Factor",
+        "de": "Scale Factor",
+        "fr": "Scale Factor",
+        "es": "Scale Factor",
+        "ar": "Scale Factor"
+      }
     },
     {
       "id": "offset",
@@ -47,19 +87,32 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Offset to add after conversion (e.g., for calibration)."
+      "businessContext": "Offset to add after conversion (e.g., for calibration).",
+      "label_i18n": {
+        "en": "Offset",
+        "tr": "Offset",
+        "de": "Offset",
+        "fr": "Offset",
+        "es": "Offset",
+        "ar": "Offset"
+      }
     }
   ],
   "formulas": {
     "rawMM": "inches * conversionFactor * scaleFactor + offset",
-    "roundedMM": "Math.round(rawMM * Math.pow(10, precision)) / Math.pow(10, precision)"
+    "rawMM_aux": "inches * conversionFactor * scaleFactor + offset"
   },
   "outputs": {
-    "primary": "roundedMM",
+    "primary": "rawMM_aux",
     "breakdown": [
       "rawMM",
       "roundedMM"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roundedMM"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -69,5 +122,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

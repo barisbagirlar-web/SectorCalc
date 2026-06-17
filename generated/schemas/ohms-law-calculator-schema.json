@@ -155,20 +155,18 @@
       }
     ]
   },
-  "formulas": [
-    "voltage",
-    "voltage",
-    "voltage",
-    "voltage",
-    "voltage",
-    "voltage",
-    "voltage",
-    "voltage",
-    "voltage"
-  ],
+  "formulas": {
+    "result": "voltage + current + resistance",
+    "result_copy": "voltage + current + resistance"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "energy-carbon",
   "sectorSlug": "energy-carbon",

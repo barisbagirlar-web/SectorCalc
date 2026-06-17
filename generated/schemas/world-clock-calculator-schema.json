@@ -70,26 +70,20 @@
     "totalLocalMinutes": "localHour * 60 + localMinute",
     "totalUTCMinutes": "totalLocalMinutes - sourceUTCOffset * 60",
     "totalTargetMinutes": "totalUTCMinutes + targetUTCOffset * 60",
-    "targetTotalMinutesMod": "((totalTargetMinutes % 1440) + 1440) % 1440",
-    "targetHour": "Math.floor(targetTotalMinutesMod / 60)",
-    "targetMinute": "targetTotalMinutesMod % 60",
-    "dayDiff": "Math.floor(totalTargetMinutes / 1440)",
-    "dayChange": "dayDiff > 0 ? '+' + dayDiff + ' day(s)' : dayDiff < 0 ? dayDiff + ' day(s)' : 'Same day'",
-    "targetTimeString": "targetHour.toString().padStart(2,'0') + ':' + targetMinute.toString().padStart(2,'0')",
-    "sourceString": "localHour.toString().padStart(2,'0') + ':' + localMinute.toString().padStart(2,'0') + ' (UTC' + (sourceUTCOffset >= 0 ? '+' + sourceUTCOffset : sourceUTCOffset) + ')'",
-    "targetString": "targetTimeString + ' (UTC' + (targetUTCOffset >= 0 ? '+' + targetUTCOffset : targetUTCOffset) + ')'",
-    "____sourceString": "' + sourceString",
-    "____targetString": "' + targetString",
-    "____dayChange": "' + dayChange",
-    "result": "targetTimeString + ' (' + dayChange + ')'"
+    "targetTotalMinutesMod": "((totalTargetMinutes % 1440) + 1440) % 1440"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "targetTotalMinutesMod",
     "breakdown": [
       "'Source: ' + sourceString",
       "'Target: ' + targetString",
       "'Day Change: ' + dayChange"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -99,5 +93,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -84,15 +84,19 @@
   ],
   "formulas": {
     "totalMoles": "moleA + moleB + moleC + moleD",
-    "selectedMoles": "[moleA, moleB, moleC, moleD][selectedIndex - 1]",
-    "moleFraction": "totalMoles !== 0 ? selectedMoles / totalMoles : 0"
+    "totalMoles_aux": "moleA + moleB + moleC + moleD"
   },
   "outputs": {
-    "primary": "moleFraction",
+    "primary": "totalMoles_aux",
     "breakdown": [
       "totalMoles",
       "selectedMoles"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "moleFraction"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -102,5 +106,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

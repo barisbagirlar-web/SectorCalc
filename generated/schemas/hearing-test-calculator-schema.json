@@ -68,15 +68,19 @@
   ],
   "formulas": {
     "pureToneAverage": "(threshold500 + threshold1000 + threshold2000 + threshold4000) / 4",
-    "Pure_Tone_Average__PTA__is_the_arithmeti": "Pure Tone Average (PTA) is the arithmetic mean of hearing thresholds at 500, 1000, 2000, and 4000 Hz.",
-    "PTA_is_commonly_used_to_classify_the_deg": "PTA is commonly used to classify the degree of hearing loss according to WHO or ASHA guidelines."
+    "pureToneAverage_aux": "(threshold500 + threshold1000 + threshold2000 + threshold4000) / 4"
   },
   "outputs": {
     "primary": "pureToneAverage",
     "breakdown": [
       "Pure Tone Average (PTA) is the arithmetic mean of hearing thresholds at 500, 1000, 2000, and 4000 Hz.",
       "PTA is commonly used to classify the degree of hearing loss according to WHO or ASHA guidelines."
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "pureToneAverage_aux"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -86,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -92,7 +92,12 @@
     "breakdown": [
       "volumeWithoutWaste",
       "wasteAddition"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "wasteAddition"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -102,5 +107,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

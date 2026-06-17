@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m²",
       "default": 1,
-      "businessContext": "Heat transfer surface area"
+      "businessContext": "Heat transfer surface area",
+      "label_i18n": {
+        "en": "Area",
+        "tr": "Area",
+        "de": "Area",
+        "fr": "Area",
+        "es": "Area",
+        "ar": "Area"
+      }
     },
     {
       "id": "thickness",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.1,
-      "businessContext": "Thickness of the wall material"
+      "businessContext": "Thickness of the wall material",
+      "label_i18n": {
+        "en": "Wall Thickness",
+        "tr": "Wall Thickness",
+        "de": "Wall Thickness",
+        "fr": "Wall Thickness",
+        "es": "Wall Thickness",
+        "ar": "Wall Thickness"
+      }
     },
     {
       "id": "thermalConductivity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "W/(m·K)",
       "default": 0.5,
-      "businessContext": "Thermal conductivity of wall material"
+      "businessContext": "Thermal conductivity of wall material",
+      "label_i18n": {
+        "en": "Thermal Conductivity",
+        "tr": "Thermal Conductivity",
+        "de": "Thermal Conductivity",
+        "fr": "Thermal Conductivity",
+        "es": "Thermal Conductivity",
+        "ar": "Thermal Conductivity"
+      }
     },
     {
       "id": "hInside",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "W/(m²·K)",
       "default": 10,
-      "businessContext": "Convective heat transfer coefficient on the hot side"
+      "businessContext": "Convective heat transfer coefficient on the hot side",
+      "label_i18n": {
+        "en": "Inside Convection Coefficient",
+        "tr": "Inside Convection Coefficient",
+        "de": "Inside Convection Coefficient",
+        "fr": "Inside Convection Coefficient",
+        "es": "Inside Convection Coefficient",
+        "ar": "Inside Convection Coefficient"
+      }
     },
     {
       "id": "hOutside",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "W/(m²·K)",
       "default": 25,
-      "businessContext": "Convective heat transfer coefficient on the cold side"
+      "businessContext": "Convective heat transfer coefficient on the cold side",
+      "label_i18n": {
+        "en": "Outside Convection Coefficient",
+        "tr": "Outside Convection Coefficient",
+        "de": "Outside Convection Coefficient",
+        "fr": "Outside Convection Coefficient",
+        "es": "Outside Convection Coefficient",
+        "ar": "Outside Convection Coefficient"
+      }
     },
     {
       "id": "tempInside",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "°C",
       "default": 100,
-      "businessContext": "Temperature of the hot fluid"
+      "businessContext": "Temperature of the hot fluid",
+      "label_i18n": {
+        "en": "Inside Temperature",
+        "tr": "Inside Temperature",
+        "de": "Inside Temperature",
+        "fr": "Inside Temperature",
+        "es": "Inside Temperature",
+        "ar": "Inside Temperature"
+      }
     },
     {
       "id": "tempOutside",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Temperature of the cold fluid"
+      "businessContext": "Temperature of the cold fluid",
+      "label_i18n": {
+        "en": "Outside Temperature",
+        "tr": "Outside Temperature",
+        "de": "Outside Temperature",
+        "fr": "Outside Temperature",
+        "es": "Outside Temperature",
+        "ar": "Outside Temperature"
+      }
     }
   ],
   "formulas": {
@@ -68,7 +124,12 @@
     "breakdown": [
       "overallHeatTransferCoeff",
       "deltaTemp"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "deltaTemp"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -78,5 +139,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

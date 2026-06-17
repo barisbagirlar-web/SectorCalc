@@ -69,17 +69,21 @@
   "formulas": {
     "conversionFactor": "ounceStandard === 0 ? 29.5735 : 28.4131",
     "mlPerItem": "fluidOunces * conversionFactor",
-    "totalMl": "batchSize * mlPerItem",
-    "roundedMl": "Math.round(totalMl * Math.pow(10, precision)) / Math.pow(10, precision)"
+    "totalMl": "batchSize * mlPerItem"
   },
   "outputs": {
-    "primary": "roundedMl",
+    "primary": "totalMl",
     "breakdown": [
       "conversionFactor",
       "mlPerItem",
       "totalMl",
       "roundedMl"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roundedMl"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -89,5 +93,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

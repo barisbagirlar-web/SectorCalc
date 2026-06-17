@@ -68,9 +68,7 @@
   ],
   "formulas": {
     "melaninIndex": "(eumelaninPercent * melanocyteDensity * avgMelaninPerCell) / (pheomelaninPercent + 1)",
-    "Calculate_eumelanin_contribution___Eumel": "Calculate eumelanin contribution = Eumelanin (%) × Melanocyte Density × Avg. Melanin per Cell",
-    "Calculate_pheomelanin_correction___1____": "Calculate pheomelanin correction = 1 / (Pheomelanin (%) + 1)",
-    "Melanin_Index___Eumelanin_contribution__": "Melanin Index = Eumelanin contribution × Pheomelanin correction"
+    "melaninIndex_aux": "(eumelaninPercent * melanocyteDensity * avgMelaninPerCell) / (pheomelaninPercent + 1)"
   },
   "outputs": {
     "primary": "melaninIndex",
@@ -78,7 +76,12 @@
       "Step 1: Calculate eumelanin contribution = Eumelanin (%) × Melanocyte Density × Avg. Melanin per Cell",
       "Step 2: Calculate pheomelanin correction = 1 / (Pheomelanin (%) + 1)",
       "Step 3: Melanin Index = Eumelanin contribution × Pheomelanin correction"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "melaninIndex_aux"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -88,5 +91,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

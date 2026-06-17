@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "K",
       "default": 298.15,
-      "businessContext": "Reaksiyonun gerçekleştiği mutlak sıcaklık (Kelvin cinsinden)."
+      "businessContext": "Reaksiyonun gerçekleştiği mutlak sıcaklık (Kelvin cinsinden).",
+      "label_i18n": {
+        "en": "Sıcaklık (T)",
+        "tr": "Sıcaklık (T)",
+        "de": "Sıcaklık (T)",
+        "fr": "Sıcaklık (T)",
+        "es": "Sıcaklık (T)",
+        "ar": "Sıcaklık (T)"
+      }
     },
     {
       "id": "deltaH",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kJ/mol",
       "default": 0,
-      "businessContext": "Reaksiyonun standart entalpi değişimi (ürünlerin oluşum entalpileri toplamı - reaktantların oluşum entalpileri toplamı)."
+      "businessContext": "Reaksiyonun standart entalpi değişimi (ürünlerin oluşum entalpileri toplamı - reaktantların oluşum entalpileri toplamı).",
+      "label_i18n": {
+        "en": "Entalpi Değişimi (ΔH)",
+        "tr": "Entalpi Değişimi (ΔH)",
+        "de": "Entalpi Değişimi (ΔH)",
+        "fr": "Entalpi Değişimi (ΔH)",
+        "es": "Entalpi Değişimi (ΔH)",
+        "ar": "Entalpi Değişimi (ΔH)"
+      }
     },
     {
       "id": "S_products",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "J/(mol·K)",
       "default": 0,
-      "businessContext": "Reaksiyonda oluşan ürünlerin toplam mutlak entropileri."
+      "businessContext": "Reaksiyonda oluşan ürünlerin toplam mutlak entropileri.",
+      "label_i18n": {
+        "en": "Ürünlerin Toplam Entropisi",
+        "tr": "Ürünlerin Toplam Entropisi",
+        "de": "Ürünlerin Toplam Entropisi",
+        "fr": "Ürünlerin Toplam Entropisi",
+        "es": "Ürünlerin Toplam Entropisi",
+        "ar": "Ürünlerin Toplam Entropisi"
+      }
     },
     {
       "id": "S_reactants",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "J/(mol·K)",
       "default": 0,
-      "businessContext": "Reaksiyona giren reaktantların toplam mutlak entropileri."
+      "businessContext": "Reaksiyona giren reaktantların toplam mutlak entropileri.",
+      "label_i18n": {
+        "en": "Reaktantların Toplam Entropisi",
+        "tr": "Reaktantların Toplam Entropisi",
+        "de": "Reaktantların Toplam Entropisi",
+        "fr": "Reaktantların Toplam Entropisi",
+        "es": "Reaktantların Toplam Entropisi",
+        "ar": "Reaktantların Toplam Entropisi"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "deltaS_kJ_per_molK",
       "T_deltaS_kJ_per_mol"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "deltaG_kJ_per_mol"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -54,5 +91,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "kimya",
   "profession": "Proses Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

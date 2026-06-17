@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from gaussian-elimination-calculator-schema.json
 import * as z from 'zod';
 
@@ -19,29 +20,34 @@ export const Gaussian_elimination_calculatorInputSchema = z.object({
   b2: z.number().default(0),
 });
 
-function evaluateAllFormulas(input: Gaussian_elimination_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.a11*input.a22 - input.a12*input.a21; results["det"] = Number.isFinite(v) ? v : 0; } catch { results["det"] = 0; }
-  try { const v = (input.b1*input.a22 - input.a12*input.b2) / (results["det"] ?? 0); results["x1"] = Number.isFinite(v) ? v : 0; } catch { results["x1"] = 0; }
-  try { const v = (input.a11*input.b2 - input.b1*input.a21) / (results["det"] ?? 0); results["x2"] = Number.isFinite(v) ? v : 0; } catch { results["x2"] = 0; }
-  results["__det__"] = 0;
-  results["x1_____x1__"] = 0;
-  results["x2_____x2__"] = 0;
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Gaussian_elimination_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.a11*input.a22 - input.a12*input.a21; results["det"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["det"] = 0; }
+  try { const v = (input.b1*input.a22 - input.a12*input.b2) / (asFormulaNumber(results["det"])); results["x1"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["x1"] = 0; }
+  try { const v = (input.a11*input.b2 - input.b1*input.a21) / (asFormulaNumber(results["det"])); results["x2"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["x2"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateGaussian_elimination_calculator(input: Gaussian_elimination_calculatorInput): Gaussian_elimination_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["det"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["det"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

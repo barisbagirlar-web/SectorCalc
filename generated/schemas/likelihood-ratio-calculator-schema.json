@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cases",
       "default": 0,
-      "businessContext": "Number of cases with condition and positive test"
+      "businessContext": "Number of cases with condition and positive test",
+      "label_i18n": {
+        "en": "True Positives",
+        "tr": "True Positives",
+        "de": "True Positives",
+        "fr": "True Positives",
+        "es": "True Positives",
+        "ar": "True Positives"
+      }
     },
     {
       "id": "falsePositives",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cases",
       "default": 0,
-      "businessContext": "Number of cases without condition but positive test"
+      "businessContext": "Number of cases without condition but positive test",
+      "label_i18n": {
+        "en": "False Positives",
+        "tr": "False Positives",
+        "de": "False Positives",
+        "fr": "False Positives",
+        "es": "False Positives",
+        "ar": "False Positives"
+      }
     },
     {
       "id": "falseNegatives",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cases",
       "default": 0,
-      "businessContext": "Number of cases with condition and negative test"
+      "businessContext": "Number of cases with condition and negative test",
+      "label_i18n": {
+        "en": "False Negatives",
+        "tr": "False Negatives",
+        "de": "False Negatives",
+        "fr": "False Negatives",
+        "es": "False Negatives",
+        "ar": "False Negatives"
+      }
     },
     {
       "id": "trueNegatives",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cases",
       "default": 0,
-      "businessContext": "Number of cases without condition and negative test"
+      "businessContext": "Number of cases without condition and negative test",
+      "label_i18n": {
+        "en": "True Negatives",
+        "tr": "True Negatives",
+        "de": "True Negatives",
+        "fr": "True Negatives",
+        "es": "True Negatives",
+        "ar": "True Negatives"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "primary": "lrPositive",
     "breakdown": [
       "lrNegative"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "lrNegative"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from rice-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,26 +16,34 @@ export const Rice_calculatorInputSchema = z.object({
   servingSize: z.number().default(150),
 });
 
-function evaluateAllFormulas(input: Rice_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.uncookedRiceWeight * input.yieldFactor / input.servingSize; results["servings"] = Number.isFinite(v) ? v : 0; } catch { results["servings"] = 0; }
-  try { const v = input.uncookedRiceWeight * input.yieldFactor; results["cookedRice"] = Number.isFinite(v) ? v : 0; } catch { results["cookedRice"] = 0; }
-  try { const v = input.uncookedRiceWeight * input.waterRatio; results["waterNeeded"] = Number.isFinite(v) ? v : 0; } catch { results["waterNeeded"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Rice_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.uncookedRiceWeight * input.yieldFactor / input.servingSize; results["servings"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["servings"] = 0; }
+  try { const v = input.uncookedRiceWeight * input.yieldFactor; results["cookedRice"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["cookedRice"] = 0; }
+  try { const v = input.uncookedRiceWeight * input.waterRatio; results["waterNeeded"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["waterNeeded"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateRice_calculator(input: Rice_calculatorInput): Rice_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["servings"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["servings"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

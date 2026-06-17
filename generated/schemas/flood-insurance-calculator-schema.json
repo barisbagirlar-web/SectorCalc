@@ -99,17 +99,20 @@
     }
   ],
   "formulas": {
-    "depreciationFactor": "Math.max(0.8, 1 - ageOfBuilding * 0.005)",
-    "basePremium": "coverageAmount * floodZoneFactor * buildingTypeFactor * depreciationFactor",
     "deductibleCredit": "deductible * 0.02",
-    "finalPremium": "basePremium - deductibleCredit"
+    "deductibleCredit_aux": "deductible * 0.02"
   },
   "outputs": {
-    "primary": "finalPremium",
+    "primary": "deductibleCredit_aux",
     "breakdown": [
       "basePremium",
       "deductibleCredit"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "finalPremium"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -119,5 +122,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

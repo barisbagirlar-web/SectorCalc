@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from black-hole-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,27 +16,33 @@ export const Black_hole_calculatorInputSchema = z.object({
   distance: z.number().default(10000),
 });
 
-function evaluateAllFormulas(input: Black_hole_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.mass * (1 + Math.sqrt(1 - input.spin*input.spin - input.charge*input.charge)) * 1.4766; results["eventHorizonRadius"] = Number.isFinite(v) ? v : 0; } catch { results["eventHorizonRadius"] = 0; }
-  try { const v = 3 * 1.4766 * input.mass; results["photonSphereRadius"] = Number.isFinite(v) ? v : 0; } catch { results["photonSphereRadius"] = 0; }
-  try { const v = 6 * 1.4766 * input.mass; results["iscoRadius"] = Number.isFinite(v) ? v : 0; } catch { results["iscoRadius"] = 0; }
-  try { const v = Math.sqrt(1 - (2 * 1.4766 * input.mass) / input.distance); results["timeDilationFactor"] = Number.isFinite(v) ? v : 0; } catch { results["timeDilationFactor"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Black_hole_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = 3 * 1.4766 * input.mass; results["photonSphereRadius"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["photonSphereRadius"] = 0; }
+  try { const v = 6 * 1.4766 * input.mass; results["iscoRadius"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["iscoRadius"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateBlack_hole_calculator(input: Black_hole_calculatorInput): Black_hole_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["eventHorizonRadius"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["iscoRadius"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

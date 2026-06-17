@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m²",
       "default": 1000,
-      "businessContext": "Total impervious area draining to the SUDS feature."
+      "businessContext": "Total impervious area draining to the SUDS feature.",
+      "label_i18n": {
+        "en": "Catchment Area",
+        "tr": "Catchment Area",
+        "de": "Catchment Area",
+        "fr": "Catchment Area",
+        "es": "Catchment Area",
+        "ar": "Catchment Area"
+      }
     },
     {
       "id": "rainfallIntensity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm/hr",
       "default": 50,
-      "businessContext": "Intensity for the design storm event, typically from IDF curves."
+      "businessContext": "Intensity for the design storm event, typically from IDF curves.",
+      "label_i18n": {
+        "en": "Design Rainfall Intensity",
+        "tr": "Design Rainfall Intensity",
+        "de": "Design Rainfall Intensity",
+        "fr": "Design Rainfall Intensity",
+        "es": "Design Rainfall Intensity",
+        "ar": "Design Rainfall Intensity"
+      }
     },
     {
       "id": "runoffCoefficient",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0.9,
-      "businessContext": "Ratio of runoff to rainfall, based on surface type."
+      "businessContext": "Ratio of runoff to rainfall, based on surface type.",
+      "label_i18n": {
+        "en": "Runoff Coefficient",
+        "tr": "Runoff Coefficient",
+        "de": "Runoff Coefficient",
+        "fr": "Runoff Coefficient",
+        "es": "Runoff Coefficient",
+        "ar": "Runoff Coefficient"
+      }
     },
     {
       "id": "stormDuration",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "min",
       "default": 60,
-      "businessContext": "Duration of the design storm event."
+      "businessContext": "Duration of the design storm event.",
+      "label_i18n": {
+        "en": "Storm Duration",
+        "tr": "Storm Duration",
+        "de": "Storm Duration",
+        "fr": "Storm Duration",
+        "es": "Storm Duration",
+        "ar": "Storm Duration"
+      }
     },
     {
       "id": "safetyFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1.2,
-      "businessContext": "Factor of safety to account for uncertainties."
+      "businessContext": "Factor of safety to account for uncertainties.",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
       "runoffVolume",
       "rainfallDepthM",
       "durationHours"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "requiredStorage"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -64,5 +109,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

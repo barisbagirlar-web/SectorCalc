@@ -146,86 +146,6 @@
       "businessContext_i18n": {
         "en": "Indicates if the deviation is likely to trigger a regulatory fine or citation (e.g., FDA, USDA)."
       }
-    },
-    {
-      "id": "base_penalty_amount",
-      "label": "Base Penalty Amount ($)",
-      "type": "number",
-      "unit": "$",
-      "default": 10000,
-      "min": 0,
-      "max": 10000000,
-      "businessContext": "Estimated base fine or penalty if regulatory action is taken. Used only when regulatory_penalty_flag is true.",
-      "label_i18n": {
-        "en": "Base Penalty Amount ($)"
-      },
-      "businessContext_i18n": {
-        "en": "Estimated base fine or penalty if regulatory action is taken. Used only when regulatory_penalty_flag is true."
-      }
-    },
-    {
-      "id": "recall_cost_flag",
-      "label": "Recall Cost Included?",
-      "type": "boolean",
-      "unit": "unit",
-      "default": false,
-      "min": null,
-      "max": null,
-      "businessContext": "Check if the deviation requires a product recall, adding logistics, testing, and brand damage costs.",
-      "label_i18n": {
-        "en": "Recall Cost Included?"
-      },
-      "businessContext_i18n": {
-        "en": "Check if the deviation requires a product recall, adding logistics, testing, and brand damage costs."
-      }
-    },
-    {
-      "id": "recall_fixed_cost",
-      "label": "Recall Fixed Cost ($)",
-      "type": "number",
-      "unit": "$",
-      "default": 50000,
-      "min": 0,
-      "max": 5000000,
-      "businessContext": "Fixed cost associated with initiating a recall (notification, logistics, testing).",
-      "label_i18n": {
-        "en": "Recall Fixed Cost ($)"
-      },
-      "businessContext_i18n": {
-        "en": "Fixed cost associated with initiating a recall (notification, logistics, testing)."
-      }
-    },
-    {
-      "id": "recall_variable_per_kg",
-      "label": "Recall Variable Cost per kg ($/kg)",
-      "type": "number",
-      "unit": "$/kg",
-      "default": 1,
-      "min": 0,
-      "max": 100,
-      "businessContext": "Per-kilogram cost for recall handling (transport, disposal, replacement).",
-      "label_i18n": {
-        "en": "Recall Variable Cost per kg ($/kg)"
-      },
-      "businessContext_i18n": {
-        "en": "Per-kilogram cost for recall handling (transport, disposal, replacement)."
-      }
-    },
-    {
-      "id": "data_confidence",
-      "label": "Data Confidence (0-1)",
-      "type": "number",
-      "unit": "unit",
-      "default": 0.85,
-      "min": 0,
-      "max": 1,
-      "businessContext": "Subjective confidence in the accuracy of input data (0 = low, 1 = high). Used to adjust the final cost estimate.",
-      "label_i18n": {
-        "en": "Data Confidence (0-1)"
-      },
-      "businessContext_i18n": {
-        "en": "Subjective confidence in the accuracy of input data (0 = low, 1 = high). Used to adjust the final cost estimate."
-      }
     }
   ],
   "validation": {
@@ -269,18 +189,18 @@
       }
     ]
   },
-  "formulas": [
-    "deviation_type",
-    "deviation_type",
-    "deviation_type",
-    "deviation_type",
-    "deviation_type",
-    "deviation_type",
-    "deviation_type"
-  ],
+  "formulas": {
+    "result": "deviation_type + affected_batch_kg + unit_cost_per_kg",
+    "result_copy": "deviation_type + affected_batch_kg + unit_cost_per_kg"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "haccp-deviation-cost-calculator",
   "catalogCategory": "everyday-life",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.7,
-      "businessContext": "Distance from shoulder to fist when arm is fully extended"
+      "businessContext": "Distance from shoulder to fist when arm is fully extended",
+      "label_i18n": {
+        "en": "Arm Length",
+        "tr": "Arm Length",
+        "de": "Arm Length",
+        "fr": "Arm Length",
+        "es": "Arm Length",
+        "ar": "Arm Length"
+      }
     },
     {
       "id": "arm_angle",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "deg",
       "default": 90,
-      "businessContext": "Angular displacement of the arm during the punch"
+      "businessContext": "Angular displacement of the arm during the punch",
+      "label_i18n": {
+        "en": "Arm Swing Angle",
+        "tr": "Arm Swing Angle",
+        "de": "Arm Swing Angle",
+        "fr": "Arm Swing Angle",
+        "es": "Arm Swing Angle",
+        "ar": "Arm Swing Angle"
+      }
     },
     {
       "id": "hip_angle",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "deg",
       "default": 45,
-      "businessContext": "Angular rotation of the hips contributing to punch reach"
+      "businessContext": "Angular rotation of the hips contributing to punch reach",
+      "label_i18n": {
+        "en": "Hip Rotation Angle",
+        "tr": "Hip Rotation Angle",
+        "de": "Hip Rotation Angle",
+        "fr": "Hip Rotation Angle",
+        "es": "Hip Rotation Angle",
+        "ar": "Hip Rotation Angle"
+      }
     },
     {
       "id": "step_length",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.2,
-      "businessContext": "Linear distance moved forward by the body during the punch"
+      "businessContext": "Linear distance moved forward by the body during the punch",
+      "label_i18n": {
+        "en": "Forward Step Length",
+        "tr": "Forward Step Length",
+        "de": "Forward Step Length",
+        "fr": "Forward Step Length",
+        "es": "Forward Step Length",
+        "ar": "Forward Step Length"
+      }
     },
     {
       "id": "punch_time",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "s",
       "default": 0.15,
-      "businessContext": "Time from initiation to full extension of the punch"
+      "businessContext": "Time from initiation to full extension of the punch",
+      "label_i18n": {
+        "en": "Punch Duration",
+        "tr": "Punch Duration",
+        "de": "Punch Duration",
+        "fr": "Punch Duration",
+        "es": "Punch Duration",
+        "ar": "Punch Duration"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
       "Punch Speed (mph)",
       "Angular Distance (m)",
       "Total Distance (m)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "Total Distance (m)"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -64,5 +109,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "havacilik",
   "profession": "Tasarım Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

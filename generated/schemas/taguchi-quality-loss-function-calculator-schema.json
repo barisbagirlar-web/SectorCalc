@@ -138,55 +138,6 @@
       "businessContext_i18n": {
         "en": "Total number of units produced in the period."
       }
-    },
-    {
-      "id": "inspection_rate",
-      "label": "Inspection Rate (%)",
-      "type": "number",
-      "unit": "%",
-      "default": 100,
-      "min": 0,
-      "max": 100,
-      "businessContext": "Percentage of units inspected. Used to adjust hidden loss estimates.",
-      "label_i18n": {
-        "en": "Inspection Rate (%)"
-      },
-      "businessContext_i18n": {
-        "en": "Percentage of units inspected. Used to adjust hidden loss estimates."
-      }
-    },
-    {
-      "id": "loss_function_type",
-      "label": "Loss Function Type",
-      "type": "select",
-      "options": [
-        "nominal-is-best",
-        "smaller-is-better",
-        "larger-is-better"
-      ],
-      "default": "nominal-is-best",
-      "businessContext": "Type of quality characteristic: nominal-is-best (target), smaller-is-better (e.g., impurities), larger-is-better (e.g., strength).",
-      "label_i18n": {
-        "en": "Loss Function Type"
-      },
-      "businessContext_i18n": {
-        "en": "Type of quality characteristic: nominal-is-best (target), smaller-is-better (e.g., impurities), larger-is-better (e.g., strength)."
-      },
-      "unit": "unit"
-    },
-    {
-      "id": "include_hidden_factory",
-      "label": "Include Hidden Factory Losses",
-      "type": "boolean",
-      "default": true,
-      "businessContext": "If true, adds estimated losses from rework, inspection, and scrap that are not captured by the basic loss function.",
-      "label_i18n": {
-        "en": "Include Hidden Factory Losses"
-      },
-      "businessContext_i18n": {
-        "en": "If true, adds estimated losses from rework, inspection, and scrap that are not captured by the basic loss function."
-      },
-      "unit": "unit"
     }
   ],
   "validation": {
@@ -254,18 +205,18 @@
       }
     ]
   },
-  "formulas": [
-    "target_value",
-    "target_value",
-    "target_value",
-    "target_value",
-    "target_value",
-    "target_value",
-    "target_value"
-  ],
+  "formulas": {
+    "result": "target_value + lower_spec_limit + upper_spec_limit",
+    "result_copy": "target_value + lower_spec_limit + upper_spec_limit"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "taguchi-quality-loss-function-calculator",
   "catalogCategory": "everyday-life",

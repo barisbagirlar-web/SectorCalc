@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 200000,
-      "businessContext": "The total resources owned by the company, including both current and non-current assets."
+      "businessContext": "The total resources owned by the company, including both current and non-current assets.",
+      "label_i18n": {
+        "en": "Total Assets",
+        "tr": "Total Assets",
+        "de": "Total Assets",
+        "fr": "Total Assets",
+        "es": "Total Assets",
+        "ar": "Total Assets"
+      }
     },
     {
       "id": "longTermDebt",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 40000,
-      "businessContext": "Borrowings and financial obligations due after one year."
+      "businessContext": "Borrowings and financial obligations due after one year.",
+      "label_i18n": {
+        "en": "Long-Term Debt",
+        "tr": "Long-Term Debt",
+        "de": "Long-Term Debt",
+        "fr": "Long-Term Debt",
+        "es": "Long-Term Debt",
+        "ar": "Long-Term Debt"
+      }
     },
     {
       "id": "currentLiabilities",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 60000,
-      "businessContext": "Short-term obligations due within one year, such as accounts payable and accruals."
+      "businessContext": "Short-term obligations due within one year, such as accounts payable and accruals.",
+      "label_i18n": {
+        "en": "Current Liabilities",
+        "tr": "Current Liabilities",
+        "de": "Current Liabilities",
+        "fr": "Current Liabilities",
+        "es": "Current Liabilities",
+        "ar": "Current Liabilities"
+      }
     },
     {
       "id": "otherLiabilities",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 10000,
-      "businessContext": "Any other liabilities not classified as long-term debt or current liabilities, such as provisions or deferred tax liabilities."
+      "businessContext": "Any other liabilities not classified as long-term debt or current liabilities, such as provisions or deferred tax liabilities.",
+      "label_i18n": {
+        "en": "Other Liabilities",
+        "tr": "Other Liabilities",
+        "de": "Other Liabilities",
+        "fr": "Other Liabilities",
+        "es": "Other Liabilities",
+        "ar": "Other Liabilities"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "totalLiabilities",
       "shareholdersEquity"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "shareholdersEquity"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "havacilik",
   "profession": "Tasarım Mühendisi",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

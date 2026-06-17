@@ -132,18 +132,10 @@
   ],
   "formulas": {
     "score": "chf + hypertension + age75 * 2 + diabetes + stroke * 2 + vascular + age65to74 + sexFemale",
-    "__chf___point_s_": "{{chf}} point(s)",
-    "__hypertension___point_s_": "{{hypertension}} point(s)",
-    "__age75___2___point_s_": "{{age75 * 2}} point(s)",
-    "__diabetes___point_s_": "{{diabetes}} point(s)",
-    "__stroke___2___point_s_": "{{stroke * 2}} point(s)",
-    "__vascular___point_s_": "{{vascular}} point(s)",
-    "__age65to74___point_s_": "{{age65to74}} point(s)",
-    "__sexFemale___point_s_": "{{sexFemale}} point(s)",
-    "result": "CHA2DS2-VASc Score: {{score}}"
+    "score_aux": "chf + hypertension + age75 * 2 + diabetes + stroke * 2 + vascular + age65to74 + sexFemale"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "score_aux",
     "breakdown": [
       "CHF: {{chf}} point(s)",
       "Hypertension: {{hypertension}} point(s)",
@@ -153,7 +145,12 @@
       "Vascular: {{vascular}} point(s)",
       "Age 65-74: {{age65to74}} point(s)",
       "Female: {{sexFemale}} point(s)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "score_aux"
   },
   "category": "Bakım & Güvenilirlik",
   "sector": "Üretim & İmalat",
@@ -163,5 +160,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

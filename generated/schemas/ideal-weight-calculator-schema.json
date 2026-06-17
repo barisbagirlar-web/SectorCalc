@@ -67,16 +67,20 @@
     }
   ],
   "formulas": {
-    "ideal_weight_kg": "var total_in = height_ft * 12 + height_in; var base = gender == 1 ? 50 + 2.3*(total_in - 60) : 45.5 + 2.3*(total_in - 60); var factor = body_frame == 1 ? 0.9 : (body_frame == 2 ? 1.0 : 1.1); return base * factor;",
-    "ideal_weight_lbs": "var total_in = height_ft * 12 + height_in; var base = gender == 1 ? 50 + 2.3*(total_in - 60) : 45.5 + 2.3*(total_in - 60); var factor = body_frame == 1 ? 0.9 : (body_frame == 2 ? 1.0 : 1.1); var kg = base * factor; return kg * 2.20462;",
-    "bmi": "var total_in = height_ft * 12 + height_in; var base = gender == 1 ? 50 + 2.3*(total_in - 60) : 45.5 + 2.3*(total_in - 60); var factor = body_frame == 1 ? 0.9 : (body_frame == 2 ? 1.0 : 1.1); var kg = base * factor; var m = total_in * 0.0254; return kg / (m * m);"
+    "result": "height_ft + height_in + gender",
+    "result_copy": "height_ft + height_in + gender"
   },
   "outputs": {
-    "primary": "ideal_weight_kg",
+    "primary": "result",
     "breakdown": [
       "ideal_weight_lbs",
       "bmi"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "bmi"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -86,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

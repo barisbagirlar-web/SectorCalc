@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Age of the primary insured"
+      "businessContext": "Age of the primary insured",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "sumInsured",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 500000,
-      "businessContext": "Total coverage amount"
+      "businessContext": "Total coverage amount",
+      "label_i18n": {
+        "en": "Sum Insured",
+        "tr": "Sum Insured",
+        "de": "Sum Insured",
+        "fr": "Sum Insured",
+        "es": "Sum Insured",
+        "ar": "Sum Insured"
+      }
     },
     {
       "id": "familyMembers",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "persons",
       "default": 1,
-      "businessContext": "Total insured family members including primary"
+      "businessContext": "Total insured family members including primary",
+      "label_i18n": {
+        "en": "Number of Family Members",
+        "tr": "Number of Family Members",
+        "de": "Number of Family Members",
+        "fr": "Number of Family Members",
+        "es": "Number of Family Members",
+        "ar": "Number of Family Members"
+      }
     },
     {
       "id": "smokerStatus",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "0 for non-smoker, 1 for smoker"
+      "businessContext": "0 for non-smoker, 1 for smoker",
+      "label_i18n": {
+        "en": "Smoker Status",
+        "tr": "Smoker Status",
+        "de": "Smoker Status",
+        "fr": "Smoker Status",
+        "es": "Smoker Status",
+        "ar": "Smoker Status"
+      }
     },
     {
       "id": "preExisting",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "0 for none, 1 for pre-existing conditions"
+      "businessContext": "0 for none, 1 for pre-existing conditions",
+      "label_i18n": {
+        "en": "Pre-existing Conditions",
+        "tr": "Pre-existing Conditions",
+        "de": "Pre-existing Conditions",
+        "fr": "Pre-existing Conditions",
+        "es": "Pre-existing Conditions",
+        "ar": "Pre-existing Conditions"
+      }
     },
     {
       "id": "occupationRisk",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1,
-      "businessContext": "Risk factor based on occupation (1.0 = low risk, up to 2.0 high risk)"
+      "businessContext": "Risk factor based on occupation (1.0 = low risk, up to 2.0 high risk)",
+      "label_i18n": {
+        "en": "Occupation Risk Factor",
+        "tr": "Occupation Risk Factor",
+        "de": "Occupation Risk Factor",
+        "fr": "Occupation Risk Factor",
+        "es": "Occupation Risk Factor",
+        "ar": "Occupation Risk Factor"
+      }
     }
   ],
   "formulas": {
@@ -63,7 +111,12 @@
       "familyMultiplier",
       "riskMultiplier",
       "totalPremium"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalPremium"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -73,5 +126,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

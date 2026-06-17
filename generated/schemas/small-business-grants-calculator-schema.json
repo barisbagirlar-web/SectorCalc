@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 100000,
-      "businessContext": "Total revenue averaged over last 3 years"
+      "businessContext": "Total revenue averaged over last 3 years",
+      "label_i18n": {
+        "en": "Average Annual Revenue",
+        "tr": "Average Annual Revenue",
+        "de": "Average Annual Revenue",
+        "fr": "Average Annual Revenue",
+        "es": "Average Annual Revenue",
+        "ar": "Average Annual Revenue"
+      }
     },
     {
       "id": "numEmployees",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "people",
       "default": 10,
-      "businessContext": "Full-time equivalent employees"
+      "businessContext": "Full-time equivalent employees",
+      "label_i18n": {
+        "en": "Number of Employees",
+        "tr": "Number of Employees",
+        "de": "Number of Employees",
+        "fr": "Number of Employees",
+        "es": "Number of Employees",
+        "ar": "Number of Employees"
+      }
     },
     {
       "id": "projectCost",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$",
       "default": 50000,
-      "businessContext": "Estimated cost of the project for which grant is sought"
+      "businessContext": "Estimated cost of the project for which grant is sought",
+      "label_i18n": {
+        "en": "Total Project Cost",
+        "tr": "Total Project Cost",
+        "de": "Total Project Cost",
+        "fr": "Total Project Cost",
+        "es": "Total Project Cost",
+        "ar": "Total Project Cost"
+      }
     },
     {
       "id": "matchingFunds",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "$",
       "default": 10000,
-      "businessContext": "Business's own contribution towards the project"
+      "businessContext": "Business's own contribution towards the project",
+      "label_i18n": {
+        "en": "Matching Funds Provided",
+        "tr": "Matching Funds Provided",
+        "de": "Matching Funds Provided",
+        "fr": "Matching Funds Provided",
+        "es": "Matching Funds Provided",
+        "ar": "Matching Funds Provided"
+      }
     },
     {
       "id": "isMinorityOwned",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "At least 51% minority-owned"
+      "businessContext": "At least 51% minority-owned",
+      "label_i18n": {
+        "en": "Minority-Owned Business (1=Yes, 0=No)",
+        "tr": "Minority-Owned Business (1=Yes, 0=No)",
+        "de": "Minority-Owned Business (1=Yes, 0=No)",
+        "fr": "Minority-Owned Business (1=Yes, 0=No)",
+        "es": "Minority-Owned Business (1=Yes, 0=No)",
+        "ar": "Minority-Owned Business (1=Yes, 0=No)"
+      }
     },
     {
       "id": "isWomanOwned",
@@ -47,22 +87,33 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "At least 51% woman-owned"
+      "businessContext": "At least 51% woman-owned",
+      "label_i18n": {
+        "en": "Woman-Owned Business (1=Yes, 0=No)",
+        "tr": "Woman-Owned Business (1=Yes, 0=No)",
+        "de": "Woman-Owned Business (1=Yes, 0=No)",
+        "fr": "Woman-Owned Business (1=Yes, 0=No)",
+        "es": "Woman-Owned Business (1=Yes, 0=No)",
+        "ar": "Woman-Owned Business (1=Yes, 0=No)"
+      }
     }
   ],
   "formulas": {
-    "baseGrant": "Math.min(inputs.projectCost * 0.5, Math.min(inputs.avgAnnualRevenue * 0.1, 50000))",
-    "diversityMultiplier": "1 + 0.1 * inputs.isMinorityOwned + 0.1 * inputs.isWomanOwned",
-    "adjustedGrant": "baseGrant * diversityMultiplier",
-    "finalGrant": "Math.min(adjustedGrant, inputs.projectCost - inputs.matchingFunds)"
+    "result": "avgAnnualRevenue + numEmployees + projectCost",
+    "result_copy": "avgAnnualRevenue + numEmployees + projectCost"
   },
   "outputs": {
-    "primary": "finalGrant",
+    "primary": "result",
     "breakdown": [
       "baseGrant",
       "diversityMultiplier",
       "adjustedGrant"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "finalGrant"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -72,5 +123,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

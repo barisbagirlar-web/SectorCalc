@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "hours",
       "default": 100,
-      "businessContext": "The total allocated time for completion, e.g., planned maintenance duration."
+      "businessContext": "The total allocated time for completion, e.g., planned maintenance duration.",
+      "label_i18n": {
+        "en": "Total Duration",
+        "tr": "Total Duration",
+        "de": "Total Duration",
+        "fr": "Total Duration",
+        "es": "Total Duration",
+        "ar": "Total Duration"
+      }
     },
     {
       "id": "elapsedDuration",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hours",
       "default": 0,
-      "businessContext": "The time already passed since the start."
+      "businessContext": "The time already passed since the start.",
+      "label_i18n": {
+        "en": "Elapsed Duration",
+        "tr": "Elapsed Duration",
+        "de": "Elapsed Duration",
+        "fr": "Elapsed Duration",
+        "es": "Elapsed Duration",
+        "ar": "Elapsed Duration"
+      }
     },
     {
       "id": "bufferTime",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "hours",
       "default": 0,
-      "businessContext": "Additional safety margin added to total duration."
+      "businessContext": "Additional safety margin added to total duration.",
+      "label_i18n": {
+        "en": "Buffer Time",
+        "tr": "Buffer Time",
+        "de": "Buffer Time",
+        "fr": "Buffer Time",
+        "es": "Buffer Time",
+        "ar": "Buffer Time"
+      }
     },
     {
       "id": "warningThreshold",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "When remaining time falls below this percent, trigger warning."
+      "businessContext": "When remaining time falls below this percent, trigger warning.",
+      "label_i18n": {
+        "en": "Warning Threshold",
+        "tr": "Warning Threshold",
+        "de": "Warning Threshold",
+        "fr": "Warning Threshold",
+        "es": "Warning Threshold",
+        "ar": "Warning Threshold"
+      }
     },
     {
       "id": "criticalThreshold",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "When remaining time falls below this percent, trigger critical alert."
+      "businessContext": "When remaining time falls below this percent, trigger critical alert.",
+      "label_i18n": {
+        "en": "Critical Threshold",
+        "tr": "Critical Threshold",
+        "de": "Critical Threshold",
+        "fr": "Critical Threshold",
+        "es": "Critical Threshold",
+        "ar": "Critical Threshold"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "percentRemaining",
       "status"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "status"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -62,5 +107,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

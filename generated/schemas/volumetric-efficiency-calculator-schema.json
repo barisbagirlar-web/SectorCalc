@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Cylinder bore diameter in millimeters"
+      "businessContext": "Cylinder bore diameter in millimeters",
+      "label_i18n": {
+        "en": "Bore (cylinder diameter)",
+        "tr": "Bore (cylinder diameter)",
+        "de": "Bore (cylinder diameter)",
+        "fr": "Bore (cylinder diameter)",
+        "es": "Bore (cylinder diameter)",
+        "ar": "Bore (cylinder diameter)"
+      }
     },
     {
       "id": "stroke",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 120,
-      "businessContext": "Piston stroke length in millimeters"
+      "businessContext": "Piston stroke length in millimeters",
+      "label_i18n": {
+        "en": "Stroke length",
+        "tr": "Stroke length",
+        "de": "Stroke length",
+        "fr": "Stroke length",
+        "es": "Stroke length",
+        "ar": "Stroke length"
+      }
     },
     {
       "id": "cylinders",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "count",
       "default": 4,
-      "businessContext": "Number of cylinders in the pump/compressor"
+      "businessContext": "Number of cylinders in the pump/compressor",
+      "label_i18n": {
+        "en": "Number of cylinders",
+        "tr": "Number of cylinders",
+        "de": "Number of cylinders",
+        "fr": "Number of cylinders",
+        "es": "Number of cylinders",
+        "ar": "Number of cylinders"
+      }
     },
     {
       "id": "speed",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "RPM",
       "default": 1500,
-      "businessContext": "Shaft rotational speed in revolutions per minute"
+      "businessContext": "Shaft rotational speed in revolutions per minute",
+      "label_i18n": {
+        "en": "Rotational speed",
+        "tr": "Rotational speed",
+        "de": "Rotational speed",
+        "fr": "Rotational speed",
+        "es": "Rotational speed",
+        "ar": "Rotational speed"
+      }
     },
     {
       "id": "actualFlow",
@@ -39,21 +71,32 @@
       "type": "number",
       "unit": "L/min",
       "default": 500,
-      "businessContext": "Measured actual flow rate in liters per minute"
+      "businessContext": "Measured actual flow rate in liters per minute",
+      "label_i18n": {
+        "en": "Actual flow rate",
+        "tr": "Actual flow rate",
+        "de": "Actual flow rate",
+        "fr": "Actual flow rate",
+        "es": "Actual flow rate",
+        "ar": "Actual flow rate"
+      }
     }
   ],
   "formulas": {
-    "sweptVolumePerCylinderL": "(Math.PI/4) * Math.pow(bore, 2) * stroke / 1000000",
-    "sweptVolumePerRevolutionL": "sweptVolumePerCylinderL * cylinders",
-    "theoreticalFlowLPerMin": "sweptVolumePerRevolutionL * speed",
-    "volumetricEfficiency": "(actualFlow / theoreticalFlowLPerMin) * 100"
+    "result": "bore + stroke + cylinders",
+    "result_copy": "bore + stroke + cylinders"
   },
   "outputs": {
-    "primary": "volumetricEfficiency",
+    "primary": "result",
     "breakdown": [
       "sweptVolumePerRevolutionL",
       "theoreticalFlowLPerMin"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "volumetricEfficiency"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -63,5 +106,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

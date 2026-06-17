@@ -67,28 +67,23 @@
     }
   ],
   "formulas": {
-    "baseTeeth": "Math.max(0, ageMonths - 6)",
     "geneticModifier": "geneticFactor - 1",
-    "calciumModifier": "(calciumIntake - 500) / 500",
-    "breastfeedingModifier": "Math.max(0, (breastfeedingDuration - 6) * -0.2)",
-    "totalModifier": "geneticModifier + calciumModifier + breastfeedingModifier",
-    "expectedTeethRaw": "baseTeeth * (1 + totalModifier)",
-    "expectedTeeth": "Math.max(0, Math.round(expectedTeethRaw))",
-    "breakdownBase": "'Temel: ' + baseTeeth.toFixed(0) + ' diş'",
-    "breakdownGenetic": "(geneticModifier >= 0 ? 'Genetik: +' : 'Genetik: ') + (geneticModifier * baseTeeth).toFixed(1) + ' diş'",
-    "breakdownCalcium": "(calciumModifier >= 0 ? 'Kalsiyum: +' : 'Kalsiyum: ') + (calciumModifier * baseTeeth).toFixed(1) + ' diş'",
-    "breakdownBreastfeeding": "(breastfeedingModifier >= 0 ? 'Emzirme: +' : 'Emzirme: ') + (breastfeedingModifier * baseTeeth).toFixed(1) + ' diş'",
-    "breakdownTotal": "'Toplam: ' + expectedTeeth + ' diş'"
+    "calciumModifier": "(calciumIntake - 500) / 500"
   },
   "outputs": {
-    "primary": "expectedTeeth",
+    "primary": "calciumModifier",
     "breakdown": [
       "breakdownBase",
       "breakdownGenetic",
       "breakdownCalcium",
       "breakdownBreastfeeding",
       "breakdownTotal"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "breakdownTotal"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -98,5 +93,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

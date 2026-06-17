@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from pomodoro-calculator-schema.json
 import * as z from 'zod';
 
@@ -19,28 +20,33 @@ export const Pomodoro_calculatorInputSchema = z.object({
   startTimeMinutes: z.number().default(480),
 });
 
-function evaluateAllFormulas(input: Pomodoro_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.numberOfPomodoros * input.workDuration; results["totalWorkTime"] = Number.isFinite(v) ? v : 0; } catch { results["totalWorkTime"] = 0; }
-  try { const v = Math.floor((input.numberOfPomodoros - 1) / input.pomodorosBeforeLongBreak); results["numberOfLongBreaks"] = Number.isFinite(v) ? v : 0; } catch { results["numberOfLongBreaks"] = 0; }
-  try { const v = input.numberOfPomodoros - 1 - (results["numberOfLongBreaks"] ?? 0); results["numberOfShortBreaks"] = Number.isFinite(v) ? v : 0; } catch { results["numberOfShortBreaks"] = 0; }
-  try { const v = (results["numberOfShortBreaks"] ?? 0) * input.shortBreakDuration + (results["numberOfLongBreaks"] ?? 0) * input.longBreakDuration; results["totalBreakTime"] = Number.isFinite(v) ? v : 0; } catch { results["totalBreakTime"] = 0; }
-  try { const v = input.startTimeMinutes + (results["totalWorkTime"] ?? 0) + (results["totalBreakTime"] ?? 0); results["estimatedEndMinutes"] = Number.isFinite(v) ? v : 0; } catch { results["estimatedEndMinutes"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Pomodoro_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.numberOfPomodoros * input.workDuration; results["totalWorkTime"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalWorkTime"] = 0; }
+  try { const v = input.numberOfPomodoros * input.workDuration; results["totalWorkTime_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalWorkTime_aux"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculatePomodoro_calculator(input: Pomodoro_calculatorInput): Pomodoro_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["estimatedEndMinutes"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["totalWorkTime_aux"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

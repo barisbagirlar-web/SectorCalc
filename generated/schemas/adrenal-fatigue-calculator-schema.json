@@ -99,13 +99,11 @@
     }
   ],
   "formulas": {
-    "fatigue_index": "(shift_length * load_factor * Math.log(noise_level + 1) * Math.sqrt(temperature ** 2 + 1) / (rest_between_shifts + 1)) + consecutive_shifts * 2",
     "shift_contribution": "shift_length * load_factor / (rest_between_shifts + 1) * 10",
-    "environment_contribution": "Math.log(noise_level + 1) * Math.sqrt(temperature ** 2 + 1) * 5",
     "cumulative_contribution": "consecutive_shifts * 2"
   },
   "outputs": {
-    "primary": "fatigue_index",
+    "primary": "cumulative_contribution",
     "breakdown": [
       {
         "id": "shift_contribution",
@@ -125,7 +123,12 @@
         "unit": "points",
         "description": "Contribution from consecutive work days accumulation."
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "cumulative_contribution"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -135,5 +138,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

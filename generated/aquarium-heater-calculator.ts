@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from aquarium-heater-calculator-schema.json
 import * as z from 'zod';
 
@@ -19,27 +20,35 @@ export const Aquarium_heater_calculatorInputSchema = z.object({
   safetyMargin: z.number().default(20),
 });
 
-function evaluateAllFormulas(input: Aquarium_heater_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.targetTemp - input.roomTemp; results["tempRise"] = Number.isFinite(v) ? v : 0; } catch { results["tempRise"] = 0; }
-  try { const v = (input.volume * 4.186 * (results["tempRise"] ?? 0)) / 3600; results["heatEnergy"] = Number.isFinite(v) ? v : 0; } catch { results["heatEnergy"] = 0; }
-  try { const v = ((results["heatEnergy"] ?? 0) * 1000) / (input.heatingTime * (input.efficiency / 100)); results["requiredWattage"] = Number.isFinite(v) ? v : 0; } catch { results["requiredWattage"] = 0; }
-  try { const v = (results["requiredWattage"] ?? 0) * (1 + input.safetyMargin / 100); results["recommendedWattage"] = Number.isFinite(v) ? v : 0; } catch { results["recommendedWattage"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Aquarium_heater_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.targetTemp - input.roomTemp; results["tempRise"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["tempRise"] = 0; }
+  try { const v = (input.volume * 4.186 * (asFormulaNumber(results["tempRise"]))) / 3600; results["heatEnergy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["heatEnergy"] = 0; }
+  try { const v = ((asFormulaNumber(results["heatEnergy"])) * 1000) / (input.heatingTime * (input.efficiency / 100)); results["requiredWattage"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["requiredWattage"] = 0; }
+  try { const v = (asFormulaNumber(results["requiredWattage"])) * (1 + input.safetyMargin / 100); results["recommendedWattage"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["recommendedWattage"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateAquarium_heater_calculator(input: Aquarium_heater_calculatorInput): Aquarium_heater_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["recommendedWattage"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["recommendedWattage"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

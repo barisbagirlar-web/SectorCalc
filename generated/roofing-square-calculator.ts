@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from roofing-square-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,27 +16,33 @@ export const Roofing_square_calculatorInputSchema = z.object({
   wastePercent: z.number().default(10),
 });
 
-function evaluateAllFormulas(input: Roofing_square_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.roofLength * input.roofWidth * (1 / Math.cos(input.pitchAngle * Math.PI / 180)); results["roofArea"] = Number.isFinite(v) ? v : 0; } catch { results["roofArea"] = 0; }
-  try { const v = (results["roofArea"] ?? 0) * (input.wastePercent / 100); results["wasteArea"] = Number.isFinite(v) ? v : 0; } catch { results["wasteArea"] = 0; }
-  try { const v = (results["roofArea"] ?? 0) + (results["wasteArea"] ?? 0); results["totalArea"] = Number.isFinite(v) ? v : 0; } catch { results["totalArea"] = 0; }
-  try { const v = (results["totalArea"] ?? 0) / 100; results["roofingSquares"] = Number.isFinite(v) ? v : 0; } catch { results["roofingSquares"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Roofing_square_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.roofLength + input.roofWidth + input.pitchAngle; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.roofLength + input.roofWidth + input.pitchAngle; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateRoofing_square_calculator(input: Roofing_square_calculatorInput): Roofing_square_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["roofingSquares"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

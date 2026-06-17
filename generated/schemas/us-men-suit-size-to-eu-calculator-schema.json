@@ -69,16 +69,19 @@
   "formulas": {
     "EUJacket": "usJacketSize + conversionOffset",
     "EUWaistCm": "usWaistSize * 2.54",
-    "EUInseamCm": "usInseam * 2.54",
-    "__EUWaistCm__cm": "${EUWaistCm} cm",
-    "__EUInseamCm__cm": "${EUInseamCm} cm"
+    "EUInseamCm": "usInseam * 2.54"
   },
   "outputs": {
     "primary": "EUJacket",
     "breakdown": [
       "EU Waist: ${EUWaistCm} cm",
       "EU Inseam: ${EUInseamCm} cm"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "EUInseamCm"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -88,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

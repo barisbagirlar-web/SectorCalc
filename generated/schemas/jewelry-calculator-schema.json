@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 5,
-      "businessContext": "Mücevherde kullanılan değerli metalin gram cinsinden ağırlığı"
+      "businessContext": "Mücevherde kullanılan değerli metalin gram cinsinden ağırlığı",
+      "label_i18n": {
+        "en": "Metal Ağırlık",
+        "tr": "Metal Ağırlık",
+        "de": "Metal Ağırlık",
+        "fr": "Metal Ağırlık",
+        "es": "Metal Ağırlık",
+        "ar": "Metal Ağırlık"
+      }
     },
     {
       "id": "metalPurity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "K",
       "default": 18,
-      "businessContext": "Metalin saflığı (24 ayar saf, 18 ayar %75 vb.)"
+      "businessContext": "Metalin saflığı (24 ayar saf, 18 ayar %75 vb.)",
+      "label_i18n": {
+        "en": "Ayar",
+        "tr": "Ayar",
+        "de": "Ayar",
+        "fr": "Ayar",
+        "es": "Ayar",
+        "ar": "Ayar"
+      }
     },
     {
       "id": "metalPricePerGram",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD/g",
       "default": 60,
-      "businessContext": "Saf metalin güncel piyasa gram fiyatı"
+      "businessContext": "Saf metalin güncel piyasa gram fiyatı",
+      "label_i18n": {
+        "en": "Metal Gram Fiyatı",
+        "tr": "Metal Gram Fiyatı",
+        "de": "Metal Gram Fiyatı",
+        "fr": "Metal Gram Fiyatı",
+        "es": "Metal Gram Fiyatı",
+        "ar": "Metal Gram Fiyatı"
+      }
     },
     {
       "id": "gemstoneCost",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Kullanılan değerli taşların toplam maliyeti"
+      "businessContext": "Kullanılan değerli taşların toplam maliyeti",
+      "label_i18n": {
+        "en": "Taş Maliyeti",
+        "tr": "Taş Maliyeti",
+        "de": "Taş Maliyeti",
+        "fr": "Taş Maliyeti",
+        "es": "Taş Maliyeti",
+        "ar": "Taş Maliyeti"
+      }
     },
     {
       "id": "laborCost",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD",
       "default": 50,
-      "businessContext": "Üretim veya montaj için işçilik bedeli"
+      "businessContext": "Üretim veya montaj için işçilik bedeli",
+      "label_i18n": {
+        "en": "İşçilik Maliyeti",
+        "tr": "İşçilik Maliyeti",
+        "de": "İşçilik Maliyeti",
+        "fr": "İşçilik Maliyeti",
+        "es": "İşçilik Maliyeti",
+        "ar": "İşçilik Maliyeti"
+      }
     },
     {
       "id": "markupPercent",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Toplam maliyet üzerine eklenecek kâr marjı yüzdesi"
+      "businessContext": "Toplam maliyet üzerine eklenecek kâr marjı yüzdesi",
+      "label_i18n": {
+        "en": "Kâr Marjı Oranı",
+        "tr": "Kâr Marjı Oranı",
+        "de": "Kâr Marjı Oranı",
+        "fr": "Kâr Marjı Oranı",
+        "es": "Kâr Marjı Oranı",
+        "ar": "Kâr Marjı Oranı"
+      }
     }
   ],
   "formulas": {
@@ -64,7 +112,12 @@
       "materialCost",
       "totalCost",
       "markupAmount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "finalPrice"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -74,5 +127,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "metal",
   "profession": "Yüzey İşlem Uzmanı",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 100000,
-      "businessContext": "Your target net annual income after taxes and expenses."
+      "businessContext": "Your target net annual income after taxes and expenses.",
+      "label_i18n": {
+        "en": "Desired Annual Income",
+        "tr": "Desired Annual Income",
+        "de": "Desired Annual Income",
+        "fr": "Desired Annual Income",
+        "es": "Desired Annual Income",
+        "ar": "Desired Annual Income"
+      }
     },
     {
       "id": "overheadCosts",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "$",
       "default": 20000,
-      "businessContext": "Total yearly business expenses (software, office, insurance, etc.)."
+      "businessContext": "Total yearly business expenses (software, office, insurance, etc.).",
+      "label_i18n": {
+        "en": "Annual Overhead Costs",
+        "tr": "Annual Overhead Costs",
+        "de": "Annual Overhead Costs",
+        "fr": "Annual Overhead Costs",
+        "es": "Annual Overhead Costs",
+        "ar": "Annual Overhead Costs"
+      }
     },
     {
       "id": "billableHoursPerYear",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Hrs",
       "default": 1500,
-      "businessContext": "Expected number of hours you can invoice clients annually, excluding non-billable time."
+      "businessContext": "Expected number of hours you can invoice clients annually, excluding non-billable time.",
+      "label_i18n": {
+        "en": "Billable Hours per Year",
+        "tr": "Billable Hours per Year",
+        "de": "Billable Hours per Year",
+        "fr": "Billable Hours per Year",
+        "es": "Billable Hours per Year",
+        "ar": "Billable Hours per Year"
+      }
     },
     {
       "id": "profitMarginPercent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Additional percentage added to cover business growth, reinvestment, and buffer."
+      "businessContext": "Additional percentage added to cover business growth, reinvestment, and buffer.",
+      "label_i18n": {
+        "en": "Profit Margin",
+        "tr": "Profit Margin",
+        "de": "Profit Margin",
+        "fr": "Profit Margin",
+        "es": "Profit Margin",
+        "ar": "Profit Margin"
+      }
     },
     {
       "id": "taxRatePercent",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 30,
-      "businessContext": "Estimated percentage of income paid as taxes, used to gross-up the target income."
+      "businessContext": "Estimated percentage of income paid as taxes, used to gross-up the target income.",
+      "label_i18n": {
+        "en": "Effective Tax Rate",
+        "tr": "Effective Tax Rate",
+        "de": "Effective Tax Rate",
+        "fr": "Effective Tax Rate",
+        "es": "Effective Tax Rate",
+        "ar": "Effective Tax Rate"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "annualGrossIncomeNeeded",
       "totalAnnualCosts"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "hourlyRate"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -62,5 +107,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

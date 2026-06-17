@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from heat-gain-calculator-schema.json
 import * as z from 'zod';
 
@@ -21,26 +22,34 @@ export const Heat_gain_calculatorInputSchema = z.object({
   solarRadiation: z.number().default(500),
 });
 
-function evaluateAllFormulas(input: Heat_gain_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.wallArea * input.wallUvalue * input.tempDiff + input.windowArea * input.windowUvalue * input.tempDiff; results["conductionHeatGain"] = Number.isFinite(v) ? v : 0; } catch { results["conductionHeatGain"] = 0; }
-  try { const v = input.windowArea * input.windowSHGC * input.solarRadiation; results["solarHeatGain"] = Number.isFinite(v) ? v : 0; } catch { results["solarHeatGain"] = 0; }
-  try { const v = (results["conductionHeatGain"] ?? 0) + (results["solarHeatGain"] ?? 0); results["totalHeatGain"] = Number.isFinite(v) ? v : 0; } catch { results["totalHeatGain"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Heat_gain_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.wallArea * input.wallUvalue * input.tempDiff + input.windowArea * input.windowUvalue * input.tempDiff; results["conductionHeatGain"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["conductionHeatGain"] = 0; }
+  try { const v = input.windowArea * input.windowSHGC * input.solarRadiation; results["solarHeatGain"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["solarHeatGain"] = 0; }
+  try { const v = (asFormulaNumber(results["conductionHeatGain"])) + (asFormulaNumber(results["solarHeatGain"])); results["totalHeatGain"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalHeatGain"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateHeat_gain_calculator(input: Heat_gain_calculatorInput): Heat_gain_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalHeatGain"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["totalHeatGain"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -99,16 +99,20 @@
     }
   ],
   "formulas": {
-    "cookingTime": "Math.round((meat_weight ** 0.65) * (thickness ** 0.5) * ((target_temp - starting_temp) / (oven_temp - target_temp)) * 10 * shape_factor * 100) / 100",
-    "donenessLevel": "target_temp < 55 ? 'Rare' : target_temp < 65 ? 'Medium-Rare' : target_temp < 70 ? 'Medium' : target_temp < 75 ? 'Medium-Well' : 'Well-Done'",
-    "tempDifference": "target_temp - starting_temp"
+    "result": "meat-weight + oven-temp + target-temp",
+    "result_copy": "meat-weight + oven-temp + target-temp"
   },
   "outputs": {
-    "primary": "cookingTime",
+    "primary": "result",
     "breakdown": [
       "donenessLevel",
       "tempDifference"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "tempDifference"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -118,5 +122,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

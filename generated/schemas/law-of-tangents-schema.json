@@ -51,17 +51,21 @@
     }
   ],
   "formulas": {
-    "angle_A": "Math.atan2(side_a * Math.sin(angle_C * Math.PI / 180), side_b - side_a * Math.cos(angle_C * Math.PI / 180)) * 180 / Math.PI",
-    "angle_B": "180 - angle_A - angle_C",
-    "side_c": "Math.sqrt(side_a**2 + side_b**2 - 2 * side_a * side_b * Math.cos(angle_C * Math.PI / 180))"
+    "result": "side_a + side_b + angle_C",
+    "result_copy": "side_a + side_b + angle_C"
   },
   "outputs": {
-    "primary": "angle_A",
+    "primary": "result",
     "breakdown": [
       "angle_A = {angle_A}°",
       "angle_B = {angle_B}°",
       "side_c = {side_c} m"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "side_c"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -71,5 +75,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

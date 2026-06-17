@@ -88,8 +88,7 @@
     "inrPoints": "inr < 1.7 ? 1 : (inr <= 2.3 ? 2 : 3)",
     "ascitesPoints": "ascites + 1",
     "encephalopathyPoints": "encephalopathy + 1",
-    "totalScore": "bilirubinPoints + albuminPoints + inrPoints + ascitesPoints + encephalopathyPoints",
-    "childPughClass": "totalScore <= 6 ? 'A' : (totalScore <= 9 ? 'B' : 'C')"
+    "totalScore": "bilirubinPoints + albuminPoints + inrPoints + ascitesPoints + encephalopathyPoints"
   },
   "outputs": {
     "primary": "totalScore",
@@ -100,7 +99,12 @@
       "ascitesPoints",
       "encephalopathyPoints",
       "childPughClass"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "childPughClass"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -110,5 +114,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

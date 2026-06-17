@@ -83,19 +83,20 @@
     }
   ],
   "formulas": {
-    "primary": "'Yeni Tarih: ' + Math.floor(((startYear * 12 + startMonth - 1) + yearsToAdd * 12 + monthsToAdd) / 12) + '-' + (((startYear * 12 + startMonth - 1) + yearsToAdd * 12 + monthsToAdd) % 12 + 1) + '-' + startDay",
-    "breakdown0": "'Yıl: ' + Math.floor(((startYear * 12 + startMonth - 1) + yearsToAdd * 12 + monthsToAdd) / 12)",
     "breakdown1": "'Ay: ' + (((startYear * 12 + startMonth - 1) + yearsToAdd * 12 + monthsToAdd) % 12 + 1) + ' Gün: ' + startDay",
-    "Y_l_Bile_eni": "Yıl Bileşeni",
-    "Ay_ve_G_n_Bile_enleri": "Ay ve Gün Bileşenleri",
-    "result": "Yeni Tarih (YYYY-AA-GG)"
+    "breakdown1_aux": "'Ay: ' + (((startYear * 12 + startMonth - 1) + yearsToAdd * 12 + monthsToAdd) % 12 + 1) + ' Gün: ' + startDay"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "breakdown1",
     "breakdown": [
       "Yıl Bileşeni",
       "Ay ve Gün Bileşenleri"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "breakdown1"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -105,5 +106,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -67,13 +67,12 @@
     }
   ],
   "formulas": {
-    "equivalentSummary": "mode === 0 ? `Star: R1=${((R1*R3)/(R1+R2+R3)).toFixed(2)} Ω, R2=${((R1*R2)/(R1+R2+R3)).toFixed(2)} Ω, R3=${((R2*R3)/(R1+R2+R3)).toFixed(2)} Ω` : `Delta: R12=${(R1+R2+(R1*R2)/R3).toFixed(2)} Ω, R23=${(R2+R3+(R2*R3)/R1).toFixed(2)} Ω, R31=${(R3+R1+(R3*R1)/R2).toFixed(2)} Ω`",
     "R_eq1": "mode === 0 ? (R1 * R3) / (R1 + R2 + R3) : (R1 + R2 + (R1 * R2) / R3)",
     "R_eq2": "mode === 0 ? (R1 * R2) / (R1 + R2 + R3) : (R2 + R3 + (R2 * R3) / R1)",
     "R_eq3": "mode === 0 ? (R2 * R3) / (R1 + R2 + R3) : (R3 + R1 + (R3 * R1) / R2)"
   },
   "outputs": {
-    "primary": "equivalentSummary",
+    "primary": "R_eq3",
     "breakdown": [
       {
         "id": "R_eq1",
@@ -90,7 +89,12 @@
         "label": "Equivalent R3 (Ω) or R31 (Ω)",
         "unit": "Ω"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "R_eq3"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -100,5 +104,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

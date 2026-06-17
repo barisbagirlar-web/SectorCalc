@@ -69,17 +69,19 @@
   "formulas": {
     "speedRatio": "driverDiameter / drivenDiameter",
     "drivenRPM": "driverRPM * speedRatio",
-    "beltLength": "2 * centerDistance + 1.5708 * (driverDiameter + drivenDiameter) + ((drivenDiameter - driverDiameter) ** 2) / (4 * centerDistance)",
-    "_drivenRPM_toFixed_0___RPM": "{drivenRPM.toFixed(0)} RPM",
-    "driven____speedRatio_toFixed_2__": "driven): {speedRatio.toFixed(2)}",
-    "result": "Required belt length: {beltLength.toFixed(2)} mm"
+    "beltLength": "2 * centerDistance + 1.5708 * (driverDiameter + drivenDiameter) + ((drivenDiameter - driverDiameter) ** 2) / (4 * centerDistance)"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "beltLength",
     "breakdown": [
       "Driven pulley speed: {drivenRPM.toFixed(0)} RPM",
       "Speed ratio (driver:driven): {speedRatio.toFixed(2)}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "beltLength"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -89,5 +91,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

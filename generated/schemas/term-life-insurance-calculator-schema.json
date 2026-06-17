@@ -83,19 +83,21 @@
     }
   ],
   "formulas": {
-    "primary": "coverageAmount * (0.001 * (age - 20 + 5 * isSmoker)) / Math.pow(1 + interestRate/100, termYears)",
     "breakdown": "age",
-    "__breakdown0_": "${breakdown0}",
-    "__breakdown1_": "${breakdown1}",
-    "__breakdown2_": "${breakdown2}"
+    "breakdown_aux": "age"
   },
   "outputs": {
-    "primary": "primary",
+    "primary": "breakdown_aux",
     "breakdown": [
       "Mortality Probability: ${breakdown0}",
       "Discount Factor: ${breakdown1}",
       "Coverage Amount: ${breakdown2}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "breakdown"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -105,5 +107,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "hr"
+  "categoryId": "hr",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

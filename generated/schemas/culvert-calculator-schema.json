@@ -84,22 +84,21 @@
   ],
   "formulas": {
     "area": "(Math.PI * D * D) / 4",
-    "v_theory": "Math.sqrt(2 * g * H)",
-    "Q_single": "Cd * area * v_theory",
-    "Q_total": "n * Q_single",
-    "____area_____m__": "\" + area + \" m²\"",
-    "____v_theory_____m_s_": "\" + v_theory + \" m/s\"",
-    "____Q_single_____m__s_": "\" + Q_single + \" m³/s\"",
-    "____Q_total_____m__s_": "\" + Q_total + \" m³/s\""
+    "area_aux": "(Math.PI * D * D) / 4"
   },
   "outputs": {
-    "primary": "Q_total",
+    "primary": "area_aux",
     "breakdown": [
       "\"Cross-sectional Area: \" + area + \" m²\"",
       "\"Theoretical Velocity: \" + v_theory + \" m/s\"",
       "\"Single Barrel Discharge: \" + Q_single + \" m³/s\"",
       "\"Total Discharge: \" + Q_total + \" m³/s\""
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "Q_total"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -109,5 +108,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

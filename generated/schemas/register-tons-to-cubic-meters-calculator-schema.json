@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "RT",
       "default": 1,
-      "businessContext": "Volume in register tons (1 RT = 100 cubic feet)"
+      "businessContext": "Volume in register tons (1 RT = 100 cubic feet)",
+      "label_i18n": {
+        "en": "Register Tons",
+        "tr": "Register Tons",
+        "de": "Register Tons",
+        "fr": "Register Tons",
+        "es": "Register Tons",
+        "ar": "Register Tons"
+      }
     },
     {
       "id": "cubicMeters",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m³",
       "default": 0,
-      "businessContext": "Volume in cubic meters (for reverse conversion)"
+      "businessContext": "Volume in cubic meters (for reverse conversion)",
+      "label_i18n": {
+        "en": "Cubic Meters",
+        "tr": "Cubic Meters",
+        "de": "Cubic Meters",
+        "fr": "Cubic Meters",
+        "es": "Cubic Meters",
+        "ar": "Cubic Meters"
+      }
     },
     {
       "id": "direction",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "0→RT to m³, 1→m³ to RT",
       "default": 0,
-      "businessContext": "Select direction: 0 for register tons to cubic meters, 1 for cubic meters to register tons"
+      "businessContext": "Select direction: 0 for register tons to cubic meters, 1 for cubic meters to register tons",
+      "label_i18n": {
+        "en": "Conversion Direction",
+        "tr": "Conversion Direction",
+        "de": "Conversion Direction",
+        "fr": "Conversion Direction",
+        "es": "Conversion Direction",
+        "ar": "Conversion Direction"
+      }
     },
     {
       "id": "decimalPlaces",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "decimals",
       "default": 2,
-      "businessContext": "Number of decimal places for rounding result"
+      "businessContext": "Number of decimal places for rounding result",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "useStandardConversion",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "boolean (1=yes,0=no)",
       "default": 1,
-      "businessContext": "Use standard conversion factor (2.8316846592 m³/RT) if 1, else custom"
+      "businessContext": "Use standard conversion factor (2.8316846592 m³/RT) if 1, else custom",
+      "label_i18n": {
+        "en": "Use Standard Factor",
+        "tr": "Use Standard Factor",
+        "de": "Use Standard Factor",
+        "fr": "Use Standard Factor",
+        "es": "Use Standard Factor",
+        "ar": "Use Standard Factor"
+      }
     },
     {
       "id": "customFactor",
@@ -47,20 +87,32 @@
       "type": "number",
       "unit": "m³/RT",
       "default": 2.8316846592,
-      "businessContext": "Custom conversion factor when not using standard. Default is standard factor."
+      "businessContext": "Custom conversion factor when not using standard. Default is standard factor.",
+      "label_i18n": {
+        "en": "Custom Factor",
+        "tr": "Custom Factor",
+        "de": "Custom Factor",
+        "fr": "Custom Factor",
+        "es": "Custom Factor",
+        "ar": "Custom Factor"
+      }
     }
   ],
   "formulas": {
-    "factor": "inputs.useStandardConversion === 1 ? 2.8316846592 : inputs.customFactor",
-    "rawResult": "inputs.direction === 0 ? inputs.registerTons * factor : inputs.cubicMeters / factor",
-    "result": "Math.round(rawResult * Math.pow(10, inputs.decimalPlaces)) / Math.pow(10, inputs.decimalPlaces)"
+    "result": "registerTons + cubicMeters + direction",
+    "result_copy": "registerTons + cubicMeters + direction"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
       "factor",
       "rawResult"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -70,5 +122,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

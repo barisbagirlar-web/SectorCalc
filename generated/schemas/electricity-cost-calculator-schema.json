@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kW",
       "default": 10,
-      "businessContext": "Average power draw of the equipment or facility in kilowatts."
+      "businessContext": "Average power draw of the equipment or facility in kilowatts.",
+      "label_i18n": {
+        "en": "Power Consumption",
+        "tr": "Power Consumption",
+        "de": "Power Consumption",
+        "fr": "Power Consumption",
+        "es": "Power Consumption",
+        "ar": "Power Consumption"
+      }
     },
     {
       "id": "operatingHoursPerDay",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "h",
       "default": 8,
-      "businessContext": "Number of hours the equipment operates each day."
+      "businessContext": "Number of hours the equipment operates each day.",
+      "label_i18n": {
+        "en": "Operating Hours per Day",
+        "tr": "Operating Hours per Day",
+        "de": "Operating Hours per Day",
+        "fr": "Operating Hours per Day",
+        "es": "Operating Hours per Day",
+        "ar": "Operating Hours per Day"
+      }
     },
     {
       "id": "operatingDaysPerMonth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "days",
       "default": 22,
-      "businessContext": "Typical number of operating days in a month."
+      "businessContext": "Typical number of operating days in a month.",
+      "label_i18n": {
+        "en": "Operating Days per Month",
+        "tr": "Operating Days per Month",
+        "de": "Operating Days per Month",
+        "fr": "Operating Days per Month",
+        "es": "Operating Days per Month",
+        "ar": "Operating Days per Month"
+      }
     },
     {
       "id": "electricityRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "$/kWh",
       "default": 0.12,
-      "businessContext": "Cost per kilowatt-hour of energy consumed."
+      "businessContext": "Cost per kilowatt-hour of energy consumed.",
+      "label_i18n": {
+        "en": "Electricity Rate",
+        "tr": "Electricity Rate",
+        "de": "Electricity Rate",
+        "fr": "Electricity Rate",
+        "es": "Electricity Rate",
+        "ar": "Electricity Rate"
+      }
     },
     {
       "id": "peakDemand",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kW",
       "default": 0,
-      "businessContext": "Highest average demand in kW during a 15-minute interval in the billing period. Set to 0 if no demand charge."
+      "businessContext": "Highest average demand in kW during a 15-minute interval in the billing period. Set to 0 if no demand charge.",
+      "label_i18n": {
+        "en": "Peak Demand",
+        "tr": "Peak Demand",
+        "de": "Peak Demand",
+        "fr": "Peak Demand",
+        "es": "Peak Demand",
+        "ar": "Peak Demand"
+      }
     },
     {
       "id": "demandChargeRate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "$/kW",
       "default": 0,
-      "businessContext": "Cost per kW of peak demand. Set to 0 if no demand charge."
+      "businessContext": "Cost per kW of peak demand. Set to 0 if no demand charge.",
+      "label_i18n": {
+        "en": "Demand Charge Rate",
+        "tr": "Demand Charge Rate",
+        "de": "Demand Charge Rate",
+        "fr": "Demand Charge Rate",
+        "es": "Demand Charge Rate",
+        "ar": "Demand Charge Rate"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +108,12 @@
     "breakdown": [
       "energyCost",
       "demandCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalMonthlyCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -70,5 +123,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

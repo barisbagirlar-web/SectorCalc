@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 4,
-      "businessContext": "Cat's weight in kilograms"
+      "businessContext": "Cat's weight in kilograms",
+      "label_i18n": {
+        "en": "Cat Weight",
+        "tr": "Cat Weight",
+        "de": "Cat Weight",
+        "fr": "Cat Weight",
+        "es": "Cat Weight",
+        "ar": "Cat Weight"
+      }
     },
     {
       "id": "dailyFoodPerKg",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g/kg",
       "default": 15,
-      "businessContext": "Recommended daily food amount per kilogram of body weight"
+      "businessContext": "Recommended daily food amount per kilogram of body weight",
+      "label_i18n": {
+        "en": "Daily Food per kg",
+        "tr": "Daily Food per kg",
+        "de": "Daily Food per kg",
+        "fr": "Daily Food per kg",
+        "es": "Daily Food per kg",
+        "ar": "Daily Food per kg"
+      }
     },
     {
       "id": "foodPackageWeight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 2,
-      "businessContext": "Weight of the food package"
+      "businessContext": "Weight of the food package",
+      "label_i18n": {
+        "en": "Package Weight",
+        "tr": "Package Weight",
+        "de": "Package Weight",
+        "fr": "Package Weight",
+        "es": "Package Weight",
+        "ar": "Package Weight"
+      }
     },
     {
       "id": "foodPackagePrice",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 150,
-      "businessContext": "Price of the food package in Turkish Lira"
+      "businessContext": "Price of the food package in Turkish Lira",
+      "label_i18n": {
+        "en": "Package Price",
+        "tr": "Package Price",
+        "de": "Package Price",
+        "fr": "Package Price",
+        "es": "Package Price",
+        "ar": "Package Price"
+      }
     },
     {
       "id": "numCats",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "cats",
       "default": 1,
-      "businessContext": "Number of cats to be fed"
+      "businessContext": "Number of cats to be fed",
+      "label_i18n": {
+        "en": "Number of Cats",
+        "tr": "Number of Cats",
+        "de": "Number of Cats",
+        "fr": "Number of Cats",
+        "es": "Number of Cats",
+        "ar": "Number of Cats"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "dailyFoodAmount",
       "dailyCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "monthlyCost"
   },
   "category": "Gıda & Tarım",
   "sector": "Perakende & Gıda",
@@ -62,5 +107,10 @@
   "categorySlug": "food-cold-chain-hygiene",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

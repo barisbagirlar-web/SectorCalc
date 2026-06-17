@@ -122,7 +122,12 @@
     "primary": "N",
     "breakdown": [
       "N = R * fp * ne * fl * fi * fc * L"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "N___R___fp___ne___fl___fi___fc___L"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -132,5 +137,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "havacilik",
   "profession": "Tasarım Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

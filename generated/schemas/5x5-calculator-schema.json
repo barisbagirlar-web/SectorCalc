@@ -85,28 +85,22 @@
   "formulas": {
     "total": "sortScore + setOrderScore + shineScore + standardizeScore + sustainScore",
     "average": "(sortScore + setOrderScore + shineScore + standardizeScore + sustainScore) / 5",
-    "percentage": "(sortScore + setOrderScore + shineScore + standardizeScore + sustainScore) / 25 * 100",
-    "sortStr": "`Sort: ${sortScore}`",
-    "setOrderStr": "`Set in Order: ${setOrderScore}`",
-    "shineStr": "`Shine: ${shineScore}`",
-    "standardizeStr": "`Standardize: ${standardizeScore}`",
-    "sustainStr": "`Sustain: ${sustainScore}`",
-    "_sortStr_": "{sortStr}",
-    "_setOrderStr_": "{setOrderStr}",
-    "_shineStr_": "{shineStr}",
-    "_standardizeStr_": "{standardizeStr}",
-    "_sustainStr_": "{sustainStr}",
-    "result": "Total 5S Score: {total} / 25 ({percentage}%)"
+    "percentage": "(sortScore + setOrderScore + shineScore + standardizeScore + sustainScore) / 25 * 100"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "percentage",
     "breakdown": [
       "{sortStr}",
       "{setOrderStr}",
       "{shineStr}",
       "{standardizeStr}",
       "{sustainStr}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "percentage"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -116,5 +110,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

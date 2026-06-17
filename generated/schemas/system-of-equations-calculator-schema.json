@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "hours/unit",
       "default": 2,
-      "businessContext": "The machine hours required to produce one unit of Product 1."
+      "businessContext": "The machine hours required to produce one unit of Product 1.",
+      "label_i18n": {
+        "en": "Machine Hours per Unit - Product 1",
+        "tr": "Machine Hours per Unit - Product 1",
+        "de": "Machine Hours per Unit - Product 1",
+        "fr": "Machine Hours per Unit - Product 1",
+        "es": "Machine Hours per Unit - Product 1",
+        "ar": "Machine Hours per Unit - Product 1"
+      }
     },
     {
       "id": "machineHoursPerUnitProd2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hours/unit",
       "default": 4,
-      "businessContext": "The machine hours required to produce one unit of Product 2."
+      "businessContext": "The machine hours required to produce one unit of Product 2.",
+      "label_i18n": {
+        "en": "Machine Hours per Unit - Product 2",
+        "tr": "Machine Hours per Unit - Product 2",
+        "de": "Machine Hours per Unit - Product 2",
+        "fr": "Machine Hours per Unit - Product 2",
+        "es": "Machine Hours per Unit - Product 2",
+        "ar": "Machine Hours per Unit - Product 2"
+      }
     },
     {
       "id": "totalMachineHours",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "hours",
       "default": 100,
-      "businessContext": "The total machine hours available for production."
+      "businessContext": "The total machine hours available for production.",
+      "label_i18n": {
+        "en": "Total Machine Hours Available",
+        "tr": "Total Machine Hours Available",
+        "de": "Total Machine Hours Available",
+        "fr": "Total Machine Hours Available",
+        "es": "Total Machine Hours Available",
+        "ar": "Total Machine Hours Available"
+      }
     },
     {
       "id": "materialPerUnitProd1",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg/unit",
       "default": 3,
-      "businessContext": "The amount of material required to produce one unit of Product 1."
+      "businessContext": "The amount of material required to produce one unit of Product 1.",
+      "label_i18n": {
+        "en": "Material per Unit - Product 1",
+        "tr": "Material per Unit - Product 1",
+        "de": "Material per Unit - Product 1",
+        "fr": "Material per Unit - Product 1",
+        "es": "Material per Unit - Product 1",
+        "ar": "Material per Unit - Product 1"
+      }
     },
     {
       "id": "materialPerUnitProd2",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg/unit",
       "default": 1,
-      "businessContext": "The amount of material required to produce one unit of Product 2."
+      "businessContext": "The amount of material required to produce one unit of Product 2.",
+      "label_i18n": {
+        "en": "Material per Unit - Product 2",
+        "tr": "Material per Unit - Product 2",
+        "de": "Material per Unit - Product 2",
+        "fr": "Material per Unit - Product 2",
+        "es": "Material per Unit - Product 2",
+        "ar": "Material per Unit - Product 2"
+      }
     },
     {
       "id": "totalMaterial",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kg",
       "default": 60,
-      "businessContext": "The total amount of material available for production."
+      "businessContext": "The total amount of material available for production.",
+      "label_i18n": {
+        "en": "Total Material Available",
+        "tr": "Total Material Available",
+        "de": "Total Material Available",
+        "fr": "Total Material Available",
+        "es": "Total Material Available",
+        "ar": "Total Material Available"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +108,12 @@
     "breakdown": [
       "product2Quantity",
       "determinant"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "product2Quantity"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -70,5 +123,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

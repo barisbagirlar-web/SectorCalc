@@ -68,15 +68,19 @@
   ],
   "formulas": {
     "totalMl": "milliliters * quantity",
-    "rawCups": "totalMl / cupSize",
-    "roundedCups": "Math.round(rawCups * Math.pow(10, decimals)) / Math.pow(10, decimals)"
+    "rawCups": "totalMl / cupSize"
   },
   "outputs": {
-    "primary": "roundedCups",
+    "primary": "rawCups",
     "breakdown": [
       "rawCups",
       "totalMl"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roundedCups"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -86,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

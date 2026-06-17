@@ -67,14 +67,8 @@
     }
   ],
   "formulas": {
-    "sinAngle": "Math.sin(slingAngle * Math.PI / 180)",
-    "tensionGross": "loadWeight / (numberOfLegs * sinAngle)",
-    "tensionDesign": "tensionGross * safetyFactor",
-    "__tensionGross_toFixed_2___kg": "${tensionGross.toFixed(2)} kg",
-    "__safetyFactor_": "${safetyFactor}",
-    "__slingAngle__": "${slingAngle}°",
-    "__sinAngle_toFixed_4__": "${sinAngle.toFixed(4)}",
-    "result": "Askı Başına Tasarım Yükü: ${tensionDesign.toFixed(2)} kg"
+    "result": "loadWeight + slingAngle + numberOfLegs",
+    "result_aux": "loadWeight + slingAngle + numberOfLegs"
   },
   "outputs": {
     "primary": "result",
@@ -83,7 +77,12 @@
       "Güvenlik faktörü: ${safetyFactor}",
       "Açı (yataydan): ${slingAngle}°",
       "Sin(θ): ${sinAngle.toFixed(4)}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "tensionDesign"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -93,5 +92,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

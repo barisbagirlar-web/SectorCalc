@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 1000,
-      "businessContext": "Free On Board value of the goods"
+      "businessContext": "Free On Board value of the goods",
+      "label_i18n": {
+        "en": "Mal Bedeli (FOB)",
+        "tr": "Mal Bedeli (FOB)",
+        "de": "Mal Bedeli (FOB)",
+        "fr": "Mal Bedeli (FOB)",
+        "es": "Mal Bedeli (FOB)",
+        "ar": "Mal Bedeli (FOB)"
+      }
     },
     {
       "id": "insurance",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100,
-      "businessContext": "Insurance cost for the shipment"
+      "businessContext": "Insurance cost for the shipment",
+      "label_i18n": {
+        "en": "Sigorta Bedeli",
+        "tr": "Sigorta Bedeli",
+        "de": "Sigorta Bedeli",
+        "fr": "Sigorta Bedeli",
+        "es": "Sigorta Bedeli",
+        "ar": "Sigorta Bedeli"
+      }
     },
     {
       "id": "freight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 200,
-      "businessContext": "Freight cost of transportation"
+      "businessContext": "Freight cost of transportation",
+      "label_i18n": {
+        "en": "Nakliye Bedeli",
+        "tr": "Nakliye Bedeli",
+        "de": "Nakliye Bedeli",
+        "fr": "Nakliye Bedeli",
+        "es": "Nakliye Bedeli",
+        "ar": "Nakliye Bedeli"
+      }
     },
     {
       "id": "dutyRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Customs duty rate applicable to the product category"
+      "businessContext": "Customs duty rate applicable to the product category",
+      "label_i18n": {
+        "en": "Gümrük Vergisi Oranı",
+        "tr": "Gümrük Vergisi Oranı",
+        "de": "Gümrük Vergisi Oranı",
+        "fr": "Gümrük Vergisi Oranı",
+        "es": "Gümrük Vergisi Oranı",
+        "ar": "Gümrük Vergisi Oranı"
+      }
     },
     {
       "id": "vatRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 18,
-      "businessContext": "Value Added Tax rate applied on duty-paid CIF value"
+      "businessContext": "Value Added Tax rate applied on duty-paid CIF value",
+      "label_i18n": {
+        "en": "KDV Oranı",
+        "tr": "KDV Oranı",
+        "de": "KDV Oranı",
+        "fr": "KDV Oranı",
+        "es": "KDV Oranı",
+        "ar": "KDV Oranı"
+      }
     }
   ],
   "formulas": {
@@ -56,7 +96,12 @@
       "dutyAmount",
       "vatAmount",
       "totalCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalDuty"
   },
   "category": "Lojistik & Tedarik Zinciri",
   "sector": "Lojistik & Sevkiyat",
@@ -66,5 +111,10 @@
   "categorySlug": "procurement-supply-chain",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "logistics"
+  "categoryId": "logistics",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

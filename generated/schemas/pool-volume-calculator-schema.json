@@ -69,16 +69,19 @@
   "formulas": {
     "averageDepth": "(shallowDepth + deepDepth) / 2",
     "area": "length * width",
-    "volume": "length * width * (shallowDepth + deepDepth) / 2",
-    "__averageDepth__m": "${averageDepth} m",
-    "__area__m_": "${area} m²"
+    "volume": "length * width * (shallowDepth + deepDepth) / 2"
   },
   "outputs": {
     "primary": "averageDepth",
     "breakdown": [
       "Average Depth: ${averageDepth} m",
       "Surface Area: ${area} m²"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "volume"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -88,5 +91,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

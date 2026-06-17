@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 6000,
-      "businessContext": "Total width of the building from outer wall to outer wall (center to center of wall plates)"
+      "businessContext": "Total width of the building from outer wall to outer wall (center to center of wall plates)",
+      "label_i18n": {
+        "en": "Building Width",
+        "tr": "Building Width",
+        "de": "Building Width",
+        "fr": "Building Width",
+        "es": "Building Width",
+        "ar": "Building Width"
+      }
     },
     {
       "id": "ridgeThickness",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 38,
-      "businessContext": "Thickness of the ridge board at the apex"
+      "businessContext": "Thickness of the ridge board at the apex",
+      "label_i18n": {
+        "en": "Ridge Board Thickness",
+        "tr": "Ridge Board Thickness",
+        "de": "Ridge Board Thickness",
+        "fr": "Ridge Board Thickness",
+        "es": "Ridge Board Thickness",
+        "ar": "Ridge Board Thickness"
+      }
     },
     {
       "id": "overhang",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 300,
-      "businessContext": "Horizontal projection of the rafter tail beyond the outer wall"
+      "businessContext": "Horizontal projection of the rafter tail beyond the outer wall",
+      "label_i18n": {
+        "en": "Eaves Overhang",
+        "tr": "Eaves Overhang",
+        "de": "Eaves Overhang",
+        "fr": "Eaves Overhang",
+        "es": "Eaves Overhang",
+        "ar": "Eaves Overhang"
+      }
     },
     {
       "id": "roofPitch",
@@ -31,23 +55,34 @@
       "type": "number",
       "unit": "deg",
       "default": 30,
-      "businessContext": "Angle of the roof slope from horizontal, in degrees"
+      "businessContext": "Angle of the roof slope from horizontal, in degrees",
+      "label_i18n": {
+        "en": "Roof Pitch Angle",
+        "tr": "Roof Pitch Angle",
+        "de": "Roof Pitch Angle",
+        "fr": "Roof Pitch Angle",
+        "es": "Roof Pitch Angle",
+        "ar": "Roof Pitch Angle"
+      }
     }
   ],
   "formulas": {
     "horizontalRun": "buildingWidth / 2 - ridgeThickness / 2",
     "totalRun": "horizontalRun + overhang",
-    "rafterLength": "totalRun / Math.cos(roofPitch * Math.PI / 180)",
-    "verticalRise": "totalRun * Math.sin(roofPitch * Math.PI / 180) / Math.cos(roofPitch * Math.PI / 180)",
     "plumbCutAngle": "roofPitch"
   },
   "outputs": {
-    "primary": "rafterLength",
+    "primary": "plumbCutAngle",
     "breakdown": [
       "verticalRise",
       "plumbCutAngle",
       "horizontalRun"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "plumbCutAngle"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -57,5 +92,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "insaat",
   "profession": "Proje Müdürü",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

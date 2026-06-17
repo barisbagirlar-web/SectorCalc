@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "count",
       "default": 100,
-      "businessContext": "Total number of consecutive RR intervals recorded"
+      "businessContext": "Total number of consecutive RR intervals recorded",
+      "label_i18n": {
+        "en": "Number of RR intervals (N)",
+        "tr": "Number of RR intervals (N)",
+        "de": "Number of RR intervals (N)",
+        "fr": "Number of RR intervals (N)",
+        "es": "Number of RR intervals (N)",
+        "ar": "Number of RR intervals (N)"
+      }
     },
     {
       "id": "sumRR",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ms",
       "default": 80000,
-      "businessContext": "Sum of all RR interval durations in milliseconds"
+      "businessContext": "Sum of all RR interval durations in milliseconds",
+      "label_i18n": {
+        "en": "Sum of RR intervals",
+        "tr": "Sum of RR intervals",
+        "de": "Sum of RR intervals",
+        "fr": "Sum of RR intervals",
+        "es": "Sum of RR intervals",
+        "ar": "Sum of RR intervals"
+      }
     },
     {
       "id": "sumSquaredRR",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ms²",
       "default": 64250000,
-      "businessContext": "Sum of the squares of each RR interval for variance calculation"
+      "businessContext": "Sum of the squares of each RR interval for variance calculation",
+      "label_i18n": {
+        "en": "Sum of squared RR intervals",
+        "tr": "Sum of squared RR intervals",
+        "de": "Sum of squared RR intervals",
+        "fr": "Sum of squared RR intervals",
+        "es": "Sum of squared RR intervals",
+        "ar": "Sum of squared RR intervals"
+      }
     },
     {
       "id": "sumSuccessiveDiffsSq",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "ms²",
       "default": 89100,
-      "businessContext": "Sum of squared differences between consecutive RR intervals"
+      "businessContext": "Sum of squared differences between consecutive RR intervals",
+      "label_i18n": {
+        "en": "Sum of squared successive differences",
+        "tr": "Sum of squared successive differences",
+        "de": "Sum of squared successive differences",
+        "fr": "Sum of squared successive differences",
+        "es": "Sum of squared successive differences",
+        "ar": "Sum of squared successive differences"
+      }
     },
     {
       "id": "countNN50",
@@ -39,22 +71,33 @@
       "type": "number",
       "unit": "count",
       "default": 10,
-      "businessContext": "Number of interval differences greater than 50 ms"
+      "businessContext": "Number of interval differences greater than 50 ms",
+      "label_i18n": {
+        "en": "Count of NN50",
+        "tr": "Count of NN50",
+        "de": "Count of NN50",
+        "fr": "Count of NN50",
+        "es": "Count of NN50",
+        "ar": "Count of NN50"
+      }
     }
   ],
   "formulas": {
-    "RMSSD": "Math.sqrt(sumSuccessiveDiffsSq / (numIntervals - 1))",
-    "SDNN": "Math.sqrt(sumSquaredRR / numIntervals - Math.pow(sumRR / numIntervals, 2))",
     "pNN50": "(countNN50 / (numIntervals - 1)) * 100",
     "meanRR": "sumRR / numIntervals"
   },
   "outputs": {
-    "primary": "RMSSD",
+    "primary": "meanRR",
     "breakdown": [
       "SDNN",
       "pNN50",
       "meanRR"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "meanRR"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -64,5 +107,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from guitar-string-gauge-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,26 +16,34 @@ export const Guitar_string_gauge_calculatorInputSchema = z.object({
   density: z.number().default(7850),
 });
 
-function evaluateAllFormulas(input: Guitar_string_gauge_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.density * Math.PI * (input.stringDiameter/2000) ** 2; results["massPerUnitLength"] = Number.isFinite(v) ? v : 0; } catch { results["massPerUnitLength"] = 0; }
-  try { const v = (results["massPerUnitLength"] ?? 0) * (2 * (input.scaleLength/1000) * input.frequency) ** 2; results["tension"] = Number.isFinite(v) ? v : 0; } catch { results["tension"] = 0; }
-  try { const v = 2 * (input.scaleLength/1000) * input.frequency; results["waveSpeed"] = Number.isFinite(v) ? v : 0; } catch { results["waveSpeed"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Guitar_string_gauge_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.density * Math.PI * (input.stringDiameter/2000) ** 2; results["massPerUnitLength"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["massPerUnitLength"] = 0; }
+  try { const v = (asFormulaNumber(results["massPerUnitLength"])) * (2 * (input.scaleLength/1000) * input.frequency) ** 2; results["tension"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["tension"] = 0; }
+  try { const v = 2 * (input.scaleLength/1000) * input.frequency; results["waveSpeed"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["waveSpeed"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateGuitar_string_gauge_calculator(input: Guitar_string_gauge_calculatorInput): Guitar_string_gauge_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["tension"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["tension"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

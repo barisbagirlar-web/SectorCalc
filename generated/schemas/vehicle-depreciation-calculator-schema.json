@@ -141,61 +141,6 @@
       "businessContext_i18n": {
         "en": "Current or projected average fuel price for the vehicle's fuel type."
       }
-    },
-    {
-      "id": "insurance_cost_per_year",
-      "label": "Annual Insurance Cost (USD)",
-      "type": "number",
-      "unit": "USD",
-      "default": 1200,
-      "min": 0,
-      "max": 10000,
-      "businessContext": "Yearly premium for comprehensive and liability coverage.",
-      "label_i18n": {
-        "en": "Annual Insurance Cost (USD)"
-      },
-      "businessContext_i18n": {
-        "en": "Yearly premium for comprehensive and liability coverage."
-      }
-    },
-    {
-      "id": "discount_rate",
-      "label": "Discount Rate (%)",
-      "type": "number",
-      "unit": "%",
-      "default": 5,
-      "min": 0,
-      "max": 30,
-      "businessContext": "Annual discount rate used for net present value calculations (cost of capital).",
-      "label_i18n": {
-        "en": "Discount Rate (%)"
-      },
-      "businessContext_i18n": {
-        "en": "Annual discount rate used for net present value calculations (cost of capital)."
-      }
-    },
-    {
-      "id": "vehicle_type",
-      "label": "Vehicle Type",
-      "type": "select",
-      "unit": "unit",
-      "default": "sedan",
-      "min": null,
-      "max": null,
-      "businessContext": "Category of vehicle, influences depreciation curves and maintenance patterns.",
-      "options": [
-        "sedan",
-        "suv",
-        "truck",
-        "van",
-        "luxury"
-      ],
-      "label_i18n": {
-        "en": "Vehicle Type"
-      },
-      "businessContext_i18n": {
-        "en": "Category of vehicle, influences depreciation curves and maintenance patterns."
-      }
     }
   ],
   "validation": {
@@ -252,18 +197,18 @@
       }
     ]
   },
-  "formulas": [
-    "purchase_price",
-    "purchase_price",
-    "purchase_price",
-    "purchase_price",
-    "purchase_price",
-    "purchase_price",
-    "purchase_price"
-  ],
+  "formulas": {
+    "result": "purchase_price + residual_value + holding_period_years",
+    "result_copy": "purchase_price + residual_value + holding_period_years"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

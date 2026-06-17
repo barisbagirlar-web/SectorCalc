@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "sq ft",
       "default": 1500,
-      "businessContext": "Total livable area in square feet."
+      "businessContext": "Total livable area in square feet.",
+      "label_i18n": {
+        "en": "House Area",
+        "tr": "House Area",
+        "de": "House Area",
+        "fr": "House Area",
+        "es": "House Area",
+        "ar": "House Area"
+      }
     },
     {
       "id": "age",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "years",
       "default": 10,
-      "businessContext": "Years since construction."
+      "businessContext": "Years since construction.",
+      "label_i18n": {
+        "en": "House Age",
+        "tr": "House Age",
+        "de": "House Age",
+        "fr": "House Age",
+        "es": "House Age",
+        "ar": "House Age"
+      }
     },
     {
       "id": "baseCostPerSqFt",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$/sq ft/year",
       "default": 1.5,
-      "businessContext": "Average annual maintenance cost per square foot for a new house."
+      "businessContext": "Average annual maintenance cost per square foot for a new house.",
+      "label_i18n": {
+        "en": "Base Maintenance Cost",
+        "tr": "Base Maintenance Cost",
+        "de": "Base Maintenance Cost",
+        "fr": "Base Maintenance Cost",
+        "es": "Base Maintenance Cost",
+        "ar": "Base Maintenance Cost"
+      }
     },
     {
       "id": "ageMultiplier",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "factor",
       "default": 0.02,
-      "businessContext": "Additional cost factor per year of age (e.g., 0.02 for 2% per year)."
+      "businessContext": "Additional cost factor per year of age (e.g., 0.02 for 2% per year).",
+      "label_i18n": {
+        "en": "Age Factor",
+        "tr": "Age Factor",
+        "de": "Age Factor",
+        "fr": "Age Factor",
+        "es": "Age Factor",
+        "ar": "Age Factor"
+      }
     },
     {
       "id": "inflation",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "decimal",
       "default": 0.03,
-      "businessContext": "Annual inflation rate as a decimal (e.g., 0.03 for 3%)."
+      "businessContext": "Annual inflation rate as a decimal (e.g., 0.03 for 3%).",
+      "label_i18n": {
+        "en": "Inflation Rate",
+        "tr": "Inflation Rate",
+        "de": "Inflation Rate",
+        "fr": "Inflation Rate",
+        "es": "Inflation Rate",
+        "ar": "Inflation Rate"
+      }
     },
     {
       "id": "yearsToProject",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "years",
       "default": 5,
-      "businessContext": "Number of years to project total maintenance cost."
+      "businessContext": "Number of years to project total maintenance cost.",
+      "label_i18n": {
+        "en": "Projection Years",
+        "tr": "Projection Years",
+        "de": "Projection Years",
+        "fr": "Projection Years",
+        "es": "Projection Years",
+        "ar": "Projection Years"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +108,12 @@
     "breakdown": [
       "perSqFtCost",
       "projectedTotal"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "projectedTotal"
   },
   "category": "Bakım & Güvenilirlik",
   "sector": "Üretim & İmalat",
@@ -70,5 +123,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "insaat",
   "profession": "Proje Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 75,
-      "businessContext": "Kullanıcının vücut ağırlığı (kg)"
+      "businessContext": "Kullanıcının vücut ağırlığı (kg)",
+      "label_i18n": {
+        "en": "Vücut Ağırlığı",
+        "tr": "Vücut Ağırlığı",
+        "de": "Vücut Ağırlığı",
+        "fr": "Vücut Ağırlığı",
+        "es": "Vücut Ağırlığı",
+        "ar": "Vücut Ağırlığı"
+      }
     },
     {
       "id": "durationHours",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "saat",
       "default": 0,
-      "businessContext": "Antrenman süresi saat cinsinden"
+      "businessContext": "Antrenman süresi saat cinsinden",
+      "label_i18n": {
+        "en": "Süre (Saat)",
+        "tr": "Süre (Saat)",
+        "de": "Süre (Saat)",
+        "fr": "Süre (Saat)",
+        "es": "Süre (Saat)",
+        "ar": "Süre (Saat)"
+      }
     },
     {
       "id": "durationMinutes",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dk",
       "default": 45,
-      "businessContext": "Antrenman süresi dakika cinsinden"
+      "businessContext": "Antrenman süresi dakika cinsinden",
+      "label_i18n": {
+        "en": "Süre (Dakika)",
+        "tr": "Süre (Dakika)",
+        "de": "Süre (Dakika)",
+        "fr": "Süre (Dakika)",
+        "es": "Süre (Dakika)",
+        "ar": "Süre (Dakika)"
+      }
     },
     {
       "id": "metValue",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "MET",
       "default": 4,
-      "businessContext": "Aktivitenin MET (Metabolik Eşdeğer) değeri. Ağırlık antrenmanı için genellikle 3-6 arası"
+      "businessContext": "Aktivitenin MET (Metabolik Eşdeğer) değeri. Ağırlık antrenmanı için genellikle 3-6 arası",
+      "label_i18n": {
+        "en": "MET Değeri",
+        "tr": "MET Değeri",
+        "de": "MET Değeri",
+        "fr": "MET Değeri",
+        "es": "MET Değeri",
+        "ar": "MET Değeri"
+      }
     }
   ],
   "formulas": {
@@ -45,7 +77,12 @@
     "breakdown": [
       "totalDurationHours",
       "caloriesPerMinute"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "caloriesPerMinute"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -55,5 +92,10 @@
   "sectorSlug": "cleaning",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

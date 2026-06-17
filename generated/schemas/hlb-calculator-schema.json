@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "none",
       "default": 0,
-      "businessContext": "Required HLB value of the first oil component"
+      "businessContext": "Required HLB value of the first oil component",
+      "label_i18n": {
+        "en": "Oil 1 Required HLB",
+        "tr": "Oil 1 Required HLB",
+        "de": "Oil 1 Required HLB",
+        "fr": "Oil 1 Required HLB",
+        "es": "Oil 1 Required HLB",
+        "ar": "Oil 1 Required HLB"
+      }
     },
     {
       "id": "oil1_percent",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Percentage of the first oil in the blend"
+      "businessContext": "Percentage of the first oil in the blend",
+      "label_i18n": {
+        "en": "Oil 1 Percentage",
+        "tr": "Oil 1 Percentage",
+        "de": "Oil 1 Percentage",
+        "fr": "Oil 1 Percentage",
+        "es": "Oil 1 Percentage",
+        "ar": "Oil 1 Percentage"
+      }
     },
     {
       "id": "oil2_hlb",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "none",
       "default": 0,
-      "businessContext": "Required HLB value of the second oil component"
+      "businessContext": "Required HLB value of the second oil component",
+      "label_i18n": {
+        "en": "Oil 2 Required HLB",
+        "tr": "Oil 2 Required HLB",
+        "de": "Oil 2 Required HLB",
+        "fr": "Oil 2 Required HLB",
+        "es": "Oil 2 Required HLB",
+        "ar": "Oil 2 Required HLB"
+      }
     },
     {
       "id": "oil2_percent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Percentage of the second oil in the blend"
+      "businessContext": "Percentage of the second oil in the blend",
+      "label_i18n": {
+        "en": "Oil 2 Percentage",
+        "tr": "Oil 2 Percentage",
+        "de": "Oil 2 Percentage",
+        "fr": "Oil 2 Percentage",
+        "es": "Oil 2 Percentage",
+        "ar": "Oil 2 Percentage"
+      }
     },
     {
       "id": "oil3_hlb",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "none",
       "default": 0,
-      "businessContext": "Required HLB value of the third oil component"
+      "businessContext": "Required HLB value of the third oil component",
+      "label_i18n": {
+        "en": "Oil 3 Required HLB",
+        "tr": "Oil 3 Required HLB",
+        "de": "Oil 3 Required HLB",
+        "fr": "Oil 3 Required HLB",
+        "es": "Oil 3 Required HLB",
+        "ar": "Oil 3 Required HLB"
+      }
     },
     {
       "id": "oil3_percent",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Percentage of the third oil in the blend"
+      "businessContext": "Percentage of the third oil in the blend",
+      "label_i18n": {
+        "en": "Oil 3 Percentage",
+        "tr": "Oil 3 Percentage",
+        "de": "Oil 3 Percentage",
+        "fr": "Oil 3 Percentage",
+        "es": "Oil 3 Percentage",
+        "ar": "Oil 3 Percentage"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +108,12 @@
     "breakdown": [
       "weightedSum",
       "totalPercent"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "weightedSum"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -70,5 +123,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

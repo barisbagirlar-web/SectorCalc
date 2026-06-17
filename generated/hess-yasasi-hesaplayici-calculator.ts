@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from hess-yasasi-hesaplayici-calculator-schema.json
 import * as z from 'zod';
 
@@ -17,33 +18,36 @@ export const Hess_yasasi_hesaplayici_calculatorInputSchema = z.object({
   step4_dH: z.number().default(0),
 });
 
-function evaluateAllFormulas(input: Hess_yasasi_hesaplayici_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.step1_dH * (input.number_of_steps >= 1 ? 1 : 0); results["step1_eff"] = Number.isFinite(v) ? v : 0; } catch { results["step1_eff"] = 0; }
-  try { const v = input.step2_dH * (input.number_of_steps >= 2 ? 1 : 0); results["step2_eff"] = Number.isFinite(v) ? v : 0; } catch { results["step2_eff"] = 0; }
-  try { const v = input.step3_dH * (input.number_of_steps >= 3 ? 1 : 0); results["step3_eff"] = Number.isFinite(v) ? v : 0; } catch { results["step3_eff"] = 0; }
-  try { const v = input.step4_dH * (input.number_of_steps >= 4 ? 1 : 0); results["step4_eff"] = Number.isFinite(v) ? v : 0; } catch { results["step4_eff"] = 0; }
-  try { const v = (results["step1_eff"] ?? 0) + (results["step2_eff"] ?? 0) + (results["step3_eff"] ?? 0) + (results["step4_eff"] ?? 0); results["total"] = Number.isFinite(v) ? v : 0; } catch { results["total"] = 0; }
-  results["_step1_eff__kJ_mol"] = 0;
-  results["_step2_eff__kJ_mol"] = 0;
-  results["_step3_eff__kJ_mol"] = 0;
-  results["_step4_eff__kJ_mol"] = 0;
-  results["result"] = 0;
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Hess_yasasi_hesaplayici_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.step1_dH * (input.number_of_steps >= 1 ? 1 : 0); results["step1_eff"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["step1_eff"] = 0; }
+  try { const v = input.step2_dH * (input.number_of_steps >= 2 ? 1 : 0); results["step2_eff"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["step2_eff"] = 0; }
+  try { const v = input.step3_dH * (input.number_of_steps >= 3 ? 1 : 0); results["step3_eff"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["step3_eff"] = 0; }
+  try { const v = input.step4_dH * (input.number_of_steps >= 4 ? 1 : 0); results["step4_eff"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["step4_eff"] = 0; }
+  try { const v = (asFormulaNumber(results["step1_eff"])) + (asFormulaNumber(results["step2_eff"])) + (asFormulaNumber(results["step3_eff"])) + (asFormulaNumber(results["step4_eff"])); results["total"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["total"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateHess_yasasi_hesaplayici_calculator(input: Hess_yasasi_hesaplayici_calculatorInput): Hess_yasasi_hesaplayici_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["result"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["total"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

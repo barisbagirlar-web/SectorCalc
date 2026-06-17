@@ -131,16 +131,20 @@
     }
   ],
   "formulas": {
-    "paragraphCount": "inputs.totalWords / inputs.wordsPerParagraph",
-    "alternativeParagraphCount": "(inputs.totalPages > 0 && inputs.paragraphsPerPage > 0) ? inputs.totalPages * inputs.paragraphsPerPage : 0",
-    "validatedTotalWords": "inputs.totalCharacters / inputs.charactersPerWord"
+    "result": "totalWords + wordsPerParagraph + totalCharacters",
+    "result_copy": "totalWords + wordsPerParagraph + totalCharacters"
   },
   "outputs": {
-    "primary": "paragraphCount",
+    "primary": "result",
     "breakdown": [
       "alternativeParagraphCount",
       "validatedTotalWords"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "validatedTotalWords"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -150,5 +154,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

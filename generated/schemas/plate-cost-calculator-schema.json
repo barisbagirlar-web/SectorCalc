@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 1000,
-      "businessContext": "The length of the plate in millimeters."
+      "businessContext": "The length of the plate in millimeters.",
+      "label_i18n": {
+        "en": "Length (mm)",
+        "tr": "Length (mm)",
+        "de": "Length (mm)",
+        "fr": "Length (mm)",
+        "es": "Length (mm)",
+        "ar": "Length (mm)"
+      }
     },
     {
       "id": "width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 500,
-      "businessContext": "The width of the plate in millimeters."
+      "businessContext": "The width of the plate in millimeters.",
+      "label_i18n": {
+        "en": "Width (mm)",
+        "tr": "Width (mm)",
+        "de": "Width (mm)",
+        "fr": "Width (mm)",
+        "es": "Width (mm)",
+        "ar": "Width (mm)"
+      }
     },
     {
       "id": "thickness",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "The thickness of the plate in millimeters."
+      "businessContext": "The thickness of the plate in millimeters.",
+      "label_i18n": {
+        "en": "Thickness (mm)",
+        "tr": "Thickness (mm)",
+        "de": "Thickness (mm)",
+        "fr": "Thickness (mm)",
+        "es": "Thickness (mm)",
+        "ar": "Thickness (mm)"
+      }
     },
     {
       "id": "density",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 7850,
-      "businessContext": "Density of the plate material in kilograms per cubic meter."
+      "businessContext": "Density of the plate material in kilograms per cubic meter.",
+      "label_i18n": {
+        "en": "Material Density (kg/m³)",
+        "tr": "Material Density (kg/m³)",
+        "de": "Material Density (kg/m³)",
+        "fr": "Material Density (kg/m³)",
+        "es": "Material Density (kg/m³)",
+        "ar": "Material Density (kg/m³)"
+      }
     },
     {
       "id": "costPerKg",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency/kg",
       "default": 2.5,
-      "businessContext": "Unit cost of the material per kilogram in local currency."
+      "businessContext": "Unit cost of the material per kilogram in local currency.",
+      "label_i18n": {
+        "en": "Material Cost per kg",
+        "tr": "Material Cost per kg",
+        "de": "Material Cost per kg",
+        "fr": "Material Cost per kg",
+        "es": "Material Cost per kg",
+        "ar": "Material Cost per kg"
+      }
     },
     {
       "id": "overheadPercent",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Percentage overhead applied to material cost to cover manufacturing, labor, and other indirect costs."
+      "businessContext": "Percentage overhead applied to material cost to cover manufacturing, labor, and other indirect costs.",
+      "label_i18n": {
+        "en": "Manufacturing Overhead (%)",
+        "tr": "Manufacturing Overhead (%)",
+        "de": "Manufacturing Overhead (%)",
+        "fr": "Manufacturing Overhead (%)",
+        "es": "Manufacturing Overhead (%)",
+        "ar": "Manufacturing Overhead (%)"
+      }
     },
     {
       "id": "wastePercent",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percentage of material expected to be wasted due to offcuts or defects."
+      "businessContext": "Percentage of material expected to be wasted due to offcuts or defects.",
+      "label_i18n": {
+        "en": "Waste Factor (%)",
+        "tr": "Waste Factor (%)",
+        "de": "Waste Factor (%)",
+        "fr": "Waste Factor (%)",
+        "es": "Waste Factor (%)",
+        "ar": "Waste Factor (%)"
+      }
     }
   ],
   "formulas": {
@@ -70,7 +126,12 @@
       "rawMaterialCost",
       "materialCostWithWaste",
       "overheadAmount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -80,5 +141,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 86,
-      "businessContext": "Diameter of the engine cylinder bore."
+      "businessContext": "Diameter of the engine cylinder bore.",
+      "label_i18n": {
+        "en": "Bore (Cylinder Diameter)",
+        "tr": "Bore (Cylinder Diameter)",
+        "de": "Bore (Cylinder Diameter)",
+        "fr": "Bore (Cylinder Diameter)",
+        "es": "Bore (Cylinder Diameter)",
+        "ar": "Bore (Cylinder Diameter)"
+      }
     },
     {
       "id": "stroke",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 86,
-      "businessContext": "Piston stroke length from BDC to TDC."
+      "businessContext": "Piston stroke length from BDC to TDC.",
+      "label_i18n": {
+        "en": "Stroke Length",
+        "tr": "Stroke Length",
+        "de": "Stroke Length",
+        "fr": "Stroke Length",
+        "es": "Stroke Length",
+        "ar": "Stroke Length"
+      }
     },
     {
       "id": "combustionChamberVolume",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cc",
       "default": 60,
-      "businessContext": "Volume of combustion chamber in the cylinder head."
+      "businessContext": "Volume of combustion chamber in the cylinder head.",
+      "label_i18n": {
+        "en": "Combustion Chamber Volume",
+        "tr": "Combustion Chamber Volume",
+        "de": "Combustion Chamber Volume",
+        "fr": "Combustion Chamber Volume",
+        "es": "Combustion Chamber Volume",
+        "ar": "Combustion Chamber Volume"
+      }
     },
     {
       "id": "gasketThickness",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 1.2,
-      "businessContext": "Compressed thickness of the head gasket."
+      "businessContext": "Compressed thickness of the head gasket.",
+      "label_i18n": {
+        "en": "Gasket Thickness",
+        "tr": "Gasket Thickness",
+        "de": "Gasket Thickness",
+        "fr": "Gasket Thickness",
+        "es": "Gasket Thickness",
+        "ar": "Gasket Thickness"
+      }
     },
     {
       "id": "gasketBore",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm",
       "default": 87,
-      "businessContext": "Diameter of the gasket's bore opening."
+      "businessContext": "Diameter of the gasket's bore opening.",
+      "label_i18n": {
+        "en": "Gasket Bore Diameter",
+        "tr": "Gasket Bore Diameter",
+        "de": "Gasket Bore Diameter",
+        "fr": "Gasket Bore Diameter",
+        "es": "Gasket Bore Diameter",
+        "ar": "Gasket Bore Diameter"
+      }
     },
     {
       "id": "deckClearance",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0.5,
-      "businessContext": "Distance from piston crown to deck at TDC."
+      "businessContext": "Distance from piston crown to deck at TDC.",
+      "label_i18n": {
+        "en": "Deck Clearance",
+        "tr": "Deck Clearance",
+        "de": "Deck Clearance",
+        "fr": "Deck Clearance",
+        "es": "Deck Clearance",
+        "ar": "Deck Clearance"
+      }
     },
     {
       "id": "pistonDishVolume",
@@ -55,22 +103,32 @@
       "type": "number",
       "unit": "cc",
       "default": 0,
-      "businessContext": "Volume of dish in piston top (positive for dish, negative for dome)."
+      "businessContext": "Volume of dish in piston top (positive for dish, negative for dome).",
+      "label_i18n": {
+        "en": "Piston Dish Volume",
+        "tr": "Piston Dish Volume",
+        "de": "Piston Dish Volume",
+        "fr": "Piston Dish Volume",
+        "es": "Piston Dish Volume",
+        "ar": "Piston Dish Volume"
+      }
     }
   ],
   "formulas": {
-    "displacement": "(Math.PI/4) * Math.pow(bore, 2) * stroke / 1000",
-    "gasketVolume": "(Math.PI/4) * Math.pow(gasketBore, 2) * gasketThickness / 1000",
-    "deckVolume": "(Math.PI/4) * Math.pow(bore, 2) * deckClearance / 1000",
-    "clearanceVolume": "combustionChamberVolume + gasketVolume + deckVolume + pistonDishVolume",
-    "compressionRatio": "(displacement + clearanceVolume) / clearanceVolume"
+    "result": "bore + stroke + combustionChamberVolume",
+    "result_copy": "bore + stroke + combustionChamberVolume"
   },
   "outputs": {
-    "primary": "compressionRatio",
+    "primary": "result",
     "breakdown": [
       "displacement",
       "clearanceVolume"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "compressionRatio"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -80,5 +138,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

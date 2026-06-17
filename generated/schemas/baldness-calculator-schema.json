@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 30,
-      "businessContext": "Kullanıcının yaşı"
+      "businessContext": "Kullanıcının yaşı",
+      "label_i18n": {
+        "en": "Yaş",
+        "tr": "Yaş",
+        "de": "Yaş",
+        "fr": "Yaş",
+        "es": "Yaş",
+        "ar": "Yaş"
+      }
     },
     {
       "id": "father_baldness",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ölçek 0-1",
       "default": 0.5,
-      "businessContext": "Babanın kellik derecesi (0: hiç yok, 1: tam kel)"
+      "businessContext": "Babanın kellik derecesi (0: hiç yok, 1: tam kel)",
+      "label_i18n": {
+        "en": "Baba Kellik Durumu",
+        "tr": "Baba Kellik Durumu",
+        "de": "Baba Kellik Durumu",
+        "fr": "Baba Kellik Durumu",
+        "es": "Baba Kellik Durumu",
+        "ar": "Baba Kellik Durumu"
+      }
     },
     {
       "id": "stress_level",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "0-10",
       "default": 5,
-      "businessContext": "Günlük stres seviyesi (0: yok, 10: çok yüksek)"
+      "businessContext": "Günlük stres seviyesi (0: yok, 10: çok yüksek)",
+      "label_i18n": {
+        "en": "Stres Seviyesi",
+        "tr": "Stres Seviyesi",
+        "de": "Stres Seviyesi",
+        "fr": "Stres Seviyesi",
+        "es": "Stres Seviyesi",
+        "ar": "Stres Seviyesi"
+      }
     },
     {
       "id": "dht_level",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "ng/dL",
       "default": 50,
-      "businessContext": "Kandaki DHT hormon seviyesi"
+      "businessContext": "Kandaki DHT hormon seviyesi",
+      "label_i18n": {
+        "en": "DHT Seviyesi",
+        "tr": "DHT Seviyesi",
+        "de": "DHT Seviyesi",
+        "fr": "DHT Seviyesi",
+        "es": "DHT Seviyesi",
+        "ar": "DHT Seviyesi"
+      }
     },
     {
       "id": "hair_density",
@@ -39,27 +71,35 @@
       "type": "number",
       "unit": "adet/cm²",
       "default": 200,
-      "businessContext": "Mevcut saç yoğunluğu (saç teli/cm²)"
+      "businessContext": "Mevcut saç yoğunluğu (saç teli/cm²)",
+      "label_i18n": {
+        "en": "Saç Yoğunluğu",
+        "tr": "Saç Yoğunluğu",
+        "de": "Saç Yoğunluğu",
+        "fr": "Saç Yoğunluğu",
+        "es": "Saç Yoğunluğu",
+        "ar": "Saç Yoğunluğu"
+      }
     }
   ],
   "formulas": {
     "genetic_factor": "father_baldness * 0.6",
-    "stress_impact": "1 - Math.exp(-stress_level / 5)",
-    "age_factor": "1 / (1 + Math.exp(-(age - 40) / 5))",
-    "dht_factor": "Math.min(dht_level / 100, 1)",
-    "density_factor": "Math.max(0, 1 - (hair_density / 300))",
-    "baldness_probability_raw": "age_factor * 0.3 + genetic_factor * 0.3 + stress_impact * 0.2 + dht_factor * 0.1 + density_factor * 0.1",
-    "baldness_probability": "Math.round(Math.min(baldness_probability_raw, 1) * 100)"
+    "genetic_factor_aux": "father_baldness * 0.6"
   },
   "outputs": {
-    "primary": "baldness_probability",
+    "primary": "genetic_factor_aux",
     "breakdown": [
       "genetic_factor",
       "stress_impact",
       "age_factor",
       "dht_factor",
       "density_factor"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "baldness_probability"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -69,5 +109,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

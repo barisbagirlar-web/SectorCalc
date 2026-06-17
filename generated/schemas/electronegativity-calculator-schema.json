@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "eV",
       "default": 13.6,
-      "businessContext": "Elementin birinci iyonlaşma enerjisi."
+      "businessContext": "Elementin birinci iyonlaşma enerjisi.",
+      "label_i18n": {
+        "en": "Iyonlaşma Enerjisi",
+        "tr": "Iyonlaşma Enerjisi",
+        "de": "Iyonlaşma Enerjisi",
+        "fr": "Iyonlaşma Enerjisi",
+        "es": "Iyonlaşma Enerjisi",
+        "ar": "Iyonlaşma Enerjisi"
+      }
     },
     {
       "id": "electronAffinity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "eV",
       "default": 0.754,
-      "businessContext": "Elementin elektron afinitesi."
+      "businessContext": "Elementin elektron afinitesi.",
+      "label_i18n": {
+        "en": "Elektron İlgisi",
+        "tr": "Elektron İlgisi",
+        "de": "Elektron İlgisi",
+        "fr": "Elektron İlgisi",
+        "es": "Elektron İlgisi",
+        "ar": "Elektron İlgisi"
+      }
     },
     {
       "id": "effectiveNuclearCharge",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "boyutsuz",
       "default": 1,
-      "businessContext": "Slater kurallarına göre hesaplanmış efektif nükleer yük."
+      "businessContext": "Slater kurallarına göre hesaplanmış efektif nükleer yük.",
+      "label_i18n": {
+        "en": "Efektif Nükleer Yük (Z_eff)",
+        "tr": "Efektif Nükleer Yük (Z_eff)",
+        "de": "Efektif Nükleer Yük (Z_eff)",
+        "fr": "Efektif Nükleer Yük (Z_eff)",
+        "es": "Efektif Nükleer Yük (Z_eff)",
+        "ar": "Efektif Nükleer Yük (Z_eff)"
+      }
     },
     {
       "id": "covalentRadius",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "Å",
       "default": 0.37,
-      "businessContext": "Elementin kovalent yarıçapı."
+      "businessContext": "Elementin kovalent yarıçapı.",
+      "label_i18n": {
+        "en": "Kovalent Yarıçap",
+        "tr": "Kovalent Yarıçap",
+        "de": "Kovalent Yarıçap",
+        "fr": "Kovalent Yarıçap",
+        "es": "Kovalent Yarıçap",
+        "ar": "Kovalent Yarıçap"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "paulingFromMulliken",
       "allredRochow"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "allredRochow"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -54,5 +91,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 5000,
-      "businessContext": "Total retail cost of all prescription drugs for the year before insurance"
+      "businessContext": "Total retail cost of all prescription drugs for the year before insurance",
+      "label_i18n": {
+        "en": "Annual Total Drug Costs",
+        "tr": "Annual Total Drug Costs",
+        "de": "Annual Total Drug Costs",
+        "fr": "Annual Total Drug Costs",
+        "es": "Annual Total Drug Costs",
+        "ar": "Annual Total Drug Costs"
+      }
     },
     {
       "id": "deductible",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 590,
-      "businessContext": "The amount you pay out-of-pocket before initial coverage begins"
+      "businessContext": "The amount you pay out-of-pocket before initial coverage begins",
+      "label_i18n": {
+        "en": "Plan Deductible",
+        "tr": "Plan Deductible",
+        "de": "Plan Deductible",
+        "fr": "Plan Deductible",
+        "es": "Plan Deductible",
+        "ar": "Plan Deductible"
+      }
     },
     {
       "id": "initialCoinsurance",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 25,
-      "businessContext": "Percentage of drug costs you pay during initial coverage phase"
+      "businessContext": "Percentage of drug costs you pay during initial coverage phase",
+      "label_i18n": {
+        "en": "Initial Coinsurance Rate",
+        "tr": "Initial Coinsurance Rate",
+        "de": "Initial Coinsurance Rate",
+        "fr": "Initial Coinsurance Rate",
+        "es": "Initial Coinsurance Rate",
+        "ar": "Initial Coinsurance Rate"
+      }
     },
     {
       "id": "catastrophicThreshold",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 2000,
-      "businessContext": "Out-of-pocket maximum after which catastrophic coverage begins"
+      "businessContext": "Out-of-pocket maximum after which catastrophic coverage begins",
+      "label_i18n": {
+        "en": "Catastrophic Threshold",
+        "tr": "Catastrophic Threshold",
+        "de": "Catastrophic Threshold",
+        "fr": "Catastrophic Threshold",
+        "es": "Catastrophic Threshold",
+        "ar": "Catastrophic Threshold"
+      }
     },
     {
       "id": "catastrophicCoinsurance",
@@ -39,28 +71,34 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percentage of drug costs you pay in catastrophic phase"
+      "businessContext": "Percentage of drug costs you pay in catastrophic phase",
+      "label_i18n": {
+        "en": "Catastrophic Coinsurance Rate",
+        "tr": "Catastrophic Coinsurance Rate",
+        "de": "Catastrophic Coinsurance Rate",
+        "fr": "Catastrophic Coinsurance Rate",
+        "es": "Catastrophic Coinsurance Rate",
+        "ar": "Catastrophic Coinsurance Rate"
+      }
     }
   ],
   "formulas": {
-    "OOP_deductible": "Math.min(annualDrugCost, deductible)",
-    "remainingAfterDeductible": "annualDrugCost - OOP_deductible",
-    "OOP_to_reach_threshold": "catastrophicThreshold - OOP_deductible",
-    "initialCoverageDrugCost": "Math.min(remainingAfterDeductible, OOP_to_reach_threshold / (initialCoinsurance / 100))",
-    "OOP_initial": "initialCoverageDrugCost * (initialCoinsurance / 100)",
-    "OOP_so_far": "OOP_deductible + OOP_initial",
-    "catastrophicDrugCost": "annualDrugCost - OOP_deductible - initialCoverageDrugCost",
-    "OOP_catastrophic": "catastrophicDrugCost * (catastrophicCoinsurance / 100)",
-    "totalOOP": "OOP_deductible + OOP_initial + OOP_catastrophic"
+    "result": "annualDrugCost + deductible + initialCoinsurance",
+    "result_copy": "annualDrugCost + deductible + initialCoinsurance"
   },
   "outputs": {
-    "primary": "totalOOP",
+    "primary": "result",
     "breakdown": [
       "OOP_deductible",
       "OOP_initial",
       "OOP_catastrophic",
       "annualDrugCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalOOP"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -70,5 +108,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "kimya",
   "profession": "Proses Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

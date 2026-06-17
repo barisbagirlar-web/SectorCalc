@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 5,
-      "businessContext": "Age of the equipment in years."
+      "businessContext": "Age of the equipment in years.",
+      "label_i18n": {
+        "en": "Machine Age",
+        "tr": "Machine Age",
+        "de": "Machine Age",
+        "fr": "Machine Age",
+        "es": "Machine Age",
+        "ar": "Machine Age"
+      }
     },
     {
       "id": "downtime_hours",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hours",
       "default": 12,
-      "businessContext": "Duration of the last shutdown/downtime in hours."
+      "businessContext": "Duration of the last shutdown/downtime in hours.",
+      "label_i18n": {
+        "en": "Downtime Duration",
+        "tr": "Downtime Duration",
+        "de": "Downtime Duration",
+        "fr": "Downtime Duration",
+        "es": "Downtime Duration",
+        "ar": "Downtime Duration"
+      }
     },
     {
       "id": "ambient_temperature_celsius",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Ambient temperature at restart time in degrees Celsius."
+      "businessContext": "Ambient temperature at restart time in degrees Celsius.",
+      "label_i18n": {
+        "en": "Ambient Temperature",
+        "tr": "Ambient Temperature",
+        "de": "Ambient Temperature",
+        "fr": "Ambient Temperature",
+        "es": "Ambient Temperature",
+        "ar": "Ambient Temperature"
+      }
     },
     {
       "id": "cold_starts_per_day",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "starts/day",
       "default": 1,
-      "businessContext": "Average number of cold starts per day."
+      "businessContext": "Average number of cold starts per day.",
+      "label_i18n": {
+        "en": "Cold Starts per Day",
+        "tr": "Cold Starts per Day",
+        "de": "Cold Starts per Day",
+        "fr": "Cold Starts per Day",
+        "es": "Cold Starts per Day",
+        "ar": "Cold Starts per Day"
+      }
     },
     {
       "id": "severity_factor",
@@ -39,22 +71,33 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Company-specific multiplier to adjust severity (e.g., based on equipment criticality)."
+      "businessContext": "Company-specific multiplier to adjust severity (e.g., based on equipment criticality).",
+      "label_i18n": {
+        "en": "Severity Factor",
+        "tr": "Severity Factor",
+        "de": "Severity Factor",
+        "fr": "Severity Factor",
+        "es": "Severity Factor",
+        "ar": "Severity Factor"
+      }
     }
   ],
   "formulas": {
-    "age_contribution": "1 - Math.exp(-machine_age_years / 10)",
     "downtime_factor": "downtime_hours / (downtime_hours + 24)",
-    "temp_factor": "Math.exp(-ambient_temperature_celsius / 30)",
-    "msi": "(age_contribution * 0.3 + downtime_factor * 0.4 + temp_factor * 0.3) * cold_starts_per_day * severity_factor"
+    "downtime_factor_aux": "downtime_hours / (downtime_hours + 24)"
   },
   "outputs": {
-    "primary": "msi",
+    "primary": "downtime_factor_aux",
     "breakdown": [
       "age_contribution",
       "downtime_factor",
       "temp_factor"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "msi"
   },
   "category": "Bakım & Güvenilirlik",
   "sector": "Üretim & İmalat",
@@ -64,5 +107,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "efficiency"
+  "categoryId": "efficiency",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

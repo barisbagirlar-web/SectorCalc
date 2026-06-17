@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Athlete's body weight in kilograms, used to estimate energy expenditure."
+      "businessContext": "Athlete's body weight in kilograms, used to estimate energy expenditure.",
+      "label_i18n": {
+        "en": "Body Weight",
+        "tr": "Body Weight",
+        "de": "Body Weight",
+        "fr": "Body Weight",
+        "es": "Body Weight",
+        "ar": "Body Weight"
+      }
     },
     {
       "id": "duration",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 30,
-      "businessContext": "Total duration of the CrossFit workout in minutes."
+      "businessContext": "Total duration of the CrossFit workout in minutes.",
+      "label_i18n": {
+        "en": "Workout Duration",
+        "tr": "Workout Duration",
+        "de": "Workout Duration",
+        "fr": "Workout Duration",
+        "es": "Workout Duration",
+        "ar": "Workout Duration"
+      }
     },
     {
       "id": "metValue",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "MET",
       "default": 8,
-      "businessContext": "Metabolic Equivalent of Task (MET) for the workout intensity. CrossFit typically ranges 6-12 METs."
+      "businessContext": "Metabolic Equivalent of Task (MET) for the workout intensity. CrossFit typically ranges 6-12 METs.",
+      "label_i18n": {
+        "en": "MET Value",
+        "tr": "MET Value",
+        "de": "MET Value",
+        "fr": "MET Value",
+        "es": "MET Value",
+        "ar": "MET Value"
+      }
     },
     {
       "id": "genderFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "factor",
       "default": 1,
-      "businessContext": "Multiplier to adjust calories for gender differences (commonly 1.0 for males, 0.9 for females)."
+      "businessContext": "Multiplier to adjust calories for gender differences (commonly 1.0 for males, 0.9 for females).",
+      "label_i18n": {
+        "en": "Gender Adjustment Factor",
+        "tr": "Gender Adjustment Factor",
+        "de": "Gender Adjustment Factor",
+        "fr": "Gender Adjustment Factor",
+        "es": "Gender Adjustment Factor",
+        "ar": "Gender Adjustment Factor"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "caloriesPerMinute",
       "caloriesPerHour"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "caloriesPerHour"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +91,10 @@
   "sectorSlug": "cleaning",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

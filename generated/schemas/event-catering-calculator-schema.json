@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "guests",
       "default": 100,
-      "businessContext": "Expected total number of attendees for the event."
+      "businessContext": "Expected total number of attendees for the event.",
+      "label_i18n": {
+        "en": "Number of Guests",
+        "tr": "Number of Guests",
+        "de": "Number of Guests",
+        "fr": "Number of Guests",
+        "es": "Number of Guests",
+        "ar": "Number of Guests"
+      }
     },
     {
       "id": "costPerPlate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 15,
-      "businessContext": "Direct food and beverage cost per guest, including ingredients and preparation."
+      "businessContext": "Direct food and beverage cost per guest, including ingredients and preparation.",
+      "label_i18n": {
+        "en": "Cost per Plate",
+        "tr": "Cost per Plate",
+        "de": "Cost per Plate",
+        "fr": "Cost per Plate",
+        "es": "Cost per Plate",
+        "ar": "Cost per Plate"
+      }
     },
     {
       "id": "serviceStaff",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "persons",
       "default": 5,
-      "businessContext": "Number of waitstaff and service personnel required."
+      "businessContext": "Number of waitstaff and service personnel required.",
+      "label_i18n": {
+        "en": "Service Staff",
+        "tr": "Service Staff",
+        "de": "Service Staff",
+        "fr": "Service Staff",
+        "es": "Service Staff",
+        "ar": "Service Staff"
+      }
     },
     {
       "id": "staffHourlyRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD/hr",
       "default": 20,
-      "businessContext": "Hourly wage per service staff, including benefits and taxes."
+      "businessContext": "Hourly wage per service staff, including benefits and taxes.",
+      "label_i18n": {
+        "en": "Staff Hourly Rate",
+        "tr": "Staff Hourly Rate",
+        "de": "Staff Hourly Rate",
+        "fr": "Staff Hourly Rate",
+        "es": "Staff Hourly Rate",
+        "ar": "Staff Hourly Rate"
+      }
     },
     {
       "id": "eventDurationHours",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "hours",
       "default": 4,
-      "businessContext": "Total duration of the event from setup to teardown."
+      "businessContext": "Total duration of the event from setup to teardown.",
+      "label_i18n": {
+        "en": "Event Duration",
+        "tr": "Event Duration",
+        "de": "Event Duration",
+        "fr": "Event Duration",
+        "es": "Event Duration",
+        "ar": "Event Duration"
+      }
     },
     {
       "id": "overheadFixed",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "USD",
       "default": 500,
-      "businessContext": "Fixed costs such as equipment rental, insurance, permits, and transportation."
+      "businessContext": "Fixed costs such as equipment rental, insurance, permits, and transportation.",
+      "label_i18n": {
+        "en": "Fixed Overhead",
+        "tr": "Fixed Overhead",
+        "de": "Fixed Overhead",
+        "fr": "Fixed Overhead",
+        "es": "Fixed Overhead",
+        "ar": "Fixed Overhead"
+      }
     },
     {
       "id": "profitMarginPercent",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Desired markup percentage on total cost to ensure profitability."
+      "businessContext": "Desired markup percentage on total cost to ensure profitability.",
+      "label_i18n": {
+        "en": "Profit Margin",
+        "tr": "Profit Margin",
+        "de": "Profit Margin",
+        "fr": "Profit Margin",
+        "es": "Profit Margin",
+        "ar": "Profit Margin"
+      }
     },
     {
       "id": "taxRatePercent",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "%",
       "default": 8,
-      "businessContext": "Applicable sales tax or VAT percentage on the subtotal."
+      "businessContext": "Applicable sales tax or VAT percentage on the subtotal.",
+      "label_i18n": {
+        "en": "Tax Rate",
+        "tr": "Tax Rate",
+        "de": "Tax Rate",
+        "fr": "Tax Rate",
+        "es": "Tax Rate",
+        "ar": "Tax Rate"
+      }
     }
   ],
   "formulas": {
@@ -84,7 +148,12 @@
       "totalStaffCost",
       "totalCost",
       "revenueRequired"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "pricePerPlate"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -94,5 +163,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

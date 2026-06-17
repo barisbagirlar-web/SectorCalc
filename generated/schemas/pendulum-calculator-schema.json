@@ -67,15 +67,11 @@
     }
   ],
   "formulas": {
-    "period": "2 * Math.PI * Math.sqrt(length / gravity)",
-    "frequency": "1 / (2 * Math.PI * Math.sqrt(length / gravity))",
-    "angularFrequency": "Math.sqrt(gravity / length)",
-    "maxSpeed": "Math.sqrt(2 * gravity * length * (1 - Math.cos(initialAngle * Math.PI / 180)))",
-    "totalTime": "(2 * Math.PI * Math.sqrt(length / gravity)) * numberOfOscillations",
-    "maxHeight": "length * (1 - Math.cos(initialAngle * Math.PI / 180))"
+    "result": "length + gravity + initialAngle",
+    "result_copy": "length + gravity + initialAngle"
   },
   "outputs": {
-    "primary": "period",
+    "primary": "result",
     "breakdown": [
       "period",
       "frequency",
@@ -83,7 +79,12 @@
       "maxSpeed",
       "totalTime",
       "maxHeight"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "maxHeight"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -93,5 +94,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

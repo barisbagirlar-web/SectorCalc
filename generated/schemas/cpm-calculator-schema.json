@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 100,
-      "businessContext": "Total distance to be traveled."
+      "businessContext": "Total distance to be traveled.",
+      "label_i18n": {
+        "en": "Distance",
+        "tr": "Distance",
+        "de": "Distance",
+        "fr": "Distance",
+        "es": "Distance",
+        "ar": "Distance"
+      }
     },
     {
       "id": "fuelConsumption",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "L/100km",
       "default": 10,
-      "businessContext": "Vehicle fuel consumption rate."
+      "businessContext": "Vehicle fuel consumption rate.",
+      "label_i18n": {
+        "en": "Fuel Consumption",
+        "tr": "Fuel Consumption",
+        "de": "Fuel Consumption",
+        "fr": "Fuel Consumption",
+        "es": "Fuel Consumption",
+        "ar": "Fuel Consumption"
+      }
     },
     {
       "id": "fuelPrice",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$/L",
       "default": 1.5,
-      "businessContext": "Price of fuel per liter."
+      "businessContext": "Price of fuel per liter.",
+      "label_i18n": {
+        "en": "Fuel Price",
+        "tr": "Fuel Price",
+        "de": "Fuel Price",
+        "fr": "Fuel Price",
+        "es": "Fuel Price",
+        "ar": "Fuel Price"
+      }
     },
     {
       "id": "maintenanceCostPerKm",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "$/km",
       "default": 0.05,
-      "businessContext": "Average maintenance cost per kilometer."
+      "businessContext": "Average maintenance cost per kilometer.",
+      "label_i18n": {
+        "en": "Maintenance Cost per km",
+        "tr": "Maintenance Cost per km",
+        "de": "Maintenance Cost per km",
+        "fr": "Maintenance Cost per km",
+        "es": "Maintenance Cost per km",
+        "ar": "Maintenance Cost per km"
+      }
     },
     {
       "id": "driverWagePerHour",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "$/h",
       "default": 25,
-      "businessContext": "Hourly wage of the driver."
+      "businessContext": "Hourly wage of the driver.",
+      "label_i18n": {
+        "en": "Driver Wage per Hour",
+        "tr": "Driver Wage per Hour",
+        "de": "Driver Wage per Hour",
+        "fr": "Driver Wage per Hour",
+        "es": "Driver Wage per Hour",
+        "ar": "Driver Wage per Hour"
+      }
     },
     {
       "id": "averageSpeed",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "km/h",
       "default": 60,
-      "businessContext": "Expected average speed during the trip."
+      "businessContext": "Expected average speed during the trip.",
+      "label_i18n": {
+        "en": "Average Speed",
+        "tr": "Average Speed",
+        "de": "Average Speed",
+        "fr": "Average Speed",
+        "es": "Average Speed",
+        "ar": "Average Speed"
+      }
     },
     {
       "id": "tollCost",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Total toll costs for the trip."
+      "businessContext": "Total toll costs for the trip.",
+      "label_i18n": {
+        "en": "Toll Cost",
+        "tr": "Toll Cost",
+        "de": "Toll Cost",
+        "fr": "Toll Cost",
+        "es": "Toll Cost",
+        "ar": "Toll Cost"
+      }
     },
     {
       "id": "otherCosts",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Any additional costs (permits, loading/unloading, etc.)."
+      "businessContext": "Any additional costs (permits, loading/unloading, etc.).",
+      "label_i18n": {
+        "en": "Other Costs",
+        "tr": "Other Costs",
+        "de": "Other Costs",
+        "fr": "Other Costs",
+        "es": "Other Costs",
+        "ar": "Other Costs"
+      }
     }
   ],
   "formulas": {
@@ -79,7 +143,12 @@
       "maintenanceCostPerKm",
       "driverCostPerKm",
       "totalCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Proje & Yatırım",
   "sector": "Finans & İK",
@@ -89,5 +158,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

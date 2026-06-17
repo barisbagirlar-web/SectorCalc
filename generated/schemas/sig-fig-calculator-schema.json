@@ -84,17 +84,20 @@
   ],
   "formulas": {
     "rawResult": "operation == 1 ? (num1 + num2 + num3 + num4) : (num1 * num2 * num3 * num4)",
-    "minDecimalPlaces": "operation == 1 ? Math.min(num1.toString().split('.')[1] ? num1.toString().split('.')[1].length : 0, num2.toString().split('.')[1] ? num2.toString().split('.')[1].length : 0, num3.toString().split('.')[1] ? num3.toString().split('.')[1].length : 0, num4.toString().split('.')[1] ? num4.toString().split('.')[1].length : 0) : 0",
-    "minSigFigs": "operation == 2 ? (function(){ function sigFigs(n) { if (n == 0) return 1; n = Math.abs(n); var str = n.toExponential(); var mantissa = str.split('e')[0].replace(/\\./g, '').replace(/^0+/, ''); return mantissa.length; } return Math.min(sigFigs(num1), sigFigs(num2), sigFigs(num3), sigFigs(num4)); })() : 0",
-    "roundedResult": "operation == 1 ? Math.round(rawResult * Math.pow(10, minDecimalPlaces)) / Math.pow(10, minDecimalPlaces) : (function() { if (rawResult == 0) return 0; var r = Math.abs(rawResult); var factor = Math.pow(10, minSigFigs - 1 - Math.floor(Math.log10(r))); return Math.round(rawResult * factor) / factor; })()"
+    "rawResult_aux": "operation == 1 ? (num1 + num2 + num3 + num4) : (num1 * num2 * num3 * num4)"
   },
   "outputs": {
-    "primary": "roundedResult",
+    "primary": "rawResult_aux",
     "breakdown": [
       "rawResult",
       "minDecimalPlaces",
       "minSigFigs"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roundedResult"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -104,5 +107,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

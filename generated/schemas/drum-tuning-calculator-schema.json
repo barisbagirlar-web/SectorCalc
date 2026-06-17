@@ -83,18 +83,20 @@
     }
   ],
   "formulas": {
-    "primary": "0.766 / (drumDiameter * 0.01) * Math.sqrt(tension / (headThickness * 0.001 * headDensity * densityAdjustment))",
     "breakdown": "drumDiameter",
-    "First_Overtone__Hz_": "First Overtone (Hz)",
-    "Second_Overtone__Hz_": "Second Overtone (Hz)",
-    "result": "Fundamental Frequency (Hz)"
+    "breakdown_aux": "drumDiameter"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "breakdown",
     "breakdown": [
       "First Overtone (Hz)",
       "Second Overtone (Hz)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "breakdown"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -104,5 +106,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

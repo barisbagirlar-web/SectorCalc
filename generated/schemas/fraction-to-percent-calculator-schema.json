@@ -84,21 +84,20 @@
   ],
   "formulas": {
     "decimal": "wholeNumber + numerator / denominator",
-    "rawPercent": "decimal * 100",
-    "factor": "Math.pow(10, decimalPlaces)",
-    "scaled": "rawPercent * factor",
-    "primaryPercent": "roundingMode === 0 ? Math.round(scaled) / factor : roundingMode === 1 ? Math.floor(scaled) / factor : roundingMode === 2 ? Math.ceil(scaled) / factor : Math.trunc(scaled) / factor",
-    "Fraction_to_decimal_conversion": "Fraction to decimal conversion",
-    "Raw_percentage__before_rounding_": "Raw percentage (before rounding)",
-    "Final_percentage__rounded_": "Final percentage (rounded)"
+    "rawPercent": "decimal * 100"
   },
   "outputs": {
-    "primary": "primaryPercent",
+    "primary": "rawPercent",
     "breakdown": [
       "Fraction to decimal conversion",
       "Raw percentage (before rounding)",
       "Final percentage (rounded)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "primaryPercent"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -108,5 +107,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

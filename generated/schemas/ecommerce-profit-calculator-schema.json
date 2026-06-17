@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 50,
-      "businessContext": "The price at which each unit is sold to customers."
+      "businessContext": "The price at which each unit is sold to customers.",
+      "label_i18n": {
+        "en": "Selling Price per Unit",
+        "tr": "Selling Price per Unit",
+        "de": "Selling Price per Unit",
+        "fr": "Selling Price per Unit",
+        "es": "Selling Price per Unit",
+        "ar": "Selling Price per Unit"
+      }
     },
     {
       "id": "costPrice",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 30,
-      "businessContext": "The cost to produce or purchase each unit."
+      "businessContext": "The cost to produce or purchase each unit.",
+      "label_i18n": {
+        "en": "Cost Price per Unit",
+        "tr": "Cost Price per Unit",
+        "de": "Cost Price per Unit",
+        "fr": "Cost Price per Unit",
+        "es": "Cost Price per Unit",
+        "ar": "Cost Price per Unit"
+      }
     },
     {
       "id": "quantity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "units",
       "default": 100,
-      "businessContext": "Total number of units sold."
+      "businessContext": "Total number of units sold.",
+      "label_i18n": {
+        "en": "Quantity Sold",
+        "tr": "Quantity Sold",
+        "de": "Quantity Sold",
+        "fr": "Quantity Sold",
+        "es": "Quantity Sold",
+        "ar": "Quantity Sold"
+      }
     },
     {
       "id": "shippingCostPerUnit",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 5,
-      "businessContext": "Average shipping cost per unit."
+      "businessContext": "Average shipping cost per unit.",
+      "label_i18n": {
+        "en": "Shipping Cost per Unit",
+        "tr": "Shipping Cost per Unit",
+        "de": "Shipping Cost per Unit",
+        "fr": "Shipping Cost per Unit",
+        "es": "Shipping Cost per Unit",
+        "ar": "Shipping Cost per Unit"
+      }
     },
     {
       "id": "marketingSpend",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD",
       "default": 200,
-      "businessContext": "Total amount spent on marketing campaigns."
+      "businessContext": "Total amount spent on marketing campaigns.",
+      "label_i18n": {
+        "en": "Marketing Spend",
+        "tr": "Marketing Spend",
+        "de": "Marketing Spend",
+        "fr": "Marketing Spend",
+        "es": "Marketing Spend",
+        "ar": "Marketing Spend"
+      }
     },
     {
       "id": "taxRate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Tax rate applied to gross profit after expenses."
+      "businessContext": "Tax rate applied to gross profit after expenses.",
+      "label_i18n": {
+        "en": "Tax Rate",
+        "tr": "Tax Rate",
+        "de": "Tax Rate",
+        "fr": "Tax Rate",
+        "es": "Tax Rate",
+        "ar": "Tax Rate"
+      }
     }
   ],
   "formulas": {
@@ -69,7 +117,12 @@
       "marketingSpend",
       "taxAmount",
       "netProfit"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "netProfit"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -79,5 +132,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

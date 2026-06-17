@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kWh",
       "default": 75,
-      "businessContext": "The total usable battery capacity of the electric vehicle."
+      "businessContext": "The total usable battery capacity of the electric vehicle.",
+      "label_i18n": {
+        "en": "Battery Capacity",
+        "tr": "Battery Capacity",
+        "de": "Battery Capacity",
+        "fr": "Battery Capacity",
+        "es": "Battery Capacity",
+        "ar": "Battery Capacity"
+      }
     },
     {
       "id": "currentCharge",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "The current state of charge as a percentage of battery capacity."
+      "businessContext": "The current state of charge as a percentage of battery capacity.",
+      "label_i18n": {
+        "en": "Current Charge",
+        "tr": "Current Charge",
+        "de": "Current Charge",
+        "fr": "Current Charge",
+        "es": "Current Charge",
+        "ar": "Current Charge"
+      }
     },
     {
       "id": "desiredCharge",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 80,
-      "businessContext": "The target state of charge after charging session."
+      "businessContext": "The target state of charge after charging session.",
+      "label_i18n": {
+        "en": "Desired Charge",
+        "tr": "Desired Charge",
+        "de": "Desired Charge",
+        "fr": "Desired Charge",
+        "es": "Desired Charge",
+        "ar": "Desired Charge"
+      }
     },
     {
       "id": "chargingPower",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kW",
       "default": 50,
-      "businessContext": "The charging power of the charging station."
+      "businessContext": "The charging power of the charging station.",
+      "label_i18n": {
+        "en": "Charging Power",
+        "tr": "Charging Power",
+        "de": "Charging Power",
+        "fr": "Charging Power",
+        "es": "Charging Power",
+        "ar": "Charging Power"
+      }
     },
     {
       "id": "electricityCost",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency/kWh",
       "default": 0.15,
-      "businessContext": "Cost of electricity per kWh."
+      "businessContext": "Cost of electricity per kWh.",
+      "label_i18n": {
+        "en": "Electricity Cost",
+        "tr": "Electricity Cost",
+        "de": "Electricity Cost",
+        "fr": "Electricity Cost",
+        "es": "Electricity Cost",
+        "ar": "Electricity Cost"
+      }
     },
     {
       "id": "efficiency",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "Charging efficiency, including conversion losses."
+      "businessContext": "Charging efficiency, including conversion losses.",
+      "label_i18n": {
+        "en": "Charging Efficiency",
+        "tr": "Charging Efficiency",
+        "de": "Charging Efficiency",
+        "fr": "Charging Efficiency",
+        "es": "Charging Efficiency",
+        "ar": "Charging Efficiency"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +108,12 @@
     "breakdown": [
       "energy-required",
       "total-cost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "total-cost"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -70,5 +123,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

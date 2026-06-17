@@ -68,20 +68,20 @@
   ],
   "formulas": {
     "rawMB": "kilobytes / divisor",
-    "rawWithOffset": "rawMB + offset",
-    "finalResult": "Math.round(rawWithOffset * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
-    "primaryOutput": "`${finalResult} MB`",
-    "breakdown0": "`Raw conversion value: ${rawMB} MB`",
-    "breakdown1": "`After offset: ${rawWithOffset} MB`",
-    "breakdown2": "`Rounded to ${decimalPlaces} decimal places: ${finalResult} MB`"
+    "rawWithOffset": "rawMB + offset"
   },
   "outputs": {
-    "primary": "primaryOutput",
+    "primary": "rawWithOffset",
     "breakdown": [
       "breakdown0",
       "breakdown1",
       "breakdown2"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "finalResult"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -91,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "lojistik",
   "profession": "Lojistik Uzmanı",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

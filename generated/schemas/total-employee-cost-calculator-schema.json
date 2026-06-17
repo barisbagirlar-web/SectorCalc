@@ -140,93 +140,6 @@
       "businessContext_i18n": {
         "en": "Percentage of employees leaving per year. Drives replacement and ramp-up costs."
       }
-    },
-    {
-      "id": "replacement_cost_percent",
-      "label": "Replacement Cost (% of base salary)",
-      "type": "number",
-      "unit": "%",
-      "default": 20,
-      "min": 0,
-      "max": 200,
-      "businessContext": "Cost of recruiting, hiring, and onboarding a replacement.",
-      "label_i18n": {
-        "en": "Replacement Cost (% of base salary)"
-      },
-      "businessContext_i18n": {
-        "en": "Cost of recruiting, hiring, and onboarding a replacement."
-      }
-    },
-    {
-      "id": "overtime_hours_per_week",
-      "label": "Average Overtime Hours per Week",
-      "type": "number",
-      "unit": "hours",
-      "default": 2,
-      "min": 0,
-      "max": 40,
-      "businessContext": "Average weekly overtime hours per employee.",
-      "label_i18n": {
-        "en": "Average Overtime Hours per Week"
-      },
-      "businessContext_i18n": {
-        "en": "Average weekly overtime hours per employee."
-      }
-    },
-    {
-      "id": "overtime_premium",
-      "label": "Overtime Premium (multiplier)",
-      "type": "number",
-      "unit": "ratio",
-      "default": 1.5,
-      "min": 1,
-      "max": 3,
-      "businessContext": "Typically 1.5x for time-and-a-half, 2x for double time.",
-      "label_i18n": {
-        "en": "Overtime Premium (multiplier)"
-      },
-      "businessContext_i18n": {
-        "en": "Typically 1.5x for time-and-a-half, 2x for double time."
-      }
-    },
-    {
-      "id": "currency",
-      "label": "Currency",
-      "type": "select",
-      "unit": "unit",
-      "default": "USD",
-      "min": null,
-      "max": null,
-      "options": [
-        "USD",
-        "EUR",
-        "GBP",
-        "JPY",
-        "CHF"
-      ],
-      "businessContext": "Currency for all monetary values.",
-      "label_i18n": {
-        "en": "Currency"
-      },
-      "businessContext_i18n": {
-        "en": "Currency for all monetary values."
-      }
-    },
-    {
-      "id": "include_hidden_costs",
-      "label": "Include Hidden Cost Drivers",
-      "type": "boolean",
-      "unit": "unit",
-      "default": true,
-      "min": null,
-      "max": null,
-      "businessContext": "Toggle to include absenteeism, engagement loss, and quality costs.",
-      "label_i18n": {
-        "en": "Include Hidden Cost Drivers"
-      },
-      "businessContext_i18n": {
-        "en": "Toggle to include absenteeism, engagement loss, and quality costs."
-      }
     }
   ],
   "validation": {
@@ -262,18 +175,18 @@
       }
     ]
   },
-  "formulas": [
-    "base_salary",
-    "base_salary",
-    "base_salary",
-    "base_salary",
-    "base_salary",
-    "base_salary",
-    "base_salary"
-  ],
+  "formulas": {
+    "result": "base_salary + bonus_percent + benefits_percent",
+    "result_copy": "base_salary + bonus_percent + benefits_percent"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

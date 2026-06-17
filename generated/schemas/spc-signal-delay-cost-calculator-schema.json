@@ -138,102 +138,6 @@
       "businessContext_i18n": {
         "en": "Number of production hours per shift. Used to calculate daily production volume."
       }
-    },
-    {
-      "id": "shifts_per_day",
-      "label": "Shifts per Day",
-      "type": "number",
-      "unit": "shifts",
-      "default": 3,
-      "min": 1,
-      "max": 3,
-      "businessContext": "Number of shifts operating per day.",
-      "label_i18n": {
-        "en": "Shifts per Day"
-      },
-      "businessContext_i18n": {
-        "en": "Number of shifts operating per day."
-      }
-    },
-    {
-      "id": "operating_days_per_year",
-      "label": "Operating Days per Year",
-      "type": "number",
-      "unit": "days",
-      "default": 250,
-      "min": 1,
-      "max": 365,
-      "businessContext": "Number of days the plant operates annually.",
-      "label_i18n": {
-        "en": "Operating Days per Year"
-      },
-      "businessContext_i18n": {
-        "en": "Number of days the plant operates annually."
-      }
-    },
-    {
-      "id": "signal_frequency_per_year",
-      "label": "Out-of-Control Signal Frequency (per year)",
-      "type": "number",
-      "unit": "events/year",
-      "default": 12,
-      "min": 0,
-      "max": 1000,
-      "businessContext": "Expected number of out-of-control signals per year based on historical SPC data.",
-      "label_i18n": {
-        "en": "Out-of-Control Signal Frequency (per year)"
-      },
-      "businessContext_i18n": {
-        "en": "Expected number of out-of-control signals per year based on historical SPC data."
-      }
-    },
-    {
-      "id": "cost_of_correction_per_event",
-      "label": "Cost of Correction per Event",
-      "type": "number",
-      "unit": "USD",
-      "default": 500,
-      "min": 0,
-      "max": 100000,
-      "businessContext": "Average cost to investigate and correct an out-of-control event (labor, materials, downtime).",
-      "label_i18n": {
-        "en": "Cost of Correction per Event"
-      },
-      "businessContext_i18n": {
-        "en": "Average cost to investigate and correct an out-of-control event (labor, materials, downtime)."
-      }
-    },
-    {
-      "id": "include_hidden_losses",
-      "label": "Include Hidden Losses (e.g., customer dissatisfaction, lost sales)",
-      "type": "boolean",
-      "unit": "unit",
-      "default": true,
-      "min": null,
-      "max": null,
-      "businessContext": "Toggle to include estimated hidden costs such as brand damage and lost future sales.",
-      "label_i18n": {
-        "en": "Include Hidden Losses (e.g., customer dissatisfaction, lost sales)"
-      },
-      "businessContext_i18n": {
-        "en": "Toggle to include estimated hidden costs such as brand damage and lost future sales."
-      }
-    },
-    {
-      "id": "hidden_loss_multiplier",
-      "label": "Hidden Loss Multiplier",
-      "type": "number",
-      "unit": "factor",
-      "default": 1.5,
-      "min": 1,
-      "max": 10,
-      "businessContext": "Multiplier applied to direct defect costs to estimate hidden losses (based on industry benchmarks).",
-      "label_i18n": {
-        "en": "Hidden Loss Multiplier"
-      },
-      "businessContext_i18n": {
-        "en": "Multiplier applied to direct defect costs to estimate hidden losses (based on industry benchmarks)."
-      }
     }
   ],
   "validation": {
@@ -275,18 +179,18 @@
       }
     ]
   },
-  "formulas": [
-    "process_cycle_time_min",
-    "process_cycle_time_min",
-    "process_cycle_time_min",
-    "process_cycle_time_min",
-    "process_cycle_time_min",
-    "process_cycle_time_min",
-    "process_cycle_time_min"
-  ],
+  "formulas": {
+    "result": "process_cycle_time_min + units_per_cycle + defect_rate_out_of_control",
+    "result_copy": "process_cycle_time_min + units_per_cycle + defect_rate_out_of_control"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "spc-signal-delay-cost-calculator",
   "catalogCategory": "everyday-life",

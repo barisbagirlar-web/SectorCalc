@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Age of the mother in years"
+      "businessContext": "Age of the mother in years",
+      "label_i18n": {
+        "en": "Maternal Age",
+        "tr": "Maternal Age",
+        "de": "Maternal Age",
+        "fr": "Maternal Age",
+        "es": "Maternal Age",
+        "ar": "Maternal Age"
+      }
     },
     {
       "id": "ntMeasurement",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 1.5,
-      "businessContext": "Nuchal translucency thickness in millimeters"
+      "businessContext": "Nuchal translucency thickness in millimeters",
+      "label_i18n": {
+        "en": "NT Measurement",
+        "tr": "NT Measurement",
+        "de": "NT Measurement",
+        "fr": "NT Measurement",
+        "es": "NT Measurement",
+        "ar": "NT Measurement"
+      }
     },
     {
       "id": "crl",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 45,
-      "businessContext": "Crown-rump length in millimeters for gestational age"
+      "businessContext": "Crown-rump length in millimeters for gestational age",
+      "label_i18n": {
+        "en": "CRL",
+        "tr": "CRL",
+        "de": "CRL",
+        "fr": "CRL",
+        "es": "CRL",
+        "ar": "CRL"
+      }
     },
     {
       "id": "priorRisk",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "probability",
       "default": 0.004,
-      "businessContext": "Baseline risk from maternal age (e.g., 0.004 for 1 in 250)"
+      "businessContext": "Baseline risk from maternal age (e.g., 0.004 for 1 in 250)",
+      "label_i18n": {
+        "en": "Prior Risk",
+        "tr": "Prior Risk",
+        "de": "Prior Risk",
+        "fr": "Prior Risk",
+        "es": "Prior Risk",
+        "ar": "Prior Risk"
+      }
     }
   ],
   "formulas": {
-    "baseRiskPercent": "(1 / (1 + Math.exp(-(-10 + 0.1 * maternalAge + 0.05 * crl)))) * 100",
-    "adjustedRiskPercent": "(1 / (1 + Math.exp(-(-10 + 0.1 * maternalAge + 0.05 * crl + 2 * (ntMeasurement - 1.5))))) * 100",
-    "riskPercent": "adjustedRiskPercent"
+    "result": "maternalAge + ntMeasurement + crl",
+    "result_copy": "maternalAge + ntMeasurement + crl"
   },
   "outputs": {
-    "primary": "riskPercent",
+    "primary": "result",
     "breakdown": [
       "baseRiskPercent",
       "adjustedRiskPercent"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "riskPercent"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -54,5 +90,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

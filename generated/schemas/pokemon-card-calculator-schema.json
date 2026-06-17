@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100,
-      "businessContext": "The current market price of the card in mint condition."
+      "businessContext": "The current market price of the card in mint condition.",
+      "label_i18n": {
+        "en": "Current Market Price",
+        "tr": "Current Market Price",
+        "de": "Current Market Price",
+        "fr": "Current Market Price",
+        "es": "Current Market Price",
+        "ar": "Current Market Price"
+      }
     },
     {
       "id": "conditionFactor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ratio",
       "default": 1,
-      "businessContext": "Factor based on card condition (1.0 = Mint, 0.5 = Good, 0.1 = Poor)."
+      "businessContext": "Factor based on card condition (1.0 = Mint, 0.5 = Good, 0.1 = Poor).",
+      "label_i18n": {
+        "en": "Condition Factor",
+        "tr": "Condition Factor",
+        "de": "Condition Factor",
+        "fr": "Condition Factor",
+        "es": "Condition Factor",
+        "ar": "Condition Factor"
+      }
     },
     {
       "id": "rarityMultiplier",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1,
-      "businessContext": "Multiplier for rare or first edition cards (e.g., 2.0 for double value)."
+      "businessContext": "Multiplier for rare or first edition cards (e.g., 2.0 for double value).",
+      "label_i18n": {
+        "en": "Rarity Multiplier",
+        "tr": "Rarity Multiplier",
+        "de": "Rarity Multiplier",
+        "fr": "Rarity Multiplier",
+        "es": "Rarity Multiplier",
+        "ar": "Rarity Multiplier"
+      }
     },
     {
       "id": "gradingCost",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 20,
-      "businessContext": "Cost to get the card professionally graded."
+      "businessContext": "Cost to get the card professionally graded.",
+      "label_i18n": {
+        "en": "Grading Cost",
+        "tr": "Grading Cost",
+        "de": "Grading Cost",
+        "fr": "Grading Cost",
+        "es": "Grading Cost",
+        "ar": "Grading Cost"
+      }
     },
     {
       "id": "sellingFeePercent",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Platform or marketplace selling fee as a percentage of selling price."
+      "businessContext": "Platform or marketplace selling fee as a percentage of selling price.",
+      "label_i18n": {
+        "en": "Selling Fee (%)",
+        "tr": "Selling Fee (%)",
+        "de": "Selling Fee (%)",
+        "fr": "Selling Fee (%)",
+        "es": "Selling Fee (%)",
+        "ar": "Selling Fee (%)"
+      }
     },
     {
       "id": "shippingCost",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "USD",
       "default": 5,
-      "businessContext": "Shipping cost to safely deliver the card to buyer."
+      "businessContext": "Shipping cost to safely deliver the card to buyer.",
+      "label_i18n": {
+        "en": "Shipping Cost",
+        "tr": "Shipping Cost",
+        "de": "Shipping Cost",
+        "fr": "Shipping Cost",
+        "es": "Shipping Cost",
+        "ar": "Shipping Cost"
+      }
     },
     {
       "id": "acquisitionCost",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "USD",
       "default": 20,
-      "businessContext": "Original cost to acquire the card (purchase price, trade value)."
+      "businessContext": "Original cost to acquire the card (purchase price, trade value).",
+      "label_i18n": {
+        "en": "Acquisition Cost",
+        "tr": "Acquisition Cost",
+        "de": "Acquisition Cost",
+        "fr": "Acquisition Cost",
+        "es": "Acquisition Cost",
+        "ar": "Acquisition Cost"
+      }
     }
   ],
   "formulas": {
@@ -68,7 +124,12 @@
     "breakdown": [
       "estimatedSellingPrice",
       "totalCosts"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "netProfit"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -78,5 +139,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "lojistik",
   "profession": "Lojistik Uzmanı",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -68,16 +68,19 @@
   ],
   "formulas": {
     "angleRad": "angle * Math.PI / 180",
-    "workAgainstGravity": "mass * 9.81 * distance * Math.sin(angleRad)",
-    "workAgainstFriction": "frictionCoefficient * mass * 9.81 * Math.cos(angleRad) * distance",
-    "totalWork": "workAgainstGravity + workAgainstFriction"
+    "angleRad_aux": "angle * Math.PI / 180"
   },
   "outputs": {
-    "primary": "totalWork",
+    "primary": "angleRad_aux",
     "breakdown": [
       "workAgainstGravity",
       "workAgainstFriction"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalWork"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -87,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

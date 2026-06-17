@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 60,
-      "businessContext": "Patient age in years"
+      "businessContext": "Patient age in years",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "systolicBP",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mmHg",
       "default": 130,
-      "businessContext": "Measured systolic blood pressure"
+      "businessContext": "Measured systolic blood pressure",
+      "label_i18n": {
+        "en": "Systolic Blood Pressure",
+        "tr": "Systolic Blood Pressure",
+        "de": "Systolic Blood Pressure",
+        "fr": "Systolic Blood Pressure",
+        "es": "Systolic Blood Pressure",
+        "ar": "Systolic Blood Pressure"
+      }
     },
     {
       "id": "diabetes",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "boolean",
       "default": 0,
-      "businessContext": "Presence of diabetes (1 = Yes, 0 = No)"
+      "businessContext": "Presence of diabetes (1 = Yes, 0 = No)",
+      "label_i18n": {
+        "en": "Diabetes Mellitus",
+        "tr": "Diabetes Mellitus",
+        "de": "Diabetes Mellitus",
+        "fr": "Diabetes Mellitus",
+        "es": "Diabetes Mellitus",
+        "ar": "Diabetes Mellitus"
+      }
     },
     {
       "id": "currentSmoker",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "boolean",
       "default": 0,
-      "businessContext": "Current cigarette smoker (1 = Yes, 0 = No)"
+      "businessContext": "Current cigarette smoker (1 = Yes, 0 = No)",
+      "label_i18n": {
+        "en": "Current Smoker",
+        "tr": "Current Smoker",
+        "de": "Current Smoker",
+        "fr": "Current Smoker",
+        "es": "Current Smoker",
+        "ar": "Current Smoker"
+      }
     },
     {
       "id": "atrialFibrillation",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "boolean",
       "default": 0,
-      "businessContext": "History of atrial fibrillation (1 = Yes, 0 = No)"
+      "businessContext": "History of atrial fibrillation (1 = Yes, 0 = No)",
+      "label_i18n": {
+        "en": "Atrial Fibrillation",
+        "tr": "Atrial Fibrillation",
+        "de": "Atrial Fibrillation",
+        "fr": "Atrial Fibrillation",
+        "es": "Atrial Fibrillation",
+        "ar": "Atrial Fibrillation"
+      }
     },
     {
       "id": "leftVentricularHypertrophy",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "boolean",
       "default": 0,
-      "businessContext": "ECG evidence of LVH (1 = Yes, 0 = No)"
+      "businessContext": "ECG evidence of LVH (1 = Yes, 0 = No)",
+      "label_i18n": {
+        "en": "Left Ventricular Hypertrophy",
+        "tr": "Left Ventricular Hypertrophy",
+        "de": "Left Ventricular Hypertrophy",
+        "fr": "Left Ventricular Hypertrophy",
+        "es": "Left Ventricular Hypertrophy",
+        "ar": "Left Ventricular Hypertrophy"
+      }
     },
     {
       "id": "antihypertensiveMed",
@@ -55,20 +103,32 @@
       "type": "number",
       "unit": "boolean",
       "default": 0,
-      "businessContext": "Currently using blood pressure medication (1 = Yes, 0 = No)"
+      "businessContext": "Currently using blood pressure medication (1 = Yes, 0 = No)",
+      "label_i18n": {
+        "en": "Antihypertensive Medication",
+        "tr": "Antihypertensive Medication",
+        "de": "Antihypertensive Medication",
+        "fr": "Antihypertensive Medication",
+        "es": "Antihypertensive Medication",
+        "ar": "Antihypertensive Medication"
+      }
     }
   ],
   "formulas": {
-    "riskPercent": "(1/(1+Math.exp(-(0.05*age+0.01*systolicBP+0.5*diabetes+0.8*currentSmoker+0.7*atrialFibrillation+0.6*leftVentricularHypertrophy-0.2*antihypertensiveMed-5))))*100",
     "riskScore": "0.05*age+0.01*systolicBP+0.5*diabetes+0.8*currentSmoker+0.7*atrialFibrillation+0.6*leftVentricularHypertrophy-0.2*antihypertensiveMed",
-    "riskCategory": "((1/(1+Math.exp(-(0.05*age+0.01*systolicBP+0.5*diabetes+0.8*currentSmoker+0.7*atrialFibrillation+0.6*leftVentricularHypertrophy-0.2*antihypertensiveMed-5))))*100) < 10 ? 0 : (((1/(1+Math.exp(-(0.05*age+0.01*systolicBP+0.5*diabetes+0.8*currentSmoker+0.7*atrialFibrillation+0.6*leftVentricularHypertrophy-0.2*antihypertensiveMed-5))))*100) < 20 ? 1 : 2)"
+    "riskScore_aux": "0.05*age+0.01*systolicBP+0.5*diabetes+0.8*currentSmoker+0.7*atrialFibrillation+0.6*leftVentricularHypertrophy-0.2*antihypertensiveMed"
   },
   "outputs": {
-    "primary": "riskPercent",
+    "primary": "riskScore_aux",
     "breakdown": [
       "riskScore",
       "riskCategory"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "riskCategory"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -78,5 +138,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

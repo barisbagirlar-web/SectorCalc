@@ -84,15 +84,19 @@
   ],
   "formulas": {
     "finalVelocity1": "( (mass1 - restitutionCoefficient * mass2) * velocity1Initial + mass2 * (1 + restitutionCoefficient) * velocity2Initial ) / (mass1 + mass2)",
-    "finalVelocity2": "( mass1 * (1 + restitutionCoefficient) * velocity1Initial + (mass2 - restitutionCoefficient * mass1) * velocity2Initial ) / (mass1 + mass2)",
-    "energyLoss": "0.5 * mass1 * Math.pow(velocity1Initial, 2) + 0.5 * mass2 * Math.pow(velocity2Initial, 2) - 0.5 * mass1 * Math.pow(finalVelocity1, 2) - 0.5 * mass2 * Math.pow(finalVelocity2, 2)"
+    "finalVelocity2": "( mass1 * (1 + restitutionCoefficient) * velocity1Initial + (mass2 - restitutionCoefficient * mass1) * velocity2Initial ) / (mass1 + mass2)"
   },
   "outputs": {
     "primary": "finalVelocity1",
     "breakdown": [
       "finalVelocity2",
       "energyLoss"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "energyLoss"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -102,5 +106,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 100,
-      "businessContext": "Standard serving size in grams as stated on the nutrition label."
+      "businessContext": "Standard serving size in grams as stated on the nutrition label.",
+      "label_i18n": {
+        "en": "Serving Size",
+        "tr": "Serving Size",
+        "de": "Serving Size",
+        "fr": "Serving Size",
+        "es": "Serving Size",
+        "ar": "Serving Size"
+      }
     },
     {
       "id": "calories",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kcal",
       "default": 250,
-      "businessContext": "Total caloric content per serving."
+      "businessContext": "Total caloric content per serving.",
+      "label_i18n": {
+        "en": "Calories per Serving",
+        "tr": "Calories per Serving",
+        "de": "Calories per Serving",
+        "fr": "Calories per Serving",
+        "es": "Calories per Serving",
+        "ar": "Calories per Serving"
+      }
     },
     {
       "id": "totalFat",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "g",
       "default": 12,
-      "businessContext": "Amount of total fat per serving in grams."
+      "businessContext": "Amount of total fat per serving in grams.",
+      "label_i18n": {
+        "en": "Total Fat",
+        "tr": "Total Fat",
+        "de": "Total Fat",
+        "fr": "Total Fat",
+        "es": "Total Fat",
+        "ar": "Total Fat"
+      }
     },
     {
       "id": "sodium",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mg",
       "default": 500,
-      "businessContext": "Sodium content per serving in milligrams."
+      "businessContext": "Sodium content per serving in milligrams.",
+      "label_i18n": {
+        "en": "Sodium",
+        "tr": "Sodium",
+        "de": "Sodium",
+        "fr": "Sodium",
+        "es": "Sodium",
+        "ar": "Sodium"
+      }
     },
     {
       "id": "totalCarbs",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "g",
       "default": 30,
-      "businessContext": "Amount of total carbohydrates per serving in grams."
+      "businessContext": "Amount of total carbohydrates per serving in grams.",
+      "label_i18n": {
+        "en": "Total Carbohydrates",
+        "tr": "Total Carbohydrates",
+        "de": "Total Carbohydrates",
+        "fr": "Total Carbohydrates",
+        "es": "Total Carbohydrates",
+        "ar": "Total Carbohydrates"
+      }
     },
     {
       "id": "protein",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "g",
       "default": 5,
-      "businessContext": "Protein content per serving in grams."
+      "businessContext": "Protein content per serving in grams.",
+      "label_i18n": {
+        "en": "Protein",
+        "tr": "Protein",
+        "de": "Protein",
+        "fr": "Protein",
+        "es": "Protein",
+        "ar": "Protein"
+      }
     }
   ],
   "formulas": {
@@ -64,7 +112,12 @@
       "sodiumPer100g",
       "totalCarbsPer100g",
       "proteinPer100g"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "proteinPer100g"
   },
   "category": "Gıda & Tarım",
   "sector": "Perakende & Gıda",
@@ -74,5 +127,10 @@
   "categorySlug": "food-cold-chain-hygiene",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

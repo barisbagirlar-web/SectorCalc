@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "drops",
       "default": 0,
-      "businessContext": "Total dropped items during observation"
+      "businessContext": "Total dropped items during observation",
+      "label_i18n": {
+        "en": "Number of Drops",
+        "tr": "Number of Drops",
+        "de": "Number of Drops",
+        "fr": "Number of Drops",
+        "es": "Number of Drops",
+        "ar": "Number of Drops"
+      }
     },
     {
       "id": "totalItems",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "items",
       "default": 1000,
-      "businessContext": "Total items processed in the same period"
+      "businessContext": "Total items processed in the same period",
+      "label_i18n": {
+        "en": "Total Items Handled",
+        "tr": "Total Items Handled",
+        "de": "Total Items Handled",
+        "fr": "Total Items Handled",
+        "es": "Total Items Handled",
+        "ar": "Total Items Handled"
+      }
     },
     {
       "id": "timePeriod",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "hours",
       "default": 8,
-      "businessContext": "Duration of observation in hours"
+      "businessContext": "Duration of observation in hours",
+      "label_i18n": {
+        "en": "Time Period",
+        "tr": "Time Period",
+        "de": "Time Period",
+        "fr": "Time Period",
+        "es": "Time Period",
+        "ar": "Time Period"
+      }
     },
     {
       "id": "costPerDrop",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0.5,
-      "businessContext": "Average financial loss per dropped item"
+      "businessContext": "Average financial loss per dropped item",
+      "label_i18n": {
+        "en": "Cost per Drop",
+        "tr": "Cost per Drop",
+        "de": "Cost per Drop",
+        "fr": "Cost per Drop",
+        "es": "Cost per Drop",
+        "ar": "Cost per Drop"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "dropsPerHour",
       "annualDropCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "annualDropCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -54,5 +91,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

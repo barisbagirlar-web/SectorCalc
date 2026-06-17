@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 200,
-      "businessContext": "Finished width of the quilt"
+      "businessContext": "Finished width of the quilt",
+      "label_i18n": {
+        "en": "Quilt Width",
+        "tr": "Quilt Width",
+        "de": "Quilt Width",
+        "fr": "Quilt Width",
+        "es": "Quilt Width",
+        "ar": "Quilt Width"
+      }
     },
     {
       "id": "quiltLength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 200,
-      "businessContext": "Finished length of the quilt"
+      "businessContext": "Finished length of the quilt",
+      "label_i18n": {
+        "en": "Quilt Length",
+        "tr": "Quilt Length",
+        "de": "Quilt Length",
+        "fr": "Quilt Length",
+        "es": "Quilt Length",
+        "ar": "Quilt Length"
+      }
     },
     {
       "id": "blockWidth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 20,
-      "businessContext": "Finished width of one quilt block"
+      "businessContext": "Finished width of one quilt block",
+      "label_i18n": {
+        "en": "Block Width",
+        "tr": "Block Width",
+        "de": "Block Width",
+        "fr": "Block Width",
+        "es": "Block Width",
+        "ar": "Block Width"
+      }
     },
     {
       "id": "blockLength",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cm",
       "default": 20,
-      "businessContext": "Finished length of one quilt block"
+      "businessContext": "Finished length of one quilt block",
+      "label_i18n": {
+        "en": "Block Length",
+        "tr": "Block Length",
+        "de": "Block Length",
+        "fr": "Block Length",
+        "es": "Block Length",
+        "ar": "Block Length"
+      }
     },
     {
       "id": "seamAllowance",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "cm",
       "default": 0.6,
-      "businessContext": "Seam allowance added to each side of the block"
+      "businessContext": "Seam allowance added to each side of the block",
+      "label_i18n": {
+        "en": "Seam Allowance",
+        "tr": "Seam Allowance",
+        "de": "Seam Allowance",
+        "fr": "Seam Allowance",
+        "es": "Seam Allowance",
+        "ar": "Seam Allowance"
+      }
     },
     {
       "id": "fabricWidth",
@@ -47,28 +87,33 @@
       "type": "number",
       "unit": "cm",
       "default": 110,
-      "businessContext": "Width of the fabric bolt"
+      "businessContext": "Width of the fabric bolt",
+      "label_i18n": {
+        "en": "Fabric Width",
+        "tr": "Fabric Width",
+        "de": "Fabric Width",
+        "fr": "Fabric Width",
+        "es": "Fabric Width",
+        "ar": "Fabric Width"
+      }
     }
   ],
   "formulas": {
     "blockCutWidth": "blockWidth + 2 * seamAllowance",
-    "blockCutLength": "blockLength + 2 * seamAllowance",
-    "horizontalBlocks": "Math.ceil(quiltWidth / blockWidth)",
-    "verticalBlocks": "Math.ceil(quiltLength / blockLength)",
-    "totalBlocks": "horizontalBlocks * verticalBlocks",
-    "blocksPerWidth": "Math.floor(fabricWidth / blockCutWidth)",
-    "rowsNeeded": "Math.ceil(totalBlocks / Math.max(1, blocksPerWidth))",
-    "totalFabricLengthCm": "rowsNeeded * blockCutLength",
-    "totalFabricLengthM": "totalFabricLengthCm / 100",
-    "totalFabricAreaSqM": "(totalBlocks * blockCutWidth * blockCutLength) / 10000"
+    "blockCutLength": "blockLength + 2 * seamAllowance"
   },
   "outputs": {
-    "primary": "totalFabricLengthM",
+    "primary": "blockCutLength",
     "breakdown": [
       "totalBlocks",
       "blocksPerWidth",
       "totalFabricAreaSqM"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalFabricAreaSqM"
   },
   "category": "Tekstil & Moda",
   "sector": "Perakende & Gıda",
@@ -78,5 +123,10 @@
   "categorySlug": "textile-print-lab",
   "sectorId": "tekstil",
   "profession": "Üretim Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

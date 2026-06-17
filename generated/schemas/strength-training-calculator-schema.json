@@ -100,19 +100,20 @@
   ],
   "formulas": {
     "primary": "weightLifted * (1 + repetitions / 30)",
-    "breakdown": "weightLifted",
-    "Relative_Strength__kg_per_kg_BW_": "Relative Strength (kg per kg BW)",
-    "Volume_Load__kg_reps_": "Volume Load (kg*reps)",
-    "Effective_Training_Load__kg_": "Effective Training Load (kg)",
-    "result": "Estimated 1RM (kg)"
+    "breakdown": "weightLifted"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "breakdown",
     "breakdown": [
       "Relative Strength (kg per kg BW)",
       "Volume Load (kg*reps)",
       "Effective Training Load (kg)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "breakdown"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -122,5 +123,10 @@
   "sectorSlug": "cleaning",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

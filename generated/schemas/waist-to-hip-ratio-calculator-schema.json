@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 0,
-      "businessContext": "Measured at the midpoint between the lower margin of the last palpable rib and the top of the iliac crest, according to WHO protocol"
+      "businessContext": "Measured at the midpoint between the lower margin of the last palpable rib and the top of the iliac crest, according to WHO protocol",
+      "label_i18n": {
+        "en": "Waist Circumference",
+        "tr": "Waist Circumference",
+        "de": "Waist Circumference",
+        "fr": "Waist Circumference",
+        "es": "Waist Circumference",
+        "ar": "Waist Circumference"
+      }
     },
     {
       "id": "hip",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 0,
-      "businessContext": "Measured at the greatest circumference around the buttocks"
+      "businessContext": "Measured at the greatest circumference around the buttocks",
+      "label_i18n": {
+        "en": "Hip Circumference",
+        "tr": "Hip Circumference",
+        "de": "Hip Circumference",
+        "fr": "Hip Circumference",
+        "es": "Hip Circumference",
+        "ar": "Hip Circumference"
+      }
     },
     {
       "id": "height",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 0,
-      "businessContext": "Standing height without shoes, used for waist-to-height ratio and BMI"
+      "businessContext": "Standing height without shoes, used for waist-to-height ratio and BMI",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "Height",
+        "fr": "Height",
+        "es": "Height",
+        "ar": "Height"
+      }
     },
     {
       "id": "weight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Body weight in kilograms, used for BMI calculation"
+      "businessContext": "Body weight in kilograms, used for BMI calculation",
+      "label_i18n": {
+        "en": "Weight",
+        "tr": "Weight",
+        "de": "Weight",
+        "fr": "Weight",
+        "es": "Weight",
+        "ar": "Weight"
+      }
     },
     {
       "id": "gender",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "Biological sex for WHR risk threshold interpretation (0: female, 1: male)"
+      "businessContext": "Biological sex for WHR risk threshold interpretation (0: female, 1: male)",
+      "label_i18n": {
+        "en": "Gender (0=Female, 1=Male)",
+        "tr": "Gender (0=Female, 1=Male)",
+        "de": "Gender (0=Female, 1=Male)",
+        "fr": "Gender (0=Female, 1=Male)",
+        "es": "Gender (0=Female, 1=Male)",
+        "ar": "Gender (0=Female, 1=Male)"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
       "waistToHeightRatio",
       "bmi",
       "highRiskWHR"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "highRiskWHR"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -64,5 +109,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

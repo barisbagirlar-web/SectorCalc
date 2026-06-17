@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "therms",
       "default": 1,
-      "businessContext": "Amount of energy in therms to be converted to BTU."
+      "businessContext": "Amount of energy in therms to be converted to BTU.",
+      "label_i18n": {
+        "en": "Quantity (therms)",
+        "tr": "Quantity (therms)",
+        "de": "Quantity (therms)",
+        "fr": "Quantity (therms)",
+        "es": "Quantity (therms)",
+        "ar": "Quantity (therms)"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "BTU/therm",
       "default": 100000,
-      "businessContext": "Standard conversion factor from therms to BTU (1 therm = 100,000 BTU)."
+      "businessContext": "Standard conversion factor from therms to BTU (1 therm = 100,000 BTU).",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "energyContentAdjustment",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "BTU/therm",
       "default": 0,
-      "businessContext": "Adjustment to the conversion factor for fuel-specific energy content variations, if any."
+      "businessContext": "Adjustment to the conversion factor for fuel-specific energy content variations, if any.",
+      "label_i18n": {
+        "en": "Energy Content Adjustment",
+        "tr": "Energy Content Adjustment",
+        "de": "Energy Content Adjustment",
+        "fr": "Energy Content Adjustment",
+        "es": "Energy Content Adjustment",
+        "ar": "Energy Content Adjustment"
+      }
     },
     {
       "id": "precision",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "decimal places",
       "default": 0,
-      "businessContext": "Number of decimal places to round the output."
+      "businessContext": "Number of decimal places to round the output.",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     },
     {
       "id": "outputUnitFactor",
@@ -39,22 +71,34 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1,
-      "businessContext": "Factor to convert BTU to desired output unit (e.g., 1 for BTU, 1e-6 for MMBTU)."
+      "businessContext": "Factor to convert BTU to desired output unit (e.g., 1 for BTU, 1e-6 for MMBTU).",
+      "label_i18n": {
+        "en": "Output Unit Scale Factor",
+        "tr": "Output Unit Scale Factor",
+        "de": "Output Unit Scale Factor",
+        "fr": "Output Unit Scale Factor",
+        "es": "Output Unit Scale Factor",
+        "ar": "Output Unit Scale Factor"
+      }
     }
   ],
   "formulas": {
     "adjustedFactor": "conversionFactor + energyContentAdjustment",
     "rawBtu": "quantity * (conversionFactor + energyContentAdjustment)",
-    "scaledOutput": "rawBtu * outputUnitFactor",
-    "primaryResult": "Math.round(scaledOutput * Math.pow(10, precision)) / Math.pow(10, precision)"
+    "scaledOutput": "rawBtu * outputUnitFactor"
   },
   "outputs": {
-    "primary": "primaryResult",
+    "primary": "scaledOutput",
     "breakdown": [
       "adjustedFactor",
       "rawBtu",
       "scaledOutput"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "primaryResult"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -64,5 +108,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

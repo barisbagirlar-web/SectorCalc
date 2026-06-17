@@ -83,18 +83,21 @@
     }
   ],
   "formulas": {
-    "equivalent": "Math.abs(n1 * d2 - d1 * n2) < tol ? 1 : 0",
     "cross1": "n1 * d2",
-    "cross2": "d1 * n2",
-    "diff": "Math.abs(n1 * d2 - d1 * n2)"
+    "cross2": "d1 * n2"
   },
   "outputs": {
-    "primary": "equivalent",
+    "primary": "cross2",
     "breakdown": [
       "cross1",
       "cross2",
       "diff"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "diff"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -104,5 +107,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

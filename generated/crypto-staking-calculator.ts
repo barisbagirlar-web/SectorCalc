@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from crypto-staking-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,26 +16,34 @@ export const Crypto_staking_calculatorInputSchema = z.object({
   compoundFrequency: z.number().default(365),
 });
 
-function evaluateAllFormulas(input: Crypto_staking_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.principal * (1 + (input.apy / 100) / input.compoundFrequency) ** (input.compoundFrequency * (input.duration / 365)); results["totalValue"] = Number.isFinite(v) ? v : 0; } catch { results["totalValue"] = 0; }
-  try { const v = (results["totalValue"] ?? 0) - input.principal; results["earnedRewards"] = Number.isFinite(v) ? v : 0; } catch { results["earnedRewards"] = 0; }
-  try { const v = input.principal; results["initialInvestment"] = Number.isFinite(v) ? v : 0; } catch { results["initialInvestment"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Crypto_staking_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.principal * (1 + (input.apy / 100) / input.compoundFrequency) ** (input.compoundFrequency * (input.duration / 365)); results["totalValue"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalValue"] = 0; }
+  try { const v = (asFormulaNumber(results["totalValue"])) - input.principal; results["earnedRewards"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["earnedRewards"] = 0; }
+  try { const v = input.principal; results["initialInvestment"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["initialInvestment"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateCrypto_staking_calculator(input: Crypto_staking_calculatorInput): Crypto_staking_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalValue"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["totalValue"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

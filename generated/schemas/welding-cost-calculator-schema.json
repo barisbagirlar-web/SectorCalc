@@ -139,137 +139,6 @@
       "businessContext_i18n": {
         "en": "Cost per liter of shielding gas (e.g., Argon/CO2 mix)."
       }
-    },
-    {
-      "id": "gas_flow_rate_l_per_min",
-      "label": "Gas Flow Rate (L/min)",
-      "type": "number",
-      "unit": "L/min",
-      "default": 18,
-      "min": 5,
-      "max": 50,
-      "businessContext": "Flow rate of shielding gas during welding.",
-      "label_i18n": {
-        "en": "Gas Flow Rate (L/min)"
-      },
-      "businessContext_i18n": {
-        "en": "Flow rate of shielding gas during welding."
-      }
-    },
-    {
-      "id": "energy_cost_per_kwh",
-      "label": "Energy Cost (USD/kWh)",
-      "type": "number",
-      "unit": "USD/kWh",
-      "default": 0.12,
-      "min": 0.02,
-      "max": 0.5,
-      "businessContext": "Industrial electricity rate per kilowatt-hour.",
-      "label_i18n": {
-        "en": "Energy Cost (USD/kWh)"
-      },
-      "businessContext_i18n": {
-        "en": "Industrial electricity rate per kilowatt-hour."
-      }
-    },
-    {
-      "id": "welding_power_kw",
-      "label": "Welding Power (kW)",
-      "type": "number",
-      "unit": "kW",
-      "default": 8,
-      "min": 1,
-      "max": 50,
-      "businessContext": "Average power consumption of the welding machine during operation.",
-      "label_i18n": {
-        "en": "Welding Power (kW)"
-      },
-      "businessContext_i18n": {
-        "en": "Average power consumption of the welding machine during operation."
-      }
-    },
-    {
-      "id": "overhead_rate_per_hour",
-      "label": "Overhead Rate (USD/hour)",
-      "type": "number",
-      "unit": "USD/h",
-      "default": 15,
-      "min": 0,
-      "max": 100,
-      "businessContext": "Facility and equipment overhead allocated per hour of welding.",
-      "label_i18n": {
-        "en": "Overhead Rate (USD/hour)"
-      },
-      "businessContext_i18n": {
-        "en": "Facility and equipment overhead allocated per hour of welding."
-      }
-    },
-    {
-      "id": "rework_rate_percent",
-      "label": "Rework Rate (%)",
-      "type": "number",
-      "unit": "%",
-      "default": 5,
-      "min": 0,
-      "max": 50,
-      "businessContext": "Percentage of welds requiring rework (defect rate).",
-      "label_i18n": {
-        "en": "Rework Rate (%)"
-      },
-      "businessContext_i18n": {
-        "en": "Percentage of welds requiring rework (defect rate)."
-      }
-    },
-    {
-      "id": "rework_cost_factor",
-      "label": "Rework Cost Factor",
-      "type": "number",
-      "unit": "ratio",
-      "default": 2,
-      "min": 1,
-      "max": 5,
-      "businessContext": "Multiplier on original cost to account for rework (cutting, re-welding, inspection).",
-      "label_i18n": {
-        "en": "Rework Cost Factor"
-      },
-      "businessContext_i18n": {
-        "en": "Multiplier on original cost to account for rework (cutting, re-welding, inspection)."
-      }
-    },
-    {
-      "id": "weld_process_type",
-      "label": "Welding Process Type",
-      "type": "select",
-      "options": [
-        "GMAW",
-        "FCAW",
-        "SMAW",
-        "GTAW",
-        "SAW"
-      ],
-      "default": "GMAW",
-      "businessContext": "Standard arc welding process per AWS A3.0.",
-      "label_i18n": {
-        "en": "Welding Process Type"
-      },
-      "businessContext_i18n": {
-        "en": "Standard arc welding process per AWS A3.0."
-      },
-      "unit": "unit"
-    },
-    {
-      "id": "use_premium_material",
-      "label": "Use Premium Filler Material",
-      "type": "boolean",
-      "default": false,
-      "businessContext": "Toggle to apply a 20% cost premium for high-performance filler wire.",
-      "label_i18n": {
-        "en": "Use Premium Filler Material"
-      },
-      "businessContext_i18n": {
-        "en": "Toggle to apply a 20% cost premium for high-performance filler wire."
-      },
-      "unit": "unit"
     }
   ],
   "validation": {
@@ -322,21 +191,18 @@
       }
     ]
   },
-  "formulas": [
-    "weld_length_mm",
-    "weld_length_mm",
-    "weld_length_mm",
-    "weld_length_mm",
-    "weld_length_mm",
-    "weld_length_mm",
-    "weld_length_mm",
-    "weld_length_mm",
-    "weld_length_mm",
-    "weld_length_mm"
-  ],
+  "formulas": {
+    "result": "weld_length_mm + weld_throat_mm + material_density_g_per_cm3",
+    "result_copy": "weld_length_mm + weld_throat_mm + material_density_g_per_cm3"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

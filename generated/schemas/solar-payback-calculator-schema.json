@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 10000,
-      "businessContext": "Total upfront cost of solar system installation"
+      "businessContext": "Total upfront cost of solar system installation",
+      "label_i18n": {
+        "en": "System Cost",
+        "tr": "System Cost",
+        "de": "System Cost",
+        "fr": "System Cost",
+        "es": "System Cost",
+        "ar": "System Cost"
+      }
     },
     {
       "id": "annual_production_kwh",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kWh/year",
       "default": 5000,
-      "businessContext": "Estimated annual electricity generation from the solar system"
+      "businessContext": "Estimated annual electricity generation from the solar system",
+      "label_i18n": {
+        "en": "Annual Production",
+        "tr": "Annual Production",
+        "de": "Annual Production",
+        "fr": "Annual Production",
+        "es": "Annual Production",
+        "ar": "Annual Production"
+      }
     },
     {
       "id": "electricity_price_per_kwh",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD/kWh",
       "default": 0.12,
-      "businessContext": "Current electricity price per kWh"
+      "businessContext": "Current electricity price per kWh",
+      "label_i18n": {
+        "en": "Electricity Price",
+        "tr": "Electricity Price",
+        "de": "Electricity Price",
+        "fr": "Electricity Price",
+        "es": "Electricity Price",
+        "ar": "Electricity Price"
+      }
     },
     {
       "id": "annual_maintenance_cost",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD/year",
       "default": 200,
-      "businessContext": "Annual maintenance and operation cost"
+      "businessContext": "Annual maintenance and operation cost",
+      "label_i18n": {
+        "en": "Annual Maintenance Cost",
+        "tr": "Annual Maintenance Cost",
+        "de": "Annual Maintenance Cost",
+        "fr": "Annual Maintenance Cost",
+        "es": "Annual Maintenance Cost",
+        "ar": "Annual Maintenance Cost"
+      }
     },
     {
       "id": "tax_credit_percent",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 26,
-      "businessContext": "Applicable tax credit percentage (e.g., 26% federal ITC in the US)"
+      "businessContext": "Applicable tax credit percentage (e.g., 26% federal ITC in the US)",
+      "label_i18n": {
+        "en": "Tax Credit",
+        "tr": "Tax Credit",
+        "de": "Tax Credit",
+        "fr": "Tax Credit",
+        "es": "Tax Credit",
+        "ar": "Tax Credit"
+      }
     },
     {
       "id": "degradation_rate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "fraction/year",
       "default": 0.005,
-      "businessContext": "Annual degradation rate of solar panels (e.g., 0.005 for 0.5%)"
+      "businessContext": "Annual degradation rate of solar panels (e.g., 0.005 for 0.5%)",
+      "label_i18n": {
+        "en": "Degradation Rate",
+        "tr": "Degradation Rate",
+        "de": "Degradation Rate",
+        "fr": "Degradation Rate",
+        "es": "Degradation Rate",
+        "ar": "Degradation Rate"
+      }
     },
     {
       "id": "escalation_rate",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "fraction/year",
       "default": 0.03,
-      "businessContext": "Annual electricity price escalation rate (e.g., 0.03 for 3%)"
+      "businessContext": "Annual electricity price escalation rate (e.g., 0.03 for 3%)",
+      "label_i18n": {
+        "en": "Escalation Rate",
+        "tr": "Escalation Rate",
+        "de": "Escalation Rate",
+        "fr": "Escalation Rate",
+        "es": "Escalation Rate",
+        "ar": "Escalation Rate"
+      }
     }
   ],
   "formulas": {
@@ -70,7 +126,12 @@
       "net_system_cost",
       "first_year_savings",
       "annual_return_percent"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "annual_return_percent"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -80,5 +141,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

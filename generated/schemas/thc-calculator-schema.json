@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "A",
       "default": 10,
-      "businessContext": "Rated fundamental current of the load"
+      "businessContext": "Rated fundamental current of the load",
+      "label_i18n": {
+        "en": "Fundamental Current (A)",
+        "tr": "Fundamental Current (A)",
+        "de": "Fundamental Current (A)",
+        "fr": "Fundamental Current (A)",
+        "es": "Fundamental Current (A)",
+        "ar": "Fundamental Current (A)"
+      }
     },
     {
       "id": "i3",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "A",
       "default": 1,
-      "businessContext": "Amplitude of 3rd harmonic current"
+      "businessContext": "Amplitude of 3rd harmonic current",
+      "label_i18n": {
+        "en": "3rd Harmonic (A)",
+        "tr": "3rd Harmonic (A)",
+        "de": "3rd Harmonic (A)",
+        "fr": "3rd Harmonic (A)",
+        "es": "3rd Harmonic (A)",
+        "ar": "3rd Harmonic (A)"
+      }
     },
     {
       "id": "i5",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "A",
       "default": 0.5,
-      "businessContext": "Amplitude of 5th harmonic current"
+      "businessContext": "Amplitude of 5th harmonic current",
+      "label_i18n": {
+        "en": "5th Harmonic (A)",
+        "tr": "5th Harmonic (A)",
+        "de": "5th Harmonic (A)",
+        "fr": "5th Harmonic (A)",
+        "es": "5th Harmonic (A)",
+        "ar": "5th Harmonic (A)"
+      }
     },
     {
       "id": "i7",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "A",
       "default": 0.3,
-      "businessContext": "Amplitude of 7th harmonic current"
+      "businessContext": "Amplitude of 7th harmonic current",
+      "label_i18n": {
+        "en": "7th Harmonic (A)",
+        "tr": "7th Harmonic (A)",
+        "de": "7th Harmonic (A)",
+        "fr": "7th Harmonic (A)",
+        "es": "7th Harmonic (A)",
+        "ar": "7th Harmonic (A)"
+      }
     },
     {
       "id": "i9",
@@ -39,19 +71,32 @@
       "type": "number",
       "unit": "A",
       "default": 0.2,
-      "businessContext": "Amplitude of 9th harmonic current"
+      "businessContext": "Amplitude of 9th harmonic current",
+      "label_i18n": {
+        "en": "9th Harmonic (A)",
+        "tr": "9th Harmonic (A)",
+        "de": "9th Harmonic (A)",
+        "fr": "9th Harmonic (A)",
+        "es": "9th Harmonic (A)",
+        "ar": "9th Harmonic (A)"
+      }
     }
   ],
   "formulas": {
-    "thc": "Math.sqrt(i3**2 + i5**2 + i7**2 + i9**2)",
-    "thd": "(thc / iFund) * 100"
+    "result": "iFund + i3 + i5",
+    "result_copy": "iFund + i3 + i5"
   },
   "outputs": {
-    "primary": "thd",
+    "primary": "result",
     "breakdown": [
       "thc",
       "iFund"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "thd"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -61,5 +106,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

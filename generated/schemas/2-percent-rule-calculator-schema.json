@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 100000,
-      "businessContext": "Listing or agreed price of property"
+      "businessContext": "Listing or agreed price of property",
+      "label_i18n": {
+        "en": "Property Price",
+        "tr": "Property Price",
+        "de": "Property Price",
+        "fr": "Property Price",
+        "es": "Property Price",
+        "ar": "Property Price"
+      }
     },
     {
       "id": "closingCosts",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "$",
       "default": 5000,
-      "businessContext": "Additional acquisition costs (taxes, legal fees, commissions)"
+      "businessContext": "Additional acquisition costs (taxes, legal fees, commissions)",
+      "label_i18n": {
+        "en": "Closing Costs",
+        "tr": "Closing Costs",
+        "de": "Closing Costs",
+        "fr": "Closing Costs",
+        "es": "Closing Costs",
+        "ar": "Closing Costs"
+      }
     },
     {
       "id": "monthlyRent",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$",
       "default": 2000,
-      "businessContext": "Expected gross monthly rental income"
+      "businessContext": "Expected gross monthly rental income",
+      "label_i18n": {
+        "en": "Monthly Rent",
+        "tr": "Monthly Rent",
+        "de": "Monthly Rent",
+        "fr": "Monthly Rent",
+        "es": "Monthly Rent",
+        "ar": "Monthly Rent"
+      }
     },
     {
       "id": "targetPercent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Threshold for the 2% rule (typically 2%)"
+      "businessContext": "Threshold for the 2% rule (typically 2%)",
+      "label_i18n": {
+        "en": "Target Percentage",
+        "tr": "Target Percentage",
+        "de": "Target Percentage",
+        "fr": "Target Percentage",
+        "es": "Target Percentage",
+        "ar": "Target Percentage"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "actualPercent",
       "requiredRent",
       "maxPrice"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "maxPrice"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -56,5 +93,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -116,16 +116,19 @@
   ],
   "formulas": {
     "q": "value <= p20 ? 1 : value <= p40 ? 2 : value <= p60 ? 3 : value <= p80 ? 4 : 5",
-    "within": "q === 1 ? (value - min) / (p20 - min) : q === 2 ? (value - p20) / (p40 - p20) : q === 3 ? (value - p40) / (p60 - p40) : q === 4 ? (value - p60) / (p80 - p60) : (value - p80) / (max - p80)",
-    "primary": "`Quintile ${q} (${Math.round(within*100)}% within)`",
-    "result": "Quintile 3 (50% within)"
+    "within": "q === 1 ? (value - min) / (p20 - min) : q === 2 ? (value - p20) / (p40 - p20) : q === 3 ? (value - p40) / (p60 - p40) : q === 4 ? (value - p60) / (p80 - p60) : (value - p80) / (max - p80)"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "within",
     "breakdown": [
       "q",
       "within"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "within"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -135,5 +138,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

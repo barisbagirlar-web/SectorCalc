@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "User's body weight in kilograms"
+      "businessContext": "User's body weight in kilograms",
+      "label_i18n": {
+        "en": "Body Weight",
+        "tr": "Body Weight",
+        "de": "Body Weight",
+        "fr": "Body Weight",
+        "es": "Body Weight",
+        "ar": "Body Weight"
+      }
     },
     {
       "id": "duration_hours",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "h",
       "default": 0,
-      "businessContext": "Activity duration hours component"
+      "businessContext": "Activity duration hours component",
+      "label_i18n": {
+        "en": "Duration (hours)",
+        "tr": "Duration (hours)",
+        "de": "Duration (hours)",
+        "fr": "Duration (hours)",
+        "es": "Duration (hours)",
+        "ar": "Duration (hours)"
+      }
     },
     {
       "id": "duration_minutes",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "min",
       "default": 30,
-      "businessContext": "Activity duration minutes component"
+      "businessContext": "Activity duration minutes component",
+      "label_i18n": {
+        "en": "Duration (minutes)",
+        "tr": "Duration (minutes)",
+        "de": "Duration (minutes)",
+        "fr": "Duration (minutes)",
+        "es": "Duration (minutes)",
+        "ar": "Duration (minutes)"
+      }
     },
     {
       "id": "met",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "MET",
       "default": 5,
-      "businessContext": "Metabolic equivalent for the activity"
+      "businessContext": "Metabolic equivalent for the activity",
+      "label_i18n": {
+        "en": "MET Value",
+        "tr": "MET Value",
+        "de": "MET Value",
+        "fr": "MET Value",
+        "es": "MET Value",
+        "ar": "MET Value"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "metMinutes",
       "oxygenConsumed"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "oxygenConsumed"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kW",
       "default": 100,
-      "businessContext": "Sisteme verilen anlık güç."
+      "businessContext": "Sisteme verilen anlık güç.",
+      "label_i18n": {
+        "en": "Güç Girişi",
+        "tr": "Güç Girişi",
+        "de": "Güç Girişi",
+        "fr": "Güç Girişi",
+        "es": "Güç Girişi",
+        "ar": "Güç Girişi"
+      }
     },
     {
       "id": "massFlow",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg/s",
       "default": 2,
-      "businessContext": "Isı transfer akışkanının kütlesel debisi."
+      "businessContext": "Isı transfer akışkanının kütlesel debisi.",
+      "label_i18n": {
+        "en": "Kütle Akışı",
+        "tr": "Kütle Akışı",
+        "de": "Kütle Akışı",
+        "fr": "Kütle Akışı",
+        "es": "Kütle Akışı",
+        "ar": "Kütle Akışı"
+      }
     },
     {
       "id": "specificHeat",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kJ/kg·K",
       "default": 4.18,
-      "businessContext": "Akışkanın özgül ısı kapasitesi."
+      "businessContext": "Akışkanın özgül ısı kapasitesi.",
+      "label_i18n": {
+        "en": "Özgül Isı",
+        "tr": "Özgül Isı",
+        "de": "Özgül Isı",
+        "fr": "Özgül Isı",
+        "es": "Özgül Isı",
+        "ar": "Özgül Isı"
+      }
     },
     {
       "id": "deltaTemp",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "K",
       "default": 10,
-      "businessContext": "Giriş ve çıkış arasındaki sıcaklık farkı."
+      "businessContext": "Giriş ve çıkış arasındaki sıcaklık farkı.",
+      "label_i18n": {
+        "en": "Sıcaklık Farkı",
+        "tr": "Sıcaklık Farkı",
+        "de": "Sıcaklık Farkı",
+        "fr": "Sıcaklık Farkı",
+        "es": "Sıcaklık Farkı",
+        "ar": "Sıcaklık Farkı"
+      }
     },
     {
       "id": "efficiencyFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "-",
       "default": 1,
-      "businessContext": "Sistem kayıplarını hesaba katan faktör."
+      "businessContext": "Sistem kayıplarını hesaba katan faktör.",
+      "label_i18n": {
+        "en": "Verimlilik Faktörü",
+        "tr": "Verimlilik Faktörü",
+        "de": "Verimlilik Faktörü",
+        "fr": "Verimlilik Faktörü",
+        "es": "Verimlilik Faktörü",
+        "ar": "Verimlilik Faktörü"
+      }
     }
   ],
   "formulas": {
@@ -51,7 +91,12 @@
     "breakdown": [
       "actualThermalPower",
       "powerDensity"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "atkinsIndex"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -61,5 +106,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

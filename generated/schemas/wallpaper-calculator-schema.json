@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Total width of the wall to be covered"
+      "businessContext": "Total width of the wall to be covered",
+      "label_i18n": {
+        "en": "Wall Width (m)",
+        "tr": "Wall Width (m)",
+        "de": "Wall Width (m)",
+        "fr": "Wall Width (m)",
+        "es": "Wall Width (m)",
+        "ar": "Wall Width (m)"
+      }
     },
     {
       "id": "wallHeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 2.5,
-      "businessContext": "Height of the wall from floor to ceiling"
+      "businessContext": "Height of the wall from floor to ceiling",
+      "label_i18n": {
+        "en": "Wall Height (m)",
+        "tr": "Wall Height (m)",
+        "de": "Wall Height (m)",
+        "fr": "Wall Height (m)",
+        "es": "Wall Height (m)",
+        "ar": "Wall Height (m)"
+      }
     },
     {
       "id": "rollWidth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.53,
-      "businessContext": "Standard wallpaper roll width"
+      "businessContext": "Standard wallpaper roll width",
+      "label_i18n": {
+        "en": "Roll Width (m)",
+        "tr": "Roll Width (m)",
+        "de": "Roll Width (m)",
+        "fr": "Roll Width (m)",
+        "es": "Roll Width (m)",
+        "ar": "Roll Width (m)"
+      }
     },
     {
       "id": "rollLength",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Standard wallpaper roll length"
+      "businessContext": "Standard wallpaper roll length",
+      "label_i18n": {
+        "en": "Roll Length (m)",
+        "tr": "Roll Length (m)",
+        "de": "Roll Length (m)",
+        "fr": "Roll Length (m)",
+        "es": "Roll Length (m)",
+        "ar": "Roll Length (m)"
+      }
     },
     {
       "id": "patternRepeat",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Vertical pattern repeat distance; 0 if no pattern"
+      "businessContext": "Vertical pattern repeat distance; 0 if no pattern",
+      "label_i18n": {
+        "en": "Pattern Repeat (m)",
+        "tr": "Pattern Repeat (m)",
+        "de": "Pattern Repeat (m)",
+        "fr": "Pattern Repeat (m)",
+        "es": "Pattern Repeat (m)",
+        "ar": "Pattern Repeat (m)"
+      }
     },
     {
       "id": "wastePercent",
@@ -47,22 +87,24 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Estimated waste due to cutting and matching"
+      "businessContext": "Estimated waste due to cutting and matching",
+      "label_i18n": {
+        "en": "Waste Percentage (%)",
+        "tr": "Waste Percentage (%)",
+        "de": "Waste Percentage (%)",
+        "fr": "Waste Percentage (%)",
+        "es": "Waste Percentage (%)",
+        "ar": "Waste Percentage (%)"
+      }
     }
   ],
   "formulas": {
     "wallArea": "wallWidth * wallHeight",
     "usableRollLength": "rollLength - (patternRepeat > 0 ? (rollLength % patternRepeat) : 0)",
-    "stripsPerRoll": "Math.floor(usableRollLength / (wallHeight + patternRepeat))",
-    "totalStrips": "Math.ceil(wallWidth / rollWidth)",
-    "rollsNeeded": "Math.ceil(totalStrips / stripsPerRoll)",
-    "totalArea": "wallWidth * wallHeight",
-    "totalRollArea": "rollsNeeded * rollWidth * rollLength",
-    "wasteArea": "totalRollArea - totalArea",
-    "wastePercentActual": "(wasteArea / totalRollArea) * 100"
+    "totalArea": "wallWidth * wallHeight"
   },
   "outputs": {
-    "primary": "rollsNeeded",
+    "primary": "totalArea",
     "breakdown": [
       "totalStrips",
       "stripsPerRoll",
@@ -70,7 +112,12 @@
       "totalRollArea",
       "wasteArea",
       "wastePercentActual"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "wastePercentActual"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -80,5 +127,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

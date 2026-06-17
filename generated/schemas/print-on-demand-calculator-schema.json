@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TL",
       "default": 50,
-      "businessContext": "Print-on-demand ürün başına üretim maliyeti"
+      "businessContext": "Print-on-demand ürün başına üretim maliyeti",
+      "label_i18n": {
+        "en": "Ürün Maliyeti (Adet)",
+        "tr": "Ürün Maliyeti (Adet)",
+        "de": "Ürün Maliyeti (Adet)",
+        "fr": "Ürün Maliyeti (Adet)",
+        "es": "Ürün Maliyeti (Adet)",
+        "ar": "Ürün Maliyeti (Adet)"
+      }
     },
     {
       "id": "sellingPrice",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "TL",
       "default": 100,
-      "businessContext": "Müşteriye satılan birim fiyat"
+      "businessContext": "Müşteriye satılan birim fiyat",
+      "label_i18n": {
+        "en": "Satış Fiyatı (Adet)",
+        "tr": "Satış Fiyatı (Adet)",
+        "de": "Satış Fiyatı (Adet)",
+        "fr": "Satış Fiyatı (Adet)",
+        "es": "Satış Fiyatı (Adet)",
+        "ar": "Satış Fiyatı (Adet)"
+      }
     },
     {
       "id": "quantity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "adet",
       "default": 100,
-      "businessContext": "Satılan toplam ürün adedi"
+      "businessContext": "Satılan toplam ürün adedi",
+      "label_i18n": {
+        "en": "Sipariş Adedi",
+        "tr": "Sipariş Adedi",
+        "de": "Sipariş Adedi",
+        "fr": "Sipariş Adedi",
+        "es": "Sipariş Adedi",
+        "ar": "Sipariş Adedi"
+      }
     },
     {
       "id": "shippingCost",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TL",
       "default": 20,
-      "businessContext": "Ürün başına ortalama kargo maliyeti"
+      "businessContext": "Ürün başına ortalama kargo maliyeti",
+      "label_i18n": {
+        "en": "Kargo Maliyeti (Adet)",
+        "tr": "Kargo Maliyeti (Adet)",
+        "de": "Kargo Maliyeti (Adet)",
+        "fr": "Kargo Maliyeti (Adet)",
+        "es": "Kargo Maliyeti (Adet)",
+        "ar": "Kargo Maliyeti (Adet)"
+      }
     },
     {
       "id": "platformFee",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Satış platformunun aldığı yüzdesel komisyon"
+      "businessContext": "Satış platformunun aldığı yüzdesel komisyon",
+      "label_i18n": {
+        "en": "Platform Komisyon Oranı",
+        "tr": "Platform Komisyon Oranı",
+        "de": "Platform Komisyon Oranı",
+        "fr": "Platform Komisyon Oranı",
+        "es": "Platform Komisyon Oranı",
+        "ar": "Platform Komisyon Oranı"
+      }
     },
     {
       "id": "additionalCosts",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Tasarım, listeleme gibi toplam ek sabit maliyetler"
+      "businessContext": "Tasarım, listeleme gibi toplam ek sabit maliyetler",
+      "label_i18n": {
+        "en": "Diğer Sabit Giderler",
+        "tr": "Diğer Sabit Giderler",
+        "de": "Diğer Sabit Giderler",
+        "fr": "Diğer Sabit Giderler",
+        "es": "Diğer Sabit Giderler",
+        "ar": "Diğer Sabit Giderler"
+      }
     }
   ],
   "formulas": {
@@ -64,7 +112,12 @@
       "totalCost",
       "margin",
       "breakEvenUnits"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "breakEvenUnits"
   },
   "category": "Tekstil & Moda",
   "sector": "Perakende & Gıda",
@@ -74,5 +127,10 @@
   "categorySlug": "textile-print-lab",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

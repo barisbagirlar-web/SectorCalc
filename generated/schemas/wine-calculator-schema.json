@@ -102,12 +102,7 @@
     "mustVolume": "grapeWeight * yieldPercent / 100",
     "totalSugar": "mustVolume * sugarContent",
     "alcoholPercent": "totalSugar * alcoholConversion / 10",
-    "finalVolume": "mustVolume * (1 - fermentationLoss / 100)",
-    "bottleCount": "Math.floor(finalVolume / bottleVolume)",
-    "_mustVolume__L": "{mustVolume} L",
-    "_totalSugar__g": "{totalSugar} g",
-    "_alcoholPercent___": "{alcoholPercent} %",
-    "_finalVolume__L": "{finalVolume} L"
+    "finalVolume": "mustVolume * (1 - fermentationLoss / 100)"
   },
   "outputs": {
     "primary": "mustVolume",
@@ -116,7 +111,12 @@
       "Toplam Şeker: {totalSugar} g",
       "Alkol Oranı: {alcoholPercent} %",
       "Fermantasyon Sonrası Hacim: {finalVolume} L"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "bottleCount"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -126,5 +126,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

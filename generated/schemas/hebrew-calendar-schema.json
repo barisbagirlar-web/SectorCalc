@@ -99,24 +99,23 @@
     }
   ],
   "formulas": {
-    "hebrewYearFromGregorian": "Math.floor((3761 + gregorianYear) + (gregorianMonth > 9 ? 1 : 0))",
     "gregorianYearFromHebrew": "hebrewYear - 3761",
     "daysInHebrewYear": "hebrewYear % 19 < 7 ? 354 : 384",
-    "isLeapYear": "hebrewYear % 19 === 0 || hebrewYear % 19 === 3 || hebrewYear % 19 === 6 || hebrewYear % 19 === 8 || hebrewYear % 19 === 11 || hebrewYear % 19 === 14 || hebrewYear % 19 === 17 ? 1 : 0",
-    "monthName": "['Tishrei','Cheshvan','Kislev','Tevet','Shevat','Adar','Nisan','Iyar','Sivan','Tammuz','Av','Elul'][hebrewMonth-1] || 'Invalid'",
-    "_gregorianYearFromHebrew_": "{gregorianYearFromHebrew}",
-    "_daysInHebrewYear_": "{daysInHebrewYear}",
-    "_isLeapYear_": "{isLeapYear}",
-    "_monthName_": "{monthName}"
+    "isLeapYear": "hebrewYear % 19 === 0 || hebrewYear % 19 === 3 || hebrewYear % 19 === 6 || hebrewYear % 19 === 8 || hebrewYear % 19 === 11 || hebrewYear % 19 === 14 || hebrewYear % 19 === 17 ? 1 : 0"
   },
   "outputs": {
-    "primary": "hebrewYearFromGregorian",
+    "primary": "isLeapYear",
     "breakdown": [
       "Gregorian year from Hebrew: {gregorianYearFromHebrew}",
       "Days in Hebrew year: {daysInHebrewYear}",
       "Leap year: {isLeapYear}",
       "Month name: {monthName}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "monthName"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -126,5 +125,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

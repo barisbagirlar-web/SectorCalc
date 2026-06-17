@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "liters",
       "default": 150,
-      "businessContext": "Total water volume to heat"
+      "businessContext": "Total water volume to heat",
+      "label_i18n": {
+        "en": "Tank Volume",
+        "tr": "Tank Volume",
+        "de": "Tank Volume",
+        "fr": "Tank Volume",
+        "es": "Tank Volume",
+        "ar": "Tank Volume"
+      }
     },
     {
       "id": "coldTemp",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°C",
       "default": 15,
-      "businessContext": "Temperature of cold water supply"
+      "businessContext": "Temperature of cold water supply",
+      "label_i18n": {
+        "en": "Cold Water Temperature",
+        "tr": "Cold Water Temperature",
+        "de": "Cold Water Temperature",
+        "fr": "Cold Water Temperature",
+        "es": "Cold Water Temperature",
+        "ar": "Cold Water Temperature"
+      }
     },
     {
       "id": "hotTemp",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 60,
-      "businessContext": "Target temperature for hot water"
+      "businessContext": "Target temperature for hot water",
+      "label_i18n": {
+        "en": "Hot Water Temperature",
+        "tr": "Hot Water Temperature",
+        "de": "Hot Water Temperature",
+        "fr": "Hot Water Temperature",
+        "es": "Hot Water Temperature",
+        "ar": "Hot Water Temperature"
+      }
     },
     {
       "id": "power",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kW",
       "default": 3,
-      "businessContext": "Power rating of the heating element"
+      "businessContext": "Power rating of the heating element",
+      "label_i18n": {
+        "en": "Heater Power Rating",
+        "tr": "Heater Power Rating",
+        "de": "Heater Power Rating",
+        "fr": "Heater Power Rating",
+        "es": "Heater Power Rating",
+        "ar": "Heater Power Rating"
+      }
     },
     {
       "id": "efficiency",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 95,
-      "businessContext": "Efficiency of the heating system (0-100%)"
+      "businessContext": "Efficiency of the heating system (0-100%)",
+      "label_i18n": {
+        "en": "Heater Efficiency",
+        "tr": "Heater Efficiency",
+        "de": "Heater Efficiency",
+        "fr": "Heater Efficiency",
+        "es": "Heater Efficiency",
+        "ar": "Heater Efficiency"
+      }
     },
     {
       "id": "electricityCost",
@@ -47,21 +87,32 @@
       "type": "number",
       "unit": "currency/kWh",
       "default": 0.15,
-      "businessContext": "Cost per kilowatt-hour of electricity"
+      "businessContext": "Cost per kilowatt-hour of electricity",
+      "label_i18n": {
+        "en": "Electricity Cost",
+        "tr": "Electricity Cost",
+        "de": "Electricity Cost",
+        "fr": "Electricity Cost",
+        "es": "Electricity Cost",
+        "ar": "Electricity Cost"
+      }
     }
   ],
   "formulas": {
-    "energyRequired": "inputs.volume * 4.186 * (inputs.hotTemp - inputs.coldTemp) / 3600",
-    "actualEnergy": "energyRequired / (inputs.efficiency / 100)",
-    "heatUpTime": "actualEnergy / inputs.power",
-    "totalCost": "actualEnergy * inputs.electricityCost"
+    "result": "volume + coldTemp + hotTemp",
+    "result_copy": "volume + coldTemp + hotTemp"
   },
   "outputs": {
-    "primary": "totalCost",
+    "primary": "result",
     "breakdown": [
       "energyRequired",
       "heatUpTime"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -71,5 +122,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

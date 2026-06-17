@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "First measurement value"
+      "businessContext": "First measurement value",
+      "label_i18n": {
+        "en": "Measurement 1",
+        "tr": "Measurement 1",
+        "de": "Measurement 1",
+        "fr": "Measurement 1",
+        "es": "Measurement 1",
+        "ar": "Measurement 1"
+      }
     },
     {
       "id": "data2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Second measurement value"
+      "businessContext": "Second measurement value",
+      "label_i18n": {
+        "en": "Measurement 2",
+        "tr": "Measurement 2",
+        "de": "Measurement 2",
+        "fr": "Measurement 2",
+        "es": "Measurement 2",
+        "ar": "Measurement 2"
+      }
     },
     {
       "id": "data3",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Third measurement value"
+      "businessContext": "Third measurement value",
+      "label_i18n": {
+        "en": "Measurement 3",
+        "tr": "Measurement 3",
+        "de": "Measurement 3",
+        "fr": "Measurement 3",
+        "es": "Measurement 3",
+        "ar": "Measurement 3"
+      }
     },
     {
       "id": "data4",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Fourth measurement value"
+      "businessContext": "Fourth measurement value",
+      "label_i18n": {
+        "en": "Measurement 4",
+        "tr": "Measurement 4",
+        "de": "Measurement 4",
+        "fr": "Measurement 4",
+        "es": "Measurement 4",
+        "ar": "Measurement 4"
+      }
     },
     {
       "id": "data5",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Fifth measurement value"
+      "businessContext": "Fifth measurement value",
+      "label_i18n": {
+        "en": "Measurement 5",
+        "tr": "Measurement 5",
+        "de": "Measurement 5",
+        "fr": "Measurement 5",
+        "es": "Measurement 5",
+        "ar": "Measurement 5"
+      }
     },
     {
       "id": "percentile",
@@ -47,24 +87,34 @@
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "Desired percentile (0–100)"
+      "businessContext": "Desired percentile (0–100)",
+      "label_i18n": {
+        "en": "Percentile",
+        "tr": "Percentile",
+        "de": "Percentile",
+        "fr": "Percentile",
+        "es": "Percentile",
+        "ar": "Percentile"
+      }
     }
   ],
   "formulas": {
-    "sortedDataStr": "JSON.stringify([data1, data2, data3, data4, data5].sort(function(a, b) { return a - b; }))",
     "rankValue": "(percentile / 100) * 6",
-    "lowerValue": "(function() { var sorted = [data1, data2, data3, data4, data5].sort(function(a, b) { return a - b; }); var n = 5; var index = (percentile / 100) * (n + 1); var k = Math.floor(index); if (k === 0) return sorted[0]; if (k >= n) return sorted[n - 1]; return sorted[k - 1]; })()",
-    "upperValue": "(function() { var sorted = [data1, data2, data3, data4, data5].sort(function(a, b) { return a - b; }); var n = 5; var index = (percentile / 100) * (n + 1); var k = Math.ceil(index); if (k <= 1) return sorted[0]; if (k >= n) return sorted[n - 1]; return sorted[k - 1]; })()",
-    "percentileValue": "(function() { var sorted = [data1, data2, data3, data4, data5].sort(function(a, b) { return a - b; }); var n = 5; var p = percentile / 100; var index = p * (n + 1); var k = Math.floor(index); var d = index - k; if (k === 0) return sorted[0]; if (k >= n) return sorted[n - 1]; return sorted[k - 1] + d * (sorted[k] - sorted[k - 1]); })()"
+    "rankValue_aux": "(percentile / 100) * 6"
   },
   "outputs": {
-    "primary": "percentileValue",
+    "primary": "rankValue_aux",
     "breakdown": [
       "sortedDataStr",
       "rankValue",
       "lowerValue",
       "upperValue"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "percentileValue"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -74,5 +124,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

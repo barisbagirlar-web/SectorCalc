@@ -67,20 +67,21 @@
     }
   ],
   "formulas": {
-    "linearDensity": "materialDensity * Math.PI * Math.pow((stringDiameter / 1000) / 2, 2)",
-    "tension": "materialDensity * Math.PI * Math.pow((stringDiameter / 1000) / 2, 2) * Math.pow(2 * (scaleLength / 1000) * noteFrequency, 2)",
-    "materialDensity___Math_PI___Math_pow__st": "materialDensity * Math.PI * Math.pow((stringDiameter / 1000) / 2, 2)",
     "2____scaleLength___1000____noteFrequency": "2 * (scaleLength / 1000) * noteFrequency",
-    "Math_pow_2____scaleLength___1000____note": "Math.pow(2 * (scaleLength / 1000) * noteFrequency, 2)",
-    "result": "materialDensity * Math.PI * Math.pow((stringDiameter / 1000) / 2, 2) * Math.pow(2 * (scaleLength / 1000) * noteFrequency, 2)"
+    "2____scaleLength___1000____noteFrequency_aux": "2 * (scaleLength / 1000) * noteFrequency"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "2____scaleLength___1000____noteFrequency_aux",
     "breakdown": [
       "materialDensity * Math.PI * Math.pow((stringDiameter / 1000) / 2, 2)",
       "2 * (scaleLength / 1000) * noteFrequency",
       "Math.pow(2 * (scaleLength / 1000) * noteFrequency, 2)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -90,5 +91,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

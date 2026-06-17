@@ -101,16 +101,19 @@
   "formulas": {
     "heatDutyW": "heatDuty * 1000",
     "deltaT1": "hotInletTemp - coldOutletTemp",
-    "deltaT2": "hotOutletTemp - coldInletTemp",
-    "lmtd": "Math.abs(deltaT1 - deltaT2) < 1e-10 ? deltaT1 : (deltaT1 - deltaT2) / Math.log(deltaT1 / deltaT2)",
-    "requiredArea": "heatDutyW / (overallCoefficient * lmtd)"
+    "deltaT2": "hotOutletTemp - coldInletTemp"
   },
   "outputs": {
-    "primary": "requiredArea",
+    "primary": "deltaT2",
     "breakdown": [
       "lmtd",
       "heatDutyW"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "requiredArea"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -120,5 +123,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

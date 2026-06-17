@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Yürüyüşçünün vücut ağırlığı (kg cinsinden)"
+      "businessContext": "Yürüyüşçünün vücut ağırlığı (kg cinsinden)",
+      "label_i18n": {
+        "en": "Vücut Ağırlığı (kg)",
+        "tr": "Vücut Ağırlığı (kg)",
+        "de": "Vücut Ağırlığı (kg)",
+        "fr": "Vücut Ağırlığı (kg)",
+        "es": "Vücut Ağırlığı (kg)",
+        "ar": "Vücut Ağırlığı (kg)"
+      }
     },
     {
       "id": "packWeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 10,
-      "businessContext": "Sırt çantası ve ekipmanın toplam ağırlığı"
+      "businessContext": "Sırt çantası ve ekipmanın toplam ağırlığı",
+      "label_i18n": {
+        "en": "Sırt Çantası Ağırlığı (kg)",
+        "tr": "Sırt Çantası Ağırlığı (kg)",
+        "de": "Sırt Çantası Ağırlığı (kg)",
+        "fr": "Sırt Çantası Ağırlığı (kg)",
+        "es": "Sırt Çantası Ağırlığı (kg)",
+        "ar": "Sırt Çantası Ağırlığı (kg)"
+      }
     },
     {
       "id": "distance",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "km",
       "default": 10,
-      "businessContext": "Toplam yürüyüş mesafesi"
+      "businessContext": "Toplam yürüyüş mesafesi",
+      "label_i18n": {
+        "en": "Mesafe (km)",
+        "tr": "Mesafe (km)",
+        "de": "Mesafe (km)",
+        "fr": "Mesafe (km)",
+        "es": "Mesafe (km)",
+        "ar": "Mesafe (km)"
+      }
     },
     {
       "id": "elevationGain",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 500,
-      "businessContext": "Toplam pozitif yükseklik kazanımı"
+      "businessContext": "Toplam pozitif yükseklik kazanımı",
+      "label_i18n": {
+        "en": "Yükseklik Kazancı (m)",
+        "tr": "Yükseklik Kazancı (m)",
+        "de": "Yükseklik Kazancı (m)",
+        "fr": "Yükseklik Kazancı (m)",
+        "es": "Yükseklik Kazancı (m)",
+        "ar": "Yükseklik Kazancı (m)"
+      }
     },
     {
       "id": "terrainFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "boyutsuz",
       "default": 1.2,
-      "businessContext": "Arazi zorluğu için çarpan: 1.0 asfalt, 1.2 çakıl, 1.5 engebeli"
+      "businessContext": "Arazi zorluğu için çarpan: 1.0 asfalt, 1.2 çakıl, 1.5 engebeli",
+      "label_i18n": {
+        "en": "Arazi Zorluk Faktörü",
+        "tr": "Arazi Zorluk Faktörü",
+        "de": "Arazi Zorluk Faktörü",
+        "fr": "Arazi Zorluk Faktörü",
+        "es": "Arazi Zorluk Faktörü",
+        "ar": "Arazi Zorluk Faktörü"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "horizontalCalories",
       "verticalCalories"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "verticalCalories"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -62,5 +107,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

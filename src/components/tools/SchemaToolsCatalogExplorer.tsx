@@ -18,6 +18,7 @@ type SchemaToolsCatalogExplorerProps = {
   readonly tools: readonly ToolData[];
   readonly filterBy: CatalogFilterMode;
   readonly variant: "free-tools" | "premium-tools" | "industries";
+  readonly hideBrowseSection?: boolean;
 };
 
 const VARIANT_TITLE_KEY: Record<SchemaToolsCatalogExplorerProps["variant"], string> = {
@@ -54,6 +55,7 @@ export function SchemaToolsCatalogExplorer({
   tools,
   filterBy,
   variant,
+  hideBrowseSection = false,
 }: SchemaToolsCatalogExplorerProps) {
   const t = useTranslations("catalogExplorer");
   const tBrowse = useTranslations("premiumCategoryCatalog");
@@ -175,7 +177,7 @@ export function SchemaToolsCatalogExplorer({
         </div>
       ) : null}
 
-      {!hideExplorerChrome && !isSearching ? (
+      {!hideBrowseSection && !hideExplorerChrome && !isSearching ? (
         <section aria-labelledby="schema-catalog-browse-heading">
           <h2
             id="schema-catalog-browse-heading"
@@ -193,7 +195,7 @@ export function SchemaToolsCatalogExplorer({
         </section>
       ) : null}
 
-      {hideExplorerChrome && !isSearching ? (
+      {!hideBrowseSection && hideExplorerChrome && !isSearching ? (
         <section aria-label={tBrowse("browseByCategory")}>
           <CategoryCardGrid
             items={categoryCards}

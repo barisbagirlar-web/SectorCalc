@@ -68,10 +68,7 @@
   ],
   "formulas": {
     "rawResult": "(operation == 1 ? numberA + numberB : operation == 2 ? numberA - numberB : operation == 3 ? numberA * numberB : operation == 4 ? (numberB != 0 ? numberA / numberB : NaN) : NaN)",
-    "finalResult": "precision == 0 ? Math.round(rawResult) : Number(rawResult.toFixed(precision))",
-    "_numberA___operation__1_____operation__2": "{numberA} {operation==1?'+':operation==2?'-':operation==3?'*':'/'} {numberB} = {rawResult}",
-    "_finalResult_": "{finalResult}",
-    "_romanResult_": "{romanResult}"
+    "rawResult_aux": "(operation == 1 ? numberA + numberB : operation == 2 ? numberA - numberB : operation == 3 ? numberA * numberB : operation == 4 ? (numberB != 0 ? numberA / numberB : NaN) : NaN)"
   },
   "outputs": {
     "primary": "rawResult",
@@ -79,7 +76,12 @@
       "İşlem: {numberA} {operation==1?'+':operation==2?'-':operation==3?'*':'/'} {numberB} = {rawResult}",
       "Yuvarlanmış sonuç: {finalResult}",
       "Roma rakamı karşılığı: {romanResult}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "finalResult"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -89,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

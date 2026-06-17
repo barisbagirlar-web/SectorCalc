@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "₺",
       "default": -100000,
-      "businessContext": "Upfront capital outlay (enter as negative value)"
+      "businessContext": "Upfront capital outlay (enter as negative value)",
+      "label_i18n": {
+        "en": "Initial Investment",
+        "tr": "Initial Investment",
+        "de": "Initial Investment",
+        "fr": "Initial Investment",
+        "es": "Initial Investment",
+        "ar": "Initial Investment"
+      }
     },
     {
       "id": "cf1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "₺",
       "default": 20000,
-      "businessContext": "Net cash flow for period 1"
+      "businessContext": "Net cash flow for period 1",
+      "label_i18n": {
+        "en": "Year 1 Cash Flow",
+        "tr": "Year 1 Cash Flow",
+        "de": "Year 1 Cash Flow",
+        "fr": "Year 1 Cash Flow",
+        "es": "Year 1 Cash Flow",
+        "ar": "Year 1 Cash Flow"
+      }
     },
     {
       "id": "cf2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "₺",
       "default": 25000,
-      "businessContext": "Net cash flow for period 2"
+      "businessContext": "Net cash flow for period 2",
+      "label_i18n": {
+        "en": "Year 2 Cash Flow",
+        "tr": "Year 2 Cash Flow",
+        "de": "Year 2 Cash Flow",
+        "fr": "Year 2 Cash Flow",
+        "es": "Year 2 Cash Flow",
+        "ar": "Year 2 Cash Flow"
+      }
     },
     {
       "id": "cf3",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "₺",
       "default": 30000,
-      "businessContext": "Net cash flow for period 3"
+      "businessContext": "Net cash flow for period 3",
+      "label_i18n": {
+        "en": "Year 3 Cash Flow",
+        "tr": "Year 3 Cash Flow",
+        "de": "Year 3 Cash Flow",
+        "fr": "Year 3 Cash Flow",
+        "es": "Year 3 Cash Flow",
+        "ar": "Year 3 Cash Flow"
+      }
     },
     {
       "id": "cf4",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "₺",
       "default": 35000,
-      "businessContext": "Net cash flow for period 4"
+      "businessContext": "Net cash flow for period 4",
+      "label_i18n": {
+        "en": "Year 4 Cash Flow",
+        "tr": "Year 4 Cash Flow",
+        "de": "Year 4 Cash Flow",
+        "fr": "Year 4 Cash Flow",
+        "es": "Year 4 Cash Flow",
+        "ar": "Year 4 Cash Flow"
+      }
     },
     {
       "id": "cf5",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "₺",
       "default": 40000,
-      "businessContext": "Net cash flow for period 5"
+      "businessContext": "Net cash flow for period 5",
+      "label_i18n": {
+        "en": "Year 5 Cash Flow",
+        "tr": "Year 5 Cash Flow",
+        "de": "Year 5 Cash Flow",
+        "fr": "Year 5 Cash Flow",
+        "es": "Year 5 Cash Flow",
+        "ar": "Year 5 Cash Flow"
+      }
     },
     {
       "id": "financeRate",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Cost of capital for negative cash flows"
+      "businessContext": "Cost of capital for negative cash flows",
+      "label_i18n": {
+        "en": "Finance Rate",
+        "tr": "Finance Rate",
+        "de": "Finance Rate",
+        "fr": "Finance Rate",
+        "es": "Finance Rate",
+        "ar": "Finance Rate"
+      }
     },
     {
       "id": "reinvestmentRate",
@@ -63,17 +119,23 @@
       "type": "number",
       "unit": "%",
       "default": 12,
-      "businessContext": "Return on reinvested positive cash flows"
+      "businessContext": "Return on reinvested positive cash flows",
+      "label_i18n": {
+        "en": "Reinvestment Rate",
+        "tr": "Reinvestment Rate",
+        "de": "Reinvestment Rate",
+        "fr": "Reinvestment Rate",
+        "es": "Reinvestment Rate",
+        "ar": "Reinvestment Rate"
+      }
     }
   ],
   "formulas": {
-    "pvNeg": "Math.min(initialInvestment, 0) + Math.min(cf1, 0) / Math.pow(1 + financeRate/100, 1) + Math.min(cf2, 0) / Math.pow(1 + financeRate/100, 2) + Math.min(cf3, 0) / Math.pow(1 + financeRate/100, 3) + Math.min(cf4, 0) / Math.pow(1 + financeRate/100, 4) + Math.min(cf5, 0) / Math.pow(1 + financeRate/100, 5)",
-    "fvPos": "Math.max(cf1, 0) * Math.pow(1 + reinvestmentRate/100, 4) + Math.max(cf2, 0) * Math.pow(1 + reinvestmentRate/100, 3) + Math.max(cf3, 0) * Math.pow(1 + reinvestmentRate/100, 2) + Math.max(cf4, 0) * Math.pow(1 + reinvestmentRate/100, 1) + Math.max(cf5, 0)",
-    "mirrDecimal": "Math.pow(fvPos / Math.abs(pvNeg), 1/5) - 1",
-    "mirrPercent": "mirrDecimal * 100"
+    "result": "initialInvestment + cf1 + cf2",
+    "result_copy": "initialInvestment + cf1 + cf2"
   },
   "outputs": {
-    "primary": "pvNeg",
+    "primary": "result",
     "breakdown": [
       {
         "id": "fvPos",
@@ -85,7 +147,12 @@
         "label": "PV of Negative Cash Flows",
         "unit": "₺"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "mirrPercent"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -95,5 +162,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

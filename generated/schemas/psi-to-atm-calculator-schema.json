@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "psi",
       "default": 0,
-      "businessContext": "Measured pressure in pounds per square inch"
+      "businessContext": "Measured pressure in pounds per square inch",
+      "label_i18n": {
+        "en": "Pressure (psi)",
+        "tr": "Pressure (psi)",
+        "de": "Pressure (psi)",
+        "fr": "Pressure (psi)",
+        "es": "Pressure (psi)",
+        "ar": "Pressure (psi)"
+      }
     },
     {
       "id": "factor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "atm/psi",
       "default": 0.0680459639,
-      "businessContext": "Conversion factor from psi to atm; standard value based on 1 atm = 14.695948775 psi"
+      "businessContext": "Conversion factor from psi to atm; standard value based on 1 atm = 14.695948775 psi",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "offset",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "psi",
       "default": 0,
-      "businessContext": "Systematic offset to correct zero error in measurement"
+      "businessContext": "Systematic offset to correct zero error in measurement",
+      "label_i18n": {
+        "en": "Zero Offset",
+        "tr": "Zero Offset",
+        "de": "Zero Offset",
+        "fr": "Zero Offset",
+        "es": "Zero Offset",
+        "ar": "Zero Offset"
+      }
     },
     {
       "id": "precision",
@@ -31,21 +55,33 @@
       "type": "number",
       "unit": "decimal places",
       "default": 4,
-      "businessContext": "Number of decimal places for rounding the final result"
+      "businessContext": "Number of decimal places for rounding the final result",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     }
   ],
   "formulas": {
     "adjustedPsi": "pressurePsi + offset",
-    "atm": "adjustedPsi * factor",
-    "roundedAtm": "Math.round(atm * Math.pow(10, precision)) / Math.pow(10, precision)"
+    "atm": "adjustedPsi * factor"
   },
   "outputs": {
-    "primary": "roundedAtm",
+    "primary": "atm",
     "breakdown": [
       "adjustedPsi",
       "atm",
       "roundedAtm"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roundedAtm"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -55,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

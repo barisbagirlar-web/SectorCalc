@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "Mass of the substance undergoing temperature change in kilograms"
+      "businessContext": "Mass of the substance undergoing temperature change in kilograms",
+      "label_i18n": {
+        "en": "Mass",
+        "tr": "Mass",
+        "de": "Mass",
+        "fr": "Mass",
+        "es": "Mass",
+        "ar": "Mass"
+      }
     },
     {
       "id": "specificHeat",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kJ/(kg·K)",
       "default": 4.186,
-      "businessContext": "Specific heat capacity at constant pressure for the substance in kilojoules per kilogram per Kelvin"
+      "businessContext": "Specific heat capacity at constant pressure for the substance in kilojoules per kilogram per Kelvin",
+      "label_i18n": {
+        "en": "Specific Heat Capacity",
+        "tr": "Specific Heat Capacity",
+        "de": "Specific Heat Capacity",
+        "fr": "Specific Heat Capacity",
+        "es": "Specific Heat Capacity",
+        "ar": "Specific Heat Capacity"
+      }
     },
     {
       "id": "initialTemp",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Starting temperature of the substance in degrees Celsius"
+      "businessContext": "Starting temperature of the substance in degrees Celsius",
+      "label_i18n": {
+        "en": "Initial Temperature",
+        "tr": "Initial Temperature",
+        "de": "Initial Temperature",
+        "fr": "Initial Temperature",
+        "es": "Initial Temperature",
+        "ar": "Initial Temperature"
+      }
     },
     {
       "id": "finalTemp",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 100,
-      "businessContext": "Ending temperature of the substance in degrees Celsius"
+      "businessContext": "Ending temperature of the substance in degrees Celsius",
+      "label_i18n": {
+        "en": "Final Temperature",
+        "tr": "Final Temperature",
+        "de": "Final Temperature",
+        "fr": "Final Temperature",
+        "es": "Final Temperature",
+        "ar": "Final Temperature"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "temperatureChange",
       "energy_kWh"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "energy_kWh"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -54,5 +91,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "danismanlik",
   "profession": "Strateji Uzmanı",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

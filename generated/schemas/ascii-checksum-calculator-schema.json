@@ -68,15 +68,19 @@
   ],
   "formulas": {
     "sum": "byte1 + byte2 + byte3 + byte4",
-    "checksum": "sum % 256",
-    "checksumHex": "\"0x\" + checksum.toString(16)"
+    "sum_aux": "byte1 + byte2 + byte3 + byte4"
   },
   "outputs": {
-    "primary": "checksum",
+    "primary": "sum_aux",
     "breakdown": [
       "sum",
       "checksumHex"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "checksumHex"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -86,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

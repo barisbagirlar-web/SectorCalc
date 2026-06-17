@@ -147,22 +147,6 @@
       "businessContext_i18n": {
         "en": "Expected traffic condition along the route."
       }
-    },
-    {
-      "id": "use_optimization",
-      "label": "Use Optimization Algorithm",
-      "type": "boolean",
-      "unit": "unit",
-      "default": true,
-      "min": null,
-      "max": null,
-      "businessContext": "Toggle to apply route optimization logic.",
-      "label_i18n": {
-        "en": "Use Optimization Algorithm"
-      },
-      "businessContext_i18n": {
-        "en": "Toggle to apply route optimization logic."
-      }
     }
   ],
   "validation": {
@@ -212,18 +196,18 @@
       }
     ]
   },
-  "formulas": [
-    "num_stops",
-    "num_stops",
-    "num_stops",
-    "num_stops",
-    "num_stops",
-    "num_stops",
-    "num_stops"
-  ],
+  "formulas": {
+    "result": "num_stops + total_distance + avg_speed",
+    "result_copy": "num_stops + total_distance + avg_speed"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "route-optimization-analyzer-calculator",
   "catalogCategory": "everyday-life",

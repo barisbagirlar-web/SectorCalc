@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 10000,
-      "businessContext": "Principal loan amount"
+      "businessContext": "Principal loan amount",
+      "label_i18n": {
+        "en": "Loan Amount",
+        "tr": "Loan Amount",
+        "de": "Loan Amount",
+        "fr": "Loan Amount",
+        "es": "Loan Amount",
+        "ar": "Loan Amount"
+      }
     },
     {
       "id": "nominalRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Annual nominal interest rate"
+      "businessContext": "Annual nominal interest rate",
+      "label_i18n": {
+        "en": "Nominal Interest Rate",
+        "tr": "Nominal Interest Rate",
+        "de": "Nominal Interest Rate",
+        "fr": "Nominal Interest Rate",
+        "es": "Nominal Interest Rate",
+        "ar": "Nominal Interest Rate"
+      }
     },
     {
       "id": "loanTermYears",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 5,
-      "businessContext": "Loan term in years"
+      "businessContext": "Loan term in years",
+      "label_i18n": {
+        "en": "Loan Term",
+        "tr": "Loan Term",
+        "de": "Loan Term",
+        "fr": "Loan Term",
+        "es": "Loan Term",
+        "ar": "Loan Term"
+      }
     },
     {
       "id": "compoundingFrequency",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "per year",
       "default": 12,
-      "businessContext": "Number of compounding periods per year"
+      "businessContext": "Number of compounding periods per year",
+      "label_i18n": {
+        "en": "Compounding Frequency",
+        "tr": "Compounding Frequency",
+        "de": "Compounding Frequency",
+        "fr": "Compounding Frequency",
+        "es": "Compounding Frequency",
+        "ar": "Compounding Frequency"
+      }
     },
     {
       "id": "fees",
@@ -39,20 +71,32 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Any upfront fees or closing costs"
+      "businessContext": "Any upfront fees or closing costs",
+      "label_i18n": {
+        "en": "Upfront Fees",
+        "tr": "Upfront Fees",
+        "de": "Upfront Fees",
+        "fr": "Upfront Fees",
+        "es": "Upfront Fees",
+        "ar": "Upfront Fees"
+      }
     }
   ],
   "formulas": {
-    "monthlyPayment": "(loanAmount * (nominalRate/100/compoundingFrequency)) / (1 - Math.pow(1 + (nominalRate/100/compoundingFrequency), -(loanTermYears*compoundingFrequency)))",
-    "totalCost": "monthlyPayment * (loanTermYears*compoundingFrequency)",
-    "APR": "(Math.pow(totalCost / (loanAmount - fees), 1/loanTermYears) - 1) * 100"
+    "result": "loanAmount + nominalRate + loanTermYears",
+    "result_copy": "loanAmount + nominalRate + loanTermYears"
   },
   "outputs": {
-    "primary": "APR",
+    "primary": "result",
     "breakdown": [
       "Monthly Payment",
       "Total Cost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "APR"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -62,5 +106,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

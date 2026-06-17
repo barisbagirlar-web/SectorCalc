@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from american-odds-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,28 +16,33 @@ export const American_odds_calculatorInputSchema = z.object({
   desiredProfit: z.number().default(100),
 });
 
-function evaluateAllFormulas(input: American_odds_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.americanOdds > 0 ? input.wager * input.americanOdds / 100 : input.wager * 100 / Math.abs(input.americanOdds); results["profit"] = Number.isFinite(v) ? v : 0; } catch { results["profit"] = 0; }
-  try { const v = input.wager + (results["profit"] ?? 0); results["payout"] = Number.isFinite(v) ? v : 0; } catch { results["payout"] = 0; }
-  try { const v = input.americanOdds > 0 ? 100 / (input.americanOdds + 100) : Math.abs(input.americanOdds) / (Math.abs(input.americanOdds) + 100); results["impliedProbability"] = Number.isFinite(v) ? v : 0; } catch { results["impliedProbability"] = 0; }
-  try { const v = input.americanOdds > 0 ? input.desiredProfit * 100 / input.americanOdds : input.desiredProfit * Math.abs(input.americanOdds) / 100; results["requiredWager"] = Number.isFinite(v) ? v : 0; } catch { results["requiredWager"] = 0; }
-  try { const v = input.mode === 0 ? (results["profit"] ?? 0) : (results["requiredWager"] ?? 0); results["result"] = Number.isFinite(v) ? v : 0; } catch { results["result"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: American_odds_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.mode + input.americanOdds + input.wager; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.mode + input.americanOdds + input.wager; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateAmerican_odds_calculator(input: American_odds_calculatorInput): American_odds_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["result"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

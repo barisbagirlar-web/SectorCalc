@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 500,
-      "businessContext": "Ana malzeme"
+      "businessContext": "Ana malzeme",
+      "label_i18n": {
+        "en": "Un Ağırlığı (g)",
+        "tr": "Un Ağırlığı (g)",
+        "de": "Un Ağırlığı (g)",
+        "fr": "Un Ağırlığı (g)",
+        "es": "Un Ağırlığı (g)",
+        "ar": "Un Ağırlığı (g)"
+      }
     },
     {
       "id": "hydration",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 70,
-      "businessContext": "Su oranı"
+      "businessContext": "Su oranı",
+      "label_i18n": {
+        "en": "Hidrasyon Oranı (%)",
+        "tr": "Hidrasyon Oranı (%)",
+        "de": "Hidrasyon Oranı (%)",
+        "fr": "Hidrasyon Oranı (%)",
+        "es": "Hidrasyon Oranı (%)",
+        "ar": "Hidrasyon Oranı (%)"
+      }
     },
     {
       "id": "starterPercent",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Ekşi maya miktarı"
+      "businessContext": "Ekşi maya miktarı",
+      "label_i18n": {
+        "en": "Başlatıcı Oranı (%)",
+        "tr": "Başlatıcı Oranı (%)",
+        "de": "Başlatıcı Oranı (%)",
+        "fr": "Başlatıcı Oranı (%)",
+        "es": "Başlatıcı Oranı (%)",
+        "ar": "Başlatıcı Oranı (%)"
+      }
     },
     {
       "id": "saltPercent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Tuz miktarı"
+      "businessContext": "Tuz miktarı",
+      "label_i18n": {
+        "en": "Tuz Oranı (%)",
+        "tr": "Tuz Oranı (%)",
+        "de": "Tuz Oranı (%)",
+        "fr": "Tuz Oranı (%)",
+        "es": "Tuz Oranı (%)",
+        "ar": "Tuz Oranı (%)"
+      }
     },
     {
       "id": "loafCount",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Üretim adedi"
+      "businessContext": "Üretim adedi",
+      "label_i18n": {
+        "en": "Ekmek Sayısı",
+        "tr": "Ekmek Sayısı",
+        "de": "Ekmek Sayısı",
+        "fr": "Ekmek Sayısı",
+        "es": "Ekmek Sayısı",
+        "ar": "Ekmek Sayısı"
+      }
     }
   ],
   "formulas": {
@@ -56,7 +96,12 @@
       "starter",
       "salt",
       "totalFlour"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalDough"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -66,5 +111,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kcal/day",
       "default": 2000,
-      "businessContext": "Daily calorie intake on normal eating days (5 days per week)"
+      "businessContext": "Daily calorie intake on normal eating days (5 days per week)",
+      "label_i18n": {
+        "en": "Normal Day Calories",
+        "tr": "Normal Day Calories",
+        "de": "Normal Day Calories",
+        "fr": "Normal Day Calories",
+        "es": "Normal Day Calories",
+        "ar": "Normal Day Calories"
+      }
     },
     {
       "id": "fastKcal",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kcal/day",
       "default": 500,
-      "businessContext": "Daily calorie intake on fasting days (2 days per week)"
+      "businessContext": "Daily calorie intake on fasting days (2 days per week)",
+      "label_i18n": {
+        "en": "Fast Day Calories",
+        "tr": "Fast Day Calories",
+        "de": "Fast Day Calories",
+        "fr": "Fast Day Calories",
+        "es": "Fast Day Calories",
+        "ar": "Fast Day Calories"
+      }
     },
     {
       "id": "weeks",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "weeks",
       "default": 4,
-      "businessContext": "Duration of the diet plan"
+      "businessContext": "Duration of the diet plan",
+      "label_i18n": {
+        "en": "Number of Weeks",
+        "tr": "Number of Weeks",
+        "de": "Number of Weeks",
+        "fr": "Number of Weeks",
+        "es": "Number of Weeks",
+        "ar": "Number of Weeks"
+      }
     },
     {
       "id": "maintenanceKcal",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kcal/day",
       "default": 2500,
-      "businessContext": "Daily calorie intake to maintain current weight (based on TDEE)"
+      "businessContext": "Daily calorie intake to maintain current weight (based on TDEE)",
+      "label_i18n": {
+        "en": "Maintenance Calories",
+        "tr": "Maintenance Calories",
+        "de": "Maintenance Calories",
+        "fr": "Maintenance Calories",
+        "es": "Maintenance Calories",
+        "ar": "Maintenance Calories"
+      }
     }
   ],
   "formulas": {
@@ -48,7 +80,12 @@
       "totalWeeklyCalories",
       "weeklyCalorieDeficit",
       "weeklyWeightLoss"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "estimatedTotalWeightLoss"
   },
   "category": "Bakım & Güvenilirlik",
   "sector": "Üretim & İmalat",
@@ -58,5 +95,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "temizlik",
   "profession": "Hijyen Uzmanı",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

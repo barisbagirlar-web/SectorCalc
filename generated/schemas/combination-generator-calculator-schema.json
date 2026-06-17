@@ -67,12 +67,17 @@
     }
   ],
   "formulas": {
-    "combinations": "(()=>{let c=(()=>{let r=1;for(let i=1;i<=k;i++)r=r*(n-k+i)/i;return r})(); return decimalPlaces>0? Math.round(c*Math.pow(10,decimalPlaces))/Math.pow(10,decimalPlaces): Math.round(c);})()",
-    "combinations_copy": "(()=>{let c=(()=>{let r=1;for(let i=1;i<=k;i++)r=r*(n-k+i)/i;return r})(); return decimalPlaces>0? Math.round(c*Math.pow(10,decimalPlaces))/Math.pow(10,decimalPlaces): Math.round(c);})()"
+    "result": "n + k + decimalPlaces",
+    "result_copy": "n + k + decimalPlaces"
   },
   "outputs": {
-    "primary": "combinations",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "combinations_copy"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -82,5 +87,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

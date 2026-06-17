@@ -132,15 +132,7 @@
   ],
   "formulas": {
     "outputPrimary": "ascii1 + ascii2 + ascii3 + ascii4 + ascii5 + ascii6 + ascii7 + ascii8",
-    "outputBreakdown": "ascii1",
-    "ASCII_Code_1": "ASCII Code 1",
-    "ASCII_Code_2": "ASCII Code 2",
-    "ASCII_Code_3": "ASCII Code 3",
-    "ASCII_Code_4": "ASCII Code 4",
-    "ASCII_Code_5": "ASCII Code 5",
-    "ASCII_Code_6": "ASCII Code 6",
-    "ASCII_Code_7": "ASCII Code 7",
-    "ASCII_Code_8": "ASCII Code 8"
+    "outputBreakdown": "ascii1"
   },
   "outputs": {
     "primary": "outputPrimary",
@@ -153,7 +145,12 @@
       "ASCII Code 6",
       "ASCII Code 7",
       "ASCII Code 8"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "outputBreakdown"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -163,5 +160,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "Moisture percentage of material before drying"
+      "businessContext": "Moisture percentage of material before drying",
+      "label_i18n": {
+        "en": "Initial Moisture Content (%)",
+        "tr": "Initial Moisture Content (%)",
+        "de": "Initial Moisture Content (%)",
+        "fr": "Initial Moisture Content (%)",
+        "es": "Initial Moisture Content (%)",
+        "ar": "Initial Moisture Content (%)"
+      }
     },
     {
       "id": "finalMoisture",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Target moisture percentage after drying"
+      "businessContext": "Target moisture percentage after drying",
+      "label_i18n": {
+        "en": "Final Moisture Content (%)",
+        "tr": "Final Moisture Content (%)",
+        "de": "Final Moisture Content (%)",
+        "fr": "Final Moisture Content (%)",
+        "es": "Final Moisture Content (%)",
+        "ar": "Final Moisture Content (%)"
+      }
     },
     {
       "id": "materialMass",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Total mass of wet material to be dried"
+      "businessContext": "Total mass of wet material to be dried",
+      "label_i18n": {
+        "en": "Material Mass (kg)",
+        "tr": "Material Mass (kg)",
+        "de": "Material Mass (kg)",
+        "fr": "Material Mass (kg)",
+        "es": "Material Mass (kg)",
+        "ar": "Material Mass (kg)"
+      }
     },
     {
       "id": "dryingTime",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "h",
       "default": 8,
-      "businessContext": "Total time available for drying process"
+      "businessContext": "Total time available for drying process",
+      "label_i18n": {
+        "en": "Drying Time (hours)",
+        "tr": "Drying Time (hours)",
+        "de": "Drying Time (hours)",
+        "fr": "Drying Time (hours)",
+        "es": "Drying Time (hours)",
+        "ar": "Drying Time (hours)"
+      }
     },
     {
       "id": "energyConsumption",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kWh/kg",
       "default": 1.5,
-      "businessContext": "Energy required to remove 1 kg of water"
+      "businessContext": "Energy required to remove 1 kg of water",
+      "label_i18n": {
+        "en": "Energy Consumption (kWh/kg water)",
+        "tr": "Energy Consumption (kWh/kg water)",
+        "de": "Energy Consumption (kWh/kg water)",
+        "fr": "Energy Consumption (kWh/kg water)",
+        "es": "Energy Consumption (kWh/kg water)",
+        "ar": "Energy Consumption (kWh/kg water)"
+      }
     },
     {
       "id": "energyCost",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "$/kWh",
       "default": 0.12,
-      "businessContext": "Cost per unit of energy"
+      "businessContext": "Cost per unit of energy",
+      "label_i18n": {
+        "en": "Energy Cost ($/kWh)",
+        "tr": "Energy Cost ($/kWh)",
+        "de": "Energy Cost ($/kWh)",
+        "fr": "Energy Cost ($/kWh)",
+        "es": "Energy Cost ($/kWh)",
+        "ar": "Energy Cost ($/kWh)"
+      }
     }
   ],
   "formulas": {
@@ -63,7 +111,12 @@
       "Total Energy: {totalEnergy} kWh",
       "Total Cost: ${totalCost}",
       "Drying Rate: {dryingRate} kg/h"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "dryingRate"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -73,5 +126,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

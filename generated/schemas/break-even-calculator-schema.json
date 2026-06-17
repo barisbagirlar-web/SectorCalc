@@ -167,18 +167,18 @@
       }
     ]
   },
-  "formulas": [
-    "fixed_costs",
-    "fixed_costs",
-    "fixed_costs",
-    "fixed_costs",
-    "fixed_costs",
-    "fixed_costs",
-    "fixed_costs"
-  ],
+  "formulas": {
+    "result": "fixed_costs + variable_cost_per_unit + selling_price_per_unit",
+    "result_copy": "fixed_costs + variable_cost_per_unit + selling_price_per_unit"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

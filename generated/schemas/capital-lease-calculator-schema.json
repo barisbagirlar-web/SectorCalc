@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100000,
-      "businessContext": "Fair value or cost of the asset being leased."
+      "businessContext": "Fair value or cost of the asset being leased.",
+      "label_i18n": {
+        "en": "Asset Cost",
+        "tr": "Asset Cost",
+        "de": "Asset Cost",
+        "fr": "Asset Cost",
+        "es": "Asset Cost",
+        "ar": "Asset Cost"
+      }
     },
     {
       "id": "leaseTerm",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "years",
       "default": 5,
-      "businessContext": "Duration of the lease in years."
+      "businessContext": "Duration of the lease in years.",
+      "label_i18n": {
+        "en": "Lease Term",
+        "tr": "Lease Term",
+        "de": "Lease Term",
+        "fr": "Lease Term",
+        "es": "Lease Term",
+        "ar": "Lease Term"
+      }
     },
     {
       "id": "interestRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 8,
-      "businessContext": "Implicit interest rate in the lease, per annum."
+      "businessContext": "Implicit interest rate in the lease, per annum.",
+      "label_i18n": {
+        "en": "Annual Interest Rate",
+        "tr": "Annual Interest Rate",
+        "de": "Annual Interest Rate",
+        "fr": "Annual Interest Rate",
+        "es": "Annual Interest Rate",
+        "ar": "Annual Interest Rate"
+      }
     },
     {
       "id": "residualValue",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 20000,
-      "businessContext": "Estimated fair value of the asset at the end of the lease term."
+      "businessContext": "Estimated fair value of the asset at the end of the lease term.",
+      "label_i18n": {
+        "en": "Residual Value",
+        "tr": "Residual Value",
+        "de": "Residual Value",
+        "fr": "Residual Value",
+        "es": "Residual Value",
+        "ar": "Residual Value"
+      }
     },
     {
       "id": "paymentFrequency",
@@ -39,25 +71,33 @@
       "type": "number",
       "unit": "per year",
       "default": 12,
-      "businessContext": "Number of lease payments per year (12 for monthly, 4 for quarterly, 1 for annual)."
+      "businessContext": "Number of lease payments per year (12 for monthly, 4 for quarterly, 1 for annual).",
+      "label_i18n": {
+        "en": "Payments per Year",
+        "tr": "Payments per Year",
+        "de": "Payments per Year",
+        "fr": "Payments per Year",
+        "es": "Payments per Year",
+        "ar": "Payments per Year"
+      }
     }
   ],
   "formulas": {
     "r": "(interestRate / 100) / paymentFrequency",
-    "n": "leaseTerm * paymentFrequency",
-    "pvResidual": "residualValue / Math.pow(1 + r, n)",
-    "monthlyPayment": "(assetCost - pvResidual) * r / (1 - Math.pow(1 + r, -n))",
-    "totalPayments": "monthlyPayment * n",
-    "totalInterest": "totalPayments + residualValue - assetCost",
-    "effectiveAnnualRate": "(Math.pow(1 + r, paymentFrequency) - 1) * 100"
+    "n": "leaseTerm * paymentFrequency"
   },
   "outputs": {
-    "primary": "monthlyPayment",
+    "primary": "n",
     "breakdown": [
       "totalPayments",
       "totalInterest",
       "effectiveAnnualRate"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "effectiveAnnualRate"
   },
   "category": "Proje & Yatırım",
   "sector": "Finans & İK",
@@ -67,5 +107,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

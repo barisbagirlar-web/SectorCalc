@@ -255,6 +255,7 @@
     "fix:p24-engine": "npx tsx scripts/p24-auto-fix-engine.ts",
     "steelcore:validate": "npx tsx scripts/steelcore/validate-schemas.ts",
     "steelcore:validate:strict": "npx tsx scripts/steelcore/validate-schemas.ts --strict",
+    "steelcore:sanitize": "npx tsx scripts/steelcore/sanitize-schemas.ts",
     "steelcore:fix": "npx tsx scripts/steelcore/auto-fix-schemas.ts",
     "steelcore:fix:ai": "npx tsx scripts/steelcore/auto-fix-schemas.ts --ai",
     "steelcore:self-heal": "npx tsx scripts/steelcore/self-heal.ts",

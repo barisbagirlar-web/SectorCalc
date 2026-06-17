@@ -85,16 +85,20 @@
   "formulas": {
     "celsiusDifference": "fahrenheit - subtractOffset",
     "kelvinDifference": "celsiusDifference * multiplyFactor",
-    "kelvin": "kelvinDifference + addOffset",
-    "roundedKelvin": "Math.round(kelvin * Math.pow(10, precision)) / Math.pow(10, precision)"
+    "kelvin": "kelvinDifference + addOffset"
   },
   "outputs": {
-    "primary": "roundedKelvin",
+    "primary": "kelvin",
     "breakdown": [
       "celsiusDifference",
       "kelvinDifference",
       "kelvin"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roundedKelvin"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -104,5 +108,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

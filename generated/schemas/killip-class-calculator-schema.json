@@ -68,15 +68,19 @@
   ],
   "formulas": {
     "killipClass": "(hypoperfusion === 1 && systolic_bp < 90) ? 4 : (rales_extent > 50 ? 3 : ((rales_extent > 0 || s3_gallop === 1) ? 2 : 1))",
-    "mortalityRisk": "(hypoperfusion === 1 && systolic_bp < 90) ? 81 : (rales_extent > 50 ? 38 : ((rales_extent > 0 || s3_gallop === 1) ? 17 : 6))",
-    "description": "((hypoperfusion === 1 && systolic_bp < 90) ? 'Killip Class IV - Mortality Risk: 81%' : (rales_extent > 50 ? 'Killip Class III - Mortality Risk: 38%' : ((rales_extent > 0 || s3_gallop === 1) ? 'Killip Class II - Mortality Risk: 17%' : 'Killip Class I - Mortality Risk: 6%')))"
+    "mortalityRisk": "(hypoperfusion === 1 && systolic_bp < 90) ? 81 : (rales_extent > 50 ? 38 : ((rales_extent > 0 || s3_gallop === 1) ? 17 : 6))"
   },
   "outputs": {
     "primary": "killipClass",
     "breakdown": [
       "mortalityRisk",
       "description"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "description"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -86,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "saglik",
   "profession": "Biyomedikal Mühendisi",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -97,7 +97,12 @@
       "monthlyPremium",
       "totalCoverage",
       "deductible"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "deductible"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -107,5 +112,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

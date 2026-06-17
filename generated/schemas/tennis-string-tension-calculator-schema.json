@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "lbs",
       "default": 55,
-      "businessContext": "Desired tension for the string"
+      "businessContext": "Desired tension for the string",
+      "label_i18n": {
+        "en": "String Tension",
+        "tr": "String Tension",
+        "de": "String Tension",
+        "fr": "String Tension",
+        "es": "String Tension",
+        "ar": "String Tension"
+      }
     },
     {
       "id": "stringGauge",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 1.25,
-      "businessContext": "Diameter of the tennis string"
+      "businessContext": "Diameter of the tennis string",
+      "label_i18n": {
+        "en": "String Diameter",
+        "tr": "String Diameter",
+        "de": "String Diameter",
+        "fr": "String Diameter",
+        "es": "String Diameter",
+        "ar": "String Diameter"
+      }
     },
     {
       "id": "vibratingStringLength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.3,
-      "businessContext": "Length of the free vibrating portion of the string, typically measured from frame to frame"
+      "businessContext": "Length of the free vibrating portion of the string, typically measured from frame to frame",
+      "label_i18n": {
+        "en": "Vibrating String Length",
+        "tr": "Vibrating String Length",
+        "de": "Vibrating String Length",
+        "fr": "Vibrating String Length",
+        "es": "Vibrating String Length",
+        "ar": "Vibrating String Length"
+      }
     },
     {
       "id": "stringMaterialDensity",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "kg/m^3",
       "default": 1100,
-      "businessContext": "Density of the string material (nylon ~1100 kg/m^3, polyester ~1350 kg/m^3)"
+      "businessContext": "Density of the string material (nylon ~1100 kg/m^3, polyester ~1350 kg/m^3)",
+      "label_i18n": {
+        "en": "String Material Density",
+        "tr": "String Material Density",
+        "de": "String Material Density",
+        "fr": "String Material Density",
+        "es": "String Material Density",
+        "ar": "String Material Density"
+      }
     }
   ],
   "formulas": {
-    "linearDensity": "stringMaterialDensity * Math.PI * Math.pow(stringGauge / 2000, 2)",
     "tensionNewtons": "tension * 4.44822",
-    "frequency": "(1 / (2 * vibratingStringLength)) * Math.sqrt(tensionNewtons / linearDensity)"
+    "tensionNewtons_aux": "tension * 4.44822"
   },
   "outputs": {
-    "primary": "frequency",
+    "primary": "tensionNewtons_aux",
     "breakdown": [
       "tensionNewtons",
       "linearDensity"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "frequency"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -54,5 +90,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

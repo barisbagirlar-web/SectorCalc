@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "yr",
       "default": 1402,
-      "businessContext": "The year in the Persian/Jalali calendar (e.g., 1402)."
+      "businessContext": "The year in the Persian/Jalali calendar (e.g., 1402).",
+      "label_i18n": {
+        "en": "Persian Year",
+        "tr": "Persian Year",
+        "de": "Persian Year",
+        "fr": "Persian Year",
+        "es": "Persian Year",
+        "ar": "Persian Year"
+      }
     },
     {
       "id": "persianMonth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mo",
       "default": 1,
-      "businessContext": "Month number (1-12) in the Persian calendar."
+      "businessContext": "Month number (1-12) in the Persian calendar.",
+      "label_i18n": {
+        "en": "Persian Month",
+        "tr": "Persian Month",
+        "de": "Persian Month",
+        "fr": "Persian Month",
+        "es": "Persian Month",
+        "ar": "Persian Month"
+      }
     },
     {
       "id": "persianDay",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "d",
       "default": 1,
-      "businessContext": "Day of the month (1-31) in the Persian calendar."
+      "businessContext": "Day of the month (1-31) in the Persian calendar.",
+      "label_i18n": {
+        "en": "Persian Day",
+        "tr": "Persian Day",
+        "de": "Persian Day",
+        "fr": "Persian Day",
+        "es": "Persian Day",
+        "ar": "Persian Day"
+      }
     },
     {
       "id": "dayFraction",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "d",
       "default": 0,
-      "businessContext": "Decimal fraction of a day (0-1) for precise Julian Day Number."
+      "businessContext": "Decimal fraction of a day (0-1) for precise Julian Day Number.",
+      "label_i18n": {
+        "en": "Day Fraction",
+        "tr": "Day Fraction",
+        "de": "Day Fraction",
+        "fr": "Day Fraction",
+        "es": "Day Fraction",
+        "ar": "Day Fraction"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "daysFromYear",
       "daysFromMonth"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "daysFromMonth"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

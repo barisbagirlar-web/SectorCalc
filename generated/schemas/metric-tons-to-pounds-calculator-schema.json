@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "t",
       "default": 0,
-      "businessContext": "Mass of a single unit in metric tons"
+      "businessContext": "Mass of a single unit in metric tons",
+      "label_i18n": {
+        "en": "Metric Tons per Unit",
+        "tr": "Metric Tons per Unit",
+        "de": "Metric Tons per Unit",
+        "fr": "Metric Tons per Unit",
+        "es": "Metric Tons per Unit",
+        "ar": "Metric Tons per Unit"
+      }
     },
     {
       "id": "number_of_units",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 1,
-      "businessContext": "Total number of items, containers, or batches"
+      "businessContext": "Total number of items, containers, or batches",
+      "label_i18n": {
+        "en": "Number of Units",
+        "tr": "Number of Units",
+        "de": "Number of Units",
+        "fr": "Number of Units",
+        "es": "Number of Units",
+        "ar": "Number of Units"
+      }
     },
     {
       "id": "waste_factor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Additional percentage for waste, safety, or overage"
+      "businessContext": "Additional percentage for waste, safety, or overage",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     },
     {
       "id": "conversion_factor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "lb/t",
       "default": 2204.62262185,
-      "businessContext": "Pounds per metric ton (fixed standard)"
+      "businessContext": "Pounds per metric ton (fixed standard)",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "precision",
@@ -39,20 +71,32 @@
       "type": "number",
       "unit": "places",
       "default": 2,
-      "businessContext": "Number of decimal places to round the primary output"
+      "businessContext": "Number of decimal places to round the primary output",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     }
   ],
   "formulas": {
-    "pounds_rounded": "Math.round(metric_tons * number_of_units * (1 + waste_factor / 100) * conversion_factor * Math.pow(10, precision)) / Math.pow(10, precision)",
     "ounces": "metric_tons * number_of_units * (1 + waste_factor / 100) * conversion_factor * 16",
     "kilograms": "metric_tons * number_of_units * (1 + waste_factor / 100) * 1000"
   },
   "outputs": {
-    "primary": "pounds_rounded",
+    "primary": "kilograms",
     "breakdown": [
       "ounces",
       "kilograms"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "kilograms"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -62,5 +106,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

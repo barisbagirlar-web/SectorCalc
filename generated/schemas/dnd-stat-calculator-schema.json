@@ -99,24 +99,11 @@
     }
   ],
   "formulas": {
-    "modifier": "Math.floor((score - 10) / 2)",
-    "strengthMod": "Math.floor((strength - 10) / 2)",
-    "dexterityMod": "Math.floor((dexterity - 10) / 2)",
-    "constitutionMod": "Math.floor((constitution - 10) / 2)",
-    "intelligenceMod": "Math.floor((intelligence - 10) / 2)",
-    "wisdomMod": "Math.floor((wisdom - 10) / 2)",
-    "charismaMod": "Math.floor((charisma - 10) / 2)",
     "pointBuyCost": "strength + dexterity + constitution + intelligence + wisdom + charisma - 60",
-    "_strengthMod_": "{strengthMod}",
-    "_dexterityMod_": "{dexterityMod}",
-    "_constitutionMod_": "{constitutionMod}",
-    "_intelligenceMod_": "{intelligenceMod}",
-    "_wisdomMod_": "{wisdomMod}",
-    "_charismaMod_": "{charismaMod}",
-    "_pointBuyCost_": "{pointBuyCost}"
+    "pointBuyCost_aux": "strength + dexterity + constitution + intelligence + wisdom + charisma - 60"
   },
   "outputs": {
-    "primary": "modifier",
+    "primary": "pointBuyCost_aux",
     "breakdown": [
       "Strength Modifier: {strengthMod}",
       "Dexterity Modifier: {dexterityMod}",
@@ -125,7 +112,12 @@
       "Wisdom Modifier: {wisdomMod}",
       "Charisma Modifier: {charismaMod}",
       "Point Buy Cost (above 60): {pointBuyCost}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "pointBuyCost"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -135,5 +127,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Body weight of the user"
+      "businessContext": "Body weight of the user",
+      "label_i18n": {
+        "en": "Weight",
+        "tr": "Weight",
+        "de": "Weight",
+        "fr": "Weight",
+        "es": "Weight",
+        "ar": "Weight"
+      }
     },
     {
       "id": "speed",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "km/h",
       "default": 8,
-      "businessContext": "Treadmill speed in km/h"
+      "businessContext": "Treadmill speed in km/h",
+      "label_i18n": {
+        "en": "Speed",
+        "tr": "Speed",
+        "de": "Speed",
+        "fr": "Speed",
+        "es": "Speed",
+        "ar": "Speed"
+      }
     },
     {
       "id": "incline",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Incline percentage (e.g., 5 for 5%)"
+      "businessContext": "Incline percentage (e.g., 5 for 5%)",
+      "label_i18n": {
+        "en": "Incline",
+        "tr": "Incline",
+        "de": "Incline",
+        "fr": "Incline",
+        "es": "Incline",
+        "ar": "Incline"
+      }
     },
     {
       "id": "duration",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "min",
       "default": 30,
-      "businessContext": "Exercise duration in minutes"
+      "businessContext": "Exercise duration in minutes",
+      "label_i18n": {
+        "en": "Duration",
+        "tr": "Duration",
+        "de": "Duration",
+        "fr": "Duration",
+        "es": "Duration",
+        "ar": "Duration"
+      }
     },
     {
       "id": "exerciseType",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "0=Walking,1=Running",
       "default": 0,
-      "businessContext": "Type of exercise: 0 for walking, 1 for running"
+      "businessContext": "Type of exercise: 0 for walking, 1 for running",
+      "label_i18n": {
+        "en": "Exercise Type",
+        "tr": "Exercise Type",
+        "de": "Exercise Type",
+        "fr": "Exercise Type",
+        "es": "Exercise Type",
+        "ar": "Exercise Type"
+      }
     }
   ],
   "formulas": {
@@ -58,7 +98,12 @@
     "breakdown": [
       "distance",
       "MET"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "distance"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -68,5 +113,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

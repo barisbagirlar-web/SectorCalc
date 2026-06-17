@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Ci",
       "default": 1,
-      "businessContext": "Enter the activity of the radioactive source in curies."
+      "businessContext": "Enter the activity of the radioactive source in curies.",
+      "label_i18n": {
+        "en": "Source Activity",
+        "tr": "Source Activity",
+        "de": "Source Activity",
+        "fr": "Source Activity",
+        "es": "Source Activity",
+        "ar": "Source Activity"
+      }
     },
     {
       "id": "gammaConstant",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "R·m²/(Ci·h)",
       "default": 0.5,
-      "businessContext": "Specific gamma constant for the isotope in R*m²/(Ci*h)."
+      "businessContext": "Specific gamma constant for the isotope in R*m²/(Ci*h).",
+      "label_i18n": {
+        "en": "Gamma Constant",
+        "tr": "Gamma Constant",
+        "de": "Gamma Constant",
+        "fr": "Gamma Constant",
+        "es": "Gamma Constant",
+        "ar": "Gamma Constant"
+      }
     },
     {
       "id": "distance",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Distance from the source in meters."
+      "businessContext": "Distance from the source in meters.",
+      "label_i18n": {
+        "en": "Distance",
+        "tr": "Distance",
+        "de": "Distance",
+        "fr": "Distance",
+        "es": "Distance",
+        "ar": "Distance"
+      }
     },
     {
       "id": "shieldThickness",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cm",
       "default": 0,
-      "businessContext": "Thickness of the shielding material in cm."
+      "businessContext": "Thickness of the shielding material in cm.",
+      "label_i18n": {
+        "en": "Shield Thickness",
+        "tr": "Shield Thickness",
+        "de": "Shield Thickness",
+        "fr": "Shield Thickness",
+        "es": "Shield Thickness",
+        "ar": "Shield Thickness"
+      }
     },
     {
       "id": "hvl",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "cm",
       "default": 1,
-      "businessContext": "Half-value layer of the shielding material for the gamma energy."
+      "businessContext": "Half-value layer of the shielding material for the gamma energy.",
+      "label_i18n": {
+        "en": "Half-Value Layer (HVL)",
+        "tr": "Half-Value Layer (HVL)",
+        "de": "Half-Value Layer (HVL)",
+        "fr": "Half-Value Layer (HVL)",
+        "es": "Half-Value Layer (HVL)",
+        "ar": "Half-Value Layer (HVL)"
+      }
     },
     {
       "id": "conversionFactor",
@@ -47,20 +87,32 @@
       "type": "number",
       "unit": "µSv/R",
       "default": 8.77,
-      "businessContext": "Conversion factor from exposure (R) to dose (µSv), typically 8.77 for air."
+      "businessContext": "Conversion factor from exposure (R) to dose (µSv), typically 8.77 for air.",
+      "label_i18n": {
+        "en": "Dose Conversion Factor",
+        "tr": "Dose Conversion Factor",
+        "de": "Dose Conversion Factor",
+        "fr": "Dose Conversion Factor",
+        "es": "Dose Conversion Factor",
+        "ar": "Dose Conversion Factor"
+      }
     }
   ],
   "formulas": {
     "exposureRate": "(sourceActivity * gammaConstant) / (distance ** 2)",
-    "attenuationFactor": "Math.pow(2, -shieldThickness / hvl)",
-    "doseRate": "exposureRate * attenuationFactor * conversionFactor"
+    "exposureRate_aux": "(sourceActivity * gammaConstant) / (distance ** 2)"
   },
   "outputs": {
-    "primary": "doseRate",
+    "primary": "exposureRate_aux",
     "breakdown": [
       "exposureRate",
       "attenuationFactor"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "doseRate"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -70,5 +122,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

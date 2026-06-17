@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Evinize giren tüm aylık net gelir (maaş, ek gelir, vb.)"
+      "businessContext": "Evinize giren tüm aylık net gelir (maaş, ek gelir, vb.)",
+      "label_i18n": {
+        "en": "Toplam Aylık Net Gelir",
+        "tr": "Toplam Aylık Net Gelir",
+        "de": "Toplam Aylık Net Gelir",
+        "fr": "Toplam Aylık Net Gelir",
+        "es": "Toplam Aylık Net Gelir",
+        "ar": "Toplam Aylık Net Gelir"
+      }
     },
     {
       "id": "housing",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Kira, mortgage, aidat, sigorta vb. toplamı"
+      "businessContext": "Kira, mortgage, aidat, sigorta vb. toplamı",
+      "label_i18n": {
+        "en": "Barınma Giderleri",
+        "tr": "Barınma Giderleri",
+        "de": "Barınma Giderleri",
+        "fr": "Barınma Giderleri",
+        "es": "Barınma Giderleri",
+        "ar": "Barınma Giderleri"
+      }
     },
     {
       "id": "food",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Market alışverişi, dışarıda yemek, vb. aylık toplam"
+      "businessContext": "Market alışverişi, dışarıda yemek, vb. aylık toplam",
+      "label_i18n": {
+        "en": "Gıda Giderleri",
+        "tr": "Gıda Giderleri",
+        "de": "Gıda Giderleri",
+        "fr": "Gıda Giderleri",
+        "es": "Gıda Giderleri",
+        "ar": "Gıda Giderleri"
+      }
     },
     {
       "id": "transport",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Yakıt, toplu taşıma, araç bakım vb."
+      "businessContext": "Yakıt, toplu taşıma, araç bakım vb.",
+      "label_i18n": {
+        "en": "Ulaşım Giderleri",
+        "tr": "Ulaşım Giderleri",
+        "de": "Ulaşım Giderleri",
+        "fr": "Ulaşım Giderleri",
+        "es": "Ulaşım Giderleri",
+        "ar": "Ulaşım Giderleri"
+      }
     },
     {
       "id": "savings",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Acil durum fonu, emeklilik, yatırım hesapları"
+      "businessContext": "Acil durum fonu, emeklilik, yatırım hesapları",
+      "label_i18n": {
+        "en": "Tasarruf & Yatırım",
+        "tr": "Tasarruf & Yatırım",
+        "de": "Tasarruf & Yatırım",
+        "fr": "Tasarruf & Yatırım",
+        "es": "Tasarruf & Yatırım",
+        "ar": "Tasarruf & Yatırım"
+      }
     },
     {
       "id": "discretionary",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Eğlence, abonelikler, giyim, hobiler vb."
+      "businessContext": "Eğlence, abonelikler, giyim, hobiler vb.",
+      "label_i18n": {
+        "en": "Kişisel Harcamalar",
+        "tr": "Kişisel Harcamalar",
+        "de": "Kişisel Harcamalar",
+        "fr": "Kişisel Harcamalar",
+        "es": "Kişisel Harcamalar",
+        "ar": "Kişisel Harcamalar"
+      }
     }
   ],
   "formulas": {
@@ -70,7 +118,12 @@
       "transport",
       "savings",
       "discretionary"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "discretionary"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -80,5 +133,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

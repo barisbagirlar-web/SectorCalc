@@ -70,11 +70,7 @@
     "finalVelocityMass1": "((mass1 - mass2) * velocity1 + 2 * mass2 * velocity2) / (mass1 + mass2)",
     "finalVelocityMass2": "(2 * mass1 * velocity1 + (mass2 - mass1) * velocity2) / (mass1 + mass2)",
     "initialKineticEnergy": "0.5 * mass1 * velocity1 * velocity1 + 0.5 * mass2 * velocity2 * velocity2",
-    "finalKineticEnergy": "0.5 * mass1 * finalVelocityMass1 * finalVelocityMass1 + 0.5 * mass2 * finalVelocityMass2 * finalVelocityMass2",
-    "Final_Velocity_Mass_1": "Final Velocity Mass 1",
-    "Final_Velocity_Mass_2": "Final Velocity Mass 2",
-    "Initial_Kinetic_Energy": "Initial Kinetic Energy",
-    "Final_Kinetic_Energy": "Final Kinetic Energy"
+    "finalKineticEnergy": "0.5 * mass1 * finalVelocityMass1 * finalVelocityMass1 + 0.5 * mass2 * finalVelocityMass2 * finalVelocityMass2"
   },
   "outputs": {
     "primary": "finalVelocityMass1",
@@ -83,7 +79,12 @@
       "Final Velocity Mass 2",
       "Initial Kinetic Energy",
       "Final Kinetic Energy"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "finalKineticEnergy"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -93,5 +94,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

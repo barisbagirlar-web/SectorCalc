@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Current body weight in kilograms"
+      "businessContext": "Current body weight in kilograms",
+      "label_i18n": {
+        "en": "Weight",
+        "tr": "Weight",
+        "de": "Weight",
+        "fr": "Weight",
+        "es": "Weight",
+        "ar": "Weight"
+      }
     },
     {
       "id": "height",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Height in centimeters"
+      "businessContext": "Height in centimeters",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "Height",
+        "fr": "Height",
+        "es": "Height",
+        "ar": "Height"
+      }
     },
     {
       "id": "age",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Age in years"
+      "businessContext": "Age in years",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "sex",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "boolean",
       "default": 1,
-      "businessContext": "Biological sex: 1 for male, 0 for female, used for BMR formula"
+      "businessContext": "Biological sex: 1 for male, 0 for female, used for BMR formula",
+      "label_i18n": {
+        "en": "Sex (Male=1, Female=0)",
+        "tr": "Sex (Male=1, Female=0)",
+        "de": "Sex (Male=1, Female=0)",
+        "fr": "Sex (Male=1, Female=0)",
+        "es": "Sex (Male=1, Female=0)",
+        "ar": "Sex (Male=1, Female=0)"
+      }
     },
     {
       "id": "activityFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1.55,
-      "businessContext": "Physical activity level multiplier (1.2 sedentary, 1.375 light, 1.55 moderate, 1.725 very active, 1.9 extra active)"
+      "businessContext": "Physical activity level multiplier (1.2 sedentary, 1.375 light, 1.55 moderate, 1.725 very active, 1.9 extra active)",
+      "label_i18n": {
+        "en": "Activity Factor",
+        "tr": "Activity Factor",
+        "de": "Activity Factor",
+        "fr": "Activity Factor",
+        "es": "Activity Factor",
+        "ar": "Activity Factor"
+      }
     },
     {
       "id": "deficitPercent",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Percentage calorie deficit from TDEE for weight loss (typically 10-20%)"
+      "businessContext": "Percentage calorie deficit from TDEE for weight loss (typically 10-20%)",
+      "label_i18n": {
+        "en": "Calorie Deficit",
+        "tr": "Calorie Deficit",
+        "de": "Calorie Deficit",
+        "fr": "Calorie Deficit",
+        "es": "Calorie Deficit",
+        "ar": "Calorie Deficit"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
       "bmr",
       "tdee",
       "deficit"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "dailyCalorieBudget"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -72,5 +125,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "gün",
       "default": 1,
-      "businessContext": "A aktivitesinin tamamlanma süresi (gün)"
+      "businessContext": "A aktivitesinin tamamlanma süresi (gün)",
+      "label_i18n": {
+        "en": "A Aktivitesi Süresi",
+        "tr": "A Aktivitesi Süresi",
+        "de": "A Aktivitesi Süresi",
+        "fr": "A Aktivitesi Süresi",
+        "es": "A Aktivitesi Süresi",
+        "ar": "A Aktivitesi Süresi"
+      }
     },
     {
       "id": "durationB",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "gün",
       "default": 1,
-      "businessContext": "B aktivitesinin tamamlanma süresi (gün)"
+      "businessContext": "B aktivitesinin tamamlanma süresi (gün)",
+      "label_i18n": {
+        "en": "B Aktivitesi Süresi",
+        "tr": "B Aktivitesi Süresi",
+        "de": "B Aktivitesi Süresi",
+        "fr": "B Aktivitesi Süresi",
+        "es": "B Aktivitesi Süresi",
+        "ar": "B Aktivitesi Süresi"
+      }
     },
     {
       "id": "durationC",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "gün",
       "default": 1,
-      "businessContext": "C aktivitesinin tamamlanma süresi (gün)"
+      "businessContext": "C aktivitesinin tamamlanma süresi (gün)",
+      "label_i18n": {
+        "en": "C Aktivitesi Süresi",
+        "tr": "C Aktivitesi Süresi",
+        "de": "C Aktivitesi Süresi",
+        "fr": "C Aktivitesi Süresi",
+        "es": "C Aktivitesi Süresi",
+        "ar": "C Aktivitesi Süresi"
+      }
     },
     {
       "id": "durationD",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "gün",
       "default": 1,
-      "businessContext": "D aktivitesinin tamamlanma süresi (gün)"
+      "businessContext": "D aktivitesinin tamamlanma süresi (gün)",
+      "label_i18n": {
+        "en": "D Aktivitesi Süresi",
+        "tr": "D Aktivitesi Süresi",
+        "de": "D Aktivitesi Süresi",
+        "fr": "D Aktivitesi Süresi",
+        "es": "D Aktivitesi Süresi",
+        "ar": "D Aktivitesi Süresi"
+      }
     },
     {
       "id": "durationE",
@@ -39,20 +71,32 @@
       "type": "number",
       "unit": "gün",
       "default": 1,
-      "businessContext": "E aktivitesinin tamamlanma süresi (gün)"
+      "businessContext": "E aktivitesinin tamamlanma süresi (gün)",
+      "label_i18n": {
+        "en": "E Aktivitesi Süresi",
+        "tr": "E Aktivitesi Süresi",
+        "de": "E Aktivitesi Süresi",
+        "fr": "E Aktivitesi Süresi",
+        "es": "E Aktivitesi Süresi",
+        "ar": "E Aktivitesi Süresi"
+      }
     }
   ],
   "formulas": {
-    "criticalPathDuration": "Math.max(durationA+durationC+durationD, durationA+durationC+durationE, durationB+durationC+durationD, durationB+durationC+durationE)",
-    "criticalPath": "(durationA+durationC+durationD >= durationA+durationC+durationE && durationA+durationC+durationD >= durationB+durationC+durationD && durationA+durationC+durationD >= durationB+durationC+durationE) ? 'A-C-D' : (durationA+durationC+durationE >= durationB+durationC+durationD && durationA+durationC+durationE >= durationB+durationC+durationE) ? 'A-C-E' : (durationB+durationC+durationD >= durationB+durationC+durationE) ? 'B-C-D' : 'B-C-E'",
-    "pathDurations": "'A-C-D: ' + (durationA+durationC+durationD) + ' gün, A-C-E: ' + (durationA+durationC+durationE) + ' gün, B-C-D: ' + (durationB+durationC+durationD) + ' gün, B-C-E: ' + (durationB+durationC+durationE) + ' gün'"
+    "pathDurations": "'A-C-D: ' + (durationA+durationC+durationD) + ' gün, A-C-E: ' + (durationA+durationC+durationE) + ' gün, B-C-D: ' + (durationB+durationC+durationD) + ' gün, B-C-E: ' + (durationB+durationC+durationE) + ' gün'",
+    "pathDurations_aux": "'A-C-D: ' + (durationA+durationC+durationD) + ' gün, A-C-E: ' + (durationA+durationC+durationE) + ' gün, B-C-D: ' + (durationB+durationC+durationD) + ' gün, B-C-E: ' + (durationB+durationC+durationE) + ' gün'"
   },
   "outputs": {
-    "primary": "criticalPathDuration",
+    "primary": "pathDurations",
     "breakdown": [
       "criticalPath",
       "pathDurations"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "pathDurations"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -62,5 +106,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

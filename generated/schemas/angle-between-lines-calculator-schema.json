@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "X coordinate of the first point on line 1"
+      "businessContext": "X coordinate of the first point on line 1",
+      "label_i18n": {
+        "en": "Line 1 Point 1 X",
+        "tr": "Line 1 Point 1 X",
+        "de": "Line 1 Point 1 X",
+        "fr": "Line 1 Point 1 X",
+        "es": "Line 1 Point 1 X",
+        "ar": "Line 1 Point 1 X"
+      }
     },
     {
       "id": "y1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Y coordinate of the first point on line 1"
+      "businessContext": "Y coordinate of the first point on line 1",
+      "label_i18n": {
+        "en": "Line 1 Point 1 Y",
+        "tr": "Line 1 Point 1 Y",
+        "de": "Line 1 Point 1 Y",
+        "fr": "Line 1 Point 1 Y",
+        "es": "Line 1 Point 1 Y",
+        "ar": "Line 1 Point 1 Y"
+      }
     },
     {
       "id": "x2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "X coordinate of the second point on line 1"
+      "businessContext": "X coordinate of the second point on line 1",
+      "label_i18n": {
+        "en": "Line 1 Point 2 X",
+        "tr": "Line 1 Point 2 X",
+        "de": "Line 1 Point 2 X",
+        "fr": "Line 1 Point 2 X",
+        "es": "Line 1 Point 2 X",
+        "ar": "Line 1 Point 2 X"
+      }
     },
     {
       "id": "y2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Y coordinate of the second point on line 1"
+      "businessContext": "Y coordinate of the second point on line 1",
+      "label_i18n": {
+        "en": "Line 1 Point 2 Y",
+        "tr": "Line 1 Point 2 Y",
+        "de": "Line 1 Point 2 Y",
+        "fr": "Line 1 Point 2 Y",
+        "es": "Line 1 Point 2 Y",
+        "ar": "Line 1 Point 2 Y"
+      }
     },
     {
       "id": "x3",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "X coordinate of the first point on line 2"
+      "businessContext": "X coordinate of the first point on line 2",
+      "label_i18n": {
+        "en": "Line 2 Point 1 X",
+        "tr": "Line 2 Point 1 X",
+        "de": "Line 2 Point 1 X",
+        "fr": "Line 2 Point 1 X",
+        "es": "Line 2 Point 1 X",
+        "ar": "Line 2 Point 1 X"
+      }
     },
     {
       "id": "y3",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Y coordinate of the first point on line 2"
+      "businessContext": "Y coordinate of the first point on line 2",
+      "label_i18n": {
+        "en": "Line 2 Point 1 Y",
+        "tr": "Line 2 Point 1 Y",
+        "de": "Line 2 Point 1 Y",
+        "fr": "Line 2 Point 1 Y",
+        "es": "Line 2 Point 1 Y",
+        "ar": "Line 2 Point 1 Y"
+      }
     },
     {
       "id": "x4",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "X coordinate of the second point on line 2"
+      "businessContext": "X coordinate of the second point on line 2",
+      "label_i18n": {
+        "en": "Line 2 Point 2 X",
+        "tr": "Line 2 Point 2 X",
+        "de": "Line 2 Point 2 X",
+        "fr": "Line 2 Point 2 X",
+        "es": "Line 2 Point 2 X",
+        "ar": "Line 2 Point 2 X"
+      }
     },
     {
       "id": "y4",
@@ -63,23 +119,25 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Y coordinate of the second point on line 2"
+      "businessContext": "Y coordinate of the second point on line 2",
+      "label_i18n": {
+        "en": "Line 2 Point 2 Y",
+        "tr": "Line 2 Point 2 Y",
+        "de": "Line 2 Point 2 Y",
+        "fr": "Line 2 Point 2 Y",
+        "es": "Line 2 Point 2 Y",
+        "ar": "Line 2 Point 2 Y"
+      }
     }
   ],
   "formulas": {
     "dx1": "x2 - x1",
     "dy1": "y2 - y1",
     "dx2": "x4 - x3",
-    "dy2": "y4 - y3",
-    "len1": "Math.sqrt(dx1**2 + dy1**2)",
-    "len2": "Math.sqrt(dx2**2 + dy2**2)",
-    "dot": "Math.abs(dx1*dx2 + dy1*dy2)",
-    "cosTheta": "dot / (len1 * len2)",
-    "angleRad": "Math.acos(Math.min(1, Math.max(-1, cosTheta)))",
-    "angleDeg": "angleRad * 180 / Math.PI"
+    "dy2": "y4 - y3"
   },
   "outputs": {
-    "primary": "angleDeg",
+    "primary": "dy2",
     "breakdown": [
       "dx1",
       "dy1",
@@ -90,7 +148,12 @@
       "dot",
       "cosTheta",
       "angleRad"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "angleDeg"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -100,5 +163,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

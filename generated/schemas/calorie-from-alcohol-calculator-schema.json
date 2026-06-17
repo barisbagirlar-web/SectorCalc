@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mL",
       "default": 355,
-      "businessContext": "Volume of the alcoholic beverage per serving in milliliters."
+      "businessContext": "Volume of the alcoholic beverage per serving in milliliters.",
+      "label_i18n": {
+        "en": "Drink Volume (mL)",
+        "tr": "Drink Volume (mL)",
+        "de": "Drink Volume (mL)",
+        "fr": "Drink Volume (mL)",
+        "es": "Drink Volume (mL)",
+        "ar": "Drink Volume (mL)"
+      }
     },
     {
       "id": "abv",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "ABV percentage shown on the beverage label."
+      "businessContext": "ABV percentage shown on the beverage label.",
+      "label_i18n": {
+        "en": "Alcohol by Volume (%)",
+        "tr": "Alcohol by Volume (%)",
+        "de": "Alcohol by Volume (%)",
+        "fr": "Alcohol by Volume (%)",
+        "es": "Alcohol by Volume (%)",
+        "ar": "Alcohol by Volume (%)"
+      }
     },
     {
       "id": "numberOfDrinks",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "count",
       "default": 1,
-      "businessContext": "How many servings or drinks consumed."
+      "businessContext": "How many servings or drinks consumed.",
+      "label_i18n": {
+        "en": "Number of Drinks",
+        "tr": "Number of Drinks",
+        "de": "Number of Drinks",
+        "fr": "Number of Drinks",
+        "es": "Number of Drinks",
+        "ar": "Number of Drinks"
+      }
     },
     {
       "id": "density",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "g/mL",
       "default": 0.8,
-      "businessContext": "Standard density of pure ethanol (0.8 g/mL)."
+      "businessContext": "Standard density of pure ethanol (0.8 g/mL).",
+      "label_i18n": {
+        "en": "Ethanol Density (g/mL)",
+        "tr": "Ethanol Density (g/mL)",
+        "de": "Ethanol Density (g/mL)",
+        "fr": "Ethanol Density (g/mL)",
+        "es": "Ethanol Density (g/mL)",
+        "ar": "Ethanol Density (g/mL)"
+      }
     },
     {
       "id": "kcalPerGram",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kcal/g",
       "default": 7,
-      "businessContext": "Metabolizable energy per gram of alcohol (7 kcal/g)."
+      "businessContext": "Metabolizable energy per gram of alcohol (7 kcal/g).",
+      "label_i18n": {
+        "en": "Energy per Gram of Alcohol (kcal/g)",
+        "tr": "Energy per Gram of Alcohol (kcal/g)",
+        "de": "Energy per Gram of Alcohol (kcal/g)",
+        "fr": "Energy per Gram of Alcohol (kcal/g)",
+        "es": "Energy per Gram of Alcohol (kcal/g)",
+        "ar": "Energy per Gram of Alcohol (kcal/g)"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "alcoholVolumeTotal",
       "alcoholGramsTotal"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "caloriesFromAlcohol"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -62,5 +107,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

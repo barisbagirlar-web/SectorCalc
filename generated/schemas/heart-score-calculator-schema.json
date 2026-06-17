@@ -83,7 +83,6 @@
     }
   ],
   "formulas": {
-    "primary": "(total => total <= 3 ? 'Low risk (Total score: ' + total + ')' : total <= 6 ? 'Moderate risk (Total score: ' + total + ')' : 'High risk (Total score: ' + total + ')') (history + ecg + age + riskFactors + troponin)",
     "b0": "'History Score: ' + history",
     "b1": "'ECG Score: ' + ecg",
     "b2": "'Age Score: ' + age",
@@ -91,14 +90,19 @@
     "b4": "'Troponin Score: ' + troponin"
   },
   "outputs": {
-    "primary": "primary",
+    "primary": "b4",
     "breakdown": [
       "b0",
       "b1",
       "b2",
       "b3",
       "b4"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "b4"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -108,5 +112,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

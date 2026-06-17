@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from generating-function-calculator-schema.json
 import * as z from 'zod';
 
@@ -19,29 +20,37 @@ export const Generating_function_calculatorInputSchema = z.object({
   x: z.number().default(0),
 });
 
-function evaluateAllFormulas(input: Generating_function_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.a0; results["term0"] = Number.isFinite(v) ? v : 0; } catch { results["term0"] = 0; }
-  try { const v = input.a1 * input.x; results["term1"] = Number.isFinite(v) ? v : 0; } catch { results["term1"] = 0; }
-  try { const v = input.a2 * input.x ** 2; results["term2"] = Number.isFinite(v) ? v : 0; } catch { results["term2"] = 0; }
-  try { const v = input.a3 * input.x ** 3; results["term3"] = Number.isFinite(v) ? v : 0; } catch { results["term3"] = 0; }
-  try { const v = input.a4 * input.x ** 4; results["term4"] = Number.isFinite(v) ? v : 0; } catch { results["term4"] = 0; }
-  try { const v = (results["term0"] ?? 0) + (results["term1"] ?? 0) + (results["term2"] ?? 0) + (results["term3"] ?? 0) + (results["term4"] ?? 0); results["GF"] = Number.isFinite(v) ? v : 0; } catch { results["GF"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Generating_function_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.a0; results["term0"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["term0"] = 0; }
+  try { const v = input.a1 * input.x; results["term1"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["term1"] = 0; }
+  try { const v = input.a2 * input.x ** 2; results["term2"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["term2"] = 0; }
+  try { const v = input.a3 * input.x ** 3; results["term3"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["term3"] = 0; }
+  try { const v = input.a4 * input.x ** 4; results["term4"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["term4"] = 0; }
+  try { const v = (asFormulaNumber(results["term0"])) + (asFormulaNumber(results["term1"])) + (asFormulaNumber(results["term2"])) + (asFormulaNumber(results["term3"])) + (asFormulaNumber(results["term4"])); results["GF"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["GF"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateGenerating_function_calculator(input: Generating_function_calculatorInput): Generating_function_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["GF"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["GF"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

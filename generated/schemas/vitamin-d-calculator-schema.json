@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Consumer age for nutraceutical product dosing guidelines"
+      "businessContext": "Consumer age for nutraceutical product dosing guidelines",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "weight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Consumer weight to adjust supplement dosage per body mass"
+      "businessContext": "Consumer weight to adjust supplement dosage per body mass",
+      "label_i18n": {
+        "en": "Body Weight",
+        "tr": "Body Weight",
+        "de": "Body Weight",
+        "fr": "Body Weight",
+        "es": "Body Weight",
+        "ar": "Body Weight"
+      }
     },
     {
       "id": "currentVitaminD",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ng/mL",
       "default": 20,
-      "businessContext": "Baseline 25(OH)D level for deficiency correction calculation"
+      "businessContext": "Baseline 25(OH)D level for deficiency correction calculation",
+      "label_i18n": {
+        "en": "Current Serum Vitamin D Level",
+        "tr": "Current Serum Vitamin D Level",
+        "de": "Current Serum Vitamin D Level",
+        "fr": "Current Serum Vitamin D Level",
+        "es": "Current Serum Vitamin D Level",
+        "ar": "Current Serum Vitamin D Level"
+      }
     },
     {
       "id": "targetVitaminD",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "ng/mL",
       "default": 50,
-      "businessContext": "Desired 25(OH)D level for optimal health"
+      "businessContext": "Desired 25(OH)D level for optimal health",
+      "label_i18n": {
+        "en": "Target Vitamin D Level",
+        "tr": "Target Vitamin D Level",
+        "de": "Target Vitamin D Level",
+        "fr": "Target Vitamin D Level",
+        "es": "Target Vitamin D Level",
+        "ar": "Target Vitamin D Level"
+      }
     },
     {
       "id": "treatmentDuration",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "weeks",
       "default": 12,
-      "businessContext": "Duration for gradual serum level adjustment in production planning"
+      "businessContext": "Duration for gradual serum level adjustment in production planning",
+      "label_i18n": {
+        "en": "Treatment Duration",
+        "tr": "Treatment Duration",
+        "de": "Treatment Duration",
+        "fr": "Treatment Duration",
+        "es": "Treatment Duration",
+        "ar": "Treatment Duration"
+      }
     }
   ],
   "formulas": {
@@ -53,7 +93,12 @@
     "breakdown": [
       "weeklyDoseIU",
       "totalDoseIU"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalDoseIU"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -63,5 +108,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

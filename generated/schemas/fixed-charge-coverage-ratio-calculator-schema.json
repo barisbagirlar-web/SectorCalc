@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Earnings before interest, taxes, depreciation, and amortization for the period."
+      "businessContext": "Earnings before interest, taxes, depreciation, and amortization for the period.",
+      "label_i18n": {
+        "en": "EBITDA",
+        "tr": "EBITDA",
+        "de": "EBITDA",
+        "fr": "EBITDA",
+        "es": "EBITDA",
+        "ar": "EBITDA"
+      }
     },
     {
       "id": "interestExpense",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Total interest expense on all debt obligations for the period."
+      "businessContext": "Total interest expense on all debt obligations for the period.",
+      "label_i18n": {
+        "en": "Interest Expense",
+        "tr": "Interest Expense",
+        "de": "Interest Expense",
+        "fr": "Interest Expense",
+        "es": "Interest Expense",
+        "ar": "Interest Expense"
+      }
     },
     {
       "id": "currentMaturities",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Current portion of long-term debt and other scheduled principal repayments due within one year."
+      "businessContext": "Current portion of long-term debt and other scheduled principal repayments due within one year.",
+      "label_i18n": {
+        "en": "Current Debt Maturities",
+        "tr": "Current Debt Maturities",
+        "de": "Current Debt Maturities",
+        "fr": "Current Debt Maturities",
+        "es": "Current Debt Maturities",
+        "ar": "Current Debt Maturities"
+      }
     },
     {
       "id": "leasePayments",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Total operating lease payments for the period."
+      "businessContext": "Total operating lease payments for the period.",
+      "label_i18n": {
+        "en": "Lease Payments",
+        "tr": "Lease Payments",
+        "de": "Lease Payments",
+        "fr": "Lease Payments",
+        "es": "Lease Payments",
+        "ar": "Lease Payments"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "ebitdaOut",
       "totalFixedCharges"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "fccr"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

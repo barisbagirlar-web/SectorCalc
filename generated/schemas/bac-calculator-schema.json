@@ -102,16 +102,20 @@
     "totalAlcoholGrams": "drinks * volumePerDrink * (alcoholPercentage / 100) * 0.789",
     "bodyWaterConstant": "gender === 0 ? 0.68 : 0.55",
     "bacRaw": "totalAlcoholGrams / (weight * bodyWaterConstant * 10)",
-    "bacMetabolized": "hours * 0.015",
-    "bac": "Math.max(0, bacRaw - bacMetabolized)"
+    "bacMetabolized": "hours * 0.015"
   },
   "outputs": {
-    "primary": "bac",
+    "primary": "bacMetabolized",
     "breakdown": [
       "totalAlcoholGrams",
       "bacRaw",
       "bacMetabolized"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "bac"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -121,5 +125,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

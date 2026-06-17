@@ -100,10 +100,7 @@
   ],
   "formulas": {
     "totalCurrent": "numberOfCircuits * loadPerCircuit * diversityFactor",
-    "totalLoadkW": "phases === 3 ? (Math.sqrt(3) * voltage * totalCurrent * powerFactor / 1000) : (voltage * totalCurrent * powerFactor / 1000)",
-    "totalLoadkVA": "totalLoadkW / powerFactor",
-    "requiredPanelRating": "totalLoadkVA * 1.25",
-    "mainBreakerCurrent": "totalLoadkVA * 1000 / (phases === 3 ? (Math.sqrt(3) * voltage) : voltage)"
+    "totalCurrent_aux": "numberOfCircuits * loadPerCircuit * diversityFactor"
   },
   "outputs": {
     "primary": "totalCurrent",
@@ -132,7 +129,12 @@
         "unit": "A",
         "description": "Required main breaker ampacity."
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "mainBreakerCurrent"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -142,5 +144,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

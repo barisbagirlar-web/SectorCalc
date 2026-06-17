@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kW",
       "default": 100,
-      "businessContext": "Tesisteki tüm ekipmanların anma güçlerinin toplamı (kW cinsinden)"
+      "businessContext": "Tesisteki tüm ekipmanların anma güçlerinin toplamı (kW cinsinden)",
+      "label_i18n": {
+        "en": "Toplam Bağlı Yük",
+        "tr": "Toplam Bağlı Yük",
+        "de": "Toplam Bağlı Yük",
+        "fr": "Toplam Bağlı Yük",
+        "es": "Toplam Bağlı Yük",
+        "ar": "Toplam Bağlı Yük"
+      }
     },
     {
       "id": "demandFactor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "-",
       "default": 0.8,
-      "businessContext": "Maksimum talebin toplam bağlı yüke oranı, tipik olarak 0-1 arasındadır"
+      "businessContext": "Maksimum talebin toplam bağlı yüke oranı, tipik olarak 0-1 arasındadır",
+      "label_i18n": {
+        "en": "Talep Faktörü",
+        "tr": "Talep Faktörü",
+        "de": "Talep Faktörü",
+        "fr": "Talep Faktörü",
+        "es": "Talep Faktörü",
+        "ar": "Talep Faktörü"
+      }
     },
     {
       "id": "powerFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "-",
       "default": 0.9,
-      "businessContext": "Aktif gücün görünür güce oranı, tipik olarak 0-1 arasındadır"
+      "businessContext": "Aktif gücün görünür güce oranı, tipik olarak 0-1 arasındadır",
+      "label_i18n": {
+        "en": "Güç Faktörü",
+        "tr": "Güç Faktörü",
+        "de": "Güç Faktörü",
+        "fr": "Güç Faktörü",
+        "es": "Güç Faktörü",
+        "ar": "Güç Faktörü"
+      }
     },
     {
       "id": "reserveMargin",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Gelecekteki büyüme veya belirsizlik için eklenen yüzde marj"
+      "businessContext": "Gelecekteki büyüme veya belirsizlik için eklenen yüzde marj",
+      "label_i18n": {
+        "en": "Yedek Kapasite Marjı",
+        "tr": "Yedek Kapasite Marjı",
+        "de": "Yedek Kapasite Marjı",
+        "fr": "Yedek Kapasite Marjı",
+        "es": "Yedek Kapasite Marjı",
+        "ar": "Yedek Kapasite Marjı"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "peakDemand_kVA",
       "demandPercentage"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "demandPercentage"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -54,5 +91,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

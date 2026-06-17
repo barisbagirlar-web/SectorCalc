@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 345,
-      "businessContext": "Ukulele scale length (nut to saddle)"
+      "businessContext": "Ukulele scale length (nut to saddle)",
+      "label_i18n": {
+        "en": "Scale Length",
+        "tr": "Scale Length",
+        "de": "Scale Length",
+        "fr": "Scale Length",
+        "es": "Scale Length",
+        "ar": "Scale Length"
+      }
     },
     {
       "id": "stringDiameter",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0.5,
-      "businessContext": "Diameter of the ukulele string"
+      "businessContext": "Diameter of the ukulele string",
+      "label_i18n": {
+        "en": "String Diameter",
+        "tr": "String Diameter",
+        "de": "String Diameter",
+        "fr": "String Diameter",
+        "es": "String Diameter",
+        "ar": "String Diameter"
+      }
     },
     {
       "id": "density",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1150,
-      "businessContext": "Density of the string material (e.g., nylon)"
+      "businessContext": "Density of the string material (e.g., nylon)",
+      "label_i18n": {
+        "en": "Material Density",
+        "tr": "Material Density",
+        "de": "Material Density",
+        "fr": "Material Density",
+        "es": "Material Density",
+        "ar": "Material Density"
+      }
     },
     {
       "id": "frequency",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "Hz",
       "default": 440,
-      "businessContext": "Desired fundamental frequency of the string"
+      "businessContext": "Desired fundamental frequency of the string",
+      "label_i18n": {
+        "en": "Target Frequency",
+        "tr": "Target Frequency",
+        "de": "Target Frequency",
+        "fr": "Target Frequency",
+        "es": "Target Frequency",
+        "ar": "Target Frequency"
+      }
     }
   ],
   "formulas": {
-    "Tension (N)": "Math.PI * density * Math.pow(stringDiameter/1000, 2) * Math.pow(scaleLength/1000, 2) * Math.pow(frequency, 2)",
-    "Tension (kgf)": "(Math.PI * density * Math.pow(stringDiameter/1000, 2) * Math.pow(scaleLength/1000, 2) * Math.pow(frequency, 2)) / 9.80665",
-    "Tension (lbf)": "(Math.PI * density * Math.pow(stringDiameter/1000, 2) * Math.pow(scaleLength/1000, 2) * Math.pow(frequency, 2)) * 0.224809"
+    "result": "scaleLength + stringDiameter + density",
+    "result_aux": "scaleLength + stringDiameter + density"
   },
   "outputs": {
-    "primary": "Tension (N)",
+    "primary": "result",
     "breakdown": [
       "Tension (kgf)",
       "Tension (lbf)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "Tension (lbf)"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -54,5 +90,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

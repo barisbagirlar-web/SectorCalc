@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 100000,
-      "businessContext": "Faiz ve vergi öncesi net faaliyet kârı (Earnings Before Interest and Taxes)."
+      "businessContext": "Faiz ve vergi öncesi net faaliyet kârı (Earnings Before Interest and Taxes).",
+      "label_i18n": {
+        "en": "EBIT (Faiz ve Vergi Öncesi Kâr)",
+        "tr": "EBIT (Faiz ve Vergi Öncesi Kâr)",
+        "de": "EBIT (Faiz ve Vergi Öncesi Kâr)",
+        "fr": "EBIT (Faiz ve Vergi Öncesi Kâr)",
+        "es": "EBIT (Faiz ve Vergi Öncesi Kâr)",
+        "ar": "EBIT (Faiz ve Vergi Öncesi Kâr)"
+      }
     },
     {
       "id": "interest",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 20000,
-      "businessContext": "Toplam borç faiz ödemeleri."
+      "businessContext": "Toplam borç faiz ödemeleri.",
+      "label_i18n": {
+        "en": "Faiz Gideri",
+        "tr": "Faiz Gideri",
+        "de": "Faiz Gideri",
+        "fr": "Faiz Gideri",
+        "es": "Faiz Gideri",
+        "ar": "Faiz Gideri"
+      }
     },
     {
       "id": "taxRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "decimal",
       "default": 0.25,
-      "businessContext": "Kurumlar vergisi oranı (ondalık, örn. 0.25)."
+      "businessContext": "Kurumlar vergisi oranı (ondalık, örn. 0.25).",
+      "label_i18n": {
+        "en": "Vergi Oranı",
+        "tr": "Vergi Oranı",
+        "de": "Vergi Oranı",
+        "fr": "Vergi Oranı",
+        "es": "Vergi Oranı",
+        "ar": "Vergi Oranı"
+      }
     },
     {
       "id": "preferredDividends",
@@ -31,26 +55,34 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "İmtiyazlı hisse senetlerine ödenen toplam temettü."
+      "businessContext": "İmtiyazlı hisse senetlerine ödenen toplam temettü.",
+      "label_i18n": {
+        "en": "İmtiyazlı Hisse Temettüsü",
+        "tr": "İmtiyazlı Hisse Temettüsü",
+        "de": "İmtiyazlı Hisse Temettüsü",
+        "fr": "İmtiyazlı Hisse Temettüsü",
+        "es": "İmtiyazlı Hisse Temettüsü",
+        "ar": "İmtiyazlı Hisse Temettüsü"
+      }
     }
   ],
   "formulas": {
-    "ebit": "inputs.ebit",
-    "interest": "inputs.interest",
-    "taxRate": "inputs.taxRate",
-    "preferredDividends": "inputs.preferredDividends",
-    "preferredAfterTax": "inputs.preferredDividends / (1 - inputs.taxRate)",
-    "denominator": "inputs.ebit - inputs.interest - (inputs.preferredDividends / (1 - inputs.taxRate))",
-    "degreeOfFinancialLeverage": "inputs.ebit / (inputs.ebit - inputs.interest - (inputs.preferredDividends / (1 - inputs.taxRate)))"
+    "result": "ebit + interest + taxRate",
+    "result_copy": "ebit + interest + taxRate"
   },
   "outputs": {
-    "primary": "degreeOfFinancialLeverage",
+    "primary": "result",
     "breakdown": [
       "ebit",
       "interest",
       "preferredAfterTax",
       "denominator"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "degreeOfFinancialLeverage"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -60,5 +92,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

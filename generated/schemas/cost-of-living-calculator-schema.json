@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Monthly housing cost (rent/mortgage)"
+      "businessContext": "Monthly housing cost (rent/mortgage)",
+      "label_i18n": {
+        "en": "Housing",
+        "tr": "Housing",
+        "de": "Housing",
+        "fr": "Housing",
+        "es": "Housing",
+        "ar": "Housing"
+      }
     },
     {
       "id": "food",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Monthly food and groceries expense"
+      "businessContext": "Monthly food and groceries expense",
+      "label_i18n": {
+        "en": "Food",
+        "tr": "Food",
+        "de": "Food",
+        "fr": "Food",
+        "es": "Food",
+        "ar": "Food"
+      }
     },
     {
       "id": "transportation",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Monthly transportation cost (fuel, public transit, etc.)"
+      "businessContext": "Monthly transportation cost (fuel, public transit, etc.)",
+      "label_i18n": {
+        "en": "Transportation",
+        "tr": "Transportation",
+        "de": "Transportation",
+        "fr": "Transportation",
+        "es": "Transportation",
+        "ar": "Transportation"
+      }
     },
     {
       "id": "utilities",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Monthly utilities (electricity, water, internet, etc.)"
+      "businessContext": "Monthly utilities (electricity, water, internet, etc.)",
+      "label_i18n": {
+        "en": "Utilities",
+        "tr": "Utilities",
+        "de": "Utilities",
+        "fr": "Utilities",
+        "es": "Utilities",
+        "ar": "Utilities"
+      }
     },
     {
       "id": "healthcare",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Monthly healthcare expenses (insurance, medications, etc.)"
+      "businessContext": "Monthly healthcare expenses (insurance, medications, etc.)",
+      "label_i18n": {
+        "en": "Healthcare",
+        "tr": "Healthcare",
+        "de": "Healthcare",
+        "fr": "Healthcare",
+        "es": "Healthcare",
+        "ar": "Healthcare"
+      }
     },
     {
       "id": "entertainment",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Monthly entertainment and leisure expenses"
+      "businessContext": "Monthly entertainment and leisure expenses",
+      "label_i18n": {
+        "en": "Entertainment",
+        "tr": "Entertainment",
+        "de": "Entertainment",
+        "fr": "Entertainment",
+        "es": "Entertainment",
+        "ar": "Entertainment"
+      }
     }
   ],
   "formulas": {
@@ -68,7 +116,12 @@
       "utilitiesPercent",
       "healthcarePercent",
       "entertainmentPercent"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "entertainmentPercent"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -78,5 +131,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

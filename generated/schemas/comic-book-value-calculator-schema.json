@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "score",
       "default": 7.5,
-      "businessContext": "Professional grading score per CGC scale (10 = Gem Mint)"
+      "businessContext": "Professional grading score per CGC scale (10 = Gem Mint)",
+      "label_i18n": {
+        "en": "Condition Score (0-10)",
+        "tr": "Condition Score (0-10)",
+        "de": "Condition Score (0-10)",
+        "fr": "Condition Score (0-10)",
+        "es": "Condition Score (0-10)",
+        "ar": "Condition Score (0-10)"
+      }
     },
     {
       "id": "ageYears",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Years since publication"
+      "businessContext": "Years since publication",
+      "label_i18n": {
+        "en": "Age (Years)",
+        "tr": "Age (Years)",
+        "de": "Age (Years)",
+        "fr": "Age (Years)",
+        "es": "Age (Years)",
+        "ar": "Age (Years)"
+      }
     },
     {
       "id": "initialValue",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 1.99,
-      "businessContext": "Original cover price in US dollars"
+      "businessContext": "Original cover price in US dollars",
+      "label_i18n": {
+        "en": "Initial Cover Price",
+        "tr": "Initial Cover Price",
+        "de": "Initial Cover Price",
+        "fr": "Initial Cover Price",
+        "es": "Initial Cover Price",
+        "ar": "Initial Cover Price"
+      }
     },
     {
       "id": "rarityIndex",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "index",
       "default": 50,
-      "businessContext": "Rarity score: 1 for common, 100 for extremely rare"
+      "businessContext": "Rarity score: 1 for common, 100 for extremely rare",
+      "label_i18n": {
+        "en": "Rarity Index (1-100)",
+        "tr": "Rarity Index (1-100)",
+        "de": "Rarity Index (1-100)",
+        "fr": "Rarity Index (1-100)",
+        "es": "Rarity Index (1-100)",
+        "ar": "Rarity Index (1-100)"
+      }
     },
     {
       "id": "demandIndex",
@@ -39,24 +71,34 @@
       "type": "number",
       "unit": "index",
       "default": 50,
-      "businessContext": "Market demand score: 1 low, 100 high"
+      "businessContext": "Market demand score: 1 low, 100 high",
+      "label_i18n": {
+        "en": "Demand Index (1-100)",
+        "tr": "Demand Index (1-100)",
+        "de": "Demand Index (1-100)",
+        "fr": "Demand Index (1-100)",
+        "es": "Demand Index (1-100)",
+        "ar": "Demand Index (1-100)"
+      }
     }
   ],
   "formulas": {
-    "conditionFactor": "Math.pow(inputs.conditionScore / 10, 2)",
-    "ageFactor": "Math.exp(inputs.ageYears * 0.02)",
-    "rarityFactor": "0.5 + inputs.rarityIndex / 200",
-    "demandFactor": "0.5 + inputs.demandIndex / 200",
-    "estimatedValue": "inputs.initialValue * Math.pow(inputs.conditionScore / 10, 2) * Math.exp(inputs.ageYears * 0.02) * (0.5 + inputs.rarityIndex / 200) * (0.5 + inputs.demandIndex / 200)"
+    "result": "conditionScore + ageYears + initialValue",
+    "result_copy": "conditionScore + ageYears + initialValue"
   },
   "outputs": {
-    "primary": "estimatedValue",
+    "primary": "result",
     "breakdown": [
       "conditionFactor",
       "ageFactor",
       "rarityFactor",
       "demandFactor"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "estimatedValue"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -66,5 +108,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

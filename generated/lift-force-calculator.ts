@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from lift-force-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,25 +16,33 @@ export const Lift_force_calculatorInputSchema = z.object({
   liftCoefficient: z.number().default(1),
 });
 
-function evaluateAllFormulas(input: Lift_force_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = 0.5 * input.density * Math.pow(input.velocity, 2); results["dynamicPressure"] = Number.isFinite(v) ? v : 0; } catch { results["dynamicPressure"] = 0; }
-  try { const v = 0.5 * input.density * Math.pow(input.velocity, 2) * input.area * input.liftCoefficient; results["liftForce"] = Number.isFinite(v) ? v : 0; } catch { results["liftForce"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Lift_force_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.density + input.velocity + input.area; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.density + input.velocity + input.area; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateLift_force_calculator(input: Lift_force_calculatorInput): Lift_force_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["liftForce"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

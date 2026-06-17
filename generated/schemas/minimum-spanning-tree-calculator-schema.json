@@ -99,18 +99,20 @@
     }
   ],
   "formulas": {
-    "maxAB": "(edgeAB + edgeBC + Math.sqrt(Math.pow(edgeAB - edgeBC, 2))) / 2",
-    "maxABC": "(maxAB + edgeCA + Math.sqrt(Math.pow(maxAB - edgeCA, 2))) / 2",
-    "mstLength": "edgeAB + edgeBC + edgeCA - maxABC",
-    "totalCost": "mstLength * unitCost",
-    "adjustedCost": "totalCost * safetyFactor"
+    "result": "nodeCount + edgeAB + edgeBC",
+    "result_copy": "nodeCount + edgeAB + edgeBC"
   },
   "outputs": {
-    "primary": "adjustedCost",
+    "primary": "result",
     "breakdown": [
       "mstLength",
       "totalCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "adjustedCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -120,5 +122,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

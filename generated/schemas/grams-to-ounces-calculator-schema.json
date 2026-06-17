@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Ölçülecek maddenin gram cinsinden ağırlığı"
+      "businessContext": "Ölçülecek maddenin gram cinsinden ağırlığı",
+      "label_i18n": {
+        "en": "Gram Miktarı",
+        "tr": "Gram Miktarı",
+        "de": "Gram Miktarı",
+        "fr": "Gram Miktarı",
+        "es": "Gram Miktarı",
+        "ar": "Gram Miktarı"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "oz/g",
       "default": 0.0352739619,
-      "businessContext": "Gramdan onsa dönüşüm katsayısı, varsayılan uluslararası değer."
+      "businessContext": "Gramdan onsa dönüşüm katsayısı, varsayılan uluslararası değer.",
+      "label_i18n": {
+        "en": "Dönüşüm Faktörü (oz/g)",
+        "tr": "Dönüşüm Faktörü (oz/g)",
+        "de": "Dönüşüm Faktörü (oz/g)",
+        "fr": "Dönüşüm Faktörü (oz/g)",
+        "es": "Dönüşüm Faktörü (oz/g)",
+        "ar": "Dönüşüm Faktörü (oz/g)"
+      }
     },
     {
       "id": "batchQuantity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Aynı ağırlıkta olan parça sayısı; toplam ons hesabı için kullanılır."
+      "businessContext": "Aynı ağırlıkta olan parça sayısı; toplam ons hesabı için kullanılır.",
+      "label_i18n": {
+        "en": "Parti Miktarı (adet)",
+        "tr": "Parti Miktarı (adet)",
+        "de": "Parti Miktarı (adet)",
+        "fr": "Parti Miktarı (adet)",
+        "es": "Parti Miktarı (adet)",
+        "ar": "Parti Miktarı (adet)"
+      }
     },
     {
       "id": "precision",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "basamak",
       "default": 4,
-      "businessContext": "Sonucun yuvarlanacağı ondalık basamak sayısı"
+      "businessContext": "Sonucun yuvarlanacağı ondalık basamak sayısı",
+      "label_i18n": {
+        "en": "Ondalık Basamak",
+        "tr": "Ondalık Basamak",
+        "de": "Ondalık Basamak",
+        "fr": "Ondalık Basamak",
+        "es": "Ondalık Basamak",
+        "ar": "Ondalık Basamak"
+      }
     }
   ],
   "formulas": {
     "ouncesPerUnit": "grams * conversionFactor",
-    "totalOunces": "ouncesPerUnit * batchQuantity",
-    "roundedTotalOunces": "Math.round(totalOunces * 10 ** precision) / 10 ** precision"
+    "totalOunces": "ouncesPerUnit * batchQuantity"
   },
   "outputs": {
-    "primary": "roundedTotalOunces",
+    "primary": "totalOunces",
     "breakdown": [
       "ouncesPerUnit",
       "totalOunces"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roundedTotalOunces"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -138,88 +138,6 @@
       "businessContext_i18n": {
         "en": "Annual operating hours of the heat exchanger."
       }
-    },
-    {
-      "id": "production_loss_factor",
-      "label": "Production Loss Factor",
-      "type": "number",
-      "unit": "%",
-      "default": 5,
-      "min": 0,
-      "max": 100,
-      "businessContext": "Percentage of production capacity lost due to reduced heat transfer (e.g., slower throughput).",
-      "label_i18n": {
-        "en": "Production Loss Factor"
-      },
-      "businessContext_i18n": {
-        "en": "Percentage of production capacity lost due to reduced heat transfer (e.g., slower throughput)."
-      }
-    },
-    {
-      "id": "revenue_per_unit_product",
-      "label": "Revenue per Unit Product",
-      "type": "number",
-      "unit": "$/kg",
-      "default": 0.5,
-      "min": 0,
-      "max": 100,
-      "businessContext": "Revenue generated per kg of product processed through the exchanger.",
-      "label_i18n": {
-        "en": "Revenue per Unit Product"
-      },
-      "businessContext_i18n": {
-        "en": "Revenue generated per kg of product processed through the exchanger."
-      }
-    },
-    {
-      "id": "exchanger_type",
-      "label": "Heat Exchanger Type",
-      "type": "select",
-      "options": [
-        "Shell-and-Tube",
-        "Plate",
-        "Double Pipe",
-        "Spiral"
-      ],
-      "default": "Shell-and-Tube",
-      "businessContext": "Type of heat exchanger; affects fouling factors and cleaning intervals.",
-      "label_i18n": {
-        "en": "Heat Exchanger Type"
-      },
-      "businessContext_i18n": {
-        "en": "Type of heat exchanger; affects fouling factors and cleaning intervals."
-      },
-      "unit": "unit"
-    },
-    {
-      "id": "fouling_factor_known",
-      "label": "Fouling Factor Known?",
-      "type": "boolean",
-      "default": false,
-      "businessContext": "If true, user provides measured fouling factor directly; otherwise calculated from UA ratio.",
-      "label_i18n": {
-        "en": "Fouling Factor Known?"
-      },
-      "businessContext_i18n": {
-        "en": "If true, user provides measured fouling factor directly; otherwise calculated from UA ratio."
-      },
-      "unit": "unit"
-    },
-    {
-      "id": "measured_fouling_factor",
-      "label": "Measured Fouling Factor (R_f)",
-      "type": "number",
-      "unit": "m²·K/kW",
-      "default": 0.0005,
-      "min": 0,
-      "max": 0.01,
-      "businessContext": "Directly measured fouling resistance from test or literature (TEMA standards).",
-      "label_i18n": {
-        "en": "Measured Fouling Factor (R_f)"
-      },
-      "businessContext_i18n": {
-        "en": "Directly measured fouling resistance from test or literature (TEMA standards)."
-      }
     }
   ],
   "validation": {
@@ -264,18 +182,18 @@
       }
     ]
   },
-  "formulas": [
-    "design_ua",
-    "design_ua",
-    "design_ua",
-    "design_ua",
-    "design_ua",
-    "design_ua",
-    "design_ua"
-  ],
+  "formulas": {
+    "result": "design_ua + actual_ua + hot_inlet_temp",
+    "result_copy": "design_ua + actual_ua + hot_inlet_temp"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "heat-exchanger-fouling-loss-calculator",
   "catalogCategory": "everyday-life",

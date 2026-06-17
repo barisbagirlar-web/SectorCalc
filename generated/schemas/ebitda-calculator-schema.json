@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Toplam gelir (satışlar)"
+      "businessContext": "Toplam gelir (satışlar)",
+      "label_i18n": {
+        "en": "Total Revenue",
+        "tr": "Total Revenue",
+        "de": "Total Revenue",
+        "fr": "Total Revenue",
+        "es": "Total Revenue",
+        "ar": "Total Revenue"
+      }
     },
     {
       "id": "cogs",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Satılan malın maliyeti"
+      "businessContext": "Satılan malın maliyeti",
+      "label_i18n": {
+        "en": "Cost of Goods Sold (COGS)",
+        "tr": "Cost of Goods Sold (COGS)",
+        "de": "Cost of Goods Sold (COGS)",
+        "fr": "Cost of Goods Sold (COGS)",
+        "es": "Cost of Goods Sold (COGS)",
+        "ar": "Cost of Goods Sold (COGS)"
+      }
     },
     {
       "id": "opex",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Faaliyet giderleri (amortisman hariç)"
+      "businessContext": "Faaliyet giderleri (amortisman hariç)",
+      "label_i18n": {
+        "en": "Operating Expenses (excl. D&A)",
+        "tr": "Operating Expenses (excl. D&A)",
+        "de": "Operating Expenses (excl. D&A)",
+        "fr": "Operating Expenses (excl. D&A)",
+        "es": "Operating Expenses (excl. D&A)",
+        "ar": "Operating Expenses (excl. D&A)"
+      }
     },
     {
       "id": "depreciation",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Amortisman gideri"
+      "businessContext": "Amortisman gideri",
+      "label_i18n": {
+        "en": "Depreciation",
+        "tr": "Depreciation",
+        "de": "Depreciation",
+        "fr": "Depreciation",
+        "es": "Depreciation",
+        "ar": "Depreciation"
+      }
     },
     {
       "id": "amortization",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "İtfa gideri"
+      "businessContext": "İtfa gideri",
+      "label_i18n": {
+        "en": "Amortization",
+        "tr": "Amortization",
+        "de": "Amortization",
+        "fr": "Amortization",
+        "es": "Amortization",
+        "ar": "Amortization"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "grossProfit",
       "ebit"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "ebit"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -62,5 +107,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

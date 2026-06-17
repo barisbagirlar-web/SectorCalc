@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "unitless",
       "default": 45,
-      "businessContext": "The magnitude of the angle to compute the sine of."
+      "businessContext": "The magnitude of the angle to compute the sine of.",
+      "label_i18n": {
+        "en": "Angle Value",
+        "tr": "Angle Value",
+        "de": "Angle Value",
+        "fr": "Angle Value",
+        "es": "Angle Value",
+        "ar": "Angle Value"
+      }
     },
     {
       "id": "angleUnit",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "unitless",
       "default": 0,
-      "businessContext": "Select 0 if the angle is in degrees, 1 if in radians."
+      "businessContext": "Select 0 if the angle is in degrees, 1 if in radians.",
+      "label_i18n": {
+        "en": "Angle Unit (0=Degrees, 1=Radians)",
+        "tr": "Angle Unit (0=Degrees, 1=Radians)",
+        "de": "Angle Unit (0=Degrees, 1=Radians)",
+        "fr": "Angle Unit (0=Degrees, 1=Radians)",
+        "es": "Angle Unit (0=Degrees, 1=Radians)",
+        "ar": "Angle Unit (0=Degrees, 1=Radians)"
+      }
     },
     {
       "id": "precision",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "unitless",
       "default": 4,
-      "businessContext": "Number of decimal places for the sine output."
+      "businessContext": "Number of decimal places for the sine output.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "amplitude",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "unitless",
       "default": 1,
-      "businessContext": "Optional amplitude multiplication factor (for a*sin(x))."
+      "businessContext": "Optional amplitude multiplication factor (for a*sin(x)).",
+      "label_i18n": {
+        "en": "Amplitude Scaling",
+        "tr": "Amplitude Scaling",
+        "de": "Amplitude Scaling",
+        "fr": "Amplitude Scaling",
+        "es": "Amplitude Scaling",
+        "ar": "Amplitude Scaling"
+      }
     }
   ],
   "formulas": {
-    "sineValue": "Math.round(Math.sin(angleUnit === 0 ? angleValue * Math.PI / 180 : angleValue) * amplitude * Math.pow(10, precision)) / Math.pow(10, precision)",
     "radiansUsed": "angleUnit === 0 ? angleValue * Math.PI / 180 : angleValue",
-    "rawSine": "Math.sin(angleUnit === 0 ? angleValue * Math.PI / 180 : angleValue)"
+    "radiansUsed_aux": "angleUnit === 0 ? angleValue * Math.PI / 180 : angleValue"
   },
   "outputs": {
-    "primary": "sineValue",
+    "primary": "radiansUsed_aux",
     "breakdown": [
       "radiansUsed",
       "rawSine"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "rawSine"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

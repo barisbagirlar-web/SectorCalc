@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "The company's net income from the income statement."
+      "businessContext": "The company's net income from the income statement.",
+      "label_i18n": {
+        "en": "Net Income",
+        "tr": "Net Income",
+        "de": "Net Income",
+        "fr": "Net Income",
+        "es": "Net Income",
+        "ar": "Net Income"
+      }
     },
     {
       "id": "cashFlowOperations",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Net cash provided by operating activities from the cash flow statement."
+      "businessContext": "Net cash provided by operating activities from the cash flow statement.",
+      "label_i18n": {
+        "en": "Cash Flow from Operations",
+        "tr": "Cash Flow from Operations",
+        "de": "Cash Flow from Operations",
+        "fr": "Cash Flow from Operations",
+        "es": "Cash Flow from Operations",
+        "ar": "Cash Flow from Operations"
+      }
     },
     {
       "id": "cashFlowInvesting",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Net cash used in investing activities from the cash flow statement."
+      "businessContext": "Net cash used in investing activities from the cash flow statement.",
+      "label_i18n": {
+        "en": "Cash Flow from Investing",
+        "tr": "Cash Flow from Investing",
+        "de": "Cash Flow from Investing",
+        "fr": "Cash Flow from Investing",
+        "es": "Cash Flow from Investing",
+        "ar": "Cash Flow from Investing"
+      }
     },
     {
       "id": "totalAssets",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Total assets from the balance sheet."
+      "businessContext": "Total assets from the balance sheet.",
+      "label_i18n": {
+        "en": "Total Assets",
+        "tr": "Total Assets",
+        "de": "Total Assets",
+        "fr": "Total Assets",
+        "es": "Total Assets",
+        "ar": "Total Assets"
+      }
     }
   ],
   "formulas": {
@@ -43,7 +75,12 @@
     "breakdown": [
       "netAccruals",
       "sloanRatio"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "sloanRatio"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -53,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "metal",
   "profession": "Sac Teknisyeni",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

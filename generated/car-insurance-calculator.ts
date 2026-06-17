@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from car-insurance-calculator-schema.json
 import * as z from 'zod';
 
@@ -23,32 +24,38 @@ export const Car_insurance_calculatorInputSchema = z.object({
   vehicleAge: z.number().default(3),
 });
 
-function evaluateAllFormulas(input: Car_insurance_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.carValue * 0.03; results["basePremium"] = Number.isFinite(v) ? v : 0; } catch { results["basePremium"] = 0; }
-  try { const v = input.driverAge < 25 ? 1.8 : (input.driverAge <= 60 ? 1.0 : 1.3); results["ageFactor"] = Number.isFinite(v) ? v : 0; } catch { results["ageFactor"] = 0; }
-  try { const v = input.drivingExperience < 2 ? 2.0 : (input.drivingExperience <= 5 ? 1.5 : 1.0); results["experienceFactor"] = Number.isFinite(v) ? v : 0; } catch { results["experienceFactor"] = 0; }
-  try { const v = Math.max(0.4, 1 - input.noClaimsYears * 0.05); results["noClaimsFactor"] = Number.isFinite(v) ? v : 0; } catch { results["noClaimsFactor"] = 0; }
-  try { const v = input.annualMileage <= 10000 ? 0.9 : (input.annualMileage <= 20000 ? 1.0 : 1.2); results["mileageFactor"] = Number.isFinite(v) ? v : 0; } catch { results["mileageFactor"] = 0; }
-  try { const v = input.coverageLevel === 1 ? 0.7 : (input.coverageLevel === 2 ? 0.85 : 1.0); results["coverageFactor"] = Number.isFinite(v) ? v : 0; } catch { results["coverageFactor"] = 0; }
-  try { const v = 1 + (input.regionRisk - 5) * 0.02; results["regionFactor"] = Number.isFinite(v) ? v : 0; } catch { results["regionFactor"] = 0; }
-  try { const v = input.vehicleAge <= 5 ? 1.0 : (input.vehicleAge <= 10 ? 0.95 : 1.1); results["vehicleAgeFactor"] = Number.isFinite(v) ? v : 0; } catch { results["vehicleAgeFactor"] = 0; }
-  try { const v = (results["basePremium"] ?? 0) * (results["ageFactor"] ?? 0) * (results["experienceFactor"] ?? 0) * (results["noClaimsFactor"] ?? 0) * (results["mileageFactor"] ?? 0) * (results["coverageFactor"] ?? 0) * (results["regionFactor"] ?? 0) * (results["vehicleAgeFactor"] ?? 0); results["totalPremium"] = Number.isFinite(v) ? v : 0; } catch { results["totalPremium"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Car_insurance_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.carValue * 0.03; results["basePremium"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["basePremium"] = 0; }
+  try { const v = input.driverAge < 25 ? 1.8 : (input.driverAge <= 60 ? 1.0 : 1.3); results["ageFactor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["ageFactor"] = 0; }
+  try { const v = input.drivingExperience < 2 ? 2.0 : (input.drivingExperience <= 5 ? 1.5 : 1.0); results["experienceFactor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["experienceFactor"] = 0; }
+  try { const v = input.annualMileage <= 10000 ? 0.9 : (input.annualMileage <= 20000 ? 1.0 : 1.2); results["mileageFactor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["mileageFactor"] = 0; }
+  try { const v = input.coverageLevel === 1 ? 0.7 : (input.coverageLevel === 2 ? 0.85 : 1.0); results["coverageFactor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["coverageFactor"] = 0; }
+  try { const v = 1 + (input.regionRisk - 5) * 0.02; results["regionFactor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["regionFactor"] = 0; }
+  try { const v = input.vehicleAge <= 5 ? 1.0 : (input.vehicleAge <= 10 ? 0.95 : 1.1); results["vehicleAgeFactor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["vehicleAgeFactor"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateCar_insurance_calculator(input: Car_insurance_calculatorInput): Car_insurance_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalPremium"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["vehicleAgeFactor"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

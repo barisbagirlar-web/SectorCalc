@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Total length of the weld seam"
+      "businessContext": "Total length of the weld seam",
+      "label_i18n": {
+        "en": "Weld Length (mm)",
+        "tr": "Weld Length (mm)",
+        "de": "Weld Length (mm)",
+        "fr": "Weld Length (mm)",
+        "es": "Weld Length (mm)",
+        "ar": "Weld Length (mm)"
+      }
     },
     {
       "id": "weldThroat",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 5,
-      "businessContext": "Effective throat thickness of the weld"
+      "businessContext": "Effective throat thickness of the weld",
+      "label_i18n": {
+        "en": "Throat Thickness (mm)",
+        "tr": "Throat Thickness (mm)",
+        "de": "Throat Thickness (mm)",
+        "fr": "Throat Thickness (mm)",
+        "es": "Throat Thickness (mm)",
+        "ar": "Throat Thickness (mm)"
+      }
     },
     {
       "id": "electrodeDiameter",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 3.2,
-      "businessContext": "Diameter of the welding electrode"
+      "businessContext": "Diameter of the welding electrode",
+      "label_i18n": {
+        "en": "Electrode Diameter (mm)",
+        "tr": "Electrode Diameter (mm)",
+        "de": "Electrode Diameter (mm)",
+        "fr": "Electrode Diameter (mm)",
+        "es": "Electrode Diameter (mm)",
+        "ar": "Electrode Diameter (mm)"
+      }
     },
     {
       "id": "depositionEfficiency",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 65,
-      "businessContext": "Percentage of electrode material deposited as weld metal"
+      "businessContext": "Percentage of electrode material deposited as weld metal",
+      "label_i18n": {
+        "en": "Deposition Efficiency (%)",
+        "tr": "Deposition Efficiency (%)",
+        "de": "Deposition Efficiency (%)",
+        "fr": "Deposition Efficiency (%)",
+        "es": "Deposition Efficiency (%)",
+        "ar": "Deposition Efficiency (%)"
+      }
     },
     {
       "id": "electrodeDensity",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "g/cm³",
       "default": 7.85,
-      "businessContext": "Density of the electrode material"
+      "businessContext": "Density of the electrode material",
+      "label_i18n": {
+        "en": "Electrode Density (g/cm³)",
+        "tr": "Electrode Density (g/cm³)",
+        "de": "Electrode Density (g/cm³)",
+        "fr": "Electrode Density (g/cm³)",
+        "es": "Electrode Density (g/cm³)",
+        "ar": "Electrode Density (g/cm³)"
+      }
     },
     {
       "id": "laborCostPerHour",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "€/h",
       "default": 45,
-      "businessContext": "Hourly labor cost including overhead"
+      "businessContext": "Hourly labor cost including overhead",
+      "label_i18n": {
+        "en": "Labor Cost per Hour (€)",
+        "tr": "Labor Cost per Hour (€)",
+        "de": "Labor Cost per Hour (€)",
+        "fr": "Labor Cost per Hour (€)",
+        "es": "Labor Cost per Hour (€)",
+        "ar": "Labor Cost per Hour (€)"
+      }
     },
     {
       "id": "electrodeCostPerKg",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "€/kg",
       "default": 3.5,
-      "businessContext": "Cost per kilogram of electrode"
+      "businessContext": "Cost per kilogram of electrode",
+      "label_i18n": {
+        "en": "Electrode Cost per kg (€)",
+        "tr": "Electrode Cost per kg (€)",
+        "de": "Electrode Cost per kg (€)",
+        "fr": "Electrode Cost per kg (€)",
+        "es": "Electrode Cost per kg (€)",
+        "ar": "Electrode Cost per kg (€)"
+      }
     },
     {
       "id": "weldingSpeed",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "mm/min",
       "default": 300,
-      "businessContext": "Travel speed of the welding process"
+      "businessContext": "Travel speed of the welding process",
+      "label_i18n": {
+        "en": "Welding Speed (mm/min)",
+        "tr": "Welding Speed (mm/min)",
+        "de": "Welding Speed (mm/min)",
+        "fr": "Welding Speed (mm/min)",
+        "es": "Welding Speed (mm/min)",
+        "ar": "Welding Speed (mm/min)"
+      }
     }
   ],
   "formulas": {
@@ -84,7 +148,12 @@
       "electrodeCost",
       "laborTime",
       "laborCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -94,5 +163,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "metal",
   "profession": "Sac Teknisyeni",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

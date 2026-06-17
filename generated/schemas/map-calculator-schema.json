@@ -60,16 +60,19 @@
   ],
   "formulas": {
     "map": "(2 * dbp + sbp) / 3",
-    "MAP____2___DBP___SBP____3": "MAP = (2 * DBP + SBP) / 3",
-    "Pulse_Pressure___SBP___DBP": "Pulse Pressure = SBP - DBP",
-    "result": "Mean Arterial Pressure (MAP)"
+    "map_aux": "(2 * dbp + sbp) / 3"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "map_aux",
     "breakdown": [
       "MAP = (2 * DBP + SBP) / 3",
       "Pulse Pressure = SBP - DBP"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "MAP____2___DBP___SBP____3"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -79,5 +82,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

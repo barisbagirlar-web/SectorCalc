@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "birim",
       "default": 1,
-      "businessContext": "Dönüştürülecek sayısal değer"
+      "businessContext": "Dönüştürülecek sayısal değer",
+      "label_i18n": {
+        "en": "Değer",
+        "tr": "Değer",
+        "de": "Değer",
+        "fr": "Değer",
+        "es": "Değer",
+        "ar": "Değer"
+      }
     },
     {
       "id": "fromUnit",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "birim",
       "default": 0,
-      "businessContext": "Kaynak birim kodu (0: metre, 1: feet, 2: inch, 3: cm)"
+      "businessContext": "Kaynak birim kodu (0: metre, 1: feet, 2: inch, 3: cm)",
+      "label_i18n": {
+        "en": "Kaynak Birim",
+        "tr": "Kaynak Birim",
+        "de": "Kaynak Birim",
+        "fr": "Kaynak Birim",
+        "es": "Kaynak Birim",
+        "ar": "Kaynak Birim"
+      }
     },
     {
       "id": "toUnit",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "birim",
       "default": 1,
-      "businessContext": "Hedef birim kodu (0: metre, 1: feet, 2: inch, 3: cm)"
+      "businessContext": "Hedef birim kodu (0: metre, 1: feet, 2: inch, 3: cm)",
+      "label_i18n": {
+        "en": "Hedef Birim",
+        "tr": "Hedef Birim",
+        "de": "Hedef Birim",
+        "fr": "Hedef Birim",
+        "es": "Hedef Birim",
+        "ar": "Hedef Birim"
+      }
     },
     {
       "id": "precision",
@@ -31,18 +55,31 @@
       "type": "number",
       "unit": "basamak",
       "default": 2,
-      "businessContext": "Ondalık basamak sayısı"
+      "businessContext": "Ondalık basamak sayısı",
+      "label_i18n": {
+        "en": "Hassasiyet",
+        "tr": "Hassasiyet",
+        "de": "Hassasiyet",
+        "fr": "Hassasiyet",
+        "es": "Hassasiyet",
+        "ar": "Hassasiyet"
+      }
     }
   ],
   "formulas": {
-    "convertedValue": "(() => { const v = value; const from = fromUnit; const to = toUnit; const factors = [1, 0.3048, 0.0254, 0.01]; const vInMeters = v * factors[from]; const result = vInMeters / factors[to]; return Math.round(result * Math.pow(10, precision)) / Math.pow(10, precision); })()",
-    "breakdown": "(() => { const v = value; const from = fromUnit; const to = toUnit; const unitNames = ['metre', 'feet', 'inç', 'cm']; return [`${v} ${unitNames[from]} = ${convertedValue} ${unitNames[to]}`, `Dönüşüm faktörü: 1 ${unitNames[from]} = ${(1/factors[from]*factors[to]).toFixed(6)} ${unitNames[to]}`]; })()"
+    "result": "value + fromUnit + toUnit",
+    "result_copy": "value + fromUnit + toUnit"
   },
   "outputs": {
-    "primary": "convertedValue",
+    "primary": "result",
     "breakdown": [
       "breakdown"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "convertedValue_aux"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -52,5 +89,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

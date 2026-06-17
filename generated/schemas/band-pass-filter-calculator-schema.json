@@ -78,7 +78,12 @@
       "lowerCutoff",
       "upperCutoff",
       "gainLinear"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "gainLinear"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -88,5 +93,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "madencilik",
   "profession": "Maden Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

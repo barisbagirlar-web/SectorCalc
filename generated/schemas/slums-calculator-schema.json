@@ -101,11 +101,7 @@
   "formulas": {
     "volume": "(length * width * height) / 1000000",
     "volumeUnits": "volume / volumePerUnit",
-    "weightUnits": "weight / unitLoadCapacity",
-    "totalUnits": "Math.ceil(Math.max(volumeUnits, weightUnits))",
-    "__volume__m_": "${volume} m³",
-    "__volumeUnits_": "${volumeUnits}",
-    "__weightUnits_": "${weightUnits}"
+    "weightUnits": "weight / unitLoadCapacity"
   },
   "outputs": {
     "primary": "volume",
@@ -113,7 +109,12 @@
       "Toplam Hacim: ${volume} m³",
       "Hacim Bazlı Birim Gereksinimi: ${volumeUnits}",
       "Ağırlık Bazlı Birim Gereksinimi: ${weightUnits}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalUnits"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -123,5 +124,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Incident medium refractive index (e.g., air = 1.0)"
+      "businessContext": "Incident medium refractive index (e.g., air = 1.0)",
+      "label_i18n": {
+        "en": "Refractive Index (n1)",
+        "tr": "Refractive Index (n1)",
+        "de": "Refractive Index (n1)",
+        "fr": "Refractive Index (n1)",
+        "es": "Refractive Index (n1)",
+        "ar": "Refractive Index (n1)"
+      }
     },
     {
       "id": "n2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1.5,
-      "businessContext": "Refracting medium refractive index (e.g., glass = 1.5)"
+      "businessContext": "Refracting medium refractive index (e.g., glass = 1.5)",
+      "label_i18n": {
+        "en": "Refractive Index (n2)",
+        "tr": "Refractive Index (n2)",
+        "de": "Refractive Index (n2)",
+        "fr": "Refractive Index (n2)",
+        "es": "Refractive Index (n2)",
+        "ar": "Refractive Index (n2)"
+      }
     },
     {
       "id": "temperature",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Operating temperature of the medium"
+      "businessContext": "Operating temperature of the medium",
+      "label_i18n": {
+        "en": "Temperature",
+        "tr": "Temperature",
+        "de": "Temperature",
+        "fr": "Temperature",
+        "es": "Temperature",
+        "ar": "Temperature"
+      }
     },
     {
       "id": "temp_coefficient",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "1/°C",
       "default": 0.0001,
-      "businessContext": "Linear temperature coefficient for n2"
+      "businessContext": "Linear temperature coefficient for n2",
+      "label_i18n": {
+        "en": "Temperature Coefficient of n2",
+        "tr": "Temperature Coefficient of n2",
+        "de": "Temperature Coefficient of n2",
+        "fr": "Temperature Coefficient of n2",
+        "es": "Temperature Coefficient of n2",
+        "ar": "Temperature Coefficient of n2"
+      }
     },
     {
       "id": "reference_temp",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Reference temperature at which n2 is defined"
+      "businessContext": "Reference temperature at which n2 is defined",
+      "label_i18n": {
+        "en": "Reference Temperature",
+        "tr": "Reference Temperature",
+        "de": "Reference Temperature",
+        "fr": "Reference Temperature",
+        "es": "Reference Temperature",
+        "ar": "Reference Temperature"
+      }
     },
     {
       "id": "angle_unit",
@@ -47,20 +87,32 @@
       "type": "number",
       "unit": "0=deg, 1=rad",
       "default": 0,
-      "businessContext": "Output angle unit: 0 for degrees, 1 for radians"
+      "businessContext": "Output angle unit: 0 for degrees, 1 for radians",
+      "label_i18n": {
+        "en": "Angle Unit",
+        "tr": "Angle Unit",
+        "de": "Angle Unit",
+        "fr": "Angle Unit",
+        "es": "Angle Unit",
+        "ar": "Angle Unit"
+      }
     }
   ],
   "formulas": {
     "corrected_n2": "n2 + temp_coefficient * (temperature - reference_temp)",
-    "brewster_rad": "Math.atan(corrected_n2 / n1)",
-    "brewster_angle": "angle_unit === 0 ? brewster_rad * 180 / Math.PI : brewster_rad"
+    "corrected_n2_aux": "n2 + temp_coefficient * (temperature - reference_temp)"
   },
   "outputs": {
-    "primary": "brewster_angle",
+    "primary": "corrected_n2_aux",
     "breakdown": [
       "corrected_n2",
       "brewster_rad"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "brewster_angle"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -70,5 +122,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

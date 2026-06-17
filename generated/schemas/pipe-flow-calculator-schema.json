@@ -138,39 +138,6 @@
       "businessContext_i18n": {
         "en": "Sum of K factors for fittings, valves, bends. Per Crane Technical Paper No. 410."
       }
-    },
-    {
-      "id": "flow_regime",
-      "label": "Flow Regime Assumption",
-      "type": "select",
-      "options": [
-        "auto",
-        "laminar",
-        "turbulent"
-      ],
-      "default": "auto",
-      "businessContext": "Select 'auto' for Reynolds-based determination. Override for sensitivity analysis.",
-      "label_i18n": {
-        "en": "Flow Regime Assumption"
-      },
-      "businessContext_i18n": {
-        "en": "Select 'auto' for Reynolds-based determination. Override for sensitivity analysis."
-      },
-      "unit": "unit"
-    },
-    {
-      "id": "include_measurement_uncertainty",
-      "label": "Include Measurement Uncertainty",
-      "type": "boolean",
-      "default": true,
-      "businessContext": "When true, applies GUM (Guide to the Expression of Uncertainty in Measurement) propagation to final result.",
-      "label_i18n": {
-        "en": "Include Measurement Uncertainty"
-      },
-      "businessContext_i18n": {
-        "en": "When true, applies GUM (Guide to the Expression of Uncertainty in Measurement) propagation to final result."
-      },
-      "unit": "unit"
     }
   ],
   "validation": {
@@ -209,19 +176,18 @@
       }
     ]
   },
-  "formulas": [
-    "pipe_diameter",
-    "pipe_diameter",
-    "pipe_diameter",
-    "pipe_diameter",
-    "pipe_diameter",
-    "pipe_diameter",
-    "pipe_diameter",
-    "pipe_diameter"
-  ],
+  "formulas": {
+    "result": "pipe_diameter + pipe_length + flow_rate",
+    "result_copy": "pipe_diameter + pipe_length + flow_rate"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",

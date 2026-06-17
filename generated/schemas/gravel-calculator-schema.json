@@ -102,11 +102,7 @@
     "volume": "length * width * (depth / 12)",
     "adjustedVolume": "volume * (1 + compactionFactor / 100) * (1 + wasteFactor / 100)",
     "primary": "adjustedVolume * density / 2000",
-    "cubicYards": "adjustedVolume / 27",
-    "_volume__ft_": "{volume} ft³",
-    "_adjustedVolume__ft_": "{adjustedVolume} ft³",
-    "_primary__tons": "{primary} tons",
-    "_cubicYards__cubic_yards": "{cubicYards} cubic yards"
+    "cubicYards": "adjustedVolume / 27"
   },
   "outputs": {
     "primary": "volume",
@@ -115,7 +111,12 @@
       "Adjusted volume (with compaction & waste): {adjustedVolume} ft³",
       "Weight: {primary} tons",
       "Equivalent: {cubicYards} cubic yards"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "cubicYards"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -125,5 +126,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

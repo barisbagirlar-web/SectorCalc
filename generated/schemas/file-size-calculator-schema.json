@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "files",
       "default": 100,
-      "businessContext": "Total count of files to store or transfer"
+      "businessContext": "Total count of files to store or transfer",
+      "label_i18n": {
+        "en": "Number of Files",
+        "tr": "Number of Files",
+        "de": "Number of Files",
+        "fr": "Number of Files",
+        "es": "Number of Files",
+        "ar": "Number of Files"
+      }
     },
     {
       "id": "sizePerFileMB",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "MB",
       "default": 10,
-      "businessContext": "Average size of each file in megabytes"
+      "businessContext": "Average size of each file in megabytes",
+      "label_i18n": {
+        "en": "Size per File",
+        "tr": "Size per File",
+        "de": "Size per File",
+        "fr": "Size per File",
+        "es": "Size per File",
+        "ar": "Size per File"
+      }
     },
     {
       "id": "redundancyFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1.2,
-      "businessContext": "Storage overhead factor for redundancy, e.g., RAID 5 = 1.2"
+      "businessContext": "Storage overhead factor for redundancy, e.g., RAID 5 = 1.2",
+      "label_i18n": {
+        "en": "Redundancy Factor",
+        "tr": "Redundancy Factor",
+        "de": "Redundancy Factor",
+        "fr": "Redundancy Factor",
+        "es": "Redundancy Factor",
+        "ar": "Redundancy Factor"
+      }
     },
     {
       "id": "compressionRatio",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "ratio",
       "default": 0.8,
-      "businessContext": "Expected compression ratio between 0 and 1 (1 = no compression)"
+      "businessContext": "Expected compression ratio between 0 and 1 (1 = no compression)",
+      "label_i18n": {
+        "en": "Compression Ratio",
+        "tr": "Compression Ratio",
+        "de": "Compression Ratio",
+        "fr": "Compression Ratio",
+        "es": "Compression Ratio",
+        "ar": "Compression Ratio"
+      }
     },
     {
       "id": "overheadPerFileKB",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "KB",
       "default": 4,
-      "businessContext": "Filesystem metadata overhead per file in kilobytes"
+      "businessContext": "Filesystem metadata overhead per file in kilobytes",
+      "label_i18n": {
+        "en": "Filesystem Overhead",
+        "tr": "Filesystem Overhead",
+        "de": "Filesystem Overhead",
+        "fr": "Filesystem Overhead",
+        "es": "Filesystem Overhead",
+        "ar": "Filesystem Overhead"
+      }
     },
     {
       "id": "transferSpeedMbps",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "Mbps",
       "default": 100,
-      "businessContext": "Network speed in megabits per second for download/upload time estimation"
+      "businessContext": "Network speed in megabits per second for download/upload time estimation",
+      "label_i18n": {
+        "en": "Network Transfer Speed",
+        "tr": "Network Transfer Speed",
+        "de": "Network Transfer Speed",
+        "fr": "Network Transfer Speed",
+        "es": "Network Transfer Speed",
+        "ar": "Network Transfer Speed"
+      }
     }
   ],
   "formulas": {
@@ -65,7 +113,12 @@
       "totalUncompressedMB",
       "totalCompressedMB",
       "downloadTimeMinutes"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "downloadTimeMinutes"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -75,5 +128,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "lojistik",
   "profession": "Lojistik Uzmanı",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

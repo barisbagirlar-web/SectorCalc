@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "year",
       "default": 1990,
-      "businessContext": "User demographic data"
+      "businessContext": "User demographic data",
+      "label_i18n": {
+        "en": "Birth Year",
+        "tr": "Birth Year",
+        "de": "Birth Year",
+        "fr": "Birth Year",
+        "es": "Birth Year",
+        "ar": "Birth Year"
+      }
     },
     {
       "id": "currentYear",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "year",
       "default": 2024,
-      "businessContext": "Reference year for age calculation"
+      "businessContext": "Reference year for age calculation",
+      "label_i18n": {
+        "en": "Current Year",
+        "tr": "Current Year",
+        "de": "Current Year",
+        "fr": "Current Year",
+        "es": "Current Year",
+        "ar": "Current Year"
+      }
     },
     {
       "id": "restingHR",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "bpm",
       "default": 70,
-      "businessContext": "User health metric"
+      "businessContext": "User health metric",
+      "label_i18n": {
+        "en": "Resting Heart Rate",
+        "tr": "Resting Heart Rate",
+        "de": "Resting Heart Rate",
+        "fr": "Resting Heart Rate",
+        "es": "Resting Heart Rate",
+        "ar": "Resting Heart Rate"
+      }
     },
     {
       "id": "lowerIntensity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 60,
-      "businessContext": "Target heart rate zone lower bound"
+      "businessContext": "Target heart rate zone lower bound",
+      "label_i18n": {
+        "en": "Lower Intensity Zone",
+        "tr": "Lower Intensity Zone",
+        "de": "Lower Intensity Zone",
+        "fr": "Lower Intensity Zone",
+        "es": "Lower Intensity Zone",
+        "ar": "Lower Intensity Zone"
+      }
     },
     {
       "id": "upperIntensity",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 80,
-      "businessContext": "Target heart rate zone upper bound"
+      "businessContext": "Target heart rate zone upper bound",
+      "label_i18n": {
+        "en": "Upper Intensity Zone",
+        "tr": "Upper Intensity Zone",
+        "de": "Upper Intensity Zone",
+        "fr": "Upper Intensity Zone",
+        "es": "Upper Intensity Zone",
+        "ar": "Upper Intensity Zone"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
     "breakdown": [
       "lowerTarget",
       "upperTarget"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "upperTarget"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -64,5 +109,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

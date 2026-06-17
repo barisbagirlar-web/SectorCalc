@@ -68,11 +68,7 @@
   ],
   "formulas": {
     "s": "(sideA + sideB + sideC) / 2",
-    "area": "Math.sqrt(s * (s - sideA) * (s - sideB) * (s - sideC))",
-    "volume": "area * prismHeight",
-    "__s__m": "${s} m",
-    "__area__m_": "${area} m²",
-    "__volume__m_": "${volume} m³"
+    "s_aux": "(sideA + sideB + sideC) / 2"
   },
   "outputs": {
     "primary": "s",
@@ -80,7 +76,12 @@
       "Semi-perimeter: ${s} m",
       "Base area: ${area} m²",
       "Volume: ${volume} m³"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "volume"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -90,5 +91,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

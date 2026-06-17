@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "EUR/day",
       "default": 100,
-      "businessContext": "Minimum daily funds required by the embassy per person."
+      "businessContext": "Minimum daily funds required by the embassy per person.",
+      "label_i18n": {
+        "en": "Daily Expense Requirement (EUR)",
+        "tr": "Daily Expense Requirement (EUR)",
+        "de": "Daily Expense Requirement (EUR)",
+        "fr": "Daily Expense Requirement (EUR)",
+        "es": "Daily Expense Requirement (EUR)",
+        "ar": "Daily Expense Requirement (EUR)"
+      }
     },
     {
       "id": "numberOfDays",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "days",
       "default": 7,
-      "businessContext": "Total days of intended stay."
+      "businessContext": "Total days of intended stay.",
+      "label_i18n": {
+        "en": "Number of Days of Stay",
+        "tr": "Number of Days of Stay",
+        "de": "Number of Days of Stay",
+        "fr": "Number of Days of Stay",
+        "es": "Number of Days of Stay",
+        "ar": "Number of Days of Stay"
+      }
     },
     {
       "id": "exchangeRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "LC/EUR",
       "default": 1.1,
-      "businessContext": "Current exchange rate from local currency to EUR."
+      "businessContext": "Current exchange rate from local currency to EUR.",
+      "label_i18n": {
+        "en": "Exchange Rate (Local to EUR)",
+        "tr": "Exchange Rate (Local to EUR)",
+        "de": "Exchange Rate (Local to EUR)",
+        "fr": "Exchange Rate (Local to EUR)",
+        "es": "Exchange Rate (Local to EUR)",
+        "ar": "Exchange Rate (Local to EUR)"
+      }
     },
     {
       "id": "bufferPercent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Additional percentage to ensure sufficient funds."
+      "businessContext": "Additional percentage to ensure sufficient funds.",
+      "label_i18n": {
+        "en": "Buffer (%)",
+        "tr": "Buffer (%)",
+        "de": "Buffer (%)",
+        "fr": "Buffer (%)",
+        "es": "Buffer (%)",
+        "ar": "Buffer (%)"
+      }
     },
     {
       "id": "applicationFee",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "LC",
       "default": 800,
-      "businessContext": "Non-refundable visa processing fee in local currency."
+      "businessContext": "Non-refundable visa processing fee in local currency.",
+      "label_i18n": {
+        "en": "Visa Application Fee (Local)",
+        "tr": "Visa Application Fee (Local)",
+        "de": "Visa Application Fee (Local)",
+        "fr": "Visa Application Fee (Local)",
+        "es": "Visa Application Fee (Local)",
+        "ar": "Visa Application Fee (Local)"
+      }
     }
   ],
   "formulas": {
@@ -58,7 +98,12 @@
       "totalRequiredLocal",
       "applicationFee",
       "totalCostLocal"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCostLocal"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -68,5 +113,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

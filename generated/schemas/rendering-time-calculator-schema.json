@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "px",
       "default": 1920,
-      "businessContext": "Width of the output image in pixels for rendering."
+      "businessContext": "Width of the output image in pixels for rendering.",
+      "label_i18n": {
+        "en": "Resolution Width",
+        "tr": "Resolution Width",
+        "de": "Resolution Width",
+        "fr": "Resolution Width",
+        "es": "Resolution Width",
+        "ar": "Resolution Width"
+      }
     },
     {
       "id": "resolutionHeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "px",
       "default": 1080,
-      "businessContext": "Height of the output image in pixels for rendering."
+      "businessContext": "Height of the output image in pixels for rendering.",
+      "label_i18n": {
+        "en": "Resolution Height",
+        "tr": "Resolution Height",
+        "de": "Resolution Height",
+        "fr": "Resolution Height",
+        "es": "Resolution Height",
+        "ar": "Resolution Height"
+      }
     },
     {
       "id": "samplesPerPixel",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "samples",
       "default": 128,
-      "businessContext": "Number of samples per pixel for anti-aliasing quality."
+      "businessContext": "Number of samples per pixel for anti-aliasing quality.",
+      "label_i18n": {
+        "en": "Samples per Pixel",
+        "tr": "Samples per Pixel",
+        "de": "Samples per Pixel",
+        "fr": "Samples per Pixel",
+        "es": "Samples per Pixel",
+        "ar": "Samples per Pixel"
+      }
     },
     {
       "id": "frameCount",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "frames",
       "default": 1,
-      "businessContext": "Total number of frames to render, e.g., for animation."
+      "businessContext": "Total number of frames to render, e.g., for animation.",
+      "label_i18n": {
+        "en": "Frame Count",
+        "tr": "Frame Count",
+        "de": "Frame Count",
+        "fr": "Frame Count",
+        "es": "Frame Count",
+        "ar": "Frame Count"
+      }
     },
     {
       "id": "renderEngineSpeed",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "rays/s",
       "default": 1000000,
-      "businessContext": "Render engine throughput in rays per second. Adjust for hardware/software."
+      "businessContext": "Render engine throughput in rays per second. Adjust for hardware/software.",
+      "label_i18n": {
+        "en": "Render Engine Speed",
+        "tr": "Render Engine Speed",
+        "de": "Render Engine Speed",
+        "fr": "Render Engine Speed",
+        "es": "Render Engine Speed",
+        "ar": "Render Engine Speed"
+      }
     },
     {
       "id": "complexityFactor",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1,
-      "businessContext": "Scene complexity multiplier. 1 for simple, 5 for highly complex."
+      "businessContext": "Scene complexity multiplier. 1 for simple, 5 for highly complex.",
+      "label_i18n": {
+        "en": "Complexity Factor",
+        "tr": "Complexity Factor",
+        "de": "Complexity Factor",
+        "fr": "Complexity Factor",
+        "es": "Complexity Factor",
+        "ar": "Complexity Factor"
+      }
     },
     {
       "id": "maxBounces",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "bounces",
       "default": 4,
-      "businessContext": "Maximum light bounces for global illumination. Higher increases realism and time."
+      "businessContext": "Maximum light bounces for global illumination. Higher increases realism and time.",
+      "label_i18n": {
+        "en": "Max Ray Bounces",
+        "tr": "Max Ray Bounces",
+        "de": "Max Ray Bounces",
+        "fr": "Max Ray Bounces",
+        "es": "Max Ray Bounces",
+        "ar": "Max Ray Bounces"
+      }
     }
   ],
   "formulas": {
@@ -72,7 +128,12 @@
       "totalRays",
       "renderTimeSeconds",
       "renderTimeMinutes"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "renderTimeHours"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -82,5 +143,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

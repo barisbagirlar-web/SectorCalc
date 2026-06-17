@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ha",
       "default": 1,
-      "businessContext": "Area of the catchment in hectares."
+      "businessContext": "Area of the catchment in hectares.",
+      "label_i18n": {
+        "en": "Catchment Area",
+        "tr": "Catchment Area",
+        "de": "Catchment Area",
+        "fr": "Catchment Area",
+        "es": "Catchment Area",
+        "ar": "Catchment Area"
+      }
     },
     {
       "id": "runoff_coefficient",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "-",
       "default": 0.7,
-      "businessContext": "Dimensionless runoff coefficient (0-1)."
+      "businessContext": "Dimensionless runoff coefficient (0-1).",
+      "label_i18n": {
+        "en": "Runoff Coefficient",
+        "tr": "Runoff Coefficient",
+        "de": "Runoff Coefficient",
+        "fr": "Runoff Coefficient",
+        "es": "Runoff Coefficient",
+        "ar": "Runoff Coefficient"
+      }
     },
     {
       "id": "rainfall_intensity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm/h",
       "default": 50,
-      "businessContext": "Design rainfall intensity in mm per hour."
+      "businessContext": "Design rainfall intensity in mm per hour.",
+      "label_i18n": {
+        "en": "Rainfall Intensity",
+        "tr": "Rainfall Intensity",
+        "de": "Rainfall Intensity",
+        "fr": "Rainfall Intensity",
+        "es": "Rainfall Intensity",
+        "ar": "Rainfall Intensity"
+      }
     },
     {
       "id": "pipe_diameter",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.5,
-      "businessContext": "Internal diameter of the circular sewer pipe in meters."
+      "businessContext": "Internal diameter of the circular sewer pipe in meters.",
+      "label_i18n": {
+        "en": "Pipe Diameter",
+        "tr": "Pipe Diameter",
+        "de": "Pipe Diameter",
+        "fr": "Pipe Diameter",
+        "es": "Pipe Diameter",
+        "ar": "Pipe Diameter"
+      }
     },
     {
       "id": "pipe_slope",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m/m",
       "default": 0.01,
-      "businessContext": "Longitudinal slope of the pipe (rise/run)."
+      "businessContext": "Longitudinal slope of the pipe (rise/run).",
+      "label_i18n": {
+        "en": "Pipe Slope",
+        "tr": "Pipe Slope",
+        "de": "Pipe Slope",
+        "fr": "Pipe Slope",
+        "es": "Pipe Slope",
+        "ar": "Pipe Slope"
+      }
     },
     {
       "id": "manning_n",
@@ -47,22 +87,33 @@
       "type": "number",
       "unit": "-",
       "default": 0.013,
-      "businessContext": "Manning's roughness coefficient for the pipe material."
+      "businessContext": "Manning's roughness coefficient for the pipe material.",
+      "label_i18n": {
+        "en": "Manning's Roughness",
+        "tr": "Manning's Roughness",
+        "de": "Manning's Roughness",
+        "fr": "Manning's Roughness",
+        "es": "Manning's Roughness",
+        "ar": "Manning's Roughness"
+      }
     }
   ],
   "formulas": {
     "required_flow": "runoff_coefficient * rainfall_intensity * catchment_area / 360",
     "full_area": "Math.PI * pipe_diameter**2 / 4",
-    "hydraulic_radius": "pipe_diameter / 4",
-    "capacity_flow": "(1 / manning_n) * full_area * hydraulic_radius**(2/3) * Math.sqrt(pipe_slope)",
-    "margin_flow": "capacity_flow - required_flow"
+    "hydraulic_radius": "pipe_diameter / 4"
   },
   "outputs": {
-    "primary": "margin_flow",
+    "primary": "hydraulic_radius",
     "breakdown": [
       "required_flow",
       "capacity_flow"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "margin_flow"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -72,5 +123,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

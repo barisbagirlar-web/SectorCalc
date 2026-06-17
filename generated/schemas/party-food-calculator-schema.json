@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kişi",
       "default": 10,
-      "businessContext": "Partiye katılacak yetişkin sayısı"
+      "businessContext": "Partiye katılacak yetişkin sayısı",
+      "label_i18n": {
+        "en": "Yetişkin Sayısı",
+        "tr": "Yetişkin Sayısı",
+        "de": "Yetişkin Sayısı",
+        "fr": "Yetişkin Sayısı",
+        "es": "Yetişkin Sayısı",
+        "ar": "Yetişkin Sayısı"
+      }
     },
     {
       "id": "children",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kişi",
       "default": 5,
-      "businessContext": "Partiye katılacak çocuk sayısı (12 yaş altı)"
+      "businessContext": "Partiye katılacak çocuk sayısı (12 yaş altı)",
+      "label_i18n": {
+        "en": "Çocuk Sayısı",
+        "tr": "Çocuk Sayısı",
+        "de": "Çocuk Sayısı",
+        "fr": "Çocuk Sayısı",
+        "es": "Çocuk Sayısı",
+        "ar": "Çocuk Sayısı"
+      }
     },
     {
       "id": "hours",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "saat",
       "default": 3,
-      "businessContext": "Partinin tahmini süresi (saat)"
+      "businessContext": "Partinin tahmini süresi (saat)",
+      "label_i18n": {
+        "en": "Parti Süresi",
+        "tr": "Parti Süresi",
+        "de": "Parti Süresi",
+        "fr": "Parti Süresi",
+        "es": "Parti Süresi",
+        "ar": "Parti Süresi"
+      }
     },
     {
       "id": "veggieRatio",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Misafirler içindeki vejetaryen oranı (yüzde)"
+      "businessContext": "Misafirler içindeki vejetaryen oranı (yüzde)",
+      "label_i18n": {
+        "en": "Vejetaryen Oranı",
+        "tr": "Vejetaryen Oranı",
+        "de": "Vejetaryen Oranı",
+        "fr": "Vejetaryen Oranı",
+        "es": "Vejetaryen Oranı",
+        "ar": "Vejetaryen Oranı"
+      }
     }
   ],
   "formulas": {
@@ -49,7 +81,12 @@
       "sideDish",
       "dessert",
       "drinks"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalFoodUnits"
   },
   "category": "Gıda & Tarım",
   "sector": "Perakende & Gıda",
@@ -59,5 +96,10 @@
   "categorySlug": "food-cold-chain-hygiene",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 350,
-      "businessContext": "Amount of cement per cubic meter of concrete"
+      "businessContext": "Amount of cement per cubic meter of concrete",
+      "label_i18n": {
+        "en": "Cement Content",
+        "tr": "Cement Content",
+        "de": "Cement Content",
+        "fr": "Cement Content",
+        "es": "Cement Content",
+        "ar": "Cement Content"
+      }
     },
     {
       "id": "waterContent",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 180,
-      "businessContext": "Amount of water per cubic meter of concrete"
+      "businessContext": "Amount of water per cubic meter of concrete",
+      "label_i18n": {
+        "en": "Water Content",
+        "tr": "Water Content",
+        "de": "Water Content",
+        "fr": "Water Content",
+        "es": "Water Content",
+        "ar": "Water Content"
+      }
     },
     {
       "id": "age",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "days",
       "default": 28,
-      "businessContext": "Time in days since casting"
+      "businessContext": "Time in days since casting",
+      "label_i18n": {
+        "en": "Age of Concrete",
+        "tr": "Age of Concrete",
+        "de": "Age of Concrete",
+        "fr": "Age of Concrete",
+        "es": "Age of Concrete",
+        "ar": "Age of Concrete"
+      }
     },
     {
       "id": "constantA",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 100,
-      "businessContext": "Empirical material constant A in Abrams' law (strength scale)"
+      "businessContext": "Empirical material constant A in Abrams' law (strength scale)",
+      "label_i18n": {
+        "en": "A coefficient (Abrams)",
+        "tr": "A coefficient (Abrams)",
+        "de": "A coefficient (Abrams)",
+        "fr": "A coefficient (Abrams)",
+        "es": "A coefficient (Abrams)",
+        "ar": "A coefficient (Abrams)"
+      }
     },
     {
       "id": "constantB",
@@ -39,13 +71,20 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 16,
-      "businessContext": "Empirical material constant B in Abrams' law (typically 10-20)"
+      "businessContext": "Empirical material constant B in Abrams' law (typically 10-20)",
+      "label_i18n": {
+        "en": "B coefficient (Abrams)",
+        "tr": "B coefficient (Abrams)",
+        "de": "B coefficient (Abrams)",
+        "fr": "B coefficient (Abrams)",
+        "es": "B coefficient (Abrams)",
+        "ar": "B coefficient (Abrams)"
+      }
     }
   ],
   "formulas": {
     "waterCementRatio": "waterContent / cementContent",
-    "strength28Day": "constantA / Math.pow(constantB, waterCementRatio)",
-    "compressiveStrength": "strength28Day * (age / (4 + 0.85 * age))"
+    "waterCementRatio_aux": "waterContent / cementContent"
   },
   "outputs": {
     "primary": "waterCementRatio",
@@ -60,7 +99,12 @@
         "label": "28-Day Strength",
         "unit": "MPa"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "compressiveStrength"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -70,5 +114,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "metal",
   "profession": "Sac Teknisyeni",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

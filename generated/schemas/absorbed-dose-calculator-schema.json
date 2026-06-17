@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "Mass of the material that absorbs the radiation energy."
+      "businessContext": "Mass of the material that absorbs the radiation energy.",
+      "label_i18n": {
+        "en": "Mass of Absorbing Material",
+        "tr": "Mass of Absorbing Material",
+        "de": "Mass of Absorbing Material",
+        "fr": "Mass of Absorbing Material",
+        "es": "Mass of Absorbing Material",
+        "ar": "Mass of Absorbing Material"
+      }
     },
     {
       "id": "energy",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "J",
       "default": 100,
-      "businessContext": "Total energy deposited by ionizing radiation into the material."
+      "businessContext": "Total energy deposited by ionizing radiation into the material.",
+      "label_i18n": {
+        "en": "Total Energy Deposited",
+        "tr": "Total Energy Deposited",
+        "de": "Total Energy Deposited",
+        "fr": "Total Energy Deposited",
+        "es": "Total Energy Deposited",
+        "ar": "Total Energy Deposited"
+      }
     },
     {
       "id": "time",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "s",
       "default": 3600,
-      "businessContext": "Duration of radiation exposure."
+      "businessContext": "Duration of radiation exposure.",
+      "label_i18n": {
+        "en": "Exposure Time",
+        "tr": "Exposure Time",
+        "de": "Exposure Time",
+        "fr": "Exposure Time",
+        "es": "Exposure Time",
+        "ar": "Exposure Time"
+      }
     },
     {
       "id": "density",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1000,
-      "businessContext": "Density of the absorbing material (e.g., water = 1000 kg/m³)."
+      "businessContext": "Density of the absorbing material (e.g., water = 1000 kg/m³).",
+      "label_i18n": {
+        "en": "Material Density",
+        "tr": "Material Density",
+        "de": "Material Density",
+        "fr": "Material Density",
+        "es": "Material Density",
+        "ar": "Material Density"
+      }
     },
     {
       "id": "volume",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m³",
       "default": 0.001,
-      "businessContext": "Volume of the absorbing material."
+      "businessContext": "Volume of the absorbing material.",
+      "label_i18n": {
+        "en": "Volume of Material",
+        "tr": "Volume of Material",
+        "de": "Volume of Material",
+        "fr": "Volume of Material",
+        "es": "Volume of Material",
+        "ar": "Volume of Material"
+      }
     }
   ],
   "formulas": {
@@ -55,7 +95,12 @@
       "doseRate",
       "massFromDensity",
       "checkMass"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "checkMass"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -65,5 +110,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

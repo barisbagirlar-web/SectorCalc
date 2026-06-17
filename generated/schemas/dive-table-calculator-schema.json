@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 30,
-      "businessContext": "Planned maximum depth of the dive, affecting inert gas loading and decompression risk."
+      "businessContext": "Planned maximum depth of the dive, affecting inert gas loading and decompression risk.",
+      "label_i18n": {
+        "en": "Target Dive Depth",
+        "tr": "Target Dive Depth",
+        "de": "Target Dive Depth",
+        "fr": "Target Dive Depth",
+        "es": "Target Dive Depth",
+        "ar": "Target Dive Depth"
+      }
     },
     {
       "id": "targetPPO2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "atm",
       "default": 1.4,
-      "businessContext": "Safe maximum partial pressure of oxygen to avoid CNS toxicity (1.4–1.6 atm)."
+      "businessContext": "Safe maximum partial pressure of oxygen to avoid CNS toxicity (1.4–1.6 atm).",
+      "label_i18n": {
+        "en": "Target Partial Pressure O₂",
+        "tr": "Target Partial Pressure O₂",
+        "de": "Target Partial Pressure O₂",
+        "fr": "Target Partial Pressure O₂",
+        "es": "Target Partial Pressure O₂",
+        "ar": "Target Partial Pressure O₂"
+      }
     },
     {
       "id": "o2Fraction",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 32,
-      "businessContext": "Oxygen percentage in the breathing gas mix, determines depth limits and decompression efficiency."
+      "businessContext": "Oxygen percentage in the breathing gas mix, determines depth limits and decompression efficiency.",
+      "label_i18n": {
+        "en": "Nitrox O₂ Fraction",
+        "tr": "Nitrox O₂ Fraction",
+        "de": "Nitrox O₂ Fraction",
+        "fr": "Nitrox O₂ Fraction",
+        "es": "Nitrox O₂ Fraction",
+        "ar": "Nitrox O₂ Fraction"
+      }
     }
   ],
   "formulas": {
@@ -34,7 +58,12 @@
     "primary": "mod",
     "breakdown": [
       "bestMix"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "bestMix"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -44,5 +73,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "efficiency"
+  "categoryId": "efficiency",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

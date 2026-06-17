@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "Presence of congestive heart failure (0=No, 1=Yes)"
+      "businessContext": "Presence of congestive heart failure (0=No, 1=Yes)",
+      "label_i18n": {
+        "en": "Congestive Heart Failure",
+        "tr": "Congestive Heart Failure",
+        "de": "Congestive Heart Failure",
+        "fr": "Congestive Heart Failure",
+        "es": "Congestive Heart Failure",
+        "ar": "Congestive Heart Failure"
+      }
     },
     {
       "id": "hypertension",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "Diagnosed hypertension (0=No, 1=Yes)"
+      "businessContext": "Diagnosed hypertension (0=No, 1=Yes)",
+      "label_i18n": {
+        "en": "Hypertension",
+        "tr": "Hypertension",
+        "de": "Hypertension",
+        "fr": "Hypertension",
+        "es": "Hypertension",
+        "ar": "Hypertension"
+      }
     },
     {
       "id": "age",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 65,
-      "businessContext": "Patient age in years"
+      "businessContext": "Patient age in years",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "diabetes",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "Diagnosed diabetes mellitus (0=No, 1=Yes)"
+      "businessContext": "Diagnosed diabetes mellitus (0=No, 1=Yes)",
+      "label_i18n": {
+        "en": "Diabetes",
+        "tr": "Diabetes",
+        "de": "Diabetes",
+        "fr": "Diabetes",
+        "es": "Diabetes",
+        "ar": "Diabetes"
+      }
     },
     {
       "id": "priorStrokeOrTIA",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "History of stroke or transient ischemic attack (0=No, 1=Yes)"
+      "businessContext": "History of stroke or transient ischemic attack (0=No, 1=Yes)",
+      "label_i18n": {
+        "en": "Prior Stroke or TIA",
+        "tr": "Prior Stroke or TIA",
+        "de": "Prior Stroke or TIA",
+        "fr": "Prior Stroke or TIA",
+        "es": "Prior Stroke or TIA",
+        "ar": "Prior Stroke or TIA"
+      }
     },
     {
       "id": "vascularDisease",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "Presence of vascular disease (0=No, 1=Yes)"
+      "businessContext": "Presence of vascular disease (0=No, 1=Yes)",
+      "label_i18n": {
+        "en": "Vascular Disease",
+        "tr": "Vascular Disease",
+        "de": "Vascular Disease",
+        "fr": "Vascular Disease",
+        "es": "Vascular Disease",
+        "ar": "Vascular Disease"
+      }
     },
     {
       "id": "sex",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "Patient sex (0=Male, 1=Female)"
+      "businessContext": "Patient sex (0=Male, 1=Female)",
+      "label_i18n": {
+        "en": "Sex (Female=1)",
+        "tr": "Sex (Female=1)",
+        "de": "Sex (Female=1)",
+        "fr": "Sex (Female=1)",
+        "es": "Sex (Female=1)",
+        "ar": "Sex (Female=1)"
+      }
     }
   ],
   "formulas": {
@@ -65,16 +121,19 @@
     "dmPoints": "diabetes",
     "strokePoints": "priorStrokeOrTIA || vascularDisease ? 2 : 0",
     "sexPoints": "sex",
-    "riskScore": "chfPoints + htnPoints + agePoints + dmPoints + strokePoints + sexPoints",
-    "pointsBreakdown": "`CHF: ${chfPoints}, HTN: ${htnPoints}, Age: ${agePoints}, DM: ${dmPoints}, Stroke/TIA/Vasc: ${strokePoints}, Sex: ${sexPoints}`",
-    "riskCategory": "riskScore == 0 ? 'Low risk' : riskScore == 1 ? 'Moderate risk' : 'High risk'"
+    "riskScore": "chfPoints + htnPoints + agePoints + dmPoints + strokePoints + sexPoints"
   },
   "outputs": {
     "primary": "riskScore",
     "breakdown": [
       "pointsBreakdown",
       "riskCategory"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "riskCategory"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -84,5 +143,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

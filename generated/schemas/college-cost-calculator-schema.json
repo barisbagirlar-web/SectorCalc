@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 20000,
-      "businessContext": "Annual tuition and fees charged by the college"
+      "businessContext": "Annual tuition and fees charged by the college",
+      "label_i18n": {
+        "en": "Annual Tuition",
+        "tr": "Annual Tuition",
+        "de": "Annual Tuition",
+        "fr": "Annual Tuition",
+        "es": "Annual Tuition",
+        "ar": "Annual Tuition"
+      }
     },
     {
       "id": "living",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 15000,
-      "businessContext": "Annual cost of housing, food, transportation, and personal expenses"
+      "businessContext": "Annual cost of housing, food, transportation, and personal expenses",
+      "label_i18n": {
+        "en": "Annual Living Expenses",
+        "tr": "Annual Living Expenses",
+        "de": "Annual Living Expenses",
+        "fr": "Annual Living Expenses",
+        "es": "Annual Living Expenses",
+        "ar": "Annual Living Expenses"
+      }
     },
     {
       "id": "books",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 2000,
-      "businessContext": "Annual cost of textbooks, supplies, and equipment"
+      "businessContext": "Annual cost of textbooks, supplies, and equipment",
+      "label_i18n": {
+        "en": "Annual Books & Supplies",
+        "tr": "Annual Books & Supplies",
+        "de": "Annual Books & Supplies",
+        "fr": "Annual Books & Supplies",
+        "es": "Annual Books & Supplies",
+        "ar": "Annual Books & Supplies"
+      }
     },
     {
       "id": "years",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "years",
       "default": 4,
-      "businessContext": "Expected number of years to complete the program"
+      "businessContext": "Expected number of years to complete the program",
+      "label_i18n": {
+        "en": "Duration of Study",
+        "tr": "Duration of Study",
+        "de": "Duration of Study",
+        "fr": "Duration of Study",
+        "es": "Duration of Study",
+        "ar": "Duration of Study"
+      }
     },
     {
       "id": "inflation",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 3,
-      "businessContext": "Expected annual increase in college costs"
+      "businessContext": "Expected annual increase in college costs",
+      "label_i18n": {
+        "en": "Annual Inflation Rate",
+        "tr": "Annual Inflation Rate",
+        "de": "Annual Inflation Rate",
+        "fr": "Annual Inflation Rate",
+        "es": "Annual Inflation Rate",
+        "ar": "Annual Inflation Rate"
+      }
     },
     {
       "id": "scholarship",
@@ -47,20 +87,32 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Annual amount of scholarships or grants that do not need repayment"
+      "businessContext": "Annual amount of scholarships or grants that do not need repayment",
+      "label_i18n": {
+        "en": "Annual Scholarship",
+        "tr": "Annual Scholarship",
+        "de": "Annual Scholarship",
+        "fr": "Annual Scholarship",
+        "es": "Annual Scholarship",
+        "ar": "Annual Scholarship"
+      }
     }
   ],
   "formulas": {
-    "grossTotal": "(() => { let sum = 0; for (let i = 0; i < years; i++) { sum += (tuition + living + books) * Math.pow(1 + inflation/100, i); } return sum; })()",
     "totalScholarship": "scholarship * years",
-    "netCost": "Math.max(0, grossTotal - totalScholarship)"
+    "totalScholarship_aux": "scholarship * years"
   },
   "outputs": {
-    "primary": "netCost",
+    "primary": "totalScholarship_aux",
     "breakdown": [
       "grossTotal",
       "totalScholarship"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "netCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -70,5 +122,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

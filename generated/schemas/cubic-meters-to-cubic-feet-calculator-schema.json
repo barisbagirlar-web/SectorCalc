@@ -86,16 +86,20 @@
     "cubicFeet": "cubicMeters * conversionFactor * safetyFactor",
     "uncertainty": "cubicFeet * (measurementUncertainty / 100)",
     "lowerBound": "cubicFeet - uncertainty",
-    "upperBound": "cubicFeet + uncertainty",
-    "cubicFeetRounded": "Math.round(cubicFeet * 10**decimalPlaces) / 10**decimalPlaces"
+    "upperBound": "cubicFeet + uncertainty"
   },
   "outputs": {
-    "primary": "cubicFeetRounded",
+    "primary": "upperBound",
     "breakdown": [
       "cubicFeet",
       "lowerBound",
       "upperBound"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "cubicFeetRounded"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -105,5 +109,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

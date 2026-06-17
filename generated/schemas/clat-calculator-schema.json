@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 10,
-      "businessContext": "Mass of the rotating component (e.g., blade, disk)"
+      "businessContext": "Mass of the rotating component (e.g., blade, disk)",
+      "label_i18n": {
+        "en": "Mass (m)",
+        "tr": "Mass (m)",
+        "de": "Mass (m)",
+        "fr": "Mass (m)",
+        "es": "Mass (m)",
+        "ar": "Mass (m)"
+      }
     },
     {
       "id": "radius",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.5,
-      "businessContext": "Distance from rotation axis to center of mass"
+      "businessContext": "Distance from rotation axis to center of mass",
+      "label_i18n": {
+        "en": "Radius (r)",
+        "tr": "Radius (r)",
+        "de": "Radius (r)",
+        "fr": "Radius (r)",
+        "es": "Radius (r)",
+        "ar": "Radius (r)"
+      }
     },
     {
       "id": "angularVelocity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "rad/s",
       "default": 100,
-      "businessContext": "Rotational speed in radians per second (1 rad/s ≈ 9.55 rpm)"
+      "businessContext": "Rotational speed in radians per second (1 rad/s ≈ 9.55 rpm)",
+      "label_i18n": {
+        "en": "Angular Velocity (ω)",
+        "tr": "Angular Velocity (ω)",
+        "de": "Angular Velocity (ω)",
+        "fr": "Angular Velocity (ω)",
+        "es": "Angular Velocity (ω)",
+        "ar": "Angular Velocity (ω)"
+      }
     },
     {
       "id": "area",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m²",
       "default": 0.01,
-      "businessContext": "Effective cross-sectional area supporting the load"
+      "businessContext": "Effective cross-sectional area supporting the load",
+      "label_i18n": {
+        "en": "Cross-sectional Area (A)",
+        "tr": "Cross-sectional Area (A)",
+        "de": "Cross-sectional Area (A)",
+        "fr": "Cross-sectional Area (A)",
+        "es": "Cross-sectional Area (A)",
+        "ar": "Cross-sectional Area (A)"
+      }
     },
     {
       "id": "yieldStress",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "Pa",
       "default": 250000000,
-      "businessContext": "Material yield strength (e.g., structural steel ~250 MPa)"
+      "businessContext": "Material yield strength (e.g., structural steel ~250 MPa)",
+      "label_i18n": {
+        "en": "Yield Stress (σ_y)",
+        "tr": "Yield Stress (σ_y)",
+        "de": "Yield Stress (σ_y)",
+        "fr": "Yield Stress (σ_y)",
+        "es": "Yield Stress (σ_y)",
+        "ar": "Yield Stress (σ_y)"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "stress",
       "safetyFactor"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "safetyFactor"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -62,5 +107,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "metal",
   "profession": "Sac Teknisyeni",
-  "categoryId": "engineering"
+  "categoryId": "engineering",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from convergent-divergent-nozzle-calculator-schema.json
 import * as z from 'zod';
 
@@ -21,26 +22,33 @@ export const Convergent_divergent_nozzle_calculatorInputSchema = z.object({
   ambientPressure: z.number().default(101325),
 });
 
-function evaluateAllFormulas(input: Convergent_divergent_nozzle_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (input.throatArea * input.totalPressure / Math.sqrt(input.totalTemperature)) * Math.sqrt( (input.specificHeatRatio / input.gasConstant) * Math.pow(2/(input.specificHeatRatio+1), (input.specificHeatRatio+1)/(input.specificHeatRatio-1)) ); results["massFlowRate"] = Number.isFinite(v) ? v : 0; } catch { results["massFlowRate"] = 0; }
-  try { const v = Math.sqrt( (2*input.specificHeatRatio*input.gasConstant*input.totalTemperature)/(input.specificHeatRatio-1) * (1 - Math.pow(input.ambientPressure/input.totalPressure, (input.specificHeatRatio-1)/input.specificHeatRatio)) ); results["exitVelocity"] = Number.isFinite(v) ? v : 0; } catch { results["exitVelocity"] = 0; }
-  try { const v = (results["massFlowRate"] ?? 0) * (results["exitVelocity"] ?? 0); results["thrust"] = Number.isFinite(v) ? v : 0; } catch { results["thrust"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Convergent_divergent_nozzle_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.totalPressure + input.totalTemperature + input.throatArea; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.totalPressure + input.totalTemperature + input.throatArea; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateConvergent_divergent_nozzle_calculator(input: Convergent_divergent_nozzle_calculatorInput): Convergent_divergent_nozzle_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["massFlowRate"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

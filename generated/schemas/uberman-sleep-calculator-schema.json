@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "min",
       "default": 20,
-      "businessContext": "Typical nap length in the Uberman cycle is 20 minutes. Adjust for personal adaptation."
+      "businessContext": "Typical nap length in the Uberman cycle is 20 minutes. Adjust for personal adaptation.",
+      "label_i18n": {
+        "en": "Nap Duration (min)",
+        "tr": "Nap Duration (min)",
+        "de": "Nap Duration (min)",
+        "fr": "Nap Duration (min)",
+        "es": "Nap Duration (min)",
+        "ar": "Nap Duration (min)"
+      }
     },
     {
       "id": "intervalBetweenNaps",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "h",
       "default": 4,
-      "businessContext": "The awake time between consecutive naps, in hours. Standard Uberman schedule uses 4-hour intervals."
+      "businessContext": "The awake time between consecutive naps, in hours. Standard Uberman schedule uses 4-hour intervals.",
+      "label_i18n": {
+        "en": "Interval Between Naps (h)",
+        "tr": "Interval Between Naps (h)",
+        "de": "Interval Between Naps (h)",
+        "fr": "Interval Between Naps (h)",
+        "es": "Interval Between Naps (h)",
+        "ar": "Interval Between Naps (h)"
+      }
     },
     {
       "id": "numberOfNaps",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "count",
       "default": 6,
-      "businessContext": "Total number of naps taken in a 24-hour period. Standard Uberman schedule includes 6 naps per day."
+      "businessContext": "Total number of naps taken in a 24-hour period. Standard Uberman schedule includes 6 naps per day.",
+      "label_i18n": {
+        "en": "Number of Naps per Day",
+        "tr": "Number of Naps per Day",
+        "de": "Number of Naps per Day",
+        "fr": "Number of Naps per Day",
+        "es": "Number of Naps per Day",
+        "ar": "Number of Naps per Day"
+      }
     },
     {
       "id": "startHour",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "h",
       "default": 0,
-      "businessContext": "The starting hour of the first nap in decimal format (e.g., 8.5 for 8:30 AM)."
+      "businessContext": "The starting hour of the first nap in decimal format (e.g., 8.5 for 8:30 AM).",
+      "label_i18n": {
+        "en": "Start Hour (24h)",
+        "tr": "Start Hour (24h)",
+        "de": "Start Hour (24h)",
+        "fr": "Start Hour (24h)",
+        "es": "Start Hour (24h)",
+        "ar": "Start Hour (24h)"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "totalSchedule",
       "freeTime",
       "lastNapEnd"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "lastNapEnd"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -56,5 +93,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

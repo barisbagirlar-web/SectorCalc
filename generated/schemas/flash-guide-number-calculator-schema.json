@@ -68,19 +68,20 @@
   ],
   "formulas": {
     "effectiveGN": "distance * aperture",
-    "fullPowerGN": "effectiveGN / Math.sqrt(flashPower)",
-    "requiredGuideNumberISO100": "fullPowerGN / Math.sqrt(iso / 100)",
-    "distance___aperture_____effectiveGN_": "distance * aperture = ${effectiveGN}",
-    "__effectiveGN____sqrt___flashPower______": "${effectiveGN} / sqrt(${flashPower}) = ${fullPowerGN}",
-    "__fullPowerGN____sqrt___iso__100______re": "${fullPowerGN} / sqrt(${iso}/100) = ${requiredGuideNumberISO100}"
+    "effectiveGN_aux": "distance * aperture"
   },
   "outputs": {
-    "primary": "requiredGuideNumberISO100",
+    "primary": "effectiveGN_aux",
     "breakdown": [
       "Effective Guide Number: distance * aperture = ${effectiveGN}",
       "Full Power Guide Number: ${effectiveGN} / sqrt(${flashPower}) = ${fullPowerGN}",
       "ISO 100 Guide Number: ${fullPowerGN} / sqrt(${iso}/100) = ${requiredGuideNumberISO100}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "requiredGuideNumberISO100"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -90,5 +91,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

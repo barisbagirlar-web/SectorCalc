@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 200000,
-      "businessContext": "Total acquisition cost of the property."
+      "businessContext": "Total acquisition cost of the property.",
+      "label_i18n": {
+        "en": "Property Purchase Price",
+        "tr": "Property Purchase Price",
+        "de": "Property Purchase Price",
+        "fr": "Property Purchase Price",
+        "es": "Property Purchase Price",
+        "ar": "Property Purchase Price"
+      }
     },
     {
       "id": "monthlyRent",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD/month",
       "default": 1500,
-      "businessContext": "Expected monthly rent from the property."
+      "businessContext": "Expected monthly rent from the property.",
+      "label_i18n": {
+        "en": "Monthly Rental Income",
+        "tr": "Monthly Rental Income",
+        "de": "Monthly Rental Income",
+        "fr": "Monthly Rental Income",
+        "es": "Monthly Rental Income",
+        "ar": "Monthly Rental Income"
+      }
     },
     {
       "id": "annualExpenses",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD/year",
       "default": 3000,
-      "businessContext": "Sum of all yearly costs (maintenance, taxes, insurance, management fees, etc.)."
+      "businessContext": "Sum of all yearly costs (maintenance, taxes, insurance, management fees, etc.).",
+      "label_i18n": {
+        "en": "Total Annual Expenses",
+        "tr": "Total Annual Expenses",
+        "de": "Total Annual Expenses",
+        "fr": "Total Annual Expenses",
+        "es": "Total Annual Expenses",
+        "ar": "Total Annual Expenses"
+      }
     },
     {
       "id": "vacancyRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Estimated percentage of time the property is vacant and not generating rent."
+      "businessContext": "Estimated percentage of time the property is vacant and not generating rent.",
+      "label_i18n": {
+        "en": "Vacancy Rate",
+        "tr": "Vacancy Rate",
+        "de": "Vacancy Rate",
+        "fr": "Vacancy Rate",
+        "es": "Vacancy Rate",
+        "ar": "Vacancy Rate"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "grossYield",
       "cashFlowMonthly"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "cashFlowMonthly"
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Üretim & İmalat",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

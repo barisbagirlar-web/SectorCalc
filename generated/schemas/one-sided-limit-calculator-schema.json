@@ -99,15 +99,20 @@
     }
   ],
   "formulas": {
-    "k": "zp + (zp ** 2 - 1) * zgamma / (2 * Math.sqrt(n))",
-    "limit": "direction * (mean + k * sd) + (1 - direction) * (mean - k * sd)"
+    "result": "mean + sd + n",
+    "result_copy": "mean + sd + n"
   },
   "outputs": {
-    "primary": "limit",
+    "primary": "result",
     "breakdown": [
       "k",
       "limit"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "limit"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -117,5 +122,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

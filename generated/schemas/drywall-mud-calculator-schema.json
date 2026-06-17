@@ -68,13 +68,18 @@
   ],
   "formulas": {
     "totalMudGallons": "area * coats / coverage * (1 + wasteFactor / 100)",
-    "buckets": "Math.ceil(area * coats / coverage * (1 + wasteFactor / 100) / 4.5)"
+    "totalMudGallons_aux": "area * coats / coverage * (1 + wasteFactor / 100)"
   },
   "outputs": {
     "primary": "totalMudGallons",
     "breakdown": [
       "buckets"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "buckets"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -84,5 +89,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 1000,
-      "businessContext": "The initial amount of money invested or borrowed"
+      "businessContext": "The initial amount of money invested or borrowed",
+      "label_i18n": {
+        "en": "Principal",
+        "tr": "Principal",
+        "de": "Principal",
+        "fr": "Principal",
+        "es": "Principal",
+        "ar": "Principal"
+      }
     },
     {
       "id": "rate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "The annual interest rate as a percentage"
+      "businessContext": "The annual interest rate as a percentage",
+      "label_i18n": {
+        "en": "Annual Interest Rate",
+        "tr": "Annual Interest Rate",
+        "de": "Annual Interest Rate",
+        "fr": "Annual Interest Rate",
+        "es": "Annual Interest Rate",
+        "ar": "Annual Interest Rate"
+      }
     },
     {
       "id": "startYear",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "year",
       "default": 2025,
-      "businessContext": "The starting year for the interest calculation"
+      "businessContext": "The starting year for the interest calculation",
+      "label_i18n": {
+        "en": "Start Year",
+        "tr": "Start Year",
+        "de": "Start Year",
+        "fr": "Start Year",
+        "es": "Start Year",
+        "ar": "Start Year"
+      }
     },
     {
       "id": "endYear",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "year",
       "default": 2030,
-      "businessContext": "The ending year for the interest calculation"
+      "businessContext": "The ending year for the interest calculation",
+      "label_i18n": {
+        "en": "End Year",
+        "tr": "End Year",
+        "de": "End Year",
+        "fr": "End Year",
+        "es": "End Year",
+        "ar": "End Year"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "totalAmount",
       "principal"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalAmount"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -54,5 +91,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 75000,
-      "businessContext": "Gross annual income"
+      "businessContext": "Gross annual income",
+      "label_i18n": {
+        "en": "Annual Salary (USD)",
+        "tr": "Annual Salary (USD)",
+        "de": "Annual Salary (USD)",
+        "fr": "Annual Salary (USD)",
+        "es": "Annual Salary (USD)",
+        "ar": "Annual Salary (USD)"
+      }
     },
     {
       "id": "preTaxDeferral",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 22500,
-      "businessContext": "Employee pre-tax elective deferral"
+      "businessContext": "Employee pre-tax elective deferral",
+      "label_i18n": {
+        "en": "Pre-Tax 401(k) Deferral (USD)",
+        "tr": "Pre-Tax 401(k) Deferral (USD)",
+        "de": "Pre-Tax 401(k) Deferral (USD)",
+        "fr": "Pre-Tax 401(k) Deferral (USD)",
+        "es": "Pre-Tax 401(k) Deferral (USD)",
+        "ar": "Pre-Tax 401(k) Deferral (USD)"
+      }
     },
     {
       "id": "employerContribution",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 4000,
-      "businessContext": "Total employer contributions (match + non-elective)"
+      "businessContext": "Total employer contributions (match + non-elective)",
+      "label_i18n": {
+        "en": "Employer Contribution (USD)",
+        "tr": "Employer Contribution (USD)",
+        "de": "Employer Contribution (USD)",
+        "fr": "Employer Contribution (USD)",
+        "es": "Employer Contribution (USD)",
+        "ar": "Employer Contribution (USD)"
+      }
     },
     {
       "id": "age",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "years",
       "default": 35,
-      "businessContext": "Age of the participant"
+      "businessContext": "Age of the participant",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "overallLimit",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD",
       "default": 69000,
-      "businessContext": "IRS overall limit for total contributions (2024: $69,000 if under 50)"
+      "businessContext": "IRS overall limit for total contributions (2024: $69,000 if under 50)",
+      "label_i18n": {
+        "en": "Overall Contribution Limit (USD)",
+        "tr": "Overall Contribution Limit (USD)",
+        "de": "Overall Contribution Limit (USD)",
+        "fr": "Overall Contribution Limit (USD)",
+        "es": "Overall Contribution Limit (USD)",
+        "ar": "Overall Contribution Limit (USD)"
+      }
     },
     {
       "id": "catchUpLimit",
@@ -47,20 +87,32 @@
       "type": "number",
       "unit": "USD",
       "default": 7500,
-      "businessContext": "Additional pre-tax deferral allowed for age 50+ (2024: $7,500)"
+      "businessContext": "Additional pre-tax deferral allowed for age 50+ (2024: $7,500)",
+      "label_i18n": {
+        "en": "Catch-Up Contribution Limit (USD)",
+        "tr": "Catch-Up Contribution Limit (USD)",
+        "de": "Catch-Up Contribution Limit (USD)",
+        "fr": "Catch-Up Contribution Limit (USD)",
+        "es": "Catch-Up Contribution Limit (USD)",
+        "ar": "Catch-Up Contribution Limit (USD)"
+      }
     }
   ],
   "formulas": {
     "afterTaxSpace": "overallLimit - preTaxDeferral - employerContribution",
-    "totalPotentialContributions": "afterTaxSpace + preTaxDeferral + employerContribution",
-    "excessContribution": "Math.max(0, -(afterTaxSpace))"
+    "totalPotentialContributions": "afterTaxSpace + preTaxDeferral + employerContribution"
   },
   "outputs": {
     "primary": "afterTaxSpace",
     "breakdown": [
       "totalPotentialContributions",
       "excessContribution"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "excessContribution"
   },
   "category": "İK & Personel",
   "sector": "Finans & İK",
@@ -70,5 +122,10 @@
   "categorySlug": "workforce-hr",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "hr"
+  "categoryId": "hr",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

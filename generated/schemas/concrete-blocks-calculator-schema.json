@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Duvarın toplam yatay uzunluğu, metre cinsinden."
+      "businessContext": "Duvarın toplam yatay uzunluğu, metre cinsinden.",
+      "label_i18n": {
+        "en": "Duvar Uzunluğu",
+        "tr": "Duvar Uzunluğu",
+        "de": "Duvar Uzunluğu",
+        "fr": "Duvar Uzunluğu",
+        "es": "Duvar Uzunluğu",
+        "ar": "Duvar Uzunluğu"
+      }
     },
     {
       "id": "wallHeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "Duvarın dikey yüksekliği, metre cinsinden."
+      "businessContext": "Duvarın dikey yüksekliği, metre cinsinden.",
+      "label_i18n": {
+        "en": "Duvar Yüksekliği",
+        "tr": "Duvar Yüksekliği",
+        "de": "Duvar Yüksekliği",
+        "fr": "Duvar Yüksekliği",
+        "es": "Duvar Yüksekliği",
+        "ar": "Duvar Yüksekliği"
+      }
     },
     {
       "id": "blockLength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 40,
-      "businessContext": "Bir briketin uzun kenarı, santimetre cinsinden."
+      "businessContext": "Bir briketin uzun kenarı, santimetre cinsinden.",
+      "label_i18n": {
+        "en": "Briket Uzunluğu",
+        "tr": "Briket Uzunluğu",
+        "de": "Briket Uzunluğu",
+        "fr": "Briket Uzunluğu",
+        "es": "Briket Uzunluğu",
+        "ar": "Briket Uzunluğu"
+      }
     },
     {
       "id": "blockHeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cm",
       "default": 20,
-      "businessContext": "Bir briketin kısa kenarı (yüksekliği), santimetre cinsinden."
+      "businessContext": "Bir briketin kısa kenarı (yüksekliği), santimetre cinsinden.",
+      "label_i18n": {
+        "en": "Briket Yüksekliği",
+        "tr": "Briket Yüksekliği",
+        "de": "Briket Yüksekliği",
+        "fr": "Briket Yüksekliği",
+        "es": "Briket Yüksekliği",
+        "ar": "Briket Yüksekliği"
+      }
     },
     {
       "id": "mortarThickness",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "cm",
       "default": 1,
-      "businessContext": "Briketler arasındaki harç kalınlığı, santimetre cinsinden."
+      "businessContext": "Briketler arasındaki harç kalınlığı, santimetre cinsinden.",
+      "label_i18n": {
+        "en": "Harç Kalınlığı",
+        "tr": "Harç Kalınlığı",
+        "de": "Harç Kalınlığı",
+        "fr": "Harç Kalınlığı",
+        "es": "Harç Kalınlığı",
+        "ar": "Harç Kalınlığı"
+      }
     },
     {
       "id": "wastage",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Kesme, kırılma vb. nedenlerle oluşan tahmini fire yüzdesi."
+      "businessContext": "Kesme, kırılma vb. nedenlerle oluşan tahmini fire yüzdesi.",
+      "label_i18n": {
+        "en": "Fire Oranı",
+        "tr": "Fire Oranı",
+        "de": "Fire Oranı",
+        "fr": "Fire Oranı",
+        "es": "Fire Oranı",
+        "ar": "Fire Oranı"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
       "wallArea",
       "blockFaceArea",
       "blocksExact"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalBlocks"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -72,5 +125,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ms",
       "default": 0,
-      "businessContext": "Dönüştürülecek ana süre ölçümü"
+      "businessContext": "Dönüştürülecek ana süre ölçümü",
+      "label_i18n": {
+        "en": "Milisaniye Değeri",
+        "tr": "Milisaniye Değeri",
+        "de": "Milisaniye Değeri",
+        "fr": "Milisaniye Değeri",
+        "es": "Milisaniye Değeri",
+        "ar": "Milisaniye Değeri"
+      }
     },
     {
       "id": "calibrationOffset",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "µs",
       "default": 0,
-      "businessContext": "Sensör kaynaklı sistematik hata düzeltmesi"
+      "businessContext": "Sensör kaynaklı sistematik hata düzeltmesi",
+      "label_i18n": {
+        "en": "Kalibrasyon Ofseti",
+        "tr": "Kalibrasyon Ofseti",
+        "de": "Kalibrasyon Ofseti",
+        "fr": "Kalibrasyon Ofseti",
+        "es": "Kalibrasyon Ofseti",
+        "ar": "Kalibrasyon Ofseti"
+      }
     },
     {
       "id": "safetyFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "çarpan",
       "default": 1,
-      "businessContext": "Güvenlik veya tolerans marjı"
+      "businessContext": "Güvenlik veya tolerans marjı",
+      "label_i18n": {
+        "en": "Emniyet Faktörü",
+        "tr": "Emniyet Faktörü",
+        "de": "Emniyet Faktörü",
+        "fr": "Emniyet Faktörü",
+        "es": "Emniyet Faktörü",
+        "ar": "Emniyet Faktörü"
+      }
     },
     {
       "id": "decimalPlaces",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "adet",
       "default": 2,
-      "businessContext": "Çıktı gösterim hassasiyeti"
+      "businessContext": "Çıktı gösterim hassasiyeti",
+      "label_i18n": {
+        "en": "Ondalık Basamak",
+        "tr": "Ondalık Basamak",
+        "de": "Ondalık Basamak",
+        "fr": "Ondalık Basamak",
+        "es": "Ondalık Basamak",
+        "ar": "Ondalık Basamak"
+      }
     }
   ],
   "formulas": {
-    "conversionFactor": "1000",
     "rawMicroseconds": "(milliseconds * 1000 + calibrationOffset) * safetyFactor",
-    "microseconds": "Math.round(rawMicroseconds * (10 ** decimalPlaces)) / (10 ** decimalPlaces)"
+    "rawMicroseconds_aux": "(milliseconds * 1000 + calibrationOffset) * safetyFactor"
   },
   "outputs": {
-    "primary": "microseconds",
+    "primary": "rawMicroseconds_aux",
     "breakdown": [
       "rawMicroseconds",
       "conversionFactor"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "microseconds"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

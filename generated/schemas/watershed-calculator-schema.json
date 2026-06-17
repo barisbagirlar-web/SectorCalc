@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ha",
       "default": 10,
-      "businessContext": "Area of the watershed contributing runoff."
+      "businessContext": "Area of the watershed contributing runoff.",
+      "label_i18n": {
+        "en": "Drainage Area",
+        "tr": "Drainage Area",
+        "de": "Drainage Area",
+        "fr": "Drainage Area",
+        "es": "Drainage Area",
+        "ar": "Drainage Area"
+      }
     },
     {
       "id": "runoffCoefficient",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0.5,
-      "businessContext": "Fraction of rainfall that becomes runoff."
+      "businessContext": "Fraction of rainfall that becomes runoff.",
+      "label_i18n": {
+        "en": "Runoff Coefficient",
+        "tr": "Runoff Coefficient",
+        "de": "Runoff Coefficient",
+        "fr": "Runoff Coefficient",
+        "es": "Runoff Coefficient",
+        "ar": "Runoff Coefficient"
+      }
     },
     {
       "id": "rainfallIntensity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm/hr",
       "default": 25,
-      "businessContext": "Design storm rainfall intensity."
+      "businessContext": "Design storm rainfall intensity.",
+      "label_i18n": {
+        "en": "Rainfall Intensity",
+        "tr": "Rainfall Intensity",
+        "de": "Rainfall Intensity",
+        "fr": "Rainfall Intensity",
+        "es": "Rainfall Intensity",
+        "ar": "Rainfall Intensity"
+      }
     },
     {
       "id": "channelLength",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 500,
-      "businessContext": "Length of the longest flow path."
+      "businessContext": "Length of the longest flow path.",
+      "label_i18n": {
+        "en": "Main Channel Length",
+        "tr": "Main Channel Length",
+        "de": "Main Channel Length",
+        "fr": "Main Channel Length",
+        "es": "Main Channel Length",
+        "ar": "Main Channel Length"
+      }
     },
     {
       "id": "slope",
@@ -39,12 +71,19 @@
       "type": "number",
       "unit": "m/m",
       "default": 0.01,
-      "businessContext": "Average slope of the main channel."
+      "businessContext": "Average slope of the main channel.",
+      "label_i18n": {
+        "en": "Slope",
+        "tr": "Slope",
+        "de": "Slope",
+        "fr": "Slope",
+        "es": "Slope",
+        "ar": "Slope"
+      }
     }
   ],
   "formulas": {
     "peakDischarge": "(runoffCoefficient * rainfallIntensity * drainageArea) / 360",
-    "timeOfConcentration": "0.01947 * Math.pow(channelLength, 0.77) * Math.pow(slope, -0.385)",
     "runoffVolumePerHour": "rainfallIntensity * drainageArea * 10"
   },
   "outputs": {
@@ -62,7 +101,12 @@
         "unit": "m³/hr",
         "businessContext": "Volume of runoff generated per hour."
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "runoffVolumePerHour"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -72,5 +116,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "engineering"
+  "categoryId": "engineering",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 100000,
-      "businessContext": "The amount payable upon the death of the insured"
+      "businessContext": "The amount payable upon the death of the insured",
+      "label_i18n": {
+        "en": "Sum Assured",
+        "tr": "Sum Assured",
+        "de": "Sum Assured",
+        "fr": "Sum Assured",
+        "es": "Sum Assured",
+        "ar": "Sum Assured"
+      }
     },
     {
       "id": "mortalityRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "probability",
       "default": 0.005,
-      "businessContext": "The probability that the insured dies within one year, used to calculate expected claim costs"
+      "businessContext": "The probability that the insured dies within one year, used to calculate expected claim costs",
+      "label_i18n": {
+        "en": "Annual Mortality Rate",
+        "tr": "Annual Mortality Rate",
+        "de": "Annual Mortality Rate",
+        "fr": "Annual Mortality Rate",
+        "es": "Annual Mortality Rate",
+        "ar": "Annual Mortality Rate"
+      }
     },
     {
       "id": "interestRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "decimal",
       "default": 0.03,
-      "businessContext": "The risk‑free discount rate used to compute present values of future benefits"
+      "businessContext": "The risk‑free discount rate used to compute present values of future benefits",
+      "label_i18n": {
+        "en": "Annual Interest Rate",
+        "tr": "Annual Interest Rate",
+        "de": "Annual Interest Rate",
+        "fr": "Annual Interest Rate",
+        "es": "Annual Interest Rate",
+        "ar": "Annual Interest Rate"
+      }
     },
     {
       "id": "term",
@@ -31,22 +55,33 @@
       "type": "number",
       "unit": "years",
       "default": 20,
-      "businessContext": "The number of years the insurance coverage remains in force"
+      "businessContext": "The number of years the insurance coverage remains in force",
+      "label_i18n": {
+        "en": "Policy Term",
+        "tr": "Policy Term",
+        "de": "Policy Term",
+        "fr": "Policy Term",
+        "es": "Policy Term",
+        "ar": "Policy Term"
+      }
     }
   ],
   "formulas": {
-    "netSinglePremium": "sumAssured * mortalityRate * (1/(1+interestRate)) * (1 - Math.pow((1-mortalityRate)*(1/(1+interestRate)), term)) / (1 - (1-mortalityRate)*(1/(1+interestRate)))",
     "discountFactor": "1/(1+interestRate)",
-    "mortalityRiskCost": "sumAssured * mortalityRate",
-    "termAnnuityPresentValueFactor": "(1/(1+interestRate)) * (1 - Math.pow((1-mortalityRate)*(1/(1+interestRate)), term)) / (1 - (1-mortalityRate)*(1/(1+interestRate)))"
+    "mortalityRiskCost": "sumAssured * mortalityRate"
   },
   "outputs": {
-    "primary": "netSinglePremium",
+    "primary": "mortalityRiskCost",
     "breakdown": [
       "discountFactor",
       "mortalityRiskCost",
       "termAnnuityPresentValueFactor"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "termAnnuityPresentValueFactor"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -56,5 +91,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

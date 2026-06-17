@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 100,
-      "businessContext": "Average monetary value of each customer transaction."
+      "businessContext": "Average monetary value of each customer transaction.",
+      "label_i18n": {
+        "en": "Average Purchase Value",
+        "tr": "Average Purchase Value",
+        "de": "Average Purchase Value",
+        "fr": "Average Purchase Value",
+        "es": "Average Purchase Value",
+        "ar": "Average Purchase Value"
+      }
     },
     {
       "id": "purchaseFrequency",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "purchases/year",
       "default": 12,
-      "businessContext": "Average number of purchases a customer makes per year."
+      "businessContext": "Average number of purchases a customer makes per year.",
+      "label_i18n": {
+        "en": "Purchase Frequency",
+        "tr": "Purchase Frequency",
+        "de": "Purchase Frequency",
+        "fr": "Purchase Frequency",
+        "es": "Purchase Frequency",
+        "ar": "Purchase Frequency"
+      }
     },
     {
       "id": "lifespanYears",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 5,
-      "businessContext": "Average duration a customer remains active (in years)."
+      "businessContext": "Average duration a customer remains active (in years).",
+      "label_i18n": {
+        "en": "Customer Lifespan",
+        "tr": "Customer Lifespan",
+        "de": "Customer Lifespan",
+        "fr": "Customer Lifespan",
+        "es": "Customer Lifespan",
+        "ar": "Customer Lifespan"
+      }
     },
     {
       "id": "grossMarginPercent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Gross margin percentage applied to revenue to reflect profit contribution."
+      "businessContext": "Gross margin percentage applied to revenue to reflect profit contribution.",
+      "label_i18n": {
+        "en": "Gross Margin",
+        "tr": "Gross Margin",
+        "de": "Gross Margin",
+        "fr": "Gross Margin",
+        "es": "Gross Margin",
+        "ar": "Gross Margin"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "totalRevenue",
       "annualValue"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "clv"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -54,5 +91,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

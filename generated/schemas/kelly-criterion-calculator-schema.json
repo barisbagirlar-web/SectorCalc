@@ -69,15 +69,19 @@
   "formulas": {
     "f_star": "(b * p - (1 - p)) / b",
     "f": "fraction * (b * p - (1 - p)) / b",
-    "bet_amount": "bankroll * fraction * (b * p - (1 - p)) / b",
-    "expected_growth": "p * Math.log(1 + b * (fraction * (b * p - (1 - p)) / b)) + (1 - p) * Math.log(1 - (fraction * (b * p - (1 - p)) / b))"
+    "bet_amount": "bankroll * fraction * (b * p - (1 - p)) / b"
   },
   "outputs": {
     "primary": "bet_amount",
     "breakdown": [
       "f_star",
       "expected_growth"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "expected_growth"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -87,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

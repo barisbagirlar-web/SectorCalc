@@ -139,73 +139,6 @@
       "businessContext_i18n": {
         "en": "Average labor hours required to rework one kg of product."
       }
-    },
-    {
-      "id": "storage_cost_per_kg_per_day",
-      "label": "Storage Cost per kg per Day",
-      "type": "number",
-      "unit": "USD/kg/day",
-      "default": 0.02,
-      "min": 0,
-      "max": 1,
-      "businessContext": "Cost to store one kg of product per day (WERC warehousing metrics).",
-      "label_i18n": {
-        "en": "Storage Cost per kg per Day"
-      },
-      "businessContext_i18n": {
-        "en": "Cost to store one kg of product per day (WERC warehousing metrics)."
-      }
-    },
-    {
-      "id": "average_storage_days",
-      "label": "Average Storage Days",
-      "type": "number",
-      "unit": "days",
-      "default": 3,
-      "min": 0,
-      "max": 365,
-      "businessContext": "Average number of days waste is held before disposal or rework.",
-      "label_i18n": {
-        "en": "Average Storage Days"
-      },
-      "businessContext_i18n": {
-        "en": "Average number of days waste is held before disposal or rework."
-      }
-    },
-    {
-      "id": "waste_type",
-      "label": "Waste Type",
-      "type": "select",
-      "options": [
-        "trim",
-        "spoilage",
-        "overproduction",
-        "expired",
-        "other"
-      ],
-      "default": "spoilage",
-      "businessContext": "Primary category of waste (ISO 14051 waste classification).",
-      "label_i18n": {
-        "en": "Waste Type"
-      },
-      "businessContext_i18n": {
-        "en": "Primary category of waste (ISO 14051 waste classification)."
-      },
-      "unit": "unit"
-    },
-    {
-      "id": "include_hidden_costs",
-      "label": "Include Hidden Costs (Energy, Water, Overhead)",
-      "type": "boolean",
-      "default": true,
-      "businessContext": "If true, allocates a portion of fixed overhead to waste (activity-based costing).",
-      "label_i18n": {
-        "en": "Include Hidden Costs (Energy, Water, Overhead)"
-      },
-      "businessContext_i18n": {
-        "en": "If true, allocates a portion of fixed overhead to waste (activity-based costing)."
-      },
-      "unit": "unit"
     }
   ],
   "validation": {
@@ -247,20 +180,18 @@
       }
     ]
   },
-  "formulas": [
-    "total_production_kg",
-    "total_production_kg",
-    "total_production_kg",
-    "total_production_kg",
-    "total_production_kg",
-    "total_production_kg",
-    "total_production_kg",
-    "total_production_kg",
-    "total_production_kg"
-  ],
+  "formulas": {
+    "result": "total_production_kg + waste_kg + selling_price_per_kg",
+    "result_copy": "total_production_kg + waste_kg + selling_price_per_kg"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "food-waste-margin-loss-calculator",
   "catalogCategory": "finance-business",

@@ -83,19 +83,20 @@
     }
   ],
   "formulas": {
-    "sugarToAdd": "Math.max(0, fruitWeight * (targetBrix - fruitBrix) / (100 - targetBrix) - pectinWeight * (pectinSugarContent / 100))",
-    "totalWeight": "fruitWeight + sugarToAdd + pectinWeight",
-    "finalBrix": "((fruitWeight * fruitBrix / 100) + sugarToAdd + pectinWeight * (pectinSugarContent / 100)) / totalWeight * 100",
-    "Total_Jam_Weight__kg_": "Total Jam Weight (kg)",
-    "Final_Brix____": "Final Brix (%)",
-    "result": "Sugar to Add (kg)"
+    "result": "fruitWeight + fruitBrix + targetBrix",
+    "result_aux": "fruitWeight + fruitBrix + targetBrix"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
       "Total Jam Weight (kg)",
       "Final Brix (%)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "finalBrix"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -105,5 +106,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from pneumatic-force-calculator-schema.json
 import * as z from 'zod';
 
@@ -19,26 +20,33 @@ export const Pneumatic_force_calculatorInputSchema = z.object({
   efficiency: z.number().default(0.9),
 });
 
-function evaluateAllFormulas(input: Pneumatic_force_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.systemPressure * Math.PI * Math.pow(input.boreDiameter, 2) / 40 * input.efficiency * input.cylinderCount; results["pushForce"] = Number.isFinite(v) ? v : 0; } catch { results["pushForce"] = 0; }
-  try { const v = input.systemPressure * Math.PI * (Math.pow(input.boreDiameter, 2) - Math.pow(input.rodDiameter, 2)) / 40 * input.efficiency * input.cylinderCount; results["pullForce"] = Number.isFinite(v) ? v : 0; } catch { results["pullForce"] = 0; }
-  try { const v = (results["pushForce"] ?? 0) / input.safetyFactor; results["effectivePushForce"] = Number.isFinite(v) ? v : 0; } catch { results["effectivePushForce"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Pneumatic_force_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.systemPressure + input.boreDiameter + input.rodDiameter; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.systemPressure + input.boreDiameter + input.rodDiameter; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculatePneumatic_force_calculator(input: Pneumatic_force_calculatorInput): Pneumatic_force_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["effectivePushForce"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

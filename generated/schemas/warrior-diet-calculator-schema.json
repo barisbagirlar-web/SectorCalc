@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "User's body weight in kilograms."
+      "businessContext": "User's body weight in kilograms.",
+      "label_i18n": {
+        "en": "Body Weight",
+        "tr": "Body Weight",
+        "de": "Body Weight",
+        "fr": "Body Weight",
+        "es": "Body Weight",
+        "ar": "Body Weight"
+      }
     },
     {
       "id": "height",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "User's height in centimeters."
+      "businessContext": "User's height in centimeters.",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "Height",
+        "fr": "Height",
+        "es": "Height",
+        "ar": "Height"
+      }
     },
     {
       "id": "age",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "User's age in years."
+      "businessContext": "User's age in years.",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "gender",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "0=Female, 1=Male",
       "default": 0,
-      "businessContext": "Biological gender (0 for female, 1 for male)."
+      "businessContext": "Biological gender (0 for female, 1 for male).",
+      "label_i18n": {
+        "en": "Gender",
+        "tr": "Gender",
+        "de": "Gender",
+        "fr": "Gender",
+        "es": "Gender",
+        "ar": "Gender"
+      }
     },
     {
       "id": "activityLevel",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1.2,
-      "businessContext": "Physical activity multiplier. Sedentary=1.2, Light=1.375, Moderate=1.55, Active=1.725, Very Active=1.9."
+      "businessContext": "Physical activity multiplier. Sedentary=1.2, Light=1.375, Moderate=1.55, Active=1.725, Very Active=1.9.",
+      "label_i18n": {
+        "en": "Activity Level",
+        "tr": "Activity Level",
+        "de": "Activity Level",
+        "fr": "Activity Level",
+        "es": "Activity Level",
+        "ar": "Activity Level"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
       "bmrMifflin",
       "tdee",
       "undereatingCalories"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "undereatingCalories"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -64,5 +109,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

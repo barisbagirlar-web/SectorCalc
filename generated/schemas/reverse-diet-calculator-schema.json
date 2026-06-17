@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Current body weight of the individual in kilograms."
+      "businessContext": "Current body weight of the individual in kilograms.",
+      "label_i18n": {
+        "en": "Current Weight",
+        "tr": "Current Weight",
+        "de": "Current Weight",
+        "fr": "Current Weight",
+        "es": "Current Weight",
+        "ar": "Current Weight"
+      }
     },
     {
       "id": "goalWeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 65,
-      "businessContext": "Target weight to achieve in kilograms."
+      "businessContext": "Target weight to achieve in kilograms.",
+      "label_i18n": {
+        "en": "Goal Weight",
+        "tr": "Goal Weight",
+        "de": "Goal Weight",
+        "fr": "Goal Weight",
+        "es": "Goal Weight",
+        "ar": "Goal Weight"
+      }
     },
     {
       "id": "weeks",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "weeks",
       "default": 8,
-      "businessContext": "Number of weeks over which the weight change is planned."
+      "businessContext": "Number of weeks over which the weight change is planned.",
+      "label_i18n": {
+        "en": "Timeframe",
+        "tr": "Timeframe",
+        "de": "Timeframe",
+        "fr": "Timeframe",
+        "es": "Timeframe",
+        "ar": "Timeframe"
+      }
     },
     {
       "id": "activityLevel",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1.2,
-      "businessContext": "Physical activity factor (1.2 = sedentary, 1.375 = light exercise, 1.55 = moderate, 1.725 = heavy, 1.9 = athlete)."
+      "businessContext": "Physical activity factor (1.2 = sedentary, 1.375 = light exercise, 1.55 = moderate, 1.725 = heavy, 1.9 = athlete).",
+      "label_i18n": {
+        "en": "Activity Level",
+        "tr": "Activity Level",
+        "de": "Activity Level",
+        "fr": "Activity Level",
+        "es": "Activity Level",
+        "ar": "Activity Level"
+      }
     }
   ],
   "formulas": {
@@ -45,7 +77,12 @@
     "breakdown": [
       "maintenanceCalories",
       "dailyDeficit"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "dailyIntake"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -55,5 +92,10 @@
   "sectorSlug": "cleaning",
   "sectorId": "danismanlik",
   "profession": "Strateji Uzmanı",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

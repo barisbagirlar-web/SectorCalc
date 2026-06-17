@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "sq ft",
       "default": 1000,
-      "businessContext": "Tüm duvarların brüt alanı"
+      "businessContext": "Tüm duvarların brüt alanı",
+      "label_i18n": {
+        "en": "Toplam Duvar Alanı",
+        "tr": "Toplam Duvar Alanı",
+        "de": "Toplam Duvar Alanı",
+        "fr": "Toplam Duvar Alanı",
+        "es": "Toplam Duvar Alanı",
+        "ar": "Toplam Duvar Alanı"
+      }
     },
     {
       "id": "doorWindowArea",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "sq ft",
       "default": 100,
-      "businessContext": "Kaplama yapılmayacak alan"
+      "businessContext": "Kaplama yapılmayacak alan",
+      "label_i18n": {
+        "en": "Kapı ve Pencere Alanı",
+        "tr": "Kapı ve Pencere Alanı",
+        "de": "Kapı ve Pencere Alanı",
+        "fr": "Kapı ve Pencere Alanı",
+        "es": "Kapı ve Pencere Alanı",
+        "ar": "Kapı ve Pencere Alanı"
+      }
     },
     {
       "id": "panelCoverage",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "sq ft",
       "default": 8,
-      "businessContext": "Bir panelin kapladığı alan (genellikle 12 ft x 8 inç = 8 sq ft)"
+      "businessContext": "Bir panelin kapladığı alan (genellikle 12 ft x 8 inç = 8 sq ft)",
+      "label_i18n": {
+        "en": "Panel Kaplama Alanı",
+        "tr": "Panel Kaplama Alanı",
+        "de": "Panel Kaplama Alanı",
+        "fr": "Panel Kaplama Alanı",
+        "es": "Panel Kaplama Alanı",
+        "ar": "Panel Kaplama Alanı"
+      }
     },
     {
       "id": "pricePerPanel",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 10,
-      "businessContext": "Bir panelin satın alma maliyeti"
+      "businessContext": "Bir panelin satın alma maliyeti",
+      "label_i18n": {
+        "en": "Panel Başına Fiyat",
+        "tr": "Panel Başına Fiyat",
+        "de": "Panel Başına Fiyat",
+        "fr": "Panel Başına Fiyat",
+        "es": "Panel Başına Fiyat",
+        "ar": "Panel Başına Fiyat"
+      }
     },
     {
       "id": "wastePercentage",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Kesme ve hatalardan kaynaklanan ilave malzeme yüzdesi"
+      "businessContext": "Kesme ve hatalardan kaynaklanan ilave malzeme yüzdesi",
+      "label_i18n": {
+        "en": "Fire Yüzdesi",
+        "tr": "Fire Yüzdesi",
+        "de": "Fire Yüzdesi",
+        "fr": "Fire Yüzdesi",
+        "es": "Fire Yüzdesi",
+        "ar": "Fire Yüzdesi"
+      }
     }
   ],
   "formulas": {
@@ -57,7 +97,12 @@
       "panelsNeeded",
       "wasteArea",
       "totalCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -67,5 +112,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

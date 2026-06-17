@@ -212,18 +212,18 @@
       }
     ]
   },
-  "formulas": [
-    "fluid_type",
-    "fluid_type",
-    "fluid_type",
-    "fluid_type",
-    "fluid_type",
-    "fluid_type",
-    "fluid_type"
-  ],
+  "formulas": {
+    "result": "fluid_type + density + dynamic_viscosity",
+    "result_copy": "fluid_type + density + dynamic_viscosity"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",

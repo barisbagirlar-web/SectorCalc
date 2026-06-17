@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mol/L",
       "default": 1,
-      "businessContext": "Initial concentration of the reactant before the reaction starts."
+      "businessContext": "Initial concentration of the reactant before the reaction starts.",
+      "label_i18n": {
+        "en": "Initial Concentration",
+        "tr": "Initial Concentration",
+        "de": "Initial Concentration",
+        "fr": "Initial Concentration",
+        "es": "Initial Concentration",
+        "ar": "Initial Concentration"
+      }
     },
     {
       "id": "rateConstant",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mol/(L·s)",
       "default": 0.01,
-      "businessContext": "Zero-order rate constant, representing the consumption rate per unit time."
+      "businessContext": "Zero-order rate constant, representing the consumption rate per unit time.",
+      "label_i18n": {
+        "en": "Rate Constant",
+        "tr": "Rate Constant",
+        "de": "Rate Constant",
+        "fr": "Rate Constant",
+        "es": "Rate Constant",
+        "ar": "Rate Constant"
+      }
     },
     {
       "id": "time",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "s",
       "default": 100,
-      "businessContext": "The time elapsed since the start of the reaction."
+      "businessContext": "The time elapsed since the start of the reaction.",
+      "label_i18n": {
+        "en": "Reaction Time",
+        "tr": "Reaction Time",
+        "de": "Reaction Time",
+        "fr": "Reaction Time",
+        "es": "Reaction Time",
+        "ar": "Reaction Time"
+      }
     },
     {
       "id": "targetConcentration",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mol/L",
       "default": 0.5,
-      "businessContext": "Desired concentration of the reactant to calculate the required reaction time."
+      "businessContext": "Desired concentration of the reactant to calculate the required reaction time.",
+      "label_i18n": {
+        "en": "Target Concentration",
+        "tr": "Target Concentration",
+        "de": "Target Concentration",
+        "fr": "Target Concentration",
+        "es": "Target Concentration",
+        "ar": "Target Concentration"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "halfLife",
       "timeToTarget"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "timeToTarget"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "kimya",
   "profession": "Proses Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

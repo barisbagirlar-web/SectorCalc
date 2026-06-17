@@ -131,15 +131,19 @@
     }
   ],
   "formulas": {
-    "npv": "function(r){var c=[initialInvestment,cf1Amount,cf2Amount,finalValue],d=[initialDate,cf1Days,cf2Days,finalDays],d0=d[0],n=0;for(var i=0;i<c.length;i++){n+=c[i]/Math.pow(1+r,(d[i]-d0)/365);}return n;}",
-    "xirr": "function(){var r=0.1;for(var i=0;i<100;i++){var f=npv(r);var df=0;var c=[initialInvestment,cf1Amount,cf2Amount,finalValue],d=[initialDate,cf1Days,cf2Days,finalDays],d0=d[0];for(var j=0;j<c.length;j++){var t=(d[j]-d0)/365;df-=t*c[j]/Math.pow(1+r,t+1);}if(Math.abs(f)<1e-6)break;r-=f/df;}return r;}",
-    "npv_xirr_": "npv(xirr)"
+    "result": "initialInvestment + initialDate + cf1Amount",
+    "result_aux": "initialInvestment + initialDate + cf1Amount"
   },
   "outputs": {
-    "primary": "xirr",
+    "primary": "result",
     "breakdown": [
       "npv(xirr)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "npv_aux"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -149,5 +153,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

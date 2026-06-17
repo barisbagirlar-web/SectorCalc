@@ -68,7 +68,6 @@
   ],
   "formulas": {
     "vo2max": "(distance_m - 504.9) / 44.73",
-    "category": "(gender === 0 ? (age_years < 30 ? (vo2max >= 55 ? 'Excellent' : vo2max >= 45 ? 'Good' : vo2max >= 35 ? 'Average' : vo2max >= 30 ? 'Fair' : 'Poor') : age_years < 40 ? (vo2max >= 50 ? 'Excellent' : vo2max >= 40 ? 'Good' : vo2max >= 33 ? 'Average' : vo2max >= 28 ? 'Fair' : 'Poor') : age_years < 50 ? (vo2max >= 45 ? 'Excellent' : vo2max >= 36 ? 'Good' : vo2max >= 30 ? 'Average' : vo2max >= 26 ? 'Fair' : 'Poor') : (vo2max >= 40 ? 'Excellent' : vo2max >= 32 ? 'Good' : vo2max >= 27 ? 'Average' : vo2max >= 23 ? 'Fair' : 'Poor')) : (age_years < 30 ? (vo2max >= 50 ? 'Excellent' : vo2max >= 39 ? 'Good' : vo2max >= 30 ? 'Average' : vo2max >= 25 ? 'Fair' : 'Poor') : age_years < 40 ? (vo2max >= 46 ? 'Excellent' : vo2max >= 35 ? 'Good' : vo2max >= 28 ? 'Average' : vo2max >= 23 ? 'Fair' : 'Poor') : age_years < 50 ? (vo2max >= 40 ? 'Excellent' : vo2max >= 32 ? 'Good' : vo2max >= 25 ? 'Average' : vo2max >= 21 ? 'Fair' : 'Poor') : (vo2max >= 36 ? 'Excellent' : vo2max >= 28 ? 'Good' : vo2max >= 22 ? 'Average' : vo2max >= 18 ? 'Fair' : 'Poor')))",
     "calories": "weight_kg * (distance_m / 1000) * 0.97"
   },
   "outputs": {
@@ -76,7 +75,12 @@
     "breakdown": [
       "category",
       "calories"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "calories"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -86,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

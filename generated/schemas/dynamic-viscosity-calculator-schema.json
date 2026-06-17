@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "K",
       "default": 293,
-      "businessContext": "Temperature at which the reference viscosity is known (Kelvin)"
+      "businessContext": "Temperature at which the reference viscosity is known (Kelvin)",
+      "label_i18n": {
+        "en": "Reference Temperature",
+        "tr": "Reference Temperature",
+        "de": "Reference Temperature",
+        "fr": "Reference Temperature",
+        "es": "Reference Temperature",
+        "ar": "Reference Temperature"
+      }
     },
     {
       "id": "muRef",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Pa·s",
       "default": 0.001002,
-      "businessContext": "Dynamic viscosity at reference temperature (Pascal-seconds)"
+      "businessContext": "Dynamic viscosity at reference temperature (Pascal-seconds)",
+      "label_i18n": {
+        "en": "Reference Viscosity",
+        "tr": "Reference Viscosity",
+        "de": "Reference Viscosity",
+        "fr": "Reference Viscosity",
+        "es": "Reference Viscosity",
+        "ar": "Reference Viscosity"
+      }
     },
     {
       "id": "activationEnergy",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "J/mol",
       "default": 16000,
-      "businessContext": "Activation energy for viscous flow (Joules per mole)"
+      "businessContext": "Activation energy for viscous flow (Joules per mole)",
+      "label_i18n": {
+        "en": "Activation Energy",
+        "tr": "Activation Energy",
+        "de": "Activation Energy",
+        "fr": "Activation Energy",
+        "es": "Activation Energy",
+        "ar": "Activation Energy"
+      }
     },
     {
       "id": "temp",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "K",
       "default": 313,
-      "businessContext": "Temperature at which to calculate viscosity (Kelvin)"
+      "businessContext": "Temperature at which to calculate viscosity (Kelvin)",
+      "label_i18n": {
+        "en": "Temperature",
+        "tr": "Temperature",
+        "de": "Temperature",
+        "fr": "Temperature",
+        "es": "Temperature",
+        "ar": "Temperature"
+      }
     }
   ],
   "formulas": {
-    "exponentialFactor": "Math.exp((activationEnergy / 8.314) * (1/temp - 1/tRef))",
-    "dynamicViscosity": "muRef * Math.exp((activationEnergy / 8.314) * (1/temp - 1/tRef))",
-    "dynamicViscosity_cP": "muRef * 1000 * Math.exp((activationEnergy / 8.314) * (1/temp - 1/tRef))"
+    "result": "tRef + muRef + activationEnergy",
+    "result_copy": "tRef + muRef + activationEnergy"
   },
   "outputs": {
-    "primary": "dynamicViscosity",
+    "primary": "result",
     "breakdown": [
       "exponentialFactor",
       "dynamicViscosity_cP"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "dynamicViscosity_cP"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -54,5 +90,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

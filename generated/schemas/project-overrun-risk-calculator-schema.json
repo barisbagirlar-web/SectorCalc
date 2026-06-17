@@ -146,38 +146,6 @@
       "businessContext_i18n": {
         "en": "Number of defects per unit of output (e.g., per 1000 lines of code, per 100 parts)."
       }
-    },
-    {
-      "id": "supplierReliability",
-      "label": "Supplier Reliability Index",
-      "type": "number",
-      "unit": "index",
-      "default": 0.9,
-      "min": 0,
-      "max": 1,
-      "businessContext": "Probability that critical suppliers deliver on time and within spec (0 = unreliable, 1 = fully reliable).",
-      "label_i18n": {
-        "en": "Supplier Reliability Index"
-      },
-      "businessContext_i18n": {
-        "en": "Probability that critical suppliers deliver on time and within spec (0 = unreliable, 1 = fully reliable)."
-      }
-    },
-    {
-      "id": "riskExposure",
-      "label": "Risk Exposure (USD)",
-      "type": "number",
-      "unit": "USD",
-      "default": 200000,
-      "min": 0,
-      "max": 100000000,
-      "businessContext": "Monetary value of identified risks (probability * impact) not yet mitigated.",
-      "label_i18n": {
-        "en": "Risk Exposure (USD)"
-      },
-      "businessContext_i18n": {
-        "en": "Monetary value of identified risks (probability * impact) not yet mitigated."
-      }
     }
   ],
   "validation": {
@@ -226,18 +194,18 @@
       }
     ]
   },
-  "formulas": [
-    "plannedDuration",
-    "plannedDuration",
-    "plannedDuration",
-    "plannedDuration",
-    "plannedDuration",
-    "plannedDuration",
-    "plannedDuration"
-  ],
+  "formulas": {
+    "result": "plannedDuration + actualDuration + plannedCost",
+    "result_copy": "plannedDuration + actualDuration + plannedCost"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "project-overrun-risk-calculator",
   "catalogCategory": "everyday-life",

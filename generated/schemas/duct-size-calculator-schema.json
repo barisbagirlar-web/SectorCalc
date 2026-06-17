@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m³/s",
       "default": 1,
-      "businessContext": "Sistemin taşıması gereken hava miktarı. Soğutma/ısıtma yüküne göre hesaplanır."
+      "businessContext": "Sistemin taşıması gereken hava miktarı. Soğutma/ısıtma yüküne göre hesaplanır.",
+      "label_i18n": {
+        "en": "Hava Debisi",
+        "tr": "Hava Debisi",
+        "de": "Hava Debisi",
+        "fr": "Hava Debisi",
+        "es": "Hava Debisi",
+        "ar": "Hava Debisi"
+      }
     },
     {
       "id": "velocity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 5,
-      "businessContext": "Kanalda izin verilen maksimum hava hızı. Gürültü ve basınç kaybı limitlerine bağlıdır. Tipik konfor uygulamalarında 5-8 m/s."
+      "businessContext": "Kanalda izin verilen maksimum hava hızı. Gürültü ve basınç kaybı limitlerine bağlıdır. Tipik konfor uygulamalarında 5-8 m/s.",
+      "label_i18n": {
+        "en": "Hava Hızı",
+        "tr": "Hava Hızı",
+        "de": "Hava Hızı",
+        "fr": "Hava Hızı",
+        "es": "Hava Hızı",
+        "ar": "Hava Hızı"
+      }
     },
     {
       "id": "aspectRatio",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "oran",
       "default": 1,
-      "businessContext": "Dikdörtgen kanalda genişliğin yüksekliğe oranı. Alan kısıtı ve maliyet optimizasyonu için kullanılır. 1 kare kanalı verir."
+      "businessContext": "Dikdörtgen kanalda genişliğin yüksekliğe oranı. Alan kısıtı ve maliyet optimizasyonu için kullanılır. 1 kare kanalı verir.",
+      "label_i18n": {
+        "en": "En/Boy Oranı",
+        "tr": "En/Boy Oranı",
+        "de": "En/Boy Oranı",
+        "fr": "En/Boy Oranı",
+        "es": "En/Boy Oranı",
+        "ar": "En/Boy Oranı"
+      }
     },
     {
       "id": "safetyFactor",
@@ -31,22 +55,33 @@
       "type": "number",
       "unit": "-",
       "default": 1.1,
-      "businessContext": "Hesap belirsizlikleri, sızıntı veya ileride kapasite artışı için debiyi artıran faktör."
+      "businessContext": "Hesap belirsizlikleri, sızıntı veya ileride kapasite artışı için debiyi artıran faktör.",
+      "label_i18n": {
+        "en": "Emniyet Katsayısı",
+        "tr": "Emniyet Katsayısı",
+        "de": "Emniyet Katsayısı",
+        "fr": "Emniyet Katsayısı",
+        "es": "Emniyet Katsayısı",
+        "ar": "Emniyet Katsayısı"
+      }
     }
   ],
   "formulas": {
     "area": "(flowRate * safetyFactor) / velocity",
-    "roundDiameter": "2 * Math.sqrt(area / Math.PI)",
-    "rectHeight": "Math.sqrt(area / aspectRatio)",
-    "rectWidth": "aspectRatio * rectHeight"
+    "area_aux": "(flowRate * safetyFactor) / velocity"
   },
   "outputs": {
-    "primary": "roundDiameter",
+    "primary": "area_aux",
     "breakdown": [
       "area",
       "rectWidth",
       "rectHeight"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "rectWidth"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -56,5 +91,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

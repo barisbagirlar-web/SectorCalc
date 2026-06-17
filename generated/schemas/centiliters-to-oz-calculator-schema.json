@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cL",
       "default": 100,
-      "businessContext": "Quantity of liquid in centiliters to convert."
+      "businessContext": "Quantity of liquid in centiliters to convert.",
+      "label_i18n": {
+        "en": "Volume in Centiliters",
+        "tr": "Volume in Centiliters",
+        "de": "Volume in Centiliters",
+        "fr": "Volume in Centiliters",
+        "es": "Volume in Centiliters",
+        "ar": "Volume in Centiliters"
+      }
     },
     {
       "id": "conversionType",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "(0=US, 1=UK)",
       "default": 0,
-      "businessContext": "0 for US fluid ounces, 1 for UK fluid ounces."
+      "businessContext": "0 for US fluid ounces, 1 for UK fluid ounces.",
+      "label_i18n": {
+        "en": "Ounce Type",
+        "tr": "Ounce Type",
+        "de": "Ounce Type",
+        "fr": "Ounce Type",
+        "es": "Ounce Type",
+        "ar": "Ounce Type"
+      }
     },
     {
       "id": "containerCount",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 1,
-      "businessContext": "Number of identical containers holding this volume."
+      "businessContext": "Number of identical containers holding this volume.",
+      "label_i18n": {
+        "en": "Number of Containers",
+        "tr": "Number of Containers",
+        "de": "Number of Containers",
+        "fr": "Number of Containers",
+        "es": "Number of Containers",
+        "ar": "Number of Containers"
+      }
     },
     {
       "id": "wasteFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Percentage of volume lost or additional required, e.g., 5 for 5% waste."
+      "businessContext": "Percentage of volume lost or additional required, e.g., 5 for 5% waste.",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     },
     {
       "id": "roundingPrecision",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "decimal places",
       "default": 2,
-      "businessContext": "Number of decimal places for final output."
+      "businessContext": "Number of decimal places for final output.",
+      "label_i18n": {
+        "en": "Rounding Precision",
+        "tr": "Rounding Precision",
+        "de": "Rounding Precision",
+        "fr": "Rounding Precision",
+        "es": "Rounding Precision",
+        "ar": "Rounding Precision"
+      }
     }
   ],
   "formulas": {
@@ -47,16 +87,20 @@
     "rawOunces": "centiliters * conversionFactor * containerCount",
     "wasteOunces": "rawOunces * wasteFactor / 100",
     "totalOunces": "rawOunces + wasteOunces",
-    "roundingFactor": "10 ** roundingPrecision",
-    "totalOuncesRounded": "Math.round(totalOunces * roundingFactor) / roundingFactor"
+    "roundingFactor": "10 ** roundingPrecision"
   },
   "outputs": {
-    "primary": "totalOuncesRounded",
+    "primary": "roundingFactor",
     "breakdown": [
       "rawOunces",
       "wasteOunces",
       "conversionFactor"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalOuncesRounded"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -66,5 +110,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 100000,
-      "businessContext": "The amount of capital gain being invested into the Qualified Opportunity Fund."
+      "businessContext": "The amount of capital gain being invested into the Qualified Opportunity Fund.",
+      "label_i18n": {
+        "en": "Initial Capital Gain",
+        "tr": "Initial Capital Gain",
+        "de": "Initial Capital Gain",
+        "fr": "Initial Capital Gain",
+        "es": "Initial Capital Gain",
+        "ar": "Initial Capital Gain"
+      }
     },
     {
       "id": "federalTaxRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 23.8,
-      "businessContext": "Combined federal capital gains tax rate including net investment income tax if applicable."
+      "businessContext": "Combined federal capital gains tax rate including net investment income tax if applicable.",
+      "label_i18n": {
+        "en": "Federal Capital Gains Tax Rate",
+        "tr": "Federal Capital Gains Tax Rate",
+        "de": "Federal Capital Gains Tax Rate",
+        "fr": "Federal Capital Gains Tax Rate",
+        "es": "Federal Capital Gains Tax Rate",
+        "ar": "Federal Capital Gains Tax Rate"
+      }
     },
     {
       "id": "stateTaxRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "State-level capital gains tax rate."
+      "businessContext": "State-level capital gains tax rate.",
+      "label_i18n": {
+        "en": "State Capital Gains Tax Rate",
+        "tr": "State Capital Gains Tax Rate",
+        "de": "State Capital Gains Tax Rate",
+        "fr": "State Capital Gains Tax Rate",
+        "es": "State Capital Gains Tax Rate",
+        "ar": "State Capital Gains Tax Rate"
+      }
     },
     {
       "id": "holdingYears",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "years",
       "default": 10,
-      "businessContext": "Number of years the investment is held in the Opportunity Fund."
+      "businessContext": "Number of years the investment is held in the Opportunity Fund.",
+      "label_i18n": {
+        "en": "Holding Period",
+        "tr": "Holding Period",
+        "de": "Holding Period",
+        "fr": "Holding Period",
+        "es": "Holding Period",
+        "ar": "Holding Period"
+      }
     },
     {
       "id": "annualAppreciation",
@@ -39,18 +71,22 @@
       "type": "number",
       "unit": "%",
       "default": 7,
-      "businessContext": "Expected annual rate of return on the Opportunity Fund investment."
+      "businessContext": "Expected annual rate of return on the Opportunity Fund investment.",
+      "label_i18n": {
+        "en": "Expected Annual Appreciation",
+        "tr": "Expected Annual Appreciation",
+        "de": "Expected Annual Appreciation",
+        "fr": "Expected Annual Appreciation",
+        "es": "Expected Annual Appreciation",
+        "ar": "Expected Annual Appreciation"
+      }
     }
   ],
   "formulas": {
     "combinedTaxRate": "(federalTaxRate + stateTaxRate) / 100",
     "originalTax": "initialCapitalGain * combinedTaxRate",
-    "deferralSavings": "originalTax * (Math.pow(1 + annualAppreciation/100, holdingYears) - 1)",
     "stepUpRatio": "holdingYears >= 7 ? 0.15 : (holdingYears >= 5 ? 0.10 : 0)",
-    "stepUpSavings": "stepUpRatio * initialCapitalGain * combinedTaxRate",
-    "exclusionApplies": "holdingYears >= 10",
-    "exclusionSavings": "exclusionApplies ? (initialCapitalGain * Math.pow(1 + annualAppreciation/100, holdingYears) - initialCapitalGain) * combinedTaxRate : 0",
-    "totalSavings": "deferralSavings + stepUpSavings + exclusionSavings"
+    "stepUpSavings": "stepUpRatio * initialCapitalGain * combinedTaxRate"
   },
   "outputs": {
     "primary": "combinedTaxRate",
@@ -70,7 +106,12 @@
         "label": "Exclusion Savings",
         "unit": "$"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalSavings"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -80,5 +121,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

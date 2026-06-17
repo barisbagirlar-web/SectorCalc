@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cards",
       "default": 9,
-      "businessContext": "Number of cards that will improve your hand to a winner"
+      "businessContext": "Number of cards that will improve your hand to a winner",
+      "label_i18n": {
+        "en": "Number of Outs",
+        "tr": "Number of Outs",
+        "de": "Number of Outs",
+        "fr": "Number of Outs",
+        "es": "Number of Outs",
+        "ar": "Number of Outs"
+      }
     },
     {
       "id": "currentPot",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "chips",
       "default": 100,
-      "businessContext": "Total chips in the pot before calling"
+      "businessContext": "Total chips in the pot before calling",
+      "label_i18n": {
+        "en": "Current Pot Size",
+        "tr": "Current Pot Size",
+        "de": "Current Pot Size",
+        "fr": "Current Pot Size",
+        "es": "Current Pot Size",
+        "ar": "Current Pot Size"
+      }
     },
     {
       "id": "betToCall",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "chips",
       "default": 20,
-      "businessContext": "Amount you need to call to stay in the hand"
+      "businessContext": "Amount you need to call to stay in the hand",
+      "label_i18n": {
+        "en": "Bet to Call",
+        "tr": "Bet to Call",
+        "de": "Bet to Call",
+        "fr": "Bet to Call",
+        "es": "Bet to Call",
+        "ar": "Bet to Call"
+      }
     },
     {
       "id": "knownCards",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cards",
       "default": 5,
-      "businessContext": "Total cards you know, including your hole cards and community cards"
+      "businessContext": "Total cards you know, including your hole cards and community cards",
+      "label_i18n": {
+        "en": "Known Cards (yours + community)",
+        "tr": "Known Cards (yours + community)",
+        "de": "Known Cards (yours + community)",
+        "fr": "Known Cards (yours + community)",
+        "es": "Known Cards (yours + community)",
+        "ar": "Known Cards (yours + community)"
+      }
     },
     {
       "id": "totalCards",
@@ -39,16 +71,22 @@
       "type": "number",
       "unit": "cards",
       "default": 52,
-      "businessContext": "Standard deck size, usually 52"
+      "businessContext": "Standard deck size, usually 52",
+      "label_i18n": {
+        "en": "Total Deck Size",
+        "tr": "Total Deck Size",
+        "de": "Total Deck Size",
+        "fr": "Total Deck Size",
+        "es": "Total Deck Size",
+        "ar": "Total Deck Size"
+      }
     }
   ],
   "formulas": {
     "unseenCards": "totalCards - knownCards",
     "probabilityWin": "numberOfOuts / unseenCards",
     "potOdds": "betToCall / (currentPot + betToCall)",
-    "expectedValue": "probabilityWin * (currentPot + betToCall) - (1 - probabilityWin) * betToCall",
-    "recommendation": "expectedValue > 0 ? 'Call' : 'Fold'",
-    "primaryText": "`${recommendation} (EV: ${expectedValue.toFixed(1)} chips, Win Prob: ${(probabilityWin * 100).toFixed(1)}%)`"
+    "expectedValue": "probabilityWin * (currentPot + betToCall) - (1 - probabilityWin) * betToCall"
   },
   "outputs": {
     "primary": "unseenCards",
@@ -78,7 +116,12 @@
         "value": "expectedValue",
         "unit": "chips"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "recommendation"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -88,5 +131,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "saat",
       "default": 8,
-      "businessContext": "Molalar düşüldükten sonraki net çalışma süresi"
+      "businessContext": "Molalar düşüldükten sonraki net çalışma süresi",
+      "label_i18n": {
+        "en": "Vardiya Başına Net Çalışma Süresi",
+        "tr": "Vardiya Başına Net Çalışma Süresi",
+        "de": "Vardiya Başına Net Çalışma Süresi",
+        "fr": "Vardiya Başına Net Çalışma Süresi",
+        "es": "Vardiya Başına Net Çalışma Süresi",
+        "ar": "Vardiya Başına Net Çalışma Süresi"
+      }
     },
     {
       "id": "shiftsPerDay",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Günlük vardiya sayısı"
+      "businessContext": "Günlük vardiya sayısı",
+      "label_i18n": {
+        "en": "Günlük Vardiya Sayısı",
+        "tr": "Günlük Vardiya Sayısı",
+        "de": "Günlük Vardiya Sayısı",
+        "fr": "Günlük Vardiya Sayısı",
+        "es": "Günlük Vardiya Sayısı",
+        "ar": "Günlük Vardiya Sayısı"
+      }
     },
     {
       "id": "demandPerDay",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1000,
-      "businessContext": "Müşterinin günlük talep ettiği ürün adedi"
+      "businessContext": "Müşterinin günlük talep ettiği ürün adedi",
+      "label_i18n": {
+        "en": "Günlük Talep Miktarı",
+        "tr": "Günlük Talep Miktarı",
+        "de": "Günlük Talep Miktarı",
+        "fr": "Günlük Talep Miktarı",
+        "es": "Günlük Talep Miktarı",
+        "ar": "Günlük Talep Miktarı"
+      }
     },
     {
       "id": "efficiencyFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Planlı duruşlar, arızalar vb. kayıpları yansıtan verimlilik oranı"
+      "businessContext": "Planlı duruşlar, arızalar vb. kayıpları yansıtan verimlilik oranı",
+      "label_i18n": {
+        "en": "Verimlilik Faktörü",
+        "tr": "Verimlilik Faktörü",
+        "de": "Verimlilik Faktörü",
+        "fr": "Verimlilik Faktörü",
+        "es": "Verimlilik Faktörü",
+        "ar": "Verimlilik Faktörü"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "tempoHour",
       "netTimeSeconds"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "netTimeSeconds"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -54,5 +91,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

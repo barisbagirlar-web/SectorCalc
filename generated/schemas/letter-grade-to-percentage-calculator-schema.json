@@ -84,15 +84,19 @@
   ],
   "formulas": {
     "rawPercentage": "slope * gradePoint + intercept",
-    "percentage": "Math.min(clampMax, Math.max(clampMin, rawPercentage))",
-    "letterGradeNumeric": "Math.max(0, Math.min(4, Math.floor((percentage - 50) / 10)))"
+    "rawPercentage_aux": "slope * gradePoint + intercept"
   },
   "outputs": {
-    "primary": "percentage",
+    "primary": "rawPercentage_aux",
     "breakdown": [
       "rawPercentage",
       "letterGradeNumeric"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "letterGradeNumeric"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -102,5 +106,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

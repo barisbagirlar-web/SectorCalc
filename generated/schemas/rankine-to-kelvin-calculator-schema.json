@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°R",
       "default": 491.67,
-      "businessContext": "Measured temperature in Rankine scale"
+      "businessContext": "Measured temperature in Rankine scale",
+      "label_i18n": {
+        "en": "Temperature (°R)",
+        "tr": "Temperature (°R)",
+        "de": "Temperature (°R)",
+        "fr": "Temperature (°R)",
+        "es": "Temperature (°R)",
+        "ar": "Temperature (°R)"
+      }
     },
     {
       "id": "uncertaintyRankine",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°R",
       "default": 0.1,
-      "businessContext": "Standard deviation of temperature measurement"
+      "businessContext": "Standard deviation of temperature measurement",
+      "label_i18n": {
+        "en": "Measurement Uncertainty (±°R)",
+        "tr": "Measurement Uncertainty (±°R)",
+        "de": "Measurement Uncertainty (±°R)",
+        "fr": "Measurement Uncertainty (±°R)",
+        "es": "Measurement Uncertainty (±°R)",
+        "ar": "Measurement Uncertainty (±°R)"
+      }
     },
     {
       "id": "confidenceZ",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1.96,
-      "businessContext": "z-score for desired confidence interval (e.g., 1.96 for 95%)"
+      "businessContext": "z-score for desired confidence interval (e.g., 1.96 for 95%)",
+      "label_i18n": {
+        "en": "Confidence Factor (z)",
+        "tr": "Confidence Factor (z)",
+        "de": "Confidence Factor (z)",
+        "fr": "Confidence Factor (z)",
+        "es": "Confidence Factor (z)",
+        "ar": "Confidence Factor (z)"
+      }
     },
     {
       "id": "decimalPlaces",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 2,
-      "businessContext": "Number of decimal places for output rounding"
+      "businessContext": "Number of decimal places for output rounding",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "uncertaintyKelvin",
       "expandedUncertainty"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "expandedUncertainty"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

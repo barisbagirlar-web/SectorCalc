@@ -99,20 +99,21 @@
     }
   ],
   "formulas": {
-    "expectedReward": "rewardPerState * (1 - Math.pow(discountFactor, timeSteps)) / (1 - discountFactor)",
     "steadyStateProb": "1 / numStates",
-    "stateDistribution": "Array.from({length: numStates}, (_, i) => i === initialState ? 1 : 0)",
-    "Expected_total_discounted_reward_over_ti": "Expected total discounted reward over time steps",
-    "Steady_state_probability_per_state": "Steady-state probability per state",
-    "Initial_state_distribution_vector": "Initial state distribution vector"
+    "steadyStateProb_aux": "1 / numStates"
   },
   "outputs": {
-    "primary": "expectedReward",
+    "primary": "steadyStateProb_aux",
     "breakdown": [
       "Expected total discounted reward over time steps",
       "Steady-state probability per state",
       "Initial state distribution vector"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "stateDistribution"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -122,5 +123,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

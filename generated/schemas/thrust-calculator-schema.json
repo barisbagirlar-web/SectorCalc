@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg/s",
       "default": 1,
-      "businessContext": "The rate at which mass is expelled from the propulsion system."
+      "businessContext": "The rate at which mass is expelled from the propulsion system.",
+      "label_i18n": {
+        "en": "Mass Flow Rate",
+        "tr": "Mass Flow Rate",
+        "de": "Mass Flow Rate",
+        "fr": "Mass Flow Rate",
+        "es": "Mass Flow Rate",
+        "ar": "Mass Flow Rate"
+      }
     },
     {
       "id": "exhaustVelocity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 1000,
-      "businessContext": "The velocity of the exhaust gases relative to the engine."
+      "businessContext": "The velocity of the exhaust gases relative to the engine.",
+      "label_i18n": {
+        "en": "Exhaust Velocity",
+        "tr": "Exhaust Velocity",
+        "de": "Exhaust Velocity",
+        "fr": "Exhaust Velocity",
+        "es": "Exhaust Velocity",
+        "ar": "Exhaust Velocity"
+      }
     },
     {
       "id": "exitPressure",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Pa",
       "default": 101325,
-      "businessContext": "The static pressure at the nozzle exit plane."
+      "businessContext": "The static pressure at the nozzle exit plane.",
+      "label_i18n": {
+        "en": "Exit Pressure",
+        "tr": "Exit Pressure",
+        "de": "Exit Pressure",
+        "fr": "Exit Pressure",
+        "es": "Exit Pressure",
+        "ar": "Exit Pressure"
+      }
     },
     {
       "id": "ambientPressure",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "Pa",
       "default": 101325,
-      "businessContext": "The pressure of the surrounding environment."
+      "businessContext": "The pressure of the surrounding environment.",
+      "label_i18n": {
+        "en": "Ambient Pressure",
+        "tr": "Ambient Pressure",
+        "de": "Ambient Pressure",
+        "fr": "Ambient Pressure",
+        "es": "Ambient Pressure",
+        "ar": "Ambient Pressure"
+      }
     },
     {
       "id": "exitArea",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m²",
       "default": 0.01,
-      "businessContext": "The cross-sectional area of the nozzle exit."
+      "businessContext": "The cross-sectional area of the nozzle exit.",
+      "label_i18n": {
+        "en": "Exit Area",
+        "tr": "Exit Area",
+        "de": "Exit Area",
+        "fr": "Exit Area",
+        "es": "Exit Area",
+        "ar": "Exit Area"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "momentumThrust",
       "pressureThrust"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalThrust"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -62,5 +107,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "engineering"
+  "categoryId": "engineering",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

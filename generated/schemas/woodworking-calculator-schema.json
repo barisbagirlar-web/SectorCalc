@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 1000,
-      "businessContext": "İşlenecek ahşap parçanın uzunluğu"
+      "businessContext": "İşlenecek ahşap parçanın uzunluğu",
+      "label_i18n": {
+        "en": "Parça Uzunluğu (mm)",
+        "tr": "Parça Uzunluğu (mm)",
+        "de": "Parça Uzunluğu (mm)",
+        "fr": "Parça Uzunluğu (mm)",
+        "es": "Parça Uzunluğu (mm)",
+        "ar": "Parça Uzunluğu (mm)"
+      }
     },
     {
       "id": "width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 500,
-      "businessContext": "İşlenecek ahşap parçanın genişliği"
+      "businessContext": "İşlenecek ahşap parçanın genişliği",
+      "label_i18n": {
+        "en": "Parça Genişliği (mm)",
+        "tr": "Parça Genişliği (mm)",
+        "de": "Parça Genişliği (mm)",
+        "fr": "Parça Genişliği (mm)",
+        "es": "Parça Genişliği (mm)",
+        "ar": "Parça Genişliği (mm)"
+      }
     },
     {
       "id": "thickness",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 18,
-      "businessContext": "Ahşap malzemenin kalınlığı"
+      "businessContext": "Ahşap malzemenin kalınlığı",
+      "label_i18n": {
+        "en": "Parça Kalınlığı (mm)",
+        "tr": "Parça Kalınlığı (mm)",
+        "de": "Parça Kalınlığı (mm)",
+        "fr": "Parça Kalınlığı (mm)",
+        "es": "Parça Kalınlığı (mm)",
+        "ar": "Parça Kalınlığı (mm)"
+      }
     },
     {
       "id": "quantity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "adet",
       "default": 10,
-      "businessContext": "Üretilecek parça sayısı"
+      "businessContext": "Üretilecek parça sayısı",
+      "label_i18n": {
+        "en": "Parça Adedi",
+        "tr": "Parça Adedi",
+        "de": "Parça Adedi",
+        "fr": "Parça Adedi",
+        "es": "Parça Adedi",
+        "ar": "Parça Adedi"
+      }
     },
     {
       "id": "wastePercent",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Kesim ve işleme sırasında oluşan fire yüzdesi"
+      "businessContext": "Kesim ve işleme sırasında oluşan fire yüzdesi",
+      "label_i18n": {
+        "en": "Fire Oranı (%)",
+        "tr": "Fire Oranı (%)",
+        "de": "Fire Oranı (%)",
+        "fr": "Fire Oranı (%)",
+        "es": "Fire Oranı (%)",
+        "ar": "Fire Oranı (%)"
+      }
     },
     {
       "id": "density",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 700,
-      "businessContext": "Ahşap malzemenin yoğunluğu (ör: çam ~500, meşe ~700)"
+      "businessContext": "Ahşap malzemenin yoğunluğu (ör: çam ~500, meşe ~700)",
+      "label_i18n": {
+        "en": "Yoğunluk (kg/m³)",
+        "tr": "Yoğunluk (kg/m³)",
+        "de": "Yoğunluk (kg/m³)",
+        "fr": "Yoğunluk (kg/m³)",
+        "es": "Yoğunluk (kg/m³)",
+        "ar": "Yoğunluk (kg/m³)"
+      }
     },
     {
       "id": "costPerM3",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "TL/m³",
       "default": 12000,
-      "businessContext": "Ahşap malzemenin metreküp başına maliyeti"
+      "businessContext": "Ahşap malzemenin metreküp başına maliyeti",
+      "label_i18n": {
+        "en": "Birim Maliyet (TL/m³)",
+        "tr": "Birim Maliyet (TL/m³)",
+        "de": "Birim Maliyet (TL/m³)",
+        "fr": "Birim Maliyet (TL/m³)",
+        "es": "Birim Maliyet (TL/m³)",
+        "ar": "Birim Maliyet (TL/m³)"
+      }
     }
   ],
   "formulas": {
@@ -73,7 +129,12 @@
       "totalVolumeWithWaste",
       "totalWeight",
       "totalCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -83,5 +144,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

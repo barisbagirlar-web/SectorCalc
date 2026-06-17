@@ -104,21 +104,21 @@
     "effWidth": "(outerDiameter - innerDiameter) / 2",
     "operatingForce": "(Math.PI * meanDiam**2 * pressureMPa / 4) + (2 * effWidth * Math.PI * meanDiam * gasketFactor * pressureMPa)",
     "seatingForce": "Math.PI * effWidth * meanDiam * seatingStress",
-    "maxTotalForce": "Math.max(operatingForce, seatingForce)",
     "operatingForcePerBolt": "operatingForce / boltCount",
     "seatingForcePerBolt": "seatingForce / boltCount",
-    "maxForcePerBolt": "maxTotalForce / boltCount",
-    "effectiveArea": "Math.PI / 4 * (outerDiameter**2 - innerDiameter**2)",
-    "_____operatingForce___1000__toFixed_2___": "' + (operatingForce / 1000).toFixed(2) + ' kN')",
-    "_____seatingForce___1000__toFixed_2_____": "' + (seatingForce / 1000).toFixed(2) + ' kN')",
-    "result": "(maxTotalForce / 1000).toFixed(2) + ' kN'"
+    "effectiveArea": "Math.PI / 4 * (outerDiameter**2 - innerDiameter**2)"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "effectiveArea",
     "breakdown": [
       "('Çalışma Yükü: ' + (operatingForce / 1000).toFixed(2) + ' kN')",
       "('Oturma Yükü: ' + (seatingForce / 1000).toFixed(2) + ' kN')"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -128,5 +128,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

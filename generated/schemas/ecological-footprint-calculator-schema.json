@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kWh/month",
       "default": 0,
-      "businessContext": "Monthly electricity consumption in kilowatt-hours."
+      "businessContext": "Monthly electricity consumption in kilowatt-hours.",
+      "label_i18n": {
+        "en": "Electricity Consumption",
+        "tr": "Electricity Consumption",
+        "de": "Electricity Consumption",
+        "fr": "Electricity Consumption",
+        "es": "Electricity Consumption",
+        "ar": "Electricity Consumption"
+      }
     },
     {
       "id": "naturalGas",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m³/month",
       "default": 0,
-      "businessContext": "Monthly natural gas consumption in cubic meters."
+      "businessContext": "Monthly natural gas consumption in cubic meters.",
+      "label_i18n": {
+        "en": "Natural Gas Consumption",
+        "tr": "Natural Gas Consumption",
+        "de": "Natural Gas Consumption",
+        "fr": "Natural Gas Consumption",
+        "es": "Natural Gas Consumption",
+        "ar": "Natural Gas Consumption"
+      }
     },
     {
       "id": "fuel",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "L/month",
       "default": 0,
-      "businessContext": "Monthly vehicle fuel consumption in liters (gasoline/diesel)."
+      "businessContext": "Monthly vehicle fuel consumption in liters (gasoline/diesel).",
+      "label_i18n": {
+        "en": "Fuel Consumption",
+        "tr": "Fuel Consumption",
+        "de": "Fuel Consumption",
+        "fr": "Fuel Consumption",
+        "es": "Fuel Consumption",
+        "ar": "Fuel Consumption"
+      }
     },
     {
       "id": "water",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m³/month",
       "default": 0,
-      "businessContext": "Monthly water consumption in cubic meters."
+      "businessContext": "Monthly water consumption in cubic meters.",
+      "label_i18n": {
+        "en": "Water Consumption",
+        "tr": "Water Consumption",
+        "de": "Water Consumption",
+        "fr": "Water Consumption",
+        "es": "Water Consumption",
+        "ar": "Water Consumption"
+      }
     },
     {
       "id": "waste",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg/month",
       "default": 0,
-      "businessContext": "Monthly non-recycled waste generation in kilograms."
+      "businessContext": "Monthly non-recycled waste generation in kilograms.",
+      "label_i18n": {
+        "en": "Waste Generation",
+        "tr": "Waste Generation",
+        "de": "Waste Generation",
+        "fr": "Waste Generation",
+        "es": "Waste Generation",
+        "ar": "Waste Generation"
+      }
     }
   ],
   "formulas": {
@@ -58,7 +98,12 @@
       "fuelFootprint",
       "waterFootprint",
       "wasteFootprint"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalFootprint"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -68,5 +113,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

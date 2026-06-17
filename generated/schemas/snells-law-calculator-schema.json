@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Refractive index of the first medium (e.g., air = 1.0003)"
+      "businessContext": "Refractive index of the first medium (e.g., air = 1.0003)",
+      "label_i18n": {
+        "en": "Refractive Index of Medium 1",
+        "tr": "Refractive Index of Medium 1",
+        "de": "Refractive Index of Medium 1",
+        "fr": "Refractive Index of Medium 1",
+        "es": "Refractive Index of Medium 1",
+        "ar": "Refractive Index of Medium 1"
+      }
     },
     {
       "id": "theta1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "degrees",
       "default": 30,
-      "businessContext": "Angle between incident ray and normal in medium 1"
+      "businessContext": "Angle between incident ray and normal in medium 1",
+      "label_i18n": {
+        "en": "Angle of Incidence",
+        "tr": "Angle of Incidence",
+        "de": "Angle of Incidence",
+        "fr": "Angle of Incidence",
+        "es": "Angle of Incidence",
+        "ar": "Angle of Incidence"
+      }
     },
     {
       "id": "n2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1.5,
-      "businessContext": "Refractive index of the second medium (e.g., glass = 1.5)"
+      "businessContext": "Refractive index of the second medium (e.g., glass = 1.5)",
+      "label_i18n": {
+        "en": "Refractive Index of Medium 2",
+        "tr": "Refractive Index of Medium 2",
+        "de": "Refractive Index of Medium 2",
+        "fr": "Refractive Index of Medium 2",
+        "es": "Refractive Index of Medium 2",
+        "ar": "Refractive Index of Medium 2"
+      }
     },
     {
       "id": "theta2",
@@ -31,23 +55,33 @@
       "type": "number",
       "unit": "degrees",
       "default": 19.47,
-      "businessContext": "Angle between refracted ray and normal in medium 2 (calculated if unknown)"
+      "businessContext": "Angle between refracted ray and normal in medium 2 (calculated if unknown)",
+      "label_i18n": {
+        "en": "Angle of Refraction",
+        "tr": "Angle of Refraction",
+        "de": "Angle of Refraction",
+        "fr": "Angle of Refraction",
+        "es": "Angle of Refraction",
+        "ar": "Angle of Refraction"
+      }
     }
   ],
   "formulas": {
-    "theta2_rad": "Math.asin(n1 * Math.sin(theta1 * Math.PI / 180) / n2)",
-    "theta2_deg": "theta2_rad * 180 / Math.PI",
-    "critical_angle_rad": "Math.asin(n2 / n1)",
-    "critical_angle_deg": "critical_angle_rad * 180 / Math.PI",
-    "is_total_internal_reflection": "n1 > n2 && theta1 > critical_angle_deg"
+    "result": "n1 + theta1 + n2",
+    "result_copy": "n1 + theta1 + n2"
   },
   "outputs": {
-    "primary": "theta2_deg",
+    "primary": "result",
     "breakdown": [
       "Angle of Refraction (degrees): theta2_deg",
       "Critical Angle (degrees): critical_angle_deg",
       "Total Internal Reflection: is_total_internal_reflection"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "critical_angle_deg"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -57,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "bpm",
       "default": 160,
-      "businessContext": "Maximum heart rate achieved during exercise"
+      "businessContext": "Maximum heart rate achieved during exercise",
+      "label_i18n": {
+        "en": "Peak Heart Rate (bpm)",
+        "tr": "Peak Heart Rate (bpm)",
+        "de": "Peak Heart Rate (bpm)",
+        "fr": "Peak Heart Rate (bpm)",
+        "es": "Peak Heart Rate (bpm)",
+        "ar": "Peak Heart Rate (bpm)"
+      }
     },
     {
       "id": "hr1min",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "bpm",
       "default": 140,
-      "businessContext": "Heart rate measured 1 minute after cessation of exercise"
+      "businessContext": "Heart rate measured 1 minute after cessation of exercise",
+      "label_i18n": {
+        "en": "Heart Rate after 1 minute (bpm)",
+        "tr": "Heart Rate after 1 minute (bpm)",
+        "de": "Heart Rate after 1 minute (bpm)",
+        "fr": "Heart Rate after 1 minute (bpm)",
+        "es": "Heart Rate after 1 minute (bpm)",
+        "ar": "Heart Rate after 1 minute (bpm)"
+      }
     },
     {
       "id": "hr2min",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "bpm",
       "default": 120,
-      "businessContext": "Heart rate measured 2 minutes after cessation of exercise"
+      "businessContext": "Heart rate measured 2 minutes after cessation of exercise",
+      "label_i18n": {
+        "en": "Heart Rate after 2 minutes (bpm)",
+        "tr": "Heart Rate after 2 minutes (bpm)",
+        "de": "Heart Rate after 2 minutes (bpm)",
+        "fr": "Heart Rate after 2 minutes (bpm)",
+        "es": "Heart Rate after 2 minutes (bpm)",
+        "ar": "Heart Rate after 2 minutes (bpm)"
+      }
     },
     {
       "id": "restingHR",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "bpm",
       "default": 70,
-      "businessContext": "Resting heart rate for reference"
+      "businessContext": "Resting heart rate for reference",
+      "label_i18n": {
+        "en": "Resting Heart Rate (bpm)",
+        "tr": "Resting Heart Rate (bpm)",
+        "de": "Resting Heart Rate (bpm)",
+        "fr": "Resting Heart Rate (bpm)",
+        "es": "Resting Heart Rate (bpm)",
+        "ar": "Resting Heart Rate (bpm)"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "recovery1min",
       "recovery2min"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "averageRecovery"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -54,5 +91,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -84,15 +84,19 @@
   ],
   "formulas": {
     "exactKg": "longTons * conversionFactor * quantity",
-    "withSafetyKg": "exactKg * (1 + safetyMargin / 100)",
-    "resultKg": "Math.round(withSafetyKg * Math.pow(10, decimals)) / Math.pow(10, decimals)"
+    "withSafetyKg": "exactKg * (1 + safetyMargin / 100)"
   },
   "outputs": {
-    "primary": "resultKg",
+    "primary": "withSafetyKg",
     "breakdown": [
       "exactKg",
       "withSafetyKg"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "resultKg"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -102,5 +106,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

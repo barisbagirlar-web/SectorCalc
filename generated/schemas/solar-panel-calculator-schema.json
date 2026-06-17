@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m²",
       "default": 1.6,
-      "businessContext": "Area of a single solar panel in square meters."
+      "businessContext": "Area of a single solar panel in square meters.",
+      "label_i18n": {
+        "en": "Panel Area",
+        "tr": "Panel Area",
+        "de": "Panel Area",
+        "fr": "Panel Area",
+        "es": "Panel Area",
+        "ar": "Panel Area"
+      }
     },
     {
       "id": "panelEfficiency",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 18,
-      "businessContext": "Conversion efficiency of the solar panel under standard test conditions."
+      "businessContext": "Conversion efficiency of the solar panel under standard test conditions.",
+      "label_i18n": {
+        "en": "Panel Efficiency",
+        "tr": "Panel Efficiency",
+        "de": "Panel Efficiency",
+        "fr": "Panel Efficiency",
+        "es": "Panel Efficiency",
+        "ar": "Panel Efficiency"
+      }
     },
     {
       "id": "solarIrradiance",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "W/m²",
       "default": 1000,
-      "businessContext": "Standard test condition irradiance, typically 1000 W/m²."
+      "businessContext": "Standard test condition irradiance, typically 1000 W/m².",
+      "label_i18n": {
+        "en": "Solar Irradiance",
+        "tr": "Solar Irradiance",
+        "de": "Solar Irradiance",
+        "fr": "Solar Irradiance",
+        "es": "Solar Irradiance",
+        "ar": "Solar Irradiance"
+      }
     },
     {
       "id": "systemLosses",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 14,
-      "businessContext": "Total system losses including wiring, inverter, soiling, and mismatch."
+      "businessContext": "Total system losses including wiring, inverter, soiling, and mismatch.",
+      "label_i18n": {
+        "en": "System Losses",
+        "tr": "System Losses",
+        "de": "System Losses",
+        "fr": "System Losses",
+        "es": "System Losses",
+        "ar": "System Losses"
+      }
     },
     {
       "id": "tiltAngle",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "°",
       "default": 30,
-      "businessContext": "Angle of the panel relative to horizontal plane."
+      "businessContext": "Angle of the panel relative to horizontal plane.",
+      "label_i18n": {
+        "en": "Tilt Angle",
+        "tr": "Tilt Angle",
+        "de": "Tilt Angle",
+        "fr": "Tilt Angle",
+        "es": "Tilt Angle",
+        "ar": "Tilt Angle"
+      }
     },
     {
       "id": "azimuthAngle",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "°",
       "default": 0,
-      "businessContext": "Compass direction the panel faces (0 = south in northern hemisphere)."
+      "businessContext": "Compass direction the panel faces (0 = south in northern hemisphere).",
+      "label_i18n": {
+        "en": "Azimuth Angle",
+        "tr": "Azimuth Angle",
+        "de": "Azimuth Angle",
+        "fr": "Azimuth Angle",
+        "es": "Azimuth Angle",
+        "ar": "Azimuth Angle"
+      }
     },
     {
       "id": "latitude",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "°",
       "default": 41,
-      "businessContext": "Latitude of the installation site, positive for northern hemisphere."
+      "businessContext": "Latitude of the installation site, positive for northern hemisphere.",
+      "label_i18n": {
+        "en": "Latitude",
+        "tr": "Latitude",
+        "de": "Latitude",
+        "fr": "Latitude",
+        "es": "Latitude",
+        "ar": "Latitude"
+      }
     },
     {
       "id": "annualSunHours",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "hours",
       "default": 2000,
-      "businessContext": "Total equivalent full-sun hours per year at the location."
+      "businessContext": "Total equivalent full-sun hours per year at the location.",
+      "label_i18n": {
+        "en": "Annual Sun Hours",
+        "tr": "Annual Sun Hours",
+        "de": "Annual Sun Hours",
+        "fr": "Annual Sun Hours",
+        "es": "Annual Sun Hours",
+        "ar": "Annual Sun Hours"
+      }
     }
   ],
   "formulas": {
@@ -96,7 +160,12 @@
         "label": "Annual CO₂ Reduction",
         "unit": "kg"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "co2Reduction"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -106,5 +175,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "havacilik",
   "profession": "Tasarım Mühendisi",
-  "categoryId": "efficiency"
+  "categoryId": "efficiency",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

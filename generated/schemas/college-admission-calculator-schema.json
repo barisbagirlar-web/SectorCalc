@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "points",
       "default": 3,
-      "businessContext": "Grade Point Average on a 4.0 scale"
+      "businessContext": "Grade Point Average on a 4.0 scale",
+      "label_i18n": {
+        "en": "GPA",
+        "tr": "GPA",
+        "de": "GPA",
+        "fr": "GPA",
+        "es": "GPA",
+        "ar": "GPA"
+      }
     },
     {
       "id": "testScore",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "points",
       "default": 1200,
-      "businessContext": "Standardized test score (e.g., SAT: 400-1600)"
+      "businessContext": "Standardized test score (e.g., SAT: 400-1600)",
+      "label_i18n": {
+        "en": "Test Score",
+        "tr": "Test Score",
+        "de": "Test Score",
+        "fr": "Test Score",
+        "es": "Test Score",
+        "ar": "Test Score"
+      }
     },
     {
       "id": "extracurriculars",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "count",
       "default": 3,
-      "businessContext": "Number of extracurricular activities (typical range 0-10)"
+      "businessContext": "Number of extracurricular activities (typical range 0-10)",
+      "label_i18n": {
+        "en": "Extracurricular Activities",
+        "tr": "Extracurricular Activities",
+        "de": "Extracurricular Activities",
+        "fr": "Extracurricular Activities",
+        "es": "Extracurricular Activities",
+        "ar": "Extracurricular Activities"
+      }
     },
     {
       "id": "essayRating",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "points",
       "default": 7,
-      "businessContext": "Essay quality rating on a 1-10 scale"
+      "businessContext": "Essay quality rating on a 1-10 scale",
+      "label_i18n": {
+        "en": "Essay Rating",
+        "tr": "Essay Rating",
+        "de": "Essay Rating",
+        "fr": "Essay Rating",
+        "es": "Essay Rating",
+        "ar": "Essay Rating"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "academicScore",
       "extracurricularScore",
       "essayScore"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "admissionChance"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -56,5 +93,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

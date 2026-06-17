@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 100000,
-      "businessContext": "Total direct costs of college: tuition, fees, books, and living expenses (not including foregone earnings)."
+      "businessContext": "Total direct costs of college: tuition, fees, books, and living expenses (not including foregone earnings).",
+      "label_i18n": {
+        "en": "Total Direct College Cost",
+        "tr": "Total Direct College Cost",
+        "de": "Total Direct College Cost",
+        "fr": "Total Direct College Cost",
+        "es": "Total Direct College Cost",
+        "ar": "Total Direct College Cost"
+      }
     },
     {
       "id": "yearsInCollege",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "years",
       "default": 4,
-      "businessContext": "Duration of the college program."
+      "businessContext": "Duration of the college program.",
+      "label_i18n": {
+        "en": "Years in College",
+        "tr": "Years in College",
+        "de": "Years in College",
+        "fr": "Years in College",
+        "es": "Years in College",
+        "ar": "Years in College"
+      }
     },
     {
       "id": "expectedSalary",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$/year",
       "default": 65000,
-      "businessContext": "Annual salary you expect to earn after graduation, in today's dollars."
+      "businessContext": "Annual salary you expect to earn after graduation, in today's dollars.",
+      "label_i18n": {
+        "en": "Expected Annual Salary After College",
+        "tr": "Expected Annual Salary After College",
+        "de": "Expected Annual Salary After College",
+        "fr": "Expected Annual Salary After College",
+        "es": "Expected Annual Salary After College",
+        "ar": "Expected Annual Salary After College"
+      }
     },
     {
       "id": "alternativeSalary",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "$/year",
       "default": 35000,
-      "businessContext": "Annual salary you would earn if you didn't attend college."
+      "businessContext": "Annual salary you would earn if you didn't attend college.",
+      "label_i18n": {
+        "en": "Annual Salary Without College",
+        "tr": "Annual Salary Without College",
+        "de": "Annual Salary Without College",
+        "fr": "Annual Salary Without College",
+        "es": "Annual Salary Without College",
+        "ar": "Annual Salary Without College"
+      }
     },
     {
       "id": "workingYears",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "years",
       "default": 40,
-      "businessContext": "Number of years you expect to work after graduation (or from now)."
+      "businessContext": "Number of years you expect to work after graduation (or from now).",
+      "label_i18n": {
+        "en": "Working Years",
+        "tr": "Working Years",
+        "de": "Working Years",
+        "fr": "Working Years",
+        "es": "Working Years",
+        "ar": "Working Years"
+      }
     },
     {
       "id": "discountRate",
@@ -47,22 +87,34 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Rate used to discount future cash flows to present value (e.g., inflation, required return). Must be greater than zero."
+      "businessContext": "Rate used to discount future cash flows to present value (e.g., inflation, required return). Must be greater than zero.",
+      "label_i18n": {
+        "en": "Annual Discount Rate",
+        "tr": "Annual Discount Rate",
+        "de": "Annual Discount Rate",
+        "fr": "Annual Discount Rate",
+        "es": "Annual Discount Rate",
+        "ar": "Annual Discount Rate"
+      }
     }
   ],
   "formulas": {
     "totalCost": "collegeCost + yearsInCollege * alternativeSalary",
     "differential": "expectedSalary - alternativeSalary",
     "paybackYears": "(collegeCost + yearsInCollege * alternativeSalary) / (expectedSalary - alternativeSalary)",
-    "totalUndiscountedGain": "workingYears * (expectedSalary - alternativeSalary) - (collegeCost + yearsInCollege * alternativeSalary)",
-    "npv": "-(collegeCost + yearsInCollege * alternativeSalary) + (expectedSalary - alternativeSalary) * (1 - Math.pow(1 + discountRate/100, -workingYears)) / (discountRate/100)"
+    "totalUndiscountedGain": "workingYears * (expectedSalary - alternativeSalary) - (collegeCost + yearsInCollege * alternativeSalary)"
   },
   "outputs": {
-    "primary": "npv",
+    "primary": "totalUndiscountedGain",
     "breakdown": [
       "totalUndiscountedGain",
       "paybackYears"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "npv"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -72,5 +124,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

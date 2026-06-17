@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 50,
-      "businessContext": "Enter focal length in centimeters to calculate diopter."
+      "businessContext": "Enter focal length in centimeters to calculate diopter.",
+      "label_i18n": {
+        "en": "Focal Length (cm)",
+        "tr": "Focal Length (cm)",
+        "de": "Focal Length (cm)",
+        "fr": "Focal Length (cm)",
+        "es": "Focal Length (cm)",
+        "ar": "Focal Length (cm)"
+      }
     },
     {
       "id": "diopter1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "D",
       "default": 1,
-      "businessContext": "Power of first thin lens in diopters."
+      "businessContext": "Power of first thin lens in diopters.",
+      "label_i18n": {
+        "en": "Lens 1 Power",
+        "tr": "Lens 1 Power",
+        "de": "Lens 1 Power",
+        "fr": "Lens 1 Power",
+        "es": "Lens 1 Power",
+        "ar": "Lens 1 Power"
+      }
     },
     {
       "id": "diopter2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "D",
       "default": 1,
-      "businessContext": "Power of second thin lens in diopters."
+      "businessContext": "Power of second thin lens in diopters.",
+      "label_i18n": {
+        "en": "Lens 2 Power",
+        "tr": "Lens 2 Power",
+        "de": "Lens 2 Power",
+        "fr": "Lens 2 Power",
+        "es": "Lens 2 Power",
+        "ar": "Lens 2 Power"
+      }
     },
     {
       "id": "originalDiopter",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "D",
       "default": -3,
-      "businessContext": "Lens power before vertex distance change (negative for myopia)."
+      "businessContext": "Lens power before vertex distance change (negative for myopia).",
+      "label_i18n": {
+        "en": "Original Prescription",
+        "tr": "Original Prescription",
+        "de": "Original Prescription",
+        "fr": "Original Prescription",
+        "es": "Original Prescription",
+        "ar": "Original Prescription"
+      }
     },
     {
       "id": "vertexDistanceMm",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm",
       "default": 12,
-      "businessContext": "Distance the lens is moved from the eye (in mm, positive if moved away)."
+      "businessContext": "Distance the lens is moved from the eye (in mm, positive if moved away).",
+      "label_i18n": {
+        "en": "Vertex Distance Change",
+        "tr": "Vertex Distance Change",
+        "de": "Vertex Distance Change",
+        "fr": "Vertex Distance Change",
+        "es": "Vertex Distance Change",
+        "ar": "Vertex Distance Change"
+      }
     }
   ],
   "formulas": {
@@ -56,7 +96,12 @@
       "combinedDiopter",
       "combinedFocalLengthCm",
       "effectiveDiopter"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "effectiveDiopter"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -66,5 +111,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

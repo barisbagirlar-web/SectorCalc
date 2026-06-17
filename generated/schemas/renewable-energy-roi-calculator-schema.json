@@ -140,89 +140,6 @@
       "businessContext_i18n": {
         "en": "Expected operational life of the renewable energy system"
       }
-    },
-    {
-      "id": "degradation_rate_percent",
-      "label": "Annual Degradation Rate (%)",
-      "type": "number",
-      "unit": "%",
-      "default": 0.5,
-      "min": 0,
-      "max": 5,
-      "businessContext": "Annual reduction in energy output due to aging (e.g., solar panel degradation)",
-      "label_i18n": {
-        "en": "Annual Degradation Rate (%)"
-      },
-      "businessContext_i18n": {
-        "en": "Annual reduction in energy output due to aging (e.g., solar panel degradation)"
-      }
-    },
-    {
-      "id": "incentive_tax_credit_percent",
-      "label": "Tax Credit / Incentive (%)",
-      "type": "number",
-      "unit": "%",
-      "default": 26,
-      "min": 0,
-      "max": 100,
-      "businessContext": "One-time incentive or tax credit as percentage of capital cost (e.g., ITC)",
-      "label_i18n": {
-        "en": "Tax Credit / Incentive (%)"
-      },
-      "businessContext_i18n": {
-        "en": "One-time incentive or tax credit as percentage of capital cost (e.g., ITC)"
-      }
-    },
-    {
-      "id": "carbon_credit_usd_per_ton",
-      "label": "Carbon Credit Value (USD/ton CO2)",
-      "type": "number",
-      "unit": "USD/ton",
-      "default": 50,
-      "min": 0,
-      "max": 200,
-      "businessContext": "Monetary value per ton of CO2 avoided, if applicable",
-      "label_i18n": {
-        "en": "Carbon Credit Value (USD/ton CO2)"
-      },
-      "businessContext_i18n": {
-        "en": "Monetary value per ton of CO2 avoided, if applicable"
-      }
-    },
-    {
-      "id": "energy_source",
-      "label": "Energy Source Type",
-      "type": "select",
-      "unit": "unit",
-      "default": "solar",
-      "options": [
-        "solar",
-        "wind",
-        "hydro",
-        "biomass",
-        "geothermal"
-      ],
-      "businessContext": "Type of renewable energy technology for benchmarking and degradation curves",
-      "label_i18n": {
-        "en": "Energy Source Type"
-      },
-      "businessContext_i18n": {
-        "en": "Type of renewable energy technology for benchmarking and degradation curves"
-      }
-    },
-    {
-      "id": "include_carbon_benefits",
-      "label": "Include Carbon Benefits in ROI?",
-      "type": "boolean",
-      "unit": "unit",
-      "default": true,
-      "businessContext": "Toggle to include or exclude carbon credit revenue in financial calculations",
-      "label_i18n": {
-        "en": "Include Carbon Benefits in ROI?"
-      },
-      "businessContext_i18n": {
-        "en": "Toggle to include or exclude carbon credit revenue in financial calculations"
-      }
     }
   ],
   "validation": {
@@ -273,18 +190,18 @@
       }
     ]
   },
-  "formulas": [
-    "system_capacity_kw",
-    "system_capacity_kw",
-    "system_capacity_kw",
-    "system_capacity_kw",
-    "system_capacity_kw",
-    "system_capacity_kw",
-    "system_capacity_kw"
-  ],
+  "formulas": {
+    "result": "system_capacity_kw + annual_energy_output_kwh + capital_cost_usd",
+    "result_copy": "system_capacity_kw + annual_energy_output_kwh + capital_cost_usd"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

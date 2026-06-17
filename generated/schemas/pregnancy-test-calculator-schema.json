@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "days",
       "default": 1,
-      "businessContext": "The day of the year (1-365) when the last menstrual period started."
+      "businessContext": "The day of the year (1-365) when the last menstrual period started.",
+      "label_i18n": {
+        "en": "Last Menstrual Period Day of Year",
+        "tr": "Last Menstrual Period Day of Year",
+        "de": "Last Menstrual Period Day of Year",
+        "fr": "Last Menstrual Period Day of Year",
+        "es": "Last Menstrual Period Day of Year",
+        "ar": "Last Menstrual Period Day of Year"
+      }
     },
     {
       "id": "currentDayOfYear",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "days",
       "default": 1,
-      "businessContext": "The current day of the year (1-365) for calculating pregnancy week."
+      "businessContext": "The current day of the year (1-365) for calculating pregnancy week.",
+      "label_i18n": {
+        "en": "Current Day of Year",
+        "tr": "Current Day of Year",
+        "de": "Current Day of Year",
+        "fr": "Current Day of Year",
+        "es": "Current Day of Year",
+        "ar": "Current Day of Year"
+      }
     },
     {
       "id": "cycleLength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "days",
       "default": 28,
-      "businessContext": "The average length of the menstrual cycle in days, used to adjust due date."
+      "businessContext": "The average length of the menstrual cycle in days, used to adjust due date.",
+      "label_i18n": {
+        "en": "Average Cycle Length",
+        "tr": "Average Cycle Length",
+        "de": "Average Cycle Length",
+        "fr": "Average Cycle Length",
+        "es": "Average Cycle Length",
+        "ar": "Average Cycle Length"
+      }
     },
     {
       "id": "gestationOverride",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "days",
       "default": 280,
-      "businessContext": "Override for the standard 280-day gestation period, if your healthcare provider advises a different duration."
+      "businessContext": "Override for the standard 280-day gestation period, if your healthcare provider advises a different duration.",
+      "label_i18n": {
+        "en": "Gestation Length Override",
+        "tr": "Gestation Length Override",
+        "de": "Gestation Length Override",
+        "fr": "Gestation Length Override",
+        "es": "Gestation Length Override",
+        "ar": "Gestation Length Override"
+      }
     }
   ],
   "formulas": {
-    "weeksPregnant": "Math.floor((currentDayOfYear - lmpDayOfYear) / 7)",
     "estimatedDueDay": "(lmpDayOfYear + gestationOverride + (cycleLength - 28)) % 365",
     "daysUntilDue": "(estimatedDueDay - currentDayOfYear + 365) % 365"
   },
   "outputs": {
-    "primary": "weeksPregnant",
+    "primary": "daysUntilDue",
     "breakdown": [
       "estimatedDueDay",
       "daysUntilDue"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "daysUntilDue"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "saglik",
   "profession": "Biyomedikal Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

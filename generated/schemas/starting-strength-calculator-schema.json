@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "The weight you can lift for the given number of reps with good form."
+      "businessContext": "The weight you can lift for the given number of reps with good form.",
+      "label_i18n": {
+        "en": "Weight Lifted",
+        "tr": "Weight Lifted",
+        "de": "Weight Lifted",
+        "fr": "Weight Lifted",
+        "es": "Weight Lifted",
+        "ar": "Weight Lifted"
+      }
     },
     {
       "id": "reps",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "reps",
       "default": 5,
-      "businessContext": "Number of consecutive repetitions performed with the given weight."
+      "businessContext": "Number of consecutive repetitions performed with the given weight.",
+      "label_i18n": {
+        "en": "Reps Performed",
+        "tr": "Reps Performed",
+        "de": "Reps Performed",
+        "fr": "Reps Performed",
+        "es": "Reps Performed",
+        "ar": "Reps Performed"
+      }
     },
     {
       "id": "startingPercentage",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 80,
-      "businessContext": "Percentage of estimated 1RM to use as starting weight for the program."
+      "businessContext": "Percentage of estimated 1RM to use as starting weight for the program.",
+      "label_i18n": {
+        "en": "Starting Percentage",
+        "tr": "Starting Percentage",
+        "de": "Starting Percentage",
+        "fr": "Starting Percentage",
+        "es": "Starting Percentage",
+        "ar": "Starting Percentage"
+      }
     },
     {
       "id": "bodyweight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 80,
-      "businessContext": "Your current bodyweight, used for reference and progression context."
+      "businessContext": "Your current bodyweight, used for reference and progression context.",
+      "label_i18n": {
+        "en": "Bodyweight",
+        "tr": "Bodyweight",
+        "de": "Bodyweight",
+        "fr": "Bodyweight",
+        "es": "Bodyweight",
+        "ar": "Bodyweight"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "estimated1RM",
       "weightRatio"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "weightRatio"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +91,10 @@
   "sectorSlug": "cleaning",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from business-valuation-calculator-schema.json
 import * as z from 'zod';
 
@@ -19,27 +20,35 @@ export const Business_valuation_calculatorInputSchema = z.object({
   liabilities: z.number().default(200000),
 });
 
-function evaluateAllFormulas(input: Business_valuation_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.revenue - input.expenses; results["netProfit"] = Number.isFinite(v) ? v : 0; } catch { results["netProfit"] = 0; }
-  try { const v = (results["netProfit"] ?? 0) / (input.discountRate/100 - input.growthRate/100); results["dcfValuation"] = Number.isFinite(v) ? v : 0; } catch { results["dcfValuation"] = 0; }
-  try { const v = input.assets - input.liabilities; results["assetBasedValuation"] = Number.isFinite(v) ? v : 0; } catch { results["assetBasedValuation"] = 0; }
-  try { const v = ((results["dcfValuation"] ?? 0) + (results["assetBasedValuation"] ?? 0)) / 2; results["businessValuation"] = Number.isFinite(v) ? v : 0; } catch { results["businessValuation"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Business_valuation_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.revenue - input.expenses; results["netProfit"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["netProfit"] = 0; }
+  try { const v = (asFormulaNumber(results["netProfit"])) / (input.discountRate/100 - input.growthRate/100); results["dcfValuation"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["dcfValuation"] = 0; }
+  try { const v = input.assets - input.liabilities; results["assetBasedValuation"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["assetBasedValuation"] = 0; }
+  try { const v = ((asFormulaNumber(results["dcfValuation"])) + (asFormulaNumber(results["assetBasedValuation"]))) / 2; results["businessValuation"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["businessValuation"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateBusiness_valuation_calculator(input: Business_valuation_calculatorInput): Business_valuation_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["businessValuation"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["businessValuation"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

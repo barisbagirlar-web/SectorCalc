@@ -68,16 +68,20 @@
   ],
   "formulas": {
     "celsiusRaw": "(reaumur + calibrationOffset) * 1.25",
-    "celsius": "Math.round(((reaumur + calibrationOffset) * 1.25) * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
     "uncertaintyCelsius": "measurementUncertainty * 1.25"
   },
   "outputs": {
-    "primary": "celsius",
+    "primary": "uncertaintyCelsius",
     "breakdown": [
       "celsius",
       "celsiusRaw",
       "uncertaintyCelsius"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "uncertaintyCelsius"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -87,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "saglik",
   "profession": "Biyomedikal Mühendisi",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

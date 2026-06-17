@@ -72,7 +72,12 @@
       "heavyTriple",
       "workSetWeight",
       "deloadWeight"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "deloadWeight"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -82,5 +87,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

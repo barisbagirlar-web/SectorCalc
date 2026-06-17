@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 1000,
-      "businessContext": "Weight of all oils in the recipe"
+      "businessContext": "Weight of all oils in the recipe",
+      "label_i18n": {
+        "en": "Total Oil Weight",
+        "tr": "Total Oil Weight",
+        "de": "Total Oil Weight",
+        "fr": "Total Oil Weight",
+        "es": "Total Oil Weight",
+        "ar": "Total Oil Weight"
+      }
     },
     {
       "id": "sapValue",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mg/g",
       "default": 135.5,
-      "businessContext": "Milligrams of NaOH required to saponify 1 gram of oil blend"
+      "businessContext": "Milligrams of NaOH required to saponify 1 gram of oil blend",
+      "label_i18n": {
+        "en": "SAP Value (NaOH)",
+        "tr": "SAP Value (NaOH)",
+        "de": "SAP Value (NaOH)",
+        "fr": "SAP Value (NaOH)",
+        "es": "SAP Value (NaOH)",
+        "ar": "SAP Value (NaOH)"
+      }
     },
     {
       "id": "superfat",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percentage of oils left unsaponified for conditioning"
+      "businessContext": "Percentage of oils left unsaponified for conditioning",
+      "label_i18n": {
+        "en": "Superfat Percentage",
+        "tr": "Superfat Percentage",
+        "de": "Superfat Percentage",
+        "fr": "Superfat Percentage",
+        "es": "Superfat Percentage",
+        "ar": "Superfat Percentage"
+      }
     },
     {
       "id": "waterPercent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 38,
-      "businessContext": "Weight of water relative to total oil weight"
+      "businessContext": "Weight of water relative to total oil weight",
+      "label_i18n": {
+        "en": "Water as % of Oils",
+        "tr": "Water as % of Oils",
+        "de": "Water as % of Oils",
+        "fr": "Water as % of Oils",
+        "es": "Water as % of Oils",
+        "ar": "Water as % of Oils"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "waterWeight",
       "totalWeight"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalWeight"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -54,5 +91,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

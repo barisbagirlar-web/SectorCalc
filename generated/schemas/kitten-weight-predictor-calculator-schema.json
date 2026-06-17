@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "weeks",
       "default": 12,
-      "businessContext": "Current age of kitten in weeks"
+      "businessContext": "Current age of kitten in weeks",
+      "label_i18n": {
+        "en": "Age (weeks)",
+        "tr": "Age (weeks)",
+        "de": "Age (weeks)",
+        "fr": "Age (weeks)",
+        "es": "Age (weeks)",
+        "ar": "Age (weeks)"
+      }
     },
     {
       "id": "currentWeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g",
       "default": 1000,
-      "businessContext": "Current weight of kitten in grams"
+      "businessContext": "Current weight of kitten in grams",
+      "label_i18n": {
+        "en": "Current Weight",
+        "tr": "Current Weight",
+        "de": "Current Weight",
+        "fr": "Current Weight",
+        "es": "Current Weight",
+        "ar": "Current Weight"
+      }
     },
     {
       "id": "birthWeight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "g",
       "default": 100,
-      "businessContext": "Weight at birth in grams"
+      "businessContext": "Weight at birth in grams",
+      "label_i18n": {
+        "en": "Birth Weight",
+        "tr": "Birth Weight",
+        "de": "Birth Weight",
+        "fr": "Birth Weight",
+        "es": "Birth Weight",
+        "ar": "Birth Weight"
+      }
     },
     {
       "id": "breedSizeFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "x",
       "default": 1,
-      "businessContext": "Breed size multiplier (e.g., 0.8 small, 1.0 medium, 1.2 large)"
+      "businessContext": "Breed size multiplier (e.g., 0.8 small, 1.0 medium, 1.2 large)",
+      "label_i18n": {
+        "en": "Breed Size Factor",
+        "tr": "Breed Size Factor",
+        "de": "Breed Size Factor",
+        "fr": "Breed Size Factor",
+        "es": "Breed Size Factor",
+        "ar": "Breed Size Factor"
+      }
     },
     {
       "id": "sexFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "x",
       "default": 1,
-      "businessContext": "Sex multiplier (1.0 female, 1.1 male)"
+      "businessContext": "Sex multiplier (1.0 female, 1.1 male)",
+      "label_i18n": {
+        "en": "Sex Factor",
+        "tr": "Sex Factor",
+        "de": "Sex Factor",
+        "fr": "Sex Factor",
+        "es": "Sex Factor",
+        "ar": "Sex Factor"
+      }
     },
     {
       "id": "dailyCalories",
@@ -47,22 +87,33 @@
       "type": "number",
       "unit": "kcal",
       "default": 250,
-      "businessContext": "Average daily calorie intake affecting growth rate"
+      "businessContext": "Average daily calorie intake affecting growth rate",
+      "label_i18n": {
+        "en": "Daily Calorie Intake",
+        "tr": "Daily Calorie Intake",
+        "de": "Daily Calorie Intake",
+        "fr": "Daily Calorie Intake",
+        "es": "Daily Calorie Intake",
+        "ar": "Daily Calorie Intake"
+      }
     }
   ],
   "formulas": {
-    "growthRate": "return (currentWeight - birthWeight) / ageInWeeks;",
-    "basePrediction": "return currentWeight * (52 / ageInWeeks);",
-    "adjustedPrediction": "return basePrediction * breedSizeFactor * sexFactor * (dailyCalories / 250);",
-    "weightAt20Weeks": "return adjustedPrediction * (20 / 52);"
+    "result": "ageInWeeks + currentWeight + birthWeight",
+    "result_copy": "ageInWeeks + currentWeight + birthWeight"
   },
   "outputs": {
-    "primary": "adjustedPrediction",
+    "primary": "result",
     "breakdown": [
       "growthRate",
       "basePrediction",
       "weightAt20Weeks"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "weightAt20Weeks"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -72,5 +123,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

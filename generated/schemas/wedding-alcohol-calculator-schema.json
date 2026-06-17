@@ -119,19 +119,20 @@
     "totalDrinks": "drinkingGuests * durationHours * drinksPerHour",
     "beerDrinks": "totalDrinks * beerRatio",
     "wineDrinks": "totalDrinks * wineRatio",
-    "spiritsDrinks": "totalDrinks * spiritsRatio",
-    "____Math_round_beerDrinks______drinks_": "' + Math.round(beerDrinks) + ' drinks'",
-    "____Math_round_wineDrinks______drinks_": "' + Math.round(wineDrinks) + ' drinks'",
-    "____Math_round_spiritsDrinks______drinks": "' + Math.round(spiritsDrinks) + ' drinks'",
-    "result": "Math.round(totalDrinks) + ' drinks'"
+    "spiritsDrinks": "totalDrinks * spiritsRatio"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "spiritsDrinks",
     "breakdown": [
       "'Beer: ' + Math.round(beerDrinks) + ' drinks'",
       "'Wine: ' + Math.round(wineDrinks) + ' drinks'",
       "'Spirits: ' + Math.round(spiritsDrinks) + ' drinks'"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -141,5 +142,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

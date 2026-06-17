@@ -69,15 +69,19 @@
   "formulas": {
     "taper": "(d16Diameter - apicalDiameter) / 16",
     "actualOrificeDiameter": "apicalDiameter + taper * workingLength",
-    "requiredTaper": "(desiredOrificeDiameter - apicalDiameter) / workingLength",
-    "canalVolume": "Math.PI * workingLength / 12 * (Math.pow(actualOrificeDiameter, 2) + actualOrificeDiameter * apicalDiameter + Math.pow(apicalDiameter, 2))"
+    "requiredTaper": "(desiredOrificeDiameter - apicalDiameter) / workingLength"
   },
   "outputs": {
     "primary": "actualOrificeDiameter",
     "breakdown": [
       "requiredTaper",
       "canalVolume"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "canalVolume"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -87,5 +91,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

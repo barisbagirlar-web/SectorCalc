@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 200000,
-      "businessContext": "Material's modulus of elasticity, e.g., 200 GPa = 200,000 MPa for steel."
+      "businessContext": "Material's modulus of elasticity, e.g., 200 GPa = 200,000 MPa for steel.",
+      "label_i18n": {
+        "en": "Elastic Modulus (E)",
+        "tr": "Elastic Modulus (E)",
+        "de": "Elastic Modulus (E)",
+        "fr": "Elastic Modulus (E)",
+        "es": "Elastic Modulus (E)",
+        "ar": "Elastic Modulus (E)"
+      }
     },
     {
       "id": "momentInertia",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm⁴",
       "default": 1000000,
-      "businessContext": "Second moment of area of column cross-section."
+      "businessContext": "Second moment of area of column cross-section.",
+      "label_i18n": {
+        "en": "Moment of Inertia (I)",
+        "tr": "Moment of Inertia (I)",
+        "de": "Moment of Inertia (I)",
+        "fr": "Moment of Inertia (I)",
+        "es": "Moment of Inertia (I)",
+        "ar": "Moment of Inertia (I)"
+      }
     },
     {
       "id": "area",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm²",
       "default": 5000,
-      "businessContext": "Cross-sectional area of the column."
+      "businessContext": "Cross-sectional area of the column.",
+      "label_i18n": {
+        "en": "Cross-Sectional Area (A)",
+        "tr": "Cross-Sectional Area (A)",
+        "de": "Cross-Sectional Area (A)",
+        "fr": "Cross-Sectional Area (A)",
+        "es": "Cross-Sectional Area (A)",
+        "ar": "Cross-Sectional Area (A)"
+      }
     },
     {
       "id": "length",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 3000,
-      "businessContext": "Length of column between lateral supports."
+      "businessContext": "Length of column between lateral supports.",
+      "label_i18n": {
+        "en": "Unbraced Length (L)",
+        "tr": "Unbraced Length (L)",
+        "de": "Unbraced Length (L)",
+        "fr": "Unbraced Length (L)",
+        "es": "Unbraced Length (L)",
+        "ar": "Unbraced Length (L)"
+      }
     },
     {
       "id": "effectiveLengthFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "K=0.5 fixed-fixed, 1 pinned-pinned, 2 fixed-free."
+      "businessContext": "K=0.5 fixed-fixed, 1 pinned-pinned, 2 fixed-free.",
+      "label_i18n": {
+        "en": "Effective Length Factor (K)",
+        "tr": "Effective Length Factor (K)",
+        "de": "Effective Length Factor (K)",
+        "fr": "Effective Length Factor (K)",
+        "es": "Effective Length Factor (K)",
+        "ar": "Effective Length Factor (K)"
+      }
     },
     {
       "id": "appliedLoad",
@@ -47,13 +87,20 @@
       "type": "number",
       "unit": "N",
       "default": 50000,
-      "businessContext": "Compressive load applied to the column."
+      "businessContext": "Compressive load applied to the column.",
+      "label_i18n": {
+        "en": "Applied Axial Load (P)",
+        "tr": "Applied Axial Load (P)",
+        "de": "Applied Axial Load (P)",
+        "fr": "Applied Axial Load (P)",
+        "es": "Applied Axial Load (P)",
+        "ar": "Applied Axial Load (P)"
+      }
     }
   ],
   "formulas": {
     "criticalLoad": "Math.PI ** 2 * elasticModulus * momentInertia / ( (effectiveLengthFactor * length) ** 2 )",
     "criticalStress": "criticalLoad / area",
-    "slendernessRatio": "(effectiveLengthFactor * length) / Math.sqrt(momentInertia / area)",
     "safetyFactor": "criticalLoad / appliedLoad"
   },
   "outputs": {
@@ -77,7 +124,12 @@
         "unit": "",
         "formula": "safetyFactor"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "safetyFactor"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -87,5 +139,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "metal",
   "profession": "Yüzey İşlem Uzmanı",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

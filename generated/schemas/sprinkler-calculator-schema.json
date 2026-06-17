@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft²",
       "default": 1500,
-      "businessContext": "The design area of sprinkler operation per NFPA 13."
+      "businessContext": "The design area of sprinkler operation per NFPA 13.",
+      "label_i18n": {
+        "en": "Design Area",
+        "tr": "Design Area",
+        "de": "Design Area",
+        "fr": "Design Area",
+        "es": "Design Area",
+        "ar": "Design Area"
+      }
     },
     {
       "id": "density",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "gpm/ft²",
       "default": 0.1,
-      "businessContext": "Water density required per square foot per minute."
+      "businessContext": "Water density required per square foot per minute.",
+      "label_i18n": {
+        "en": "Discharge Density",
+        "tr": "Discharge Density",
+        "de": "Discharge Density",
+        "fr": "Discharge Density",
+        "es": "Discharge Density",
+        "ar": "Discharge Density"
+      }
     },
     {
       "id": "kFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "gpm/psi^0.5",
       "default": 5.6,
-      "businessContext": "Discharge coefficient of the sprinkler head."
+      "businessContext": "Discharge coefficient of the sprinkler head.",
+      "label_i18n": {
+        "en": "Sprinkler K-Factor",
+        "tr": "Sprinkler K-Factor",
+        "de": "Sprinkler K-Factor",
+        "fr": "Sprinkler K-Factor",
+        "es": "Sprinkler K-Factor",
+        "ar": "Sprinkler K-Factor"
+      }
     },
     {
       "id": "numSprinklers",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "ea",
       "default": 12,
-      "businessContext": "Number of sprinklers expected to operate in the design area."
+      "businessContext": "Number of sprinklers expected to operate in the design area.",
+      "label_i18n": {
+        "en": "Number of Sprinklers",
+        "tr": "Number of Sprinklers",
+        "de": "Number of Sprinklers",
+        "fr": "Number of Sprinklers",
+        "es": "Number of Sprinklers",
+        "ar": "Number of Sprinklers"
+      }
     },
     {
       "id": "safetyFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1.1,
-      "businessContext": "Factor to account for system inefficiencies."
+      "businessContext": "Factor to account for system inefficiencies.",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     },
     {
       "id": "pipeFrictionLoss",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "psi",
       "default": 5,
-      "businessContext": "Estimated friction loss in piping."
+      "businessContext": "Estimated friction loss in piping.",
+      "label_i18n": {
+        "en": "Pipe Friction Loss",
+        "tr": "Pipe Friction Loss",
+        "de": "Pipe Friction Loss",
+        "fr": "Pipe Friction Loss",
+        "es": "Pipe Friction Loss",
+        "ar": "Pipe Friction Loss"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
       "flowPerSprinkler",
       "requiredPressure",
       "totalPressure"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalPressure"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -72,5 +125,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

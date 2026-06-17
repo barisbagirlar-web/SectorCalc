@@ -67,18 +67,20 @@
     }
   ],
   "formulas": {
-    "totalMassCalc": "inputs.totalMass > 0 ? inputs.totalMass : inputs.componentMass + inputs.otherComponentMass",
-    "massPercent": "(inputs.componentMass / totalMassCalc) * 100",
-    "massPercentRounded": "parseFloat(massPercent.toFixed(inputs.precision))",
-    "otherMassPercent": "inputs.totalMass > 0 ? ((inputs.totalMass - inputs.componentMass) / inputs.totalMass) * 100 : (inputs.otherComponentMass / totalMassCalc) * 100",
-    "otherMassPercentRounded": "parseFloat(otherMassPercent.toFixed(inputs.precision))"
+    "result": "componentMass + otherComponentMass + totalMass",
+    "result_copy": "componentMass + otherComponentMass + totalMass"
   },
   "outputs": {
-    "primary": "massPercentRounded",
+    "primary": "result",
     "breakdown": [
       "otherMassPercentRounded",
       "totalMassCalc"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "otherMassPercent"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -88,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

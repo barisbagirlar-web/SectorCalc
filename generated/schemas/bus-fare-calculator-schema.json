@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD/km",
       "default": 0.5,
-      "businessContext": "The fixed cost per kilometer for the bus service."
+      "businessContext": "The fixed cost per kilometer for the bus service.",
+      "label_i18n": {
+        "en": "Base Fare per Km",
+        "tr": "Base Fare per Km",
+        "de": "Base Fare per Km",
+        "fr": "Base Fare per Km",
+        "es": "Base Fare per Km",
+        "ar": "Base Fare per Km"
+      }
     },
     {
       "id": "distanceKm",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "km",
       "default": 10,
-      "businessContext": "Total travel distance in kilometers."
+      "businessContext": "Total travel distance in kilometers.",
+      "label_i18n": {
+        "en": "Distance",
+        "tr": "Distance",
+        "de": "Distance",
+        "fr": "Distance",
+        "es": "Distance",
+        "ar": "Distance"
+      }
     },
     {
       "id": "numberOfPassengers",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "passengers",
       "default": 1,
-      "businessContext": "Total number of passengers traveling."
+      "businessContext": "Total number of passengers traveling.",
+      "label_i18n": {
+        "en": "Number of Passengers",
+        "tr": "Number of Passengers",
+        "de": "Number of Passengers",
+        "fr": "Number of Passengers",
+        "es": "Number of Passengers",
+        "ar": "Number of Passengers"
+      }
     },
     {
       "id": "discountPercent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Percentage discount applied to the total fare, e.g., for group travels or promotions."
+      "businessContext": "Percentage discount applied to the total fare, e.g., for group travels or promotions.",
+      "label_i18n": {
+        "en": "Discount Percentage",
+        "tr": "Discount Percentage",
+        "de": "Discount Percentage",
+        "fr": "Discount Percentage",
+        "es": "Discount Percentage",
+        "ar": "Discount Percentage"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "totalBeforeDiscount",
       "discountAmount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalFare"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

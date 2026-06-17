@@ -67,14 +67,19 @@
     }
   ],
   "formulas": {
-    "convert": "function(value, from, to, dens) {\n  const dynamicUnits = [0,1,2,3];\n  const kinematicUnits = [4,5,6];\n  const dynamicFactors = [1, 0.001, 0.1, 0.001]; // to Pa·s\n  const kinematicFactors = [0.0001, 0.000001, 1]; // to m²/s\n  const unitNames = ['Pa·s','cP','P','mPa·s','St','cSt','m²/s'];\n  const steps = [];\n  let baseDynamic, baseKinematic;\n  let result;\n  steps.push(`Giriş: ${value} ${unitNames[from]}`);\n\n  if (dynamicUnits.includes(from) && dynamicUnits.includes(to)) {\n    baseDynamic = value * dynamicFactors[from]; // Pa·s\n    result = baseDynamic / dynamicFactors[to];\n    steps.push(`Dönüşüm (dinamik): ${value} ${unitNames[from]} = ${baseDynamic} Pa·s = ${result} ${unitNames[to]}`);\n  }\n  else if (kinematicUnits.includes(from) && kinematicUnits.includes(to)) {\n    baseKinematic = value * kinematicFactors[from - 4]; // m²/s\n    result = baseKinematic / kinematicFactors[to - 4];\n    steps.push(`Dönüşüm (kinematik): ${value} ${unitNames[from]} = ${baseKinematic} m²/s = ${result} ${unitNames[to]}`);\n  }\n  else if (dynamicUnits.includes(from) && kinematicUnits.includes(to)) {\n    if (dens <= 0) throw new Error('Yoğunluk pozitif olmalıdır');\n    baseDynamic = value * dynamicFactors[from]; // Pa·s\n    baseKinematic = baseDynamic / dens;          // m²/s\n    result = baseKinematic / kinematicFactors[to - 4];\n    steps.push(`Dinamikten kinematiğe: ${value} ${unitNames[from]} = ${baseDynamic} Pa·s ⇒ ${baseKinematic} m²/s (yoğunluk: ${dens} kg/m³) = ${result} ${unitNames[to]}`);\n  }\n  else if (kinematicUnits.includes(from) && dynamicUnits.includes(to)) {\n    if (dens <= 0) throw new Error('Yoğunluk pozitif olmalıdır');\n    baseKinematic = value * kinematicFactors[from - 4]; // m²/s\n    baseDynamic = baseKinematic * dens;                 // Pa·s\n    result = baseDynamic / dynamicFactors[to];\n    steps.push(`Kinematikten dinamiğe: ${value} ${unitNames[from]} = ${baseKinematic} m²/s ⇒ ${baseDynamic} Pa·s (yoğunluk: ${dens} kg/m³) = ${result} ${unitNames[to]}`);\n  }\n  else {\n    throw new Error('Geçersiz birim seçimi');\n  }\n  steps.push(`Sonuç: ${result} ${unitNames[to]}`);\n  return { primary: result, breakdown: steps };\n}",
-    "conversionSteps": "conversionSteps"
+    "result": "inputValue + fromUnit + toUnit",
+    "result_copy": "inputValue + fromUnit + toUnit"
   },
   "outputs": {
-    "primary": "convert",
+    "primary": "result",
     "breakdown": [
       "conversionSteps"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "conversionSteps_aux"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -84,5 +89,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

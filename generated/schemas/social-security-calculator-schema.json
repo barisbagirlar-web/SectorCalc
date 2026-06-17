@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TL",
       "default": 5000,
-      "businessContext": "Çalışanın aylık brüt maaşı"
+      "businessContext": "Çalışanın aylık brüt maaşı",
+      "label_i18n": {
+        "en": "Aylık Brüt Maaş",
+        "tr": "Aylık Brüt Maaş",
+        "de": "Aylık Brüt Maaş",
+        "fr": "Aylık Brüt Maaş",
+        "es": "Aylık Brüt Maaş",
+        "ar": "Aylık Brüt Maaş"
+      }
     },
     {
       "id": "employeeRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 14,
-      "businessContext": "SGK işçi prim oranı"
+      "businessContext": "SGK işçi prim oranı",
+      "label_i18n": {
+        "en": "İşçi Payı Oranı (%)",
+        "tr": "İşçi Payı Oranı (%)",
+        "de": "İşçi Payı Oranı (%)",
+        "fr": "İşçi Payı Oranı (%)",
+        "es": "İşçi Payı Oranı (%)",
+        "ar": "İşçi Payı Oranı (%)"
+      }
     },
     {
       "id": "employerRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 20.5,
-      "businessContext": "SGK işveren prim oranı"
+      "businessContext": "SGK işveren prim oranı",
+      "label_i18n": {
+        "en": "İşveren Payı Oranı (%)",
+        "tr": "İşveren Payı Oranı (%)",
+        "de": "İşveren Payı Oranı (%)",
+        "fr": "İşveren Payı Oranı (%)",
+        "es": "İşveren Payı Oranı (%)",
+        "ar": "İşveren Payı Oranı (%)"
+      }
     },
     {
       "id": "capAmount",
@@ -31,21 +55,32 @@
       "type": "number",
       "unit": "TL",
       "default": 25000,
-      "businessContext": "SGK primine esas kazanç üst sınırı"
+      "businessContext": "SGK primine esas kazanç üst sınırı",
+      "label_i18n": {
+        "en": "Tavan Ücret (TL)",
+        "tr": "Tavan Ücret (TL)",
+        "de": "Tavan Ücret (TL)",
+        "fr": "Tavan Ücret (TL)",
+        "es": "Tavan Ücret (TL)",
+        "ar": "Tavan Ücret (TL)"
+      }
     }
   ],
   "formulas": {
-    "cappedSalary": "Math.min(monthlyGrossSalary, capAmount)",
-    "employeeContribution": "cappedSalary * employeeRate / 100",
-    "employerContribution": "cappedSalary * employerRate / 100",
-    "toplamSGKPrimi": "employeeContribution + employerContribution"
+    "result": "monthlyGrossSalary + employeeRate + employerRate",
+    "result_copy": "monthlyGrossSalary + employeeRate + employerRate"
   },
   "outputs": {
-    "primary": "toplamSGKPrimi",
+    "primary": "result",
     "breakdown": [
       "employeeContribution",
       "employerContribution"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "toplamSGKPrimi"
   },
   "category": "İK & Personel",
   "sector": "Finans & İK",
@@ -55,5 +90,10 @@
   "categorySlug": "workforce-hr",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

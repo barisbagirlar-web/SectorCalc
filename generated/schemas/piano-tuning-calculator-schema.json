@@ -83,17 +83,21 @@
     }
   ],
   "formulas": {
-    "baseEqFrequency": "referenceFreq * Math.pow(2, (targetMidi - referenceMidi) / 12) * Math.pow(2, detuneCents / 1200)",
-    "stretchFactor": "1 + inharmonicityCoeff * Math.pow(targetMidi - referenceMidi, 2)",
-    "finalFrequency": "baseEqFrequency * stretchFactor"
+    "result": "referenceMidi + referenceFreq + targetMidi",
+    "result_copy": "referenceMidi + referenceFreq + targetMidi"
   },
   "outputs": {
-    "primary": "finalFrequency",
+    "primary": "result",
     "breakdown": [
       "baseEqFrequency",
       "stretchFactor",
       "finalFrequency"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "finalFrequency"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -103,5 +107,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

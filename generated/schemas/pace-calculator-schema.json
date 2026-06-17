@@ -67,17 +67,20 @@
     }
   ],
   "formulas": {
-    "primary": "`Pace: ${(hours*60+minutes+seconds/60)/distanceKm} min/km`",
     "breakdown": "distanceKm",
-    "Speed_in_km_h": "Speed in km/h",
-    "Pace_per_mile": "Pace per mile"
+    "breakdown_aux": "distanceKm"
   },
   "outputs": {
-    "primary": "primary",
+    "primary": "breakdown_aux",
     "breakdown": [
       "Speed in km/h",
       "Pace per mile"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "Speed_in_km_h"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -87,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100000,
-      "businessContext": "The price of the property"
+      "businessContext": "The price of the property",
+      "label_i18n": {
+        "en": "Purchase Price",
+        "tr": "Purchase Price",
+        "de": "Purchase Price",
+        "fr": "Purchase Price",
+        "es": "Purchase Price",
+        "ar": "Purchase Price"
+      }
     },
     {
       "id": "renovationCost",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 20000,
-      "businessContext": "Estimated cost of renovations"
+      "businessContext": "Estimated cost of renovations",
+      "label_i18n": {
+        "en": "Renovation Cost",
+        "tr": "Renovation Cost",
+        "de": "Renovation Cost",
+        "fr": "Renovation Cost",
+        "es": "Renovation Cost",
+        "ar": "Renovation Cost"
+      }
     },
     {
       "id": "closingCosts",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 5000,
-      "businessContext": "Closing costs and fees"
+      "businessContext": "Closing costs and fees",
+      "label_i18n": {
+        "en": "Closing Costs",
+        "tr": "Closing Costs",
+        "de": "Closing Costs",
+        "fr": "Closing Costs",
+        "es": "Closing Costs",
+        "ar": "Closing Costs"
+      }
     },
     {
       "id": "monthlyRent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 1200,
-      "businessContext": "Expected monthly rental income"
+      "businessContext": "Expected monthly rental income",
+      "label_i18n": {
+        "en": "Monthly Rent",
+        "tr": "Monthly Rent",
+        "de": "Monthly Rent",
+        "fr": "Monthly Rent",
+        "es": "Monthly Rent",
+        "ar": "Monthly Rent"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "totalInvestment",
       "onePercent",
       "meetsRule"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "meetsRule"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -56,5 +93,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

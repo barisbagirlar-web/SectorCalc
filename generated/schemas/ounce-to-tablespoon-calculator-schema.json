@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "fl oz",
       "default": 1,
-      "businessContext": "Amount of liquid in fluid ounces (US)."
+      "businessContext": "Amount of liquid in fluid ounces (US).",
+      "label_i18n": {
+        "en": "Fluid Ounces",
+        "tr": "Fluid Ounces",
+        "de": "Fluid Ounces",
+        "fr": "Fluid Ounces",
+        "es": "Fluid Ounces",
+        "ar": "Fluid Ounces"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "tbsp/fl oz",
       "default": 2,
-      "businessContext": "Standard US conversion factor. Adjust for imperial or other standards."
+      "businessContext": "Standard US conversion factor. Adjust for imperial or other standards.",
+      "label_i18n": {
+        "en": "Tablespoons per Fluid Ounce",
+        "tr": "Tablespoons per Fluid Ounce",
+        "de": "Tablespoons per Fluid Ounce",
+        "fr": "Tablespoons per Fluid Ounce",
+        "es": "Tablespoons per Fluid Ounce",
+        "ar": "Tablespoons per Fluid Ounce"
+      }
     },
     {
       "id": "decimalPlaces",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "places",
       "default": 2,
-      "businessContext": "Number of decimal places to round the result."
+      "businessContext": "Number of decimal places to round the result.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "safetyFactor",
@@ -31,21 +55,33 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Additional percentage to add for safety margin (e.g., 5 for 5%)."
+      "businessContext": "Additional percentage to add for safety margin (e.g., 5 for 5%).",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
     "rawTablespoons": "fluidOunces * conversionFactor",
-    "adjustedTablespoons": "rawTablespoons * (1 + safetyFactor / 100)",
-    "roundedTablespoons": "Math.round(adjustedTablespoons * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
+    "adjustedTablespoons": "rawTablespoons * (1 + safetyFactor / 100)"
   },
   "outputs": {
-    "primary": "roundedTablespoons",
+    "primary": "adjustedTablespoons",
     "breakdown": [
       "rawTablespoons",
       "adjustedTablespoons",
       "roundedTablespoons"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roundedTablespoons"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -55,5 +91,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

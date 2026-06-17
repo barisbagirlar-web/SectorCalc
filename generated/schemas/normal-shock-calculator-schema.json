@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 2,
-      "businessContext": "Enter the Mach number before the shock (M1 > 1 for normal shock)."
+      "businessContext": "Enter the Mach number before the shock (M1 > 1 for normal shock).",
+      "label_i18n": {
+        "en": "Upstream Mach Number",
+        "tr": "Upstream Mach Number",
+        "de": "Upstream Mach Number",
+        "fr": "Upstream Mach Number",
+        "es": "Upstream Mach Number",
+        "ar": "Upstream Mach Number"
+      }
     },
     {
       "id": "gamma",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1.4,
-      "businessContext": "Ratio of specific heats (Cp/Cv), typically 1.4 for air."
+      "businessContext": "Ratio of specific heats (Cp/Cv), typically 1.4 for air.",
+      "label_i18n": {
+        "en": "Specific Heat Ratio",
+        "tr": "Specific Heat Ratio",
+        "de": "Specific Heat Ratio",
+        "fr": "Specific Heat Ratio",
+        "es": "Specific Heat Ratio",
+        "ar": "Specific Heat Ratio"
+      }
     },
     {
       "id": "upstreamPressure",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Pa",
       "default": 101325,
-      "businessContext": "Absolute static pressure before shock (optional for absolute values)."
+      "businessContext": "Absolute static pressure before shock (optional for absolute values).",
+      "label_i18n": {
+        "en": "Upstream Static Pressure",
+        "tr": "Upstream Static Pressure",
+        "de": "Upstream Static Pressure",
+        "fr": "Upstream Static Pressure",
+        "es": "Upstream Static Pressure",
+        "ar": "Upstream Static Pressure"
+      }
     },
     {
       "id": "upstreamTemperature",
@@ -31,11 +55,18 @@
       "type": "number",
       "unit": "K",
       "default": 300,
-      "businessContext": "Absolute static temperature before shock (optional for absolute values)."
+      "businessContext": "Absolute static temperature before shock (optional for absolute values).",
+      "label_i18n": {
+        "en": "Upstream Static Temperature",
+        "tr": "Upstream Static Temperature",
+        "de": "Upstream Static Temperature",
+        "fr": "Upstream Static Temperature",
+        "es": "Upstream Static Temperature",
+        "ar": "Upstream Static Temperature"
+      }
     }
   ],
   "formulas": {
-    "downstreamMach": "Math.sqrt((1 + (gamma - 1)/2 * upstreamMach**2) / (gamma * upstreamMach**2 - (gamma - 1)/2))",
     "pressureRatio": "1 + (2*gamma/(gamma+1))*(upstreamMach**2 - 1)",
     "temperatureRatio": "(1 + (2*gamma/(gamma+1))*(upstreamMach**2 - 1)) * ((2 + (gamma-1)*upstreamMach**2)/((gamma+1)*upstreamMach**2))",
     "densityRatio": "(gamma+1)*upstreamMach**2 / (2 + (gamma-1)*upstreamMach**2)",
@@ -44,7 +75,7 @@
     "downstreamTemperature": "temperatureRatio * upstreamTemperature"
   },
   "outputs": {
-    "primary": "downstreamMach",
+    "primary": "downstreamTemperature",
     "breakdown": [
       "pressureRatio",
       "temperatureRatio",
@@ -52,7 +83,12 @@
       "stagnationPressureRatio",
       "downstreamPressure",
       "downstreamTemperature"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "downstreamTemperature"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -62,5 +98,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

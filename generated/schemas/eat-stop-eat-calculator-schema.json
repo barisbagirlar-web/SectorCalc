@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 75,
-      "businessContext": "Your current body weight in kilograms."
+      "businessContext": "Your current body weight in kilograms.",
+      "label_i18n": {
+        "en": "Current Weight",
+        "tr": "Current Weight",
+        "de": "Current Weight",
+        "fr": "Current Weight",
+        "es": "Current Weight",
+        "ar": "Current Weight"
+      }
     },
     {
       "id": "goalWeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 65,
-      "businessContext": "Your target body weight in kilograms."
+      "businessContext": "Your target body weight in kilograms.",
+      "label_i18n": {
+        "en": "Goal Weight",
+        "tr": "Goal Weight",
+        "de": "Goal Weight",
+        "fr": "Goal Weight",
+        "es": "Goal Weight",
+        "ar": "Goal Weight"
+      }
     },
     {
       "id": "dailyCaloriesNonFasting",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kcal",
       "default": 2000,
-      "businessContext": "Average daily calorie consumption on days you eat normally."
+      "businessContext": "Average daily calorie consumption on days you eat normally.",
+      "label_i18n": {
+        "en": "Daily Calorie Intake (Non-Fasting Days)",
+        "tr": "Daily Calorie Intake (Non-Fasting Days)",
+        "de": "Daily Calorie Intake (Non-Fasting Days)",
+        "fr": "Daily Calorie Intake (Non-Fasting Days)",
+        "es": "Daily Calorie Intake (Non-Fasting Days)",
+        "ar": "Daily Calorie Intake (Non-Fasting Days)"
+      }
     },
     {
       "id": "fastingDaysPerWeek",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "days",
       "default": 2,
-      "businessContext": "Number of days per week you perform a 24-hour fast (zero calories)."
+      "businessContext": "Number of days per week you perform a 24-hour fast (zero calories).",
+      "label_i18n": {
+        "en": "Fasting Days per Week",
+        "tr": "Fasting Days per Week",
+        "de": "Fasting Days per Week",
+        "fr": "Fasting Days per Week",
+        "es": "Fasting Days per Week",
+        "ar": "Fasting Days per Week"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "weeklyCaloricDeficit",
       "weeklyWeightLossKg"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "weeksToGoal"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -54,5 +91,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

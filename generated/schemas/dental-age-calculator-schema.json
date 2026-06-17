@@ -83,22 +83,25 @@
     }
   ],
   "formulas": {
-    "dentalAgeYears": "0.25 * mesiodistalWidth + 0.15 * buccolingualWidth + 0.2 * crownLength + 0.1 * rootLength + 0.8 * Math.log(1 + eruptedTeeth) - 3.5",
     "mesiodistalContribution": "0.25 * mesiodistalWidth",
     "buccolingualContribution": "0.15 * buccolingualWidth",
     "crownContribution": "0.2 * crownLength",
-    "rootContribution": "0.1 * rootLength",
-    "teethContribution": "0.8 * Math.log(1 + eruptedTeeth)"
+    "rootContribution": "0.1 * rootLength"
   },
   "outputs": {
-    "primary": "dentalAgeYears",
+    "primary": "rootContribution",
     "breakdown": [
       "mesiodistalContribution",
       "buccolingualContribution",
       "crownContribution",
       "rootContribution",
       "teethContribution"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "teethContribution"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -108,5 +111,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

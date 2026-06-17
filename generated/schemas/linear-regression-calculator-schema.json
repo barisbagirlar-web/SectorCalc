@@ -100,15 +100,19 @@
   ],
   "formulas": {
     "slope": "(n * sumXY - sumX * sumY) / (n * sumX2 - sumX ** 2)",
-    "intercept": "(sumY - slope * sumX) / n",
-    "rSquared": "((n * sumXY - sumX * sumY) / Math.sqrt((n * sumX2 - sumX ** 2) * (n * sumY2 - sumY ** 2))) ** 2"
+    "intercept": "(sumY - slope * sumX) / n"
   },
   "outputs": {
     "primary": "slope",
     "breakdown": [
       "intercept",
       "rSquared"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "rSquared"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -118,5 +122,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

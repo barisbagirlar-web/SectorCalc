@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mile/gallon",
       "default": 30,
-      "businessContext": "Fuel consumption rate in miles per gallon"
+      "businessContext": "Fuel consumption rate in miles per gallon",
+      "label_i18n": {
+        "en": "Fuel Efficiency (mpg)",
+        "tr": "Fuel Efficiency (mpg)",
+        "de": "Fuel Efficiency (mpg)",
+        "fr": "Fuel Efficiency (mpg)",
+        "es": "Fuel Efficiency (mpg)",
+        "ar": "Fuel Efficiency (mpg)"
+      }
     },
     {
       "id": "gallonType",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "0=US, 1=UK",
       "default": 0,
-      "businessContext": "Specify whether using US or UK gallon"
+      "businessContext": "Specify whether using US or UK gallon",
+      "label_i18n": {
+        "en": "Gallon Type",
+        "tr": "Gallon Type",
+        "de": "Gallon Type",
+        "fr": "Gallon Type",
+        "es": "Gallon Type",
+        "ar": "Gallon Type"
+      }
     },
     {
       "id": "decimalPlaces",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "count",
       "default": 2,
-      "businessContext": "Number of decimal places for output rounding"
+      "businessContext": "Number of decimal places for output rounding",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "customLitersPerGallon",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "liter/gallon",
       "default": 0,
-      "businessContext": "Override liter conversion; set to 0 to use standard based on gallon type"
+      "businessContext": "Override liter conversion; set to 0 to use standard based on gallon type",
+      "label_i18n": {
+        "en": "Custom Liters per Gallon (0 to use default)",
+        "tr": "Custom Liters per Gallon (0 to use default)",
+        "de": "Custom Liters per Gallon (0 to use default)",
+        "fr": "Custom Liters per Gallon (0 to use default)",
+        "es": "Custom Liters per Gallon (0 to use default)",
+        "ar": "Custom Liters per Gallon (0 to use default)"
+      }
     }
   ],
   "formulas": {
     "litersUsed": "(input.customLitersPerGallon > 0) ? input.customLitersPerGallon : (input.gallonType === 1 ? 4.54609 : 3.785411784)",
-    "kmPerLiterExact": "input.mpg * 1.609344 / litersUsed",
-    "roundedKmPerLiter": "Math.round(kmPerLiterExact * Math.pow(10, input.decimalPlaces)) / Math.pow(10, input.decimalPlaces)"
+    "kmPerLiterExact": "input.mpg * 1.609344 / litersUsed"
   },
   "outputs": {
-    "primary": "roundedKmPerLiter",
+    "primary": "kmPerLiterExact",
     "breakdown": [
       "litersUsed",
       "kmPerLiterExact"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roundedKmPerLiter"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -54,5 +90,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "efficiency"
+  "categoryId": "efficiency",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 20.02,
-      "businessContext": "Delik üst tolerans sınırı"
+      "businessContext": "Delik üst tolerans sınırı",
+      "label_i18n": {
+        "en": "Hole Max Diameter",
+        "tr": "Hole Max Diameter",
+        "de": "Hole Max Diameter",
+        "fr": "Hole Max Diameter",
+        "es": "Hole Max Diameter",
+        "ar": "Hole Max Diameter"
+      }
     },
     {
       "id": "holeMin",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 20,
-      "businessContext": "Delik alt tolerans sınırı"
+      "businessContext": "Delik alt tolerans sınırı",
+      "label_i18n": {
+        "en": "Hole Min Diameter",
+        "tr": "Hole Min Diameter",
+        "de": "Hole Min Diameter",
+        "fr": "Hole Min Diameter",
+        "es": "Hole Min Diameter",
+        "ar": "Hole Min Diameter"
+      }
     },
     {
       "id": "shaftMax",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 19.98,
-      "businessContext": "Mil üst tolerans sınırı"
+      "businessContext": "Mil üst tolerans sınırı",
+      "label_i18n": {
+        "en": "Shaft Max Diameter",
+        "tr": "Shaft Max Diameter",
+        "de": "Shaft Max Diameter",
+        "fr": "Shaft Max Diameter",
+        "es": "Shaft Max Diameter",
+        "ar": "Shaft Max Diameter"
+      }
     },
     {
       "id": "shaftMin",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 19.95,
-      "businessContext": "Mil alt tolerans sınırı"
+      "businessContext": "Mil alt tolerans sınırı",
+      "label_i18n": {
+        "en": "Shaft Min Diameter",
+        "tr": "Shaft Min Diameter",
+        "de": "Shaft Min Diameter",
+        "fr": "Shaft Min Diameter",
+        "es": "Shaft Min Diameter",
+        "ar": "Shaft Min Diameter"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "minClearance",
       "maxClearance"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "avgClearance"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -54,5 +91,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -68,15 +68,19 @@
   ],
   "formulas": {
     "requiredArea": "columnLoad * safetyFactor / soilBearingCapacity",
-    "footingWidth": "Math.sqrt(requiredArea / lengthToWidthRatio)",
-    "footingLength": "footingWidth * lengthToWidthRatio"
+    "requiredArea_aux": "columnLoad * safetyFactor / soilBearingCapacity"
   },
   "outputs": {
     "primary": "requiredArea",
     "breakdown": [
       "footingWidth",
       "footingLength"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "footingLength"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -86,5 +90,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "tarim",
   "profession": "Ziraat Mühendisi",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

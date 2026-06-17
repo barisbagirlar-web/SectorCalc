@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "EUR/saat",
       "default": 25,
-      "businessContext": "Bir işçinin saatlik maliyeti (brüt)"
+      "businessContext": "Bir işçinin saatlik maliyeti (brüt)",
+      "label_i18n": {
+        "en": "Saatlik İşçilik Ücreti",
+        "tr": "Saatlik İşçilik Ücreti",
+        "de": "Saatlik İşçilik Ücreti",
+        "fr": "Saatlik İşçilik Ücreti",
+        "es": "Saatlik İşçilik Ücreti",
+        "ar": "Saatlik İşçilik Ücreti"
+      }
     },
     {
       "id": "machineRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "EUR/saat",
       "default": 50,
-      "businessContext": "Makinenin amortisman, enerji, bakım dahil saatlik maliyeti"
+      "businessContext": "Makinenin amortisman, enerji, bakım dahil saatlik maliyeti",
+      "label_i18n": {
+        "en": "Makine Saatlik Maliyeti",
+        "tr": "Makine Saatlik Maliyeti",
+        "de": "Makine Saatlik Maliyeti",
+        "fr": "Makine Saatlik Maliyeti",
+        "es": "Makine Saatlik Maliyeti",
+        "ar": "Makine Saatlik Maliyeti"
+      }
     },
     {
       "id": "cycleTime",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dakika",
       "default": 5,
-      "businessContext": "Bir birim ürünün işlenme süresi (operasyon süresi)"
+      "businessContext": "Bir birim ürünün işlenme süresi (operasyon süresi)",
+      "label_i18n": {
+        "en": "Birim Çevrim Süresi",
+        "tr": "Birim Çevrim Süresi",
+        "de": "Birim Çevrim Süresi",
+        "fr": "Birim Çevrim Süresi",
+        "es": "Birim Çevrim Süresi",
+        "ar": "Birim Çevrim Süresi"
+      }
     },
     {
       "id": "batchSize",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "adet",
       "default": 100,
-      "businessContext": "Bir partide üretilen toplam ürün sayısı"
+      "businessContext": "Bir partide üretilen toplam ürün sayısı",
+      "label_i18n": {
+        "en": "Parti Büyüklüğü",
+        "tr": "Parti Büyüklüğü",
+        "de": "Parti Büyüklüğü",
+        "fr": "Parti Büyüklüğü",
+        "es": "Parti Büyüklüğü",
+        "ar": "Parti Büyüklüğü"
+      }
     },
     {
       "id": "materialCostPerUnit",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "EUR/adet",
       "default": 10,
-      "businessContext": "Ürün başına hammadde ve sarf malzeme maliyeti"
+      "businessContext": "Ürün başına hammadde ve sarf malzeme maliyeti",
+      "label_i18n": {
+        "en": "Birim Malzeme Maliyeti",
+        "tr": "Birim Malzeme Maliyeti",
+        "de": "Birim Malzeme Maliyeti",
+        "fr": "Birim Malzeme Maliyeti",
+        "es": "Birim Malzeme Maliyeti",
+        "ar": "Birim Malzeme Maliyeti"
+      }
     },
     {
       "id": "overheadPercentage",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "İşçilik üzerinden hesaplanan genel üretim giderleri yüzdesi"
+      "businessContext": "İşçilik üzerinden hesaplanan genel üretim giderleri yüzdesi",
+      "label_i18n": {
+        "en": "Genel Gider Oranı",
+        "tr": "Genel Gider Oranı",
+        "de": "Genel Gider Oranı",
+        "fr": "Genel Gider Oranı",
+        "es": "Genel Gider Oranı",
+        "ar": "Genel Gider Oranı"
+      }
     }
   ],
   "formulas": {
@@ -64,7 +112,12 @@
       "machineCostPerUnit",
       "overheadCostPerUnit",
       "materialCostPerUnit"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCostPerUnit"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -74,5 +127,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

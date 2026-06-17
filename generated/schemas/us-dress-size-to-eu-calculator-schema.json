@@ -68,12 +68,7 @@
   ],
   "formulas": {
     "baseOffset": "ageGroup == 1 ? 30 : (ageGroup == 2 ? 34 : 32)",
-    "rawEuSize": "usDressSize + baseOffset + brandAdjustment",
-    "euSize": "Number(rawEuSize.toFixed(precision))",
-    "_usDressSize_": "{usDressSize}",
-    "_baseOffset_": "{baseOffset}",
-    "_rawEuSize_": "{rawEuSize}",
-    "_euSize_": "{euSize}"
+    "rawEuSize": "usDressSize + baseOffset + brandAdjustment"
   },
   "outputs": {
     "primary": "baseOffset",
@@ -82,7 +77,12 @@
       "Base offset: {baseOffset}",
       "Adjusted EU size (before rounding): {rawEuSize}",
       "Final EU size: {euSize}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "rawEuSize"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -92,5 +92,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

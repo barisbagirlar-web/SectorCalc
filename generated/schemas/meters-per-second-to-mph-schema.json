@@ -68,13 +68,18 @@
   ],
   "formulas": {
     "speed_mph": "speed_mps * 2.23694",
-    "speed_mps___2_23694___speed_mph": "speed_mps * 2.23694 = speed_mph"
+    "speed_mph_aux": "speed_mps * 2.23694"
   },
   "outputs": {
     "primary": "speed_mph",
     "breakdown": [
       "speed_mps * 2.23694 = speed_mph"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "speed_mph_aux"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -84,5 +89,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

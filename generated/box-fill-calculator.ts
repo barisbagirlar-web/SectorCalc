@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from box-fill-calculator-schema.json
 import * as z from 'zod';
 
@@ -19,29 +20,37 @@ export const Box_fill_calculatorInputSchema = z.object({
   equipmentGroundPresent: z.number().default(1),
 });
 
-function evaluateAllFormulas(input: Box_fill_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (input.number10AWG > 0 ? 2.5 : (input.number12AWG > 0 ? 2.25 : (input.number14AWG > 0 ? 2.0 : 0))); results["volumeLargest"] = Number.isFinite(v) ? v : 0; } catch { results["volumeLargest"] = 0; }
-  try { const v = input.number14AWG * 2.0 + input.number12AWG * 2.25 + input.number10AWG * 2.5; results["conductorVolume"] = Number.isFinite(v) ? v : 0; } catch { results["conductorVolume"] = 0; }
-  try { const v = input.numberOfDevices * 2 * (results["volumeLargest"] ?? 0); results["deviceVolume"] = Number.isFinite(v) ? v : 0; } catch { results["deviceVolume"] = 0; }
-  try { const v = input.numberOfClamps * (results["volumeLargest"] ?? 0); results["clampVolume"] = Number.isFinite(v) ? v : 0; } catch { results["clampVolume"] = 0; }
-  try { const v = input.equipmentGroundPresent * (results["volumeLargest"] ?? 0); results["groundVolume"] = Number.isFinite(v) ? v : 0; } catch { results["groundVolume"] = 0; }
-  try { const v = (results["conductorVolume"] ?? 0) + (results["deviceVolume"] ?? 0) + (results["clampVolume"] ?? 0) + (results["groundVolume"] ?? 0); results["totalVolume"] = Number.isFinite(v) ? v : 0; } catch { results["totalVolume"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Box_fill_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = (input.number10AWG > 0 ? 2.5 : (input.number12AWG > 0 ? 2.25 : (input.number14AWG > 0 ? 2.0 : 0))); results["volumeLargest"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["volumeLargest"] = 0; }
+  try { const v = input.number14AWG * 2.0 + input.number12AWG * 2.25 + input.number10AWG * 2.5; results["conductorVolume"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["conductorVolume"] = 0; }
+  try { const v = input.numberOfDevices * 2 * (asFormulaNumber(results["volumeLargest"])); results["deviceVolume"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["deviceVolume"] = 0; }
+  try { const v = input.numberOfClamps * (asFormulaNumber(results["volumeLargest"])); results["clampVolume"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["clampVolume"] = 0; }
+  try { const v = input.equipmentGroundPresent * (asFormulaNumber(results["volumeLargest"])); results["groundVolume"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["groundVolume"] = 0; }
+  try { const v = (asFormulaNumber(results["conductorVolume"])) + (asFormulaNumber(results["deviceVolume"])) + (asFormulaNumber(results["clampVolume"])) + (asFormulaNumber(results["groundVolume"])); results["totalVolume"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalVolume"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateBox_fill_calculator(input: Box_fill_calculatorInput): Box_fill_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalVolume"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["totalVolume"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

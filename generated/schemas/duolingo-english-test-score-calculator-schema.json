@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "points",
       "default": 120,
-      "businessContext": "Score for reading and writing skills"
+      "businessContext": "Score for reading and writing skills",
+      "label_i18n": {
+        "en": "Literacy Score",
+        "tr": "Literacy Score",
+        "de": "Literacy Score",
+        "fr": "Literacy Score",
+        "es": "Literacy Score",
+        "ar": "Literacy Score"
+      }
     },
     {
       "id": "comprehension",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "points",
       "default": 120,
-      "businessContext": "Score for listening and reading comprehension"
+      "businessContext": "Score for listening and reading comprehension",
+      "label_i18n": {
+        "en": "Comprehension Score",
+        "tr": "Comprehension Score",
+        "de": "Comprehension Score",
+        "fr": "Comprehension Score",
+        "es": "Comprehension Score",
+        "ar": "Comprehension Score"
+      }
     },
     {
       "id": "conversation",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "points",
       "default": 120,
-      "businessContext": "Score for speaking and listening skills"
+      "businessContext": "Score for speaking and listening skills",
+      "label_i18n": {
+        "en": "Conversation Score",
+        "tr": "Conversation Score",
+        "de": "Conversation Score",
+        "fr": "Conversation Score",
+        "es": "Conversation Score",
+        "ar": "Conversation Score"
+      }
     },
     {
       "id": "production",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "points",
       "default": 120,
-      "businessContext": "Score for writing and speaking production"
+      "businessContext": "Score for writing and speaking production",
+      "label_i18n": {
+        "en": "Production Score",
+        "tr": "Production Score",
+        "de": "Production Score",
+        "fr": "Production Score",
+        "es": "Production Score",
+        "ar": "Production Score"
+      }
     }
   ],
   "formulas": {
@@ -48,7 +80,12 @@
       "comprehensionWeight",
       "conversationWeight",
       "productionWeight"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "productionWeight"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -58,5 +95,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

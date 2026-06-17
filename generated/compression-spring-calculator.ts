@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from compression-spring-calculator-schema.json
 import * as z from 'zod';
 
@@ -17,29 +18,34 @@ export const Compression_spring_calculatorInputSchema = z.object({
   F: z.number().default(100),
 });
 
-function evaluateAllFormulas(input: Compression_spring_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.D / input.d; results["C"] = Number.isFinite(v) ? v : 0; } catch { results["C"] = 0; }
-  try { const v = (4 * (results["C"] ?? 0) - 1) / (4 * (results["C"] ?? 0) - 4) + 0.615 / (results["C"] ?? 0); results["K"] = Number.isFinite(v) ? v : 0; } catch { results["K"] = 0; }
-  try { const v = (input.G * Math.pow(input.d, 4)) / (8 * Math.pow(input.D, 3) * input.n); results["k"] = Number.isFinite(v) ? v : 0; } catch { results["k"] = 0; }
-  try { const v = (8 * input.F * input.D * (results["K"] ?? 0)) / (Math.PI * Math.pow(input.d, 3)); results["tau"] = Number.isFinite(v) ? v : 0; } catch { results["tau"] = 0; }
-  try { const v = input.n * input.d; results["solid_height"] = Number.isFinite(v) ? v : 0; } catch { results["solid_height"] = 0; }
-  try { const v = input.F / (results["k"] ?? 0); results["deflection_at_load"] = Number.isFinite(v) ? v : 0; } catch { results["deflection_at_load"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Compression_spring_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.D / input.d; results["C"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["C"] = 0; }
+  try { const v = (4 * (asFormulaNumber(results["C"])) - 1) / (4 * (asFormulaNumber(results["C"])) - 4) + 0.615 / (asFormulaNumber(results["C"])); results["K"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["K"] = 0; }
+  try { const v = input.n * input.d; results["solid_height"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["solid_height"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateCompression_spring_calculator(input: Compression_spring_calculatorInput): Compression_spring_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["k"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["solid_height"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

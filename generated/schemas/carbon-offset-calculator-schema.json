@@ -99,24 +99,11 @@
     }
   ],
   "formulas": {
-    "FACTOR_ELECTRICITY": "0.000707",
-    "FACTOR_NATURAL_GAS": "0.0053",
-    "FACTOR_VEHICLE": "0.000404",
-    "FACTOR_FLIGHT": "0.0002",
-    "FACTOR_WASTE": "0.0005",
-    "FACTOR_WATER": "0.000002",
     "emissions": "electricityUsage",
-    "totalEmissions": "electricity + naturalGas + vehicle + flights + waste + water",
-    "round2": "Math.round(totalEmissions * 100) / 100",
-    "_electricity_toFixed_2___metric_tons": "{electricity.toFixed(2)} metric tons",
-    "_naturalGas_toFixed_2___metric_tons": "{naturalGas.toFixed(2)} metric tons",
-    "_vehicle_toFixed_2___metric_tons": "{vehicle.toFixed(2)} metric tons",
-    "_flights_toFixed_2___metric_tons": "{flights.toFixed(2)} metric tons",
-    "_waste_toFixed_2___metric_tons": "{waste.toFixed(2)} metric tons",
-    "_water_toFixed_2___metric_tons": "{water.toFixed(2)} metric tons"
+    "emissions_aux": "electricityUsage"
   },
   "outputs": {
-    "primary": "FACTOR_ELECTRICITY",
+    "primary": "emissions_aux",
     "breakdown": [
       "Electricity: {electricity.toFixed(2)} metric tons",
       "Natural Gas: {naturalGas.toFixed(2)} metric tons",
@@ -124,7 +111,12 @@
       "Flights: {flights.toFixed(2)} metric tons",
       "Waste: {waste.toFixed(2)} metric tons",
       "Water: {water.toFixed(2)} metric tons"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "round2"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -134,5 +126,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

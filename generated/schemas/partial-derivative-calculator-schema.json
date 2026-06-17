@@ -71,21 +71,21 @@
     "breakdown0": "6 * L / (b * h**2)",
     "breakdown1": "6 * F / (b * h**2)",
     "breakdown2": "-6 * F * L / (b**2 * h**2)",
-    "breakdown3": "-12 * F * L / (b * h**3)",
-    "____F__Pa_N_": "∂σ/∂F (Pa/N)",
-    "____L__Pa_m_": "∂σ/∂L (Pa/m)",
-    "____b__Pa_m_": "∂σ/∂b (Pa/m)",
-    "____h__Pa_m_": "∂σ/∂h (Pa/m)",
-    "result": "Eğilme Gerilmesi σ (Pa)"
+    "breakdown3": "-12 * F * L / (b * h**3)"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "breakdown3",
     "breakdown": [
       "∂σ/∂F (Pa/N)",
       "∂σ/∂L (Pa/m)",
       "∂σ/∂b (Pa/m)",
       "∂σ/∂h (Pa/m)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "breakdown3"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -95,5 +95,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm³",
       "default": 200,
-      "businessContext": "Volume of each candle container."
+      "businessContext": "Volume of each candle container.",
+      "label_i18n": {
+        "en": "Container Volume",
+        "tr": "Container Volume",
+        "de": "Container Volume",
+        "fr": "Container Volume",
+        "es": "Container Volume",
+        "ar": "Container Volume"
+      }
     },
     {
       "id": "numberOfCandles",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Total number of candles to make."
+      "businessContext": "Total number of candles to make.",
+      "label_i18n": {
+        "en": "Number of Candles",
+        "tr": "Number of Candles",
+        "de": "Number of Candles",
+        "fr": "Number of Candles",
+        "es": "Number of Candles",
+        "ar": "Number of Candles"
+      }
     },
     {
       "id": "waxDensity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "g/cm³",
       "default": 0.9,
-      "businessContext": "Density of the wax used (e.g., soy wax ~0.9)."
+      "businessContext": "Density of the wax used (e.g., soy wax ~0.9).",
+      "label_i18n": {
+        "en": "Wax Density",
+        "tr": "Wax Density",
+        "de": "Wax Density",
+        "fr": "Wax Density",
+        "es": "Wax Density",
+        "ar": "Wax Density"
+      }
     },
     {
       "id": "fragranceLoad",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 8,
-      "businessContext": "Percentage of fragrance oil relative to wax weight."
+      "businessContext": "Percentage of fragrance oil relative to wax weight.",
+      "label_i18n": {
+        "en": "Fragrance Load",
+        "tr": "Fragrance Load",
+        "de": "Fragrance Load",
+        "fr": "Fragrance Load",
+        "es": "Fragrance Load",
+        "ar": "Fragrance Load"
+      }
     },
     {
       "id": "wasteFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Extra material percentage for waste and spillage."
+      "businessContext": "Extra material percentage for waste and spillage.",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
       "waxPerCandle",
       "fragrancePerCandle",
       "totalFragranceNeeded"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalFragranceNeeded"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -64,5 +109,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

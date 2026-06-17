@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 10000,
-      "businessContext": "The amount of money already invested or saved at the beginning."
+      "businessContext": "The amount of money already invested or saved at the beginning.",
+      "label_i18n": {
+        "en": "Initial Investment",
+        "tr": "Initial Investment",
+        "de": "Initial Investment",
+        "fr": "Initial Investment",
+        "es": "Initial Investment",
+        "ar": "Initial Investment"
+      }
     },
     {
       "id": "annualContribution",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency/year",
       "default": 5000,
-      "businessContext": "The amount of money added to the investment each year."
+      "businessContext": "The amount of money added to the investment each year.",
+      "label_i18n": {
+        "en": "Annual Contribution",
+        "tr": "Annual Contribution",
+        "de": "Annual Contribution",
+        "fr": "Annual Contribution",
+        "es": "Annual Contribution",
+        "ar": "Annual Contribution"
+      }
     },
     {
       "id": "years",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 10,
-      "businessContext": "The total time the money is invested for."
+      "businessContext": "The total time the money is invested for.",
+      "label_i18n": {
+        "en": "Number of Years",
+        "tr": "Number of Years",
+        "de": "Number of Years",
+        "fr": "Number of Years",
+        "es": "Number of Years",
+        "ar": "Number of Years"
+      }
     },
     {
       "id": "annualRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 7,
-      "businessContext": "The expected annual rate of return on the investment."
+      "businessContext": "The expected annual rate of return on the investment.",
+      "label_i18n": {
+        "en": "Annual Interest Rate",
+        "tr": "Annual Interest Rate",
+        "de": "Annual Interest Rate",
+        "fr": "Annual Interest Rate",
+        "es": "Annual Interest Rate",
+        "ar": "Annual Interest Rate"
+      }
     },
     {
       "id": "compoundingFrequency",
@@ -39,20 +71,32 @@
       "type": "number",
       "unit": "times/year",
       "default": 12,
-      "businessContext": "Number of times the interest is compounded per year (e.g., 12 for monthly)."
+      "businessContext": "Number of times the interest is compounded per year (e.g., 12 for monthly).",
+      "label_i18n": {
+        "en": "Compounding Frequency",
+        "tr": "Compounding Frequency",
+        "de": "Compounding Frequency",
+        "fr": "Compounding Frequency",
+        "es": "Compounding Frequency",
+        "ar": "Compounding Frequency"
+      }
     }
   ],
   "formulas": {
-    "futureValue": "annualRate === 0 ? (initialInvestment + annualContribution * years) : initialInvestment * Math.pow(1 + annualRate/100/compoundingFrequency, compoundingFrequency * years) + annualContribution * ((Math.pow(1 + annualRate/100/compoundingFrequency, compoundingFrequency * years) - 1) / (annualRate/100/compoundingFrequency))",
     "totalContributions": "initialInvestment + annualContribution * years",
-    "totalInterest": "(annualRate === 0 ? (initialInvestment + annualContribution * years) : initialInvestment * Math.pow(1 + annualRate/100/compoundingFrequency, compoundingFrequency * years) + annualContribution * ((Math.pow(1 + annualRate/100/compoundingFrequency, compoundingFrequency * years) - 1) / (annualRate/100/compoundingFrequency))) - (initialInvestment + annualContribution * years)"
+    "totalContributions_aux": "initialInvestment + annualContribution * years"
   },
   "outputs": {
-    "primary": "futureValue",
+    "primary": "totalContributions_aux",
     "breakdown": [
       "totalContributions",
       "totalInterest"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalInterest"
   },
   "category": "Proje & Yatırım",
   "sector": "Finans & İK",
@@ -62,5 +106,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

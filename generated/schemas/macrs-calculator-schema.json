@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100000,
-      "businessContext": "The total capitalized cost of the asset."
+      "businessContext": "The total capitalized cost of the asset.",
+      "label_i18n": {
+        "en": "Asset Cost ($)",
+        "tr": "Asset Cost ($)",
+        "de": "Asset Cost ($)",
+        "fr": "Asset Cost ($)",
+        "es": "Asset Cost ($)",
+        "ar": "Asset Cost ($)"
+      }
     },
     {
       "id": "bonusPercentage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Additional first-year bonus depreciation percentage."
+      "businessContext": "Additional first-year bonus depreciation percentage.",
+      "label_i18n": {
+        "en": "Bonus Depreciation (%)",
+        "tr": "Bonus Depreciation (%)",
+        "de": "Bonus Depreciation (%)",
+        "fr": "Bonus Depreciation (%)",
+        "es": "Bonus Depreciation (%)",
+        "ar": "Bonus Depreciation (%)"
+      }
     },
     {
       "id": "section179",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Immediate expense deduction under Section 179."
+      "businessContext": "Immediate expense deduction under Section 179.",
+      "label_i18n": {
+        "en": "Section 179 Expensing ($)",
+        "tr": "Section 179 Expensing ($)",
+        "de": "Section 179 Expensing ($)",
+        "fr": "Section 179 Expensing ($)",
+        "es": "Section 179 Expensing ($)",
+        "ar": "Section 179 Expensing ($)"
+      }
     },
     {
       "id": "macrsRateYear1",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "MACRS depreciation rate for the first year based on asset class and convention."
+      "businessContext": "MACRS depreciation rate for the first year based on asset class and convention.",
+      "label_i18n": {
+        "en": "Year 1 MACRS Rate (%)",
+        "tr": "Year 1 MACRS Rate (%)",
+        "de": "Year 1 MACRS Rate (%)",
+        "fr": "Year 1 MACRS Rate (%)",
+        "es": "Year 1 MACRS Rate (%)",
+        "ar": "Year 1 MACRS Rate (%)"
+      }
     },
     {
       "id": "recoveryPeriod",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "years",
       "default": 5,
-      "businessContext": "The MACRS recovery period of the asset (3,5,7,10,15,20)."
+      "businessContext": "The MACRS recovery period of the asset (3,5,7,10,15,20).",
+      "label_i18n": {
+        "en": "Recovery Period (years)",
+        "tr": "Recovery Period (years)",
+        "de": "Recovery Period (years)",
+        "fr": "Recovery Period (years)",
+        "es": "Recovery Period (years)",
+        "ar": "Recovery Period (years)"
+      }
     },
     {
       "id": "taxRate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 21,
-      "businessContext": "Corporate income tax rate for calculating tax savings from depreciation."
+      "businessContext": "Corporate income tax rate for calculating tax savings from depreciation.",
+      "label_i18n": {
+        "en": "Tax Rate (%)",
+        "tr": "Tax Rate (%)",
+        "de": "Tax Rate (%)",
+        "fr": "Tax Rate (%)",
+        "es": "Tax Rate (%)",
+        "ar": "Tax Rate (%)"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +108,12 @@
     "breakdown": [
       "depreciableBasis",
       "taxSavings"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "taxSavings"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -70,5 +123,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

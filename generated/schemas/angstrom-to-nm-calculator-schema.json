@@ -68,15 +68,19 @@
   ],
   "formulas": {
     "nanoMeters": "angstromValue * 0.1",
-    "1_____0_1_nm": "1 Å = 0.1 nm",
-    "angstromValue___0_1___nanoMeters_nm": "angstromValue * 0.1 = nanoMeters nm"
+    "nanoMeters_aux": "angstromValue * 0.1"
   },
   "outputs": {
     "primary": "nanoMeters",
     "breakdown": [
       "Conversion factor: 1 Å = 0.1 nm",
       "Result: angstromValue * 0.1 = nanoMeters nm"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "nanoMeters_aux"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -86,5 +90,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

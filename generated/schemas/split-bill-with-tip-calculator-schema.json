@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 100,
-      "businessContext": "Total bill subtotal before tax and tip"
+      "businessContext": "Total bill subtotal before tax and tip",
+      "label_i18n": {
+        "en": "Bill Amount",
+        "tr": "Bill Amount",
+        "de": "Bill Amount",
+        "fr": "Bill Amount",
+        "es": "Bill Amount",
+        "ar": "Bill Amount"
+      }
     },
     {
       "id": "tipPercentage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Tip percentage to add, e.g., 15, 18, 20"
+      "businessContext": "Tip percentage to add, e.g., 15, 18, 20",
+      "label_i18n": {
+        "en": "Tip Percentage",
+        "tr": "Tip Percentage",
+        "de": "Tip Percentage",
+        "fr": "Tip Percentage",
+        "es": "Tip Percentage",
+        "ar": "Tip Percentage"
+      }
     },
     {
       "id": "taxPercentage",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 8,
-      "businessContext": "Sales tax percentage applied to bill"
+      "businessContext": "Sales tax percentage applied to bill",
+      "label_i18n": {
+        "en": "Tax Percentage",
+        "tr": "Tax Percentage",
+        "de": "Tax Percentage",
+        "fr": "Tax Percentage",
+        "es": "Tax Percentage",
+        "ar": "Tax Percentage"
+      }
     },
     {
       "id": "numberOfPeople",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "people",
       "default": 2,
-      "businessContext": "Number of people splitting the bill"
+      "businessContext": "Number of people splitting the bill",
+      "label_i18n": {
+        "en": "Number of People",
+        "tr": "Number of People",
+        "de": "Number of People",
+        "fr": "Number of People",
+        "es": "Number of People",
+        "ar": "Number of People"
+      }
     }
   ],
   "formulas": {
@@ -40,21 +72,21 @@
     "taxAmount": "billAmount * (taxPercentage / 100)",
     "tipPerPerson": "billAmount * (tipPercentage / 100) / numberOfPeople",
     "taxPerPerson": "billAmount * (taxPercentage / 100) / numberOfPeople",
-    "totalPerPerson": "(billAmount * (1 + tipPercentage / 100 + taxPercentage / 100)) / numberOfPeople",
-    "primaryText": "`Each person pays $${totalPerPerson.toFixed(2)}`",
-    "subtotalText": "`Subtotal per person: $${subtotalPerPerson.toFixed(2)}`",
-    "tipText": "`Tip per person: $${tipPerPerson.toFixed(2)}`",
-    "taxText": "`Tax per person: $${taxPerPerson.toFixed(2)}`",
-    "totalText": "`Total per person: $${totalPerPerson.toFixed(2)}`"
+    "totalPerPerson": "(billAmount * (1 + tipPercentage / 100 + taxPercentage / 100)) / numberOfPeople"
   },
   "outputs": {
-    "primary": "primaryText",
+    "primary": "totalPerPerson",
     "breakdown": [
       "subtotalText",
       "tipText",
       "taxText",
       "totalText"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalPerPerson"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -64,5 +96,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "h",
       "default": 12,
-      "businessContext": "Hour component of the source time."
+      "businessContext": "Hour component of the source time.",
+      "label_i18n": {
+        "en": "Source Hour (0-23)",
+        "tr": "Source Hour (0-23)",
+        "de": "Source Hour (0-23)",
+        "fr": "Source Hour (0-23)",
+        "es": "Source Hour (0-23)",
+        "ar": "Source Hour (0-23)"
+      }
     },
     {
       "id": "inputMinutes",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "min",
       "default": 0,
-      "businessContext": "Minute component of the source time."
+      "businessContext": "Minute component of the source time.",
+      "label_i18n": {
+        "en": "Source Minutes (0-59)",
+        "tr": "Source Minutes (0-59)",
+        "de": "Source Minutes (0-59)",
+        "fr": "Source Minutes (0-59)",
+        "es": "Source Minutes (0-59)",
+        "ar": "Source Minutes (0-59)"
+      }
     },
     {
       "id": "sourceOffsetHours",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "h",
       "default": 0,
-      "businessContext": "Hour offset of source timezone from UTC (e.g., -5 for EST)."
+      "businessContext": "Hour offset of source timezone from UTC (e.g., -5 for EST).",
+      "label_i18n": {
+        "en": "Source UTC Offset Hours",
+        "tr": "Source UTC Offset Hours",
+        "de": "Source UTC Offset Hours",
+        "fr": "Source UTC Offset Hours",
+        "es": "Source UTC Offset Hours",
+        "ar": "Source UTC Offset Hours"
+      }
     },
     {
       "id": "sourceOffsetMinutes",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "min",
       "default": 0,
-      "businessContext": "Additional minute offset of source timezone from UTC."
+      "businessContext": "Additional minute offset of source timezone from UTC.",
+      "label_i18n": {
+        "en": "Source UTC Offset Minutes",
+        "tr": "Source UTC Offset Minutes",
+        "de": "Source UTC Offset Minutes",
+        "fr": "Source UTC Offset Minutes",
+        "es": "Source UTC Offset Minutes",
+        "ar": "Source UTC Offset Minutes"
+      }
     },
     {
       "id": "targetOffsetHours",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "h",
       "default": 3,
-      "businessContext": "Hour offset of target timezone from UTC (e.g., 3 for EAT)."
+      "businessContext": "Hour offset of target timezone from UTC (e.g., 3 for EAT).",
+      "label_i18n": {
+        "en": "Target UTC Offset Hours",
+        "tr": "Target UTC Offset Hours",
+        "de": "Target UTC Offset Hours",
+        "fr": "Target UTC Offset Hours",
+        "es": "Target UTC Offset Hours",
+        "ar": "Target UTC Offset Hours"
+      }
     },
     {
       "id": "targetOffsetMinutes",
@@ -47,22 +87,34 @@
       "type": "number",
       "unit": "min",
       "default": 0,
-      "businessContext": "Additional minute offset of target timezone from UTC."
+      "businessContext": "Additional minute offset of target timezone from UTC.",
+      "label_i18n": {
+        "en": "Target UTC Offset Minutes",
+        "tr": "Target UTC Offset Minutes",
+        "de": "Target UTC Offset Minutes",
+        "fr": "Target UTC Offset Minutes",
+        "es": "Target UTC Offset Minutes",
+        "ar": "Target UTC Offset Minutes"
+      }
     }
   ],
   "formulas": {
     "sourceOffsetTotalMinutes": "sourceOffsetHours * 60 + sourceOffsetMinutes",
     "targetOffsetTotalMinutes": "targetOffsetHours * 60 + targetOffsetMinutes",
-    "utcMinutes": "(inputHours * 60 + inputMinutes - (sourceOffsetHours * 60 + sourceOffsetMinutes) + 1440) % 1440",
-    "targetTime": "(function(){ var tm = ((inputHours * 60 + inputMinutes - (sourceOffsetHours * 60 + sourceOffsetMinutes) + 1440) % 1440 + (targetOffsetHours * 60 + targetOffsetMinutes) + 1440) % 1440; var h = Math.floor(tm / 60); var m = tm % 60; return (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m; })()"
+    "utcMinutes": "(inputHours * 60 + inputMinutes - (sourceOffsetHours * 60 + sourceOffsetMinutes) + 1440) % 1440"
   },
   "outputs": {
-    "primary": "targetTime",
+    "primary": "utcMinutes",
     "breakdown": [
       "sourceOffsetTotalMinutes",
       "targetOffsetTotalMinutes",
       "utcMinutes"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "targetTime"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -72,5 +124,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

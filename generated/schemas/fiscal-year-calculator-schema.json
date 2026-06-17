@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "year",
       "default": 2025,
-      "businessContext": "Calendar year of the current date"
+      "businessContext": "Calendar year of the current date",
+      "label_i18n": {
+        "en": "Current Year",
+        "tr": "Current Year",
+        "de": "Current Year",
+        "fr": "Current Year",
+        "es": "Current Year",
+        "ar": "Current Year"
+      }
     },
     {
       "id": "currentMonth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "month",
       "default": 1,
-      "businessContext": "Month number of the current date (1-12)"
+      "businessContext": "Month number of the current date (1-12)",
+      "label_i18n": {
+        "en": "Current Month",
+        "tr": "Current Month",
+        "de": "Current Month",
+        "fr": "Current Month",
+        "es": "Current Month",
+        "ar": "Current Month"
+      }
     },
     {
       "id": "currentDay",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "day",
       "default": 1,
-      "businessContext": "Day of month of the current date (1-31)"
+      "businessContext": "Day of month of the current date (1-31)",
+      "label_i18n": {
+        "en": "Current Day",
+        "tr": "Current Day",
+        "de": "Current Day",
+        "fr": "Current Day",
+        "es": "Current Day",
+        "ar": "Current Day"
+      }
     },
     {
       "id": "fiscalStartMonth",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "month",
       "default": 7,
-      "businessContext": "Month when the fiscal year begins"
+      "businessContext": "Month when the fiscal year begins",
+      "label_i18n": {
+        "en": "Fiscal Year Start Month",
+        "tr": "Fiscal Year Start Month",
+        "de": "Fiscal Year Start Month",
+        "fr": "Fiscal Year Start Month",
+        "es": "Fiscal Year Start Month",
+        "ar": "Fiscal Year Start Month"
+      }
     },
     {
       "id": "fiscalStartDay",
@@ -39,20 +71,32 @@
       "type": "number",
       "unit": "day",
       "default": 1,
-      "businessContext": "Day when the fiscal year begins"
+      "businessContext": "Day when the fiscal year begins",
+      "label_i18n": {
+        "en": "Fiscal Year Start Day",
+        "tr": "Fiscal Year Start Day",
+        "de": "Fiscal Year Start Day",
+        "fr": "Fiscal Year Start Day",
+        "es": "Fiscal Year Start Day",
+        "ar": "Fiscal Year Start Day"
+      }
     }
   ],
   "formulas": {
     "fiscalYear": "(currentMonth < fiscalStartMonth || (currentMonth === fiscalStartMonth && currentDay < fiscalStartDay)) ? currentYear - 1 : currentYear",
-    "fiscalMonth": "((currentMonth - fiscalStartMonth + 12) % 12) + 1",
-    "fiscalQuarter": "Math.ceil((((currentMonth - fiscalStartMonth + 12) % 12) + 1) / 3)"
+    "fiscalMonth": "((currentMonth - fiscalStartMonth + 12) % 12) + 1"
   },
   "outputs": {
     "primary": "fiscalYear",
     "breakdown": [
       "fiscalQuarter",
       "fiscalMonth"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "fiscalQuarter"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -62,5 +106,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

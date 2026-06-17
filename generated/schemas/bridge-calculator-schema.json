@@ -102,17 +102,21 @@
     "total_load": "load_per_area * deck_width * span_length",
     "max_moment": "total_load * span_length / 8",
     "section_modulus_required": "max_moment * 1000 / (steel_yield_strength / safety_factor)",
-    "beam_width_estimate": "section_modulus_required * 6 / (beam_depth ** 2) / 1000",
-    "result": "Required Beam Width (mm)"
+    "beam_width_estimate": "section_modulus_required * 6 / (beam_depth ** 2) / 1000"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "beam_width_estimate",
     "breakdown": [
       "Total Load (kN): total_load",
       "Max Moment (kN·m): max_moment",
       "Required Section Modulus (cm³): section_modulus_required",
       "Estimated Beam Width (mm): beam_width_estimate"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "beam_width_estimate"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -122,5 +126,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

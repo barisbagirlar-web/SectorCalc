@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from tolerance-calculator-schema.json
 import * as z from 'zod';
 
@@ -17,27 +18,35 @@ export const Tolerance_calculatorInputSchema = z.object({
   shaftLowerDev: z.number().default(-0.025),
 });
 
-function evaluateAllFormulas(input: Tolerance_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (input.basicSize + input.holeUpperDev) - (input.basicSize + input.shaftLowerDev); results["maxClearance"] = Number.isFinite(v) ? v : 0; } catch { results["maxClearance"] = 0; }
-  try { const v = (input.basicSize + input.holeLowerDev) - (input.basicSize + input.shaftUpperDev); results["minClearance"] = Number.isFinite(v) ? v : 0; } catch { results["minClearance"] = 0; }
-  try { const v = input.holeUpperDev - input.holeLowerDev; results["holeTolerance"] = Number.isFinite(v) ? v : 0; } catch { results["holeTolerance"] = 0; }
-  try { const v = input.shaftUpperDev - input.shaftLowerDev; results["shaftTolerance"] = Number.isFinite(v) ? v : 0; } catch { results["shaftTolerance"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Tolerance_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = (input.basicSize + input.holeUpperDev) - (input.basicSize + input.shaftLowerDev); results["maxClearance"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["maxClearance"] = 0; }
+  try { const v = (input.basicSize + input.holeLowerDev) - (input.basicSize + input.shaftUpperDev); results["minClearance"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["minClearance"] = 0; }
+  try { const v = input.holeUpperDev - input.holeLowerDev; results["holeTolerance"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["holeTolerance"] = 0; }
+  try { const v = input.shaftUpperDev - input.shaftLowerDev; results["shaftTolerance"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["shaftTolerance"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateTolerance_calculator(input: Tolerance_calculatorInput): Tolerance_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["maxClearance"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["maxClearance"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

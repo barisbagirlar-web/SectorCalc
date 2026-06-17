@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "€",
       "default": 50,
-      "businessContext": "Average revenue per order"
+      "businessContext": "Average revenue per order",
+      "label_i18n": {
+        "en": "Average Order Value",
+        "tr": "Average Order Value",
+        "de": "Average Order Value",
+        "fr": "Average Order Value",
+        "es": "Average Order Value",
+        "ar": "Average Order Value"
+      }
     },
     {
       "id": "costOfGoodsPerOrder",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "€",
       "default": 20,
-      "businessContext": "Direct cost of goods sold per order"
+      "businessContext": "Direct cost of goods sold per order",
+      "label_i18n": {
+        "en": "Cost of Goods per Order",
+        "tr": "Cost of Goods per Order",
+        "de": "Cost of Goods per Order",
+        "fr": "Cost of Goods per Order",
+        "es": "Cost of Goods per Order",
+        "ar": "Cost of Goods per Order"
+      }
     },
     {
       "id": "monthlyOrders",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "orders",
       "default": 200,
-      "businessContext": "Number of orders per month"
+      "businessContext": "Number of orders per month",
+      "label_i18n": {
+        "en": "Monthly Number of Orders",
+        "tr": "Monthly Number of Orders",
+        "de": "Monthly Number of Orders",
+        "fr": "Monthly Number of Orders",
+        "es": "Monthly Number of Orders",
+        "ar": "Monthly Number of Orders"
+      }
     },
     {
       "id": "shippingCostPerOrder",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "€",
       "default": 5,
-      "businessContext": "Average shipping cost paid by seller per order"
+      "businessContext": "Average shipping cost paid by seller per order",
+      "label_i18n": {
+        "en": "Shipping Cost per Order",
+        "tr": "Shipping Cost per Order",
+        "de": "Shipping Cost per Order",
+        "fr": "Shipping Cost per Order",
+        "es": "Shipping Cost per Order",
+        "ar": "Shipping Cost per Order"
+      }
     },
     {
       "id": "transactionFeeRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 2.9,
-      "businessContext": "Shopify transaction fee + payment processing fee percentage"
+      "businessContext": "Shopify transaction fee + payment processing fee percentage",
+      "label_i18n": {
+        "en": "Transaction Fee Rate",
+        "tr": "Transaction Fee Rate",
+        "de": "Transaction Fee Rate",
+        "fr": "Transaction Fee Rate",
+        "es": "Transaction Fee Rate",
+        "ar": "Transaction Fee Rate"
+      }
     },
     {
       "id": "monthlyMarketing",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "€",
       "default": 500,
-      "businessContext": "Monthly cost for ads and promotions"
+      "businessContext": "Monthly cost for ads and promotions",
+      "label_i18n": {
+        "en": "Monthly Marketing Spend",
+        "tr": "Monthly Marketing Spend",
+        "de": "Monthly Marketing Spend",
+        "fr": "Monthly Marketing Spend",
+        "es": "Monthly Marketing Spend",
+        "ar": "Monthly Marketing Spend"
+      }
     },
     {
       "id": "monthlyFixedCosts",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "€",
       "default": 300,
-      "businessContext": "Other monthly overheads (apps, subscriptions, etc.)"
+      "businessContext": "Other monthly overheads (apps, subscriptions, etc.)",
+      "label_i18n": {
+        "en": "Monthly Fixed Costs",
+        "tr": "Monthly Fixed Costs",
+        "de": "Monthly Fixed Costs",
+        "fr": "Monthly Fixed Costs",
+        "es": "Monthly Fixed Costs",
+        "ar": "Monthly Fixed Costs"
+      }
     }
   ],
   "formulas": {
@@ -87,7 +143,12 @@
         "label": "Profit Margin",
         "unit": "%"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "profitMargin"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -97,5 +158,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

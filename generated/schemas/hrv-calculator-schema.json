@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°C",
       "default": 5,
-      "businessContext": "Typical winter outdoor temperature"
+      "businessContext": "Typical winter outdoor temperature",
+      "label_i18n": {
+        "en": "Outdoor Air Temperature",
+        "tr": "Outdoor Air Temperature",
+        "de": "Outdoor Air Temperature",
+        "fr": "Outdoor Air Temperature",
+        "es": "Outdoor Air Temperature",
+        "ar": "Outdoor Air Temperature"
+      }
     },
     {
       "id": "indoorTemp",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Target indoor temperature"
+      "businessContext": "Target indoor temperature",
+      "label_i18n": {
+        "en": "Indoor Air Temperature",
+        "tr": "Indoor Air Temperature",
+        "de": "Indoor Air Temperature",
+        "fr": "Indoor Air Temperature",
+        "es": "Indoor Air Temperature",
+        "ar": "Indoor Air Temperature"
+      }
     },
     {
       "id": "supplyTemp",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 15,
-      "businessContext": "Temperature of fresh air supplied to indoor after heat exchange"
+      "businessContext": "Temperature of fresh air supplied to indoor after heat exchange",
+      "label_i18n": {
+        "en": "Supply Air Temperature after HRV",
+        "tr": "Supply Air Temperature after HRV",
+        "de": "Supply Air Temperature after HRV",
+        "fr": "Supply Air Temperature after HRV",
+        "es": "Supply Air Temperature after HRV",
+        "ar": "Supply Air Temperature after HRV"
+      }
     },
     {
       "id": "exhaustTemp",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 10,
-      "businessContext": "Temperature of stale air exhausted after heat exchange"
+      "businessContext": "Temperature of stale air exhausted after heat exchange",
+      "label_i18n": {
+        "en": "Exhaust Air Temperature after HRV",
+        "tr": "Exhaust Air Temperature after HRV",
+        "de": "Exhaust Air Temperature after HRV",
+        "fr": "Exhaust Air Temperature after HRV",
+        "es": "Exhaust Air Temperature after HRV",
+        "ar": "Exhaust Air Temperature after HRV"
+      }
     },
     {
       "id": "airFlowRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m³/h",
       "default": 500,
-      "businessContext": "Ventilation air flow rate"
+      "businessContext": "Ventilation air flow rate",
+      "label_i18n": {
+        "en": "Air Flow Rate",
+        "tr": "Air Flow Rate",
+        "de": "Air Flow Rate",
+        "fr": "Air Flow Rate",
+        "es": "Air Flow Rate",
+        "ar": "Air Flow Rate"
+      }
     },
     {
       "id": "airDensity",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1.2,
-      "businessContext": "Density of air (standard 1.2 kg/m³)"
+      "businessContext": "Density of air (standard 1.2 kg/m³)",
+      "label_i18n": {
+        "en": "Air Density",
+        "tr": "Air Density",
+        "de": "Air Density",
+        "fr": "Air Density",
+        "es": "Air Density",
+        "ar": "Air Density"
+      }
     },
     {
       "id": "specificHeat",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "kJ/(kg·K)",
       "default": 1.005,
-      "businessContext": "Specific heat of air at constant pressure"
+      "businessContext": "Specific heat of air at constant pressure",
+      "label_i18n": {
+        "en": "Specific Heat Capacity of Air",
+        "tr": "Specific Heat Capacity of Air",
+        "de": "Specific Heat Capacity of Air",
+        "fr": "Specific Heat Capacity of Air",
+        "es": "Specific Heat Capacity of Air",
+        "ar": "Specific Heat Capacity of Air"
+      }
     },
     {
       "id": "operatingHours",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "h/year",
       "default": 4000,
-      "businessContext": "Hours per year the HRV operates"
+      "businessContext": "Hours per year the HRV operates",
+      "label_i18n": {
+        "en": "Annual Operating Hours",
+        "tr": "Annual Operating Hours",
+        "de": "Annual Operating Hours",
+        "fr": "Annual Operating Hours",
+        "es": "Annual Operating Hours",
+        "ar": "Annual Operating Hours"
+      }
     }
   ],
   "formulas": {
@@ -76,7 +140,12 @@
     "breakdown": [
       "heatRate",
       "annualEnergySaved"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "annualEnergySaved"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -86,5 +155,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "otomotiv-tedarik",
   "profession": "Tedarik Zinciri Yöneticisi",
-  "categoryId": "engineering"
+  "categoryId": "engineering",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -76,20 +76,10 @@
     "denom": "real2**2 + imag2**2",
     "quot_real": "(real1 * real2 + imag1 * imag2) / denom",
     "quot_imag": "(imag1 * real2 - real1 * imag2) / denom",
-    "mag1": "Math.sqrt(real1**2 + imag1**2)",
-    "mag2": "Math.sqrt(real2**2 + imag2**2)",
     "conj1_real": "real1",
     "conj1_imag": "-imag1",
     "conj2_real": "real2",
     "conj2_imag": "-imag2",
-    "____sum_real_________sum_imag____i_": "\" + sum_real + \"+\" + sum_imag + \"i\"",
-    "____diff_real_________diff_imag____i_": "\" + diff_real + \"+\" + diff_imag + \"i\"",
-    "____prod_real_________prod_imag____i_": "\" + prod_real + \"+\" + prod_imag + \"i\"",
-    "____quot_real_________quot_imag____i_": "\" + quot_real + \"+\" + quot_imag + \"i\"",
-    "____mag1": "\" + mag1",
-    "____mag2": "\" + mag2",
-    "____conj1_real_________conj1_imag____i_": "\" + conj1_real + \"+\" + conj1_imag + \"i\"",
-    "____conj2_real_________conj2_imag____i_": "\" + conj2_real + \"+\" + conj2_imag + \"i\"",
     "result": "\"Complex Operations: Z1=\" + real1 + \"+\" + imag1 + \"i, Z2=\" + real2 + \"+\" + imag2 + \"i\""
   },
   "outputs": {
@@ -103,7 +93,12 @@
       "\"|Z2|: \" + mag2",
       "\"Conj Z1: \" + conj1_real + \"+\" + conj1_imag + \"i\"",
       "\"Conj Z2: \" + conj2_real + \"+\" + conj2_imag + \"i\""
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -113,5 +108,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

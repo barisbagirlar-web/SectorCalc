@@ -99,18 +99,9 @@
       "max": null,
       "businessContext": "Adjusts cost based on project complexity (low/medium/high) per PMI and Lean principles.",
       "options": [
-        {
-          "value": "low",
-          "label": "Low (simple, repetitive)"
-        },
-        {
-          "value": "medium",
-          "label": "Medium (moderate integration)"
-        },
-        {
-          "value": "high",
-          "label": "High (novel, high uncertainty)"
-        }
+        "low",
+        "medium",
+        "high"
       ],
       "label_i18n": {
         "en": "Project Complexity Factor"
@@ -129,22 +120,10 @@
       "max": null,
       "businessContext": "Target quality level based on Six Sigma; higher sigma reduces rework and hidden costs.",
       "options": [
-        {
-          "value": "3",
-          "label": "3 Sigma (93.3% yield)"
-        },
-        {
-          "value": "4",
-          "label": "4 Sigma (99.38% yield)"
-        },
-        {
-          "value": "5",
-          "label": "5 Sigma (99.977% yield)"
-        },
-        {
-          "value": "6",
-          "label": "6 Sigma (99.99966% yield)"
-        }
+        "3",
+        "4",
+        "5",
+        "6"
       ],
       "label_i18n": {
         "en": "Quality Level (Sigma)"
@@ -221,19 +200,18 @@
       }
     ]
   },
-  "formulas": [
-    "labor_hours",
-    "labor_hours",
-    "labor_hours",
-    "labor_hours",
-    "labor_hours",
-    "labor_hours",
-    "labor_hours",
-    "labor_hours"
-  ],
+  "formulas": {
+    "result": "labor_hours + labor_rate + material_cost",
+    "result_copy": "labor_hours + labor_rate + material_cost"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "project-cost-estimator-calculator",
   "catalogCategory": "everyday-life",

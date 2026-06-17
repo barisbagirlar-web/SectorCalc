@@ -100,19 +100,20 @@
   ],
   "formulas": {
     "areaSqft": "areaSqm * conversionFactor",
-    "roundedAreaSqft": "Math.round(areaSqm * conversionFactor * Math.pow(10, roundingPrecision)) / Math.pow(10, roundingPrecision)",
-    "areaWithWaste": "roundedAreaSqft * (1 + wasteFactor / 100)",
-    "totalCost": "areaWithWaste * areaUnitPrice",
-    "toleranceMin": "roundedAreaSqft * (1 - measurementTolerance / 100)",
-    "toleranceMax": "roundedAreaSqft * (1 + measurementTolerance / 100)"
+    "areaSqft_aux": "areaSqm * conversionFactor"
   },
   "outputs": {
-    "primary": "roundedAreaSqft",
+    "primary": "areaSqft_aux",
     "breakdown": [
       "areaSqft",
       "areaWithWaste",
       "totalCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "toleranceMax"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -122,5 +123,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

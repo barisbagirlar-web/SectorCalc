@@ -85,19 +85,20 @@
   "formulas": {
     "ovulationDay": "cycleLength - lutealPhaseLength",
     "fertileStart": "ovulationDay - spermLifeSpan",
-    "fertileEnd": "ovulationDay + eggLifeSpan",
-    "__ovulationDay_": "${ovulationDay}",
-    "__fertileStart___based_on_sperm_lifespan": "${fertileStart} (based on sperm lifespan of ${spermLifeSpan} days)",
-    "__fertileEnd___based_on_egg_lifespan_of_": "${fertileEnd} (based on egg lifespan of ${eggLifeSpan} day(s))",
-    "result": "Fertile window: days ${fertileStart} to ${fertileEnd} of the cycle (assuming cycle start is day 1)."
+    "fertileEnd": "ovulationDay + eggLifeSpan"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "fertileEnd",
     "breakdown": [
       "Estimated ovulation day: ${ovulationDay}",
       "Fertile window start: ${fertileStart} (based on sperm lifespan of ${spermLifeSpan} days)",
       "Fertile window end: ${fertileEnd} (based on egg lifespan of ${eggLifeSpan} day(s))"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "fertileEnd"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -107,5 +108,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

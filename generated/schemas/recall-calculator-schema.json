@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 10000,
-      "businessContext": "Üretilen toplam birim sayısı"
+      "businessContext": "Üretilen toplam birim sayısı",
+      "label_i18n": {
+        "en": "Toplam Üretim Miktarı",
+        "tr": "Toplam Üretim Miktarı",
+        "de": "Toplam Üretim Miktarı",
+        "fr": "Toplam Üretim Miktarı",
+        "es": "Toplam Üretim Miktarı",
+        "ar": "Toplam Üretim Miktarı"
+      }
     },
     {
       "id": "defectRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 0.5,
-      "businessContext": "Ürünlerdeki kusurluluk oranı"
+      "businessContext": "Ürünlerdeki kusurluluk oranı",
+      "label_i18n": {
+        "en": "Kusur Oranı",
+        "tr": "Kusur Oranı",
+        "de": "Kusur Oranı",
+        "fr": "Kusur Oranı",
+        "es": "Kusur Oranı",
+        "ar": "Kusur Oranı"
+      }
     },
     {
       "id": "recallEffectiveness",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 80,
-      "businessContext": "Geri çağırma kampanyasının etkinliği (ulaşılabilen kusurlu ürünlerin yüzdesi)"
+      "businessContext": "Geri çağırma kampanyasının etkinliği (ulaşılabilen kusurlu ürünlerin yüzdesi)",
+      "label_i18n": {
+        "en": "Geri Çağırma Etkinliği",
+        "tr": "Geri Çağırma Etkinliği",
+        "de": "Geri Çağırma Etkinliği",
+        "fr": "Geri Çağırma Etkinliği",
+        "es": "Geri Çağırma Etkinliği",
+        "ar": "Geri Çağırma Etkinliği"
+      }
     },
     {
       "id": "costPerRecallUnit",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TL",
       "default": 50,
-      "businessContext": "Birim başına geri çağırma işlem maliyeti (lojistik, iletişim)"
+      "businessContext": "Birim başına geri çağırma işlem maliyeti (lojistik, iletişim)",
+      "label_i18n": {
+        "en": "Birim Geri Çağırma Maliyeti",
+        "tr": "Birim Geri Çağırma Maliyeti",
+        "de": "Birim Geri Çağırma Maliyeti",
+        "fr": "Birim Geri Çağırma Maliyeti",
+        "es": "Birim Geri Çağırma Maliyeti",
+        "ar": "Birim Geri Çağırma Maliyeti"
+      }
     },
     {
       "id": "fixedRecallCost",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "TL",
       "default": 5000,
-      "businessContext": "Sabit yönetim ve organizasyon maliyeti"
+      "businessContext": "Sabit yönetim ve organizasyon maliyeti",
+      "label_i18n": {
+        "en": "Sabit Geri Çağırma Maliyeti",
+        "tr": "Sabit Geri Çağırma Maliyeti",
+        "de": "Sabit Geri Çağırma Maliyeti",
+        "fr": "Sabit Geri Çağırma Maliyeti",
+        "es": "Sabit Geri Çağırma Maliyeti",
+        "ar": "Sabit Geri Çağırma Maliyeti"
+      }
     },
     {
       "id": "replacementCostPerUnit",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "TL",
       "default": 30,
-      "businessContext": "Birim başına değiştirme veya onarım maliyeti"
+      "businessContext": "Birim başına değiştirme veya onarım maliyeti",
+      "label_i18n": {
+        "en": "Birim Değiştirme Maliyeti",
+        "tr": "Birim Değiştirme Maliyeti",
+        "de": "Birim Değiştirme Maliyeti",
+        "fr": "Birim Değiştirme Maliyeti",
+        "es": "Birim Değiştirme Maliyeti",
+        "ar": "Birim Değiştirme Maliyeti"
+      }
     }
   ],
   "formulas": {
@@ -66,7 +114,12 @@
       "variableRecallCost",
       "totalReplacementCost",
       "fixedCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalRecallCost"
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Üretim & İmalat",
@@ -76,5 +129,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

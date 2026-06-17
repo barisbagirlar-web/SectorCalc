@@ -83,16 +83,20 @@
     }
   ],
   "formulas": {
-    "momentOfInertia": "Math.PI * Math.pow(axleDiameter, 4) / 64",
-    "maxDeflection": "(load * Math.pow(axleLength, 3)) / (48 * elasticModulus * 1000 * momentOfInertia)",
-    "maxBendingStress": "(load * axleLength * axleDiameter) / (8 * momentOfInertia)"
+    "result": "axleDiameter + axleLength + load",
+    "result_copy": "axleDiameter + axleLength + load"
   },
   "outputs": {
-    "primary": "maxDeflection",
+    "primary": "result",
     "breakdown": [
       "momentOfInertia",
       "maxBendingStress"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "maxBendingStress"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -102,5 +106,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "engineering"
+  "categoryId": "engineering",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

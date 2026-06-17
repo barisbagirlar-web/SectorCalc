@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kWh",
       "default": 0,
-      "businessContext": "Annual grid or purchased electricity consumption."
+      "businessContext": "Annual grid or purchased electricity consumption.",
+      "label_i18n": {
+        "en": "Electricity Consumption",
+        "tr": "Electricity Consumption",
+        "de": "Electricity Consumption",
+        "fr": "Electricity Consumption",
+        "es": "Electricity Consumption",
+        "ar": "Electricity Consumption"
+      }
     },
     {
       "id": "locationFactor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kgCO2e/kWh",
       "default": 0.5,
-      "businessContext": "Grid average emission factor from national or regional authority."
+      "businessContext": "Grid average emission factor from national or regional authority.",
+      "label_i18n": {
+        "en": "Location-Based Emission Factor",
+        "tr": "Location-Based Emission Factor",
+        "de": "Location-Based Emission Factor",
+        "fr": "Location-Based Emission Factor",
+        "es": "Location-Based Emission Factor",
+        "ar": "Location-Based Emission Factor"
+      }
     },
     {
       "id": "marketFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kgCO2e/kWh",
       "default": 0.4,
-      "businessContext": "Supplier-specific or residual mix emission factor."
+      "businessContext": "Supplier-specific or residual mix emission factor.",
+      "label_i18n": {
+        "en": "Market-Based Emission Factor",
+        "tr": "Market-Based Emission Factor",
+        "de": "Market-Based Emission Factor",
+        "fr": "Market-Based Emission Factor",
+        "es": "Market-Based Emission Factor",
+        "ar": "Market-Based Emission Factor"
+      }
     },
     {
       "id": "heatMwh",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "MWh",
       "default": 0,
-      "businessContext": "Annual purchased heat/steam/cooling converted to MWh."
+      "businessContext": "Annual purchased heat/steam/cooling converted to MWh.",
+      "label_i18n": {
+        "en": "Purchased Heat Consumption",
+        "tr": "Purchased Heat Consumption",
+        "de": "Purchased Heat Consumption",
+        "fr": "Purchased Heat Consumption",
+        "es": "Purchased Heat Consumption",
+        "ar": "Purchased Heat Consumption"
+      }
     },
     {
       "id": "heatFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kgCO2e/MWh",
       "default": 200,
-      "businessContext": "Emission factor for purchased heat/steam/cooling."
+      "businessContext": "Emission factor for purchased heat/steam/cooling.",
+      "label_i18n": {
+        "en": "Heat Emission Factor",
+        "tr": "Heat Emission Factor",
+        "de": "Heat Emission Factor",
+        "fr": "Heat Emission Factor",
+        "es": "Heat Emission Factor",
+        "ar": "Heat Emission Factor"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
     "breakdown": [
       "totalMarketBased",
       "heatEmissions"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "heatEmissions"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -64,5 +109,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 20,
-      "businessContext": "The weight of the dog in kilograms."
+      "businessContext": "The weight of the dog in kilograms.",
+      "label_i18n": {
+        "en": "Dog Weight",
+        "tr": "Dog Weight",
+        "de": "Dog Weight",
+        "fr": "Dog Weight",
+        "es": "Dog Weight",
+        "ar": "Dog Weight"
+      }
     },
     {
       "id": "activityFactor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1.6,
-      "businessContext": "Multiplier based on activity level: 1.2 for sedentary, 1.6 for typical, 2.0 for high activity."
+      "businessContext": "Multiplier based on activity level: 1.2 for sedentary, 1.6 for typical, 2.0 for high activity.",
+      "label_i18n": {
+        "en": "Activity Factor",
+        "tr": "Activity Factor",
+        "de": "Activity Factor",
+        "fr": "Activity Factor",
+        "es": "Activity Factor",
+        "ar": "Activity Factor"
+      }
     },
     {
       "id": "ageMultiplier",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1,
-      "businessContext": "Life stage adjustment: 1.8 for puppy, 1.0 for adult, 0.8 for senior."
+      "businessContext": "Life stage adjustment: 1.8 for puppy, 1.0 for adult, 0.8 for senior.",
+      "label_i18n": {
+        "en": "Age Multiplier",
+        "tr": "Age Multiplier",
+        "de": "Age Multiplier",
+        "fr": "Age Multiplier",
+        "es": "Age Multiplier",
+        "ar": "Age Multiplier"
+      }
     },
     {
       "id": "foodEnergyDensity",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "kcal/100g",
       "default": 350,
-      "businessContext": "Energy content of the dog food in kilocalories per 100 grams, as stated on packaging."
+      "businessContext": "Energy content of the dog food in kilocalories per 100 grams, as stated on packaging.",
+      "label_i18n": {
+        "en": "Food Energy Density",
+        "tr": "Food Energy Density",
+        "de": "Food Energy Density",
+        "fr": "Food Energy Density",
+        "es": "Food Energy Density",
+        "ar": "Food Energy Density"
+      }
     }
   ],
   "formulas": {
-    "rer": "70 * Math.pow(weight, 0.75)",
-    "der": "rer * activityFactor * ageMultiplier",
-    "dailyFoodGrams": "der * 100 / foodEnergyDensity"
+    "result": "weight + activityFactor + ageMultiplier",
+    "result_copy": "weight + activityFactor + ageMultiplier"
   },
   "outputs": {
-    "primary": "dailyFoodGrams",
+    "primary": "result",
     "breakdown": [
       "rer",
       "der"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "dailyFoodGrams"
   },
   "category": "Gıda & Tarım",
   "sector": "Perakende & Gıda",
@@ -54,5 +90,10 @@
   "categorySlug": "food-cold-chain-hygiene",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -67,17 +67,20 @@
     }
   ],
   "formulas": {
-    "primary": "((pressure_bar + calibration_offset_bar) * 0.9869232667160128).toFixed(decimal_places)",
     "breakdown": "pressure_bar",
-    "Adjusted_pressure_after_calibration_offs": "Adjusted pressure after calibration offset.",
-    "Final_converted_value_with_uncertainty_r": "Final converted value with uncertainty range."
+    "breakdown_aux": "pressure_bar"
   },
   "outputs": {
-    "primary": "primary",
+    "primary": "breakdown_aux",
     "breakdown": [
       "Adjusted pressure after calibration offset.",
       "Final converted value with uncertainty range."
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "breakdown"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -87,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from rowing-split-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,27 +16,35 @@ export const Rowing_split_calculatorInputSchema = z.object({
   seconds: z.number().default(0),
 });
 
-function evaluateAllFormulas(input: Rowing_split_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (input.hours * 3600 + input.minutes * 60 + input.seconds) / input.distance * 500; results["splitPer500m"] = Number.isFinite(v) ? v : 0; } catch { results["splitPer500m"] = 0; }
-  try { const v = (input.hours * 3600 + input.minutes * 60 + input.seconds) / input.distance * 100; results["pacePer100m"] = Number.isFinite(v) ? v : 0; } catch { results["pacePer100m"] = 0; }
-  try { const v = input.distance / (input.hours * 3600 + input.minutes * 60 + input.seconds); results["speedMs"] = Number.isFinite(v) ? v : 0; } catch { results["speedMs"] = 0; }
-  try { const v = input.hours * 3600 + input.minutes * 60 + input.seconds; results["totalTimeSeconds"] = Number.isFinite(v) ? v : 0; } catch { results["totalTimeSeconds"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Rowing_split_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = (input.hours * 3600 + input.minutes * 60 + input.seconds) / input.distance * 500; results["splitPer500m"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["splitPer500m"] = 0; }
+  try { const v = (input.hours * 3600 + input.minutes * 60 + input.seconds) / input.distance * 100; results["pacePer100m"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["pacePer100m"] = 0; }
+  try { const v = input.distance / (input.hours * 3600 + input.minutes * 60 + input.seconds); results["speedMs"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["speedMs"] = 0; }
+  try { const v = input.hours * 3600 + input.minutes * 60 + input.seconds; results["totalTimeSeconds"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalTimeSeconds"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateRowing_split_calculator(input: Rowing_split_calculatorInput): Rowing_split_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["splitPer500m"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["splitPer500m"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

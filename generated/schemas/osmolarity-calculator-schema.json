@@ -68,16 +68,19 @@
   ],
   "formulas": {
     "calculatedOsmolarity": "2 * sodium + glucose / 18 + bun / 2.8",
-    "osmolarGap": "measuredOsmolarity - (2 * sodium + glucose / 18 + bun / 2.8)",
-    "Serum_Ozmolaritesi__mOsm_L____2___Na___G": "Serum Ozmolaritesi (mOsm/L) = 2 × Na + Glukoz/18 + BUN/2.8",
-    "Ozmolal_Gap____l__len_Ozmolarite___Hesap": "Ozmolal Gap = Ölçülen Ozmolarite - Hesaplanan Ozmolarite"
+    "osmolarGap": "measuredOsmolarity - (2 * sodium + glucose / 18 + bun / 2.8)"
   },
   "outputs": {
     "primary": "calculatedOsmolarity",
     "breakdown": [
       "Serum Ozmolaritesi (mOsm/L) = 2 × Na + Glukoz/18 + BUN/2.8",
       "Ozmolal Gap = Ölçülen Ozmolarite - Hesaplanan Ozmolarite"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "osmolarGap"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -87,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

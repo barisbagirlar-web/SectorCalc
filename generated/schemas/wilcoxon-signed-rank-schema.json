@@ -68,24 +68,7 @@
   ],
   "formulas": {
     "differences": "after - before",
-    "absDifferences": "Math.abs(differences)",
-    "ranks": "rank(absDifferences, nonZeroMask)",
-    "signedRanks": "ranks * Math.sign(differences)",
-    "Wplus": "sum(signedRanks > 0)",
-    "Wminus": "sum(signedRanks < 0)",
-    "W": "Math.min(Wplus, Wminus)",
-    "n": "count(nonZeroMask)",
-    "expectedW": "n * (n + 1) / 4",
-    "stdW": "Math.sqrt(n * (n + 1) * (2 * n + 1) / 24)",
-    "z": "(W - expectedW) / stdW",
-    "pValue": "2 * (1 - normalCDF(Math.abs(z)))",
-    "rejectNull": "pValue < alpha",
-    "W___sum_of_positive_ranks_": "W+ (sum of positive ranks)",
-    "W___sum_of_negative_ranks_": "W- (sum of negative ranks)",
-    "n__number_of_non_zero_differences_": "n (number of non-zero differences)",
-    "z_score": "z-score",
-    "p_value": "p-value",
-    "Reject_null_hypothesis_": "Reject null hypothesis?"
+    "differences_aux": "after - before"
   },
   "outputs": {
     "primary": "differences",
@@ -96,7 +79,12 @@
       "z-score",
       "p-value",
       "Reject null hypothesis?"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "p_value"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -106,5 +94,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

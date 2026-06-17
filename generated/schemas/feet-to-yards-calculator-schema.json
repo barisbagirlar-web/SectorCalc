@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft",
       "default": 1,
-      "businessContext": "The length measured in feet to be converted to yards."
+      "businessContext": "The length measured in feet to be converted to yards.",
+      "label_i18n": {
+        "en": "Length in Feet",
+        "tr": "Length in Feet",
+        "de": "Length in Feet",
+        "fr": "Length in Feet",
+        "es": "Length in Feet",
+        "ar": "Length in Feet"
+      }
     },
     {
       "id": "waste_percent",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Additional material waste factor as a percentage to account for cutting, damage, or spillage."
+      "businessContext": "Additional material waste factor as a percentage to account for cutting, damage, or spillage.",
+      "label_i18n": {
+        "en": "Waste Percentage",
+        "tr": "Waste Percentage",
+        "de": "Waste Percentage",
+        "fr": "Waste Percentage",
+        "es": "Waste Percentage",
+        "ar": "Waste Percentage"
+      }
     },
     {
       "id": "safety_margin_percent",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Safety margin as a percentage to cover measurement errors or unforeseen requirements."
+      "businessContext": "Safety margin as a percentage to cover measurement errors or unforeseen requirements.",
+      "label_i18n": {
+        "en": "Safety Margin Percentage",
+        "tr": "Safety Margin Percentage",
+        "de": "Safety Margin Percentage",
+        "fr": "Safety Margin Percentage",
+        "es": "Safety Margin Percentage",
+        "ar": "Safety Margin Percentage"
+      }
     },
     {
       "id": "quantity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 1,
-      "businessContext": "The number of identical pieces or sections measured in feet, for total material estimation."
+      "businessContext": "The number of identical pieces or sections measured in feet, for total material estimation.",
+      "label_i18n": {
+        "en": "Number of Units",
+        "tr": "Number of Units",
+        "de": "Number of Units",
+        "fr": "Number of Units",
+        "es": "Number of Units",
+        "ar": "Number of Units"
+      }
     },
     {
       "id": "cost_per_yard",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency/yd",
       "default": 0,
-      "businessContext": "Unit cost per yard of material, used to calculate total cost."
+      "businessContext": "Unit cost per yard of material, used to calculate total cost.",
+      "label_i18n": {
+        "en": "Cost per Yard",
+        "tr": "Cost per Yard",
+        "de": "Cost per Yard",
+        "fr": "Cost per Yard",
+        "es": "Cost per Yard",
+        "ar": "Cost per Yard"
+      }
     },
     {
       "id": "decimal_places",
@@ -47,25 +87,36 @@
       "type": "number",
       "unit": "dp",
       "default": 2,
-      "businessContext": "Number of decimal places for rounding the output values."
+      "businessContext": "Number of decimal places for rounding the output values.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
     "raw_yards": "length_feet / 3",
     "waste_yards": "raw_yards * waste_percent / 100",
-    "safety_yards": "raw_yards * safety_margin_percent / 100",
-    "total_yards": "Math.round(((raw_yards + waste_yards + safety_yards) * quantity) * Math.pow(10, decimal_places)) / Math.pow(10, decimal_places)",
-    "total_cost": "total_yards * cost_per_yard"
+    "safety_yards": "raw_yards * safety_margin_percent / 100"
   },
   "outputs": {
-    "primary": "total_yards",
+    "primary": "safety_yards",
     "breakdown": [
       "raw_yards",
       "waste_yards",
       "safety_yards",
       "total_yards",
       "total_cost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "total_cost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -75,5 +126,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

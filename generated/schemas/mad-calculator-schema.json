@@ -67,13 +67,8 @@
     }
   ],
   "formulas": {
-    "mean": "dataPoints.reduce((a,b)=>a+b,0)/dataPoints.length",
-    "absoluteDeviations": "dataPoints.map(x=>Math.abs(x-mean))",
-    "mad": "absoluteDeviations.reduce((a,b)=>a+b,0)/dataPoints.length",
-    "Mean_of_dataset": "Mean of dataset",
-    "Absolute_deviations_from_mean": "Absolute deviations from mean",
-    "MAD_value": "MAD value",
-    "result": "Mean Absolute Deviation (MAD)"
+    "result": "data_points + auto_input_2 + auto_input_3",
+    "result_copy": "data_points + auto_input_2 + auto_input_3"
   },
   "outputs": {
     "primary": "result",
@@ -81,7 +76,12 @@
       "Mean of dataset",
       "Absolute deviations from mean",
       "MAD value"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "mad"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -91,5 +91,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

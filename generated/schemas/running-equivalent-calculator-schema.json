@@ -84,18 +84,19 @@
   ],
   "formulas": {
     "totalKnownTime": "knownTimeMinutes + knownTimeSeconds / 60",
-    "predictedTimeMinutes": "totalKnownTime * Math.pow(targetDistance / knownDistance, exponent)",
-    "predictedMinutesPart": "Math.floor(predictedTimeMinutes)",
-    "predictedSecondsPart": "Math.round((predictedTimeMinutes - predictedMinutesPart) * 60)",
-    "predictedTimeFormatted": "predictedMinutesPart + ':' + (predictedSecondsPart < 10 ? '0' : '') + predictedSecondsPart",
-    "predictedPacePerKm": "predictedTimeMinutes / targetDistance"
+    "totalKnownTime_aux": "knownTimeMinutes + knownTimeSeconds / 60"
   },
   "outputs": {
-    "primary": "predictedTimeFormatted",
+    "primary": "totalKnownTime_aux",
     "breakdown": [
       "predictedTimeMinutes",
       "predictedPacePerKm"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "predictedPacePerKm"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -105,5 +106,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

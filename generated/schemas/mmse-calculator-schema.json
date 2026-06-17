@@ -70,7 +70,6 @@
     "squaredError1": "(actualValue1 - predictedValue1) ** 2",
     "squaredError2": "(actualValue2 - predictedValue2) ** 2",
     "totalSquaredError": "squaredError1 + squaredError2",
-    "sampleSize": "2",
     "meanSquaredError": "(squaredError1 + squaredError2) / 2"
   },
   "outputs": {
@@ -80,7 +79,12 @@
       "squaredError2",
       "totalSquaredError",
       "sampleSize"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "meanSquaredError"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -90,5 +94,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

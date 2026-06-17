@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "boyutsuz",
       "default": 0.95,
-      "businessContext": "Yüzeyin siyah cisim idealine göre yayma oranı"
+      "businessContext": "Yüzeyin siyah cisim idealine göre yayma oranı",
+      "label_i18n": {
+        "en": "Yayma Oranı (ε)",
+        "tr": "Yayma Oranı (ε)",
+        "de": "Yayma Oranı (ε)",
+        "fr": "Yayma Oranı (ε)",
+        "es": "Yayma Oranı (ε)",
+        "ar": "Yayma Oranı (ε)"
+      }
     },
     {
       "id": "area",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m²",
       "default": 1,
-      "businessContext": "Işınım yapan yüzeyin alanı"
+      "businessContext": "Işınım yapan yüzeyin alanı",
+      "label_i18n": {
+        "en": "Yüzey Alanı",
+        "tr": "Yüzey Alanı",
+        "de": "Yüzey Alanı",
+        "fr": "Yüzey Alanı",
+        "es": "Yüzey Alanı",
+        "ar": "Yüzey Alanı"
+      }
     },
     {
       "id": "temperature",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "K",
       "default": 300,
-      "businessContext": "Mutlak sıcaklık (Kelvin cinsinden)"
+      "businessContext": "Mutlak sıcaklık (Kelvin cinsinden)",
+      "label_i18n": {
+        "en": "Sıcaklık",
+        "tr": "Sıcaklık",
+        "de": "Sıcaklık",
+        "fr": "Sıcaklık",
+        "es": "Sıcaklık",
+        "ar": "Sıcaklık"
+      }
     },
     {
       "id": "stefanConstant",
@@ -31,19 +55,32 @@
       "type": "number",
       "unit": "W/(m²·K⁴)",
       "default": 5.670367e-8,
-      "businessContext": "Temel fizik sabiti, varsayılan değer TÜV onaylıdır"
+      "businessContext": "Temel fizik sabiti, varsayılan değer TÜV onaylıdır",
+      "label_i18n": {
+        "en": "Stefan-Boltzmann Sabiti",
+        "tr": "Stefan-Boltzmann Sabiti",
+        "de": "Stefan-Boltzmann Sabiti",
+        "fr": "Stefan-Boltzmann Sabiti",
+        "es": "Stefan-Boltzmann Sabiti",
+        "ar": "Stefan-Boltzmann Sabiti"
+      }
     }
   ],
   "formulas": {
-    "power": "emissivity * stefanConstant * area * Math.pow(temperature, 4)",
-    "intensity": "emissivity * stefanConstant * Math.pow(temperature, 4)"
+    "result": "emissivity + area + temperature",
+    "result_copy": "emissivity + area + temperature"
   },
   "outputs": {
-    "primary": "power",
+    "primary": "result",
     "breakdown": [
       "intensity",
       "power"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "intensity"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -53,5 +90,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m²",
       "default": 0.5,
-      "businessContext": "Total surface area of a single part to be coated, measured in square meters."
+      "businessContext": "Total surface area of a single part to be coated, measured in square meters.",
+      "label_i18n": {
+        "en": "Surface Area per Part",
+        "tr": "Surface Area per Part",
+        "de": "Surface Area per Part",
+        "fr": "Surface Area per Part",
+        "es": "Surface Area per Part",
+        "ar": "Surface Area per Part"
+      }
     },
     {
       "id": "coatingThickness",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "µm",
       "default": 50,
-      "businessContext": "Target dry film thickness of the coating, measured in micrometers."
+      "businessContext": "Target dry film thickness of the coating, measured in micrometers.",
+      "label_i18n": {
+        "en": "Coating Thickness",
+        "tr": "Coating Thickness",
+        "de": "Coating Thickness",
+        "fr": "Coating Thickness",
+        "es": "Coating Thickness",
+        "ar": "Coating Thickness"
+      }
     },
     {
       "id": "coatingDensity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1200,
-      "businessContext": "Density of the coating material in its dried state, in kilograms per cubic meter."
+      "businessContext": "Density of the coating material in its dried state, in kilograms per cubic meter.",
+      "label_i18n": {
+        "en": "Coating Material Density",
+        "tr": "Coating Material Density",
+        "de": "Coating Material Density",
+        "fr": "Coating Material Density",
+        "es": "Coating Material Density",
+        "ar": "Coating Material Density"
+      }
     },
     {
       "id": "numberOfParts",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "pieces",
       "default": 100,
-      "businessContext": "Quantity of parts to be coated in the batch."
+      "businessContext": "Quantity of parts to be coated in the batch.",
+      "label_i18n": {
+        "en": "Number of Parts",
+        "tr": "Number of Parts",
+        "de": "Number of Parts",
+        "fr": "Number of Parts",
+        "es": "Number of Parts",
+        "ar": "Number of Parts"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "weightGainPerPart",
       "coatingVolumePerPart"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalWeightGain"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -54,5 +91,10 @@
   "sectorSlug": "cleaning",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

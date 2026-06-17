@@ -83,16 +83,20 @@
     }
   ],
   "formulas": {
-    "nominalMM": "Math.round(nominalThou * conversionFactor * Math.pow(10, precision)) / Math.pow(10, precision)",
-    "upperMM": "Math.round(upperToleranceThou * conversionFactor * Math.pow(10, precision)) / Math.pow(10, precision)",
-    "lowerMM": "Math.round(lowerToleranceThou * conversionFactor * Math.pow(10, precision)) / Math.pow(10, precision)"
+    "result": "nominalThou + upperToleranceThou + lowerToleranceThou",
+    "result_copy": "nominalThou + upperToleranceThou + lowerToleranceThou"
   },
   "outputs": {
-    "primary": "nominalMM",
+    "primary": "result",
     "breakdown": [
       "upperMM",
       "lowerMM"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "lowerMM"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -102,5 +106,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg/h",
       "default": 1000,
-      "businessContext": "Damıtma kolonuna beslenen toplam akış hızı."
+      "businessContext": "Damıtma kolonuna beslenen toplam akış hızı.",
+      "label_i18n": {
+        "en": "Besleme Akış Hızı",
+        "tr": "Besleme Akış Hızı",
+        "de": "Besleme Akış Hızı",
+        "fr": "Besleme Akış Hızı",
+        "es": "Besleme Akış Hızı",
+        "ar": "Besleme Akış Hızı"
+      }
     },
     {
       "id": "feedComposition",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mol kesri",
       "default": 0.5,
-      "businessContext": "Besleme akımındaki hafif bileşenin mol kesri."
+      "businessContext": "Besleme akımındaki hafif bileşenin mol kesri.",
+      "label_i18n": {
+        "en": "Besleme Kompozisyonu",
+        "tr": "Besleme Kompozisyonu",
+        "de": "Besleme Kompozisyonu",
+        "fr": "Besleme Kompozisyonu",
+        "es": "Besleme Kompozisyonu",
+        "ar": "Besleme Kompozisyonu"
+      }
     },
     {
       "id": "distillateFlow",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg/h",
       "default": 300,
-      "businessContext": "Kolon üst ürünü olarak alınan distilat akış hızı."
+      "businessContext": "Kolon üst ürünü olarak alınan distilat akış hızı.",
+      "label_i18n": {
+        "en": "Distilat Akış Hızı",
+        "tr": "Distilat Akış Hızı",
+        "de": "Distilat Akış Hızı",
+        "fr": "Distilat Akış Hızı",
+        "es": "Distilat Akış Hızı",
+        "ar": "Distilat Akış Hızı"
+      }
     },
     {
       "id": "distillateComposition",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mol kesri",
       "default": 0.95,
-      "businessContext": "Distilat akımındaki hafif bileşenin mol kesri."
+      "businessContext": "Distilat akımındaki hafif bileşenin mol kesri.",
+      "label_i18n": {
+        "en": "Distilat Kompozisyonu",
+        "tr": "Distilat Kompozisyonu",
+        "de": "Distilat Kompozisyonu",
+        "fr": "Distilat Kompozisyonu",
+        "es": "Distilat Kompozisyonu",
+        "ar": "Distilat Kompozisyonu"
+      }
     },
     {
       "id": "refluxFlow",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg/h",
       "default": 600,
-      "businessContext": "Kolon içine geri döndürülen sıvı akış hızı."
+      "businessContext": "Kolon içine geri döndürülen sıvı akış hızı.",
+      "label_i18n": {
+        "en": "Reflü Akış Hızı",
+        "tr": "Reflü Akış Hızı",
+        "de": "Reflü Akış Hızı",
+        "fr": "Reflü Akış Hızı",
+        "es": "Reflü Akış Hızı",
+        "ar": "Reflü Akış Hızı"
+      }
     }
   ],
   "formulas": {
@@ -55,7 +95,12 @@
       "boilUpRatio",
       "bottomsComposition",
       "bottomsFlow"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "boilUpRatio"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -65,5 +110,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

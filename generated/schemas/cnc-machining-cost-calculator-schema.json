@@ -21,26 +21,11 @@
       "unit": "unit",
       "default": "aluminum_6061",
       "options": [
-        {
-          "value": "aluminum_6061",
-          "label": "Aluminum 6061"
-        },
-        {
-          "value": "steel_1018",
-          "label": "Steel 1018"
-        },
-        {
-          "value": "stainless_304",
-          "label": "Stainless Steel 304"
-        },
-        {
-          "value": "titanium_6al4v",
-          "label": "Titanium 6Al-4V"
-        },
-        {
-          "value": "brass_c360",
-          "label": "Brass C360"
-        }
+        "aluminum_6061",
+        "steel_1018",
+        "stainless_304",
+        "titanium_6al4v",
+        "brass_c360"
       ],
       "businessContext": "Material selection directly impacts tool wear, cutting speed, and cost per part.",
       "label_i18n": {
@@ -161,86 +146,6 @@
       "businessContext_i18n": {
         "en": "Operator wage including overhead and benefits."
       }
-    },
-    {
-      "id": "tooling_cost_per_part_usd",
-      "label": "Tooling Cost per Part ($)",
-      "type": "number",
-      "unit": "$",
-      "default": 2.5,
-      "min": 0,
-      "max": 100,
-      "businessContext": "Consumable tooling cost allocated per part (inserts, drills, end mills).",
-      "label_i18n": {
-        "en": "Tooling Cost per Part ($)"
-      },
-      "businessContext_i18n": {
-        "en": "Consumable tooling cost allocated per part (inserts, drills, end mills)."
-      }
-    },
-    {
-      "id": "overhead_percentage",
-      "label": "Overhead Percentage (%)",
-      "type": "number",
-      "unit": "%",
-      "default": 15,
-      "min": 0,
-      "max": 100,
-      "businessContext": "Facility, quality, and administrative overhead as a percentage of direct costs.",
-      "label_i18n": {
-        "en": "Overhead Percentage (%)"
-      },
-      "businessContext_i18n": {
-        "en": "Facility, quality, and administrative overhead as a percentage of direct costs."
-      }
-    },
-    {
-      "id": "scrap_rate_percent",
-      "label": "Scrap Rate (%)",
-      "type": "number",
-      "unit": "%",
-      "default": 3,
-      "min": 0,
-      "max": 50,
-      "businessContext": "Percentage of parts that fail inspection and are scrapped.",
-      "label_i18n": {
-        "en": "Scrap Rate (%)"
-      },
-      "businessContext_i18n": {
-        "en": "Percentage of parts that fail inspection and are scrapped."
-      }
-    },
-    {
-      "id": "material_cost_per_kg_usd",
-      "label": "Material Cost per kg ($/kg)",
-      "type": "number",
-      "unit": "$/kg",
-      "default": 5,
-      "min": 0.5,
-      "max": 200,
-      "businessContext": "Price of raw material per kilogram, varies by material type.",
-      "label_i18n": {
-        "en": "Material Cost per kg ($/kg)"
-      },
-      "businessContext_i18n": {
-        "en": "Price of raw material per kilogram, varies by material type."
-      }
-    },
-    {
-      "id": "density_g_per_cm3",
-      "label": "Density (g/cm³)",
-      "type": "number",
-      "unit": "g/cm³",
-      "default": 2.7,
-      "min": 0.5,
-      "max": 20,
-      "businessContext": "Material density used to convert volume to weight.",
-      "label_i18n": {
-        "en": "Density (g/cm³)"
-      },
-      "businessContext_i18n": {
-        "en": "Material density used to convert volume to weight."
-      }
     }
   ],
   "validation": {
@@ -287,18 +192,18 @@
       }
     ]
   },
-  "formulas": [
-    "material_type",
-    "material_type",
-    "material_type",
-    "material_type",
-    "material_type",
-    "material_type",
-    "material_type"
-  ],
+  "formulas": {
+    "result": "material_type + part_weight_kg + stock_volume_cm3",
+    "result_copy": "material_type + part_weight_kg + stock_volume_cm3"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "manufacturing-workshop",
   "sectorSlug": "cnc-manufacturing",
@@ -309,5 +214,6 @@
   "premiumRequired": false,
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "premiumFeatures": []
 }

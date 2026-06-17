@@ -51,22 +51,23 @@
     }
   ],
   "formulas": {
-    "saturationVaporPressure": "0.6108 * Math.exp((17.27 * dryBulbTemp) / (dryBulbTemp + 237.3))",
-    "actualVaporPressure": "relativeHumidity / 100 * saturationVaporPressure",
-    "humidityRatio": "0.622 * actualVaporPressure / (atmosphericPressure - actualVaporPressure)",
-    "enthalpy": "1.006 * dryBulbTemp + humidityRatio * (2501 + 1.86 * dryBulbTemp)",
-    "specificVolume": "0.2871 * (dryBulbTemp + 273.15) * (1 + 1.6078 * humidityRatio) / atmosphericPressure",
-    "dewPoint": "237.3 * Math.log(actualVaporPressure / 0.6108) / (17.27 - Math.log(actualVaporPressure / 0.6108))"
+    "result": "dryBulbTemp + relativeHumidity + atmosphericPressure",
+    "result_copy": "dryBulbTemp + relativeHumidity + atmosphericPressure"
   },
   "outputs": {
-    "primary": "enthalpy",
+    "primary": "result",
     "breakdown": [
       "saturationVaporPressure",
       "actualVaporPressure",
       "humidityRatio",
       "specificVolume",
       "dewPoint"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "dewPoint"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -76,5 +77,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

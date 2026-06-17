@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m²",
       "default": 10,
-      "businessContext": "Total surface area to be tiled, in square meters."
+      "businessContext": "Total surface area to be tiled, in square meters.",
+      "label_i18n": {
+        "en": "Area to Tile",
+        "tr": "Area to Tile",
+        "de": "Area to Tile",
+        "fr": "Area to Tile",
+        "es": "Area to Tile",
+        "ar": "Area to Tile"
+      }
     },
     {
       "id": "notchSize",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 6,
-      "businessContext": "Size of the square-notched trowel used, determines adhesive coverage rate."
+      "businessContext": "Size of the square-notched trowel used, determines adhesive coverage rate.",
+      "label_i18n": {
+        "en": "Trowel Notch Size",
+        "tr": "Trowel Notch Size",
+        "de": "Trowel Notch Size",
+        "fr": "Trowel Notch Size",
+        "es": "Trowel Notch Size",
+        "ar": "Trowel Notch Size"
+      }
     },
     {
       "id": "wasteFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Additional percentage for waste, cuts, and spillage."
+      "businessContext": "Additional percentage for waste, cuts, and spillage.",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     },
     {
       "id": "bagWeight",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "kg",
       "default": 20,
-      "businessContext": "Net weight of a single thinset mortar bag."
+      "businessContext": "Net weight of a single thinset mortar bag.",
+      "label_i18n": {
+        "en": "Bag Weight",
+        "tr": "Bag Weight",
+        "de": "Bag Weight",
+        "fr": "Bag Weight",
+        "es": "Bag Weight",
+        "ar": "Bag Weight"
+      }
     }
   ],
   "formulas": {
     "coverageRate": "notchSize * 0.4 + 0.8",
-    "totalKgs": "area * (notchSize * 0.4 + 0.8) * (1 + wasteFactor/100)",
-    "bagsNeeded": "Math.ceil(totalKgs / bagWeight)"
+    "totalKgs": "area * (notchSize * 0.4 + 0.8) * (1 + wasteFactor/100)"
   },
   "outputs": {
     "primary": "totalKgs",
     "breakdown": [
       "bagsNeeded",
       "coverageRate"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "bagsNeeded"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -54,5 +90,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "madencilik",
   "profession": "Maden Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

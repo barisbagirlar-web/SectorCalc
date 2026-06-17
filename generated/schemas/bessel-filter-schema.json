@@ -68,17 +68,19 @@
   ],
   "formulas": {
     "normalizedFrequency": "frequencyPoint / cutoffFrequency",
-    "besselPolynomial": "order === 1 ? 1 + normalizedFrequency : order === 2 ? 3 + 3*normalizedFrequency + normalizedFrequency**2 : order === 3 ? 15 + 15*normalizedFrequency + 6*normalizedFrequency**2 + normalizedFrequency**3 : 105 + 105*normalizedFrequency + 45*normalizedFrequency**2 + 10*normalizedFrequency**3 + normalizedFrequency**4",
-    "magnitudeResponse": "1 / Math.sqrt(besselPolynomial * besselPolynomial.conjugate ? besselPolynomial * besselPolynomial.conjugate : besselPolynomial * besselPolynomial)",
-    "phaseResponse": "-Math.atan2(normalizedFrequency, 1) * order",
-    "result": "Magnitude Response (dB)"
+    "besselPolynomial": "order === 1 ? 1 + normalizedFrequency : order === 2 ? 3 + 3*normalizedFrequency + normalizedFrequency**2 : order === 3 ? 15 + 15*normalizedFrequency + 6*normalizedFrequency**2 + normalizedFrequency**3 : 105 + 105*normalizedFrequency + 45*normalizedFrequency**2 + 10*normalizedFrequency**3 + normalizedFrequency**4"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "besselPolynomial",
     "breakdown": [
       "Magnitude Response (linear): magnitudeResponse",
       "Phase Response (radians): phaseResponse"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "phaseResponse"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -88,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

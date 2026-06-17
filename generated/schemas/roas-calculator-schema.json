@@ -78,7 +78,12 @@
       "totalSpend",
       "totalRevenue",
       "roasPercentage"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roasPercentage"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -88,5 +93,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

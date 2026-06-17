@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "amu",
       "default": 12,
-      "businessContext": "Birinci izotopun atomik kütle birimi cinsinden kütlesi."
+      "businessContext": "Birinci izotopun atomik kütle birimi cinsinden kütlesi.",
+      "label_i18n": {
+        "en": "İzotop 1 Kütlesi (amu)",
+        "tr": "İzotop 1 Kütlesi (amu)",
+        "de": "İzotop 1 Kütlesi (amu)",
+        "fr": "İzotop 1 Kütlesi (amu)",
+        "es": "İzotop 1 Kütlesi (amu)",
+        "ar": "İzotop 1 Kütlesi (amu)"
+      }
     },
     {
       "id": "abundance1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 98.93,
-      "businessContext": "Birinci izotopun bağıl bolluğu yüzde olarak."
+      "businessContext": "Birinci izotopun bağıl bolluğu yüzde olarak.",
+      "label_i18n": {
+        "en": "İzotop 1 Bolluk (%)",
+        "tr": "İzotop 1 Bolluk (%)",
+        "de": "İzotop 1 Bolluk (%)",
+        "fr": "İzotop 1 Bolluk (%)",
+        "es": "İzotop 1 Bolluk (%)",
+        "ar": "İzotop 1 Bolluk (%)"
+      }
     },
     {
       "id": "mass2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "amu",
       "default": 13.003,
-      "businessContext": "İkinci izotopun atomik kütle birimi cinsinden kütlesi."
+      "businessContext": "İkinci izotopun atomik kütle birimi cinsinden kütlesi.",
+      "label_i18n": {
+        "en": "İzotop 2 Kütlesi (amu)",
+        "tr": "İzotop 2 Kütlesi (amu)",
+        "de": "İzotop 2 Kütlesi (amu)",
+        "fr": "İzotop 2 Kütlesi (amu)",
+        "es": "İzotop 2 Kütlesi (amu)",
+        "ar": "İzotop 2 Kütlesi (amu)"
+      }
     },
     {
       "id": "abundance2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 1.07,
-      "businessContext": "İkinci izotopun bağıl bolluğu yüzde olarak."
+      "businessContext": "İkinci izotopun bağıl bolluğu yüzde olarak.",
+      "label_i18n": {
+        "en": "İzotop 2 Bolluk (%)",
+        "tr": "İzotop 2 Bolluk (%)",
+        "de": "İzotop 2 Bolluk (%)",
+        "fr": "İzotop 2 Bolluk (%)",
+        "es": "İzotop 2 Bolluk (%)",
+        "ar": "İzotop 2 Bolluk (%)"
+      }
     },
     {
       "id": "mass3",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "amu",
       "default": 0,
-      "businessContext": "Üçüncü izotopun isteğe bağlı kütlesi. Kullanılmazsa 0 bırakılır."
+      "businessContext": "Üçüncü izotopun isteğe bağlı kütlesi. Kullanılmazsa 0 bırakılır.",
+      "label_i18n": {
+        "en": "İzotop 3 Kütlesi (amu)",
+        "tr": "İzotop 3 Kütlesi (amu)",
+        "de": "İzotop 3 Kütlesi (amu)",
+        "fr": "İzotop 3 Kütlesi (amu)",
+        "es": "İzotop 3 Kütlesi (amu)",
+        "ar": "İzotop 3 Kütlesi (amu)"
+      }
     },
     {
       "id": "abundance3",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Üçüncü izotopun isteğe bağlı bolluğu. Kullanılmazsa 0 bırakılır."
+      "businessContext": "Üçüncü izotopun isteğe bağlı bolluğu. Kullanılmazsa 0 bırakılır.",
+      "label_i18n": {
+        "en": "İzotop 3 Bolluk (%)",
+        "tr": "İzotop 3 Bolluk (%)",
+        "de": "İzotop 3 Bolluk (%)",
+        "fr": "İzotop 3 Bolluk (%)",
+        "es": "İzotop 3 Bolluk (%)",
+        "ar": "İzotop 3 Bolluk (%)"
+      }
     },
     {
       "id": "mass4",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "amu",
       "default": 0,
-      "businessContext": "Dördüncü izotopun isteğe bağlı kütlesi. Kullanılmazsa 0 bırakılır."
+      "businessContext": "Dördüncü izotopun isteğe bağlı kütlesi. Kullanılmazsa 0 bırakılır.",
+      "label_i18n": {
+        "en": "İzotop 4 Kütlesi (amu)",
+        "tr": "İzotop 4 Kütlesi (amu)",
+        "de": "İzotop 4 Kütlesi (amu)",
+        "fr": "İzotop 4 Kütlesi (amu)",
+        "es": "İzotop 4 Kütlesi (amu)",
+        "ar": "İzotop 4 Kütlesi (amu)"
+      }
     },
     {
       "id": "abundance4",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Dördüncü izotopun isteğe bağlı bolluğu. Kullanılmazsa 0 bırakılır."
+      "businessContext": "Dördüncü izotopun isteğe bağlı bolluğu. Kullanılmazsa 0 bırakılır.",
+      "label_i18n": {
+        "en": "İzotop 4 Bolluk (%)",
+        "tr": "İzotop 4 Bolluk (%)",
+        "de": "İzotop 4 Bolluk (%)",
+        "fr": "İzotop 4 Bolluk (%)",
+        "es": "İzotop 4 Bolluk (%)",
+        "ar": "İzotop 4 Bolluk (%)"
+      }
     }
   ],
   "formulas": {
@@ -76,7 +140,12 @@
     "breakdown": [
       "weightedSum",
       "totalAbundance"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "atomicMass"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -86,5 +155,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

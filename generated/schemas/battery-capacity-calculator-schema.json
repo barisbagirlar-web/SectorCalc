@@ -84,17 +84,19 @@
   ],
   "formulas": {
     "capacityAh": "(loadPower * backupTime) / (voltage * efficiency * depthOfDischarge)",
-    "energyWh": "(loadPower * backupTime) / (efficiency * depthOfDischarge)",
-    "__energyWh_toFixed_2___Wh": "${energyWh.toFixed(2)} Wh",
-    "__capacityAh_toFixed_2___Ah": "${capacityAh.toFixed(2)} Ah",
-    "result": "Required battery capacity: ${capacityAh.toFixed(2)} Ah"
+    "energyWh": "(loadPower * backupTime) / (efficiency * depthOfDischarge)"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "energyWh",
     "breakdown": [
       "Required energy: ${energyWh.toFixed(2)} Wh",
       "Battery capacity: ${capacityAh.toFixed(2)} Ah"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "energyWh"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -104,5 +106,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "efficiency"
+  "categoryId": "efficiency",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

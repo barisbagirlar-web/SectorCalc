@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 1,
-      "businessContext": "The whole number of years the dog has lived."
+      "businessContext": "The whole number of years the dog has lived.",
+      "label_i18n": {
+        "en": "Dog Age Years",
+        "tr": "Dog Age Years",
+        "de": "Dog Age Years",
+        "fr": "Dog Age Years",
+        "es": "Dog Age Years",
+        "ar": "Dog Age Years"
+      }
     },
     {
       "id": "dogAgeMonths",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "months",
       "default": 0,
-      "businessContext": "Additional months beyond last full year."
+      "businessContext": "Additional months beyond last full year.",
+      "label_i18n": {
+        "en": "Dog Age Months",
+        "tr": "Dog Age Months",
+        "de": "Dog Age Months",
+        "fr": "Dog Age Months",
+        "es": "Dog Age Months",
+        "ar": "Dog Age Months"
+      }
     },
     {
       "id": "sizeCategory",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "1=Small, 2=Medium, 3=Large",
       "default": 2,
-      "businessContext": "Size category of the dog breed, impacting age conversion factor."
+      "businessContext": "Size category of the dog breed, impacting age conversion factor.",
+      "label_i18n": {
+        "en": "Breed Size Category",
+        "tr": "Breed Size Category",
+        "de": "Breed Size Category",
+        "fr": "Breed Size Category",
+        "es": "Breed Size Category",
+        "ar": "Breed Size Category"
+      }
     },
     {
       "id": "conversionModel",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "1=Traditional (7:1), 2=Adjusted (Breed-size)",
       "default": 2,
-      "businessContext": "Select the mathematical model for age conversion."
+      "businessContext": "Select the mathematical model for age conversion.",
+      "label_i18n": {
+        "en": "Conversion Model",
+        "tr": "Conversion Model",
+        "de": "Conversion Model",
+        "fr": "Conversion Model",
+        "es": "Conversion Model",
+        "ar": "Conversion Model"
+      }
     }
   ],
   "formulas": {
@@ -47,7 +79,12 @@
       "totalHumanAge",
       "sizeMultiplier",
       "conversionModel"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "dogYears"
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Üretim & İmalat",
@@ -57,5 +94,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

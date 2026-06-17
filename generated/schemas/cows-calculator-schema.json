@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "saat",
       "default": 1,
-      "businessContext": "Duruşun toplam süresi"
+      "businessContext": "Duruşun toplam süresi",
+      "label_i18n": {
+        "en": "Duruş Süresi (saat)",
+        "tr": "Duruş Süresi (saat)",
+        "de": "Duruş Süresi (saat)",
+        "fr": "Duruş Süresi (saat)",
+        "es": "Duruş Süresi (saat)",
+        "ar": "Duruş Süresi (saat)"
+      }
     },
     {
       "id": "affectedMachines",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Duruştan etkilenen makine sayısı"
+      "businessContext": "Duruştan etkilenen makine sayısı",
+      "label_i18n": {
+        "en": "Etkilenen Makine Sayısı",
+        "tr": "Etkilenen Makine Sayısı",
+        "de": "Etkilenen Makine Sayısı",
+        "fr": "Etkilenen Makine Sayısı",
+        "es": "Etkilenen Makine Sayısı",
+        "ar": "Etkilenen Makine Sayısı"
+      }
     },
     {
       "id": "hourlyCostPerMachine",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "TL/saat",
       "default": 100,
-      "businessContext": "Makine başına saatlik maliyet (işçilik + amortisman)"
+      "businessContext": "Makine başına saatlik maliyet (işçilik + amortisman)",
+      "label_i18n": {
+        "en": "Makine Saatlik Maliyet",
+        "tr": "Makine Saatlik Maliyet",
+        "de": "Makine Saatlik Maliyet",
+        "fr": "Makine Saatlik Maliyet",
+        "es": "Makine Saatlik Maliyet",
+        "ar": "Makine Saatlik Maliyet"
+      }
     },
     {
       "id": "lostProductionPerHour",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "adet/saat",
       "default": 10,
-      "businessContext": "Makine başına saatlik kaybedilen üretim adedi"
+      "businessContext": "Makine başına saatlik kaybedilen üretim adedi",
+      "label_i18n": {
+        "en": "Saatlik Üretim Kaybı",
+        "tr": "Saatlik Üretim Kaybı",
+        "de": "Saatlik Üretim Kaybı",
+        "fr": "Saatlik Üretim Kaybı",
+        "es": "Saatlik Üretim Kaybı",
+        "ar": "Saatlik Üretim Kaybı"
+      }
     },
     {
       "id": "profitPerUnit",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "TL/adet",
       "default": 20,
-      "businessContext": "Üretilen her birimden elde edilen kar"
+      "businessContext": "Üretilen her birimden elde edilen kar",
+      "label_i18n": {
+        "en": "Birim Başına Kar",
+        "tr": "Birim Başına Kar",
+        "de": "Birim Başına Kar",
+        "fr": "Birim Başına Kar",
+        "es": "Birim Başına Kar",
+        "ar": "Birim Başına Kar"
+      }
     },
     {
       "id": "overheadMultiplier",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "katsayı",
       "default": 1.5,
-      "businessContext": "Doğrudan maliyet ve kayıp kâra uygulanan genel gider çarpanı (1.0 = genel gider yok)"
+      "businessContext": "Doğrudan maliyet ve kayıp kâra uygulanan genel gider çarpanı (1.0 = genel gider yok)",
+      "label_i18n": {
+        "en": "Genel Gider Çarpanı",
+        "tr": "Genel Gider Çarpanı",
+        "de": "Genel Gider Çarpanı",
+        "fr": "Genel Gider Çarpanı",
+        "es": "Genel Gider Çarpanı",
+        "ar": "Genel Gider Çarpanı"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +108,12 @@
     "breakdown": [
       "directCost",
       "lostProfit"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -70,5 +123,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

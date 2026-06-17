@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "count",
       "default": 10,
-      "businessContext": "Observed frequency in row 1, column 1"
+      "businessContext": "Observed frequency in row 1, column 1",
+      "label_i18n": {
+        "en": "Observed Cell (1,1)",
+        "tr": "Observed Cell (1,1)",
+        "de": "Observed Cell (1,1)",
+        "fr": "Observed Cell (1,1)",
+        "es": "Observed Cell (1,1)",
+        "ar": "Observed Cell (1,1)"
+      }
     },
     {
       "id": "observed_12",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "count",
       "default": 20,
-      "businessContext": "Observed frequency in row 1, column 2"
+      "businessContext": "Observed frequency in row 1, column 2",
+      "label_i18n": {
+        "en": "Observed Cell (1,2)",
+        "tr": "Observed Cell (1,2)",
+        "de": "Observed Cell (1,2)",
+        "fr": "Observed Cell (1,2)",
+        "es": "Observed Cell (1,2)",
+        "ar": "Observed Cell (1,2)"
+      }
     },
     {
       "id": "observed_21",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "count",
       "default": 30,
-      "businessContext": "Observed frequency in row 2, column 1"
+      "businessContext": "Observed frequency in row 2, column 1",
+      "label_i18n": {
+        "en": "Observed Cell (2,1)",
+        "tr": "Observed Cell (2,1)",
+        "de": "Observed Cell (2,1)",
+        "fr": "Observed Cell (2,1)",
+        "es": "Observed Cell (2,1)",
+        "ar": "Observed Cell (2,1)"
+      }
     },
     {
       "id": "observed_22",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "count",
       "default": 40,
-      "businessContext": "Observed frequency in row 2, column 2"
+      "businessContext": "Observed frequency in row 2, column 2",
+      "label_i18n": {
+        "en": "Observed Cell (2,2)",
+        "tr": "Observed Cell (2,2)",
+        "de": "Observed Cell (2,2)",
+        "fr": "Observed Cell (2,2)",
+        "es": "Observed Cell (2,2)",
+        "ar": "Observed Cell (2,2)"
+      }
     }
   ],
   "formulas": {
@@ -53,7 +85,12 @@
       "expected_12",
       "expected_21",
       "expected_22"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "chi_square"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -63,5 +100,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

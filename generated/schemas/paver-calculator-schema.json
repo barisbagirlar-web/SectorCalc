@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Length of the rectangular area to be paved."
+      "businessContext": "Length of the rectangular area to be paved.",
+      "label_i18n": {
+        "en": "Area Length",
+        "tr": "Area Length",
+        "de": "Area Length",
+        "fr": "Area Length",
+        "es": "Area Length",
+        "ar": "Area Length"
+      }
     },
     {
       "id": "areaWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 4,
-      "businessContext": "Width of the rectangular area to be paved."
+      "businessContext": "Width of the rectangular area to be paved.",
+      "label_i18n": {
+        "en": "Area Width",
+        "tr": "Area Width",
+        "de": "Area Width",
+        "fr": "Area Width",
+        "es": "Area Width",
+        "ar": "Area Width"
+      }
     },
     {
       "id": "paverLength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 200,
-      "businessContext": "Length of a single paver."
+      "businessContext": "Length of a single paver.",
+      "label_i18n": {
+        "en": "Paver Length",
+        "tr": "Paver Length",
+        "de": "Paver Length",
+        "fr": "Paver Length",
+        "es": "Paver Length",
+        "ar": "Paver Length"
+      }
     },
     {
       "id": "paverWidth",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Width of a single paver."
+      "businessContext": "Width of a single paver.",
+      "label_i18n": {
+        "en": "Paver Width",
+        "tr": "Paver Width",
+        "de": "Paver Width",
+        "fr": "Paver Width",
+        "es": "Paver Width",
+        "ar": "Paver Width"
+      }
     },
     {
       "id": "jointWidth",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm",
       "default": 5,
-      "businessContext": "Gap between pavers for joint sand."
+      "businessContext": "Gap between pavers for joint sand.",
+      "label_i18n": {
+        "en": "Joint Width",
+        "tr": "Joint Width",
+        "de": "Joint Width",
+        "fr": "Joint Width",
+        "es": "Joint Width",
+        "ar": "Joint Width"
+      }
     },
     {
       "id": "wasteFactor",
@@ -47,25 +87,35 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Extra percentage to account for cuts and breakage."
+      "businessContext": "Extra percentage to account for cuts and breakage.",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     }
   ],
   "formulas": {
     "totalArea": "areaLength * areaWidth",
-    "paverCoverageArea": "((paverLength + jointWidth) * (paverWidth + jointWidth)) / 1e6",
-    "paversWithoutWaste": "Math.ceil(totalArea / paverCoverageArea)",
-    "wastePavers": "Math.ceil(paversWithoutWaste * wasteFactor / 100)",
-    "totalPavers": "paversWithoutWaste + wastePavers"
+    "paverCoverageArea": "((paverLength + jointWidth) * (paverWidth + jointWidth)) / 1e6"
   },
   "outputs": {
-    "primary": "totalPavers",
+    "primary": "paverCoverageArea",
     "breakdown": [
       "totalArea",
       "paverCoverageArea",
       "paversWithoutWaste",
       "wastePavers",
       "totalPavers"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalPavers"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -75,5 +125,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

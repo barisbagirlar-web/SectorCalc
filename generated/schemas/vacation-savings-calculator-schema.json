@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 5000,
-      "businessContext": "Total amount needed for vacation"
+      "businessContext": "Total amount needed for vacation",
+      "label_i18n": {
+        "en": "Target Savings Amount",
+        "tr": "Target Savings Amount",
+        "de": "Target Savings Amount",
+        "fr": "Target Savings Amount",
+        "es": "Target Savings Amount",
+        "ar": "Target Savings Amount"
+      }
     },
     {
       "id": "currentSavings",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 1000,
-      "businessContext": "Amount already saved"
+      "businessContext": "Amount already saved",
+      "label_i18n": {
+        "en": "Current Savings",
+        "tr": "Current Savings",
+        "de": "Current Savings",
+        "fr": "Current Savings",
+        "es": "Current Savings",
+        "ar": "Current Savings"
+      }
     },
     {
       "id": "monthlyContribution",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency/month",
       "default": 500,
-      "businessContext": "Amount added to savings each month"
+      "businessContext": "Amount added to savings each month",
+      "label_i18n": {
+        "en": "Monthly Contribution",
+        "tr": "Monthly Contribution",
+        "de": "Monthly Contribution",
+        "fr": "Monthly Contribution",
+        "es": "Monthly Contribution",
+        "ar": "Monthly Contribution"
+      }
     },
     {
       "id": "annualInterestRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Expected annual return on savings (e.g., savings account interest)"
+      "businessContext": "Expected annual return on savings (e.g., savings account interest)",
+      "label_i18n": {
+        "en": "Annual Interest Rate",
+        "tr": "Annual Interest Rate",
+        "de": "Annual Interest Rate",
+        "fr": "Annual Interest Rate",
+        "es": "Annual Interest Rate",
+        "ar": "Annual Interest Rate"
+      }
     },
     {
       "id": "monthsUntilVacation",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "months",
       "default": 12,
-      "businessContext": "Time remaining before vacation"
+      "businessContext": "Time remaining before vacation",
+      "label_i18n": {
+        "en": "Months Until Vacation",
+        "tr": "Months Until Vacation",
+        "de": "Months Until Vacation",
+        "fr": "Months Until Vacation",
+        "es": "Months Until Vacation",
+        "ar": "Months Until Vacation"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
       "totalSavings",
       "totalContributions",
       "interestEarned"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "surplusShortfall"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -64,5 +109,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

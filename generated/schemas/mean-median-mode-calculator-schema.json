@@ -132,11 +132,7 @@
   ],
   "formulas": {
     "mean": "(value1 + value2 + value3 + value4 + value5 + value6 + value7 + value8) / 8",
-    "median": "(sorted => (sorted[3] + sorted[4]) / 2)([value1, value2, value3, value4, value5, value6, value7, value8].sort((a, b) => a - b))",
-    "mode": "(arr => { let freq = {}, maxFreq = 0, modes = []; arr.forEach(v => { freq[v] = (freq[v] || 0) + 1; if (freq[v] > maxFreq) maxFreq = freq[v]; }); if (maxFreq === 1) return 'No mode'; for (let k in freq) if (freq[k] === maxFreq) modes.push(k); return 'Mode: ' + modes.join(', '); })([value1, value2, value3, value4, value5, value6, value7, value8])",
-    "Mean__average__is_the_sum_of_all_values_": "Mean (average) is the sum of all values divided by the count (8).",
-    "for_8_numbers__it_is_the_average_of_the_": "for 8 numbers, it is the average of the 4th and 5th sorted values.",
-    "Mode_is_the_most_frequently_occurring_va": "Mode is the most frequently occurring value(s)."
+    "mean_aux": "(value1 + value2 + value3 + value4 + value5 + value6 + value7 + value8) / 8"
   },
   "outputs": {
     "primary": "mean",
@@ -144,7 +140,12 @@
       "Mean (average) is the sum of all values divided by the count (8).",
       "Median is the middle value: for 8 numbers, it is the average of the 4th and 5th sorted values.",
       "Mode is the most frequently occurring value(s)."
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "mode"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -154,5 +155,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

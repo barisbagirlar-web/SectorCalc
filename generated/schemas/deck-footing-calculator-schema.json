@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft",
       "default": 12,
-      "businessContext": "Distance from ledger to beam"
+      "businessContext": "Distance from ledger to beam",
+      "label_i18n": {
+        "en": "Joist Span",
+        "tr": "Joist Span",
+        "de": "Joist Span",
+        "fr": "Joist Span",
+        "es": "Joist Span",
+        "ar": "Joist Span"
+      }
     },
     {
       "id": "spacing",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "in",
       "default": 16,
-      "businessContext": "Center-to-center spacing of joists"
+      "businessContext": "Center-to-center spacing of joists",
+      "label_i18n": {
+        "en": "Joist Spacing",
+        "tr": "Joist Spacing",
+        "de": "Joist Spacing",
+        "fr": "Joist Spacing",
+        "es": "Joist Spacing",
+        "ar": "Joist Spacing"
+      }
     },
     {
       "id": "beamLength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ft",
       "default": 8,
-      "businessContext": "Distance between support posts"
+      "businessContext": "Distance between support posts",
+      "label_i18n": {
+        "en": "Beam Span between Posts",
+        "tr": "Beam Span between Posts",
+        "de": "Beam Span between Posts",
+        "fr": "Beam Span between Posts",
+        "es": "Beam Span between Posts",
+        "ar": "Beam Span between Posts"
+      }
     },
     {
       "id": "liveLoad",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "psf",
       "default": 40,
-      "businessContext": "Occupancy load per square foot"
+      "businessContext": "Occupancy load per square foot",
+      "label_i18n": {
+        "en": "Live Load",
+        "tr": "Live Load",
+        "de": "Live Load",
+        "fr": "Live Load",
+        "es": "Live Load",
+        "ar": "Live Load"
+      }
     },
     {
       "id": "deadLoad",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "psf",
       "default": 10,
-      "businessContext": "Weight of deck materials"
+      "businessContext": "Weight of deck materials",
+      "label_i18n": {
+        "en": "Dead Load",
+        "tr": "Dead Load",
+        "de": "Dead Load",
+        "fr": "Dead Load",
+        "es": "Dead Load",
+        "ar": "Dead Load"
+      }
     },
     {
       "id": "soilBearing",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "psf",
       "default": 2000,
-      "businessContext": "Allowable soil pressure"
+      "businessContext": "Allowable soil pressure",
+      "label_i18n": {
+        "en": "Soil Bearing Capacity",
+        "tr": "Soil Bearing Capacity",
+        "de": "Soil Bearing Capacity",
+        "fr": "Soil Bearing Capacity",
+        "es": "Soil Bearing Capacity",
+        "ar": "Soil Bearing Capacity"
+      }
     },
     {
       "id": "footingThickness",
@@ -55,22 +103,34 @@
       "type": "number",
       "unit": "in",
       "default": 8,
-      "businessContext": "Depth of concrete footing"
+      "businessContext": "Depth of concrete footing",
+      "label_i18n": {
+        "en": "Footing Thickness",
+        "tr": "Footing Thickness",
+        "de": "Footing Thickness",
+        "fr": "Footing Thickness",
+        "es": "Footing Thickness",
+        "ar": "Footing Thickness"
+      }
     }
   ],
   "formulas": {
     "loadPerFooting": "(liveLoad + deadLoad) * span * beamLength * 0.25",
     "requiredArea": "loadPerFooting / soilBearing",
-    "sideLength": "Math.sqrt(requiredArea) * 12",
     "volume": "requiredArea * (footingThickness / 12)"
   },
   "outputs": {
-    "primary": "sideLength",
+    "primary": "volume",
     "breakdown": [
       "loadPerFooting",
       "requiredArea",
       "volume"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "volume"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -80,5 +140,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

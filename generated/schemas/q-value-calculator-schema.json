@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "H",
       "default": 0,
-      "businessContext": "Inductance of the circuit coil or inductor in Henries."
+      "businessContext": "Inductance of the circuit coil or inductor in Henries.",
+      "label_i18n": {
+        "en": "Inductance (L)",
+        "tr": "Inductance (L)",
+        "de": "Inductance (L)",
+        "fr": "Inductance (L)",
+        "es": "Inductance (L)",
+        "ar": "Inductance (L)"
+      }
     },
     {
       "id": "capacitance",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "F",
       "default": 0,
-      "businessContext": "Capacitance of the circuit capacitor in Farads."
+      "businessContext": "Capacitance of the circuit capacitor in Farads.",
+      "label_i18n": {
+        "en": "Capacitance (C)",
+        "tr": "Capacitance (C)",
+        "de": "Capacitance (C)",
+        "fr": "Capacitance (C)",
+        "es": "Capacitance (C)",
+        "ar": "Capacitance (C)"
+      }
     },
     {
       "id": "resistance",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 0,
-      "businessContext": "Series resistance in Ohms (for series RLC circuit). For parallel, use appropriate conversion."
+      "businessContext": "Series resistance in Ohms (for series RLC circuit). For parallel, use appropriate conversion.",
+      "label_i18n": {
+        "en": "Resistance (R)",
+        "tr": "Resistance (R)",
+        "de": "Resistance (R)",
+        "fr": "Resistance (R)",
+        "es": "Resistance (R)",
+        "ar": "Resistance (R)"
+      }
     },
     {
       "id": "frequency",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 0,
-      "businessContext": "Measured or known resonant frequency in Hertz."
+      "businessContext": "Measured or known resonant frequency in Hertz.",
+      "label_i18n": {
+        "en": "Resonant Frequency (f₀)",
+        "tr": "Resonant Frequency (f₀)",
+        "de": "Resonant Frequency (f₀)",
+        "fr": "Resonant Frequency (f₀)",
+        "es": "Resonant Frequency (f₀)",
+        "ar": "Resonant Frequency (f₀)"
+      }
     },
     {
       "id": "bandwidth",
@@ -39,22 +71,33 @@
       "type": "number",
       "unit": "Hz",
       "default": 0,
-      "businessContext": "Half-power bandwidth of the resonance in Hertz."
+      "businessContext": "Half-power bandwidth of the resonance in Hertz.",
+      "label_i18n": {
+        "en": "Bandwidth (BW)",
+        "tr": "Bandwidth (BW)",
+        "de": "Bandwidth (BW)",
+        "fr": "Bandwidth (BW)",
+        "es": "Bandwidth (BW)",
+        "ar": "Bandwidth (BW)"
+      }
     }
   ],
   "formulas": {
-    "primary_Q": "((inductance>0 && capacitance>0 && resistance>0) ? (1/resistance)*Math.sqrt(inductance/capacitance) : (frequency>0 && bandwidth>0 ? frequency/bandwidth : 0))",
-    "resonant_frequency_calc": "(inductance>0 && capacitance>0) ? 1/(2*Math.PI*Math.sqrt(inductance*capacitance)) : 0",
-    "q_from_components": "(inductance>0 && capacitance>0 && resistance>0) ? (1/resistance)*Math.sqrt(inductance/capacitance) : 0",
-    "q_from_bandwidth": "(frequency>0 && bandwidth>0) ? frequency/bandwidth : 0"
+    "q_from_bandwidth": "(frequency>0 && bandwidth>0) ? frequency/bandwidth : 0",
+    "q_from_bandwidth_aux": "(frequency>0 && bandwidth>0) ? frequency/bandwidth : 0"
   },
   "outputs": {
-    "primary": "primary_Q",
+    "primary": "q_from_bandwidth_aux",
     "breakdown": [
       "resonant_frequency_calc",
       "q_from_components",
       "q_from_bandwidth"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "q_from_bandwidth"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -64,5 +107,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

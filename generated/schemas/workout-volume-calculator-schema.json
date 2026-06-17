@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Room length along the longer side"
+      "businessContext": "Room length along the longer side",
+      "label_i18n": {
+        "en": "Length",
+        "tr": "Length",
+        "de": "Length",
+        "fr": "Length",
+        "es": "Length",
+        "ar": "Length"
+      }
     },
     {
       "id": "width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Room width"
+      "businessContext": "Room width",
+      "label_i18n": {
+        "en": "Width",
+        "tr": "Width",
+        "de": "Width",
+        "fr": "Width",
+        "es": "Width",
+        "ar": "Width"
+      }
     },
     {
       "id": "height",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "Ceiling height"
+      "businessContext": "Ceiling height",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "Height",
+        "fr": "Height",
+        "es": "Height",
+        "ar": "Height"
+      }
     },
     {
       "id": "fill_factor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "Percentage of volume occupied by equipment (0-100)"
+      "businessContext": "Percentage of volume occupied by equipment (0-100)",
+      "label_i18n": {
+        "en": "Fill Factor",
+        "tr": "Fill Factor",
+        "de": "Fill Factor",
+        "fr": "Fill Factor",
+        "es": "Fill Factor",
+        "ar": "Fill Factor"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "total_volume",
       "unused_volume"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "unused_volume"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -54,5 +91,10 @@
   "sectorSlug": "cleaning",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

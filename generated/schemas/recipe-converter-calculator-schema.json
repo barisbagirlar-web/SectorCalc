@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "servings",
       "default": 4,
-      "businessContext": "The number of servings the original recipe is for."
+      "businessContext": "The number of servings the original recipe is for.",
+      "label_i18n": {
+        "en": "Original Servings",
+        "tr": "Original Servings",
+        "de": "Original Servings",
+        "fr": "Original Servings",
+        "es": "Original Servings",
+        "ar": "Original Servings"
+      }
     },
     {
       "id": "newServings",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "servings",
       "default": 8,
-      "businessContext": "The desired number of servings."
+      "businessContext": "The desired number of servings.",
+      "label_i18n": {
+        "en": "New Servings",
+        "tr": "New Servings",
+        "de": "New Servings",
+        "fr": "New Servings",
+        "es": "New Servings",
+        "ar": "New Servings"
+      }
     },
     {
       "id": "ingredientOneAmount",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "g or ml",
       "default": 200,
-      "businessContext": "Original amount for ingredient 1."
+      "businessContext": "Original amount for ingredient 1.",
+      "label_i18n": {
+        "en": "Ingredient 1 Amount",
+        "tr": "Ingredient 1 Amount",
+        "de": "Ingredient 1 Amount",
+        "fr": "Ingredient 1 Amount",
+        "es": "Ingredient 1 Amount",
+        "ar": "Ingredient 1 Amount"
+      }
     },
     {
       "id": "ingredientTwoAmount",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "g or ml",
       "default": 100,
-      "businessContext": "Original amount for ingredient 2."
+      "businessContext": "Original amount for ingredient 2.",
+      "label_i18n": {
+        "en": "Ingredient 2 Amount",
+        "tr": "Ingredient 2 Amount",
+        "de": "Ingredient 2 Amount",
+        "fr": "Ingredient 2 Amount",
+        "es": "Ingredient 2 Amount",
+        "ar": "Ingredient 2 Amount"
+      }
     },
     {
       "id": "ingredientThreeAmount",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "g or ml",
       "default": 50,
-      "businessContext": "Original amount for ingredient 3."
+      "businessContext": "Original amount for ingredient 3.",
+      "label_i18n": {
+        "en": "Ingredient 3 Amount",
+        "tr": "Ingredient 3 Amount",
+        "de": "Ingredient 3 Amount",
+        "fr": "Ingredient 3 Amount",
+        "es": "Ingredient 3 Amount",
+        "ar": "Ingredient 3 Amount"
+      }
     },
     {
       "id": "ingredientFourAmount",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "g or ml",
       "default": 25,
-      "businessContext": "Original amount for ingredient 4."
+      "businessContext": "Original amount for ingredient 4.",
+      "label_i18n": {
+        "en": "Ingredient 4 Amount",
+        "tr": "Ingredient 4 Amount",
+        "de": "Ingredient 4 Amount",
+        "fr": "Ingredient 4 Amount",
+        "es": "Ingredient 4 Amount",
+        "ar": "Ingredient 4 Amount"
+      }
     }
   ],
   "formulas": {
@@ -64,7 +112,12 @@
       "newIngredientTwoAmount",
       "newIngredientThreeAmount",
       "newIngredientFourAmount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "newIngredientFourAmount"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -74,5 +127,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

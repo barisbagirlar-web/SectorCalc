@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from cobra-calculator-schema.json
 import * as z from 'zod';
 
@@ -17,28 +18,36 @@ export const Cobra_calculatorInputSchema = z.object({
   employerContributionRate: z.number().default(0),
 });
 
-function evaluateAllFormulas(input: Cobra_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.monthlyPremium * input.beneficiaries * input.coverageMonths; results["totalPremium"] = Number.isFinite(v) ? v : 0; } catch { results["totalPremium"] = 0; }
-  try { const v = (results["totalPremium"] ?? 0) * input.adminFeeRate / 100; results["adminFeeAmount"] = Number.isFinite(v) ? v : 0; } catch { results["adminFeeAmount"] = 0; }
-  try { const v = (results["totalPremium"] ?? 0) + (results["adminFeeAmount"] ?? 0); results["totalCostWithoutContribution"] = Number.isFinite(v) ? v : 0; } catch { results["totalCostWithoutContribution"] = 0; }
-  try { const v = (results["totalCostWithoutContribution"] ?? 0) * input.employerContributionRate / 100; results["employerContributionAmount"] = Number.isFinite(v) ? v : 0; } catch { results["employerContributionAmount"] = 0; }
-  try { const v = (results["totalCostWithoutContribution"] ?? 0) - (results["employerContributionAmount"] ?? 0); results["totalEmployeeCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalEmployeeCost"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Cobra_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.monthlyPremium * input.beneficiaries * input.coverageMonths; results["totalPremium"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalPremium"] = 0; }
+  try { const v = (asFormulaNumber(results["totalPremium"])) * input.adminFeeRate / 100; results["adminFeeAmount"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["adminFeeAmount"] = 0; }
+  try { const v = (asFormulaNumber(results["totalPremium"])) + (asFormulaNumber(results["adminFeeAmount"])); results["totalCostWithoutContribution"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalCostWithoutContribution"] = 0; }
+  try { const v = (asFormulaNumber(results["totalCostWithoutContribution"])) * input.employerContributionRate / 100; results["employerContributionAmount"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["employerContributionAmount"] = 0; }
+  try { const v = (asFormulaNumber(results["totalCostWithoutContribution"])) - (asFormulaNumber(results["employerContributionAmount"])); results["totalEmployeeCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalEmployeeCost"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateCobra_calculator(input: Cobra_calculatorInput): Cobra_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalEmployeeCost"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["totalEmployeeCost"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

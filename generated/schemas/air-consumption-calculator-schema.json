@@ -99,18 +99,21 @@
     }
   ],
   "formulas": {
-    "pistonArea": "Math.PI * Math.pow(bore / 2, 2)",
-    "volumePerCycle": "Math.PI * Math.pow(bore / 2, 2) * stroke * (pressure + atmospheric) / atmospheric",
-    "totalConsumptionMM3": "Math.PI * Math.pow(bore / 2, 2) * stroke * (pressure + atmospheric) * cyclesPerMinute * actingFactor / atmospheric",
-    "consumptionLMin": "Math.PI * Math.pow(bore / 2, 2) * stroke * (pressure + atmospheric) * cyclesPerMinute * actingFactor / (atmospheric * 1e6)"
+    "result": "bore + stroke + pressure",
+    "result_copy": "bore + stroke + pressure"
   },
   "outputs": {
-    "primary": "consumptionLMin",
+    "primary": "result",
     "breakdown": [
       "pistonArea",
       "volumePerCycle",
       "totalConsumptionMM3"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "consumptionLMin"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -120,5 +123,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

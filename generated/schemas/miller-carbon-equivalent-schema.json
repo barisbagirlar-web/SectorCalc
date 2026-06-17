@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Karbon içeriği (ağırlıkça %), kaynak edilebilirliği en fazla etkileyen elementtir."
+      "businessContext": "Karbon içeriği (ağırlıkça %), kaynak edilebilirliği en fazla etkileyen elementtir.",
+      "label_i18n": {
+        "en": "C (Karbon)",
+        "tr": "C (Karbon)",
+        "de": "C (Karbon)",
+        "fr": "C (Karbon)",
+        "es": "C (Karbon)",
+        "ar": "C (Karbon)"
+      }
     },
     {
       "id": "manganese",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Manganez içeriği (ağırlıkça %), sertleşebilirliği ve mukavemeti artırır."
+      "businessContext": "Manganez içeriği (ağırlıkça %), sertleşebilirliği ve mukavemeti artırır.",
+      "label_i18n": {
+        "en": "Mn (Manganez)",
+        "tr": "Mn (Manganez)",
+        "de": "Mn (Manganez)",
+        "fr": "Mn (Manganez)",
+        "es": "Mn (Manganez)",
+        "ar": "Mn (Manganez)"
+      }
     },
     {
       "id": "chromium",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Krom içeriği (ağırlıkça %), korozyon direncini ve sertleşebilirliği etkiler."
+      "businessContext": "Krom içeriği (ağırlıkça %), korozyon direncini ve sertleşebilirliği etkiler.",
+      "label_i18n": {
+        "en": "Cr (Krom)",
+        "tr": "Cr (Krom)",
+        "de": "Cr (Krom)",
+        "fr": "Cr (Krom)",
+        "es": "Cr (Krom)",
+        "ar": "Cr (Krom)"
+      }
     },
     {
       "id": "molybdenum",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Molibden içeriği (ağırlıkça %), yüksek sıcaklık dayanımı ve sertleşebilirlik sağlar."
+      "businessContext": "Molibden içeriği (ağırlıkça %), yüksek sıcaklık dayanımı ve sertleşebilirlik sağlar.",
+      "label_i18n": {
+        "en": "Mo (Molibden)",
+        "tr": "Mo (Molibden)",
+        "de": "Mo (Molibden)",
+        "fr": "Mo (Molibden)",
+        "es": "Mo (Molibden)",
+        "ar": "Mo (Molibden)"
+      }
     },
     {
       "id": "vanadium",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Vanadyum içeriği (ağırlıkça %), tane inceltici ve mukavemet artırıcı etki yapar."
+      "businessContext": "Vanadyum içeriği (ağırlıkça %), tane inceltici ve mukavemet artırıcı etki yapar.",
+      "label_i18n": {
+        "en": "V (Vanadyum)",
+        "tr": "V (Vanadyum)",
+        "de": "V (Vanadyum)",
+        "fr": "V (Vanadyum)",
+        "es": "V (Vanadyum)",
+        "ar": "V (Vanadyum)"
+      }
     },
     {
       "id": "nickel",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Nikel içeriği (ağırlıkça %), tokluğu ve düşük sıcaklık özelliklerini iyileştirir."
+      "businessContext": "Nikel içeriği (ağırlıkça %), tokluğu ve düşük sıcaklık özelliklerini iyileştirir.",
+      "label_i18n": {
+        "en": "Ni (Nikel)",
+        "tr": "Ni (Nikel)",
+        "de": "Ni (Nikel)",
+        "fr": "Ni (Nikel)",
+        "es": "Ni (Nikel)",
+        "ar": "Ni (Nikel)"
+      }
     },
     {
       "id": "copper",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Bakır içeriği (ağırlıkça %), atmosferik korozyon direncini artırır, ancak kaynakta çatlak riskini yükseltebilir."
+      "businessContext": "Bakır içeriği (ağırlıkça %), atmosferik korozyon direncini artırır, ancak kaynakta çatlak riskini yükseltebilir.",
+      "label_i18n": {
+        "en": "Cu (Bakır)",
+        "tr": "Cu (Bakır)",
+        "de": "Cu (Bakır)",
+        "fr": "Cu (Bakır)",
+        "es": "Cu (Bakır)",
+        "ar": "Cu (Bakır)"
+      }
     }
   ],
   "formulas": {
@@ -72,7 +128,12 @@
       "mnPart",
       "crMoVPart",
       "niCuPart"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "niCuPart"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -82,5 +143,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

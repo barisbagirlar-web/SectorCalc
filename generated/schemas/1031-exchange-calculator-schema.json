@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 500000,
-      "businessContext": "The selling price of the property you are giving up"
+      "businessContext": "The selling price of the property you are giving up",
+      "label_i18n": {
+        "en": "Sale Price of Relinquished Property",
+        "tr": "Sale Price of Relinquished Property",
+        "de": "Sale Price of Relinquished Property",
+        "fr": "Sale Price of Relinquished Property",
+        "es": "Sale Price of Relinquished Property",
+        "ar": "Sale Price of Relinquished Property"
+      }
     },
     {
       "id": "mortgagePayoff",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "$",
       "default": 300000,
-      "businessContext": "Outstanding mortgage balance on the relinquished property that will be paid off at sale"
+      "businessContext": "Outstanding mortgage balance on the relinquished property that will be paid off at sale",
+      "label_i18n": {
+        "en": "Mortgage Payoff on Relinquished Property",
+        "tr": "Mortgage Payoff on Relinquished Property",
+        "de": "Mortgage Payoff on Relinquished Property",
+        "fr": "Mortgage Payoff on Relinquished Property",
+        "es": "Mortgage Payoff on Relinquished Property",
+        "ar": "Mortgage Payoff on Relinquished Property"
+      }
     },
     {
       "id": "sellingCosts",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$",
       "default": 30000,
-      "businessContext": "Total costs associated with selling the relinquished property, e.g., agent commissions, legal fees"
+      "businessContext": "Total costs associated with selling the relinquished property, e.g., agent commissions, legal fees",
+      "label_i18n": {
+        "en": "Selling Costs (Commissions, Closing)",
+        "tr": "Selling Costs (Commissions, Closing)",
+        "de": "Selling Costs (Commissions, Closing)",
+        "fr": "Selling Costs (Commissions, Closing)",
+        "es": "Selling Costs (Commissions, Closing)",
+        "ar": "Selling Costs (Commissions, Closing)"
+      }
     },
     {
       "id": "purchasePrice",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "$",
       "default": 600000,
-      "businessContext": "The purchase price of the replacement property you intend to acquire"
+      "businessContext": "The purchase price of the replacement property you intend to acquire",
+      "label_i18n": {
+        "en": "Purchase Price of Replacement Property",
+        "tr": "Purchase Price of Replacement Property",
+        "de": "Purchase Price of Replacement Property",
+        "fr": "Purchase Price of Replacement Property",
+        "es": "Purchase Price of Replacement Property",
+        "ar": "Purchase Price of Replacement Property"
+      }
     },
     {
       "id": "newMortgage",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "$",
       "default": 350000,
-      "businessContext": "Amount of new mortgage or debt assumed on the replacement property"
+      "businessContext": "Amount of new mortgage or debt assumed on the replacement property",
+      "label_i18n": {
+        "en": "New Mortgage on Replacement Property",
+        "tr": "New Mortgage on Replacement Property",
+        "de": "New Mortgage on Replacement Property",
+        "fr": "New Mortgage on Replacement Property",
+        "es": "New Mortgage on Replacement Property",
+        "ar": "New Mortgage on Replacement Property"
+      }
     },
     {
       "id": "buyingCosts",
@@ -47,23 +87,33 @@
       "type": "number",
       "unit": "$",
       "default": 15000,
-      "businessContext": "Total costs associated with purchasing the replacement property, e.g., title insurance, recording fees"
+      "businessContext": "Total costs associated with purchasing the replacement property, e.g., title insurance, recording fees",
+      "label_i18n": {
+        "en": "Buying Costs (Closing)",
+        "tr": "Buying Costs (Closing)",
+        "de": "Buying Costs (Closing)",
+        "fr": "Buying Costs (Closing)",
+        "es": "Buying Costs (Closing)",
+        "ar": "Buying Costs (Closing)"
+      }
     }
   ],
   "formulas": {
     "netProceeds": "salePrice - mortgagePayoff - sellingCosts",
-    "cashRequired": "purchasePrice - newMortgage + buyingCosts",
-    "cashBoot": "Math.max(0, netProceeds - cashRequired)",
-    "mortgageBoot": "Math.max(0, mortgagePayoff - newMortgage)",
-    "totalBoot": "cashBoot + mortgageBoot"
+    "cashRequired": "purchasePrice - newMortgage + buyingCosts"
   },
   "outputs": {
-    "primary": "totalBoot",
+    "primary": "cashRequired",
     "breakdown": [
       "netProceeds",
       "cashBoot",
       "mortgageBoot"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalBoot"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -73,5 +123,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

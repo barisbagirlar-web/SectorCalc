@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "Isıtılan veya soğutulan maddenin kütlesi (kg)"
+      "businessContext": "Isıtılan veya soğutulan maddenin kütlesi (kg)",
+      "label_i18n": {
+        "en": "Kütle (m)",
+        "tr": "Kütle (m)",
+        "de": "Kütle (m)",
+        "fr": "Kütle (m)",
+        "es": "Kütle (m)",
+        "ar": "Kütle (m)"
+      }
     },
     {
       "id": "specificHeat",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "J/(kg·K)",
       "default": 4184,
-      "businessContext": "Malzemenin özgül ısı kapasitesi (J/(kg·K)), su için 4184"
+      "businessContext": "Malzemenin özgül ısı kapasitesi (J/(kg·K)), su için 4184",
+      "label_i18n": {
+        "en": "Özgül Isı (c)",
+        "tr": "Özgül Isı (c)",
+        "de": "Özgül Isı (c)",
+        "fr": "Özgül Isı (c)",
+        "es": "Özgül Isı (c)",
+        "ar": "Özgül Isı (c)"
+      }
     },
     {
       "id": "initialTemperature",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Başlangıç sıcaklık değeri (°C)"
+      "businessContext": "Başlangıç sıcaklık değeri (°C)",
+      "label_i18n": {
+        "en": "Başlangıç Sıcaklığı (T₁)",
+        "tr": "Başlangıç Sıcaklığı (T₁)",
+        "de": "Başlangıç Sıcaklığı (T₁)",
+        "fr": "Başlangıç Sıcaklığı (T₁)",
+        "es": "Başlangıç Sıcaklığı (T₁)",
+        "ar": "Başlangıç Sıcaklığı (T₁)"
+      }
     },
     {
       "id": "finalTemperature",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 100,
-      "businessContext": "Hedef veya son sıcaklık değeri (°C)"
+      "businessContext": "Hedef veya son sıcaklık değeri (°C)",
+      "label_i18n": {
+        "en": "Bitiş Sıcaklığı (T₂)",
+        "tr": "Bitiş Sıcaklığı (T₂)",
+        "de": "Bitiş Sıcaklığı (T₂)",
+        "fr": "Bitiş Sıcaklığı (T₂)",
+        "es": "Bitiş Sıcaklığı (T₂)",
+        "ar": "Bitiş Sıcaklığı (T₂)"
+      }
     },
     {
       "id": "heatLossFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Ortam, yalıtım vb. kaynaklı yüzdesel ısı kaybı (0–100)"
+      "businessContext": "Ortam, yalıtım vb. kaynaklı yüzdesel ısı kaybı (0–100)",
+      "label_i18n": {
+        "en": "Isı Kaybı Faktörü",
+        "tr": "Isı Kaybı Faktörü",
+        "de": "Isı Kaybı Faktörü",
+        "fr": "Isı Kaybı Faktörü",
+        "es": "Isı Kaybı Faktörü",
+        "ar": "Isı Kaybı Faktörü"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "temperatureDifference",
       "idealHeat"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "actualHeat"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -62,5 +107,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

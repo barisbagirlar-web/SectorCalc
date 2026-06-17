@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 25000,
-      "businessContext": "Purchase price of the gasoline vehicle"
+      "businessContext": "Purchase price of the gasoline vehicle",
+      "label_i18n": {
+        "en": "GAS VEHICLE PRICE",
+        "tr": "GAS VEHICLE PRICE",
+        "de": "GAS VEHICLE PRICE",
+        "fr": "GAS VEHICLE PRICE",
+        "es": "GAS VEHICLE PRICE",
+        "ar": "GAS VEHICLE PRICE"
+      }
     },
     {
       "id": "hybridVehiclePrice",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "$",
       "default": 28000,
-      "businessContext": "Purchase price of the hybrid vehicle"
+      "businessContext": "Purchase price of the hybrid vehicle",
+      "label_i18n": {
+        "en": "HYBRID VEHICLE PRICE",
+        "tr": "HYBRID VEHICLE PRICE",
+        "de": "HYBRID VEHICLE PRICE",
+        "fr": "HYBRID VEHICLE PRICE",
+        "es": "HYBRID VEHICLE PRICE",
+        "ar": "HYBRID VEHICLE PRICE"
+      }
     },
     {
       "id": "gasMpg",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mpg",
       "default": 30,
-      "businessContext": "Fuel efficiency of the gasoline vehicle"
+      "businessContext": "Fuel efficiency of the gasoline vehicle",
+      "label_i18n": {
+        "en": "GAS VEHICLE MPG",
+        "tr": "GAS VEHICLE MPG",
+        "de": "GAS VEHICLE MPG",
+        "fr": "GAS VEHICLE MPG",
+        "es": "GAS VEHICLE MPG",
+        "ar": "GAS VEHICLE MPG"
+      }
     },
     {
       "id": "hybridMpg",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mpg",
       "default": 50,
-      "businessContext": "Fuel efficiency of the hybrid vehicle"
+      "businessContext": "Fuel efficiency of the hybrid vehicle",
+      "label_i18n": {
+        "en": "HYBRID VEHICLE MPG",
+        "tr": "HYBRID VEHICLE MPG",
+        "de": "HYBRID VEHICLE MPG",
+        "fr": "HYBRID VEHICLE MPG",
+        "es": "HYBRID VEHICLE MPG",
+        "ar": "HYBRID VEHICLE MPG"
+      }
     },
     {
       "id": "annualMiles",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "miles",
       "default": 12000,
-      "businessContext": "Estimated annual mileage"
+      "businessContext": "Estimated annual mileage",
+      "label_i18n": {
+        "en": "ANNUAL MILES DRIVEN",
+        "tr": "ANNUAL MILES DRIVEN",
+        "de": "ANNUAL MILES DRIVEN",
+        "fr": "ANNUAL MILES DRIVEN",
+        "es": "ANNUAL MILES DRIVEN",
+        "ar": "ANNUAL MILES DRIVEN"
+      }
     },
     {
       "id": "fuelPricePerGallon",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "$/gal",
       "default": 3.5,
-      "businessContext": "Current fuel price per gallon"
+      "businessContext": "Current fuel price per gallon",
+      "label_i18n": {
+        "en": "FUEL PRICE PER GALLON",
+        "tr": "FUEL PRICE PER GALLON",
+        "de": "FUEL PRICE PER GALLON",
+        "fr": "FUEL PRICE PER GALLON",
+        "es": "FUEL PRICE PER GALLON",
+        "ar": "FUEL PRICE PER GALLON"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
       "annualFuelCostGas",
       "annualFuelCostHybrid",
       "annualSavings"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "paybackYears"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -72,5 +125,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

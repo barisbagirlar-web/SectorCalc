@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "users",
       "default": 1,
-      "businessContext": "Total number of users or licenses under subscription"
+      "businessContext": "Total number of users or licenses under subscription",
+      "label_i18n": {
+        "en": "Number of Users",
+        "tr": "Number of Users",
+        "de": "Number of Users",
+        "fr": "Number of Users",
+        "es": "Number of Users",
+        "ar": "Number of Users"
+      }
     },
     {
       "id": "pricePerUser",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 10,
-      "businessContext": "Monthly subscription cost per user"
+      "businessContext": "Monthly subscription cost per user",
+      "label_i18n": {
+        "en": "Price per User (Monthly)",
+        "tr": "Price per User (Monthly)",
+        "de": "Price per User (Monthly)",
+        "fr": "Price per User (Monthly)",
+        "es": "Price per User (Monthly)",
+        "ar": "Price per User (Monthly)"
+      }
     },
     {
       "id": "durationMonths",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "months",
       "default": 12,
-      "businessContext": "Number of months for the subscription period"
+      "businessContext": "Number of months for the subscription period",
+      "label_i18n": {
+        "en": "Subscription Duration (Months)",
+        "tr": "Subscription Duration (Months)",
+        "de": "Subscription Duration (Months)",
+        "fr": "Subscription Duration (Months)",
+        "es": "Subscription Duration (Months)",
+        "ar": "Subscription Duration (Months)"
+      }
     },
     {
       "id": "discountPercent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "percent",
       "default": 0,
-      "businessContext": "Overall discount percentage applied to subtotal"
+      "businessContext": "Overall discount percentage applied to subtotal",
+      "label_i18n": {
+        "en": "Discount Percentage",
+        "tr": "Discount Percentage",
+        "de": "Discount Percentage",
+        "fr": "Discount Percentage",
+        "es": "Discount Percentage",
+        "ar": "Discount Percentage"
+      }
     },
     {
       "id": "taxPercent",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "percent",
       "default": 18,
-      "businessContext": "Tax rate (e.g., VAT) applied after discount"
+      "businessContext": "Tax rate (e.g., VAT) applied after discount",
+      "label_i18n": {
+        "en": "Tax Rate",
+        "tr": "Tax Rate",
+        "de": "Tax Rate",
+        "fr": "Tax Rate",
+        "es": "Tax Rate",
+        "ar": "Tax Rate"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
       "subtotalCost",
       "discountAmount",
       "taxAmount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -64,5 +109,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

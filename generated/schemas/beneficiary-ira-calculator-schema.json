@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 100000,
-      "businessContext": "The fair market value of the inherited IRA as of December 31 of the prior year."
+      "businessContext": "The fair market value of the inherited IRA as of December 31 of the prior year.",
+      "label_i18n": {
+        "en": "Account Balance",
+        "tr": "Account Balance",
+        "de": "Account Balance",
+        "fr": "Account Balance",
+        "es": "Account Balance",
+        "ar": "Account Balance"
+      }
     },
     {
       "id": "distributionFactor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Life expectancy factor from IRS Single Life Table or chosen distribution period in years."
+      "businessContext": "Life expectancy factor from IRS Single Life Table or chosen distribution period in years.",
+      "label_i18n": {
+        "en": "Distribution Period",
+        "tr": "Distribution Period",
+        "de": "Distribution Period",
+        "fr": "Distribution Period",
+        "es": "Distribution Period",
+        "ar": "Distribution Period"
+      }
     },
     {
       "id": "annualGrowthRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Expected annual rate of return on the account, e.g., 5 for 5%."
+      "businessContext": "Expected annual rate of return on the account, e.g., 5 for 5%.",
+      "label_i18n": {
+        "en": "Annual Growth Rate",
+        "tr": "Annual Growth Rate",
+        "de": "Annual Growth Rate",
+        "fr": "Annual Growth Rate",
+        "es": "Annual Growth Rate",
+        "ar": "Annual Growth Rate"
+      }
     }
   ],
   "formulas": {
@@ -36,7 +60,12 @@
     "breakdown": [
       "remainingBalanceAfterRMD",
       "projectedBalanceNextYear"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "projectedBalanceNextYear"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -46,5 +75,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

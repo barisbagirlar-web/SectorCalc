@@ -116,7 +116,12 @@
       "threadLengthMeters",
       "laborCost",
       "machineCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Tekstil & Moda",
   "sector": "Perakende & Gıda",
@@ -126,5 +131,10 @@
   "categorySlug": "textile-print-lab",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

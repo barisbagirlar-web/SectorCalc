@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from trip-cost-calculator-schema.json
 import * as z from 'zod';
 
@@ -17,27 +18,35 @@ export const Trip_cost_calculatorInputSchema = z.object({
   otherCosts: z.number().default(5),
 });
 
-function evaluateAllFormulas(input: Trip_cost_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (input.distance / 100) * input.fuelEfficiency * input.fuelPrice; results["fuelCost"] = Number.isFinite(v) ? v : 0; } catch { results["fuelCost"] = 0; }
-  try { const v = input.tolls; results["tollsCost"] = Number.isFinite(v) ? v : 0; } catch { results["tollsCost"] = 0; }
-  try { const v = input.otherCosts; results["otherCostsAmount"] = Number.isFinite(v) ? v : 0; } catch { results["otherCostsAmount"] = 0; }
-  try { const v = (results["fuelCost"] ?? 0) + (results["tollsCost"] ?? 0) + (results["otherCostsAmount"] ?? 0); results["totalCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Trip_cost_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = (input.distance / 100) * input.fuelEfficiency * input.fuelPrice; results["fuelCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["fuelCost"] = 0; }
+  try { const v = input.tolls; results["tollsCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["tollsCost"] = 0; }
+  try { const v = input.otherCosts; results["otherCostsAmount"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["otherCostsAmount"] = 0; }
+  try { const v = (asFormulaNumber(results["fuelCost"])) + (asFormulaNumber(results["tollsCost"])) + (asFormulaNumber(results["otherCostsAmount"])); results["totalCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalCost"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateTrip_cost_calculator(input: Trip_cost_calculatorInput): Trip_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalCost"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["totalCost"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

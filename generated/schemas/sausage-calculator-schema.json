@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 10,
-      "businessContext": "Desired total weight of sausage product."
+      "businessContext": "Desired total weight of sausage product.",
+      "label_i18n": {
+        "en": "Total Sausage Weight",
+        "tr": "Total Sausage Weight",
+        "de": "Total Sausage Weight",
+        "fr": "Total Sausage Weight",
+        "es": "Total Sausage Weight",
+        "ar": "Total Sausage Weight"
+      }
     },
     {
       "id": "fatPercentage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Target fat content in the sausage mix."
+      "businessContext": "Target fat content in the sausage mix.",
+      "label_i18n": {
+        "en": "Fat Percentage",
+        "tr": "Fat Percentage",
+        "de": "Fat Percentage",
+        "fr": "Fat Percentage",
+        "es": "Fat Percentage",
+        "ar": "Fat Percentage"
+      }
     },
     {
       "id": "meatCost",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD/kg",
       "default": 5,
-      "businessContext": "Cost per kilogram of lean meat."
+      "businessContext": "Cost per kilogram of lean meat.",
+      "label_i18n": {
+        "en": "Meat Cost",
+        "tr": "Meat Cost",
+        "de": "Meat Cost",
+        "fr": "Meat Cost",
+        "es": "Meat Cost",
+        "ar": "Meat Cost"
+      }
     },
     {
       "id": "fatCost",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD/kg",
       "default": 2,
-      "businessContext": "Cost per kilogram of fat."
+      "businessContext": "Cost per kilogram of fat.",
+      "label_i18n": {
+        "en": "Fat Cost",
+        "tr": "Fat Cost",
+        "de": "Fat Cost",
+        "fr": "Fat Cost",
+        "es": "Fat Cost",
+        "ar": "Fat Cost"
+      }
     },
     {
       "id": "casingDiameter",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm",
       "default": 30,
-      "businessContext": "Diameter of sausage casing."
+      "businessContext": "Diameter of sausage casing.",
+      "label_i18n": {
+        "en": "Casing Diameter",
+        "tr": "Casing Diameter",
+        "de": "Casing Diameter",
+        "fr": "Casing Diameter",
+        "es": "Casing Diameter",
+        "ar": "Casing Diameter"
+      }
     },
     {
       "id": "casingCost",
@@ -47,22 +87,33 @@
       "type": "number",
       "unit": "USD/m",
       "default": 0.5,
-      "businessContext": "Cost per meter of casing material."
+      "businessContext": "Cost per meter of casing material.",
+      "label_i18n": {
+        "en": "Casing Cost",
+        "tr": "Casing Cost",
+        "de": "Casing Cost",
+        "fr": "Casing Cost",
+        "es": "Casing Cost",
+        "ar": "Casing Cost"
+      }
     }
   ],
   "formulas": {
     "meatWeight": "totalWeight * (1 - fatPercentage / 100)",
-    "fatWeight": "totalWeight * (fatPercentage / 100)",
-    "casingLength": "(4000 * totalWeight) / (Math.PI * Math.pow(casingDiameter, 2))",
-    "totalCost": "meatWeight * meatCost + fatWeight * fatCost + casingLength * casingCost"
+    "fatWeight": "totalWeight * (fatPercentage / 100)"
   },
   "outputs": {
-    "primary": "totalCost",
+    "primary": "fatWeight",
     "breakdown": [
       "meatWeight",
       "fatWeight",
       "casingLength"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -72,5 +123,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

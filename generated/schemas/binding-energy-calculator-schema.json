@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Atomic number of the nucleus."
+      "businessContext": "Atomic number of the nucleus.",
+      "label_i18n": {
+        "en": "Number of Protons (Z)",
+        "tr": "Number of Protons (Z)",
+        "de": "Number of Protons (Z)",
+        "fr": "Number of Protons (Z)",
+        "es": "Number of Protons (Z)",
+        "ar": "Number of Protons (Z)"
+      }
     },
     {
       "id": "neutrons",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Number of neutrons in the nucleus."
+      "businessContext": "Number of neutrons in the nucleus.",
+      "label_i18n": {
+        "en": "Number of Neutrons (N)",
+        "tr": "Number of Neutrons (N)",
+        "de": "Number of Neutrons (N)",
+        "fr": "Number of Neutrons (N)",
+        "es": "Number of Neutrons (N)",
+        "ar": "Number of Neutrons (N)"
+      }
     },
     {
       "id": "protonMass",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "u",
       "default": 1.007276466812,
-      "businessContext": "Rest mass of a proton in atomic mass units."
+      "businessContext": "Rest mass of a proton in atomic mass units.",
+      "label_i18n": {
+        "en": "Proton Mass",
+        "tr": "Proton Mass",
+        "de": "Proton Mass",
+        "fr": "Proton Mass",
+        "es": "Proton Mass",
+        "ar": "Proton Mass"
+      }
     },
     {
       "id": "neutronMass",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "u",
       "default": 1.00866491588,
-      "businessContext": "Rest mass of a neutron in atomic mass units."
+      "businessContext": "Rest mass of a neutron in atomic mass units.",
+      "label_i18n": {
+        "en": "Neutron Mass",
+        "tr": "Neutron Mass",
+        "de": "Neutron Mass",
+        "fr": "Neutron Mass",
+        "es": "Neutron Mass",
+        "ar": "Neutron Mass"
+      }
     },
     {
       "id": "nucleusMass",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "u",
       "default": 2.01410177811,
-      "businessContext": "Actual measured mass of the nucleus in atomic mass units."
+      "businessContext": "Actual measured mass of the nucleus in atomic mass units.",
+      "label_i18n": {
+        "en": "Nucleus Mass",
+        "tr": "Nucleus Mass",
+        "de": "Nucleus Mass",
+        "fr": "Nucleus Mass",
+        "es": "Nucleus Mass",
+        "ar": "Nucleus Mass"
+      }
     },
     {
       "id": "conversionFactor",
@@ -47,12 +87,19 @@
       "type": "number",
       "unit": "MeV/u",
       "default": 931.49410242,
-      "businessContext": "Energy equivalent of 1 u, standard value 931.494 MeV/u."
+      "businessContext": "Energy equivalent of 1 u, standard value 931.494 MeV/u.",
+      "label_i18n": {
+        "en": "Mass-Energy Conversion (c²)",
+        "tr": "Mass-Energy Conversion (c²)",
+        "de": "Mass-Energy Conversion (c²)",
+        "fr": "Mass-Energy Conversion (c²)",
+        "es": "Mass-Energy Conversion (c²)",
+        "ar": "Mass-Energy Conversion (c²)"
+      }
     }
   ],
   "formulas": {
     "totalBindingEnergy": "(protons * protonMass + neutrons * neutronMass - nucleusMass) * conversionFactor",
-    "bindingEnergyPerNucleon": "((protons * protonMass + neutrons * neutronMass - nucleusMass) * conversionFactor) / Math.max(1, (protons + neutrons))",
     "massDefect": "(protons * protonMass + neutrons * neutronMass - nucleusMass)"
   },
   "outputs": {
@@ -60,7 +107,12 @@
     "breakdown": [
       "bindingEnergyPerNucleon",
       "massDefect"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "massDefect"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -70,5 +122,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

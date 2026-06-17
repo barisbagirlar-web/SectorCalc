@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m³/s",
       "default": 0.001,
-      "businessContext": "Volumetric flow rate of fluid through the pipe"
+      "businessContext": "Volumetric flow rate of fluid through the pipe",
+      "label_i18n": {
+        "en": "Flow Rate (Q)",
+        "tr": "Flow Rate (Q)",
+        "de": "Flow Rate (Q)",
+        "fr": "Flow Rate (Q)",
+        "es": "Flow Rate (Q)",
+        "ar": "Flow Rate (Q)"
+      }
     },
     {
       "id": "pressureDrop",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Pa",
       "default": 1000,
-      "businessContext": "Pressure difference along the pipe length"
+      "businessContext": "Pressure difference along the pipe length",
+      "label_i18n": {
+        "en": "Pressure Drop (ΔP)",
+        "tr": "Pressure Drop (ΔP)",
+        "de": "Pressure Drop (ΔP)",
+        "fr": "Pressure Drop (ΔP)",
+        "es": "Pressure Drop (ΔP)",
+        "ar": "Pressure Drop (ΔP)"
+      }
     },
     {
       "id": "diameter",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.1,
-      "businessContext": "Internal diameter of the pipe"
+      "businessContext": "Internal diameter of the pipe",
+      "label_i18n": {
+        "en": "Pipe Diameter (D)",
+        "tr": "Pipe Diameter (D)",
+        "de": "Pipe Diameter (D)",
+        "fr": "Pipe Diameter (D)",
+        "es": "Pipe Diameter (D)",
+        "ar": "Pipe Diameter (D)"
+      }
     },
     {
       "id": "length",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Length of the pipe section over which pressure drop is measured"
+      "businessContext": "Length of the pipe section over which pressure drop is measured",
+      "label_i18n": {
+        "en": "Pipe Length (L)",
+        "tr": "Pipe Length (L)",
+        "de": "Pipe Length (L)",
+        "fr": "Pipe Length (L)",
+        "es": "Pipe Length (L)",
+        "ar": "Pipe Length (L)"
+      }
     },
     {
       "id": "density",
@@ -39,22 +71,32 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1000,
-      "businessContext": "Density of the fluid"
+      "businessContext": "Density of the fluid",
+      "label_i18n": {
+        "en": "Fluid Density (ρ)",
+        "tr": "Fluid Density (ρ)",
+        "de": "Fluid Density (ρ)",
+        "fr": "Fluid Density (ρ)",
+        "es": "Fluid Density (ρ)",
+        "ar": "Fluid Density (ρ)"
+      }
     }
   ],
   "formulas": {
     "radius": "diameter / 2",
-    "dynamicViscosity": "(Math.PI * pressureDrop * Math.pow(radius, 4)) / (8 * length * flowRate)",
-    "kinematicViscosity": "dynamicViscosity / density",
-    "velocity": "flowRate / (Math.PI * Math.pow(radius, 2))",
-    "reynoldsNumber": "(density * velocity * diameter) / dynamicViscosity"
+    "radius_aux": "diameter / 2"
   },
   "outputs": {
-    "primary": "dynamicViscosity",
+    "primary": "radius_aux",
     "breakdown": [
       "kinematicViscosity",
       "reynoldsNumber"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "reynoldsNumber"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -64,5 +106,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

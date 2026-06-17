@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Wh",
       "default": 1000,
-      "businessContext": "Total watt-hours used per day by all devices"
+      "businessContext": "Total watt-hours used per day by all devices",
+      "label_i18n": {
+        "en": "Daily Energy Consumption",
+        "tr": "Daily Energy Consumption",
+        "de": "Daily Energy Consumption",
+        "fr": "Daily Energy Consumption",
+        "es": "Daily Energy Consumption",
+        "ar": "Daily Energy Consumption"
+      }
     },
     {
       "id": "sunPeakHours",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "h",
       "default": 5,
-      "businessContext": "Number of peak sun hours per day at the location"
+      "businessContext": "Number of peak sun hours per day at the location",
+      "label_i18n": {
+        "en": "Average Sun Peak Hours",
+        "tr": "Average Sun Peak Hours",
+        "de": "Average Sun Peak Hours",
+        "fr": "Average Sun Peak Hours",
+        "es": "Average Sun Peak Hours",
+        "ar": "Average Sun Peak Hours"
+      }
     },
     {
       "id": "panelWattage",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "W",
       "default": 300,
-      "businessContext": "Rated power output of a single solar panel"
+      "businessContext": "Rated power output of a single solar panel",
+      "label_i18n": {
+        "en": "Solar Panel Wattage",
+        "tr": "Solar Panel Wattage",
+        "de": "Solar Panel Wattage",
+        "fr": "Solar Panel Wattage",
+        "es": "Solar Panel Wattage",
+        "ar": "Solar Panel Wattage"
+      }
     },
     {
       "id": "tiltAngleDeviation",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°",
       "default": 0,
-      "businessContext": "Angular deviation from optimal sun alignment (0° = perpendicular)"
+      "businessContext": "Angular deviation from optimal sun alignment (0° = perpendicular)",
+      "label_i18n": {
+        "en": "Tilt Angle Deviation",
+        "tr": "Tilt Angle Deviation",
+        "de": "Tilt Angle Deviation",
+        "fr": "Tilt Angle Deviation",
+        "es": "Tilt Angle Deviation",
+        "ar": "Tilt Angle Deviation"
+      }
     },
     {
       "id": "systemEfficiency",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 80,
-      "businessContext": "Overall system efficiency including charge controller, inverter, and wiring losses"
+      "businessContext": "Overall system efficiency including charge controller, inverter, and wiring losses",
+      "label_i18n": {
+        "en": "System Efficiency",
+        "tr": "System Efficiency",
+        "de": "System Efficiency",
+        "fr": "System Efficiency",
+        "es": "System Efficiency",
+        "ar": "System Efficiency"
+      }
     },
     {
       "id": "daysAutonomy",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "days",
       "default": 2,
-      "businessContext": "Number of consecutive days the battery must supply energy without sun"
+      "businessContext": "Number of consecutive days the battery must supply energy without sun",
+      "label_i18n": {
+        "en": "Days of Autonomy",
+        "tr": "Days of Autonomy",
+        "de": "Days of Autonomy",
+        "fr": "Days of Autonomy",
+        "es": "Days of Autonomy",
+        "ar": "Days of Autonomy"
+      }
     },
     {
       "id": "batteryVoltage",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "V",
       "default": 12,
-      "businessContext": "Nominal voltage of the battery bank"
+      "businessContext": "Nominal voltage of the battery bank",
+      "label_i18n": {
+        "en": "Battery Voltage",
+        "tr": "Battery Voltage",
+        "de": "Battery Voltage",
+        "fr": "Battery Voltage",
+        "es": "Battery Voltage",
+        "ar": "Battery Voltage"
+      }
     },
     {
       "id": "depthOfDischarge",
@@ -63,13 +119,19 @@
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "Maximum permissible discharge depth to preserve battery life (e.g., 50 for 50%)"
+      "businessContext": "Maximum permissible discharge depth to preserve battery life (e.g., 50 for 50%)",
+      "label_i18n": {
+        "en": "Depth of Discharge",
+        "tr": "Depth of Discharge",
+        "de": "Depth of Discharge",
+        "fr": "Depth of Discharge",
+        "es": "Depth of Discharge",
+        "ar": "Depth of Discharge"
+      }
     }
   ],
   "formulas": {
-    "adjustedPanelWattage": "panelWattage * Math.cos(tiltAngleDeviation * Math.PI / 180)",
     "requiredTotalWattage": "dailyEnergyWh / (sunPeakHours * systemEfficiency / 100)",
-    "numberOfPanels": "Math.ceil(requiredTotalWattage / adjustedPanelWattage)",
     "requiredBatteryCapacityAh": "(dailyEnergyWh * daysAutonomy) / (batteryVoltage * (depthOfDischarge / 100))"
   },
   "outputs": {
@@ -78,7 +140,12 @@
       "numberOfPanels",
       "requiredBatteryCapacityAh",
       "adjustedPanelWattage"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "requiredBatteryCapacityAh"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -88,5 +155,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft",
       "default": 12,
-      "businessContext": "Deck length along the house"
+      "businessContext": "Deck length along the house",
+      "label_i18n": {
+        "en": "Deck Uzunluğu (ft)",
+        "tr": "Deck Uzunluğu (ft)",
+        "de": "Deck Uzunluğu (ft)",
+        "fr": "Deck Uzunluğu (ft)",
+        "es": "Deck Uzunluğu (ft)",
+        "ar": "Deck Uzunluğu (ft)"
+      }
     },
     {
       "id": "deckWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ft",
       "default": 10,
-      "businessContext": "Deck width out from house"
+      "businessContext": "Deck width out from house",
+      "label_i18n": {
+        "en": "Deck Genişliği (ft)",
+        "tr": "Deck Genişliği (ft)",
+        "de": "Deck Genişliği (ft)",
+        "fr": "Deck Genişliği (ft)",
+        "es": "Deck Genişliği (ft)",
+        "ar": "Deck Genişliği (ft)"
+      }
     },
     {
       "id": "boardLength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ft",
       "default": 8,
-      "businessContext": "Length of each deck board"
+      "businessContext": "Length of each deck board",
+      "label_i18n": {
+        "en": "Tahta Uzunluğu (ft)",
+        "tr": "Tahta Uzunluğu (ft)",
+        "de": "Tahta Uzunluğu (ft)",
+        "fr": "Tahta Uzunluğu (ft)",
+        "es": "Tahta Uzunluğu (ft)",
+        "ar": "Tahta Uzunluğu (ft)"
+      }
     },
     {
       "id": "boardWidth",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "in",
       "default": 5.5,
-      "businessContext": "Actual width of a deck board"
+      "businessContext": "Actual width of a deck board",
+      "label_i18n": {
+        "en": "Tahta Genişliği (in)",
+        "tr": "Tahta Genişliği (in)",
+        "de": "Tahta Genişliği (in)",
+        "fr": "Tahta Genişliği (in)",
+        "es": "Tahta Genişliği (in)",
+        "ar": "Tahta Genişliği (in)"
+      }
     },
     {
       "id": "gap",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "in",
       "default": 0.125,
-      "businessContext": "Gap between boards for drainage"
+      "businessContext": "Gap between boards for drainage",
+      "label_i18n": {
+        "en": "Boşluk (in)",
+        "tr": "Boşluk (in)",
+        "de": "Boşluk (in)",
+        "fr": "Boşluk (in)",
+        "es": "Boşluk (in)",
+        "ar": "Boşluk (in)"
+      }
     },
     {
       "id": "wasteFactor",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Waste factor for cuts and defects"
+      "businessContext": "Waste factor for cuts and defects",
+      "label_i18n": {
+        "en": "Fire Oranı (%)",
+        "tr": "Fire Oranı (%)",
+        "de": "Fire Oranı (%)",
+        "fr": "Fire Oranı (%)",
+        "es": "Fire Oranı (%)",
+        "ar": "Fire Oranı (%)"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
       "deckArea",
       "boardArea",
       "rawCount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalBoards"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -72,5 +125,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

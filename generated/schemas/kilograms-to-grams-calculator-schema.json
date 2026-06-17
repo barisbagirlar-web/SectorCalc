@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "The weight of a single item or total weight in kilograms."
+      "businessContext": "The weight of a single item or total weight in kilograms.",
+      "label_i18n": {
+        "en": "Weight in Kilograms",
+        "tr": "Weight in Kilograms",
+        "de": "Weight in Kilograms",
+        "fr": "Weight in Kilograms",
+        "es": "Weight in Kilograms",
+        "ar": "Weight in Kilograms"
+      }
     },
     {
       "id": "items",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 1,
-      "businessContext": "Number of items with the given weight."
+      "businessContext": "Number of items with the given weight.",
+      "label_i18n": {
+        "en": "Number of Items",
+        "tr": "Number of Items",
+        "de": "Number of Items",
+        "fr": "Number of Items",
+        "es": "Number of Items",
+        "ar": "Number of Items"
+      }
     },
     {
       "id": "packagingKg",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Additional packaging weight per batch in kilograms."
+      "businessContext": "Additional packaging weight per batch in kilograms.",
+      "label_i18n": {
+        "en": "Packaging Weight",
+        "tr": "Packaging Weight",
+        "de": "Packaging Weight",
+        "fr": "Packaging Weight",
+        "es": "Packaging Weight",
+        "ar": "Packaging Weight"
+      }
     },
     {
       "id": "factor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "g/kg",
       "default": 1000,
-      "businessContext": "Standard conversion factor from kilograms to grams (1 kg = 1000 g). Typically 1000, but can be adjusted for specific density/materials."
+      "businessContext": "Standard conversion factor from kilograms to grams (1 kg = 1000 g). Typically 1000, but can be adjusted for specific density/materials.",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "itemGrams",
       "packagingGrams"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "packagingGrams"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

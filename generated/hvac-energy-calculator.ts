@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from hvac-energy-calculator-schema.json
 import * as z from 'zod';
 
@@ -19,28 +20,36 @@ export const Hvac_energy_calculatorInputSchema = z.object({
   electricityRate: z.number().default(0.1),
 });
 
-function evaluateAllFormulas(input: Hvac_energy_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.area * input.tempDiff * input.heatLossCoefficient / 1000; results["coolingLoad_kW"] = Number.isFinite(v) ? v : 0; } catch { results["coolingLoad_kW"] = 0; }
-  try { const v = (results["coolingLoad_kW"] ?? 0) / input.acCop * input.hoursPerDay; results["dailyEnergy_kWh"] = Number.isFinite(v) ? v : 0; } catch { results["dailyEnergy_kWh"] = 0; }
-  try { const v = (results["dailyEnergy_kWh"] ?? 0) * input.electricityRate; results["dailyCost"] = Number.isFinite(v) ? v : 0; } catch { results["dailyCost"] = 0; }
-  try { const v = (results["dailyCost"] ?? 0) * 30; results["monthlyCost"] = Number.isFinite(v) ? v : 0; } catch { results["monthlyCost"] = 0; }
-  try { const v = (results["dailyEnergy_kWh"] ?? 0) * input.electricityRate * 365; results["yearlyCost"] = Number.isFinite(v) ? v : 0; } catch { results["yearlyCost"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Hvac_energy_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.area * input.tempDiff * input.heatLossCoefficient / 1000; results["coolingLoad_kW"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["coolingLoad_kW"] = 0; }
+  try { const v = (asFormulaNumber(results["coolingLoad_kW"])) / input.acCop * input.hoursPerDay; results["dailyEnergy_kWh"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["dailyEnergy_kWh"] = 0; }
+  try { const v = (asFormulaNumber(results["dailyEnergy_kWh"])) * input.electricityRate; results["dailyCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["dailyCost"] = 0; }
+  try { const v = (asFormulaNumber(results["dailyCost"])) * 30; results["monthlyCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["monthlyCost"] = 0; }
+  try { const v = (asFormulaNumber(results["dailyEnergy_kWh"])) * input.electricityRate * 365; results["yearlyCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["yearlyCost"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateHvac_energy_calculator(input: Hvac_energy_calculatorInput): Hvac_energy_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["yearlyCost"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["yearlyCost"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

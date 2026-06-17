@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TL/ay",
       "default": 0,
-      "businessContext": "Mülkün aylık brüt kira geliri (ana kiracıdan elde edilen)."
+      "businessContext": "Mülkün aylık brüt kira geliri (ana kiracıdan elde edilen).",
+      "label_i18n": {
+        "en": "Aylık Kira Geliri",
+        "tr": "Aylık Kira Geliri",
+        "de": "Aylık Kira Geliri",
+        "fr": "Aylık Kira Geliri",
+        "es": "Aylık Kira Geliri",
+        "ar": "Aylık Kira Geliri"
+      }
     },
     {
       "id": "otherMonthlyIncome",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "TL/ay",
       "default": 0,
-      "businessContext": "Otopark, çamaşırhane, depo kirası gibi ek gelirlerin toplamı."
+      "businessContext": "Otopark, çamaşırhane, depo kirası gibi ek gelirlerin toplamı.",
+      "label_i18n": {
+        "en": "Diğer Aylık Gelirler",
+        "tr": "Diğer Aylık Gelirler",
+        "de": "Diğer Aylık Gelirler",
+        "fr": "Diğer Aylık Gelirler",
+        "es": "Diğer Aylık Gelirler",
+        "ar": "Diğer Aylık Gelirler"
+      }
     },
     {
       "id": "expensePercentage",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "İşletme giderlerinin efektif brüt gelire oranı (ipotek hariç). 50% kuralına göre varsayılan."
+      "businessContext": "İşletme giderlerinin efektif brüt gelire oranı (ipotek hariç). 50% kuralına göre varsayılan.",
+      "label_i18n": {
+        "en": "Gider Yüzdesi",
+        "tr": "Gider Yüzdesi",
+        "de": "Gider Yüzdesi",
+        "fr": "Gider Yüzdesi",
+        "es": "Gider Yüzdesi",
+        "ar": "Gider Yüzdesi"
+      }
     },
     {
       "id": "vacancyRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Kiracı boşluğu ve tahsilat kaybı nedeniyle gelir kaybı oranı."
+      "businessContext": "Kiracı boşluğu ve tahsilat kaybı nedeniyle gelir kaybı oranı.",
+      "label_i18n": {
+        "en": "Boşluk Oranı",
+        "tr": "Boşluk Oranı",
+        "de": "Boşluk Oranı",
+        "fr": "Boşluk Oranı",
+        "es": "Boşluk Oranı",
+        "ar": "Boşluk Oranı"
+      }
     }
   ],
   "formulas": {
@@ -48,7 +80,12 @@
       "effectiveGrossIncome",
       "monthlyOperatingExpenses",
       "monthlyNetOperatingIncome"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "annualNetOperatingIncome"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -58,5 +95,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

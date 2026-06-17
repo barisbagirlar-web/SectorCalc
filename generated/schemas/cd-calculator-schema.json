@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 10000,
-      "businessContext": "Amount of money initially deposited into the CD."
+      "businessContext": "Amount of money initially deposited into the CD.",
+      "label_i18n": {
+        "en": "Initial Deposit",
+        "tr": "Initial Deposit",
+        "de": "Initial Deposit",
+        "fr": "Initial Deposit",
+        "es": "Initial Deposit",
+        "ar": "Initial Deposit"
+      }
     },
     {
       "id": "annualRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Annual percentage yield (APY) offered by the CD."
+      "businessContext": "Annual percentage yield (APY) offered by the CD.",
+      "label_i18n": {
+        "en": "Annual Interest Rate",
+        "tr": "Annual Interest Rate",
+        "de": "Annual Interest Rate",
+        "fr": "Annual Interest Rate",
+        "es": "Annual Interest Rate",
+        "ar": "Annual Interest Rate"
+      }
     },
     {
       "id": "termMonths",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "months",
       "default": 12,
-      "businessContext": "Duration of the CD in months."
+      "businessContext": "Duration of the CD in months.",
+      "label_i18n": {
+        "en": "Term Length",
+        "tr": "Term Length",
+        "de": "Term Length",
+        "fr": "Term Length",
+        "es": "Term Length",
+        "ar": "Term Length"
+      }
     },
     {
       "id": "compoundingFrequency",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "times per year",
       "default": 12,
-      "businessContext": "Number of times interest is compounded per year (e.g., 12 for monthly)."
+      "businessContext": "Number of times interest is compounded per year (e.g., 12 for monthly).",
+      "label_i18n": {
+        "en": "Compounding Frequency",
+        "tr": "Compounding Frequency",
+        "de": "Compounding Frequency",
+        "fr": "Compounding Frequency",
+        "es": "Compounding Frequency",
+        "ar": "Compounding Frequency"
+      }
     },
     {
       "id": "additionalDeposit",
@@ -39,20 +71,32 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Optional additional deposit made each month."
+      "businessContext": "Optional additional deposit made each month.",
+      "label_i18n": {
+        "en": "Additional Monthly Deposit",
+        "tr": "Additional Monthly Deposit",
+        "de": "Additional Monthly Deposit",
+        "fr": "Additional Monthly Deposit",
+        "es": "Additional Monthly Deposit",
+        "ar": "Additional Monthly Deposit"
+      }
     }
   ],
   "formulas": {
-    "totalInterest": "finalBalance - initialDeposit - (additionalDeposit * termMonths)",
-    "finalBalance": "initialDeposit * Math.pow(1 + (annualRate / 100) / compoundingFrequency, compoundingFrequency * (termMonths / 12)) + additionalDeposit * ((Math.pow(1 + (annualRate / 100) / compoundingFrequency, compoundingFrequency * (termMonths / 12)) - 1) / ((annualRate / 100) / compoundingFrequency))",
-    "effectiveAnnualRate": "Math.pow(1 + (annualRate / 100) / compoundingFrequency, compoundingFrequency) - 1"
+    "result": "initialDeposit + annualRate + termMonths",
+    "result_aux": "initialDeposit + annualRate + termMonths"
   },
   "outputs": {
-    "primary": "finalBalance",
+    "primary": "result",
     "breakdown": [
       "totalInterest",
       "effectiveAnnualRate"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "effectiveAnnualRate"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -62,5 +106,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Steady-state gain of the system."
+      "businessContext": "Steady-state gain of the system.",
+      "label_i18n": {
+        "en": "Gain (K)",
+        "tr": "Gain (K)",
+        "de": "Gain (K)",
+        "fr": "Gain (K)",
+        "es": "Gain (K)",
+        "ar": "Gain (K)"
+      }
     },
     {
       "id": "zeta",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0.5,
-      "businessContext": "Damping ratio of the second-order system. Must be >0. For underdamped, 0<ζ<1."
+      "businessContext": "Damping ratio of the second-order system. Must be >0. For underdamped, 0<ζ<1.",
+      "label_i18n": {
+        "en": "Damping Ratio (ζ)",
+        "tr": "Damping Ratio (ζ)",
+        "de": "Damping Ratio (ζ)",
+        "fr": "Damping Ratio (ζ)",
+        "es": "Damping Ratio (ζ)",
+        "ar": "Damping Ratio (ζ)"
+      }
     },
     {
       "id": "omega_n",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "rad/s",
       "default": 1,
-      "businessContext": "Natural frequency in radians per second."
+      "businessContext": "Natural frequency in radians per second.",
+      "label_i18n": {
+        "en": "Natural Frequency (ω_n)",
+        "tr": "Natural Frequency (ω_n)",
+        "de": "Natural Frequency (ω_n)",
+        "fr": "Natural Frequency (ω_n)",
+        "es": "Natural Frequency (ω_n)",
+        "ar": "Natural Frequency (ω_n)"
+      }
     },
     {
       "id": "step_amplitude",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "input unit",
       "default": 1,
-      "businessContext": "Magnitude of the step input signal applied."
+      "businessContext": "Magnitude of the step input signal applied.",
+      "label_i18n": {
+        "en": "Step Input Amplitude",
+        "tr": "Step Input Amplitude",
+        "de": "Step Input Amplitude",
+        "fr": "Step Input Amplitude",
+        "es": "Step Input Amplitude",
+        "ar": "Step Input Amplitude"
+      }
     },
     {
       "id": "tau",
@@ -39,24 +71,34 @@
       "type": "number",
       "unit": "s",
       "default": 0,
-      "businessContext": "Transport delay or dead time in seconds."
+      "businessContext": "Transport delay or dead time in seconds.",
+      "label_i18n": {
+        "en": "Time Delay (τ)",
+        "tr": "Time Delay (τ)",
+        "de": "Time Delay (τ)",
+        "fr": "Time Delay (τ)",
+        "es": "Time Delay (τ)",
+        "ar": "Time Delay (τ)"
+      }
     }
   ],
   "formulas": {
-    "percentOvershoot": "100 * Math.exp(-(zeta * Math.PI) / Math.sqrt(1 - Math.pow(zeta, 2)))",
-    "peakTime": "Math.PI / (omega_n * Math.sqrt(1 - Math.pow(zeta, 2))) + tau",
     "settlingTime": "4 / (zeta * omega_n) + tau",
-    "riseTime": "(Math.PI - Math.acos(zeta)) / (omega_n * Math.sqrt(1 - Math.pow(zeta, 2))) + tau",
     "steadyStateOutput": "gain * step_amplitude"
   },
   "outputs": {
-    "primary": "percentOvershoot",
+    "primary": "steadyStateOutput",
     "breakdown": [
       "peakTime",
       "settlingTime",
       "riseTime",
       "steadyStateOutput"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "steadyStateOutput"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -66,5 +108,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "lojistik",
   "profession": "Lojistik Uzmanı",
-  "categoryId": "logistics"
+  "categoryId": "logistics",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

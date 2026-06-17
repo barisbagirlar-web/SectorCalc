@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg CO2-eq",
       "default": 0,
-      "businessContext": "Hammadde üretiminden kaynaklanan karbon ayak izi"
+      "businessContext": "Hammadde üretiminden kaynaklanan karbon ayak izi",
+      "label_i18n": {
+        "en": "Hammadde Emisyonları",
+        "tr": "Hammadde Emisyonları",
+        "de": "Hammadde Emisyonları",
+        "fr": "Hammadde Emisyonları",
+        "es": "Hammadde Emisyonları",
+        "ar": "Hammadde Emisyonları"
+      }
     },
     {
       "id": "manufacturingEmissions",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg CO2-eq",
       "default": 0,
-      "businessContext": "Üretim sürecinden kaynaklanan karbon ayak izi"
+      "businessContext": "Üretim sürecinden kaynaklanan karbon ayak izi",
+      "label_i18n": {
+        "en": "Üretim Emisyonları",
+        "tr": "Üretim Emisyonları",
+        "de": "Üretim Emisyonları",
+        "fr": "Üretim Emisyonları",
+        "es": "Üretim Emisyonları",
+        "ar": "Üretim Emisyonları"
+      }
     },
     {
       "id": "transportEmissions",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg CO2-eq",
       "default": 0,
-      "businessContext": "Taşıma ve lojistikten kaynaklanan karbon ayak izi"
+      "businessContext": "Taşıma ve lojistikten kaynaklanan karbon ayak izi",
+      "label_i18n": {
+        "en": "Nakliye Emisyonları",
+        "tr": "Nakliye Emisyonları",
+        "de": "Nakliye Emisyonları",
+        "fr": "Nakliye Emisyonları",
+        "es": "Nakliye Emisyonları",
+        "ar": "Nakliye Emisyonları"
+      }
     },
     {
       "id": "usePhaseEmissions",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg CO2-eq",
       "default": 0,
-      "businessContext": "Ürünün kullanımı sırasında ortaya çıkan karbon ayak izi"
+      "businessContext": "Ürünün kullanımı sırasında ortaya çıkan karbon ayak izi",
+      "label_i18n": {
+        "en": "Kullanım Fazı Emisyonları",
+        "tr": "Kullanım Fazı Emisyonları",
+        "de": "Kullanım Fazı Emisyonları",
+        "fr": "Kullanım Fazı Emisyonları",
+        "es": "Kullanım Fazı Emisyonları",
+        "ar": "Kullanım Fazı Emisyonları"
+      }
     },
     {
       "id": "endOfLifeEmissions",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg CO2-eq",
       "default": 0,
-      "businessContext": "Bertaraf veya geri dönüşümden kaynaklanan karbon ayak izi"
+      "businessContext": "Bertaraf veya geri dönüşümden kaynaklanan karbon ayak izi",
+      "label_i18n": {
+        "en": "Ömür Sonu Emisyonları",
+        "tr": "Ömür Sonu Emisyonları",
+        "de": "Ömür Sonu Emisyonları",
+        "fr": "Ömür Sonu Emisyonları",
+        "es": "Ömür Sonu Emisyonları",
+        "ar": "Ömür Sonu Emisyonları"
+      }
     }
   ],
   "formulas": {
@@ -58,7 +98,12 @@
       "transport",
       "usePhase",
       "endOfLife"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "endOfLife"
   },
   "category": "İmalat & Üretim",
   "sector": "Üretim & İmalat",
@@ -68,5 +113,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

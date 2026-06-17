@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 1000,
-      "businessContext": "The amount of money you start with."
+      "businessContext": "The amount of money you start with.",
+      "label_i18n": {
+        "en": "Initial Investment (PV)",
+        "tr": "Initial Investment (PV)",
+        "de": "Initial Investment (PV)",
+        "fr": "Initial Investment (PV)",
+        "es": "Initial Investment (PV)",
+        "ar": "Initial Investment (PV)"
+      }
     },
     {
       "id": "annualInterestRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "The annual nominal interest rate."
+      "businessContext": "The annual nominal interest rate.",
+      "label_i18n": {
+        "en": "Annual Interest Rate",
+        "tr": "Annual Interest Rate",
+        "de": "Annual Interest Rate",
+        "fr": "Annual Interest Rate",
+        "es": "Annual Interest Rate",
+        "ar": "Annual Interest Rate"
+      }
     },
     {
       "id": "periods",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 10,
-      "businessContext": "The total number of years the money is invested for."
+      "businessContext": "The total number of years the money is invested for.",
+      "label_i18n": {
+        "en": "Number of Years",
+        "tr": "Number of Years",
+        "de": "Number of Years",
+        "fr": "Number of Years",
+        "es": "Number of Years",
+        "ar": "Number of Years"
+      }
     },
     {
       "id": "compoundingFrequency",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "times per year",
       "default": 12,
-      "businessContext": "How often interest is compounded per year (e.g., 1 for annual, 12 for monthly)."
+      "businessContext": "How often interest is compounded per year (e.g., 1 for annual, 12 for monthly).",
+      "label_i18n": {
+        "en": "Compounding Frequency",
+        "tr": "Compounding Frequency",
+        "de": "Compounding Frequency",
+        "fr": "Compounding Frequency",
+        "es": "Compounding Frequency",
+        "ar": "Compounding Frequency"
+      }
     },
     {
       "id": "periodicPayment",
@@ -39,20 +71,32 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "The amount added to the investment at each compounding period. Positive for contributions."
+      "businessContext": "The amount added to the investment at each compounding period. Positive for contributions.",
+      "label_i18n": {
+        "en": "Periodic Payment (PMT)",
+        "tr": "Periodic Payment (PMT)",
+        "de": "Periodic Payment (PMT)",
+        "fr": "Periodic Payment (PMT)",
+        "es": "Periodic Payment (PMT)",
+        "ar": "Periodic Payment (PMT)"
+      }
     }
   ],
   "formulas": {
-    "futureValue": "(function(r,n,pv,pmt){return pv*Math.pow(1+r,n)+(r!==0?pmt*((Math.pow(1+r,n)-1)/r):pmt*n);})(annualInterestRate/100/compoundingFrequency,periods*compoundingFrequency,presentValue,periodicPayment)",
     "totalContributions": "presentValue+periodicPayment*periods*compoundingFrequency",
-    "totalInterest": "(function(r,n,pv,pmt){return pv*(Math.pow(1+r,n)-1)+(r!==0?pmt*((Math.pow(1+r,n)-1)/r-n):0);})(annualInterestRate/100/compoundingFrequency,periods*compoundingFrequency,presentValue,periodicPayment)"
+    "totalContributions_aux": "presentValue+periodicPayment*periods*compoundingFrequency"
   },
   "outputs": {
-    "primary": "futureValue",
+    "primary": "totalContributions_aux",
     "breakdown": [
       "totalContributions",
       "totalInterest"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalInterest"
   },
   "category": "Proje & Yatırım",
   "sector": "Finans & İK",
@@ -62,5 +106,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

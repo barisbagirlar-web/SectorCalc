@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "on yıl",
       "default": 1,
-      "businessContext": "Dönüştürülecek on yıl miktarı"
+      "businessContext": "Dönüştürülecek on yıl miktarı",
+      "label_i18n": {
+        "en": "Süre (on yıl)",
+        "tr": "Süre (on yıl)",
+        "de": "Süre (on yıl)",
+        "fr": "Süre (on yıl)",
+        "es": "Süre (on yıl)",
+        "ar": "Süre (on yıl)"
+      }
     },
     {
       "id": "precision",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "basamak",
       "default": 3,
-      "businessContext": "Hesaplama sonucu ondalık basamak sayısı"
+      "businessContext": "Hesaplama sonucu ondalık basamak sayısı",
+      "label_i18n": {
+        "en": "Hassasiyet (ondalık basamak)",
+        "tr": "Hassasiyet (ondalık basamak)",
+        "de": "Hassasiyet (ondalık basamak)",
+        "fr": "Hassasiyet (ondalık basamak)",
+        "es": "Hassasiyet (ondalık basamak)",
+        "ar": "Hassasiyet (ondalık basamak)"
+      }
     },
     {
       "id": "confidenceLevel",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 95,
-      "businessContext": "İstatistiksel güven aralığı yüzdesi"
+      "businessContext": "İstatistiksel güven aralığı yüzdesi",
+      "label_i18n": {
+        "en": "Güven Aralığı (%)",
+        "tr": "Güven Aralığı (%)",
+        "de": "Güven Aralığı (%)",
+        "fr": "Güven Aralığı (%)",
+        "es": "Güven Aralığı (%)",
+        "ar": "Güven Aralığı (%)"
+      }
     },
     {
       "id": "measurementError",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "on yıl",
       "default": 0.01,
-      "businessContext": "On yıl cinsinden ölçüm belirsizliği (±)"
+      "businessContext": "On yıl cinsinden ölçüm belirsizliği (±)",
+      "label_i18n": {
+        "en": "Ölçüm Hatası (on yıl)",
+        "tr": "Ölçüm Hatası (on yıl)",
+        "de": "Ölçüm Hatası (on yıl)",
+        "fr": "Ölçüm Hatası (on yıl)",
+        "es": "Ölçüm Hatası (on yıl)",
+        "ar": "Ölçüm Hatası (on yıl)"
+      }
     },
     {
       "id": "roundingMethod",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "-",
       "default": 0,
-      "businessContext": "0: yuvarla, 1: aşağı yuvarla, 2: yukarı yuvarla"
+      "businessContext": "0: yuvarla, 1: aşağı yuvarla, 2: yukarı yuvarla",
+      "label_i18n": {
+        "en": "Yuvarlama Metodu (0=round,1=floor,2=ceil)",
+        "tr": "Yuvarlama Metodu (0=round,1=floor,2=ceil)",
+        "de": "Yuvarlama Metodu (0=round,1=floor,2=ceil)",
+        "fr": "Yuvarlama Metodu (0=round,1=floor,2=ceil)",
+        "es": "Yuvarlama Metodu (0=round,1=floor,2=ceil)",
+        "ar": "Yuvarlama Metodu (0=round,1=floor,2=ceil)"
+      }
     },
     {
       "id": "ambientTemp",
@@ -47,24 +87,33 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Ölçümün yapıldığı ortam sıcaklığı (izlenebilirlik için)"
+      "businessContext": "Ölçümün yapıldığı ortam sıcaklığı (izlenebilirlik için)",
+      "label_i18n": {
+        "en": "Ölçüm Sıcaklığı (°C)",
+        "tr": "Ölçüm Sıcaklığı (°C)",
+        "de": "Ölçüm Sıcaklığı (°C)",
+        "fr": "Ölçüm Sıcaklığı (°C)",
+        "es": "Ölçüm Sıcaklığı (°C)",
+        "ar": "Ölçüm Sıcaklığı (°C)"
+      }
     }
   ],
   "formulas": {
     "rawCenturies": "decades / 10",
-    "convertedCenturies": "roundingMethod == 0 ? Math.round(rawCenturies * Math.pow(10, precision)) / Math.pow(10, precision) : roundingMethod == 1 ? Math.floor(rawCenturies * Math.pow(10, precision)) / Math.pow(10, precision) : Math.ceil(rawCenturies * Math.pow(10, precision)) / Math.pow(10, precision)",
-    "rawLower": "(decades - Math.abs(measurementError)) / 10",
-    "rawUpper": "(decades + Math.abs(measurementError)) / 10",
-    "lowerBound": "roundingMethod == 0 ? Math.round(rawLower * Math.pow(10, precision)) / Math.pow(10, precision) : roundingMethod == 1 ? Math.floor(rawLower * Math.pow(10, precision)) / Math.pow(10, precision) : Math.ceil(rawLower * Math.pow(10, precision)) / Math.pow(10, precision)",
-    "upperBound": "roundingMethod == 0 ? Math.round(rawUpper * Math.pow(10, precision)) / Math.pow(10, precision) : roundingMethod == 1 ? Math.floor(rawUpper * Math.pow(10, precision)) / Math.pow(10, precision) : Math.ceil(rawUpper * Math.pow(10, precision)) / Math.pow(10, precision)"
+    "rawCenturies_aux": "decades / 10"
   },
   "outputs": {
-    "primary": "convertedCenturies",
+    "primary": "rawCenturies_aux",
     "breakdown": [
       "rawCenturies",
       "lowerBound",
       "upperBound"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "upperBound"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -74,5 +123,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

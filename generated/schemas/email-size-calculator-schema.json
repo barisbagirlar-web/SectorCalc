@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "characters",
       "default": 1000,
-      "businessContext": "The number of characters in the email body text."
+      "businessContext": "The number of characters in the email body text.",
+      "label_i18n": {
+        "en": "Number of Text Characters",
+        "tr": "Number of Text Characters",
+        "de": "Number of Text Characters",
+        "fr": "Number of Text Characters",
+        "es": "Number of Text Characters",
+        "ar": "Number of Text Characters"
+      }
     },
     {
       "id": "attachmentCount",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "count",
       "default": 2,
-      "businessContext": "Total number of file attachments."
+      "businessContext": "Total number of file attachments.",
+      "label_i18n": {
+        "en": "Number of Attachments",
+        "tr": "Number of Attachments",
+        "de": "Number of Attachments",
+        "fr": "Number of Attachments",
+        "es": "Number of Attachments",
+        "ar": "Number of Attachments"
+      }
     },
     {
       "id": "avgAttachmentSize",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "KB",
       "default": 500,
-      "businessContext": "Average file size per attachment in kilobytes."
+      "businessContext": "Average file size per attachment in kilobytes.",
+      "label_i18n": {
+        "en": "Average Attachment Size",
+        "tr": "Average Attachment Size",
+        "de": "Average Attachment Size",
+        "fr": "Average Attachment Size",
+        "es": "Average Attachment Size",
+        "ar": "Average Attachment Size"
+      }
     },
     {
       "id": "embeddedImageCount",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "count",
       "default": 3,
-      "businessContext": "Number of inline/embedded images in the email content."
+      "businessContext": "Number of inline/embedded images in the email content.",
+      "label_i18n": {
+        "en": "Number of Embedded Images",
+        "tr": "Number of Embedded Images",
+        "de": "Number of Embedded Images",
+        "fr": "Number of Embedded Images",
+        "es": "Number of Embedded Images",
+        "ar": "Number of Embedded Images"
+      }
     },
     {
       "id": "avgImageSize",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "KB",
       "default": 200,
-      "businessContext": "Average size per embedded image in kilobytes."
+      "businessContext": "Average size per embedded image in kilobytes.",
+      "label_i18n": {
+        "en": "Average Image Size",
+        "tr": "Average Image Size",
+        "de": "Average Image Size",
+        "fr": "Average Image Size",
+        "es": "Average Image Size",
+        "ar": "Average Image Size"
+      }
     },
     {
       "id": "metadataSize",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "bytes",
       "default": 1024,
-      "businessContext": "Size of email headers, signatures, and other metadata in bytes."
+      "businessContext": "Size of email headers, signatures, and other metadata in bytes.",
+      "label_i18n": {
+        "en": "Metadata Overhead",
+        "tr": "Metadata Overhead",
+        "de": "Metadata Overhead",
+        "fr": "Metadata Overhead",
+        "es": "Metadata Overhead",
+        "ar": "Metadata Overhead"
+      }
     }
   ],
   "formulas": {
@@ -67,7 +115,12 @@
       "imagesKB",
       "metadataKB",
       "totalMB"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "metadataKB"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -77,5 +130,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

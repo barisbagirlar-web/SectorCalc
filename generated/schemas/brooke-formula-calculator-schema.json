@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Patient's body weight in kilograms."
+      "businessContext": "Patient's body weight in kilograms.",
+      "label_i18n": {
+        "en": "Body Weight",
+        "tr": "Body Weight",
+        "de": "Body Weight",
+        "fr": "Body Weight",
+        "es": "Body Weight",
+        "ar": "Body Weight"
+      }
     },
     {
       "id": "tbsa",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Percentage of total body surface area affected by burns."
+      "businessContext": "Percentage of total body surface area affected by burns.",
+      "label_i18n": {
+        "en": "Total Burn Surface Area",
+        "tr": "Total Burn Surface Area",
+        "de": "Total Burn Surface Area",
+        "fr": "Total Burn Surface Area",
+        "es": "Total Burn Surface Area",
+        "ar": "Total Burn Surface Area"
+      }
     },
     {
       "id": "fluidFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mL/kg/%",
       "default": 2,
-      "businessContext": "Standard Brooke formula uses 2 mL/kg/% TBSA."
+      "businessContext": "Standard Brooke formula uses 2 mL/kg/% TBSA.",
+      "label_i18n": {
+        "en": "Fluid Volume Factor",
+        "tr": "Fluid Volume Factor",
+        "de": "Fluid Volume Factor",
+        "fr": "Fluid Volume Factor",
+        "es": "Fluid Volume Factor",
+        "ar": "Fluid Volume Factor"
+      }
     },
     {
       "id": "firstPeriodHours",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "h",
       "default": 8,
-      "businessContext": "Hours for first half of fluid administration."
+      "businessContext": "Hours for first half of fluid administration.",
+      "label_i18n": {
+        "en": "First Period Hours",
+        "tr": "First Period Hours",
+        "de": "First Period Hours",
+        "fr": "First Period Hours",
+        "es": "First Period Hours",
+        "ar": "First Period Hours"
+      }
     },
     {
       "id": "secondPeriodHours",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "h",
       "default": 16,
-      "businessContext": "Hours for second half of fluid administration."
+      "businessContext": "Hours for second half of fluid administration.",
+      "label_i18n": {
+        "en": "Second Period Hours",
+        "tr": "Second Period Hours",
+        "de": "Second Period Hours",
+        "fr": "Second Period Hours",
+        "es": "Second Period Hours",
+        "ar": "Second Period Hours"
+      }
     }
   ],
   "formulas": {
@@ -56,7 +96,12 @@
       "secondHalf",
       "firstHourlyRate",
       "secondHourlyRate"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "secondHourlyRate"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -66,5 +111,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Kullanılan çelik malzeme ağırlığı"
+      "businessContext": "Kullanılan çelik malzeme ağırlığı",
+      "label_i18n": {
+        "en": "Çelik (kg)",
+        "tr": "Çelik (kg)",
+        "de": "Çelik (kg)",
+        "fr": "Çelik (kg)",
+        "es": "Çelik (kg)",
+        "ar": "Çelik (kg)"
+      }
     },
     {
       "id": "concreteMass",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Kullanılan beton malzeme ağırlığı"
+      "businessContext": "Kullanılan beton malzeme ağırlığı",
+      "label_i18n": {
+        "en": "Beton (kg)",
+        "tr": "Beton (kg)",
+        "de": "Beton (kg)",
+        "fr": "Beton (kg)",
+        "es": "Beton (kg)",
+        "ar": "Beton (kg)"
+      }
     },
     {
       "id": "timberMass",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Kullanılan ahşap malzeme ağırlığı"
+      "businessContext": "Kullanılan ahşap malzeme ağırlığı",
+      "label_i18n": {
+        "en": "Ahşap (kg)",
+        "tr": "Ahşap (kg)",
+        "de": "Ahşap (kg)",
+        "fr": "Ahşap (kg)",
+        "es": "Ahşap (kg)",
+        "ar": "Ahşap (kg)"
+      }
     },
     {
       "id": "glassMass",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Kullanılan cam malzeme ağırlığı"
+      "businessContext": "Kullanılan cam malzeme ağırlığı",
+      "label_i18n": {
+        "en": "Cam (kg)",
+        "tr": "Cam (kg)",
+        "de": "Cam (kg)",
+        "fr": "Cam (kg)",
+        "es": "Cam (kg)",
+        "ar": "Cam (kg)"
+      }
     },
     {
       "id": "insulationMass",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Kullanılan yalıtım malzemesi ağırlığı"
+      "businessContext": "Kullanılan yalıtım malzemesi ağırlığı",
+      "label_i18n": {
+        "en": "Yalıtım (kg)",
+        "tr": "Yalıtım (kg)",
+        "de": "Yalıtım (kg)",
+        "fr": "Yalıtım (kg)",
+        "es": "Yalıtım (kg)",
+        "ar": "Yalıtım (kg)"
+      }
     },
     {
       "id": "area",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "m²",
       "default": 1,
-      "businessContext": "Toplam inşaat alanı"
+      "businessContext": "Toplam inşaat alanı",
+      "label_i18n": {
+        "en": "Toplam Alan (m²)",
+        "tr": "Toplam Alan (m²)",
+        "de": "Toplam Alan (m²)",
+        "fr": "Toplam Alan (m²)",
+        "es": "Toplam Alan (m²)",
+        "ar": "Toplam Alan (m²)"
+      }
     }
   ],
   "formulas": {
@@ -67,7 +115,12 @@
       "timberContribution",
       "glassContribution",
       "insulationContribution"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "insulationContribution"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -77,5 +130,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

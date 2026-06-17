@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Total length of the deck area in meters."
+      "businessContext": "Total length of the deck area in meters.",
+      "label_i18n": {
+        "en": "Deck Length",
+        "tr": "Deck Length",
+        "de": "Deck Length",
+        "fr": "Deck Length",
+        "es": "Deck Length",
+        "ar": "Deck Length"
+      }
     },
     {
       "id": "deckWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 4,
-      "businessContext": "Total width of the deck area in meters."
+      "businessContext": "Total width of the deck area in meters.",
+      "label_i18n": {
+        "en": "Deck Width",
+        "tr": "Deck Width",
+        "de": "Deck Width",
+        "fr": "Deck Width",
+        "es": "Deck Width",
+        "ar": "Deck Width"
+      }
     },
     {
       "id": "boardLength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 2.4,
-      "businessContext": "Length of one deck board, typically available in standard sizes."
+      "businessContext": "Length of one deck board, typically available in standard sizes.",
+      "label_i18n": {
+        "en": "Board Length",
+        "tr": "Board Length",
+        "de": "Board Length",
+        "fr": "Board Length",
+        "es": "Board Length",
+        "ar": "Board Length"
+      }
     },
     {
       "id": "boardWidth",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.14,
-      "businessContext": "Width of one deck board (e.g., 140 mm = 0.14 m)."
+      "businessContext": "Width of one deck board (e.g., 140 mm = 0.14 m).",
+      "label_i18n": {
+        "en": "Board Width",
+        "tr": "Board Width",
+        "de": "Board Width",
+        "fr": "Board Width",
+        "es": "Board Width",
+        "ar": "Board Width"
+      }
     },
     {
       "id": "boardPrice",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "$",
       "default": 8.5,
-      "businessContext": "Unit price of one deck board in currency."
+      "businessContext": "Unit price of one deck board in currency.",
+      "label_i18n": {
+        "en": "Board Price",
+        "tr": "Board Price",
+        "de": "Board Price",
+        "fr": "Board Price",
+        "es": "Board Price",
+        "ar": "Board Price"
+      }
     },
     {
       "id": "wasteFactor",
@@ -47,20 +87,32 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Additional material percentage to account for cuts and waste (e.g., 10% = 0.1)."
+      "businessContext": "Additional material percentage to account for cuts and waste (e.g., 10% = 0.1).",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     }
   ],
   "formulas": {
     "area": "deckLength * deckWidth",
-    "boardsNeeded": "Math.ceil((deckLength * deckWidth) / (boardLength * boardWidth) * (1 + wasteFactor / 100))",
-    "totalCost": "boardsNeeded * boardPrice"
+    "area_aux": "deckLength * deckWidth"
   },
   "outputs": {
-    "primary": "totalCost",
+    "primary": "area_aux",
     "breakdown": [
       "area",
       "boardsNeeded"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -70,5 +122,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

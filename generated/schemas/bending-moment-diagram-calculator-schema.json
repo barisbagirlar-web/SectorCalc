@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Kirişin toplam uzunluğu (m)"
+      "businessContext": "Kirişin toplam uzunluğu (m)",
+      "label_i18n": {
+        "en": "Kiriş Uzunluğu",
+        "tr": "Kiriş Uzunluğu",
+        "de": "Kiriş Uzunluğu",
+        "fr": "Kiriş Uzunluğu",
+        "es": "Kiriş Uzunluğu",
+        "ar": "Kiriş Uzunluğu"
+      }
     },
     {
       "id": "loadMagnitude",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kN",
       "default": 10,
-      "businessContext": "Tekil yükün büyüklüğü (kN)"
+      "businessContext": "Tekil yükün büyüklüğü (kN)",
+      "label_i18n": {
+        "en": "Yük Büyüklüğü",
+        "tr": "Yük Büyüklüğü",
+        "de": "Yük Büyüklüğü",
+        "fr": "Yük Büyüklüğü",
+        "es": "Yük Büyüklüğü",
+        "ar": "Yük Büyüklüğü"
+      }
     },
     {
       "id": "loadPosition",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 2.5,
-      "businessContext": "Yükün sol mesnetten uzaklığı (m)"
+      "businessContext": "Yükün sol mesnetten uzaklığı (m)",
+      "label_i18n": {
+        "en": "Yük Konumu",
+        "tr": "Yük Konumu",
+        "de": "Yük Konumu",
+        "fr": "Yük Konumu",
+        "es": "Yük Konumu",
+        "ar": "Yük Konumu"
+      }
     },
     {
       "id": "distanceX",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 2.5,
-      "businessContext": "Moment hesabı yapılan kesitin sol mesnetten uzaklığı (m)"
+      "businessContext": "Moment hesabı yapılan kesitin sol mesnetten uzaklığı (m)",
+      "label_i18n": {
+        "en": "Kesit Konumu",
+        "tr": "Kesit Konumu",
+        "de": "Kesit Konumu",
+        "fr": "Kesit Konumu",
+        "es": "Kesit Konumu",
+        "ar": "Kesit Konumu"
+      }
     }
   ],
   "formulas": {
@@ -48,7 +80,12 @@
       "rightReaction",
       "maxBendingMoment",
       "maxMomentLocation"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "maxMomentLocation"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -58,5 +95,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

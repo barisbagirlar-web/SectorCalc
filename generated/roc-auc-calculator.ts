@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from roc-auc-calculator-schema.json
 import * as z from 'zod';
 
@@ -23,25 +24,33 @@ export const Roc_auc_calculatorInputSchema = z.object({
   tpr4: z.number().default(0.95),
 });
 
-function evaluateAllFormulas(input: Roc_auc_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = 0.5 * (input.fpr1 * input.tpr1 + (input.fpr2 - input.fpr1) * (input.tpr1 + input.tpr2) + (input.fpr3 - input.fpr2) * (input.tpr2 + input.tpr3) + (input.fpr4 - input.fpr3) * (input.tpr3 + input.tpr4) + (1 - input.fpr4) * (input.tpr4 + 1)); results["auc"] = Number.isFinite(v) ? v : 0; } catch { results["auc"] = 0; }
-  try { const v = 2 * (results["auc"] ?? 0) - 1; results["gini"] = Number.isFinite(v) ? v : 0; } catch { results["gini"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Roc_auc_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = 0.5 * (input.fpr1 * input.tpr1 + (input.fpr2 - input.fpr1) * (input.tpr1 + input.tpr2) + (input.fpr3 - input.fpr2) * (input.tpr2 + input.tpr3) + (input.fpr4 - input.fpr3) * (input.tpr3 + input.tpr4) + (1 - input.fpr4) * (input.tpr4 + 1)); results["auc"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["auc"] = 0; }
+  try { const v = 2 * (asFormulaNumber(results["auc"])) - 1; results["gini"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["gini"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateRoc_auc_calculator(input: Roc_auc_calculatorInput): Roc_auc_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["auc"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["auc"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

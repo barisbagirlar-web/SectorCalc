@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 100,
-      "businessContext": "Bir müşteriden aylık olarak elde edilen ortalama gelir."
+      "businessContext": "Bir müşteriden aylık olarak elde edilen ortalama gelir.",
+      "label_i18n": {
+        "en": "Aylık Ortalama Gelir (ARPU)",
+        "tr": "Aylık Ortalama Gelir (ARPU)",
+        "de": "Aylık Ortalama Gelir (ARPU)",
+        "fr": "Aylık Ortalama Gelir (ARPU)",
+        "es": "Aylık Ortalama Gelir (ARPU)",
+        "ar": "Aylık Ortalama Gelir (ARPU)"
+      }
     },
     {
       "id": "grossMargin",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 70,
-      "businessContext": "Satılan her birim ürün/hizmetten elde edilen brüt kar yüzdesi."
+      "businessContext": "Satılan her birim ürün/hizmetten elde edilen brüt kar yüzdesi.",
+      "label_i18n": {
+        "en": "Brüt Kar Marjı (%)",
+        "tr": "Brüt Kar Marjı (%)",
+        "de": "Brüt Kar Marjı (%)",
+        "fr": "Brüt Kar Marjı (%)",
+        "es": "Brüt Kar Marjı (%)",
+        "ar": "Brüt Kar Marjı (%)"
+      }
     },
     {
       "id": "churn",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Her ay müşteri tabanının ne kadarının kaybedildiğini gösteren oran."
+      "businessContext": "Her ay müşteri tabanının ne kadarının kaybedildiğini gösteren oran.",
+      "label_i18n": {
+        "en": "Aylık Kayıp Oranı (%)",
+        "tr": "Aylık Kayıp Oranı (%)",
+        "de": "Aylık Kayıp Oranı (%)",
+        "fr": "Aylık Kayıp Oranı (%)",
+        "es": "Aylık Kayıp Oranı (%)",
+        "ar": "Aylık Kayıp Oranı (%)"
+      }
     },
     {
       "id": "discount",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Gelecekteki nakit akışlarının bugünkü değerini bulmak için kullanılan yıllık iskonto oranı."
+      "businessContext": "Gelecekteki nakit akışlarının bugünkü değerini bulmak için kullanılan yıllık iskonto oranı.",
+      "label_i18n": {
+        "en": "İskonto Oranı (%)",
+        "tr": "İskonto Oranı (%)",
+        "de": "İskonto Oranı (%)",
+        "fr": "İskonto Oranı (%)",
+        "es": "İskonto Oranı (%)",
+        "ar": "İskonto Oranı (%)"
+      }
     },
     {
       "id": "totalCacSpend",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 50000,
-      "businessContext": "Belirli bir dönemdeki toplam pazarlama ve satış harcamaları."
+      "businessContext": "Belirli bir dönemdeki toplam pazarlama ve satış harcamaları.",
+      "label_i18n": {
+        "en": "Toplam Edinme Maliyeti",
+        "tr": "Toplam Edinme Maliyeti",
+        "de": "Toplam Edinme Maliyeti",
+        "fr": "Toplam Edinme Maliyeti",
+        "es": "Toplam Edinme Maliyeti",
+        "ar": "Toplam Edinme Maliyeti"
+      }
     },
     {
       "id": "newCustomers",
@@ -47,20 +87,32 @@
       "type": "number",
       "unit": "adet",
       "default": 100,
-      "businessContext": "Aynı dönemde kazanılan yeni müşteri sayısı."
+      "businessContext": "Aynı dönemde kazanılan yeni müşteri sayısı.",
+      "label_i18n": {
+        "en": "Kazanılan Yeni Müşteri Sayısı",
+        "tr": "Kazanılan Yeni Müşteri Sayısı",
+        "de": "Kazanılan Yeni Müşteri Sayısı",
+        "fr": "Kazanılan Yeni Müşteri Sayısı",
+        "es": "Kazanılan Yeni Müşteri Sayısı",
+        "ar": "Kazanılan Yeni Müşteri Sayısı"
+      }
     }
   ],
   "formulas": {
-    "LTV": "(arpu * (grossMargin / 100)) / ((churn / 100) + (Math.pow(1 + discount / 100, 1/12) - 1))",
     "CAC": "totalCacSpend / newCustomers",
-    "LTV_CAC_Ratio": "LTV / CAC"
+    "CAC_aux": "totalCacSpend / newCustomers"
   },
   "outputs": {
-    "primary": "LTV_CAC_Ratio",
+    "primary": "CAC_aux",
     "breakdown": [
       "LTV",
       "CAC"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "LTV_CAC_Ratio"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -70,5 +122,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

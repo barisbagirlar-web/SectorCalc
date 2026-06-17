@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Age of the mother in years"
+      "businessContext": "Age of the mother in years",
+      "label_i18n": {
+        "en": "Maternal Age",
+        "tr": "Maternal Age",
+        "de": "Maternal Age",
+        "fr": "Maternal Age",
+        "es": "Maternal Age",
+        "ar": "Maternal Age"
+      }
     },
     {
       "id": "cervicalLength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 35,
-      "businessContext": "Cervical length measured by transvaginal ultrasound"
+      "businessContext": "Cervical length measured by transvaginal ultrasound",
+      "label_i18n": {
+        "en": "Cervical Length",
+        "tr": "Cervical Length",
+        "de": "Cervical Length",
+        "fr": "Cervical Length",
+        "es": "Cervical Length",
+        "ar": "Cervical Length"
+      }
     },
     {
       "id": "fetalFibronectin",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ng/mL",
       "default": 20,
-      "businessContext": "Concentration of fetal fibronectin in cervicovaginal fluid"
+      "businessContext": "Concentration of fetal fibronectin in cervicovaginal fluid",
+      "label_i18n": {
+        "en": "Fetal Fibronectin",
+        "tr": "Fetal Fibronectin",
+        "de": "Fetal Fibronectin",
+        "fr": "Fetal Fibronectin",
+        "es": "Fetal Fibronectin",
+        "ar": "Fetal Fibronectin"
+      }
     },
     {
       "id": "previousPreterm",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "0=No, 1=Yes",
       "default": 0,
-      "businessContext": "History of previous spontaneous preterm birth"
+      "businessContext": "History of previous spontaneous preterm birth",
+      "label_i18n": {
+        "en": "Previous Preterm Birth",
+        "tr": "Previous Preterm Birth",
+        "de": "Previous Preterm Birth",
+        "fr": "Previous Preterm Birth",
+        "es": "Previous Preterm Birth",
+        "ar": "Previous Preterm Birth"
+      }
     }
   ],
   "formulas": {
     "linearCombo": "-3 + 0.1*age - 0.1*cervicalLength + 0.01*fetalFibronectin + 1.5*previousPreterm",
-    "riskProbability": "1 / (1 + Math.exp(-linearCombo))",
-    "riskPercent": "riskProbability * 100"
+    "linearCombo_aux": "-3 + 0.1*age - 0.1*cervicalLength + 0.01*fetalFibronectin + 1.5*previousPreterm"
   },
   "outputs": {
-    "primary": "riskPercent",
+    "primary": "linearCombo_aux",
     "breakdown": [
       "linearCombo",
       "riskProbability"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "riskPercent"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -54,5 +90,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

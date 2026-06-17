@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 58,
-      "businessContext": "Measured circumference around widest part of head."
+      "businessContext": "Measured circumference around widest part of head.",
+      "label_i18n": {
+        "en": "Head Circumference",
+        "tr": "Head Circumference",
+        "de": "Head Circumference",
+        "fr": "Head Circumference",
+        "es": "Head Circumference",
+        "ar": "Head Circumference"
+      }
     },
     {
       "id": "unitSystem",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "0=cm,1=inches",
       "default": 0,
-      "businessContext": "0 for metric input in cm, 1 for imperial input in inches."
+      "businessContext": "0 for metric input in cm, 1 for imperial input in inches.",
+      "label_i18n": {
+        "en": "Measurement System",
+        "tr": "Measurement System",
+        "de": "Measurement System",
+        "fr": "Measurement System",
+        "es": "Measurement System",
+        "ar": "Measurement System"
+      }
     },
     {
       "id": "hairThickness",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 0.5,
-      "businessContext": "Extra centimeters to add for thick hair (0 for none)."
+      "businessContext": "Extra centimeters to add for thick hair (0 for none).",
+      "label_i18n": {
+        "en": "Hair Thickness Allowance",
+        "tr": "Hair Thickness Allowance",
+        "de": "Hair Thickness Allowance",
+        "fr": "Hair Thickness Allowance",
+        "es": "Hair Thickness Allowance",
+        "ar": "Hair Thickness Allowance"
+      }
     },
     {
       "id": "fitPreference",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "tight=0,standard=1,loose=2",
       "default": 1,
-      "businessContext": "0 for tight fit (subtract 0.5 cm), 1 for standard, 2 for loose fit (add 0.5 cm)."
+      "businessContext": "0 for tight fit (subtract 0.5 cm), 1 for standard, 2 for loose fit (add 0.5 cm).",
+      "label_i18n": {
+        "en": "Fit Preference",
+        "tr": "Fit Preference",
+        "de": "Fit Preference",
+        "fr": "Fit Preference",
+        "es": "Fit Preference",
+        "ar": "Fit Preference"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "euSize",
       "ukSize"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "ukSize"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

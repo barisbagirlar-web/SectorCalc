@@ -85,16 +85,20 @@
   "formulas": {
     "netMonthlyGrowth": "growthRatePerMonth - breakagePerMonth * (1 - protectionFactor)",
     "breakageLossPerMonth": "breakagePerMonth * (1 - protectionFactor)",
-    "netDailyGrowth": "netMonthlyGrowth / 30",
-    "estimatedDays": "Math.max(0, (targetLength - initialLength) / netDailyGrowth)"
+    "netDailyGrowth": "netMonthlyGrowth / 30"
   },
   "outputs": {
-    "primary": "estimatedDays",
+    "primary": "netDailyGrowth",
     "breakdown": [
       "netDailyGrowth",
       "netMonthlyGrowth",
       "breakageLossPerMonth"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "estimatedDays"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -104,5 +108,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

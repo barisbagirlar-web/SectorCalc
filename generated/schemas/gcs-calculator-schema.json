@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 100,
-      "businessContext": "Direct material cost per unit"
+      "businessContext": "Direct material cost per unit",
+      "label_i18n": {
+        "en": "Material Cost",
+        "tr": "Material Cost",
+        "de": "Material Cost",
+        "fr": "Material Cost",
+        "es": "Material Cost",
+        "ar": "Material Cost"
+      }
     },
     {
       "id": "laborCost",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 50,
-      "businessContext": "Direct labor cost per unit"
+      "businessContext": "Direct labor cost per unit",
+      "label_i18n": {
+        "en": "Labor Cost",
+        "tr": "Labor Cost",
+        "de": "Labor Cost",
+        "fr": "Labor Cost",
+        "es": "Labor Cost",
+        "ar": "Labor Cost"
+      }
     },
     {
       "id": "overheadRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Manufacturing overhead as percentage of direct cost"
+      "businessContext": "Manufacturing overhead as percentage of direct cost",
+      "label_i18n": {
+        "en": "Overhead Rate",
+        "tr": "Overhead Rate",
+        "de": "Overhead Rate",
+        "fr": "Overhead Rate",
+        "es": "Overhead Rate",
+        "ar": "Overhead Rate"
+      }
     },
     {
       "id": "marginRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Desired profit margin on total cost"
+      "businessContext": "Desired profit margin on total cost",
+      "label_i18n": {
+        "en": "Margin Rate",
+        "tr": "Margin Rate",
+        "de": "Margin Rate",
+        "fr": "Margin Rate",
+        "es": "Margin Rate",
+        "ar": "Margin Rate"
+      }
     },
     {
       "id": "quantity",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 100,
-      "businessContext": "Number of units produced"
+      "businessContext": "Number of units produced",
+      "label_i18n": {
+        "en": "Quantity",
+        "tr": "Quantity",
+        "de": "Quantity",
+        "fr": "Quantity",
+        "es": "Quantity",
+        "ar": "Quantity"
+      }
     }
   ],
   "formulas": {
@@ -55,7 +95,12 @@
       "totalCostPerUnit",
       "sellingPricePerUnit",
       "totalRevenue"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalProfit"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -65,5 +110,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

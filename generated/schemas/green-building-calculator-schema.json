@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m²",
       "default": 1000,
-      "businessContext": "Binanın toplam kapalı alanı"
+      "businessContext": "Binanın toplam kapalı alanı",
+      "label_i18n": {
+        "en": "Toplam Kapalı Alan",
+        "tr": "Toplam Kapalı Alan",
+        "de": "Toplam Kapalı Alan",
+        "fr": "Toplam Kapalı Alan",
+        "es": "Toplam Kapalı Alan",
+        "ar": "Toplam Kapalı Alan"
+      }
     },
     {
       "id": "electricity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kWh",
       "default": 50000,
-      "businessContext": "Şebekeden çekilen yıllık elektrik enerjisi"
+      "businessContext": "Şebekeden çekilen yıllık elektrik enerjisi",
+      "label_i18n": {
+        "en": "Yıllık Elektrik Tüketimi",
+        "tr": "Yıllık Elektrik Tüketimi",
+        "de": "Yıllık Elektrik Tüketimi",
+        "fr": "Yıllık Elektrik Tüketimi",
+        "es": "Yıllık Elektrik Tüketimi",
+        "ar": "Yıllık Elektrik Tüketimi"
+      }
     },
     {
       "id": "gridFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kgCO₂/kWh",
       "default": 0.475,
-      "businessContext": "Şebeke elektriği için karbon emisyon faktörü"
+      "businessContext": "Şebeke elektriği için karbon emisyon faktörü",
+      "label_i18n": {
+        "en": "Elektrik Emisyon Faktörü",
+        "tr": "Elektrik Emisyon Faktörü",
+        "de": "Elektrik Emisyon Faktörü",
+        "fr": "Elektrik Emisyon Faktörü",
+        "es": "Elektrik Emisyon Faktörü",
+        "ar": "Elektrik Emisyon Faktörü"
+      }
     },
     {
       "id": "gas",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m³",
       "default": 10000,
-      "businessContext": "Yıllık doğalgaz tüketim miktarı"
+      "businessContext": "Yıllık doğalgaz tüketim miktarı",
+      "label_i18n": {
+        "en": "Yıllık Doğalgaz Tüketimi",
+        "tr": "Yıllık Doğalgaz Tüketimi",
+        "de": "Yıllık Doğalgaz Tüketimi",
+        "fr": "Yıllık Doğalgaz Tüketimi",
+        "es": "Yıllık Doğalgaz Tüketimi",
+        "ar": "Yıllık Doğalgaz Tüketimi"
+      }
     },
     {
       "id": "gasFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kgCO₂/m³",
       "default": 0.184,
-      "businessContext": "Doğalgazın standart emisyon faktörü"
+      "businessContext": "Doğalgazın standart emisyon faktörü",
+      "label_i18n": {
+        "en": "Doğalgaz Emisyon Faktörü",
+        "tr": "Doğalgaz Emisyon Faktörü",
+        "de": "Doğalgaz Emisyon Faktörü",
+        "fr": "Doğalgaz Emisyon Faktörü",
+        "es": "Doğalgaz Emisyon Faktörü",
+        "ar": "Doğalgaz Emisyon Faktörü"
+      }
     },
     {
       "id": "renewable",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kWh",
       "default": 10000,
-      "businessContext": "Binada üretilen ve tüketilen yenilenebilir enerji"
+      "businessContext": "Binada üretilen ve tüketilen yenilenebilir enerji",
+      "label_i18n": {
+        "en": "Yerinde Yenilenebilir Enerji",
+        "tr": "Yerinde Yenilenebilir Enerji",
+        "de": "Yerinde Yenilenebilir Enerji",
+        "fr": "Yerinde Yenilenebilir Enerji",
+        "es": "Yerinde Yenilenebilir Enerji",
+        "ar": "Yerinde Yenilenebilir Enerji"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
       "electricityCarbon",
       "gasCarbon",
       "renewableSaved"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "netCarbon"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -72,5 +125,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

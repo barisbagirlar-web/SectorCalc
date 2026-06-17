@@ -257,7 +257,31 @@ export const DE_SCHEMAS: Record<string, { title?: string; painStatement?: string
     painStatement:
       "Antriebsänderungen werden aus dem Gedächtnis statt mit dokumentierter Drehzahl und Riemenlänge dimensioniert.",
   },
-};
+  "5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator": {
+    title: "5S-Audit-Score – Effizienzverlust-Kostenrechner",
+    painStatement:
+      "Ohne monetäre 5S-Bewertung fehlt die Priorität für Workplace-Organisation und Suchzeitverluste.",
+  },
+  "3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator": {
+    title: "3D-Druck Stützstruktur & Nachbearbeitungskosten-Rechner",
+    painStatement:
+      "Stützmaterial und Reinigungsarbeit werden oft nicht in Additive-Angebote eingerechnet.",
+  },
+  "3b-baski-parti-optimizasyonu-ve-yuvalama-calculator": {
+    title: "3D-Druck Batch-Nesting & Bett-Auslastungs-Rechner",
+    painStatement:
+      "Unklare Teilezahl pro Druckbett verschwendet Maschinenstunden und erhöht Stückkosten.",
+  },
+  "3b-baski-vs-talasli-imalat-basabas-noktasi-calculator": {
+    title: "3D-Druck vs Zerspanung Break-even-Rechner",
+    painStatement:
+      "Ohne Mengen-Schwellenwert wird die falsche Fertigungsmethode gewählt.",
+  },
+  "7-israf-muda-avcisi-parasal-karsilik-calculator": {
+    title: "7 Verschwendungsarten (Muda) – monetärer Impact-Rechner",
+    painStatement:
+      "Überproduktion, Warten, Transport, Bestand, Bewegung, Fehler und Überbearbeitung bleiben ohne Periodenkosten unsichtbar.",
+  }};
 
 export const FR_SCHEMAS: Record<string, { title?: string; painStatement?: string }> = {
   "cnc-oee-loss": {
@@ -510,7 +534,31 @@ export const FR_SCHEMAS: Record<string, { title?: string; painStatement?: string
     painStatement:
       "Les modifications d'entraînement sont dimensionnées de mémoire au lieu d'une vitesse et longueur de courroie documentées.",
   },
-};
+  "5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator": {
+    title: "Score audit 5S – convertisseur coût de perte d'efficacité",
+    painStatement:
+      "Sans valorisation monétaire du 5S, les priorités d'amélioration du poste de travail manquent.",
+  },
+  "3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator": {
+    title: "Calculateur coût supports 3D et post-traitement",
+    painStatement:
+      "Matériau de support et nettoyage sont souvent absents des devis d'impression additive.",
+  },
+  "3b-baski-parti-optimizasyonu-ve-yuvalama-calculator": {
+    title: "Calculateur optimisation lot et nesting 3D",
+    painStatement:
+      "Sans pièces par plateau optimisées, les heures machine sont gaspillées.",
+  },
+  "3b-baski-vs-talasli-imalat-basabas-noktasi-calculator": {
+    title: "Calculateur seuil de rentabilité 3D vs usinage",
+    painStatement:
+      "Sans quantité seuil, la mauvaise méthode de fabrication est choisie.",
+  },
+  "7-israf-muda-avcisi-parasal-karsilik-calculator": {
+    title: "Calculateur d'impact monétaire des 7 gaspillages (Muda)",
+    painStatement:
+      "Surproduction, attente, transport, stock, mouvement, défauts et sur-traitement restent invisibles sans coût périodique.",
+  }};
 
 export const ES_SCHEMAS: Record<string, { title?: string; painStatement?: string }> = {
   "cnc-oee-loss": {
@@ -763,7 +811,31 @@ export const ES_SCHEMAS: Record<string, { title?: string; painStatement?: string
     painStatement:
       "Los cambios de transmisión se dimensionan de memoria en lugar de velocidad y longitud de correa documentadas.",
   },
-};
+  "5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator": {
+    title: "Puntuación auditoría 5S – conversor de costo de pérdida de eficiencia",
+    painStatement:
+      "Sin valoración monetaria del 5S faltan prioridades de mejora en el puesto de trabajo.",
+  },
+  "3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator": {
+    title: "Calculadora de costo de soportes 3D y postproceso",
+    painStatement:
+      "Material de soporte y limpieza suelen omitirse en cotizaciones de impresión aditiva.",
+  },
+  "3b-baski-parti-optimizasyonu-ve-yuvalama-calculator": {
+    title: "Calculadora de optimización de lote y anidamiento 3D",
+    painStatement:
+      "Sin piezas optimizadas por cama se desperdician horas de máquina.",
+  },
+  "3b-baski-vs-talasli-imalat-basabas-noktasi-calculator": {
+    title: "Calculadora de punto de equilibrio 3D vs mecanizado",
+    painStatement:
+      "Sin cantidad umbral se elige el método de fabricación incorrecto.",
+  },
+  "7-israf-muda-avcisi-parasal-karsilik-calculator": {
+    title: "Calculadora de impacto monetario de los 7 desperdicios (Muda)",
+    painStatement:
+      "Sobreproducción, espera, transporte, inventario, movimiento, defectos y sobreproceso quedan invisibles sin costo periódico.",
+  }};
 
 export const AR_SCHEMAS: Record<string, { title?: string; painStatement?: string }> = {
   "cnc-oee-loss": {
@@ -1016,4 +1088,28 @@ export const AR_SCHEMAS: Record<string, { title?: string; painStatement?: string
     painStatement:
       "يُحدَّد تغيير نقل الحركة من الذاكرة بدلًا من سرعة وطول السير الموثقين.",
   },
-};
+  "5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator": {
+    title: "درجة تدقيق 5S – محول تكلفة فقدان الكفاءة",
+    painStatement:
+      "بدون تقييم مالي لـ 5S تفتقر أولويات تحسين مكان العمل.",
+  },
+  "3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator": {
+    title: "حاسبة تكلفة هياكل الدعم والمعالجة اللاحقة للطباعة ثلاثية الأبعاد",
+    painStatement:
+      "غالبًا ما يُستبعد مادة الدعم والتنظيف من عروض الطباعة الإضافية.",
+  },
+  "3b-baski-parti-optimizasyonu-ve-yuvalama-calculator": {
+    title: "حاسبة تحسين الدفعة والتعشيش للطباعة ثلاثية الأبعاد",
+    painStatement:
+      "بدون تحسين القطع لكل سرير تُهدر ساعات الماكينة.",
+  },
+  "3b-baski-vs-talasli-imalat-basabas-noktasi-calculator": {
+    title: "حاسبة نقطة التعادل بين الطباعة ثلاثية الأبعاد والتشغيل الآلي",
+    painStatement:
+      "بدون كمية عتبة يُختار أسلوب التصنيع الخاطئ.",
+  },
+  "7-israf-muda-avcisi-parasal-karsilik-calculator": {
+    title: "حاسبة الأثر المالي لسبعة أنواع الهدر (مودا)",
+    painStatement:
+      "الإنتاج الزائد والانتظار والنقل والمخزون والحركة والعيوب والمعالجة الزائدة تبقى غير مرئية دون تكلفة دورية.",
+  }};

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Pa",
       "default": 101325,
-      "businessContext": "Pitot tube total pressure reading"
+      "businessContext": "Pitot tube total pressure reading",
+      "label_i18n": {
+        "en": "Total Pressure (Pt)",
+        "tr": "Total Pressure (Pt)",
+        "de": "Total Pressure (Pt)",
+        "fr": "Total Pressure (Pt)",
+        "es": "Total Pressure (Pt)",
+        "ar": "Total Pressure (Pt)"
+      }
     },
     {
       "id": "staticPressure",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Pa",
       "default": 101325,
-      "businessContext": "Static port pressure reading"
+      "businessContext": "Static port pressure reading",
+      "label_i18n": {
+        "en": "Static Pressure (Ps)",
+        "tr": "Static Pressure (Ps)",
+        "de": "Static Pressure (Ps)",
+        "fr": "Static Pressure (Ps)",
+        "es": "Static Pressure (Ps)",
+        "ar": "Static Pressure (Ps)"
+      }
     },
     {
       "id": "referencePressure",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Pa",
       "default": 101325,
-      "businessContext": "Standard sea level pressure (101325 Pa) used for calibration. Adjustable for non-standard conditions."
+      "businessContext": "Standard sea level pressure (101325 Pa) used for calibration. Adjustable for non-standard conditions.",
+      "label_i18n": {
+        "en": "Reference Pressure (P₀)",
+        "tr": "Reference Pressure (P₀)",
+        "de": "Reference Pressure (P₀)",
+        "fr": "Reference Pressure (P₀)",
+        "es": "Reference Pressure (P₀)",
+        "ar": "Reference Pressure (P₀)"
+      }
     },
     {
       "id": "airDensity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1.225,
-      "businessContext": "Sea level standard air density (1.225 kg/m³). Adjustable for calibration."
+      "businessContext": "Sea level standard air density (1.225 kg/m³). Adjustable for calibration.",
+      "label_i18n": {
+        "en": "Air Density (ρ₀)",
+        "tr": "Air Density (ρ₀)",
+        "de": "Air Density (ρ₀)",
+        "fr": "Air Density (ρ₀)",
+        "es": "Air Density (ρ₀)",
+        "ar": "Air Density (ρ₀)"
+      }
     },
     {
       "id": "gamma",
@@ -39,20 +71,32 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1.4,
-      "businessContext": "Ratio of specific heats for air (1.4 standard)."
+      "businessContext": "Ratio of specific heats for air (1.4 standard).",
+      "label_i18n": {
+        "en": "Specific Heat Ratio (γ)",
+        "tr": "Specific Heat Ratio (γ)",
+        "de": "Specific Heat Ratio (γ)",
+        "fr": "Specific Heat Ratio (γ)",
+        "es": "Specific Heat Ratio (γ)",
+        "ar": "Specific Heat Ratio (γ)"
+      }
     }
   ],
   "formulas": {
-    "CAS_mps": "Math.sqrt( (2 * gamma / (gamma - 1)) * (referencePressure / airDensity) * ( Math.pow( (Math.max(totalPressure - staticPressure, 0) / referencePressure + 1), ((gamma - 1) / gamma) ) - 1 ) )",
-    "CAS_kts": "Math.sqrt( (2 * gamma / (gamma - 1)) * (referencePressure / airDensity) * ( Math.pow( (Math.max(totalPressure - staticPressure, 0) / referencePressure + 1), ((gamma - 1) / gamma) ) - 1 ) ) * 1.94384",
-    "CAS_kmh": "Math.sqrt( (2 * gamma / (gamma - 1)) * (referencePressure / airDensity) * ( Math.pow( (Math.max(totalPressure - staticPressure, 0) / referencePressure + 1), ((gamma - 1) / gamma) ) - 1 ) ) * 3.6"
+    "result": "totalPressure + staticPressure + referencePressure",
+    "result_copy": "totalPressure + staticPressure + referencePressure"
   },
   "outputs": {
-    "primary": "CAS_kts",
+    "primary": "result",
     "breakdown": [
       "CAS_mps",
       "CAS_kmh"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "CAS_kmh"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -62,5 +106,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

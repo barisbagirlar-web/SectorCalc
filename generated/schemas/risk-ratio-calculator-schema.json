@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Maruz kalan grupta gerçekleşen olay sayısı (ör. vaka, hata, kayıp)"
+      "businessContext": "Maruz kalan grupta gerçekleşen olay sayısı (ör. vaka, hata, kayıp)",
+      "label_i18n": {
+        "en": "Maruz Kalan Olay Sayısı",
+        "tr": "Maruz Kalan Olay Sayısı",
+        "de": "Maruz Kalan Olay Sayısı",
+        "fr": "Maruz Kalan Olay Sayısı",
+        "es": "Maruz Kalan Olay Sayısı",
+        "ar": "Maruz Kalan Olay Sayısı"
+      }
     },
     {
       "id": "exposedTotal",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Maruz kalan gruptaki toplam birim/birey sayısı"
+      "businessContext": "Maruz kalan gruptaki toplam birim/birey sayısı",
+      "label_i18n": {
+        "en": "Maruz Kalan Toplam",
+        "tr": "Maruz Kalan Toplam",
+        "de": "Maruz Kalan Toplam",
+        "fr": "Maruz Kalan Toplam",
+        "es": "Maruz Kalan Toplam",
+        "ar": "Maruz Kalan Toplam"
+      }
     },
     {
       "id": "controlEvents",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Kontrol grubunda gerçekleşen olay sayısı"
+      "businessContext": "Kontrol grubunda gerçekleşen olay sayısı",
+      "label_i18n": {
+        "en": "Kontrol Olay Sayısı",
+        "tr": "Kontrol Olay Sayısı",
+        "de": "Kontrol Olay Sayısı",
+        "fr": "Kontrol Olay Sayısı",
+        "es": "Kontrol Olay Sayısı",
+        "ar": "Kontrol Olay Sayısı"
+      }
     },
     {
       "id": "controlTotal",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Kontrol grubundaki toplam birim/birey sayısı"
+      "businessContext": "Kontrol grubundaki toplam birim/birey sayısı",
+      "label_i18n": {
+        "en": "Kontrol Toplam",
+        "tr": "Kontrol Toplam",
+        "de": "Kontrol Toplam",
+        "fr": "Kontrol Toplam",
+        "es": "Kontrol Toplam",
+        "ar": "Kontrol Toplam"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "exposedRisk",
       "controlRisk"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "riskRatio"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -54,5 +91,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

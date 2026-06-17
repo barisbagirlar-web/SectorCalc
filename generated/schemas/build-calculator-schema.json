@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Length of the construction element"
+      "businessContext": "Length of the construction element",
+      "label_i18n": {
+        "en": "Length (m)",
+        "tr": "Length (m)",
+        "de": "Length (m)",
+        "fr": "Length (m)",
+        "es": "Length (m)",
+        "ar": "Length (m)"
+      }
     },
     {
       "id": "width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Width of the construction element"
+      "businessContext": "Width of the construction element",
+      "label_i18n": {
+        "en": "Width (m)",
+        "tr": "Width (m)",
+        "de": "Width (m)",
+        "fr": "Width (m)",
+        "es": "Width (m)",
+        "ar": "Width (m)"
+      }
     },
     {
       "id": "height",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "Height of the construction element"
+      "businessContext": "Height of the construction element",
+      "label_i18n": {
+        "en": "Height (m)",
+        "tr": "Height (m)",
+        "de": "Height (m)",
+        "fr": "Height (m)",
+        "es": "Height (m)",
+        "ar": "Height (m)"
+      }
     },
     {
       "id": "density",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 2400,
-      "businessContext": "Density of the construction material"
+      "businessContext": "Density of the construction material",
+      "label_i18n": {
+        "en": "Material Density (kg/m³)",
+        "tr": "Material Density (kg/m³)",
+        "de": "Material Density (kg/m³)",
+        "fr": "Material Density (kg/m³)",
+        "es": "Material Density (kg/m³)",
+        "ar": "Material Density (kg/m³)"
+      }
     },
     {
       "id": "wasteFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percentage of material waste"
+      "businessContext": "Percentage of material waste",
+      "label_i18n": {
+        "en": "Waste Factor (%)",
+        "tr": "Waste Factor (%)",
+        "de": "Waste Factor (%)",
+        "fr": "Waste Factor (%)",
+        "es": "Waste Factor (%)",
+        "ar": "Waste Factor (%)"
+      }
     },
     {
       "id": "laborRate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "€/h",
       "default": 25,
-      "businessContext": "Hourly labor cost"
+      "businessContext": "Hourly labor cost",
+      "label_i18n": {
+        "en": "Labor Rate (€/h)",
+        "tr": "Labor Rate (€/h)",
+        "de": "Labor Rate (€/h)",
+        "fr": "Labor Rate (€/h)",
+        "es": "Labor Rate (€/h)",
+        "ar": "Labor Rate (€/h)"
+      }
     },
     {
       "id": "laborHours",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "h",
       "default": 40,
-      "businessContext": "Total labor hours required"
+      "businessContext": "Total labor hours required",
+      "label_i18n": {
+        "en": "Labor Hours (h)",
+        "tr": "Labor Hours (h)",
+        "de": "Labor Hours (h)",
+        "fr": "Labor Hours (h)",
+        "es": "Labor Hours (h)",
+        "ar": "Labor Hours (h)"
+      }
     }
   ],
   "formulas": {
@@ -74,7 +130,12 @@
       "wasteMass",
       "totalMaterialMass",
       "laborCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -84,5 +145,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

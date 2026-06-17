@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "Cost of raw materials per unit"
+      "businessContext": "Cost of raw materials per unit",
+      "label_i18n": {
+        "en": "Raw Material Unit Cost",
+        "tr": "Raw Material Unit Cost",
+        "de": "Raw Material Unit Cost",
+        "fr": "Raw Material Unit Cost",
+        "es": "Raw Material Unit Cost",
+        "ar": "Raw Material Unit Cost"
+      }
     },
     {
       "id": "laborUnitCost",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "Direct labor cost per unit"
+      "businessContext": "Direct labor cost per unit",
+      "label_i18n": {
+        "en": "Labor Unit Cost",
+        "tr": "Labor Unit Cost",
+        "de": "Labor Unit Cost",
+        "fr": "Labor Unit Cost",
+        "es": "Labor Unit Cost",
+        "ar": "Labor Unit Cost"
+      }
     },
     {
       "id": "overheadUnitCost",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "Manufacturing overhead per unit"
+      "businessContext": "Manufacturing overhead per unit",
+      "label_i18n": {
+        "en": "Overhead Unit Cost",
+        "tr": "Overhead Unit Cost",
+        "de": "Overhead Unit Cost",
+        "fr": "Overhead Unit Cost",
+        "es": "Overhead Unit Cost",
+        "ar": "Overhead Unit Cost"
+      }
     },
     {
       "id": "sellingPricePerUnit",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "Selling price per unit"
+      "businessContext": "Selling price per unit",
+      "label_i18n": {
+        "en": "Selling Price Per Unit",
+        "tr": "Selling Price Per Unit",
+        "de": "Selling Price Per Unit",
+        "fr": "Selling Price Per Unit",
+        "es": "Selling Price Per Unit",
+        "ar": "Selling Price Per Unit"
+      }
     },
     {
       "id": "unitsProduced",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1000,
-      "businessContext": "Number of units produced"
+      "businessContext": "Number of units produced",
+      "label_i18n": {
+        "en": "Units Produced",
+        "tr": "Units Produced",
+        "de": "Units Produced",
+        "fr": "Units Produced",
+        "es": "Units Produced",
+        "ar": "Units Produced"
+      }
     },
     {
       "id": "taxRate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 25,
-      "businessContext": "Corporate tax rate percentage"
+      "businessContext": "Corporate tax rate percentage",
+      "label_i18n": {
+        "en": "Tax Rate",
+        "tr": "Tax Rate",
+        "de": "Tax Rate",
+        "fr": "Tax Rate",
+        "es": "Tax Rate",
+        "ar": "Tax Rate"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
     "breakdown": [
       "grossProfit",
       "totalCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "netProfit"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -72,5 +125,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

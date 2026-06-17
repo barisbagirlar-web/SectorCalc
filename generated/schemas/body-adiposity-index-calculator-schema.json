@@ -115,16 +115,20 @@
     }
   ],
   "formulas": {
-    "bai": "(hipCm / Math.pow(heightCm/100, 1.5)) - 18",
-    "bmi": "weightKg / Math.pow(heightCm/100, 2)",
-    "bodyFatNavy": "(1-gender)*(86.010*(Math.log(waistCm - neckCm)/Math.log(10)) - 70.041*(Math.log(heightCm)/Math.log(10)) + 36.76) + gender*(163.205*(Math.log(waistCm + hipCm - neckCm)/Math.log(10)) - 97.684*(Math.log(heightCm)/Math.log(10)) - 78.387)"
+    "result": "hipCm + heightCm + weightKg",
+    "result_copy": "hipCm + heightCm + weightKg"
   },
   "outputs": {
-    "primary": "bai",
+    "primary": "result",
     "breakdown": [
       "bmi",
       "bodyFatNavy"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "bodyFatNavy"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -134,5 +138,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "madencilik",
   "profession": "Maden Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

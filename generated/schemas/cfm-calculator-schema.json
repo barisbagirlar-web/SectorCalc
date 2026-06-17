@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "FPM",
       "default": 500,
-      "businessContext": "The speed of air moving through the duct, typically measured in feet per minute."
+      "businessContext": "The speed of air moving through the duct, typically measured in feet per minute.",
+      "label_i18n": {
+        "en": "Air Velocity (FPM)",
+        "tr": "Air Velocity (FPM)",
+        "de": "Air Velocity (FPM)",
+        "fr": "Air Velocity (FPM)",
+        "es": "Air Velocity (FPM)",
+        "ar": "Air Velocity (FPM)"
+      }
     },
     {
       "id": "ductWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "in",
       "default": 12,
-      "businessContext": "Width of the rectangular duct."
+      "businessContext": "Width of the rectangular duct.",
+      "label_i18n": {
+        "en": "Duct Width (inches)",
+        "tr": "Duct Width (inches)",
+        "de": "Duct Width (inches)",
+        "fr": "Duct Width (inches)",
+        "es": "Duct Width (inches)",
+        "ar": "Duct Width (inches)"
+      }
     },
     {
       "id": "ductHeight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "in",
       "default": 8,
-      "businessContext": "Height of the rectangular duct."
+      "businessContext": "Height of the rectangular duct.",
+      "label_i18n": {
+        "en": "Duct Height (inches)",
+        "tr": "Duct Height (inches)",
+        "de": "Duct Height (inches)",
+        "fr": "Duct Height (inches)",
+        "es": "Duct Height (inches)",
+        "ar": "Duct Height (inches)"
+      }
     },
     {
       "id": "safetyFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1.1,
-      "businessContext": "Multiplier to account for duct leakage and system inefficiencies, typically 1.1 to 1.2."
+      "businessContext": "Multiplier to account for duct leakage and system inefficiencies, typically 1.1 to 1.2.",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
@@ -42,7 +74,12 @@
     "primary": "cfm",
     "breakdown": [
       "areaSqft"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "cfm"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -52,5 +89,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

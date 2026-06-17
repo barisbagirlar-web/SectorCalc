@@ -67,22 +67,22 @@
     }
   ],
   "formulas": {
-    "sideB_raw": "sideA * Math.sin(angleB * Math.PI / 180) / Math.sin(angleA * Math.PI / 180)",
     "angleC": "180 - angleA - angleB",
-    "sideC_raw": "sideA * Math.sin(angleC * Math.PI / 180) / Math.sin(angleA * Math.PI / 180)",
-    "lawOfSinesRatio": "sideA / Math.sin(angleA * Math.PI / 180)",
-    "angleC_": "angleC°",
-    "Math_round_sideC_raw___10__precision____": "Math.round(sideC_raw * 10**precision) / 10**precision",
-    "result": "Math.round(sideB_raw * 10**precision) / 10**precision"
+    "angleC_aux": "180 - angleA - angleB"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "angleC_aux",
     "breakdown": [
       "Raw side b: sideB_raw",
       "Angle C: angleC°",
       "Side c: Math.round(sideC_raw * 10**precision) / 10**precision",
       "Law of Sines Ratio (a/sin A): lawOfSinesRatio"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -92,5 +92,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

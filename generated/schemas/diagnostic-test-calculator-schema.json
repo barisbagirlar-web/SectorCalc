@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "count",
       "default": 80,
-      "businessContext": "Number of correctly identified positive cases (e.g., defective products correctly flagged)"
+      "businessContext": "Number of correctly identified positive cases (e.g., defective products correctly flagged)",
+      "label_i18n": {
+        "en": "True Positives (TP)",
+        "tr": "True Positives (TP)",
+        "de": "True Positives (TP)",
+        "fr": "True Positives (TP)",
+        "es": "True Positives (TP)",
+        "ar": "True Positives (TP)"
+      }
     },
     {
       "id": "falsePositives",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "count",
       "default": 20,
-      "businessContext": "Number of incorrectly identified positive cases (e.g., good products flagged as defective)"
+      "businessContext": "Number of incorrectly identified positive cases (e.g., good products flagged as defective)",
+      "label_i18n": {
+        "en": "False Positives (FP)",
+        "tr": "False Positives (FP)",
+        "de": "False Positives (FP)",
+        "fr": "False Positives (FP)",
+        "es": "False Positives (FP)",
+        "ar": "False Positives (FP)"
+      }
     },
     {
       "id": "trueNegatives",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "count",
       "default": 100,
-      "businessContext": "Number of correctly identified negative cases (e.g., good products correctly passed)"
+      "businessContext": "Number of correctly identified negative cases (e.g., good products correctly passed)",
+      "label_i18n": {
+        "en": "True Negatives (TN)",
+        "tr": "True Negatives (TN)",
+        "de": "True Negatives (TN)",
+        "fr": "True Negatives (TN)",
+        "es": "True Negatives (TN)",
+        "ar": "True Negatives (TN)"
+      }
     },
     {
       "id": "falseNegatives",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "count",
       "default": 10,
-      "businessContext": "Number of incorrectly identified negative cases (e.g., defective products missed)"
+      "businessContext": "Number of incorrectly identified negative cases (e.g., defective products missed)",
+      "label_i18n": {
+        "en": "False Negatives (FN)",
+        "tr": "False Negatives (FN)",
+        "de": "False Negatives (FN)",
+        "fr": "False Negatives (FN)",
+        "es": "False Negatives (FN)",
+        "ar": "False Negatives (FN)"
+      }
     }
   ],
   "formulas": {
@@ -48,7 +80,12 @@
       "specificity",
       "ppv",
       "npv"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "npv"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -58,5 +95,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "saglik",
   "profession": "Biyomedikal Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

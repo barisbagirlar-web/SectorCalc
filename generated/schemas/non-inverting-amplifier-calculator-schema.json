@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "V",
       "default": 1,
-      "businessContext": "Input signal voltage."
+      "businessContext": "Input signal voltage.",
+      "label_i18n": {
+        "en": "Input Voltage",
+        "tr": "Input Voltage",
+        "de": "Input Voltage",
+        "fr": "Input Voltage",
+        "es": "Input Voltage",
+        "ar": "Input Voltage"
+      }
     },
     {
       "id": "r1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 10000,
-      "businessContext": "Resistor from inverting input to ground."
+      "businessContext": "Resistor from inverting input to ground.",
+      "label_i18n": {
+        "en": "Resistor R1",
+        "tr": "Resistor R1",
+        "de": "Resistor R1",
+        "fr": "Resistor R1",
+        "es": "Resistor R1",
+        "ar": "Resistor R1"
+      }
     },
     {
       "id": "r2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 10000,
-      "businessContext": "Feedback resistor from output to inverting input."
+      "businessContext": "Feedback resistor from output to inverting input.",
+      "label_i18n": {
+        "en": "Feedback Resistor R2",
+        "tr": "Feedback Resistor R2",
+        "de": "Feedback Resistor R2",
+        "fr": "Feedback Resistor R2",
+        "es": "Feedback Resistor R2",
+        "ar": "Feedback Resistor R2"
+      }
     },
     {
       "id": "vcc",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "V",
       "default": 15,
-      "businessContext": "Positive power supply voltage."
+      "businessContext": "Positive power supply voltage.",
+      "label_i18n": {
+        "en": "Positive Supply Voltage",
+        "tr": "Positive Supply Voltage",
+        "de": "Positive Supply Voltage",
+        "fr": "Positive Supply Voltage",
+        "es": "Positive Supply Voltage",
+        "ar": "Positive Supply Voltage"
+      }
     },
     {
       "id": "vee",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "V",
       "default": -15,
-      "businessContext": "Negative power supply voltage."
+      "businessContext": "Negative power supply voltage.",
+      "label_i18n": {
+        "en": "Negative Supply Voltage",
+        "tr": "Negative Supply Voltage",
+        "de": "Negative Supply Voltage",
+        "fr": "Negative Supply Voltage",
+        "es": "Negative Supply Voltage",
+        "ar": "Negative Supply Voltage"
+      }
     },
     {
       "id": "headroom",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "V",
       "default": 1.5,
-      "businessContext": "Voltage drop from supply rails to output swing limits."
+      "businessContext": "Voltage drop from supply rails to output swing limits.",
+      "label_i18n": {
+        "en": "Output Headroom",
+        "tr": "Output Headroom",
+        "de": "Output Headroom",
+        "fr": "Output Headroom",
+        "es": "Output Headroom",
+        "ar": "Output Headroom"
+      }
     }
   ],
   "formulas": {
@@ -55,18 +103,22 @@
     "vout_ideal": "vin * (1 + r2 / r1)",
     "vhigh": "vcc - headroom",
     "vlow": "vee + headroom",
-    "vout_actual": "Math.max(vlow, Math.min(vout_ideal, vhigh))",
     "is_clipping": "(vout_ideal > vhigh || vout_ideal < vlow) ? 1 : 0"
   },
   "outputs": {
-    "primary": "vout_actual",
+    "primary": "is_clipping",
     "breakdown": [
       "gain",
       "vout_ideal",
       "is_clipping",
       "vhigh",
       "vlow"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "is_clipping"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -76,5 +128,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "havacilik",
   "profession": "Tasarım Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

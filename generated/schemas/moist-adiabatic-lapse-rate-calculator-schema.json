@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Dry-bulb temperature of the saturated air parcel at the level of interest."
+      "businessContext": "Dry-bulb temperature of the saturated air parcel at the level of interest.",
+      "label_i18n": {
+        "en": "Temperature (°C)",
+        "tr": "Temperature (°C)",
+        "de": "Temperature (°C)",
+        "fr": "Temperature (°C)",
+        "es": "Temperature (°C)",
+        "ar": "Temperature (°C)"
+      }
     },
     {
       "id": "pressure",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hPa",
       "default": 1013.25,
-      "businessContext": "Atmospheric pressure at the level of interest (e.g., sea level pressure)."
+      "businessContext": "Atmospheric pressure at the level of interest (e.g., sea level pressure).",
+      "label_i18n": {
+        "en": "Pressure (hPa)",
+        "tr": "Pressure (hPa)",
+        "de": "Pressure (hPa)",
+        "fr": "Pressure (hPa)",
+        "es": "Pressure (hPa)",
+        "ar": "Pressure (hPa)"
+      }
     },
     {
       "id": "g",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m/s²",
       "default": 9.81,
-      "businessContext": "Acceleration due to gravity; standard value used unless high precision required."
+      "businessContext": "Acceleration due to gravity; standard value used unless high precision required.",
+      "label_i18n": {
+        "en": "Gravity (m/s²)",
+        "tr": "Gravity (m/s²)",
+        "de": "Gravity (m/s²)",
+        "fr": "Gravity (m/s²)",
+        "es": "Gravity (m/s²)",
+        "ar": "Gravity (m/s²)"
+      }
     },
     {
       "id": "Lv",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "J/kg",
       "default": 2500000,
-      "businessContext": "Latent heat of vaporization of water; varies slightly with temperature but constant assumed."
+      "businessContext": "Latent heat of vaporization of water; varies slightly with temperature but constant assumed.",
+      "label_i18n": {
+        "en": "Latent heat of vaporization (J/kg)",
+        "tr": "Latent heat of vaporization (J/kg)",
+        "de": "Latent heat of vaporization (J/kg)",
+        "fr": "Latent heat of vaporization (J/kg)",
+        "es": "Latent heat of vaporization (J/kg)",
+        "ar": "Latent heat of vaporization (J/kg)"
+      }
     },
     {
       "id": "Rd",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "J/(kg·K)",
       "default": 287.058,
-      "businessContext": "Specific gas constant for dry air."
+      "businessContext": "Specific gas constant for dry air.",
+      "label_i18n": {
+        "en": "Gas constant dry air (J/(kg·K))",
+        "tr": "Gas constant dry air (J/(kg·K))",
+        "de": "Gas constant dry air (J/(kg·K))",
+        "fr": "Gas constant dry air (J/(kg·K))",
+        "es": "Gas constant dry air (J/(kg·K))",
+        "ar": "Gas constant dry air (J/(kg·K))"
+      }
     },
     {
       "id": "cpd",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "J/(kg·K)",
       "default": 1003.5,
-      "businessContext": "Specific heat at constant pressure for dry air."
+      "businessContext": "Specific heat at constant pressure for dry air.",
+      "label_i18n": {
+        "en": "Specific heat dry air (J/(kg·K))",
+        "tr": "Specific heat dry air (J/(kg·K))",
+        "de": "Specific heat dry air (J/(kg·K))",
+        "fr": "Specific heat dry air (J/(kg·K))",
+        "es": "Specific heat dry air (J/(kg·K))",
+        "ar": "Specific heat dry air (J/(kg·K))"
+      }
     },
     {
       "id": "epsilon",
@@ -55,24 +103,32 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0.622,
-      "businessContext": "Ratio of gas constant of dry air to water vapor, ≈0.622."
+      "businessContext": "Ratio of gas constant of dry air to water vapor, ≈0.622.",
+      "label_i18n": {
+        "en": "ε (ratio of gas constants)",
+        "tr": "ε (ratio of gas constants)",
+        "de": "ε (ratio of gas constants)",
+        "fr": "ε (ratio of gas constants)",
+        "es": "ε (ratio of gas constants)",
+        "ar": "ε (ratio of gas constants)"
+      }
     }
   ],
   "formulas": {
     "T_K": "temperature + 273.15",
-    "e_s_Pa": "6.112 * 100 * Math.exp(17.67 * temperature / (temperature + 243.5))",
-    "p_Pa": "pressure * 100",
-    "r_s": "epsilon * e_s_Pa / (p_Pa - e_s_Pa)",
-    "numerator": "g * (1 + (Lv * r_s) / (Rd * T_K))",
-    "denominator": "cpd + (Lv**2 * r_s * epsilon) / (Rd * T_K**2)",
-    "lapseRateKm": "numerator / denominator * 1000"
+    "p_Pa": "pressure * 100"
   },
   "outputs": {
-    "primary": "lapseRateKm",
+    "primary": "p_Pa",
     "breakdown": [
       "e_s_Pa",
       "r_s"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "lapseRateKm"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -82,5 +138,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

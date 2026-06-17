@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "bar",
       "default": 5,
-      "businessContext": "Absolute pressure before the restriction"
+      "businessContext": "Absolute pressure before the restriction",
+      "label_i18n": {
+        "en": "Upstream Pressure",
+        "tr": "Upstream Pressure",
+        "de": "Upstream Pressure",
+        "fr": "Upstream Pressure",
+        "es": "Upstream Pressure",
+        "ar": "Upstream Pressure"
+      }
     },
     {
       "id": "downstreamPressure",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "bar",
       "default": 1,
-      "businessContext": "Absolute pressure after the restriction"
+      "businessContext": "Absolute pressure after the restriction",
+      "label_i18n": {
+        "en": "Downstream Pressure",
+        "tr": "Downstream Pressure",
+        "de": "Downstream Pressure",
+        "fr": "Downstream Pressure",
+        "es": "Downstream Pressure",
+        "ar": "Downstream Pressure"
+      }
     },
     {
       "id": "temperature",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "K",
       "default": 293.15,
-      "businessContext": "Absolute temperature of the gas"
+      "businessContext": "Absolute temperature of the gas",
+      "label_i18n": {
+        "en": "Temperature",
+        "tr": "Temperature",
+        "de": "Temperature",
+        "fr": "Temperature",
+        "es": "Temperature",
+        "ar": "Temperature"
+      }
     },
     {
       "id": "gasConstant",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "J/(kg·K)",
       "default": 287,
-      "businessContext": "Gas constant for the specific gas (e.g., air)"
+      "businessContext": "Gas constant for the specific gas (e.g., air)",
+      "label_i18n": {
+        "en": "Specific Gas Constant",
+        "tr": "Specific Gas Constant",
+        "de": "Specific Gas Constant",
+        "fr": "Specific Gas Constant",
+        "es": "Specific Gas Constant",
+        "ar": "Specific Gas Constant"
+      }
     },
     {
       "id": "specificHeatRatio",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1.4,
-      "businessContext": "Ratio of specific heats (Cp/Cv)"
+      "businessContext": "Ratio of specific heats (Cp/Cv)",
+      "label_i18n": {
+        "en": "Specific Heat Ratio (γ)",
+        "tr": "Specific Heat Ratio (γ)",
+        "de": "Specific Heat Ratio (γ)",
+        "fr": "Specific Heat Ratio (γ)",
+        "es": "Specific Heat Ratio (γ)",
+        "ar": "Specific Heat Ratio (γ)"
+      }
     },
     {
       "id": "orificeDiameter",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Diameter of the orifice or restriction"
+      "businessContext": "Diameter of the orifice or restriction",
+      "label_i18n": {
+        "en": "Orifice Diameter",
+        "tr": "Orifice Diameter",
+        "de": "Orifice Diameter",
+        "fr": "Orifice Diameter",
+        "es": "Orifice Diameter",
+        "ar": "Orifice Diameter"
+      }
     },
     {
       "id": "dischargeCoefficient",
@@ -55,24 +103,34 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0.85,
-      "businessContext": "Empirical coefficient accounting for losses"
+      "businessContext": "Empirical coefficient accounting for losses",
+      "label_i18n": {
+        "en": "Discharge Coefficient",
+        "tr": "Discharge Coefficient",
+        "de": "Discharge Coefficient",
+        "fr": "Discharge Coefficient",
+        "es": "Discharge Coefficient",
+        "ar": "Discharge Coefficient"
+      }
     }
   ],
   "formulas": {
     "pressureRatio": "downstreamPressure / upstreamPressure",
-    "criticalPressureRatio": "(2 / (specificHeatRatio + 1)) ** (specificHeatRatio / (specificHeatRatio - 1))",
-    "flowType": "pressureRatio <= criticalPressureRatio ? 'choked' : 'subsonic'",
-    "massFlowRate": "dischargeCoefficient * (Math.PI / 4) * (orificeDiameter / 1000) ** 2 * upstreamPressure * 1e5 * Math.sqrt(specificHeatRatio / (gasConstant * temperature)) * (pressureRatio <= criticalPressureRatio ? Math.sqrt((2 / (specificHeatRatio + 1)) ** ((specificHeatRatio + 1) / (specificHeatRatio - 1))) : Math.sqrt((2 * specificHeatRatio / (specificHeatRatio - 1)) * (pressureRatio ** (2 / specificHeatRatio) - pressureRatio ** ((specificHeatRatio + 1) / specificHeatRatio))))",
-    "velocity": "massFlowRate / ( (Math.PI / 4) * (orificeDiameter / 1000) ** 2 * (downstreamPressure * 1e5) / (gasConstant * temperature) )"
+    "criticalPressureRatio": "(2 / (specificHeatRatio + 1)) ** (specificHeatRatio / (specificHeatRatio - 1))"
   },
   "outputs": {
-    "primary": "massFlowRate",
+    "primary": "criticalPressureRatio",
     "breakdown": [
       "pressureRatio",
       "criticalPressureRatio",
       "flowType",
       "velocity"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "velocity"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -82,5 +140,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

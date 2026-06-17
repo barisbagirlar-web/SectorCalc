@@ -67,17 +67,20 @@
     }
   ],
   "formulas": {
-    "targetX": "refX + distance * Math.sin(azimuth * Math.PI / 180)",
-    "targetY": "refY + distance * Math.cos(azimuth * Math.PI / 180)",
-    "X_____targetX__m": "X = ${targetX} m",
-    "Y_____targetY__m": "Y = ${targetY} m"
+    "result": "refX + refY + distance",
+    "result_copy": "refX + refY + distance"
   },
   "outputs": {
-    "primary": "targetX",
+    "primary": "result",
     "breakdown": [
       "X = ${targetX} m",
       "Y = ${targetY} m"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "targetY"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -87,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "tarim",
   "profession": "Ziraat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

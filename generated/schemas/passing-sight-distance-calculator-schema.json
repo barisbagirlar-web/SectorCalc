@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km/h",
       "default": 80,
-      "businessContext": "Speed of the passing vehicle before maneuver"
+      "businessContext": "Speed of the passing vehicle before maneuver",
+      "label_i18n": {
+        "en": "Initial Speed",
+        "tr": "Initial Speed",
+        "de": "Initial Speed",
+        "fr": "Initial Speed",
+        "es": "Initial Speed",
+        "ar": "Initial Speed"
+      }
     },
     {
       "id": "targetSpeed",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "km/h",
       "default": 100,
-      "businessContext": "Speed after acceleration for passing"
+      "businessContext": "Speed after acceleration for passing",
+      "label_i18n": {
+        "en": "Target Speed",
+        "tr": "Target Speed",
+        "de": "Target Speed",
+        "fr": "Target Speed",
+        "es": "Target Speed",
+        "ar": "Target Speed"
+      }
     },
     {
       "id": "acceleration",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m/s²",
       "default": 1.5,
-      "businessContext": "Acceleration rate of vehicle"
+      "businessContext": "Acceleration rate of vehicle",
+      "label_i18n": {
+        "en": "Acceleration",
+        "tr": "Acceleration",
+        "de": "Acceleration",
+        "fr": "Acceleration",
+        "es": "Acceleration",
+        "ar": "Acceleration"
+      }
     },
     {
       "id": "timeConstant",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "s",
       "default": 3,
-      "businessContext": "Duration traveling at constant target speed in opposing lane"
+      "businessContext": "Duration traveling at constant target speed in opposing lane",
+      "label_i18n": {
+        "en": "Constant Speed Duration",
+        "tr": "Constant Speed Duration",
+        "de": "Constant Speed Duration",
+        "fr": "Constant Speed Duration",
+        "es": "Constant Speed Duration",
+        "ar": "Constant Speed Duration"
+      }
     },
     {
       "id": "perceptionReactionTime",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "s",
       "default": 1.5,
-      "businessContext": "Time to perceive and react before starting acceleration"
+      "businessContext": "Time to perceive and react before starting acceleration",
+      "label_i18n": {
+        "en": "Perception-Reaction Time",
+        "tr": "Perception-Reaction Time",
+        "de": "Perception-Reaction Time",
+        "fr": "Perception-Reaction Time",
+        "es": "Perception-Reaction Time",
+        "ar": "Perception-Reaction Time"
+      }
     },
     {
       "id": "clearanceDistance",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "m",
       "default": 30,
-      "businessContext": "Safety clearance distance between passing and opposing vehicle"
+      "businessContext": "Safety clearance distance between passing and opposing vehicle",
+      "label_i18n": {
+        "en": "Clearance Distance",
+        "tr": "Clearance Distance",
+        "de": "Clearance Distance",
+        "fr": "Clearance Distance",
+        "es": "Clearance Distance",
+        "ar": "Clearance Distance"
+      }
     },
     {
       "id": "opposingSpeed",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "km/h",
       "default": 80,
-      "businessContext": "Estimated speed of oncoming vehicle"
+      "businessContext": "Estimated speed of oncoming vehicle",
+      "label_i18n": {
+        "en": "Opposing Vehicle Speed",
+        "tr": "Opposing Vehicle Speed",
+        "de": "Opposing Vehicle Speed",
+        "fr": "Opposing Vehicle Speed",
+        "es": "Opposing Vehicle Speed",
+        "ar": "Opposing Vehicle Speed"
+      }
     }
   ],
   "formulas": {
@@ -79,7 +135,12 @@
       "d2",
       "d3",
       "d4"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "passingSightDistance"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -89,5 +150,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 20000,
-      "businessContext": "Total annual cost including tuition, fees, books, and living expenses."
+      "businessContext": "Total annual cost including tuition, fees, books, and living expenses.",
+      "label_i18n": {
+        "en": "Cost of Attendance",
+        "tr": "Cost of Attendance",
+        "de": "Cost of Attendance",
+        "fr": "Cost of Attendance",
+        "es": "Cost of Attendance",
+        "ar": "Cost of Attendance"
+      }
     },
     {
       "id": "annualIncome",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 50000,
-      "businessContext": "Total adjusted gross income of the family."
+      "businessContext": "Total adjusted gross income of the family.",
+      "label_i18n": {
+        "en": "Annual Family Income",
+        "tr": "Annual Family Income",
+        "de": "Annual Family Income",
+        "fr": "Annual Family Income",
+        "es": "Annual Family Income",
+        "ar": "Annual Family Income"
+      }
     },
     {
       "id": "numberOfDependents",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "people",
       "default": 1,
-      "businessContext": "Number of family members financially dependent (including the student)."
+      "businessContext": "Number of family members financially dependent (including the student).",
+      "label_i18n": {
+        "en": "Number of Dependents",
+        "tr": "Number of Dependents",
+        "de": "Number of Dependents",
+        "fr": "Number of Dependents",
+        "es": "Number of Dependents",
+        "ar": "Number of Dependents"
+      }
     },
     {
       "id": "assets",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Total value of cash, savings, investments, and other assets."
+      "businessContext": "Total value of cash, savings, investments, and other assets.",
+      "label_i18n": {
+        "en": "Total Assets",
+        "tr": "Total Assets",
+        "de": "Total Assets",
+        "fr": "Total Assets",
+        "es": "Total Assets",
+        "ar": "Total Assets"
+      }
     },
     {
       "id": "otherAid",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Other scholarships, grants, or aid already awarded."
+      "businessContext": "Other scholarships, grants, or aid already awarded.",
+      "label_i18n": {
+        "en": "Other Financial Aid",
+        "tr": "Other Financial Aid",
+        "de": "Other Financial Aid",
+        "fr": "Other Financial Aid",
+        "es": "Other Financial Aid",
+        "ar": "Other Financial Aid"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "efc",
       "adjustedCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "need"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -62,5 +107,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

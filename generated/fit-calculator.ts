@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from fit-calculator-schema.json
 import * as z from 'zod';
 
@@ -17,30 +18,38 @@ export const Fit_calculatorInputSchema = z.object({
   shaftLowerDev: z.number().default(-0.016),
 });
 
-function evaluateAllFormulas(input: Fit_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.nominalDiameter + input.holeUpperDev; results["holeMax"] = Number.isFinite(v) ? v : 0; } catch { results["holeMax"] = 0; }
-  try { const v = input.nominalDiameter + input.holeLowerDev; results["holeMin"] = Number.isFinite(v) ? v : 0; } catch { results["holeMin"] = 0; }
-  try { const v = input.nominalDiameter + input.shaftUpperDev; results["shaftMax"] = Number.isFinite(v) ? v : 0; } catch { results["shaftMax"] = 0; }
-  try { const v = input.nominalDiameter + input.shaftLowerDev; results["shaftMin"] = Number.isFinite(v) ? v : 0; } catch { results["shaftMin"] = 0; }
-  try { const v = (results["holeMax"] ?? 0) - (results["shaftMin"] ?? 0); results["maxClearance"] = Number.isFinite(v) ? v : 0; } catch { results["maxClearance"] = 0; }
-  try { const v = (results["holeMin"] ?? 0) - (results["shaftMax"] ?? 0); results["minClearance"] = Number.isFinite(v) ? v : 0; } catch { results["minClearance"] = 0; }
-  try { const v = (results["minClearance"] ?? 0) > 0 ? 1 : ((results["maxClearance"] ?? 0) < 0 ? 3 : 2); results["fitTypeCode"] = Number.isFinite(v) ? v : 0; } catch { results["fitTypeCode"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Fit_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.nominalDiameter + input.holeUpperDev; results["holeMax"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["holeMax"] = 0; }
+  try { const v = input.nominalDiameter + input.holeLowerDev; results["holeMin"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["holeMin"] = 0; }
+  try { const v = input.nominalDiameter + input.shaftUpperDev; results["shaftMax"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["shaftMax"] = 0; }
+  try { const v = input.nominalDiameter + input.shaftLowerDev; results["shaftMin"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["shaftMin"] = 0; }
+  try { const v = (asFormulaNumber(results["holeMax"])) - (asFormulaNumber(results["shaftMin"])); results["maxClearance"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["maxClearance"] = 0; }
+  try { const v = (asFormulaNumber(results["holeMin"])) - (asFormulaNumber(results["shaftMax"])); results["minClearance"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["minClearance"] = 0; }
+  try { const v = (asFormulaNumber(results["minClearance"])) > 0 ? 1 : ((asFormulaNumber(results["maxClearance"])) < 0 ? 3 : 2); results["fitTypeCode"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["fitTypeCode"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateFit_calculator(input: Fit_calculatorInput): Fit_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["maxClearance"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["maxClearance"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

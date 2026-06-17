@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kn",
       "default": 0,
-      "businessContext": "The speed value in knots to be converted to miles per hour."
+      "businessContext": "The speed value in knots to be converted to miles per hour.",
+      "label_i18n": {
+        "en": "Speed in knots",
+        "tr": "Speed in knots",
+        "de": "Speed in knots",
+        "fr": "Speed in knots",
+        "es": "Speed in knots",
+        "ar": "Speed in knots"
+      }
     },
     {
       "id": "calFactor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "factor",
       "default": 1,
-      "businessContext": "Multiplier for instrument calibration (dimensionless)."
+      "businessContext": "Multiplier for instrument calibration (dimensionless).",
+      "label_i18n": {
+        "en": "Calibration factor",
+        "tr": "Calibration factor",
+        "de": "Calibration factor",
+        "fr": "Calibration factor",
+        "es": "Calibration factor",
+        "ar": "Calibration factor"
+      }
     },
     {
       "id": "calOffset",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kn",
       "default": 0,
-      "businessContext": "Additive offset in knots for instrument calibration."
+      "businessContext": "Additive offset in knots for instrument calibration.",
+      "label_i18n": {
+        "en": "Calibration offset",
+        "tr": "Calibration offset",
+        "de": "Calibration offset",
+        "fr": "Calibration offset",
+        "es": "Calibration offset",
+        "ar": "Calibration offset"
+      }
     },
     {
       "id": "precisionMode",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mode",
       "default": 1,
-      "businessContext": "1 = Standard (1.15078), 2 = High Precision (1.15077945)."
+      "businessContext": "1 = Standard (1.15078), 2 = High Precision (1.15077945).",
+      "label_i18n": {
+        "en": "Precision mode",
+        "tr": "Precision mode",
+        "de": "Precision mode",
+        "fr": "Precision mode",
+        "es": "Precision mode",
+        "ar": "Precision mode"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "correctedKnots",
       "conversionFactorUsed"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "conversionFactorUsed"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

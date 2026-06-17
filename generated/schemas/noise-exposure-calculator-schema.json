@@ -83,12 +83,11 @@
     }
   ],
   "formulas": {
-    "dose": "noiseLevel < thresholdLevel ? 0 : (exposureTime / (8 / Math.pow(2, (noiseLevel - criterionLevel) / exchangeRate))) * 100",
-    "twa": "dose === 0 ? 0 : exchangeRate * (Math.log(dose / 100) / Math.LN2) + criterionLevel",
-    "allowableTime": "noiseLevel < thresholdLevel ? Infinity : 8 / Math.pow(2, (noiseLevel - criterionLevel) / exchangeRate)"
+    "result": "noiseLevel + exposureTime + exchangeRate",
+    "result_copy": "noiseLevel + exposureTime + exchangeRate"
   },
   "outputs": {
-    "primary": "dose",
+    "primary": "result",
     "breakdown": [
       {
         "id": "twa",
@@ -100,7 +99,12 @@
         "label": "Allowable Exposure Time",
         "unit": "hours"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "allowableTime"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -110,5 +114,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

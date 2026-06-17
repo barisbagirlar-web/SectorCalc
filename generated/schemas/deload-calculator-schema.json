@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "The lifter's current one-rep max for the exercise in kg."
+      "businessContext": "The lifter's current one-rep max for the exercise in kg.",
+      "label_i18n": {
+        "en": "Current Training Max",
+        "tr": "Current Training Max",
+        "de": "Current Training Max",
+        "fr": "Current Training Max",
+        "es": "Current Training Max",
+        "ar": "Current Training Max"
+      }
     },
     {
       "id": "currentIntensity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 80,
-      "businessContext": "Average training intensity as percentage of 1RM."
+      "businessContext": "Average training intensity as percentage of 1RM.",
+      "label_i18n": {
+        "en": "Current Average Intensity",
+        "tr": "Current Average Intensity",
+        "de": "Current Average Intensity",
+        "fr": "Current Average Intensity",
+        "es": "Current Average Intensity",
+        "ar": "Current Average Intensity"
+      }
     },
     {
       "id": "currentVolume",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 5000,
-      "businessContext": "Total weekly volume load in kilograms (sets x reps x weight)."
+      "businessContext": "Total weekly volume load in kilograms (sets x reps x weight).",
+      "label_i18n": {
+        "en": "Current Weekly Volume Load",
+        "tr": "Current Weekly Volume Load",
+        "de": "Current Weekly Volume Load",
+        "fr": "Current Weekly Volume Load",
+        "es": "Current Weekly Volume Load",
+        "ar": "Current Weekly Volume Load"
+      }
     },
     {
       "id": "deloadDuration",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "weeks",
       "default": 1,
-      "businessContext": "Duration of the deload phase in weeks."
+      "businessContext": "Duration of the deload phase in weeks.",
+      "label_i18n": {
+        "en": "Deload Duration",
+        "tr": "Deload Duration",
+        "de": "Deload Duration",
+        "fr": "Deload Duration",
+        "es": "Deload Duration",
+        "ar": "Deload Duration"
+      }
     },
     {
       "id": "deloadIntensityReduction",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Reduction in intensity percentage points during deload."
+      "businessContext": "Reduction in intensity percentage points during deload.",
+      "label_i18n": {
+        "en": "Intensity Reduction",
+        "tr": "Intensity Reduction",
+        "de": "Intensity Reduction",
+        "fr": "Intensity Reduction",
+        "es": "Intensity Reduction",
+        "ar": "Intensity Reduction"
+      }
     },
     {
       "id": "deloadVolumeReduction",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 30,
-      "businessContext": "Percentage reduction in volume load during deload."
+      "businessContext": "Percentage reduction in volume load during deload.",
+      "label_i18n": {
+        "en": "Volume Reduction",
+        "tr": "Volume Reduction",
+        "de": "Volume Reduction",
+        "fr": "Volume Reduction",
+        "es": "Volume Reduction",
+        "ar": "Volume Reduction"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +108,12 @@
     "breakdown": [
       "deloadIntensity",
       "deloadVolume"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "deloadWorkingWeight"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -70,5 +123,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

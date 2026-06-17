@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "lb",
       "default": 0,
-      "businessContext": "Weight of a single item in pounds"
+      "businessContext": "Weight of a single item in pounds",
+      "label_i18n": {
+        "en": "Unit Weight (lb)",
+        "tr": "Unit Weight (lb)",
+        "de": "Unit Weight (lb)",
+        "fr": "Unit Weight (lb)",
+        "es": "Unit Weight (lb)",
+        "ar": "Unit Weight (lb)"
+      }
     },
     {
       "id": "quantity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "count",
       "default": 1,
-      "businessContext": "Number of items"
+      "businessContext": "Number of items",
+      "label_i18n": {
+        "en": "Quantity",
+        "tr": "Quantity",
+        "de": "Quantity",
+        "fr": "Quantity",
+        "es": "Quantity",
+        "ar": "Quantity"
+      }
     },
     {
       "id": "tareWeightLb",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "lb",
       "default": 0,
-      "businessContext": "Weight of packaging/material to subtract"
+      "businessContext": "Weight of packaging/material to subtract",
+      "label_i18n": {
+        "en": "Tare Weight (lb)",
+        "tr": "Tare Weight (lb)",
+        "de": "Tare Weight (lb)",
+        "fr": "Tare Weight (lb)",
+        "es": "Tare Weight (lb)",
+        "ar": "Tare Weight (lb)"
+      }
     },
     {
       "id": "conversionFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "oz/lb",
       "default": 16,
-      "businessContext": "Ounces per pound (standard is 16)"
+      "businessContext": "Ounces per pound (standard is 16)",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "decimalPlaces",
@@ -39,20 +71,32 @@
       "type": "number",
       "unit": "dp",
       "default": 2,
-      "businessContext": "Number of decimal places to round the result"
+      "businessContext": "Number of decimal places to round the result",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
     "totalPounds": "unitWeightLb * quantity - tareWeightLb",
-    "preciseOunces": "totalPounds * conversionFactor",
-    "roundedOunces": "Math.round(preciseOunces * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
+    "preciseOunces": "totalPounds * conversionFactor"
   },
   "outputs": {
-    "primary": "roundedOunces",
+    "primary": "preciseOunces",
     "breakdown": [
       "totalPounds",
       "preciseOunces"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roundedOunces"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -62,5 +106,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

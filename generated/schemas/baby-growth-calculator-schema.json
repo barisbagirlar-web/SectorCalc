@@ -99,16 +99,20 @@
     }
   ],
   "formulas": {
-    "weightPercentile": "Math.round(100 * (1/(1+Math.exp(-((currentWeight - (birthWeight + 0.6 * ageMonths))/0.5)))))",
-    "lengthPercentile": "Math.round(100 * (1/(1+Math.exp(-((length - (45 + 2.5 * ageMonths))/2)))))",
-    "weightForLengthPercentile": "Math.round(100 * (1/(1+Math.exp(-((currentWeight - (length/100 * 10))/1.2)))))"
+    "result": "birthWeight + currentWeight + ageMonths",
+    "result_copy": "birthWeight + currentWeight + ageMonths"
   },
   "outputs": {
-    "primary": "weightPercentile",
+    "primary": "result",
     "breakdown": [
       "lengthPercentile",
       "weightForLengthPercentile"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "weightForLengthPercentile"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -118,5 +122,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

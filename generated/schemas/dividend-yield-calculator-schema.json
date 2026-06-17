@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 2,
-      "businessContext": "The total dividends paid per share over a year."
+      "businessContext": "The total dividends paid per share over a year.",
+      "label_i18n": {
+        "en": "Annual Dividend per Share",
+        "tr": "Annual Dividend per Share",
+        "de": "Annual Dividend per Share",
+        "fr": "Annual Dividend per Share",
+        "es": "Annual Dividend per Share",
+        "ar": "Annual Dividend per Share"
+      }
     },
     {
       "id": "marketPricePerShare",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 40,
-      "businessContext": "Current market price of one share."
+      "businessContext": "Current market price of one share.",
+      "label_i18n": {
+        "en": "Market Price per Share",
+        "tr": "Market Price per Share",
+        "de": "Market Price per Share",
+        "fr": "Market Price per Share",
+        "es": "Market Price per Share",
+        "ar": "Market Price per Share"
+      }
     },
     {
       "id": "numberOfShares",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "shares",
       "default": 100,
-      "businessContext": "Number of shares owned for total dividend calculation."
+      "businessContext": "Number of shares owned for total dividend calculation.",
+      "label_i18n": {
+        "en": "Number of Shares",
+        "tr": "Number of Shares",
+        "de": "Number of Shares",
+        "fr": "Number of Shares",
+        "es": "Number of Shares",
+        "ar": "Number of Shares"
+      }
     },
     {
       "id": "taxRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Tax rate on dividend income for after-tax yield calculation."
+      "businessContext": "Tax rate on dividend income for after-tax yield calculation.",
+      "label_i18n": {
+        "en": "Tax Rate",
+        "tr": "Tax Rate",
+        "de": "Tax Rate",
+        "fr": "Tax Rate",
+        "es": "Tax Rate",
+        "ar": "Tax Rate"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "totalDividend",
       "afterTaxYield"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "afterTaxYield"
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Üretim & İmalat",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

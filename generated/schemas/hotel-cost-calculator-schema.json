@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "nights",
       "default": 1,
-      "businessContext": "Total number of nights stayed"
+      "businessContext": "Total number of nights stayed",
+      "label_i18n": {
+        "en": "Number of Nights",
+        "tr": "Number of Nights",
+        "de": "Number of Nights",
+        "fr": "Number of Nights",
+        "es": "Number of Nights",
+        "ar": "Number of Nights"
+      }
     },
     {
       "id": "roomRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "€",
       "default": 100,
-      "businessContext": "Cost per night for the room"
+      "businessContext": "Cost per night for the room",
+      "label_i18n": {
+        "en": "Room Rate per Night",
+        "tr": "Room Rate per Night",
+        "de": "Room Rate per Night",
+        "fr": "Room Rate per Night",
+        "es": "Room Rate per Night",
+        "ar": "Room Rate per Night"
+      }
     },
     {
       "id": "guests",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "guests",
       "default": 1,
-      "businessContext": "Number of people staying"
+      "businessContext": "Number of people staying",
+      "label_i18n": {
+        "en": "Number of Guests",
+        "tr": "Number of Guests",
+        "de": "Number of Guests",
+        "fr": "Number of Guests",
+        "es": "Number of Guests",
+        "ar": "Number of Guests"
+      }
     },
     {
       "id": "mealsPerDay",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "meals",
       "default": 3,
-      "businessContext": "Average number of meals per person per day"
+      "businessContext": "Average number of meals per person per day",
+      "label_i18n": {
+        "en": "Meals per Day",
+        "tr": "Meals per Day",
+        "de": "Meals per Day",
+        "fr": "Meals per Day",
+        "es": "Meals per Day",
+        "ar": "Meals per Day"
+      }
     },
     {
       "id": "mealCost",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "€",
       "default": 15,
-      "businessContext": "Average cost per meal per person"
+      "businessContext": "Average cost per meal per person",
+      "label_i18n": {
+        "en": "Average Meal Cost",
+        "tr": "Average Meal Cost",
+        "de": "Average Meal Cost",
+        "fr": "Average Meal Cost",
+        "es": "Average Meal Cost",
+        "ar": "Average Meal Cost"
+      }
     },
     {
       "id": "transportCost",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "€",
       "default": 50,
-      "businessContext": "Total transportation expenses"
+      "businessContext": "Total transportation expenses",
+      "label_i18n": {
+        "en": "Total Transport Cost",
+        "tr": "Total Transport Cost",
+        "de": "Total Transport Cost",
+        "fr": "Total Transport Cost",
+        "es": "Total Transport Cost",
+        "ar": "Total Transport Cost"
+      }
     },
     {
       "id": "otherCost",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "€",
       "default": 0,
-      "businessContext": "Any additional costs"
+      "businessContext": "Any additional costs",
+      "label_i18n": {
+        "en": "Other Expenses",
+        "tr": "Other Expenses",
+        "de": "Other Expenses",
+        "fr": "Other Expenses",
+        "es": "Other Expenses",
+        "ar": "Other Expenses"
+      }
     }
   ],
   "formulas": {
@@ -72,7 +128,12 @@
       "mealTotal",
       "averagePerNight",
       "averagePerGuestPerNight"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "averagePerGuestPerNight"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -82,5 +143,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "lojistik",
   "profession": "Lojistik Uzmanı",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

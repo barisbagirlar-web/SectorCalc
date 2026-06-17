@@ -84,19 +84,21 @@
   ],
   "formulas": {
     "raw_sqmi": "areaKm2 * factor * multiplier",
-    "rounded_sqmi": "Math.round(raw_sqmi * Math.pow(10, precision)) / Math.pow(10, precision)",
-    "valid_input": "areaKm2 >= threshold",
-    "factor": "factor",
-    "result": "valid_input ? rounded_sqmi : 0"
+    "factor": "factor"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "factor",
     "breakdown": [
       "raw_sqmi",
       "rounded_sqmi",
       "factor",
       "valid_input"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -106,5 +108,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

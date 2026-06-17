@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "saat",
       "default": 10,
-      "businessContext": "Ekipmanın onarımında geçen aktif süre (arıza tespit, sökme, tamir, montaj, test)"
+      "businessContext": "Ekipmanın onarımında geçen aktif süre (arıza tespit, sökme, tamir, montaj, test)",
+      "label_i18n": {
+        "en": "Onarım Süresi",
+        "tr": "Onarım Süresi",
+        "de": "Onarım Süresi",
+        "fr": "Onarım Süresi",
+        "es": "Onarım Süresi",
+        "ar": "Onarım Süresi"
+      }
     },
     {
       "id": "adminDelay",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "saat",
       "default": 2,
-      "businessContext": "İş emri onay, bekleme ve diğer idari süreçlerden kaynaklanan gecikmeler"
+      "businessContext": "İş emri onay, bekleme ve diğer idari süreçlerden kaynaklanan gecikmeler",
+      "label_i18n": {
+        "en": "İdari Gecikme",
+        "tr": "İdari Gecikme",
+        "de": "İdari Gecikme",
+        "fr": "İdari Gecikme",
+        "es": "İdari Gecikme",
+        "ar": "İdari Gecikme"
+      }
     },
     {
       "id": "logisticsDelay",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "saat",
       "default": 1,
-      "businessContext": "Yedek parça tedariki, nakliye veya personel bekleme gibi lojistik nedenlerden oluşan gecikmeler"
+      "businessContext": "Yedek parça tedariki, nakliye veya personel bekleme gibi lojistik nedenlerden oluşan gecikmeler",
+      "label_i18n": {
+        "en": "Lojistik Gecikme",
+        "tr": "Lojistik Gecikme",
+        "de": "Lojistik Gecikme",
+        "fr": "Lojistik Gecikme",
+        "es": "Lojistik Gecikme",
+        "ar": "Lojistik Gecikme"
+      }
     },
     {
       "id": "numberOfRepairs",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "adet",
       "default": 5,
-      "businessContext": "Belirli bir dönemde gerçekleşen onarım olaylarının toplam sayısı"
+      "businessContext": "Belirli bir dönemde gerçekleşen onarım olaylarının toplam sayısı",
+      "label_i18n": {
+        "en": "Onarım Sayısı",
+        "tr": "Onarım Sayısı",
+        "de": "Onarım Sayısı",
+        "fr": "Onarım Sayısı",
+        "es": "Onarım Sayısı",
+        "ar": "Onarım Sayısı"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "totalDowntime",
       "numberOfRepairs"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "numberOfRepairs"
   },
   "category": "Bakım & Güvenilirlik",
   "sector": "Üretim & İmalat",
@@ -54,5 +91,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

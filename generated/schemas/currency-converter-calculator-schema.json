@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 100,
-      "businessContext": "Amount in original currency"
+      "businessContext": "Amount in original currency",
+      "label_i18n": {
+        "en": "Source Amount",
+        "tr": "Source Amount",
+        "de": "Source Amount",
+        "fr": "Source Amount",
+        "es": "Source Amount",
+        "ar": "Source Amount"
+      }
     },
     {
       "id": "exchangeRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD/EUR",
       "default": 1.1,
-      "businessContext": "Rate converting source to target currency"
+      "businessContext": "Rate converting source to target currency",
+      "label_i18n": {
+        "en": "Exchange Rate",
+        "tr": "Exchange Rate",
+        "de": "Exchange Rate",
+        "fr": "Exchange Rate",
+        "es": "Exchange Rate",
+        "ar": "Exchange Rate"
+      }
     },
     {
       "id": "fixedFee",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 0,
-      "businessContext": "Flat transaction fee in source currency"
+      "businessContext": "Flat transaction fee in source currency",
+      "label_i18n": {
+        "en": "Fixed Fee",
+        "tr": "Fixed Fee",
+        "de": "Fixed Fee",
+        "fr": "Fixed Fee",
+        "es": "Fixed Fee",
+        "ar": "Fixed Fee"
+      }
     },
     {
       "id": "percentageFee",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "fraction",
       "default": 0,
-      "businessContext": "Fee as decimal (e.g., 0.02 for 2%)"
+      "businessContext": "Fee as decimal (e.g., 0.02 for 2%)",
+      "label_i18n": {
+        "en": "Percentage Fee",
+        "tr": "Percentage Fee",
+        "de": "Percentage Fee",
+        "fr": "Percentage Fee",
+        "es": "Percentage Fee",
+        "ar": "Percentage Fee"
+      }
     }
   ],
   "formulas": {
-    "convertedAmount": "Math.max(0, sourceAmount * (1 - percentageFee) - fixedFee) * exchangeRate",
-    "netSourceAmount": "Math.max(0, sourceAmount * (1 - percentageFee) - fixedFee)",
-    "totalFees": "sourceAmount - Math.max(0, sourceAmount * (1 - percentageFee) - fixedFee)"
+    "result": "sourceAmount + exchangeRate + fixedFee",
+    "result_copy": "sourceAmount + exchangeRate + fixedFee"
   },
   "outputs": {
-    "primary": "convertedAmount",
+    "primary": "result",
     "breakdown": [
       "netSourceAmount",
       "totalFees"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalFees"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "danismanlik",
   "profession": "Strateji Uzmanı",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

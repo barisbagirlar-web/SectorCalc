@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Length of the area to cover with topsoil"
+      "businessContext": "Length of the area to cover with topsoil",
+      "label_i18n": {
+        "en": "Length",
+        "tr": "Length",
+        "de": "Length",
+        "fr": "Length",
+        "es": "Length",
+        "ar": "Length"
+      }
     },
     {
       "id": "width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Width of the area"
+      "businessContext": "Width of the area",
+      "label_i18n": {
+        "en": "Width",
+        "tr": "Width",
+        "de": "Width",
+        "fr": "Width",
+        "es": "Width",
+        "ar": "Width"
+      }
     },
     {
       "id": "depth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 15,
-      "businessContext": "Desired topsoil depth"
+      "businessContext": "Desired topsoil depth",
+      "label_i18n": {
+        "en": "Depth",
+        "tr": "Depth",
+        "de": "Depth",
+        "fr": "Depth",
+        "es": "Depth",
+        "ar": "Depth"
+      }
     },
     {
       "id": "bulkDensity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1500,
-      "businessContext": "Bulk density of topsoil for weight estimation"
+      "businessContext": "Bulk density of topsoil for weight estimation",
+      "label_i18n": {
+        "en": "Bulk Density",
+        "tr": "Bulk Density",
+        "de": "Bulk Density",
+        "fr": "Bulk Density",
+        "es": "Bulk Density",
+        "ar": "Bulk Density"
+      }
     },
     {
       "id": "costPerUnit",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD/m³",
       "default": 25,
-      "businessContext": "Purchase price of topsoil per cubic meter"
+      "businessContext": "Purchase price of topsoil per cubic meter",
+      "label_i18n": {
+        "en": "Cost per Unit Volume",
+        "tr": "Cost per Unit Volume",
+        "de": "Cost per Unit Volume",
+        "fr": "Cost per Unit Volume",
+        "es": "Cost per Unit Volume",
+        "ar": "Cost per Unit Volume"
+      }
     }
   ],
   "formulas": {
@@ -58,7 +98,12 @@
         "label": "Estimated Cost",
         "value": "cost"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "cost"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -68,5 +113,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -68,23 +68,10 @@
   ],
   "formulas": {
     "angleRad": "initialAngle * Math.PI / 180",
-    "totalAngleRad": "angleRad + angularVelocity * time",
-    "cosVal": "Math.cos(totalAngleRad)",
-    "sinVal": "Math.sin(totalAngleRad)",
-    "tanVal": "sinVal / cosVal",
-    "cotVal": "cosVal / sinVal",
-    "secVal": "1 / cosVal",
-    "cscVal": "1 / sinVal",
-    "_sin__________sinVal_toFixed_decimalPlac": "\"sin(θ) = \" + sinVal.toFixed(decimalPlaces)",
-    "_cos__________cosVal_toFixed_decimalPlac": "\"cos(θ) = \" + cosVal.toFixed(decimalPlaces)",
-    "_tan__________tanVal_toFixed_decimalPlac": "\"tan(θ) = \" + tanVal.toFixed(decimalPlaces)",
-    "_cot__________cotVal_toFixed_decimalPlac": "\"cot(θ) = \" + cotVal.toFixed(decimalPlaces)",
-    "_sec__________secVal_toFixed_decimalPlac": "\"sec(θ) = \" + secVal.toFixed(decimalPlaces)",
-    "_csc__________cscVal_toFixed_decimalPlac": "\"csc(θ) = \" + cscVal.toFixed(decimalPlaces)",
-    "result": "\"(\" + cosVal.toFixed(decimalPlaces) + \", \" + sinVal.toFixed(decimalPlaces) + \")\""
+    "totalAngleRad": "angleRad + angularVelocity * time"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "totalAngleRad",
     "breakdown": [
       "\"sin(θ) = \" + sinVal.toFixed(decimalPlaces)",
       "\"cos(θ) = \" + cosVal.toFixed(decimalPlaces)",
@@ -92,7 +79,12 @@
       "\"cot(θ) = \" + cotVal.toFixed(decimalPlaces)",
       "\"sec(θ) = \" + secVal.toFixed(decimalPlaces)",
       "\"csc(θ) = \" + cscVal.toFixed(decimalPlaces)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -102,5 +94,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

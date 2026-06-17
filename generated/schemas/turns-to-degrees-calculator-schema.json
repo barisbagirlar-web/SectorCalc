@@ -100,17 +100,21 @@
   ],
   "formulas": {
     "rawDegrees": "turns * 360",
-    "roundedDegrees": "Math.round(rawDegrees * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
     "turns": "turns",
     "decimalPlaces": "decimalPlaces"
   },
   "outputs": {
-    "primary": "roundedDegrees",
+    "primary": "decimalPlaces",
     "breakdown": [
       "turns",
       "rawDegrees",
       "decimalPlaces"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "decimalPlaces"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -120,5 +124,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

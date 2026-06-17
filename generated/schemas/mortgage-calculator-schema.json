@@ -147,43 +147,6 @@
       "businessContext_i18n": {
         "en": "Total annual household income before taxes. Used for DTI calculation."
       }
-    },
-    {
-      "id": "monthly_debt",
-      "label": "Monthly Existing Debt Payments",
-      "type": "number",
-      "unit": "USD",
-      "default": 500,
-      "min": 0,
-      "max": 100000,
-      "businessContext": "Recurring monthly debt obligations (car loans, student loans, credit cards).",
-      "label_i18n": {
-        "en": "Monthly Existing Debt Payments"
-      },
-      "businessContext_i18n": {
-        "en": "Recurring monthly debt obligations (car loans, student loans, credit cards)."
-      }
-    },
-    {
-      "id": "payment_frequency",
-      "label": "Payment Frequency",
-      "type": "select",
-      "unit": "unit",
-      "default": "monthly",
-      "min": null,
-      "max": null,
-      "options": [
-        "monthly",
-        "biweekly",
-        "accelerated_biweekly"
-      ],
-      "businessContext": "How often payments are made. Accelerated biweekly results in 13 full payments per year.",
-      "label_i18n": {
-        "en": "Payment Frequency"
-      },
-      "businessContext_i18n": {
-        "en": "How often payments are made. Accelerated biweekly results in 13 full payments per year."
-      }
     }
   ],
   "validation": {
@@ -222,18 +185,18 @@
       }
     ]
   },
-  "formulas": [
-    "loan_amount",
-    "loan_amount",
-    "loan_amount",
-    "loan_amount",
-    "loan_amount",
-    "loan_amount",
-    "loan_amount"
-  ],
+  "formulas": {
+    "result": "loan_amount + down_payment_percent + annual_interest_rate",
+    "result_copy": "loan_amount + down_payment_percent + annual_interest_rate"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "manufacturing-workshop",
   "sectorSlug": "cnc-manufacturing",
@@ -244,5 +207,6 @@
   "premiumRequired": false,
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "premiumFeatures": []
 }

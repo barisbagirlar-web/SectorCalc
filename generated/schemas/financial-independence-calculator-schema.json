@@ -100,15 +100,19 @@
   ],
   "formulas": {
     "fiTarget": "annualExpenses/(safeWithdrawalRate/100)",
-    "annualSavings": "monthlySavings*12",
-    "yearsToFI": "(()=>{const r=annualReturn/100;const s=monthlySavings*12;const fi=annualExpenses/(safeWithdrawalRate/100);if(currentPortfolio>=fi)return 0;if(r<=0)return(fi-currentPortfolio)/s;return Math.log((fi+s/r)/(currentPortfolio+s/r))/Math.log(1+r);})()"
+    "annualSavings": "monthlySavings*12"
   },
   "outputs": {
-    "primary": "yearsToFI",
+    "primary": "annualSavings",
     "breakdown": [
       "fiTarget",
       "annualSavings"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "yearsToFI"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -118,5 +122,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

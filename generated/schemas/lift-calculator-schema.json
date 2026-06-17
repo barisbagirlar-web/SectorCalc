@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Mass of the load to be lifted"
+      "businessContext": "Mass of the load to be lifted",
+      "label_i18n": {
+        "en": "Load Mass",
+        "tr": "Load Mass",
+        "de": "Load Mass",
+        "fr": "Load Mass",
+        "es": "Load Mass",
+        "ar": "Load Mass"
+      }
     },
     {
       "id": "carMass",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 500,
-      "businessContext": "Mass of the elevator car or lifting platform"
+      "businessContext": "Mass of the elevator car or lifting platform",
+      "label_i18n": {
+        "en": "Car Mass",
+        "tr": "Car Mass",
+        "de": "Car Mass",
+        "fr": "Car Mass",
+        "es": "Car Mass",
+        "ar": "Car Mass"
+      }
     },
     {
       "id": "acceleration",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m/s²",
       "default": 1.5,
-      "businessContext": "Acceleration of the lift"
+      "businessContext": "Acceleration of the lift",
+      "label_i18n": {
+        "en": "Acceleration",
+        "tr": "Acceleration",
+        "de": "Acceleration",
+        "fr": "Acceleration",
+        "es": "Acceleration",
+        "ar": "Acceleration"
+      }
     },
     {
       "id": "counterweightRatio",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0.5,
-      "businessContext": "Ratio of counterweight mass to total mass (car + load)"
+      "businessContext": "Ratio of counterweight mass to total mass (car + load)",
+      "label_i18n": {
+        "en": "Counterweight Ratio",
+        "tr": "Counterweight Ratio",
+        "de": "Counterweight Ratio",
+        "fr": "Counterweight Ratio",
+        "es": "Counterweight Ratio",
+        "ar": "Counterweight Ratio"
+      }
     },
     {
       "id": "frictionForce",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "N",
       "default": 200,
-      "businessContext": "Estimated friction opposing motion"
+      "businessContext": "Estimated friction opposing motion",
+      "label_i18n": {
+        "en": "Friction Force",
+        "tr": "Friction Force",
+        "de": "Friction Force",
+        "fr": "Friction Force",
+        "es": "Friction Force",
+        "ar": "Friction Force"
+      }
     },
     {
       "id": "safetyFactor",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1.5,
-      "businessContext": "Safety factor for mechanical design"
+      "businessContext": "Safety factor for mechanical design",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
@@ -64,7 +112,12 @@
       "gravitationalForce",
       "inertialForce",
       "totalForce"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "requiredForce"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -74,5 +127,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "engineering"
+  "categoryId": "engineering",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 0,
-      "businessContext": "Value of the first resistor in series"
+      "businessContext": "Value of the first resistor in series",
+      "label_i18n": {
+        "en": "Resistor 1",
+        "tr": "Resistor 1",
+        "de": "Resistor 1",
+        "fr": "Resistor 1",
+        "es": "Resistor 1",
+        "ar": "Resistor 1"
+      }
     },
     {
       "id": "R2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 0,
-      "businessContext": "Value of the second resistor in series"
+      "businessContext": "Value of the second resistor in series",
+      "label_i18n": {
+        "en": "Resistor 2",
+        "tr": "Resistor 2",
+        "de": "Resistor 2",
+        "fr": "Resistor 2",
+        "es": "Resistor 2",
+        "ar": "Resistor 2"
+      }
     },
     {
       "id": "R3",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 0,
-      "businessContext": "Value of the third resistor in series"
+      "businessContext": "Value of the third resistor in series",
+      "label_i18n": {
+        "en": "Resistor 3",
+        "tr": "Resistor 3",
+        "de": "Resistor 3",
+        "fr": "Resistor 3",
+        "es": "Resistor 3",
+        "ar": "Resistor 3"
+      }
     },
     {
       "id": "R4",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 0,
-      "businessContext": "Value of the fourth resistor in series"
+      "businessContext": "Value of the fourth resistor in series",
+      "label_i18n": {
+        "en": "Resistor 4",
+        "tr": "Resistor 4",
+        "de": "Resistor 4",
+        "fr": "Resistor 4",
+        "es": "Resistor 4",
+        "ar": "Resistor 4"
+      }
     }
   ],
   "formulas": {
@@ -42,7 +74,12 @@
     "primary": "totalResistance",
     "breakdown": [
       "resistanceFormula"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "resistanceFormula"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -52,5 +89,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

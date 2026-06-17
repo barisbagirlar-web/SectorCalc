@@ -71,17 +71,19 @@
     "u12": "a12",
     "l21": "a21 / a11",
     "u22": "a22 - l21 * a12",
-    "determinant": "a11 * a22 - a12 * a21",
-    "lMatrix": "`[[1, 0], [${l21}, 1]]`",
-    "uMatrix": "`[[${u11}, ${u12}], [0, ${u22}]]`",
-    "result": "`LU Ayrıştırması: L = ${lMatrix}, U = ${uMatrix}`"
+    "determinant": "a11 * a22 - a12 * a21"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "determinant",
     "breakdown": [
       "lMatrix",
       "uMatrix"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "determinant"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -91,5 +93,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

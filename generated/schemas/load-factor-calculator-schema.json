@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kWh",
       "default": 1000,
-      "businessContext": "Dönem boyunca tüketilen toplam enerji miktarı (kWh)"
+      "businessContext": "Dönem boyunca tüketilen toplam enerji miktarı (kWh)",
+      "label_i18n": {
+        "en": "Toplam Enerji Tüketimi",
+        "tr": "Toplam Enerji Tüketimi",
+        "de": "Toplam Enerji Tüketimi",
+        "fr": "Toplam Enerji Tüketimi",
+        "es": "Toplam Enerji Tüketimi",
+        "ar": "Toplam Enerji Tüketimi"
+      }
     },
     {
       "id": "peakDemand",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kW",
       "default": 200,
-      "businessContext": "Aynı dönemde ölçülen en yüksek güç talebi (kW)"
+      "businessContext": "Aynı dönemde ölçülen en yüksek güç talebi (kW)",
+      "label_i18n": {
+        "en": "Pik Talep",
+        "tr": "Pik Talep",
+        "de": "Pik Talep",
+        "fr": "Pik Talep",
+        "es": "Pik Talep",
+        "ar": "Pik Talep"
+      }
     },
     {
       "id": "numberOfDays",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "gün",
       "default": 30,
-      "businessContext": "Ölçüm periyodunun gün cinsinden süresi"
+      "businessContext": "Ölçüm periyodunun gün cinsinden süresi",
+      "label_i18n": {
+        "en": "Gün Sayısı",
+        "tr": "Gün Sayısı",
+        "de": "Gün Sayısı",
+        "fr": "Gün Sayısı",
+        "es": "Gün Sayısı",
+        "ar": "Gün Sayısı"
+      }
     },
     {
       "id": "dailyOperatingHours",
@@ -31,18 +55,31 @@
       "type": "number",
       "unit": "saat/gün",
       "default": 24,
-      "businessContext": "Tesisin günlük ortalama çalışma süresi"
+      "businessContext": "Tesisin günlük ortalama çalışma süresi",
+      "label_i18n": {
+        "en": "Günlük Çalışma Saati",
+        "tr": "Günlük Çalışma Saati",
+        "de": "Günlük Çalışma Saati",
+        "fr": "Günlük Çalışma Saati",
+        "es": "Günlük Çalışma Saati",
+        "ar": "Günlük Çalışma Saati"
+      }
     }
   ],
   "formulas": {
-    "loadFactorPercent": "((totalEnergy / (numberOfDays * dailyOperatingHours)) / peakDemand * 100).toFixed(2)",
-    "averageLoad": "(totalEnergy / (numberOfDays * dailyOperatingHours)).toFixed(2)"
+    "result": "totalEnergy + peakDemand + numberOfDays",
+    "result_copy": "totalEnergy + peakDemand + numberOfDays"
   },
   "outputs": {
-    "primary": "loadFactorPercent",
+    "primary": "result",
     "breakdown": [
       "averageLoad"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "averageLoad"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -52,5 +89,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

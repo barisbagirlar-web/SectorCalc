@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "folds",
       "default": 5,
-      "businessContext": "Number of folds used in k-fold cross-validation."
+      "businessContext": "Number of folds used in k-fold cross-validation.",
+      "label_i18n": {
+        "en": "Number of Folds (k)",
+        "tr": "Number of Folds (k)",
+        "de": "Number of Folds (k)",
+        "fr": "Number of Folds (k)",
+        "es": "Number of Folds (k)",
+        "ar": "Number of Folds (k)"
+      }
     },
     {
       "id": "mean_score",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "score",
       "default": 0.85,
-      "businessContext": "Average of the performance metric (e.g., accuracy, F1) across all folds."
+      "businessContext": "Average of the performance metric (e.g., accuracy, F1) across all folds.",
+      "label_i18n": {
+        "en": "Mean Performance Score",
+        "tr": "Mean Performance Score",
+        "de": "Mean Performance Score",
+        "fr": "Mean Performance Score",
+        "es": "Mean Performance Score",
+        "ar": "Mean Performance Score"
+      }
     },
     {
       "id": "std_score",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "score",
       "default": 0.05,
-      "businessContext": "Standard deviation of the performance metric across folds."
+      "businessContext": "Standard deviation of the performance metric across folds.",
+      "label_i18n": {
+        "en": "Standard Deviation of Performance Scores",
+        "tr": "Standard Deviation of Performance Scores",
+        "de": "Standard Deviation of Performance Scores",
+        "fr": "Standard Deviation of Performance Scores",
+        "es": "Standard Deviation of Performance Scores",
+        "ar": "Standard Deviation of Performance Scores"
+      }
     },
     {
       "id": "sample_size",
@@ -31,22 +55,33 @@
       "type": "number",
       "unit": "samples",
       "default": 1000,
-      "businessContext": "Total number of samples in the dataset (for context, not used in formulas)."
+      "businessContext": "Total number of samples in the dataset (for context, not used in formulas).",
+      "label_i18n": {
+        "en": "Total Sample Size",
+        "tr": "Total Sample Size",
+        "de": "Total Sample Size",
+        "fr": "Total Sample Size",
+        "es": "Total Sample Size",
+        "ar": "Total Sample Size"
+      }
     }
   ],
   "formulas": {
-    "standard_error": "std_score / Math.sqrt(k)",
-    "margin_of_error_95": "1.96 * standard_error",
-    "lower_ci_95": "mean_score - margin_of_error_95",
-    "upper_ci_95": "mean_score + margin_of_error_95"
+    "result": "k + mean_score + std_score",
+    "result_copy": "k + mean_score + std_score"
   },
   "outputs": {
-    "primary": "standard_error",
+    "primary": "result",
     "breakdown": [
       "margin_of_error_95",
       "lower_ci_95",
       "upper_ci_95"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "upper_ci_95"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -56,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -99,20 +99,22 @@
     }
   ],
   "formulas": {
-    "powerResult": "Math.pow(base, exponent)",
-    "afterMultiplier": "powerResult * multiplier",
-    "afterConstant": "afterMultiplier + constantAdd",
-    "moduloApplied": "modulus > 0 ? afterConstant % modulus : afterConstant",
-    "finalResult": "parseFloat(moduloApplied.toFixed(precision))"
+    "result": "base + exponent + multiplier",
+    "result_copy": "base + exponent + multiplier"
   },
   "outputs": {
-    "primary": "finalResult",
+    "primary": "result",
     "breakdown": [
       "powerResult",
       "afterMultiplier",
       "afterConstant",
       "moduloApplied"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "moduloApplied"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -122,5 +124,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

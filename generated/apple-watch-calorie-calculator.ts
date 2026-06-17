@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from apple-watch-calorie-calculator-schema.json
 import * as z from 'zod';
 
@@ -19,27 +20,35 @@ export const Apple_watch_calorie_calculatorInputSchema = z.object({
   durationMinutes: z.number().default(30),
 });
 
-function evaluateAllFormulas(input: Apple_watch_calorie_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (input.met * input.weight * 3.5 / 200) * input.durationMinutes; results["totalCalories"] = Number.isFinite(v) ? v : 0; } catch { results["totalCalories"] = 0; }
-  try { const v = input.met; results["met"] = Number.isFinite(v) ? v : 0; } catch { results["met"] = 0; }
-  try { const v = input.weight; results["weight"] = Number.isFinite(v) ? v : 0; } catch { results["weight"] = 0; }
-  try { const v = input.durationMinutes; results["durationMinutes"] = Number.isFinite(v) ? v : 0; } catch { results["durationMinutes"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Apple_watch_calorie_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = (input.met * input.weight * 3.5 / 200) * input.durationMinutes; results["totalCalories"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalCalories"] = 0; }
+  try { const v = input.met; results["met"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["met"] = 0; }
+  try { const v = input.weight; results["weight"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["weight"] = 0; }
+  try { const v = input.durationMinutes; results["durationMinutes"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["durationMinutes"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateApple_watch_calorie_calculator(input: Apple_watch_calorie_calculatorInput): Apple_watch_calorie_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalCalories"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["totalCalories"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

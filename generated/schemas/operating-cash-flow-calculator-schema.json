@@ -70,11 +70,7 @@
     "operatingCashFlow": "(revenue - operatingExpenses) * (1 - taxRate / 100) + depreciation",
     "ebit": "revenue - operatingExpenses",
     "taxAmount": "(revenue - operatingExpenses) * taxRate / 100",
-    "afterTaxEBIT": "(revenue - operatingExpenses) * (1 - taxRate / 100)",
-    "EBIT": "EBIT",
-    "Tax_Amount": "Tax Amount",
-    "After_Tax_EBIT": "After-Tax EBIT",
-    "Depreciation_Add_back": "Depreciation Add-back"
+    "afterTaxEBIT": "(revenue - operatingExpenses) * (1 - taxRate / 100)"
   },
   "outputs": {
     "primary": "operatingCashFlow",
@@ -83,7 +79,12 @@
       "Tax Amount",
       "After-Tax EBIT",
       "Depreciation Add-back"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "After_Tax_EBIT"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -93,5 +94,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

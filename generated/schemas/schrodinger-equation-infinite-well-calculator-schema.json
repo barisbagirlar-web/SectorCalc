@@ -83,16 +83,20 @@
     }
   ],
   "formulas": {
-    "energy": "(Math.pow(n, 2) * Math.pow(Math.PI, 2) * Math.pow(hbar, 2)) / (2 * m * Math.pow(L, 2))",
-    "wavefunction": "Math.sqrt(2 / L) * Math.sin(n * Math.PI * x / L)",
-    "probabilityDensity": "(2 / L) * Math.pow(Math.sin(n * Math.PI * x / L), 2)"
+    "result": "n + m + L",
+    "result_copy": "n + m + L"
   },
   "outputs": {
-    "primary": "energy",
+    "primary": "result",
     "breakdown": [
       "wavefunction",
       "probabilityDensity"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "probabilityDensity"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -102,5 +106,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

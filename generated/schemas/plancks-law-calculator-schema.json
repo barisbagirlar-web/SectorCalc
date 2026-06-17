@@ -83,16 +83,20 @@
     }
   ],
   "formulas": {
-    "spectralRadiance": "const h = 6.62607015e-34; const c = 299792458; const k = 1.380649e-23; const lambda = wavelength; const T = temperature; (2*h*c*c)/(lambda**5) * 1/(Math.exp((h*c)/(lambda*k*T)) - 1)",
-    "totalRadiance": "const h = 6.62607015e-34; const c = 299792458; const k = 1.380649e-23; const T = temperature; const lamMin = wavelengthMin; const lamMax = wavelengthMax; const N = numSteps; const dlam = (lamMax - lamMin)/N; let sum = 0; for(let i=0; i<N; i++){ const lam = lamMin + (i+0.5)*dlam; sum += (2*h*c*c)/(lam**5) * 1/(Math.exp((h*c)/(lam*k*T)) - 1) * dlam; } sum",
-    "peakWavelength": "const b = 2.897771955e-3; b / temperature"
+    "result": "temperature + wavelength + wavelengthMin",
+    "result_copy": "temperature + wavelength + wavelengthMin"
   },
   "outputs": {
-    "primary": "spectralRadiance",
+    "primary": "result",
     "breakdown": [
       "totalRadiance",
       "peakWavelength"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "peakWavelength"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -102,5 +106,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Birinci odanın uzunluk ölçüsü"
+      "businessContext": "Birinci odanın uzunluk ölçüsü",
+      "label_i18n": {
+        "en": "1. Oda Uzunluğu",
+        "tr": "1. Oda Uzunluğu",
+        "de": "1. Oda Uzunluğu",
+        "fr": "1. Oda Uzunluğu",
+        "es": "1. Oda Uzunluğu",
+        "ar": "1. Oda Uzunluğu"
+      }
     },
     {
       "id": "room1Width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 4,
-      "businessContext": "Birinci odanın genişlik ölçüsü"
+      "businessContext": "Birinci odanın genişlik ölçüsü",
+      "label_i18n": {
+        "en": "1. Oda Genişliği",
+        "tr": "1. Oda Genişliği",
+        "de": "1. Oda Genişliği",
+        "fr": "1. Oda Genişliği",
+        "es": "1. Oda Genişliği",
+        "ar": "1. Oda Genişliği"
+      }
     },
     {
       "id": "room2Length",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "İkinci odanın uzunluk ölçüsü"
+      "businessContext": "İkinci odanın uzunluk ölçüsü",
+      "label_i18n": {
+        "en": "2. Oda Uzunluğu",
+        "tr": "2. Oda Uzunluğu",
+        "de": "2. Oda Uzunluğu",
+        "fr": "2. Oda Uzunluğu",
+        "es": "2. Oda Uzunluğu",
+        "ar": "2. Oda Uzunluğu"
+      }
     },
     {
       "id": "room2Width",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "İkinci odanın genişlik ölçüsü"
+      "businessContext": "İkinci odanın genişlik ölçüsü",
+      "label_i18n": {
+        "en": "2. Oda Genişliği",
+        "tr": "2. Oda Genişliği",
+        "de": "2. Oda Genişliği",
+        "fr": "2. Oda Genişliği",
+        "es": "2. Oda Genişliği",
+        "ar": "2. Oda Genişliği"
+      }
     },
     {
       "id": "wasteFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Fire ve kayıp payı yüzdesi"
+      "businessContext": "Fire ve kayıp payı yüzdesi",
+      "label_i18n": {
+        "en": "Fire Faktörü",
+        "tr": "Fire Faktörü",
+        "de": "Fire Faktörü",
+        "fr": "Fire Faktörü",
+        "es": "Fire Faktörü",
+        "ar": "Fire Faktörü"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "area1",
       "area2"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalArea"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -62,5 +107,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

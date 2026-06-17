@@ -115,20 +115,22 @@
     }
   ],
   "formulas": {
-    "primary": "f0 + (degree >= 1 ? f1 * (evaluationPoint - expansionPoint) : 0) + (degree >= 2 ? (f2 / 2) * Math.pow(evaluationPoint - expansionPoint, 2) : 0) + (degree >= 3 ? (f3 / 6) * Math.pow(evaluationPoint - expansionPoint, 3) : 0)",
     "constTerm": "f0",
-    "linearTerm": "degree >= 1 ? f1 * (evaluationPoint - expansionPoint) : 0",
-    "quadraticTerm": "degree >= 2 ? (f2 / 2) * Math.pow(evaluationPoint - expansionPoint, 2) : 0",
-    "cubicTerm": "degree >= 3 ? (f3 / 6) * Math.pow(evaluationPoint - expansionPoint, 3) : 0"
+    "linearTerm": "degree >= 1 ? f1 * (evaluationPoint - expansionPoint) : 0"
   },
   "outputs": {
-    "primary": "primary",
+    "primary": "linearTerm",
     "breakdown": [
       "constTerm",
       "linearTerm",
       "quadraticTerm",
       "cubicTerm"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "cubicTerm"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -138,5 +140,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -102,7 +102,12 @@
         "unit": "kg",
         "formula": "massInitialSolute"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "yieldPercent"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -112,5 +117,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

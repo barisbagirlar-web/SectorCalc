@@ -68,14 +68,19 @@
   ],
   "formulas": {
     "exceedanceProbability": "1 / returnPeriod",
-    "returnLevel": "Math.abs(shape) < 1e-10 ? location - scale * Math.log(-Math.log(1 - 1/returnPeriod)) : location + (scale/shape) * (Math.pow(-Math.log(1 - 1/returnPeriod), -shape) - 1)"
+    "exceedanceProbability_aux": "1 / returnPeriod"
   },
   "outputs": {
-    "primary": "returnLevel",
+    "primary": "exceedanceProbability_aux",
     "breakdown": [
       "exceedanceProbability",
       "returnLevel"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "returnLevel"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -85,5 +90,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

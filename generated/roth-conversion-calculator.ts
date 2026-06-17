@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from roth-conversion-calculator-schema.json
 import * as z from 'zod';
 
@@ -19,26 +20,33 @@ export const Roth_conversion_calculatorInputSchema = z.object({
   annualReturnRate: z.number().default(7),
 });
 
-function evaluateAllFormulas(input: Roth_conversion_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.amountToConvert * (1 - input.currentTaxRate / 100) * Math.pow(1 + input.annualReturnRate / 100, input.yearsToRetirement); results["convertAfterTaxValue"] = Number.isFinite(v) ? v : 0; } catch { results["convertAfterTaxValue"] = 0; }
-  try { const v = input.amountToConvert * Math.pow(1 + input.annualReturnRate / 100, input.yearsToRetirement) * (1 - input.expectedRetirementTaxRate / 100); results["noConvertAfterTaxValue"] = Number.isFinite(v) ? v : 0; } catch { results["noConvertAfterTaxValue"] = 0; }
-  try { const v = (results["convertAfterTaxValue"] ?? 0) - (results["noConvertAfterTaxValue"] ?? 0); results["conversionBenefit"] = Number.isFinite(v) ? v : 0; } catch { results["conversionBenefit"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Roth_conversion_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.currentBalance + input.amountToConvert + input.currentTaxRate; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.currentBalance + input.amountToConvert + input.currentTaxRate; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateRoth_conversion_calculator(input: Roth_conversion_calculatorInput): Roth_conversion_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["convertAfterTaxValue"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "days",
       "default": 0,
-      "businessContext": "Number of days to convert"
+      "businessContext": "Number of days to convert",
+      "label_i18n": {
+        "en": "Days",
+        "tr": "Days",
+        "de": "Days",
+        "fr": "Days",
+        "es": "Days",
+        "ar": "Days"
+      }
     },
     {
       "id": "hours",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hours",
       "default": 0,
-      "businessContext": "Number of hours to convert"
+      "businessContext": "Number of hours to convert",
+      "label_i18n": {
+        "en": "Hours",
+        "tr": "Hours",
+        "de": "Hours",
+        "fr": "Hours",
+        "es": "Hours",
+        "ar": "Hours"
+      }
     },
     {
       "id": "minutes",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 0,
-      "businessContext": "Number of minutes to convert"
+      "businessContext": "Number of minutes to convert",
+      "label_i18n": {
+        "en": "Minutes",
+        "tr": "Minutes",
+        "de": "Minutes",
+        "fr": "Minutes",
+        "es": "Minutes",
+        "ar": "Minutes"
+      }
     },
     {
       "id": "seconds",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "seconds",
       "default": 0,
-      "businessContext": "Number of seconds to convert"
+      "businessContext": "Number of seconds to convert",
+      "label_i18n": {
+        "en": "Seconds",
+        "tr": "Seconds",
+        "de": "Seconds",
+        "fr": "Seconds",
+        "es": "Seconds",
+        "ar": "Seconds"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "totalMinutes",
       "totalHours",
       "totalDays"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalDays"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -56,5 +93,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

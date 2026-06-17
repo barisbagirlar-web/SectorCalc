@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "The length of the room where vinyl flooring will be installed."
+      "businessContext": "The length of the room where vinyl flooring will be installed.",
+      "label_i18n": {
+        "en": "Room Length",
+        "tr": "Room Length",
+        "de": "Room Length",
+        "fr": "Room Length",
+        "es": "Room Length",
+        "ar": "Room Length"
+      }
     },
     {
       "id": "roomWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 4,
-      "businessContext": "The width of the room where vinyl flooring will be installed."
+      "businessContext": "The width of the room where vinyl flooring will be installed.",
+      "label_i18n": {
+        "en": "Room Width",
+        "tr": "Room Width",
+        "de": "Room Width",
+        "fr": "Room Width",
+        "es": "Room Width",
+        "ar": "Room Width"
+      }
     },
     {
       "id": "plankLength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 1.2,
-      "businessContext": "The length of a single vinyl plank."
+      "businessContext": "The length of a single vinyl plank.",
+      "label_i18n": {
+        "en": "Vinyl Plank Length",
+        "tr": "Vinyl Plank Length",
+        "de": "Vinyl Plank Length",
+        "fr": "Vinyl Plank Length",
+        "es": "Vinyl Plank Length",
+        "ar": "Vinyl Plank Length"
+      }
     },
     {
       "id": "plankWidth",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.2,
-      "businessContext": "The width of a single vinyl plank."
+      "businessContext": "The width of a single vinyl plank.",
+      "label_i18n": {
+        "en": "Vinyl Plank Width",
+        "tr": "Vinyl Plank Width",
+        "de": "Vinyl Plank Width",
+        "fr": "Vinyl Plank Width",
+        "es": "Vinyl Plank Width",
+        "ar": "Vinyl Plank Width"
+      }
     },
     {
       "id": "wasteFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Percentage of extra material to account for cutting and fitting waste."
+      "businessContext": "Percentage of extra material to account for cutting and fitting waste.",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     },
     {
       "id": "plankPrice",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "€/m²",
       "default": 15,
-      "businessContext": "Cost of vinyl flooring per square meter."
+      "businessContext": "Cost of vinyl flooring per square meter.",
+      "label_i18n": {
+        "en": "Price per Square Meter",
+        "tr": "Price per Square Meter",
+        "de": "Price per Square Meter",
+        "fr": "Price per Square Meter",
+        "es": "Price per Square Meter",
+        "ar": "Price per Square Meter"
+      }
     }
   ],
   "formulas": {
@@ -61,7 +109,12 @@
     "breakdown": [
       "totalArea",
       "numberOfPlanks"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -71,5 +124,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

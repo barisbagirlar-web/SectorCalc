@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 80000,
-      "businessContext": "Beginning balance of accounts payable from the balance sheet at the start of the period."
+      "businessContext": "Beginning balance of accounts payable from the balance sheet at the start of the period.",
+      "label_i18n": {
+        "en": "Accounts Payable (Beginning)",
+        "tr": "Accounts Payable (Beginning)",
+        "de": "Accounts Payable (Beginning)",
+        "fr": "Accounts Payable (Beginning)",
+        "es": "Accounts Payable (Beginning)",
+        "ar": "Accounts Payable (Beginning)"
+      }
     },
     {
       "id": "apEnd",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100000,
-      "businessContext": "Ending balance of accounts payable from the balance sheet at the end of the period."
+      "businessContext": "Ending balance of accounts payable from the balance sheet at the end of the period.",
+      "label_i18n": {
+        "en": "Accounts Payable (Ending)",
+        "tr": "Accounts Payable (Ending)",
+        "de": "Accounts Payable (Ending)",
+        "fr": "Accounts Payable (Ending)",
+        "es": "Accounts Payable (Ending)",
+        "ar": "Accounts Payable (Ending)"
+      }
     },
     {
       "id": "cogs",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 500000,
-      "businessContext": "Total cost of goods sold during the period, from the income statement."
+      "businessContext": "Total cost of goods sold during the period, from the income statement.",
+      "label_i18n": {
+        "en": "Cost of Goods Sold (COGS)",
+        "tr": "Cost of Goods Sold (COGS)",
+        "de": "Cost of Goods Sold (COGS)",
+        "fr": "Cost of Goods Sold (COGS)",
+        "es": "Cost of Goods Sold (COGS)",
+        "ar": "Cost of Goods Sold (COGS)"
+      }
     },
     {
       "id": "days",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "days",
       "default": 365,
-      "businessContext": "Number of calendar days in the measurement period (e.g., 365 for annual, 90 for quarterly)."
+      "businessContext": "Number of calendar days in the measurement period (e.g., 365 for annual, 90 for quarterly).",
+      "label_i18n": {
+        "en": "Number of Days in Period",
+        "tr": "Number of Days in Period",
+        "de": "Number of Days in Period",
+        "fr": "Number of Days in Period",
+        "es": "Number of Days in Period",
+        "ar": "Number of Days in Period"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "averageAP",
       "apTurnover"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "apTurnover"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -54,5 +91,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "metal",
   "profession": "Sac Teknisyeni",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

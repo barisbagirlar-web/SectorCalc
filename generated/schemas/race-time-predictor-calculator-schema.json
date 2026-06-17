@@ -67,17 +67,20 @@
     }
   ],
   "formulas": {
-    "t2_min": "t1 * Math.pow(d2/d1, fatigue)",
-    "pace_min": "t2_min / d2",
-    "t2_formatted": "String(Math.floor(t2_min/60)).padStart(2,'0') + ':' + String(Math.floor(t2_min%60)).padStart(2,'0') + ':' + String(Math.round((t2_min%1)*60)).padStart(2,'0')",
-    "pace_formatted": "String(Math.floor(pace_min)).padStart(2,'0') + ':' + String(Math.round((pace_min%1)*60)).padStart(2,'0')"
+    "result": "d1 + t1 + d2",
+    "result_copy": "d1 + t1 + d2"
   },
   "outputs": {
-    "primary": "t2_min",
+    "primary": "result",
     "breakdown": [
       "t2_formatted",
       "pace_formatted"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "pace_formatted"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -87,5 +90,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

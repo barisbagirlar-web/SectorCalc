@@ -68,23 +68,20 @@
   ],
   "formulas": {
     "totalMonths": "birthMonth + monthOffset - 1",
-    "yearOffset": "Math.floor(totalMonths / 12)",
-    "newYear": "birthYear + yearOffset",
-    "newMonthRaw": "totalMonths % 12",
-    "newMonth": "newMonthRaw + 1",
-    "isLeap": "(newYear % 4 == 0 && newYear % 100 != 0) || (newYear % 400 == 0)",
-    "daysInMonth": "[31, isLeap ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]",
-    "maxDay": "daysInMonth[newMonth - 1]",
-    "newDay": "Math.min(birthDay, maxDay)",
-    "dateString": "('' + newYear) + '-' + (newMonth < 10 ? '0' + newMonth : '' + newMonth) + '-' + (newDay < 10 ? '0' + newDay : '' + newDay)"
+    "totalMonths_aux": "birthMonth + monthOffset - 1"
   },
   "outputs": {
-    "primary": "dateString",
+    "primary": "totalMonths_aux",
     "breakdown": [
       "newYear",
       "newMonth",
       "newDay"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "dateString"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -94,5 +91,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

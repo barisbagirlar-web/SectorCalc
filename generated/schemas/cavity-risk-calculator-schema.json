@@ -99,22 +99,23 @@
     }
   ],
   "formulas": {
-    "thermalFactor": "Math.exp(-0.01 * (meltTemp - 700)) + Math.sqrt(Math.abs(moldTemp - 200)) / 10",
-    "pressureFactor": "Math.max(0, 1 - (injectionPressure / 150))",
     "purityFactor": "1 - (alloyPurity / 100)",
-    "coolingRisk": "Math.log(1 + coolingRate) / Math.log(10)",
-    "ventingFactor": "1 - (ventingEfficiency / 100)",
-    "cavityRiskIndex": "((Math.exp(-0.01 * (meltTemp - 700)) + Math.sqrt(Math.abs(moldTemp - 200)) / 10) * Math.max(0, 1 - (injectionPressure / 150)) * (1 - (alloyPurity / 100)) * (Math.log(1 + coolingRate) / Math.log(10)) * (1 - (ventingEfficiency / 100))) * 100"
+    "ventingFactor": "1 - (ventingEfficiency / 100)"
   },
   "outputs": {
-    "primary": "cavityRiskIndex",
+    "primary": "ventingFactor",
     "breakdown": [
       "thermalFactor",
       "pressureFactor",
       "purityFactor",
       "coolingRisk",
       "ventingFactor"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "cavityRiskIndex"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -124,5 +125,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "metal",
   "profession": "Kalıp Uzmanı",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

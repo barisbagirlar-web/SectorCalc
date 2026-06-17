@@ -83,19 +83,20 @@
     }
   ],
   "formulas": {
-    "primary": "conversionMode === 0 ? (decimalNumber === 0 ? '0' : (decimalNumber / Math.pow(10, Math.floor(Math.log10(Math.abs(decimalNumber))))).toFixed(precision) + 'e' + Math.floor(Math.log10(Math.abs(decimalNumber)))) : (scientificCoefficient * Math.pow(10, scientificExponent)).toFixed(precision)",
-    "breakdown0": "conversionMode === 0 ? (decimalNumber === 0 ? 'Coefficient: 0' : 'Coefficient: ' + (decimalNumber / Math.pow(10, Math.floor(Math.log10(Math.abs(decimalNumber))))).toFixed(precision)) : 'Decimal: ' + (scientificCoefficient * Math.pow(10, scientificExponent)).toFixed(precision)",
-    "breakdown1": "conversionMode === 0 ? (decimalNumber === 0 ? 'Exponent: 0' : 'Exponent: ' + Math.floor(Math.log10(Math.abs(decimalNumber)))) : 'Scientific Input: ' + scientificCoefficient + 'e' + scientificExponent",
-    "0_____Coefficient_______decimalNumber___": "0' : 'Coefficient: ' + (decimalNumber / Math.pow(10, Math.floor(Math.log10(Math.abs(decimalNumber))))).toFixed(precision)) : 'Decimal: ' + (scientificCoefficient * Math.pow(10, scientificExponent)).toFixed(precision)",
-    "0_____Exponent______Math_floor_Math_log1": "0' : 'Exponent: ' + Math.floor(Math.log10(Math.abs(decimalNumber)))) : 'Scientific Input: ' + scientificCoefficient + 'e' + scientificExponent",
-    "result": "conversionMode === 0 ? (decimalNumber === 0 ? '0' : (decimalNumber / Math.pow(10, Math.floor(Math.log10(Math.abs(decimalNumber))))).toFixed(precision) + 'e' + Math.floor(Math.log10(Math.abs(decimalNumber)))) : (scientificCoefficient * Math.pow(10, scientificExponent)).toFixed(precision)"
+    "result": "decimalNumber + scientificCoefficient + scientificExponent",
+    "result_aux": "decimalNumber + scientificCoefficient + scientificExponent"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
       "conversionMode === 0 ? (decimalNumber === 0 ? 'Coefficient: 0' : 'Coefficient: ' + (decimalNumber / Math.pow(10, Math.floor(Math.log10(Math.abs(decimalNumber))))).toFixed(precision)) : 'Decimal: ' + (scientificCoefficient * Math.pow(10, scientificExponent)).toFixed(precision)",
       "conversionMode === 0 ? (decimalNumber === 0 ? 'Exponent: 0' : 'Exponent: ' + Math.floor(Math.log10(Math.abs(decimalNumber)))) : 'Scientific Input: ' + scientificCoefficient + 'e' + scientificExponent"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -105,5 +106,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

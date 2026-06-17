@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 10,
-      "businessContext": "Width of the embroidery design in centimeters."
+      "businessContext": "Width of the embroidery design in centimeters.",
+      "label_i18n": {
+        "en": "Design Width",
+        "tr": "Design Width",
+        "de": "Design Width",
+        "fr": "Design Width",
+        "es": "Design Width",
+        "ar": "Design Width"
+      }
     },
     {
       "id": "designHeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 10,
-      "businessContext": "Height of the embroidery design in centimeters."
+      "businessContext": "Height of the embroidery design in centimeters.",
+      "label_i18n": {
+        "en": "Design Height",
+        "tr": "Design Height",
+        "de": "Design Height",
+        "fr": "Design Height",
+        "es": "Design Height",
+        "ar": "Design Height"
+      }
     },
     {
       "id": "stitchDensity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "stitches/cm²",
       "default": 50,
-      "businessContext": "Average number of stitches per square centimeter for the design."
+      "businessContext": "Average number of stitches per square centimeter for the design.",
+      "label_i18n": {
+        "en": "Stitch Density",
+        "tr": "Stitch Density",
+        "de": "Stitch Density",
+        "fr": "Stitch Density",
+        "es": "Stitch Density",
+        "ar": "Stitch Density"
+      }
     },
     {
       "id": "threadFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m/1000 stitches",
       "default": 30,
-      "businessContext": "Meters of thread consumed per 1000 stitches, based on stitch type and thread weight."
+      "businessContext": "Meters of thread consumed per 1000 stitches, based on stitch type and thread weight.",
+      "label_i18n": {
+        "en": "Thread Consumption Factor",
+        "tr": "Thread Consumption Factor",
+        "de": "Thread Consumption Factor",
+        "fr": "Thread Consumption Factor",
+        "es": "Thread Consumption Factor",
+        "ar": "Thread Consumption Factor"
+      }
     },
     {
       "id": "threadCostPerMeter",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency/m",
       "default": 0.05,
-      "businessContext": "Cost of thread per meter in your local currency."
+      "businessContext": "Cost of thread per meter in your local currency.",
+      "label_i18n": {
+        "en": "Thread Cost per Meter",
+        "tr": "Thread Cost per Meter",
+        "de": "Thread Cost per Meter",
+        "fr": "Thread Cost per Meter",
+        "es": "Thread Cost per Meter",
+        "ar": "Thread Cost per Meter"
+      }
     },
     {
       "id": "machineEfficiency",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "stitches/min",
       "default": 600,
-      "businessContext": "Average machine speed in stitches per minute, including downtime."
+      "businessContext": "Average machine speed in stitches per minute, including downtime.",
+      "label_i18n": {
+        "en": "Machine Efficiency",
+        "tr": "Machine Efficiency",
+        "de": "Machine Efficiency",
+        "fr": "Machine Efficiency",
+        "es": "Machine Efficiency",
+        "ar": "Machine Efficiency"
+      }
     },
     {
       "id": "laborHourlyRate",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "currency/hr",
       "default": 15,
-      "businessContext": "Hourly labor cost for the machine operator."
+      "businessContext": "Hourly labor cost for the machine operator.",
+      "label_i18n": {
+        "en": "Labor Hourly Rate",
+        "tr": "Labor Hourly Rate",
+        "de": "Labor Hourly Rate",
+        "fr": "Labor Hourly Rate",
+        "es": "Labor Hourly Rate",
+        "ar": "Labor Hourly Rate"
+      }
     }
   ],
   "formulas": {
@@ -74,7 +130,12 @@
       "threadCost",
       "machineTime",
       "laborCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -84,5 +145,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "efficiency"
+  "categoryId": "efficiency",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

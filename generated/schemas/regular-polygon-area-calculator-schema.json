@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 6,
-      "businessContext": "Düzgün çokgenin kenar sayısı (3 veya daha büyük)"
+      "businessContext": "Düzgün çokgenin kenar sayısı (3 veya daha büyük)",
+      "label_i18n": {
+        "en": "Kenar Sayısı",
+        "tr": "Kenar Sayısı",
+        "de": "Kenar Sayısı",
+        "fr": "Kenar Sayısı",
+        "es": "Kenar Sayısı",
+        "ar": "Kenar Sayısı"
+      }
     },
     {
       "id": "sideLength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Bir kenarın uzunluğu (metre)"
+      "businessContext": "Bir kenarın uzunluğu (metre)",
+      "label_i18n": {
+        "en": "Kenar Uzunluğu",
+        "tr": "Kenar Uzunluğu",
+        "de": "Kenar Uzunluğu",
+        "fr": "Kenar Uzunluğu",
+        "es": "Kenar Uzunluğu",
+        "ar": "Kenar Uzunluğu"
+      }
     },
     {
       "id": "unitScale",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "çarpan",
       "default": 1,
-      "businessContext": "Çıktı alan için birim dönüşüm katsayısı (örn. m² → cm²: 10000)"
+      "businessContext": "Çıktı alan için birim dönüşüm katsayısı (örn. m² → cm²: 10000)",
+      "label_i18n": {
+        "en": "Birim Ölçek",
+        "tr": "Birim Ölçek",
+        "de": "Birim Ölçek",
+        "fr": "Birim Ölçek",
+        "es": "Birim Ölçek",
+        "ar": "Birim Ölçek"
+      }
     },
     {
       "id": "decimals",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "adet",
       "default": 2,
-      "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı"
+      "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı",
+      "label_i18n": {
+        "en": "Ondalık Basamak",
+        "tr": "Ondalık Basamak",
+        "de": "Ondalık Basamak",
+        "fr": "Ondalık Basamak",
+        "es": "Ondalık Basamak",
+        "ar": "Ondalık Basamak"
+      }
     }
   ],
   "formulas": {
-    "areaBase": "(numberOfSides * sideLength ** 2 * Math.cos(Math.PI / numberOfSides)) / (4 * Math.sin(Math.PI / numberOfSides))",
-    "areaScaled": "areaBase * unitScale",
-    "roundArea": "Math.round(areaScaled * 10**decimals) / 10**decimals"
+    "result": "numberOfSides + sideLength + unitScale",
+    "result_copy": "numberOfSides + sideLength + unitScale"
   },
   "outputs": {
-    "primary": "roundArea",
+    "primary": "result",
     "breakdown": [
       "areaBase",
       "areaScaled"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roundArea"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

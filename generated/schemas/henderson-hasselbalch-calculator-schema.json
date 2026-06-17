@@ -68,15 +68,19 @@
   ],
   "formulas": {
     "ratio": "conc_base / conc_acid",
-    "log_ratio": "Math.log(ratio) / Math.LN10",
-    "ph": "pka + log_ratio"
+    "ratio_aux": "conc_base / conc_acid"
   },
   "outputs": {
-    "primary": "ph",
+    "primary": "ratio_aux",
     "breakdown": [
       "ratio",
       "log_ratio"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "ph"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -86,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

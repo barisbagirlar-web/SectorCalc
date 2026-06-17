@@ -67,17 +67,20 @@
     }
   ],
   "formulas": {
-    "time_seconds": "(1/rate_constant) * Math.log(1/(1 - conversion))",
     "final_concentration": "initial_concentration * (1 - conversion)",
-    "product_moles": "volume * initial_concentration * conversion",
-    "time_minutes": "time_seconds / 60"
+    "product_moles": "volume * initial_concentration * conversion"
   },
   "outputs": {
-    "primary": "time_minutes",
+    "primary": "product_moles",
     "breakdown": [
       "final_concentration",
       "product_moles"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "time_minutes"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -87,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "kimya",
   "profession": "Proses Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

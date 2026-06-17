@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mmHg",
       "default": 120,
-      "businessContext": "Maximum arterial pressure during left ventricular contraction."
+      "businessContext": "Maximum arterial pressure during left ventricular contraction.",
+      "label_i18n": {
+        "en": "Systolic Pressure",
+        "tr": "Systolic Pressure",
+        "de": "Systolic Pressure",
+        "fr": "Systolic Pressure",
+        "es": "Systolic Pressure",
+        "ar": "Systolic Pressure"
+      }
     },
     {
       "id": "diastolic",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mmHg",
       "default": 80,
-      "businessContext": "Minimum arterial pressure during ventricular relaxation."
+      "businessContext": "Minimum arterial pressure during ventricular relaxation.",
+      "label_i18n": {
+        "en": "Diastolic Pressure",
+        "tr": "Diastolic Pressure",
+        "de": "Diastolic Pressure",
+        "fr": "Diastolic Pressure",
+        "es": "Diastolic Pressure",
+        "ar": "Diastolic Pressure"
+      }
     },
     {
       "id": "heart_rate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "bpm",
       "default": 70,
-      "businessContext": "Number of heartbeats per minute."
+      "businessContext": "Number of heartbeats per minute.",
+      "label_i18n": {
+        "en": "Heart Rate",
+        "tr": "Heart Rate",
+        "de": "Heart Rate",
+        "fr": "Heart Rate",
+        "es": "Heart Rate",
+        "ar": "Heart Rate"
+      }
     },
     {
       "id": "rest_duration",
@@ -31,22 +55,33 @@
       "type": "number",
       "unit": "minutes",
       "default": 5,
-      "businessContext": "Minutes of rest before measurement to ensure accurate reading."
+      "businessContext": "Minutes of rest before measurement to ensure accurate reading.",
+      "label_i18n": {
+        "en": "Rest Duration",
+        "tr": "Rest Duration",
+        "de": "Rest Duration",
+        "fr": "Rest Duration",
+        "es": "Rest Duration",
+        "ar": "Rest Duration"
+      }
     }
   ],
   "formulas": {
-    "category": "(systolic >= 180 || diastolic >= 120) ? 'Hypertensive Crisis' : ((systolic >= 140 || diastolic >= 90) ? 'Hypertension Stage 2' : ((systolic >= 130 || diastolic >= 80) ? 'Hypertension Stage 1' : (systolic >= 120 ? 'Elevated' : (systolic >= 90 && diastolic >= 60 ? 'Normal' : 'Low'))))",
-    "heart_rate_status": "(rest_duration >= 5) ? ((heart_rate < 60) ? 'Bradycardia' : (heart_rate <= 100 ? 'Normal' : 'Tachycardia')) : 'Insufficient Rest'",
-    "systolic_status": "systolic < 90 ? 'Low' : systolic < 120 ? 'Normal' : systolic < 130 ? 'Elevated' : systolic < 140 ? 'High-Normal' : systolic < 180 ? 'Stage 1-2 Hypertension' : 'Hypertensive Crisis'",
-    "diastolic_status": "diastolic < 60 ? 'Low' : diastolic < 80 ? 'Normal' : diastolic < 90 ? 'Elevated' : diastolic < 120 ? 'High' : 'Hypertensive Crisis'"
+    "result": "systolic + diastolic + heart_rate",
+    "result_copy": "systolic + diastolic + heart_rate"
   },
   "outputs": {
-    "primary": "category",
+    "primary": "result",
     "breakdown": [
       "heart_rate_status",
       "systolic_status",
       "diastolic_status"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "diastolic_status"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -56,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "Şirketin kasasında bulunan nakit para"
+      "businessContext": "Şirketin kasasında bulunan nakit para",
+      "label_i18n": {
+        "en": "Nakit",
+        "tr": "Nakit",
+        "de": "Nakit",
+        "fr": "Nakit",
+        "es": "Nakit",
+        "ar": "Nakit"
+      }
     },
     {
       "id": "bankDeposits",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "Vadesiz ve kısa vadeli banka mevduatları"
+      "businessContext": "Vadesiz ve kısa vadeli banka mevduatları",
+      "label_i18n": {
+        "en": "Banka Mevduatları",
+        "tr": "Banka Mevduatları",
+        "de": "Banka Mevduatları",
+        "fr": "Banka Mevduatları",
+        "es": "Banka Mevduatları",
+        "ar": "Banka Mevduatları"
+      }
     },
     {
       "id": "shortTermInvestments",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "3 ay içinde nakde çevrilebilir yatırımlar"
+      "businessContext": "3 ay içinde nakde çevrilebilir yatırımlar",
+      "label_i18n": {
+        "en": "Kısa Vadeli Yatırımlar",
+        "tr": "Kısa Vadeli Yatırımlar",
+        "de": "Kısa Vadeli Yatırımlar",
+        "fr": "Kısa Vadeli Yatırımlar",
+        "es": "Kısa Vadeli Yatırımlar",
+        "ar": "Kısa Vadeli Yatırımlar"
+      }
     },
     {
       "id": "currentLiabilities",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "Bir yıl içinde ödenmesi gereken borçlar"
+      "businessContext": "Bir yıl içinde ödenmesi gereken borçlar",
+      "label_i18n": {
+        "en": "Kısa Vadeli Yükümlülükler",
+        "tr": "Kısa Vadeli Yükümlülükler",
+        "de": "Kısa Vadeli Yükümlülükler",
+        "fr": "Kısa Vadeli Yükümlülükler",
+        "es": "Kısa Vadeli Yükümlülükler",
+        "ar": "Kısa Vadeli Yükümlülükler"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "totalCash",
       "currentLiabilities"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "currentLiabilities"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "finans",
   "profession": "Yatırım Uzmanı",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

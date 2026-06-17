@@ -67,16 +67,20 @@
     }
   ],
   "formulas": {
-    "transferTimestamp": "new Date(transferYear, transferMonth - 1, transferDay).getTime()",
     "daysToAdd": "266 - embryoAge",
-    "dueDateTimestamp": "new Date(transferYear, transferMonth - 1, transferDay).getTime() + ((266 - embryoAge) * 86400000)"
+    "daysToAdd_aux": "266 - embryoAge"
   },
   "outputs": {
-    "primary": "dueDateTimestamp",
+    "primary": "daysToAdd_aux",
     "breakdown": [
       "transferTimestamp",
       "daysToAdd"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "dueDateTimestamp"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -86,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

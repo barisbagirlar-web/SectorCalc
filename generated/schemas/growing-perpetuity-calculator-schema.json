@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 1000,
-      "businessContext": "İlk dönem sonunda elde edilmesi beklenen nakit akışı (genellikle bir sonraki yıl)"
+      "businessContext": "İlk dönem sonunda elde edilmesi beklenen nakit akışı (genellikle bir sonraki yıl)",
+      "label_i18n": {
+        "en": "İlk Nakit Akışı",
+        "tr": "İlk Nakit Akışı",
+        "de": "İlk Nakit Akışı",
+        "fr": "İlk Nakit Akışı",
+        "es": "İlk Nakit Akışı",
+        "ar": "İlk Nakit Akışı"
+      }
     },
     {
       "id": "discountRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "percentage",
       "default": 10,
-      "businessContext": "Yatırımcının beklenen getiri oranı veya sermaye maliyeti, iskonto oranı olarak kullanılır"
+      "businessContext": "Yatırımcının beklenen getiri oranı veya sermaye maliyeti, iskonto oranı olarak kullanılır",
+      "label_i18n": {
+        "en": "İskonto Oranı",
+        "tr": "İskonto Oranı",
+        "de": "İskonto Oranı",
+        "fr": "İskonto Oranı",
+        "es": "İskonto Oranı",
+        "ar": "İskonto Oranı"
+      }
     },
     {
       "id": "growthRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "percentage",
       "default": 3,
-      "businessContext": "Nakit akışlarının her dönemdeki sabit büyüme oranı, iskonto oranından küçük olmalıdır"
+      "businessContext": "Nakit akışlarının her dönemdeki sabit büyüme oranı, iskonto oranından küçük olmalıdır",
+      "label_i18n": {
+        "en": "Büyüme Oranı",
+        "tr": "Büyüme Oranı",
+        "de": "Büyüme Oranı",
+        "fr": "Büyüme Oranı",
+        "es": "Büyüme Oranı",
+        "ar": "Büyüme Oranı"
+      }
     },
     {
       "id": "timingFlag",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "binary (0=Dönem Sonu, 1=Dönem Başı)",
       "default": 0,
-      "businessContext": "Nakit akışlarının dönem sonunda mı (0) yoksa dönem başında mı (1) gerçekleştiğini belirtir"
+      "businessContext": "Nakit akışlarının dönem sonunda mı (0) yoksa dönem başında mı (1) gerçekleştiğini belirtir",
+      "label_i18n": {
+        "en": "Ödeme Zamanlaması",
+        "tr": "Ödeme Zamanlaması",
+        "de": "Ödeme Zamanlaması",
+        "fr": "Ödeme Zamanlaması",
+        "es": "Ödeme Zamanlaması",
+        "ar": "Ödeme Zamanlaması"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "discountRateMinusGrowth",
       "presentValueBeforeTiming"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "presentValue"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -54,5 +91,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "havacilik",
   "profession": "Tasarım Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

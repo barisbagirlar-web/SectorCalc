@@ -100,19 +100,20 @@
   ],
   "formulas": {
     "totalBaseCost": "baseRent + baseUtilities + baseGroceries + baseTransport + baseMisc",
-    "totalTargetCost": "totalBaseCost * targetIndex / 100",
-    "___totalBaseCost_toFixed_2__": "$${totalBaseCost.toFixed(2)}",
-    "__targetIndex_": "${targetIndex}",
-    "___totalTargetCost_toFixed_2__": "$${totalTargetCost.toFixed(2)}",
-    "result": "Equivalent monthly cost in target city: $${totalTargetCost.toFixed(2)}"
+    "totalTargetCost": "totalBaseCost * targetIndex / 100"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "totalTargetCost",
     "breakdown": [
       "Total base city monthly cost: $${totalBaseCost.toFixed(2)}",
       "Target city index: ${targetIndex}",
       "Equivalent target city cost: $${totalTargetCost.toFixed(2)}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalTargetCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -122,5 +123,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

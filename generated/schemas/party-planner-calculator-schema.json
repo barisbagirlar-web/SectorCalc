@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "people",
       "default": 50,
-      "businessContext": "Total number of attendees expected at the party"
+      "businessContext": "Total number of attendees expected at the party",
+      "label_i18n": {
+        "en": "Number of Guests",
+        "tr": "Number of Guests",
+        "de": "Number of Guests",
+        "fr": "Number of Guests",
+        "es": "Number of Guests",
+        "ar": "Number of Guests"
+      }
     },
     {
       "id": "foodCostPerPerson",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 20,
-      "businessContext": "Average food cost per guest"
+      "businessContext": "Average food cost per guest",
+      "label_i18n": {
+        "en": "Food Cost per Person",
+        "tr": "Food Cost per Person",
+        "de": "Food Cost per Person",
+        "fr": "Food Cost per Person",
+        "es": "Food Cost per Person",
+        "ar": "Food Cost per Person"
+      }
     },
     {
       "id": "drinkCostPerPerson",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 10,
-      "businessContext": "Average drink cost per guest"
+      "businessContext": "Average drink cost per guest",
+      "label_i18n": {
+        "en": "Drink Cost per Person",
+        "tr": "Drink Cost per Person",
+        "de": "Drink Cost per Person",
+        "fr": "Drink Cost per Person",
+        "es": "Drink Cost per Person",
+        "ar": "Drink Cost per Person"
+      }
     },
     {
       "id": "venueCost",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency",
       "default": 500,
-      "businessContext": "Total venue rental cost"
+      "businessContext": "Total venue rental cost",
+      "label_i18n": {
+        "en": "Venue Cost",
+        "tr": "Venue Cost",
+        "de": "Venue Cost",
+        "fr": "Venue Cost",
+        "es": "Venue Cost",
+        "ar": "Venue Cost"
+      }
     },
     {
       "id": "decorationsCost",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency",
       "default": 200,
-      "businessContext": "Total cost of party decorations"
+      "businessContext": "Total cost of party decorations",
+      "label_i18n": {
+        "en": "Decorations Cost",
+        "tr": "Decorations Cost",
+        "de": "Decorations Cost",
+        "fr": "Decorations Cost",
+        "es": "Decorations Cost",
+        "ar": "Decorations Cost"
+      }
     },
     {
       "id": "entertainmentCost",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "currency",
       "default": 300,
-      "businessContext": "Total cost of entertainment (e.g., DJ, band)"
+      "businessContext": "Total cost of entertainment (e.g., DJ, band)",
+      "label_i18n": {
+        "en": "Entertainment Cost",
+        "tr": "Entertainment Cost",
+        "de": "Entertainment Cost",
+        "fr": "Entertainment Cost",
+        "es": "Entertainment Cost",
+        "ar": "Entertainment Cost"
+      }
     },
     {
       "id": "miscCost",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "currency",
       "default": 100,
-      "businessContext": "Other miscellaneous expenses"
+      "businessContext": "Other miscellaneous expenses",
+      "label_i18n": {
+        "en": "Miscellaneous Cost",
+        "tr": "Miscellaneous Cost",
+        "de": "Miscellaneous Cost",
+        "fr": "Miscellaneous Cost",
+        "es": "Miscellaneous Cost",
+        "ar": "Miscellaneous Cost"
+      }
     }
   ],
   "formulas": {
@@ -72,7 +128,12 @@
       "totalDrinkCost",
       "fixedCosts",
       "costPerGuest"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "costPerGuest"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -82,5 +143,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

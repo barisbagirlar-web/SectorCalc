@@ -83,18 +83,21 @@
     }
   ],
   "formulas": {
-    "solidAngle": "2 * Math.PI * (1 - Math.cos((beamAngle / 2) * Math.PI / 180))",
-    "luminousIntensity": "luminousFlux * efficiency / solidAngle",
-    "illuminance": "luminousIntensity / (distance * distance)",
-    "totalIlluminance": "illuminance + ambientLight"
+    "result": "luminousFlux + beamAngle + distance",
+    "result_copy": "luminousFlux + beamAngle + distance"
   },
   "outputs": {
-    "primary": "totalIlluminance",
+    "primary": "result",
     "breakdown": [
       "luminousIntensity",
       "solidAngle",
       "illuminance"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalIlluminance"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -104,5 +107,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "efficiency"
+  "categoryId": "efficiency",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

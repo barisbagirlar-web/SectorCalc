@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "unit",
       "default": 100,
-      "businessContext": "Reference or standard value for comparison."
+      "businessContext": "Reference or standard value for comparison.",
+      "label_i18n": {
+        "en": "True Value",
+        "tr": "True Value",
+        "de": "True Value",
+        "fr": "True Value",
+        "es": "True Value",
+        "ar": "True Value"
+      }
     },
     {
       "id": "measured_value",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "unit",
       "default": 98,
-      "businessContext": "Value obtained from the measurement."
+      "businessContext": "Value obtained from the measurement.",
+      "label_i18n": {
+        "en": "Measured Value",
+        "tr": "Measured Value",
+        "de": "Measured Value",
+        "fr": "Measured Value",
+        "es": "Measured Value",
+        "ar": "Measured Value"
+      }
     },
     {
       "id": "full_scale",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "unit",
       "default": 200,
-      "businessContext": "Full scale range of the instrument."
+      "businessContext": "Full scale range of the instrument.",
+      "label_i18n": {
+        "en": "Full Scale",
+        "tr": "Full Scale",
+        "de": "Full Scale",
+        "fr": "Full Scale",
+        "es": "Full Scale",
+        "ar": "Full Scale"
+      }
     },
     {
       "id": "tolerance_limit",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "unit",
       "default": 2,
-      "businessContext": "Maximum permissible absolute error for pass/fail."
+      "businessContext": "Maximum permissible absolute error for pass/fail.",
+      "label_i18n": {
+        "en": "Tolerance Limit",
+        "tr": "Tolerance Limit",
+        "de": "Tolerance Limit",
+        "fr": "Tolerance Limit",
+        "es": "Tolerance Limit",
+        "ar": "Tolerance Limit"
+      }
     },
     {
       "id": "calibration_offset",
@@ -39,15 +71,20 @@
       "type": "number",
       "unit": "unit",
       "default": 0,
-      "businessContext": "Known systematic error to correct the measured value."
+      "businessContext": "Known systematic error to correct the measured value.",
+      "label_i18n": {
+        "en": "Calibration Offset",
+        "tr": "Calibration Offset",
+        "de": "Calibration Offset",
+        "fr": "Calibration Offset",
+        "es": "Calibration Offset",
+        "ar": "Calibration Offset"
+      }
     }
   ],
   "formulas": {
     "absolute_error": "measured_value - calibration_offset - true_value",
-    "relative_error_percent": "((measured_value - calibration_offset - true_value) / true_value) * 100",
-    "accuracy_percent": "100 - Math.abs(((measured_value - calibration_offset - true_value) / true_value) * 100)",
-    "full_scale_error_percent": "(Math.abs(measured_value - calibration_offset - true_value) / full_scale) * 100",
-    "within_tolerance": "Math.abs(measured_value - calibration_offset - true_value) <= tolerance_limit ? 'Yes' : 'No'"
+    "relative_error_percent": "((measured_value - calibration_offset - true_value) / true_value) * 100"
   },
   "outputs": {
     "primary": "absolute_error",
@@ -72,7 +109,12 @@
         "id": "within_tolerance",
         "unit": ""
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "within_tolerance"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -82,5 +124,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

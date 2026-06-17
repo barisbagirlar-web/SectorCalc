@@ -118,15 +118,8 @@
     "loanAmount": "propertyPrice - downPayment",
     "monthlyInterestRate": "interestRate / 100 / 12",
     "numberOfPayments": "loanTerm * 12",
-    "monthlyMortgage": "loanAmount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments) / (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1)",
     "vacancyLoss": "monthlyRentIncome * (vacancyRate / 100)",
-    "effectiveRentIncome": "monthlyRentIncome - vacancyLoss",
-    "netMonthlyCashFlow": "effectiveRentIncome - monthlyMortgage - monthlyExpenses",
-    "annualCashFlow": "netMonthlyCashFlow * 12",
-    "cashOnCashReturn": "(annualCashFlow / downPayment) * 100",
-    "Monthly_Mortgage_Payment": "Monthly Mortgage Payment",
-    "Effective_Rental_Income": "Effective Rental Income",
-    "Cash_on_Cash_Return": "Cash-on-Cash Return"
+    "effectiveRentIncome": "monthlyRentIncome - vacancyLoss"
   },
   "outputs": {
     "primary": "loanAmount",
@@ -134,7 +127,12 @@
       "Monthly Mortgage Payment",
       "Effective Rental Income",
       "Cash-on-Cash Return"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "cashOnCashReturn"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -144,5 +142,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 1,
-      "businessContext": "Mass of the sample in grams"
+      "businessContext": "Mass of the sample in grams",
+      "label_i18n": {
+        "en": "Mass of Substance (g)",
+        "tr": "Mass of Substance (g)",
+        "de": "Mass of Substance (g)",
+        "fr": "Mass of Substance (g)",
+        "es": "Mass of Substance (g)",
+        "ar": "Mass of Substance (g)"
+      }
     },
     {
       "id": "molarMass",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g/mol",
       "default": 18.015,
-      "businessContext": "Molar mass of the substance (e.g., water = 18.015 g/mol)"
+      "businessContext": "Molar mass of the substance (e.g., water = 18.015 g/mol)",
+      "label_i18n": {
+        "en": "Molar Mass (g/mol)",
+        "tr": "Molar Mass (g/mol)",
+        "de": "Molar Mass (g/mol)",
+        "fr": "Molar Mass (g/mol)",
+        "es": "Molar Mass (g/mol)",
+        "ar": "Molar Mass (g/mol)"
+      }
     },
     {
       "id": "avogadroConstant",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mol⁻¹",
       "default": 6.02214076e+23,
-      "businessContext": "Avogadro's number (6.02214076×10²³ mol⁻¹)"
+      "businessContext": "Avogadro's number (6.02214076×10²³ mol⁻¹)",
+      "label_i18n": {
+        "en": "Avogadro's Constant (mol⁻¹)",
+        "tr": "Avogadro's Constant (mol⁻¹)",
+        "de": "Avogadro's Constant (mol⁻¹)",
+        "fr": "Avogadro's Constant (mol⁻¹)",
+        "es": "Avogadro's Constant (mol⁻¹)",
+        "ar": "Avogadro's Constant (mol⁻¹)"
+      }
     },
     {
       "id": "moleculesPerUnitCell",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "molecules",
       "default": 1,
-      "businessContext": "Number of molecules per unit cell in a crystal (optional, default 1)"
+      "businessContext": "Number of molecules per unit cell in a crystal (optional, default 1)",
+      "label_i18n": {
+        "en": "Molecules per Unit Cell",
+        "tr": "Molecules per Unit Cell",
+        "de": "Molecules per Unit Cell",
+        "fr": "Molecules per Unit Cell",
+        "es": "Molecules per Unit Cell",
+        "ar": "Molecules per Unit Cell"
+      }
     },
     {
       "id": "unitCellVolume",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "nm³",
       "default": 1,
-      "businessContext": "Volume of a unit cell in cubic nanometers (optional, default 1)"
+      "businessContext": "Volume of a unit cell in cubic nanometers (optional, default 1)",
+      "label_i18n": {
+        "en": "Unit Cell Volume (nm³)",
+        "tr": "Unit Cell Volume (nm³)",
+        "de": "Unit Cell Volume (nm³)",
+        "fr": "Unit Cell Volume (nm³)",
+        "es": "Unit Cell Volume (nm³)",
+        "ar": "Unit Cell Volume (nm³)"
+      }
     },
     {
       "id": "density",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "g/cm³",
       "default": 1,
-      "businessContext": "Density of the substance (optional, default 1)"
+      "businessContext": "Density of the substance (optional, default 1)",
+      "label_i18n": {
+        "en": "Density (g/cm³)",
+        "tr": "Density (g/cm³)",
+        "de": "Density (g/cm³)",
+        "fr": "Density (g/cm³)",
+        "es": "Density (g/cm³)",
+        "ar": "Density (g/cm³)"
+      }
     }
   ],
   "formulas": {
@@ -65,7 +113,12 @@
       "moleculesPerVolume = numberOfMolecules / (mass / density)",
       "unitCellsPerMole = avogadroConstant / moleculesPerUnitCell",
       "volumePerMolecule = unitCellVolume / moleculesPerUnitCell"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "volumePerMolecule"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -75,5 +128,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -54,11 +54,7 @@
     "adjustedMonth": "month < 3 ? month + 12 : month",
     "adjustedYear": "month < 3 ? year - 1 : year",
     "q": "day",
-    "m": "adjustedMonth",
-    "K": "adjustedYear % 100",
-    "J": "Math.floor(adjustedYear / 100)",
-    "h": "(q + Math.floor((13 * (m + 1)) / 5) + K + Math.floor(K / 4) + Math.floor(J / 4) - 2 * J) % 7",
-    "dayOfWeek": "((h % 7) + 7) % 7"
+    "m": "adjustedMonth"
   },
   "outputs": {
     "primary": "adjustedMonth",
@@ -69,7 +65,12 @@
       "J",
       "h",
       "dayOfWeek"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "dayOfWeek"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -79,5 +80,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

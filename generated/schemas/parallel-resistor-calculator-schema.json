@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 1000,
-      "businessContext": "Resistance of first resistor in ohms"
+      "businessContext": "Resistance of first resistor in ohms",
+      "label_i18n": {
+        "en": "Resistor 1 (R1)",
+        "tr": "Resistor 1 (R1)",
+        "de": "Resistor 1 (R1)",
+        "fr": "Resistor 1 (R1)",
+        "es": "Resistor 1 (R1)",
+        "ar": "Resistor 1 (R1)"
+      }
     },
     {
       "id": "resistor2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 2000,
-      "businessContext": "Resistance of second resistor in ohms"
+      "businessContext": "Resistance of second resistor in ohms",
+      "label_i18n": {
+        "en": "Resistor 2 (R2)",
+        "tr": "Resistor 2 (R2)",
+        "de": "Resistor 2 (R2)",
+        "fr": "Resistor 2 (R2)",
+        "es": "Resistor 2 (R2)",
+        "ar": "Resistor 2 (R2)"
+      }
     },
     {
       "id": "resistor3",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 3000,
-      "businessContext": "Resistance of third resistor in ohms"
+      "businessContext": "Resistance of third resistor in ohms",
+      "label_i18n": {
+        "en": "Resistor 3 (R3)",
+        "tr": "Resistor 3 (R3)",
+        "de": "Resistor 3 (R3)",
+        "fr": "Resistor 3 (R3)",
+        "es": "Resistor 3 (R3)",
+        "ar": "Resistor 3 (R3)"
+      }
     },
     {
       "id": "resistor4",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 4000,
-      "businessContext": "Resistance of fourth resistor in ohms"
+      "businessContext": "Resistance of fourth resistor in ohms",
+      "label_i18n": {
+        "en": "Resistor 4 (R4)",
+        "tr": "Resistor 4 (R4)",
+        "de": "Resistor 4 (R4)",
+        "fr": "Resistor 4 (R4)",
+        "es": "Resistor 4 (R4)",
+        "ar": "Resistor 4 (R4)"
+      }
     }
   ],
   "formulas": {
@@ -42,7 +74,12 @@
     "primary": "totalResistance",
     "breakdown": [
       "conductanceSum"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "conductanceSum"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -52,5 +89,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

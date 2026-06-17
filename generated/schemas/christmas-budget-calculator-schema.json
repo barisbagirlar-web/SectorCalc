@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 10,
-      "businessContext": "Total number of gifts to purchase"
+      "businessContext": "Total number of gifts to purchase",
+      "label_i18n": {
+        "en": "Number of Gifts",
+        "tr": "Number of Gifts",
+        "de": "Number of Gifts",
+        "fr": "Number of Gifts",
+        "es": "Number of Gifts",
+        "ar": "Number of Gifts"
+      }
     },
     {
       "id": "giftBudgetPerPerson",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 50,
-      "businessContext": "Average expenditure per gift"
+      "businessContext": "Average expenditure per gift",
+      "label_i18n": {
+        "en": "Gift Budget per Person",
+        "tr": "Gift Budget per Person",
+        "de": "Gift Budget per Person",
+        "fr": "Gift Budget per Person",
+        "es": "Gift Budget per Person",
+        "ar": "Gift Budget per Person"
+      }
     },
     {
       "id": "foodBudget",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 200,
-      "businessContext": "Total budget for food and beverages"
+      "businessContext": "Total budget for food and beverages",
+      "label_i18n": {
+        "en": "Food & Drink Budget",
+        "tr": "Food & Drink Budget",
+        "de": "Food & Drink Budget",
+        "fr": "Food & Drink Budget",
+        "es": "Food & Drink Budget",
+        "ar": "Food & Drink Budget"
+      }
     },
     {
       "id": "decorationBudget",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 100,
-      "businessContext": "Budget for decorations"
+      "businessContext": "Budget for decorations",
+      "label_i18n": {
+        "en": "Decorations Budget",
+        "tr": "Decorations Budget",
+        "de": "Decorations Budget",
+        "fr": "Decorations Budget",
+        "es": "Decorations Budget",
+        "ar": "Decorations Budget"
+      }
     },
     {
       "id": "travelBudget",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 150,
-      "businessContext": "Travel expenses for Christmas visits"
+      "businessContext": "Travel expenses for Christmas visits",
+      "label_i18n": {
+        "en": "Travel Budget",
+        "tr": "Travel Budget",
+        "de": "Travel Budget",
+        "fr": "Travel Budget",
+        "es": "Travel Budget",
+        "ar": "Travel Budget"
+      }
     },
     {
       "id": "miscBudget",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 100,
-      "businessContext": "Other miscellaneous holiday expenses"
+      "businessContext": "Other miscellaneous holiday expenses",
+      "label_i18n": {
+        "en": "Miscellaneous Budget",
+        "tr": "Miscellaneous Budget",
+        "de": "Miscellaneous Budget",
+        "fr": "Miscellaneous Budget",
+        "es": "Miscellaneous Budget",
+        "ar": "Miscellaneous Budget"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
       "decorationBudget",
       "travelBudget",
       "miscBudget"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalBudget"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -72,5 +125,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

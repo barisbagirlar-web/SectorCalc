@@ -76,23 +76,22 @@
     "afterTaxDecimal": "nominalDecimal * (1 - taxDecimal)",
     "afterTaxRatePercent": "afterTaxDecimal * 100",
     "afterFeesDecimal": "afterTaxDecimal - feeDecimal",
-    "afterFeesRatePercent": "afterFeesDecimal * 100",
-    "Real_Rate__decimal_": "Real Rate (decimal)",
-    "Inflation_Rate__decimal_": "Inflation Rate (decimal)",
-    "Nominal_Rate__decimal_": "Nominal Rate (decimal)",
-    "After_Tax_Nominal_Rate____": "After-Tax Nominal Rate (%)",
-    "After_Fees_Nominal_Rate____": "After-Fees Nominal Rate (%)",
-    "result": "Nominal Interest Rate (%)"
+    "afterFeesRatePercent": "afterFeesDecimal * 100"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "afterFeesRatePercent",
     "breakdown": [
       "Real Rate (decimal)",
       "Inflation Rate (decimal)",
       "Nominal Rate (decimal)",
       "After-Tax Nominal Rate (%)",
       "After-Fees Nominal Rate (%)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "afterFeesRatePercent"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -102,5 +101,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

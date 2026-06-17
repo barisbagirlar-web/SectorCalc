@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 100000,
-      "businessContext": "Amount of money invested via SAFE"
+      "businessContext": "Amount of money invested via SAFE",
+      "label_i18n": {
+        "en": "Investment Amount",
+        "tr": "Investment Amount",
+        "de": "Investment Amount",
+        "fr": "Investment Amount",
+        "es": "Investment Amount",
+        "ar": "Investment Amount"
+      }
     },
     {
       "id": "valuationCap",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "$",
       "default": 5000000,
-      "businessContext": "Maximum valuation at which SAFE converts"
+      "businessContext": "Maximum valuation at which SAFE converts",
+      "label_i18n": {
+        "en": "Valuation Cap",
+        "tr": "Valuation Cap",
+        "de": "Valuation Cap",
+        "fr": "Valuation Cap",
+        "es": "Valuation Cap",
+        "ar": "Valuation Cap"
+      }
     },
     {
       "id": "discountRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Discount on the next round's price per share"
+      "businessContext": "Discount on the next round's price per share",
+      "label_i18n": {
+        "en": "Discount Rate",
+        "tr": "Discount Rate",
+        "de": "Discount Rate",
+        "fr": "Discount Rate",
+        "es": "Discount Rate",
+        "ar": "Discount Rate"
+      }
     },
     {
       "id": "preMoneyValuation",
@@ -31,22 +55,33 @@
       "type": "number",
       "unit": "$",
       "default": 8000000,
-      "businessContext": "Pre-money valuation of the next funding round"
+      "businessContext": "Pre-money valuation of the next funding round",
+      "label_i18n": {
+        "en": "Pre-Money Valuation",
+        "tr": "Pre-Money Valuation",
+        "de": "Pre-Money Valuation",
+        "fr": "Pre-Money Valuation",
+        "es": "Pre-Money Valuation",
+        "ar": "Pre-Money Valuation"
+      }
     }
   ],
   "formulas": {
-    "ownershipPct": "(investmentAmount / effectiveVal) * 100",
-    "effectiveVal": "Math.min(valuationCap, preMoneyValuation * (1 - discountRate/100))",
     "discountedVal": "preMoneyValuation * (1 - discountRate/100)",
-    "convType": "effectiveVal === valuationCap ? 0 : 1"
+    "discountedVal_aux": "preMoneyValuation * (1 - discountRate/100)"
   },
   "outputs": {
-    "primary": "ownershipPct",
+    "primary": "discountedVal_aux",
     "breakdown": [
       "effectiveVal",
       "discountedVal",
       "convType"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "convType"
   },
   "category": "Proje & Yatırım",
   "sector": "Finans & İK",
@@ -56,5 +91,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

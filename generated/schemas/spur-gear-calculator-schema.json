@@ -86,7 +86,6 @@
     "pitchDiameter": "module * teeth",
     "outsideDiameter": "module * (teeth + 2 * addendumCoeff)",
     "rootDiameter": "module * (teeth - 2 * dedendumCoeff)",
-    "baseCircleDiameter": "module * teeth * Math.cos(pressureAngle * Math.PI / 180)",
     "circularPitch": "Math.PI * module",
     "toothThickness": "(Math.PI * module) / 2"
   },
@@ -98,7 +97,12 @@
       "baseCircleDiameter",
       "circularPitch",
       "toothThickness"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "toothThickness"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -108,5 +112,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "madencilik",
   "profession": "Maden Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

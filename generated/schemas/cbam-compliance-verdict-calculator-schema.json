@@ -169,18 +169,18 @@
       }
     ]
   },
-  "formulas": [
-    "total_imported_tonnes",
-    "total_imported_tonnes",
-    "total_imported_tonnes",
-    "total_imported_tonnes",
-    "total_imported_tonnes",
-    "total_imported_tonnes",
-    "total_imported_tonnes"
-  ],
+  "formulas": {
+    "result": "total_imported_tonnes + embedded_emissions_per_tonne + carbon_price_origin",
+    "result_copy": "total_imported_tonnes + embedded_emissions_per_tonne + carbon_price_origin"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "cbam-compliance-verdict-calculator",
   "catalogCategory": "everyday-life",

@@ -101,7 +101,12 @@
       "q3 + 1.5 * (q3 - q1)",
       "min < (q1 - 1.5 * (q3 - q1))",
       "max > (q3 + 1.5 * (q3 - q1))"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -111,5 +116,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

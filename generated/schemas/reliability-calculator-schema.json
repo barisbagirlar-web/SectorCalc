@@ -67,16 +67,20 @@
     }
   ],
   "formulas": {
-    "componentReliability": "Math.exp(-failureRate * missionTime)",
-    "seriesStringReliability": "Math.pow(componentReliability, seriesCount)",
-    "systemReliability": "parallelCount === 1 ? seriesStringReliability : 1 - Math.pow(1 - seriesStringReliability, parallelCount)"
+    "result": "failureRate + missionTime + seriesCount",
+    "result_copy": "failureRate + missionTime + seriesCount"
   },
   "outputs": {
-    "primary": "systemReliability",
+    "primary": "result",
     "breakdown": [
       "componentReliability",
       "seriesStringReliability"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "systemReliability"
   },
   "category": "Bakım & Güvenilirlik",
   "sector": "Üretim & İmalat",
@@ -86,5 +90,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -83,17 +83,20 @@
     }
   ],
   "formulas": {
-    "primary": "conversionType === 1 ? `Polar: r = ${Math.sqrt(x*x+y*y).toFixed(4)}, θ = ${(Math.atan2(y,x)*180/Math.PI).toFixed(2)}°` : `Kartezyen: x = ${(r*Math.cos(theta*Math.PI/180)).toFixed(4)}, y = ${(r*Math.sin(theta*Math.PI/180)).toFixed(4)}`",
-    "breakdown": "conversionType === 1 ? [`r = ${Math.sqrt(x*x+y*y).toFixed(4)}`, `θ = ${(Math.atan2(y,x)*180/Math.PI).toFixed(2)}°`] : [`x = ${(r*Math.cos(theta*Math.PI/180)).toFixed(4)}`, `y = ${(r*Math.sin(theta*Math.PI/180)).toFixed(4)}`]",
-    "Bile_en_de_erlerini_ayr__ayr__listeler": "Bileşen değerlerini ayrı ayrı listeler",
-    "Hesaplama_detay__sa_lar": "Hesaplama detayı sağlar"
+    "result": "conversionType + x + y",
+    "result_copy": "conversionType + x + y"
   },
   "outputs": {
-    "primary": "primary",
+    "primary": "result",
     "breakdown": [
       "Bileşen değerlerini ayrı ayrı listeler",
       "Hesaplama detayı sağlar"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -103,5 +106,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

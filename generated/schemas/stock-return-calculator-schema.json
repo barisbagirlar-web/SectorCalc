@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "shares",
       "default": 100,
-      "businessContext": "The total number of shares purchased in the stock."
+      "businessContext": "The total number of shares purchased in the stock.",
+      "label_i18n": {
+        "en": "Number of Shares",
+        "tr": "Number of Shares",
+        "de": "Number of Shares",
+        "fr": "Number of Shares",
+        "es": "Number of Shares",
+        "ar": "Number of Shares"
+      }
     },
     {
       "id": "purchasePrice",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 50,
-      "businessContext": "The price at which each share was bought."
+      "businessContext": "The price at which each share was bought.",
+      "label_i18n": {
+        "en": "Purchase Price per Share",
+        "tr": "Purchase Price per Share",
+        "de": "Purchase Price per Share",
+        "fr": "Purchase Price per Share",
+        "es": "Purchase Price per Share",
+        "ar": "Purchase Price per Share"
+      }
     },
     {
       "id": "sellingPrice",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 60,
-      "businessContext": "The price at which each share was sold."
+      "businessContext": "The price at which each share was sold.",
+      "label_i18n": {
+        "en": "Selling Price per Share",
+        "tr": "Selling Price per Share",
+        "de": "Selling Price per Share",
+        "fr": "Selling Price per Share",
+        "es": "Selling Price per Share",
+        "ar": "Selling Price per Share"
+      }
     },
     {
       "id": "dividends",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Sum of all dividends paid per share over the holding period."
+      "businessContext": "Sum of all dividends paid per share over the holding period.",
+      "label_i18n": {
+        "en": "Total Dividends Received",
+        "tr": "Total Dividends Received",
+        "de": "Total Dividends Received",
+        "fr": "Total Dividends Received",
+        "es": "Total Dividends Received",
+        "ar": "Total Dividends Received"
+      }
     },
     {
       "id": "holdingPeriodYears",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "years",
       "default": 1,
-      "businessContext": "The length of time the stock was held, in years."
+      "businessContext": "The length of time the stock was held, in years.",
+      "label_i18n": {
+        "en": "Holding Period",
+        "tr": "Holding Period",
+        "de": "Holding Period",
+        "fr": "Holding Period",
+        "es": "Holding Period",
+        "ar": "Holding Period"
+      }
     }
   ],
   "formulas": {
@@ -53,7 +93,12 @@
     "breakdown": [
       "annualizedReturnPercentage",
       "totalReturnAmount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "annualizedReturnPercentage"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -63,5 +108,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

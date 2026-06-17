@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "saat",
       "default": 1,
-      "businessContext": "Antrenman süresinin saat cinsinden kısmı."
+      "businessContext": "Antrenman süresinin saat cinsinden kısmı.",
+      "label_i18n": {
+        "en": "Süre (Saat)",
+        "tr": "Süre (Saat)",
+        "de": "Süre (Saat)",
+        "fr": "Süre (Saat)",
+        "es": "Süre (Saat)",
+        "ar": "Süre (Saat)"
+      }
     },
     {
       "id": "minutes",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dakika",
       "default": 0,
-      "businessContext": "Antrenman süresinin dakika cinsinden kısmı."
+      "businessContext": "Antrenman süresinin dakika cinsinden kısmı.",
+      "label_i18n": {
+        "en": "Süre (Dakika)",
+        "tr": "Süre (Dakika)",
+        "de": "Süre (Dakika)",
+        "fr": "Süre (Dakika)",
+        "es": "Süre (Dakika)",
+        "ar": "Süre (Dakika)"
+      }
     },
     {
       "id": "ftp",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Watt",
       "default": 250,
-      "businessContext": "Sporcunun fonksiyonel eşik gücü (watt)."
+      "businessContext": "Sporcunun fonksiyonel eşik gücü (watt).",
+      "label_i18n": {
+        "en": "Fonksiyonel Eşik Güç (FTP)",
+        "tr": "Fonksiyonel Eşik Güç (FTP)",
+        "de": "Fonksiyonel Eşik Güç (FTP)",
+        "fr": "Fonksiyonel Eşik Güç (FTP)",
+        "es": "Fonksiyonel Eşik Güç (FTP)",
+        "ar": "Fonksiyonel Eşik Güç (FTP)"
+      }
     },
     {
       "id": "normalizedPower",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "Watt",
       "default": 200,
-      "businessContext": "Antrenman seansının normalize gücü (watt)."
+      "businessContext": "Antrenman seansının normalize gücü (watt).",
+      "label_i18n": {
+        "en": "Normalize Güç (NP)",
+        "tr": "Normalize Güç (NP)",
+        "de": "Normalize Güç (NP)",
+        "fr": "Normalize Güç (NP)",
+        "es": "Normalize Güç (NP)",
+        "ar": "Normalize Güç (NP)"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "intensityFactor",
       "totalHours"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalHours"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -54,5 +91,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "plastik",
   "profession": "Proses Mühendisi",
-  "categoryId": "engineering"
+  "categoryId": "engineering",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

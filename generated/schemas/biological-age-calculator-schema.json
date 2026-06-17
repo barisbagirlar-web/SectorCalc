@@ -150,7 +150,12 @@
       "exerciseYears",
       "smokingYears",
       "hrYears"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "hrYears"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -160,5 +165,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

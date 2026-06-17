@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mbar",
       "default": 0,
-      "businessContext": "Gauge or absolute pressure in millibars"
+      "businessContext": "Gauge or absolute pressure in millibars",
+      "label_i18n": {
+        "en": "Millibar Value",
+        "tr": "Millibar Value",
+        "de": "Millibar Value",
+        "fr": "Millibar Value",
+        "es": "Millibar Value",
+        "ar": "Millibar Value"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "psi/mbar",
       "default": 0.0145037738,
-      "businessContext": "Standard millibar to psi conversion factor"
+      "businessContext": "Standard millibar to psi conversion factor",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "calibrationOffset",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "psi",
       "default": 0,
-      "businessContext": "Instrument offset from last calibration certificate"
+      "businessContext": "Instrument offset from last calibration certificate",
+      "label_i18n": {
+        "en": "Calibration Offset",
+        "tr": "Calibration Offset",
+        "de": "Calibration Offset",
+        "fr": "Calibration Offset",
+        "es": "Calibration Offset",
+        "ar": "Calibration Offset"
+      }
     },
     {
       "id": "temperatureCorrection",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "factor",
       "default": 1,
-      "businessContext": "Dimensionless correction for medium temperature deviation from reference"
+      "businessContext": "Dimensionless correction for medium temperature deviation from reference",
+      "label_i18n": {
+        "en": "Temperature Correction",
+        "tr": "Temperature Correction",
+        "de": "Temperature Correction",
+        "fr": "Temperature Correction",
+        "es": "Temperature Correction",
+        "ar": "Temperature Correction"
+      }
     }
   ],
   "formulas": {
@@ -45,7 +77,12 @@
       "rawConversionPsi",
       "calibrationAppliedPsi",
       "finalPressurePsi"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "finalPressurePsi"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -55,5 +92,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

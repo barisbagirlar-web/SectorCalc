@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "%",
       "default": 35,
-      "businessContext": "Percentage of cocoa butter in the chocolate mass"
+      "businessContext": "Percentage of cocoa butter in the chocolate mass",
+      "label_i18n": {
+        "en": "Cocoa Butter Percentage",
+        "tr": "Cocoa Butter Percentage",
+        "de": "Cocoa Butter Percentage",
+        "fr": "Cocoa Butter Percentage",
+        "es": "Cocoa Butter Percentage",
+        "ar": "Cocoa Butter Percentage"
+      }
     },
     {
       "id": "massKg",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 10,
-      "businessContext": "Total weight of chocolate to be tempered"
+      "businessContext": "Total weight of chocolate to be tempered",
+      "label_i18n": {
+        "en": "Chocolate Mass",
+        "tr": "Chocolate Mass",
+        "de": "Chocolate Mass",
+        "fr": "Chocolate Mass",
+        "es": "Chocolate Mass",
+        "ar": "Chocolate Mass"
+      }
     },
     {
       "id": "targetTempC",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 31,
-      "businessContext": "Desired final temperature after tempering"
+      "businessContext": "Desired final temperature after tempering",
+      "label_i18n": {
+        "en": "Target Tempering Temperature",
+        "tr": "Target Tempering Temperature",
+        "de": "Target Tempering Temperature",
+        "fr": "Target Tempering Temperature",
+        "es": "Target Tempering Temperature",
+        "ar": "Target Tempering Temperature"
+      }
     },
     {
       "id": "coolingRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C/min",
       "default": 2,
-      "businessContext": "Rate at which chocolate is cooled during tempering"
+      "businessContext": "Rate at which chocolate is cooled during tempering",
+      "label_i18n": {
+        "en": "Cooling Rate",
+        "tr": "Cooling Rate",
+        "de": "Cooling Rate",
+        "fr": "Cooling Rate",
+        "es": "Cooling Rate",
+        "ar": "Cooling Rate"
+      }
     },
     {
       "id": "seedPercent",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percentage of already tempered chocolate used as seed"
+      "businessContext": "Percentage of already tempered chocolate used as seed",
+      "label_i18n": {
+        "en": "Seed Chocolate Percentage",
+        "tr": "Seed Chocolate Percentage",
+        "de": "Seed Chocolate Percentage",
+        "fr": "Seed Chocolate Percentage",
+        "es": "Seed Chocolate Percentage",
+        "ar": "Seed Chocolate Percentage"
+      }
     },
     {
       "id": "ambientTempC",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Room temperature where tempering occurs"
+      "businessContext": "Room temperature where tempering occurs",
+      "label_i18n": {
+        "en": "Ambient Temperature",
+        "tr": "Ambient Temperature",
+        "de": "Ambient Temperature",
+        "fr": "Ambient Temperature",
+        "es": "Ambient Temperature",
+        "ar": "Ambient Temperature"
+      }
     }
   ],
   "formulas": {
@@ -64,7 +112,12 @@
       "coolingTime",
       "cocoaButterMass",
       "totalMass"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "temperIndex"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -74,5 +127,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

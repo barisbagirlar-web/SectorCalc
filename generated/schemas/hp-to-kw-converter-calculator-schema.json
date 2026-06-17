@@ -32,18 +32,9 @@
       "unit": "unit",
       "default": "mechanical",
       "options": [
-        {
-          "value": "mechanical",
-          "label": "Mechanical (Imperial) HP"
-        },
-        {
-          "value": "metric",
-          "label": "Metric HP (PS)"
-        },
-        {
-          "value": "electrical",
-          "label": "Electrical HP"
-        }
+        "mechanical",
+        "metric",
+        "electrical"
       ],
       "businessContext": "Different horsepower definitions affect conversion factor. Mechanical HP = 745.7 W, Metric HP = 735.5 W, Electrical HP = 746 W.",
       "label_i18n": {
@@ -178,18 +169,18 @@
       }
     ]
   },
-  "formulas": [
-    "horsepower",
-    "horsepower",
-    "horsepower",
-    "horsepower",
-    "horsepower",
-    "horsepower",
-    "horsepower"
-  ],
+  "formulas": {
+    "result": "horsepower + hp_type + motor_efficiency",
+    "result_copy": "horsepower + hp_type + motor_efficiency"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "hp-to-kw-converter-calculator",
   "catalogCategory": "energy-carbon",

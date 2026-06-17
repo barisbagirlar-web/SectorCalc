@@ -136,42 +136,6 @@
       "businessContext_i18n": {
         "en": "Estimated percentage of customers who will take the early payment discount."
       }
-    },
-    {
-      "id": "industry_benchmark_dso",
-      "label": "Industry Benchmark DSO (Days)",
-      "type": "number",
-      "unit": "days",
-      "default": 45,
-      "min": 0,
-      "max": 180,
-      "businessContext": "Average Days Sales Outstanding for the industry (WERC/CFO benchmarks).",
-      "label_i18n": {
-        "en": "Industry Benchmark DSO (Days)"
-      },
-      "businessContext_i18n": {
-        "en": "Average Days Sales Outstanding for the industry (WERC/CFO benchmarks)."
-      }
-    },
-    {
-      "id": "payment_behavior",
-      "label": "Customer Payment Behavior",
-      "type": "select",
-      "options": [
-        "On-time",
-        "Slightly late (1-5 days)",
-        "Late (6-15 days)",
-        "Very late (>15 days)"
-      ],
-      "default": "On-time",
-      "businessContext": "Typical payment behavior of the customer base, used to adjust effective DSO.",
-      "label_i18n": {
-        "en": "Customer Payment Behavior"
-      },
-      "businessContext_i18n": {
-        "en": "Typical payment behavior of the customer base, used to adjust effective DSO."
-      },
-      "unit": "unit"
     }
   ],
   "validation": {
@@ -210,19 +174,18 @@
       }
     ]
   },
-  "formulas": [
-    "avg_invoice_value",
-    "avg_invoice_value",
-    "avg_invoice_value",
-    "avg_invoice_value",
-    "avg_invoice_value",
-    "avg_invoice_value",
-    "avg_invoice_value",
-    "avg_invoice_value"
-  ],
+  "formulas": {
+    "result": "avg_invoice_value + annual_invoice_count + current_terms_days",
+    "result_copy": "avg_invoice_value + annual_invoice_count + current_terms_days"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "payment-term-optimizer-calculator",
   "catalogCategory": "everyday-life",

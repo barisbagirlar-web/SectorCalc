@@ -138,43 +138,6 @@
       "businessContext_i18n": {
         "en": "Total number of guests served in the measurement period (month)."
       }
-    },
-    {
-      "id": "menu_engineering_score",
-      "label": "Menu Engineering Score (1-10)",
-      "type": "number",
-      "unit": "score",
-      "default": 6,
-      "min": 1,
-      "max": 10,
-      "businessContext": "Subjective score of menu layout, item placement, and upselling effectiveness (1=poor, 10=excellent).",
-      "label_i18n": {
-        "en": "Menu Engineering Score (1-10)"
-      },
-      "businessContext_i18n": {
-        "en": "Subjective score of menu layout, item placement, and upselling effectiveness (1=poor, 10=excellent)."
-      }
-    },
-    {
-      "id": "lean_kitchen_maturity",
-      "label": "Lean Kitchen Maturity Level",
-      "type": "select",
-      "unit": "level",
-      "default": "Developing",
-      "options": [
-        "Initial",
-        "Developing",
-        "Standardized",
-        "Optimized",
-        "World-Class"
-      ],
-      "businessContext": "Maturity of Lean/Six Sigma practices in kitchen operations (ISO 9001 / Lean principles).",
-      "label_i18n": {
-        "en": "Lean Kitchen Maturity Level"
-      },
-      "businessContext_i18n": {
-        "en": "Maturity of Lean/Six Sigma practices in kitchen operations (ISO 9001 / Lean principles)."
-      }
     }
   ],
   "validation": {
@@ -214,18 +177,18 @@
       }
     ]
   },
-  "formulas": [
-    "avg_cover_price",
-    "avg_cover_price",
-    "avg_cover_price",
-    "avg_cover_price",
-    "avg_cover_price",
-    "avg_cover_price",
-    "avg_cover_price"
-  ],
+  "formulas": {
+    "result": "avg_cover_price + food_cost_per_cover + labor_cost_per_cover",
+    "result_copy": "avg_cover_price + food_cost_per_cover + labor_cost_per_cover"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "restaurant-menu-margin-leak-calculator",
   "catalogCategory": "finance-business",

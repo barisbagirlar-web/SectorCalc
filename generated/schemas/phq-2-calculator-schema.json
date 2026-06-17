@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "none",
       "default": 0,
-      "businessContext": "Unique identifier of the assessed worker."
+      "businessContext": "Unique identifier of the assessed worker.",
+      "label_i18n": {
+        "en": "Worker ID",
+        "tr": "Worker ID",
+        "de": "Worker ID",
+        "fr": "Worker ID",
+        "es": "Worker ID",
+        "ar": "Worker ID"
+      }
     },
     {
       "id": "shift_id",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "shift",
       "default": 1,
-      "businessContext": "Shift during which assessment occurs."
+      "businessContext": "Shift during which assessment occurs.",
+      "label_i18n": {
+        "en": "Shift Number",
+        "tr": "Shift Number",
+        "de": "Shift Number",
+        "fr": "Shift Number",
+        "es": "Shift Number",
+        "ar": "Shift Number"
+      }
     },
     {
       "id": "q1",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "score",
       "default": 0,
-      "businessContext": "Response to PHQ-2 question 1: 0=Not at all, 1=Several days, 2=More than half the days, 3=Nearly every day."
+      "businessContext": "Response to PHQ-2 question 1: 0=Not at all, 1=Several days, 2=More than half the days, 3=Nearly every day.",
+      "label_i18n": {
+        "en": "Little interest or pleasure in doing things (last 2 weeks)",
+        "tr": "Little interest or pleasure in doing things (last 2 weeks)",
+        "de": "Little interest or pleasure in doing things (last 2 weeks)",
+        "fr": "Little interest or pleasure in doing things (last 2 weeks)",
+        "es": "Little interest or pleasure in doing things (last 2 weeks)",
+        "ar": "Little interest or pleasure in doing things (last 2 weeks)"
+      }
     },
     {
       "id": "q2",
@@ -31,12 +55,19 @@
       "type": "number",
       "unit": "score",
       "default": 0,
-      "businessContext": "Response to PHQ-2 question 2: 0=Not at all, 1=Several days, 2=More than half the days, 3=Nearly every day."
+      "businessContext": "Response to PHQ-2 question 2: 0=Not at all, 1=Several days, 2=More than half the days, 3=Nearly every day.",
+      "label_i18n": {
+        "en": "Feeling down, depressed, or hopeless (last 2 weeks)",
+        "tr": "Feeling down, depressed, or hopeless (last 2 weeks)",
+        "de": "Feeling down, depressed, or hopeless (last 2 weeks)",
+        "fr": "Feeling down, depressed, or hopeless (last 2 weeks)",
+        "es": "Feeling down, depressed, or hopeless (last 2 weeks)",
+        "ar": "Feeling down, depressed, or hopeless (last 2 weeks)"
+      }
     }
   ],
   "formulas": {
     "total_score": "q1 + q2",
-    "interpretation": "(q1 + q2) >= 3 ? 'Positive' : 'Negative'",
     "q1_detail": "'Q1: ' + q1",
     "q2_detail": "'Q2: ' + q2"
   },
@@ -46,7 +77,12 @@
       "q1_detail",
       "q2_detail",
       "interpretation"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "q2_detail"
   },
   "category": "İK & Personel",
   "sector": "Finans & İK",
@@ -56,5 +92,10 @@
   "categorySlug": "workforce-hr",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

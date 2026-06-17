@@ -99,18 +99,21 @@
     }
   ],
   "formulas": {
-    "effectiveEB": "Number((rawPetabytes * replicationFactor * (1 + redundancyOverhead / 100) * (1 + provisioningBuffer / 100) / compressionRatio / 1000).toFixed(decimalPrecision))",
     "rawPB": "rawPetabytes * replicationFactor * (1 + redundancyOverhead / 100) * (1 + provisioningBuffer / 100)",
-    "compressedPB": "rawPetabytes * replicationFactor * (1 + redundancyOverhead / 100) * (1 + provisioningBuffer / 100) / compressionRatio",
-    "finalEB": "Number((rawPetabytes * replicationFactor * (1 + redundancyOverhead / 100) * (1 + provisioningBuffer / 100) / compressionRatio / 1000).toFixed(decimalPrecision))"
+    "compressedPB": "rawPetabytes * replicationFactor * (1 + redundancyOverhead / 100) * (1 + provisioningBuffer / 100) / compressionRatio"
   },
   "outputs": {
-    "primary": "effectiveEB",
+    "primary": "compressedPB",
     "breakdown": [
       "rawPB",
       "compressedPB",
       "finalEB"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "finalEB"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -120,5 +123,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

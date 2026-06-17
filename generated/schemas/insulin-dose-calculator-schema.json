@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Total grams of carbohydrate in the meal to be covered by insulin"
+      "businessContext": "Total grams of carbohydrate in the meal to be covered by insulin",
+      "label_i18n": {
+        "en": "Carbohydrate Intake (g)",
+        "tr": "Carbohydrate Intake (g)",
+        "de": "Carbohydrate Intake (g)",
+        "fr": "Carbohydrate Intake (g)",
+        "es": "Carbohydrate Intake (g)",
+        "ar": "Carbohydrate Intake (g)"
+      }
     },
     {
       "id": "currentBG",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 100,
-      "businessContext": "Measured blood glucose level before meal"
+      "businessContext": "Measured blood glucose level before meal",
+      "label_i18n": {
+        "en": "Current Blood Glucose (mg/dL)",
+        "tr": "Current Blood Glucose (mg/dL)",
+        "de": "Current Blood Glucose (mg/dL)",
+        "fr": "Current Blood Glucose (mg/dL)",
+        "es": "Current Blood Glucose (mg/dL)",
+        "ar": "Current Blood Glucose (mg/dL)"
+      }
     },
     {
       "id": "targetBG",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 100,
-      "businessContext": "Desired blood glucose level after correction"
+      "businessContext": "Desired blood glucose level after correction",
+      "label_i18n": {
+        "en": "Target Blood Glucose (mg/dL)",
+        "tr": "Target Blood Glucose (mg/dL)",
+        "de": "Target Blood Glucose (mg/dL)",
+        "fr": "Target Blood Glucose (mg/dL)",
+        "es": "Target Blood Glucose (mg/dL)",
+        "ar": "Target Blood Glucose (mg/dL)"
+      }
     },
     {
       "id": "carbRatio",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "g/U",
       "default": 15,
-      "businessContext": "Grams of carbohydrate covered by one unit of rapid-acting insulin"
+      "businessContext": "Grams of carbohydrate covered by one unit of rapid-acting insulin",
+      "label_i18n": {
+        "en": "Carbohydrate Ratio (g/U)",
+        "tr": "Carbohydrate Ratio (g/U)",
+        "de": "Carbohydrate Ratio (g/U)",
+        "fr": "Carbohydrate Ratio (g/U)",
+        "es": "Carbohydrate Ratio (g/U)",
+        "ar": "Carbohydrate Ratio (g/U)"
+      }
     },
     {
       "id": "isf",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mg/dL/U",
       "default": 50,
-      "businessContext": "Expected drop in blood glucose per unit of rapid-acting insulin"
+      "businessContext": "Expected drop in blood glucose per unit of rapid-acting insulin",
+      "label_i18n": {
+        "en": "Insulin Sensitivity Factor (mg/dL/U)",
+        "tr": "Insulin Sensitivity Factor (mg/dL/U)",
+        "de": "Insulin Sensitivity Factor (mg/dL/U)",
+        "fr": "Insulin Sensitivity Factor (mg/dL/U)",
+        "es": "Insulin Sensitivity Factor (mg/dL/U)",
+        "ar": "Insulin Sensitivity Factor (mg/dL/U)"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "mealDose",
       "correctionDose"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalDose"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -62,5 +107,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

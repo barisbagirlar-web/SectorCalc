@@ -83,17 +83,11 @@
     }
   ],
   "formulas": {
-    "radius": "Math.pow(designSpeed, 2) / (127 * (superelevation / 100 + frictionFactor))",
-    "tangent": "radius * Math.tan(centralAngle * Math.PI / 360)",
-    "curveLength": "(Math.PI * radius * centralAngle) / 180",
-    "chord": "2 * radius * Math.sin(centralAngle * Math.PI / 360)",
-    "externalDistance": "radius * (1 / Math.cos(centralAngle * Math.PI / 360) - 1)",
-    "middleOrdinate": "radius * (1 - Math.cos(centralAngle * Math.PI / 360))",
-    "stationPC": "stationPI - tangent",
-    "stationPT": "stationPC + curveLength"
+    "result": "designSpeed + superelevation + frictionFactor",
+    "result_copy": "designSpeed + superelevation + frictionFactor"
   },
   "outputs": {
-    "primary": "curveLength",
+    "primary": "result",
     "breakdown": [
       "radius",
       "tangent",
@@ -102,7 +96,12 @@
       "middleOrdinate",
       "stationPC",
       "stationPT"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "stationPT"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -112,5 +111,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

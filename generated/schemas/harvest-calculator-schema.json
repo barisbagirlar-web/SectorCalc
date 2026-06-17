@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "hectares",
       "default": 1,
-      "businessContext": "Total land area used for the crop."
+      "businessContext": "Total land area used for the crop.",
+      "label_i18n": {
+        "en": "Field Area",
+        "tr": "Field Area",
+        "de": "Field Area",
+        "fr": "Field Area",
+        "es": "Field Area",
+        "ar": "Field Area"
+      }
     },
     {
       "id": "cropYieldPerHectare",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "tons/ha",
       "default": 5,
-      "businessContext": "Expected yield of the crop per hectare."
+      "businessContext": "Expected yield of the crop per hectare.",
+      "label_i18n": {
+        "en": "Crop Yield per Hectare",
+        "tr": "Crop Yield per Hectare",
+        "de": "Crop Yield per Hectare",
+        "fr": "Crop Yield per Hectare",
+        "es": "Crop Yield per Hectare",
+        "ar": "Crop Yield per Hectare"
+      }
     },
     {
       "id": "fieldLossPercent",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 3,
-      "businessContext": "Estimated percentage of harvest lost on the field due to factors like weather or pests."
+      "businessContext": "Estimated percentage of harvest lost on the field due to factors like weather or pests.",
+      "label_i18n": {
+        "en": "Field Loss Percentage",
+        "tr": "Field Loss Percentage",
+        "de": "Field Loss Percentage",
+        "fr": "Field Loss Percentage",
+        "es": "Field Loss Percentage",
+        "ar": "Field Loss Percentage"
+      }
     },
     {
       "id": "storageLossPercent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Estimated percentage of remaining harvest lost during storage and handling."
+      "businessContext": "Estimated percentage of remaining harvest lost during storage and handling.",
+      "label_i18n": {
+        "en": "Storage Loss Percentage",
+        "tr": "Storage Loss Percentage",
+        "de": "Storage Loss Percentage",
+        "fr": "Storage Loss Percentage",
+        "es": "Storage Loss Percentage",
+        "ar": "Storage Loss Percentage"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "grossHarvest",
       "fieldLoss",
       "storageLoss"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "netHarvest"
   },
   "category": "Gıda & Tarım",
   "sector": "Perakende & Gıda",
@@ -56,5 +93,10 @@
   "categorySlug": "food-cold-chain-hygiene",
   "sectorId": "tarim",
   "profession": "Ziraat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

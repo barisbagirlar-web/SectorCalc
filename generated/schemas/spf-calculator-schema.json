@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg/h",
       "default": 200,
-      "businessContext": "Motor veya kazan tarafından tüketilen yakıtın kütlesel akış hızı."
+      "businessContext": "Motor veya kazan tarafından tüketilen yakıtın kütlesel akış hızı.",
+      "label_i18n": {
+        "en": "Yakıt Kütle Akış Hızı",
+        "tr": "Yakıt Kütle Akış Hızı",
+        "de": "Yakıt Kütle Akış Hızı",
+        "fr": "Yakıt Kütle Akış Hızı",
+        "es": "Yakıt Kütle Akış Hızı",
+        "ar": "Yakıt Kütle Akış Hızı"
+      }
     },
     {
       "id": "powerOutput",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kW",
       "default": 1000,
-      "businessContext": "Motorun veya tesisin net güç çıkışı."
+      "businessContext": "Motorun veya tesisin net güç çıkışı.",
+      "label_i18n": {
+        "en": "Güç Çıkışı",
+        "tr": "Güç Çıkışı",
+        "de": "Güç Çıkışı",
+        "fr": "Güç Çıkışı",
+        "es": "Güç Çıkışı",
+        "ar": "Güç Çıkışı"
+      }
     },
     {
       "id": "carbonContent",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg C/kg yakıt",
       "default": 0.86,
-      "businessContext": "Yakıtın birim kütlesi başına içerdiği karbon miktarı (ör. motorin için ~0.86, doğalgaz için ~0.75)."
+      "businessContext": "Yakıtın birim kütlesi başına içerdiği karbon miktarı (ör. motorin için ~0.86, doğalgaz için ~0.75).",
+      "label_i18n": {
+        "en": "Karbon İçeriği",
+        "tr": "Karbon İçeriği",
+        "de": "Karbon İçeriği",
+        "fr": "Karbon İçeriği",
+        "es": "Karbon İçeriği",
+        "ar": "Karbon İçeriği"
+      }
     },
     {
       "id": "oxidationFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "boyutsuz",
       "default": 0.99,
-      "businessContext": "Yakıttaki karbonun yanma sırasında CO2'ye dönüşme oranı (genellikle 0.99)."
+      "businessContext": "Yakıttaki karbonun yanma sırasında CO2'ye dönüşme oranı (genellikle 0.99).",
+      "label_i18n": {
+        "en": "Oksidasyon Faktörü",
+        "tr": "Oksidasyon Faktörü",
+        "de": "Oksidasyon Faktörü",
+        "fr": "Oksidasyon Faktörü",
+        "es": "Oksidasyon Faktörü",
+        "ar": "Oksidasyon Faktörü"
+      }
     }
   ],
   "formulas": {
@@ -42,7 +74,12 @@
     "primary": "sfc",
     "breakdown": [
       "co2Emissions"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "co2Emissions"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -52,5 +89,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

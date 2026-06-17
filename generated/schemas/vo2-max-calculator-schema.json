@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "lbs",
       "default": 150,
-      "businessContext": "Body weight in pounds for Rockport walking test estimation."
+      "businessContext": "Body weight in pounds for Rockport walking test estimation.",
+      "label_i18n": {
+        "en": "Weight",
+        "tr": "Weight",
+        "de": "Weight",
+        "fr": "Weight",
+        "es": "Weight",
+        "ar": "Weight"
+      }
     },
     {
       "id": "age",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Age of the individual."
+      "businessContext": "Age of the individual.",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "gender",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "binary",
       "default": 1,
-      "businessContext": "Gender encoding: 1 for male, 0 for female."
+      "businessContext": "Gender encoding: 1 for male, 0 for female.",
+      "label_i18n": {
+        "en": "Gender (1=Male, 0=Female)",
+        "tr": "Gender (1=Male, 0=Female)",
+        "de": "Gender (1=Male, 0=Female)",
+        "fr": "Gender (1=Male, 0=Female)",
+        "es": "Gender (1=Male, 0=Female)",
+        "ar": "Gender (1=Male, 0=Female)"
+      }
     },
     {
       "id": "time",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 15,
-      "businessContext": "Duration to walk exactly 1 mile on a flat surface."
+      "businessContext": "Duration to walk exactly 1 mile on a flat surface.",
+      "label_i18n": {
+        "en": "1-Mile Walk Time",
+        "tr": "1-Mile Walk Time",
+        "de": "1-Mile Walk Time",
+        "fr": "1-Mile Walk Time",
+        "es": "1-Mile Walk Time",
+        "ar": "1-Mile Walk Time"
+      }
     },
     {
       "id": "heartRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "bpm",
       "default": 130,
-      "businessContext": "Heart rate in beats per minute measured immediately upon completing the walk."
+      "businessContext": "Heart rate in beats per minute measured immediately upon completing the walk.",
+      "label_i18n": {
+        "en": "Heart Rate at End",
+        "tr": "Heart Rate at End",
+        "de": "Heart Rate at End",
+        "fr": "Heart Rate at End",
+        "es": "Heart Rate at End",
+        "ar": "Heart Rate at End"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "vo2MaxAbsolute",
       "weightKg"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "vo2MaxAbsolute"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -62,5 +107,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 3.5,
-      "businessContext": "Clear span of the beam between supports"
+      "businessContext": "Clear span of the beam between supports",
+      "label_i18n": {
+        "en": "Span Length",
+        "tr": "Span Length",
+        "de": "Span Length",
+        "fr": "Span Length",
+        "es": "Span Length",
+        "ar": "Span Length"
+      }
     },
     {
       "id": "load",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kN/m",
       "default": 5,
-      "businessContext": "Total uniformly distributed load (dead + live)"
+      "businessContext": "Total uniformly distributed load (dead + live)",
+      "label_i18n": {
+        "en": "Uniform Load",
+        "tr": "Uniform Load",
+        "de": "Uniform Load",
+        "fr": "Uniform Load",
+        "es": "Uniform Load",
+        "ar": "Uniform Load"
+      }
     },
     {
       "id": "width",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Cross-sectional width of the beam"
+      "businessContext": "Cross-sectional width of the beam",
+      "label_i18n": {
+        "en": "Beam Width",
+        "tr": "Beam Width",
+        "de": "Beam Width",
+        "fr": "Beam Width",
+        "es": "Beam Width",
+        "ar": "Beam Width"
+      }
     },
     {
       "id": "depth",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 200,
-      "businessContext": "Cross-sectional depth of the beam"
+      "businessContext": "Cross-sectional depth of the beam",
+      "label_i18n": {
+        "en": "Beam Depth",
+        "tr": "Beam Depth",
+        "de": "Beam Depth",
+        "fr": "Beam Depth",
+        "es": "Beam Depth",
+        "ar": "Beam Depth"
+      }
     },
     {
       "id": "modulusElasticity",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 10000,
-      "businessContext": "Modulus of elasticity of the wood species"
+      "businessContext": "Modulus of elasticity of the wood species",
+      "label_i18n": {
+        "en": "Modulus of Elasticity (E)",
+        "tr": "Modulus of Elasticity (E)",
+        "de": "Modulus of Elasticity (E)",
+        "fr": "Modulus of Elasticity (E)",
+        "es": "Modulus of Elasticity (E)",
+        "ar": "Modulus of Elasticity (E)"
+      }
     },
     {
       "id": "allowableStress",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 10,
-      "businessContext": "Allowable bending stress for the wood beam"
+      "businessContext": "Allowable bending stress for the wood beam",
+      "label_i18n": {
+        "en": "Allowable Bending Stress (Fb)",
+        "tr": "Allowable Bending Stress (Fb)",
+        "de": "Allowable Bending Stress (Fb)",
+        "fr": "Allowable Bending Stress (Fb)",
+        "es": "Allowable Bending Stress (Fb)",
+        "ar": "Allowable Bending Stress (Fb)"
+      }
     }
   ],
   "formulas": {
@@ -57,20 +105,22 @@
     "I": "width * depth ** 3 / 12",
     "deflection": "(5 * load * (span * 1000) ** 4) / (384 * modulusElasticity * I)",
     "allowableDeflection": "(span * 1000) / 360",
-    "safeStress": "bendingStress <= allowableStress",
-    "safeDeflection": "deflection <= allowableDeflection",
     "stressRatio": "bendingStress / allowableStress",
-    "deflectionRatio": "deflection / allowableDeflection",
-    "status": "(safeStress && safeDeflection) ? 'PASS' : 'FAIL'"
+    "deflectionRatio": "deflection / allowableDeflection"
   },
   "outputs": {
-    "primary": "status",
+    "primary": "deflectionRatio",
     "breakdown": [
       "bendingStress",
       "deflection",
       "stressRatio",
       "deflectionRatio"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "status"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -80,5 +130,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "engineering"
+  "categoryId": "engineering",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

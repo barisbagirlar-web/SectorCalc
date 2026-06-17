@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "visitors",
       "default": 1000,
-      "businessContext": "Total number of visitors or users in the control group (A)."
+      "businessContext": "Total number of visitors or users in the control group (A).",
+      "label_i18n": {
+        "en": "Control Group Visitors",
+        "tr": "Control Group Visitors",
+        "de": "Control Group Visitors",
+        "fr": "Control Group Visitors",
+        "es": "Control Group Visitors",
+        "ar": "Control Group Visitors"
+      }
     },
     {
       "id": "controlConversions",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "conversions",
       "default": 100,
-      "businessContext": "Number of conversions (successful actions) in the control group."
+      "businessContext": "Number of conversions (successful actions) in the control group.",
+      "label_i18n": {
+        "en": "Control Group Conversions",
+        "tr": "Control Group Conversions",
+        "de": "Control Group Conversions",
+        "fr": "Control Group Conversions",
+        "es": "Control Group Conversions",
+        "ar": "Control Group Conversions"
+      }
     },
     {
       "id": "variantVisitors",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "visitors",
       "default": 1000,
-      "businessContext": "Total number of visitors or users in the variant group (B)."
+      "businessContext": "Total number of visitors or users in the variant group (B).",
+      "label_i18n": {
+        "en": "Variant Group Visitors",
+        "tr": "Variant Group Visitors",
+        "de": "Variant Group Visitors",
+        "fr": "Variant Group Visitors",
+        "es": "Variant Group Visitors",
+        "ar": "Variant Group Visitors"
+      }
     },
     {
       "id": "variantConversions",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "conversions",
       "default": 120,
-      "businessContext": "Number of conversions in the variant group."
+      "businessContext": "Number of conversions in the variant group.",
+      "label_i18n": {
+        "en": "Variant Group Conversions",
+        "tr": "Variant Group Conversions",
+        "de": "Variant Group Conversions",
+        "fr": "Variant Group Conversions",
+        "es": "Variant Group Conversions",
+        "ar": "Variant Group Conversions"
+      }
     },
     {
       "id": "confidenceLevel",
@@ -39,35 +71,36 @@
       "type": "number",
       "unit": "percent",
       "default": 95,
-      "businessContext": "Required confidence level for the test (typically 90, 95, or 99)."
+      "businessContext": "Required confidence level for the test (typically 90, 95, or 99).",
+      "label_i18n": {
+        "en": "Confidence Level",
+        "tr": "Confidence Level",
+        "de": "Confidence Level",
+        "fr": "Confidence Level",
+        "es": "Confidence Level",
+        "ar": "Confidence Level"
+      }
     }
   ],
   "formulas": {
     "p1": "controlConversions / controlVisitors",
     "p2": "variantConversions / variantVisitors",
     "pPool": "(controlConversions + variantConversions) / (controlVisitors + variantVisitors)",
-    "se": "Math.sqrt(pPool * (1 - pPool) * (1/controlVisitors + 1/variantVisitors))",
-    "z": "(p1 - p2) / se",
-    "absZ": "Math.abs(z)",
-    "t": "1 / (1 + 0.3275911 * absZ)",
-    "erfApprox": "1 - (((((1.061405429 * t - 1.453152027) * t + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-absZ * absZ))",
-    "cdf": "0.5 * (1 + erfApprox)",
-    "pValue": "2 * (1 - cdf)",
-    "alpha": "1 - confidenceLevel / 100",
-    "significance": "pValue < alpha ? 'Significant' : 'Not Significant'",
-    "zScoreDisplay": "'Z-Score: ' + z.toFixed(3)",
-    "pValueDisplay": "'P-Value: ' + pValue.toFixed(4)",
-    "controlRateDisplay": "'Control Conversion Rate: ' + (p1 * 100).toFixed(2) + '%'",
-    "variantRateDisplay": "'Variant Conversion Rate: ' + (p2 * 100).toFixed(2) + '%'"
+    "alpha": "1 - confidenceLevel / 100"
   },
   "outputs": {
-    "primary": "significance",
+    "primary": "alpha",
     "breakdown": [
       "zScoreDisplay",
       "pValueDisplay",
       "controlRateDisplay",
       "variantRateDisplay"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "variantRateDisplay"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -77,5 +110,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

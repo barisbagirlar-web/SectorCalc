@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Age of the individual now."
+      "businessContext": "Age of the individual now.",
+      "label_i18n": {
+        "en": "Current Age",
+        "tr": "Current Age",
+        "de": "Current Age",
+        "fr": "Current Age",
+        "es": "Current Age",
+        "ar": "Current Age"
+      }
     },
     {
       "id": "annualContribution",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 6000,
-      "businessContext": "Amount contributed to IRA annually."
+      "businessContext": "Amount contributed to IRA annually.",
+      "label_i18n": {
+        "en": "Annual Contribution",
+        "tr": "Annual Contribution",
+        "de": "Annual Contribution",
+        "fr": "Annual Contribution",
+        "es": "Annual Contribution",
+        "ar": "Annual Contribution"
+      }
     },
     {
       "id": "currentTaxRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 22,
-      "businessContext": "Marginal tax rate now."
+      "businessContext": "Marginal tax rate now.",
+      "label_i18n": {
+        "en": "Current Tax Rate",
+        "tr": "Current Tax Rate",
+        "de": "Current Tax Rate",
+        "fr": "Current Tax Rate",
+        "es": "Current Tax Rate",
+        "ar": "Current Tax Rate"
+      }
     },
     {
       "id": "expectedRetirementTaxRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Expected marginal tax rate in retirement."
+      "businessContext": "Expected marginal tax rate in retirement.",
+      "label_i18n": {
+        "en": "Expected Retirement Tax Rate",
+        "tr": "Expected Retirement Tax Rate",
+        "de": "Expected Retirement Tax Rate",
+        "fr": "Expected Retirement Tax Rate",
+        "es": "Expected Retirement Tax Rate",
+        "ar": "Expected Retirement Tax Rate"
+      }
     },
     {
       "id": "expectedAnnualReturn",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 7,
-      "businessContext": "Average annual return on investments."
+      "businessContext": "Average annual return on investments.",
+      "label_i18n": {
+        "en": "Expected Annual Return",
+        "tr": "Expected Annual Return",
+        "de": "Expected Annual Return",
+        "fr": "Expected Annual Return",
+        "es": "Expected Annual Return",
+        "ar": "Expected Annual Return"
+      }
     },
     {
       "id": "yearsUntilRetirement",
@@ -47,23 +87,32 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Years until retirement."
+      "businessContext": "Years until retirement.",
+      "label_i18n": {
+        "en": "Years Until Retirement",
+        "tr": "Years Until Retirement",
+        "de": "Years Until Retirement",
+        "fr": "Years Until Retirement",
+        "es": "Years Until Retirement",
+        "ar": "Years Until Retirement"
+      }
     }
   ],
   "formulas": {
-    "r": "expectedAnnualReturn / 100",
     "n": "yearsUntilRetirement",
-    "growthFactor": "(Math.pow(1 + r, n) - 1) / r",
-    "tradValue": "annualContribution * growthFactor * (1 - expectedRetirementTaxRate / 100)",
-    "rothValue": "annualContribution * growthFactor",
-    "rothMinusTrad": "rothValue - tradValue"
+    "n_aux": "yearsUntilRetirement"
   },
   "outputs": {
-    "primary": "rothMinusTrad",
+    "primary": "n_aux",
     "breakdown": [
       "rothValue",
       "tradValue"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "rothMinusTrad"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -73,5 +122,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

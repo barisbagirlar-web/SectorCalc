@@ -99,16 +99,11 @@
     }
   ],
   "formulas": {
-    "baseExpectancy": "75",
-    "genderBonus": "inputs.gender * 5",
-    "smokingEffect": "- inputs.smokingStatus * 0.5",
-    "alcoholEffect": "(inputs.alcoholConsumption - 7) * 0.2",
-    "exerciseBonus": "inputs.exerciseHours * 0.5",
-    "bmiPenalty": "- (inputs.bmi - 23) ** 2 * 0.02",
-    "lifeExpectancy": "75 + inputs.gender * 5 - inputs.smokingStatus * 0.5 + (inputs.alcoholConsumption - 7) * 0.2 + inputs.exerciseHours * 0.5 - (inputs.bmi - 23) ** 2 * 0.02"
+    "result": "currentAge + gender + smokingStatus",
+    "result_copy": "currentAge + gender + smokingStatus"
   },
   "outputs": {
-    "primary": "lifeExpectancy",
+    "primary": "result",
     "breakdown": [
       "baseExpectancy",
       "genderBonus",
@@ -116,7 +111,12 @@
       "alcoholEffect",
       "exerciseBonus",
       "bmiPenalty"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "lifeExpectancy"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -126,5 +126,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

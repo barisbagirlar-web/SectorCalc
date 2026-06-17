@@ -67,17 +67,21 @@
     }
   ],
   "formulas": {
-    "standard_error": "Math.sqrt((sample_proportion * (1 - sample_proportion)) / sample_size)",
-    "margin_of_error": "z_score * standard_error",
-    "margin_of_error_percent": "margin_of_error * 100"
+    "result": "sample_size + confidence_level + z_score",
+    "result_copy": "sample_size + confidence_level + z_score"
   },
   "outputs": {
-    "primary": "margin_of_error_percent",
+    "primary": "result",
     "breakdown": [
       "standard_error",
       "margin_of_error",
       "margin_of_error_percent"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "margin_of_error_percent"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -87,5 +91,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

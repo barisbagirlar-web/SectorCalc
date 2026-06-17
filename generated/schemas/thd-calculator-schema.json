@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "V",
       "default": 230,
-      "businessContext": "RMS voltage of the fundamental frequency component."
+      "businessContext": "RMS voltage of the fundamental frequency component.",
+      "label_i18n": {
+        "en": "Fundamental Voltage",
+        "tr": "Fundamental Voltage",
+        "de": "Fundamental Voltage",
+        "fr": "Fundamental Voltage",
+        "es": "Fundamental Voltage",
+        "ar": "Fundamental Voltage"
+      }
     },
     {
       "id": "V2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "V",
       "default": 0,
-      "businessContext": "RMS voltage of the 2nd harmonic component."
+      "businessContext": "RMS voltage of the 2nd harmonic component.",
+      "label_i18n": {
+        "en": "Harmonic Voltage 2nd",
+        "tr": "Harmonic Voltage 2nd",
+        "de": "Harmonic Voltage 2nd",
+        "fr": "Harmonic Voltage 2nd",
+        "es": "Harmonic Voltage 2nd",
+        "ar": "Harmonic Voltage 2nd"
+      }
     },
     {
       "id": "V3",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "V",
       "default": 0,
-      "businessContext": "RMS voltage of the 3rd harmonic component."
+      "businessContext": "RMS voltage of the 3rd harmonic component.",
+      "label_i18n": {
+        "en": "Harmonic Voltage 3rd",
+        "tr": "Harmonic Voltage 3rd",
+        "de": "Harmonic Voltage 3rd",
+        "fr": "Harmonic Voltage 3rd",
+        "es": "Harmonic Voltage 3rd",
+        "ar": "Harmonic Voltage 3rd"
+      }
     },
     {
       "id": "V4",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "V",
       "default": 0,
-      "businessContext": "RMS voltage of the 4th harmonic component."
+      "businessContext": "RMS voltage of the 4th harmonic component.",
+      "label_i18n": {
+        "en": "Harmonic Voltage 4th",
+        "tr": "Harmonic Voltage 4th",
+        "de": "Harmonic Voltage 4th",
+        "fr": "Harmonic Voltage 4th",
+        "es": "Harmonic Voltage 4th",
+        "ar": "Harmonic Voltage 4th"
+      }
     },
     {
       "id": "V5",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "V",
       "default": 0,
-      "businessContext": "RMS voltage of the 5th harmonic component."
+      "businessContext": "RMS voltage of the 5th harmonic component.",
+      "label_i18n": {
+        "en": "Harmonic Voltage 5th",
+        "tr": "Harmonic Voltage 5th",
+        "de": "Harmonic Voltage 5th",
+        "fr": "Harmonic Voltage 5th",
+        "es": "Harmonic Voltage 5th",
+        "ar": "Harmonic Voltage 5th"
+      }
     },
     {
       "id": "V6",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "V",
       "default": 0,
-      "businessContext": "RMS voltage of the 6th harmonic component."
+      "businessContext": "RMS voltage of the 6th harmonic component.",
+      "label_i18n": {
+        "en": "Harmonic Voltage 6th",
+        "tr": "Harmonic Voltage 6th",
+        "de": "Harmonic Voltage 6th",
+        "fr": "Harmonic Voltage 6th",
+        "es": "Harmonic Voltage 6th",
+        "ar": "Harmonic Voltage 6th"
+      }
     },
     {
       "id": "V7",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "V",
       "default": 0,
-      "businessContext": "RMS voltage of the 7th harmonic component."
+      "businessContext": "RMS voltage of the 7th harmonic component.",
+      "label_i18n": {
+        "en": "Harmonic Voltage 7th",
+        "tr": "Harmonic Voltage 7th",
+        "de": "Harmonic Voltage 7th",
+        "fr": "Harmonic Voltage 7th",
+        "es": "Harmonic Voltage 7th",
+        "ar": "Harmonic Voltage 7th"
+      }
     },
     {
       "id": "V8",
@@ -63,20 +119,32 @@
       "type": "number",
       "unit": "V",
       "default": 0,
-      "businessContext": "RMS voltage of the 8th harmonic component."
+      "businessContext": "RMS voltage of the 8th harmonic component.",
+      "label_i18n": {
+        "en": "Harmonic Voltage 8th",
+        "tr": "Harmonic Voltage 8th",
+        "de": "Harmonic Voltage 8th",
+        "fr": "Harmonic Voltage 8th",
+        "es": "Harmonic Voltage 8th",
+        "ar": "Harmonic Voltage 8th"
+      }
     }
   ],
   "formulas": {
     "sumOfSquares": "V2**2 + V3**2 + V4**2 + V5**2 + V6**2 + V7**2 + V8**2",
-    "harmonicRMS": "Math.sqrt(V2**2 + V3**2 + V4**2 + V5**2 + V6**2 + V7**2 + V8**2)",
-    "THD": "(Math.sqrt(V2**2 + V3**2 + V4**2 + V5**2 + V6**2 + V7**2 + V8**2) / V1) * 100"
+    "sumOfSquares_aux": "V2**2 + V3**2 + V4**2 + V5**2 + V6**2 + V7**2 + V8**2"
   },
   "outputs": {
-    "primary": "THD",
+    "primary": "sumOfSquares_aux",
     "breakdown": [
       "sumOfSquares",
       "harmonicRMS"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "THD"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -86,5 +154,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

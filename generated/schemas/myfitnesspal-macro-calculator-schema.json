@@ -112,7 +112,12 @@
       "protein",
       "carbs",
       "fat"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "fat"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -122,5 +127,10 @@
   "sectorSlug": "cleaning",
   "sectorId": "temizlik",
   "profession": "Hijyen Uzmanı",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

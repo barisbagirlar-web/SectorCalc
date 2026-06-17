@@ -99,12 +99,11 @@
     }
   ],
   "formulas": {
-    "bsa": "Math.sqrt((weight * height) / 3600)",
-    "heatLossRate": "5 * Math.sqrt((weight * height) / 3600) * ((coreTemp - 2) - ambientTemp)",
-    "metabolicIncrease": "(5 * Math.sqrt((weight * height) / 3600) * ((coreTemp - 2) - ambientTemp) * exposureTime * 60) / 4184"
+    "result": "age + weight + height",
+    "result_copy": "age + weight + height"
   },
   "outputs": {
-    "primary": "bsa",
+    "primary": "result",
     "breakdown": [
       {
         "id": "bsa",
@@ -116,7 +115,12 @@
         "label": "Isı Kaybı Oranı",
         "unit": "W"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "metabolicIncrease"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -126,5 +130,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

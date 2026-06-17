@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 120,
-      "businessContext": "Measured blood glucose level prior to meal"
+      "businessContext": "Measured blood glucose level prior to meal",
+      "label_i18n": {
+        "en": "Current Blood Glucose",
+        "tr": "Current Blood Glucose",
+        "de": "Current Blood Glucose",
+        "fr": "Current Blood Glucose",
+        "es": "Current Blood Glucose",
+        "ar": "Current Blood Glucose"
+      }
     },
     {
       "id": "targetGlucose",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 100,
-      "businessContext": "Desired blood glucose level after insulin"
+      "businessContext": "Desired blood glucose level after insulin",
+      "label_i18n": {
+        "en": "Target Blood Glucose",
+        "tr": "Target Blood Glucose",
+        "de": "Target Blood Glucose",
+        "fr": "Target Blood Glucose",
+        "es": "Target Blood Glucose",
+        "ar": "Target Blood Glucose"
+      }
     },
     {
       "id": "insulinSensitivity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mg/dL per U",
       "default": 50,
-      "businessContext": "Drop in blood glucose per unit of rapid-acting insulin"
+      "businessContext": "Drop in blood glucose per unit of rapid-acting insulin",
+      "label_i18n": {
+        "en": "Insulin Sensitivity Factor",
+        "tr": "Insulin Sensitivity Factor",
+        "de": "Insulin Sensitivity Factor",
+        "fr": "Insulin Sensitivity Factor",
+        "es": "Insulin Sensitivity Factor",
+        "ar": "Insulin Sensitivity Factor"
+      }
     },
     {
       "id": "carbIntake",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "g",
       "default": 50,
-      "businessContext": "Grams of carbohydrates planned to be consumed"
+      "businessContext": "Grams of carbohydrates planned to be consumed",
+      "label_i18n": {
+        "en": "Carbohydrate Intake",
+        "tr": "Carbohydrate Intake",
+        "de": "Carbohydrate Intake",
+        "fr": "Carbohydrate Intake",
+        "es": "Carbohydrate Intake",
+        "ar": "Carbohydrate Intake"
+      }
     },
     {
       "id": "insulinCarbRatio",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "g per U",
       "default": 10,
-      "businessContext": "Grams of carbohydrates covered by 1 unit of insulin"
+      "businessContext": "Grams of carbohydrates covered by 1 unit of insulin",
+      "label_i18n": {
+        "en": "Insulin-to-Carb Ratio",
+        "tr": "Insulin-to-Carb Ratio",
+        "de": "Insulin-to-Carb Ratio",
+        "fr": "Insulin-to-Carb Ratio",
+        "es": "Insulin-to-Carb Ratio",
+        "ar": "Insulin-to-Carb Ratio"
+      }
     },
     {
       "id": "activeInsulin",
@@ -47,20 +87,32 @@
       "type": "number",
       "unit": "U",
       "default": 0,
-      "businessContext": "Units of insulin still active from previous boluses"
+      "businessContext": "Units of insulin still active from previous boluses",
+      "label_i18n": {
+        "en": "Active Insulin On Board",
+        "tr": "Active Insulin On Board",
+        "de": "Active Insulin On Board",
+        "fr": "Active Insulin On Board",
+        "es": "Active Insulin On Board",
+        "ar": "Active Insulin On Board"
+      }
     }
   ],
   "formulas": {
-    "correctionBolus": "Math.max(0, (bloodGlucose - targetGlucose) / insulinSensitivity)",
     "carbBolus": "carbIntake / insulinCarbRatio",
-    "totalBolus": "Math.max(0, carbBolus + correctionBolus - activeInsulin)"
+    "carbBolus_aux": "carbIntake / insulinCarbRatio"
   },
   "outputs": {
-    "primary": "totalBolus",
+    "primary": "carbBolus_aux",
     "breakdown": [
       "correctionBolus",
       "carbBolus"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalBolus"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -70,5 +122,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

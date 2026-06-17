@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kod",
       "default": 32,
-      "businessContext": "İlk ASCII karakter kodu (ör. 65 = 'A')"
+      "businessContext": "İlk ASCII karakter kodu (ör. 65 = 'A')",
+      "label_i18n": {
+        "en": "ASCII Kodu 1",
+        "tr": "ASCII Kodu 1",
+        "de": "ASCII Kodu 1",
+        "fr": "ASCII Kodu 1",
+        "es": "ASCII Kodu 1",
+        "ar": "ASCII Kodu 1"
+      }
     },
     {
       "id": "ascii2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kod",
       "default": 32,
-      "businessContext": "İkinci ASCII karakter kodu"
+      "businessContext": "İkinci ASCII karakter kodu",
+      "label_i18n": {
+        "en": "ASCII Kodu 2",
+        "tr": "ASCII Kodu 2",
+        "de": "ASCII Kodu 2",
+        "fr": "ASCII Kodu 2",
+        "es": "ASCII Kodu 2",
+        "ar": "ASCII Kodu 2"
+      }
     },
     {
       "id": "ascii3",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kod",
       "default": 32,
-      "businessContext": "Üçüncü ASCII karakter kodu"
+      "businessContext": "Üçüncü ASCII karakter kodu",
+      "label_i18n": {
+        "en": "ASCII Kodu 3",
+        "tr": "ASCII Kodu 3",
+        "de": "ASCII Kodu 3",
+        "fr": "ASCII Kodu 3",
+        "es": "ASCII Kodu 3",
+        "ar": "ASCII Kodu 3"
+      }
     },
     {
       "id": "ascii4",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kod",
       "default": 32,
-      "businessContext": "Dördüncü ASCII karakter kodu"
+      "businessContext": "Dördüncü ASCII karakter kodu",
+      "label_i18n": {
+        "en": "ASCII Kodu 4",
+        "tr": "ASCII Kodu 4",
+        "de": "ASCII Kodu 4",
+        "fr": "ASCII Kodu 4",
+        "es": "ASCII Kodu 4",
+        "ar": "ASCII Kodu 4"
+      }
     },
     {
       "id": "ascii5",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kod",
       "default": 32,
-      "businessContext": "Beşinci ASCII karakter kodu"
+      "businessContext": "Beşinci ASCII karakter kodu",
+      "label_i18n": {
+        "en": "ASCII Kodu 5",
+        "tr": "ASCII Kodu 5",
+        "de": "ASCII Kodu 5",
+        "fr": "ASCII Kodu 5",
+        "es": "ASCII Kodu 5",
+        "ar": "ASCII Kodu 5"
+      }
     },
     {
       "id": "ascii6",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kod",
       "default": 32,
-      "businessContext": "Altıncı ASCII karakter kodu"
+      "businessContext": "Altıncı ASCII karakter kodu",
+      "label_i18n": {
+        "en": "ASCII Kodu 6",
+        "tr": "ASCII Kodu 6",
+        "de": "ASCII Kodu 6",
+        "fr": "ASCII Kodu 6",
+        "es": "ASCII Kodu 6",
+        "ar": "ASCII Kodu 6"
+      }
     },
     {
       "id": "ascii7",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "kod",
       "default": 32,
-      "businessContext": "Yedinci ASCII karakter kodu"
+      "businessContext": "Yedinci ASCII karakter kodu",
+      "label_i18n": {
+        "en": "ASCII Kodu 7",
+        "tr": "ASCII Kodu 7",
+        "de": "ASCII Kodu 7",
+        "fr": "ASCII Kodu 7",
+        "es": "ASCII Kodu 7",
+        "ar": "ASCII Kodu 7"
+      }
     },
     {
       "id": "ascii8",
@@ -63,22 +119,23 @@
       "type": "number",
       "unit": "kod",
       "default": 32,
-      "businessContext": "Sekizinci ASCII karakter kodu"
+      "businessContext": "Sekizinci ASCII karakter kodu",
+      "label_i18n": {
+        "en": "ASCII Kodu 8",
+        "tr": "ASCII Kodu 8",
+        "de": "ASCII Kodu 8",
+        "fr": "ASCII Kodu 8",
+        "es": "ASCII Kodu 8",
+        "ar": "ASCII Kodu 8"
+      }
     }
   ],
   "formulas": {
-    "text": "String.fromCharCode(ascii1) + String.fromCharCode(ascii2) + String.fromCharCode(ascii3) + String.fromCharCode(ascii4) + String.fromCharCode(ascii5) + String.fromCharCode(ascii6) + String.fromCharCode(ascii7) + String.fromCharCode(ascii8)",
-    "char1": "String.fromCharCode(ascii1)",
-    "char2": "String.fromCharCode(ascii2)",
-    "char3": "String.fromCharCode(ascii3)",
-    "char4": "String.fromCharCode(ascii4)",
-    "char5": "String.fromCharCode(ascii5)",
-    "char6": "String.fromCharCode(ascii6)",
-    "char7": "String.fromCharCode(ascii7)",
-    "char8": "String.fromCharCode(ascii8)"
+    "result": "ascii1 + ascii2 + ascii3",
+    "result_copy": "ascii1 + ascii2 + ascii3"
   },
   "outputs": {
-    "primary": "text",
+    "primary": "result",
     "breakdown": [
       "char1",
       "char2",
@@ -88,7 +145,12 @@
       "char6",
       "char7",
       "char8"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "text_aux"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -98,5 +160,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

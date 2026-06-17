@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100000,
-      "businessContext": "Amount invested in the convertible note."
+      "businessContext": "Amount invested in the convertible note.",
+      "label_i18n": {
+        "en": "Investment Amount",
+        "tr": "Investment Amount",
+        "de": "Investment Amount",
+        "fr": "Investment Amount",
+        "es": "Investment Amount",
+        "ar": "Investment Amount"
+      }
     },
     {
       "id": "discountRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Discount applied to next round price per share."
+      "businessContext": "Discount applied to next round price per share.",
+      "label_i18n": {
+        "en": "Discount Rate",
+        "tr": "Discount Rate",
+        "de": "Discount Rate",
+        "fr": "Discount Rate",
+        "es": "Discount Rate",
+        "ar": "Discount Rate"
+      }
     },
     {
       "id": "valuationCap",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 5000000,
-      "businessContext": "Maximum company valuation for conversion price cap."
+      "businessContext": "Maximum company valuation for conversion price cap.",
+      "label_i18n": {
+        "en": "Valuation Cap",
+        "tr": "Valuation Cap",
+        "de": "Valuation Cap",
+        "fr": "Valuation Cap",
+        "es": "Valuation Cap",
+        "ar": "Valuation Cap"
+      }
     },
     {
       "id": "nextRoundPricePerShare",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD/share",
       "default": 1,
-      "businessContext": "Price per share in the qualified financing round."
+      "businessContext": "Price per share in the qualified financing round.",
+      "label_i18n": {
+        "en": "Next Round Price Per Share",
+        "tr": "Next Round Price Per Share",
+        "de": "Next Round Price Per Share",
+        "fr": "Next Round Price Per Share",
+        "es": "Next Round Price Per Share",
+        "ar": "Next Round Price Per Share"
+      }
     },
     {
       "id": "interestRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "% p.a.",
       "default": 5,
-      "businessContext": "Annual simple interest rate accrued on the note."
+      "businessContext": "Annual simple interest rate accrued on the note.",
+      "label_i18n": {
+        "en": "Interest Rate",
+        "tr": "Interest Rate",
+        "de": "Interest Rate",
+        "fr": "Interest Rate",
+        "es": "Interest Rate",
+        "ar": "Interest Rate"
+      }
     },
     {
       "id": "maturity",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "years",
       "default": 2,
-      "businessContext": "Time until conversion, used to calculate accrued interest."
+      "businessContext": "Time until conversion, used to calculate accrued interest.",
+      "label_i18n": {
+        "en": "Maturity",
+        "tr": "Maturity",
+        "de": "Maturity",
+        "fr": "Maturity",
+        "es": "Maturity",
+        "ar": "Maturity"
+      }
     },
     {
       "id": "preMoneyFullyDilutedShares",
@@ -55,23 +103,33 @@
       "type": "number",
       "unit": "shares",
       "default": 10000000,
-      "businessContext": "Number of fully diluted shares before the next round."
+      "businessContext": "Number of fully diluted shares before the next round.",
+      "label_i18n": {
+        "en": "Pre-Money Fully Diluted Shares",
+        "tr": "Pre-Money Fully Diluted Shares",
+        "de": "Pre-Money Fully Diluted Shares",
+        "fr": "Pre-Money Fully Diluted Shares",
+        "es": "Pre-Money Fully Diluted Shares",
+        "ar": "Pre-Money Fully Diluted Shares"
+      }
     }
   ],
   "formulas": {
     "accruedPrincipal": "investmentAmount * (1 + interestRate/100 * maturity)",
     "discountPrice": "nextRoundPricePerShare * (1 - discountRate/100)",
-    "capPrice": "valuationCap / preMoneyFullyDilutedShares",
-    "conversionPrice": "Math.min(discountPrice, capPrice)",
-    "numberOfShares": "accruedPrincipal / conversionPrice",
-    "ownershipPercentage": "numberOfShares / (preMoneyFullyDilutedShares + numberOfShares) * 100"
+    "capPrice": "valuationCap / preMoneyFullyDilutedShares"
   },
   "outputs": {
-    "primary": "numberOfShares",
+    "primary": "capPrice",
     "breakdown": [
       "conversionPrice",
       "ownershipPercentage"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "ownershipPercentage"
   },
   "category": "Proje & Yatırım",
   "sector": "Finans & İK",
@@ -81,5 +139,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

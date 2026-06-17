@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Age of the individual"
+      "businessContext": "Age of the individual",
+      "label_i18n": {
+        "en": "Current Age",
+        "tr": "Current Age",
+        "de": "Current Age",
+        "fr": "Current Age",
+        "es": "Current Age",
+        "ar": "Current Age"
+      }
     },
     {
       "id": "retirementAge",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "years",
       "default": 65,
-      "businessContext": "Expected retirement age"
+      "businessContext": "Expected retirement age",
+      "label_i18n": {
+        "en": "Retirement Age",
+        "tr": "Retirement Age",
+        "de": "Retirement Age",
+        "fr": "Retirement Age",
+        "es": "Retirement Age",
+        "ar": "Retirement Age"
+      }
     },
     {
       "id": "currentBalance",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 50000,
-      "businessContext": "Current balance in the 401(k) account"
+      "businessContext": "Current balance in the 401(k) account",
+      "label_i18n": {
+        "en": "Current 401(k) Balance",
+        "tr": "Current 401(k) Balance",
+        "de": "Current 401(k) Balance",
+        "fr": "Current 401(k) Balance",
+        "es": "Current 401(k) Balance",
+        "ar": "Current 401(k) Balance"
+      }
     },
     {
       "id": "annualContribution",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 10000,
-      "businessContext": "Annual employee contribution amount"
+      "businessContext": "Annual employee contribution amount",
+      "label_i18n": {
+        "en": "Annual Contribution",
+        "tr": "Annual Contribution",
+        "de": "Annual Contribution",
+        "fr": "Annual Contribution",
+        "es": "Annual Contribution",
+        "ar": "Annual Contribution"
+      }
     },
     {
       "id": "salary",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100000,
-      "businessContext": "Current annual salary, used to compute employer match in dollars"
+      "businessContext": "Current annual salary, used to compute employer match in dollars",
+      "label_i18n": {
+        "en": "Annual Salary",
+        "tr": "Annual Salary",
+        "de": "Annual Salary",
+        "fr": "Annual Salary",
+        "es": "Annual Salary",
+        "ar": "Annual Salary"
+      }
     },
     {
       "id": "employerMatch",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 3,
-      "businessContext": "Percentage of salary matched by employer"
+      "businessContext": "Percentage of salary matched by employer",
+      "label_i18n": {
+        "en": "Employer Match Percentage",
+        "tr": "Employer Match Percentage",
+        "de": "Employer Match Percentage",
+        "fr": "Employer Match Percentage",
+        "es": "Employer Match Percentage",
+        "ar": "Employer Match Percentage"
+      }
     },
     {
       "id": "annualReturn",
@@ -55,27 +103,37 @@
       "type": "number",
       "unit": "%",
       "default": 7,
-      "businessContext": "Expected annual rate of return on investments"
+      "businessContext": "Expected annual rate of return on investments",
+      "label_i18n": {
+        "en": "Expected Annual Return",
+        "tr": "Expected Annual Return",
+        "de": "Expected Annual Return",
+        "fr": "Expected Annual Return",
+        "es": "Expected Annual Return",
+        "ar": "Expected Annual Return"
+      }
     }
   ],
   "formulas": {
     "yearsToRetire": "retirementAge - currentAge",
-    "annualReturnDecimal": "annualReturn / 100",
     "matchAmount": "salary * employerMatch / 100",
     "totalAnnualAddition": "annualContribution + matchAmount",
-    "finalBalance": "currentBalance * (1 + annualReturnDecimal) ** yearsToRetire + totalAnnualAddition * (((1 + annualReturnDecimal) ** yearsToRetire - 1) / annualReturnDecimal)",
     "totalContributions": "annualContribution * yearsToRetire",
-    "totalEmployerMatch": "matchAmount * yearsToRetire",
-    "totalEarnings": "finalBalance - currentBalance - totalContributions - totalEmployerMatch"
+    "totalEmployerMatch": "matchAmount * yearsToRetire"
   },
   "outputs": {
-    "primary": "finalBalance",
+    "primary": "totalEmployerMatch",
     "breakdown": [
       "totalContributions",
       "totalEarnings",
       "totalEmployerMatch",
       "yearsToRetire"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalEarnings"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -85,5 +143,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "hr"
+  "categoryId": "hr",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

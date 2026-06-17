@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "The amount of raw material required per day in kilograms."
+      "businessContext": "The amount of raw material required per day in kilograms.",
+      "label_i18n": {
+        "en": "Daily Material Demand",
+        "tr": "Daily Material Demand",
+        "de": "Daily Material Demand",
+        "fr": "Daily Material Demand",
+        "es": "Daily Material Demand",
+        "ar": "Daily Material Demand"
+      }
     },
     {
       "id": "costPerKg",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 2.5,
-      "businessContext": "Unit cost of the material in EUR per kg."
+      "businessContext": "Unit cost of the material in EUR per kg.",
+      "label_i18n": {
+        "en": "Cost per kg",
+        "tr": "Cost per kg",
+        "de": "Cost per kg",
+        "fr": "Cost per kg",
+        "es": "Cost per kg",
+        "ar": "Cost per kg"
+      }
     },
     {
       "id": "wasteRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Expected percentage of material wasted during processing."
+      "businessContext": "Expected percentage of material wasted during processing.",
+      "label_i18n": {
+        "en": "Waste Rate",
+        "tr": "Waste Rate",
+        "de": "Waste Rate",
+        "fr": "Waste Rate",
+        "es": "Waste Rate",
+        "ar": "Waste Rate"
+      }
     },
     {
       "id": "days",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "days",
       "default": 30,
-      "businessContext": "Production period in days (default 30 for Whole 30)."
+      "businessContext": "Production period in days (default 30 for Whole 30).",
+      "label_i18n": {
+        "en": "Number of Days",
+        "tr": "Number of Days",
+        "de": "Number of Days",
+        "fr": "Number of Days",
+        "es": "Number of Days",
+        "ar": "Number of Days"
+      }
     }
   ],
   "formulas": {
@@ -47,7 +79,12 @@
       "wasteAmount",
       "totalCost",
       "wasteCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "wasteCost"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -57,5 +94,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

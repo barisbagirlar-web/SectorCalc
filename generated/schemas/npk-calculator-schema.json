@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Gübre içerisindeki azot yüzdesi"
+      "businessContext": "Gübre içerisindeki azot yüzdesi",
+      "label_i18n": {
+        "en": "Azot (N) %",
+        "tr": "Azot (N) %",
+        "de": "Azot (N) %",
+        "fr": "Azot (N) %",
+        "es": "Azot (N) %",
+        "ar": "Azot (N) %"
+      }
     },
     {
       "id": "pPercent",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Gübre içerisindeki fosfor yüzdesi"
+      "businessContext": "Gübre içerisindeki fosfor yüzdesi",
+      "label_i18n": {
+        "en": "Fosfor (P2O5) %",
+        "tr": "Fosfor (P2O5) %",
+        "de": "Fosfor (P2O5) %",
+        "fr": "Fosfor (P2O5) %",
+        "es": "Fosfor (P2O5) %",
+        "ar": "Fosfor (P2O5) %"
+      }
     },
     {
       "id": "kPercent",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Gübre içerisindeki potasyum yüzdesi"
+      "businessContext": "Gübre içerisindeki potasyum yüzdesi",
+      "label_i18n": {
+        "en": "Potasyum (K2O) %",
+        "tr": "Potasyum (K2O) %",
+        "de": "Potasyum (K2O) %",
+        "fr": "Potasyum (K2O) %",
+        "es": "Potasyum (K2O) %",
+        "ar": "Potasyum (K2O) %"
+      }
     },
     {
       "id": "totalWeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 50,
-      "businessContext": "Kullanılacak toplam gübre miktarı"
+      "businessContext": "Kullanılacak toplam gübre miktarı",
+      "label_i18n": {
+        "en": "Toplam Gübre Ağırlığı",
+        "tr": "Toplam Gübre Ağırlığı",
+        "de": "Toplam Gübre Ağırlığı",
+        "fr": "Toplam Gübre Ağırlığı",
+        "es": "Toplam Gübre Ağırlığı",
+        "ar": "Toplam Gübre Ağırlığı"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "nWeight",
       "pWeight",
       "kWeight"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "kWeight"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -56,5 +93,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

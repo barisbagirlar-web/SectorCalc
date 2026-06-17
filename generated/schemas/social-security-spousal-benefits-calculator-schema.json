@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$/month",
       "default": 2000,
-      "businessContext": "The primary insurance amount (PIA) of the worker whose earnings record the spousal benefit is claimed on."
+      "businessContext": "The primary insurance amount (PIA) of the worker whose earnings record the spousal benefit is claimed on.",
+      "label_i18n": {
+        "en": "Primary Earner's PIA",
+        "tr": "Primary Earner's PIA",
+        "de": "Primary Earner's PIA",
+        "fr": "Primary Earner's PIA",
+        "es": "Primary Earner's PIA",
+        "ar": "Primary Earner's PIA"
+      }
     },
     {
       "id": "spousePIA",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "$/month",
       "default": 0,
-      "businessContext": "The spouse's own retirement benefit if they filed based on their own earnings record."
+      "businessContext": "The spouse's own retirement benefit if they filed based on their own earnings record.",
+      "label_i18n": {
+        "en": "Spouse's Own PIA",
+        "tr": "Spouse's Own PIA",
+        "de": "Spouse's Own PIA",
+        "fr": "Spouse's Own PIA",
+        "es": "Spouse's Own PIA",
+        "ar": "Spouse's Own PIA"
+      }
     },
     {
       "id": "spouseFilingAge",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 62,
-      "businessContext": "The age at which the spouse applies for spousal benefits."
+      "businessContext": "The age at which the spouse applies for spousal benefits.",
+      "label_i18n": {
+        "en": "Spouse's Filing Age",
+        "tr": "Spouse's Filing Age",
+        "de": "Spouse's Filing Age",
+        "fr": "Spouse's Filing Age",
+        "es": "Spouse's Filing Age",
+        "ar": "Spouse's Filing Age"
+      }
     },
     {
       "id": "spouseFRA",
@@ -31,22 +55,33 @@
       "type": "number",
       "unit": "years",
       "default": 67,
-      "businessContext": "The age at which the spouse can receive unreduced benefits. Typically 66-67 depending on birth year."
+      "businessContext": "The age at which the spouse can receive unreduced benefits. Typically 66-67 depending on birth year.",
+      "label_i18n": {
+        "en": "Spouse's Full Retirement Age",
+        "tr": "Spouse's Full Retirement Age",
+        "de": "Spouse's Full Retirement Age",
+        "fr": "Spouse's Full Retirement Age",
+        "es": "Spouse's Full Retirement Age",
+        "ar": "Spouse's Full Retirement Age"
+      }
     }
   ],
   "formulas": {
-    "monthsEarly": "Math.max(0, (spouseFRA - spouseFilingAge) * 12)",
-    "grossSpousal": "Math.max(0, primaryPIA * 0.5 - spousePIA)",
-    "reductionFactor": "monthsEarly <= 36 ? monthsEarly * 25 / 3600 : 36 * 25 / 3600 + (monthsEarly - 36) * 5 / 1200",
-    "spousalBenefit": "grossSpousal * (1 - reductionFactor)"
+    "result": "primaryPIA + spousePIA + spouseFilingAge",
+    "result_copy": "primaryPIA + spousePIA + spouseFilingAge"
   },
   "outputs": {
-    "primary": "spousalBenefit",
+    "primary": "result",
     "breakdown": [
       "grossSpousal",
       "monthsEarly",
       "reductionFactor"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "spousalBenefit"
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Üretim & İmalat",
@@ -56,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "hr"
+  "categoryId": "hr",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

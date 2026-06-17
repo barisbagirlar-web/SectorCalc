@@ -71,13 +71,7 @@
     "vertexScore": "vertexDiameter / 5",
     "frontalThinningScore": "frontalThinningArea / 50",
     "crownThinningScore": "crownThinningArea / 50",
-    "totalScore": "recessionScore + vertexScore + frontalThinningScore + crownThinningScore",
-    "norwoodStage": "Math.min(7, Math.max(1, Math.round(totalScore)))",
-    "_recessionScore_": "{recessionScore}",
-    "_vertexScore_": "{vertexScore}",
-    "_frontalThinningScore_": "{frontalThinningScore}",
-    "_crownThinningScore_": "{crownThinningScore}",
-    "_totalScore_": "{totalScore}"
+    "totalScore": "recessionScore + vertexScore + frontalThinningScore + crownThinningScore"
   },
   "outputs": {
     "primary": "recessionScore",
@@ -87,7 +81,12 @@
       "Frontal Thinning Score: {frontalThinningScore}",
       "Crown Thinning Score: {crownThinningScore}",
       "Total Score: {totalScore}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "norwoodStage"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -97,5 +96,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

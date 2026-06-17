@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 50000,
-      "businessContext": "The purchase price of the asset (equipment, software, etc.)"
+      "businessContext": "The purchase price of the asset (equipment, software, etc.)",
+      "label_i18n": {
+        "en": "Cost of Qualifying Property",
+        "tr": "Cost of Qualifying Property",
+        "de": "Cost of Qualifying Property",
+        "fr": "Cost of Qualifying Property",
+        "es": "Cost of Qualifying Property",
+        "ar": "Cost of Qualifying Property"
+      }
     },
     {
       "id": "businessUsePercent",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Percentage of the asset used for business purposes (0-100)"
+      "businessContext": "Percentage of the asset used for business purposes (0-100)",
+      "label_i18n": {
+        "en": "Business Use Percentage",
+        "tr": "Business Use Percentage",
+        "de": "Business Use Percentage",
+        "fr": "Business Use Percentage",
+        "es": "Business Use Percentage",
+        "ar": "Business Use Percentage"
+      }
     },
     {
       "id": "section179Limit",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 1220000,
-      "businessContext": "Maximum annual Section 179 deduction allowed by IRS (2025 limit)"
+      "businessContext": "Maximum annual Section 179 deduction allowed by IRS (2025 limit)",
+      "label_i18n": {
+        "en": "Section 179 Deduction Limit",
+        "tr": "Section 179 Deduction Limit",
+        "de": "Section 179 Deduction Limit",
+        "fr": "Section 179 Deduction Limit",
+        "es": "Section 179 Deduction Limit",
+        "ar": "Section 179 Deduction Limit"
+      }
     },
     {
       "id": "phaseOutThreshold",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 3050000,
-      "businessContext": "Total asset additions above which the Section 179 deduction is reduced dollar-for-dollar"
+      "businessContext": "Total asset additions above which the Section 179 deduction is reduced dollar-for-dollar",
+      "label_i18n": {
+        "en": "Phase-Out Threshold",
+        "tr": "Phase-Out Threshold",
+        "de": "Phase-Out Threshold",
+        "fr": "Phase-Out Threshold",
+        "es": "Phase-Out Threshold",
+        "ar": "Phase-Out Threshold"
+      }
     },
     {
       "id": "totalAssetAdditions",
@@ -39,21 +71,32 @@
       "type": "number",
       "unit": "USD",
       "default": 50000,
-      "businessContext": "Total cost of all qualifying property placed in service during the tax year (for phase-out calculation)"
+      "businessContext": "Total cost of all qualifying property placed in service during the tax year (for phase-out calculation)",
+      "label_i18n": {
+        "en": "Total Asset Additions",
+        "tr": "Total Asset Additions",
+        "de": "Total Asset Additions",
+        "fr": "Total Asset Additions",
+        "es": "Total Asset Additions",
+        "ar": "Total Asset Additions"
+      }
     }
   ],
   "formulas": {
-    "reducedLimit": "Math.max(0, section179Limit - Math.max(0, totalAssetAdditions - phaseOutThreshold))",
-    "tentativeDeduction": "Math.min(assetCost, reducedLimit)",
-    "section179Deduction": "tentativeDeduction * (businessUsePercent / 100)",
-    "remainingBasis": "assetCost - section179Deduction"
+    "result": "assetCost + businessUsePercent + section179Limit",
+    "result_copy": "assetCost + businessUsePercent + section179Limit"
   },
   "outputs": {
-    "primary": "section179Deduction",
+    "primary": "result",
     "breakdown": [
       "reducedLimit",
       "remainingBasis"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "remainingBasis"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -63,5 +106,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

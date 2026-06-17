@@ -145,59 +145,6 @@
       "businessContext_i18n": {
         "en": "Percentage of time the equipment is expected to be productive."
       }
-    },
-    {
-      "id": "taxRate",
-      "label": "Effective Tax Rate",
-      "type": "number",
-      "unit": "%",
-      "default": 25,
-      "min": 0,
-      "max": 50,
-      "businessContext": "Corporate tax rate applied to depreciation and lease payment deductions.",
-      "label_i18n": {
-        "en": "Effective Tax Rate"
-      },
-      "businessContext_i18n": {
-        "en": "Corporate tax rate applied to depreciation and lease payment deductions."
-      }
-    },
-    {
-      "id": "depreciationMethod",
-      "label": "Depreciation Method",
-      "type": "select",
-      "unit": "unit",
-      "default": "straight-line",
-      "options": [
-        "straight-line",
-        "MACRS-5yr",
-        "MACRS-7yr"
-      ],
-      "businessContext": "Method used to calculate annual depreciation for tax shield.",
-      "label_i18n": {
-        "en": "Depreciation Method"
-      },
-      "businessContext_i18n": {
-        "en": "Method used to calculate annual depreciation for tax shield."
-      }
-    },
-    {
-      "id": "leaseType",
-      "label": "Lease Type",
-      "type": "select",
-      "unit": "unit",
-      "default": "operating",
-      "options": [
-        "operating",
-        "capital"
-      ],
-      "businessContext": "Operating lease is off-balance-sheet; capital lease is treated as ownership.",
-      "label_i18n": {
-        "en": "Lease Type"
-      },
-      "businessContext_i18n": {
-        "en": "Operating lease is off-balance-sheet; capital lease is treated as ownership."
-      }
     }
   ],
   "validation": {
@@ -233,18 +180,18 @@
       }
     ]
   },
-  "formulas": [
-    "equipmentCost",
-    "equipmentCost",
-    "equipmentCost",
-    "equipmentCost",
-    "equipmentCost",
-    "equipmentCost",
-    "equipmentCost"
-  ],
+  "formulas": {
+    "result": "equipmentCost + leaseTermMonths + monthlyLeasePayment",
+    "result_copy": "equipmentCost + leaseTermMonths + monthlyLeasePayment"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "lease-vs-buy-comparator-calculator",
   "catalogCategory": "everyday-life",
@@ -255,5 +202,6 @@
   "premiumRequired": false,
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "premiumFeatures": []
 }

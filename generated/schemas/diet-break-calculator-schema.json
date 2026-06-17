@@ -86,10 +86,7 @@
     "totalWeeklyCalories": "dailyCalories * dietDays + (dailyCalories * activityFactor) * breakDays",
     "averageDailyCalories": "(dailyCalories * dietDays + (dailyCalories * activityFactor) * breakDays) / (dietDays + breakDays)",
     "breakDayCalories": "dailyCalories * activityFactor",
-    "calorieDifference": "(dailyCalories * dietDays + (dailyCalories * activityFactor) * breakDays) / (dietDays + breakDays) - dailyCalories",
-    "Diyet_Aras__G_n_Kalorisi": "Diyet Arası Gün Kalorisi",
-    "Toplam_Haftal_k_Kalori": "Toplam Haftalık Kalori",
-    "Kalori_A_____Fazlas_": "Kalori Açığı/Fazlası"
+    "calorieDifference": "(dailyCalories * dietDays + (dailyCalories * activityFactor) * breakDays) / (dietDays + breakDays) - dailyCalories"
   },
   "outputs": {
     "primary": "totalWeeklyCalories",
@@ -97,7 +94,12 @@
       "Diyet Arası Gün Kalorisi",
       "Toplam Haftalık Kalori",
       "Kalori Açığı/Fazlası"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "calorieDifference"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -107,5 +109,10 @@
   "sectorSlug": "cleaning",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

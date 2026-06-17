@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TL",
       "default": 5000,
-      "businessContext": "Total monthly household income after taxes"
+      "businessContext": "Total monthly household income after taxes",
+      "label_i18n": {
+        "en": "Monthly Income",
+        "tr": "Monthly Income",
+        "de": "Monthly Income",
+        "fr": "Monthly Income",
+        "es": "Monthly Income",
+        "ar": "Monthly Income"
+      }
     },
     {
       "id": "groceryPercentage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Recommended percentage of income allocated to groceries"
+      "businessContext": "Recommended percentage of income allocated to groceries",
+      "label_i18n": {
+        "en": "Grocery Budget Percentage",
+        "tr": "Grocery Budget Percentage",
+        "de": "Grocery Budget Percentage",
+        "fr": "Grocery Budget Percentage",
+        "es": "Grocery Budget Percentage",
+        "ar": "Grocery Budget Percentage"
+      }
     },
     {
       "id": "numberOfPeople",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "people",
       "default": 1,
-      "businessContext": "Number of individuals consuming groceries"
+      "businessContext": "Number of individuals consuming groceries",
+      "label_i18n": {
+        "en": "Number of Household Members",
+        "tr": "Number of Household Members",
+        "de": "Number of Household Members",
+        "fr": "Number of Household Members",
+        "es": "Number of Household Members",
+        "ar": "Number of Household Members"
+      }
     },
     {
       "id": "extraExpenses",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Extra fixed grocery spending (e.g., eating out, special diets)"
+      "businessContext": "Extra fixed grocery spending (e.g., eating out, special diets)",
+      "label_i18n": {
+        "en": "Additional Grocery Expenses",
+        "tr": "Additional Grocery Expenses",
+        "de": "Additional Grocery Expenses",
+        "fr": "Additional Grocery Expenses",
+        "es": "Additional Grocery Expenses",
+        "ar": "Additional Grocery Expenses"
+      }
     }
   ],
   "formulas": {
@@ -45,7 +77,12 @@
       "baseGroceryFromIncome",
       "extraExpenses",
       "perPersonBudget"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "perPersonBudget"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -55,5 +92,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

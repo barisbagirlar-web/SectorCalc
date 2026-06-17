@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "score",
       "default": 5,
-      "businessContext": "Rating of how urgent the task is, 1 being not urgent, 10 extremely urgent."
+      "businessContext": "Rating of how urgent the task is, 1 being not urgent, 10 extremely urgent.",
+      "label_i18n": {
+        "en": "Urgency Score (1-10)",
+        "tr": "Urgency Score (1-10)",
+        "de": "Urgency Score (1-10)",
+        "fr": "Urgency Score (1-10)",
+        "es": "Urgency Score (1-10)",
+        "ar": "Urgency Score (1-10)"
+      }
     },
     {
       "id": "importance",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "score",
       "default": 5,
-      "businessContext": "Rating of how important the task is, 1 being not important, 10 extremely important."
+      "businessContext": "Rating of how important the task is, 1 being not important, 10 extremely important.",
+      "label_i18n": {
+        "en": "Importance Score (1-10)",
+        "tr": "Importance Score (1-10)",
+        "de": "Importance Score (1-10)",
+        "fr": "Importance Score (1-10)",
+        "es": "Importance Score (1-10)",
+        "ar": "Importance Score (1-10)"
+      }
     },
     {
       "id": "weightUrgency",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "factor",
       "default": 0.5,
-      "businessContext": "Weight assigned to urgency in the priority score calculation. Typically between 0 and 1."
+      "businessContext": "Weight assigned to urgency in the priority score calculation. Typically between 0 and 1.",
+      "label_i18n": {
+        "en": "Urgency Weight",
+        "tr": "Urgency Weight",
+        "de": "Urgency Weight",
+        "fr": "Urgency Weight",
+        "es": "Urgency Weight",
+        "ar": "Urgency Weight"
+      }
     },
     {
       "id": "weightImportance",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "factor",
       "default": 0.5,
-      "businessContext": "Weight assigned to importance in the priority score calculation. Typically between 0 and 1."
+      "businessContext": "Weight assigned to importance in the priority score calculation. Typically between 0 and 1.",
+      "label_i18n": {
+        "en": "Importance Weight",
+        "tr": "Importance Weight",
+        "de": "Importance Weight",
+        "fr": "Importance Weight",
+        "es": "Importance Weight",
+        "ar": "Importance Weight"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "urgencyComponent",
       "importanceComponent"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalScore"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

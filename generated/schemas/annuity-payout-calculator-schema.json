@@ -67,16 +67,20 @@
     }
   ],
   "formulas": {
-    "periodicPayment": "principal * (annualRate / 100 / paymentsPerYear) / (1 - Math.pow(1 + (annualRate / 100 / paymentsPerYear), -(years * paymentsPerYear)))",
-    "totalPayout": "periodicPayment * years * paymentsPerYear",
-    "totalInterest": "totalPayout - principal"
+    "result": "principal + annualRate + years",
+    "result_copy": "principal + annualRate + years"
   },
   "outputs": {
-    "primary": "periodicPayment",
+    "primary": "result",
     "breakdown": [
       "totalPayout",
       "totalInterest"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalInterest"
   },
   "category": "Proje & Yatırım",
   "sector": "Finans & İK",
@@ -86,5 +90,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -99,25 +99,22 @@
     }
   ],
   "formulas": {
-    "angle_rad": "Math.atan(slope_percent / 100)",
-    "tractive_force": "load_mass * 9.81 * (Math.sin(angle_rad) + rolling_resistance * Math.cos(angle_rad))",
-    "effective_force": "tractive_force / (efficiency / 100)",
-    "required_power": "effective_force * desired_speed",
-    "total_horsepower": "required_power / 745.7",
-    "number_of_horses": "Math.ceil(effective_force / horse_pull_force)",
-    "_tractive_force_toFixed_2___N": "{tractive_force.toFixed(2)} N",
-    "_effective_force_toFixed_2___N": "{effective_force.toFixed(2)} N",
-    "_required_power_toFixed_2___W": "{required_power.toFixed(2)} W",
-    "_total_horsepower_toFixed_2___hp": "{total_horsepower.toFixed(2)} hp"
+    "result": "load_mass + slope_percent + rolling_resistance",
+    "result_aux": "load_mass + slope_percent + rolling_resistance"
   },
   "outputs": {
-    "primary": "angle_rad",
+    "primary": "result",
     "breakdown": [
       "Çekme Kuvveti: {tractive_force.toFixed(2)} N",
       "Etkin Kuvvet: {effective_force.toFixed(2)} N",
       "Gerekli Güç: {required_power.toFixed(2)} W",
       "Beygir Gücü: {total_horsepower.toFixed(2)} hp"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "number_of_horses"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -127,5 +124,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

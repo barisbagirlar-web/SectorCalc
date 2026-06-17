@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 100,
-      "businessContext": "Üretilecek veya bölünecek toplam ürün/parça sayısı."
+      "businessContext": "Üretilecek veya bölünecek toplam ürün/parça sayısı.",
+      "label_i18n": {
+        "en": "Toplam Miktar",
+        "tr": "Toplam Miktar",
+        "de": "Toplam Miktar",
+        "fr": "Toplam Miktar",
+        "es": "Toplam Miktar",
+        "ar": "Toplam Miktar"
+      }
     },
     {
       "id": "batchSize",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 10,
-      "businessContext": "Her bir partide yer alan ürün/parça sayısı."
+      "businessContext": "Her bir partide yer alan ürün/parça sayısı.",
+      "label_i18n": {
+        "en": "Parti Büyüklüğü",
+        "tr": "Parti Büyüklüğü",
+        "de": "Parti Büyüklüğü",
+        "fr": "Parti Büyüklüğü",
+        "es": "Parti Büyüklüğü",
+        "ar": "Parti Büyüklüğü"
+      }
     },
     {
       "id": "targetRemainder",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Mod işlemi sonucuyla karşılaştırılacak kalan değer; eşleşme kontrolü için."
+      "businessContext": "Mod işlemi sonucuyla karşılaştırılacak kalan değer; eşleşme kontrolü için.",
+      "label_i18n": {
+        "en": "Hedef Kalan",
+        "tr": "Hedef Kalan",
+        "de": "Hedef Kalan",
+        "fr": "Hedef Kalan",
+        "es": "Hedef Kalan",
+        "ar": "Hedef Kalan"
+      }
     },
     {
       "id": "offset",
@@ -31,12 +55,19 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Toplam miktara eklenecek sabit kaydırma; örneğin başlangıç artığı varsa."
+      "businessContext": "Toplam miktara eklenecek sabit kaydırma; örneğin başlangıç artığı varsa.",
+      "label_i18n": {
+        "en": "Başlangıç Kaydırma",
+        "tr": "Başlangıç Kaydırma",
+        "de": "Başlangıç Kaydırma",
+        "fr": "Başlangıç Kaydırma",
+        "es": "Başlangıç Kaydırma",
+        "ar": "Başlangıç Kaydırma"
+      }
     }
   ],
   "formulas": {
     "remainder": "(totalQuantity + offset) % batchSize",
-    "quotient": "Math.floor((totalQuantity + offset) / batchSize)",
     "match": "((totalQuantity + offset) % batchSize) === targetRemainder ? 1 : 0"
   },
   "outputs": {
@@ -44,7 +75,12 @@
     "breakdown": [
       "quotient",
       "match"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "match"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -84,15 +84,19 @@
   ],
   "formulas": {
     "requiredThickness": "(pressure * diameter) / (2 * allowableStress * jointEfficiency) + corrosionAllowance",
-    "P_D__2_S_E_": "P*D/(2*S*E)",
-    "t___P_D__2_S_E____C": "t = P*D/(2*S*E) + C"
+    "requiredThickness_aux": "(pressure * diameter) / (2 * allowableStress * jointEfficiency) + corrosionAllowance"
   },
   "outputs": {
     "primary": "requiredThickness",
     "breakdown": [
       "Hoop stress calculation: P*D/(2*S*E)",
       "Final thickness includes corrosion allowance: t = P*D/(2*S*E) + C"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "t___P_D__2_S_E____C"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -102,5 +106,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "efficiency"
+  "categoryId": "efficiency",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

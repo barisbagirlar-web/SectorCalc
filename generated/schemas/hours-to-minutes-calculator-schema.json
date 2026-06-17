@@ -67,17 +67,20 @@
     }
   ],
   "formulas": {
-    "baseMinutes": "inputs.hours * 60",
-    "totalMinutes": "baseMinutes * inputs.batchSize * inputs.machineCount * (1 + inputs.adjustmentPercent / 100)",
-    "Saf_Dakika__Saatten_D_n___m_": "Saf Dakika (Saatten Dönüşüm)",
-    "Toplam_Dakika__Parti__Makine_ve_Ayarlama": "Toplam Dakika (Parti, Makine ve Ayarlama Dahil)"
+    "result": "hours + batchSize + machineCount",
+    "result_aux": "hours + batchSize + machineCount"
   },
   "outputs": {
-    "primary": "baseMinutes",
+    "primary": "result",
     "breakdown": [
       "Saf Dakika (Saatten Dönüşüm)",
       "Toplam Dakika (Parti, Makine ve Ayarlama Dahil)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalMinutes"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -87,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "V",
       "default": 400,
-      "businessContext": "Nominal supply voltage"
+      "businessContext": "Nominal supply voltage",
+      "label_i18n": {
+        "en": "Voltage",
+        "tr": "Voltage",
+        "de": "Voltage",
+        "fr": "Voltage",
+        "es": "Voltage",
+        "ar": "Voltage"
+      }
     },
     {
       "id": "current",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "A",
       "default": 10,
-      "businessContext": "Measured line current"
+      "businessContext": "Measured line current",
+      "label_i18n": {
+        "en": "Current",
+        "tr": "Current",
+        "de": "Current",
+        "fr": "Current",
+        "es": "Current",
+        "ar": "Current"
+      }
     },
     {
       "id": "powerFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "unitless",
       "default": 0.85,
-      "businessContext": "Motor nameplate power factor"
+      "businessContext": "Motor nameplate power factor",
+      "label_i18n": {
+        "en": "Power Factor (cos φ)",
+        "tr": "Power Factor (cos φ)",
+        "de": "Power Factor (cos φ)",
+        "fr": "Power Factor (cos φ)",
+        "es": "Power Factor (cos φ)",
+        "ar": "Power Factor (cos φ)"
+      }
     },
     {
       "id": "efficiency",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "Motor efficiency at load point"
+      "businessContext": "Motor efficiency at load point",
+      "label_i18n": {
+        "en": "Efficiency",
+        "tr": "Efficiency",
+        "de": "Efficiency",
+        "fr": "Efficiency",
+        "es": "Efficiency",
+        "ar": "Efficiency"
+      }
     },
     {
       "id": "speed",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "RPM",
       "default": 1450,
-      "businessContext": "Shaft rotational speed"
+      "businessContext": "Shaft rotational speed",
+      "label_i18n": {
+        "en": "Rotational Speed",
+        "tr": "Rotational Speed",
+        "de": "Rotational Speed",
+        "fr": "Rotational Speed",
+        "es": "Rotational Speed",
+        "ar": "Rotational Speed"
+      }
     },
     {
       "id": "numberOfPhases",
@@ -47,20 +87,32 @@
       "type": "number",
       "unit": "unitless",
       "default": 3,
-      "businessContext": "Motor phase configuration (1 or 3)"
+      "businessContext": "Motor phase configuration (1 or 3)",
+      "label_i18n": {
+        "en": "Number of Phases",
+        "tr": "Number of Phases",
+        "de": "Number of Phases",
+        "fr": "Number of Phases",
+        "es": "Number of Phases",
+        "ar": "Number of Phases"
+      }
     }
   ],
   "formulas": {
-    "electricalPower": "numberOfPhases === 3 ? Math.sqrt(3) * voltage * current * powerFactor : voltage * current * powerFactor",
-    "mechanicalPower": "electricalPower * (efficiency / 100)",
-    "torque": "(mechanicalPower * 1000) / (2 * Math.PI * (speed / 60))"
+    "result": "voltage + current + powerFactor",
+    "result_copy": "voltage + current + powerFactor"
   },
   "outputs": {
-    "primary": "mechanicalPower",
+    "primary": "result",
     "breakdown": [
       "electricalPower",
       "torque"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "torque"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -70,5 +122,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

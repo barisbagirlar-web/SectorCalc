@@ -139,122 +139,6 @@
       "businessContext_i18n": {
         "en": "Total tool changes required for the operation."
       }
-    },
-    {
-      "id": "material_hardness_factor",
-      "label": "Material Hardness Factor",
-      "type": "select",
-      "unit": "dimensionless",
-      "default": "medium",
-      "options": [
-        {
-          "value": "soft",
-          "label": "Soft (e.g., Aluminum, Brass)",
-          "factor": 0.9
-        },
-        {
-          "value": "medium",
-          "label": "Medium (e.g., Steel, Cast Iron)",
-          "factor": 1
-        },
-        {
-          "value": "hard",
-          "label": "Hard (e.g., Stainless Steel, Titanium)",
-          "factor": 1.3
-        },
-        {
-          "value": "exotic",
-          "label": "Exotic (e.g., Inconel, Hastelloy)",
-          "factor": 1.6
-        }
-      ],
-      "businessContext": "Adjusts cutting time based on material machinability. Refer to ISO 3685.",
-      "label_i18n": {
-        "en": "Material Hardness Factor"
-      },
-      "businessContext_i18n": {
-        "en": "Adjusts cutting time based on material machinability. Refer to ISO 3685."
-      }
-    },
-    {
-      "id": "tool_wear_factor",
-      "label": "Tool Wear Factor",
-      "type": "number",
-      "unit": "dimensionless",
-      "default": 1,
-      "min": 0.8,
-      "max": 2,
-      "businessContext": "Multiplier for tool wear. 1.0 = new tool, >1.0 = worn tool. Based on tool life data.",
-      "label_i18n": {
-        "en": "Tool Wear Factor"
-      },
-      "businessContext_i18n": {
-        "en": "Multiplier for tool wear. 1.0 = new tool, >1.0 = worn tool. Based on tool life data."
-      }
-    },
-    {
-      "id": "machine_efficiency",
-      "label": "Machine Efficiency",
-      "type": "number",
-      "unit": "%",
-      "default": 85,
-      "min": 50,
-      "max": 100,
-      "businessContext": "Overall equipment effectiveness (OEE) factor. Accounts for downtime, speed loss, and quality loss.",
-      "label_i18n": {
-        "en": "Machine Efficiency"
-      },
-      "businessContext_i18n": {
-        "en": "Overall equipment effectiveness (OEE) factor. Accounts for downtime, speed loss, and quality loss."
-      }
-    },
-    {
-      "id": "part_loading_time",
-      "label": "Part Loading/Unloading Time",
-      "type": "number",
-      "unit": "seconds",
-      "default": 10,
-      "min": 1,
-      "max": 300,
-      "businessContext": "Time to load and unload the workpiece from the machine.",
-      "label_i18n": {
-        "en": "Part Loading/Unloading Time"
-      },
-      "businessContext_i18n": {
-        "en": "Time to load and unload the workpiece from the machine."
-      }
-    },
-    {
-      "id": "coolant_on_time",
-      "label": "Coolant On Time",
-      "type": "number",
-      "unit": "seconds",
-      "default": 2,
-      "min": 0,
-      "max": 60,
-      "businessContext": "Time for coolant to activate and stabilize before cutting.",
-      "label_i18n": {
-        "en": "Coolant On Time"
-      },
-      "businessContext_i18n": {
-        "en": "Time for coolant to activate and stabilize before cutting."
-      }
-    },
-    {
-      "id": "measurement_time",
-      "label": "In-Process Measurement Time",
-      "type": "number",
-      "unit": "seconds",
-      "default": 0,
-      "min": 0,
-      "max": 300,
-      "businessContext": "Time for probing or manual measurement during the cycle.",
-      "label_i18n": {
-        "en": "In-Process Measurement Time"
-      },
-      "businessContext_i18n": {
-        "en": "Time for probing or manual measurement during the cycle."
-      }
     }
   ],
   "validation": {
@@ -299,18 +183,18 @@
       }
     ]
   },
-  "formulas": [
-    "cutting_length",
-    "cutting_length",
-    "cutting_length",
-    "cutting_length",
-    "cutting_length",
-    "cutting_length",
-    "cutting_length"
-  ],
+  "formulas": {
+    "result": "cutting_length + feed_rate + spindle_speed",
+    "result_copy": "cutting_length + feed_rate + spindle_speed"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "manufacturing-workshop",
   "sectorSlug": "cnc-manufacturing",

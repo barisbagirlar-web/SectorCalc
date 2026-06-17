@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "Vertical height of the retaining wall from base to top."
+      "businessContext": "Vertical height of the retaining wall from base to top.",
+      "label_i18n": {
+        "en": "Wall Height",
+        "tr": "Wall Height",
+        "de": "Wall Height",
+        "fr": "Wall Height",
+        "es": "Wall Height",
+        "ar": "Wall Height"
+      }
     },
     {
       "id": "gamma",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kN/m³",
       "default": 18,
-      "businessContext": "Unit weight of the backfill soil."
+      "businessContext": "Unit weight of the backfill soil.",
+      "label_i18n": {
+        "en": "Soil Unit Weight",
+        "tr": "Soil Unit Weight",
+        "de": "Soil Unit Weight",
+        "fr": "Soil Unit Weight",
+        "es": "Soil Unit Weight",
+        "ar": "Soil Unit Weight"
+      }
     },
     {
       "id": "phi",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°",
       "default": 30,
-      "businessContext": "Effective angle of internal friction of the backfill soil."
+      "businessContext": "Effective angle of internal friction of the backfill soil.",
+      "label_i18n": {
+        "en": "Angle of Internal Friction",
+        "tr": "Angle of Internal Friction",
+        "de": "Angle of Internal Friction",
+        "fr": "Angle of Internal Friction",
+        "es": "Angle of Internal Friction",
+        "ar": "Angle of Internal Friction"
+      }
     },
     {
       "id": "q",
@@ -31,18 +55,23 @@
       "type": "number",
       "unit": "kN/m²",
       "default": 10,
-      "businessContext": "Uniform surcharge load on the backfill surface."
+      "businessContext": "Uniform surcharge load on the backfill surface.",
+      "label_i18n": {
+        "en": "Surcharge Load",
+        "tr": "Surcharge Load",
+        "de": "Surcharge Load",
+        "fr": "Surcharge Load",
+        "es": "Surcharge Load",
+        "ar": "Surcharge Load"
+      }
     }
   ],
   "formulas": {
-    "ka": "Math.tan(Math.PI/4 - (phi * Math.PI/180)/2) ** 2",
-    "pa": "0.5 * ka * gamma * H * H",
-    "pq": "ka * q * H",
-    "ptotal": "pa + pq",
-    "M": "pa * (H/3) + pq * (H/2)"
+    "result": "H + gamma + phi",
+    "result_copy": "H + gamma + phi"
   },
   "outputs": {
-    "primary": "ka",
+    "primary": "result",
     "breakdown": [
       {
         "id": "pa",
@@ -62,7 +91,12 @@
         "unit": "kN·m/m",
         "businessContext": "Resultant overturning moment about the base of the wall per meter length."
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "M"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -72,5 +106,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "tarim",
   "profession": "Ziraat Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

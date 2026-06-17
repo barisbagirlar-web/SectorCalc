@@ -67,18 +67,21 @@
     }
   ],
   "formulas": {
-    "pOH": "-Math.log(ohConcentration)/Math.log(10)",
     "pKw": "14 - 0.045 * (temperature - 25)",
-    "pH": "(14 - 0.045 * (temperature - 25)) + Math.log(ohConcentration)/Math.log(10)",
-    "hConcentration": "10 ** (-((14 - 0.045 * (temperature - 25)) + Math.log(ohConcentration)/Math.log(10)))"
+    "pKw_aux": "14 - 0.045 * (temperature - 25)"
   },
   "outputs": {
-    "primary": "pOH",
+    "primary": "pKw_aux",
     "breakdown": [
       "pH",
       "pKw",
       "hConcentration"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "hConcentration"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -88,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

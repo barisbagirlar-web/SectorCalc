@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Length of the patio area to be paved."
+      "businessContext": "Length of the patio area to be paved.",
+      "label_i18n": {
+        "en": "Patio Length",
+        "tr": "Patio Length",
+        "de": "Patio Length",
+        "fr": "Patio Length",
+        "es": "Patio Length",
+        "ar": "Patio Length"
+      }
     },
     {
       "id": "patioWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 4,
-      "businessContext": "Width of the patio area to be paved."
+      "businessContext": "Width of the patio area to be paved.",
+      "label_i18n": {
+        "en": "Patio Width",
+        "tr": "Patio Width",
+        "de": "Patio Width",
+        "fr": "Patio Width",
+        "es": "Patio Width",
+        "ar": "Patio Width"
+      }
     },
     {
       "id": "paverLength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.2,
-      "businessContext": "Length of a single paving stone."
+      "businessContext": "Length of a single paving stone.",
+      "label_i18n": {
+        "en": "Paver Length",
+        "tr": "Paver Length",
+        "de": "Paver Length",
+        "fr": "Paver Length",
+        "es": "Paver Length",
+        "ar": "Paver Length"
+      }
     },
     {
       "id": "paverWidth",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.1,
-      "businessContext": "Width of a single paving stone."
+      "businessContext": "Width of a single paving stone.",
+      "label_i18n": {
+        "en": "Paver Width",
+        "tr": "Paver Width",
+        "de": "Paver Width",
+        "fr": "Paver Width",
+        "es": "Paver Width",
+        "ar": "Paver Width"
+      }
     },
     {
       "id": "gap",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.005,
-      "businessContext": "Gap between pavers (e.g., mortar joint width)."
+      "businessContext": "Gap between pavers (e.g., mortar joint width).",
+      "label_i18n": {
+        "en": "Joint Gap",
+        "tr": "Joint Gap",
+        "de": "Joint Gap",
+        "fr": "Joint Gap",
+        "es": "Joint Gap",
+        "ar": "Joint Gap"
+      }
     },
     {
       "id": "wasteFactor",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "oran",
       "default": 0.05,
-      "businessContext": "Extra material factor for cutting and breakage (e.g., 0.05 = 5%)."
+      "businessContext": "Extra material factor for cutting and breakage (e.g., 0.05 = 5%).",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     },
     {
       "id": "paverCostPerUnit",
@@ -55,22 +103,33 @@
       "type": "number",
       "unit": "birim",
       "default": 1,
-      "businessContext": "Unit cost of one paver (in currency units)."
+      "businessContext": "Unit cost of one paver (in currency units).",
+      "label_i18n": {
+        "en": "Cost per Paver",
+        "tr": "Cost per Paver",
+        "de": "Cost per Paver",
+        "fr": "Cost per Paver",
+        "es": "Cost per Paver",
+        "ar": "Cost per Paver"
+      }
     }
   ],
   "formulas": {
-    "patioArea": "inputs.patioLength * inputs.patioWidth",
-    "numberOfPavers": "Math.ceil( (inputs.patioLength * inputs.patioWidth) / ((inputs.paverLength + inputs.gap) * (inputs.paverWidth + inputs.gap)) * (1 + inputs.wasteFactor) )",
-    "totalCost": "Math.ceil( (inputs.patioLength * inputs.patioWidth) / ((inputs.paverLength + inputs.gap) * (inputs.paverWidth + inputs.gap)) * (1 + inputs.wasteFactor) ) * inputs.paverCostPerUnit",
-    "wastePavers": "inputs.patioLength * inputs.patioWidth / ((inputs.paverLength + inputs.gap) * (inputs.paverWidth + inputs.gap)) * inputs.wasteFactor"
+    "result": "patioLength + patioWidth + paverLength",
+    "result_copy": "patioLength + patioWidth + paverLength"
   },
   "outputs": {
-    "primary": "totalCost",
+    "primary": "result",
     "breakdown": [
       "numberOfPavers",
       "patioArea",
       "wastePavers"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "wastePavers"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -80,5 +139,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

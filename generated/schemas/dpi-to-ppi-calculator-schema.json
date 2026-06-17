@@ -83,13 +83,11 @@
     }
   ],
   "formulas": {
-    "fittedPPI": "dpi / Math.min(displayWidth / originalWidth, displayHeight / originalHeight)",
     "horizontalPPI": "(dpi * originalWidth) / displayWidth",
-    "verticalPPI": "(dpi * originalHeight) / displayHeight",
-    "aspectRatioDelta": "Math.abs(originalWidth / originalHeight - displayWidth / displayHeight)"
+    "verticalPPI": "(dpi * originalHeight) / displayHeight"
   },
   "outputs": {
-    "primary": "fittedPPI",
+    "primary": "verticalPPI",
     "breakdown": [
       {
         "id": "horizontalPPI",
@@ -109,7 +107,12 @@
         "unit": "",
         "businessContext": "Absolute difference between original and display aspect ratios"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "aspectRatioDelta"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -119,5 +122,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

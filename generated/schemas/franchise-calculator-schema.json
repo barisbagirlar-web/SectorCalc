@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "₺",
       "default": 100000,
-      "businessContext": "Toplam başlangıç yatırımı (franchise bedeli, ekipman vb.)"
+      "businessContext": "Toplam başlangıç yatırımı (franchise bedeli, ekipman vb.)",
+      "label_i18n": {
+        "en": "Başlangıç Yatırımı",
+        "tr": "Başlangıç Yatırımı",
+        "de": "Başlangıç Yatırımı",
+        "fr": "Başlangıç Yatırımı",
+        "es": "Başlangıç Yatırımı",
+        "ar": "Başlangıç Yatırımı"
+      }
     },
     {
       "id": "monthlyRevenue",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "₺/ay",
       "default": 50000,
-      "businessContext": "Beklenen aylık brüt gelir"
+      "businessContext": "Beklenen aylık brüt gelir",
+      "label_i18n": {
+        "en": "Aylık Gelir",
+        "tr": "Aylık Gelir",
+        "de": "Aylık Gelir",
+        "fr": "Aylık Gelir",
+        "es": "Aylık Gelir",
+        "ar": "Aylık Gelir"
+      }
     },
     {
       "id": "royaltyRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Aylık gelirden yüzde olarak royalty kesintisi"
+      "businessContext": "Aylık gelirden yüzde olarak royalty kesintisi",
+      "label_i18n": {
+        "en": "Royalty Oranı",
+        "tr": "Royalty Oranı",
+        "de": "Royalty Oranı",
+        "fr": "Royalty Oranı",
+        "es": "Royalty Oranı",
+        "ar": "Royalty Oranı"
+      }
     },
     {
       "id": "marketingFeeRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Aylık gelirden yüzde olarak pazarlama fonu kesintisi"
+      "businessContext": "Aylık gelirden yüzde olarak pazarlama fonu kesintisi",
+      "label_i18n": {
+        "en": "Pazarlama Fon Oranı",
+        "tr": "Pazarlama Fon Oranı",
+        "de": "Pazarlama Fon Oranı",
+        "fr": "Pazarlama Fon Oranı",
+        "es": "Pazarlama Fon Oranı",
+        "ar": "Pazarlama Fon Oranı"
+      }
     },
     {
       "id": "operationalCosts",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "₺/ay",
       "default": 20000,
-      "businessContext": "Kira, personel, malzeme vb. aylık operasyonel giderler"
+      "businessContext": "Kira, personel, malzeme vb. aylık operasyonel giderler",
+      "label_i18n": {
+        "en": "Operasyonel Giderler",
+        "tr": "Operasyonel Giderler",
+        "de": "Operasyonel Giderler",
+        "fr": "Operasyonel Giderler",
+        "es": "Operasyonel Giderler",
+        "ar": "Operasyonel Giderler"
+      }
     },
     {
       "id": "otherFeesMonthly",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "₺/ay",
       "default": 0,
-      "businessContext": "Diğer aylık sabit ücretler (lisans, yazılım vb.)"
+      "businessContext": "Diğer aylık sabit ücretler (lisans, yazılım vb.)",
+      "label_i18n": {
+        "en": "Diğer Aylık Ücretler",
+        "tr": "Diğer Aylık Ücretler",
+        "de": "Diğer Aylık Ücretler",
+        "fr": "Diğer Aylık Ücretler",
+        "es": "Diğer Aylık Ücretler",
+        "ar": "Diğer Aylık Ücretler"
+      }
     }
   ],
   "formulas": {
@@ -64,7 +112,12 @@
       "royaltyAmount",
       "marketingAmount",
       "breakEvenMonths"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "breakEvenMonths"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -74,5 +127,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

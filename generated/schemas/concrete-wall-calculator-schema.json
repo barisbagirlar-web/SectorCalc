@@ -102,19 +102,20 @@
     "netVolume": "length * height * thickness * quantity",
     "totalVolume": "netVolume * (1 + wasteFactor / 100)",
     "wasteVolume": "totalVolume - netVolume",
-    "totalCost": "totalVolume * costPerCubicMeter",
-    "Net_Volume__m__": "Net Volume (m³)",
-    "Waste_Volume__m__": "Waste Volume (m³)",
-    "Total_Cost": "Total Cost",
-    "result": "Total Concrete Volume (m³)"
+    "totalCost": "totalVolume * costPerCubicMeter"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "totalCost",
     "breakdown": [
       "Net Volume (m³)",
       "Waste Volume (m³)",
       "Total Cost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -124,5 +125,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

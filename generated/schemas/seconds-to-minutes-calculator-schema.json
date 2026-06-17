@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "s",
       "default": 60,
-      "businessContext": "Ölçülen saniye cinsinden süre"
+      "businessContext": "Ölçülen saniye cinsinden süre",
+      "label_i18n": {
+        "en": "Saniye",
+        "tr": "Saniye",
+        "de": "Saniye",
+        "fr": "Saniye",
+        "es": "Saniye",
+        "ar": "Saniye"
+      }
     },
     {
       "id": "scaleFactor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "boyutsuz",
       "default": 1,
-      "businessContext": "Çarpımsal kalibrasyon faktörü (ör. saat kayması için 1.0002)"
+      "businessContext": "Çarpımsal kalibrasyon faktörü (ör. saat kayması için 1.0002)",
+      "label_i18n": {
+        "en": "Ölçek Faktörü",
+        "tr": "Ölçek Faktörü",
+        "de": "Ölçek Faktörü",
+        "fr": "Ölçek Faktörü",
+        "es": "Ölçek Faktörü",
+        "ar": "Ölçek Faktörü"
+      }
     },
     {
       "id": "offsetSeconds",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "s",
       "default": 0,
-      "businessContext": "Toplamsal kalibrasyon ofseti (sıfır hatası)"
+      "businessContext": "Toplamsal kalibrasyon ofseti (sıfır hatası)",
+      "label_i18n": {
+        "en": "Ofset (Saniye)",
+        "tr": "Ofset (Saniye)",
+        "de": "Ofset (Saniye)",
+        "fr": "Ofset (Saniye)",
+        "es": "Ofset (Saniye)",
+        "ar": "Ofset (Saniye)"
+      }
     },
     {
       "id": "roundingPrecision",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "ondalık basamak",
       "default": 2,
-      "businessContext": "Çıktı dakika için ondalık basamak sayısı"
+      "businessContext": "Çıktı dakika için ondalık basamak sayısı",
+      "label_i18n": {
+        "en": "Yuvarlama Hassasiyeti",
+        "tr": "Yuvarlama Hassasiyeti",
+        "de": "Yuvarlama Hassasiyeti",
+        "fr": "Yuvarlama Hassasiyeti",
+        "es": "Yuvarlama Hassasiyeti",
+        "ar": "Yuvarlama Hassasiyeti"
+      }
     },
     {
       "id": "roundingMethod",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kod",
       "default": 1,
-      "businessContext": "Yuvarlama yöntemi: 0=tabana, 1=yuvarla, 2=tavana"
+      "businessContext": "Yuvarlama yöntemi: 0=tabana, 1=yuvarla, 2=tavana",
+      "label_i18n": {
+        "en": "Yuvarlama Yöntemi",
+        "tr": "Yuvarlama Yöntemi",
+        "de": "Yuvarlama Yöntemi",
+        "fr": "Yuvarlama Yöntemi",
+        "es": "Yuvarlama Yöntemi",
+        "ar": "Yuvarlama Yöntemi"
+      }
     },
     {
       "id": "temperatureCelsius",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Termal kompanzasyon için ortam sıcaklığı"
+      "businessContext": "Termal kompanzasyon için ortam sıcaklığı",
+      "label_i18n": {
+        "en": "Sıcaklık",
+        "tr": "Sıcaklık",
+        "de": "Sıcaklık",
+        "fr": "Sıcaklık",
+        "es": "Sıcaklık",
+        "ar": "Sıcaklık"
+      }
     },
     {
       "id": "tempCoefficient",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "1/°C",
       "default": 0,
-      "businessContext": "°C başına zamanlama hatası sıcaklık katsayısı"
+      "businessContext": "°C başına zamanlama hatası sıcaklık katsayısı",
+      "label_i18n": {
+        "en": "Sıcaklık Katsayısı",
+        "tr": "Sıcaklık Katsayısı",
+        "de": "Sıcaklık Katsayısı",
+        "fr": "Sıcaklık Katsayısı",
+        "es": "Sıcaklık Katsayısı",
+        "ar": "Sıcaklık Katsayısı"
+      }
     },
     {
       "id": "humidityPercent",
@@ -63,20 +119,32 @@
       "type": "number",
       "unit": "%RH",
       "default": 50,
-      "businessContext": "Bağıl nem (tamlama için dahil edilmiştir, genelde ihmal edilir)"
+      "businessContext": "Bağıl nem (tamlama için dahil edilmiştir, genelde ihmal edilir)",
+      "label_i18n": {
+        "en": "Nem",
+        "tr": "Nem",
+        "de": "Nem",
+        "fr": "Nem",
+        "es": "Nem",
+        "ar": "Nem"
+      }
     }
   ],
   "formulas": {
     "effectiveSeconds": "seconds * scaleFactor + offsetSeconds + temperatureCelsius * tempCoefficient",
-    "rawMinutes": "effectiveSeconds / 60",
-    "roundedMinutes": "(roundingMethod === 0 ? Math.floor(rawMinutes * Math.pow(10, roundingPrecision)) / Math.pow(10, roundingPrecision) : roundingMethod === 2 ? Math.ceil(rawMinutes * Math.pow(10, roundingPrecision)) / Math.pow(10, roundingPrecision) : Math.round(rawMinutes * Math.pow(10, roundingPrecision)) / Math.pow(10, roundingPrecision))"
+    "rawMinutes": "effectiveSeconds / 60"
   },
   "outputs": {
-    "primary": "roundedMinutes",
+    "primary": "rawMinutes",
     "breakdown": [
       "effectiveSeconds",
       "rawMinutes"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roundedMinutes"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -86,5 +154,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

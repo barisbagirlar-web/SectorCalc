@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "The maximum weight you can lift for one repetition."
+      "businessContext": "The maximum weight you can lift for one repetition.",
+      "label_i18n": {
+        "en": "1RM (One Rep Max)",
+        "tr": "1RM (One Rep Max)",
+        "de": "1RM (One Rep Max)",
+        "fr": "1RM (One Rep Max)",
+        "es": "1RM (One Rep Max)",
+        "ar": "1RM (One Rep Max)"
+      }
     },
     {
       "id": "fiveRepMaxPercentage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 85,
-      "businessContext": "Percentage of your 1RM that represents your 5-rep max. Typically 85%."
+      "businessContext": "Percentage of your 1RM that represents your 5-rep max. Typically 85%.",
+      "label_i18n": {
+        "en": "5RM % of 1RM",
+        "tr": "5RM % of 1RM",
+        "de": "5RM % of 1RM",
+        "fr": "5RM % of 1RM",
+        "es": "5RM % of 1RM",
+        "ar": "5RM % of 1RM"
+      }
     },
     {
       "id": "volumeDayPercentage",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "Percentage of your 5RM used for the volume day (5 sets of 5 reps)."
+      "businessContext": "Percentage of your 5RM used for the volume day (5 sets of 5 reps).",
+      "label_i18n": {
+        "en": "Volume Day % of 5RM",
+        "tr": "Volume Day % of 5RM",
+        "de": "Volume Day % of 5RM",
+        "fr": "Volume Day % of 5RM",
+        "es": "Volume Day % of 5RM",
+        "ar": "Volume Day % of 5RM"
+      }
     },
     {
       "id": "lightDayPercentage",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 80,
-      "businessContext": "Percentage of the volume day weight used for the light day (2 sets of 5 reps)."
+      "businessContext": "Percentage of the volume day weight used for the light day (2 sets of 5 reps).",
+      "label_i18n": {
+        "en": "Light Day % of Volume",
+        "tr": "Light Day % of Volume",
+        "de": "Light Day % of Volume",
+        "fr": "Light Day % of Volume",
+        "es": "Light Day % of Volume",
+        "ar": "Light Day % of Volume"
+      }
     },
     {
       "id": "intensityDayIncrement",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg",
       "default": 2.5,
-      "businessContext": "Weight added to the previous week's intensity day weight for a new 5RM attempt. Set to 0 if not incrementing."
+      "businessContext": "Weight added to the previous week's intensity day weight for a new 5RM attempt. Set to 0 if not incrementing.",
+      "label_i18n": {
+        "en": "Intensity Day Increment",
+        "tr": "Intensity Day Increment",
+        "de": "Intensity Day Increment",
+        "fr": "Intensity Day Increment",
+        "es": "Intensity Day Increment",
+        "ar": "Intensity Day Increment"
+      }
     }
   ],
   "formulas": {
@@ -53,7 +93,12 @@
     "breakdown": [
       "lightDayWeight",
       "intensityDayWeight"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "intensityDayWeight"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -63,5 +108,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

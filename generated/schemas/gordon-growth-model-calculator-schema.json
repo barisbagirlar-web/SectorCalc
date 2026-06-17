@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 2.5,
-      "businessContext": "The most recent annual dividend paid per share."
+      "businessContext": "The most recent annual dividend paid per share.",
+      "label_i18n": {
+        "en": "Current Annual Dividend Per Share ($)",
+        "tr": "Current Annual Dividend Per Share ($)",
+        "de": "Current Annual Dividend Per Share ($)",
+        "fr": "Current Annual Dividend Per Share ($)",
+        "es": "Current Annual Dividend Per Share ($)",
+        "ar": "Current Annual Dividend Per Share ($)"
+      }
     },
     {
       "id": "growthRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 3,
-      "businessContext": "The expected constant annual growth rate of the dividend."
+      "businessContext": "The expected constant annual growth rate of the dividend.",
+      "label_i18n": {
+        "en": "Dividend Growth Rate (%)",
+        "tr": "Dividend Growth Rate (%)",
+        "de": "Dividend Growth Rate (%)",
+        "fr": "Dividend Growth Rate (%)",
+        "es": "Dividend Growth Rate (%)",
+        "ar": "Dividend Growth Rate (%)"
+      }
     },
     {
       "id": "requiredReturn",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "The minimum annual return required by an investor to invest in the stock."
+      "businessContext": "The minimum annual return required by an investor to invest in the stock.",
+      "label_i18n": {
+        "en": "Required Rate of Return (%)",
+        "tr": "Required Rate of Return (%)",
+        "de": "Required Rate of Return (%)",
+        "fr": "Required Rate of Return (%)",
+        "es": "Required Rate of Return (%)",
+        "ar": "Required Rate of Return (%)"
+      }
     },
     {
       "id": "marketPrice",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "$",
       "default": 50,
-      "businessContext": "The current trading price of the stock for margin of safety calculation."
+      "businessContext": "The current trading price of the stock for margin of safety calculation.",
+      "label_i18n": {
+        "en": "Current Market Price ($)",
+        "tr": "Current Market Price ($)",
+        "de": "Current Market Price ($)",
+        "fr": "Current Market Price ($)",
+        "es": "Current Market Price ($)",
+        "ar": "Current Market Price ($)"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "dividendYield",
       "marginOfSafety"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "marginOfSafety"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -54,5 +91,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

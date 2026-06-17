@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "The mass of the oscillating body in kilograms."
+      "businessContext": "The mass of the oscillating body in kilograms.",
+      "label_i18n": {
+        "en": "Mass (kg)",
+        "tr": "Mass (kg)",
+        "de": "Mass (kg)",
+        "fr": "Mass (kg)",
+        "es": "Mass (kg)",
+        "ar": "Mass (kg)"
+      }
     },
     {
       "id": "stiffness",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "N/m",
       "default": 100,
-      "businessContext": "The stiffness of the spring or structural element in Newtons per meter."
+      "businessContext": "The stiffness of the spring or structural element in Newtons per meter.",
+      "label_i18n": {
+        "en": "Spring Stiffness (N/m)",
+        "tr": "Spring Stiffness (N/m)",
+        "de": "Spring Stiffness (N/m)",
+        "fr": "Spring Stiffness (N/m)",
+        "es": "Spring Stiffness (N/m)",
+        "ar": "Spring Stiffness (N/m)"
+      }
     },
     {
       "id": "dampingRatio",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0.05,
-      "businessContext": "The damping ratio ζ = c/(2√(mk)), typically between 0 and 1."
+      "businessContext": "The damping ratio ζ = c/(2√(mk)), typically between 0 and 1.",
+      "label_i18n": {
+        "en": "Damping Ratio (ζ)",
+        "tr": "Damping Ratio (ζ)",
+        "de": "Damping Ratio (ζ)",
+        "fr": "Damping Ratio (ζ)",
+        "es": "Damping Ratio (ζ)",
+        "ar": "Damping Ratio (ζ)"
+      }
     },
     {
       "id": "excitationFrequency",
@@ -31,24 +55,33 @@
       "type": "number",
       "unit": "Hz",
       "default": 1,
-      "businessContext": "The frequency of the applied oscillating force or base motion."
+      "businessContext": "The frequency of the applied oscillating force or base motion.",
+      "label_i18n": {
+        "en": "Excitation Frequency (Hz)",
+        "tr": "Excitation Frequency (Hz)",
+        "de": "Excitation Frequency (Hz)",
+        "fr": "Excitation Frequency (Hz)",
+        "es": "Excitation Frequency (Hz)",
+        "ar": "Excitation Frequency (Hz)"
+      }
     }
   ],
   "formulas": {
-    "omega_n": "Math.sqrt(stiffness/mass)",
-    "f_n": "omega_n/(2*Math.PI)",
-    "r": "excitationFrequency/f_n",
-    "M": "1 / Math.sqrt((1 - r*r)*(1 - r*r) + 4*dampingRatio*dampingRatio*r*r)",
-    "f_d": "(dampingRatio < 1) ? f_n * Math.sqrt(1 - dampingRatio*dampingRatio) : 0",
-    "q": "1/(2*dampingRatio)"
+    "q": "1/(2*dampingRatio)",
+    "q_aux": "1/(2*dampingRatio)"
   },
   "outputs": {
-    "primary": "M",
+    "primary": "q_aux",
     "breakdown": [
       "f_n",
       "f_d",
       "q"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "q"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -58,5 +91,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

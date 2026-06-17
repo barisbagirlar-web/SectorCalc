@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "Mass of the object at rest"
+      "businessContext": "Mass of the object at rest",
+      "label_i18n": {
+        "en": "Rest Mass",
+        "tr": "Rest Mass",
+        "de": "Rest Mass",
+        "fr": "Rest Mass",
+        "es": "Rest Mass",
+        "ar": "Rest Mass"
+      }
     },
     {
       "id": "velocity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 0,
-      "businessContext": "Velocity of the object relative to observer"
+      "businessContext": "Velocity of the object relative to observer",
+      "label_i18n": {
+        "en": "Velocity",
+        "tr": "Velocity",
+        "de": "Velocity",
+        "fr": "Velocity",
+        "es": "Velocity",
+        "ar": "Velocity"
+      }
     },
     {
       "id": "speedOfLight",
@@ -23,22 +39,33 @@
       "type": "number",
       "unit": "m/s",
       "default": 299792458,
-      "businessContext": "Speed of light in vacuum"
+      "businessContext": "Speed of light in vacuum",
+      "label_i18n": {
+        "en": "Speed of Light",
+        "tr": "Speed of Light",
+        "de": "Speed of Light",
+        "fr": "Speed of Light",
+        "es": "Speed of Light",
+        "ar": "Speed of Light"
+      }
     }
   ],
   "formulas": {
-    "gamma": "1 / Math.sqrt(1 - (velocity ** 2) / (speedOfLight ** 2))",
-    "totalEnergy": "mass * (speedOfLight ** 2) * gamma",
     "restEnergy": "mass * (speedOfLight ** 2)",
-    "kineticEnergy": "totalEnergy - restEnergy"
+    "restEnergy_aux": "mass * (speedOfLight ** 2)"
   },
   "outputs": {
-    "primary": "totalEnergy",
+    "primary": "restEnergy_aux",
     "breakdown": [
       "restEnergy",
       "kineticEnergy",
       "gamma"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "kineticEnergy"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -48,5 +75,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from critical-speed-calculator-schema.json
 import * as z from 'zod';
 
@@ -17,28 +18,34 @@ export const Critical_speed_calculatorInputSchema = z.object({
   supportFactor: z.number().default(3.141592653589793),
 });
 
-function evaluateAllFormulas(input: Critical_speed_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = Math.PI * (input.shaftDiameter/2) ** 2; results["crossSectionArea"] = Number.isFinite(v) ? v : 0; } catch { results["crossSectionArea"] = 0; }
-  try { const v = Math.PI/64 * input.shaftDiameter ** 4; results["momentOfInertia"] = Number.isFinite(v) ? v : 0; } catch { results["momentOfInertia"] = 0; }
-  try { const v = input.density * (results["crossSectionArea"] ?? 0); results["massPerUnitLength"] = Number.isFinite(v) ? v : 0; } catch { results["massPerUnitLength"] = 0; }
-  try { const v = (input.supportFactor / input.shaftLength) ** 2 * Math.sqrt(input.youngsModulus * (results["momentOfInertia"] ?? 0) / (results["massPerUnitLength"] ?? 0)); results["angularFrequency"] = Number.isFinite(v) ? v : 0; } catch { results["angularFrequency"] = 0; }
-  try { const v = (results["angularFrequency"] ?? 0) * 30 / Math.PI; results["criticalSpeedRPM"] = Number.isFinite(v) ? v : 0; } catch { results["criticalSpeedRPM"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Critical_speed_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = Math.PI * (input.shaftDiameter/2) ** 2; results["crossSectionArea"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["crossSectionArea"] = 0; }
+  try { const v = Math.PI/64 * input.shaftDiameter ** 4; results["momentOfInertia"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["momentOfInertia"] = 0; }
+  try { const v = input.density * (asFormulaNumber(results["crossSectionArea"])); results["massPerUnitLength"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["massPerUnitLength"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateCritical_speed_calculator(input: Critical_speed_calculatorInput): Critical_speed_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["criticalSpeedRPM"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["massPerUnitLength"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

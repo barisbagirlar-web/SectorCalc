@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mV",
       "default": 0,
-      "businessContext": "Millivolt reading of soil-water suspension from pH electrode"
+      "businessContext": "Millivolt reading of soil-water suspension from pH electrode",
+      "label_i18n": {
+        "en": "Sample mV Reading",
+        "tr": "Sample mV Reading",
+        "de": "Sample mV Reading",
+        "fr": "Sample mV Reading",
+        "es": "Sample mV Reading",
+        "ar": "Sample mV Reading"
+      }
     },
     {
       "id": "reference_mv",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mV",
       "default": 0,
-      "businessContext": "Millivolt reading of known pH buffer solution"
+      "businessContext": "Millivolt reading of known pH buffer solution",
+      "label_i18n": {
+        "en": "Reference mV Reading",
+        "tr": "Reference mV Reading",
+        "de": "Reference mV Reading",
+        "fr": "Reference mV Reading",
+        "es": "Reference mV Reading",
+        "ar": "Reference mV Reading"
+      }
     },
     {
       "id": "buffer_ph",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "pH",
       "default": 7,
-      "businessContext": "pH value of the reference buffer solution"
+      "businessContext": "pH value of the reference buffer solution",
+      "label_i18n": {
+        "en": "Buffer pH",
+        "tr": "Buffer pH",
+        "de": "Buffer pH",
+        "fr": "Buffer pH",
+        "es": "Buffer pH",
+        "ar": "Buffer pH"
+      }
     },
     {
       "id": "temperature",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 25,
-      "businessContext": "Temperature of the samples and buffers (assumed equal)"
+      "businessContext": "Temperature of the samples and buffers (assumed equal)",
+      "label_i18n": {
+        "en": "Temperature",
+        "tr": "Temperature",
+        "de": "Temperature",
+        "fr": "Temperature",
+        "es": "Temperature",
+        "ar": "Temperature"
+      }
     },
     {
       "id": "slope_percent",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Electrode slope percentage relative to theoretical Nernstian slope (100% = 59.16 mV/pH at 25°C)"
+      "businessContext": "Electrode slope percentage relative to theoretical Nernstian slope (100% = 59.16 mV/pH at 25°C)",
+      "label_i18n": {
+        "en": "Slope %",
+        "tr": "Slope %",
+        "de": "Slope %",
+        "fr": "Slope %",
+        "es": "Slope %",
+        "ar": "Slope %"
+      }
     }
   ],
   "formulas": {
@@ -53,7 +93,12 @@
       "theoretical_slope",
       "mv_offset",
       "sample_ph"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "sample_ph"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -63,5 +108,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

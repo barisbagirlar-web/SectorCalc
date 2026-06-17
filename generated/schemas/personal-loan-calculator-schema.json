@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 50000,
-      "businessContext": "Total loan amount"
+      "businessContext": "Total loan amount",
+      "label_i18n": {
+        "en": "Loan Amount",
+        "tr": "Loan Amount",
+        "de": "Loan Amount",
+        "fr": "Loan Amount",
+        "es": "Loan Amount",
+        "ar": "Loan Amount"
+      }
     },
     {
       "id": "annualRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Annual percentage rate (APR)"
+      "businessContext": "Annual percentage rate (APR)",
+      "label_i18n": {
+        "en": "Annual Interest Rate",
+        "tr": "Annual Interest Rate",
+        "de": "Annual Interest Rate",
+        "fr": "Annual Interest Rate",
+        "es": "Annual Interest Rate",
+        "ar": "Annual Interest Rate"
+      }
     },
     {
       "id": "termMonths",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "months",
       "default": 60,
-      "businessContext": "Loan duration in months"
+      "businessContext": "Loan duration in months",
+      "label_i18n": {
+        "en": "Loan Term",
+        "tr": "Loan Term",
+        "de": "Loan Term",
+        "fr": "Loan Term",
+        "es": "Loan Term",
+        "ar": "Loan Term"
+      }
     },
     {
       "id": "originationFee",
@@ -31,23 +55,32 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Upfront fee as percentage of principal"
+      "businessContext": "Upfront fee as percentage of principal",
+      "label_i18n": {
+        "en": "Origination Fee",
+        "tr": "Origination Fee",
+        "de": "Origination Fee",
+        "fr": "Origination Fee",
+        "es": "Origination Fee",
+        "ar": "Origination Fee"
+      }
     }
   ],
   "formulas": {
     "monthlyRate": "(annualRate / 100) / 12",
-    "monthlyPayment": "principal * (monthlyRate * Math.pow(1 + monthlyRate, termMonths)) / (Math.pow(1 + monthlyRate, termMonths) - 1)",
-    "totalPayment": "monthlyPayment * termMonths",
-    "totalInterest": "totalPayment - principal",
-    "originationFeeAmount": "principal * (originationFee / 100)",
-    "totalCostWithFees": "totalPayment + originationFeeAmount"
+    "originationFeeAmount": "principal * (originationFee / 100)"
   },
   "outputs": {
-    "primary": "monthlyPayment",
+    "primary": "originationFeeAmount",
     "breakdown": [
       "totalInterest",
       "totalCostWithFees"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCostWithFees"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -57,5 +90,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

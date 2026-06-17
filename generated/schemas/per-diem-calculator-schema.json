@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "days",
       "default": 1,
-      "businessContext": "Total days of travel"
+      "businessContext": "Total days of travel",
+      "label_i18n": {
+        "en": "Number of Days",
+        "tr": "Number of Days",
+        "de": "Number of Days",
+        "fr": "Number of Days",
+        "es": "Number of Days",
+        "ar": "Number of Days"
+      }
     },
     {
       "id": "dailyMeal",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 50,
-      "businessContext": "Per day meal allowance"
+      "businessContext": "Per day meal allowance",
+      "label_i18n": {
+        "en": "Daily Meal Allowance",
+        "tr": "Daily Meal Allowance",
+        "de": "Daily Meal Allowance",
+        "fr": "Daily Meal Allowance",
+        "es": "Daily Meal Allowance",
+        "ar": "Daily Meal Allowance"
+      }
     },
     {
       "id": "dailyLodging",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100,
-      "businessContext": "Per day lodging allowance"
+      "businessContext": "Per day lodging allowance",
+      "label_i18n": {
+        "en": "Daily Lodging Allowance",
+        "tr": "Daily Lodging Allowance",
+        "de": "Daily Lodging Allowance",
+        "fr": "Daily Lodging Allowance",
+        "es": "Daily Lodging Allowance",
+        "ar": "Daily Lodging Allowance"
+      }
     },
     {
       "id": "incidentals",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 20,
-      "businessContext": "Per day incidental expenses"
+      "businessContext": "Per day incidental expenses",
+      "label_i18n": {
+        "en": "Daily Incidentals Allowance",
+        "tr": "Daily Incidentals Allowance",
+        "de": "Daily Incidentals Allowance",
+        "fr": "Daily Incidentals Allowance",
+        "es": "Daily Incidentals Allowance",
+        "ar": "Daily Incidentals Allowance"
+      }
     },
     {
       "id": "exchangeRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1,
-      "businessContext": "Conversion rate from travel currency to home currency"
+      "businessContext": "Conversion rate from travel currency to home currency",
+      "label_i18n": {
+        "en": "Exchange Rate to Home Currency",
+        "tr": "Exchange Rate to Home Currency",
+        "de": "Exchange Rate to Home Currency",
+        "fr": "Exchange Rate to Home Currency",
+        "es": "Exchange Rate to Home Currency",
+        "ar": "Exchange Rate to Home Currency"
+      }
     }
   ],
   "formulas": {
@@ -53,7 +93,12 @@
       "dailyTotal",
       "totalDaysCost",
       "totalAllowance"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalAllowance"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -63,5 +108,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "danismanlik",
   "profession": "Strateji Uzmanı",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

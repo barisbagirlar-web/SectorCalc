@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Amount of raw material entering the process"
+      "businessContext": "Amount of raw material entering the process",
+      "label_i18n": {
+        "en": "Raw Material Input",
+        "tr": "Raw Material Input",
+        "de": "Raw Material Input",
+        "fr": "Raw Material Input",
+        "es": "Raw Material Input",
+        "ar": "Raw Material Input"
+      }
     },
     {
       "id": "finishedProductOutput",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 900,
-      "businessContext": "Amount of acceptable finished product output"
+      "businessContext": "Amount of acceptable finished product output",
+      "label_i18n": {
+        "en": "Finished Product Output",
+        "tr": "Finished Product Output",
+        "de": "Finished Product Output",
+        "fr": "Finished Product Output",
+        "es": "Finished Product Output",
+        "ar": "Finished Product Output"
+      }
     },
     {
       "id": "reworkOutput",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 50,
-      "businessContext": "Product that needed rework but became acceptable"
+      "businessContext": "Product that needed rework but became acceptable",
+      "label_i18n": {
+        "en": "Rework Output",
+        "tr": "Rework Output",
+        "de": "Rework Output",
+        "fr": "Rework Output",
+        "es": "Rework Output",
+        "ar": "Rework Output"
+      }
     },
     {
       "id": "scrap",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 50,
-      "businessContext": "Waste material that cannot be used"
+      "businessContext": "Waste material that cannot be used",
+      "label_i18n": {
+        "en": "Scrap",
+        "tr": "Scrap",
+        "de": "Scrap",
+        "fr": "Scrap",
+        "es": "Scrap",
+        "ar": "Scrap"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "yield",
       "reworkRate",
       "scrapRate"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "scrapRate"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -56,5 +93,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Total revenue from sales before deductions"
+      "businessContext": "Total revenue from sales before deductions",
+      "label_i18n": {
+        "en": "Gross Sales",
+        "tr": "Gross Sales",
+        "de": "Gross Sales",
+        "fr": "Gross Sales",
+        "es": "Gross Sales",
+        "ar": "Gross Sales"
+      }
     },
     {
       "id": "salesReturns",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Value of returned goods"
+      "businessContext": "Value of returned goods",
+      "label_i18n": {
+        "en": "Sales Returns",
+        "tr": "Sales Returns",
+        "de": "Sales Returns",
+        "fr": "Sales Returns",
+        "es": "Sales Returns",
+        "ar": "Sales Returns"
+      }
     },
     {
       "id": "salesDiscounts",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Discounts given to customers"
+      "businessContext": "Discounts given to customers",
+      "label_i18n": {
+        "en": "Sales Discounts",
+        "tr": "Sales Discounts",
+        "de": "Sales Discounts",
+        "fr": "Sales Discounts",
+        "es": "Sales Discounts",
+        "ar": "Sales Discounts"
+      }
     },
     {
       "id": "salesAllowances",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Allowances for damaged goods or price reductions"
+      "businessContext": "Allowances for damaged goods or price reductions",
+      "label_i18n": {
+        "en": "Sales Allowances",
+        "tr": "Sales Allowances",
+        "de": "Sales Allowances",
+        "fr": "Sales Allowances",
+        "es": "Sales Allowances",
+        "ar": "Sales Allowances"
+      }
     },
     {
       "id": "cogs",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Direct costs attributable to production of sold goods"
+      "businessContext": "Direct costs attributable to production of sold goods",
+      "label_i18n": {
+        "en": "Cost of Goods Sold",
+        "tr": "Cost of Goods Sold",
+        "de": "Cost of Goods Sold",
+        "fr": "Cost of Goods Sold",
+        "es": "Cost of Goods Sold",
+        "ar": "Cost of Goods Sold"
+      }
     }
   ],
   "formulas": {
@@ -53,7 +93,12 @@
       "netSales",
       "grossProfit",
       "grossMargin"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "grossMargin"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -63,5 +108,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

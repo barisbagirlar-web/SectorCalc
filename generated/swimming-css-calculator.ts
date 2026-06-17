@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from swimming-css-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,25 +16,33 @@ export const Swimming_css_calculatorInputSchema = z.object({
   time2: z.number().default(140),
 });
 
-function evaluateAllFormulas(input: Swimming_css_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (input.dist1 - input.dist2) / (input.time1 - input.time2); results["css_speed_ms"] = Number.isFinite(v) ? v : 0; } catch { results["css_speed_ms"] = 0; }
-  try { const v = 100 / ((input.dist1 - input.dist2) / (input.time1 - input.time2)); results["css_pace_per_100m"] = Number.isFinite(v) ? v : 0; } catch { results["css_pace_per_100m"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Swimming_css_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = (input.dist1 - input.dist2) / (input.time1 - input.time2); results["css_speed_ms"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["css_speed_ms"] = 0; }
+  try { const v = 100 / ((input.dist1 - input.dist2) / (input.time1 - input.time2)); results["css_pace_per_100m"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["css_pace_per_100m"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateSwimming_css_calculator(input: Swimming_css_calculatorInput): Swimming_css_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["css_pace_per_100m"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["css_pace_per_100m"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

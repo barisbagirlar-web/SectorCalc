@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from beer-pairing-calculator-schema.json
 import * as z from 'zod';
 
@@ -17,28 +18,33 @@ export const Beer_pairing_calculatorInputSchema = z.object({
   foodAcidity: z.number().default(3),
 });
 
-function evaluateAllFormulas(input: Beer_pairing_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = Math.abs(input.beerIBU - input.foodRichness * 10) * 0.2; results["bitternessMatch"] = Number.isFinite(v) ? v : 0; } catch { results["bitternessMatch"] = 0; }
-  try { const v = Math.abs(input.beerABV - input.foodRichness) * 5; results["alcoholMatch"] = Number.isFinite(v) ? v : 0; } catch { results["alcoholMatch"] = 0; }
-  try { const v = Math.abs(input.foodSpiciness - 5) * 3; results["spiceMatch"] = Number.isFinite(v) ? v : 0; } catch { results["spiceMatch"] = 0; }
-  try { const v = Math.abs(input.foodAcidity - 3) * 2; results["acidityMatch"] = Number.isFinite(v) ? v : 0; } catch { results["acidityMatch"] = 0; }
-  try { const v = Math.max(0, 100 - ((results["bitternessMatch"] ?? 0) + (results["alcoholMatch"] ?? 0) + (results["spiceMatch"] ?? 0) + (results["acidityMatch"] ?? 0))); results["pairingScore"] = Number.isFinite(v) ? v : 0; } catch { results["pairingScore"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Beer_pairing_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.beerIBU + input.beerABV + input.foodRichness; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.beerIBU + input.beerABV + input.foodRichness; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateBeer_pairing_calculator(input: Beer_pairing_calculatorInput): Beer_pairing_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["pairingScore"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

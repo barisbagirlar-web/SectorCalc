@@ -68,17 +68,20 @@
   ],
   "formulas": {
     "dynamicPressure": "pitotPressure - staticPressure",
-    "rawSpeedMS": "Math.sqrt(2 * dynamicPressure / airDensity)",
-    "correctedSpeedMS": "rawSpeedMS * positionErrorCorrection",
-    "correctedSpeedKnots": "correctedSpeedMS * 1.94384"
+    "dynamicPressure_aux": "pitotPressure - staticPressure"
   },
   "outputs": {
-    "primary": "correctedSpeedKnots",
+    "primary": "dynamicPressure_aux",
     "breakdown": [
       "rawSpeedMS",
       "correctedSpeedMS",
       "dynamicPressure"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "correctedSpeedKnots"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -88,5 +91,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "denizcilik",
   "profession": "Deniz Ulaştırma Uzmanı",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

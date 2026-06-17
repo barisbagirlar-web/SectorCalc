@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mol/L",
       "default": 1,
-      "businessContext": "Starting molar concentration of reactant A in a second-order reaction (rate = k[A]² or k[A][B] with [A]₀ = [B]₀)"
+      "businessContext": "Starting molar concentration of reactant A in a second-order reaction (rate = k[A]² or k[A][B] with [A]₀ = [B]₀)",
+      "label_i18n": {
+        "en": "Initial Concentration [A]₀",
+        "tr": "Initial Concentration [A]₀",
+        "de": "Initial Concentration [A]₀",
+        "fr": "Initial Concentration [A]₀",
+        "es": "Initial Concentration [A]₀",
+        "ar": "Initial Concentration [A]₀"
+      }
     },
     {
       "id": "rateConstant",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "L/(mol·s)",
       "default": 0.1,
-      "businessContext": "Second-order rate constant to quantify reaction speed"
+      "businessContext": "Second-order rate constant to quantify reaction speed",
+      "label_i18n": {
+        "en": "Rate Constant (k)",
+        "tr": "Rate Constant (k)",
+        "de": "Rate Constant (k)",
+        "fr": "Rate Constant (k)",
+        "es": "Rate Constant (k)",
+        "ar": "Rate Constant (k)"
+      }
     },
     {
       "id": "time",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "s",
       "default": 10,
-      "businessContext": "Time at which to calculate the concentration of A"
+      "businessContext": "Time at which to calculate the concentration of A",
+      "label_i18n": {
+        "en": "Elapsed Time (t)",
+        "tr": "Elapsed Time (t)",
+        "de": "Elapsed Time (t)",
+        "fr": "Elapsed Time (t)",
+        "es": "Elapsed Time (t)",
+        "ar": "Elapsed Time (t)"
+      }
     },
     {
       "id": "targetConcentration",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mol/L",
       "default": 0.5,
-      "businessContext": "Desired concentration of A used to calculate the required reaction time"
+      "businessContext": "Desired concentration of A used to calculate the required reaction time",
+      "label_i18n": {
+        "en": "Target Concentration [A]",
+        "tr": "Target Concentration [A]",
+        "de": "Target Concentration [A]",
+        "fr": "Target Concentration [A]",
+        "es": "Target Concentration [A]",
+        "ar": "Target Concentration [A]"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "concentrationA",
       "requiredTime"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "requiredTime"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "kimya",
   "profession": "Proses Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

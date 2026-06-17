@@ -68,9 +68,7 @@
   ],
   "formulas": {
     "effectiveRate": "((1 + interestRate / 100 / compoundingFrequency) ** compoundingFrequency - 1)",
-    "exactYears": "Math.log(2) / Math.log(1 + effectiveRate)",
     "approxYears": "ruleConstant / interestRate",
-    "finalExact": "initialInvestment * Math.exp(exactYears * Math.log(1 + effectiveRate))",
     "finalApprox": "initialInvestment * (1 + effectiveRate) ** approxYears"
   },
   "outputs": {
@@ -80,7 +78,12 @@
       "effectiveRate",
       "finalExact",
       "finalApprox"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "finalApprox"
   },
   "category": "Proje & Yatırım",
   "sector": "Finans & İK",
@@ -90,5 +93,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

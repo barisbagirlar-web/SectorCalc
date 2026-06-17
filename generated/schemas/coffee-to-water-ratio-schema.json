@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 20,
-      "businessContext": "Weight of ground coffee used for brewing"
+      "businessContext": "Weight of ground coffee used for brewing",
+      "label_i18n": {
+        "en": "Coffee Weight",
+        "tr": "Coffee Weight",
+        "de": "Coffee Weight",
+        "fr": "Coffee Weight",
+        "es": "Coffee Weight",
+        "ar": "Coffee Weight"
+      }
     },
     {
       "id": "waterVolume",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ml",
       "default": 300,
-      "businessContext": "Volume of water used for brewing"
+      "businessContext": "Volume of water used for brewing",
+      "label_i18n": {
+        "en": "Water Volume",
+        "tr": "Water Volume",
+        "de": "Water Volume",
+        "fr": "Water Volume",
+        "es": "Water Volume",
+        "ar": "Water Volume"
+      }
     },
     {
       "id": "absorptionFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "g water/g coffee",
       "default": 2,
-      "businessContext": "Water retained by coffee grounds per gram of coffee; typical range 1.5–2.5"
+      "businessContext": "Water retained by coffee grounds per gram of coffee; typical range 1.5–2.5",
+      "label_i18n": {
+        "en": "Absorption Factor",
+        "tr": "Absorption Factor",
+        "de": "Absorption Factor",
+        "fr": "Absorption Factor",
+        "es": "Absorption Factor",
+        "ar": "Absorption Factor"
+      }
     },
     {
       "id": "targetRatio",
@@ -31,14 +55,20 @@
       "type": "number",
       "unit": "g water/g coffee",
       "default": 15,
-      "businessContext": "Desired ratio of water to coffee, e.g., 15 for a 1:15 brew"
+      "businessContext": "Desired ratio of water to coffee, e.g., 15 for a 1:15 brew",
+      "label_i18n": {
+        "en": "Target Brew Ratio",
+        "tr": "Target Brew Ratio",
+        "de": "Target Brew Ratio",
+        "fr": "Target Brew Ratio",
+        "es": "Target Brew Ratio",
+        "ar": "Target Brew Ratio"
+      }
     }
   ],
   "formulas": {
     "actualRatio": "waterVolume / coffeeWeight",
-    "brewYield": "waterVolume - coffeeWeight * absorptionFactor",
-    "ratioDeviation": "Math.abs(waterVolume / coffeeWeight - targetRatio)",
-    "targetAchieved": "Math.abs(waterVolume / coffeeWeight - targetRatio) < 0.01"
+    "brewYield": "waterVolume - coffeeWeight * absorptionFactor"
   },
   "outputs": {
     "primary": "actualRatio",
@@ -48,7 +78,12 @@
       "'Ratio Deviation: ' + ratioDeviation",
       "'Target Achieved: ' + (targetAchieved ? 'Yes' : 'No')",
       "'Brew Yield (ml): ' + brewYield"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "targetAchieved"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -58,5 +93,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "havacilik",
   "profession": "Tasarım Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

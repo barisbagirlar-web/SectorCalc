@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "weight"
+      "businessContext": "weight",
+      "label_i18n": {
+        "en": "Meyve Miktarı (kg)",
+        "tr": "Meyve Miktarı (kg)",
+        "de": "Meyve Miktarı (kg)",
+        "fr": "Meyve Miktarı (kg)",
+        "es": "Meyve Miktarı (kg)",
+        "ar": "Meyve Miktarı (kg)"
+      }
     },
     {
       "id": "extractionRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 70,
-      "businessContext": "efficiency"
+      "businessContext": "efficiency",
+      "label_i18n": {
+        "en": "Ekstraksiyon Oranı (%)",
+        "tr": "Ekstraksiyon Oranı (%)",
+        "de": "Ekstraksiyon Oranı (%)",
+        "fr": "Ekstraksiyon Oranı (%)",
+        "es": "Ekstraksiyon Oranı (%)",
+        "ar": "Ekstraksiyon Oranı (%)"
+      }
     },
     {
       "id": "waterAdded",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "L",
       "default": 0,
-      "businessContext": "dilution"
+      "businessContext": "dilution",
+      "label_i18n": {
+        "en": "Eklenen Su (L)",
+        "tr": "Eklenen Su (L)",
+        "de": "Eklenen Su (L)",
+        "fr": "Eklenen Su (L)",
+        "es": "Eklenen Su (L)",
+        "ar": "Eklenen Su (L)"
+      }
     },
     {
       "id": "otherAdditives",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "additives"
+      "businessContext": "additives",
+      "label_i18n": {
+        "en": "Diğer Katkılar (kg)",
+        "tr": "Diğer Katkılar (kg)",
+        "de": "Diğer Katkılar (kg)",
+        "fr": "Diğer Katkılar (kg)",
+        "es": "Diğer Katkılar (kg)",
+        "ar": "Diğer Katkılar (kg)"
+      }
     }
   ],
   "formulas": {
@@ -48,7 +80,12 @@
       "waterOutput",
       "additivesOutput",
       "wasteOutput"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalJuiceOutput"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -58,5 +95,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "efficiency"
+  "categoryId": "efficiency",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

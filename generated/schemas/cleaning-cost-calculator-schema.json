@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m²",
       "default": 100,
-      "businessContext": "Total area to be cleaned in square meters"
+      "businessContext": "Total area to be cleaned in square meters",
+      "label_i18n": {
+        "en": "Cleaning Area",
+        "tr": "Cleaning Area",
+        "de": "Cleaning Area",
+        "fr": "Cleaning Area",
+        "es": "Cleaning Area",
+        "ar": "Cleaning Area"
+      }
     },
     {
       "id": "frequency",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "per month",
       "default": 4,
-      "businessContext": "Number of times cleaning is performed per month"
+      "businessContext": "Number of times cleaning is performed per month",
+      "label_i18n": {
+        "en": "Cleaning Frequency",
+        "tr": "Cleaning Frequency",
+        "de": "Cleaning Frequency",
+        "fr": "Cleaning Frequency",
+        "es": "Cleaning Frequency",
+        "ar": "Cleaning Frequency"
+      }
     },
     {
       "id": "laborRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency/hour",
       "default": 50,
-      "businessContext": "Cost of labor per hour"
+      "businessContext": "Cost of labor per hour",
+      "label_i18n": {
+        "en": "Labor Hourly Rate",
+        "tr": "Labor Hourly Rate",
+        "de": "Labor Hourly Rate",
+        "fr": "Labor Hourly Rate",
+        "es": "Labor Hourly Rate",
+        "ar": "Labor Hourly Rate"
+      }
     },
     {
       "id": "laborTime",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "hours/m²",
       "default": 0.1,
-      "businessContext": "Time required to clean one square meter"
+      "businessContext": "Time required to clean one square meter",
+      "label_i18n": {
+        "en": "Labor Time per m²",
+        "tr": "Labor Time per m²",
+        "de": "Labor Time per m²",
+        "fr": "Labor Time per m²",
+        "es": "Labor Time per m²",
+        "ar": "Labor Time per m²"
+      }
     },
     {
       "id": "materialCost",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency/m²",
       "default": 2,
-      "businessContext": "Cost of cleaning materials per square meter"
+      "businessContext": "Cost of cleaning materials per square meter",
+      "label_i18n": {
+        "en": "Material Cost per m²",
+        "tr": "Material Cost per m²",
+        "de": "Material Cost per m²",
+        "fr": "Material Cost per m²",
+        "es": "Material Cost per m²",
+        "ar": "Material Cost per m²"
+      }
     },
     {
       "id": "equipmentCost",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "currency",
       "default": 100,
-      "businessContext": "Fixed monthly cost for equipment (depreciation, rental, etc.)"
+      "businessContext": "Fixed monthly cost for equipment (depreciation, rental, etc.)",
+      "label_i18n": {
+        "en": "Equipment Fixed Cost",
+        "tr": "Equipment Fixed Cost",
+        "de": "Equipment Fixed Cost",
+        "fr": "Equipment Fixed Cost",
+        "es": "Equipment Fixed Cost",
+        "ar": "Equipment Fixed Cost"
+      }
     },
     {
       "id": "overheadMargin",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Overhead and profit margin percentage"
+      "businessContext": "Overhead and profit margin percentage",
+      "label_i18n": {
+        "en": "Overhead Margin",
+        "tr": "Overhead Margin",
+        "de": "Overhead Margin",
+        "fr": "Overhead Margin",
+        "es": "Overhead Margin",
+        "ar": "Overhead Margin"
+      }
     }
   ],
   "formulas": {
@@ -73,7 +129,12 @@
       "materialCost",
       "equipmentCost",
       "overheadAmount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalMonthlyCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -83,5 +144,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

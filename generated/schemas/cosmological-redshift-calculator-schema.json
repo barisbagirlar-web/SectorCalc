@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "nm",
       "default": 656.3,
-      "businessContext": "Kırmızıya kayan spektrum çizgisinin ölçülen dalga boyu"
+      "businessContext": "Kırmızıya kayan spektrum çizgisinin ölçülen dalga boyu",
+      "label_i18n": {
+        "en": "Gözlenen Dalga Boyu",
+        "tr": "Gözlenen Dalga Boyu",
+        "de": "Gözlenen Dalga Boyu",
+        "fr": "Gözlenen Dalga Boyu",
+        "es": "Gözlenen Dalga Boyu",
+        "ar": "Gözlenen Dalga Boyu"
+      }
     },
     {
       "id": "emittedWavelength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "nm",
       "default": 656.3,
-      "businessContext": "Laboratuvar referans dalga boyu"
+      "businessContext": "Laboratuvar referans dalga boyu",
+      "label_i18n": {
+        "en": "Yayılan Dalga Boyu",
+        "tr": "Yayılan Dalga Boyu",
+        "de": "Yayılan Dalga Boyu",
+        "fr": "Yayılan Dalga Boyu",
+        "es": "Yayılan Dalga Boyu",
+        "ar": "Yayılan Dalga Boyu"
+      }
     },
     {
       "id": "speedOfLight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "km/s",
       "default": 299792,
-      "businessContext": "Sabit değer"
+      "businessContext": "Sabit değer",
+      "label_i18n": {
+        "en": "Işık Hızı",
+        "tr": "Işık Hızı",
+        "de": "Işık Hızı",
+        "fr": "Işık Hızı",
+        "es": "Işık Hızı",
+        "ar": "Işık Hızı"
+      }
     },
     {
       "id": "hubbleConstant",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "km/s/Mpc",
       "default": 70,
-      "businessContext": "Evrenin genişleme hızı"
+      "businessContext": "Evrenin genişleme hızı",
+      "label_i18n": {
+        "en": "Hubble Sabiti",
+        "tr": "Hubble Sabiti",
+        "de": "Hubble Sabiti",
+        "fr": "Hubble Sabiti",
+        "es": "Hubble Sabiti",
+        "ar": "Hubble Sabiti"
+      }
     }
   ],
   "formulas": {
@@ -66,7 +98,12 @@
         "value": "distance",
         "unit": "Mpc"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "distance"
   },
   "category": "İK & Personel",
   "sector": "Finans & İK",
@@ -76,5 +113,10 @@
   "categorySlug": "workforce-hr",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "hr"
+  "categoryId": "hr",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

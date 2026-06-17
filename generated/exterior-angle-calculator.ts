@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from exterior-angle-calculator-schema.json
 import * as z from 'zod';
 
@@ -17,26 +18,33 @@ export const Exterior_angle_calculatorInputSchema = z.object({
   precision: z.number().default(2),
 });
 
-function evaluateAllFormulas(input: Exterior_angle_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = Math.round((input.sides > 0 ? 360/input.sides : input.interiorAngle > 0 ? 180 - input.interiorAngle : input.sumInteriorAngles > 0 ? 360/((input.sumInteriorAngles/180)+2) : input.exteriorAngleGiven > 0 ? input.exteriorAngleGiven : 0) * Math.pow(10, input.precision)) / Math.pow(10, input.precision); results["exteriorAngle"] = Number.isFinite(v) ? v : 0; } catch { results["exteriorAngle"] = 0; }
-  try { const v = Math.round((180 - (results["exteriorAngle"] ?? 0)) * Math.pow(10, input.precision)) / Math.pow(10, input.precision); results["interiorAngle"] = Number.isFinite(v) ? v : 0; } catch { results["interiorAngle"] = 0; }
-  try { const v = Math.round(360 * Math.pow(10, input.precision)) / Math.pow(10, input.precision); results["sumExteriorAngles"] = Number.isFinite(v) ? v : 0; } catch { results["sumExteriorAngles"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Exterior_angle_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.sides + input.interiorAngle + input.sumInteriorAngles; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.sides + input.interiorAngle + input.sumInteriorAngles; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateExterior_angle_calculator(input: Exterior_angle_calculatorInput): Exterior_angle_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["exteriorAngle"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

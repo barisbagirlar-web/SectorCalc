@@ -69,8 +69,7 @@
   "formulas": {
     "recommendedChildDose": "(childWeight / 70) * adultDose",
     "methodYoung": "(childAge / (childAge + 12)) * adultDose",
-    "methodFried": "((childAge * 12) / 150) * adultDose",
-    "methodBSA": "(Math.sqrt((childHeight * childWeight) / 3600) / 1.73) * adultDose"
+    "methodFried": "((childAge * 12) / 150) * adultDose"
   },
   "outputs": {
     "primary": "recommendedChildDose",
@@ -79,7 +78,12 @@
       "methodYoung",
       "methodFried",
       "methodBSA"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "methodBSA"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -89,5 +93,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

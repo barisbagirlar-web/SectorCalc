@@ -169,18 +169,18 @@
       }
     ]
   },
-  "formulas": [
-    "model_type",
-    "model_type",
-    "model_type",
-    "model_type",
-    "model_type",
-    "model_type",
-    "model_type"
-  ],
+  "formulas": {
+    "result": "model_type + input_tokens_per_month + output_tokens_per_month",
+    "result_copy": "model_type + input_tokens_per_month + output_tokens_per_month"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "ai-compute-token-cost-calculator",
   "catalogCategory": "everyday-life",

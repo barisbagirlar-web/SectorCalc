@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "K",
       "default": 300,
-      "businessContext": "Absolute temperature of the black body in Kelvin."
+      "businessContext": "Absolute temperature of the black body in Kelvin.",
+      "label_i18n": {
+        "en": "Temperature",
+        "tr": "Temperature",
+        "de": "Temperature",
+        "fr": "Temperature",
+        "es": "Temperature",
+        "ar": "Temperature"
+      }
     },
     {
       "id": "emissivity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Emissivity coefficient (0 to 1) of the surface."
+      "businessContext": "Emissivity coefficient (0 to 1) of the surface.",
+      "label_i18n": {
+        "en": "Emissivity",
+        "tr": "Emissivity",
+        "de": "Emissivity",
+        "fr": "Emissivity",
+        "es": "Emissivity",
+        "ar": "Emissivity"
+      }
     },
     {
       "id": "area",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m²",
       "default": 1,
-      "businessContext": "Surface area of the radiating body in square meters."
+      "businessContext": "Surface area of the radiating body in square meters.",
+      "label_i18n": {
+        "en": "Surface Area",
+        "tr": "Surface Area",
+        "de": "Surface Area",
+        "fr": "Surface Area",
+        "es": "Surface Area",
+        "ar": "Surface Area"
+      }
     }
   ],
   "formulas": {
@@ -35,7 +59,12 @@
     "breakdown": [
       "radiantPowerPerArea",
       "radiantPower"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "radiantPowerPerArea"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -45,5 +74,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

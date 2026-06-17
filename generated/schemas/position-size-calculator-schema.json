@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 10000,
-      "businessContext": "Total capital available for trading"
+      "businessContext": "Total capital available for trading",
+      "label_i18n": {
+        "en": "Account Balance",
+        "tr": "Account Balance",
+        "de": "Account Balance",
+        "fr": "Account Balance",
+        "es": "Account Balance",
+        "ar": "Account Balance"
+      }
     },
     {
       "id": "riskPercent",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Maximum percentage of account to risk per trade"
+      "businessContext": "Maximum percentage of account to risk per trade",
+      "label_i18n": {
+        "en": "Risk Percentage",
+        "tr": "Risk Percentage",
+        "de": "Risk Percentage",
+        "fr": "Risk Percentage",
+        "es": "Risk Percentage",
+        "ar": "Risk Percentage"
+      }
     },
     {
       "id": "entryPrice",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100,
-      "businessContext": "Price at which the trade is entered"
+      "businessContext": "Price at which the trade is entered",
+      "label_i18n": {
+        "en": "Entry Price",
+        "tr": "Entry Price",
+        "de": "Entry Price",
+        "fr": "Entry Price",
+        "es": "Entry Price",
+        "ar": "Entry Price"
+      }
     },
     {
       "id": "stopLossPrice",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "USD",
       "default": 95,
-      "businessContext": "Price at which the trade will be exited to limit loss"
+      "businessContext": "Price at which the trade will be exited to limit loss",
+      "label_i18n": {
+        "en": "Stop Loss Price",
+        "tr": "Stop Loss Price",
+        "de": "Stop Loss Price",
+        "fr": "Stop Loss Price",
+        "es": "Stop Loss Price",
+        "ar": "Stop Loss Price"
+      }
     }
   ],
   "formulas": {
     "riskAmount": "accountBalance * (riskPercent / 100)",
-    "priceRiskPerShare": "Math.abs(entryPrice - stopLossPrice)",
-    "positionSize": "Math.floor(riskAmount / priceRiskPerShare)"
+    "riskAmount_aux": "accountBalance * (riskPercent / 100)"
   },
   "outputs": {
-    "primary": "positionSize",
+    "primary": "riskAmount_aux",
     "breakdown": [
       "riskAmount",
       "priceRiskPerShare"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "positionSize"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -54,5 +90,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

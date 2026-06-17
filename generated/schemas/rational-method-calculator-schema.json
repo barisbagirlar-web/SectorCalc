@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0.5,
-      "businessContext": "Runoff coefficient based on surface type (0.05–0.95)"
+      "businessContext": "Runoff coefficient based on surface type (0.05–0.95)",
+      "label_i18n": {
+        "en": "Runoff Coefficient",
+        "tr": "Runoff Coefficient",
+        "de": "Runoff Coefficient",
+        "fr": "Runoff Coefficient",
+        "es": "Runoff Coefficient",
+        "ar": "Runoff Coefficient"
+      }
     },
     {
       "id": "i",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm/hr",
       "default": 50,
-      "businessContext": "Design rainfall intensity in millimeters per hour"
+      "businessContext": "Design rainfall intensity in millimeters per hour",
+      "label_i18n": {
+        "en": "Rainfall Intensity",
+        "tr": "Rainfall Intensity",
+        "de": "Rainfall Intensity",
+        "fr": "Rainfall Intensity",
+        "es": "Rainfall Intensity",
+        "ar": "Rainfall Intensity"
+      }
     },
     {
       "id": "a",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ha",
       "default": 1,
-      "businessContext": "Catchment area in hectares"
+      "businessContext": "Catchment area in hectares",
+      "label_i18n": {
+        "en": "Drainage Area",
+        "tr": "Drainage Area",
+        "de": "Drainage Area",
+        "fr": "Drainage Area",
+        "es": "Drainage Area",
+        "ar": "Drainage Area"
+      }
     },
     {
       "id": "sf",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Design safety factor (typically 1.0–1.5)"
+      "businessContext": "Design safety factor (typically 1.0–1.5)",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
@@ -43,7 +75,12 @@
     "breakdown": [
       "peakDischargeLps",
       "peakDischargeCumecs"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "peakDischargeCumecs"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -53,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

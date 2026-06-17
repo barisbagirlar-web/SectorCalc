@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 30,
-      "businessContext": "Günlük zeytinyağı tüketim miktarı (gram)"
+      "businessContext": "Günlük zeytinyağı tüketim miktarı (gram)",
+      "label_i18n": {
+        "en": "Günlük Zeytinyağı Tüketimi",
+        "tr": "Günlük Zeytinyağı Tüketimi",
+        "de": "Günlük Zeytinyağı Tüketimi",
+        "fr": "Günlük Zeytinyağı Tüketimi",
+        "es": "Günlük Zeytinyağı Tüketimi",
+        "ar": "Günlük Zeytinyağı Tüketimi"
+      }
     },
     {
       "id": "vegetables",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "porsiyon",
       "default": 3,
-      "businessContext": "Günlük tüketilen sebze porsiyonu"
+      "businessContext": "Günlük tüketilen sebze porsiyonu",
+      "label_i18n": {
+        "en": "Günlük Sebze Porsiyonu",
+        "tr": "Günlük Sebze Porsiyonu",
+        "de": "Günlük Sebze Porsiyonu",
+        "fr": "Günlük Sebze Porsiyonu",
+        "es": "Günlük Sebze Porsiyonu",
+        "ar": "Günlük Sebze Porsiyonu"
+      }
     },
     {
       "id": "fruit",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "porsiyon",
       "default": 2,
-      "businessContext": "Günlük tüketilen meyve porsiyonu"
+      "businessContext": "Günlük tüketilen meyve porsiyonu",
+      "label_i18n": {
+        "en": "Günlük Meyve Porsiyonu",
+        "tr": "Günlük Meyve Porsiyonu",
+        "de": "Günlük Meyve Porsiyonu",
+        "fr": "Günlük Meyve Porsiyonu",
+        "es": "Günlük Meyve Porsiyonu",
+        "ar": "Günlük Meyve Porsiyonu"
+      }
     },
     {
       "id": "fish",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "porsiyon",
       "default": 2,
-      "businessContext": "Haftalık balık tüketim porsiyonu"
+      "businessContext": "Haftalık balık tüketim porsiyonu",
+      "label_i18n": {
+        "en": "Haftalık Balık Tüketimi",
+        "tr": "Haftalık Balık Tüketimi",
+        "de": "Haftalık Balık Tüketimi",
+        "fr": "Haftalık Balık Tüketimi",
+        "es": "Haftalık Balık Tüketimi",
+        "ar": "Haftalık Balık Tüketimi"
+      }
     },
     {
       "id": "legumes",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "porsiyon",
       "default": 3,
-      "businessContext": "Haftalık bakliyat tüketim porsiyonu"
+      "businessContext": "Haftalık bakliyat tüketim porsiyonu",
+      "label_i18n": {
+        "en": "Haftalık Bakliyat Tüketimi",
+        "tr": "Haftalık Bakliyat Tüketimi",
+        "de": "Haftalık Bakliyat Tüketimi",
+        "fr": "Haftalık Bakliyat Tüketimi",
+        "es": "Haftalık Bakliyat Tüketimi",
+        "ar": "Haftalık Bakliyat Tüketimi"
+      }
     },
     {
       "id": "wholeGrains",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "porsiyon",
       "default": 3,
-      "businessContext": "Günlük tüketilen tam tahıl porsiyonu"
+      "businessContext": "Günlük tüketilen tam tahıl porsiyonu",
+      "label_i18n": {
+        "en": "Günlük Tam Tahıl Porsiyonu",
+        "tr": "Günlük Tam Tahıl Porsiyonu",
+        "de": "Günlük Tam Tahıl Porsiyonu",
+        "fr": "Günlük Tam Tahıl Porsiyonu",
+        "es": "Günlük Tam Tahıl Porsiyonu",
+        "ar": "Günlük Tam Tahıl Porsiyonu"
+      }
     }
   ],
   "formulas": {
@@ -68,7 +116,12 @@
       "fishScore",
       "legumesScore",
       "wholeGrainScore"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "dietScore"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -78,5 +131,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

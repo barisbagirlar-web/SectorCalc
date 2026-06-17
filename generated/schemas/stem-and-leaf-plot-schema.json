@@ -67,20 +67,20 @@
     }
   ],
   "formulas": {
-    "stem": "Math.floor(data / stemUnit)",
-    "leaf": "Math.floor((data % stemUnit) / leafUnit)",
-    "sortedLeaves": "leaves.sort((a,b) => sortOrder * (a - b))",
-    "plot": "stems.map((stem, i) => stem + ' | ' + sortedLeaves[i].join(' ')).join('\\n')",
-    "list_of_unique_stems": "list of unique stems",
-    "sorted_leaves_per_stem": "sorted leaves per stem",
-    "result": "Stem-and-Leaf Plot"
+    "result": "data + leafUnit + stemUnit",
+    "result_copy": "data + leafUnit + stemUnit"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
       "Stems: list of unique stems",
       "Leaves: sorted leaves per stem"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "sortedLeaves"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -90,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -69,18 +69,9 @@
       "max": null,
       "businessContext": "Desired confidence level for interval estimation. Common values: 90%, 95%, 99%.",
       "options": [
-        {
-          "value": "90",
-          "label": "90%"
-        },
-        {
-          "value": "95",
-          "label": "95%"
-        },
-        {
-          "value": "99",
-          "label": "99%"
-        }
+        "90",
+        "95",
+        "99"
       ],
       "label_i18n": {
         "en": "Confidence Level"
@@ -99,18 +90,9 @@
       "max": null,
       "businessContext": "Specifies whether the test is one-tailed (upper/lower) or two-tailed.",
       "options": [
-        {
-          "value": "two-tailed",
-          "label": "Two-tailed"
-        },
-        {
-          "value": "one-tailed-upper",
-          "label": "One-tailed (upper)"
-        },
-        {
-          "value": "one-tailed-lower",
-          "label": "One-tailed (lower)"
-        }
+        "two-tailed",
+        "one-tailed-upper",
+        "one-tailed-lower"
       ],
       "label_i18n": {
         "en": "Tail Type"
@@ -172,18 +154,18 @@
       }
     ]
   },
-  "formulas": [
-    "data_points",
-    "data_points",
-    "data_points",
-    "data_points",
-    "data_points",
-    "data_points",
-    "data_points"
-  ],
+  "formulas": {
+    "result": "data_points + population_mean + population_stddev",
+    "result_copy": "data_points + population_mean + population_stddev"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "math-statistics",
   "sectorSlug": "ecommerce",

@@ -99,22 +99,12 @@
     }
   ],
   "formulas": {
-    "baseRate": "3",
     "ageLoading": "(age - 20) * 0.1",
     "smokerLoading": "smokingStatus * 2",
-    "healthLoading": "(100 - healthScore) * 0.05",
-    "annualPremium": "(coverageAmount / 1000) * (baseRate + ageLoading + smokerLoading + healthLoading)",
-    "monthlyPremium": "annualPremium / 12",
-    "_____coverageAmount___1000____baseRate__": "$${((coverageAmount / 1000) * baseRate).toFixed(2)}/year",
-    "_____coverageAmount___1000____ageLoading": "$${((coverageAmount / 1000) * ageLoading).toFixed(2)}/year",
-    "_____coverageAmount___1000____smokerLoad": "$${((coverageAmount / 1000) * smokerLoading).toFixed(2)}/year",
-    "_____coverageAmount___1000____healthLoad": "$${((coverageAmount / 1000) * healthLoading).toFixed(2)}/year",
-    "___annualPremium_toFixed_2___year": "$${annualPremium.toFixed(2)}/year",
-    "___monthlyPremium_toFixed_2___month": "$${monthlyPremium.toFixed(2)}/month",
-    "result": "`$${monthlyPremium.toFixed(2)}/month`"
+    "healthLoading": "(100 - healthScore) * 0.05"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "healthLoading",
     "breakdown": [
       "Base Premium: $${((coverageAmount / 1000) * baseRate).toFixed(2)}/year",
       "Age Loading: $${((coverageAmount / 1000) * ageLoading).toFixed(2)}/year",
@@ -122,7 +112,12 @@
       "Health Loading: $${((coverageAmount / 1000) * healthLoading).toFixed(2)}/year",
       "Annual Premium: $${annualPremium.toFixed(2)}/year",
       "Monthly Premium: $${monthlyPremium.toFixed(2)}/month"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "monthlyPremium"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -132,5 +127,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "hr"
+  "categoryId": "hr",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

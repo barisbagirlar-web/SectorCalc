@@ -99,20 +99,22 @@
     }
   ],
   "formulas": {
-    "serv1": "tier1Diameter > 0 ? (shape == 0 ? Math.PI * Math.pow(tier1Diameter, 2) / (4 * servingSize) : Math.pow(tier1Diameter, 2) / servingSize) : 0",
-    "serv2": "tier2Diameter > 0 ? (shape == 0 ? Math.PI * Math.pow(tier2Diameter, 2) / (4 * servingSize) : Math.pow(tier2Diameter, 2) / servingSize) : 0",
-    "serv3": "tier3Diameter > 0 ? (shape == 0 ? Math.PI * Math.pow(tier3Diameter, 2) / (4 * servingSize) : Math.pow(tier3Diameter, 2) / servingSize) : 0",
-    "totalServings": "serv1 + serv2 + serv3",
-    "surplus": "totalServings - guestCount"
+    "result": "shape + tier1Diameter + tier2Diameter",
+    "result_copy": "shape + tier1Diameter + tier2Diameter"
   },
   "outputs": {
-    "primary": "totalServings",
+    "primary": "result",
     "breakdown": [
       "serv1",
       "serv2",
       "serv3",
       "surplus"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "surplus"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -122,5 +124,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kW",
       "default": 100,
-      "businessContext": "Maximum continuous electrical power output of the generator as specified by the manufacturer."
+      "businessContext": "Maximum continuous electrical power output of the generator as specified by the manufacturer.",
+      "label_i18n": {
+        "en": "Generator Rated Power",
+        "tr": "Generator Rated Power",
+        "de": "Generator Rated Power",
+        "fr": "Generator Rated Power",
+        "es": "Generator Rated Power",
+        "ar": "Generator Rated Power"
+      }
     },
     {
       "id": "loadFactor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 75,
-      "businessContext": "Average percentage of rated power at which the generator operates during the period."
+      "businessContext": "Average percentage of rated power at which the generator operates during the period.",
+      "label_i18n": {
+        "en": "Load Factor",
+        "tr": "Load Factor",
+        "de": "Load Factor",
+        "fr": "Load Factor",
+        "es": "Load Factor",
+        "ar": "Load Factor"
+      }
     },
     {
       "id": "operatingHours",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "h",
       "default": 8,
-      "businessContext": "Number of hours the generator is expected to run per day."
+      "businessContext": "Number of hours the generator is expected to run per day.",
+      "label_i18n": {
+        "en": "Operating Hours per Day",
+        "tr": "Operating Hours per Day",
+        "de": "Operating Hours per Day",
+        "fr": "Operating Hours per Day",
+        "es": "Operating Hours per Day",
+        "ar": "Operating Hours per Day"
+      }
     },
     {
       "id": "fuelConsumptionRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "L/kWh",
       "default": 0.3,
-      "businessContext": "Volume of fuel consumed per kilowatt-hour of electrical energy generated, at the given load factor."
+      "businessContext": "Volume of fuel consumed per kilowatt-hour of electrical energy generated, at the given load factor.",
+      "label_i18n": {
+        "en": "Fuel Consumption Rate",
+        "tr": "Fuel Consumption Rate",
+        "de": "Fuel Consumption Rate",
+        "fr": "Fuel Consumption Rate",
+        "es": "Fuel Consumption Rate",
+        "ar": "Fuel Consumption Rate"
+      }
     },
     {
       "id": "fuelDensity",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg/L",
       "default": 0.85,
-      "businessContext": "Mass density of the fuel (e.g., diesel ~0.85 kg/L)."
+      "businessContext": "Mass density of the fuel (e.g., diesel ~0.85 kg/L).",
+      "label_i18n": {
+        "en": "Fuel Density",
+        "tr": "Fuel Density",
+        "de": "Fuel Density",
+        "fr": "Fuel Density",
+        "es": "Fuel Density",
+        "ar": "Fuel Density"
+      }
     },
     {
       "id": "generatorEfficiency",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 95,
-      "businessContext": "Efficiency of the generator in converting mechanical input to electrical output."
+      "businessContext": "Efficiency of the generator in converting mechanical input to electrical output.",
+      "label_i18n": {
+        "en": "Generator Efficiency",
+        "tr": "Generator Efficiency",
+        "de": "Generator Efficiency",
+        "fr": "Generator Efficiency",
+        "es": "Generator Efficiency",
+        "ar": "Generator Efficiency"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
     "breakdown": [
       "dailyEnergy",
       "co2Emissions"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "co2Emissions"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -72,5 +125,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

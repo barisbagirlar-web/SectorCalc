@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TL",
       "default": 50,
-      "businessContext": "Each week's deposit amount"
+      "businessContext": "Each week's deposit amount",
+      "label_i18n": {
+        "en": "Haftalık Para Yatırma",
+        "tr": "Haftalık Para Yatırma",
+        "de": "Haftalık Para Yatırma",
+        "fr": "Haftalık Para Yatırma",
+        "es": "Haftalık Para Yatırma",
+        "ar": "Haftalık Para Yatırma"
+      }
     },
     {
       "id": "numberOfWeeks",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 50,
-      "businessContext": "Number of weeks until Christmas"
+      "businessContext": "Number of weeks until Christmas",
+      "label_i18n": {
+        "en": "Hafta Sayısı",
+        "tr": "Hafta Sayısı",
+        "de": "Hafta Sayısı",
+        "fr": "Hafta Sayısı",
+        "es": "Hafta Sayısı",
+        "ar": "Hafta Sayısı"
+      }
     },
     {
       "id": "annualInterestRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Annual interest rate if savings earn interest"
+      "businessContext": "Annual interest rate if savings earn interest",
+      "label_i18n": {
+        "en": "Yıllık Faiz Oranı",
+        "tr": "Yıllık Faiz Oranı",
+        "de": "Yıllık Faiz Oranı",
+        "fr": "Yıllık Faiz Oranı",
+        "es": "Yıllık Faiz Oranı",
+        "ar": "Yıllık Faiz Oranı"
+      }
     },
     {
       "id": "compoundingFrequency",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kez/yıl",
       "default": 52,
-      "businessContext": "Number of times interest is compounded per year"
+      "businessContext": "Number of times interest is compounded per year",
+      "label_i18n": {
+        "en": "Faizlendirme Sıklığı (yıllık)",
+        "tr": "Faizlendirme Sıklığı (yıllık)",
+        "de": "Faizlendirme Sıklığı (yıllık)",
+        "fr": "Faizlendirme Sıklığı (yıllık)",
+        "es": "Faizlendirme Sıklığı (yıllık)",
+        "ar": "Faizlendirme Sıklığı (yıllık)"
+      }
     },
     {
       "id": "startingBalance",
@@ -39,21 +71,32 @@
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Initial amount in the account"
+      "businessContext": "Initial amount in the account",
+      "label_i18n": {
+        "en": "Başlangıç Bakiyesi",
+        "tr": "Başlangıç Bakiyesi",
+        "de": "Başlangıç Bakiyesi",
+        "fr": "Başlangıç Bakiyesi",
+        "es": "Başlangıç Bakiyesi",
+        "ar": "Başlangıç Bakiyesi"
+      }
     }
   ],
   "formulas": {
     "periodicRate": "annualInterestRate / 100 / compoundingFrequency",
-    "totalDeposits": "weeklyDeposit * numberOfWeeks",
-    "futureValue": "periodicRate === 0 ? (weeklyDeposit * numberOfWeeks + startingBalance) : (weeklyDeposit * ((Math.pow(1 + periodicRate, numberOfWeeks) - 1) / periodicRate) + startingBalance * Math.pow(1 + periodicRate, numberOfWeeks))",
-    "totalInterest": "futureValue - totalDeposits - startingBalance"
+    "totalDeposits": "weeklyDeposit * numberOfWeeks"
   },
   "outputs": {
-    "primary": "futureValue",
+    "primary": "totalDeposits",
     "breakdown": [
       "totalDeposits",
       "totalInterest"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalInterest"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -63,5 +106,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -35,22 +35,10 @@
       "unit": "unit",
       "default": "point_center",
       "options": [
-        {
-          "value": "point_center",
-          "label": "Point Load at Center"
-        },
-        {
-          "value": "point_any",
-          "label": "Point Load at Any Position"
-        },
-        {
-          "value": "uniform",
-          "label": "Uniformly Distributed Load (UDL)"
-        },
-        {
-          "value": "triangular",
-          "label": "Triangular Distributed Load"
-        }
+        "point_center",
+        "point_any",
+        "uniform",
+        "triangular"
       ],
       "businessContext": "Common load configurations in material handling and structural analysis per ISO 9001 design control.",
       "label_i18n": {
@@ -155,64 +143,6 @@
       "businessContext_i18n": {
         "en": "Material yield stress, typical for structural steel S235 (235 MPa) or S355 (355 MPa) per EN 10025."
       }
-    },
-    {
-      "id": "safety_factor_target",
-      "label": "Target Safety Factor (SF)",
-      "type": "number",
-      "unit": "unit",
-      "default": 1.5,
-      "min": 1,
-      "max": 5,
-      "businessContext": "Minimum acceptable safety factor per ISO 13822 for structural integrity.",
-      "label_i18n": {
-        "en": "Target Safety Factor (SF)"
-      },
-      "businessContext_i18n": {
-        "en": "Minimum acceptable safety factor per ISO 13822 for structural integrity."
-      }
-    },
-    {
-      "id": "support_condition",
-      "label": "Support Condition",
-      "type": "select",
-      "unit": "unit",
-      "default": "simply_supported",
-      "options": [
-        {
-          "value": "simply_supported",
-          "label": "Simply Supported"
-        },
-        {
-          "value": "fixed_fixed",
-          "label": "Fixed-Fixed"
-        },
-        {
-          "value": "cantilever",
-          "label": "Cantilever"
-        }
-      ],
-      "businessContext": "Boundary conditions affecting deflection and moment distribution per Euler-Bernoulli theory.",
-      "label_i18n": {
-        "en": "Support Condition"
-      },
-      "businessContext_i18n": {
-        "en": "Boundary conditions affecting deflection and moment distribution per Euler-Bernoulli theory."
-      }
-    },
-    {
-      "id": "use_lean_optimization",
-      "label": "Enable Lean Optimization",
-      "type": "boolean",
-      "unit": "unit",
-      "default": false,
-      "businessContext": "If true, applies Lean Six Sigma principles to minimize material waste while meeting deflection limits.",
-      "label_i18n": {
-        "en": "Enable Lean Optimization"
-      },
-      "businessContext_i18n": {
-        "en": "If true, applies Lean Six Sigma principles to minimize material waste while meeting deflection limits."
-      }
     }
   ],
   "validation": {
@@ -275,18 +205,18 @@
       }
     ]
   },
-  "formulas": [
-    "beam_length",
-    "beam_length",
-    "beam_length",
-    "beam_length",
-    "beam_length",
-    "beam_length",
-    "beam_length"
-  ],
+  "formulas": {
+    "result": "beam_length + load_type + point_load",
+    "result_copy": "beam_length + load_type + point_load"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",

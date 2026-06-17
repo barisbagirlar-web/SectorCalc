@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m³/s",
       "default": 0.001,
-      "businessContext": "Target volumetric flow rate of the fluid to be filtered."
+      "businessContext": "Target volumetric flow rate of the fluid to be filtered.",
+      "label_i18n": {
+        "en": "Flow Rate",
+        "tr": "Flow Rate",
+        "de": "Flow Rate",
+        "fr": "Flow Rate",
+        "es": "Flow Rate",
+        "ar": "Flow Rate"
+      }
     },
     {
       "id": "viscosity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Pa·s",
       "default": 0.001,
-      "businessContext": "Dynamic viscosity of the fluid."
+      "businessContext": "Dynamic viscosity of the fluid.",
+      "label_i18n": {
+        "en": "Dynamic Viscosity",
+        "tr": "Dynamic Viscosity",
+        "de": "Dynamic Viscosity",
+        "fr": "Dynamic Viscosity",
+        "es": "Dynamic Viscosity",
+        "ar": "Dynamic Viscosity"
+      }
     },
     {
       "id": "pressureDrop",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Pa",
       "default": 100000,
-      "businessContext": "Maximum allowable pressure drop across the filter."
+      "businessContext": "Maximum allowable pressure drop across the filter.",
+      "label_i18n": {
+        "en": "Pressure Drop",
+        "tr": "Pressure Drop",
+        "de": "Pressure Drop",
+        "fr": "Pressure Drop",
+        "es": "Pressure Drop",
+        "ar": "Pressure Drop"
+      }
     },
     {
       "id": "membraneResistance",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "1/m",
       "default": 10000000000,
-      "businessContext": "Resistance of the clean filter medium."
+      "businessContext": "Resistance of the clean filter medium.",
+      "label_i18n": {
+        "en": "Membrane Resistance",
+        "tr": "Membrane Resistance",
+        "de": "Membrane Resistance",
+        "fr": "Membrane Resistance",
+        "es": "Membrane Resistance",
+        "ar": "Membrane Resistance"
+      }
     },
     {
       "id": "cakeResistance",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "1/m",
       "default": 0,
-      "businessContext": "Additional resistance from the filter cake (0 for clean filter)."
+      "businessContext": "Additional resistance from the filter cake (0 for clean filter).",
+      "label_i18n": {
+        "en": "Cake Resistance",
+        "tr": "Cake Resistance",
+        "de": "Cake Resistance",
+        "fr": "Cake Resistance",
+        "es": "Cake Resistance",
+        "ar": "Cake Resistance"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "flux",
       "totalResistance"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "flux"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -62,5 +107,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

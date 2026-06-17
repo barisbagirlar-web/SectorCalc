@@ -99,18 +99,14 @@
     }
   ],
   "formulas": {
-    "nMin": "Math.log((xd*(1-xb))/(xb*(1-xd)))/Math.log(alpha)",
     "rMin": "(xd - xf)/(xf - xb) * (1 - xb)/(1 - xd)",
-    "nActual": "(r - rMin)/(r + 1) * nMin + nMin",
     "feedLineSlope": "q/(q-1)",
     "feedLineIntercept": "xf/(1-q)",
     "operatingLineSlope": "r/(r+1)",
-    "operatingLineIntercept": "xd/(r+1)",
-    "Slope_of_operating_line__rectifying_sect": "Slope of operating line (rectifying section)",
-    "Intercept_of_operating_line__rectifying_": "Intercept of operating line (rectifying section)"
+    "operatingLineIntercept": "xd/(r+1)"
   },
   "outputs": {
-    "primary": "nActual",
+    "primary": "operatingLineIntercept",
     "breakdown": [
       "nMin: Minimum number of theoretical stages",
       "rMin: Minimum reflux ratio",
@@ -119,7 +115,12 @@
       "feedLineIntercept: Intercept of feed line",
       "operatingLineSlope: Slope of operating line (rectifying section)",
       "operatingLineIntercept: Intercept of operating line (rectifying section)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "operatingLineIntercept"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -129,5 +130,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

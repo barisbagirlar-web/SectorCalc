@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "Vertical height of the retaining wall from base to top."
+      "businessContext": "Vertical height of the retaining wall from base to top.",
+      "label_i18n": {
+        "en": "Wall Height",
+        "tr": "Wall Height",
+        "de": "Wall Height",
+        "fr": "Wall Height",
+        "es": "Wall Height",
+        "ar": "Wall Height"
+      }
     },
     {
       "id": "soilUnitWeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kN/m³",
       "default": 18,
-      "businessContext": "Unit weight of the backfill soil."
+      "businessContext": "Unit weight of the backfill soil.",
+      "label_i18n": {
+        "en": "Soil Unit Weight",
+        "tr": "Soil Unit Weight",
+        "de": "Soil Unit Weight",
+        "fr": "Soil Unit Weight",
+        "es": "Soil Unit Weight",
+        "ar": "Soil Unit Weight"
+      }
     },
     {
       "id": "frictionAngle",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°",
       "default": 30,
-      "businessContext": "Internal friction angle of the soil."
+      "businessContext": "Internal friction angle of the soil.",
+      "label_i18n": {
+        "en": "Friction Angle",
+        "tr": "Friction Angle",
+        "de": "Friction Angle",
+        "fr": "Friction Angle",
+        "es": "Friction Angle",
+        "ar": "Friction Angle"
+      }
     },
     {
       "id": "cohesion",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kPa",
       "default": 0,
-      "businessContext": "Cohesion of the soil. Enter 0 for granular soils."
+      "businessContext": "Cohesion of the soil. Enter 0 for granular soils.",
+      "label_i18n": {
+        "en": "Cohesion",
+        "tr": "Cohesion",
+        "de": "Cohesion",
+        "fr": "Cohesion",
+        "es": "Cohesion",
+        "ar": "Cohesion"
+      }
     },
     {
       "id": "surcharge",
@@ -39,24 +71,34 @@
       "type": "number",
       "unit": "kPa",
       "default": 0,
-      "businessContext": "Uniform surcharge load applied on the backfill surface."
+      "businessContext": "Uniform surcharge load applied on the backfill surface.",
+      "label_i18n": {
+        "en": "Surcharge Load",
+        "tr": "Surcharge Load",
+        "de": "Surcharge Load",
+        "fr": "Surcharge Load",
+        "es": "Surcharge Load",
+        "ar": "Surcharge Load"
+      }
     }
   ],
   "formulas": {
-    "activePressureCoefficient": "(1 - Math.sin(frictionAngle * Math.PI / 180)) / (1 + Math.sin(frictionAngle * Math.PI / 180))",
-    "passivePressureCoefficient": "(1 + Math.sin(frictionAngle * Math.PI / 180)) / (1 - Math.sin(frictionAngle * Math.PI / 180))",
-    "basePressureActive": "((1 - Math.sin(frictionAngle * Math.PI / 180)) / (1 + Math.sin(frictionAngle * Math.PI / 180))) * (soilUnitWeight * height + surcharge)",
-    "totalActiveForce": "((1 - Math.sin(frictionAngle * Math.PI / 180)) / (1 + Math.sin(frictionAngle * Math.PI / 180))) * (0.5 * soilUnitWeight * height ** 2 + surcharge * height)",
-    "momentBaseActive": "((1 - Math.sin(frictionAngle * Math.PI / 180)) / (1 + Math.sin(frictionAngle * Math.PI / 180))) * (soilUnitWeight * height ** 3 / 3 + surcharge * height ** 2 / 2)"
+    "result": "height + soilUnitWeight + frictionAngle",
+    "result_copy": "height + soilUnitWeight + frictionAngle"
   },
   "outputs": {
-    "primary": "totalActiveForce",
+    "primary": "result",
     "breakdown": [
       "activePressureCoefficient",
       "passivePressureCoefficient",
       "basePressureActive",
       "momentBaseActive"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "momentBaseActive"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -66,5 +108,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "tarim",
   "profession": "Ziraat Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

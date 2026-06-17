@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Coefficient of the highest power term in the numerator polynomial."
+      "businessContext": "Coefficient of the highest power term in the numerator polynomial.",
+      "label_i18n": {
+        "en": "Numerator Coefficient",
+        "tr": "Numerator Coefficient",
+        "de": "Numerator Coefficient",
+        "fr": "Numerator Coefficient",
+        "es": "Numerator Coefficient",
+        "ar": "Numerator Coefficient"
+      }
     },
     {
       "id": "numerator_power",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 2,
-      "businessContext": "Exponent of x in the numerator polynomial."
+      "businessContext": "Exponent of x in the numerator polynomial.",
+      "label_i18n": {
+        "en": "Numerator Power",
+        "tr": "Numerator Power",
+        "de": "Numerator Power",
+        "fr": "Numerator Power",
+        "es": "Numerator Power",
+        "ar": "Numerator Power"
+      }
     },
     {
       "id": "denominator_coeff",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Coefficient of the highest power term in the denominator polynomial."
+      "businessContext": "Coefficient of the highest power term in the denominator polynomial.",
+      "label_i18n": {
+        "en": "Denominator Coefficient",
+        "tr": "Denominator Coefficient",
+        "de": "Denominator Coefficient",
+        "fr": "Denominator Coefficient",
+        "es": "Denominator Coefficient",
+        "ar": "Denominator Coefficient"
+      }
     },
     {
       "id": "denominator_power",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Exponent of x in the denominator polynomial."
+      "businessContext": "Exponent of x in the denominator polynomial.",
+      "label_i18n": {
+        "en": "Denominator Power",
+        "tr": "Denominator Power",
+        "de": "Denominator Power",
+        "fr": "Denominator Power",
+        "es": "Denominator Power",
+        "ar": "Denominator Power"
+      }
     },
     {
       "id": "limit_point",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "The value that x approaches in the limit."
+      "businessContext": "The value that x approaches in the limit.",
+      "label_i18n": {
+        "en": "Limit Point (x→a)",
+        "tr": "Limit Point (x→a)",
+        "de": "Limit Point (x→a)",
+        "fr": "Limit Point (x→a)",
+        "es": "Limit Point (x→a)",
+        "ar": "Limit Point (x→a)"
+      }
     },
     {
       "id": "iterations",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Number of times to apply L'Hopital's rule (differentiate numerator and denominator)."
+      "businessContext": "Number of times to apply L'Hopital's rule (differentiate numerator and denominator).",
+      "label_i18n": {
+        "en": "L'Hopital Iterations",
+        "tr": "L'Hopital Iterations",
+        "de": "L'Hopital Iterations",
+        "fr": "L'Hopital Iterations",
+        "es": "L'Hopital Iterations",
+        "ar": "L'Hopital Iterations"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +108,12 @@
     "breakdown": [
       "numerator_derivative",
       "denominator_derivative"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "limit_value"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -70,5 +123,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -71,11 +71,7 @@
     "prop1": "totalWeight > 0 ? (comp1 / totalWeight) * 100 : 0",
     "prop2": "totalWeight > 0 ? (comp2 / totalWeight) * 100 : 0",
     "prop3": "totalWeight > 0 ? (comp3 / totalWeight) * 100 : 0",
-    "prop4": "totalWeight > 0 ? (comp4 / totalWeight) * 100 : 0",
-    "_prop1__": "{prop1}%",
-    "_prop2__": "{prop2}%",
-    "_prop3__": "{prop3}%",
-    "_prop4__": "{prop4}%"
+    "prop4": "totalWeight > 0 ? (comp4 / totalWeight) * 100 : 0"
   },
   "outputs": {
     "primary": "totalWeight",
@@ -84,7 +80,12 @@
       "Component 2: {prop2}%",
       "Component 3: {prop3}%",
       "Component 4: {prop4}%"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "prop4"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -94,5 +95,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

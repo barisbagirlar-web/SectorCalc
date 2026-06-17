@@ -139,11 +139,10 @@
     "leverageDecreased": "leverageDecreased",
     "currentRatioIncreased": "currentRatioIncreased",
     "grossMarginIncreased": "grossMarginIncreased",
-    "assetTurnoverIncreased": "assetTurnoverIncreased",
-    "result": "F-Score"
+    "assetTurnoverIncreased": "assetTurnoverIncreased"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "assetTurnoverIncreased",
     "breakdown": [
       "roaPositive",
       "cfoPositive",
@@ -153,7 +152,12 @@
       "currentRatioIncreased",
       "grossMarginIncreased",
       "assetTurnoverIncreased"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -163,5 +167,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

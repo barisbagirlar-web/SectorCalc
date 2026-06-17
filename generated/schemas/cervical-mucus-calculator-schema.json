@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°C",
       "default": 25,
-      "businessContext": "Proses sıcaklığı"
+      "businessContext": "Proses sıcaklığı",
+      "label_i18n": {
+        "en": "Sıcaklık",
+        "tr": "Sıcaklık",
+        "de": "Sıcaklık",
+        "fr": "Sıcaklık",
+        "es": "Sıcaklık",
+        "ar": "Sıcaklık"
+      }
     },
     {
       "id": "shearRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "1/s",
       "default": 10,
-      "businessContext": "Akışkanın maruz kaldığı kayma hızı"
+      "businessContext": "Akışkanın maruz kaldığı kayma hızı",
+      "label_i18n": {
+        "en": "Kayma Hızı",
+        "tr": "Kayma Hızı",
+        "de": "Kayma Hızı",
+        "fr": "Kayma Hızı",
+        "es": "Kayma Hızı",
+        "ar": "Kayma Hızı"
+      }
     },
     {
       "id": "consistencyIndex",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Pa·s^n",
       "default": 0.5,
-      "businessContext": "Power-law modeli tutarlılık katsayısı"
+      "businessContext": "Power-law modeli tutarlılık katsayısı",
+      "label_i18n": {
+        "en": "Kıvam İndisi",
+        "tr": "Kıvam İndisi",
+        "de": "Kıvam İndisi",
+        "fr": "Kıvam İndisi",
+        "es": "Kıvam İndisi",
+        "ar": "Kıvam İndisi"
+      }
     },
     {
       "id": "flowBehaviorIndex",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "boyutsuz",
       "default": 0.8,
-      "businessContext": "Power-law modeli akışkanlık katsayısı"
+      "businessContext": "Power-law modeli akışkanlık katsayısı",
+      "label_i18n": {
+        "en": "Akış Davranış İndisi",
+        "tr": "Akış Davranış İndisi",
+        "de": "Akış Davranış İndisi",
+        "fr": "Akış Davranış İndisi",
+        "es": "Akış Davranış İndisi",
+        "ar": "Akış Davranış İndisi"
+      }
     },
     {
       "id": "density",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1000,
-      "businessContext": "Akışkan yoğunluğu"
+      "businessContext": "Akışkan yoğunluğu",
+      "label_i18n": {
+        "en": "Yoğunluk",
+        "tr": "Yoğunluk",
+        "de": "Yoğunluk",
+        "fr": "Yoğunluk",
+        "es": "Yoğunluk",
+        "ar": "Yoğunluk"
+      }
     },
     {
       "id": "flowRate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "m³/s",
       "default": 0.0001,
-      "businessContext": "Hacimsel akış hızı"
+      "businessContext": "Hacimsel akış hızı",
+      "label_i18n": {
+        "en": "Debi",
+        "tr": "Debi",
+        "de": "Debi",
+        "fr": "Debi",
+        "es": "Debi",
+        "ar": "Debi"
+      }
     },
     {
       "id": "pipeDiameter",
@@ -55,20 +103,32 @@
       "type": "number",
       "unit": "m",
       "default": 0.05,
-      "businessContext": "Taşıma borusu iç çapı"
+      "businessContext": "Taşıma borusu iç çapı",
+      "label_i18n": {
+        "en": "Boru Çapı",
+        "tr": "Boru Çapı",
+        "de": "Boru Çapı",
+        "fr": "Boru Çapı",
+        "es": "Boru Çapı",
+        "ar": "Boru Çapı"
+      }
     }
   ],
   "formulas": {
-    "apparentViscosity": "consistencyIndex * Math.pow(shearRate, flowBehaviorIndex - 1)",
-    "reynoldsNumber": "(density * (flowRate / (Math.PI * Math.pow(pipeDiameter/2,2))) * pipeDiameter) / (consistencyIndex * Math.pow(shearRate, flowBehaviorIndex - 1))",
-    "flowRegime": "reynoldsNumber < 2100 ? 'Laminar' : reynoldsNumber > 4000 ? 'Turbulent' : 'Geçiş'"
+    "result": "temperature + shearRate + consistencyIndex",
+    "result_copy": "temperature + shearRate + consistencyIndex"
   },
   "outputs": {
-    "primary": "apparentViscosity",
+    "primary": "result",
     "breakdown": [
       "reynoldsNumber",
       "flowRegime"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "flowRegime"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -78,5 +138,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

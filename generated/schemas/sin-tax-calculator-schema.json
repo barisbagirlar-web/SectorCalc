@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 100,
-      "businessContext": "Ürünün vergi öncesi birim fiyatı"
+      "businessContext": "Ürünün vergi öncesi birim fiyatı",
+      "label_i18n": {
+        "en": "Vergisiz Birim Fiyat",
+        "tr": "Vergisiz Birim Fiyat",
+        "de": "Vergisiz Birim Fiyat",
+        "fr": "Vergisiz Birim Fiyat",
+        "es": "Vergisiz Birim Fiyat",
+        "ar": "Vergisiz Birim Fiyat"
+      }
     },
     {
       "id": "sinTaxRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 25,
-      "businessContext": "Özel Tüketim Vergisi oranı"
+      "businessContext": "Özel Tüketim Vergisi oranı",
+      "label_i18n": {
+        "en": "ÖTV Oranı",
+        "tr": "ÖTV Oranı",
+        "de": "ÖTV Oranı",
+        "fr": "ÖTV Oranı",
+        "es": "ÖTV Oranı",
+        "ar": "ÖTV Oranı"
+      }
     },
     {
       "id": "vatRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 18,
-      "businessContext": "Katma Değer Vergisi oranı"
+      "businessContext": "Katma Değer Vergisi oranı",
+      "label_i18n": {
+        "en": "KDV Oranı",
+        "tr": "KDV Oranı",
+        "de": "KDV Oranı",
+        "fr": "KDV Oranı",
+        "es": "KDV Oranı",
+        "ar": "KDV Oranı"
+      }
     },
     {
       "id": "quantity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Ürün miktarı"
+      "businessContext": "Ürün miktarı",
+      "label_i18n": {
+        "en": "Miktar",
+        "tr": "Miktar",
+        "de": "Miktar",
+        "fr": "Miktar",
+        "es": "Miktar",
+        "ar": "Miktar"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "sinTaxAmount",
       "vatAmount",
       "totalBeforeVat"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalBeforeVat"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -56,5 +93,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

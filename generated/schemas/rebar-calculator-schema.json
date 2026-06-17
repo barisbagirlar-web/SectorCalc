@@ -112,7 +112,12 @@
       "weightPerMeterUsed",
       "netWeightKg",
       "wastageWeightKg"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalWeightKg"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -122,5 +127,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

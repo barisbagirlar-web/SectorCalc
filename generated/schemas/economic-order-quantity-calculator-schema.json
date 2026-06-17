@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet/yıl",
       "default": 10000,
-      "businessContext": "Yıllık olarak satılan veya üretimde kullanılan malzeme miktarı."
+      "businessContext": "Yıllık olarak satılan veya üretimde kullanılan malzeme miktarı.",
+      "label_i18n": {
+        "en": "Yıllık Talep Miktarı",
+        "tr": "Yıllık Talep Miktarı",
+        "de": "Yıllık Talep Miktarı",
+        "fr": "Yıllık Talep Miktarı",
+        "es": "Yıllık Talep Miktarı",
+        "ar": "Yıllık Talep Miktarı"
+      }
     },
     {
       "id": "orderingCost",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "TL/sipariş",
       "default": 50,
-      "businessContext": "Bir siparişin verilme ve teslim alma ile ilgili tüm masraflar."
+      "businessContext": "Bir siparişin verilme ve teslim alma ile ilgili tüm masraflar.",
+      "label_i18n": {
+        "en": "Sipariş Maliyeti",
+        "tr": "Sipariş Maliyeti",
+        "de": "Sipariş Maliyeti",
+        "fr": "Sipariş Maliyeti",
+        "es": "Sipariş Maliyeti",
+        "ar": "Sipariş Maliyeti"
+      }
     },
     {
       "id": "holdingCost",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "TL/birim/yıl",
       "default": 2,
-      "businessContext": "Bir birim stoğun bir yıl boyunca depolanmasının maliyeti (sigorta, yıpranma, fırsat maliyeti vb.)."
+      "businessContext": "Bir birim stoğun bir yıl boyunca depolanmasının maliyeti (sigorta, yıpranma, fırsat maliyeti vb.).",
+      "label_i18n": {
+        "en": "Stokta Tutma Maliyeti",
+        "tr": "Stokta Tutma Maliyeti",
+        "de": "Stokta Tutma Maliyeti",
+        "fr": "Stokta Tutma Maliyeti",
+        "es": "Stokta Tutma Maliyeti",
+        "ar": "Stokta Tutma Maliyeti"
+      }
     },
     {
       "id": "unitCost",
@@ -31,24 +55,34 @@
       "type": "number",
       "unit": "TL/birim",
       "default": 10,
-      "businessContext": "Satın alınan veya üretilen malzemenin birim başına maliyeti."
+      "businessContext": "Satın alınan veya üretilen malzemenin birim başına maliyeti.",
+      "label_i18n": {
+        "en": "Birim Maliyeti",
+        "tr": "Birim Maliyeti",
+        "de": "Birim Maliyeti",
+        "fr": "Birim Maliyeti",
+        "es": "Birim Maliyeti",
+        "ar": "Birim Maliyeti"
+      }
     }
   ],
   "formulas": {
-    "economicOrderQuantity": "Math.sqrt(2 * annualDemand * orderingCost / holdingCost)",
-    "totalAnnualOrderingCost": "(annualDemand / economicOrderQuantity) * orderingCost",
-    "totalAnnualHoldingCost": "(economicOrderQuantity / 2) * holdingCost",
     "totalAnnualPurchaseCost": "annualDemand * unitCost",
-    "totalAnnualInventoryCost": "totalAnnualOrderingCost + totalAnnualHoldingCost + totalAnnualPurchaseCost"
+    "totalAnnualPurchaseCost_aux": "annualDemand * unitCost"
   },
   "outputs": {
-    "primary": "economicOrderQuantity",
+    "primary": "totalAnnualPurchaseCost_aux",
     "breakdown": [
       "totalAnnualOrderingCost",
       "totalAnnualHoldingCost",
       "totalAnnualPurchaseCost",
       "totalAnnualInventoryCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalAnnualInventoryCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -58,5 +92,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

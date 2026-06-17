@@ -68,26 +68,21 @@
   ],
   "formulas": {
     "decimal": "percentValue / 100",
-    "pow10": "Math.pow(10, precision)",
-    "numeratorRaw": "Math.round(percentValue * pow10)",
-    "denominatorRaw": "100 * pow10",
-    "whole": "mixedNumber ? Math.floor(numeratorRaw / denominatorRaw) : 0",
-    "numeratorFrac": "mixedNumber ? (numeratorRaw - whole * denominatorRaw) : numeratorRaw",
-    "denominatorFrac": "denominatorRaw",
-    "__decimal_": "${decimal}",
-    "__numeratorRaw____denominatorRaw_": "${numeratorRaw}/${denominatorRaw}",
-    "bu_s_r_mde_otomatik_sadele_tirme_yap_lma": "bu sürümde otomatik sadeleştirme yapılmadı",
-    "__mixedNumber____whole___0______whole__t": "${mixedNumber ? (whole > 0 ? `${whole} tam ${numeratorFrac}/${denominatorFrac}` : `${numeratorFrac}/${denominatorFrac}`) : 'kapalı'}",
-    "result": "mixedNumber && whole > 0 ? `${whole} ${numeratorFrac}/${denominatorFrac}` : `${numeratorFrac}/${denominatorFrac}`"
+    "decimal_aux": "percentValue / 100"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "decimal_aux",
     "breakdown": [
       "Yüzde değeri ondalık sayıya çevrildi: ${decimal}",
       "Kesir olarak yazıldı (${precision} ondalık basamak ile): ${numeratorRaw}/${denominatorRaw}",
       "Sadeleştirme: bu sürümde otomatik sadeleştirme yapılmadı",
       "Tam sayılı kesir gösterimi: ${mixedNumber ? (whole > 0 ? `${whole} tam ${numeratorFrac}/${denominatorFrac}` : `${numeratorFrac}/${denominatorFrac}`) : 'kapalı'}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "denominatorFrac"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -97,5 +92,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

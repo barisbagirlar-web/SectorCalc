@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 1000,
-      "businessContext": "The monetary value of the contract or transaction document."
+      "businessContext": "The monetary value of the contract or transaction document.",
+      "label_i18n": {
+        "en": "Document Value",
+        "tr": "Document Value",
+        "de": "Document Value",
+        "fr": "Document Value",
+        "es": "Document Value",
+        "ar": "Document Value"
+      }
     },
     {
       "id": "stampDutyRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 0.5,
-      "businessContext": "Applicable stamp duty percentage based on jurisdiction and document type."
+      "businessContext": "Applicable stamp duty percentage based on jurisdiction and document type.",
+      "label_i18n": {
+        "en": "Stamp Duty Rate",
+        "tr": "Stamp Duty Rate",
+        "de": "Stamp Duty Rate",
+        "fr": "Stamp Duty Rate",
+        "es": "Stamp Duty Rate",
+        "ar": "Stamp Duty Rate"
+      }
     },
     {
       "id": "fixedFee",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 0,
-      "businessContext": "Fixed administrative fee for stamping, if any."
+      "businessContext": "Fixed administrative fee for stamping, if any.",
+      "label_i18n": {
+        "en": "Fixed Fee",
+        "tr": "Fixed Fee",
+        "de": "Fixed Fee",
+        "fr": "Fixed Fee",
+        "es": "Fixed Fee",
+        "ar": "Fixed Fee"
+      }
     },
     {
       "id": "exemptionThreshold",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 0,
-      "businessContext": "Minimum document value below which no stamp duty applies."
+      "businessContext": "Minimum document value below which no stamp duty applies.",
+      "label_i18n": {
+        "en": "Exemption Threshold",
+        "tr": "Exemption Threshold",
+        "de": "Exemption Threshold",
+        "fr": "Exemption Threshold",
+        "es": "Exemption Threshold",
+        "ar": "Exemption Threshold"
+      }
     },
     {
       "id": "quantity",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "pieces",
       "default": 1,
-      "businessContext": "Number of stamping instances for bulk calculations."
+      "businessContext": "Number of stamping instances for bulk calculations.",
+      "label_i18n": {
+        "en": "Number of Stamps",
+        "tr": "Number of Stamps",
+        "de": "Number of Stamps",
+        "fr": "Number of Stamps",
+        "es": "Number of Stamps",
+        "ar": "Number of Stamps"
+      }
     }
   ],
   "formulas": {
@@ -50,7 +90,12 @@
     "primary": "totalCost",
     "breakdown": [
       "dutyPerUnit"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -60,5 +105,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "metal",
   "profession": "Sac Teknisyeni",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

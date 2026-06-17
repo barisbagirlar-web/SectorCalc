@@ -67,12 +67,11 @@
     }
   ],
   "formulas": {
-    "plateau": "(outputAfterPeriod - initialOutput * Math.exp(-learningRate * timePeriod)) / (1 - Math.exp(-learningRate * timePeriod))",
-    "approachPercent": "(outputAfterPeriod / ((outputAfterPeriod - initialOutput * Math.exp(-learningRate * timePeriod)) / (1 - Math.exp(-learningRate * timePeriod)))) * 100",
-    "timeTo95": "-(Math.log(0.05)) / learningRate"
+    "result": "initialOutput + outputAfterPeriod + timePeriod",
+    "result_copy": "initialOutput + outputAfterPeriod + timePeriod"
   },
   "outputs": {
-    "primary": "plateau",
+    "primary": "result",
     "breakdown": [
       {
         "id": "approachPercent",
@@ -86,7 +85,12 @@
         "unit": "hafta",
         "formula": "timeTo95"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "timeTo95"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -96,5 +100,10 @@
   "sectorSlug": "cleaning",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

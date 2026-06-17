@@ -68,15 +68,19 @@
   ],
   "formulas": {
     "totalNanograms": "nanograms * batchSize",
-    "rawMicrograms": "totalNanograms / conversionFactor",
-    "micrograms": "Math.round(rawMicrograms * Math.pow(10, precision)) / Math.pow(10, precision)"
+    "rawMicrograms": "totalNanograms / conversionFactor"
   },
   "outputs": {
-    "primary": "micrograms",
+    "primary": "rawMicrograms",
     "breakdown": [
       "totalNanograms",
       "rawMicrograms"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "micrograms"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -86,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

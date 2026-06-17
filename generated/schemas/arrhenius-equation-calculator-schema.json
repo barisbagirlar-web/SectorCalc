@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "K",
       "default": 298.15,
-      "businessContext": "Absolute temperature in Kelvin."
+      "businessContext": "Absolute temperature in Kelvin.",
+      "label_i18n": {
+        "en": "Temperature (T)",
+        "tr": "Temperature (T)",
+        "de": "Temperature (T)",
+        "fr": "Temperature (T)",
+        "es": "Temperature (T)",
+        "ar": "Temperature (T)"
+      }
     },
     {
       "id": "activationEnergy",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "J/mol",
       "default": 50000,
-      "businessContext": "Activation energy barrier in joules per mole."
+      "businessContext": "Activation energy barrier in joules per mole.",
+      "label_i18n": {
+        "en": "Activation Energy (Ea)",
+        "tr": "Activation Energy (Ea)",
+        "de": "Activation Energy (Ea)",
+        "fr": "Activation Energy (Ea)",
+        "es": "Activation Energy (Ea)",
+        "ar": "Activation Energy (Ea)"
+      }
     },
     {
       "id": "preExpFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "s⁻¹",
       "default": 10000000000,
-      "businessContext": "Frequency factor for the reaction."
+      "businessContext": "Frequency factor for the reaction.",
+      "label_i18n": {
+        "en": "Pre-exponential Factor (A)",
+        "tr": "Pre-exponential Factor (A)",
+        "de": "Pre-exponential Factor (A)",
+        "fr": "Pre-exponential Factor (A)",
+        "es": "Pre-exponential Factor (A)",
+        "ar": "Pre-exponential Factor (A)"
+      }
     },
     {
       "id": "gasConstant",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "J/(mol·K)",
       "default": 8.314,
-      "businessContext": "Universal gas constant."
+      "businessContext": "Universal gas constant.",
+      "label_i18n": {
+        "en": "Gas Constant (R)",
+        "tr": "Gas Constant (R)",
+        "de": "Gas Constant (R)",
+        "fr": "Gas Constant (R)",
+        "es": "Gas Constant (R)",
+        "ar": "Gas Constant (R)"
+      }
     }
   ],
   "formulas": {
     "expArg": "-activationEnergy / (gasConstant * temperature)",
-    "expTerm": "Math.exp(expArg)",
-    "rateConstant": "preExpFactor * expTerm"
+    "expArg_aux": "-activationEnergy / (gasConstant * temperature)"
   },
   "outputs": {
-    "primary": "rateConstant",
+    "primary": "expArg_aux",
     "breakdown": [
       "expArg",
       "expTerm"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "rateConstant"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -54,5 +90,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "kimya",
   "profession": "Proses Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

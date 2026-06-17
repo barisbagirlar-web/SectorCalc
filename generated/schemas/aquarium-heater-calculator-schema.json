@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "L",
       "default": 100,
-      "businessContext": "Volume of water in the aquarium, determining thermal mass"
+      "businessContext": "Volume of water in the aquarium, determining thermal mass",
+      "label_i18n": {
+        "en": "Tank Volume",
+        "tr": "Tank Volume",
+        "de": "Tank Volume",
+        "fr": "Tank Volume",
+        "es": "Tank Volume",
+        "ar": "Tank Volume"
+      }
     },
     {
       "id": "targetTemp",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°C",
       "default": 26,
-      "businessContext": "Desired water temperature for aquatic species"
+      "businessContext": "Desired water temperature for aquatic species",
+      "label_i18n": {
+        "en": "Target Temperature",
+        "tr": "Target Temperature",
+        "de": "Target Temperature",
+        "fr": "Target Temperature",
+        "es": "Target Temperature",
+        "ar": "Target Temperature"
+      }
     },
     {
       "id": "roomTemp",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Surrounding ambient temperature affecting heat loss"
+      "businessContext": "Surrounding ambient temperature affecting heat loss",
+      "label_i18n": {
+        "en": "Room Temperature",
+        "tr": "Room Temperature",
+        "de": "Room Temperature",
+        "fr": "Room Temperature",
+        "es": "Room Temperature",
+        "ar": "Room Temperature"
+      }
     },
     {
       "id": "heatingTime",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "h",
       "default": 24,
-      "businessContext": "Time allowed for initial heating or temperature recovery"
+      "businessContext": "Time allowed for initial heating or temperature recovery",
+      "label_i18n": {
+        "en": "Heating Time",
+        "tr": "Heating Time",
+        "de": "Heating Time",
+        "fr": "Heating Time",
+        "es": "Heating Time",
+        "ar": "Heating Time"
+      }
     },
     {
       "id": "efficiency",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 85,
-      "businessContext": "Overall efficiency accounting for heat loss through glass and evaporation"
+      "businessContext": "Overall efficiency accounting for heat loss through glass and evaporation",
+      "label_i18n": {
+        "en": "System Efficiency",
+        "tr": "System Efficiency",
+        "de": "System Efficiency",
+        "fr": "System Efficiency",
+        "es": "System Efficiency",
+        "ar": "System Efficiency"
+      }
     },
     {
       "id": "safetyMargin",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Additional capacity to ensure stable temperature under varying conditions"
+      "businessContext": "Additional capacity to ensure stable temperature under varying conditions",
+      "label_i18n": {
+        "en": "Safety Margin",
+        "tr": "Safety Margin",
+        "de": "Safety Margin",
+        "fr": "Safety Margin",
+        "es": "Safety Margin",
+        "ar": "Safety Margin"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
       "tempRise",
       "heatEnergy",
       "requiredWattage"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "recommendedWattage"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -72,5 +125,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -70,19 +70,20 @@
     "avg_bs_mgdl": "(fasting_bs + postprandial_bs + random_bs) / 3",
     "avg_bs_mmol": "avg_bs_mgdl / 18.0182",
     "estimated_a1c": "(avg_bs_mgdl + 46.7) / 28.7",
-    "eag_from_a1c": "28.7 * a1c - 46.7",
-    "__estimated_a1c__": "${estimated_a1c}%",
-    "__eag_from_a1c__mg_dL": "${eag_from_a1c} mg/dL",
-    "__avg_bs_mmol__mmol_L": "${avg_bs_mmol} mmol/L",
-    "result": "Average Blood Sugar: ${avg_bs_mgdl} mg/dL"
+    "eag_from_a1c": "28.7 * a1c - 46.7"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "eag_from_a1c",
     "breakdown": [
       "Estimated HbA1c: ${estimated_a1c}%",
       "eAG from A1c: ${eag_from_a1c} mg/dL",
       "Blood Sugar in mmol/L: ${avg_bs_mmol} mmol/L"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "eag_from_a1c"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -92,5 +93,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

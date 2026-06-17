@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100000,
-      "businessContext": "Desired take-home annual salary"
+      "businessContext": "Desired take-home annual salary",
+      "label_i18n": {
+        "en": "Annual Salary",
+        "tr": "Annual Salary",
+        "de": "Annual Salary",
+        "fr": "Annual Salary",
+        "es": "Annual Salary",
+        "ar": "Annual Salary"
+      }
     },
     {
       "id": "workingDaysPerYear",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "days",
       "default": 230,
-      "businessContext": "Number of billable/working days in a year"
+      "businessContext": "Number of billable/working days in a year",
+      "label_i18n": {
+        "en": "Working Days per Year",
+        "tr": "Working Days per Year",
+        "de": "Working Days per Year",
+        "fr": "Working Days per Year",
+        "es": "Working Days per Year",
+        "ar": "Working Days per Year"
+      }
     },
     {
       "id": "overheadPercentage",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 30,
-      "businessContext": "Overhead costs as percentage of salary (e.g., rent, utilities)"
+      "businessContext": "Overhead costs as percentage of salary (e.g., rent, utilities)",
+      "label_i18n": {
+        "en": "Overhead Percentage",
+        "tr": "Overhead Percentage",
+        "de": "Overhead Percentage",
+        "fr": "Overhead Percentage",
+        "es": "Overhead Percentage",
+        "ar": "Overhead Percentage"
+      }
     },
     {
       "id": "profitMarginPercentage",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Target profit margin on top of costs"
+      "businessContext": "Target profit margin on top of costs",
+      "label_i18n": {
+        "en": "Profit Margin",
+        "tr": "Profit Margin",
+        "de": "Profit Margin",
+        "fr": "Profit Margin",
+        "es": "Profit Margin",
+        "ar": "Profit Margin"
+      }
     },
     {
       "id": "billableHoursPerDay",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "hours",
       "default": 8,
-      "businessContext": "Average billable hours per working day"
+      "businessContext": "Average billable hours per working day",
+      "label_i18n": {
+        "en": "Billable Hours per Day",
+        "tr": "Billable Hours per Day",
+        "de": "Billable Hours per Day",
+        "fr": "Billable Hours per Day",
+        "es": "Billable Hours per Day",
+        "ar": "Billable Hours per Day"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "hourlyRate",
       "totalAnnualCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalAnnualCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -62,5 +107,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

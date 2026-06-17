@@ -87,18 +87,22 @@
     "pct2": "(mass1+mass2+mass3+mass4+mass5) === 0 ? 0 : (mass2 / (mass1+mass2+mass3+mass4+mass5)) * 100",
     "pct3": "(mass1+mass2+mass3+mass4+mass5) === 0 ? 0 : (mass3 / (mass1+mass2+mass3+mass4+mass5)) * 100",
     "pct4": "(mass1+mass2+mass3+mass4+mass5) === 0 ? 0 : (mass4 / (mass1+mass2+mass3+mass4+mass5)) * 100",
-    "pct5": "(mass1+mass2+mass3+mass4+mass5) === 0 ? 0 : (mass5 / (mass1+mass2+mass3+mass4+mass5)) * 100",
-    "all": "(mass1+mass2+mass3+mass4+mass5) === 0 ? [0,0,0,0,0] : [(mass1/(mass1+mass2+mass3+mass4+mass5))*100, (mass2/(mass1+mass2+mass3+mass4+mass5))*100, (mass3/(mass1+mass2+mass3+mass4+mass5))*100, (mass4/(mass1+mass2+mass3+mass4+mass5))*100, (mass5/(mass1+mass2+mass3+mass4+mass5))*100]"
+    "pct5": "(mass1+mass2+mass3+mass4+mass5) === 0 ? 0 : (mass5 / (mass1+mass2+mass3+mass4+mass5)) * 100"
   },
   "outputs": {
-    "primary": "all",
+    "primary": "pct5",
     "breakdown": [
       "pct1",
       "pct2",
       "pct3",
       "pct4",
       "pct5"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "pct5"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -108,5 +112,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

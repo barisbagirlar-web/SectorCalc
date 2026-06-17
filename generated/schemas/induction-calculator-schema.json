@@ -117,9 +117,7 @@
   "formulas": {
     "synchronousSpeed": "120 * frequency / poles",
     "rotorSpeed": "synchronousSpeed * (1 - slip / 100)",
-    "torque": "(outputPower * 9550) / rotorSpeed",
-    "inputPower": "voltage * current * powerFactor * Math.sqrt(3) / 1000",
-    "efficiency": "(outputPower / inputPower) * 100"
+    "torque": "(outputPower * 9550) / rotorSpeed"
   },
   "outputs": {
     "primary": "torque",
@@ -128,7 +126,12 @@
       "rotorSpeed",
       "inputPower",
       "efficiency"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "efficiency"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -138,5 +141,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

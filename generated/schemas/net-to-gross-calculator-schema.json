@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 1000,
-      "businessContext": "The net amount after deductions"
+      "businessContext": "The net amount after deductions",
+      "label_i18n": {
+        "en": "Net Amount",
+        "tr": "Net Amount",
+        "de": "Net Amount",
+        "fr": "Net Amount",
+        "es": "Net Amount",
+        "ar": "Net Amount"
+      }
     },
     {
       "id": "taxRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Tax rate applied to gross amount"
+      "businessContext": "Tax rate applied to gross amount",
+      "label_i18n": {
+        "en": "Tax Rate",
+        "tr": "Tax Rate",
+        "de": "Tax Rate",
+        "fr": "Tax Rate",
+        "es": "Tax Rate",
+        "ar": "Tax Rate"
+      }
     },
     {
       "id": "socialInsuranceRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Social insurance contribution rate on gross"
+      "businessContext": "Social insurance contribution rate on gross",
+      "label_i18n": {
+        "en": "Social Insurance Rate",
+        "tr": "Social Insurance Rate",
+        "de": "Social Insurance Rate",
+        "fr": "Social Insurance Rate",
+        "es": "Social Insurance Rate",
+        "ar": "Social Insurance Rate"
+      }
     },
     {
       "id": "additionalDeductionRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Other deduction rate (e.g., union fees) from gross"
+      "businessContext": "Other deduction rate (e.g., union fees) from gross",
+      "label_i18n": {
+        "en": "Additional Deduction Rate",
+        "tr": "Additional Deduction Rate",
+        "de": "Additional Deduction Rate",
+        "fr": "Additional Deduction Rate",
+        "es": "Additional Deduction Rate",
+        "ar": "Additional Deduction Rate"
+      }
     },
     {
       "id": "otherDeductionsFixed",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Fixed amount deductions before rate deduction"
+      "businessContext": "Fixed amount deductions before rate deduction",
+      "label_i18n": {
+        "en": "Other Fixed Deductions",
+        "tr": "Other Fixed Deductions",
+        "de": "Other Fixed Deductions",
+        "fr": "Other Fixed Deductions",
+        "es": "Other Fixed Deductions",
+        "ar": "Other Fixed Deductions"
+      }
     }
   ],
   "formulas": {
@@ -58,7 +98,12 @@
       "additionalDeductionAmount",
       "otherDeductionsFixed",
       "totalDeductions"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalDeductions"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -68,5 +113,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

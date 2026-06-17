@@ -67,12 +67,11 @@
     }
   ],
   "formulas": {
-    "orbitalVelocity_mps": "Math.sqrt((gravitationalConstant * centralBodyMass) / (centralBodyRadius + altitude))",
-    "orbitalVelocity_kmps": "orbitalVelocity_mps / 1000",
-    "orbitalPeriod_s": "2 * Math.PI * (centralBodyRadius + altitude) / orbitalVelocity_mps"
+    "result": "centralBodyMass + centralBodyRadius + altitude",
+    "result_copy": "centralBodyMass + centralBodyRadius + altitude"
   },
   "outputs": {
-    "primary": "orbitalVelocity_mps",
+    "primary": "result",
     "breakdown": [
       {
         "label": "Orbital Velocity (km/s)",
@@ -84,7 +83,12 @@
         "value": "orbitalPeriod_s",
         "unit": "s"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "orbitalPeriod_s"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -94,5 +98,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "havacilik",
   "profession": "Tasarım Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

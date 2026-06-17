@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 67,
-      "businessContext": "The age at which you can receive full Social Security retirement benefits."
+      "businessContext": "The age at which you can receive full Social Security retirement benefits.",
+      "label_i18n": {
+        "en": "Full Retirement Age",
+        "tr": "Full Retirement Age",
+        "de": "Full Retirement Age",
+        "fr": "Full Retirement Age",
+        "es": "Full Retirement Age",
+        "ar": "Full Retirement Age"
+      }
     },
     {
       "id": "plannedRetirementAge",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "years",
       "default": 70,
-      "businessContext": "The age at which you plan to start claiming benefits."
+      "businessContext": "The age at which you plan to start claiming benefits.",
+      "label_i18n": {
+        "en": "Planned Retirement Age",
+        "tr": "Planned Retirement Age",
+        "de": "Planned Retirement Age",
+        "fr": "Planned Retirement Age",
+        "es": "Planned Retirement Age",
+        "ar": "Planned Retirement Age"
+      }
     },
     {
       "id": "primaryInsuranceAmount",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD/month",
       "default": 2000,
-      "businessContext": "Your monthly benefit at full retirement age."
+      "businessContext": "Your monthly benefit at full retirement age.",
+      "label_i18n": {
+        "en": "Primary Insurance Amount (PIA)",
+        "tr": "Primary Insurance Amount (PIA)",
+        "de": "Primary Insurance Amount (PIA)",
+        "fr": "Primary Insurance Amount (PIA)",
+        "es": "Primary Insurance Amount (PIA)",
+        "ar": "Primary Insurance Amount (PIA)"
+      }
     },
     {
       "id": "annualDelayCreditRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 8,
-      "businessContext": "The percentage increase in benefits for each year of delay past full retirement age."
+      "businessContext": "The percentage increase in benefits for each year of delay past full retirement age.",
+      "label_i18n": {
+        "en": "Annual Delay Credit Rate",
+        "tr": "Annual Delay Credit Rate",
+        "de": "Annual Delay Credit Rate",
+        "fr": "Annual Delay Credit Rate",
+        "es": "Annual Delay Credit Rate",
+        "ar": "Annual Delay Credit Rate"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "delayYears",
       "benefitIncreaseFactor",
       "percentageIncrease"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "percentageIncrease"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -56,5 +93,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

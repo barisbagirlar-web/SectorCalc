@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Sum of scores for 9 EE items (0-6 scale)"
+      "businessContext": "Sum of scores for 9 EE items (0-6 scale)",
+      "label_i18n": {
+        "en": "Emotional Exhaustion Total Score",
+        "tr": "Emotional Exhaustion Total Score",
+        "de": "Emotional Exhaustion Total Score",
+        "fr": "Emotional Exhaustion Total Score",
+        "es": "Emotional Exhaustion Total Score",
+        "ar": "Emotional Exhaustion Total Score"
+      }
     },
     {
       "id": "dpScore",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Sum of scores for 5 DP items (0-6 scale)"
+      "businessContext": "Sum of scores for 5 DP items (0-6 scale)",
+      "label_i18n": {
+        "en": "Depersonalization Total Score",
+        "tr": "Depersonalization Total Score",
+        "de": "Depersonalization Total Score",
+        "fr": "Depersonalization Total Score",
+        "es": "Depersonalization Total Score",
+        "ar": "Depersonalization Total Score"
+      }
     },
     {
       "id": "paScore",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Sum of scores for 8 PA items (0-6 scale)"
+      "businessContext": "Sum of scores for 8 PA items (0-6 scale)",
+      "label_i18n": {
+        "en": "Personal Accomplishment Total Score",
+        "tr": "Personal Accomplishment Total Score",
+        "de": "Personal Accomplishment Total Score",
+        "fr": "Personal Accomplishment Total Score",
+        "es": "Personal Accomplishment Total Score",
+        "ar": "Personal Accomplishment Total Score"
+      }
     },
     {
       "id": "eeItems",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "items",
       "default": 9,
-      "businessContext": "Typically 9 items in MBI-HSS"
+      "businessContext": "Typically 9 items in MBI-HSS",
+      "label_i18n": {
+        "en": "Number of Emotional Exhaustion Items",
+        "tr": "Number of Emotional Exhaustion Items",
+        "de": "Number of Emotional Exhaustion Items",
+        "fr": "Number of Emotional Exhaustion Items",
+        "es": "Number of Emotional Exhaustion Items",
+        "ar": "Number of Emotional Exhaustion Items"
+      }
     },
     {
       "id": "dpItems",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "items",
       "default": 5,
-      "businessContext": "Typically 5 items in MBI-HSS"
+      "businessContext": "Typically 5 items in MBI-HSS",
+      "label_i18n": {
+        "en": "Number of Depersonalization Items",
+        "tr": "Number of Depersonalization Items",
+        "de": "Number of Depersonalization Items",
+        "fr": "Number of Depersonalization Items",
+        "es": "Number of Depersonalization Items",
+        "ar": "Number of Depersonalization Items"
+      }
     },
     {
       "id": "paItems",
@@ -47,22 +87,34 @@
       "type": "number",
       "unit": "items",
       "default": 8,
-      "businessContext": "Typically 8 items in MBI-HSS"
+      "businessContext": "Typically 8 items in MBI-HSS",
+      "label_i18n": {
+        "en": "Number of Personal Accomplishment Items",
+        "tr": "Number of Personal Accomplishment Items",
+        "de": "Number of Personal Accomplishment Items",
+        "fr": "Number of Personal Accomplishment Items",
+        "es": "Number of Personal Accomplishment Items",
+        "ar": "Number of Personal Accomplishment Items"
+      }
     }
   ],
   "formulas": {
     "avgEE": "eeScore / eeItems",
     "avgDP": "dpScore / dpItems",
-    "avgPA": "paScore / paItems",
-    "riskCategory": "((avgEE>=3.5?1:0)+(avgDP>=3.5?1:0)+(avgPA<=3.5?1:0))>=2?'High Risk':((avgEE>=3.5?1:0)+(avgDP>=3.5?1:0)+(avgPA<=3.5?1:0))>=1?'Moderate Risk':'Low Risk'"
+    "avgPA": "paScore / paItems"
   },
   "outputs": {
-    "primary": "riskCategory",
+    "primary": "avgPA",
     "breakdown": [
       "avgEE",
       "avgDP",
       "avgPA"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "riskCategory"
   },
   "category": "Lojistik & Tedarik Zinciri",
   "sector": "Lojistik & Sevkiyat",
@@ -72,5 +124,10 @@
   "categorySlug": "procurement-supply-chain",
   "sectorId": "lojistik",
   "profession": "Lojistik Uzmanı",
-  "categoryId": "logistics"
+  "categoryId": "logistics",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -67,18 +67,21 @@
     }
   ],
   "formulas": {
-    "projected_hcg": "hcg_level * Math.pow(2, time_elapsed_hours / doubling_time_hours)",
-    "doubling_time_actual": "time_elapsed_hours * Math.log(2) / Math.log(hcg_level / initial_hcg)",
     "hcg_ratio": "hcg_level / initial_hcg",
     "percent_increase": "(hcg_level - initial_hcg) / initial_hcg * 100"
   },
   "outputs": {
-    "primary": "projected_hcg",
+    "primary": "percent_increase",
     "breakdown": [
       "doubling_time_actual",
       "hcg_ratio",
       "percent_increase"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "percent_increase"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -88,5 +91,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

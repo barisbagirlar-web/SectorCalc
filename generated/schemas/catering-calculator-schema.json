@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kişi",
       "default": 50,
-      "businessContext": "Katılım sayısı"
+      "businessContext": "Katılım sayısı",
+      "label_i18n": {
+        "en": "Misafir Sayısı",
+        "tr": "Misafir Sayısı",
+        "de": "Misafir Sayısı",
+        "fr": "Misafir Sayısı",
+        "es": "Misafir Sayısı",
+        "ar": "Misafir Sayısı"
+      }
     },
     {
       "id": "costPerMeal",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 75,
-      "businessContext": "Menü birim fiyatı"
+      "businessContext": "Menü birim fiyatı",
+      "label_i18n": {
+        "en": "Öğün Başı Maliyet",
+        "tr": "Öğün Başı Maliyet",
+        "de": "Öğün Başı Maliyet",
+        "fr": "Öğün Başı Maliyet",
+        "es": "Öğün Başı Maliyet",
+        "ar": "Öğün Başı Maliyet"
+      }
     },
     {
       "id": "numberOfCourses",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "adet",
       "default": 3,
-      "businessContext": "Çorba, ana yemek, tatlı gibi"
+      "businessContext": "Çorba, ana yemek, tatlı gibi",
+      "label_i18n": {
+        "en": "Kur Sayısı",
+        "tr": "Kur Sayısı",
+        "de": "Kur Sayısı",
+        "fr": "Kur Sayısı",
+        "es": "Kur Sayısı",
+        "ar": "Kur Sayısı"
+      }
     },
     {
       "id": "serviceChargePercent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Garson, servis ekipmanı"
+      "businessContext": "Garson, servis ekipmanı",
+      "label_i18n": {
+        "en": "Servis Ücreti (%)",
+        "tr": "Servis Ücreti (%)",
+        "de": "Servis Ücreti (%)",
+        "fr": "Servis Ücreti (%)",
+        "es": "Servis Ücreti (%)",
+        "ar": "Servis Ücreti (%)"
+      }
     },
     {
       "id": "wasteFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Hazırlık kaybı"
+      "businessContext": "Hazırlık kaybı",
+      "label_i18n": {
+        "en": "Fire Oranı (%)",
+        "tr": "Fire Oranı (%)",
+        "de": "Fire Oranı (%)",
+        "fr": "Fire Oranı (%)",
+        "es": "Fire Oranı (%)",
+        "ar": "Fire Oranı (%)"
+      }
     },
     {
       "id": "vatRate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 18,
-      "businessContext": "Vergi oranı"
+      "businessContext": "Vergi oranı",
+      "label_i18n": {
+        "en": "KDV Oranı (%)",
+        "tr": "KDV Oranı (%)",
+        "de": "KDV Oranı (%)",
+        "fr": "KDV Oranı (%)",
+        "es": "KDV Oranı (%)",
+        "ar": "KDV Oranı (%)"
+      }
     }
   ],
   "formulas": {
@@ -82,7 +130,12 @@
         "label": "Servis Ücreti",
         "unit": "TRY"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "costPerGuest"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -92,5 +145,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

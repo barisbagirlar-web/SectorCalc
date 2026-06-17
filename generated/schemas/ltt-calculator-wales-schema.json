@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 100,
-      "businessContext": "Total distance of the transport route in Wales."
+      "businessContext": "Total distance of the transport route in Wales.",
+      "label_i18n": {
+        "en": "Distance (km)",
+        "tr": "Distance (km)",
+        "de": "Distance (km)",
+        "fr": "Distance (km)",
+        "es": "Distance (km)",
+        "ar": "Distance (km)"
+      }
     },
     {
       "id": "fuel_consumption_l_per_100km",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "L/100km",
       "default": 30,
-      "businessContext": "Average fuel consumption of the vehicle per 100 km."
+      "businessContext": "Average fuel consumption of the vehicle per 100 km.",
+      "label_i18n": {
+        "en": "Fuel Consumption (L/100km)",
+        "tr": "Fuel Consumption (L/100km)",
+        "de": "Fuel Consumption (L/100km)",
+        "fr": "Fuel Consumption (L/100km)",
+        "es": "Fuel Consumption (L/100km)",
+        "ar": "Fuel Consumption (L/100km)"
+      }
     },
     {
       "id": "fuel_price_gbp_per_l",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "GBP/L",
       "default": 1.5,
-      "businessContext": "Current price of diesel or petrol per litre in Wales."
+      "businessContext": "Current price of diesel or petrol per litre in Wales.",
+      "label_i18n": {
+        "en": "Fuel Price (GBP/L)",
+        "tr": "Fuel Price (GBP/L)",
+        "de": "Fuel Price (GBP/L)",
+        "fr": "Fuel Price (GBP/L)",
+        "es": "Fuel Price (GBP/L)",
+        "ar": "Fuel Price (GBP/L)"
+      }
     },
     {
       "id": "driver_wage_gbp_per_hour",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "GBP/hour",
       "default": 15,
-      "businessContext": "Hourly wage of the driver."
+      "businessContext": "Hourly wage of the driver.",
+      "label_i18n": {
+        "en": "Driver Wage (GBP/hour)",
+        "tr": "Driver Wage (GBP/hour)",
+        "de": "Driver Wage (GBP/hour)",
+        "fr": "Driver Wage (GBP/hour)",
+        "es": "Driver Wage (GBP/hour)",
+        "ar": "Driver Wage (GBP/hour)"
+      }
     },
     {
       "id": "average_speed_kmh",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "km/h",
       "default": 60,
-      "businessContext": "Average speed of the vehicle during the journey."
+      "businessContext": "Average speed of the vehicle during the journey.",
+      "label_i18n": {
+        "en": "Average Speed (km/h)",
+        "tr": "Average Speed (km/h)",
+        "de": "Average Speed (km/h)",
+        "fr": "Average Speed (km/h)",
+        "es": "Average Speed (km/h)",
+        "ar": "Average Speed (km/h)"
+      }
     },
     {
       "id": "load_tonnes",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "tonnes",
       "default": 20,
-      "businessContext": "Weight of the cargo being transported."
+      "businessContext": "Weight of the cargo being transported.",
+      "label_i18n": {
+        "en": "Load (tonnes)",
+        "tr": "Load (tonnes)",
+        "de": "Load (tonnes)",
+        "fr": "Load (tonnes)",
+        "es": "Load (tonnes)",
+        "ar": "Load (tonnes)"
+      }
     },
     {
       "id": "co2_emission_factor_kg_per_l",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "kg/L",
       "default": 2.68,
-      "businessContext": "CO2 emissions per litre of fuel consumed."
+      "businessContext": "CO2 emissions per litre of fuel consumed.",
+      "label_i18n": {
+        "en": "CO2 Emission Factor (kg/L)",
+        "tr": "CO2 Emission Factor (kg/L)",
+        "de": "CO2 Emission Factor (kg/L)",
+        "fr": "CO2 Emission Factor (kg/L)",
+        "es": "CO2 Emission Factor (kg/L)",
+        "ar": "CO2 Emission Factor (kg/L)"
+      }
     }
   ],
   "formulas": {
@@ -73,7 +129,12 @@
       "driver_cost",
       "cost_per_tonne_km",
       "total_co2_kg"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "total_co2_kg"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -83,5 +144,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "kargo",
   "profession": "Lojistik Uzmanı",
-  "categoryId": "logistics"
+  "categoryId": "logistics",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

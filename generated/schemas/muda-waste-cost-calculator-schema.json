@@ -138,154 +138,6 @@
       "businessContext_i18n": {
         "en": "Cost of unnecessary worker movement (walking, reaching) per unit, based on time-motion studies."
       }
-    },
-    {
-      "id": "inventory_holding_cost_per_unit",
-      "label": "Inventory Holding Cost per Unit",
-      "type": "number",
-      "unit": "USD",
-      "default": 0.2,
-      "min": 0,
-      "max": 1000,
-      "businessContext": "Cost of holding one unit in inventory per year (WERC DC Metrics).",
-      "label_i18n": {
-        "en": "Inventory Holding Cost per Unit"
-      },
-      "businessContext_i18n": {
-        "en": "Cost of holding one unit in inventory per year (WERC DC Metrics)."
-      }
-    },
-    {
-      "id": "overproduction_quantity",
-      "label": "Overproduction Quantity",
-      "type": "number",
-      "unit": "units",
-      "default": 100,
-      "min": 0,
-      "max": 1000000,
-      "businessContext": "Number of units produced beyond customer demand (Muda of overproduction).",
-      "label_i18n": {
-        "en": "Overproduction Quantity"
-      },
-      "businessContext_i18n": {
-        "en": "Number of units produced beyond customer demand (Muda of overproduction)."
-      }
-    },
-    {
-      "id": "transportation_cost_per_unit",
-      "label": "Transportation Cost per Unit",
-      "type": "number",
-      "unit": "USD",
-      "default": 0.1,
-      "min": 0,
-      "max": 100,
-      "businessContext": "Cost of moving materials or products between processes (Lean waste of transportation).",
-      "label_i18n": {
-        "en": "Transportation Cost per Unit"
-      },
-      "businessContext_i18n": {
-        "en": "Cost of moving materials or products between processes (Lean waste of transportation)."
-      }
-    },
-    {
-      "id": "processing_waste_per_unit",
-      "label": "Processing Waste per Unit",
-      "type": "number",
-      "unit": "USD",
-      "default": 0.15,
-      "min": 0,
-      "max": 100,
-      "businessContext": "Cost of unnecessary processing steps or non-value-added operations.",
-      "label_i18n": {
-        "en": "Processing Waste per Unit"
-      },
-      "businessContext_i18n": {
-        "en": "Cost of unnecessary processing steps or non-value-added operations."
-      }
-    },
-    {
-      "id": "production_volume",
-      "label": "Production Volume",
-      "type": "number",
-      "unit": "units",
-      "default": 10000,
-      "min": 1,
-      "max": 100000000,
-      "businessContext": "Total number of units produced in the analysis period.",
-      "label_i18n": {
-        "en": "Production Volume"
-      },
-      "businessContext_i18n": {
-        "en": "Total number of units produced in the analysis period."
-      }
-    },
-    {
-      "id": "shift_hours_per_day",
-      "label": "Shift Hours per Day",
-      "type": "number",
-      "unit": "hours",
-      "default": 8,
-      "min": 1,
-      "max": 24,
-      "businessContext": "Number of operating hours per shift.",
-      "label_i18n": {
-        "en": "Shift Hours per Day"
-      },
-      "businessContext_i18n": {
-        "en": "Number of operating hours per shift."
-      }
-    },
-    {
-      "id": "working_days_per_year",
-      "label": "Working Days per Year",
-      "type": "number",
-      "unit": "days",
-      "default": 250,
-      "min": 1,
-      "max": 365,
-      "businessContext": "Number of working days per year.",
-      "label_i18n": {
-        "en": "Working Days per Year"
-      },
-      "businessContext_i18n": {
-        "en": "Number of working days per year."
-      }
-    },
-    {
-      "id": "industry_type",
-      "label": "Industry Type",
-      "type": "select",
-      "options": [
-        "Automotive",
-        "Electronics",
-        "Pharmaceutical",
-        "Food & Beverage",
-        "Logistics",
-        "General Manufacturing"
-      ],
-      "default": "General Manufacturing",
-      "businessContext": "Industry sector for benchmarking and threshold adjustment.",
-      "label_i18n": {
-        "en": "Industry Type"
-      },
-      "businessContext_i18n": {
-        "en": "Industry sector for benchmarking and threshold adjustment."
-      },
-      "unit": "unit"
-    },
-    {
-      "id": "include_hidden_losses",
-      "label": "Include Hidden Losses",
-      "type": "boolean",
-      "default": true,
-      "businessContext": "If true, includes intangible losses such as lost opportunity cost and brand damage.",
-      "label_i18n": {
-        "en": "Include Hidden Losses"
-      },
-      "businessContext_i18n": {
-        "en": "If true, includes intangible losses such as lost opportunity cost and brand damage."
-      },
-      "unit": "unit"
     }
   ],
   "validation": {
@@ -338,18 +190,18 @@
       }
     ]
   },
-  "formulas": [
-    "material_cost_per_unit",
-    "material_cost_per_unit",
-    "material_cost_per_unit",
-    "material_cost_per_unit",
-    "material_cost_per_unit",
-    "material_cost_per_unit",
-    "material_cost_per_unit"
-  ],
+  "formulas": {
+    "result": "material_cost_per_unit + labor_cost_per_hour + overhead_rate",
+    "result_copy": "material_cost_per_unit + labor_cost_per_hour + overhead_rate"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "manufacturing-workshop",
   "sectorSlug": "cnc-manufacturing",

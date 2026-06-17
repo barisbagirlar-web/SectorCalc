@@ -68,17 +68,20 @@
   ],
   "formulas": {
     "ratio": "measured / reference",
-    "log10ratio": "Math.log(measured / reference) / Math.log(10)",
-    "preGainLevel": "dbMultiplier * (Math.log(measured / reference) / Math.log(10))",
-    "level": "dbMultiplier * (Math.log(measured / reference) / Math.log(10)) + systemGain"
+    "ratio_aux": "measured / reference"
   },
   "outputs": {
-    "primary": "level",
+    "primary": "ratio_aux",
     "breakdown": [
       "ratio",
       "log10ratio",
       "preGainLevel"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "level"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -88,5 +91,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

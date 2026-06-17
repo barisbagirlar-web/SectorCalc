@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 20,
-      "businessContext": "Çit hattının toplam uzunluğu (kapılar hariç)"
+      "businessContext": "Çit hattının toplam uzunluğu (kapılar hariç)",
+      "label_i18n": {
+        "en": "Toplam Çit Uzunluğu",
+        "tr": "Toplam Çit Uzunluğu",
+        "de": "Toplam Çit Uzunluğu",
+        "fr": "Toplam Çit Uzunluğu",
+        "es": "Toplam Çit Uzunluğu",
+        "ar": "Toplam Çit Uzunluğu"
+      }
     },
     {
       "id": "fenceHeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 1.8,
-      "businessContext": "Panel yüksekliği"
+      "businessContext": "Panel yüksekliği",
+      "label_i18n": {
+        "en": "Çit Yüksekliği",
+        "tr": "Çit Yüksekliği",
+        "de": "Çit Yüksekliği",
+        "fr": "Çit Yüksekliği",
+        "es": "Çit Yüksekliği",
+        "ar": "Çit Yüksekliği"
+      }
     },
     {
       "id": "postSpacing",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 2.5,
-      "businessContext": "Direkler arası mesafe"
+      "businessContext": "Direkler arası mesafe",
+      "label_i18n": {
+        "en": "Direk Aralığı",
+        "tr": "Direk Aralığı",
+        "de": "Direk Aralığı",
+        "fr": "Direk Aralığı",
+        "es": "Direk Aralığı",
+        "ar": "Direk Aralığı"
+      }
     },
     {
       "id": "pricePerPost",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 15,
-      "businessContext": "Bir direk maliyeti"
+      "businessContext": "Bir direk maliyeti",
+      "label_i18n": {
+        "en": "Direk Birim Fiyatı",
+        "tr": "Direk Birim Fiyatı",
+        "de": "Direk Birim Fiyatı",
+        "fr": "Direk Birim Fiyatı",
+        "es": "Direk Birim Fiyatı",
+        "ar": "Direk Birim Fiyatı"
+      }
     },
     {
       "id": "pricePanelPerSqm",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "EUR/m²",
       "default": 20,
-      "businessContext": "Panel malzemesinin metrekare başına fiyatı"
+      "businessContext": "Panel malzemesinin metrekare başına fiyatı",
+      "label_i18n": {
+        "en": "Panel Metrekare Fiyatı",
+        "tr": "Panel Metrekare Fiyatı",
+        "de": "Panel Metrekare Fiyatı",
+        "fr": "Panel Metrekare Fiyatı",
+        "es": "Panel Metrekare Fiyatı",
+        "ar": "Panel Metrekare Fiyatı"
+      }
     },
     {
       "id": "numberOfGates",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Çite eklenecek kapı adedi"
+      "businessContext": "Çite eklenecek kapı adedi",
+      "label_i18n": {
+        "en": "Kapı Sayısı",
+        "tr": "Kapı Sayısı",
+        "de": "Kapı Sayısı",
+        "fr": "Kapı Sayısı",
+        "es": "Kapı Sayısı",
+        "ar": "Kapı Sayısı"
+      }
     },
     {
       "id": "pricePerGate",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 200,
-      "businessContext": "Bir kapı maliyeti"
+      "businessContext": "Bir kapı maliyeti",
+      "label_i18n": {
+        "en": "Kapı Birim Fiyatı",
+        "tr": "Kapı Birim Fiyatı",
+        "de": "Kapı Birim Fiyatı",
+        "fr": "Kapı Birim Fiyatı",
+        "es": "Kapı Birim Fiyatı",
+        "ar": "Kapı Birim Fiyatı"
+      }
     },
     {
       "id": "concreteCostPerPost",
@@ -63,20 +119,24 @@
       "type": "number",
       "unit": "EUR",
       "default": 5,
-      "businessContext": "Bir direk için gerekli betonun toplam maliyeti"
+      "businessContext": "Bir direk için gerekli betonun toplam maliyeti",
+      "label_i18n": {
+        "en": "Direk Başı Beton Maliyeti",
+        "tr": "Direk Başı Beton Maliyeti",
+        "de": "Direk Başı Beton Maliyeti",
+        "fr": "Direk Başı Beton Maliyeti",
+        "es": "Direk Başı Beton Maliyeti",
+        "ar": "Direk Başı Beton Maliyeti"
+      }
     }
   ],
   "formulas": {
-    "numberPosts": "Math.ceil(totalLength / postSpacing) + 1",
     "totalPanelArea": "totalLength * fenceHeight",
-    "totalPostCost": "numberPosts * pricePerPost",
     "totalPanelCost": "totalPanelArea * pricePanelPerSqm",
-    "totalConcreteCost": "numberPosts * concreteCostPerPost",
-    "totalGateCost": "numberOfGates * pricePerGate",
-    "totalCost": "totalPostCost + totalPanelCost + totalConcreteCost + totalGateCost"
+    "totalGateCost": "numberOfGates * pricePerGate"
   },
   "outputs": {
-    "primary": "totalCost",
+    "primary": "totalGateCost",
     "breakdown": [
       "numberPosts",
       "totalPanelArea",
@@ -84,7 +144,12 @@
       "totalPanelCost",
       "totalConcreteCost",
       "totalGateCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -94,5 +159,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

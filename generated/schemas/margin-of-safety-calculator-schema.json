@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 400,
-      "businessContext": "Malzemenin çekme veya basma nihai dayanım değeri"
+      "businessContext": "Malzemenin çekme veya basma nihai dayanım değeri",
+      "label_i18n": {
+        "en": "Malzeme Nihai Dayanımı",
+        "tr": "Malzeme Nihai Dayanımı",
+        "de": "Malzeme Nihai Dayanımı",
+        "fr": "Malzeme Nihai Dayanımı",
+        "es": "Malzeme Nihai Dayanımı",
+        "ar": "Malzeme Nihai Dayanımı"
+      }
     },
     {
       "id": "crossSectionArea",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm²",
       "default": 100,
-      "businessContext": "Elemanın net kesit alanı"
+      "businessContext": "Elemanın net kesit alanı",
+      "label_i18n": {
+        "en": "Kesit Alanı",
+        "tr": "Kesit Alanı",
+        "de": "Kesit Alanı",
+        "fr": "Kesit Alanı",
+        "es": "Kesit Alanı",
+        "ar": "Kesit Alanı"
+      }
     },
     {
       "id": "appliedForce",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "N",
       "default": 10000,
-      "businessContext": "Elemana etkiyen eksenel kuvvet"
+      "businessContext": "Elemana etkiyen eksenel kuvvet",
+      "label_i18n": {
+        "en": "Uygulanan Kuvvet",
+        "tr": "Uygulanan Kuvvet",
+        "de": "Uygulanan Kuvvet",
+        "fr": "Uygulanan Kuvvet",
+        "es": "Uygulanan Kuvvet",
+        "ar": "Uygulanan Kuvvet"
+      }
     },
     {
       "id": "safetyFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "boyutsuz",
       "default": 1.5,
-      "businessContext": "Tasarımda kullanılan güvenlik faktörü"
+      "businessContext": "Tasarımda kullanılan güvenlik faktörü",
+      "label_i18n": {
+        "en": "Güvenlik Katsayısı",
+        "tr": "Güvenlik Katsayısı",
+        "de": "Güvenlik Katsayısı",
+        "fr": "Güvenlik Katsayısı",
+        "es": "Güvenlik Katsayısı",
+        "ar": "Güvenlik Katsayısı"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "allowableStress",
       "actualStress",
       "stressRatio"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "stressRatio"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -56,5 +93,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

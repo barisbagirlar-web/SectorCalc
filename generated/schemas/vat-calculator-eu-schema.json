@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 100,
-      "businessContext": "The net price before VAT"
+      "businessContext": "The net price before VAT",
+      "label_i18n": {
+        "en": "Net Amount (EUR)",
+        "tr": "Net Amount (EUR)",
+        "de": "Net Amount (EUR)",
+        "fr": "Net Amount (EUR)",
+        "es": "Net Amount (EUR)",
+        "ar": "Net Amount (EUR)"
+      }
     },
     {
       "id": "vatRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Standard VAT rate in the EU country (e.g., 20 for Germany)"
+      "businessContext": "Standard VAT rate in the EU country (e.g., 20 for Germany)",
+      "label_i18n": {
+        "en": "VAT Rate (%)",
+        "tr": "VAT Rate (%)",
+        "de": "VAT Rate (%)",
+        "fr": "VAT Rate (%)",
+        "es": "VAT Rate (%)",
+        "ar": "VAT Rate (%)"
+      }
     },
     {
       "id": "quantity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 1,
-      "businessContext": "Number of units"
+      "businessContext": "Number of units",
+      "label_i18n": {
+        "en": "Quantity",
+        "tr": "Quantity",
+        "de": "Quantity",
+        "fr": "Quantity",
+        "es": "Quantity",
+        "ar": "Quantity"
+      }
     },
     {
       "id": "discountPercent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Discount applied before VAT"
+      "businessContext": "Discount applied before VAT",
+      "label_i18n": {
+        "en": "Discount (%)",
+        "tr": "Discount (%)",
+        "de": "Discount (%)",
+        "fr": "Discount (%)",
+        "es": "Discount (%)",
+        "ar": "Discount (%)"
+      }
     }
   ],
   "formulas": {
@@ -50,7 +82,12 @@
       "grossAmount",
       "totalNet",
       "totalVat"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalGross"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -60,5 +97,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

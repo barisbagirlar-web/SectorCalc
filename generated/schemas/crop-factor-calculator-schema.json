@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 22.3,
-      "businessContext": "Width of the camera sensor in millimeters."
+      "businessContext": "Width of the camera sensor in millimeters.",
+      "label_i18n": {
+        "en": "Sensor Width",
+        "tr": "Sensor Width",
+        "de": "Sensor Width",
+        "fr": "Sensor Width",
+        "es": "Sensor Width",
+        "ar": "Sensor Width"
+      }
     },
     {
       "id": "sensorHeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 14.9,
-      "businessContext": "Height of the camera sensor in millimeters."
+      "businessContext": "Height of the camera sensor in millimeters.",
+      "label_i18n": {
+        "en": "Sensor Height",
+        "tr": "Sensor Height",
+        "de": "Sensor Height",
+        "fr": "Sensor Height",
+        "es": "Sensor Height",
+        "ar": "Sensor Height"
+      }
     },
     {
       "id": "fullFrameWidth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 36,
-      "businessContext": "Width of a full-frame sensor (standard reference)."
+      "businessContext": "Width of a full-frame sensor (standard reference).",
+      "label_i18n": {
+        "en": "Full-Frame Width",
+        "tr": "Full-Frame Width",
+        "de": "Full-Frame Width",
+        "fr": "Full-Frame Width",
+        "es": "Full-Frame Width",
+        "ar": "Full-Frame Width"
+      }
     },
     {
       "id": "fullFrameHeight",
@@ -31,22 +55,33 @@
       "type": "number",
       "unit": "mm",
       "default": 24,
-      "businessContext": "Height of a full-frame sensor (standard reference)."
+      "businessContext": "Height of a full-frame sensor (standard reference).",
+      "label_i18n": {
+        "en": "Full-Frame Height",
+        "tr": "Full-Frame Height",
+        "de": "Full-Frame Height",
+        "fr": "Full-Frame Height",
+        "es": "Full-Frame Height",
+        "ar": "Full-Frame Height"
+      }
     }
   ],
   "formulas": {
-    "sensorDiagonal": "Math.sqrt(sensorWidth**2 + sensorHeight**2)",
-    "fullFrameDiagonal": "Math.sqrt(fullFrameWidth**2 + fullFrameHeight**2)",
-    "cropFactor": "fullFrameDiagonal / sensorDiagonal",
-    "areaRatio": "(fullFrameWidth * fullFrameHeight) / (sensorWidth * sensorHeight)"
+    "areaRatio": "(fullFrameWidth * fullFrameHeight) / (sensorWidth * sensorHeight)",
+    "areaRatio_aux": "(fullFrameWidth * fullFrameHeight) / (sensorWidth * sensorHeight)"
   },
   "outputs": {
-    "primary": "cropFactor",
+    "primary": "areaRatio_aux",
     "breakdown": [
       "sensorDiagonal",
       "fullFrameDiagonal",
       "areaRatio"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "areaRatio"
   },
   "category": "Gıda & Tarım",
   "sector": "Perakende & Gıda",
@@ -56,5 +91,10 @@
   "categorySlug": "food-cold-chain-hygiene",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

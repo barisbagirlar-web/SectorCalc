@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 40,
-      "businessContext": "Hastanın kronolojik yaşı"
+      "businessContext": "Hastanın kronolojik yaşı",
+      "label_i18n": {
+        "en": "Yaş",
+        "tr": "Yaş",
+        "de": "Yaş",
+        "fr": "Yaş",
+        "es": "Yaş",
+        "ar": "Yaş"
+      }
     },
     {
       "id": "systolicBP",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mmHg",
       "default": 120,
-      "businessContext": "Ölçülen sistolik kan basıncı"
+      "businessContext": "Ölçülen sistolik kan basıncı",
+      "label_i18n": {
+        "en": "Sistolik Kan Basıncı",
+        "tr": "Sistolik Kan Basıncı",
+        "de": "Sistolik Kan Basıncı",
+        "fr": "Sistolik Kan Basıncı",
+        "es": "Sistolik Kan Basıncı",
+        "ar": "Sistolik Kan Basıncı"
+      }
     },
     {
       "id": "totalCholesterol",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 200,
-      "businessContext": "Açlık total kolesterol seviyesi"
+      "businessContext": "Açlık total kolesterol seviyesi",
+      "label_i18n": {
+        "en": "Total Kolesterol",
+        "tr": "Total Kolesterol",
+        "de": "Total Kolesterol",
+        "fr": "Total Kolesterol",
+        "es": "Total Kolesterol",
+        "ar": "Total Kolesterol"
+      }
     },
     {
       "id": "hdl",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 50,
-      "businessContext": "Yüksek yoğunluklu lipoprotein seviyesi"
+      "businessContext": "Yüksek yoğunluklu lipoprotein seviyesi",
+      "label_i18n": {
+        "en": "HDL Kolesterol",
+        "tr": "HDL Kolesterol",
+        "de": "HDL Kolesterol",
+        "fr": "HDL Kolesterol",
+        "es": "HDL Kolesterol",
+        "ar": "HDL Kolesterol"
+      }
     },
     {
       "id": "smoker",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "0: İçmiyor, 1: İçiyor"
+      "businessContext": "0: İçmiyor, 1: İçiyor",
+      "label_i18n": {
+        "en": "Sigara Kullanımı",
+        "tr": "Sigara Kullanımı",
+        "de": "Sigara Kullanımı",
+        "fr": "Sigara Kullanımı",
+        "es": "Sigara Kullanımı",
+        "ar": "Sigara Kullanımı"
+      }
     },
     {
       "id": "diabetes",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "0: Yok, 1: Var"
+      "businessContext": "0: Yok, 1: Var",
+      "label_i18n": {
+        "en": "Diyabet",
+        "tr": "Diyabet",
+        "de": "Diyabet",
+        "fr": "Diyabet",
+        "es": "Diyabet",
+        "ar": "Diyabet"
+      }
     },
     {
       "id": "treatedBP",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "0: Tedavi yok, 1: Tedavi var"
+      "businessContext": "0: Tedavi yok, 1: Tedavi var",
+      "label_i18n": {
+        "en": "Kan Basıncı Tedavisi",
+        "tr": "Kan Basıncı Tedavisi",
+        "de": "Kan Basıncı Tedavisi",
+        "fr": "Kan Basıncı Tedavisi",
+        "es": "Kan Basıncı Tedavisi",
+        "ar": "Kan Basıncı Tedavisi"
+      }
     }
   ],
   "formulas": {
@@ -68,7 +124,12 @@
     "breakdown": [
       "baseAge",
       "adjustment"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "adjustment"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -78,5 +139,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 1,
-      "businessContext": "Total fiber cable length"
+      "businessContext": "Total fiber cable length",
+      "label_i18n": {
+        "en": "Fiber Length",
+        "tr": "Fiber Length",
+        "de": "Fiber Length",
+        "fr": "Fiber Length",
+        "es": "Fiber Length",
+        "ar": "Fiber Length"
+      }
     },
     {
       "id": "attenuation",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dB/km",
       "default": 0.35,
-      "businessContext": "Typical for single-mode fiber at 1310nm"
+      "businessContext": "Typical for single-mode fiber at 1310nm",
+      "label_i18n": {
+        "en": "Attenuation Coefficient",
+        "tr": "Attenuation Coefficient",
+        "de": "Attenuation Coefficient",
+        "fr": "Attenuation Coefficient",
+        "es": "Attenuation Coefficient",
+        "ar": "Attenuation Coefficient"
+      }
     },
     {
       "id": "connectors",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 2,
-      "businessContext": "Connector pairs in the link"
+      "businessContext": "Connector pairs in the link",
+      "label_i18n": {
+        "en": "Number of Connectors",
+        "tr": "Number of Connectors",
+        "de": "Number of Connectors",
+        "fr": "Number of Connectors",
+        "es": "Number of Connectors",
+        "ar": "Number of Connectors"
+      }
     },
     {
       "id": "connectorLoss",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dB",
       "default": 0.5,
-      "businessContext": "Loss per connector pair"
+      "businessContext": "Loss per connector pair",
+      "label_i18n": {
+        "en": "Connector Loss",
+        "tr": "Connector Loss",
+        "de": "Connector Loss",
+        "fr": "Connector Loss",
+        "es": "Connector Loss",
+        "ar": "Connector Loss"
+      }
     },
     {
       "id": "splices",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 0,
-      "businessContext": "Fusion splices in the link"
+      "businessContext": "Fusion splices in the link",
+      "label_i18n": {
+        "en": "Number of Splices",
+        "tr": "Number of Splices",
+        "de": "Number of Splices",
+        "fr": "Number of Splices",
+        "es": "Number of Splices",
+        "ar": "Number of Splices"
+      }
     },
     {
       "id": "spliceLoss",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "dB",
       "default": 0.1,
-      "businessContext": "Loss per splice"
+      "businessContext": "Loss per splice",
+      "label_i18n": {
+        "en": "Splice Loss",
+        "tr": "Splice Loss",
+        "de": "Splice Loss",
+        "fr": "Splice Loss",
+        "es": "Splice Loss",
+        "ar": "Splice Loss"
+      }
     },
     {
       "id": "margin",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "dB",
       "default": 3,
-      "businessContext": "System margin for degradation"
+      "businessContext": "System margin for degradation",
+      "label_i18n": {
+        "en": "Safety Margin",
+        "tr": "Safety Margin",
+        "de": "Safety Margin",
+        "fr": "Safety Margin",
+        "es": "Safety Margin",
+        "ar": "Safety Margin"
+      }
     }
   ],
   "formulas": {
@@ -71,7 +127,12 @@
       "connectorLossTotal",
       "spliceLossTotal",
       "margin"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "spliceLossTotal"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -81,5 +142,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

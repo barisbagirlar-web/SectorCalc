@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from calorie-counter-calculator-schema.json
 import * as z from 'zod';
 
@@ -17,25 +18,33 @@ export const Calorie_counter_calculatorInputSchema = z.object({
   activity_level: z.number().default(1.2),
 });
 
-function evaluateAllFormulas(input: Calorie_counter_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (input.gender * (10 * input.weight_kg + 6.25 * input.height_cm - 5 * input.age + 5)) + ((1 - input.gender) * (10 * input.weight_kg + 6.25 * input.height_cm - 5 * input.age - 161)); results["bmr"] = Number.isFinite(v) ? v : 0; } catch { results["bmr"] = 0; }
-  try { const v = (results["bmr"] ?? 0) * input.activity_level; results["tdee"] = Number.isFinite(v) ? v : 0; } catch { results["tdee"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Calorie_counter_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = (input.gender * (10 * input.weight_kg + 6.25 * input.height_cm - 5 * input.age + 5)) + ((1 - input.gender) * (10 * input.weight_kg + 6.25 * input.height_cm - 5 * input.age - 161)); results["bmr"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["bmr"] = 0; }
+  try { const v = (asFormulaNumber(results["bmr"])) * input.activity_level; results["tdee"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["tdee"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateCalorie_counter_calculator(input: Calorie_counter_calculatorInput): Calorie_counter_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["tdee"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["tdee"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

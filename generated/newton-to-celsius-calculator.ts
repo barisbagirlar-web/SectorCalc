@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from newton-to-celsius-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,27 +16,33 @@ export const Newton_to_celsius_calculatorInputSchema = z.object({
   offset: z.number().default(0),
 });
 
-function evaluateAllFormulas(input: Newton_to_celsius_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.newton * 100/33; results["rawCelsius"] = Number.isFinite(v) ? v : 0; } catch { results["rawCelsius"] = 0; }
-  try { const v = (results["rawCelsius"] ?? 0) + input.offset; results["celsiusWithOffset"] = Number.isFinite(v) ? v : 0; } catch { results["celsiusWithOffset"] = 0; }
-  try { const v = Math.pow(10, input.precision); results["factor"] = Number.isFinite(v) ? v : 0; } catch { results["factor"] = 0; }
-  try { const v = input.roundingMethod === 0 ? Math.round((results["celsiusWithOffset"] ?? 0) * (results["factor"] ?? 0)) / (results["factor"] ?? 0) : (input.roundingMethod === 1 ? Math.floor((results["celsiusWithOffset"] ?? 0) * (results["factor"] ?? 0)) / (results["factor"] ?? 0) : Math.ceil((results["celsiusWithOffset"] ?? 0) * (results["factor"] ?? 0)) / (results["factor"] ?? 0)); results["roundedCelsius"] = Number.isFinite(v) ? v : 0; } catch { results["roundedCelsius"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Newton_to_celsius_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.newton * 100/33; results["rawCelsius"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["rawCelsius"] = 0; }
+  try { const v = (asFormulaNumber(results["rawCelsius"])) + input.offset; results["celsiusWithOffset"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["celsiusWithOffset"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateNewton_to_celsius_calculator(input: Newton_to_celsius_calculatorInput): Newton_to_celsius_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["roundedCelsius"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["celsiusWithOffset"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Portföyün hesaplama dönemindeki yüzde getirisi"
+      "businessContext": "Portföyün hesaplama dönemindeki yüzde getirisi",
+      "label_i18n": {
+        "en": "Beklenen Getiri (Dönem, %)",
+        "tr": "Beklenen Getiri (Dönem, %)",
+        "de": "Beklenen Getiri (Dönem, %)",
+        "fr": "Beklenen Getiri (Dönem, %)",
+        "es": "Beklenen Getiri (Dönem, %)",
+        "ar": "Beklenen Getiri (Dönem, %)"
+      }
     },
     {
       "id": "riskFreeRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 1,
-      "businessContext": "Aynı dönem için risksiz faiz oranı (ör. devlet tahvili)"
+      "businessContext": "Aynı dönem için risksiz faiz oranı (ör. devlet tahvili)",
+      "label_i18n": {
+        "en": "Risksiz Getiri (Dönem, %)",
+        "tr": "Risksiz Getiri (Dönem, %)",
+        "de": "Risksiz Getiri (Dönem, %)",
+        "fr": "Risksiz Getiri (Dönem, %)",
+        "es": "Risksiz Getiri (Dönem, %)",
+        "ar": "Risksiz Getiri (Dönem, %)"
+      }
     },
     {
       "id": "standardDeviation",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 3,
-      "businessContext": "Portföy getirisinin aynı dönemdeki oynaklığı/değişkenliği"
+      "businessContext": "Portföy getirisinin aynı dönemdeki oynaklığı/değişkenliği",
+      "label_i18n": {
+        "en": "Portföy Standart Sapması (Dönem, %)",
+        "tr": "Portföy Standart Sapması (Dönem, %)",
+        "de": "Portföy Standart Sapması (Dönem, %)",
+        "fr": "Portföy Standart Sapması (Dönem, %)",
+        "es": "Portföy Standart Sapması (Dönem, %)",
+        "ar": "Portföy Standart Sapması (Dönem, %)"
+      }
     },
     {
       "id": "periodsPerYear",
@@ -31,19 +55,32 @@
       "type": "number",
       "unit": "adet/yıl",
       "default": 12,
-      "businessContext": "Bir yıldaki hesaplama dönemlerinin sayısı (örn. aylık için 12, günlük için 252)"
+      "businessContext": "Bir yıldaki hesaplama dönemlerinin sayısı (örn. aylık için 12, günlük için 252)",
+      "label_i18n": {
+        "en": "Yıllık Dönem Sayısı",
+        "tr": "Yıllık Dönem Sayısı",
+        "de": "Yıllık Dönem Sayısı",
+        "fr": "Yıllık Dönem Sayısı",
+        "es": "Yıllık Dönem Sayısı",
+        "ar": "Yıllık Dönem Sayısı"
+      }
     }
   ],
   "formulas": {
-    "excessReturn": "expectedReturn - riskFreeRate",
-    "annualSharpeRatio": "((expectedReturn - riskFreeRate) * Math.sqrt(periodsPerYear)) / standardDeviation"
+    "result": "expectedReturn + riskFreeRate + standardDeviation",
+    "result_aux": "expectedReturn + riskFreeRate + standardDeviation"
   },
   "outputs": {
-    "primary": "annualSharpeRatio",
+    "primary": "result",
     "breakdown": [
       "excessReturn",
       "annualSharpeRatio"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "annualSharpeRatio"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -53,5 +90,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

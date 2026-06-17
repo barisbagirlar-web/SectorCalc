@@ -84,18 +84,19 @@
   ],
   "formulas": {
     "vdot": "(2 * Math.PI * frekans * genlik) / (sonumleme * malzemeFaktoru * guvenlikFaktoru)",
-    "limit": "10",
-    "acceptable": "vdot <= limit ? 'Evet' : 'Hayır'",
-    "__frekans__Hz__Genlik____genlik__mm__S_n": "${frekans} Hz, Genlik: ${genlik} mm, Sönümleme: ${sonumleme}, Malzeme Faktörü: ${malzemeFaktoru} GPa, Güvenlik: ${guvenlikFaktoru}",
-    "__vdot_toFixed_4___mm_s__Limit____limit_": "${vdot.toFixed(4)} mm/s, Limit: ${limit} mm/s, Uygunluk: ${acceptable}",
-    "result": "VDOT: ${vdot.toFixed(2)} mm/s"
+    "vdot_aux": "(2 * Math.PI * frekans * genlik) / (sonumleme * malzemeFaktoru * guvenlikFaktoru)"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "vdot_aux",
     "breakdown": [
       "Frekans: ${frekans} Hz, Genlik: ${genlik} mm, Sönümleme: ${sonumleme}, Malzeme Faktörü: ${malzemeFaktoru} GPa, Güvenlik: ${guvenlikFaktoru}",
       "Hesaplanan VDOT: ${vdot.toFixed(4)} mm/s, Limit: ${limit} mm/s, Uygunluk: ${acceptable}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "acceptable"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -105,5 +106,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 10000,
-      "businessContext": "Yıllık satılan veya kullanılan ürün miktarı"
+      "businessContext": "Yıllık satılan veya kullanılan ürün miktarı",
+      "label_i18n": {
+        "en": "Yıllık Talep",
+        "tr": "Yıllık Talep",
+        "de": "Yıllık Talep",
+        "fr": "Yıllık Talep",
+        "es": "Yıllık Talep",
+        "ar": "Yıllık Talep"
+      }
     },
     {
       "id": "orderingCost",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "TL/sipariş",
       "default": 100,
-      "businessContext": "Bir sipariş verildiğinde oluşan sabit maliyet (nakliye, işleme vb.)"
+      "businessContext": "Bir sipariş verildiğinde oluşan sabit maliyet (nakliye, işleme vb.)",
+      "label_i18n": {
+        "en": "Sipariş Maliyeti",
+        "tr": "Sipariş Maliyeti",
+        "de": "Sipariş Maliyeti",
+        "fr": "Sipariş Maliyeti",
+        "es": "Sipariş Maliyeti",
+        "ar": "Sipariş Maliyeti"
+      }
     },
     {
       "id": "holdingCost",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "TL/birim/yıl",
       "default": 5,
-      "businessContext": "Bir birim stoğun yıllık depolama, sigorta, bozulma vb. maliyeti"
+      "businessContext": "Bir birim stoğun yıllık depolama, sigorta, bozulma vb. maliyeti",
+      "label_i18n": {
+        "en": "Elde Tutma Maliyeti",
+        "tr": "Elde Tutma Maliyeti",
+        "de": "Elde Tutma Maliyeti",
+        "fr": "Elde Tutma Maliyeti",
+        "es": "Elde Tutma Maliyeti",
+        "ar": "Elde Tutma Maliyeti"
+      }
     },
     {
       "id": "unitCost",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TL/birim",
       "default": 0,
-      "businessContext": "Birim başına satın alma maliyeti (toplam maliyete eklenir, isteğe bağlı)"
+      "businessContext": "Birim başına satın alma maliyeti (toplam maliyete eklenir, isteğe bağlı)",
+      "label_i18n": {
+        "en": "Birim Maliyet",
+        "tr": "Birim Maliyet",
+        "de": "Birim Maliyet",
+        "fr": "Birim Maliyet",
+        "es": "Birim Maliyet",
+        "ar": "Birim Maliyet"
+      }
     },
     {
       "id": "leadTimeDays",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "gün",
       "default": 5,
-      "businessContext": "Siparişin teslim edilme süresi (yeniden sipariş noktası için)"
+      "businessContext": "Siparişin teslim edilme süresi (yeniden sipariş noktası için)",
+      "label_i18n": {
+        "en": "Tedarik Süresi",
+        "tr": "Tedarik Süresi",
+        "de": "Tedarik Süresi",
+        "fr": "Tedarik Süresi",
+        "es": "Tedarik Süresi",
+        "ar": "Tedarik Süresi"
+      }
     },
     {
       "id": "workingDaysPerYear",
@@ -47,24 +87,34 @@
       "type": "number",
       "unit": "gün/yıl",
       "default": 250,
-      "businessContext": "Yıllık çalışma gün sayısı (talebin dağılımı için)"
+      "businessContext": "Yıllık çalışma gün sayısı (talebin dağılımı için)",
+      "label_i18n": {
+        "en": "Yıllık Çalışma Günü",
+        "tr": "Yıllık Çalışma Günü",
+        "de": "Yıllık Çalışma Günü",
+        "fr": "Yıllık Çalışma Günü",
+        "es": "Yıllık Çalışma Günü",
+        "ar": "Yıllık Çalışma Günü"
+      }
     }
   ],
   "formulas": {
-    "eoq": "Math.sqrt((2 * annualDemand * orderingCost) / holdingCost)",
-    "totalOrderingCost": "(annualDemand / eoq) * orderingCost",
-    "totalHoldingCost": "(eoq / 2) * holdingCost",
-    "totalCost": "(annualDemand / eoq) * orderingCost + (eoq / 2) * holdingCost + annualDemand * unitCost",
-    "reorderPoint": "(annualDemand / workingDaysPerYear) * leadTimeDays"
+    "reorderPoint": "(annualDemand / workingDaysPerYear) * leadTimeDays",
+    "reorderPoint_aux": "(annualDemand / workingDaysPerYear) * leadTimeDays"
   },
   "outputs": {
-    "primary": "eoq",
+    "primary": "reorderPoint_aux",
     "breakdown": [
       "totalOrderingCost",
       "totalHoldingCost",
       "totalCost",
       "reorderPoint"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "reorderPoint"
   },
   "category": "Lojistik & Tedarik Zinciri",
   "sector": "Lojistik & Sevkiyat",
@@ -74,5 +124,10 @@
   "categorySlug": "procurement-supply-chain",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "logistics"
+  "categoryId": "logistics",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

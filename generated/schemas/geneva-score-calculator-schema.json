@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm sapma",
       "default": 0.05,
-      "businessContext": "Parçanın hedef ölçülerden sapma miktarı, mm cinsinden. Daha düşük değer daha iyi doğruluk."
+      "businessContext": "Parçanın hedef ölçülerden sapma miktarı, mm cinsinden. Daha düşük değer daha iyi doğruluk.",
+      "label_i18n": {
+        "en": "Boyutsal Doğruluk Puanı",
+        "tr": "Boyutsal Doğruluk Puanı",
+        "de": "Boyutsal Doğruluk Puanı",
+        "fr": "Boyutsal Doğruluk Puanı",
+        "es": "Boyutsal Doğruluk Puanı",
+        "ar": "Boyutsal Doğruluk Puanı"
+      }
     },
     {
       "id": "surfaceRoughness",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Ra µm",
       "default": 0.8,
-      "businessContext": "Yüzey pürüzlülüğü Ra cinsinden, mikrometre. Daha düşük değer daha iyi yüzey kalitesi."
+      "businessContext": "Yüzey pürüzlülüğü Ra cinsinden, mikrometre. Daha düşük değer daha iyi yüzey kalitesi.",
+      "label_i18n": {
+        "en": "Yüzey Pürüzlülüğü Puanı",
+        "tr": "Yüzey Pürüzlülüğü Puanı",
+        "de": "Yüzey Pürüzlülüğü Puanı",
+        "fr": "Yüzey Pürüzlülüğü Puanı",
+        "es": "Yüzey Pürüzlülüğü Puanı",
+        "ar": "Yüzey Pürüzlülüğü Puanı"
+      }
     },
     {
       "id": "hardnessValue",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "HRC",
       "default": 60,
-      "businessContext": "Rockwell C sertlik değeri. İstenen spesifikasyona uygunluk gösterir."
+      "businessContext": "Rockwell C sertlik değeri. İstenen spesifikasyona uygunluk gösterir.",
+      "label_i18n": {
+        "en": "Sertlik Değeri Puanı",
+        "tr": "Sertlik Değeri Puanı",
+        "de": "Sertlik Değeri Puanı",
+        "fr": "Sertlik Değeri Puanı",
+        "es": "Sertlik Değeri Puanı",
+        "ar": "Sertlik Değeri Puanı"
+      }
     },
     {
       "id": "materialConsistency",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "% uyum",
       "default": 95,
-      "businessContext": "Malzeme bileşiminin standarda uyum yüzdesi. 100 ideal."
+      "businessContext": "Malzeme bileşiminin standarda uyum yüzdesi. 100 ideal.",
+      "label_i18n": {
+        "en": "Malzeme Homojenlik Puanı",
+        "tr": "Malzeme Homojenlik Puanı",
+        "de": "Malzeme Homojenlik Puanı",
+        "fr": "Malzeme Homojenlik Puanı",
+        "es": "Malzeme Homojenlik Puanı",
+        "ar": "Malzeme Homojenlik Puanı"
+      }
     },
     {
       "id": "visualDefects",
@@ -39,26 +71,35 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Parça üzerinde tespit edilen görsel hata sayısı. Daha düşük daha iyi."
+      "businessContext": "Parça üzerinde tespit edilen görsel hata sayısı. Daha düşük daha iyi.",
+      "label_i18n": {
+        "en": "Görsel Hata Sayısı",
+        "tr": "Görsel Hata Sayısı",
+        "de": "Görsel Hata Sayısı",
+        "fr": "Görsel Hata Sayısı",
+        "es": "Görsel Hata Sayısı",
+        "ar": "Görsel Hata Sayısı"
+      }
     }
   ],
   "formulas": {
-    "dimensionalScore": "100 * Math.exp(-dimensionalAccuracy / 0.1)",
-    "surfaceScore": "100 * Math.exp(-surfaceRoughness / 0.4)",
     "hardnessScore": "hardnessValue >= 58 ? 100 : 80",
-    "consistencyScore": "materialConsistency",
-    "visualScore": "100 * Math.exp(-visualDefects / 2)",
-    "genevaScore": "0.25 * dimensionalScore + 0.25 * surfaceScore + 0.2 * hardnessScore + 0.15 * consistencyScore + 0.15 * visualScore"
+    "consistencyScore": "materialConsistency"
   },
   "outputs": {
-    "primary": "genevaScore",
+    "primary": "consistencyScore",
     "breakdown": [
       "dimensionalScore",
       "surfaceScore",
       "hardnessScore",
       "consistencyScore",
       "visualScore"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "genevaScore"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -68,5 +109,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

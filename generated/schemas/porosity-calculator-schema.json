@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g/cm³",
       "default": 2.5,
-      "businessContext": "Density of the material including void spaces (mass/total volume)."
+      "businessContext": "Density of the material including void spaces (mass/total volume).",
+      "label_i18n": {
+        "en": "Bulk Density",
+        "tr": "Bulk Density",
+        "de": "Bulk Density",
+        "fr": "Bulk Density",
+        "es": "Bulk Density",
+        "ar": "Bulk Density"
+      }
     },
     {
       "id": "particleDensity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g/cm³",
       "default": 2.65,
-      "businessContext": "Density of the solid particles only, excluding voids."
+      "businessContext": "Density of the solid particles only, excluding voids.",
+      "label_i18n": {
+        "en": "Particle Density",
+        "tr": "Particle Density",
+        "de": "Particle Density",
+        "fr": "Particle Density",
+        "es": "Particle Density",
+        "ar": "Particle Density"
+      }
     },
     {
       "id": "totalVolume",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm³",
       "default": 100,
-      "businessContext": "Total volume of the sample, including pore spaces."
+      "businessContext": "Total volume of the sample, including pore spaces.",
+      "label_i18n": {
+        "en": "Total Volume",
+        "tr": "Total Volume",
+        "de": "Total Volume",
+        "fr": "Total Volume",
+        "es": "Total Volume",
+        "ar": "Total Volume"
+      }
     },
     {
       "id": "poreVolume",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cm³",
       "default": 30,
-      "businessContext": "Volume of void spaces within the sample."
+      "businessContext": "Volume of void spaces within the sample.",
+      "label_i18n": {
+        "en": "Pore Volume",
+        "tr": "Pore Volume",
+        "de": "Pore Volume",
+        "fr": "Pore Volume",
+        "es": "Pore Volume",
+        "ar": "Pore Volume"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "porosityFraction",
       "volumetricPorosityPercentage",
       "volumetricPorosityFraction"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "volumetricPorosityPercentage"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -56,5 +93,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

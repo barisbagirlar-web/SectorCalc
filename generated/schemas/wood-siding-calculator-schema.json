@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft",
       "default": 20,
-      "businessContext": "The horizontal length of the wall to cover."
+      "businessContext": "The horizontal length of the wall to cover.",
+      "label_i18n": {
+        "en": "Wall Width",
+        "tr": "Wall Width",
+        "de": "Wall Width",
+        "fr": "Wall Width",
+        "es": "Wall Width",
+        "ar": "Wall Width"
+      }
     },
     {
       "id": "wallHeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ft",
       "default": 10,
-      "businessContext": "The vertical height of the wall."
+      "businessContext": "The vertical height of the wall.",
+      "label_i18n": {
+        "en": "Wall Height",
+        "tr": "Wall Height",
+        "de": "Wall Height",
+        "fr": "Wall Height",
+        "es": "Wall Height",
+        "ar": "Wall Height"
+      }
     },
     {
       "id": "exposedFace",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "in",
       "default": 4,
-      "businessContext": "The visible height of each siding board after overlapping, typically 4-8 inches."
+      "businessContext": "The visible height of each siding board after overlapping, typically 4-8 inches.",
+      "label_i18n": {
+        "en": "Exposed Face",
+        "tr": "Exposed Face",
+        "de": "Exposed Face",
+        "fr": "Exposed Face",
+        "es": "Exposed Face",
+        "ar": "Exposed Face"
+      }
     },
     {
       "id": "boardLength",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "ft",
       "default": 12,
-      "businessContext": "The length of each siding board."
+      "businessContext": "The length of each siding board.",
+      "label_i18n": {
+        "en": "Board Length",
+        "tr": "Board Length",
+        "de": "Board Length",
+        "fr": "Board Length",
+        "es": "Board Length",
+        "ar": "Board Length"
+      }
     },
     {
       "id": "wasteFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Extra material percentage to account for cuts and errors."
+      "businessContext": "Extra material percentage to account for cuts and errors.",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     },
     {
       "id": "pricePerBoard",
@@ -47,22 +87,33 @@
       "type": "number",
       "unit": "$",
       "default": 8.5,
-      "businessContext": "Cost of one board."
+      "businessContext": "Cost of one board.",
+      "label_i18n": {
+        "en": "Price per Board",
+        "tr": "Price per Board",
+        "de": "Price per Board",
+        "fr": "Price per Board",
+        "es": "Price per Board",
+        "ar": "Price per Board"
+      }
     }
   ],
   "formulas": {
-    "totalBoardsWithWaste": "Math.ceil(wallWidth / boardLength) * Math.ceil(wallHeight / (exposedFace / 12)) + Math.ceil(Math.ceil(wallWidth / boardLength) * Math.ceil(wallHeight / (exposedFace / 12)) * (wasteFactor / 100))",
-    "wasteBoards": "Math.ceil(Math.ceil(wallWidth / boardLength) * Math.ceil(wallHeight / (exposedFace / 12)) * (wasteFactor / 100))",
     "wallArea": "wallWidth * wallHeight",
-    "totalCost": "(Math.ceil(wallWidth / boardLength) * Math.ceil(wallHeight / (exposedFace / 12)) + Math.ceil(Math.ceil(wallWidth / boardLength) * Math.ceil(wallHeight / (exposedFace / 12)) * (wasteFactor / 100))) * pricePerBoard"
+    "wallArea_aux": "wallWidth * wallHeight"
   },
   "outputs": {
-    "primary": "totalCost",
+    "primary": "wallArea_aux",
     "breakdown": [
       "totalBoardsWithWaste",
       "wasteBoards",
       "wallArea"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -72,5 +123,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

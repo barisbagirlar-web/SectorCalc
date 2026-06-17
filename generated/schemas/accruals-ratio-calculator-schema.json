@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Şirketin net dönem karı"
+      "businessContext": "Şirketin net dönem karı",
+      "label_i18n": {
+        "en": "Net Kâr",
+        "tr": "Net Kâr",
+        "de": "Net Kâr",
+        "fr": "Net Kâr",
+        "es": "Net Kâr",
+        "ar": "Net Kâr"
+      }
     },
     {
       "id": "operatingCashFlow",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Faaliyetlerden elde edilen nakit akışı"
+      "businessContext": "Faaliyetlerden elde edilen nakit akışı",
+      "label_i18n": {
+        "en": "Operasyonel Nakit Akışı",
+        "tr": "Operasyonel Nakit Akışı",
+        "de": "Operasyonel Nakit Akışı",
+        "fr": "Operasyonel Nakit Akışı",
+        "es": "Operasyonel Nakit Akışı",
+        "ar": "Operasyonel Nakit Akışı"
+      }
     },
     {
       "id": "totalAssetsStart",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Dönem başı toplam aktifler"
+      "businessContext": "Dönem başı toplam aktifler",
+      "label_i18n": {
+        "en": "Toplam Varlıklar (Dönem Başı)",
+        "tr": "Toplam Varlıklar (Dönem Başı)",
+        "de": "Toplam Varlıklar (Dönem Başı)",
+        "fr": "Toplam Varlıklar (Dönem Başı)",
+        "es": "Toplam Varlıklar (Dönem Başı)",
+        "ar": "Toplam Varlıklar (Dönem Başı)"
+      }
     },
     {
       "id": "totalAssetsEnd",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Dönem sonu toplam aktifler"
+      "businessContext": "Dönem sonu toplam aktifler",
+      "label_i18n": {
+        "en": "Toplam Varlıklar (Dönem Sonu)",
+        "tr": "Toplam Varlıklar (Dönem Sonu)",
+        "de": "Toplam Varlıklar (Dönem Sonu)",
+        "fr": "Toplam Varlıklar (Dönem Sonu)",
+        "es": "Toplam Varlıklar (Dönem Sonu)",
+        "ar": "Toplam Varlıklar (Dönem Sonu)"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "numerator",
       "denominator"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "accrualsRatio"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

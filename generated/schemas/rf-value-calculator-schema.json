@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 10,
-      "businessContext": "Distance from baseline to solvent front"
+      "businessContext": "Distance from baseline to solvent front",
+      "label_i18n": {
+        "en": "Solvent Front Distance",
+        "tr": "Solvent Front Distance",
+        "de": "Solvent Front Distance",
+        "fr": "Solvent Front Distance",
+        "es": "Solvent Front Distance",
+        "ar": "Solvent Front Distance"
+      }
     },
     {
       "id": "spotDistance1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 5,
-      "businessContext": "Distance from baseline to center of spot 1"
+      "businessContext": "Distance from baseline to center of spot 1",
+      "label_i18n": {
+        "en": "Spot 1 Distance",
+        "tr": "Spot 1 Distance",
+        "de": "Spot 1 Distance",
+        "fr": "Spot 1 Distance",
+        "es": "Spot 1 Distance",
+        "ar": "Spot 1 Distance"
+      }
     },
     {
       "id": "spotDistance2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 5.2,
-      "businessContext": "Distance from baseline to center of spot 2"
+      "businessContext": "Distance from baseline to center of spot 2",
+      "label_i18n": {
+        "en": "Spot 2 Distance",
+        "tr": "Spot 2 Distance",
+        "de": "Spot 2 Distance",
+        "fr": "Spot 2 Distance",
+        "es": "Spot 2 Distance",
+        "ar": "Spot 2 Distance"
+      }
     },
     {
       "id": "spotDistance3",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cm",
       "default": 4.9,
-      "businessContext": "Distance from baseline to center of spot 3"
+      "businessContext": "Distance from baseline to center of spot 3",
+      "label_i18n": {
+        "en": "Spot 3 Distance",
+        "tr": "Spot 3 Distance",
+        "de": "Spot 3 Distance",
+        "fr": "Spot 3 Distance",
+        "es": "Spot 3 Distance",
+        "ar": "Spot 3 Distance"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "rf1",
       "rf2",
       "rf3"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "averageRf"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -56,5 +93,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

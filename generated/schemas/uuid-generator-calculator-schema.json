@@ -83,24 +83,23 @@
     }
   ],
   "formulas": {
-    "primary": "timeLow.toString(16).padStart(8,'0') + '-' + timeMid.toString(16).padStart(4,'0') + '-' + (timeHiAndVersion >> 12).toString(16) + (timeHiAndVersion & 0xFFF).toString(16).padStart(3,'0') + '-' + ((clockSeqAndVariant >> 8) & 0xFF).toString(16).padStart(2,'0') + (clockSeqAndVariant & 0xFF).toString(16).padStart(2,'0') + '-' + node.toString(16).padStart(12,'0')",
     "breakdown": "timeLow",
-    "timeLow_hex": "timeLow hex",
-    "timeMid_hex": "timeMid hex",
-    "timeHigh_and_version_hex": "timeHigh and version hex",
-    "clockSeq_and_variant_hex": "clockSeq and variant hex",
-    "node_hex": "node hex",
-    "result": "Generated UUID (v1 format)"
+    "breakdown_aux": "timeLow"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "breakdown",
     "breakdown": [
       "timeLow hex",
       "timeMid hex",
       "timeHigh and version hex",
       "clockSeq and variant hex",
       "node hex"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "breakdown"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -110,5 +109,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

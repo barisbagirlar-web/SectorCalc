@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Employee height measurement for wellness assessment"
+      "businessContext": "Employee height measurement for wellness assessment",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "Height",
+        "fr": "Height",
+        "es": "Height",
+        "ar": "Height"
+      }
     },
     {
       "id": "weight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Employee weight measurement for wellness assessment"
+      "businessContext": "Employee weight measurement for wellness assessment",
+      "label_i18n": {
+        "en": "Weight",
+        "tr": "Weight",
+        "de": "Weight",
+        "fr": "Weight",
+        "es": "Weight",
+        "ar": "Weight"
+      }
     },
     {
       "id": "age",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Employee age for reference"
+      "businessContext": "Employee age for reference",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "waist",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cm",
       "default": 80,
-      "businessContext": "Employee waist measurement for health risk indicators"
+      "businessContext": "Employee waist measurement for health risk indicators",
+      "label_i18n": {
+        "en": "Waist Circumference",
+        "tr": "Waist Circumference",
+        "de": "Waist Circumference",
+        "fr": "Waist Circumference",
+        "es": "Waist Circumference",
+        "ar": "Waist Circumference"
+      }
     },
     {
       "id": "hip",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "cm",
       "default": 100,
-      "businessContext": "Employee hip measurement for waist-hip ratio"
+      "businessContext": "Employee hip measurement for waist-hip ratio",
+      "label_i18n": {
+        "en": "Hip Circumference",
+        "tr": "Hip Circumference",
+        "de": "Hip Circumference",
+        "fr": "Hip Circumference",
+        "es": "Hip Circumference",
+        "ar": "Hip Circumference"
+      }
     }
   ],
   "formulas": {
@@ -56,7 +96,12 @@
       "ideal_max",
       "whtr",
       "whr"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "ideal_max"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -66,5 +111,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from grade-point-average-calculator-schema.json
 import * as z from 'zod';
 
@@ -23,26 +24,34 @@ export const Grade_point_average_calculatorInputSchema = z.object({
   grade4: z.number().default(0),
 });
 
-function evaluateAllFormulas(input: Grade_point_average_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (input.credit1*input.grade1 + input.credit2*input.grade2 + input.credit3*input.grade3 + input.credit4*input.grade4) / (input.credit1+input.credit2+input.credit3+input.credit4); results["gpa"] = Number.isFinite(v) ? v : 0; } catch { results["gpa"] = 0; }
-  try { const v = input.credit1*input.grade1 + input.credit2*input.grade2 + input.credit3*input.grade3 + input.credit4*input.grade4; results["totalGradePoints"] = Number.isFinite(v) ? v : 0; } catch { results["totalGradePoints"] = 0; }
-  try { const v = input.credit1+input.credit2+input.credit3+input.credit4; results["totalCredits"] = Number.isFinite(v) ? v : 0; } catch { results["totalCredits"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Grade_point_average_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = (input.credit1*input.grade1 + input.credit2*input.grade2 + input.credit3*input.grade3 + input.credit4*input.grade4) / (input.credit1+input.credit2+input.credit3+input.credit4); results["gpa"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["gpa"] = 0; }
+  try { const v = input.credit1*input.grade1 + input.credit2*input.grade2 + input.credit3*input.grade3 + input.credit4*input.grade4; results["totalGradePoints"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalGradePoints"] = 0; }
+  try { const v = input.credit1+input.credit2+input.credit3+input.credit4; results["totalCredits"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalCredits"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateGrade_point_average_calculator(input: Grade_point_average_calculatorInput): Grade_point_average_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["gpa"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["gpa"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

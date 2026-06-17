@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "shares",
       "default": 10000000,
-      "businessContext": "The maximum number of shares the company is authorized to issue."
+      "businessContext": "The maximum number of shares the company is authorized to issue.",
+      "label_i18n": {
+        "en": "Total Authorized Shares",
+        "tr": "Total Authorized Shares",
+        "de": "Total Authorized Shares",
+        "fr": "Total Authorized Shares",
+        "es": "Total Authorized Shares",
+        "ar": "Total Authorized Shares"
+      }
     },
     {
       "id": "sharesOutstanding",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "shares",
       "default": 5000000,
-      "businessContext": "Current number of shares held by all shareholders before new investment."
+      "businessContext": "Current number of shares held by all shareholders before new investment.",
+      "label_i18n": {
+        "en": "Shares Outstanding",
+        "tr": "Shares Outstanding",
+        "de": "Shares Outstanding",
+        "fr": "Shares Outstanding",
+        "es": "Shares Outstanding",
+        "ar": "Shares Outstanding"
+      }
     },
     {
       "id": "optionPoolSize",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "shares",
       "default": 500000,
-      "businessContext": "Number of shares reserved for employee stock options."
+      "businessContext": "Number of shares reserved for employee stock options.",
+      "label_i18n": {
+        "en": "Option Pool Size",
+        "tr": "Option Pool Size",
+        "de": "Option Pool Size",
+        "fr": "Option Pool Size",
+        "es": "Option Pool Size",
+        "ar": "Option Pool Size"
+      }
     },
     {
       "id": "newInvestment",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency",
       "default": 1000000,
-      "businessContext": "Amount of money being invested in the company."
+      "businessContext": "Amount of money being invested in the company.",
+      "label_i18n": {
+        "en": "New Investment Amount",
+        "tr": "New Investment Amount",
+        "de": "New Investment Amount",
+        "fr": "New Investment Amount",
+        "es": "New Investment Amount",
+        "ar": "New Investment Amount"
+      }
     },
     {
       "id": "preMoneyValuation",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency",
       "default": 10000000,
-      "businessContext": "Valuation of the company prior to the new investment."
+      "businessContext": "Valuation of the company prior to the new investment.",
+      "label_i18n": {
+        "en": "Pre-Money Valuation",
+        "tr": "Pre-Money Valuation",
+        "de": "Pre-Money Valuation",
+        "fr": "Pre-Money Valuation",
+        "es": "Pre-Money Valuation",
+        "ar": "Pre-Money Valuation"
+      }
     }
   ],
   "formulas": {
@@ -57,7 +97,12 @@
       "newSharesIssued",
       "pricePerShare",
       "totalPostShares"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "investorOwnershipPct"
   },
   "category": "Proje & Yatırım",
   "sector": "Finans & İK",
@@ -67,5 +112,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

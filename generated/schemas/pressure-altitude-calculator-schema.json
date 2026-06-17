@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft",
       "default": 0,
-      "businessContext": "Elevation of the location above mean sea level in feet. Use either this or the meters input."
+      "businessContext": "Elevation of the location above mean sea level in feet. Use either this or the meters input.",
+      "label_i18n": {
+        "en": "Field Elevation (ft)",
+        "tr": "Field Elevation (ft)",
+        "de": "Field Elevation (ft)",
+        "fr": "Field Elevation (ft)",
+        "es": "Field Elevation (ft)",
+        "ar": "Field Elevation (ft)"
+      }
     },
     {
       "id": "fieldElevationMeters",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Elevation of the location above mean sea level in meters. Used only if fieldElevation is 0."
+      "businessContext": "Elevation of the location above mean sea level in meters. Used only if fieldElevation is 0.",
+      "label_i18n": {
+        "en": "Field Elevation (m)",
+        "tr": "Field Elevation (m)",
+        "de": "Field Elevation (m)",
+        "fr": "Field Elevation (m)",
+        "es": "Field Elevation (m)",
+        "ar": "Field Elevation (m)"
+      }
     },
     {
       "id": "altimeterSetting",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "inHg",
       "default": 29.92,
-      "businessContext": "Current altimeter setting or QNH in inches of mercury. Use either this or QNH hPa."
+      "businessContext": "Current altimeter setting or QNH in inches of mercury. Use either this or QNH hPa.",
+      "label_i18n": {
+        "en": "Altimeter Setting (inHg)",
+        "tr": "Altimeter Setting (inHg)",
+        "de": "Altimeter Setting (inHg)",
+        "fr": "Altimeter Setting (inHg)",
+        "es": "Altimeter Setting (inHg)",
+        "ar": "Altimeter Setting (inHg)"
+      }
     },
     {
       "id": "qnhHpa",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "hPa",
       "default": 1013.25,
-      "businessContext": "Current altimeter setting or QNH in hectopascals. Used only if altimeterSetting is 0."
+      "businessContext": "Current altimeter setting or QNH in hectopascals. Used only if altimeterSetting is 0.",
+      "label_i18n": {
+        "en": "QNH (hPa)",
+        "tr": "QNH (hPa)",
+        "de": "QNH (hPa)",
+        "fr": "QNH (hPa)",
+        "es": "QNH (hPa)",
+        "ar": "QNH (hPa)"
+      }
     },
     {
       "id": "standardPressure",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "inHg",
       "default": 29.92,
-      "businessContext": "Standard pressure at sea level in inches of mercury. Normally 29.92 inHg."
+      "businessContext": "Standard pressure at sea level in inches of mercury. Normally 29.92 inHg.",
+      "label_i18n": {
+        "en": "Standard Pressure (inHg)",
+        "tr": "Standard Pressure (inHg)",
+        "de": "Standard Pressure (inHg)",
+        "fr": "Standard Pressure (inHg)",
+        "es": "Standard Pressure (inHg)",
+        "ar": "Standard Pressure (inHg)"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
       "pressureAltitudeM",
       "eleFt",
       "pressInHg"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "pressureAltitudeM"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -64,5 +109,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

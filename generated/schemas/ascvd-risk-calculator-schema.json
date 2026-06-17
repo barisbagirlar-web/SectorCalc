@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 50,
-      "businessContext": "Patient age in years"
+      "businessContext": "Patient age in years",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "totalCholesterol",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 200,
-      "businessContext": "Total serum cholesterol level"
+      "businessContext": "Total serum cholesterol level",
+      "label_i18n": {
+        "en": "Total Cholesterol",
+        "tr": "Total Cholesterol",
+        "de": "Total Cholesterol",
+        "fr": "Total Cholesterol",
+        "es": "Total Cholesterol",
+        "ar": "Total Cholesterol"
+      }
     },
     {
       "id": "hdlCholesterol",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 50,
-      "businessContext": "High-density lipoprotein cholesterol level"
+      "businessContext": "High-density lipoprotein cholesterol level",
+      "label_i18n": {
+        "en": "HDL Cholesterol",
+        "tr": "HDL Cholesterol",
+        "de": "HDL Cholesterol",
+        "fr": "HDL Cholesterol",
+        "es": "HDL Cholesterol",
+        "ar": "HDL Cholesterol"
+      }
     },
     {
       "id": "systolicBP",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm Hg",
       "default": 120,
-      "businessContext": "Systolic blood pressure reading"
+      "businessContext": "Systolic blood pressure reading",
+      "label_i18n": {
+        "en": "Systolic Blood Pressure",
+        "tr": "Systolic Blood Pressure",
+        "de": "Systolic Blood Pressure",
+        "fr": "Systolic Blood Pressure",
+        "es": "Systolic Blood Pressure",
+        "ar": "Systolic Blood Pressure"
+      }
     },
     {
       "id": "treatedHypertension",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "0/1",
       "default": 0,
-      "businessContext": "1 if patient is on hypertension medication, else 0"
+      "businessContext": "1 if patient is on hypertension medication, else 0",
+      "label_i18n": {
+        "en": "Treated for Hypertension",
+        "tr": "Treated for Hypertension",
+        "de": "Treated for Hypertension",
+        "fr": "Treated for Hypertension",
+        "es": "Treated for Hypertension",
+        "ar": "Treated for Hypertension"
+      }
     },
     {
       "id": "diabetes",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "0/1",
       "default": 0,
-      "businessContext": "1 if patient has diabetes, else 0"
+      "businessContext": "1 if patient has diabetes, else 0",
+      "label_i18n": {
+        "en": "Diabetes",
+        "tr": "Diabetes",
+        "de": "Diabetes",
+        "fr": "Diabetes",
+        "es": "Diabetes",
+        "ar": "Diabetes"
+      }
     },
     {
       "id": "smoker",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "0/1",
       "default": 0,
-      "businessContext": "1 if patient is a current smoker, else 0"
+      "businessContext": "1 if patient is a current smoker, else 0",
+      "label_i18n": {
+        "en": "Current Smoker",
+        "tr": "Current Smoker",
+        "de": "Current Smoker",
+        "fr": "Current Smoker",
+        "es": "Current Smoker",
+        "ar": "Current Smoker"
+      }
     },
     {
       "id": "male",
@@ -63,20 +119,32 @@
       "type": "number",
       "unit": "0/1",
       "default": 0,
-      "businessContext": "1 if male, 0 if female"
+      "businessContext": "1 if male, 0 if female",
+      "label_i18n": {
+        "en": "Male Sex",
+        "tr": "Male Sex",
+        "de": "Male Sex",
+        "fr": "Male Sex",
+        "es": "Male Sex",
+        "ar": "Male Sex"
+      }
     }
   ],
   "formulas": {
     "calcLogOdds": "(-5) + 0.05*age + 0.01*totalCholesterol - 0.02*hdlCholesterol + 0.01*systolicBP + 0.5*treatedHypertension + 0.5*diabetes + 0.5*smoker + 0.3*male",
-    "calcRisk": "1 / (1 + Math.exp(-calcLogOdds)) * 100",
-    "riskCategory": "calcRisk < 5 ? 'Low' : (calcRisk < 7.5 ? 'Moderate' : 'High')"
+    "calcLogOdds_aux": "(-5) + 0.05*age + 0.01*totalCholesterol - 0.02*hdlCholesterol + 0.01*systolicBP + 0.5*treatedHypertension + 0.5*diabetes + 0.5*smoker + 0.3*male"
   },
   "outputs": {
-    "primary": "calcRisk",
+    "primary": "calcLogOdds_aux",
     "breakdown": [
       "calcLogOdds",
       "riskCategory"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "riskCategory"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -86,5 +154,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

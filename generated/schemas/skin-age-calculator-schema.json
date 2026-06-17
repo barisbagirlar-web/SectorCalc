@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Actual age in years"
+      "businessContext": "Actual age in years",
+      "label_i18n": {
+        "en": "Chronological Age",
+        "tr": "Chronological Age",
+        "de": "Chronological Age",
+        "fr": "Chronological Age",
+        "es": "Chronological Age",
+        "ar": "Chronological Age"
+      }
     },
     {
       "id": "sunExposure",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hours",
       "default": 2,
-      "businessContext": "Average hours of direct sun exposure per day"
+      "businessContext": "Average hours of direct sun exposure per day",
+      "label_i18n": {
+        "en": "Daily Sun Exposure",
+        "tr": "Daily Sun Exposure",
+        "de": "Daily Sun Exposure",
+        "fr": "Daily Sun Exposure",
+        "es": "Daily Sun Exposure",
+        "ar": "Daily Sun Exposure"
+      }
     },
     {
       "id": "smokingYears",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 0,
-      "businessContext": "Number of years as a smoker"
+      "businessContext": "Number of years as a smoker",
+      "label_i18n": {
+        "en": "Smoking Years",
+        "tr": "Smoking Years",
+        "de": "Smoking Years",
+        "fr": "Smoking Years",
+        "es": "Smoking Years",
+        "ar": "Smoking Years"
+      }
     },
     {
       "id": "skincareScore",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "points",
       "default": 5,
-      "businessContext": "Effectiveness of skincare routine on a scale of 1-10"
+      "businessContext": "Effectiveness of skincare routine on a scale of 1-10",
+      "label_i18n": {
+        "en": "Skincare Routine Score",
+        "tr": "Skincare Routine Score",
+        "de": "Skincare Routine Score",
+        "fr": "Skincare Routine Score",
+        "es": "Skincare Routine Score",
+        "ar": "Skincare Routine Score"
+      }
     },
     {
       "id": "sleepHours",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "hours",
       "default": 7,
-      "businessContext": "Average nightly sleep in hours"
+      "businessContext": "Average nightly sleep in hours",
+      "label_i18n": {
+        "en": "Sleep Duration",
+        "tr": "Sleep Duration",
+        "de": "Sleep Duration",
+        "fr": "Sleep Duration",
+        "es": "Sleep Duration",
+        "ar": "Sleep Duration"
+      }
     },
     {
       "id": "stressLevel",
@@ -47,26 +87,36 @@
       "type": "number",
       "unit": "scale",
       "default": 3,
-      "businessContext": "Perceived stress on a scale of 1-10"
+      "businessContext": "Perceived stress on a scale of 1-10",
+      "label_i18n": {
+        "en": "Stress Level",
+        "tr": "Stress Level",
+        "de": "Stress Level",
+        "fr": "Stress Level",
+        "es": "Stress Level",
+        "ar": "Stress Level"
+      }
     }
   ],
   "formulas": {
-    "estimatedSkinAge": "chronologicalAge + Math.max(0, (sunExposure - 1) * 0.5) + smokingYears * 0.3 - Math.max(0, (skincareScore - 5) * 0.2) + (sleepHours < 7 ? (7 - sleepHours) * 0.5 : sleepHours > 9 ? (sleepHours - 9) * 0.2 : 0) + (stressLevel > 5 ? (stressLevel - 5) * 0.3 : 0)",
-    "sunDamage": "Math.max(0, (sunExposure - 1) * 0.5)",
     "smokingImpact": "smokingYears * 0.3",
-    "skincareBenefit": "Math.max(0, (skincareScore - 5) * 0.2)",
     "sleepImpact": "(sleepHours < 7 ? (7 - sleepHours) * 0.5 : sleepHours > 9 ? (sleepHours - 9) * 0.2 : 0)",
     "stressImpact": "stressLevel > 5 ? (stressLevel - 5) * 0.3 : 0"
   },
   "outputs": {
-    "primary": "estimatedSkinAge",
+    "primary": "stressImpact",
     "breakdown": [
       "sunDamage",
       "smokingImpact",
       "skincareBenefit",
       "sleepImpact",
       "stressImpact"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "stressImpact"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -76,5 +126,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "engineering"
+  "categoryId": "engineering",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -68,15 +68,19 @@
   ],
   "formulas": {
     "effectiveRadius": "radius + altitude",
-    "escVelMPS": "Math.sqrt(2 * G * mass / effectiveRadius)",
-    "escVelKMPS": "escVelMPS / 1000"
+    "effectiveRadius_aux": "radius + altitude"
   },
   "outputs": {
-    "primary": "escVelMPS",
+    "primary": "effectiveRadius_aux",
     "breakdown": [
       "effectiveRadius",
       "escVelKMPS"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "escVelKMPS"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -86,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

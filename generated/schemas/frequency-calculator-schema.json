@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "s",
       "default": 0,
-      "businessContext": "Time for one complete cycle. Used in f = 1/T."
+      "businessContext": "Time for one complete cycle. Used in f = 1/T.",
+      "label_i18n": {
+        "en": "Period (T)",
+        "tr": "Period (T)",
+        "de": "Period (T)",
+        "fr": "Period (T)",
+        "es": "Period (T)",
+        "ar": "Period (T)"
+      }
     },
     {
       "id": "cycles",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cycles",
       "default": 0,
-      "businessContext": "Number of cycles observed. Used with Total Time to compute frequency."
+      "businessContext": "Number of cycles observed. Used with Total Time to compute frequency.",
+      "label_i18n": {
+        "en": "Number of Cycles",
+        "tr": "Number of Cycles",
+        "de": "Number of Cycles",
+        "fr": "Number of Cycles",
+        "es": "Number of Cycles",
+        "ar": "Number of Cycles"
+      }
     },
     {
       "id": "time",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "s",
       "default": 0,
-      "businessContext": "Total time over which cycles were counted. Used in f = cycles / time."
+      "businessContext": "Total time over which cycles were counted. Used in f = cycles / time.",
+      "label_i18n": {
+        "en": "Total Time",
+        "tr": "Total Time",
+        "de": "Total Time",
+        "fr": "Total Time",
+        "es": "Total Time",
+        "ar": "Total Time"
+      }
     },
     {
       "id": "velocity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 0,
-      "businessContext": "Wave propagation speed. Used with Wavelength to compute frequency."
+      "businessContext": "Wave propagation speed. Used with Wavelength to compute frequency.",
+      "label_i18n": {
+        "en": "Velocity (v)",
+        "tr": "Velocity (v)",
+        "de": "Velocity (v)",
+        "fr": "Velocity (v)",
+        "es": "Velocity (v)",
+        "ar": "Velocity (v)"
+      }
     },
     {
       "id": "wavelength",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Distance between successive peaks. Used with Velocity in f = v/λ."
+      "businessContext": "Distance between successive peaks. Used with Velocity in f = v/λ.",
+      "label_i18n": {
+        "en": "Wavelength (λ)",
+        "tr": "Wavelength (λ)",
+        "de": "Wavelength (λ)",
+        "fr": "Wavelength (λ)",
+        "es": "Wavelength (λ)",
+        "ar": "Wavelength (λ)"
+      }
     },
     {
       "id": "angularFrequency",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "rad/s",
       "default": 0,
-      "businessContext": "Angular frequency in radians per second. Converted to Hz via f = ω/(2π)."
+      "businessContext": "Angular frequency in radians per second. Converted to Hz via f = ω/(2π).",
+      "label_i18n": {
+        "en": "Angular Frequency (ω)",
+        "tr": "Angular Frequency (ω)",
+        "de": "Angular Frequency (ω)",
+        "fr": "Angular Frequency (ω)",
+        "es": "Angular Frequency (ω)",
+        "ar": "Angular Frequency (ω)"
+      }
     },
     {
       "id": "rpm",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "rpm",
       "default": 0,
-      "businessContext": "Rotational speed in revolutions per minute. Converted to Hz via f = RPM/60."
+      "businessContext": "Rotational speed in revolutions per minute. Converted to Hz via f = RPM/60.",
+      "label_i18n": {
+        "en": "Revolutions per Minute (RPM)",
+        "tr": "Revolutions per Minute (RPM)",
+        "de": "Revolutions per Minute (RPM)",
+        "fr": "Revolutions per Minute (RPM)",
+        "es": "Revolutions per Minute (RPM)",
+        "ar": "Revolutions per Minute (RPM)"
+      }
     }
   ],
   "formulas": {
@@ -68,7 +124,12 @@
     "breakdown": [
       "angularFrequencyOut",
       "rpmOut"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "rpmOut"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -78,5 +139,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

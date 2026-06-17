@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m/dk",
       "default": 150,
-      "businessContext": "Kesme hızı, malzeme ve takım özelliklerine bağlıdır."
+      "businessContext": "Kesme hızı, malzeme ve takım özelliklerine bağlıdır.",
+      "label_i18n": {
+        "en": "Kesme Hızı (Vc)",
+        "tr": "Kesme Hızı (Vc)",
+        "de": "Kesme Hızı (Vc)",
+        "fr": "Kesme Hızı (Vc)",
+        "es": "Kesme Hızı (Vc)",
+        "ar": "Kesme Hızı (Vc)"
+      }
     },
     {
       "id": "feedPerTooth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm/diş",
       "default": 0.15,
-      "businessContext": "Takım kataloğundan seçilen değer."
+      "businessContext": "Takım kataloğundan seçilen değer.",
+      "label_i18n": {
+        "en": "Diş Başı İlerleme (fz)",
+        "tr": "Diş Başı İlerleme (fz)",
+        "de": "Diş Başı İlerleme (fz)",
+        "fr": "Diş Başı İlerleme (fz)",
+        "es": "Diş Başı İlerleme (fz)",
+        "ar": "Diş Başı İlerleme (fz)"
+      }
     },
     {
       "id": "numberOfTeeth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "adet",
       "default": 4,
-      "businessContext": "Kesici takımın diş sayısı."
+      "businessContext": "Kesici takımın diş sayısı.",
+      "label_i18n": {
+        "en": "Diş Sayısı (z)",
+        "tr": "Diş Sayısı (z)",
+        "de": "Diş Sayısı (z)",
+        "fr": "Diş Sayısı (z)",
+        "es": "Diş Sayısı (z)",
+        "ar": "Diş Sayısı (z)"
+      }
     },
     {
       "id": "toolDiameter",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 12,
-      "businessContext": "Kesici takımın çapı."
+      "businessContext": "Kesici takımın çapı.",
+      "label_i18n": {
+        "en": "Takım Çapı (D)",
+        "tr": "Takım Çapı (D)",
+        "de": "Takım Çapı (D)",
+        "fr": "Takım Çapı (D)",
+        "es": "Takım Çapı (D)",
+        "ar": "Takım Çapı (D)"
+      }
     },
     {
       "id": "depthOfCut",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm",
       "default": 5,
-      "businessContext": "Eksenel kesme derinliği."
+      "businessContext": "Eksenel kesme derinliği.",
+      "label_i18n": {
+        "en": "Kesme Derinliği (ap)",
+        "tr": "Kesme Derinliği (ap)",
+        "de": "Kesme Derinliği (ap)",
+        "fr": "Kesme Derinliği (ap)",
+        "es": "Kesme Derinliği (ap)",
+        "ar": "Kesme Derinliği (ap)"
+      }
     },
     {
       "id": "widthOfCut",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "mm",
       "default": 8,
-      "businessContext": "Radyal kesme genişliği."
+      "businessContext": "Radyal kesme genişliği.",
+      "label_i18n": {
+        "en": "Kesme Genişliği (ae)",
+        "tr": "Kesme Genişliği (ae)",
+        "de": "Kesme Genişliği (ae)",
+        "fr": "Kesme Genişliği (ae)",
+        "es": "Kesme Genişliği (ae)",
+        "ar": "Kesme Genişliği (ae)"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +108,12 @@
     "breakdown": [
       "spindleSpeed",
       "feedRate"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "materialRemovalRate"
   },
   "category": "İmalat & Üretim",
   "sector": "Üretim & İmalat",
@@ -70,5 +123,10 @@
   "sectorSlug": "cleaning",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

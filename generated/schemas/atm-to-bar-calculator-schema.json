@@ -100,10 +100,7 @@
   ],
   "formulas": {
     "primary": "pressure_atm * conversion_factor",
-    "breakdown": "pressure_atm",
-    "Rounded_pressure__bar__to_specified_prec": "Rounded pressure (bar) to specified precision",
-    "Upper_uncertainty_bound__bar_": "Upper uncertainty bound (bar)",
-    "Lower_uncertainty_bound__bar_": "Lower uncertainty bound (bar)"
+    "breakdown": "pressure_atm"
   },
   "outputs": {
     "primary": "primary",
@@ -111,7 +108,12 @@
       "Rounded pressure (bar) to specified precision",
       "Upper uncertainty bound (bar)",
       "Lower uncertainty bound (bar)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "breakdown"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -121,5 +123,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

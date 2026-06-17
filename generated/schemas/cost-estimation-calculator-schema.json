@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Cost of raw materials"
+      "businessContext": "Cost of raw materials",
+      "label_i18n": {
+        "en": "Material Cost",
+        "tr": "Material Cost",
+        "de": "Material Cost",
+        "fr": "Material Cost",
+        "es": "Material Cost",
+        "ar": "Material Cost"
+      }
     },
     {
       "id": "laborCost",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Total labor cost for production"
+      "businessContext": "Total labor cost for production",
+      "label_i18n": {
+        "en": "Labor Cost",
+        "tr": "Labor Cost",
+        "de": "Labor Cost",
+        "fr": "Labor Cost",
+        "es": "Labor Cost",
+        "ar": "Labor Cost"
+      }
     },
     {
       "id": "machineCost",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Cost of machine operation"
+      "businessContext": "Cost of machine operation",
+      "label_i18n": {
+        "en": "Machine Cost",
+        "tr": "Machine Cost",
+        "de": "Machine Cost",
+        "fr": "Machine Cost",
+        "es": "Machine Cost",
+        "ar": "Machine Cost"
+      }
     },
     {
       "id": "overheadPercent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Overhead as percentage of direct costs"
+      "businessContext": "Overhead as percentage of direct costs",
+      "label_i18n": {
+        "en": "Overhead %",
+        "tr": "Overhead %",
+        "de": "Overhead %",
+        "fr": "Overhead %",
+        "es": "Overhead %",
+        "ar": "Overhead %"
+      }
     },
     {
       "id": "markupPercent",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Profit markup percentage on total cost"
+      "businessContext": "Profit markup percentage on total cost",
+      "label_i18n": {
+        "en": "Markup %",
+        "tr": "Markup %",
+        "de": "Markup %",
+        "fr": "Markup %",
+        "es": "Markup %",
+        "ar": "Markup %"
+      }
     },
     {
       "id": "units",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 1,
-      "businessContext": "Total units produced"
+      "businessContext": "Total units produced",
+      "label_i18n": {
+        "en": "Number of Units",
+        "tr": "Number of Units",
+        "de": "Number of Units",
+        "fr": "Number of Units",
+        "es": "Number of Units",
+        "ar": "Number of Units"
+      }
     }
   ],
   "formulas": {
@@ -63,7 +111,12 @@
       "totalDirectCost",
       "overheadAmount",
       "totalCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "costPerUnit"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -73,5 +126,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

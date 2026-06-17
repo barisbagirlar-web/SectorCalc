@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 800000,
-      "businessContext": "Total jumbo loan principal amount."
+      "businessContext": "Total jumbo loan principal amount.",
+      "label_i18n": {
+        "en": "Loan Amount",
+        "tr": "Loan Amount",
+        "de": "Loan Amount",
+        "fr": "Loan Amount",
+        "es": "Loan Amount",
+        "ar": "Loan Amount"
+      }
     },
     {
       "id": "annualInterestRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 4,
-      "businessContext": "Annual nominal interest rate for the jumbo loan."
+      "businessContext": "Annual nominal interest rate for the jumbo loan.",
+      "label_i18n": {
+        "en": "Annual Interest Rate",
+        "tr": "Annual Interest Rate",
+        "de": "Annual Interest Rate",
+        "fr": "Annual Interest Rate",
+        "es": "Annual Interest Rate",
+        "ar": "Annual Interest Rate"
+      }
     },
     {
       "id": "loanTermYears",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Length of the loan in years."
+      "businessContext": "Length of the loan in years.",
+      "label_i18n": {
+        "en": "Loan Term",
+        "tr": "Loan Term",
+        "de": "Loan Term",
+        "fr": "Loan Term",
+        "es": "Loan Term",
+        "ar": "Loan Term"
+      }
     },
     {
       "id": "downPaymentPercent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Down payment as a percentage of the purchase price. Used to compute loan-to-value ratio and purchase price."
+      "businessContext": "Down payment as a percentage of the purchase price. Used to compute loan-to-value ratio and purchase price.",
+      "label_i18n": {
+        "en": "Down Payment",
+        "tr": "Down Payment",
+        "de": "Down Payment",
+        "fr": "Down Payment",
+        "es": "Down Payment",
+        "ar": "Down Payment"
+      }
     },
     {
       "id": "propertyTaxRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 1.2,
-      "businessContext": "Annual property tax rate as a percentage of the home's purchase price."
+      "businessContext": "Annual property tax rate as a percentage of the home's purchase price.",
+      "label_i18n": {
+        "en": "Property Tax Rate",
+        "tr": "Property Tax Rate",
+        "de": "Property Tax Rate",
+        "fr": "Property Tax Rate",
+        "es": "Property Tax Rate",
+        "ar": "Property Tax Rate"
+      }
     },
     {
       "id": "annualHomeInsurance",
@@ -47,29 +87,38 @@
       "type": "number",
       "unit": "USD",
       "default": 1500,
-      "businessContext": "Annual premium for home insurance."
+      "businessContext": "Annual premium for home insurance.",
+      "label_i18n": {
+        "en": "Annual Home Insurance",
+        "tr": "Annual Home Insurance",
+        "de": "Annual Home Insurance",
+        "fr": "Annual Home Insurance",
+        "es": "Annual Home Insurance",
+        "ar": "Annual Home Insurance"
+      }
     }
   ],
   "formulas": {
     "purchasePrice": "loanAmount / (1 - downPaymentPercent / 100)",
     "monthlyRate": "annualInterestRate / 100 / 12",
     "numberOfPayments": "loanTermYears * 12",
-    "monthlyPI": "loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, numberOfPayments)) / (Math.pow(1 + monthlyRate, numberOfPayments) - 1)",
     "monthlyPropertyTax": "purchasePrice * (propertyTaxRate / 100) / 12",
     "monthlyInsurance": "annualHomeInsurance / 12",
-    "monthlyPITI": "monthlyPI + monthlyPropertyTax + monthlyInsurance",
-    "totalInterest": "monthlyPI * numberOfPayments - loanAmount",
-    "loanToValue": "(loanAmount / purchasePrice) * 100",
-    "totalPaymentsPI": "monthlyPI * numberOfPayments"
+    "loanToValue": "(loanAmount / purchasePrice) * 100"
   },
   "outputs": {
-    "primary": "monthlyPITI",
+    "primary": "loanToValue",
     "breakdown": [
       "monthlyPI",
       "totalInterest",
       "loanToValue",
       "purchasePrice"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalPaymentsPI"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -79,5 +128,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

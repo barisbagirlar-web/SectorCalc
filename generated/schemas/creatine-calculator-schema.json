@@ -86,16 +86,19 @@
     "netDosagePerUnit": "dosagePerUnit / (purity / 100)",
     "totalTheoreticalKg": "(totalUnits * netDosagePerUnit) / 1000",
     "totalNeededKg": "totalTheoreticalKg / (1 - lossRate / 100)",
-    "totalCost": "totalNeededKg * costPerKg",
-    "__totalNeededKg__kg": "${totalNeededKg} kg",
-    "__totalCost__TL": "${totalCost} TL"
+    "totalCost": "totalNeededKg * costPerKg"
   },
   "outputs": {
     "primary": "netDosagePerUnit",
     "breakdown": [
       "Net Kreatin Miktarı: ${totalNeededKg} kg",
       "Toplam Maliyet: ${totalCost} TL"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -105,5 +108,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

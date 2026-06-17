@@ -100,15 +100,19 @@
   ],
   "formulas": {
     "beta": "-5.5 + 0.05 * age + 0.01 * systolicBP + 0.005 * totalCholesterol - 0.008 * hdlCholesterol + 0.5 * smoker + 0.3 * diabetes",
-    "risk": "1 - Math.exp(-Math.exp(beta))",
-    "percentage": "risk * 100"
+    "beta_aux": "-5.5 + 0.05 * age + 0.01 * systolicBP + 0.005 * totalCholesterol - 0.008 * hdlCholesterol + 0.5 * smoker + 0.3 * diabetes"
   },
   "outputs": {
-    "primary": "percentage",
+    "primary": "beta_aux",
     "breakdown": [
       "risk",
       "percentage"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "percentage"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -118,5 +122,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

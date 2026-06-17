@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Kaynaklı parça kalınlığı"
+      "businessContext": "Kaynaklı parça kalınlığı",
+      "label_i18n": {
+        "en": "Plaka Kalınlığı",
+        "tr": "Plaka Kalınlığı",
+        "de": "Plaka Kalınlığı",
+        "fr": "Plaka Kalınlığı",
+        "es": "Plaka Kalınlığı",
+        "ar": "Plaka Kalınlığı"
+      }
     },
     {
       "id": "rootGap",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 2,
-      "businessContext": "Kaynak ağzı kök aralığı"
+      "businessContext": "Kaynak ağzı kök aralığı",
+      "label_i18n": {
+        "en": "Kök Aralığı",
+        "tr": "Kök Aralığı",
+        "de": "Kök Aralığı",
+        "fr": "Kök Aralığı",
+        "es": "Kök Aralığı",
+        "ar": "Kök Aralığı"
+      }
     },
     {
       "id": "bevelAngle",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "derece",
       "default": 60,
-      "businessContext": "V-kaynak ağzı açısı"
+      "businessContext": "V-kaynak ağzı açısı",
+      "label_i18n": {
+        "en": "Pah Açısı",
+        "tr": "Pah Açısı",
+        "de": "Pah Açısı",
+        "fr": "Pah Açısı",
+        "es": "Pah Açısı",
+        "ar": "Pah Açısı"
+      }
     },
     {
       "id": "reinforcementHeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 1.5,
-      "businessContext": "Kaynak tepesi takviye yüksekliği"
+      "businessContext": "Kaynak tepesi takviye yüksekliği",
+      "label_i18n": {
+        "en": "Takviye Yüksekliği",
+        "tr": "Takviye Yüksekliği",
+        "de": "Takviye Yüksekliği",
+        "fr": "Takviye Yüksekliği",
+        "es": "Takviye Yüksekliği",
+        "ar": "Takviye Yüksekliği"
+      }
     },
     {
       "id": "weldLength",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm",
       "default": 500,
-      "businessContext": "Toplam kaynak dikiş boyu"
+      "businessContext": "Toplam kaynak dikiş boyu",
+      "label_i18n": {
+        "en": "Kaynak Uzunluğu",
+        "tr": "Kaynak Uzunluğu",
+        "de": "Kaynak Uzunluğu",
+        "fr": "Kaynak Uzunluğu",
+        "es": "Kaynak Uzunluğu",
+        "ar": "Kaynak Uzunluğu"
+      }
     },
     {
       "id": "materialDensity",
@@ -47,25 +87,34 @@
       "type": "number",
       "unit": "g/cm³",
       "default": 7.85,
-      "businessContext": "Kaynak metalinin yoğunluğu (çelik: 7.85)"
+      "businessContext": "Kaynak metalinin yoğunluğu (çelik: 7.85)",
+      "label_i18n": {
+        "en": "Malzeme Yoğunluğu",
+        "tr": "Malzeme Yoğunluğu",
+        "de": "Malzeme Yoğunluğu",
+        "fr": "Malzeme Yoğunluğu",
+        "es": "Malzeme Yoğunluğu",
+        "ar": "Malzeme Yoğunluğu"
+      }
     }
   ],
   "formulas": {
-    "weldWidth": "rootGap + 2 * plateThickness * (Math.sin((bevelAngle/2) * Math.PI / 180) / Math.cos((bevelAngle/2) * Math.PI / 180))",
-    "grooveArea": "rootGap * plateThickness + plateThickness * plateThickness * (Math.sin((bevelAngle/2) * Math.PI / 180) / Math.cos((bevelAngle/2) * Math.PI / 180))",
-    "reinforcementArea": "0.67 * reinforcementHeight * weldWidth",
-    "crossSectionalArea": "grooveArea + reinforcementArea",
-    "volume": "crossSectionalArea * weldLength",
-    "weldWeight": "volume * materialDensity / 1000000"
+    "result": "plateThickness + rootGap + bevelAngle",
+    "result_copy": "plateThickness + rootGap + bevelAngle"
   },
   "outputs": {
-    "primary": "weldWeight",
+    "primary": "result",
     "breakdown": [
       "crossSectionalArea",
       "volume",
       "grooveArea",
       "reinforcementArea"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "weldWeight"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -75,5 +124,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "metal",
   "profession": "Kaynak Uzmanı",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

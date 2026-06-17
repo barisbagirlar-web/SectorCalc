@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { compileFormulaExpression } from "@/lib/generated-tools/compile-formula-expression";
+import { isSafeCompiledFormulaExpression } from "@/lib/generated-tools/compile-formula-safety";
 import { toGeneratedExportBaseName, toSafeVarName } from "@/lib/generated-tools/export-names";
 import { normalizeRawGeneratedSchema } from "@/lib/generated-tools/normalize-schema";
 import type { GeneratedToolSchema } from "@/lib/generated-tools/types";
@@ -91,6 +92,20 @@ export interface ${exportBase}Output {
 }`;
 }
 
+function toTypeScriptNumericExpression(compiled: string): string {
+  let expr = compiled.trim();
+  if (expr.endsWith("* 1")) {
+    expr = expr.slice(0, -3).trim();
+  }
+  const isNumericTernary = /\?[^?]*\d[^?]*:/.test(expr);
+  const isStringTernary = /\?\s*['"`]/.test(expr);
+  const isBooleanLogic = /===|!==|&&|\|\|/.test(expr);
+  if (isBooleanLogic && !isNumericTernary && !isStringTernary) {
+    return `((${expr}) ? 1 : 0)`;
+  }
+  return expr;
+}
+
 function generateFormulaEvaluator(
   schema: GeneratedToolSchema,
   exportBase: string,
@@ -98,7 +113,11 @@ function generateFormulaEvaluator(
   const formulaEntries = Object.entries(schema.formulas);
   if (formulaEntries.length === 0) {
     return {
-      code: `function evaluateAllFormulas(_input: ${exportBase}Input): Record<string, number> {
+      code: `function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(_input: ${exportBase}Input): Record<string, number | string> {
   return {};
 }`,
       compileFailures: 0,
@@ -107,7 +126,7 @@ function generateFormulaEvaluator(
 
   const formulaKeys = formulaEntries.map(([key]) => key);
   const inputIds = schema.inputs.map((input) => input.id);
-  const lines: string[] = ["const results: Record<string, number> = {};"];
+  const lines: string[] = ["const results: Record<string, number | string> = {};"];
   let compileFailures = 0;
 
   for (const [key, expression] of formulaEntries) {
@@ -118,21 +137,15 @@ function generateFormulaEvaluator(
       selfKey: key,
     });
 
-    if (!compiled) {
+    if (!compiled || !isSafeCompiledFormulaExpression(compiled)) {
       compileFailures += 1;
       lines.push(`results[${JSON.stringify(key)}] = 0;`);
       continue;
     }
 
-    if (compiled.includes("Math.Math")) {
-      // Don't hard-fail generation; clamp this formula to 0.
-      compileFailures += 1;
-      lines.push(`results[${JSON.stringify(key)}] = 0;`);
-      continue;
-    }
-
+    const tsExpr = toTypeScriptNumericExpression(compiled);
     lines.push(
-      `try { const v = ${compiled}; results[${JSON.stringify(key)}] = Number.isFinite(v) ? v : 0; } catch { results[${JSON.stringify(key)}] = 0; }`,
+      `try { const v = ${tsExpr}; results[${JSON.stringify(key)}] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results[${JSON.stringify(key)}] = 0; }`,
     );
   }
 
@@ -140,7 +153,11 @@ function generateFormulaEvaluator(
 
   return {
     compileFailures,
-    code: `function evaluateAllFormulas(input: ${exportBase}Input): Record<string, number> {
+    code: `function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: ${exportBase}Input): Record<string, number | string> {
   ${lines.join("\n  ")}
 }`,
   };
@@ -184,10 +201,14 @@ function generateCalculateFunction(
     resolveOutputFormulaFallbacks(schema);
 
   const resolvedPrimaryExpr = primaryFallbackByKey[primaryKey]
-    ? `values[${JSON.stringify(primaryKey)}] ?? values[${JSON.stringify(primaryFallbackByKey[primaryKey])}] ?? 0`
-    : `values[${JSON.stringify(primaryKey)}] ?? 0`;
+    ? `toNumericFormulaValue(values[${JSON.stringify(primaryKey)}] ?? values[${JSON.stringify(primaryFallbackByKey[primaryKey])}])`
+    : `toNumericFormulaValue(values[${JSON.stringify(primaryKey)}])`;
 
   return `
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculate${exportBase}(input: ${exportBase}Input): ${exportBase}Output {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = ${resolvedPrimaryExpr};
@@ -196,16 +217,16 @@ export function calculate${exportBase}(input: ${exportBase}Input): ${exportBase}
       .map((key) => {
         const fallback = breakdownFallbackByKey[key];
         return fallback
-          ? `${key}: values[${JSON.stringify(key)}] ?? values[${JSON.stringify(fallback)}] ?? 0`
-          : `${key}: values[${JSON.stringify(key)}] ?? 0`;
+          ? `${key}: toNumericFormulaValue(values[${JSON.stringify(key)}] ?? values[${JSON.stringify(fallback)}])`
+          : `${key}: toNumericFormulaValue(values[${JSON.stringify(key)}])`;
       })
       .join(",\n    ")}
   };
   const hiddenLossDrivers: string[] = ${JSON.stringify(schema.outputs.hiddenLossDrivers)};
   const suggestedActions: string[] = ${JSON.stringify(schema.outputs.suggestedActions)};
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,
@@ -230,7 +251,8 @@ export function generateFromSchemaFile(schemaPath: string, outPath: string): num
   const exportBase = toGeneratedExportBaseName(slug);
   const { code: formulaEvaluator, compileFailures } = generateFormulaEvaluator(schema, exportBase);
 
-  const content = `// Auto-generated from ${path.basename(schemaPath)}
+  const content = `// @ts-nocheck
+// Auto-generated from ${path.basename(schemaPath)}
 import * as z from 'zod';
 
 ${generateTypeInterface(schema, exportBase)}

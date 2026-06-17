@@ -68,14 +68,19 @@
   ],
   "formulas": {
     "log10EFW": "1.3596 - 0.00386 * ac * fl + 0.0064 * hc + 0.00061 * bpd * ac + 0.0424 * ac + 0.174 * fl",
-    "EFW_g": "Math.pow(10, log10EFW)"
+    "log10EFW_aux": "1.3596 - 0.00386 * ac * fl + 0.0064 * hc + 0.00061 * bpd * ac + 0.0424 * ac + 0.174 * fl"
   },
   "outputs": {
-    "primary": "EFW_g",
+    "primary": "log10EFW_aux",
     "breakdown": [
       "log10EFW",
       "EFW_g"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "EFW_g"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -85,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

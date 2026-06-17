@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "The mass of the load being cycled (lifted and lowered)."
+      "businessContext": "The mass of the load being cycled (lifted and lowered).",
+      "label_i18n": {
+        "en": "Mass of Load",
+        "tr": "Mass of Load",
+        "de": "Mass of Load",
+        "fr": "Mass of Load",
+        "es": "Mass of Load",
+        "ar": "Mass of Load"
+      }
     },
     {
       "id": "height",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Vertical distance the load is lifted each cycle."
+      "businessContext": "Vertical distance the load is lifted each cycle.",
+      "label_i18n": {
+        "en": "Lifting Height",
+        "tr": "Lifting Height",
+        "de": "Lifting Height",
+        "fr": "Lifting Height",
+        "es": "Lifting Height",
+        "ar": "Lifting Height"
+      }
     },
     {
       "id": "cyclesPerDay",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cycles/day",
       "default": 100,
-      "businessContext": "Number of lift cycles per operating day."
+      "businessContext": "Number of lift cycles per operating day.",
+      "label_i18n": {
+        "en": "Cycles per Day",
+        "tr": "Cycles per Day",
+        "de": "Cycles per Day",
+        "fr": "Cycles per Day",
+        "es": "Cycles per Day",
+        "ar": "Cycles per Day"
+      }
     },
     {
       "id": "operatingDays",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "days",
       "default": 250,
-      "businessContext": "Total number of operating days per year or period."
+      "businessContext": "Total number of operating days per year or period.",
+      "label_i18n": {
+        "en": "Operating Days",
+        "tr": "Operating Days",
+        "de": "Operating Days",
+        "fr": "Operating Days",
+        "es": "Operating Days",
+        "ar": "Operating Days"
+      }
     },
     {
       "id": "efficiency",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "Overall efficiency of the lifting mechanism including motor, transmission, etc. Enter as percentage (0-100)."
+      "businessContext": "Overall efficiency of the lifting mechanism including motor, transmission, etc. Enter as percentage (0-100).",
+      "label_i18n": {
+        "en": "System Efficiency",
+        "tr": "System Efficiency",
+        "de": "System Efficiency",
+        "fr": "System Efficiency",
+        "es": "System Efficiency",
+        "ar": "System Efficiency"
+      }
     },
     {
       "id": "energyCost",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "currency/kWh",
       "default": 0.15,
-      "businessContext": "Cost of electricity per kilowatt-hour in your currency."
+      "businessContext": "Cost of electricity per kilowatt-hour in your currency.",
+      "label_i18n": {
+        "en": "Energy Cost",
+        "tr": "Energy Cost",
+        "de": "Energy Cost",
+        "fr": "Energy Cost",
+        "es": "Energy Cost",
+        "ar": "Energy Cost"
+      }
     }
   ],
   "formulas": {
@@ -71,7 +119,12 @@
         "unit": "cycles",
         "formula": "totalCycles"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -81,5 +134,10 @@
   "sectorSlug": "cleaning",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

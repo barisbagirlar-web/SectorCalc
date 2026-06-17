@@ -68,14 +68,19 @@
   ],
   "formulas": {
     "fallFactor": "fallLength / ropeLength",
-    "impactForce": "ropeImpactForceRating * (climberMass / 80) * Math.sqrt(fallFactor / 1.77)"
+    "fallFactor_aux": "fallLength / ropeLength"
   },
   "outputs": {
-    "primary": "impactForce",
+    "primary": "fallFactor_aux",
     "breakdown": [
       "fallFactor",
       "impactForce"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "impactForce"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -85,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "saglik",
   "profession": "Biyomedikal Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

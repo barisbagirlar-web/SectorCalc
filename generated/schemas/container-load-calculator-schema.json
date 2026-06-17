@@ -19,22 +19,10 @@
       "unit": "unit",
       "default": "20ft_standard",
       "options": [
-        {
-          "value": "20ft_standard",
-          "label": "20 ft Standard (33.2 m³)"
-        },
-        {
-          "value": "40ft_standard",
-          "label": "40 ft Standard (67.6 m³)"
-        },
-        {
-          "value": "40ft_highcube",
-          "label": "40 ft High Cube (76.3 m³)"
-        },
-        {
-          "value": "20ft_open_top",
-          "label": "20 ft Open Top (32.5 m³)"
-        }
+        "20ft_standard",
+        "40ft_standard",
+        "40ft_highcube",
+        "20ft_open_top"
       ],
       "businessContext": "Select the container type to define internal volume and dimensional constraints per ISO 668.",
       "label_i18n": {
@@ -131,18 +119,9 @@
       "unit": "unit",
       "default": "blocking",
       "options": [
-        {
-          "value": "blocking",
-          "label": "Blocking & Bracing"
-        },
-        {
-          "value": "lashing",
-          "label": "Lashing"
-        },
-        {
-          "value": "shrink_wrap",
-          "label": "Shrink Wrap"
-        }
+        "blocking",
+        "lashing",
+        "shrink_wrap"
       ],
       "businessContext": "Method used to secure cargo. Affects usable volume and weight distribution per CTU Code.",
       "label_i18n": {
@@ -164,22 +143,6 @@
       },
       "businessContext_i18n": {
         "en": "Indicates if cargo is palletized. Pallet dimensions add to base footprint and reduce usable height."
-      }
-    },
-    {
-      "id": "pallet_height_cm",
-      "label": "Pallet Height (cm)",
-      "type": "number",
-      "unit": "cm",
-      "default": 15,
-      "min": 0,
-      "max": 30,
-      "businessContext": "Height of the pallet (if used). Added to cargo height for total unit height.",
-      "label_i18n": {
-        "en": "Pallet Height (cm)"
-      },
-      "businessContext_i18n": {
-        "en": "Height of the pallet (if used). Added to cargo height for total unit height."
       }
     }
   ],
@@ -222,18 +185,18 @@
       }
     ]
   },
-  "formulas": [
-    "container_type",
-    "container_type",
-    "container_type",
-    "container_type",
-    "container_type",
-    "container_type",
-    "container_type"
-  ],
+  "formulas": {
+    "result": "container_type + cargo_length_cm + cargo_width_cm",
+    "result_copy": "container_type + cargo_length_cm + cargo_width_cm"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

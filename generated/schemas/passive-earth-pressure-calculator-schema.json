@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kN/m³",
       "default": 18,
-      "businessContext": "Weight of soil per unit volume"
+      "businessContext": "Weight of soil per unit volume",
+      "label_i18n": {
+        "en": "Soil Unit Weight (γ)",
+        "tr": "Soil Unit Weight (γ)",
+        "de": "Soil Unit Weight (γ)",
+        "fr": "Soil Unit Weight (γ)",
+        "es": "Soil Unit Weight (γ)",
+        "ar": "Soil Unit Weight (γ)"
+      }
     },
     {
       "id": "heightOfWall",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Vertical height of the retaining wall"
+      "businessContext": "Vertical height of the retaining wall",
+      "label_i18n": {
+        "en": "Height of Retaining Wall (H)",
+        "tr": "Height of Retaining Wall (H)",
+        "de": "Height of Retaining Wall (H)",
+        "fr": "Height of Retaining Wall (H)",
+        "es": "Height of Retaining Wall (H)",
+        "ar": "Height of Retaining Wall (H)"
+      }
     },
     {
       "id": "frictionAngle",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "degrees",
       "default": 30,
-      "businessContext": "Angle of internal friction of the backfill soil"
+      "businessContext": "Angle of internal friction of the backfill soil",
+      "label_i18n": {
+        "en": "Internal Friction Angle (φ)",
+        "tr": "Internal Friction Angle (φ)",
+        "de": "Internal Friction Angle (φ)",
+        "fr": "Internal Friction Angle (φ)",
+        "es": "Internal Friction Angle (φ)",
+        "ar": "Internal Friction Angle (φ)"
+      }
     },
     {
       "id": "cohesion",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kPa",
       "default": 0,
-      "businessContext": "Cohesion intercept of the soil"
+      "businessContext": "Cohesion intercept of the soil",
+      "label_i18n": {
+        "en": "Cohesion (c)",
+        "tr": "Cohesion (c)",
+        "de": "Cohesion (c)",
+        "fr": "Cohesion (c)",
+        "es": "Cohesion (c)",
+        "ar": "Cohesion (c)"
+      }
     },
     {
       "id": "surcharge",
@@ -39,20 +71,23 @@
       "type": "number",
       "unit": "kN/m²",
       "default": 0,
-      "businessContext": "Uniform surcharge load on the backfill surface"
+      "businessContext": "Uniform surcharge load on the backfill surface",
+      "label_i18n": {
+        "en": "Surcharge Pressure (q)",
+        "tr": "Surcharge Pressure (q)",
+        "de": "Surcharge Pressure (q)",
+        "fr": "Surcharge Pressure (q)",
+        "es": "Surcharge Pressure (q)",
+        "ar": "Surcharge Pressure (q)"
+      }
     }
   ],
   "formulas": {
-    "frictionAngleRad": "inputs.frictionAngle * Math.PI / 180",
-    "kp": "Math.pow(Math.tan(Math.PI/4 + frictionAngleRad/2), 2)",
-    "passivePressureBase": "kp * (inputs.soilUnitWeight * inputs.heightOfWall + inputs.surcharge) + 2 * inputs.cohesion * Math.sqrt(kp)",
-    "forceFromSoil": "0.5 * inputs.soilUnitWeight * inputs.heightOfWall * inputs.heightOfWall * kp",
-    "forceFromSurcharge": "inputs.surcharge * inputs.heightOfWall * kp",
-    "forceFromCohesion": "2 * inputs.cohesion * inputs.heightOfWall * Math.sqrt(kp)",
-    "totalPassiveForce": "forceFromSoil + forceFromSurcharge + forceFromCohesion"
+    "result": "soilUnitWeight + heightOfWall + frictionAngle",
+    "result_copy": "soilUnitWeight + heightOfWall + frictionAngle"
   },
   "outputs": {
-    "primary": "frictionAngleRad",
+    "primary": "result",
     "breakdown": [
       {
         "id": "kp",
@@ -84,7 +119,12 @@
         "unit": "kN/m",
         "value": "forceFromCohesion"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalPassiveForce"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -94,5 +134,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "tarim",
   "profession": "Ziraat Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

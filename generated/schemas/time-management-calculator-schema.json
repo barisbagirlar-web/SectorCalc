@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "tasks",
       "default": 10,
-      "businessContext": "Total number of tasks to complete"
+      "businessContext": "Total number of tasks to complete",
+      "label_i18n": {
+        "en": "Total number of tasks",
+        "tr": "Total number of tasks",
+        "de": "Total number of tasks",
+        "fr": "Total number of tasks",
+        "es": "Total number of tasks",
+        "ar": "Total number of tasks"
+      }
     },
     {
       "id": "timePerTask",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 30,
-      "businessContext": "Average time to complete one task (minutes)"
+      "businessContext": "Average time to complete one task (minutes)",
+      "label_i18n": {
+        "en": "Time per task",
+        "tr": "Time per task",
+        "de": "Time per task",
+        "fr": "Time per task",
+        "es": "Time per task",
+        "ar": "Time per task"
+      }
     },
     {
       "id": "workers",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "workers",
       "default": 1,
-      "businessContext": "Number of workers available"
+      "businessContext": "Number of workers available",
+      "label_i18n": {
+        "en": "Number of workers",
+        "tr": "Number of workers",
+        "de": "Number of workers",
+        "fr": "Number of workers",
+        "es": "Number of workers",
+        "ar": "Number of workers"
+      }
     },
     {
       "id": "efficiency",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Worker efficiency as a percentage (100% = full efficiency)"
+      "businessContext": "Worker efficiency as a percentage (100% = full efficiency)",
+      "label_i18n": {
+        "en": "Efficiency",
+        "tr": "Efficiency",
+        "de": "Efficiency",
+        "fr": "Efficiency",
+        "es": "Efficiency",
+        "ar": "Efficiency"
+      }
     },
     {
       "id": "breakTimePerDay",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 60,
-      "businessContext": "Total break time per worker per day (minutes)"
+      "businessContext": "Total break time per worker per day (minutes)",
+      "label_i18n": {
+        "en": "Break time per day",
+        "tr": "Break time per day",
+        "de": "Break time per day",
+        "fr": "Break time per day",
+        "es": "Break time per day",
+        "ar": "Break time per day"
+      }
     },
     {
       "id": "workingHoursPerDay",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "hours",
       "default": 8,
-      "businessContext": "Standard working hours per day"
+      "businessContext": "Standard working hours per day",
+      "label_i18n": {
+        "en": "Working hours per day",
+        "tr": "Working hours per day",
+        "de": "Working hours per day",
+        "fr": "Working hours per day",
+        "es": "Working hours per day",
+        "ar": "Working hours per day"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
       "totalWorkMinutes",
       "adjustedWorkMinutes",
       "effectiveMinutesPerDay"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalDays"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -72,5 +125,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "efficiency"
+  "categoryId": "efficiency",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

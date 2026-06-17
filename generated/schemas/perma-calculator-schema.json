@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "score",
       "default": 5,
-      "businessContext": "How often you feel positive emotions (0-10)"
+      "businessContext": "How often you feel positive emotions (0-10)",
+      "label_i18n": {
+        "en": "Positive Emotion (P)",
+        "tr": "Positive Emotion (P)",
+        "de": "Positive Emotion (P)",
+        "fr": "Positive Emotion (P)",
+        "es": "Positive Emotion (P)",
+        "ar": "Positive Emotion (P)"
+      }
     },
     {
       "id": "engagement",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "score",
       "default": 5,
-      "businessContext": "How engaged you are in activities (0-10)"
+      "businessContext": "How engaged you are in activities (0-10)",
+      "label_i18n": {
+        "en": "Engagement (E)",
+        "tr": "Engagement (E)",
+        "de": "Engagement (E)",
+        "fr": "Engagement (E)",
+        "es": "Engagement (E)",
+        "ar": "Engagement (E)"
+      }
     },
     {
       "id": "relationships",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "score",
       "default": 5,
-      "businessContext": "Quality of your relationships (0-10)"
+      "businessContext": "Quality of your relationships (0-10)",
+      "label_i18n": {
+        "en": "Relationships (R)",
+        "tr": "Relationships (R)",
+        "de": "Relationships (R)",
+        "fr": "Relationships (R)",
+        "es": "Relationships (R)",
+        "ar": "Relationships (R)"
+      }
     },
     {
       "id": "meaning",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "score",
       "default": 5,
-      "businessContext": "Sense of meaning and purpose (0-10)"
+      "businessContext": "Sense of meaning and purpose (0-10)",
+      "label_i18n": {
+        "en": "Meaning (M)",
+        "tr": "Meaning (M)",
+        "de": "Meaning (M)",
+        "fr": "Meaning (M)",
+        "es": "Meaning (M)",
+        "ar": "Meaning (M)"
+      }
     },
     {
       "id": "accomplishment",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "score",
       "default": 5,
-      "businessContext": "Sense of accomplishment (0-10)"
+      "businessContext": "Sense of accomplishment (0-10)",
+      "label_i18n": {
+        "en": "Accomplishment (A)",
+        "tr": "Accomplishment (A)",
+        "de": "Accomplishment (A)",
+        "fr": "Accomplishment (A)",
+        "es": "Accomplishment (A)",
+        "ar": "Accomplishment (A)"
+      }
     }
   ],
   "formulas": {
@@ -58,7 +98,12 @@
       "relationshipsOutput",
       "meaningOutput",
       "accomplishmentOutput"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "accomplishmentOutput"
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Üretim & İmalat",
@@ -68,5 +113,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m²",
       "default": 100,
-      "businessContext": "Total lawn area to be serviced"
+      "businessContext": "Total lawn area to be serviced",
+      "label_i18n": {
+        "en": "Lawn Area",
+        "tr": "Lawn Area",
+        "de": "Lawn Area",
+        "fr": "Lawn Area",
+        "es": "Lawn Area",
+        "ar": "Lawn Area"
+      }
     },
     {
       "id": "seedCost",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "$/m²",
       "default": 0.5,
-      "businessContext": "Cost of grass seed per square meter"
+      "businessContext": "Cost of grass seed per square meter",
+      "label_i18n": {
+        "en": "Grass Seed Cost",
+        "tr": "Grass Seed Cost",
+        "de": "Grass Seed Cost",
+        "fr": "Grass Seed Cost",
+        "es": "Grass Seed Cost",
+        "ar": "Grass Seed Cost"
+      }
     },
     {
       "id": "fertilizerCost",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$/m²",
       "default": 0.3,
-      "businessContext": "Cost of fertilizer per square meter"
+      "businessContext": "Cost of fertilizer per square meter",
+      "label_i18n": {
+        "en": "Fertilizer Cost",
+        "tr": "Fertilizer Cost",
+        "de": "Fertilizer Cost",
+        "fr": "Fertilizer Cost",
+        "es": "Fertilizer Cost",
+        "ar": "Fertilizer Cost"
+      }
     },
     {
       "id": "irrigationCost",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "$/m²",
       "default": 0.1,
-      "businessContext": "Cost of irrigation water per square meter"
+      "businessContext": "Cost of irrigation water per square meter",
+      "label_i18n": {
+        "en": "Irrigation Cost",
+        "tr": "Irrigation Cost",
+        "de": "Irrigation Cost",
+        "fr": "Irrigation Cost",
+        "es": "Irrigation Cost",
+        "ar": "Irrigation Cost"
+      }
     },
     {
       "id": "laborRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "$/hr",
       "default": 25,
-      "businessContext": "Hourly rate for labor"
+      "businessContext": "Hourly rate for labor",
+      "label_i18n": {
+        "en": "Labor Rate",
+        "tr": "Labor Rate",
+        "de": "Labor Rate",
+        "fr": "Labor Rate",
+        "es": "Labor Rate",
+        "ar": "Labor Rate"
+      }
     },
     {
       "id": "laborHours",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "hr",
       "default": 4,
-      "businessContext": "Estimated labor hours required"
+      "businessContext": "Estimated labor hours required",
+      "label_i18n": {
+        "en": "Labor Hours",
+        "tr": "Labor Hours",
+        "de": "Labor Hours",
+        "fr": "Labor Hours",
+        "es": "Labor Hours",
+        "ar": "Labor Hours"
+      }
     },
     {
       "id": "profitMargin",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Desired profit margin percentage"
+      "businessContext": "Desired profit margin percentage",
+      "label_i18n": {
+        "en": "Profit Margin",
+        "tr": "Profit Margin",
+        "de": "Profit Margin",
+        "fr": "Profit Margin",
+        "es": "Profit Margin",
+        "ar": "Profit Margin"
+      }
     }
   ],
   "formulas": {
@@ -70,7 +126,12 @@
       "materialCost",
       "laborCost",
       "totalCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "sellingPrice"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -80,5 +141,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "tarim",
   "profession": "Ziraat Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

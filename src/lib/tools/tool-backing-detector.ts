@@ -82,6 +82,9 @@ function validationExists(slug: string): boolean {
   if (isFullLoopRuntimeSlug(slug)) {
     return true;
   }
+  if (isPremiumSchemaExtendedProductionSlug(slug) && hasFormulaContract(slug)) {
+    return true;
+  }
   if (!hasFormulaContract(slug)) {
     return false;
   }

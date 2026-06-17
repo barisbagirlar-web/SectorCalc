@@ -87,17 +87,10 @@
     "deadliftWeek3": "deadliftTM * 0.825",
     "deadliftWeek4": "deadliftTM * 0.85",
     "deadliftWeek5": "deadliftTM * 0.875",
-    "deadliftWeek6": "deadliftTM * 1.0",
-    "Squat__squatWeek1__kg__Bench__benchWeek1": "Squat {squatWeek1} kg, Bench {benchWeek1} kg, Deadlift {deadliftWeek1} kg",
-    "Squat__squatWeek2__kg__Bench__benchWeek2": "Squat {squatWeek2} kg, Bench {benchWeek2} kg, Deadlift {deadliftWeek2} kg",
-    "Squat__squatWeek3__kg__Bench__benchWeek3": "Squat {squatWeek3} kg, Bench {benchWeek3} kg, Deadlift {deadliftWeek3} kg",
-    "Squat__squatWeek4__kg__Bench__benchWeek4": "Squat {squatWeek4} kg, Bench {benchWeek4} kg, Deadlift {deadliftWeek4} kg",
-    "Squat__squatWeek5__kg__Bench__benchWeek5": "Squat {squatWeek5} kg, Bench {benchWeek5} kg, Deadlift {deadliftWeek5} kg",
-    "Squat__squatWeek6__kg__Bench__benchWeek6": "Squat {squatWeek6} kg, Bench {benchWeek6} kg, Deadlift {deadliftWeek6} kg",
-    "result": "Candito 6 Week Strength Program: Your training maxes: Squat {squatTM} kg, Bench {benchTM} kg, Deadlift {deadliftTM} kg. The weekly working weights (main set) are listed below."
+    "deadliftWeek6": "deadliftTM * 1.0"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "deadliftWeek6",
     "breakdown": [
       "Week 1: Squat {squatWeek1} kg, Bench {benchWeek1} kg, Deadlift {deadliftWeek1} kg",
       "Week 2: Squat {squatWeek2} kg, Bench {benchWeek2} kg, Deadlift {deadliftWeek2} kg",
@@ -105,7 +98,12 @@
       "Week 4: Squat {squatWeek4} kg, Bench {benchWeek4} kg, Deadlift {deadliftWeek4} kg",
       "Week 5: Squat {squatWeek5} kg, Bench {benchWeek5} kg, Deadlift {deadliftWeek5} kg",
       "Week 6: Squat {squatWeek6} kg, Bench {benchWeek6} kg, Deadlift {deadliftWeek6} kg"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "deadliftWeek6"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -115,5 +113,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

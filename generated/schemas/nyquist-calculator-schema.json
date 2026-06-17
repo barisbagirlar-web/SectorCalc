@@ -80,7 +80,12 @@
       "actualUtilization",
       "recommendedSamplingForDesiredUtilization",
       "isAdequate"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "isAdequate"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -90,5 +95,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

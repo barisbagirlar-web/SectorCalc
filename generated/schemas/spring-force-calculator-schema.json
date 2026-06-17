@@ -99,16 +99,20 @@
     }
   ],
   "formulas": {
-    "force": "(springConstant > 0 ? springConstant : (shearModulus * Math.pow(wireDiameter, 4)) / (8 * Math.pow(coilDiameter, 3) * activeCoils)) * displacement",
-    "effectiveSpringConstant": "springConstant > 0 ? springConstant : (shearModulus * Math.pow(wireDiameter, 4)) / (8 * Math.pow(coilDiameter, 3) * activeCoils)",
-    "displacement": "displacement"
+    "displacement": "displacement",
+    "displacement_aux": "displacement"
   },
   "outputs": {
-    "primary": "force",
+    "primary": "displacement_aux",
     "breakdown": [
       "effectiveSpringConstant",
       "displacement"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "displacement"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -118,5 +122,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

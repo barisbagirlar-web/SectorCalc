@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100,
-      "businessContext": "Total pre-tax bill amount"
+      "businessContext": "Total pre-tax bill amount",
+      "label_i18n": {
+        "en": "Bill Amount",
+        "tr": "Bill Amount",
+        "de": "Bill Amount",
+        "fr": "Bill Amount",
+        "es": "Bill Amount",
+        "ar": "Bill Amount"
+      }
     },
     {
       "id": "tipPercent",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Tip percentage on pre-tax amount"
+      "businessContext": "Tip percentage on pre-tax amount",
+      "label_i18n": {
+        "en": "Tip Percentage",
+        "tr": "Tip Percentage",
+        "de": "Tip Percentage",
+        "fr": "Tip Percentage",
+        "es": "Tip Percentage",
+        "ar": "Tip Percentage"
+      }
     },
     {
       "id": "numberOfPeople",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "people",
       "default": 2,
-      "businessContext": "Number of diners splitting the bill"
+      "businessContext": "Number of diners splitting the bill",
+      "label_i18n": {
+        "en": "Number of People",
+        "tr": "Number of People",
+        "de": "Number of People",
+        "fr": "Number of People",
+        "es": "Number of People",
+        "ar": "Number of People"
+      }
     },
     {
       "id": "taxRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 8,
-      "businessContext": "Sales tax rate applied to bill"
+      "businessContext": "Sales tax rate applied to bill",
+      "label_i18n": {
+        "en": "Tax Rate",
+        "tr": "Tax Rate",
+        "de": "Tax Rate",
+        "fr": "Tax Rate",
+        "es": "Tax Rate",
+        "ar": "Tax Rate"
+      }
     }
   ],
   "formulas": {
@@ -47,7 +79,12 @@
       "tipAmount",
       "totalAmount",
       "totalPerPerson"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalPerPerson"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -57,5 +94,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

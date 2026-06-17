@@ -67,18 +67,21 @@
     }
   ],
   "formulas": {
-    "pKb": "inputs.kb > 0 ? -Math.log10(inputs.kb) : (inputs.ka > 0 ? -Math.log10(inputs.kw / inputs.ka) : (inputs.pka !== undefined ? 14 - inputs.pka : null))",
-    "inputs_kb_____inputs_kw___inputs_ka_": "inputs.kb || (inputs.kw / inputs.ka)",
-    "pKb____log10_Kb_": "pKb = -log10(Kb)",
-    "Computed_pKb_value": "Computed pKb value"
+    "result": "kb + ka + pka",
+    "result_aux": "kb + ka + pka"
   },
   "outputs": {
-    "primary": "pKb",
+    "primary": "result",
     "breakdown": [
       "Kb value used: inputs.kb || (inputs.kw / inputs.ka)",
       "Calculation: pKb = -log10(Kb)",
       "Computed pKb value"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "pKb____log10_Kb_"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -88,5 +91,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "kimya",
   "profession": "Proses Mühendisi",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

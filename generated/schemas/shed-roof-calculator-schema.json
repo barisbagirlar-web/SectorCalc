@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Length of the building along the ridge"
+      "businessContext": "Length of the building along the ridge",
+      "label_i18n": {
+        "en": "Roof Length",
+        "tr": "Roof Length",
+        "de": "Roof Length",
+        "fr": "Roof Length",
+        "es": "Roof Length",
+        "ar": "Roof Length"
+      }
     },
     {
       "id": "roofWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 6,
-      "businessContext": "Horizontal width of the building from eave to eave"
+      "businessContext": "Horizontal width of the building from eave to eave",
+      "label_i18n": {
+        "en": "Roof Width",
+        "tr": "Roof Width",
+        "de": "Roof Width",
+        "fr": "Roof Width",
+        "es": "Roof Width",
+        "ar": "Roof Width"
+      }
     },
     {
       "id": "slopeAngle",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "deg",
       "default": 15,
-      "businessContext": "Angle of the roof slope in degrees"
+      "businessContext": "Angle of the roof slope in degrees",
+      "label_i18n": {
+        "en": "Slope Angle",
+        "tr": "Slope Angle",
+        "de": "Slope Angle",
+        "fr": "Slope Angle",
+        "es": "Slope Angle",
+        "ar": "Slope Angle"
+      }
     },
     {
       "id": "overhang",
@@ -31,25 +55,35 @@
       "type": "number",
       "unit": "m",
       "default": 0.5,
-      "businessContext": "Overhang distance beyond walls on all sides"
+      "businessContext": "Overhang distance beyond walls on all sides",
+      "label_i18n": {
+        "en": "Overhang",
+        "tr": "Overhang",
+        "de": "Overhang",
+        "fr": "Overhang",
+        "es": "Overhang",
+        "ar": "Overhang"
+      }
     }
   ],
   "formulas": {
     "rad": "slopeAngle * Math.PI / 180",
     "totalWidth": "roofWidth + 2 * overhang",
-    "totalLength": "roofLength + 2 * overhang",
-    "rafterLength": "totalWidth / Math.cos(rad)",
-    "rise": "totalWidth * Math.tan(rad)",
-    "totalRoofArea": "totalLength * rafterLength"
+    "totalLength": "roofLength + 2 * overhang"
   },
   "outputs": {
-    "primary": "totalRoofArea",
+    "primary": "totalLength",
     "breakdown": [
       "rafterLength",
       "rise",
       "totalWidth",
       "totalLength"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalRoofArea"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -59,5 +93,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

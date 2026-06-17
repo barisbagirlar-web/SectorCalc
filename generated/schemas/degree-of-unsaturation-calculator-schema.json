@@ -69,10 +69,7 @@
   "formulas": {
     "sumC2N": "2 * carbonCount + 2 + nitrogenCount",
     "sumHX": "hydrogenCount + halogenCount",
-    "du": "(2 * carbonCount + 2 + nitrogenCount - hydrogenCount - halogenCount) / 2",
-    "2C___2___N___2__carbonCount____2____nitr": "2C + 2 + N = 2*{carbonCount} + 2 + {nitrogenCount} = {sumC2N}",
-    "H___X____hydrogenCount_____halogenCount_": "H + X = {hydrogenCount} + {halogenCount} = {sumHX}",
-    "DU____2C___2___N____H___X_____2_____sumC": "DU = (2C + 2 + N - (H + X)) / 2 = ({sumC2N} - {sumHX}) / 2 = {du}"
+    "du": "(2 * carbonCount + 2 + nitrogenCount - hydrogenCount - halogenCount) / 2"
   },
   "outputs": {
     "primary": "du",
@@ -80,7 +77,12 @@
       "2C + 2 + N = 2*{carbonCount} + 2 + {nitrogenCount} = {sumC2N}",
       "H + X = {hydrogenCount} + {halogenCount} = {sumHX}",
       "DU = (2C + 2 + N - (H + X)) / 2 = ({sumC2N} - {sumHX}) / 2 = {du}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "du"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -90,5 +92,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

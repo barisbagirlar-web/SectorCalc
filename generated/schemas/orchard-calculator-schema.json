@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ha",
       "default": 10,
-      "businessContext": "Total orchard area in hectares"
+      "businessContext": "Total orchard area in hectares",
+      "label_i18n": {
+        "en": "Orchard Area",
+        "tr": "Orchard Area",
+        "de": "Orchard Area",
+        "fr": "Orchard Area",
+        "es": "Orchard Area",
+        "ar": "Orchard Area"
+      }
     },
     {
       "id": "rowSpacing",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 4,
-      "businessContext": "Distance between tree rows"
+      "businessContext": "Distance between tree rows",
+      "label_i18n": {
+        "en": "Row Spacing",
+        "tr": "Row Spacing",
+        "de": "Row Spacing",
+        "fr": "Row Spacing",
+        "es": "Row Spacing",
+        "ar": "Row Spacing"
+      }
     },
     {
       "id": "treeSpacing",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "Distance between trees within a row"
+      "businessContext": "Distance between trees within a row",
+      "label_i18n": {
+        "en": "Tree Spacing",
+        "tr": "Tree Spacing",
+        "de": "Tree Spacing",
+        "fr": "Tree Spacing",
+        "es": "Tree Spacing",
+        "ar": "Tree Spacing"
+      }
     },
     {
       "id": "yieldPerTree",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg/tree/year",
       "default": 50,
-      "businessContext": "Average fruit yield per mature tree per year"
+      "businessContext": "Average fruit yield per mature tree per year",
+      "label_i18n": {
+        "en": "Yield Per Tree",
+        "tr": "Yield Per Tree",
+        "de": "Yield Per Tree",
+        "fr": "Yield Per Tree",
+        "es": "Yield Per Tree",
+        "ar": "Yield Per Tree"
+      }
     },
     {
       "id": "pricePerKg",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "$/kg",
       "default": 2,
-      "businessContext": "Farmgate price per kilogram"
+      "businessContext": "Farmgate price per kilogram",
+      "label_i18n": {
+        "en": "Selling Price",
+        "tr": "Selling Price",
+        "de": "Selling Price",
+        "fr": "Selling Price",
+        "es": "Selling Price",
+        "ar": "Selling Price"
+      }
     },
     {
       "id": "annualCostPerTree",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "$/tree/year",
       "default": 15,
-      "businessContext": "Annual cost for pruning, spraying, fertilizing per tree"
+      "businessContext": "Annual cost for pruning, spraying, fertilizing per tree",
+      "label_i18n": {
+        "en": "Maintenance Cost",
+        "tr": "Maintenance Cost",
+        "de": "Maintenance Cost",
+        "fr": "Maintenance Cost",
+        "es": "Maintenance Cost",
+        "ar": "Maintenance Cost"
+      }
     },
     {
       "id": "initialInvestment",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "$",
       "default": 50000,
-      "businessContext": "Total one-time cost for land prep, seedlings, infrastructure"
+      "businessContext": "Total one-time cost for land prep, seedlings, infrastructure",
+      "label_i18n": {
+        "en": "Initial Investment",
+        "tr": "Initial Investment",
+        "de": "Initial Investment",
+        "fr": "Initial Investment",
+        "es": "Initial Investment",
+        "ar": "Initial Investment"
+      }
     }
   ],
   "formulas": {
@@ -75,7 +131,12 @@
       "totalRevenue",
       "annualCost",
       "paybackPeriod"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "paybackPeriod"
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Üretim & İmalat",
@@ -85,5 +146,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

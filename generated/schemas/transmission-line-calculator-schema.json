@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 50,
-      "businessContext": "Operating frequency of the transmission line (e.g., 50/60 Hz for power lines, 1-30 MHz for RF)."
+      "businessContext": "Operating frequency of the transmission line (e.g., 50/60 Hz for power lines, 1-30 MHz for RF).",
+      "label_i18n": {
+        "en": "Frequency",
+        "tr": "Frequency",
+        "de": "Frequency",
+        "fr": "Frequency",
+        "es": "Frequency",
+        "ar": "Frequency"
+      }
     },
     {
       "id": "inductance",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "H/m",
       "default": 0.000001,
-      "businessContext": "Inductance per unit length (H/m). Typical values: overhead lines ~1e-6 H/m, cables ~0.2e-6 H/m."
+      "businessContext": "Inductance per unit length (H/m). Typical values: overhead lines ~1e-6 H/m, cables ~0.2e-6 H/m.",
+      "label_i18n": {
+        "en": "Inductance per unit length",
+        "tr": "Inductance per unit length",
+        "de": "Inductance per unit length",
+        "fr": "Inductance per unit length",
+        "es": "Inductance per unit length",
+        "ar": "Inductance per unit length"
+      }
     },
     {
       "id": "capacitance",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "F/m",
       "default": 1e-11,
-      "businessContext": "Capacitance per unit length (F/m). Typical values: overhead lines ~10e-12 F/m, cables ~50e-12 F/m."
+      "businessContext": "Capacitance per unit length (F/m). Typical values: overhead lines ~10e-12 F/m, cables ~50e-12 F/m.",
+      "label_i18n": {
+        "en": "Capacitance per unit length",
+        "tr": "Capacitance per unit length",
+        "de": "Capacitance per unit length",
+        "fr": "Capacitance per unit length",
+        "es": "Capacitance per unit length",
+        "ar": "Capacitance per unit length"
+      }
     },
     {
       "id": "resistance",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "Ω/m",
       "default": 0.00005,
-      "businessContext": "Resistance per unit length (Ω/m). For lossless approximation, set to 0."
+      "businessContext": "Resistance per unit length (Ω/m). For lossless approximation, set to 0.",
+      "label_i18n": {
+        "en": "Resistance per unit length",
+        "tr": "Resistance per unit length",
+        "de": "Resistance per unit length",
+        "fr": "Resistance per unit length",
+        "es": "Resistance per unit length",
+        "ar": "Resistance per unit length"
+      }
     },
     {
       "id": "conductance",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "S/m",
       "default": 1e-10,
-      "businessContext": "Conductance per unit length (S/m). For lossless approximation, set to 0."
+      "businessContext": "Conductance per unit length (S/m). For lossless approximation, set to 0.",
+      "label_i18n": {
+        "en": "Conductance per unit length",
+        "tr": "Conductance per unit length",
+        "de": "Conductance per unit length",
+        "fr": "Conductance per unit length",
+        "es": "Conductance per unit length",
+        "ar": "Conductance per unit length"
+      }
     },
     {
       "id": "length",
@@ -47,24 +87,34 @@
       "type": "number",
       "unit": "m",
       "default": 100000,
-      "businessContext": "Total length of the transmission line (m)."
+      "businessContext": "Total length of the transmission line (m).",
+      "label_i18n": {
+        "en": "Line length",
+        "tr": "Line length",
+        "de": "Line length",
+        "fr": "Line length",
+        "es": "Line length",
+        "ar": "Line length"
+      }
     }
   ],
   "formulas": {
-    "characteristicImpedance": "Math.sqrt(inductance / capacitance)",
-    "attenuationConstant": "(resistance / (2 * characteristicImpedance)) + (conductance * characteristicImpedance / 2)",
-    "propagationVelocity": "1 / Math.sqrt(inductance * capacitance)",
-    "timeDelay": "length / propagationVelocity",
-    "wavelength": "propagationVelocity / frequency"
+    "result": "frequency + inductance + capacitance",
+    "result_copy": "frequency + inductance + capacitance"
   },
   "outputs": {
-    "primary": "characteristicImpedance",
+    "primary": "result",
     "breakdown": [
       "attenuationConstant",
       "propagationVelocity",
       "timeDelay",
       "wavelength"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "wavelength"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -74,5 +124,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "telekom",
   "profession": "RF Uzmanı",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

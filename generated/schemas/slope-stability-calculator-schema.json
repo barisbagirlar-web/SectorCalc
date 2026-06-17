@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°",
       "default": 30,
-      "businessContext": "Angle of the slope face measured from horizontal"
+      "businessContext": "Angle of the slope face measured from horizontal",
+      "label_i18n": {
+        "en": "Slope Angle (θ)",
+        "tr": "Slope Angle (θ)",
+        "de": "Slope Angle (θ)",
+        "fr": "Slope Angle (θ)",
+        "es": "Slope Angle (θ)",
+        "ar": "Slope Angle (θ)"
+      }
     },
     {
       "id": "frictionAngle",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°",
       "default": 25,
-      "businessContext": "Angle of internal friction of soil"
+      "businessContext": "Angle of internal friction of soil",
+      "label_i18n": {
+        "en": "Friction Angle (φ)",
+        "tr": "Friction Angle (φ)",
+        "de": "Friction Angle (φ)",
+        "fr": "Friction Angle (φ)",
+        "es": "Friction Angle (φ)",
+        "ar": "Friction Angle (φ)"
+      }
     },
     {
       "id": "cohesion",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kPa",
       "default": 10,
-      "businessContext": "Cohesive strength of soil"
+      "businessContext": "Cohesive strength of soil",
+      "label_i18n": {
+        "en": "Cohesion (c)",
+        "tr": "Cohesion (c)",
+        "de": "Cohesion (c)",
+        "fr": "Cohesion (c)",
+        "es": "Cohesion (c)",
+        "ar": "Cohesion (c)"
+      }
     },
     {
       "id": "unitWeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kN/m³",
       "default": 18,
-      "businessContext": "Total unit weight of soil"
+      "businessContext": "Total unit weight of soil",
+      "label_i18n": {
+        "en": "Unit Weight (γ)",
+        "tr": "Unit Weight (γ)",
+        "de": "Unit Weight (γ)",
+        "fr": "Unit Weight (γ)",
+        "es": "Unit Weight (γ)",
+        "ar": "Unit Weight (γ)"
+      }
     },
     {
       "id": "depth",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Vertical depth from slope surface to potential failure plane (assuming parallel to slope)"
+      "businessContext": "Vertical depth from slope surface to potential failure plane (assuming parallel to slope)",
+      "label_i18n": {
+        "en": "Depth to Failure Plane (z)",
+        "tr": "Depth to Failure Plane (z)",
+        "de": "Depth to Failure Plane (z)",
+        "fr": "Depth to Failure Plane (z)",
+        "es": "Depth to Failure Plane (z)",
+        "ar": "Depth to Failure Plane (z)"
+      }
     },
     {
       "id": "porePressureRatio",
@@ -47,24 +87,33 @@
       "type": "number",
       "unit": "-",
       "default": 0,
-      "businessContext": "Ratio of pore water pressure to overburden stress (0 for dry, 0.25–0.5 for saturated)"
+      "businessContext": "Ratio of pore water pressure to overburden stress (0 for dry, 0.25–0.5 for saturated)",
+      "label_i18n": {
+        "en": "Pore Pressure Ratio (rᵤ)",
+        "tr": "Pore Pressure Ratio (rᵤ)",
+        "de": "Pore Pressure Ratio (rᵤ)",
+        "fr": "Pore Pressure Ratio (rᵤ)",
+        "es": "Pore Pressure Ratio (rᵤ)",
+        "ar": "Pore Pressure Ratio (rᵤ)"
+      }
     }
   ],
   "formulas": {
     "angleRad": "slopeAngle * Math.PI / 180",
-    "frictionRad": "frictionAngle * Math.PI / 180",
-    "effectiveNormalStress": "unitWeight * depth * Math.pow(Math.cos(angleRad), 2) - porePressureRatio * unitWeight * depth",
-    "shearStrength": "cohesion + effectiveNormalStress * (Math.sin(frictionRad) / Math.cos(frictionRad))",
-    "drivingForce": "unitWeight * depth * Math.sin(angleRad) * Math.cos(angleRad)",
-    "FS": "shearStrength / drivingForce"
+    "frictionRad": "frictionAngle * Math.PI / 180"
   },
   "outputs": {
-    "primary": "FS",
+    "primary": "frictionRad",
     "breakdown": [
       "effectiveNormalStress",
       "shearStrength",
       "drivingForce"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "FS"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -74,5 +123,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "havacilik",
   "profession": "Tasarım Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

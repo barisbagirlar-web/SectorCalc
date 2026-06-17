@@ -117,22 +117,20 @@
   "formulas": {
     "w": "(dead_load_psf + live_load_psf) * spacing_in / 144",
     "span_in": "span_ft * 12",
-    "actual_deflection_in": "(5 * w * Math.pow(span_in, 4)) / (384 * E_psi * I_in4)",
-    "allowable_deflection_in": "span_in / defl_limit_denom",
-    "deflection_ratio": "actual_deflection_in / allowable_deflection_in",
-    "max_span_in": "Math.cbrt((384 * E_psi * I_in4) / (5 * w * defl_limit_denom))",
-    "max_span_ft": "max_span_in / 12",
-    "actual_deflection_str": "'Actual Deflection: ' + actual_deflection_in.toFixed(2) + ' in'",
-    "allowable_deflection_str": "'Allowable Deflection: ' + allowable_deflection_in.toFixed(2) + ' in'",
-    "max_span_str": "'Max Span: ' + max_span_ft.toFixed(2) + ' ft'"
+    "allowable_deflection_in": "span_in / defl_limit_denom"
   },
   "outputs": {
-    "primary": "deflection_ratio",
+    "primary": "allowable_deflection_in",
     "breakdown": [
       "actual_deflection_str",
       "allowable_deflection_str",
       "max_span_str"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "max_span_str"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -142,5 +140,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

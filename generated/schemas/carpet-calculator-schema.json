@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Halı döşenecek odanın ana yöndeki uzunluğu (metre)."
+      "businessContext": "Halı döşenecek odanın ana yöndeki uzunluğu (metre).",
+      "label_i18n": {
+        "en": "Oda Uzunluğu",
+        "tr": "Oda Uzunluğu",
+        "de": "Oda Uzunluğu",
+        "fr": "Oda Uzunluğu",
+        "es": "Oda Uzunluğu",
+        "ar": "Oda Uzunluğu"
+      }
     },
     {
       "id": "roomWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 4,
-      "businessContext": "Halı döşenecek odanın enlemesine genişliği (metre)."
+      "businessContext": "Halı döşenecek odanın enlemesine genişliği (metre).",
+      "label_i18n": {
+        "en": "Oda Genişliği",
+        "tr": "Oda Genişliği",
+        "de": "Oda Genişliği",
+        "fr": "Oda Genişliği",
+        "es": "Oda Genişliği",
+        "ar": "Oda Genişliği"
+      }
     },
     {
       "id": "carpetRollWidth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 4,
-      "businessContext": "Standart halı rulo genişliği; piyasada 3, 4, 5 m olabilir."
+      "businessContext": "Standart halı rulo genişliği; piyasada 3, 4, 5 m olabilir.",
+      "label_i18n": {
+        "en": "Halı Rulo Eni",
+        "tr": "Halı Rulo Eni",
+        "de": "Halı Rulo Eni",
+        "fr": "Halı Rulo Eni",
+        "es": "Halı Rulo Eni",
+        "ar": "Halı Rulo Eni"
+      }
     },
     {
       "id": "carpetPricePerSqm",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TRY/m²",
       "default": 50,
-      "businessContext": "Seçilen halının metrekare başına satış fiyatı."
+      "businessContext": "Seçilen halının metrekare başına satış fiyatı.",
+      "label_i18n": {
+        "en": "Halı Birim Fiyatı",
+        "tr": "Halı Birim Fiyatı",
+        "de": "Halı Birim Fiyatı",
+        "fr": "Halı Birim Fiyatı",
+        "es": "Halı Birim Fiyatı",
+        "ar": "Halı Birim Fiyatı"
+      }
     },
     {
       "id": "wasteFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Kesim, desen uydurma ve ek yerleri için ayrılan ilave malzeme yüzdesi."
+      "businessContext": "Kesim, desen uydurma ve ek yerleri için ayrılan ilave malzeme yüzdesi.",
+      "label_i18n": {
+        "en": "Fire Oranı",
+        "tr": "Fire Oranı",
+        "de": "Fire Oranı",
+        "fr": "Fire Oranı",
+        "es": "Fire Oranı",
+        "ar": "Fire Oranı"
+      }
     },
     {
       "id": "installationCostPerSqm",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "TRY/m²",
       "default": 20,
-      "businessContext": "Halının serilmesi için usta tarafından metrekare başına alınan işçilik ücreti."
+      "businessContext": "Halının serilmesi için usta tarafından metrekare başına alınan işçilik ücreti.",
+      "label_i18n": {
+        "en": "Döşeme İşçilik Bedeli",
+        "tr": "Döşeme İşçilik Bedeli",
+        "de": "Döşeme İşçilik Bedeli",
+        "fr": "Döşeme İşçilik Bedeli",
+        "es": "Döşeme İşçilik Bedeli",
+        "ar": "Döşeme İşçilik Bedeli"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
       "materialCost",
       "installationCost",
       "totalCarpetArea"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -72,5 +125,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

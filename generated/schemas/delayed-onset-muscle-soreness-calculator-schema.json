@@ -83,14 +83,8 @@
     }
   ],
   "formulas": {
-    "trainingLoad": "Math.pow(exerciseIntensity, 2) * exerciseDuration",
-    "recoveryFactor": "fitnessLevel * Math.max(1, recoveryHours)",
-    "ageCorrection": "1/(1+0.01*Math.pow(age-25, 2))",
-    "DOMSSeverity": "Math.min(100, (trainingLoad / recoveryFactor) * ageCorrection * 100)",
-    "Training_Load": "Training Load",
-    "Recovery_Factor": "Recovery Factor",
-    "Age_Correction_Factor": "Age Correction Factor",
-    "result": "DOMS Severity Score (0-100)"
+    "result": "age + fitnessLevel + exerciseIntensity",
+    "result_copy": "age + fitnessLevel + exerciseIntensity"
   },
   "outputs": {
     "primary": "result",
@@ -98,7 +92,12 @@
       "Training Load",
       "Recovery Factor",
       "Age Correction Factor"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "DOMSSeverity"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -108,5 +107,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

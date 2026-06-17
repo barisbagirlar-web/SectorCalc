@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kN",
       "default": 10,
-      "businessContext": "Central point load applied at midspan"
+      "businessContext": "Central point load applied at midspan",
+      "label_i18n": {
+        "en": "Applied Load",
+        "tr": "Applied Load",
+        "de": "Applied Load",
+        "fr": "Applied Load",
+        "es": "Applied Load",
+        "ar": "Applied Load"
+      }
     },
     {
       "id": "span",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Length of the simply supported beam"
+      "businessContext": "Length of the simply supported beam",
+      "label_i18n": {
+        "en": "Beam Span",
+        "tr": "Beam Span",
+        "de": "Beam Span",
+        "fr": "Beam Span",
+        "es": "Beam Span",
+        "ar": "Beam Span"
+      }
     },
     {
       "id": "elasticModulus",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "GPa",
       "default": 200,
-      "businessContext": "Young's modulus of the beam material"
+      "businessContext": "Young's modulus of the beam material",
+      "label_i18n": {
+        "en": "Elastic Modulus",
+        "tr": "Elastic Modulus",
+        "de": "Elastic Modulus",
+        "fr": "Elastic Modulus",
+        "es": "Elastic Modulus",
+        "ar": "Elastic Modulus"
+      }
     },
     {
       "id": "momentOfInertia",
@@ -31,18 +55,31 @@
       "type": "number",
       "unit": "cm⁴",
       "default": 1000,
-      "businessContext": "Second moment of area of the beam cross-section"
+      "businessContext": "Second moment of area of the beam cross-section",
+      "label_i18n": {
+        "en": "Moment of Inertia",
+        "tr": "Moment of Inertia",
+        "de": "Moment of Inertia",
+        "fr": "Moment of Inertia",
+        "es": "Moment of Inertia",
+        "ar": "Moment of Inertia"
+      }
     }
   ],
   "formulas": {
     "maxBendingMoment": "(load * span) / 4",
-    "maxDeflection": "(100000 * load * Math.pow(span, 3)) / (48 * elasticModulus * momentOfInertia)"
+    "maxBendingMoment_aux": "(load * span) / 4"
   },
   "outputs": {
     "primary": "maxBendingMoment",
     "breakdown": [
       "maxDeflection"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "maxDeflection"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -52,5 +89,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TL",
       "default": 10000,
-      "businessContext": "Toplam sabit maliyetler (kira, amortisman vb.)"
+      "businessContext": "Toplam sabit maliyetler (kira, amortisman vb.)",
+      "label_i18n": {
+        "en": "Sabit Maliyetler",
+        "tr": "Sabit Maliyetler",
+        "de": "Sabit Maliyetler",
+        "fr": "Sabit Maliyetler",
+        "es": "Sabit Maliyetler",
+        "ar": "Sabit Maliyetler"
+      }
     },
     {
       "id": "materialCostPerUnit",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "TL/adet",
       "default": 5,
-      "businessContext": "Birim başına malzeme maliyeti"
+      "businessContext": "Birim başına malzeme maliyeti",
+      "label_i18n": {
+        "en": "Birim Malzeme Maliyeti",
+        "tr": "Birim Malzeme Maliyeti",
+        "de": "Birim Malzeme Maliyeti",
+        "fr": "Birim Malzeme Maliyeti",
+        "es": "Birim Malzeme Maliyeti",
+        "ar": "Birim Malzeme Maliyeti"
+      }
     },
     {
       "id": "laborCostPerUnit",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "TL/adet",
       "default": 3,
-      "businessContext": "Birim başına işçilik maliyeti"
+      "businessContext": "Birim başına işçilik maliyeti",
+      "label_i18n": {
+        "en": "Birim İşçilik Maliyeti",
+        "tr": "Birim İşçilik Maliyeti",
+        "de": "Birim İşçilik Maliyeti",
+        "fr": "Birim İşçilik Maliyeti",
+        "es": "Birim İşçilik Maliyeti",
+        "ar": "Birim İşçilik Maliyeti"
+      }
     },
     {
       "id": "machineCostPerHour",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TL/saat",
       "default": 100,
-      "businessContext": "Makine saat başına maliyet"
+      "businessContext": "Makine saat başına maliyet",
+      "label_i18n": {
+        "en": "Makine Saat Maliyeti",
+        "tr": "Makine Saat Maliyeti",
+        "de": "Makine Saat Maliyeti",
+        "fr": "Makine Saat Maliyeti",
+        "es": "Makine Saat Maliyeti",
+        "ar": "Makine Saat Maliyeti"
+      }
     },
     {
       "id": "machineHoursPerUnit",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "saat/adet",
       "default": 0.1,
-      "businessContext": "Birim başına makine süresi"
+      "businessContext": "Birim başına makine süresi",
+      "label_i18n": {
+        "en": "Birim Makine Süresi",
+        "tr": "Birim Makine Süresi",
+        "de": "Birim Makine Süresi",
+        "fr": "Birim Makine Süresi",
+        "es": "Birim Makine Süresi",
+        "ar": "Birim Makine Süresi"
+      }
     },
     {
       "id": "productionQuantity",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "adet",
       "default": 5000,
-      "businessContext": "Üretim miktarı (varsayılan 5K)"
+      "businessContext": "Üretim miktarı (varsayılan 5K)",
+      "label_i18n": {
+        "en": "Üretim Miktarı",
+        "tr": "Üretim Miktarı",
+        "de": "Üretim Miktarı",
+        "fr": "Üretim Miktarı",
+        "es": "Üretim Miktarı",
+        "ar": "Üretim Miktarı"
+      }
     },
     {
       "id": "sellingPricePerUnit",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "TL/adet",
       "default": 20,
-      "businessContext": "Birim başına satış fiyatı"
+      "businessContext": "Birim başına satış fiyatı",
+      "label_i18n": {
+        "en": "Birim Satış Fiyatı",
+        "tr": "Birim Satış Fiyatı",
+        "de": "Birim Satış Fiyatı",
+        "fr": "Birim Satış Fiyatı",
+        "es": "Birim Satış Fiyatı",
+        "ar": "Birim Satış Fiyatı"
+      }
     }
   ],
   "formulas": {
@@ -73,7 +129,12 @@
       "totalRevenue",
       "profit",
       "profitMargin"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "profitMargin"
   },
   "category": "İmalat & Üretim",
   "sector": "Üretim & İmalat",
@@ -83,5 +144,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

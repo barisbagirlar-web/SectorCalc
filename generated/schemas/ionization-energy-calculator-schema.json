@@ -85,16 +85,19 @@
   "formulas": {
     "effectiveNuclearCharge": "atomicNumber - screeningConstant",
     "ionizationEnergy_eV": "rydbergEnergy * (effectiveNuclearCharge ** 2) / (principalQuantumNumber ** 2)",
-    "ionizationEnergy_kJ_per_mol": "ionizationEnergy_eV * conversionFactor",
-    "_ionizationEnergy_eV__eV": "{ionizationEnergy_eV} eV",
-    "_ionizationEnergy_kJ_per_mol__kJ_mol": "{ionizationEnergy_kJ_per_mol} kJ/mol"
+    "ionizationEnergy_kJ_per_mol": "ionizationEnergy_eV * conversionFactor"
   },
   "outputs": {
     "primary": "ionizationEnergy_eV",
     "breakdown": [
       "Ionization Energy: {ionizationEnergy_eV} eV",
       "Equivalent: {ionizationEnergy_kJ_per_mol} kJ/mol"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "ionizationEnergy_kJ_per_mol"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -104,5 +107,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

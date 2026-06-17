@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "bar",
       "default": 100,
-      "businessContext": "System pressure in bar"
+      "businessContext": "System pressure in bar",
+      "label_i18n": {
+        "en": "Pressure",
+        "tr": "Pressure",
+        "de": "Pressure",
+        "fr": "Pressure",
+        "es": "Pressure",
+        "ar": "Pressure"
+      }
     },
     {
       "id": "flowRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "L/min",
       "default": 50,
-      "businessContext": "Flow rate in liters per minute"
+      "businessContext": "Flow rate in liters per minute",
+      "label_i18n": {
+        "en": "Flow Rate",
+        "tr": "Flow Rate",
+        "de": "Flow Rate",
+        "fr": "Flow Rate",
+        "es": "Flow Rate",
+        "ar": "Flow Rate"
+      }
     },
     {
       "id": "efficiency",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 85,
-      "businessContext": "Overall efficiency percentage"
+      "businessContext": "Overall efficiency percentage",
+      "label_i18n": {
+        "en": "Efficiency",
+        "tr": "Efficiency",
+        "de": "Efficiency",
+        "fr": "Efficiency",
+        "es": "Efficiency",
+        "ar": "Efficiency"
+      }
     },
     {
       "id": "boreDia",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 80,
-      "businessContext": "Inside diameter of cylinder"
+      "businessContext": "Inside diameter of cylinder",
+      "label_i18n": {
+        "en": "Cylinder Bore Diameter",
+        "tr": "Cylinder Bore Diameter",
+        "de": "Cylinder Bore Diameter",
+        "fr": "Cylinder Bore Diameter",
+        "es": "Cylinder Bore Diameter",
+        "ar": "Cylinder Bore Diameter"
+      }
     },
     {
       "id": "rodDia",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm",
       "default": 40,
-      "businessContext": "Diameter of piston rod"
+      "businessContext": "Diameter of piston rod",
+      "label_i18n": {
+        "en": "Rod Diameter",
+        "tr": "Rod Diameter",
+        "de": "Rod Diameter",
+        "fr": "Rod Diameter",
+        "es": "Rod Diameter",
+        "ar": "Rod Diameter"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "pushForce",
       "pullForce"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "pullForce"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -62,5 +107,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "engineering"
+  "categoryId": "engineering",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

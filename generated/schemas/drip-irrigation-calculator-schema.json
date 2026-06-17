@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m²",
       "default": 1000,
-      "businessContext": "Sulanacak toplam alan"
+      "businessContext": "Sulanacak toplam alan",
+      "label_i18n": {
+        "en": "Arazi Alanı",
+        "tr": "Arazi Alanı",
+        "de": "Arazi Alanı",
+        "fr": "Arazi Alanı",
+        "es": "Arazi Alanı",
+        "ar": "Arazi Alanı"
+      }
     },
     {
       "id": "emitterFlowRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "L/h",
       "default": 2,
-      "businessContext": "Her bir damlatıcının saatte verdiği su miktarı"
+      "businessContext": "Her bir damlatıcının saatte verdiği su miktarı",
+      "label_i18n": {
+        "en": "Damlatıcı Debisi",
+        "tr": "Damlatıcı Debisi",
+        "de": "Damlatıcı Debisi",
+        "fr": "Damlatıcı Debisi",
+        "es": "Damlatıcı Debisi",
+        "ar": "Damlatıcı Debisi"
+      }
     },
     {
       "id": "emitterSpacing",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.3,
-      "businessContext": "Lateral üzerindeki damlatıcılar arası mesafe"
+      "businessContext": "Lateral üzerindeki damlatıcılar arası mesafe",
+      "label_i18n": {
+        "en": "Damlatıcı Aralığı",
+        "tr": "Damlatıcı Aralığı",
+        "de": "Damlatıcı Aralığı",
+        "fr": "Damlatıcı Aralığı",
+        "es": "Damlatıcı Aralığı",
+        "ar": "Damlatıcı Aralığı"
+      }
     },
     {
       "id": "lateralSpacing",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Damlama hatları arası mesafe"
+      "businessContext": "Damlama hatları arası mesafe",
+      "label_i18n": {
+        "en": "Lateral Aralığı",
+        "tr": "Lateral Aralığı",
+        "de": "Lateral Aralığı",
+        "fr": "Lateral Aralığı",
+        "es": "Lateral Aralığı",
+        "ar": "Lateral Aralığı"
+      }
     },
     {
       "id": "irrigationDepth",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Her sulamada uygulanacak net su yüksekliği"
+      "businessContext": "Her sulamada uygulanacak net su yüksekliği",
+      "label_i18n": {
+        "en": "Sulama Suyu Derinliği",
+        "tr": "Sulama Suyu Derinliği",
+        "de": "Sulama Suyu Derinliği",
+        "fr": "Sulama Suyu Derinliği",
+        "es": "Sulama Suyu Derinliği",
+        "ar": "Sulama Suyu Derinliği"
+      }
     },
     {
       "id": "systemEfficiency",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "Sulama sisteminin su iletim ve dağıtım verimi (0-100)"
+      "businessContext": "Sulama sisteminin su iletim ve dağıtım verimi (0-100)",
+      "label_i18n": {
+        "en": "Sistem Verimi",
+        "tr": "Sistem Verimi",
+        "de": "Sistem Verimi",
+        "fr": "Sistem Verimi",
+        "es": "Sistem Verimi",
+        "ar": "Sistem Verimi"
+      }
     }
   ],
   "formulas": {
@@ -65,7 +113,12 @@
       "totalFlowRate",
       "netVolume",
       "grossVolume"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "irrigationTime"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -75,5 +128,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "tarim",
   "profession": "Sulama Uzmanı",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

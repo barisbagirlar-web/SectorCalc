@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Vertical height of retaining wall from base to top of backfill"
+      "businessContext": "Vertical height of retaining wall from base to top of backfill",
+      "label_i18n": {
+        "en": "Wall Height",
+        "tr": "Wall Height",
+        "de": "Wall Height",
+        "fr": "Wall Height",
+        "es": "Wall Height",
+        "ar": "Wall Height"
+      }
     },
     {
       "id": "unitWeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kN/m³",
       "default": 18,
-      "businessContext": "Unit weight of backfill soil (γ)"
+      "businessContext": "Unit weight of backfill soil (γ)",
+      "label_i18n": {
+        "en": "Soil Unit Weight",
+        "tr": "Soil Unit Weight",
+        "de": "Soil Unit Weight",
+        "fr": "Soil Unit Weight",
+        "es": "Soil Unit Weight",
+        "ar": "Soil Unit Weight"
+      }
     },
     {
       "id": "frictionAngle",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°",
       "default": 30,
-      "businessContext": "Internal friction angle of backfill soil (φ)"
+      "businessContext": "Internal friction angle of backfill soil (φ)",
+      "label_i18n": {
+        "en": "Friction Angle",
+        "tr": "Friction Angle",
+        "de": "Friction Angle",
+        "fr": "Friction Angle",
+        "es": "Friction Angle",
+        "ar": "Friction Angle"
+      }
     },
     {
       "id": "cohesion",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kPa",
       "default": 10,
-      "businessContext": "Cohesion intercept of backfill soil (c)"
+      "businessContext": "Cohesion intercept of backfill soil (c)",
+      "label_i18n": {
+        "en": "Cohesion",
+        "tr": "Cohesion",
+        "de": "Cohesion",
+        "fr": "Cohesion",
+        "es": "Cohesion",
+        "ar": "Cohesion"
+      }
     },
     {
       "id": "surcharge",
@@ -39,17 +71,23 @@
       "type": "number",
       "unit": "kPa",
       "default": 0,
-      "businessContext": "Uniform surcharge load applied at top of backfill (q)"
+      "businessContext": "Uniform surcharge load applied at top of backfill (q)",
+      "label_i18n": {
+        "en": "Surcharge",
+        "tr": "Surcharge",
+        "de": "Surcharge",
+        "fr": "Surcharge",
+        "es": "Surcharge",
+        "ar": "Surcharge"
+      }
     }
   ],
   "formulas": {
-    "ka": "Math.tan(Math.PI/4 - (frictionAngle * Math.PI/180) / 2) ** 2",
-    "z0": "(2 * cohesion) / (unitWeight * Math.sqrt(ka))",
-    "sigmaBase": "Math.max(0, ka * (unitWeight * height + surcharge) - 2 * cohesion * Math.sqrt(ka))",
-    "totalForce": "height > z0 ? 0.5 * sigmaBase * (height - z0) : 0"
+    "result": "height + unitWeight + frictionAngle",
+    "result_copy": "height + unitWeight + frictionAngle"
   },
   "outputs": {
-    "primary": "ka",
+    "primary": "result",
     "breakdown": [
       {
         "id": "ka",
@@ -72,7 +110,12 @@
         "precision": 2,
         "businessContext": "Horizontal active earth pressure at wall base"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalForce"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -82,5 +125,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "tarim",
   "profession": "Ziraat Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

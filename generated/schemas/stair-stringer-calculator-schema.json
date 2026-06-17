@@ -87,23 +87,22 @@
     "totalRun": "totalRise",
     "stringerLength": "totalRise",
     "angle": "totalRise",
-    "numberTreads": "totalRise",
-    "_riserHeight_toFixed_1___mm": "{riserHeight.toFixed(1)} mm",
-    "_totalRun_toFixed_1___mm": "{totalRun.toFixed(1)} mm",
-    "_numberTreads_": "{numberTreads}",
-    "_stringerLength_toFixed_1___mm": "{stringerLength.toFixed(1)} mm",
-    "_angle_toFixed_1___": "{angle.toFixed(1)}°",
-    "result": "Cutting Stringer: {stringerLength.toFixed(1)} mm at {angle.toFixed(1)}°"
+    "numberTreads": "totalRise"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "numberTreads",
     "breakdown": [
       "Riser Height: {riserHeight.toFixed(1)} mm",
       "Total Run: {totalRun.toFixed(1)} mm",
       "Number of Treads: {numberTreads}",
       "Stringer Length: {stringerLength.toFixed(1)} mm",
       "Inclination Angle: {angle.toFixed(1)}°"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "numberTreads"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -113,5 +112,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

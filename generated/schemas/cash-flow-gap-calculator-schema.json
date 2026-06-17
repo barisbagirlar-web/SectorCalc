@@ -98,22 +98,10 @@
       "unit": "unit",
       "default": "net30",
       "options": [
-        {
-          "value": "net15",
-          "label": "Net 15"
-        },
-        {
-          "value": "net30",
-          "label": "Net 30"
-        },
-        {
-          "value": "net45",
-          "label": "Net 45"
-        },
-        {
-          "value": "net60",
-          "label": "Net 60"
-        }
+        "net15",
+        "net30",
+        "net45",
+        "net60"
       ],
       "businessContext": "Standard payment terms offered by suppliers. Affects DPO and cash gap.",
       "label_i18n": {
@@ -130,18 +118,9 @@
       "unit": "unit",
       "default": "average",
       "options": [
-        {
-          "value": "fast",
-          "label": "Fast (pays early)"
-        },
-        {
-          "value": "average",
-          "label": "Average (on time)"
-        },
-        {
-          "value": "slow",
-          "label": "Slow (late payments)"
-        }
+        "fast",
+        "average",
+        "slow"
       ],
       "businessContext": "Historical customer payment behavior. Adjusts effective DSO.",
       "label_i18n": {
@@ -163,23 +142,6 @@
       },
       "businessContext_i18n": {
         "en": "Indicates if Lean inventory methods (e.g., JIT) are in place to reduce inventory days."
-      }
-    },
-    {
-      "id": "six_sigma_quality_level",
-      "label": "Six Sigma Quality Level (Sigma)",
-      "type": "number",
-      "unit": "sigma",
-      "default": 3,
-      "min": 1,
-      "max": 6,
-      "step": 0.1,
-      "businessContext": "Current process sigma level. Higher sigma indicates fewer defects and less cash tied up in rework/scrap.",
-      "label_i18n": {
-        "en": "Six Sigma Quality Level (Sigma)"
-      },
-      "businessContext_i18n": {
-        "en": "Current process sigma level. Higher sigma indicates fewer defects and less cash tied up in rework/scrap."
       }
     }
   ],
@@ -221,18 +183,18 @@
       }
     ]
   },
-  "formulas": [
-    "avg_days_receivable",
-    "avg_days_receivable",
-    "avg_days_receivable",
-    "avg_days_receivable",
-    "avg_days_receivable",
-    "avg_days_receivable",
-    "avg_days_receivable"
-  ],
+  "formulas": {
+    "result": "avg_days_receivable + avg_days_payable + inventory_days",
+    "result_copy": "avg_days_receivable + avg_days_payable + inventory_days"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",

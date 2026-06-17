@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0.5,
-      "businessContext": "Measured wear depth on the cutting tooth"
+      "businessContext": "Measured wear depth on the cutting tooth",
+      "label_i18n": {
+        "en": "Current Wear (mm)",
+        "tr": "Current Wear (mm)",
+        "de": "Current Wear (mm)",
+        "fr": "Current Wear (mm)",
+        "es": "Current Wear (mm)",
+        "ar": "Current Wear (mm)"
+      }
     },
     {
       "id": "load",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kN",
       "default": 10,
-      "businessContext": "Force applied on the tooth during operation"
+      "businessContext": "Force applied on the tooth during operation",
+      "label_i18n": {
+        "en": "Applied Load (kN)",
+        "tr": "Applied Load (kN)",
+        "de": "Applied Load (kN)",
+        "fr": "Applied Load (kN)",
+        "es": "Applied Load (kN)",
+        "ar": "Applied Load (kN)"
+      }
     },
     {
       "id": "rpm",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "rpm",
       "default": 1500,
-      "businessContext": "Rotational speed of the cutter head"
+      "businessContext": "Rotational speed of the cutter head",
+      "label_i18n": {
+        "en": "Rotation Speed (rpm)",
+        "tr": "Rotation Speed (rpm)",
+        "de": "Rotation Speed (rpm)",
+        "fr": "Rotation Speed (rpm)",
+        "es": "Rotation Speed (rpm)",
+        "ar": "Rotation Speed (rpm)"
+      }
     },
     {
       "id": "materialHardness",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "HB",
       "default": 200,
-      "businessContext": "Brinell hardness of the material being cut"
+      "businessContext": "Brinell hardness of the material being cut",
+      "label_i18n": {
+        "en": "Material Hardness (HB)",
+        "tr": "Material Hardness (HB)",
+        "de": "Material Hardness (HB)",
+        "fr": "Material Hardness (HB)",
+        "es": "Material Hardness (HB)",
+        "ar": "Material Hardness (HB)"
+      }
     },
     {
       "id": "initialWearLimit",
@@ -39,19 +71,32 @@
       "type": "number",
       "unit": "mm",
       "default": 5,
-      "businessContext": "Maximum permissible wear before tooth replacement"
+      "businessContext": "Maximum permissible wear before tooth replacement",
+      "label_i18n": {
+        "en": "Wear Limit (mm)",
+        "tr": "Wear Limit (mm)",
+        "de": "Wear Limit (mm)",
+        "fr": "Wear Limit (mm)",
+        "es": "Wear Limit (mm)",
+        "ar": "Wear Limit (mm)"
+      }
     }
   ],
   "formulas": {
-    "wearRate": "load * rpm * Math.sqrt(materialHardness) / 10000",
-    "remainingLifeHours": "(initialWearLimit - currentWear) / wearRate"
+    "result": "currentWear + load + rpm",
+    "result_copy": "currentWear + load + rpm"
   },
   "outputs": {
-    "primary": "remainingLifeHours",
+    "primary": "result",
     "breakdown": [
       "wearRate",
       "remainingLifeHours"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "remainingLifeHours"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -61,5 +106,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

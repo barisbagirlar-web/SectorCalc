@@ -468,7 +468,67 @@ export const S2_LOW_RISK_ACTIVATION_GUIDE_SPECS: readonly ToolGuideSpec[] = [
       { inputKey: "assemblyLimit", visualRole: "output", nodeId: "assemblylimit" },
     ],
     quality: TOOL_GUIDE_QUALITY_DEFAULT,
-  }
+  },
+  {
+    slug: "5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator",
+    guideType: "cost_breakdown",
+    titleKey: "inputGuide.s2Activation.tools.5sDenetimSkoru.title",
+    descriptionKey: "inputGuide.costBreakdown.description",
+    inputMap: [
+      { inputKey: "current5sScore", visualRole: "primary", nodeId: "current5sscore" },
+      { inputKey: "target5sScore", visualRole: "driver", nodeId: "target5sscore" },
+      { inputKey: "totalEmployees", visualRole: "driver", nodeId: "totalemployees" },
+      { inputKey: "monthlyWorkingHours", visualRole: "secondary", nodeId: "monthlyworkinghours" },
+      { inputKey: "avgHourlyCost", visualRole: "secondary", nodeId: "avghourlycost" },
+      { inputKey: "monthlyLossCost", visualRole: "output", nodeId: "monthlylosscost" },
+    ],
+    quality: TOOL_GUIDE_QUALITY_DEFAULT,
+  },
+  {
+    slug: "3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator",
+    guideType: "cost_breakdown",
+    titleKey: "inputGuide.s2Activation.tools.3bBaskiDestek.title",
+    descriptionKey: "inputGuide.costBreakdown.description",
+    inputMap: [
+      { inputKey: "supportVolumeCm3", visualRole: "primary", nodeId: "supportvolumecm3" },
+      { inputKey: "materialCostPerCm3", visualRole: "driver", nodeId: "materialcostpercm3" },
+      { inputKey: "cleaningTimeMinutes", visualRole: "driver", nodeId: "cleaningtimeminutes" },
+      { inputKey: "laborRatePerHour", visualRole: "secondary", nodeId: "laborrateperhour" },
+      { inputKey: "batchQuantity", visualRole: "secondary", nodeId: "batchquantity" },
+      { inputKey: "totalPostProcessCost", visualRole: "output", nodeId: "totalpostprocesscost" },
+    ],
+    quality: TOOL_GUIDE_QUALITY_DEFAULT,
+  },
+  {
+    slug: "3b-baski-parti-optimizasyonu-ve-yuvalama-calculator",
+    guideType: "process_flow",
+    titleKey: "inputGuide.s2Activation.tools.3bBaskiParti.title",
+    descriptionKey: "inputGuide.processFlow.description",
+    inputMap: [
+      { inputKey: "bedWidthMm", visualRole: "primary", nodeId: "bedwidthmm" },
+      { inputKey: "bedDepthMm", visualRole: "driver", nodeId: "beddepthmm" },
+      { inputKey: "partWidthMm", visualRole: "driver", nodeId: "partwidthmm" },
+      { inputKey: "partDepthMm", visualRole: "secondary", nodeId: "partdepthmm" },
+      { inputKey: "printTimeHours", visualRole: "secondary", nodeId: "printtimehours" },
+      { inputKey: "maxPartsPerBatch", visualRole: "output", nodeId: "maxpartsperbatch" },
+    ],
+    quality: TOOL_GUIDE_QUALITY_DEFAULT,
+  },
+  {
+    slug: "3b-baski-vs-talasli-imalat-basabas-noktasi-calculator",
+    guideType: "cost_breakdown",
+    titleKey: "inputGuide.s2Activation.tools.3bBaskiBreakeven.title",
+    descriptionKey: "inputGuide.costBreakdown.description",
+    inputMap: [
+      { inputKey: "printingSetupCost", visualRole: "primary", nodeId: "printingsetupcost" },
+      { inputKey: "printingUnitCost", visualRole: "driver", nodeId: "printingunitcost" },
+      { inputKey: "machiningSetupCost", visualRole: "driver", nodeId: "machiningsetupcost" },
+      { inputKey: "machiningUnitCost", visualRole: "secondary", nodeId: "machiningunitcost" },
+      { inputKey: "analysisQuantity", visualRole: "secondary", nodeId: "analysisquantity" },
+      { inputKey: "breakEvenQuantity", visualRole: "output", nodeId: "breakevenquantity" },
+    ],
+    quality: TOOL_GUIDE_QUALITY_DEFAULT,
+  },
 ] as const;
 
 export function getS2LowRiskActivationGuideSpec(slug: string): ToolGuideSpec | null {

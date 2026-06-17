@@ -67,15 +67,20 @@
     }
   ],
   "formulas": {
-    "speed_of_sound": "Math.sqrt(gamma * R * (temperature + 273.15))",
-    "mach": "airspeed / speed_of_sound"
+    "result": "airspeed + temperature + gamma",
+    "result_copy": "airspeed + temperature + gamma"
   },
   "outputs": {
-    "primary": "mach",
+    "primary": "result",
     "breakdown": [
       "speed_of_sound",
       "mach"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "mach"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -85,5 +90,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

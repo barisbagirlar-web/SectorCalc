@@ -69,15 +69,19 @@
   "formulas": {
     "H_mm": "focalLength**2 / (aperture * circleOfConfusion) + focalLength",
     "hyperfocal": "H_mm * outputUnitMultiplier",
-    "nearLimit": "H_mm * outputUnitMultiplier / 2",
-    "farLimit": "'Infinity'"
+    "nearLimit": "H_mm * outputUnitMultiplier / 2"
   },
   "outputs": {
     "primary": "hyperfocal",
     "breakdown": [
       "nearLimit",
       "farLimit"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "nearLimit"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -87,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

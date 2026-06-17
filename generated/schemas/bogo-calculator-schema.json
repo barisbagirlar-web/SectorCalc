@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 10,
-      "businessContext": "The regular unit selling price of the item before any promotion."
+      "businessContext": "The regular unit selling price of the item before any promotion.",
+      "label_i18n": {
+        "en": "Original Price per Item",
+        "tr": "Original Price per Item",
+        "de": "Original Price per Item",
+        "fr": "Original Price per Item",
+        "es": "Original Price per Item",
+        "ar": "Original Price per Item"
+      }
     },
     {
       "id": "buyQuantity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "items",
       "default": 1,
-      "businessContext": "Number of items the customer must purchase to qualify for the free items (the 'Buy' part)."
+      "businessContext": "Number of items the customer must purchase to qualify for the free items (the 'Buy' part).",
+      "label_i18n": {
+        "en": "Buy Quantity",
+        "tr": "Buy Quantity",
+        "de": "Buy Quantity",
+        "fr": "Buy Quantity",
+        "es": "Buy Quantity",
+        "ar": "Buy Quantity"
+      }
     },
     {
       "id": "getQuantity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "items",
       "default": 1,
-      "businessContext": "Number of items the customer receives for free (the 'Get' part)."
+      "businessContext": "Number of items the customer receives for free (the 'Get' part).",
+      "label_i18n": {
+        "en": "Get Quantity (Free)",
+        "tr": "Get Quantity (Free)",
+        "de": "Get Quantity (Free)",
+        "fr": "Get Quantity (Free)",
+        "es": "Get Quantity (Free)",
+        "ar": "Get Quantity (Free)"
+      }
     },
     {
       "id": "numberOfSets",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "sets",
       "default": 1,
-      "businessContext": "How many times the BOGO deal is applied (e.g., buy 2 get 1 free repeated twice)."
+      "businessContext": "How many times the BOGO deal is applied (e.g., buy 2 get 1 free repeated twice).",
+      "label_i18n": {
+        "en": "Number of Sets",
+        "tr": "Number of Sets",
+        "de": "Number of Sets",
+        "fr": "Number of Sets",
+        "es": "Number of Sets",
+        "ar": "Number of Sets"
+      }
     },
     {
       "id": "taxRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Applicable tax percentage on the purchase. Set to 0 if tax is not considered."
+      "businessContext": "Applicable tax percentage on the purchase. Set to 0 if tax is not considered.",
+      "label_i18n": {
+        "en": "Tax Rate",
+        "tr": "Tax Rate",
+        "de": "Tax Rate",
+        "fr": "Tax Rate",
+        "es": "Tax Rate",
+        "ar": "Tax Rate"
+      }
     },
     {
       "id": "additionalDiscount",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Any extra percentage discount applied to the total (e.g., store-wide sale)."
+      "businessContext": "Any extra percentage discount applied to the total (e.g., store-wide sale).",
+      "label_i18n": {
+        "en": "Additional Discount",
+        "tr": "Additional Discount",
+        "de": "Additional Discount",
+        "fr": "Additional Discount",
+        "es": "Additional Discount",
+        "ar": "Additional Discount"
+      }
     }
   ],
   "formulas": {
@@ -65,7 +113,12 @@
       "costPerItem",
       "totalSavings",
       "effectiveDiscountPercent"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "effectiveDiscountPercent"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -75,5 +128,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

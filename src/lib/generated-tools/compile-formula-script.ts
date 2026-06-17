@@ -1,4 +1,5 @@
 import { toSafeVarName } from "@/lib/generated-tools/export-names";
+import { isSafeCompiledFormulaExpression } from "@/lib/generated-tools/compile-formula-safety";
 
 type ScriptCompileOptions = {
   readonly inputIds: readonly string[];
@@ -234,7 +235,7 @@ function transformBracePlaceholders(
       return options.inputToAccess(key);
     }
     if (options.formulaKeys.includes(key)) {
-      return `(results[${JSON.stringify(key)}] ?? 0)`;
+      return `(asFormulaNumber(results[${JSON.stringify(key)}]))`;
     }
     return _match;
   });
@@ -269,11 +270,11 @@ function substituteFormulaReferences(
     }
     result = result.replace(
       new RegExp(`\\bformulas\\.${escapeRegExp(key)}\\b`, "g"),
-      `(results[${JSON.stringify(key)}] ?? 0)`,
+      `(asFormulaNumber(results[${JSON.stringify(key)}]))`,
     );
     result = result.replace(
       new RegExp(`\\b${escapeRegExp(key)}\\s*\\(\\s*\\)`, "g"),
-      `(results[${JSON.stringify(key)}])`,
+      `(asFormulaNumber(results[${JSON.stringify(key)}]))`,
     );
   }
   return result;
@@ -323,7 +324,7 @@ function mapInvokeArgument(arg: string, options: ScriptCompileOptions): string {
     return options.inputToAccess(trimmed);
   }
   if (options.formulaKeys.includes(trimmed)) {
-    return `(results[${JSON.stringify(trimmed)}] ?? 0)`;
+    return `(asFormulaNumber(results[${JSON.stringify(trimmed)}]))`;
   }
   return trimmed;
 }
@@ -371,7 +372,7 @@ function unwrapLeadingArrowFunction(
         return options.inputToAccess(inputId);
       }
       if (options.formulaKeys.includes(param)) {
-        return `(results[${JSON.stringify(param)}] ?? 0)`;
+        return `(asFormulaNumber(results[${JSON.stringify(param)}]))`;
       }
       return param;
     });
@@ -578,7 +579,7 @@ export function compileFormulaScriptFallback(
   expression = wrapScriptBodyAsExpression(expression);
   expression = sanitizeDangerousPatterns(expression);
 
-  if (!expression || !isValidFormulaEvaluationExpression(expression)) {
+  if (!expression || !isSafeCompiledFormulaExpression(expression)) {
     return null;
   }
   return expression;

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 10000,
-      "businessContext": "The amount you invest in I Bonds"
+      "businessContext": "The amount you invest in I Bonds",
+      "label_i18n": {
+        "en": "Investment Amount",
+        "tr": "Investment Amount",
+        "de": "Investment Amount",
+        "fr": "Investment Amount",
+        "es": "Investment Amount",
+        "ar": "Investment Amount"
+      }
     },
     {
       "id": "fixedRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 0.4,
-      "businessContext": "The fixed rate set by the Treasury for the bond"
+      "businessContext": "The fixed rate set by the Treasury for the bond",
+      "label_i18n": {
+        "en": "Fixed Rate (%)",
+        "tr": "Fixed Rate (%)",
+        "de": "Fixed Rate (%)",
+        "fr": "Fixed Rate (%)",
+        "es": "Fixed Rate (%)",
+        "ar": "Fixed Rate (%)"
+      }
     },
     {
       "id": "inflationRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 3.24,
-      "businessContext": "The annual inflation rate based on CPI-U"
+      "businessContext": "The annual inflation rate based on CPI-U",
+      "label_i18n": {
+        "en": "Inflation Rate (%)",
+        "tr": "Inflation Rate (%)",
+        "de": "Inflation Rate (%)",
+        "fr": "Inflation Rate (%)",
+        "es": "Inflation Rate (%)",
+        "ar": "Inflation Rate (%)"
+      }
     },
     {
       "id": "years",
@@ -31,23 +55,33 @@
       "type": "number",
       "unit": "years",
       "default": 5,
-      "businessContext": "Number of years the bond is held (1-30)"
+      "businessContext": "Number of years the bond is held (1-30)",
+      "label_i18n": {
+        "en": "Years Held",
+        "tr": "Years Held",
+        "de": "Years Held",
+        "fr": "Years Held",
+        "es": "Years Held",
+        "ar": "Years Held"
+      }
     }
   ],
   "formulas": {
     "compositeRateDecimal": "(fixedRate/100) + 2*(inflationRate/100) + (fixedRate/100)*(inflationRate/100)",
-    "finalValue": "principal * Math.pow(1 + compositeRateDecimal/2, 2*years)",
-    "totalInterest": "finalValue - principal",
-    "compositeRatePercent": "compositeRateDecimal * 100",
-    "effectiveAnnualRate": "(Math.pow(1 + compositeRateDecimal/2, 2) - 1) * 100"
+    "compositeRatePercent": "compositeRateDecimal * 100"
   },
   "outputs": {
-    "primary": "finalValue",
+    "primary": "compositeRatePercent",
     "breakdown": [
       "compositeRatePercent",
       "totalInterest",
       "effectiveAnnualRate"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "effectiveAnnualRate"
   },
   "category": "Proje & Yatırım",
   "sector": "Finans & İK",
@@ -57,5 +91,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

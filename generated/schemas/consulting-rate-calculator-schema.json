@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "EUR/day",
       "default": 800,
-      "businessContext": "The base daily rate charged by the consultant."
+      "businessContext": "The base daily rate charged by the consultant.",
+      "label_i18n": {
+        "en": "Consultant Daily Rate",
+        "tr": "Consultant Daily Rate",
+        "de": "Consultant Daily Rate",
+        "fr": "Consultant Daily Rate",
+        "es": "Consultant Daily Rate",
+        "ar": "Consultant Daily Rate"
+      }
     },
     {
       "id": "overheadPercentage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Percentage added to cover administrative and operational overhead costs."
+      "businessContext": "Percentage added to cover administrative and operational overhead costs.",
+      "label_i18n": {
+        "en": "Overhead Percentage",
+        "tr": "Overhead Percentage",
+        "de": "Overhead Percentage",
+        "fr": "Overhead Percentage",
+        "es": "Overhead Percentage",
+        "ar": "Overhead Percentage"
+      }
     },
     {
       "id": "profitMarginPercentage",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Target net profit margin desired on top of all costs."
+      "businessContext": "Target net profit margin desired on top of all costs.",
+      "label_i18n": {
+        "en": "Profit Margin Percentage",
+        "tr": "Profit Margin Percentage",
+        "de": "Profit Margin Percentage",
+        "fr": "Profit Margin Percentage",
+        "es": "Profit Margin Percentage",
+        "ar": "Profit Margin Percentage"
+      }
     },
     {
       "id": "daysWorked",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "days",
       "default": 5,
-      "businessContext": "Total number of working days for the consulting engagement."
+      "businessContext": "Total number of working days for the consulting engagement.",
+      "label_i18n": {
+        "en": "Days Worked",
+        "tr": "Days Worked",
+        "de": "Days Worked",
+        "fr": "Days Worked",
+        "es": "Days Worked",
+        "ar": "Days Worked"
+      }
     },
     {
       "id": "additionalExpenses",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 0,
-      "businessContext": "Any extra reimbursable expenses such as travel, accommodation, or materials."
+      "businessContext": "Any extra reimbursable expenses such as travel, accommodation, or materials.",
+      "label_i18n": {
+        "en": "Additional Expenses",
+        "tr": "Additional Expenses",
+        "de": "Additional Expenses",
+        "fr": "Additional Expenses",
+        "es": "Additional Expenses",
+        "ar": "Additional Expenses"
+      }
     },
     {
       "id": "taxRate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 19,
-      "businessContext": "VAT or other applicable consumption tax rate on the final invoice amount."
+      "businessContext": "VAT or other applicable consumption tax rate on the final invoice amount.",
+      "label_i18n": {
+        "en": "Tax Rate",
+        "tr": "Tax Rate",
+        "de": "Tax Rate",
+        "fr": "Tax Rate",
+        "es": "Tax Rate",
+        "ar": "Tax Rate"
+      }
     }
   ],
   "formulas": {
@@ -64,7 +112,12 @@
     "breakdown": [
       "netInvoiceAmount",
       "taxAmount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "grossInvoiceAmount"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -74,5 +127,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -192,18 +192,18 @@
       }
     ]
   },
-  "formulas": [
-    "planned_duration_days",
-    "planned_duration_days",
-    "planned_duration_days",
-    "planned_duration_days",
-    "planned_duration_days",
-    "planned_duration_days",
-    "planned_duration_days"
-  ],
+  "formulas": {
+    "result": "planned_duration_days + actual_duration_days + daily_penalty_rate",
+    "result_copy": "planned_duration_days + actual_duration_days + daily_penalty_rate"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "cpm-delay-penalty-optimizer-calculator",
   "catalogCategory": "everyday-life",

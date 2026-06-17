@@ -151,22 +151,6 @@
       "businessContext_i18n": {
         "en": "Current ability to recycle waste fabric, affecting waste disposal cost and environmental impact."
       }
-    },
-    {
-      "id": "iso_14001_certified",
-      "label": "ISO 14001 Certified",
-      "type": "boolean",
-      "unit": "unit",
-      "default": false,
-      "min": null,
-      "max": null,
-      "businessContext": "Indicates if the facility has ISO 14001 environmental management certification, influencing waste reduction practices.",
-      "label_i18n": {
-        "en": "ISO 14001 Certified"
-      },
-      "businessContext_i18n": {
-        "en": "Indicates if the facility has ISO 14001 environmental management certification, influencing waste reduction practices."
-      }
     }
   ],
   "validation": {
@@ -208,18 +192,18 @@
       }
     ]
   },
-  "formulas": [
-    "production_volume_meters",
-    "production_volume_meters",
-    "production_volume_meters",
-    "production_volume_meters",
-    "production_volume_meters",
-    "production_volume_meters",
-    "production_volume_meters"
-  ],
+  "formulas": {
+    "result": "production_volume_meters + fabric_type + waste_percentage",
+    "result_copy": "production_volume_meters + fabric_type + waste_percentage"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "textile-waste-risk-calculator",
   "catalogCategory": "everyday-life",

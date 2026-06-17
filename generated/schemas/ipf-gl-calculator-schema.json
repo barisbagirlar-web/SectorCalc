@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "W/(m·K)",
       "default": 0.04,
-      "businessContext": "Material's thermal conductivity"
+      "businessContext": "Material's thermal conductivity",
+      "label_i18n": {
+        "en": "Thermal Conductivity (k)",
+        "tr": "Thermal Conductivity (k)",
+        "de": "Thermal Conductivity (k)",
+        "fr": "Thermal Conductivity (k)",
+        "es": "Thermal Conductivity (k)",
+        "ar": "Thermal Conductivity (k)"
+      }
     },
     {
       "id": "thickness",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Thickness of insulation layer"
+      "businessContext": "Thickness of insulation layer",
+      "label_i18n": {
+        "en": "Insulation Thickness",
+        "tr": "Insulation Thickness",
+        "de": "Insulation Thickness",
+        "fr": "Insulation Thickness",
+        "es": "Insulation Thickness",
+        "ar": "Insulation Thickness"
+      }
     },
     {
       "id": "area",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m²",
       "default": 10,
-      "businessContext": "Area of insulated surface"
+      "businessContext": "Area of insulated surface",
+      "label_i18n": {
+        "en": "Surface Area",
+        "tr": "Surface Area",
+        "de": "Surface Area",
+        "fr": "Surface Area",
+        "es": "Surface Area",
+        "ar": "Surface Area"
+      }
     },
     {
       "id": "temp_hot",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 80,
-      "businessContext": "Temperature on the hot side"
+      "businessContext": "Temperature on the hot side",
+      "label_i18n": {
+        "en": "Hot Side Temperature",
+        "tr": "Hot Side Temperature",
+        "de": "Hot Side Temperature",
+        "fr": "Hot Side Temperature",
+        "es": "Hot Side Temperature",
+        "ar": "Hot Side Temperature"
+      }
     },
     {
       "id": "temp_cold",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Temperature on the cold side"
+      "businessContext": "Temperature on the cold side",
+      "label_i18n": {
+        "en": "Cold Side Temperature",
+        "tr": "Cold Side Temperature",
+        "de": "Cold Side Temperature",
+        "fr": "Cold Side Temperature",
+        "es": "Cold Side Temperature",
+        "ar": "Cold Side Temperature"
+      }
     },
     {
       "id": "u_target",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "W/(m²·K)",
       "default": 0.5,
-      "businessContext": "Required maximum U-value per GL guidelines"
+      "businessContext": "Required maximum U-value per GL guidelines",
+      "label_i18n": {
+        "en": "Target U-value",
+        "tr": "Target U-value",
+        "de": "Target U-value",
+        "fr": "Target U-value",
+        "es": "Target U-value",
+        "ar": "Target U-value"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +108,12 @@
     "breakdown": [
       "u_actual",
       "heat_loss"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "heat_loss"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -70,5 +123,10 @@
   "sectorSlug": "cleaning",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

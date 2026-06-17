@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Depth from ground surface to water level when not pumping."
+      "businessContext": "Depth from ground surface to water level when not pumping.",
+      "label_i18n": {
+        "en": "Static Water Level",
+        "tr": "Static Water Level",
+        "de": "Static Water Level",
+        "fr": "Static Water Level",
+        "es": "Static Water Level",
+        "ar": "Static Water Level"
+      }
     },
     {
       "id": "drawdown",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Additional drop in water level during pumping."
+      "businessContext": "Additional drop in water level during pumping.",
+      "label_i18n": {
+        "en": "Drawdown",
+        "tr": "Drawdown",
+        "de": "Drawdown",
+        "fr": "Drawdown",
+        "es": "Drawdown",
+        "ar": "Drawdown"
+      }
     },
     {
       "id": "dischargeHead",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 20,
-      "businessContext": "Pressure head required at discharge point (1 bar ≈ 10.2 m)."
+      "businessContext": "Pressure head required at discharge point (1 bar ≈ 10.2 m).",
+      "label_i18n": {
+        "en": "Discharge Head",
+        "tr": "Discharge Head",
+        "de": "Discharge Head",
+        "fr": "Discharge Head",
+        "es": "Discharge Head",
+        "ar": "Discharge Head"
+      }
     },
     {
       "id": "frictionLoss",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "Estimated friction loss in piping and fittings."
+      "businessContext": "Estimated friction loss in piping and fittings.",
+      "label_i18n": {
+        "en": "Friction Loss",
+        "tr": "Friction Loss",
+        "de": "Friction Loss",
+        "fr": "Friction Loss",
+        "es": "Friction Loss",
+        "ar": "Friction Loss"
+      }
     },
     {
       "id": "flowRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m³/h",
       "default": 10,
-      "businessContext": "Desired volumetric flow rate."
+      "businessContext": "Desired volumetric flow rate.",
+      "label_i18n": {
+        "en": "Flow Rate",
+        "tr": "Flow Rate",
+        "de": "Flow Rate",
+        "fr": "Flow Rate",
+        "es": "Flow Rate",
+        "ar": "Flow Rate"
+      }
     },
     {
       "id": "pumpEfficiency",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 70,
-      "businessContext": "Pump efficiency (typically 50–85%)."
+      "businessContext": "Pump efficiency (typically 50–85%).",
+      "label_i18n": {
+        "en": "Pump Efficiency",
+        "tr": "Pump Efficiency",
+        "de": "Pump Efficiency",
+        "fr": "Pump Efficiency",
+        "es": "Pump Efficiency",
+        "ar": "Pump Efficiency"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +108,12 @@
     "breakdown": [
       "totalDynamicHead",
       "hydraulicPower"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "pumpPower"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -70,5 +123,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

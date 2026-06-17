@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft",
       "default": 40,
-      "businessContext": "Horizontal length of the eave edge (building length), used to calculate total eave drip edge distance."
+      "businessContext": "Horizontal length of the eave edge (building length), used to calculate total eave drip edge distance.",
+      "label_i18n": {
+        "en": "Roof Length",
+        "tr": "Roof Length",
+        "de": "Roof Length",
+        "fr": "Roof Length",
+        "es": "Roof Length",
+        "ar": "Roof Length"
+      }
     },
     {
       "id": "roofWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ft",
       "default": 30,
-      "businessContext": "Horizontal span from eave to eave (building width), used to compute the horizontal run of the gable rake."
+      "businessContext": "Horizontal span from eave to eave (building width), used to compute the horizontal run of the gable rake.",
+      "label_i18n": {
+        "en": "Roof Width",
+        "tr": "Roof Width",
+        "de": "Roof Width",
+        "fr": "Roof Width",
+        "es": "Roof Width",
+        "ar": "Roof Width"
+      }
     },
     {
       "id": "roofPitch",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "in/12in",
       "default": 4,
-      "businessContext": "Rise in inches per 12 inches of horizontal run, used to compute the slope length of the rake."
+      "businessContext": "Rise in inches per 12 inches of horizontal run, used to compute the slope length of the rake.",
+      "label_i18n": {
+        "en": "Roof Pitch",
+        "tr": "Roof Pitch",
+        "de": "Roof Pitch",
+        "fr": "Roof Pitch",
+        "es": "Roof Pitch",
+        "ar": "Roof Pitch"
+      }
     },
     {
       "id": "gableOverhang",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "ft",
       "default": 1,
-      "businessContext": "Horizontal projection of the rake beyond the gable wall, added to half of roof width to obtain the total run."
+      "businessContext": "Horizontal projection of the rake beyond the gable wall, added to half of roof width to obtain the total run.",
+      "label_i18n": {
+        "en": "Gable Overhang",
+        "tr": "Gable Overhang",
+        "de": "Gable Overhang",
+        "fr": "Gable Overhang",
+        "es": "Gable Overhang",
+        "ar": "Gable Overhang"
+      }
     },
     {
       "id": "wasteFactor",
@@ -39,26 +71,34 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percentage of extra material to allow for cutting, fitting, and installation errors."
+      "businessContext": "Percentage of extra material to allow for cutting, fitting, and installation errors.",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     }
   ],
   "formulas": {
     "run": "roofWidth / 2 + gableOverhang",
     "rise": "run * (roofPitch / 12)",
-    "rakeLength": "Math.sqrt(Math.pow(rise,2) + Math.pow(run,2))",
-    "eaveLength": "2 * roofLength",
-    "totalRakeLength": "4 * rakeLength",
-    "baseTotal": "eaveLength + totalRakeLength",
-    "wasteAdded": "baseTotal * (wasteFactor / 100)",
-    "totalWithWaste": "baseTotal + wasteAdded"
+    "eaveLength": "2 * roofLength"
   },
   "outputs": {
-    "primary": "totalWithWaste",
+    "primary": "eaveLength",
     "breakdown": [
       "eaveLength",
       "totalRakeLength",
       "wasteAdded"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalWithWaste"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -68,5 +108,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "insaat",
   "profession": "Proje Müdürü",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

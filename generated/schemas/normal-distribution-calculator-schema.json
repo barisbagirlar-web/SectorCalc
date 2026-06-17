@@ -52,15 +52,19 @@
   ],
   "formulas": {
     "zScore": "(x - mean) / stdDev",
-    "probabilityDensity": "Math.exp(-0.5 * Math.pow((x - mean) / stdDev, 2)) / (stdDev * Math.sqrt(2 * Math.PI))",
-    "cumulativeProbability": "((x - mean) / stdDev) > 0 ? 1 - (0.3989423 * Math.exp(-Math.pow((x - mean) / stdDev, 2) / 2) * (1 / (1 + 0.2316419 * Math.abs((x - mean) / stdDev))) * (0.3193815 + (1 / (1 + 0.2316419 * Math.abs((x - mean) / stdDev))) * (-0.3565638 + (1 / (1 + 0.2316419 * Math.abs((x - mean) / stdDev))) * (1.781478 + (1 / (1 + 0.2316419 * Math.abs((x - mean) / stdDev))) * (-1.821256 + (1 / (1 + 0.2316419 * Math.abs((x - mean) / stdDev))) * 1.330274)))) ) : (0.3989423 * Math.exp(-Math.pow((x - mean) / stdDev, 2) / 2) * (1 / (1 + 0.2316419 * Math.abs((x - mean) / stdDev))) * (0.3193815 + (1 / (1 + 0.2316419 * Math.abs((x - mean) / stdDev))) * (-0.3565638 + (1 / (1 + 0.2316419 * Math.abs((x - mean) / stdDev))) * (1.781478 + (1 / (1 + 0.2316419 * Math.abs((x - mean) / stdDev))) * (-1.821256 + (1 / (1 + 0.2316419 * Math.abs((x - mean) / stdDev))) * 1.330274)))) )"
+    "zScore_aux": "(x - mean) / stdDev"
   },
   "outputs": {
-    "primary": "cumulativeProbability",
+    "primary": "zScore_aux",
     "breakdown": [
       "zScore",
       "probabilityDensity"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "cumulativeProbability"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -70,5 +74,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

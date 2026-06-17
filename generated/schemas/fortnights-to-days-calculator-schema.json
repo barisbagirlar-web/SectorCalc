@@ -67,16 +67,20 @@
     }
   ],
   "formulas": {
-    "totalDays": "Math.round(fortnights * daysPerFortnight * batchSize * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
     "rawDays": "fortnights * daysPerFortnight",
     "batchTotal": "fortnights * daysPerFortnight * batchSize"
   },
   "outputs": {
-    "primary": "totalDays",
+    "primary": "batchTotal",
     "breakdown": [
       "rawDays",
       "batchTotal"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "batchTotal"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -86,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

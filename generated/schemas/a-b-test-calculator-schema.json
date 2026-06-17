@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1000,
-      "businessContext": "A varyantı için testteki toplam örnek sayısı"
+      "businessContext": "A varyantı için testteki toplam örnek sayısı",
+      "label_i18n": {
+        "en": "Örneklem Boyutu A",
+        "tr": "Örneklem Boyutu A",
+        "de": "Örneklem Boyutu A",
+        "fr": "Örneklem Boyutu A",
+        "es": "Örneklem Boyutu A",
+        "ar": "Örneklem Boyutu A"
+      }
     },
     {
       "id": "conversionsA",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 120,
-      "businessContext": "A varyantı için başarılı dönüşüm sayısı (örneğin tıklama, satın alma)"
+      "businessContext": "A varyantı için başarılı dönüşüm sayısı (örneğin tıklama, satın alma)",
+      "label_i18n": {
+        "en": "Dönüşüm A",
+        "tr": "Dönüşüm A",
+        "de": "Dönüşüm A",
+        "fr": "Dönüşüm A",
+        "es": "Dönüşüm A",
+        "ar": "Dönüşüm A"
+      }
     },
     {
       "id": "sampleSizeB",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1000,
-      "businessContext": "B varyantı için testteki toplam örnek sayısı"
+      "businessContext": "B varyantı için testteki toplam örnek sayısı",
+      "label_i18n": {
+        "en": "Örneklem Boyutu B",
+        "tr": "Örneklem Boyutu B",
+        "de": "Örneklem Boyutu B",
+        "fr": "Örneklem Boyutu B",
+        "es": "Örneklem Boyutu B",
+        "ar": "Örneklem Boyutu B"
+      }
     },
     {
       "id": "conversionsB",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "adet",
       "default": 100,
-      "businessContext": "B varyantı için başarılı dönüşüm sayısı"
+      "businessContext": "B varyantı için başarılı dönüşüm sayısı",
+      "label_i18n": {
+        "en": "Dönüşüm B",
+        "tr": "Dönüşüm B",
+        "de": "Dönüşüm B",
+        "fr": "Dönüşüm B",
+        "es": "Dönüşüm B",
+        "ar": "Dönüşüm B"
+      }
     },
     {
       "id": "confidence",
@@ -39,28 +71,37 @@
       "type": "number",
       "unit": "%",
       "default": 95,
-      "businessContext": "İstatistiksel anlamlılık için hedef güven seviyesi (genellikle 95)"
+      "businessContext": "İstatistiksel anlamlılık için hedef güven seviyesi (genellikle 95)",
+      "label_i18n": {
+        "en": "Güven Düzeyi",
+        "tr": "Güven Düzeyi",
+        "de": "Güven Düzeyi",
+        "fr": "Güven Düzeyi",
+        "es": "Güven Düzeyi",
+        "ar": "Güven Düzeyi"
+      }
     }
   ],
   "formulas": {
     "pA": "conversionsA / sampleSizeA",
     "pB": "conversionsB / sampleSizeB",
     "pPool": "(conversionsA + conversionsB) / (sampleSizeA + sampleSizeB)",
-    "SE": "Math.sqrt(pPool * (1 - pPool) * (1/sampleSizeA + 1/sampleSizeB))",
-    "z": "(pA - pB) / SE",
-    "pValue": "2 * (1 / (1 + Math.exp(1.8138 * Math.sqrt(z * z))))",
-    "significant": "pValue < (1 - confidence / 100)",
     "conversionRateA": "conversionsA / sampleSizeA",
     "conversionRateB": "conversionsB / sampleSizeB"
   },
   "outputs": {
-    "primary": "significant",
+    "primary": "conversionRateB",
     "breakdown": [
       "pValue",
       "z",
       "conversionRateA",
       "conversionRateB"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "conversionRateB"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -70,5 +111,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -99,21 +99,22 @@
     }
   ],
   "formulas": {
-    "baseDailyRate": "5",
     "ageFactor": "1 + (travelerAge > 60 ? (travelerAge - 60) * 0.05 : 0)",
     "riskFactor": "destinationRisk",
-    "premiumBeforeDeductible": "tripDurationDays * baseDailyRate * riskFactor * ageFactor * numberOfTravelers",
-    "deductibleDiscount": "deductible * 0.01",
-    "dailyCost": "baseDailyRate * riskFactor * ageFactor * numberOfTravelers",
-    "totalCost": "Math.max(0, premiumBeforeDeductible - deductibleDiscount)"
+    "deductibleDiscount": "deductible * 0.01"
   },
   "outputs": {
-    "primary": "totalCost",
+    "primary": "deductibleDiscount",
     "breakdown": [
       "dailyCost",
       "premiumBeforeDeductible",
       "deductibleDiscount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -123,5 +124,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

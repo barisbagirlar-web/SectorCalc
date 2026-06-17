@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Current Assets minus Current Liabilities"
+      "businessContext": "Current Assets minus Current Liabilities",
+      "label_i18n": {
+        "en": "Working Capital",
+        "tr": "Working Capital",
+        "de": "Working Capital",
+        "fr": "Working Capital",
+        "es": "Working Capital",
+        "ar": "Working Capital"
+      }
     },
     {
       "id": "totalAssets",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Total assets on balance sheet"
+      "businessContext": "Total assets on balance sheet",
+      "label_i18n": {
+        "en": "Total Assets",
+        "tr": "Total Assets",
+        "de": "Total Assets",
+        "fr": "Total Assets",
+        "es": "Total Assets",
+        "ar": "Total Assets"
+      }
     },
     {
       "id": "retainedEarnings",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Cumulative net income minus dividends"
+      "businessContext": "Cumulative net income minus dividends",
+      "label_i18n": {
+        "en": "Retained Earnings",
+        "tr": "Retained Earnings",
+        "de": "Retained Earnings",
+        "fr": "Retained Earnings",
+        "es": "Retained Earnings",
+        "ar": "Retained Earnings"
+      }
     },
     {
       "id": "ebit",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Earnings Before Interest and Taxes"
+      "businessContext": "Earnings Before Interest and Taxes",
+      "label_i18n": {
+        "en": "EBIT",
+        "tr": "EBIT",
+        "de": "EBIT",
+        "fr": "EBIT",
+        "es": "EBIT",
+        "ar": "EBIT"
+      }
     },
     {
       "id": "marketValueEquity",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Market capitalization (share price * shares outstanding)"
+      "businessContext": "Market capitalization (share price * shares outstanding)",
+      "label_i18n": {
+        "en": "Market Value of Equity",
+        "tr": "Market Value of Equity",
+        "de": "Market Value of Equity",
+        "fr": "Market Value of Equity",
+        "es": "Market Value of Equity",
+        "ar": "Market Value of Equity"
+      }
     },
     {
       "id": "totalLiabilities",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Total liabilities on balance sheet"
+      "businessContext": "Total liabilities on balance sheet",
+      "label_i18n": {
+        "en": "Total Liabilities",
+        "tr": "Total Liabilities",
+        "de": "Total Liabilities",
+        "fr": "Total Liabilities",
+        "es": "Total Liabilities",
+        "ar": "Total Liabilities"
+      }
     },
     {
       "id": "sales",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Total revenue or sales"
+      "businessContext": "Total revenue or sales",
+      "label_i18n": {
+        "en": "Sales",
+        "tr": "Sales",
+        "de": "Sales",
+        "fr": "Sales",
+        "es": "Sales",
+        "ar": "Sales"
+      }
     }
   ],
   "formulas": {
@@ -74,7 +130,12 @@
       "X3",
       "X4",
       "X5"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "altmanZScore"
   },
   "category": "Proje & Yatırım",
   "sector": "Finans & İK",
@@ -84,5 +145,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

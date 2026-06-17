@@ -70,15 +70,8 @@
     "mu1": "rate * t1",
     "mu2": "rate * t2",
     "mu3": "rate * t3",
-    "p0_1": "Math.exp(-mu1)",
-    "p0_2": "Math.exp(-mu2)",
-    "p0_3": "Math.exp(-mu3)",
     "avg_wait": "1 / rate",
-    "variance_example": "rate * t1",
-    "_mu2___P_X_0____p0_2_": "{mu2}, P(X=0): {p0_2}",
-    "_mu3___P_X_0____p0_3_": "{mu3}, P(X=0): {p0_3}",
-    "_avg_wait__saat": "{avg_wait} saat",
-    "t_____variance_example_": "t₁): {variance_example}"
+    "variance_example": "rate * t1"
   },
   "outputs": {
     "primary": "mu1",
@@ -87,7 +80,12 @@
       "t₃ = {t3} saat için beklenen olay sayısı: {mu3}, P(X=0): {p0_3}",
       "Ortalama olaylar arası süre: {avg_wait} saat",
       "Varyans (herhangi t için λt; örnek: t₁): {variance_example}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "variance_example"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -97,5 +95,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

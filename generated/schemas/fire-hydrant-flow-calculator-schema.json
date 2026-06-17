@@ -138,57 +138,6 @@
       "businessContext_i18n": {
         "en": "Number of hydrants flowing simultaneously during test. Affects total demand."
       }
-    },
-    {
-      "id": "hydrant_type",
-      "label": "Hydrant Type",
-      "type": "select",
-      "options": [
-        "Dry barrel",
-        "Wet barrel",
-        "Wall hydrant"
-      ],
-      "default": "Dry barrel",
-      "businessContext": "Type of hydrant per NFPA 291. Dry barrel common in cold climates.",
-      "label_i18n": {
-        "en": "Hydrant Type"
-      },
-      "businessContext_i18n": {
-        "en": "Type of hydrant per NFPA 291. Dry barrel common in cold climates."
-      },
-      "unit": "unit"
-    },
-    {
-      "id": "flow_condition",
-      "label": "Flow Condition",
-      "type": "select",
-      "options": [
-        "Steady",
-        "Transient"
-      ],
-      "default": "Steady",
-      "businessContext": "Steady for normal tests, Transient for surge analysis per ISO 4126.",
-      "label_i18n": {
-        "en": "Flow Condition"
-      },
-      "businessContext_i18n": {
-        "en": "Steady for normal tests, Transient for surge analysis per ISO 4126."
-      },
-      "unit": "unit"
-    },
-    {
-      "id": "is_test_standard",
-      "label": "NFPA 291 Compliant Test",
-      "type": "boolean",
-      "default": true,
-      "businessContext": "Indicates if flow test was performed per NFPA 291 standard procedures.",
-      "label_i18n": {
-        "en": "NFPA 291 Compliant Test"
-      },
-      "businessContext_i18n": {
-        "en": "Indicates if flow test was performed per NFPA 291 standard procedures."
-      },
-      "unit": "unit"
     }
   ],
   "validation": {
@@ -246,18 +195,18 @@
       }
     ]
   },
-  "formulas": [
-    "static_pressure",
-    "static_pressure",
-    "static_pressure",
-    "static_pressure",
-    "static_pressure",
-    "static_pressure",
-    "static_pressure"
-  ],
+  "formulas": {
+    "result": "static_pressure + residual_pressure + flow_rate_test",
+    "result_copy": "static_pressure + residual_pressure + flow_rate_test"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",

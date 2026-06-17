@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dk",
       "default": 30,
-      "businessContext": "Kullanıcının günlük egzersiz süresi (dakika)"
+      "businessContext": "Kullanıcının günlük egzersiz süresi (dakika)",
+      "label_i18n": {
+        "en": "Egzersiz Süresi",
+        "tr": "Egzersiz Süresi",
+        "de": "Egzersiz Süresi",
+        "fr": "Egzersiz Süresi",
+        "es": "Egzersiz Süresi",
+        "ar": "Egzersiz Süresi"
+      }
     },
     {
       "id": "weight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Kullanıcının vücut ağırlığı (kilogram)"
+      "businessContext": "Kullanıcının vücut ağırlığı (kilogram)",
+      "label_i18n": {
+        "en": "Vücut Ağırlığı",
+        "tr": "Vücut Ağırlığı",
+        "de": "Vücut Ağırlığı",
+        "fr": "Vücut Ağırlığı",
+        "es": "Vücut Ağırlığı",
+        "ar": "Vücut Ağırlığı"
+      }
     },
     {
       "id": "met",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "MET",
       "default": 5,
-      "businessContext": "Aktivitenin metabolik eşdeğeri (1 MET = 3.5 ml O2/kg/dk)"
+      "businessContext": "Aktivitenin metabolik eşdeğeri (1 MET = 3.5 ml O2/kg/dk)",
+      "label_i18n": {
+        "en": "Aktivite MET Değeri",
+        "tr": "Aktivite MET Değeri",
+        "de": "Aktivite MET Değeri",
+        "fr": "Aktivite MET Değeri",
+        "es": "Aktivite MET Değeri",
+        "ar": "Aktivite MET Değeri"
+      }
     },
     {
       "id": "intensity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "çarpan",
       "default": 1,
-      "businessContext": "Egzersiz yoğunluğuna göre düzeltme katsayısı (1 = normal, >1 yüksek yoğunluk)"
+      "businessContext": "Egzersiz yoğunluğuna göre düzeltme katsayısı (1 = normal, >1 yüksek yoğunluk)",
+      "label_i18n": {
+        "en": "Yoğunluk Faktörü",
+        "tr": "Yoğunluk Faktörü",
+        "de": "Yoğunluk Faktörü",
+        "fr": "Yoğunluk Faktörü",
+        "es": "Yoğunluk Faktörü",
+        "ar": "Yoğunluk Faktörü"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "dakikaKalori",
       "yagYakimi"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "yagYakimi"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

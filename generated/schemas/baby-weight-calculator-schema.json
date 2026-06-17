@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 7.5,
-      "businessContext": "Fetal başın iki parietal kemik arasındaki en geniş çap"
+      "businessContext": "Fetal başın iki parietal kemik arasındaki en geniş çap",
+      "label_i18n": {
+        "en": "Biparietal Çap (BPD)",
+        "tr": "Biparietal Çap (BPD)",
+        "de": "Biparietal Çap (BPD)",
+        "fr": "Biparietal Çap (BPD)",
+        "es": "Biparietal Çap (BPD)",
+        "ar": "Biparietal Çap (BPD)"
+      }
     },
     {
       "id": "hc",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 27,
-      "businessContext": "Fetal başın çevresi"
+      "businessContext": "Fetal başın çevresi",
+      "label_i18n": {
+        "en": "Baş Çevresi (HC)",
+        "tr": "Baş Çevresi (HC)",
+        "de": "Baş Çevresi (HC)",
+        "fr": "Baş Çevresi (HC)",
+        "es": "Baş Çevresi (HC)",
+        "ar": "Baş Çevresi (HC)"
+      }
     },
     {
       "id": "ac",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 25.5,
-      "businessContext": "Fetal karın çevresi"
+      "businessContext": "Fetal karın çevresi",
+      "label_i18n": {
+        "en": "Karın Çevresi (AC)",
+        "tr": "Karın Çevresi (AC)",
+        "de": "Karın Çevresi (AC)",
+        "fr": "Karın Çevresi (AC)",
+        "es": "Karın Çevresi (AC)",
+        "ar": "Karın Çevresi (AC)"
+      }
     },
     {
       "id": "fl",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "cm",
       "default": 5.6,
-      "businessContext": "Fetal uyluk kemiği uzunluğu"
+      "businessContext": "Fetal uyluk kemiği uzunluğu",
+      "label_i18n": {
+        "en": "Femur Uzunluğu (FL)",
+        "tr": "Femur Uzunluğu (FL)",
+        "de": "Femur Uzunluğu (FL)",
+        "fr": "Femur Uzunluğu (FL)",
+        "es": "Femur Uzunluğu (FL)",
+        "ar": "Femur Uzunluğu (FL)"
+      }
     }
   ],
   "formulas": {
     "logEFW": "1.335 - 0.0034 * ac * fl + 0.0316 * bpd + 0.0457 * ac + 0.1623 * fl",
-    "efw_g": "Math.pow(10, logEFW)",
-    "efw_kg": "efw_g / 1000"
+    "logEFW_aux": "1.335 - 0.0034 * ac * fl + 0.0316 * bpd + 0.0457 * ac + 0.1623 * fl"
   },
   "outputs": {
-    "primary": "efw_g",
+    "primary": "logEFW_aux",
     "breakdown": [
       "efw_g",
       "efw_kg"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "efw_kg"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -54,5 +90,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

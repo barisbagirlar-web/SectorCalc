@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Your current age"
+      "businessContext": "Your current age",
+      "label_i18n": {
+        "en": "Current Age",
+        "tr": "Current Age",
+        "de": "Current Age",
+        "fr": "Current Age",
+        "es": "Current Age",
+        "ar": "Current Age"
+      }
     },
     {
       "id": "retirementAge",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "years",
       "default": 65,
-      "businessContext": "Age at which you plan to retire"
+      "businessContext": "Age at which you plan to retire",
+      "label_i18n": {
+        "en": "Retirement Age",
+        "tr": "Retirement Age",
+        "de": "Retirement Age",
+        "fr": "Retirement Age",
+        "es": "Retirement Age",
+        "ar": "Retirement Age"
+      }
     },
     {
       "id": "currentBalance",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 50000,
-      "businessContext": "Current amount in your 401k account"
+      "businessContext": "Current amount in your 401k account",
+      "label_i18n": {
+        "en": "Current 401k Balance",
+        "tr": "Current 401k Balance",
+        "de": "Current 401k Balance",
+        "fr": "Current 401k Balance",
+        "es": "Current 401k Balance",
+        "ar": "Current 401k Balance"
+      }
     },
     {
       "id": "annualContribution",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 10000,
-      "businessContext": "Amount you contribute annually to your 401k"
+      "businessContext": "Amount you contribute annually to your 401k",
+      "label_i18n": {
+        "en": "Annual Contribution",
+        "tr": "Annual Contribution",
+        "de": "Annual Contribution",
+        "fr": "Annual Contribution",
+        "es": "Annual Contribution",
+        "ar": "Annual Contribution"
+      }
     },
     {
       "id": "employerMatchRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percentage of your contribution that your employer matches"
+      "businessContext": "Percentage of your contribution that your employer matches",
+      "label_i18n": {
+        "en": "Employer Match Rate",
+        "tr": "Employer Match Rate",
+        "de": "Employer Match Rate",
+        "fr": "Employer Match Rate",
+        "es": "Employer Match Rate",
+        "ar": "Employer Match Rate"
+      }
     },
     {
       "id": "annualReturnRate",
@@ -47,22 +87,33 @@
       "type": "number",
       "unit": "%",
       "default": 7,
-      "businessContext": "Expected annual rate of return on investments"
+      "businessContext": "Expected annual rate of return on investments",
+      "label_i18n": {
+        "en": "Annual Return Rate",
+        "tr": "Annual Return Rate",
+        "de": "Annual Return Rate",
+        "fr": "Annual Return Rate",
+        "es": "Annual Return Rate",
+        "ar": "Annual Return Rate"
+      }
     }
   ],
   "formulas": {
-    "totalAtRetirement": "currentBalance * Math.pow(1 + (annualReturnRate / 100), retirementAge - currentAge) + (annualContribution * (1 + employerMatchRate / 100)) * ((Math.pow(1 + (annualReturnRate / 100), retirementAge - currentAge) - 1) / (annualReturnRate / 100))",
-    "fromPrincipal": "currentBalance * Math.pow(1 + (annualReturnRate / 100), retirementAge - currentAge)",
-    "fromContributions": "annualContribution * ((Math.pow(1 + (annualReturnRate / 100), retirementAge - currentAge) - 1) / (annualReturnRate / 100))",
-    "fromEmployerMatch": "(annualContribution * (employerMatchRate / 100)) * ((Math.pow(1 + (annualReturnRate / 100), retirementAge - currentAge) - 1) / (annualReturnRate / 100))"
+    "result": "currentAge + retirementAge + currentBalance",
+    "result_copy": "currentAge + retirementAge + currentBalance"
   },
   "outputs": {
-    "primary": "totalAtRetirement",
+    "primary": "result",
     "breakdown": [
       "fromPrincipal",
       "fromContributions",
       "fromEmployerMatch"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "fromEmployerMatch"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -72,5 +123,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "V",
       "default": 1,
-      "businessContext": "RMS voltage of the desired signal"
+      "businessContext": "RMS voltage of the desired signal",
+      "label_i18n": {
+        "en": "Signal Voltage",
+        "tr": "Signal Voltage",
+        "de": "Signal Voltage",
+        "fr": "Signal Voltage",
+        "es": "Signal Voltage",
+        "ar": "Signal Voltage"
+      }
     },
     {
       "id": "loadResistance",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 50,
-      "businessContext": "System impedance"
+      "businessContext": "System impedance",
+      "label_i18n": {
+        "en": "Load Resistance",
+        "tr": "Load Resistance",
+        "de": "Load Resistance",
+        "fr": "Load Resistance",
+        "es": "Load Resistance",
+        "ar": "Load Resistance"
+      }
     },
     {
       "id": "bandwidth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 1000000,
-      "businessContext": "Noise bandwidth of the system"
+      "businessContext": "Noise bandwidth of the system",
+      "label_i18n": {
+        "en": "Bandwidth",
+        "tr": "Bandwidth",
+        "de": "Bandwidth",
+        "fr": "Bandwidth",
+        "es": "Bandwidth",
+        "ar": "Bandwidth"
+      }
     },
     {
       "id": "temperature",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "K",
       "default": 290,
-      "businessContext": "Absolute temperature in Kelvin (290K ≈ 17°C)"
+      "businessContext": "Absolute temperature in Kelvin (290K ≈ 17°C)",
+      "label_i18n": {
+        "en": "Temperature",
+        "tr": "Temperature",
+        "de": "Temperature",
+        "fr": "Temperature",
+        "es": "Temperature",
+        "ar": "Temperature"
+      }
     },
     {
       "id": "noiseFigure",
@@ -39,23 +71,33 @@
       "type": "number",
       "unit": "dB",
       "default": 0,
-      "businessContext": "System noise figure, 0 dB for ideal noiseless"
+      "businessContext": "System noise figure, 0 dB for ideal noiseless",
+      "label_i18n": {
+        "en": "Noise Figure",
+        "tr": "Noise Figure",
+        "de": "Noise Figure",
+        "fr": "Noise Figure",
+        "es": "Noise Figure",
+        "ar": "Noise Figure"
+      }
     }
   ],
   "formulas": {
-    "noiseVoltageThermal": "Math.sqrt(4 * 1.380649e-23 * temperature * bandwidth * loadResistance)",
     "noiseFactor": "10 ** (noiseFigure / 10)",
-    "totalNoiseVoltage": "noiseVoltageThermal * Math.sqrt(noiseFactor)",
-    "snrLinear": "signalVoltage / totalNoiseVoltage",
-    "snr_dB": "20 * Math.log10(snrLinear)"
+    "noiseFactor_aux": "10 ** (noiseFigure / 10)"
   },
   "outputs": {
-    "primary": "snr_dB",
+    "primary": "noiseFactor_aux",
     "breakdown": [
       "noiseVoltageThermal",
       "totalNoiseVoltage",
       "snrLinear"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "snr_dB"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -65,5 +107,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

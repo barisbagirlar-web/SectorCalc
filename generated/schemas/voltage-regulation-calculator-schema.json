@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "V",
       "default": 11000,
-      "businessContext": "Nominal voltage at the load end of the transmission line."
+      "businessContext": "Nominal voltage at the load end of the transmission line.",
+      "label_i18n": {
+        "en": "Receiving End Voltage",
+        "tr": "Receiving End Voltage",
+        "de": "Receiving End Voltage",
+        "fr": "Receiving End Voltage",
+        "es": "Receiving End Voltage",
+        "ar": "Receiving End Voltage"
+      }
     },
     {
       "id": "loadCurrent",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "A",
       "default": 100,
-      "businessContext": "Current drawn by the load."
+      "businessContext": "Current drawn by the load.",
+      "label_i18n": {
+        "en": "Load Current",
+        "tr": "Load Current",
+        "de": "Load Current",
+        "fr": "Load Current",
+        "es": "Load Current",
+        "ar": "Load Current"
+      }
     },
     {
       "id": "lineResistance",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 0.5,
-      "businessContext": "Total resistance of the transmission line."
+      "businessContext": "Total resistance of the transmission line.",
+      "label_i18n": {
+        "en": "Line Resistance",
+        "tr": "Line Resistance",
+        "de": "Line Resistance",
+        "fr": "Line Resistance",
+        "es": "Line Resistance",
+        "ar": "Line Resistance"
+      }
     },
     {
       "id": "lineReactance",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 1,
-      "businessContext": "Total inductive reactance of the transmission line."
+      "businessContext": "Total inductive reactance of the transmission line.",
+      "label_i18n": {
+        "en": "Line Reactance",
+        "tr": "Line Reactance",
+        "de": "Line Reactance",
+        "fr": "Line Reactance",
+        "es": "Line Reactance",
+        "ar": "Line Reactance"
+      }
     },
     {
       "id": "powerFactor",
@@ -39,20 +71,32 @@
       "type": "number",
       "unit": "pu",
       "default": 0.8,
-      "businessContext": "Lagging power factor of the load (cos φ). Assumes inductive load."
+      "businessContext": "Lagging power factor of the load (cos φ). Assumes inductive load.",
+      "label_i18n": {
+        "en": "Power Factor",
+        "tr": "Power Factor",
+        "de": "Power Factor",
+        "fr": "Power Factor",
+        "es": "Power Factor",
+        "ar": "Power Factor"
+      }
     }
   ],
   "formulas": {
-    "sendingVoltage": "Math.sqrt(Math.pow(receivingVoltage * Math.cos(Math.acos(powerFactor)) + loadCurrent * lineResistance, 2) + Math.pow(receivingVoltage * Math.sin(Math.acos(powerFactor)) + loadCurrent * lineReactance, 2))",
-    "voltageDrop": "sendingVoltage - receivingVoltage",
-    "voltageRegulation": "((sendingVoltage - receivingVoltage) / receivingVoltage) * 100"
+    "result": "receivingVoltage + loadCurrent + lineResistance",
+    "result_copy": "receivingVoltage + loadCurrent + lineResistance"
   },
   "outputs": {
-    "primary": "voltageRegulation",
+    "primary": "result",
     "breakdown": [
       "sendingVoltage",
       "voltageDrop"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "voltageRegulation"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -62,5 +106,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

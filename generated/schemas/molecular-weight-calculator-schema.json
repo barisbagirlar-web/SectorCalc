@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "atoms",
       "default": 0,
-      "businessContext": "Count of carbon atoms in the molecule"
+      "businessContext": "Count of carbon atoms in the molecule",
+      "label_i18n": {
+        "en": "Number of Carbon atoms",
+        "tr": "Number of Carbon atoms",
+        "de": "Number of Carbon atoms",
+        "fr": "Number of Carbon atoms",
+        "es": "Number of Carbon atoms",
+        "ar": "Number of Carbon atoms"
+      }
     },
     {
       "id": "h",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "atoms",
       "default": 0,
-      "businessContext": "Count of hydrogen atoms in the molecule"
+      "businessContext": "Count of hydrogen atoms in the molecule",
+      "label_i18n": {
+        "en": "Number of Hydrogen atoms",
+        "tr": "Number of Hydrogen atoms",
+        "de": "Number of Hydrogen atoms",
+        "fr": "Number of Hydrogen atoms",
+        "es": "Number of Hydrogen atoms",
+        "ar": "Number of Hydrogen atoms"
+      }
     },
     {
       "id": "o",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "atoms",
       "default": 0,
-      "businessContext": "Count of oxygen atoms in the molecule"
+      "businessContext": "Count of oxygen atoms in the molecule",
+      "label_i18n": {
+        "en": "Number of Oxygen atoms",
+        "tr": "Number of Oxygen atoms",
+        "de": "Number of Oxygen atoms",
+        "fr": "Number of Oxygen atoms",
+        "es": "Number of Oxygen atoms",
+        "ar": "Number of Oxygen atoms"
+      }
     },
     {
       "id": "n",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "atoms",
       "default": 0,
-      "businessContext": "Count of nitrogen atoms in the molecule"
+      "businessContext": "Count of nitrogen atoms in the molecule",
+      "label_i18n": {
+        "en": "Number of Nitrogen atoms",
+        "tr": "Number of Nitrogen atoms",
+        "de": "Number of Nitrogen atoms",
+        "fr": "Number of Nitrogen atoms",
+        "es": "Number of Nitrogen atoms",
+        "ar": "Number of Nitrogen atoms"
+      }
     },
     {
       "id": "s",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "atoms",
       "default": 0,
-      "businessContext": "Count of sulfur atoms in the molecule"
+      "businessContext": "Count of sulfur atoms in the molecule",
+      "label_i18n": {
+        "en": "Number of Sulfur atoms",
+        "tr": "Number of Sulfur atoms",
+        "de": "Number of Sulfur atoms",
+        "fr": "Number of Sulfur atoms",
+        "es": "Number of Sulfur atoms",
+        "ar": "Number of Sulfur atoms"
+      }
     },
     {
       "id": "p",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "atoms",
       "default": 0,
-      "businessContext": "Count of phosphorus atoms in the molecule"
+      "businessContext": "Count of phosphorus atoms in the molecule",
+      "label_i18n": {
+        "en": "Number of Phosphorus atoms",
+        "tr": "Number of Phosphorus atoms",
+        "de": "Number of Phosphorus atoms",
+        "fr": "Number of Phosphorus atoms",
+        "es": "Number of Phosphorus atoms",
+        "ar": "Number of Phosphorus atoms"
+      }
     }
   ],
   "formulas": {
@@ -68,7 +116,12 @@
       "nitrogenWeight",
       "sulfurWeight",
       "phosphorusWeight"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "phosphorusWeight"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -78,5 +131,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

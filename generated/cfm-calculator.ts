@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from cfm-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,25 +16,33 @@ export const Cfm_calculatorInputSchema = z.object({
   safetyFactor: z.number().default(1.1),
 });
 
-function evaluateAllFormulas(input: Cfm_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.ductWidth * input.ductHeight / 144; results["areaSqft"] = Number.isFinite(v) ? v : 0; } catch { results["areaSqft"] = 0; }
-  try { const v = input.airVelocity * (results["areaSqft"] ?? 0) * input.safetyFactor; results["cfm"] = Number.isFinite(v) ? v : 0; } catch { results["cfm"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Cfm_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.ductWidth * input.ductHeight / 144; results["areaSqft"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["areaSqft"] = 0; }
+  try { const v = input.airVelocity * (asFormulaNumber(results["areaSqft"])) * input.safetyFactor; results["cfm"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["cfm"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateCfm_calculator(input: Cfm_calculatorInput): Cfm_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["cfm"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["cfm"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

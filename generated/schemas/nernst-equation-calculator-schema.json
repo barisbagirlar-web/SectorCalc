@@ -83,16 +83,20 @@
     }
   ],
   "formulas": {
-    "E": "E0 + (8.314462618 * temp / (n * 96485.33212)) * Math.log(C_ox / C_red)",
     "RT_over_nF": "8.314462618 * temp / (n * 96485.33212)",
     "Q": "C_ox / C_red"
   },
   "outputs": {
-    "primary": "E",
+    "primary": "Q",
     "breakdown": [
       "RT_over_nF",
       "Q"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "Q"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -102,5 +106,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "plastik",
   "profession": "Proses Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

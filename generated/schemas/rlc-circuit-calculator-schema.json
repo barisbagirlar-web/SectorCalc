@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 100,
-      "businessContext": "Total series resistance in ohms."
+      "businessContext": "Total series resistance in ohms.",
+      "label_i18n": {
+        "en": "Resistance",
+        "tr": "Resistance",
+        "de": "Resistance",
+        "fr": "Resistance",
+        "es": "Resistance",
+        "ar": "Resistance"
+      }
     },
     {
       "id": "inductance",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "H",
       "default": 0.1,
-      "businessContext": "Inductance in henries."
+      "businessContext": "Inductance in henries.",
+      "label_i18n": {
+        "en": "Inductance",
+        "tr": "Inductance",
+        "de": "Inductance",
+        "fr": "Inductance",
+        "es": "Inductance",
+        "ar": "Inductance"
+      }
     },
     {
       "id": "capacitance",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "F",
       "default": 0.000001,
-      "businessContext": "Capacitance in farads."
+      "businessContext": "Capacitance in farads.",
+      "label_i18n": {
+        "en": "Capacitance",
+        "tr": "Capacitance",
+        "de": "Capacitance",
+        "fr": "Capacitance",
+        "es": "Capacitance",
+        "ar": "Capacitance"
+      }
     },
     {
       "id": "frequency",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 1000,
-      "businessContext": "AC signal frequency in hertz."
+      "businessContext": "AC signal frequency in hertz.",
+      "label_i18n": {
+        "en": "Frequency",
+        "tr": "Frequency",
+        "de": "Frequency",
+        "fr": "Frequency",
+        "es": "Frequency",
+        "ar": "Frequency"
+      }
     },
     {
       "id": "voltage",
@@ -39,26 +71,35 @@
       "type": "number",
       "unit": "V",
       "default": 10,
-      "businessContext": "RMS voltage of the source in volts."
+      "businessContext": "RMS voltage of the source in volts.",
+      "label_i18n": {
+        "en": "Voltage",
+        "tr": "Voltage",
+        "de": "Voltage",
+        "fr": "Voltage",
+        "es": "Voltage",
+        "ar": "Voltage"
+      }
     }
   ],
   "formulas": {
-    "resonantFrequency": "1 / (2 * Math.PI * Math.sqrt(inductance * capacitance))",
-    "impedance": "Math.sqrt(resistance**2 + (2*Math.PI*frequency*inductance - 1/(2*Math.PI*frequency*capacitance))**2)",
-    "current": "voltage / Math.sqrt(resistance**2 + (2*Math.PI*frequency*inductance - 1/(2*Math.PI*frequency*capacitance))**2)",
-    "phaseAngle": "Math.atan2(2*Math.PI*frequency*inductance - 1/(2*Math.PI*frequency*capacitance), resistance) * 180 / Math.PI",
-    "qualityFactor": "(1 / resistance) * Math.sqrt(inductance / capacitance)",
-    "bandwidth": "resistance / (2 * Math.PI * inductance)"
+    "bandwidth": "resistance / (2 * Math.PI * inductance)",
+    "bandwidth_aux": "resistance / (2 * Math.PI * inductance)"
   },
   "outputs": {
-    "primary": "resonantFrequency",
+    "primary": "bandwidth_aux",
     "breakdown": [
       "impedance",
       "current",
       "phaseAngle",
       "qualityFactor",
       "bandwidth"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "bandwidth"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -68,5 +109,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

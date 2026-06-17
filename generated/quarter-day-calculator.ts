@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from quarter-day-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,28 +16,33 @@ export const Quarter_day_calculatorInputSchema = z.object({
   seconds: z.number().default(0),
 });
 
-function evaluateAllFormulas(input: Quarter_day_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.days * 86400 + input.hours * 3600 + input.minutes * 60 + input.seconds; results["totalSeconds"] = Number.isFinite(v) ? v : 0; } catch { results["totalSeconds"] = 0; }
-  try { const v = (results["totalSeconds"] ?? 0) / 21600; results["quarterDays"] = Number.isFinite(v) ? v : 0; } catch { results["quarterDays"] = 0; }
-  try { const v = Math.floor((results["totalSeconds"] ?? 0) / 21600); results["fullShifts"] = Number.isFinite(v) ? v : 0; } catch { results["fullShifts"] = 0; }
-  try { const v = (results["totalSeconds"] ?? 0) % 21600; results["remainingQuarterDaySeconds"] = Number.isFinite(v) ? v : 0; } catch { results["remainingQuarterDaySeconds"] = 0; }
-  try { const v = (results["remainingQuarterDaySeconds"] ?? 0) / 3600; results["remainingHours"] = Number.isFinite(v) ? v : 0; } catch { results["remainingHours"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Quarter_day_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.days * 86400 + input.hours * 3600 + input.minutes * 60 + input.seconds; results["totalSeconds"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalSeconds"] = 0; }
+  try { const v = (asFormulaNumber(results["totalSeconds"])) / 21600; results["quarterDays"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["quarterDays"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateQuarter_day_calculator(input: Quarter_day_calculatorInput): Quarter_day_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["quarterDays"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["quarterDays"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -320,7 +320,7 @@
         "openItem": "Hesaplayıcıyı aç →"
       },
       "free-tools": {
-        "navLabel": "Kategoriye göre göz at",
+        "navLabel": "Sektöre göre göz at",
         "allLabel": "Tüm ücretsiz araçlar",
         "categoryToolsTitle": "{category} araçları",
         "categoryToolsSubtitle": "{count} ücretsiz hesaplama aracı",
@@ -330,7 +330,7 @@
         "openItem": "Hesaplayıcıyı aç →"
       },
       "premium-tools": {
-        "navLabel": "Rapor türüne göre göz at",
+        "navLabel": "Sektöre göre göz at",
         "allLabel": "Tüm premium araçlar",
         "categoryToolsTitle": "{category} araçları",
         "categoryToolsSubtitle": "{count} premium hesaplama aracı",
@@ -1736,17 +1736,20 @@
   },
   "freeTools": {
     "title": "Ücretsiz Hesaplayıcılar",
-    "subtitle": "İhtiyacınız olan hesaplamayı kategoriye göre bulun.",
-    "searchPlaceholder": "Ücretsiz hesaplayıcı ara...",
-    "categoryTitle": "KATEGORİYE GÖRE GÖZ AT",
+    "subtitle": "Sektörünüze göre ücretsiz hesaplama araçlarını keşfedin.",
+    "searchPlaceholder": "Sektör, meslek veya araç ara...",
+    "categoryTitle": "SEKTÖRE GÖRE GÖZ AT",
     "metaTitle": "Ücretsiz Hesaplayıcılar | SectorCalc",
+    "metaDescription": "Sektörünüze özel ücretsiz hesaplama araçları.",
     "calculate": "Hesapla"
   },
   "premiumTools": {
     "title": "Premium Hesaplayıcılar",
-    "subtitle": "20 operasyon kategorisinde premium karar araçları ve ilgili ücretsiz hesaplayıcılar.",
-    "searchPlaceholder": "Premium hesaplayıcı ara...",
-    "categoryTitle": "KATEGORİYE GÖRE GÖZ AT",
+    "subtitle": "Sektörünüze göre premium hesaplama araçlarını keşfedin.",
+    "searchPlaceholder": "Sektör, meslek veya araç ara...",
+    "categoryTitle": "SEKTÖRE GÖRE GÖZ AT",
+    "metaTitle": "Premium Hesaplayıcılar | SectorCalc",
+    "metaDescription": "Sektörünüze özel premium hesaplama araçları.",
     "openAnalyzer": "Hesaplama aracını aç",
     "lockedTrustTrace": "Hesaplama özeti Pro premium özelliklerindendir."
   },
@@ -1761,7 +1764,12 @@
     "viewAll": "Tüm kategoriler"
   },
   "industries": {
-    "title": "Sektöre göre keşfet",
+    "metaTitle": "Sektörler - SectorCalc",
+    "metaDescription": "Üretim, inşaat, enerji, lojistik, finans ve daha fazlası. Sektörünüze özel hesaplama araçları.",
+    "title": "Sektörler",
+    "subtitle": "Sektörünüze göre hesaplama araçlarını keşfedin.",
+    "searchPlaceholder": "Sektör, meslek veya araç ara...",
+    "categoryTitle": "SEKTÖRE GÖRE GÖZ AT",
     "viewAll": "Sektör seç",
     "relatedFreeTools": "İlgili ücretsiz hesaplayıcılar",
     "relatedPremiumTools": "İlgili premium hesaplayıcılar",

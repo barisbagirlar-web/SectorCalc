@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cmil",
       "default": 1,
-      "businessContext": "The numerical value in circular mils (or kcmil if scale factor is 1000)."
+      "businessContext": "The numerical value in circular mils (or kcmil if scale factor is 1000).",
+      "label_i18n": {
+        "en": "Value",
+        "tr": "Value",
+        "de": "Value",
+        "fr": "Value",
+        "es": "Value",
+        "ar": "Value"
+      }
     },
     {
       "id": "scale",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "1",
       "default": 1,
-      "businessContext": "Set to 1 for cmil, 1000 for kcmil."
+      "businessContext": "Set to 1 for cmil, 1000 for kcmil.",
+      "label_i18n": {
+        "en": "Unit Scale",
+        "tr": "Unit Scale",
+        "de": "Unit Scale",
+        "fr": "Unit Scale",
+        "es": "Unit Scale",
+        "ar": "Unit Scale"
+      }
     },
     {
       "id": "conversionFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "sqmm/cmil",
       "default": 0.000506707479,
-      "businessContext": "Physical constant: 1 cmil = 0.000506707479 sqmm. Do not change unless for verification."
+      "businessContext": "Physical constant: 1 cmil = 0.000506707479 sqmm. Do not change unless for verification.",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "decimals",
@@ -31,21 +55,33 @@
       "type": "number",
       "unit": "decimals",
       "default": 6,
-      "businessContext": "Number of decimal places for output."
+      "businessContext": "Number of decimal places for output.",
+      "label_i18n": {
+        "en": "Precision (Decimals)",
+        "tr": "Precision (Decimals)",
+        "de": "Precision (Decimals)",
+        "fr": "Precision (Decimals)",
+        "es": "Precision (Decimals)",
+        "ar": "Precision (Decimals)"
+      }
     }
   ],
   "formulas": {
     "cmilValue": "value * scale",
-    "sqmmExact": "cmilValue * conversionFactor",
-    "sqmm": "Math.round(sqmmExact * Math.pow(10, decimals)) / Math.pow(10, decimals)"
+    "sqmmExact": "cmilValue * conversionFactor"
   },
   "outputs": {
-    "primary": "sqmm",
+    "primary": "sqmmExact",
     "breakdown": [
       "cmilValue",
       "conversionFactor",
       "sqmmExact"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "sqmm"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -55,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "danismanlik",
   "profession": "Strateji Uzmanı",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

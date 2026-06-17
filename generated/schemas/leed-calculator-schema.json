@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Points earned in Sustainable Sites category"
+      "businessContext": "Points earned in Sustainable Sites category",
+      "label_i18n": {
+        "en": "Sustainable Sites Points",
+        "tr": "Sustainable Sites Points",
+        "de": "Sustainable Sites Points",
+        "fr": "Sustainable Sites Points",
+        "es": "Sustainable Sites Points",
+        "ar": "Sustainable Sites Points"
+      }
     },
     {
       "id": "we",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Points earned in Water Efficiency category"
+      "businessContext": "Points earned in Water Efficiency category",
+      "label_i18n": {
+        "en": "Water Efficiency Points",
+        "tr": "Water Efficiency Points",
+        "de": "Water Efficiency Points",
+        "fr": "Water Efficiency Points",
+        "es": "Water Efficiency Points",
+        "ar": "Water Efficiency Points"
+      }
     },
     {
       "id": "ea",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Points earned in Energy & Atmosphere category"
+      "businessContext": "Points earned in Energy & Atmosphere category",
+      "label_i18n": {
+        "en": "Energy & Atmosphere Points",
+        "tr": "Energy & Atmosphere Points",
+        "de": "Energy & Atmosphere Points",
+        "fr": "Energy & Atmosphere Points",
+        "es": "Energy & Atmosphere Points",
+        "ar": "Energy & Atmosphere Points"
+      }
     },
     {
       "id": "mr",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Points earned in Materials & Resources category"
+      "businessContext": "Points earned in Materials & Resources category",
+      "label_i18n": {
+        "en": "Materials & Resources Points",
+        "tr": "Materials & Resources Points",
+        "de": "Materials & Resources Points",
+        "fr": "Materials & Resources Points",
+        "es": "Materials & Resources Points",
+        "ar": "Materials & Resources Points"
+      }
     },
     {
       "id": "eq",
@@ -39,13 +71,19 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Points earned in Indoor Environmental Quality category"
+      "businessContext": "Points earned in Indoor Environmental Quality category",
+      "label_i18n": {
+        "en": "Indoor Environmental Quality Points",
+        "tr": "Indoor Environmental Quality Points",
+        "de": "Indoor Environmental Quality Points",
+        "fr": "Indoor Environmental Quality Points",
+        "es": "Indoor Environmental Quality Points",
+        "ar": "Indoor Environmental Quality Points"
+      }
     }
   ],
   "formulas": {
     "total": "ss + we + ea + mr + eq",
-    "level": "total >= 80 ? 'Platinum' : total >= 60 ? 'Gold' : total >= 50 ? 'Silver' : total >= 40 ? 'Certified' : 'Not Certified'",
-    "totalScore": "'Total: ' + total + ' points (' + level + ')'",
     "ssBreakdown": "'Sustainable Sites: ' + ss + ' points'",
     "weBreakdown": "'Water Efficiency: ' + we + ' points'",
     "eaBreakdown": "'Energy & Atmosphere: ' + ea + ' points'",
@@ -53,14 +91,19 @@
     "eqBreakdown": "'Indoor Environmental Quality: ' + eq + ' points'"
   },
   "outputs": {
-    "primary": "totalScore",
+    "primary": "eqBreakdown",
     "breakdown": [
       "ssBreakdown",
       "weBreakdown",
       "eaBreakdown",
       "mrBreakdown",
       "eqBreakdown"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "eqBreakdown"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -70,5 +113,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "efficiency"
+  "categoryId": "efficiency",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

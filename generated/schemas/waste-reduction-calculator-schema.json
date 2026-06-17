@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "units",
       "default": 1000,
-      "businessContext": "Total number of units produced in the period."
+      "businessContext": "Total number of units produced in the period.",
+      "label_i18n": {
+        "en": "Total Production",
+        "tr": "Total Production",
+        "de": "Total Production",
+        "fr": "Total Production",
+        "es": "Total Production",
+        "ar": "Total Production"
+      }
     },
     {
       "id": "defectUnits",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "units",
       "default": 50,
-      "businessContext": "Number of defective or non-conforming units."
+      "businessContext": "Number of defective or non-conforming units.",
+      "label_i18n": {
+        "en": "Defective Units",
+        "tr": "Defective Units",
+        "de": "Defective Units",
+        "fr": "Defective Units",
+        "es": "Defective Units",
+        "ar": "Defective Units"
+      }
     },
     {
       "id": "materialInput",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 500,
-      "businessContext": "Total raw material consumed."
+      "businessContext": "Total raw material consumed.",
+      "label_i18n": {
+        "en": "Material Input",
+        "tr": "Material Input",
+        "de": "Material Input",
+        "fr": "Material Input",
+        "es": "Material Input",
+        "ar": "Material Input"
+      }
     },
     {
       "id": "wasteMaterial",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 30,
-      "businessContext": "Material wasted as scrap, trimmings, rejects."
+      "businessContext": "Material wasted as scrap, trimmings, rejects.",
+      "label_i18n": {
+        "en": "Waste Material",
+        "tr": "Waste Material",
+        "de": "Waste Material",
+        "fr": "Waste Material",
+        "es": "Waste Material",
+        "ar": "Waste Material"
+      }
     },
     {
       "id": "materialCostPerKg",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency/kg",
       "default": 2.5,
-      "businessContext": "Unit cost of raw material."
+      "businessContext": "Unit cost of raw material.",
+      "label_i18n": {
+        "en": "Material Cost per kg",
+        "tr": "Material Cost per kg",
+        "de": "Material Cost per kg",
+        "fr": "Material Cost per kg",
+        "es": "Material Cost per kg",
+        "ar": "Material Cost per kg"
+      }
     },
     {
       "id": "defectReductionTarget",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Target percentage reduction in defect units (e.g., 20% means reduce defective units by one fifth)."
+      "businessContext": "Target percentage reduction in defect units (e.g., 20% means reduce defective units by one fifth).",
+      "label_i18n": {
+        "en": "Defect Reduction Target",
+        "tr": "Defect Reduction Target",
+        "de": "Defect Reduction Target",
+        "fr": "Defect Reduction Target",
+        "es": "Defect Reduction Target",
+        "ar": "Defect Reduction Target"
+      }
     }
   ],
   "formulas": {
@@ -64,7 +112,12 @@
       "currentWasteRate",
       "materialPerUnit",
       "currentWasteCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "savings"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -74,5 +127,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ETH",
       "default": 1,
-      "businessContext": "The amount of Ethereum to convert, before transaction fees."
+      "businessContext": "The amount of Ethereum to convert, before transaction fees.",
+      "label_i18n": {
+        "en": "Ethereum Amount",
+        "tr": "Ethereum Amount",
+        "de": "Ethereum Amount",
+        "fr": "Ethereum Amount",
+        "es": "Ethereum Amount",
+        "ar": "Ethereum Amount"
+      }
     },
     {
       "id": "ethPriceUSD",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD/ETH",
       "default": 3000,
-      "businessContext": "Current market price of 1 ETH in US dollars."
+      "businessContext": "Current market price of 1 ETH in US dollars.",
+      "label_i18n": {
+        "en": "ETH Price (USD)",
+        "tr": "ETH Price (USD)",
+        "de": "ETH Price (USD)",
+        "fr": "ETH Price (USD)",
+        "es": "ETH Price (USD)",
+        "ar": "ETH Price (USD)"
+      }
     },
     {
       "id": "gasLimit",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "gas units",
       "default": 21000,
-      "businessContext": "Maximum gas units allowed for the Ethereum transaction (standard ETH transfer: 21000)."
+      "businessContext": "Maximum gas units allowed for the Ethereum transaction (standard ETH transfer: 21000).",
+      "label_i18n": {
+        "en": "Gas Limit",
+        "tr": "Gas Limit",
+        "de": "Gas Limit",
+        "fr": "Gas Limit",
+        "es": "Gas Limit",
+        "ar": "Gas Limit"
+      }
     },
     {
       "id": "maxFeePerGas",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "Gwei",
       "default": 50,
-      "businessContext": "Maximum fee per gas unit in Gwei (1 ETH = 10^9 Gwei). This covers base fee + priority fee."
+      "businessContext": "Maximum fee per gas unit in Gwei (1 ETH = 10^9 Gwei). This covers base fee + priority fee.",
+      "label_i18n": {
+        "en": "Max Fee per Gas",
+        "tr": "Max Fee per Gas",
+        "de": "Max Fee per Gas",
+        "fr": "Max Fee per Gas",
+        "es": "Max Fee per Gas",
+        "ar": "Max Fee per Gas"
+      }
     },
     {
       "id": "networkMultiplier",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "scalar",
       "default": 1,
-      "businessContext": "Multiplier to simulate higher gas prices during network congestion (1 for normal, >1 for high demand)."
+      "businessContext": "Multiplier to simulate higher gas prices during network congestion (1 for normal, >1 for high demand).",
+      "label_i18n": {
+        "en": "Network Congestion Multiplier",
+        "tr": "Network Congestion Multiplier",
+        "de": "Network Congestion Multiplier",
+        "fr": "Network Congestion Multiplier",
+        "es": "Network Congestion Multiplier",
+        "ar": "Network Congestion Multiplier"
+      }
     },
     {
       "id": "conversionFeePercent",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 0.5,
-      "businessContext": "Percentage fee charged by the exchange or service for converting crypto to fiat currency."
+      "businessContext": "Percentage fee charged by the exchange or service for converting crypto to fiat currency.",
+      "label_i18n": {
+        "en": "Conversion Fee (%)",
+        "tr": "Conversion Fee (%)",
+        "de": "Conversion Fee (%)",
+        "fr": "Conversion Fee (%)",
+        "es": "Conversion Fee (%)",
+        "ar": "Conversion Fee (%)"
+      }
     }
   ],
   "formulas": {
@@ -64,7 +112,12 @@
       "netETH",
       "grossUSD",
       "conversionFeeAmount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "netUSD"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -74,5 +127,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

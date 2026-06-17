@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "W",
       "default": 5,
-      "businessContext": "Cihazın bekleme modunda tükettiği güç, watt cinsinden."
+      "businessContext": "Cihazın bekleme modunda tükettiği güç, watt cinsinden.",
+      "label_i18n": {
+        "en": "Cihaz Bekleme Gücü",
+        "tr": "Cihaz Bekleme Gücü",
+        "de": "Cihaz Bekleme Gücü",
+        "fr": "Cihaz Bekleme Gücü",
+        "es": "Cihaz Bekleme Gücü",
+        "ar": "Cihaz Bekleme Gücü"
+      }
     },
     {
       "id": "numberOfDevices",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Aynı bekleme gücüne sahip cihaz sayısı."
+      "businessContext": "Aynı bekleme gücüne sahip cihaz sayısı.",
+      "label_i18n": {
+        "en": "Cihaz Sayısı",
+        "tr": "Cihaz Sayısı",
+        "de": "Cihaz Sayısı",
+        "fr": "Cihaz Sayısı",
+        "es": "Cihaz Sayısı",
+        "ar": "Cihaz Sayısı"
+      }
     },
     {
       "id": "standbyHoursPerDay",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "saat/gün",
       "default": 24,
-      "businessContext": "Cihazın bir günde bekleme modunda kaldığı saat."
+      "businessContext": "Cihazın bir günde bekleme modunda kaldığı saat.",
+      "label_i18n": {
+        "en": "Günlük Bekleme Süresi",
+        "tr": "Günlük Bekleme Süresi",
+        "de": "Günlük Bekleme Süresi",
+        "fr": "Günlük Bekleme Süresi",
+        "es": "Günlük Bekleme Süresi",
+        "ar": "Günlük Bekleme Süresi"
+      }
     },
     {
       "id": "electricityCost",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TL/kWh",
       "default": 1.5,
-      "businessContext": "Elektrik birim fiyatı (TL/kWh cinsinden)."
+      "businessContext": "Elektrik birim fiyatı (TL/kWh cinsinden).",
+      "label_i18n": {
+        "en": "Elektrik Birim Fiyatı",
+        "tr": "Elektrik Birim Fiyatı",
+        "de": "Elektrik Birim Fiyatı",
+        "fr": "Elektrik Birim Fiyatı",
+        "es": "Elektrik Birim Fiyatı",
+        "ar": "Elektrik Birim Fiyatı"
+      }
     },
     {
       "id": "carbonFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg CO2/kWh",
       "default": 0.5,
-      "businessContext": "Birim elektrik tüketimi başına salınan CO2 miktarı."
+      "businessContext": "Birim elektrik tüketimi başına salınan CO2 miktarı.",
+      "label_i18n": {
+        "en": "Karbon Emisyon Faktörü",
+        "tr": "Karbon Emisyon Faktörü",
+        "de": "Karbon Emisyon Faktörü",
+        "fr": "Karbon Emisyon Faktörü",
+        "es": "Karbon Emisyon Faktörü",
+        "ar": "Karbon Emisyon Faktörü"
+      }
     },
     {
       "id": "operatingDaysPerYear",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "gün/yıl",
       "default": 365,
-      "businessContext": "Cihazların yıl boyunca çalıştığı gün sayısı."
+      "businessContext": "Cihazların yıl boyunca çalıştığı gün sayısı.",
+      "label_i18n": {
+        "en": "Yıllık Çalışma Gün Sayısı",
+        "tr": "Yıllık Çalışma Gün Sayısı",
+        "de": "Yıllık Çalışma Gün Sayısı",
+        "fr": "Yıllık Çalışma Gün Sayısı",
+        "es": "Yıllık Çalışma Gün Sayısı",
+        "ar": "Yıllık Çalışma Gün Sayısı"
+      }
     }
   ],
   "formulas": {
@@ -61,7 +109,12 @@
     "breakdown": [
       "annualEnergyKwh",
       "annualCarbonKg"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "annualCarbonKg"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -71,5 +124,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Elektrik Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

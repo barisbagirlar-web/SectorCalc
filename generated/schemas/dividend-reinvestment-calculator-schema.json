@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 10000,
-      "businessContext": "Total amount initially invested in the stock."
+      "businessContext": "Total amount initially invested in the stock.",
+      "label_i18n": {
+        "en": "Initial Investment (USD)",
+        "tr": "Initial Investment (USD)",
+        "de": "Initial Investment (USD)",
+        "fr": "Initial Investment (USD)",
+        "es": "Initial Investment (USD)",
+        "ar": "Initial Investment (USD)"
+      }
     },
     {
       "id": "annualDividendYield",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 4,
-      "businessContext": "Annual dividend yield as a percentage of stock price."
+      "businessContext": "Annual dividend yield as a percentage of stock price.",
+      "label_i18n": {
+        "en": "Annual Dividend Yield (%)",
+        "tr": "Annual Dividend Yield (%)",
+        "de": "Annual Dividend Yield (%)",
+        "fr": "Annual Dividend Yield (%)",
+        "es": "Annual Dividend Yield (%)",
+        "ar": "Annual Dividend Yield (%)"
+      }
     },
     {
       "id": "dividendGrowthRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Expected annual growth rate of dividends."
+      "businessContext": "Expected annual growth rate of dividends.",
+      "label_i18n": {
+        "en": "Dividend Growth Rate (%)",
+        "tr": "Dividend Growth Rate (%)",
+        "de": "Dividend Growth Rate (%)",
+        "fr": "Dividend Growth Rate (%)",
+        "es": "Dividend Growth Rate (%)",
+        "ar": "Dividend Growth Rate (%)"
+      }
     },
     {
       "id": "stockPriceGrowthRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 7,
-      "businessContext": "Expected annual growth rate of stock price."
+      "businessContext": "Expected annual growth rate of stock price.",
+      "label_i18n": {
+        "en": "Stock Price Growth Rate (%)",
+        "tr": "Stock Price Growth Rate (%)",
+        "de": "Stock Price Growth Rate (%)",
+        "fr": "Stock Price Growth Rate (%)",
+        "es": "Stock Price Growth Rate (%)",
+        "ar": "Stock Price Growth Rate (%)"
+      }
     },
     {
       "id": "years",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "years",
       "default": 10,
-      "businessContext": "Number of years the investment is held."
+      "businessContext": "Number of years the investment is held.",
+      "label_i18n": {
+        "en": "Investment Period (Years)",
+        "tr": "Investment Period (Years)",
+        "de": "Investment Period (Years)",
+        "fr": "Investment Period (Years)",
+        "es": "Investment Period (Years)",
+        "ar": "Investment Period (Years)"
+      }
     },
     {
       "id": "taxRate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Tax rate applied to dividends."
+      "businessContext": "Tax rate applied to dividends.",
+      "label_i18n": {
+        "en": "Dividend Tax Rate (%)",
+        "tr": "Dividend Tax Rate (%)",
+        "de": "Dividend Tax Rate (%)",
+        "fr": "Dividend Tax Rate (%)",
+        "es": "Dividend Tax Rate (%)",
+        "ar": "Dividend Tax Rate (%)"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
       "totalDividends",
       "capitalGains",
       "effectiveYield"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "effectiveYield"
   },
   "category": "Proje & Yatırım",
   "sector": "Finans & İK",
@@ -72,5 +125,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from mass-percent-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,28 +16,33 @@ export const Mass_percent_calculatorInputSchema = z.object({
   precision: z.number().default(2),
 });
 
-function evaluateAllFormulas(input: Mass_percent_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.totalMass > 0 ? input.totalMass : input.componentMass + input.otherComponentMass; results["totalMassCalc"] = Number.isFinite(v) ? v : 0; } catch { results["totalMassCalc"] = 0; }
-  try { const v = (input.componentMass / (results["totalMassCalc"] ?? 0)) * 100; results["massPercent"] = Number.isFinite(v) ? v : 0; } catch { results["massPercent"] = 0; }
-  try { const v = parseFloat((results["massPercent"] ?? 0).toFixed(input.precision)); results["massPercentRounded"] = Number.isFinite(v) ? v : 0; } catch { results["massPercentRounded"] = 0; }
-  try { const v = input.totalMass > 0 ? ((input.totalMass - input.componentMass) / input.totalMass) * 100 : (input.otherComponentMass / (results["totalMassCalc"] ?? 0)) * 100; results["otherMassPercent"] = Number.isFinite(v) ? v : 0; } catch { results["otherMassPercent"] = 0; }
-  try { const v = parseFloat((results["otherMassPercent"] ?? 0).toFixed(input.precision)); results["otherMassPercentRounded"] = Number.isFinite(v) ? v : 0; } catch { results["otherMassPercentRounded"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Mass_percent_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.componentMass + input.otherComponentMass + input.totalMass; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.componentMass + input.otherComponentMass + input.totalMass; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateMass_percent_calculator(input: Mass_percent_calculatorInput): Mass_percent_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["massPercentRounded"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

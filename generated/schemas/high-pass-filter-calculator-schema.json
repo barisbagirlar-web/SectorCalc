@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 1000,
-      "businessContext": "Direnç değeri"
+      "businessContext": "Direnç değeri",
+      "label_i18n": {
+        "en": "Resistance (R)",
+        "tr": "Resistance (R)",
+        "de": "Resistance (R)",
+        "fr": "Resistance (R)",
+        "es": "Resistance (R)",
+        "ar": "Resistance (R)"
+      }
     },
     {
       "id": "capacitance",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "F",
       "default": 0.000001,
-      "businessContext": "Kapasitör değeri (Farad cinsinden)"
+      "businessContext": "Kapasitör değeri (Farad cinsinden)",
+      "label_i18n": {
+        "en": "Capacitance (C)",
+        "tr": "Capacitance (C)",
+        "de": "Capacitance (C)",
+        "fr": "Capacitance (C)",
+        "es": "Capacitance (C)",
+        "ar": "Capacitance (C)"
+      }
     },
     {
       "id": "frequency",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 1000,
-      "businessContext": "Giriş sinyali frekansı"
+      "businessContext": "Giriş sinyali frekansı",
+      "label_i18n": {
+        "en": "Frequency (f)",
+        "tr": "Frequency (f)",
+        "de": "Frequency (f)",
+        "fr": "Frequency (f)",
+        "es": "Frequency (f)",
+        "ar": "Frequency (f)"
+      }
     },
     {
       "id": "inputVoltage",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "V",
       "default": 1,
-      "businessContext": "Giriş voltajı (tepe değeri)"
+      "businessContext": "Giriş voltajı (tepe değeri)",
+      "label_i18n": {
+        "en": "Input Voltage (Vin)",
+        "tr": "Input Voltage (Vin)",
+        "de": "Input Voltage (Vin)",
+        "fr": "Input Voltage (Vin)",
+        "es": "Input Voltage (Vin)",
+        "ar": "Input Voltage (Vin)"
+      }
     }
   ],
   "formulas": {
     "cutoffFrequency": "1 / (2 * Math.PI * resistance * capacitance)",
-    "gain": "frequency / cutoffFrequency / Math.sqrt(1 + (frequency / cutoffFrequency) ** 2)",
-    "outputVoltage": "inputVoltage * gain"
+    "cutoffFrequency_aux": "1 / (2 * Math.PI * resistance * capacitance)"
   },
   "outputs": {
-    "primary": "outputVoltage",
+    "primary": "cutoffFrequency_aux",
     "breakdown": [
       "cutoffFrequency",
       "gain"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "outputVoltage"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -54,5 +90,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

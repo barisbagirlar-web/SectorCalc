@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Free cash flow for year 1"
+      "businessContext": "Free cash flow for year 1",
+      "label_i18n": {
+        "en": "Year 1 Cash Flow",
+        "tr": "Year 1 Cash Flow",
+        "de": "Year 1 Cash Flow",
+        "fr": "Year 1 Cash Flow",
+        "es": "Year 1 Cash Flow",
+        "ar": "Year 1 Cash Flow"
+      }
     },
     {
       "id": "cf2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Free cash flow for year 2"
+      "businessContext": "Free cash flow for year 2",
+      "label_i18n": {
+        "en": "Year 2 Cash Flow",
+        "tr": "Year 2 Cash Flow",
+        "de": "Year 2 Cash Flow",
+        "fr": "Year 2 Cash Flow",
+        "es": "Year 2 Cash Flow",
+        "ar": "Year 2 Cash Flow"
+      }
     },
     {
       "id": "cf3",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Free cash flow for year 3"
+      "businessContext": "Free cash flow for year 3",
+      "label_i18n": {
+        "en": "Year 3 Cash Flow",
+        "tr": "Year 3 Cash Flow",
+        "de": "Year 3 Cash Flow",
+        "fr": "Year 3 Cash Flow",
+        "es": "Year 3 Cash Flow",
+        "ar": "Year 3 Cash Flow"
+      }
     },
     {
       "id": "cf4",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Free cash flow for year 4"
+      "businessContext": "Free cash flow for year 4",
+      "label_i18n": {
+        "en": "Year 4 Cash Flow",
+        "tr": "Year 4 Cash Flow",
+        "de": "Year 4 Cash Flow",
+        "fr": "Year 4 Cash Flow",
+        "es": "Year 4 Cash Flow",
+        "ar": "Year 4 Cash Flow"
+      }
     },
     {
       "id": "cf5",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Free cash flow for year 5 (terminal year)"
+      "businessContext": "Free cash flow for year 5 (terminal year)",
+      "label_i18n": {
+        "en": "Year 5 Cash Flow",
+        "tr": "Year 5 Cash Flow",
+        "de": "Year 5 Cash Flow",
+        "fr": "Year 5 Cash Flow",
+        "es": "Year 5 Cash Flow",
+        "ar": "Year 5 Cash Flow"
+      }
     },
     {
       "id": "discountRate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Weighted average cost of capital"
+      "businessContext": "Weighted average cost of capital",
+      "label_i18n": {
+        "en": "Discount Rate (WACC)",
+        "tr": "Discount Rate (WACC)",
+        "de": "Discount Rate (WACC)",
+        "fr": "Discount Rate (WACC)",
+        "es": "Discount Rate (WACC)",
+        "ar": "Discount Rate (WACC)"
+      }
     },
     {
       "id": "growthRate",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Perpetual growth rate beyond year 5"
+      "businessContext": "Perpetual growth rate beyond year 5",
+      "label_i18n": {
+        "en": "Terminal Growth Rate",
+        "tr": "Terminal Growth Rate",
+        "de": "Terminal Growth Rate",
+        "fr": "Terminal Growth Rate",
+        "es": "Terminal Growth Rate",
+        "ar": "Terminal Growth Rate"
+      }
     }
   ],
   "formulas": {
@@ -80,7 +136,12 @@
       "pvYear5",
       "terminalValue",
       "terminalValuePV"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "dcfValue"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -90,5 +151,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

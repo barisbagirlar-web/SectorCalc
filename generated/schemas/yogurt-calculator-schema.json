@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "₺/L",
       "default": 5,
-      "businessContext": "Maliyet"
+      "businessContext": "Maliyet",
+      "label_i18n": {
+        "en": "Süt Maliyeti (Litre)",
+        "tr": "Süt Maliyeti (Litre)",
+        "de": "Süt Maliyeti (Litre)",
+        "fr": "Süt Maliyeti (Litre)",
+        "es": "Süt Maliyeti (Litre)",
+        "ar": "Süt Maliyeti (Litre)"
+      }
     },
     {
       "id": "milkYieldPerLiter",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg/L",
       "default": 0.95,
-      "businessContext": "Verim"
+      "businessContext": "Verim",
+      "label_i18n": {
+        "en": "Süt Verimi (kg/L)",
+        "tr": "Süt Verimi (kg/L)",
+        "de": "Süt Verimi (kg/L)",
+        "fr": "Süt Verimi (kg/L)",
+        "es": "Süt Verimi (kg/L)",
+        "ar": "Süt Verimi (kg/L)"
+      }
     },
     {
       "id": "starterCultureCostPerBatch",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "₺",
       "default": 10,
-      "businessContext": "Katkı Maliyeti"
+      "businessContext": "Katkı Maliyeti",
+      "label_i18n": {
+        "en": "Starter Kültür Maliyeti (Parti Başına)",
+        "tr": "Starter Kültür Maliyeti (Parti Başına)",
+        "de": "Starter Kültür Maliyeti (Parti Başına)",
+        "fr": "Starter Kültür Maliyeti (Parti Başına)",
+        "es": "Starter Kültür Maliyeti (Parti Başına)",
+        "ar": "Starter Kültür Maliyeti (Parti Başına)"
+      }
     },
     {
       "id": "batchSizeLiters",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "L",
       "default": 100,
-      "businessContext": "Parti Büyüklüğü"
+      "businessContext": "Parti Büyüklüğü",
+      "label_i18n": {
+        "en": "Parti Büyüklüğü (Litre)",
+        "tr": "Parti Büyüklüğü (Litre)",
+        "de": "Parti Büyüklüğü (Litre)",
+        "fr": "Parti Büyüklüğü (Litre)",
+        "es": "Parti Büyüklüğü (Litre)",
+        "ar": "Parti Büyüklüğü (Litre)"
+      }
     },
     {
       "id": "packagingCostPerKg",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "₺/kg",
       "default": 2,
-      "businessContext": "Ambalaj"
+      "businessContext": "Ambalaj",
+      "label_i18n": {
+        "en": "Ambalaj Maliyeti (kg Başına)",
+        "tr": "Ambalaj Maliyeti (kg Başına)",
+        "de": "Ambalaj Maliyeti (kg Başına)",
+        "fr": "Ambalaj Maliyeti (kg Başına)",
+        "es": "Ambalaj Maliyeti (kg Başına)",
+        "ar": "Ambalaj Maliyeti (kg Başına)"
+      }
     },
     {
       "id": "overheadCostPerBatch",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "₺",
       "default": 50,
-      "businessContext": "Genel Giderler"
+      "businessContext": "Genel Giderler",
+      "label_i18n": {
+        "en": "Genel Giderler (Parti Başına)",
+        "tr": "Genel Giderler (Parti Başına)",
+        "de": "Genel Giderler (Parti Başına)",
+        "fr": "Genel Giderler (Parti Başına)",
+        "es": "Genel Giderler (Parti Başına)",
+        "ar": "Genel Giderler (Parti Başına)"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
       "totalYogurt",
       "milkCostTotal",
       "totalCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "costPerKg"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -72,5 +125,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

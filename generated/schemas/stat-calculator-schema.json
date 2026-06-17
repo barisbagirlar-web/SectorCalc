@@ -84,14 +84,8 @@
   ],
   "formulas": {
     "sum": "value1 + value2 + value3 + value4 + value5",
-    "count": "5",
     "mean": "(value1 + value2 + value3 + value4 + value5) / 5",
-    "variance": "((value1 - mean) ** 2 + (value2 - mean) ** 2 + (value3 - mean) ** 2 + (value4 - mean) ** 2 + (value5 - mean) ** 2) / 4",
-    "standardDeviation": "Math.sqrt(variance)",
-    "min": "Math.min(value1, value2, value3, value4, value5)",
-    "max": "Math.max(value1, value2, value3, value4, value5)",
-    "range": "max - min",
-    "coefficientOfVariation": "standardDeviation / mean"
+    "variance": "((value1 - mean) ** 2 + (value2 - mean) ** 2 + (value3 - mean) ** 2 + (value4 - mean) ** 2 + (value5 - mean) ** 2) / 4"
   },
   "outputs": {
     "primary": "mean",
@@ -104,7 +98,12 @@
       "sum",
       "count",
       "coefficientOfVariation"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "coefficientOfVariation"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -114,5 +113,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

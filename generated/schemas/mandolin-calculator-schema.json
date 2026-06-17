@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 1,
-      "businessContext": "Number of mandolins to be produced"
+      "businessContext": "Number of mandolins to be produced",
+      "label_i18n": {
+        "en": "Mandolin Count",
+        "tr": "Mandolin Count",
+        "de": "Mandolin Count",
+        "fr": "Mandolin Count",
+        "es": "Mandolin Count",
+        "ar": "Mandolin Count"
+      }
     },
     {
       "id": "body_wood_cost",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD/pcs",
       "default": 150,
-      "businessContext": "Cost of wood for one mandolin body"
+      "businessContext": "Cost of wood for one mandolin body",
+      "label_i18n": {
+        "en": "Body Wood Cost",
+        "tr": "Body Wood Cost",
+        "de": "Body Wood Cost",
+        "fr": "Body Wood Cost",
+        "es": "Body Wood Cost",
+        "ar": "Body Wood Cost"
+      }
     },
     {
       "id": "neck_wood_cost",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD/pcs",
       "default": 80,
-      "businessContext": "Cost of wood for one mandolin neck"
+      "businessContext": "Cost of wood for one mandolin neck",
+      "label_i18n": {
+        "en": "Neck Wood Cost",
+        "tr": "Neck Wood Cost",
+        "de": "Neck Wood Cost",
+        "fr": "Neck Wood Cost",
+        "es": "Neck Wood Cost",
+        "ar": "Neck Wood Cost"
+      }
     },
     {
       "id": "hardware_cost",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD/pcs",
       "default": 120,
-      "businessContext": "Cost of hardware (tuners, bridge, tailpiece) per mandolin"
+      "businessContext": "Cost of hardware (tuners, bridge, tailpiece) per mandolin",
+      "label_i18n": {
+        "en": "Hardware Cost",
+        "tr": "Hardware Cost",
+        "de": "Hardware Cost",
+        "fr": "Hardware Cost",
+        "es": "Hardware Cost",
+        "ar": "Hardware Cost"
+      }
     },
     {
       "id": "labor_hours",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "hours/pcs",
       "default": 40,
-      "businessContext": "Labor hours required to build one mandolin"
+      "businessContext": "Labor hours required to build one mandolin",
+      "label_i18n": {
+        "en": "Labor Hours",
+        "tr": "Labor Hours",
+        "de": "Labor Hours",
+        "fr": "Labor Hours",
+        "es": "Labor Hours",
+        "ar": "Labor Hours"
+      }
     },
     {
       "id": "labor_rate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "USD/hour",
       "default": 25,
-      "businessContext": "Hourly wage for luthier"
+      "businessContext": "Hourly wage for luthier",
+      "label_i18n": {
+        "en": "Labor Rate",
+        "tr": "Labor Rate",
+        "de": "Labor Rate",
+        "fr": "Labor Rate",
+        "es": "Labor Rate",
+        "ar": "Labor Rate"
+      }
     },
     {
       "id": "overhead_percent",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Overhead cost as percentage of direct costs"
+      "businessContext": "Overhead cost as percentage of direct costs",
+      "label_i18n": {
+        "en": "Overhead Percent",
+        "tr": "Overhead Percent",
+        "de": "Overhead Percent",
+        "fr": "Overhead Percent",
+        "es": "Overhead Percent",
+        "ar": "Overhead Percent"
+      }
     },
     {
       "id": "profit_margin",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "%",
       "default": 30,
-      "businessContext": "Desired profit margin on total cost"
+      "businessContext": "Desired profit margin on total cost",
+      "label_i18n": {
+        "en": "Profit Margin",
+        "tr": "Profit Margin",
+        "de": "Profit Margin",
+        "fr": "Profit Margin",
+        "es": "Profit Margin",
+        "ar": "Profit Margin"
+      }
     }
   ],
   "formulas": {
@@ -85,7 +149,12 @@
       "total_cost",
       "selling_price",
       "cost_per_unit"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "price_per_unit"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -95,5 +164,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

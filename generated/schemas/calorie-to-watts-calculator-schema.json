@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cal",
       "default": 100,
-      "businessContext": "Amount of energy in calories."
+      "businessContext": "Amount of energy in calories.",
+      "label_i18n": {
+        "en": "Energy (calories)",
+        "tr": "Energy (calories)",
+        "de": "Energy (calories)",
+        "fr": "Energy (calories)",
+        "es": "Energy (calories)",
+        "ar": "Energy (calories)"
+      }
     },
     {
       "id": "time_hours",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "h",
       "default": 0,
-      "businessContext": "Time in hours (0-23)."
+      "businessContext": "Time in hours (0-23).",
+      "label_i18n": {
+        "en": "Time (hours)",
+        "tr": "Time (hours)",
+        "de": "Time (hours)",
+        "fr": "Time (hours)",
+        "es": "Time (hours)",
+        "ar": "Time (hours)"
+      }
     },
     {
       "id": "time_minutes",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "min",
       "default": 0,
-      "businessContext": "Time in minutes (0-59)."
+      "businessContext": "Time in minutes (0-59).",
+      "label_i18n": {
+        "en": "Time (minutes)",
+        "tr": "Time (minutes)",
+        "de": "Time (minutes)",
+        "fr": "Time (minutes)",
+        "es": "Time (minutes)",
+        "ar": "Time (minutes)"
+      }
     },
     {
       "id": "time_seconds",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "s",
       "default": 1,
-      "businessContext": "Time in seconds (0-59)."
+      "businessContext": "Time in seconds (0-59).",
+      "label_i18n": {
+        "en": "Time (seconds)",
+        "tr": "Time (seconds)",
+        "de": "Time (seconds)",
+        "fr": "Time (seconds)",
+        "es": "Time (seconds)",
+        "ar": "Time (seconds)"
+      }
     },
     {
       "id": "joules_per_cal",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "J/cal",
       "default": 4.184,
-      "businessContext": "Conversion factor from calories to joules. Standard value is 4.184 J/cal."
+      "businessContext": "Conversion factor from calories to joules. Standard value is 4.184 J/cal.",
+      "label_i18n": {
+        "en": "Joules per Calorie",
+        "tr": "Joules per Calorie",
+        "de": "Joules per Calorie",
+        "fr": "Joules per Calorie",
+        "es": "Joules per Calorie",
+        "ar": "Joules per Calorie"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
       "power_kW",
       "energy_J",
       "total_sec"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "power_kW"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -64,5 +109,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

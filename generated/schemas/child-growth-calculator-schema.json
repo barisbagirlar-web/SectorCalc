@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 100,
-      "businessContext": "Production order quantity for the parent item."
+      "businessContext": "Production order quantity for the parent item.",
+      "label_i18n": {
+        "en": "Parent Item Quantity",
+        "tr": "Parent Item Quantity",
+        "de": "Parent Item Quantity",
+        "fr": "Parent Item Quantity",
+        "es": "Parent Item Quantity",
+        "ar": "Parent Item Quantity"
+      }
     },
     {
       "id": "bomMultiplier",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "pcs/pcs",
       "default": 1,
-      "businessContext": "Number of child items required per one parent item."
+      "businessContext": "Number of child items required per one parent item.",
+      "label_i18n": {
+        "en": "BOM Multiplier",
+        "tr": "BOM Multiplier",
+        "de": "BOM Multiplier",
+        "fr": "BOM Multiplier",
+        "es": "BOM Multiplier",
+        "ar": "BOM Multiplier"
+      }
     },
     {
       "id": "scrapRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Expected percentage of child items scrapped during production."
+      "businessContext": "Expected percentage of child items scrapped during production.",
+      "label_i18n": {
+        "en": "Scrap Rate",
+        "tr": "Scrap Rate",
+        "de": "Scrap Rate",
+        "fr": "Scrap Rate",
+        "es": "Scrap Rate",
+        "ar": "Scrap Rate"
+      }
     },
     {
       "id": "safetyStockFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Additional percentage for safety stock to cover uncertainties."
+      "businessContext": "Additional percentage for safety stock to cover uncertainties.",
+      "label_i18n": {
+        "en": "Safety Stock Factor",
+        "tr": "Safety Stock Factor",
+        "de": "Safety Stock Factor",
+        "fr": "Safety Stock Factor",
+        "es": "Safety Stock Factor",
+        "ar": "Safety Stock Factor"
+      }
     }
   ],
   "formulas": {
@@ -45,7 +77,12 @@
       "grossRequirement",
       "netRequirement",
       "finalRequirement"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "finalRequirement"
   },
   "category": "İmalat & Üretim",
   "sector": "Üretim & İmalat",
@@ -55,5 +92,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

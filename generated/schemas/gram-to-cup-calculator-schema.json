@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 100,
-      "businessContext": "Malzemenin gram cinsinden ağırlığı."
+      "businessContext": "Malzemenin gram cinsinden ağırlığı.",
+      "label_i18n": {
+        "en": "Ağırlık (g)",
+        "tr": "Ağırlık (g)",
+        "de": "Ağırlık (g)",
+        "fr": "Ağırlık (g)",
+        "es": "Ağırlık (g)",
+        "ar": "Ağırlık (g)"
+      }
     },
     {
       "id": "density",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g/mL",
       "default": 0.59,
-      "businessContext": "Malzemenin yoğunluğu (gram/mililitre). Un için yaklaşık 0.59, şeker için 0.85, su için 1.0."
+      "businessContext": "Malzemenin yoğunluğu (gram/mililitre). Un için yaklaşık 0.59, şeker için 0.85, su için 1.0.",
+      "label_i18n": {
+        "en": "Yoğunluk (g/mL)",
+        "tr": "Yoğunluk (g/mL)",
+        "de": "Yoğunluk (g/mL)",
+        "fr": "Yoğunluk (g/mL)",
+        "es": "Yoğunluk (g/mL)",
+        "ar": "Yoğunluk (g/mL)"
+      }
     },
     {
       "id": "cupVolume",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mL",
       "default": 240,
-      "businessContext": "Kullanılan standart bardağın mililitre cinsinden hacmi. ABD'de genellikle 240 mL, metrik sistemde 250 mL."
+      "businessContext": "Kullanılan standart bardağın mililitre cinsinden hacmi. ABD'de genellikle 240 mL, metrik sistemde 250 mL.",
+      "label_i18n": {
+        "en": "Bardak Hacmi (mL)",
+        "tr": "Bardak Hacmi (mL)",
+        "de": "Bardak Hacmi (mL)",
+        "fr": "Bardak Hacmi (mL)",
+        "es": "Bardak Hacmi (mL)",
+        "ar": "Bardak Hacmi (mL)"
+      }
     },
     {
       "id": "packingFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "oransız",
       "default": 1,
-      "businessContext": "Malzemenin ne kadar sıkıştırıldığını gösteren faktör (1 = normal, >1 daha yoğun)."
+      "businessContext": "Malzemenin ne kadar sıkıştırıldığını gösteren faktör (1 = normal, >1 daha yoğun).",
+      "label_i18n": {
+        "en": "Sıkıştırma Faktörü",
+        "tr": "Sıkıştırma Faktörü",
+        "de": "Sıkıştırma Faktörü",
+        "fr": "Sıkıştırma Faktörü",
+        "es": "Sıkıştırma Faktörü",
+        "ar": "Sıkıştırma Faktörü"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "volumeML",
       "gramsPerCup"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "gramsPerCup"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -54,5 +91,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

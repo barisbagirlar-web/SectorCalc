@@ -99,17 +99,13 @@
     }
   ],
   "formulas": {
-    "result": "Math.acos((v1x*v2x+v1y*v2y+v1z*v2z)/(Math.sqrt(v1x**2+v1y**2+v1z**2)*Math.sqrt(v2x**2+v2y**2+v2z**2)))*(180/Math.PI)",
     "v1x_v2x_v1y_v2y_v1z_v2z": "v1x*v2x+v1y*v2y+v1z*v2z",
     "v1y_v2z___v1z_v2y": "v1y*v2z - v1z*v2y",
     "v1z_v2x___v1x_v2z": "v1z*v2x - v1x*v2z",
-    "v1x_v2y___v1y_v2x": "v1x*v2y - v1y*v2x",
-    "Math_sqrt_v1x__2_v1y__2_v1z__2_": "Math.sqrt(v1x**2+v1y**2+v1z**2)",
-    "Math_sqrt_v2x__2_v2y__2_v2z__2_": "Math.sqrt(v2x**2+v2y**2+v2z**2)",
-    "primary_result": "Math.acos((v1x*v2x+v1y*v2y+v1z*v2z)/(Math.sqrt(v1x**2+v1y**2+v1z**2)*Math.sqrt(v2x**2+v2y**2+v2z**2)))*(180/Math.PI)"
+    "v1x_v2y___v1y_v2x": "v1x*v2y - v1y*v2x"
   },
   "outputs": {
-    "primary": "primary_result",
+    "primary": "v1x_v2y___v1y_v2x",
     "breakdown": [
       "v1x*v2x+v1y*v2y+v1z*v2z",
       "v1y*v2z - v1z*v2y",
@@ -117,7 +113,12 @@
       "v1x*v2y - v1y*v2x",
       "Math.sqrt(v1x**2+v1y**2+v1z**2)",
       "Math.sqrt(v2x**2+v2y**2+v2z**2)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "primary_result"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -127,5 +128,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

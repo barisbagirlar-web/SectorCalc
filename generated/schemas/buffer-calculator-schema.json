@@ -83,16 +83,20 @@
     }
   ],
   "formulas": {
-    "primary": "service_level_z * Math.sqrt(average_lead_time_days * Math.pow(demand_standard_deviation,2) + Math.pow(average_daily_demand,2) * Math.pow(lead_time_standard_deviation,2))",
-    "demandVariabilityComponent": "service_level_z * demand_standard_deviation * Math.sqrt(average_lead_time_days)",
-    "leadTimeVariabilityComponent": "service_level_z * average_daily_demand * lead_time_standard_deviation"
+    "leadTimeVariabilityComponent": "service_level_z * average_daily_demand * lead_time_standard_deviation",
+    "leadTimeVariabilityComponent_aux": "service_level_z * average_daily_demand * lead_time_standard_deviation"
   },
   "outputs": {
-    "primary": "primary",
+    "primary": "leadTimeVariabilityComponent_aux",
     "breakdown": [
       "demandVariabilityComponent",
       "leadTimeVariabilityComponent"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "leadTimeVariabilityComponent"
   },
   "category": "Lojistik & Tedarik Zinciri",
   "sector": "Lojistik & Sevkiyat",
@@ -102,5 +106,10 @@
   "categorySlug": "procurement-supply-chain",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

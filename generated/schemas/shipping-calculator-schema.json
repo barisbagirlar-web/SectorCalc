@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 100,
-      "businessContext": "Total distance to be shipped"
+      "businessContext": "Total distance to be shipped",
+      "label_i18n": {
+        "en": "Distance",
+        "tr": "Distance",
+        "de": "Distance",
+        "fr": "Distance",
+        "es": "Distance",
+        "ar": "Distance"
+      }
     },
     {
       "id": "weight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 10,
-      "businessContext": "Total weight of the shipment"
+      "businessContext": "Total weight of the shipment",
+      "label_i18n": {
+        "en": "Weight",
+        "tr": "Weight",
+        "de": "Weight",
+        "fr": "Weight",
+        "es": "Weight",
+        "ar": "Weight"
+      }
     },
     {
       "id": "volume",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m³",
       "default": 1,
-      "businessContext": "Total volume of the shipment"
+      "businessContext": "Total volume of the shipment",
+      "label_i18n": {
+        "en": "Volume",
+        "tr": "Volume",
+        "de": "Volume",
+        "fr": "Volume",
+        "es": "Volume",
+        "ar": "Volume"
+      }
     },
     {
       "id": "fuelPrice",
@@ -31,29 +55,34 @@
       "type": "number",
       "unit": "€/L",
       "default": 1.5,
-      "businessContext": "Current fuel price per liter"
+      "businessContext": "Current fuel price per liter",
+      "label_i18n": {
+        "en": "Fuel Price",
+        "tr": "Fuel Price",
+        "de": "Fuel Price",
+        "fr": "Fuel Price",
+        "es": "Fuel Price",
+        "ar": "Fuel Price"
+      }
     }
   ],
   "formulas": {
-    "costPerKm": "0.5",
-    "costPerKg": "0.2",
-    "costPerM3": "10",
-    "baseFuelPrice": "1.5",
-    "baseCost": "distance * costPerKm",
-    "weightSurcharge": "weight * costPerKg",
-    "volumeSurcharge": "volume * costPerM3",
-    "fuelAdjustmentFactor": "fuelPrice / baseFuelPrice",
-    "fuelSurcharge": "baseCost * (fuelAdjustmentFactor - 1)",
-    "totalCost": "baseCost + weightSurcharge + volumeSurcharge + fuelSurcharge"
+    "result": "distance + weight + volume",
+    "result_copy": "distance + weight + volume"
   },
   "outputs": {
-    "primary": "totalCost",
+    "primary": "result",
     "breakdown": [
       "baseCost",
       "weightSurcharge",
       "volumeSurcharge",
       "fuelSurcharge"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Lojistik & Tedarik Zinciri",
   "sector": "Lojistik & Sevkiyat",
@@ -63,5 +92,10 @@
   "categorySlug": "procurement-supply-chain",
   "sectorId": "lojistik",
   "profession": "Lojistik Uzmanı",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

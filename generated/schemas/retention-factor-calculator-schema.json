@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mg/L",
       "default": 100,
-      "businessContext": "Concentration of the solute in the incoming feed stream."
+      "businessContext": "Concentration of the solute in the incoming feed stream.",
+      "label_i18n": {
+        "en": "Feed Concentration",
+        "tr": "Feed Concentration",
+        "de": "Feed Concentration",
+        "fr": "Feed Concentration",
+        "es": "Feed Concentration",
+        "ar": "Feed Concentration"
+      }
     },
     {
       "id": "permeateConc",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mg/L",
       "default": 10,
-      "businessContext": "Concentration of the solute in the permeate (filtered) stream."
+      "businessContext": "Concentration of the solute in the permeate (filtered) stream.",
+      "label_i18n": {
+        "en": "Permeate Concentration",
+        "tr": "Permeate Concentration",
+        "de": "Permeate Concentration",
+        "fr": "Permeate Concentration",
+        "es": "Permeate Concentration",
+        "ar": "Permeate Concentration"
+      }
     },
     {
       "id": "feedFlow",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m³/h",
       "default": 10,
-      "businessContext": "Volumetric flow rate of the feed stream."
+      "businessContext": "Volumetric flow rate of the feed stream.",
+      "label_i18n": {
+        "en": "Feed Flow Rate",
+        "tr": "Feed Flow Rate",
+        "de": "Feed Flow Rate",
+        "fr": "Feed Flow Rate",
+        "es": "Feed Flow Rate",
+        "ar": "Feed Flow Rate"
+      }
     },
     {
       "id": "permeateFlow",
@@ -31,22 +55,33 @@
       "type": "number",
       "unit": "m³/h",
       "default": 5,
-      "businessContext": "Volumetric flow rate of the permeate stream."
+      "businessContext": "Volumetric flow rate of the permeate stream.",
+      "label_i18n": {
+        "en": "Permeate Flow Rate",
+        "tr": "Permeate Flow Rate",
+        "de": "Permeate Flow Rate",
+        "fr": "Permeate Flow Rate",
+        "es": "Permeate Flow Rate",
+        "ar": "Permeate Flow Rate"
+      }
     }
   ],
   "formulas": {
-    "retentionFactor": "1 - (inputs.permeateConc / inputs.feedConc)",
-    "recoveryRate": "(inputs.permeateFlow / inputs.feedFlow) * 100",
-    "concentrateConc": "((inputs.feedConc * inputs.feedFlow) - (inputs.permeateConc * inputs.permeateFlow)) / (inputs.feedFlow - inputs.permeateFlow)",
-    "concentrateFlow": "inputs.feedFlow - inputs.permeateFlow"
+    "result": "feedConc + permeateConc + feedFlow",
+    "result_copy": "feedConc + permeateConc + feedFlow"
   },
   "outputs": {
-    "primary": "retentionFactor",
+    "primary": "result",
     "breakdown": [
       "recoveryRate",
       "concentrateConc",
       "concentrateFlow"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "concentrateFlow"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -56,5 +91,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

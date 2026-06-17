@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 10,
-      "businessContext": "Unit price of the first product"
+      "businessContext": "Unit price of the first product",
+      "label_i18n": {
+        "en": "Price of Product A",
+        "tr": "Price of Product A",
+        "de": "Price of Product A",
+        "fr": "Price of Product A",
+        "es": "Price of Product A",
+        "ar": "Price of Product A"
+      }
     },
     {
       "id": "priceB",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 12,
-      "businessContext": "Unit price of the second product"
+      "businessContext": "Unit price of the second product",
+      "label_i18n": {
+        "en": "Price of Product B",
+        "tr": "Price of Product B",
+        "de": "Price of Product B",
+        "fr": "Price of Product B",
+        "es": "Price of Product B",
+        "ar": "Price of Product B"
+      }
     },
     {
       "id": "quantityA",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "units",
       "default": 1,
-      "businessContext": "Number of units for Product A"
+      "businessContext": "Number of units for Product A",
+      "label_i18n": {
+        "en": "Quantity of A",
+        "tr": "Quantity of A",
+        "de": "Quantity of A",
+        "fr": "Quantity of A",
+        "es": "Quantity of A",
+        "ar": "Quantity of A"
+      }
     },
     {
       "id": "quantityB",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "units",
       "default": 1,
-      "businessContext": "Number of units for Product B"
+      "businessContext": "Number of units for Product B",
+      "label_i18n": {
+        "en": "Quantity of B",
+        "tr": "Quantity of B",
+        "de": "Quantity of B",
+        "fr": "Quantity of B",
+        "es": "Quantity of B",
+        "ar": "Quantity of B"
+      }
     },
     {
       "id": "discountA",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Discount percentage for Product A"
+      "businessContext": "Discount percentage for Product A",
+      "label_i18n": {
+        "en": "Discount on A (%)",
+        "tr": "Discount on A (%)",
+        "de": "Discount on A (%)",
+        "fr": "Discount on A (%)",
+        "es": "Discount on A (%)",
+        "ar": "Discount on A (%)"
+      }
     },
     {
       "id": "discountB",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Discount percentage for Product B"
+      "businessContext": "Discount percentage for Product B",
+      "label_i18n": {
+        "en": "Discount on B (%)",
+        "tr": "Discount on B (%)",
+        "de": "Discount on B (%)",
+        "fr": "Discount on B (%)",
+        "es": "Discount on B (%)",
+        "ar": "Discount on B (%)"
+      }
     },
     {
       "id": "taxRate",
@@ -55,22 +103,33 @@
       "type": "number",
       "unit": "%",
       "default": 18,
-      "businessContext": "Applicable tax rate percentage"
+      "businessContext": "Applicable tax rate percentage",
+      "label_i18n": {
+        "en": "Tax Rate (%)",
+        "tr": "Tax Rate (%)",
+        "de": "Tax Rate (%)",
+        "fr": "Tax Rate (%)",
+        "es": "Tax Rate (%)",
+        "ar": "Tax Rate (%)"
+      }
     }
   ],
   "formulas": {
     "totalA": "priceA * quantityA * (1 - discountA/100) * (1 + taxRate/100)",
-    "totalB": "priceB * quantityB * (1 - discountB/100) * (1 + taxRate/100)",
-    "difference": "Math.abs(totalA - totalB)",
-    "comparisonResult": "totalA < totalB ? `Product A is cheaper by ${difference.toFixed(2)} currency` : totalB < totalA ? `Product B is cheaper by ${difference.toFixed(2)} currency` : 'Both products cost the same'"
+    "totalB": "priceB * quantityB * (1 - discountB/100) * (1 + taxRate/100)"
   },
   "outputs": {
-    "primary": "comparisonResult",
+    "primary": "totalB",
     "breakdown": [
       "totalA",
       "totalB",
       "difference"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "difference"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -80,5 +139,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

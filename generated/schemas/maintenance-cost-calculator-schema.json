@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "€/hour",
       "default": 50,
-      "businessContext": "Cost of one technician per hour including wages and benefits."
+      "businessContext": "Cost of one technician per hour including wages and benefits.",
+      "label_i18n": {
+        "en": "Hourly Labor Rate",
+        "tr": "Hourly Labor Rate",
+        "de": "Hourly Labor Rate",
+        "fr": "Hourly Labor Rate",
+        "es": "Hourly Labor Rate",
+        "ar": "Hourly Labor Rate"
+      }
     },
     {
       "id": "technicians",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "people",
       "default": 2,
-      "businessContext": "Number of maintenance personnel assigned per task."
+      "businessContext": "Number of maintenance personnel assigned per task.",
+      "label_i18n": {
+        "en": "Number of Technicians",
+        "tr": "Number of Technicians",
+        "de": "Number of Technicians",
+        "fr": "Number of Technicians",
+        "es": "Number of Technicians",
+        "ar": "Number of Technicians"
+      }
     },
     {
       "id": "hoursPerMaintenance",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "hours",
       "default": 4,
-      "businessContext": "Average time to complete one maintenance task."
+      "businessContext": "Average time to complete one maintenance task.",
+      "label_i18n": {
+        "en": "Hours per Maintenance",
+        "tr": "Hours per Maintenance",
+        "de": "Hours per Maintenance",
+        "fr": "Hours per Maintenance",
+        "es": "Hours per Maintenance",
+        "ar": "Hours per Maintenance"
+      }
     },
     {
       "id": "maintenanceFrequency",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "events/year",
       "default": 12,
-      "businessContext": "Number of maintenance tasks per year."
+      "businessContext": "Number of maintenance tasks per year.",
+      "label_i18n": {
+        "en": "Maintenance Frequency",
+        "tr": "Maintenance Frequency",
+        "de": "Maintenance Frequency",
+        "fr": "Maintenance Frequency",
+        "es": "Maintenance Frequency",
+        "ar": "Maintenance Frequency"
+      }
     },
     {
       "id": "partsCostPerMaintenance",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "€",
       "default": 200,
-      "businessContext": "Cost of spare parts and consumables per maintenance event."
+      "businessContext": "Cost of spare parts and consumables per maintenance event.",
+      "label_i18n": {
+        "en": "Parts Cost per Maintenance",
+        "tr": "Parts Cost per Maintenance",
+        "de": "Parts Cost per Maintenance",
+        "fr": "Parts Cost per Maintenance",
+        "es": "Parts Cost per Maintenance",
+        "ar": "Parts Cost per Maintenance"
+      }
     },
     {
       "id": "overheadCostPerMaintenance",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "€",
       "default": 100,
-      "businessContext": "Additional costs such as tools, facilities, and indirect expenses per event."
+      "businessContext": "Additional costs such as tools, facilities, and indirect expenses per event.",
+      "label_i18n": {
+        "en": "Overhead Cost per Maintenance",
+        "tr": "Overhead Cost per Maintenance",
+        "de": "Overhead Cost per Maintenance",
+        "fr": "Overhead Cost per Maintenance",
+        "es": "Overhead Cost per Maintenance",
+        "ar": "Overhead Cost per Maintenance"
+      }
     }
   ],
   "formulas": {
@@ -64,7 +112,12 @@
       "partsCostPerEvent",
       "overheadCostPerEvent",
       "totalCostPerEvent"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "annualMaintenanceCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -74,5 +127,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

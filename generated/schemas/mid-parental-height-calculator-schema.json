@@ -69,20 +69,8 @@
   "formulas": {
     "midHeightCm": "childSex === 1 ? (fatherHeight + motherHeight + 13) / 2 : (fatherHeight + motherHeight - 13) / 2",
     "outputHeight": "resultUnit === 1 ? midHeightCm / 2.54 : midHeightCm",
-    "outputUnit": "resultUnit === 1 ? 'inç' : 'cm'",
-    "primaryText": "'Öngörülen boy: ' + outputHeight.toFixed(1) + ' ' + outputUnit",
     "breakdownStep1": "'Baba boyu: ' + fatherHeight + ' cm'",
-    "breakdownStep2": "'Anne boyu: ' + motherHeight + ' cm'",
-    "breakdownStep3": "'Cinsiyet: ' + (childSex === 1 ? 'Erkek' : 'Kiz')",
-    "breakdownStep4": "'Formül: (baba + anne ' + (childSex === 1 ? '+ 13' : '- 13') + ') / 2'",
-    "breakdownStep5": "'Hesaplanan: ' + midHeightCm.toFixed(1) + ' cm'",
-    "breakdownStep6": "resultUnit === 1 ? 'İnçe çevrildi: ' + outputHeight.toFixed(1) + ' inç' : ''",
-    "_breakdownStep1_": "{breakdownStep1}",
-    "_breakdownStep2_": "{breakdownStep2}",
-    "_breakdownStep3_": "{breakdownStep3}",
-    "_breakdownStep4_": "{breakdownStep4}",
-    "_breakdownStep5_": "{breakdownStep5}",
-    "_breakdownStep6_": "{breakdownStep6}"
+    "breakdownStep2": "'Anne boyu: ' + motherHeight + ' cm'"
   },
   "outputs": {
     "primary": "midHeightCm",
@@ -93,7 +81,12 @@
       "{breakdownStep4}",
       "{breakdownStep5}",
       "{breakdownStep6}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "breakdownStep6"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -103,5 +96,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

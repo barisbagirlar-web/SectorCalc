@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 100000,
-      "businessContext": "The amount paid upon death of the insured."
+      "businessContext": "The amount paid upon death of the insured.",
+      "label_i18n": {
+        "en": "Sum Assured (Death Benefit)",
+        "tr": "Sum Assured (Death Benefit)",
+        "de": "Sum Assured (Death Benefit)",
+        "fr": "Sum Assured (Death Benefit)",
+        "es": "Sum Assured (Death Benefit)",
+        "ar": "Sum Assured (Death Benefit)"
+      }
     },
     {
       "id": "mortalityRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "decimal fraction",
       "default": 0.01,
-      "businessContext": "The probability that the insured will die within the next year."
+      "businessContext": "The probability that the insured will die within the next year.",
+      "label_i18n": {
+        "en": "Annual Mortality Rate",
+        "tr": "Annual Mortality Rate",
+        "de": "Annual Mortality Rate",
+        "fr": "Annual Mortality Rate",
+        "es": "Annual Mortality Rate",
+        "ar": "Annual Mortality Rate"
+      }
     },
     {
       "id": "interestRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "decimal fraction",
       "default": 0.05,
-      "businessContext": "The interest rate used for discounting future benefits."
+      "businessContext": "The interest rate used for discounting future benefits.",
+      "label_i18n": {
+        "en": "Annual Discount Rate (i)",
+        "tr": "Annual Discount Rate (i)",
+        "de": "Annual Discount Rate (i)",
+        "fr": "Annual Discount Rate (i)",
+        "es": "Annual Discount Rate (i)",
+        "ar": "Annual Discount Rate (i)"
+      }
     },
     {
       "id": "expenseLoading",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "percentage",
       "default": 0.1,
-      "businessContext": "Loading factor for expenses, as a decimal (e.g., 0.1 for 10%)."
+      "businessContext": "Loading factor for expenses, as a decimal (e.g., 0.1 for 10%).",
+      "label_i18n": {
+        "en": "Expense Loading",
+        "tr": "Expense Loading",
+        "de": "Expense Loading",
+        "fr": "Expense Loading",
+        "es": "Expense Loading",
+        "ar": "Expense Loading"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "Net Single Premium",
       "Annual Net Premium",
       "Gross Single Premium"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "Gross Annual Premium"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -56,5 +93,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

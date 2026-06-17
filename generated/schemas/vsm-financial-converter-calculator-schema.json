@@ -138,118 +138,6 @@
       "businessContext_i18n": {
         "en": "Additional cost to rework one defective unit (labor + material)."
       }
-    },
-    {
-      "id": "inventoryHoldingCostPercent",
-      "label": "Inventory Holding Cost (% of COGS)",
-      "type": "number",
-      "unit": "%",
-      "default": 20,
-      "min": 0,
-      "max": 50,
-      "businessContext": "Annual inventory carrying cost as a percentage of cost of goods sold (WERC standard).",
-      "label_i18n": {
-        "en": "Inventory Holding Cost (% of COGS)"
-      },
-      "businessContext_i18n": {
-        "en": "Annual inventory carrying cost as a percentage of cost of goods sold (WERC standard)."
-      }
-    },
-    {
-      "id": "averageInventoryValue",
-      "label": "Average Inventory Value (currency)",
-      "type": "number",
-      "unit": "currency",
-      "default": 500000,
-      "min": 0,
-      "max": 100000000,
-      "businessContext": "Average value of raw material, WIP, and finished goods inventory.",
-      "label_i18n": {
-        "en": "Average Inventory Value (currency)"
-      },
-      "businessContext_i18n": {
-        "en": "Average value of raw material, WIP, and finished goods inventory."
-      }
-    },
-    {
-      "id": "overheadRate",
-      "label": "Overhead Rate (% of direct labor)",
-      "type": "number",
-      "unit": "%",
-      "default": 150,
-      "min": 0,
-      "max": 500,
-      "businessContext": "Manufacturing overhead allocated as a percentage of direct labor cost.",
-      "label_i18n": {
-        "en": "Overhead Rate (% of direct labor)"
-      },
-      "businessContext_i18n": {
-        "en": "Manufacturing overhead allocated as a percentage of direct labor cost."
-      }
-    },
-    {
-      "id": "operatorsPerShift",
-      "label": "Operators per shift",
-      "type": "number",
-      "unit": "count",
-      "default": 10,
-      "min": 1,
-      "max": 500,
-      "businessContext": "Number of direct operators working per shift in the value stream.",
-      "label_i18n": {
-        "en": "Operators per shift"
-      },
-      "businessContext_i18n": {
-        "en": "Number of direct operators working per shift in the value stream."
-      }
-    },
-    {
-      "id": "shiftsPerDay",
-      "label": "Shifts per day",
-      "type": "number",
-      "unit": "shifts",
-      "default": 2,
-      "min": 1,
-      "max": 3,
-      "businessContext": "Number of production shifts per day.",
-      "label_i18n": {
-        "en": "Shifts per day"
-      },
-      "businessContext_i18n": {
-        "en": "Number of production shifts per day."
-      }
-    },
-    {
-      "id": "workingDaysPerYear",
-      "label": "Working days per year",
-      "type": "number",
-      "unit": "days",
-      "default": 240,
-      "min": 200,
-      "max": 365,
-      "businessContext": "Number of operating days per year.",
-      "label_i18n": {
-        "en": "Working days per year"
-      },
-      "businessContext_i18n": {
-        "en": "Number of operating days per year."
-      }
-    },
-    {
-      "id": "wasteReductionTarget",
-      "label": "Waste Reduction Target (%)",
-      "type": "number",
-      "unit": "%",
-      "default": 15,
-      "min": 0,
-      "max": 100,
-      "businessContext": "Target percentage reduction in non-value-added time (Lean continuous improvement).",
-      "label_i18n": {
-        "en": "Waste Reduction Target (%)"
-      },
-      "businessContext_i18n": {
-        "en": "Target percentage reduction in non-value-added time (Lean continuous improvement)."
-      }
     }
   ],
   "validation": {
@@ -300,19 +188,18 @@
       }
     ]
   },
-  "formulas": [
-    "annualDemand",
-    "annualDemand",
-    "annualDemand",
-    "annualDemand",
-    "annualDemand",
-    "annualDemand",
-    "annualDemand",
-    "annualDemand"
-  ],
+  "formulas": {
+    "result": "annualDemand + sellingPrice + materialCostPerUnit",
+    "result_copy": "annualDemand + sellingPrice + materialCostPerUnit"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "vsm-financial-converter-calculator",
   "catalogCategory": "conversion",

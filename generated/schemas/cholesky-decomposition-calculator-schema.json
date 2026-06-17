@@ -99,21 +99,11 @@
     }
   ],
   "formulas": {
-    "l11": "Math.sqrt(a11)",
-    "l21": "a12 / l11",
-    "l31": "a13 / l11",
-    "l22": "Math.sqrt(a22 - Math.pow(l21, 2))",
-    "l32": "(a23 - l21 * l31) / l22",
-    "l33": "Math.sqrt(a33 - Math.pow(l31, 2) - Math.pow(l32, 2))",
-    "l11_____l11_": "l11 = ${l11}",
-    "l21_____l21_": "l21 = ${l21}",
-    "l31_____l31_": "l31 = ${l31}",
-    "l22_____l22_": "l22 = ${l22}",
-    "l32_____l32_": "l32 = ${l32}",
-    "l33_____l33_": "l33 = ${l33}"
+    "result": "a11 + a12 + a13",
+    "result_copy": "a11 + a12 + a13"
   },
   "outputs": {
-    "primary": "l11",
+    "primary": "result",
     "breakdown": [
       "l11 = ${l11}",
       "l21 = ${l21}",
@@ -121,7 +111,12 @@
       "l22 = ${l22}",
       "l32 = ${l32}",
       "l33 = ${l33}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "l33"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -131,5 +126,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

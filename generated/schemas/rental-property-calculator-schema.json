@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 200000,
-      "businessContext": "Total purchase price of the property"
+      "businessContext": "Total purchase price of the property",
+      "label_i18n": {
+        "en": "Purchase Price",
+        "tr": "Purchase Price",
+        "de": "Purchase Price",
+        "fr": "Purchase Price",
+        "es": "Purchase Price",
+        "ar": "Purchase Price"
+      }
     },
     {
       "id": "downPaymentPercent",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Percentage of purchase price paid upfront"
+      "businessContext": "Percentage of purchase price paid upfront",
+      "label_i18n": {
+        "en": "Down Payment (%)",
+        "tr": "Down Payment (%)",
+        "de": "Down Payment (%)",
+        "fr": "Down Payment (%)",
+        "es": "Down Payment (%)",
+        "ar": "Down Payment (%)"
+      }
     },
     {
       "id": "interestRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "% p.a.",
       "default": 4,
-      "businessContext": "Annual nominal interest rate for mortgage loan"
+      "businessContext": "Annual nominal interest rate for mortgage loan",
+      "label_i18n": {
+        "en": "Interest Rate",
+        "tr": "Interest Rate",
+        "de": "Interest Rate",
+        "fr": "Interest Rate",
+        "es": "Interest Rate",
+        "ar": "Interest Rate"
+      }
     },
     {
       "id": "loanTermYears",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "years",
       "default": 25,
-      "businessContext": "Duration of mortgage loan in years"
+      "businessContext": "Duration of mortgage loan in years",
+      "label_i18n": {
+        "en": "Loan Term",
+        "tr": "Loan Term",
+        "de": "Loan Term",
+        "fr": "Loan Term",
+        "es": "Loan Term",
+        "ar": "Loan Term"
+      }
     },
     {
       "id": "monthlyRent",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 1500,
-      "businessContext": "Expected gross monthly rental income"
+      "businessContext": "Expected gross monthly rental income",
+      "label_i18n": {
+        "en": "Monthly Rent",
+        "tr": "Monthly Rent",
+        "de": "Monthly Rent",
+        "fr": "Monthly Rent",
+        "es": "Monthly Rent",
+        "ar": "Monthly Rent"
+      }
     },
     {
       "id": "annualExpensePercent",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 30,
-      "businessContext": "Annual operating expenses as percentage of annual gross rent, including maintenance, insurance, taxes"
+      "businessContext": "Annual operating expenses as percentage of annual gross rent, including maintenance, insurance, taxes",
+      "label_i18n": {
+        "en": "Annual Operating Expenses (% of Rent)",
+        "tr": "Annual Operating Expenses (% of Rent)",
+        "de": "Annual Operating Expenses (% of Rent)",
+        "fr": "Annual Operating Expenses (% of Rent)",
+        "es": "Annual Operating Expenses (% of Rent)",
+        "ar": "Annual Operating Expenses (% of Rent)"
+      }
     },
     {
       "id": "vacancyRate",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Estimated percentage of time the property is vacant, reducing rental income"
+      "businessContext": "Estimated percentage of time the property is vacant, reducing rental income",
+      "label_i18n": {
+        "en": "Vacancy Rate (%)",
+        "tr": "Vacancy Rate (%)",
+        "de": "Vacancy Rate (%)",
+        "fr": "Vacancy Rate (%)",
+        "es": "Vacancy Rate (%)",
+        "ar": "Vacancy Rate (%)"
+      }
     }
   ],
   "formulas": {
@@ -67,21 +123,21 @@
     "loanAmount": "purchasePrice * (1 - downPaymentPercent/100)",
     "monthlyInterestRate": "interestRate/100/12",
     "loanTermMonths": "loanTermYears * 12",
-    "monthlyPayment": "loanAmount * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, loanTermMonths)) / (Math.pow(1 + monthlyInterestRate, loanTermMonths) - 1)",
-    "annualDebtService": "monthlyPayment * 12",
-    "annualCashFlow": "netOperatingIncome - annualDebtService",
-    "monthlyCashFlow": "annualCashFlow / 12",
     "totalCashInvested": "purchasePrice * downPaymentPercent/100",
-    "cashOnCashReturn": "(annualCashFlow / totalCashInvested) * 100",
     "capRate": "(netOperatingIncome / purchasePrice) * 100"
   },
   "outputs": {
-    "primary": "cashOnCashReturn",
+    "primary": "capRate",
     "breakdown": [
       "annualCashFlow",
       "monthlyCashFlow",
       "capRate"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "capRate"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -91,5 +147,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

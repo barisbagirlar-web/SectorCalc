@@ -69,19 +69,20 @@
   "formulas": {
     "tauNominal": "inductance / resistance",
     "tauMax": "(inductance * (1 + inductanceTolerance / 100)) / (resistance * (1 - resistanceTolerance / 100))",
-    "tauMin": "(inductance * (1 - inductanceTolerance / 100)) / (resistance * (1 + resistanceTolerance / 100))",
-    "__tauMax_toFixed_6___s": "${tauMax.toFixed(6)} s",
-    "__tauMin_toFixed_6___s": "${tauMin.toFixed(6)} s",
-    "_____tauMax___tauMin_____2___tauNominal_": "±${((tauMax - tauMin) / (2 * tauNominal) * 100).toFixed(2)}%",
-    "result": "Time Constant (Nominal): ${tauNominal.toFixed(6)} s"
+    "tauMin": "(inductance * (1 - inductanceTolerance / 100)) / (resistance * (1 + resistanceTolerance / 100))"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "tauMin",
     "breakdown": [
       "Maximum Time Constant: ${tauMax.toFixed(6)} s",
       "Minimum Time Constant: ${tauMin.toFixed(6)} s",
       "Tolerance Range: ±${((tauMax - tauMin) / (2 * tauNominal) * 100).toFixed(2)}%"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "tauMin"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -91,5 +92,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m²",
       "default": 1000,
-      "businessContext": "Total floor area of the warehouse"
+      "businessContext": "Total floor area of the warehouse",
+      "label_i18n": {
+        "en": "Total Warehouse Area",
+        "tr": "Total Warehouse Area",
+        "de": "Total Warehouse Area",
+        "fr": "Total Warehouse Area",
+        "es": "Total Warehouse Area",
+        "ar": "Total Warehouse Area"
+      }
     },
     {
       "id": "storageArea",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m²",
       "default": 800,
-      "businessContext": "Area used for storage"
+      "businessContext": "Area used for storage",
+      "label_i18n": {
+        "en": "Storage Area",
+        "tr": "Storage Area",
+        "de": "Storage Area",
+        "fr": "Storage Area",
+        "es": "Storage Area",
+        "ar": "Storage Area"
+      }
     },
     {
       "id": "maxPalletPositions",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "positions",
       "default": 500,
-      "businessContext": "Maximum number of pallet positions available"
+      "businessContext": "Maximum number of pallet positions available",
+      "label_i18n": {
+        "en": "Max Pallet Positions",
+        "tr": "Max Pallet Positions",
+        "de": "Max Pallet Positions",
+        "fr": "Max Pallet Positions",
+        "es": "Max Pallet Positions",
+        "ar": "Max Pallet Positions"
+      }
     },
     {
       "id": "currentPallets",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "pallets",
       "default": 300,
-      "businessContext": "Current number of pallets stored"
+      "businessContext": "Current number of pallets stored",
+      "label_i18n": {
+        "en": "Current Pallets Stored",
+        "tr": "Current Pallets Stored",
+        "de": "Current Pallets Stored",
+        "fr": "Current Pallets Stored",
+        "es": "Current Pallets Stored",
+        "ar": "Current Pallets Stored"
+      }
     },
     {
       "id": "dailyThroughput",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "pallets/day",
       "default": 100,
-      "businessContext": "Pallets processed per day"
+      "businessContext": "Pallets processed per day",
+      "label_i18n": {
+        "en": "Daily Throughput",
+        "tr": "Daily Throughput",
+        "de": "Daily Throughput",
+        "fr": "Daily Throughput",
+        "es": "Daily Throughput",
+        "ar": "Daily Throughput"
+      }
     },
     {
       "id": "operatingDays",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "days/year",
       "default": 250,
-      "businessContext": "Number of working days in a year"
+      "businessContext": "Number of working days in a year",
+      "label_i18n": {
+        "en": "Operating Days per Year",
+        "tr": "Operating Days per Year",
+        "de": "Operating Days per Year",
+        "fr": "Operating Days per Year",
+        "es": "Operating Days per Year",
+        "ar": "Operating Days per Year"
+      }
     },
     {
       "id": "annualFixedCost",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "currency",
       "default": 100000,
-      "businessContext": "Annual fixed costs (rent, maintenance)"
+      "businessContext": "Annual fixed costs (rent, maintenance)",
+      "label_i18n": {
+        "en": "Annual Fixed Costs",
+        "tr": "Annual Fixed Costs",
+        "de": "Annual Fixed Costs",
+        "fr": "Annual Fixed Costs",
+        "es": "Annual Fixed Costs",
+        "ar": "Annual Fixed Costs"
+      }
     },
     {
       "id": "variableCostPerPallet",
@@ -63,23 +119,34 @@
       "type": "number",
       "unit": "currency/pallet",
       "default": 10,
-      "businessContext": "Variable cost for handling one pallet"
+      "businessContext": "Variable cost for handling one pallet",
+      "label_i18n": {
+        "en": "Variable Cost per Pallet",
+        "tr": "Variable Cost per Pallet",
+        "de": "Variable Cost per Pallet",
+        "fr": "Variable Cost per Pallet",
+        "es": "Variable Cost per Pallet",
+        "ar": "Variable Cost per Pallet"
+      }
     }
   ],
   "formulas": {
     "annualVolume": "dailyThroughput * operatingDays",
-    "totalCost": "annualFixedCost + variableCostPerPallet * annualVolume",
-    "costPerPallet": "totalCost / annualVolume",
     "spaceUtilization": "(storageArea / totalArea) * 100",
     "capacityUtilization": "(currentPallets / maxPalletPositions) * 100"
   },
   "outputs": {
-    "primary": "costPerPallet",
+    "primary": "capacityUtilization",
     "breakdown": [
       "spaceUtilization",
       "capacityUtilization",
       "annualVolume"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "capacityUtilization"
   },
   "category": "Lojistik & Tedarik Zinciri",
   "sector": "Lojistik & Sevkiyat",
@@ -89,5 +156,10 @@
   "categorySlug": "procurement-supply-chain",
   "sectorId": "lojistik",
   "profession": "Lojistik Uzmanı",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

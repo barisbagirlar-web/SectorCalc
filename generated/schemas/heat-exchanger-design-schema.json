@@ -132,12 +132,7 @@
   ],
   "formulas": {
     "heatDuty": "massFlowHot * cpHot * (tempHotIn - tempHotOut) * 1000",
-    "tempColdOut": "tempColdIn + (heatDuty / (massFlowCold * cpCold * 1000))",
-    "lmtd": "((tempHotIn - tempColdOut) - (tempHotOut - tempColdIn)) / Math.log((tempHotIn - tempColdOut) / (tempHotOut - tempColdIn))",
-    "area": "heatDuty / (overallHeatTransferCoeff * lmtd)",
-    "_heatDuty__W": "{heatDuty} W",
-    "_tempColdOut___C": "{tempColdOut} °C",
-    "_lmtd___C": "{lmtd} °C"
+    "tempColdOut": "tempColdIn + (heatDuty / (massFlowCold * cpCold * 1000))"
   },
   "outputs": {
     "primary": "heatDuty",
@@ -145,7 +140,12 @@
       "Heat duty: {heatDuty} W",
       "Cold fluid outlet temperature: {tempColdOut} °C",
       "Log mean temperature difference (LMTD): {lmtd} °C"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "area"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -155,5 +155,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "danismanlik",
   "profession": "Strateji Uzmanı",
-  "categoryId": "engineering"
+  "categoryId": "engineering",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

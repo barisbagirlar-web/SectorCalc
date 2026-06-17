@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Mass of the solute in grams."
+      "businessContext": "Mass of the solute in grams.",
+      "label_i18n": {
+        "en": "Mass of Solute (g)",
+        "tr": "Mass of Solute (g)",
+        "de": "Mass of Solute (g)",
+        "fr": "Mass of Solute (g)",
+        "es": "Mass of Solute (g)",
+        "ar": "Mass of Solute (g)"
+      }
     },
     {
       "id": "massSolute_kg",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Mass of the solute in kilograms."
+      "businessContext": "Mass of the solute in kilograms.",
+      "label_i18n": {
+        "en": "Mass of Solute (kg)",
+        "tr": "Mass of Solute (kg)",
+        "de": "Mass of Solute (kg)",
+        "fr": "Mass of Solute (kg)",
+        "es": "Mass of Solute (kg)",
+        "ar": "Mass of Solute (kg)"
+      }
     },
     {
       "id": "volumeSolution_mL",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mL",
       "default": 0,
-      "businessContext": "Volume of the solution in milliliters."
+      "businessContext": "Volume of the solution in milliliters.",
+      "label_i18n": {
+        "en": "Volume of Solution (mL)",
+        "tr": "Volume of Solution (mL)",
+        "de": "Volume of Solution (mL)",
+        "fr": "Volume of Solution (mL)",
+        "es": "Volume of Solution (mL)",
+        "ar": "Volume of Solution (mL)"
+      }
     },
     {
       "id": "volumeSolution_L",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "L",
       "default": 0,
-      "businessContext": "Volume of the solution in liters."
+      "businessContext": "Volume of the solution in liters.",
+      "label_i18n": {
+        "en": "Volume of Solution (L)",
+        "tr": "Volume of Solution (L)",
+        "de": "Volume of Solution (L)",
+        "fr": "Volume of Solution (L)",
+        "es": "Volume of Solution (L)",
+        "ar": "Volume of Solution (L)"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "totalMass_g",
       "totalVolume_mL",
       "ratio"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "ratio"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -56,5 +93,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

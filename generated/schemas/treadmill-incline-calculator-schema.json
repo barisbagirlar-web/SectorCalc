@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "miles",
       "default": 1,
-      "businessContext": "Total distance covered on treadmill"
+      "businessContext": "Total distance covered on treadmill",
+      "label_i18n": {
+        "en": "Distance",
+        "tr": "Distance",
+        "de": "Distance",
+        "fr": "Distance",
+        "es": "Distance",
+        "ar": "Distance"
+      }
     },
     {
       "id": "inclinePercent",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Treadmill incline setting in percent grade (e.g., 5 for 5%)"
+      "businessContext": "Treadmill incline setting in percent grade (e.g., 5 for 5%)",
+      "label_i18n": {
+        "en": "Incline (%)",
+        "tr": "Incline (%)",
+        "de": "Incline (%)",
+        "fr": "Incline (%)",
+        "es": "Incline (%)",
+        "ar": "Incline (%)"
+      }
     },
     {
       "id": "weight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "lbs",
       "default": 150,
-      "businessContext": "User body weight for calorie calculation"
+      "businessContext": "User body weight for calorie calculation",
+      "label_i18n": {
+        "en": "Weight",
+        "tr": "Weight",
+        "de": "Weight",
+        "fr": "Weight",
+        "es": "Weight",
+        "ar": "Weight"
+      }
     },
     {
       "id": "speed",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mph",
       "default": 3,
-      "businessContext": "Treadmill belt speed in miles per hour"
+      "businessContext": "Treadmill belt speed in miles per hour",
+      "label_i18n": {
+        "en": "Speed",
+        "tr": "Speed",
+        "de": "Speed",
+        "fr": "Speed",
+        "es": "Speed",
+        "ar": "Speed"
+      }
     },
     {
       "id": "time",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "min",
       "default": 30,
-      "businessContext": "Duration of exercise"
+      "businessContext": "Duration of exercise",
+      "label_i18n": {
+        "en": "Time",
+        "tr": "Time",
+        "de": "Time",
+        "fr": "Time",
+        "es": "Time",
+        "ar": "Time"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +102,12 @@
         "unit": "miles",
         "decimals": 2
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "equivalentFlatDistance"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -72,5 +117,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

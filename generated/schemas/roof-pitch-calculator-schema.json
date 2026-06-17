@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "Vertical height from top of wall plate to ridge."
+      "businessContext": "Vertical height from top of wall plate to ridge.",
+      "label_i18n": {
+        "en": "Rise",
+        "tr": "Rise",
+        "de": "Rise",
+        "fr": "Rise",
+        "es": "Rise",
+        "ar": "Rise"
+      }
     },
     {
       "id": "span",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 8,
-      "businessContext": "Total horizontal width of the building (from outside of one wall to outside of opposite wall), equal to 2 × run."
+      "businessContext": "Total horizontal width of the building (from outside of one wall to outside of opposite wall), equal to 2 × run.",
+      "label_i18n": {
+        "en": "Span (Building Width)",
+        "tr": "Span (Building Width)",
+        "de": "Span (Building Width)",
+        "fr": "Span (Building Width)",
+        "es": "Span (Building Width)",
+        "ar": "Span (Building Width)"
+      }
     },
     {
       "id": "length",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Length of the roof along the ridge (perpendicular to the span)."
+      "businessContext": "Length of the roof along the ridge (perpendicular to the span).",
+      "label_i18n": {
+        "en": "Roof Length",
+        "tr": "Roof Length",
+        "de": "Roof Length",
+        "fr": "Roof Length",
+        "es": "Roof Length",
+        "ar": "Roof Length"
+      }
     },
     {
       "id": "overhang",
@@ -31,28 +55,37 @@
       "type": "number",
       "unit": "m",
       "default": 0.5,
-      "businessContext": "Additional horizontal projection of the roof beyond the wall."
+      "businessContext": "Additional horizontal projection of the roof beyond the wall.",
+      "label_i18n": {
+        "en": "Eave Overhang",
+        "tr": "Eave Overhang",
+        "de": "Eave Overhang",
+        "fr": "Eave Overhang",
+        "es": "Eave Overhang",
+        "ar": "Eave Overhang"
+      }
     }
   ],
   "formulas": {
     "run": "span / 2",
     "pitchRatio": "rise / run",
-    "pitchAngleDeg": "Math.atan(pitchRatio) * 180 / Math.PI",
     "slopePercent": "pitchRatio * 100",
-    "pitchImperial": "pitchRatio * 12",
-    "rafterLength": "Math.sqrt(rise**2 + run**2) + overhang / Math.cos(Math.atan(pitchRatio))",
-    "roofAreaOneSide": "rafterLength * length",
-    "totalRoofArea": "2 * roofAreaOneSide"
+    "pitchImperial": "pitchRatio * 12"
   },
   "outputs": {
-    "primary": "pitchAngleDeg",
+    "primary": "pitchImperial",
     "breakdown": [
       "pitchRatio",
       "slopePercent",
       "pitchImperial",
       "rafterLength",
       "totalRoofArea"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalRoofArea"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -62,5 +95,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "insaat",
   "profession": "Proje Müdürü",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

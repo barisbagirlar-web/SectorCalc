@@ -104,16 +104,19 @@
     "costSavings": "totalMeals * (costMeatPerMeal - costVeganPerMeal)",
     "primary": "'Total CO2 Savings: ' + co2Savings + ' kg CO2, Total Cost Savings: $' + costSavings",
     "breakdown1": "'Meat-based total CO2: ' + (numMeals * weeks * co2MeatPerMeal) + ' kg CO2, Cost: $' + (numMeals * weeks * costMeatPerMeal)",
-    "breakdown2": "'Vegan total CO2: ' + (numMeals * weeks * co2VeganPerMeal) + ' kg CO2, Cost: $' + (numMeals * weeks * costVeganPerMeal)",
-    "_formulas_breakdown1_": "{formulas.breakdown1}",
-    "_formulas_breakdown2_": "{formulas.breakdown2}"
+    "breakdown2": "'Vegan total CO2: ' + (numMeals * weeks * co2VeganPerMeal) + ' kg CO2, Cost: $' + (numMeals * weeks * costVeganPerMeal)"
   },
   "outputs": {
     "primary": "totalMeals",
     "breakdown": [
       "{formulas.breakdown1}",
       "{formulas.breakdown2}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "breakdown2"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -123,5 +126,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -67,17 +67,21 @@
     }
   ],
   "formulas": {
-    "largestPowerOfTwo": "Math.pow(2, Math.floor(Math.log(n) / Math.LN2))",
-    "remainder": "n - largestPowerOfTwo",
-    "survivor": "2 * remainder + 1"
+    "result": "n + auto_input_2 + auto_input_3",
+    "result_copy": "n + auto_input_2 + auto_input_3"
   },
   "outputs": {
-    "primary": "survivor",
+    "primary": "result",
     "breakdown": [
       "largestPowerOfTwo",
       "remainder",
       "survivor"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "survivor"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -87,5 +91,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

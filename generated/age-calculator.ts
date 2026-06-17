@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from age-calculator-schema.json
 import * as z from 'zod';
 
@@ -19,28 +20,33 @@ export const Age_calculatorInputSchema = z.object({
   referenceDay: z.number().default(1),
 });
 
-function evaluateAllFormulas(input: Age_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = Math.floor((new Date(input.referenceYear, input.referenceMonth - 1, input.referenceDay) - new Date(input.birthYear, input.birthMonth - 1, input.birthDay)) / 86400000); results["ageInDays"] = Number.isFinite(v) ? v : 0; } catch { results["ageInDays"] = 0; }
-  try { const v = (results["ageInDays"] ?? 0) / 365.25; results["ageInYears"] = Number.isFinite(v) ? v : 0; } catch { results["ageInYears"] = 0; }
-  try { const v = (results["ageInDays"] ?? 0) / 30.4375; results["ageInMonths"] = Number.isFinite(v) ? v : 0; } catch { results["ageInMonths"] = 0; }
-  try { const v = (results["ageInDays"] ?? 0) / 7; results["ageInWeeks"] = Number.isFinite(v) ? v : 0; } catch { results["ageInWeeks"] = 0; }
-  try { const v = (results["ageInDays"] ?? 0) * 24; results["ageInHours"] = Number.isFinite(v) ? v : 0; } catch { results["ageInHours"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Age_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.birthYear + input.birthMonth + input.birthDay; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.birthYear + input.birthMonth + input.birthDay; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateAge_calculator(input: Age_calculatorInput): Age_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["ageInYears"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

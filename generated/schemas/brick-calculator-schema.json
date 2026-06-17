@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Total length of the wall in meters"
+      "businessContext": "Total length of the wall in meters",
+      "label_i18n": {
+        "en": "Wall Length",
+        "tr": "Wall Length",
+        "de": "Wall Length",
+        "fr": "Wall Length",
+        "es": "Wall Length",
+        "ar": "Wall Length"
+      }
     },
     {
       "id": "wallHeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "Total height of the wall in meters"
+      "businessContext": "Total height of the wall in meters",
+      "label_i18n": {
+        "en": "Wall Height",
+        "tr": "Wall Height",
+        "de": "Wall Height",
+        "fr": "Wall Height",
+        "es": "Wall Height",
+        "ar": "Wall Height"
+      }
     },
     {
       "id": "brickLength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 200,
-      "businessContext": "Length of a single brick (excluding mortar)"
+      "businessContext": "Length of a single brick (excluding mortar)",
+      "label_i18n": {
+        "en": "Brick Length",
+        "tr": "Brick Length",
+        "de": "Brick Length",
+        "fr": "Brick Length",
+        "es": "Brick Length",
+        "ar": "Brick Length"
+      }
     },
     {
       "id": "brickHeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Height of a single brick (excluding mortar)"
+      "businessContext": "Height of a single brick (excluding mortar)",
+      "label_i18n": {
+        "en": "Brick Height",
+        "tr": "Brick Height",
+        "de": "Brick Height",
+        "fr": "Brick Height",
+        "es": "Brick Height",
+        "ar": "Brick Height"
+      }
     },
     {
       "id": "mortarThickness",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Thickness of mortar between bricks"
+      "businessContext": "Thickness of mortar between bricks",
+      "label_i18n": {
+        "en": "Mortar Joint Thickness",
+        "tr": "Mortar Joint Thickness",
+        "de": "Mortar Joint Thickness",
+        "fr": "Mortar Joint Thickness",
+        "es": "Mortar Joint Thickness",
+        "ar": "Mortar Joint Thickness"
+      }
     },
     {
       "id": "openingArea",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "m²",
       "default": 2,
-      "businessContext": "Total area of doors, windows, etc. to subtract"
+      "businessContext": "Total area of doors, windows, etc. to subtract",
+      "label_i18n": {
+        "en": "Total Openings Area",
+        "tr": "Total Openings Area",
+        "de": "Total Openings Area",
+        "fr": "Total Openings Area",
+        "es": "Total Openings Area",
+        "ar": "Total Openings Area"
+      }
     },
     {
       "id": "wastagePercentage",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Extra bricks for breakage and cuts"
+      "businessContext": "Extra bricks for breakage and cuts",
+      "label_i18n": {
+        "en": "Wastage Percentage",
+        "tr": "Wastage Percentage",
+        "de": "Wastage Percentage",
+        "fr": "Wastage Percentage",
+        "es": "Wastage Percentage",
+        "ar": "Wastage Percentage"
+      }
     }
   ],
   "formulas": {
@@ -68,17 +124,21 @@
     "bricksPerSquareMeter": "1 / (effectiveLength * effectiveHeight)",
     "netBricks": "wallArea * bricksPerSquareMeter",
     "wastageMultiplier": "1 + wastagePercentage / 100",
-    "grossBricks": "netBricks * wastageMultiplier",
-    "totalBricksNeeded": "Math.ceil(grossBricks)"
+    "grossBricks": "netBricks * wastageMultiplier"
   },
   "outputs": {
-    "primary": "totalBricksNeeded",
+    "primary": "grossBricks",
     "breakdown": [
       "wallArea",
       "bricksPerSquareMeter",
       "netBricks",
       "grossBricks"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalBricksNeeded"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -88,5 +148,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

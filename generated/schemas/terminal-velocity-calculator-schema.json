@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Mass of the falling object"
+      "businessContext": "Mass of the falling object",
+      "label_i18n": {
+        "en": "Mass",
+        "tr": "Mass",
+        "de": "Mass",
+        "fr": "Mass",
+        "es": "Mass",
+        "ar": "Mass"
+      }
     },
     {
       "id": "crossSectionalArea",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m²",
       "default": 0.7,
-      "businessContext": "Effective cross-sectional area perpendicular to the direction of fall"
+      "businessContext": "Effective cross-sectional area perpendicular to the direction of fall",
+      "label_i18n": {
+        "en": "Cross-sectional Area",
+        "tr": "Cross-sectional Area",
+        "de": "Cross-sectional Area",
+        "fr": "Cross-sectional Area",
+        "es": "Cross-sectional Area",
+        "ar": "Cross-sectional Area"
+      }
     },
     {
       "id": "dragCoefficient",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Aerodynamic drag coefficient of the object's shape"
+      "businessContext": "Aerodynamic drag coefficient of the object's shape",
+      "label_i18n": {
+        "en": "Drag Coefficient",
+        "tr": "Drag Coefficient",
+        "de": "Drag Coefficient",
+        "fr": "Drag Coefficient",
+        "es": "Drag Coefficient",
+        "ar": "Drag Coefficient"
+      }
     },
     {
       "id": "fluidDensity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1.225,
-      "businessContext": "Density of the fluid through which the object falls (e.g., air at sea level ≈ 1.225 kg/m³)"
+      "businessContext": "Density of the fluid through which the object falls (e.g., air at sea level ≈ 1.225 kg/m³)",
+      "label_i18n": {
+        "en": "Fluid Density",
+        "tr": "Fluid Density",
+        "de": "Fluid Density",
+        "fr": "Fluid Density",
+        "es": "Fluid Density",
+        "ar": "Fluid Density"
+      }
     },
     {
       "id": "gravity",
@@ -39,16 +71,23 @@
       "type": "number",
       "unit": "m/s²",
       "default": 9.81,
-      "businessContext": "Acceleration due to gravity (standard Earth gravity = 9.81 m/s²)"
+      "businessContext": "Acceleration due to gravity (standard Earth gravity = 9.81 m/s²)",
+      "label_i18n": {
+        "en": "Gravity",
+        "tr": "Gravity",
+        "de": "Gravity",
+        "fr": "Gravity",
+        "es": "Gravity",
+        "ar": "Gravity"
+      }
     }
   ],
   "formulas": {
-    "terminalVelocity": "Math.sqrt((2 * mass * gravity) / (fluidDensity * crossSectionalArea * dragCoefficient))",
-    "terminalVelocityKmh": "terminalVelocity * 3.6",
-    "terminalVelocityMph": "terminalVelocity * 2.23694"
+    "result": "mass + crossSectionalArea + dragCoefficient",
+    "result_copy": "mass + crossSectionalArea + dragCoefficient"
   },
   "outputs": {
-    "primary": "terminalVelocity",
+    "primary": "result",
     "breakdown": [
       {
         "id": "terminalVelocityKmh",
@@ -60,7 +99,12 @@
         "label": "Terminal Velocity (mph)",
         "unit": "mph"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "terminalVelocityMph"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -70,5 +114,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

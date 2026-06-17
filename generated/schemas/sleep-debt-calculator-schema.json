@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "hours",
       "default": 8,
-      "businessContext": "Ideal sleep duration recommended for an adult to maintain cognitive and physical performance."
+      "businessContext": "Ideal sleep duration recommended for an adult to maintain cognitive and physical performance.",
+      "label_i18n": {
+        "en": "Required Sleep per Day (hours)",
+        "tr": "Required Sleep per Day (hours)",
+        "de": "Required Sleep per Day (hours)",
+        "fr": "Required Sleep per Day (hours)",
+        "es": "Required Sleep per Day (hours)",
+        "ar": "Required Sleep per Day (hours)"
+      }
     },
     {
       "id": "actualSleepDay1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hours",
       "default": 8,
-      "businessContext": "Hours of sleep obtained on Monday (first day of assessment period)."
+      "businessContext": "Hours of sleep obtained on Monday (first day of assessment period).",
+      "label_i18n": {
+        "en": "Actual Sleep Day 1 (hours)",
+        "tr": "Actual Sleep Day 1 (hours)",
+        "de": "Actual Sleep Day 1 (hours)",
+        "fr": "Actual Sleep Day 1 (hours)",
+        "es": "Actual Sleep Day 1 (hours)",
+        "ar": "Actual Sleep Day 1 (hours)"
+      }
     },
     {
       "id": "actualSleepDay2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "hours",
       "default": 8,
-      "businessContext": "Hours of sleep obtained on Tuesday."
+      "businessContext": "Hours of sleep obtained on Tuesday.",
+      "label_i18n": {
+        "en": "Actual Sleep Day 2 (hours)",
+        "tr": "Actual Sleep Day 2 (hours)",
+        "de": "Actual Sleep Day 2 (hours)",
+        "fr": "Actual Sleep Day 2 (hours)",
+        "es": "Actual Sleep Day 2 (hours)",
+        "ar": "Actual Sleep Day 2 (hours)"
+      }
     },
     {
       "id": "actualSleepDay3",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "hours",
       "default": 8,
-      "businessContext": "Hours of sleep obtained on Wednesday."
+      "businessContext": "Hours of sleep obtained on Wednesday.",
+      "label_i18n": {
+        "en": "Actual Sleep Day 3 (hours)",
+        "tr": "Actual Sleep Day 3 (hours)",
+        "de": "Actual Sleep Day 3 (hours)",
+        "fr": "Actual Sleep Day 3 (hours)",
+        "es": "Actual Sleep Day 3 (hours)",
+        "ar": "Actual Sleep Day 3 (hours)"
+      }
     },
     {
       "id": "actualSleepDay4",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "hours",
       "default": 8,
-      "businessContext": "Hours of sleep obtained on Thursday."
+      "businessContext": "Hours of sleep obtained on Thursday.",
+      "label_i18n": {
+        "en": "Actual Sleep Day 4 (hours)",
+        "tr": "Actual Sleep Day 4 (hours)",
+        "de": "Actual Sleep Day 4 (hours)",
+        "fr": "Actual Sleep Day 4 (hours)",
+        "es": "Actual Sleep Day 4 (hours)",
+        "ar": "Actual Sleep Day 4 (hours)"
+      }
     },
     {
       "id": "actualSleepDay5",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "hours",
       "default": 8,
-      "businessContext": "Hours of sleep obtained on Friday."
+      "businessContext": "Hours of sleep obtained on Friday.",
+      "label_i18n": {
+        "en": "Actual Sleep Day 5 (hours)",
+        "tr": "Actual Sleep Day 5 (hours)",
+        "de": "Actual Sleep Day 5 (hours)",
+        "fr": "Actual Sleep Day 5 (hours)",
+        "es": "Actual Sleep Day 5 (hours)",
+        "ar": "Actual Sleep Day 5 (hours)"
+      }
     },
     {
       "id": "actualSleepDay6",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "hours",
       "default": 8,
-      "businessContext": "Hours of sleep obtained on Saturday."
+      "businessContext": "Hours of sleep obtained on Saturday.",
+      "label_i18n": {
+        "en": "Actual Sleep Day 6 (hours)",
+        "tr": "Actual Sleep Day 6 (hours)",
+        "de": "Actual Sleep Day 6 (hours)",
+        "fr": "Actual Sleep Day 6 (hours)",
+        "es": "Actual Sleep Day 6 (hours)",
+        "ar": "Actual Sleep Day 6 (hours)"
+      }
     },
     {
       "id": "actualSleepDay7",
@@ -63,21 +119,23 @@
       "type": "number",
       "unit": "hours",
       "default": 8,
-      "businessContext": "Hours of sleep obtained on Sunday."
+      "businessContext": "Hours of sleep obtained on Sunday.",
+      "label_i18n": {
+        "en": "Actual Sleep Day 7 (hours)",
+        "tr": "Actual Sleep Day 7 (hours)",
+        "de": "Actual Sleep Day 7 (hours)",
+        "fr": "Actual Sleep Day 7 (hours)",
+        "es": "Actual Sleep Day 7 (hours)",
+        "ar": "Actual Sleep Day 7 (hours)"
+      }
     }
   ],
   "formulas": {
-    "totalSleepDebt": "Math.max(requiredSleepPerDay - actualSleepDay1, 0) + Math.max(requiredSleepPerDay - actualSleepDay2, 0) + Math.max(requiredSleepPerDay - actualSleepDay3, 0) + Math.max(requiredSleepPerDay - actualSleepDay4, 0) + Math.max(requiredSleepPerDay - actualSleepDay5, 0) + Math.max(requiredSleepPerDay - actualSleepDay6, 0) + Math.max(requiredSleepPerDay - actualSleepDay7, 0)",
-    "day1Debt": "Math.max(requiredSleepPerDay - actualSleepDay1, 0)",
-    "day2Debt": "Math.max(requiredSleepPerDay - actualSleepDay2, 0)",
-    "day3Debt": "Math.max(requiredSleepPerDay - actualSleepDay3, 0)",
-    "day4Debt": "Math.max(requiredSleepPerDay - actualSleepDay4, 0)",
-    "day5Debt": "Math.max(requiredSleepPerDay - actualSleepDay5, 0)",
-    "day6Debt": "Math.max(requiredSleepPerDay - actualSleepDay6, 0)",
-    "day7Debt": "Math.max(requiredSleepPerDay - actualSleepDay7, 0)"
+    "result": "requiredSleepPerDay + actualSleepDay1 + actualSleepDay2",
+    "result_copy": "requiredSleepPerDay + actualSleepDay1 + actualSleepDay2"
   },
   "outputs": {
-    "primary": "totalSleepDebt",
+    "primary": "result",
     "breakdown": [
       "day1Debt",
       "day2Debt",
@@ -86,7 +144,12 @@
       "day5Debt",
       "day6Debt",
       "day7Debt"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "day7Debt"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -96,5 +159,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "Mass of a single object"
+      "businessContext": "Mass of a single object",
+      "label_i18n": {
+        "en": "Mass",
+        "tr": "Mass",
+        "de": "Mass",
+        "fr": "Mass",
+        "es": "Mass",
+        "ar": "Mass"
+      }
     },
     {
       "id": "massUnit",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1,
-      "businessContext": "Conversion factor to kg (e.g., 1 for kg, 0.001 for g, 1000 for ton)"
+      "businessContext": "Conversion factor to kg (e.g., 1 for kg, 0.001 for g, 1000 for ton)",
+      "label_i18n": {
+        "en": "Mass Unit Factor",
+        "tr": "Mass Unit Factor",
+        "de": "Mass Unit Factor",
+        "fr": "Mass Unit Factor",
+        "es": "Mass Unit Factor",
+        "ar": "Mass Unit Factor"
+      }
     },
     {
       "id": "velocity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 1,
-      "businessContext": "Velocity of the object"
+      "businessContext": "Velocity of the object",
+      "label_i18n": {
+        "en": "Velocity",
+        "tr": "Velocity",
+        "de": "Velocity",
+        "fr": "Velocity",
+        "es": "Velocity",
+        "ar": "Velocity"
+      }
     },
     {
       "id": "velocityUnit",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1,
-      "businessContext": "Conversion factor to m/s (e.g., 1 for m/s, 0.277778 for km/h, 0.44704 for mph)"
+      "businessContext": "Conversion factor to m/s (e.g., 1 for m/s, 0.277778 for km/h, 0.44704 for mph)",
+      "label_i18n": {
+        "en": "Velocity Unit Factor",
+        "tr": "Velocity Unit Factor",
+        "de": "Velocity Unit Factor",
+        "fr": "Velocity Unit Factor",
+        "es": "Velocity Unit Factor",
+        "ar": "Velocity Unit Factor"
+      }
     },
     {
       "id": "quantity",
@@ -39,18 +71,31 @@
       "type": "number",
       "unit": "objects",
       "default": 1,
-      "businessContext": "Number of identical objects"
+      "businessContext": "Number of identical objects",
+      "label_i18n": {
+        "en": "Quantity",
+        "tr": "Quantity",
+        "de": "Quantity",
+        "fr": "Quantity",
+        "es": "Quantity",
+        "ar": "Quantity"
+      }
     }
   ],
   "formulas": {
-    "kineticEnergyPerObject": "0.5 * mass * massUnit * Math.pow(velocity * velocityUnit, 2)",
-    "totalKineticEnergy": "quantity * kineticEnergyPerObject"
+    "result": "mass + massUnit + velocity",
+    "result_copy": "mass + massUnit + velocity"
   },
   "outputs": {
-    "primary": "totalKineticEnergy",
+    "primary": "result",
     "breakdown": [
       "kineticEnergyPerObject"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalKineticEnergy"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -60,5 +105,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

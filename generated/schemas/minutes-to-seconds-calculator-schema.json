@@ -86,17 +86,21 @@
     "daysToSeconds": "days * 86400",
     "hoursToSeconds": "hours * 3600",
     "minutesToSeconds": "minutes * 60",
-    "seconds": "seconds",
-    "totalSeconds": "Math.round((days*86400 + hours*3600 + minutes*60 + seconds) * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
+    "seconds": "seconds"
   },
   "outputs": {
-    "primary": "totalSeconds",
+    "primary": "seconds",
     "breakdown": [
       "daysToSeconds",
       "hoursToSeconds",
       "minutesToSeconds",
       "seconds"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalSeconds"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -106,5 +110,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

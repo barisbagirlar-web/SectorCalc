@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft",
       "default": 12,
-      "businessContext": "Distance between supports in feet"
+      "businessContext": "Distance between supports in feet",
+      "label_i18n": {
+        "en": "Joist Span",
+        "tr": "Joist Span",
+        "de": "Joist Span",
+        "fr": "Joist Span",
+        "es": "Joist Span",
+        "ar": "Joist Span"
+      }
     },
     {
       "id": "spacing",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "in",
       "default": 16,
-      "businessContext": "Center-to-center distance between joists in inches"
+      "businessContext": "Center-to-center distance between joists in inches",
+      "label_i18n": {
+        "en": "Joist Spacing",
+        "tr": "Joist Spacing",
+        "de": "Joist Spacing",
+        "fr": "Joist Spacing",
+        "es": "Joist Spacing",
+        "ar": "Joist Spacing"
+      }
     },
     {
       "id": "liveLoad",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "psf",
       "default": 40,
-      "businessContext": "Design live load (e.g., 40 psf for residential)"
+      "businessContext": "Design live load (e.g., 40 psf for residential)",
+      "label_i18n": {
+        "en": "Live Load",
+        "tr": "Live Load",
+        "de": "Live Load",
+        "fr": "Live Load",
+        "es": "Live Load",
+        "ar": "Live Load"
+      }
     },
     {
       "id": "deadLoad",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "psf",
       "default": 10,
-      "businessContext": "Dead load including joist weight, ceiling, etc."
+      "businessContext": "Dead load including joist weight, ceiling, etc.",
+      "label_i18n": {
+        "en": "Dead Load",
+        "tr": "Dead Load",
+        "de": "Dead Load",
+        "fr": "Dead Load",
+        "es": "Dead Load",
+        "ar": "Dead Load"
+      }
     },
     {
       "id": "eModulus",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "psi",
       "default": 1600000,
-      "businessContext": "E value for joist material (e.g., 1,600,000 psi for SPF)"
+      "businessContext": "E value for joist material (e.g., 1,600,000 psi for SPF)",
+      "label_i18n": {
+        "en": "Modulus of Elasticity",
+        "tr": "Modulus of Elasticity",
+        "de": "Modulus of Elasticity",
+        "fr": "Modulus of Elasticity",
+        "es": "Modulus of Elasticity",
+        "ar": "Modulus of Elasticity"
+      }
     },
     {
       "id": "iValue",
@@ -47,24 +87,35 @@
       "type": "number",
       "unit": "in^4",
       "default": 47.6,
-      "businessContext": "I value for joist cross-section (e.g., 47.6 in^4 for a 2x10)"
+      "businessContext": "I value for joist cross-section (e.g., 47.6 in^4 for a 2x10)",
+      "label_i18n": {
+        "en": "Moment of Inertia",
+        "tr": "Moment of Inertia",
+        "de": "Moment of Inertia",
+        "fr": "Moment of Inertia",
+        "es": "Moment of Inertia",
+        "ar": "Moment of Inertia"
+      }
     }
   ],
   "formulas": {
     "totalLoad": "liveLoad + deadLoad",
     "uniformLoad": "(liveLoad + deadLoad) * spacing / 144",
-    "deflection": "(5 * ((liveLoad + deadLoad) * spacing / 144) * Math.pow(span * 12, 4)) / (384 * eModulus * iValue)",
-    "allowableDeflection": "span * 12 / 240",
-    "isSafe": "(((5 * ((liveLoad + deadLoad) * spacing / 144) * Math.pow(span * 12, 4)) / (384 * eModulus * iValue)) <= (span * 12 / 240)) ? 1 : 0"
+    "allowableDeflection": "span * 12 / 240"
   },
   "outputs": {
-    "primary": "deflection",
+    "primary": "allowableDeflection",
     "breakdown": [
       "totalLoad",
       "uniformLoad",
       "allowableDeflection",
       "isSafe"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "isSafe"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -74,5 +125,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

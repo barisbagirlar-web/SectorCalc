@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 500000,
-      "businessContext": "Current market value or purchase price of the property."
+      "businessContext": "Current market value or purchase price of the property.",
+      "label_i18n": {
+        "en": "Property Value",
+        "tr": "Property Value",
+        "de": "Property Value",
+        "fr": "Property Value",
+        "es": "Property Value",
+        "ar": "Property Value"
+      }
     },
     {
       "id": "annualGrossIncome",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency/year",
       "default": 60000,
-      "businessContext": "Total projected rental income for one year before expenses."
+      "businessContext": "Total projected rental income for one year before expenses.",
+      "label_i18n": {
+        "en": "Annual Gross Income",
+        "tr": "Annual Gross Income",
+        "de": "Annual Gross Income",
+        "fr": "Annual Gross Income",
+        "es": "Annual Gross Income",
+        "ar": "Annual Gross Income"
+      }
     },
     {
       "id": "annualOperatingExpenses",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency/year",
       "default": 15000,
-      "businessContext": "Total annual costs to operate the property (insurance, maintenance, taxes, etc.)."
+      "businessContext": "Total annual costs to operate the property (insurance, maintenance, taxes, etc.).",
+      "label_i18n": {
+        "en": "Annual Operating Expenses",
+        "tr": "Annual Operating Expenses",
+        "de": "Annual Operating Expenses",
+        "fr": "Annual Operating Expenses",
+        "es": "Annual Operating Expenses",
+        "ar": "Annual Operating Expenses"
+      }
     },
     {
       "id": "vacancyRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Estimated vacancy and collection loss as a percentage of gross income."
+      "businessContext": "Estimated vacancy and collection loss as a percentage of gross income.",
+      "label_i18n": {
+        "en": "Vacancy Rate",
+        "tr": "Vacancy Rate",
+        "de": "Vacancy Rate",
+        "fr": "Vacancy Rate",
+        "es": "Vacancy Rate",
+        "ar": "Vacancy Rate"
+      }
     },
     {
       "id": "otherAnnualIncome",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency/year",
       "default": 0,
-      "businessContext": "Additional income from sources like parking, laundry, storage, etc."
+      "businessContext": "Additional income from sources like parking, laundry, storage, etc.",
+      "label_i18n": {
+        "en": "Other Annual Income",
+        "tr": "Other Annual Income",
+        "de": "Other Annual Income",
+        "fr": "Other Annual Income",
+        "es": "Other Annual Income",
+        "ar": "Other Annual Income"
+      }
     }
   ],
   "formulas": {
@@ -53,7 +93,12 @@
       "netOperatingIncome",
       "effectiveGrossIncome",
       "annualGrossIncome"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "capRate"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -63,5 +108,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "lojistik",
   "profession": "Lojistik Uzmanı",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mg",
       "default": 1000,
-      "businessContext": "Total cannabinoid content before extraction, measured in milligrams."
+      "businessContext": "Total cannabinoid content before extraction, measured in milligrams.",
+      "label_i18n": {
+        "en": "Initial Cannabinoid",
+        "tr": "Initial Cannabinoid",
+        "de": "Initial Cannabinoid",
+        "fr": "Initial Cannabinoid",
+        "es": "Initial Cannabinoid",
+        "ar": "Initial Cannabinoid"
+      }
     },
     {
       "id": "solvent_volume_ml",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ml",
       "default": 500,
-      "businessContext": "Volume of solvent used in extraction, in milliliters."
+      "businessContext": "Volume of solvent used in extraction, in milliliters.",
+      "label_i18n": {
+        "en": "Solvent Volume",
+        "tr": "Solvent Volume",
+        "de": "Solvent Volume",
+        "fr": "Solvent Volume",
+        "es": "Solvent Volume",
+        "ar": "Solvent Volume"
+      }
     },
     {
       "id": "extraction_time_min",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "min",
       "default": 60,
-      "businessContext": "Duration of extraction process in minutes."
+      "businessContext": "Duration of extraction process in minutes.",
+      "label_i18n": {
+        "en": "Extraction Time",
+        "tr": "Extraction Time",
+        "de": "Extraction Time",
+        "fr": "Extraction Time",
+        "es": "Extraction Time",
+        "ar": "Extraction Time"
+      }
     },
     {
       "id": "temperature_c",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 25,
-      "businessContext": "Operating temperature in degrees Celsius, affects rate constant via Arrhenius equation."
+      "businessContext": "Operating temperature in degrees Celsius, affects rate constant via Arrhenius equation.",
+      "label_i18n": {
+        "en": "Temperature",
+        "tr": "Temperature",
+        "de": "Temperature",
+        "fr": "Temperature",
+        "es": "Temperature",
+        "ar": "Temperature"
+      }
     },
     {
       "id": "k0",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "1/min",
       "default": 0.01,
-      "businessContext": "Frequency factor in the Arrhenius rate equation, represents maximum possible rate."
+      "businessContext": "Frequency factor in the Arrhenius rate equation, represents maximum possible rate.",
+      "label_i18n": {
+        "en": "Pre-exponential Factor",
+        "tr": "Pre-exponential Factor",
+        "de": "Pre-exponential Factor",
+        "fr": "Pre-exponential Factor",
+        "es": "Pre-exponential Factor",
+        "ar": "Pre-exponential Factor"
+      }
     },
     {
       "id": "Ea",
@@ -47,20 +87,32 @@
       "type": "number",
       "unit": "J/mol",
       "default": 50000,
-      "businessContext": "Energy barrier for extraction, in joules per mole."
+      "businessContext": "Energy barrier for extraction, in joules per mole.",
+      "label_i18n": {
+        "en": "Activation Energy",
+        "tr": "Activation Energy",
+        "de": "Activation Energy",
+        "fr": "Activation Energy",
+        "es": "Activation Energy",
+        "ar": "Activation Energy"
+      }
     }
   ],
   "formulas": {
-    "k": "k0 * Math.exp(-Ea / (8.314 * (temperature_c + 273.15)))",
-    "extracted": "initial_cannabinoid_mg * (1 - Math.exp(-k * extraction_time_min))",
-    "efficiency": "(extracted / initial_cannabinoid_mg) * 100"
+    "result": "initial_cannabinoid_mg + solvent_volume_ml + extraction_time_min",
+    "result_copy": "initial_cannabinoid_mg + solvent_volume_ml + extraction_time_min"
   },
   "outputs": {
-    "primary": "extracted",
+    "primary": "result",
     "breakdown": [
       "efficiency",
       "k"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "efficiency"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -70,5 +122,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

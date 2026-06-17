@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 1000000,
-      "businessContext": "Total value of investment portfolio (e.g., retirement savings)"
+      "businessContext": "Total value of investment portfolio (e.g., retirement savings)",
+      "label_i18n": {
+        "en": "Portfolio Value",
+        "tr": "Portfolio Value",
+        "de": "Portfolio Value",
+        "fr": "Portfolio Value",
+        "es": "Portfolio Value",
+        "ar": "Portfolio Value"
+      }
     },
     {
       "id": "desiredAnnualWithdrawal",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "$",
       "default": 40000,
-      "businessContext": "Desired annual withdrawal amount during retirement"
+      "businessContext": "Desired annual withdrawal amount during retirement",
+      "label_i18n": {
+        "en": "Desired Annual Withdrawal",
+        "tr": "Desired Annual Withdrawal",
+        "de": "Desired Annual Withdrawal",
+        "fr": "Desired Annual Withdrawal",
+        "es": "Desired Annual Withdrawal",
+        "ar": "Desired Annual Withdrawal"
+      }
     },
     {
       "id": "withdrawalRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 4,
-      "businessContext": "Safe withdrawal rate (typically 4%)"
+      "businessContext": "Safe withdrawal rate (typically 4%)",
+      "label_i18n": {
+        "en": "Withdrawal Rate",
+        "tr": "Withdrawal Rate",
+        "de": "Withdrawal Rate",
+        "fr": "Withdrawal Rate",
+        "es": "Withdrawal Rate",
+        "ar": "Withdrawal Rate"
+      }
     }
   ],
   "formulas": {
@@ -36,7 +60,12 @@
     "breakdown": [
       "safeWithdrawal",
       "neededPortfolio"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "primary"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -46,5 +75,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

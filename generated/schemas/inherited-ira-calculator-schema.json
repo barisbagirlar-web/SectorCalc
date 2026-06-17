@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 100000,
-      "businessContext": "The current value of the inherited IRA account."
+      "businessContext": "The current value of the inherited IRA account.",
+      "label_i18n": {
+        "en": "Current IRA Balance",
+        "tr": "Current IRA Balance",
+        "de": "Current IRA Balance",
+        "fr": "Current IRA Balance",
+        "es": "Current IRA Balance",
+        "ar": "Current IRA Balance"
+      }
     },
     {
       "id": "beneficiaryAge",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "years",
       "default": 50,
-      "businessContext": "The current age of the beneficiary."
+      "businessContext": "The current age of the beneficiary.",
+      "label_i18n": {
+        "en": "Beneficiary's Age",
+        "tr": "Beneficiary's Age",
+        "de": "Beneficiary's Age",
+        "fr": "Beneficiary's Age",
+        "es": "Beneficiary's Age",
+        "ar": "Beneficiary's Age"
+      }
     },
     {
       "id": "lifeExpectancyFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 34.2,
-      "businessContext": "The IRS single life expectancy factor for the beneficiary's age, used to calculate RMD."
+      "businessContext": "The IRS single life expectancy factor for the beneficiary's age, used to calculate RMD.",
+      "label_i18n": {
+        "en": "Life Expectancy Factor",
+        "tr": "Life Expectancy Factor",
+        "de": "Life Expectancy Factor",
+        "fr": "Life Expectancy Factor",
+        "es": "Life Expectancy Factor",
+        "ar": "Life Expectancy Factor"
+      }
     },
     {
       "id": "expectedAnnualReturn",
@@ -31,14 +55,21 @@
       "type": "number",
       "unit": "%",
       "default": 6,
-      "businessContext": "Expected annual rate of return on IRA investments, used for projection."
+      "businessContext": "Expected annual rate of return on IRA investments, used for projection.",
+      "label_i18n": {
+        "en": "Expected Annual Return",
+        "tr": "Expected Annual Return",
+        "de": "Expected Annual Return",
+        "fr": "Expected Annual Return",
+        "es": "Expected Annual Return",
+        "ar": "Expected Annual Return"
+      }
     }
   ],
   "formulas": {
     "rmdAmount": "currentBalance / lifeExpectancyFactor",
     "rmdPercentage": "(1 / lifeExpectancyFactor) * 100",
-    "remainingBalance": "currentBalance - rmdAmount",
-    "projectedBalanceNextYear": "remainingBalance * (1 + expectedAnnualReturn / 100)"
+    "remainingBalance": "currentBalance - rmdAmount"
   },
   "outputs": {
     "primary": "rmdAmount",
@@ -46,7 +77,12 @@
       "rmdPercentage",
       "remainingBalance",
       "projectedBalanceNextYear"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "projectedBalanceNextYear"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -56,5 +92,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Mevcut vücut yağ yüzdesi (kaliper, DXA veya biyoempedans ile ölçülmüş)."
+      "businessContext": "Mevcut vücut yağ yüzdesi (kaliper, DXA veya biyoempedans ile ölçülmüş).",
+      "label_i18n": {
+        "en": "Current Body Fat (%)",
+        "tr": "Current Body Fat (%)",
+        "de": "Current Body Fat (%)",
+        "fr": "Current Body Fat (%)",
+        "es": "Current Body Fat (%)",
+        "ar": "Current Body Fat (%)"
+      }
     },
     {
       "id": "desiredBodyFat",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Hedef vücut yağ yüzdesi."
+      "businessContext": "Hedef vücut yağ yüzdesi.",
+      "label_i18n": {
+        "en": "Desired Body Fat (%)",
+        "tr": "Desired Body Fat (%)",
+        "de": "Desired Body Fat (%)",
+        "fr": "Desired Body Fat (%)",
+        "es": "Desired Body Fat (%)",
+        "ar": "Desired Body Fat (%)"
+      }
     },
     {
       "id": "currentWeight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Güncel vücut ağırlığı (kg)."
+      "businessContext": "Güncel vücut ağırlığı (kg).",
+      "label_i18n": {
+        "en": "Current Weight",
+        "tr": "Current Weight",
+        "de": "Current Weight",
+        "fr": "Current Weight",
+        "es": "Current Weight",
+        "ar": "Current Weight"
+      }
     },
     {
       "id": "height",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Boy uzunluğu (cm)."
+      "businessContext": "Boy uzunluğu (cm).",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "Height",
+        "fr": "Height",
+        "es": "Height",
+        "ar": "Height"
+      }
     },
     {
       "id": "age",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Yaş (yıl). Metabolik değişikliklerin hesaba katılması için."
+      "businessContext": "Yaş (yıl). Metabolik değişikliklerin hesaba katılması için.",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "activityLevel",
@@ -47,26 +87,36 @@
       "type": "number",
       "unit": "factor",
       "default": 1.55,
-      "businessContext": "Fiziksel aktivite çarpanı (1.2 sedanter, 1.375 hafif, 1.55 orta, 1.725 çok aktif, 1.9 ağır antrenman)."
+      "businessContext": "Fiziksel aktivite çarpanı (1.2 sedanter, 1.375 hafif, 1.55 orta, 1.725 çok aktif, 1.9 ağır antrenman).",
+      "label_i18n": {
+        "en": "Activity Level",
+        "tr": "Activity Level",
+        "de": "Activity Level",
+        "fr": "Activity Level",
+        "es": "Activity Level",
+        "ar": "Activity Level"
+      }
     }
   ],
   "formulas": {
     "leanBodyMass": "currentWeight * (1 - currentBodyFat / 100)",
-    "idealWeight": "22 * Math.pow(height / 100, 2)",
-    "adjustmentFactor": "0.14 * (1 + (currentWeight - idealWeight) / idealWeight) * (1 - (age - 30) * 0.005)",
     "bmr": "370 + 21.6 * leanBodyMass",
-    "tdee": "bmr * activityLevel",
-    "bodyFatSetPoint": "currentBodyFat + (desiredBodyFat - currentBodyFat) * adjustmentFactor"
+    "tdee": "bmr * activityLevel"
   },
   "outputs": {
-    "primary": "bodyFatSetPoint",
+    "primary": "tdee",
     "breakdown": [
       "leanBodyMass",
       "idealWeight",
       "adjustmentFactor",
       "bmr",
       "tdee"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "bodyFatSetPoint"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -76,5 +126,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

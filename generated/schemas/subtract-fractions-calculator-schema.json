@@ -104,26 +104,21 @@
     "num2": "numerator2 * denominator1",
     "resultNum": "num1 - num2",
     "resultDen": "commonDen",
-    "error": "(denominator1 == 0 || denominator2 == 0) ? true : false",
-    "gcd": "(a, b) => { a = Math.abs(a); b = Math.abs(b); while(b) { let t = b; b = a % b; a = t; } return a; }",
-    "simpNum": "error ? 0 : (() => { let g = simplify ? gcd(resultNum, resultDen) : 1; let num = resultNum / g; let den = resultDen / g; if (den < 0) { num = -num; den = -den; } return num; })()",
-    "simpDen": "error ? 0 : (() => { let g = simplify ? gcd(resultNum, resultDen) : 1; let den = resultDen / g; if (den < 0) { den = -den; } return den; })()",
-    "decimalResult": "error ? null : (simpDen !== 0 ? simpNum / simpDen : null)",
-    "decimalRounded": "(decimalPrecision && decimalResult !== null) ? Math.round(decimalResult * Math.pow(10, decimalPrecision)) / Math.pow(10, decimalPrecision) : decimalResult",
-    "_Step_1__Cross_multiply______numerator1_": "'Step 1: Cross-multiply: ' + numerator1 + '/' + denominator1 + ' - ' + numerator2 + '/' + denominator2 + ' = (' + numerator1 + '×' + denominator2 + ' - ' + numerator2 + '×' + denominator1 + ') / (' + denominator1 + '×' + denominator2 + ')' }",
-    "_Step_2__Simplify_intermediate______num1": "'Step 2: Simplify intermediate: ' + num1 + '/' + commonDen + ' - ' + num2 + '/' + commonDen + ' = ' + resultNum + '/' + resultDen }",
-    "_simplify____Step_3__GCD_______gcd_resul": "(simplify ? 'Step 3: GCD = ' + gcd(resultNum, resultDen) + ', Simplified: ' + simpNum + '/' + simpDen : 'Step 3: Result (not simplified): ' + resultNum + '/' + resultDen) }",
-    "_Decimal_______decimalRounded_____null__": "'Decimal: ' + (decimalRounded !== null ? decimalRounded : 'N/A') }",
-    "result": "${error ? 'Error: Division by zero' : simpNum + '/' + simpDen}"
+    "error": "(denominator1 == 0 || denominator2 == 0) ? true : false"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "error",
     "breakdown": [
       "${error ? 'One denominator is zero, subtraction not possible.' : 'Step 1: Cross-multiply: ' + numerator1 + '/' + denominator1 + ' - ' + numerator2 + '/' + denominator2 + ' = (' + numerator1 + '×' + denominator2 + ' - ' + numerator2 + '×' + denominator1 + ') / (' + denominator1 + '×' + denominator2 + ')' }",
       "${error ? '' : 'Step 2: Simplify intermediate: ' + num1 + '/' + commonDen + ' - ' + num2 + '/' + commonDen + ' = ' + resultNum + '/' + resultDen }",
       "${error ? '' : (simplify ? 'Step 3: GCD = ' + gcd(resultNum, resultDen) + ', Simplified: ' + simpNum + '/' + simpDen : 'Step 3: Result (not simplified): ' + resultNum + '/' + resultDen) }",
       "${error ? '' : 'Decimal: ' + (decimalRounded !== null ? decimalRounded : 'N/A') }"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "decimalRounded"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -133,5 +128,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

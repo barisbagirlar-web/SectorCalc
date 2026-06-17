@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "troy lb",
       "default": 1,
-      "businessContext": "Weight in troy pounds to be converted to kilograms"
+      "businessContext": "Weight in troy pounds to be converted to kilograms",
+      "label_i18n": {
+        "en": "Troy Pound Amount",
+        "tr": "Troy Pound Amount",
+        "de": "Troy Pound Amount",
+        "fr": "Troy Pound Amount",
+        "es": "Troy Pound Amount",
+        "ar": "Troy Pound Amount"
+      }
     },
     {
       "id": "precision",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "places",
       "default": 4,
-      "businessContext": "Number of decimal places for rounded outputs"
+      "businessContext": "Number of decimal places for rounded outputs",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     },
     {
       "id": "batchSize",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "items",
       "default": 1,
-      "businessContext": "Number of identical items to calculate total weight for"
+      "businessContext": "Number of identical items to calculate total weight for",
+      "label_i18n": {
+        "en": "Batch Size",
+        "tr": "Batch Size",
+        "de": "Batch Size",
+        "fr": "Batch Size",
+        "es": "Batch Size",
+        "ar": "Batch Size"
+      }
     },
     {
       "id": "scaleCalibrationFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Multiplicative calibration correction factor for the weighing scale"
+      "businessContext": "Multiplicative calibration correction factor for the weighing scale",
+      "label_i18n": {
+        "en": "Calibration Factor",
+        "tr": "Calibration Factor",
+        "de": "Calibration Factor",
+        "fr": "Calibration Factor",
+        "es": "Calibration Factor",
+        "ar": "Calibration Factor"
+      }
     },
     {
       "id": "measurementUncertainty",
@@ -39,27 +71,35 @@
       "type": "number",
       "unit": "%",
       "default": 0.1,
-      "businessContext": "Relative measurement uncertainty percentage for conformance bounds"
+      "businessContext": "Relative measurement uncertainty percentage for conformance bounds",
+      "label_i18n": {
+        "en": "Measurement Uncertainty (±%)",
+        "tr": "Measurement Uncertainty (±%)",
+        "de": "Measurement Uncertainty (±%)",
+        "fr": "Measurement Uncertainty (±%)",
+        "es": "Measurement Uncertainty (±%)",
+        "ar": "Measurement Uncertainty (±%)"
+      }
     }
   ],
   "formulas": {
-    "conversionFactor": "0.3732417216",
     "rawKg": "troyPounds * 0.3732417216 * scaleCalibrationFactor * batchSize",
     "lower": "rawKg * (1 - measurementUncertainty / 100)",
-    "upper": "rawKg * (1 + measurementUncertainty / 100)",
-    "kgRounded": "Math.round((rawKg + Number.EPSILON) * Math.pow(10, precision)) / Math.pow(10, precision)",
-    "lowerRounded": "Math.round((lower + Number.EPSILON) * Math.pow(10, precision)) / Math.pow(10, precision)",
-    "upperRounded": "Math.round((upper + Number.EPSILON) * Math.pow(10, precision)) / Math.pow(10, precision)",
-    "conversionInfo": "'Conversion factor: 1 troy lb = 0.3732417216 kg'"
+    "upper": "rawKg * (1 + measurementUncertainty / 100)"
   },
   "outputs": {
-    "primary": "kgRounded",
+    "primary": "upper",
     "breakdown": [
       "lowerRounded",
       "upperRounded",
       "rawKg",
       "conversionInfo"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "upperRounded"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -69,5 +109,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

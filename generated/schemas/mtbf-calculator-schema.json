@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "hours",
       "default": 8760,
-      "businessContext": "Total operating hours for a single unit during the observation period"
+      "businessContext": "Total operating hours for a single unit during the observation period",
+      "label_i18n": {
+        "en": "Operating Hours per Unit",
+        "tr": "Operating Hours per Unit",
+        "de": "Operating Hours per Unit",
+        "fr": "Operating Hours per Unit",
+        "es": "Operating Hours per Unit",
+        "ar": "Operating Hours per Unit"
+      }
     },
     {
       "id": "unitCount",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "pieces",
       "default": 1,
-      "businessContext": "Number of identical units under observation"
+      "businessContext": "Number of identical units under observation",
+      "label_i18n": {
+        "en": "Number of Units",
+        "tr": "Number of Units",
+        "de": "Number of Units",
+        "fr": "Number of Units",
+        "es": "Number of Units",
+        "ar": "Number of Units"
+      }
     },
     {
       "id": "failureCount",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "count",
       "default": 5,
-      "businessContext": "Total number of failures observed across all units"
+      "businessContext": "Total number of failures observed across all units",
+      "label_i18n": {
+        "en": "Number of Failures",
+        "tr": "Number of Failures",
+        "de": "Number of Failures",
+        "fr": "Number of Failures",
+        "es": "Number of Failures",
+        "ar": "Number of Failures"
+      }
     },
     {
       "id": "repairHours",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "hours",
       "default": 50,
-      "businessContext": "Total time spent on repairs for all failures"
+      "businessContext": "Total time spent on repairs for all failures",
+      "label_i18n": {
+        "en": "Total Repair Hours",
+        "tr": "Total Repair Hours",
+        "de": "Total Repair Hours",
+        "fr": "Total Repair Hours",
+        "es": "Total Repair Hours",
+        "ar": "Total Repair Hours"
+      }
     }
   ],
   "formulas": {
@@ -45,7 +77,12 @@
     "breakdown": [
       "MTTR",
       "Availability"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "Availability"
   },
   "category": "Bakım & Güvenilirlik",
   "sector": "Üretim & İmalat",
@@ -55,5 +92,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

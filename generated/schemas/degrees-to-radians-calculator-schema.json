@@ -69,16 +69,20 @@
   "formulas": {
     "decimalDegrees": "degrees + minutes/60 + seconds/3600",
     "rawRadians": "decimalDegrees * Math.PI / 180",
-    "roundedRadians": "Math.round(rawRadians * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
     "conversionFactor": "Math.PI / 180"
   },
   "outputs": {
-    "primary": "roundedRadians",
+    "primary": "conversionFactor",
     "breakdown": [
       "decimalDegrees",
       "rawRadians",
       "conversionFactor"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "conversionFactor"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -88,5 +92,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

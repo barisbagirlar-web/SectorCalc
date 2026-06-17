@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "elements",
       "default": 0,
-      "businessContext": "Number of elements in set A"
+      "businessContext": "Number of elements in set A",
+      "label_i18n": {
+        "en": "Size of Set A",
+        "tr": "Size of Set A",
+        "de": "Size of Set A",
+        "fr": "Size of Set A",
+        "es": "Size of Set A",
+        "ar": "Size of Set A"
+      }
     },
     {
       "id": "setB",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "elements",
       "default": 0,
-      "businessContext": "Number of elements in set B"
+      "businessContext": "Number of elements in set B",
+      "label_i18n": {
+        "en": "Size of Set B",
+        "tr": "Size of Set B",
+        "de": "Size of Set B",
+        "fr": "Size of Set B",
+        "es": "Size of Set B",
+        "ar": "Size of Set B"
+      }
     },
     {
       "id": "setC",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "elements",
       "default": 0,
-      "businessContext": "Number of elements in set C"
+      "businessContext": "Number of elements in set C",
+      "label_i18n": {
+        "en": "Size of Set C",
+        "tr": "Size of Set C",
+        "de": "Size of Set C",
+        "fr": "Size of Set C",
+        "es": "Size of Set C",
+        "ar": "Size of Set C"
+      }
     },
     {
       "id": "ab",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "elements",
       "default": 0,
-      "businessContext": "Number of elements common to both A and B"
+      "businessContext": "Number of elements common to both A and B",
+      "label_i18n": {
+        "en": "Size of A ∩ B",
+        "tr": "Size of A ∩ B",
+        "de": "Size of A ∩ B",
+        "fr": "Size of A ∩ B",
+        "es": "Size of A ∩ B",
+        "ar": "Size of A ∩ B"
+      }
     },
     {
       "id": "ac",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "elements",
       "default": 0,
-      "businessContext": "Number of elements common to both A and C"
+      "businessContext": "Number of elements common to both A and C",
+      "label_i18n": {
+        "en": "Size of A ∩ C",
+        "tr": "Size of A ∩ C",
+        "de": "Size of A ∩ C",
+        "fr": "Size of A ∩ C",
+        "es": "Size of A ∩ C",
+        "ar": "Size of A ∩ C"
+      }
     },
     {
       "id": "bc",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "elements",
       "default": 0,
-      "businessContext": "Number of elements common to both B and C"
+      "businessContext": "Number of elements common to both B and C",
+      "label_i18n": {
+        "en": "Size of B ∩ C",
+        "tr": "Size of B ∩ C",
+        "de": "Size of B ∩ C",
+        "fr": "Size of B ∩ C",
+        "es": "Size of B ∩ C",
+        "ar": "Size of B ∩ C"
+      }
     },
     {
       "id": "abc",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "elements",
       "default": 0,
-      "businessContext": "Number of elements common to all three sets"
+      "businessContext": "Number of elements common to all three sets",
+      "label_i18n": {
+        "en": "Size of A ∩ B ∩ C",
+        "tr": "Size of A ∩ B ∩ C",
+        "de": "Size of A ∩ B ∩ C",
+        "fr": "Size of A ∩ B ∩ C",
+        "es": "Size of A ∩ B ∩ C",
+        "ar": "Size of A ∩ B ∩ C"
+      }
     }
   ],
   "formulas": {
@@ -78,7 +134,12 @@
       "acOnly",
       "bcOnly",
       "abcSize"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "abcSize"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -88,5 +149,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

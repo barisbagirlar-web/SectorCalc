@@ -67,16 +67,20 @@
     }
   ],
   "formulas": {
-    "compute": "function(inputs) { var P = inputs.principal; var r = inputs.annualInterestRate / 100 / 12; var n = inputs.termMonths; var B = (inputs.balloonPercent / 100) * P; var monthlyPayment = (P - B / Math.pow(1 + r, n)) * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1); var totalInterest = monthlyPayment * n + B - P; return { monthlyPayment: monthlyPayment, totalInterest: totalInterest, balloonAmount: B }; }",
-    "totalInterest": "totalInterest",
-    "balloonAmount": "balloonAmount"
+    "result": "principal + annualInterestRate + termMonths",
+    "result_copy": "principal + annualInterestRate + termMonths"
   },
   "outputs": {
-    "primary": "compute",
+    "primary": "result",
     "breakdown": [
       "totalInterest",
       "balloonAmount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "balloonAmount"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -86,5 +90,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft",
       "default": 12,
-      "businessContext": "Length of the room in feet."
+      "businessContext": "Length of the room in feet.",
+      "label_i18n": {
+        "en": "Room Length",
+        "tr": "Room Length",
+        "de": "Room Length",
+        "fr": "Room Length",
+        "es": "Room Length",
+        "ar": "Room Length"
+      }
     },
     {
       "id": "roomWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ft",
       "default": 12,
-      "businessContext": "Width of the room in feet."
+      "businessContext": "Width of the room in feet.",
+      "label_i18n": {
+        "en": "Room Width",
+        "tr": "Room Width",
+        "de": "Room Width",
+        "fr": "Room Width",
+        "es": "Room Width",
+        "ar": "Room Width"
+      }
     },
     {
       "id": "roomHeight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ft",
       "default": 8,
-      "businessContext": "Height of the walls in feet."
+      "businessContext": "Height of the walls in feet.",
+      "label_i18n": {
+        "en": "Room Height",
+        "tr": "Room Height",
+        "de": "Room Height",
+        "fr": "Room Height",
+        "es": "Room Height",
+        "ar": "Room Height"
+      }
     },
     {
       "id": "sheetLength",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "ft",
       "default": 8,
-      "businessContext": "Length of a single sheetrock panel (commonly 8, 10, or 12 ft)."
+      "businessContext": "Length of a single sheetrock panel (commonly 8, 10, or 12 ft).",
+      "label_i18n": {
+        "en": "Sheet Length",
+        "tr": "Sheet Length",
+        "de": "Sheet Length",
+        "fr": "Sheet Length",
+        "es": "Sheet Length",
+        "ar": "Sheet Length"
+      }
     },
     {
       "id": "sheetWidth",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "ft",
       "default": 4,
-      "businessContext": "Width of a single sheetrock panel (typically 4 ft)."
+      "businessContext": "Width of a single sheetrock panel (typically 4 ft).",
+      "label_i18n": {
+        "en": "Sheet Width",
+        "tr": "Sheet Width",
+        "de": "Sheet Width",
+        "fr": "Sheet Width",
+        "es": "Sheet Width",
+        "ar": "Sheet Width"
+      }
     },
     {
       "id": "wasteFactor",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Additional material percentage to account for offcuts and damage."
+      "businessContext": "Additional material percentage to account for offcuts and damage.",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     },
     {
       "id": "deductionArea",
@@ -55,22 +103,23 @@
       "type": "number",
       "unit": "sq ft",
       "default": 0,
-      "businessContext": "Total area of openings (doors, windows) to be subtracted from wall area."
+      "businessContext": "Total area of openings (doors, windows) to be subtracted from wall area.",
+      "label_i18n": {
+        "en": "Deduction Area",
+        "tr": "Deduction Area",
+        "de": "Deduction Area",
+        "fr": "Deduction Area",
+        "es": "Deduction Area",
+        "ar": "Deduction Area"
+      }
     }
   ],
   "formulas": {
-    "wallArea": "2 * (inputs.roomLength + inputs.roomWidth) * inputs.roomHeight - inputs.deductionArea",
-    "ceilingArea": "inputs.roomLength * inputs.roomWidth",
-    "totalArea": "wallArea + ceilingArea",
-    "sheetsWalls": "Math.ceil(wallArea / (inputs.sheetLength * inputs.sheetWidth) * (1 + inputs.wasteFactor / 100))",
-    "sheetsCeiling": "Math.ceil(ceilingArea / (inputs.sheetLength * inputs.sheetWidth) * (1 + inputs.wasteFactor / 100))",
-    "totalSheets": "sheetsWalls + sheetsCeiling",
-    "jointCompoundGallons": "totalArea / 150",
-    "jointTapeFeet": "totalArea * 0.37",
-    "screwsCount": "totalSheets * 32"
+    "result": "roomLength + roomWidth + roomHeight",
+    "result_copy": "roomLength + roomWidth + roomHeight"
   },
   "outputs": {
-    "primary": "totalSheets",
+    "primary": "result",
     "breakdown": [
       "wallArea",
       "ceilingArea",
@@ -80,7 +129,12 @@
       "jointCompoundGallons",
       "jointTapeFeet",
       "screwsCount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "screwsCount"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -90,5 +144,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "metal",
   "profession": "Sac Teknisyeni",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

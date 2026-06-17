@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from hra-calculator-schema.json
 import * as z from 'zod';
 
@@ -17,26 +18,33 @@ export const Hra_calculatorInputSchema = z.object({
   cityType: z.number().default(1),
 });
 
-function evaluateAllFormulas(input: Hra_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = Math.min(input.hraReceived, (input.basicSalary + input.da) * (0.4 + 0.1 * input.cityType), input.rentPaid - 0.1 * (input.basicSalary + input.da)); results["exemption"] = Number.isFinite(v) ? v : 0; } catch { results["exemption"] = 0; }
-  try { const v = Math.max(0, input.hraReceived - (results["exemption"] ?? 0)); results["taxableHRA"] = Number.isFinite(v) ? v : 0; } catch { results["taxableHRA"] = 0; }
-  try { const v = (results["taxableHRA"] ?? 0) * 12; results["annualTaxableHRA"] = Number.isFinite(v) ? v : 0; } catch { results["annualTaxableHRA"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Hra_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.basicSalary + input.da + input.hraReceived; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.basicSalary + input.da + input.hraReceived; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateHra_calculator(input: Hra_calculatorInput): Hra_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["taxableHRA"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

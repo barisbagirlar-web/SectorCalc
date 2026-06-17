@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m²",
       "default": 200,
-      "businessContext": "Total floor area of the building"
+      "businessContext": "Total floor area of the building",
+      "label_i18n": {
+        "en": "Building Area",
+        "tr": "Building Area",
+        "de": "Building Area",
+        "fr": "Building Area",
+        "es": "Building Area",
+        "ar": "Building Area"
+      }
     },
     {
       "id": "tempDiff",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°C",
       "default": 15,
-      "businessContext": "Difference between outdoor and desired indoor temperature"
+      "businessContext": "Difference between outdoor and desired indoor temperature",
+      "label_i18n": {
+        "en": "Temperature Difference",
+        "tr": "Temperature Difference",
+        "de": "Temperature Difference",
+        "fr": "Temperature Difference",
+        "es": "Temperature Difference",
+        "ar": "Temperature Difference"
+      }
     },
     {
       "id": "heatLossCoefficient",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "W/m²·K",
       "default": 1.5,
-      "businessContext": "Overall heat transfer coefficient of building envelope"
+      "businessContext": "Overall heat transfer coefficient of building envelope",
+      "label_i18n": {
+        "en": "Heat Loss Coefficient",
+        "tr": "Heat Loss Coefficient",
+        "de": "Heat Loss Coefficient",
+        "fr": "Heat Loss Coefficient",
+        "es": "Heat Loss Coefficient",
+        "ar": "Heat Loss Coefficient"
+      }
     },
     {
       "id": "acCop",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "COP",
       "default": 3.5,
-      "businessContext": "Efficiency of air conditioning unit (higher is better)"
+      "businessContext": "Efficiency of air conditioning unit (higher is better)",
+      "label_i18n": {
+        "en": "AC Coefficient of Performance",
+        "tr": "AC Coefficient of Performance",
+        "de": "AC Coefficient of Performance",
+        "fr": "AC Coefficient of Performance",
+        "es": "AC Coefficient of Performance",
+        "ar": "AC Coefficient of Performance"
+      }
     },
     {
       "id": "hoursPerDay",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "hours",
       "default": 12,
-      "businessContext": "Average hours the HVAC system runs each day"
+      "businessContext": "Average hours the HVAC system runs each day",
+      "label_i18n": {
+        "en": "Operating Hours per Day",
+        "tr": "Operating Hours per Day",
+        "de": "Operating Hours per Day",
+        "fr": "Operating Hours per Day",
+        "es": "Operating Hours per Day",
+        "ar": "Operating Hours per Day"
+      }
     },
     {
       "id": "electricityRate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "$/kWh",
       "default": 0.1,
-      "businessContext": "Cost of electricity per kilowatt-hour"
+      "businessContext": "Cost of electricity per kilowatt-hour",
+      "label_i18n": {
+        "en": "Electricity Rate",
+        "tr": "Electricity Rate",
+        "de": "Electricity Rate",
+        "fr": "Electricity Rate",
+        "es": "Electricity Rate",
+        "ar": "Electricity Rate"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
     "breakdown": [
       "dailyEnergy_kWh",
       "monthlyCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "yearlyCost"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -72,5 +125,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

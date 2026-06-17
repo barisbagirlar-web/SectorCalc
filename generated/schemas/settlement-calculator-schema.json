@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 5000,
-      "businessContext": "Employee's last gross monthly salary before termination"
+      "businessContext": "Employee's last gross monthly salary before termination",
+      "label_i18n": {
+        "en": "Gross Monthly Salary",
+        "tr": "Gross Monthly Salary",
+        "de": "Gross Monthly Salary",
+        "fr": "Gross Monthly Salary",
+        "es": "Gross Monthly Salary",
+        "ar": "Gross Monthly Salary"
+      }
     },
     {
       "id": "yearsOfService",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "years",
       "default": 5,
-      "businessContext": "Total tenure in years with the employer"
+      "businessContext": "Total tenure in years with the employer",
+      "label_i18n": {
+        "en": "Years of Service",
+        "tr": "Years of Service",
+        "de": "Years of Service",
+        "fr": "Years of Service",
+        "es": "Years of Service",
+        "ar": "Years of Service"
+      }
     },
     {
       "id": "unusedLeaveDays",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "days",
       "default": 10,
-      "businessContext": "Accumulated but unused paid annual leave days"
+      "businessContext": "Accumulated but unused paid annual leave days",
+      "label_i18n": {
+        "en": "Unused Annual Leave Days",
+        "tr": "Unused Annual Leave Days",
+        "de": "Unused Annual Leave Days",
+        "fr": "Unused Annual Leave Days",
+        "es": "Unused Annual Leave Days",
+        "ar": "Unused Annual Leave Days"
+      }
     },
     {
       "id": "noticePeriodDays",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "days",
       "default": 30,
-      "businessContext": "Statutory notice period that was not worked"
+      "businessContext": "Statutory notice period that was not worked",
+      "label_i18n": {
+        "en": "Notice Period (Days)",
+        "tr": "Notice Period (Days)",
+        "de": "Notice Period (Days)",
+        "fr": "Notice Period (Days)",
+        "es": "Notice Period (Days)",
+        "ar": "Notice Period (Days)"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "severancePay",
       "noticePay",
       "leaveEncashment"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalSettlement"
   },
   "category": "İK & Personel",
   "sector": "Finans & İK",
@@ -56,5 +93,10 @@
   "categorySlug": "workforce-hr",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "hr"
+  "categoryId": "hr",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

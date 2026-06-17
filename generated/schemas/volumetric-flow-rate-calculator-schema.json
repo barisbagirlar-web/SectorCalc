@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Boru iç çapı"
+      "businessContext": "Boru iç çapı",
+      "label_i18n": {
+        "en": "Inner Diameter",
+        "tr": "Inner Diameter",
+        "de": "Inner Diameter",
+        "fr": "Inner Diameter",
+        "es": "Inner Diameter",
+        "ar": "Inner Diameter"
+      }
     },
     {
       "id": "velocity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 0,
-      "businessContext": "Akışkan hızı"
+      "businessContext": "Akışkan hızı",
+      "label_i18n": {
+        "en": "Flow Velocity",
+        "tr": "Flow Velocity",
+        "de": "Flow Velocity",
+        "fr": "Flow Velocity",
+        "es": "Flow Velocity",
+        "ar": "Flow Velocity"
+      }
     },
     {
       "id": "crossSectionArea",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m²",
       "default": 0,
-      "businessContext": "Kesit alanı (çap yerine kullanılabilir)"
+      "businessContext": "Kesit alanı (çap yerine kullanılabilir)",
+      "label_i18n": {
+        "en": "Cross-Sectional Area",
+        "tr": "Cross-Sectional Area",
+        "de": "Cross-Sectional Area",
+        "fr": "Cross-Sectional Area",
+        "es": "Cross-Sectional Area",
+        "ar": "Cross-Sectional Area"
+      }
     },
     {
       "id": "fluidDensity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 0,
-      "businessContext": "Akışkan yoğunluğu (kütlesel debi dönüşümü için)"
+      "businessContext": "Akışkan yoğunluğu (kütlesel debi dönüşümü için)",
+      "label_i18n": {
+        "en": "Fluid Density",
+        "tr": "Fluid Density",
+        "de": "Fluid Density",
+        "fr": "Fluid Density",
+        "es": "Fluid Density",
+        "ar": "Fluid Density"
+      }
     },
     {
       "id": "massFlowRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg/s",
       "default": 0,
-      "businessContext": "Kütlesel debi (hacimsel debiye dönüştürülür)"
+      "businessContext": "Kütlesel debi (hacimsel debiye dönüştürülür)",
+      "label_i18n": {
+        "en": "Mass Flow Rate",
+        "tr": "Mass Flow Rate",
+        "de": "Mass Flow Rate",
+        "fr": "Mass Flow Rate",
+        "es": "Mass Flow Rate",
+        "ar": "Mass Flow Rate"
+      }
     }
   ],
   "formulas": {
@@ -51,7 +91,12 @@
     "breakdown": [
       "flowRateFromAreaVelocity",
       "flowRateFromMass"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "flowRateFromMass"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -61,5 +106,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

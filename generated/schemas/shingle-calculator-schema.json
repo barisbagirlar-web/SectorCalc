@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m²",
       "default": 100,
-      "businessContext": "Total horizontal area covered by the roof (length × width) in square meters."
+      "businessContext": "Total horizontal area covered by the roof (length × width) in square meters.",
+      "label_i18n": {
+        "en": "Roof Footprint Area",
+        "tr": "Roof Footprint Area",
+        "de": "Roof Footprint Area",
+        "fr": "Roof Footprint Area",
+        "es": "Roof Footprint Area",
+        "ar": "Roof Footprint Area"
+      }
     },
     {
       "id": "roofPitchAngle",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°",
       "default": 30,
-      "businessContext": "Inclination angle of the roof from horizontal, in degrees."
+      "businessContext": "Inclination angle of the roof from horizontal, in degrees.",
+      "label_i18n": {
+        "en": "Roof Pitch Angle",
+        "tr": "Roof Pitch Angle",
+        "de": "Roof Pitch Angle",
+        "fr": "Roof Pitch Angle",
+        "es": "Roof Pitch Angle",
+        "ar": "Roof Pitch Angle"
+      }
     },
     {
       "id": "wasteFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Additional material percentage for cutting, overlap, and handling losses."
+      "businessContext": "Additional material percentage for cutting, overlap, and handling losses.",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     },
     {
       "id": "shingleCoveragePerBundle",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m²",
       "default": 3.1,
-      "businessContext": "Area covered by one bundle of field shingles, typically 3.1 m² for standard 3-tab."
+      "businessContext": "Area covered by one bundle of field shingles, typically 3.1 m² for standard 3-tab.",
+      "label_i18n": {
+        "en": "Shingle Coverage per Bundle",
+        "tr": "Shingle Coverage per Bundle",
+        "de": "Shingle Coverage per Bundle",
+        "fr": "Shingle Coverage per Bundle",
+        "es": "Shingle Coverage per Bundle",
+        "ar": "Shingle Coverage per Bundle"
+      }
     },
     {
       "id": "ridgeLength",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 15,
-      "businessContext": "Total length of ridges and hips requiring cap shingles, in meters."
+      "businessContext": "Total length of ridges and hips requiring cap shingles, in meters.",
+      "label_i18n": {
+        "en": "Ridge Length",
+        "tr": "Ridge Length",
+        "de": "Ridge Length",
+        "fr": "Ridge Length",
+        "es": "Ridge Length",
+        "ar": "Ridge Length"
+      }
     },
     {
       "id": "capCoveragePerBundle",
@@ -47,22 +87,32 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Linear ridge coverage provided by one bundle of cap shingles, typically 10 m for 3-tab caps."
+      "businessContext": "Linear ridge coverage provided by one bundle of cap shingles, typically 10 m for 3-tab caps.",
+      "label_i18n": {
+        "en": "Cap Coverage per Bundle",
+        "tr": "Cap Coverage per Bundle",
+        "de": "Cap Coverage per Bundle",
+        "fr": "Cap Coverage per Bundle",
+        "es": "Cap Coverage per Bundle",
+        "ar": "Cap Coverage per Bundle"
+      }
     }
   ],
   "formulas": {
-    "actualRoofArea": "roofFootprintArea / Math.cos(roofPitchAngle * Math.PI / 180)",
-    "totalFieldArea": "actualRoofArea * (1 + wasteFactor / 100)",
-    "fieldBundles": "Math.ceil(totalFieldArea / shingleCoveragePerBundle)",
-    "ridgeBundles": "Math.ceil(ridgeLength / capCoveragePerBundle)",
-    "totalBundles": "fieldBundles + ridgeBundles"
+    "result": "roofFootprintArea + roofPitchAngle + wasteFactor",
+    "result_copy": "roofFootprintArea + roofPitchAngle + wasteFactor"
   },
   "outputs": {
-    "primary": "totalBundles",
+    "primary": "result",
     "breakdown": [
       "fieldBundles",
       "ridgeBundles"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalBundles"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -72,5 +122,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

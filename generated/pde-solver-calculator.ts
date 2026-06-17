@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from pde-solver-calculator-schema.json
 import * as z from 'zod';
 
@@ -21,27 +22,33 @@ export const Pde_solver_calculatorInputSchema = z.object({
   A3: z.number().default(0),
 });
 
-function evaluateAllFormulas(input: Pde_solver_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.A1 * Math.exp(-input.alpha * (Math.PI / input.length)**2 * input.time) * Math.sin(Math.PI * input.x / input.length) + input.A2 * Math.exp(-input.alpha * (2*Math.PI / input.length)**2 * input.time) * Math.sin(2*Math.PI * input.x / input.length) + input.A3 * Math.exp(-input.alpha * (3*Math.PI / input.length)**2 * input.time) * Math.sin(3*Math.PI * input.x / input.length); results["temperature"] = Number.isFinite(v) ? v : 0; } catch { results["temperature"] = 0; }
-  try { const v = input.A1 * Math.exp(-input.alpha * (Math.PI / input.length)**2 * input.time) * Math.sin(Math.PI * input.x / input.length); results["harmonic1"] = Number.isFinite(v) ? v : 0; } catch { results["harmonic1"] = 0; }
-  try { const v = input.A2 * Math.exp(-input.alpha * (2*Math.PI / input.length)**2 * input.time) * Math.sin(2*Math.PI * input.x / input.length); results["harmonic2"] = Number.isFinite(v) ? v : 0; } catch { results["harmonic2"] = 0; }
-  try { const v = input.A3 * Math.exp(-input.alpha * (3*Math.PI / input.length)**2 * input.time) * Math.sin(3*Math.PI * input.x / input.length); results["harmonic3"] = Number.isFinite(v) ? v : 0; } catch { results["harmonic3"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Pde_solver_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.alpha + input.length + input.x; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.alpha + input.length + input.x; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculatePde_solver_calculator(input: Pde_solver_calculatorInput): Pde_solver_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["temperature"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

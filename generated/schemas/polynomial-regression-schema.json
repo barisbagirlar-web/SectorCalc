@@ -84,17 +84,19 @@
   ],
   "formulas": {
     "b": "(n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX)",
-    "a": "(sumY - b * sumX) / n",
-    "__b_toFixed_4__": "${b.toFixed(4)}",
-    "__a_toFixed_4__": "${a.toFixed(4)}",
-    "result": "Regresyon Denklemi: y = ${a.toFixed(4)} + ${b.toFixed(4)}·x"
+    "a": "(sumY - b * sumX) / n"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "a",
     "breakdown": [
       "Eğim (b): ${b.toFixed(4)}",
       "Kesişim (a): ${a.toFixed(4)}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "a"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -104,5 +106,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

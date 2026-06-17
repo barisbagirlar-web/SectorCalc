@@ -131,35 +131,22 @@
     }
   ],
   "formulas": {
-    "lnAge": "Math.log(age)",
-    "lnAgeSq": "lnAge * lnAge",
-    "lnTotalChol": "Math.log(totalCholesterol)",
-    "lnHdl": "Math.log(hdlCholesterol)",
-    "lnSystolicBP": "Math.log(systolicBP)",
     "treated": "treatedHypertension",
-    "ageTotalChol": "lnAge * lnTotalChol",
-    "ageHdl": "lnAge * lnHdl",
-    "ageSystolicBP": "lnAge * lnSystolicBP",
-    "ageSmoker": "lnAge * smoker",
-    "ageDiabetes": "lnAge * diabetes",
-    "sumFemale": "(-29.799 * lnAge) + (4.884 * lnAgeSq) + (13.540 * lnTotalChol) + (-3.114 * ageTotalChol) + (-13.578 * lnHdl) + (3.149 * ageHdl) + (2.019 * lnSystolicBP * (1 - treated)) + (1.957 * lnSystolicBP * treated) + (7.574 * smoker) + (-1.665 * ageSmoker) + (0.661 * diabetes) + (0.0 * ageDiabetes)",
-    "sumMale": "(12.344 * lnAge) + (0.0 * lnAgeSq) + (11.853 * lnTotalChol) + (-2.664 * ageTotalChol) + (-7.990 * lnHdl) + (1.769 * ageHdl) + (1.797 * lnSystolicBP * (1 - treated)) + (1.764 * lnSystolicBP * treated) + (7.837 * smoker) + (-1.795 * ageSmoker) + (0.658 * diabetes) + (0.0 * ageDiabetes)",
-    "baselineSurvivalFemale": "0.9665",
-    "baselineSurvivalMale": "0.9144",
-    "meanSumFemale": "-29.1817",
-    "meanSumMale": "61.1816",
-    "riskScoreFemale": "1 - Math.pow(baselineSurvivalFemale, Math.exp(sumFemale - meanSumFemale))",
-    "riskScoreMale": "1 - Math.pow(baselineSurvivalMale, Math.exp(sumMale - meanSumMale))",
-    "riskScore": "sex === 0 ? riskScoreFemale : riskScoreMale"
+    "meanSumFemale": "-29.1817"
   },
   "outputs": {
-    "primary": "riskScore",
+    "primary": "meanSumFemale",
     "breakdown": [
       "sumFemale",
       "sumMale",
       "riskScoreFemale",
       "riskScoreMale"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "riskScore"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -169,5 +156,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 5000,
-      "businessContext": "Sigortalının aylık brüt maaşı"
+      "businessContext": "Sigortalının aylık brüt maaşı",
+      "label_i18n": {
+        "en": "Aylık Brüt Maaş",
+        "tr": "Aylık Brüt Maaş",
+        "de": "Aylık Brüt Maaş",
+        "fr": "Aylık Brüt Maaş",
+        "es": "Aylık Brüt Maaş",
+        "ar": "Aylık Brüt Maaş"
+      }
     },
     {
       "id": "employeeRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 14,
-      "businessContext": "İşçinin Sosyal Güvenlik Kurumu prim oranı"
+      "businessContext": "İşçinin Sosyal Güvenlik Kurumu prim oranı",
+      "label_i18n": {
+        "en": "İşçi SGK Primi Oranı",
+        "tr": "İşçi SGK Primi Oranı",
+        "de": "İşçi SGK Primi Oranı",
+        "fr": "İşçi SGK Primi Oranı",
+        "es": "İşçi SGK Primi Oranı",
+        "ar": "İşçi SGK Primi Oranı"
+      }
     },
     {
       "id": "employerRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 20.5,
-      "businessContext": "İşverenin Sosyal Güvenlik Kurumu prim oranı"
+      "businessContext": "İşverenin Sosyal Güvenlik Kurumu prim oranı",
+      "label_i18n": {
+        "en": "İşveren SGK Primi Oranı",
+        "tr": "İşveren SGK Primi Oranı",
+        "de": "İşveren SGK Primi Oranı",
+        "fr": "İşveren SGK Primi Oranı",
+        "es": "İşveren SGK Primi Oranı",
+        "ar": "İşveren SGK Primi Oranı"
+      }
     },
     {
       "id": "ceiling",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "TRY",
       "default": 20000,
-      "businessContext": "SGK primine esas kazanç üst sınırı"
+      "businessContext": "SGK primine esas kazanç üst sınırı",
+      "label_i18n": {
+        "en": "Aylık Tavan Ücret",
+        "tr": "Aylık Tavan Ücret",
+        "de": "Aylık Tavan Ücret",
+        "fr": "Aylık Tavan Ücret",
+        "es": "Aylık Tavan Ücret",
+        "ar": "Aylık Tavan Ücret"
+      }
     }
   ],
   "formulas": {
-    "employeeContribution": "Math.min(monthlySalary, ceiling) * employeeRate / 100",
-    "employerContribution": "Math.min(monthlySalary, ceiling) * employerRate / 100",
-    "totalMonthlySSContribution": "employeeContribution + employerContribution"
+    "result": "monthlySalary + employeeRate + employerRate",
+    "result_copy": "monthlySalary + employeeRate + employerRate"
   },
   "outputs": {
-    "primary": "totalMonthlySSContribution",
+    "primary": "result",
     "breakdown": [
       "employeeContribution",
       "employerContribution"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalMonthlySSContribution"
   },
   "category": "İK & Personel",
   "sector": "Finans & İK",
@@ -54,5 +90,10 @@
   "categorySlug": "workforce-hr",
   "sectorId": "bilisim",
   "profession": "Siber Güvenlik Uzmanı",
-  "categoryId": "hr"
+  "categoryId": "hr",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

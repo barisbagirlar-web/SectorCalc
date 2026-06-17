@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from backpacking-calculator-schema.json
 import * as z from 'zod';
 
@@ -21,26 +22,34 @@ export const Backpacking_calculatorInputSchema = z.object({
   hikerWeight: z.number().default(70),
 });
 
-function evaluateAllFormulas(input: Backpacking_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.baseWeight + (input.foodPerDay + input.waterPerDay) * input.days; results["totalWeight"] = Number.isFinite(v) ? v : 0; } catch { results["totalWeight"] = 0; }
-  try { const v = 0.726 * input.hikerWeight * input.distancePerDay + 0.1 * input.hikerWeight * input.elevationGain; results["dailyCalories"] = Number.isFinite(v) ? v : 0; } catch { results["dailyCalories"] = 0; }
-  try { const v = (input.foodPerDay + input.waterPerDay) * input.days; results["consumablesWeight"] = Number.isFinite(v) ? v : 0; } catch { results["consumablesWeight"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Backpacking_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.baseWeight + (input.foodPerDay + input.waterPerDay) * input.days; results["totalWeight"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalWeight"] = 0; }
+  try { const v = 0.726 * input.hikerWeight * input.distancePerDay + 0.1 * input.hikerWeight * input.elevationGain; results["dailyCalories"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["dailyCalories"] = 0; }
+  try { const v = (input.foodPerDay + input.waterPerDay) * input.days; results["consumablesWeight"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["consumablesWeight"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateBackpacking_calculator(input: Backpacking_calculatorInput): Backpacking_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalWeight"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["totalWeight"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "spins",
       "default": 1,
-      "businessContext": "Total number of roulette wheel spins to analyze."
+      "businessContext": "Total number of roulette wheel spins to analyze.",
+      "label_i18n": {
+        "en": "Number of Spins",
+        "tr": "Number of Spins",
+        "de": "Number of Spins",
+        "fr": "Number of Spins",
+        "es": "Number of Spins",
+        "ar": "Number of Spins"
+      }
     },
     {
       "id": "numbersCovered",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "numbers",
       "default": 1,
-      "businessContext": "Quantity of numbers wagered on in each spin (e.g., 1 for straight-up)."
+      "businessContext": "Quantity of numbers wagered on in each spin (e.g., 1 for straight-up).",
+      "label_i18n": {
+        "en": "Numbers Covered per Spin",
+        "tr": "Numbers Covered per Spin",
+        "de": "Numbers Covered per Spin",
+        "fr": "Numbers Covered per Spin",
+        "es": "Numbers Covered per Spin",
+        "ar": "Numbers Covered per Spin"
+      }
     },
     {
       "id": "payoutMultiplier",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "times",
       "default": 35,
-      "businessContext": "Payout ratio for a winning spin (e.g., 35 for straight-up bet in European roulette)."
+      "businessContext": "Payout ratio for a winning spin (e.g., 35 for straight-up bet in European roulette).",
+      "label_i18n": {
+        "en": "Payout Multiplier",
+        "tr": "Payout Multiplier",
+        "de": "Payout Multiplier",
+        "fr": "Payout Multiplier",
+        "es": "Payout Multiplier",
+        "ar": "Payout Multiplier"
+      }
     },
     {
       "id": "betAmount",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency",
       "default": 1,
-      "businessContext": "Wager placed on each individual spin."
+      "businessContext": "Wager placed on each individual spin.",
+      "label_i18n": {
+        "en": "Bet Amount per Spin",
+        "tr": "Bet Amount per Spin",
+        "de": "Bet Amount per Spin",
+        "fr": "Bet Amount per Spin",
+        "es": "Bet Amount per Spin",
+        "ar": "Bet Amount per Spin"
+      }
     },
     {
       "id": "totalNumbers",
@@ -39,22 +71,34 @@
       "type": "number",
       "unit": "numbers",
       "default": 37,
-      "businessContext": "Total pockets (37 for European single-zero, 38 for American double-zero)."
+      "businessContext": "Total pockets (37 for European single-zero, 38 for American double-zero).",
+      "label_i18n": {
+        "en": "Total Numbers on Wheel",
+        "tr": "Total Numbers on Wheel",
+        "de": "Total Numbers on Wheel",
+        "fr": "Total Numbers on Wheel",
+        "es": "Total Numbers on Wheel",
+        "ar": "Total Numbers on Wheel"
+      }
     }
   ],
   "formulas": {
-    "winProbability": "1 - Math.pow(1 - numbersCovered / totalNumbers, numberOfSpins)",
     "expectedWins": "numberOfSpins * numbersCovered / totalNumbers",
     "totalBetAmount": "numberOfSpins * betAmount",
     "expectedNetReturn": "numberOfSpins * (betAmount * ( (numbersCovered / totalNumbers) * payoutMultiplier - (1 - numbersCovered / totalNumbers) ))"
   },
   "outputs": {
-    "primary": "winProbability",
+    "primary": "expectedNetReturn",
     "breakdown": [
       "expectedWins",
       "totalBetAmount",
       "expectedNetReturn"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "expectedNetReturn"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -64,5 +108,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

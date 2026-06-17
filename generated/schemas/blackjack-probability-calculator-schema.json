@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "deck",
       "default": 6,
-      "businessContext": "Number of decks in the shoe, typically 1-8."
+      "businessContext": "Number of decks in the shoe, typically 1-8.",
+      "label_i18n": {
+        "en": "Number of Decks",
+        "tr": "Number of Decks",
+        "de": "Number of Decks",
+        "fr": "Number of Decks",
+        "es": "Number of Decks",
+        "ar": "Number of Decks"
+      }
     },
     {
       "id": "acesRemaining",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cards",
       "default": 24,
-      "businessContext": "Number of aces left in the shoe."
+      "businessContext": "Number of aces left in the shoe.",
+      "label_i18n": {
+        "en": "Aces Remaining",
+        "tr": "Aces Remaining",
+        "de": "Aces Remaining",
+        "fr": "Aces Remaining",
+        "es": "Aces Remaining",
+        "ar": "Aces Remaining"
+      }
     },
     {
       "id": "tensRemaining",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cards",
       "default": 96,
-      "businessContext": "Number of 10, J, Q, K left in the shoe."
+      "businessContext": "Number of 10, J, Q, K left in the shoe.",
+      "label_i18n": {
+        "en": "Ten-value Cards Remaining",
+        "tr": "Ten-value Cards Remaining",
+        "de": "Ten-value Cards Remaining",
+        "fr": "Ten-value Cards Remaining",
+        "es": "Ten-value Cards Remaining",
+        "ar": "Ten-value Cards Remaining"
+      }
     },
     {
       "id": "otherCardsRemaining",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cards",
       "default": 192,
-      "businessContext": "Number of 2-9 cards left in the shoe."
+      "businessContext": "Number of 2-9 cards left in the shoe.",
+      "label_i18n": {
+        "en": "Other Cards Remaining",
+        "tr": "Other Cards Remaining",
+        "de": "Other Cards Remaining",
+        "fr": "Other Cards Remaining",
+        "es": "Other Cards Remaining",
+        "ar": "Other Cards Remaining"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "aceThenTenProbability",
       "tenThenAceProbability"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "tenThenAceProbability"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

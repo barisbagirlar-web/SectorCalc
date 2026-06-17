@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m²",
       "default": 50,
-      "businessContext": "The water surface area of the pool exposed to air."
+      "businessContext": "The water surface area of the pool exposed to air.",
+      "label_i18n": {
+        "en": "Pool Surface Area",
+        "tr": "Pool Surface Area",
+        "de": "Pool Surface Area",
+        "fr": "Pool Surface Area",
+        "es": "Pool Surface Area",
+        "ar": "Pool Surface Area"
+      }
     },
     {
       "id": "waterTemp",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°C",
       "default": 28,
-      "businessContext": "Average temperature of the pool water."
+      "businessContext": "Average temperature of the pool water.",
+      "label_i18n": {
+        "en": "Water Temperature",
+        "tr": "Water Temperature",
+        "de": "Water Temperature",
+        "fr": "Water Temperature",
+        "es": "Water Temperature",
+        "ar": "Water Temperature"
+      }
     },
     {
       "id": "airTemp",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 25,
-      "businessContext": "Ambient air temperature above the pool."
+      "businessContext": "Ambient air temperature above the pool.",
+      "label_i18n": {
+        "en": "Air Temperature",
+        "tr": "Air Temperature",
+        "de": "Air Temperature",
+        "fr": "Air Temperature",
+        "es": "Air Temperature",
+        "ar": "Air Temperature"
+      }
     },
     {
       "id": "relativeHumidity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 60,
-      "businessContext": "Percentage of moisture in air relative to saturation at air temperature."
+      "businessContext": "Percentage of moisture in air relative to saturation at air temperature.",
+      "label_i18n": {
+        "en": "Relative Humidity",
+        "tr": "Relative Humidity",
+        "de": "Relative Humidity",
+        "fr": "Relative Humidity",
+        "es": "Relative Humidity",
+        "ar": "Relative Humidity"
+      }
     },
     {
       "id": "windSpeed",
@@ -39,24 +71,34 @@
       "type": "number",
       "unit": "m/s",
       "default": 2,
-      "businessContext": "Average wind speed above the pool surface."
+      "businessContext": "Average wind speed above the pool surface.",
+      "label_i18n": {
+        "en": "Wind Speed",
+        "tr": "Wind Speed",
+        "de": "Wind Speed",
+        "fr": "Wind Speed",
+        "es": "Wind Speed",
+        "ar": "Wind Speed"
+      }
     }
   ],
   "formulas": {
-    "saturationVaporPressureWater": "0.6108 * Math.exp(17.27 * waterTemp / (waterTemp + 237.3))",
-    "saturationVaporPressureAir": "0.6108 * Math.exp(17.27 * airTemp / (airTemp + 237.3))",
-    "actualVaporPressureAir": "saturationVaporPressureAir * relativeHumidity / 100",
-    "vaporPressureDeficit": "saturationVaporPressureWater - actualVaporPressureAir",
-    "evaporationRateLPerH": "0.02 * vaporPressureDeficit * surfaceArea * (1 + 0.5 * windSpeed)"
+    "result": "surfaceArea + waterTemp + airTemp",
+    "result_copy": "surfaceArea + waterTemp + airTemp"
   },
   "outputs": {
-    "primary": "evaporationRateLPerH",
+    "primary": "result",
     "breakdown": [
       "vaporPressureDeficit",
       "saturationVaporPressureWater",
       "saturationVaporPressureAir",
       "actualVaporPressureAir"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "evaporationRateLPerH"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -66,5 +108,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

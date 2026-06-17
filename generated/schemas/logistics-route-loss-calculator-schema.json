@@ -138,71 +138,6 @@
       "businessContext_i18n": {
         "en": "Non-fuel operating costs per km (maintenance, tires, depreciation)."
       }
-    },
-    {
-      "id": "load_value_currency",
-      "label": "Load Value (currency)",
-      "type": "number",
-      "unit": "currency",
-      "default": 50000,
-      "min": 0,
-      "max": 10000000,
-      "businessContext": "Total monetary value of the cargo being transported.",
-      "label_i18n": {
-        "en": "Load Value (currency)"
-      },
-      "businessContext_i18n": {
-        "en": "Total monetary value of the cargo being transported."
-      }
-    },
-    {
-      "id": "transit_time_target_hours",
-      "label": "Transit Time Target (hours)",
-      "type": "number",
-      "unit": "hours",
-      "default": 4,
-      "min": 0.1,
-      "max": 168,
-      "businessContext": "Target transit time for the route (used to compute time-based penalties).",
-      "label_i18n": {
-        "en": "Transit Time Target (hours)"
-      },
-      "businessContext_i18n": {
-        "en": "Target transit time for the route (used to compute time-based penalties)."
-      }
-    },
-    {
-      "id": "route_type",
-      "label": "Route Type",
-      "type": "select",
-      "options": [
-        "urban",
-        "highway",
-        "mixed"
-      ],
-      "default": "mixed",
-      "businessContext": "Type of route affecting speed and delay assumptions.",
-      "label_i18n": {
-        "en": "Route Type"
-      },
-      "businessContext_i18n": {
-        "en": "Type of route affecting speed and delay assumptions."
-      },
-      "unit": "unit"
-    },
-    {
-      "id": "use_real_time_traffic",
-      "label": "Use Real-Time Traffic Data",
-      "type": "boolean",
-      "default": false,
-      "businessContext": "If true, the calculator will adjust traffic delay factor based on real-time data (premium feature).",
-      "label_i18n": {
-        "en": "Use Real-Time Traffic Data"
-      },
-      "businessContext_i18n": {
-        "en": "If true, the calculator will adjust traffic delay factor based on real-time data (premium feature)."
-      },
-      "unit": "unit"
     }
   ],
   "validation": {
@@ -260,19 +195,18 @@
       }
     ]
   },
-  "formulas": [
-    "route_distance_km",
-    "route_distance_km",
-    "route_distance_km",
-    "route_distance_km",
-    "route_distance_km",
-    "route_distance_km",
-    "route_distance_km",
-    "route_distance_km"
-  ],
+  "formulas": {
+    "result": "route_distance_km + average_speed_kmh + planned_stops",
+    "result_copy": "route_distance_km + average_speed_kmh + planned_stops"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

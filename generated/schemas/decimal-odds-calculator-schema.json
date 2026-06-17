@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "x",
       "default": 2,
-      "businessContext": "Decimal odds represent the total payout per unit stake, including original stake. E.g., 2.0 means double your money."
+      "businessContext": "Decimal odds represent the total payout per unit stake, including original stake. E.g., 2.0 means double your money.",
+      "label_i18n": {
+        "en": "Decimal Odds",
+        "tr": "Decimal Odds",
+        "de": "Decimal Odds",
+        "fr": "Decimal Odds",
+        "es": "Decimal Odds",
+        "ar": "Decimal Odds"
+      }
     },
     {
       "id": "stake",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "€",
       "default": 100,
-      "businessContext": "The amount of money placed as a bet."
+      "businessContext": "The amount of money placed as a bet.",
+      "label_i18n": {
+        "en": "Stake Amount",
+        "tr": "Stake Amount",
+        "de": "Stake Amount",
+        "fr": "Stake Amount",
+        "es": "Stake Amount",
+        "ar": "Stake Amount"
+      }
     },
     {
       "id": "margin",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Bookmaker's profit margin applied to odds, expressed as a percentage. E.g., 5% margin reduces true probability."
+      "businessContext": "Bookmaker's profit margin applied to odds, expressed as a percentage. E.g., 5% margin reduces true probability.",
+      "label_i18n": {
+        "en": "Bookmaker Margin",
+        "tr": "Bookmaker Margin",
+        "de": "Bookmaker Margin",
+        "fr": "Bookmaker Margin",
+        "es": "Bookmaker Margin",
+        "ar": "Bookmaker Margin"
+      }
     },
     {
       "id": "taxRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Applicable tax rate on net winnings (profit), if any. E.g., 10% for 10% tax."
+      "businessContext": "Applicable tax rate on net winnings (profit), if any. E.g., 10% for 10% tax.",
+      "label_i18n": {
+        "en": "Tax Rate on Winnings",
+        "tr": "Tax Rate on Winnings",
+        "de": "Tax Rate on Winnings",
+        "fr": "Tax Rate on Winnings",
+        "es": "Tax Rate on Winnings",
+        "ar": "Tax Rate on Winnings"
+      }
     }
   ],
   "formulas": {
@@ -48,7 +80,12 @@
       "profitAfterTax",
       "impliedProbability",
       "fairDecimalOdds"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "fairDecimalOdds"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -58,5 +95,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

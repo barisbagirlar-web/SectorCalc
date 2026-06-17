@@ -99,18 +99,21 @@
     }
   ],
   "formulas": {
-    "bac": "Math.max(0, alcohol_grams / (body_weight * (0.55 + 0.15 * gender)) - 0.015 * hours)",
     "dehydration_factor": "1 - hydration",
-    "food_impact": "1 - food_intake",
-    "hangover_score": "bac * 20 + dehydration_factor * 10 + food_impact * 10"
+    "food_impact": "1 - food_intake"
   },
   "outputs": {
-    "primary": "hangover_score",
+    "primary": "food_impact",
     "breakdown": [
       "bac",
       "dehydration_factor",
       "food_impact"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "hangover_score"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -120,5 +123,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

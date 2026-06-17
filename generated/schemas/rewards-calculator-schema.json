@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 5000,
-      "businessContext": "Employee monthly base salary before rewards"
+      "businessContext": "Employee monthly base salary before rewards",
+      "label_i18n": {
+        "en": "Base Salary",
+        "tr": "Base Salary",
+        "de": "Base Salary",
+        "fr": "Base Salary",
+        "es": "Base Salary",
+        "ar": "Base Salary"
+      }
     },
     {
       "id": "performanceScore",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "pts",
       "default": 80,
-      "businessContext": "Individual performance rating out of 100"
+      "businessContext": "Individual performance rating out of 100",
+      "label_i18n": {
+        "en": "Performance Score",
+        "tr": "Performance Score",
+        "de": "Performance Score",
+        "fr": "Performance Score",
+        "es": "Performance Score",
+        "ar": "Performance Score"
+      }
     },
     {
       "id": "bonusPercent",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Base bonus percentage according to grade"
+      "businessContext": "Base bonus percentage according to grade",
+      "label_i18n": {
+        "en": "Bonus Percentage",
+        "tr": "Bonus Percentage",
+        "de": "Bonus Percentage",
+        "fr": "Bonus Percentage",
+        "es": "Bonus Percentage",
+        "ar": "Bonus Percentage"
+      }
     },
     {
       "id": "teamMultiplier",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "factor",
       "default": 1,
-      "businessContext": "Team achievement multiplier (e.g., 1.0 = 100%)"
+      "businessContext": "Team achievement multiplier (e.g., 1.0 = 100%)",
+      "label_i18n": {
+        "en": "Team Multiplier",
+        "tr": "Team Multiplier",
+        "de": "Team Multiplier",
+        "fr": "Team Multiplier",
+        "es": "Team Multiplier",
+        "ar": "Team Multiplier"
+      }
     },
     {
       "id": "tenureYears",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "years",
       "default": 2,
-      "businessContext": "Years of continuous service"
+      "businessContext": "Years of continuous service",
+      "label_i18n": {
+        "en": "Tenure (Years)",
+        "tr": "Tenure (Years)",
+        "de": "Tenure (Years)",
+        "fr": "Tenure (Years)",
+        "es": "Tenure (Years)",
+        "ar": "Tenure (Years)"
+      }
     },
     {
       "id": "safetyRating",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "pts",
       "default": 95,
-      "businessContext": "Safety performance score (0–100)"
+      "businessContext": "Safety performance score (0–100)",
+      "label_i18n": {
+        "en": "Safety Rating",
+        "tr": "Safety Rating",
+        "de": "Safety Rating",
+        "fr": "Safety Rating",
+        "es": "Safety Rating",
+        "ar": "Safety Rating"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
       "bonus",
       "loyalty",
       "safety"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "safety"
   },
   "category": "İK & Personel",
   "sector": "Finans & İK",
@@ -72,5 +125,10 @@
   "categorySlug": "workforce-hr",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "hr"
+  "categoryId": "hr",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

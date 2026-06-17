@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Currency/kWh",
       "default": 0.15,
-      "businessContext": "Cost of electricity per kilowatt-hour."
+      "businessContext": "Cost of electricity per kilowatt-hour.",
+      "label_i18n": {
+        "en": "Electricity Price",
+        "tr": "Electricity Price",
+        "de": "Electricity Price",
+        "fr": "Electricity Price",
+        "es": "Electricity Price",
+        "ar": "Electricity Price"
+      }
     },
     {
       "id": "charging_efficiency",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "Efficiency of the charging process, as a percentage."
+      "businessContext": "Efficiency of the charging process, as a percentage.",
+      "label_i18n": {
+        "en": "Charging Efficiency",
+        "tr": "Charging Efficiency",
+        "de": "Charging Efficiency",
+        "fr": "Charging Efficiency",
+        "es": "Charging Efficiency",
+        "ar": "Charging Efficiency"
+      }
     },
     {
       "id": "vehicle_efficiency",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kWh/100km",
       "default": 18,
-      "businessContext": "Energy consumption of the vehicle per 100 kilometers."
+      "businessContext": "Energy consumption of the vehicle per 100 kilometers.",
+      "label_i18n": {
+        "en": "Vehicle Efficiency",
+        "tr": "Vehicle Efficiency",
+        "de": "Vehicle Efficiency",
+        "fr": "Vehicle Efficiency",
+        "es": "Vehicle Efficiency",
+        "ar": "Vehicle Efficiency"
+      }
     },
     {
       "id": "daily_distance",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "km",
       "default": 50,
-      "businessContext": "Average distance driven per day."
+      "businessContext": "Average distance driven per day.",
+      "label_i18n": {
+        "en": "Daily Driving Distance",
+        "tr": "Daily Driving Distance",
+        "de": "Daily Driving Distance",
+        "fr": "Daily Driving Distance",
+        "es": "Daily Driving Distance",
+        "ar": "Daily Driving Distance"
+      }
     },
     {
       "id": "maintenance_cost_per_km",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "Currency/km",
       "default": 0.05,
-      "businessContext": "Estimated maintenance and repair cost per kilometer driven."
+      "businessContext": "Estimated maintenance and repair cost per kilometer driven.",
+      "label_i18n": {
+        "en": "Maintenance Cost per km",
+        "tr": "Maintenance Cost per km",
+        "de": "Maintenance Cost per km",
+        "fr": "Maintenance Cost per km",
+        "es": "Maintenance Cost per km",
+        "ar": "Maintenance Cost per km"
+      }
     }
   ],
   "formulas": {
@@ -53,7 +93,12 @@
     "breakdown": [
       "energy_cost_per_day",
       "maintenance_cost_per_day"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "total_cost_per_day"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -63,5 +108,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

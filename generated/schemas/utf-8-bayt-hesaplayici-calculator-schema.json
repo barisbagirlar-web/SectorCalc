@@ -88,12 +88,7 @@
     "twoByteBytes": "twoByteChars * 2",
     "threeByteBytes": "threeByteChars * 3",
     "fourByteBytes": "fourByteChars * 4",
-    "bomBytes": "bomIncluded * 3",
-    "_asciiBytes__bayt": "{asciiBytes} bayt",
-    "_twoByteBytes__bayt": "{twoByteBytes} bayt",
-    "_threeByteBytes__bayt": "{threeByteBytes} bayt",
-    "_fourByteBytes__bayt": "{fourByteBytes} bayt",
-    "_bomBytes__bayt": "{bomBytes} bayt"
+    "bomBytes": "bomIncluded * 3"
   },
   "outputs": {
     "primary": "totalBytes",
@@ -103,7 +98,12 @@
       "3-bayt ({threeByteChars} adet × 3): {threeByteBytes} bayt",
       "4-bayt ({fourByteChars} adet × 4): {fourByteBytes} bayt",
       "BOM (3 bayt): {bomBytes} bayt"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "bomBytes"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -113,5 +113,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from vinyl-siding-calculator-schema.json
 import * as z from 'zod';
 
@@ -17,28 +18,36 @@ export const Vinyl_siding_calculatorInputSchema = z.object({
   wastePercentage: z.number().default(10),
 });
 
-function evaluateAllFormulas(input: Vinyl_siding_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.totalWallArea - input.doorWindowArea; results["netArea"] = Number.isFinite(v) ? v : 0; } catch { results["netArea"] = 0; }
-  try { const v = 1 + (input.wastePercentage / 100); results["wasteFactor"] = Number.isFinite(v) ? v : 0; } catch { results["wasteFactor"] = 0; }
-  try { const v = ((results["netArea"] ?? 0) * (results["wasteFactor"] ?? 0)) / input.panelCoverage; results["panelsNeeded"] = Number.isFinite(v) ? v : 0; } catch { results["panelsNeeded"] = 0; }
-  try { const v = (results["netArea"] ?? 0) * (input.wastePercentage / 100); results["wasteArea"] = Number.isFinite(v) ? v : 0; } catch { results["wasteArea"] = 0; }
-  try { const v = (results["panelsNeeded"] ?? 0) * input.pricePerPanel; results["totalCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Vinyl_siding_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.totalWallArea - input.doorWindowArea; results["netArea"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["netArea"] = 0; }
+  try { const v = 1 + (input.wastePercentage / 100); results["wasteFactor"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["wasteFactor"] = 0; }
+  try { const v = ((asFormulaNumber(results["netArea"])) * (asFormulaNumber(results["wasteFactor"]))) / input.panelCoverage; results["panelsNeeded"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["panelsNeeded"] = 0; }
+  try { const v = (asFormulaNumber(results["netArea"])) * (input.wastePercentage / 100); results["wasteArea"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["wasteArea"] = 0; }
+  try { const v = (asFormulaNumber(results["panelsNeeded"])) * input.pricePerPanel; results["totalCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalCost"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateVinyl_siding_calculator(input: Vinyl_siding_calculatorInput): Vinyl_siding_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalCost"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["totalCost"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

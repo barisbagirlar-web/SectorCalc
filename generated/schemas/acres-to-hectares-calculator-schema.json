@@ -68,16 +68,19 @@
   ],
   "formulas": {
     "acres": "inputUnit === 0 ? inputValue : inputValue / conversionFactor",
-    "hectares": "inputUnit === 0 ? inputValue * conversionFactor : inputValue",
-    "roundedAcres": "Math.round(acres * (10 ** decimalPlaces)) / (10 ** decimalPlaces)",
-    "roundedHectares": "Math.round(hectares * (10 ** decimalPlaces)) / (10 ** decimalPlaces)"
+    "hectares": "inputUnit === 0 ? inputValue * conversionFactor : inputValue"
   },
   "outputs": {
-    "primary": "roundedHectares",
+    "primary": "hectares",
     "breakdown": [
       "roundedAcres",
       "roundedHectares"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roundedHectares"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -87,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

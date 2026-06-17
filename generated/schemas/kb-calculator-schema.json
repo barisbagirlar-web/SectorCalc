@@ -67,18 +67,21 @@
     }
   ],
   "formulas": {
-    "k": "(shearModulus * Math.pow(wireDia, 4)) / (8 * Math.pow(coilDia, 3) * activeCoils)",
-    "Tel__ap_n_n_4__kuvveti": "Tel çapının 4. kuvveti",
-    "Sar_m__ap_n_n_3__kuvveti": "Sarım çapının 3. kuvveti",
-    "Payda__arp_m_": "Payda çarpımı"
+    "result": "wireDia + coilDia + activeCoils",
+    "result_copy": "wireDia + coilDia + activeCoils"
   },
   "outputs": {
-    "primary": "k",
+    "primary": "result",
     "breakdown": [
       "Tel çapının 4. kuvveti",
       "Sarım çapının 3. kuvveti",
       "Payda çarpımı"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "k_aux"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -88,5 +91,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

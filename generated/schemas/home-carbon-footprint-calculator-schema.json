@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kWh",
       "default": 3500,
-      "businessContext": "Total electricity used in a year, typically found on utility bills or annual energy statements."
+      "businessContext": "Total electricity used in a year, typically found on utility bills or annual energy statements.",
+      "label_i18n": {
+        "en": "Annual Electricity Consumption",
+        "tr": "Annual Electricity Consumption",
+        "de": "Annual Electricity Consumption",
+        "fr": "Annual Electricity Consumption",
+        "es": "Annual Electricity Consumption",
+        "ar": "Annual Electricity Consumption"
+      }
     },
     {
       "id": "gasAnnual",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "therms",
       "default": 400,
-      "businessContext": "Total natural gas consumed in a year for heating, cooking, etc., from gas utility bills."
+      "businessContext": "Total natural gas consumed in a year for heating, cooking, etc., from gas utility bills.",
+      "label_i18n": {
+        "en": "Annual Natural Gas Consumption",
+        "tr": "Annual Natural Gas Consumption",
+        "de": "Annual Natural Gas Consumption",
+        "fr": "Annual Natural Gas Consumption",
+        "es": "Annual Natural Gas Consumption",
+        "ar": "Annual Natural Gas Consumption"
+      }
     },
     {
       "id": "carMilesAnnual",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "miles",
       "default": 12000,
-      "businessContext": "Total miles driven per year in a typical gasoline-powered car (average fuel economy ~25 mpg)."
+      "businessContext": "Total miles driven per year in a typical gasoline-powered car (average fuel economy ~25 mpg).",
+      "label_i18n": {
+        "en": "Annual Car Travel",
+        "tr": "Annual Car Travel",
+        "de": "Annual Car Travel",
+        "fr": "Annual Car Travel",
+        "es": "Annual Car Travel",
+        "ar": "Annual Car Travel"
+      }
     },
     {
       "id": "airTravelAnnual",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "km",
       "default": 5000,
-      "businessContext": "Total distance flown per year as a passenger, including all flights (long-haul average emission factor)."
+      "businessContext": "Total distance flown per year as a passenger, including all flights (long-haul average emission factor).",
+      "label_i18n": {
+        "en": "Annual Air Travel",
+        "tr": "Annual Air Travel",
+        "de": "Annual Air Travel",
+        "fr": "Annual Air Travel",
+        "es": "Annual Air Travel",
+        "ar": "Annual Air Travel"
+      }
     }
   ],
   "formulas": {
@@ -48,7 +80,12 @@
       "gasEmissions",
       "carEmissions",
       "airEmissions"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "total"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -58,5 +95,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

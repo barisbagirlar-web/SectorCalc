@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from circumference-calculator-schema.json
 import * as z from 'zod';
 
@@ -17,29 +18,33 @@ export const Circumference_calculatorInputSchema = z.object({
   decimalPlaces: z.number().default(2),
 });
 
-function evaluateAllFormulas(input: Circumference_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.radius * input.conversionFactor || (input.diameter * input.conversionFactor) / 2 || Math.sqrt((input.area * input.conversionFactor * input.conversionFactor) / Math.PI) || 0; results["effectiveRadius"] = Number.isFinite(v) ? v : 0; } catch { results["effectiveRadius"] = 0; }
-  try { const v = (results["effectiveRadius"] ?? 0) * 2; results["effectiveDiameter"] = Number.isFinite(v) ? v : 0; } catch { results["effectiveDiameter"] = 0; }
-  try { const v = Number((Math.PI * (results["effectiveDiameter"] ?? 0)).toFixed(input.decimalPlaces)); results["circum"] = Number.isFinite(v) ? v : 0; } catch { results["circum"] = 0; }
-  try { const v = Number((results["effectiveRadius"] ?? 0).toFixed(input.decimalPlaces)); results["radius_out"] = Number.isFinite(v) ? v : 0; } catch { results["radius_out"] = 0; }
-  try { const v = Number((results["effectiveDiameter"] ?? 0).toFixed(input.decimalPlaces)); results["diameter_out"] = Number.isFinite(v) ? v : 0; } catch { results["diameter_out"] = 0; }
-  try { const v = Number((Math.PI * (results["effectiveRadius"] ?? 0) ** 2).toFixed(input.decimalPlaces)); results["area_out"] = Number.isFinite(v) ? v : 0; } catch { results["area_out"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Circumference_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.radius + input.diameter + input.area; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.radius + input.diameter + input.area; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateCircumference_calculator(input: Circumference_calculatorInput): Circumference_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["circum"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

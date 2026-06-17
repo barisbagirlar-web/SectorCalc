@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "days",
       "default": 1,
-      "businessContext": "Number of days the car is rented"
+      "businessContext": "Number of days the car is rented",
+      "label_i18n": {
+        "en": "Rental Duration (days)",
+        "tr": "Rental Duration (days)",
+        "de": "Rental Duration (days)",
+        "fr": "Rental Duration (days)",
+        "es": "Rental Duration (days)",
+        "ar": "Rental Duration (days)"
+      }
     },
     {
       "id": "dailyRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 50,
-      "businessContext": "Base rental rate per day"
+      "businessContext": "Base rental rate per day",
+      "label_i18n": {
+        "en": "Daily Rental Rate",
+        "tr": "Daily Rental Rate",
+        "de": "Daily Rental Rate",
+        "fr": "Daily Rental Rate",
+        "es": "Daily Rental Rate",
+        "ar": "Daily Rental Rate"
+      }
     },
     {
       "id": "mileagePerDay",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "km",
       "default": 200,
-      "businessContext": "Estimated kilometers driven per day"
+      "businessContext": "Estimated kilometers driven per day",
+      "label_i18n": {
+        "en": "Average Mileage per Day",
+        "tr": "Average Mileage per Day",
+        "de": "Average Mileage per Day",
+        "fr": "Average Mileage per Day",
+        "es": "Average Mileage per Day",
+        "ar": "Average Mileage per Day"
+      }
     },
     {
       "id": "fuelPricePerLiter",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency/L",
       "default": 1.5,
-      "businessContext": "Current fuel price per liter"
+      "businessContext": "Current fuel price per liter",
+      "label_i18n": {
+        "en": "Fuel Price per Liter",
+        "tr": "Fuel Price per Liter",
+        "de": "Fuel Price per Liter",
+        "fr": "Fuel Price per Liter",
+        "es": "Fuel Price per Liter",
+        "ar": "Fuel Price per Liter"
+      }
     },
     {
       "id": "fuelEfficiency",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "L/100km",
       "default": 7,
-      "businessContext": "Car's fuel consumption rate"
+      "businessContext": "Car's fuel consumption rate",
+      "label_i18n": {
+        "en": "Fuel Efficiency",
+        "tr": "Fuel Efficiency",
+        "de": "Fuel Efficiency",
+        "fr": "Fuel Efficiency",
+        "es": "Fuel Efficiency",
+        "ar": "Fuel Efficiency"
+      }
     },
     {
       "id": "insurancePerDay",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Optional insurance charge per day"
+      "businessContext": "Optional insurance charge per day",
+      "label_i18n": {
+        "en": "Insurance Cost per Day",
+        "tr": "Insurance Cost per Day",
+        "de": "Insurance Cost per Day",
+        "fr": "Insurance Cost per Day",
+        "es": "Insurance Cost per Day",
+        "ar": "Insurance Cost per Day"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
       "baseRental",
       "fuelCost",
       "insuranceCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -72,5 +125,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -138,92 +138,6 @@
       "businessContext_i18n": {
         "en": "Average maintenance cost per kilometer, including tires, oil, and repairs."
       }
-    },
-    {
-      "id": "toll_cost",
-      "label": "Toll Cost",
-      "type": "number",
-      "unit": "currency",
-      "default": 0,
-      "min": 0,
-      "max": 500,
-      "businessContext": "Total toll charges along the route, if applicable.",
-      "label_i18n": {
-        "en": "Toll Cost"
-      },
-      "businessContext_i18n": {
-        "en": "Total toll charges along the route, if applicable."
-      }
-    },
-    {
-      "id": "insurance_rate_per_kg",
-      "label": "Insurance Rate per kg",
-      "type": "number",
-      "unit": "currency/kg",
-      "default": 0.02,
-      "min": 0,
-      "max": 1,
-      "businessContext": "Insurance premium per kilogram of cargo value, covering risk during transit.",
-      "label_i18n": {
-        "en": "Insurance Rate per kg"
-      },
-      "businessContext_i18n": {
-        "en": "Insurance premium per kilogram of cargo value, covering risk during transit."
-      }
-    },
-    {
-      "id": "overhead_percentage",
-      "label": "Overhead Percentage",
-      "type": "number",
-      "unit": "%",
-      "default": 10,
-      "min": 0,
-      "max": 50,
-      "businessContext": "Indirect costs (administration, IT, facilities) as a percentage of direct costs.",
-      "label_i18n": {
-        "en": "Overhead Percentage"
-      },
-      "businessContext_i18n": {
-        "en": "Indirect costs (administration, IT, facilities) as a percentage of direct costs."
-      }
-    },
-    {
-      "id": "is_express_delivery",
-      "label": "Express Delivery",
-      "type": "boolean",
-      "unit": "unit",
-      "default": false,
-      "min": null,
-      "max": null,
-      "businessContext": "If true, applies a premium multiplier to reflect expedited service costs.",
-      "label_i18n": {
-        "en": "Express Delivery"
-      },
-      "businessContext_i18n": {
-        "en": "If true, applies a premium multiplier to reflect expedited service costs."
-      }
-    },
-    {
-      "id": "delivery_zone",
-      "label": "Delivery Zone",
-      "type": "select",
-      "unit": "unit",
-      "default": "urban",
-      "min": null,
-      "max": null,
-      "options": [
-        "urban",
-        "suburban",
-        "rural",
-        "remote"
-      ],
-      "businessContext": "Geographic zone classification affecting last-mile complexity and cost multipliers.",
-      "label_i18n": {
-        "en": "Delivery Zone"
-      },
-      "businessContext_i18n": {
-        "en": "Geographic zone classification affecting last-mile complexity and cost multipliers."
-      }
     }
   ],
   "validation": {
@@ -265,21 +179,18 @@
       }
     ]
   },
-  "formulas": [
-    "distance_km",
-    "distance_km",
-    "distance_km",
-    "distance_km",
-    "distance_km",
-    "distance_km",
-    "distance_km",
-    "distance_km",
-    "distance_km",
-    "distance_km"
-  ],
+  "formulas": {
+    "result": "distance_km + fuel_cost_per_liter + fuel_efficiency_kmpl",
+    "result_copy": "distance_km + fuel_cost_per_liter + fuel_efficiency_kmpl"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

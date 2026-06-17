@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 300000,
-      "businessContext": "Purchase price of the property"
+      "businessContext": "Purchase price of the property",
+      "label_i18n": {
+        "en": "Property Price",
+        "tr": "Property Price",
+        "de": "Property Price",
+        "fr": "Property Price",
+        "es": "Property Price",
+        "ar": "Property Price"
+      }
     },
     {
       "id": "downPaymentRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Percentage of property price paid upfront"
+      "businessContext": "Percentage of property price paid upfront",
+      "label_i18n": {
+        "en": "Down Payment Rate",
+        "tr": "Down Payment Rate",
+        "de": "Down Payment Rate",
+        "fr": "Down Payment Rate",
+        "es": "Down Payment Rate",
+        "ar": "Down Payment Rate"
+      }
     },
     {
       "id": "originationFeeRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 1,
-      "businessContext": "Lender's fee as percentage of loan amount"
+      "businessContext": "Lender's fee as percentage of loan amount",
+      "label_i18n": {
+        "en": "Loan Origination Fee Rate",
+        "tr": "Loan Origination Fee Rate",
+        "de": "Loan Origination Fee Rate",
+        "fr": "Loan Origination Fee Rate",
+        "es": "Loan Origination Fee Rate",
+        "ar": "Loan Origination Fee Rate"
+      }
     },
     {
       "id": "appraisalFee",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 500,
-      "businessContext": "Cost of professional property appraisal"
+      "businessContext": "Cost of professional property appraisal",
+      "label_i18n": {
+        "en": "Appraisal Fee",
+        "tr": "Appraisal Fee",
+        "de": "Appraisal Fee",
+        "fr": "Appraisal Fee",
+        "es": "Appraisal Fee",
+        "ar": "Appraisal Fee"
+      }
     },
     {
       "id": "titleInsurance",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD",
       "default": 1000,
-      "businessContext": "Insurance protecting against title defects"
+      "businessContext": "Insurance protecting against title defects",
+      "label_i18n": {
+        "en": "Title Insurance",
+        "tr": "Title Insurance",
+        "de": "Title Insurance",
+        "fr": "Title Insurance",
+        "es": "Title Insurance",
+        "ar": "Title Insurance"
+      }
     },
     {
       "id": "recordingFees",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "USD",
       "default": 200,
-      "businessContext": "Government fees for recording the deed"
+      "businessContext": "Government fees for recording the deed",
+      "label_i18n": {
+        "en": "Recording Fees",
+        "tr": "Recording Fees",
+        "de": "Recording Fees",
+        "fr": "Recording Fees",
+        "es": "Recording Fees",
+        "ar": "Recording Fees"
+      }
     }
   ],
   "formulas": {
@@ -64,7 +112,12 @@
       "appraisalFee",
       "titleInsurance",
       "recordingFees"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalClosingCosts"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -74,5 +127,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

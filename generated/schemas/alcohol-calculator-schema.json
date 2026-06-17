@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "L",
       "default": 1,
-      "businessContext": "Seyreltilecek alkollü çözeltinin başlangıç hacmi."
+      "businessContext": "Seyreltilecek alkollü çözeltinin başlangıç hacmi.",
+      "label_i18n": {
+        "en": "Başlangıç Hacmi",
+        "tr": "Başlangıç Hacmi",
+        "de": "Başlangıç Hacmi",
+        "fr": "Başlangıç Hacmi",
+        "es": "Başlangıç Hacmi",
+        "ar": "Başlangıç Hacmi"
+      }
     },
     {
       "id": "startABV",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "% ABV",
       "default": 96,
-      "businessContext": "Çözeltinin başlangıçtaki hacimce alkol yüzdesi (ör. %96)."
+      "businessContext": "Çözeltinin başlangıçtaki hacimce alkol yüzdesi (ör. %96).",
+      "label_i18n": {
+        "en": "Başlangıç Alkol Oranı",
+        "tr": "Başlangıç Alkol Oranı",
+        "de": "Başlangıç Alkol Oranı",
+        "fr": "Başlangıç Alkol Oranı",
+        "es": "Başlangıç Alkol Oranı",
+        "ar": "Başlangıç Alkol Oranı"
+      }
     },
     {
       "id": "targetABV",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "% ABV",
       "default": 40,
-      "businessContext": "Ulaşmak istenen hacimce alkol yüzdesi (ör. %40)."
+      "businessContext": "Ulaşmak istenen hacimce alkol yüzdesi (ör. %40).",
+      "label_i18n": {
+        "en": "Hedef Alkol Oranı",
+        "tr": "Hedef Alkol Oranı",
+        "de": "Hedef Alkol Oranı",
+        "fr": "Hedef Alkol Oranı",
+        "es": "Hedef Alkol Oranı",
+        "ar": "Hedef Alkol Oranı"
+      }
     },
     {
       "id": "temperature",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Ortam sıcaklığı; hacim düzeltmesi için referans alınır."
+      "businessContext": "Ortam sıcaklığı; hacim düzeltmesi için referans alınır.",
+      "label_i18n": {
+        "en": "Sıcaklık",
+        "tr": "Sıcaklık",
+        "de": "Sıcaklık",
+        "fr": "Sıcaklık",
+        "es": "Sıcaklık",
+        "ar": "Sıcaklık"
+      }
     }
   ],
   "formulas": {
@@ -42,7 +74,12 @@
     "primary": "waterToAdd",
     "breakdown": [
       "finalVolume"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "finalVolume"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -52,5 +89,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

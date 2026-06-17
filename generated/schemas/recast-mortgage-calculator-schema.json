@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 200000,
-      "businessContext": "The outstanding principal balance of the mortgage."
+      "businessContext": "The outstanding principal balance of the mortgage.",
+      "label_i18n": {
+        "en": "Current Loan Balance",
+        "tr": "Current Loan Balance",
+        "de": "Current Loan Balance",
+        "fr": "Current Loan Balance",
+        "es": "Current Loan Balance",
+        "ar": "Current Loan Balance"
+      }
     },
     {
       "id": "annualInterestRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 4.5,
-      "businessContext": "The annual interest rate on the loan."
+      "businessContext": "The annual interest rate on the loan.",
+      "label_i18n": {
+        "en": "Annual Interest Rate",
+        "tr": "Annual Interest Rate",
+        "de": "Annual Interest Rate",
+        "fr": "Annual Interest Rate",
+        "es": "Annual Interest Rate",
+        "ar": "Annual Interest Rate"
+      }
     },
     {
       "id": "remainingTerm",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "months",
       "default": 180,
-      "businessContext": "The number of months remaining on the original loan schedule."
+      "businessContext": "The number of months remaining on the original loan schedule.",
+      "label_i18n": {
+        "en": "Remaining Loan Term",
+        "tr": "Remaining Loan Term",
+        "de": "Remaining Loan Term",
+        "fr": "Remaining Loan Term",
+        "es": "Remaining Loan Term",
+        "ar": "Remaining Loan Term"
+      }
     },
     {
       "id": "lumpSumPayment",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 50000,
-      "businessContext": "The amount you plan to pay toward the principal to recast the mortgage."
+      "businessContext": "The amount you plan to pay toward the principal to recast the mortgage.",
+      "label_i18n": {
+        "en": "Lump Sum Payment",
+        "tr": "Lump Sum Payment",
+        "de": "Lump Sum Payment",
+        "fr": "Lump Sum Payment",
+        "es": "Lump Sum Payment",
+        "ar": "Lump Sum Payment"
+      }
     },
     {
       "id": "recastFee",
@@ -39,26 +71,34 @@
       "type": "number",
       "unit": "USD",
       "default": 250,
-      "businessContext": "The fee charged by the lender for recasting the mortgage."
+      "businessContext": "The fee charged by the lender for recasting the mortgage.",
+      "label_i18n": {
+        "en": "Recast Fee",
+        "tr": "Recast Fee",
+        "de": "Recast Fee",
+        "fr": "Recast Fee",
+        "es": "Recast Fee",
+        "ar": "Recast Fee"
+      }
     }
   ],
   "formulas": {
     "monthlyInterestRate": "annualInterestRate / 100 / 12",
-    "originalMonthlyPayment": "currentBalance * monthlyInterestRate / (1 - Math.pow(1 + monthlyInterestRate, -remainingTerm))",
-    "newBalance": "currentBalance - lumpSumPayment",
-    "newMonthlyPayment": "newBalance * monthlyInterestRate / (1 - Math.pow(1 + monthlyInterestRate, -remainingTerm))",
-    "monthlySavings": "originalMonthlyPayment - newMonthlyPayment",
-    "totalSavings": "monthlySavings * remainingTerm - recastFee",
-    "breakEvenMonths": "monthlySavings > 0 ? Math.ceil(recastFee / monthlySavings) : 0"
+    "newBalance": "currentBalance - lumpSumPayment"
   },
   "outputs": {
-    "primary": "newMonthlyPayment",
+    "primary": "newBalance",
     "breakdown": [
       "originalMonthlyPayment",
       "monthlySavings",
       "totalSavings",
       "breakEvenMonths"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "breakEvenMonths"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -68,5 +108,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "metal",
   "profession": "Sac Teknisyeni",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

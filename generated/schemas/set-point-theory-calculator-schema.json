@@ -76,7 +76,12 @@
     "breakdown": [
       "error",
       "correction"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "adjustedSetPoint"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -86,5 +91,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

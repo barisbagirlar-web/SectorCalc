@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "farads (F)",
       "default": 0,
-      "businessContext": "Capacitance value of the first capacitor in farads."
+      "businessContext": "Capacitance value of the first capacitor in farads.",
+      "label_i18n": {
+        "en": "Capacitor 1 Capacitance",
+        "tr": "Capacitor 1 Capacitance",
+        "de": "Capacitor 1 Capacitance",
+        "fr": "Capacitor 1 Capacitance",
+        "es": "Capacitor 1 Capacitance",
+        "ar": "Capacitor 1 Capacitance"
+      }
     },
     {
       "id": "C2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "farads (F)",
       "default": 0,
-      "businessContext": "Capacitance value of the second capacitor in farads."
+      "businessContext": "Capacitance value of the second capacitor in farads.",
+      "label_i18n": {
+        "en": "Capacitor 2 Capacitance",
+        "tr": "Capacitor 2 Capacitance",
+        "de": "Capacitor 2 Capacitance",
+        "fr": "Capacitor 2 Capacitance",
+        "es": "Capacitor 2 Capacitance",
+        "ar": "Capacitor 2 Capacitance"
+      }
     },
     {
       "id": "C3",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "farads (F)",
       "default": 0,
-      "businessContext": "Capacitance value of the third capacitor in farads. Set to 0 if not used."
+      "businessContext": "Capacitance value of the third capacitor in farads. Set to 0 if not used.",
+      "label_i18n": {
+        "en": "Capacitor 3 Capacitance",
+        "tr": "Capacitor 3 Capacitance",
+        "de": "Capacitor 3 Capacitance",
+        "fr": "Capacitor 3 Capacitance",
+        "es": "Capacitor 3 Capacitance",
+        "ar": "Capacitor 3 Capacitance"
+      }
     },
     {
       "id": "C4",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "farads (F)",
       "default": 0,
-      "businessContext": "Capacitance value of the fourth capacitor in farads. Set to 0 if not used."
+      "businessContext": "Capacitance value of the fourth capacitor in farads. Set to 0 if not used.",
+      "label_i18n": {
+        "en": "Capacitor 4 Capacitance",
+        "tr": "Capacitor 4 Capacitance",
+        "de": "Capacitor 4 Capacitance",
+        "fr": "Capacitor 4 Capacitance",
+        "es": "Capacitor 4 Capacitance",
+        "ar": "Capacitor 4 Capacitance"
+      }
     }
   ],
   "formulas": {
@@ -51,7 +83,12 @@
       "recC4",
       "recSum",
       "C_total"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "C_total"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -61,5 +98,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

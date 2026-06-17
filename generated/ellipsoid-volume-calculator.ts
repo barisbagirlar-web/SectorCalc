@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from ellipsoid-volume-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,25 +16,33 @@ export const Ellipsoid_volume_calculatorInputSchema = z.object({
   density: z.number().default(0),
 });
 
-function evaluateAllFormulas(input: Ellipsoid_volume_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = 4/3 * Math.PI * input.semiAxisA * input.semiAxisB * input.semiAxisC; results["volume"] = Number.isFinite(v) ? v : 0; } catch { results["volume"] = 0; }
-  try { const v = input.density > 0 ? (results["volume"] ?? 0) * input.density : null; results["mass"] = Number.isFinite(v) ? v : 0; } catch { results["mass"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Ellipsoid_volume_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = 4/3 * Math.PI * input.semiAxisA * input.semiAxisB * input.semiAxisC; results["volume"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["volume"] = 0; }
+  try { const v = input.density > 0 ? (asFormulaNumber(results["volume"])) * input.density : null; results["mass"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["mass"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateEllipsoid_volume_calculator(input: Ellipsoid_volume_calculatorInput): Ellipsoid_volume_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["volume"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["volume"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

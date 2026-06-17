@@ -132,19 +132,20 @@
   ],
   "formulas": {
     "primary": "Kp*(setpoint - processVariable) + Ki*(integral + (setpoint - processVariable)*dt) + Kd*((setpoint - processVariable) - previousError)/dt",
-    "breakdown": "setpoint",
-    "Proportional_Term__P_": "Proportional Term (P)",
-    "Integral_Term__I_": "Integral Term (I)",
-    "Derivative_Term__D_": "Derivative Term (D)",
-    "result": "Controller Output (u)"
+    "breakdown": "setpoint"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "breakdown",
     "breakdown": [
       "Proportional Term (P)",
       "Integral Term (I)",
       "Derivative Term (D)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "breakdown"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -154,5 +155,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -59,19 +59,20 @@
     }
   ],
   "formulas": {
-    "x": "radius * Math.cos(angle * Math.PI / 180)",
-    "y": "radius * Math.sin(angle * Math.PI / 180)",
     "angleRad": "angle * Math.PI / 180",
-    "x___radius___cos___": "x = radius * cos(θ)",
-    "y___radius___sin___": "y = radius * sin(θ)",
-    "result": "Cartesian coordinates (x, y)"
+    "angleRad_aux": "angle * Math.PI / 180"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "angleRad_aux",
     "breakdown": [
       "x = radius * cos(θ)",
       "y = radius * sin(θ)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "y___radius___sin___"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -81,5 +82,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

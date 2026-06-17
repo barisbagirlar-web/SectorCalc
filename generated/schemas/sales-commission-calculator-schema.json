@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 5000,
-      "businessContext": "Total monetary value of sales closed in the commission period."
+      "businessContext": "Total monetary value of sales closed in the commission period.",
+      "label_i18n": {
+        "en": "Total Sales",
+        "tr": "Total Sales",
+        "de": "Total Sales",
+        "fr": "Total Sales",
+        "es": "Total Sales",
+        "ar": "Total Sales"
+      }
     },
     {
       "id": "commissionRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "percentage",
       "default": 5,
-      "businessContext": "Standard commission rate applied to total sales."
+      "businessContext": "Standard commission rate applied to total sales.",
+      "label_i18n": {
+        "en": "Commission Rate",
+        "tr": "Commission Rate",
+        "de": "Commission Rate",
+        "fr": "Commission Rate",
+        "es": "Commission Rate",
+        "ar": "Commission Rate"
+      }
     },
     {
       "id": "targetSales",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 10000,
-      "businessContext": "Sales threshold above which a bonus is earned."
+      "businessContext": "Sales threshold above which a bonus is earned.",
+      "label_i18n": {
+        "en": "Target Sales",
+        "tr": "Target Sales",
+        "de": "Target Sales",
+        "fr": "Target Sales",
+        "es": "Target Sales",
+        "ar": "Target Sales"
+      }
     },
     {
       "id": "bonusRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "percentage",
       "default": 2,
-      "businessContext": "Additional commission rate applied to sales above target."
+      "businessContext": "Additional commission rate applied to sales above target.",
+      "label_i18n": {
+        "en": "Bonus Rate",
+        "tr": "Bonus Rate",
+        "de": "Bonus Rate",
+        "fr": "Bonus Rate",
+        "es": "Bonus Rate",
+        "ar": "Bonus Rate"
+      }
     },
     {
       "id": "baseSalary",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency",
       "default": 2000,
-      "businessContext": "Fixed base salary regardless of sales."
+      "businessContext": "Fixed base salary regardless of sales.",
+      "label_i18n": {
+        "en": "Base Salary",
+        "tr": "Base Salary",
+        "de": "Base Salary",
+        "fr": "Base Salary",
+        "es": "Base Salary",
+        "ar": "Base Salary"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
       "baseSalaryOutput",
       "commission",
       "bonus"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCompensation"
   },
   "category": "İK & Personel",
   "sector": "Finans & İK",
@@ -64,5 +109,10 @@
   "categorySlug": "workforce-hr",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "hr"
+  "categoryId": "hr",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

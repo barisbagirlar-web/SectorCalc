@@ -101,16 +101,20 @@
   "formulas": {
     "totalDegrees": "useDMS === 1 ? (degreesDMS + minutes/60 + seconds/3600) : decimalDegrees",
     "conversionFactor": "10/9",
-    "gradians": "totalDegrees * conversionFactor",
-    "roundedGradians": "Math.round(gradians * Math.pow(10, precision)) / Math.pow(10, precision)"
+    "gradians": "totalDegrees * conversionFactor"
   },
   "outputs": {
-    "primary": "roundedGradians",
+    "primary": "gradians",
     "breakdown": [
       "totalDegrees",
       "conversionFactor",
       "gradians"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roundedGradians"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -120,5 +124,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

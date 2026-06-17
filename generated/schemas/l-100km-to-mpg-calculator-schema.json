@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "L/100km",
       "default": 8,
-      "businessContext": "Measured or rated fuel consumption in liters per 100 kilometers."
+      "businessContext": "Measured or rated fuel consumption in liters per 100 kilometers.",
+      "label_i18n": {
+        "en": "Fuel Consumption (L/100km)",
+        "tr": "Fuel Consumption (L/100km)",
+        "de": "Fuel Consumption (L/100km)",
+        "fr": "Fuel Consumption (L/100km)",
+        "es": "Fuel Consumption (L/100km)",
+        "ar": "Fuel Consumption (L/100km)"
+      }
     },
     {
       "id": "gallon_type",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "none",
       "default": 1,
-      "businessContext": "1 = US gallon (3.785411784 L), 2 = UK gallon (4.54609 L)."
+      "businessContext": "1 = US gallon (3.785411784 L), 2 = UK gallon (4.54609 L).",
+      "label_i18n": {
+        "en": "Gallon Standard",
+        "tr": "Gallon Standard",
+        "de": "Gallon Standard",
+        "fr": "Gallon Standard",
+        "es": "Gallon Standard",
+        "ar": "Gallon Standard"
+      }
     },
     {
       "id": "decimal_places",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "none",
       "default": 2,
-      "businessContext": "Number of decimal places for output rounding."
+      "businessContext": "Number of decimal places for output rounding.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "rounding_method",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "none",
       "default": 0,
-      "businessContext": "0 = round, 1 = floor, 2 = ceil."
+      "businessContext": "0 = round, 1 = floor, 2 = ceil.",
+      "label_i18n": {
+        "en": "Rounding Method",
+        "tr": "Rounding Method",
+        "de": "Rounding Method",
+        "fr": "Rounding Method",
+        "es": "Rounding Method",
+        "ar": "Rounding Method"
+      }
     },
     {
       "id": "measurement_standard",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "none",
       "default": 1,
-      "businessContext": "1 = EU, 2 = US, 3 = UK, for reporting context."
+      "businessContext": "1 = EU, 2 = US, 3 = UK, for reporting context.",
+      "label_i18n": {
+        "en": "Measurement Standard",
+        "tr": "Measurement Standard",
+        "de": "Measurement Standard",
+        "fr": "Measurement Standard",
+        "es": "Measurement Standard",
+        "ar": "Measurement Standard"
+      }
     },
     {
       "id": "fuel_type",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "none",
       "default": 1,
-      "businessContext": "1 = petrol, 2 = diesel, 3 = electric equivalent (for context)."
+      "businessContext": "1 = petrol, 2 = diesel, 3 = electric equivalent (for context).",
+      "label_i18n": {
+        "en": "Fuel Type",
+        "tr": "Fuel Type",
+        "de": "Fuel Type",
+        "fr": "Fuel Type",
+        "es": "Fuel Type",
+        "ar": "Fuel Type"
+      }
     },
     {
       "id": "vehicle_class",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "none",
       "default": 1,
-      "businessContext": "1 = passenger car, 2 = light truck, 3 = heavy duty (for context)."
+      "businessContext": "1 = passenger car, 2 = light truck, 3 = heavy duty (for context).",
+      "label_i18n": {
+        "en": "Vehicle Class",
+        "tr": "Vehicle Class",
+        "de": "Vehicle Class",
+        "fr": "Vehicle Class",
+        "es": "Vehicle Class",
+        "ar": "Vehicle Class"
+      }
     },
     {
       "id": "route_type",
@@ -63,22 +119,34 @@
       "type": "number",
       "unit": "none",
       "default": 3,
-      "businessContext": "1 = highway, 2 = city, 3 = combined (driving condition context)."
+      "businessContext": "1 = highway, 2 = city, 3 = combined (driving condition context).",
+      "label_i18n": {
+        "en": "Route Type",
+        "tr": "Route Type",
+        "de": "Route Type",
+        "fr": "Route Type",
+        "es": "Route Type",
+        "ar": "Route Type"
+      }
     }
   ],
   "formulas": {
     "conversion_factor": "gallon_type == 1 ? 235.214583 : 282.480936",
-    "base_mpg": "l_per_100km > 0 ? conversion_factor / l_per_100km : 0",
-    "output_mpg": "rounding_method == 0 ? Math.round(base_mpg * Math.pow(10, decimal_places)) / Math.pow(10, decimal_places) : rounding_method == 1 ? Math.floor(base_mpg * Math.pow(10, decimal_places)) / Math.pow(10, decimal_places) : Math.ceil(base_mpg * Math.pow(10, decimal_places)) / Math.pow(10, decimal_places)"
+    "base_mpg": "l_per_100km > 0 ? conversion_factor / l_per_100km : 0"
   },
   "outputs": {
-    "primary": "output_mpg",
+    "primary": "base_mpg",
     "breakdown": [
       "Input Fuel Consumption: l_per_100km L/100km",
       "Gallon Standard: gallon_type == 1 ? 'US' : 'UK'",
       "Conversion Factor: conversion_factor",
       "Calculated MPG: output_mpg miles per gallon"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "output_mpg"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -88,5 +156,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

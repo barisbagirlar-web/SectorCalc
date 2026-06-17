@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 50000,
-      "businessContext": "Annual base salary before taxes"
+      "businessContext": "Annual base salary before taxes",
+      "label_i18n": {
+        "en": "Annual Salary",
+        "tr": "Annual Salary",
+        "de": "Annual Salary",
+        "fr": "Annual Salary",
+        "es": "Annual Salary",
+        "ar": "Annual Salary"
+      }
     },
     {
       "id": "weeksWorked",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "weeks",
       "default": 52,
-      "businessContext": "Number of weeks typically worked in a year (e.g., 52 for full year)"
+      "businessContext": "Number of weeks typically worked in a year (e.g., 52 for full year)",
+      "label_i18n": {
+        "en": "Weeks Worked per Year",
+        "tr": "Weeks Worked per Year",
+        "de": "Weeks Worked per Year",
+        "fr": "Weeks Worked per Year",
+        "es": "Weeks Worked per Year",
+        "ar": "Weeks Worked per Year"
+      }
     },
     {
       "id": "hoursPerWeek",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "hours",
       "default": 40,
-      "businessContext": "Standard weekly working hours"
+      "businessContext": "Standard weekly working hours",
+      "label_i18n": {
+        "en": "Hours Worked per Week",
+        "tr": "Hours Worked per Week",
+        "de": "Hours Worked per Week",
+        "fr": "Hours Worked per Week",
+        "es": "Hours Worked per Week",
+        "ar": "Hours Worked per Week"
+      }
     },
     {
       "id": "benefitsRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "ratio",
       "default": 0.3,
-      "businessContext": "Employer cost of benefits as a decimal of salary (e.g., 0.3 for 30%)"
+      "businessContext": "Employer cost of benefits as a decimal of salary (e.g., 0.3 for 30%)",
+      "label_i18n": {
+        "en": "Benefits Rate",
+        "tr": "Benefits Rate",
+        "de": "Benefits Rate",
+        "fr": "Benefits Rate",
+        "es": "Benefits Rate",
+        "ar": "Benefits Rate"
+      }
     },
     {
       "id": "overheadRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "ratio",
       "default": 0.5,
-      "businessContext": "Overhead allocation as a decimal of total labor cost (e.g., 0.5 for 50%)"
+      "businessContext": "Overhead allocation as a decimal of total labor cost (e.g., 0.5 for 50%)",
+      "label_i18n": {
+        "en": "Overhead Rate",
+        "tr": "Overhead Rate",
+        "de": "Overhead Rate",
+        "fr": "Overhead Rate",
+        "es": "Overhead Rate",
+        "ar": "Overhead Rate"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
       "annualCost",
       "effectiveAnnualCost",
       "weeklyRate"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "weeklyRate"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -64,5 +109,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "hr"
+  "categoryId": "hr",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

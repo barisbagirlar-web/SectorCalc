@@ -99,18 +99,21 @@
     }
   ],
   "formulas": {
-    "slingAngleRad": "inputs.slingAngle * Math.PI / 180",
-    "baseLoadPerSling": "inputs.loadWeight / inputs.numberOfSlingLegs",
-    "actualLoadPerSling": "(inputs.loadWeight * inputs.dynamicFactor) / (inputs.numberOfSlingLegs * inputs.efficiencyFactor * Math.cos(slingAngleRad))",
-    "requiredBreakingStrength": "actualLoadPerSling * inputs.safetyFactor"
+    "result": "loadWeight + numberOfSlingLegs + slingAngle",
+    "result_copy": "loadWeight + numberOfSlingLegs + slingAngle"
   },
   "outputs": {
-    "primary": "actualLoadPerSling",
+    "primary": "result",
     "breakdown": [
       "baseLoadPerSling",
       "slingAngleRad",
       "requiredBreakingStrength"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "requiredBreakingStrength"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -120,5 +123,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "Üretime giren toplam hammadde miktarı"
+      "businessContext": "Üretime giren toplam hammadde miktarı",
+      "label_i18n": {
+        "en": "Toplam Malzeme (kg)",
+        "tr": "Toplam Malzeme (kg)",
+        "de": "Toplam Malzeme (kg)",
+        "fr": "Toplam Malzeme (kg)",
+        "es": "Toplam Malzeme (kg)",
+        "ar": "Toplam Malzeme (kg)"
+      }
     },
     {
       "id": "goodProduct",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 85,
-      "businessContext": "Kalite kontrolden geçen nihai ürün ağırlığı"
+      "businessContext": "Kalite kontrolden geçen nihai ürün ağırlığı",
+      "label_i18n": {
+        "en": "İyi Ürün (kg)",
+        "tr": "İyi Ürün (kg)",
+        "de": "İyi Ürün (kg)",
+        "fr": "İyi Ürün (kg)",
+        "es": "İyi Ürün (kg)",
+        "ar": "İyi Ürün (kg)"
+      }
     },
     {
       "id": "reworkMaterial",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 10,
-      "businessContext": "Tamir edilebilir hurda miktarı"
+      "businessContext": "Tamir edilebilir hurda miktarı",
+      "label_i18n": {
+        "en": "Yeniden İşlenebilir (kg)",
+        "tr": "Yeniden İşlenebilir (kg)",
+        "de": "Yeniden İşlenebilir (kg)",
+        "fr": "Yeniden İşlenebilir (kg)",
+        "es": "Yeniden İşlenebilir (kg)",
+        "ar": "Yeniden İşlenebilir (kg)"
+      }
     },
     {
       "id": "scrapPrice",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TL/kg",
       "default": 2.5,
-      "businessContext": "Güncel hurda alım fiyatı"
+      "businessContext": "Güncel hurda alım fiyatı",
+      "label_i18n": {
+        "en": "Hurda Fiyatı (TL/kg)",
+        "tr": "Hurda Fiyatı (TL/kg)",
+        "de": "Hurda Fiyatı (TL/kg)",
+        "fr": "Hurda Fiyatı (TL/kg)",
+        "es": "Hurda Fiyatı (TL/kg)",
+        "ar": "Hurda Fiyatı (TL/kg)"
+      }
     },
     {
       "id": "materialCost",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "TL/kg",
       "default": 12,
-      "businessContext": "Hammadde birim maliyeti"
+      "businessContext": "Hammadde birim maliyeti",
+      "label_i18n": {
+        "en": "Malzeme Maliyeti (TL/kg)",
+        "tr": "Malzeme Maliyeti (TL/kg)",
+        "de": "Malzeme Maliyeti (TL/kg)",
+        "fr": "Malzeme Maliyeti (TL/kg)",
+        "es": "Malzeme Maliyeti (TL/kg)",
+        "ar": "Malzeme Maliyeti (TL/kg)"
+      }
     },
     {
       "id": "laborOverhead",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "TL/kg",
       "default": 5,
-      "businessContext": "İşçilik ve genel üretim giderlerinin kg başına dağıtımı"
+      "businessContext": "İşçilik ve genel üretim giderlerinin kg başına dağıtımı",
+      "label_i18n": {
+        "en": "İşçilik ve Genel Gider (TL/kg)",
+        "tr": "İşçilik ve Genel Gider (TL/kg)",
+        "de": "İşçilik ve Genel Gider (TL/kg)",
+        "fr": "İşçilik ve Genel Gider (TL/kg)",
+        "es": "İşçilik ve Genel Gider (TL/kg)",
+        "ar": "İşçilik ve Genel Gider (TL/kg)"
+      }
     }
   ],
   "formulas": {
@@ -70,7 +118,12 @@
       "reworkLaborCost",
       "totalCostLoss",
       "scrapRevenue"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "netLoss"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -80,5 +133,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

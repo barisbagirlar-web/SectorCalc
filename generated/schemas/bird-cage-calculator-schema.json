@@ -86,9 +86,7 @@
     "surfaceArea": "2 * (length * width + length * height + width * height)",
     "totalWireLengthCm": "(4 / barSpacing) * (width * height + length * height + length * width) + 4 * (length + width + height)",
     "totalWireLength": "totalWireLengthCm / 100",
-    "meshArea": "surfaceArea / 10000",
-    "wireVolume": "(Math.PI * Math.pow(wireDiameter, 2) / 4) * totalWireLengthCm",
-    "totalWeight": "wireVolume * 7.85 / 1000"
+    "meshArea": "surfaceArea / 10000"
   },
   "outputs": {
     "primary": "surfaceArea",
@@ -108,7 +106,12 @@
         "value": "totalWeight",
         "unit": "kg"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalWeight"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -118,5 +121,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

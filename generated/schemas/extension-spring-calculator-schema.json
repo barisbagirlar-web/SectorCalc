@@ -86,19 +86,22 @@
     "meanDiameter": "outerDiameter - wireDiameter",
     "springIndex": "meanDiameter / wireDiameter",
     "activeCoils": "totalCoils - 2",
-    "wahlFactor": "(4*springIndex - 1) / (4*springIndex - 4) + 0.615 / springIndex",
-    "springRate": "(shearModulus * Math.pow(wireDiameter, 4)) / (8 * Math.pow(meanDiameter, 3) * activeCoils)",
-    "maxLoad": "(allowableStress * Math.PI * Math.pow(wireDiameter, 3)) / (8 * meanDiameter * wahlFactor)"
+    "wahlFactor": "(4*springIndex - 1) / (4*springIndex - 4) + 0.615 / springIndex"
   },
   "outputs": {
-    "primary": "springRate",
+    "primary": "wahlFactor",
     "breakdown": [
       "meanDiameter",
       "springIndex",
       "activeCoils",
       "wahlFactor",
       "maxLoad"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "maxLoad"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -108,5 +111,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "metal",
   "profession": "Sac Teknisyeni",
-  "categoryId": "engineering"
+  "categoryId": "engineering",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

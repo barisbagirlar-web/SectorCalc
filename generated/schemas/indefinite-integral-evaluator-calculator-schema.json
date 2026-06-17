@@ -131,17 +131,11 @@
     }
   ],
   "formulas": {
-    "term6": "inputs.a5 / 6 * Math.pow(inputs.x, 6)",
-    "term5": "inputs.a4 / 5 * Math.pow(inputs.x, 5)",
-    "term4": "inputs.a3 / 4 * Math.pow(inputs.x, 4)",
-    "term3": "inputs.a2 / 3 * Math.pow(inputs.x, 3)",
-    "term2": "inputs.a1 / 2 * Math.pow(inputs.x, 2)",
-    "term1": "inputs.a0 * inputs.x",
-    "termC": "inputs.C",
-    "total": "term6 + term5 + term4 + term3 + term2 + term1 + termC"
+    "result": "a5 + a4 + a3",
+    "result_copy": "a5 + a4 + a3"
   },
   "outputs": {
-    "primary": "total",
+    "primary": "result",
     "breakdown": [
       "Integrated term a₅x⁵ → (a₅/6)x⁶ evaluated: term6",
       "Integrated term a₄x⁴ → (a₄/5)x⁵ evaluated: term5",
@@ -151,7 +145,12 @@
       "Integrated constant a₀ → a₀x evaluated: term1",
       "Added integration constant C: termC",
       "Total antiderivative value: total"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "total"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -161,5 +160,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

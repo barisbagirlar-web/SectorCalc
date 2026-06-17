@@ -154,22 +154,6 @@
       "businessContext_i18n": {
         "en": "Standard credit rating of the customer. Lower ratings increase payment default risk."
       }
-    },
-    {
-      "id": "contract_penalty_clause",
-      "label": "Contract Penalty Clause",
-      "type": "boolean",
-      "unit": "unit",
-      "default": false,
-      "min": null,
-      "max": null,
-      "businessContext": "Whether the contract includes penalty clauses for late delivery or non-conformance.",
-      "label_i18n": {
-        "en": "Contract Penalty Clause"
-      },
-      "businessContext_i18n": {
-        "en": "Whether the contract includes penalty clauses for late delivery or non-conformance."
-      }
     }
   ],
   "validation": {
@@ -210,18 +194,18 @@
       }
     ]
   },
-  "formulas": [
-    "order_volume",
-    "order_volume",
-    "order_volume",
-    "order_volume",
-    "order_volume",
-    "order_volume",
-    "order_volume"
-  ],
+  "formulas": {
+    "result": "order_volume + unit_price + production_lead_time_days",
+    "result_copy": "order_volume + unit_price + production_lead_time_days"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "quote-risk-analyzer-calculator",
   "catalogCategory": "everyday-life",

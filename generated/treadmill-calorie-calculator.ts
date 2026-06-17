@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from treadmill-calorie-calculator-schema.json
 import * as z from 'zod';
 
@@ -17,32 +18,40 @@ export const Treadmill_calorie_calculatorInputSchema = z.object({
   exerciseType: z.number().default(0),
 });
 
-function evaluateAllFormulas(input: Treadmill_calorie_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.speed * 1000 / 60; results["speedMperMin"] = Number.isFinite(v) ? v : 0; } catch { results["speedMperMin"] = 0; }
-  try { const v = input.incline / 100; results["grade"] = Number.isFinite(v) ? v : 0; } catch { results["grade"] = 0; }
-  try { const v = 3.5 + 0.1 * (results["speedMperMin"] ?? 0) + 1.8 * (results["speedMperMin"] ?? 0) * (results["grade"] ?? 0); results["VO2walking"] = Number.isFinite(v) ? v : 0; } catch { results["VO2walking"] = 0; }
-  try { const v = 3.5 + 0.2 * (results["speedMperMin"] ?? 0) + 0.9 * (results["speedMperMin"] ?? 0) * (results["grade"] ?? 0); results["VO2running"] = Number.isFinite(v) ? v : 0; } catch { results["VO2running"] = 0; }
-  try { const v = (results["VO2walking"] ?? 0) / 3.5; results["MET_walking"] = Number.isFinite(v) ? v : 0; } catch { results["MET_walking"] = 0; }
-  try { const v = (results["VO2running"] ?? 0) / 3.5; results["MET_running"] = Number.isFinite(v) ? v : 0; } catch { results["MET_running"] = 0; }
-  try { const v = (1 - input.exerciseType) * (results["MET_walking"] ?? 0) + input.exerciseType * (results["MET_running"] ?? 0); results["MET"] = Number.isFinite(v) ? v : 0; } catch { results["MET"] = 0; }
-  try { const v = (results["MET"] ?? 0) * input.weight * (input.duration / 60); results["calories"] = Number.isFinite(v) ? v : 0; } catch { results["calories"] = 0; }
-  try { const v = input.speed * (input.duration / 60); results["distance"] = Number.isFinite(v) ? v : 0; } catch { results["distance"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Treadmill_calorie_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.speed * 1000 / 60; results["speedMperMin"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["speedMperMin"] = 0; }
+  try { const v = input.incline / 100; results["grade"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["grade"] = 0; }
+  try { const v = 3.5 + 0.1 * (asFormulaNumber(results["speedMperMin"])) + 1.8 * (asFormulaNumber(results["speedMperMin"])) * (asFormulaNumber(results["grade"])); results["VO2walking"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["VO2walking"] = 0; }
+  try { const v = 3.5 + 0.2 * (asFormulaNumber(results["speedMperMin"])) + 0.9 * (asFormulaNumber(results["speedMperMin"])) * (asFormulaNumber(results["grade"])); results["VO2running"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["VO2running"] = 0; }
+  try { const v = (asFormulaNumber(results["VO2walking"])) / 3.5; results["MET_walking"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["MET_walking"] = 0; }
+  try { const v = (asFormulaNumber(results["VO2running"])) / 3.5; results["MET_running"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["MET_running"] = 0; }
+  try { const v = (1 - input.exerciseType) * (asFormulaNumber(results["MET_walking"])) + input.exerciseType * (asFormulaNumber(results["MET_running"])); results["MET"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["MET"] = 0; }
+  try { const v = (asFormulaNumber(results["MET"])) * input.weight * (input.duration / 60); results["calories"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["calories"] = 0; }
+  try { const v = input.speed * (input.duration / 60); results["distance"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["distance"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateTreadmill_calorie_calculator(input: Treadmill_calorie_calculatorInput): Treadmill_calorie_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["calories"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["calories"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -52,15 +52,19 @@
   ],
   "formulas": {
     "induced_emf": "-number_of_turns * (magnetic_flux_change / time_interval)",
-    "Induced_EMF____N__________t_": "Induced EMF = -N * (ΔΦ / Δt)",
-    "_____magnetic_flux_change___t___time_int": "ΔΦ = magnetic_flux_change, Δt = time_interval, N = number_of_turns"
+    "induced_emf_aux": "-number_of_turns * (magnetic_flux_change / time_interval)"
   },
   "outputs": {
     "primary": "induced_emf",
     "breakdown": [
       "Induced EMF = -N * (ΔΦ / Δt)",
       "ΔΦ = magnetic_flux_change, Δt = time_interval, N = number_of_turns"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "induced_emf_aux"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -70,5 +74,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "danismanlik",
   "profession": "Strateji Uzmanı",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

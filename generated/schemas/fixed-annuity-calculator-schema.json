@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 10000,
-      "businessContext": "The current amount of money to be financed or invested."
+      "businessContext": "The current amount of money to be financed or invested.",
+      "label_i18n": {
+        "en": "Present Value",
+        "tr": "Present Value",
+        "de": "Present Value",
+        "fr": "Present Value",
+        "es": "Present Value",
+        "ar": "Present Value"
+      }
     },
     {
       "id": "annualInterestRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%/year",
       "default": 5,
-      "businessContext": "The yearly interest rate as a percentage."
+      "businessContext": "The yearly interest rate as a percentage.",
+      "label_i18n": {
+        "en": "Annual Interest Rate",
+        "tr": "Annual Interest Rate",
+        "de": "Annual Interest Rate",
+        "fr": "Annual Interest Rate",
+        "es": "Annual Interest Rate",
+        "ar": "Annual Interest Rate"
+      }
     },
     {
       "id": "numberOfPeriods",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 10,
-      "businessContext": "The total number of payment periods (typically years)."
+      "businessContext": "The total number of payment periods (typically years).",
+      "label_i18n": {
+        "en": "Number of Periods",
+        "tr": "Number of Periods",
+        "de": "Number of Periods",
+        "fr": "Number of Periods",
+        "es": "Number of Periods",
+        "ar": "Number of Periods"
+      }
     },
     {
       "id": "futureValue",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "The desired future value after the last payment; usually 0 for full repayment."
+      "businessContext": "The desired future value after the last payment; usually 0 for full repayment.",
+      "label_i18n": {
+        "en": "Future Value",
+        "tr": "Future Value",
+        "de": "Future Value",
+        "fr": "Future Value",
+        "es": "Future Value",
+        "ar": "Future Value"
+      }
     },
     {
       "id": "paymentType",
@@ -39,15 +71,20 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "0 for payments at the end of each period, 1 for payments at the beginning."
+      "businessContext": "0 for payments at the end of each period, 1 for payments at the beginning.",
+      "label_i18n": {
+        "en": "Payment Type",
+        "tr": "Payment Type",
+        "de": "Payment Type",
+        "fr": "Payment Type",
+        "es": "Payment Type",
+        "ar": "Payment Type"
+      }
     }
   ],
   "formulas": {
     "periodicRate": "annualInterestRate / 100",
-    "payment": "paymentType === 0 ? (periodicRate * (presentValue * Math.pow(1 + periodicRate, numberOfPeriods) + futureValue)) / (Math.pow(1 + periodicRate, numberOfPeriods) - 1) : (periodicRate * (presentValue * Math.pow(1 + periodicRate, numberOfPeriods) + futureValue)) / ((Math.pow(1 + periodicRate, numberOfPeriods) - 1) * (1 + periodicRate))",
-    "absPayment": "Math.abs(payment)",
-    "totalPaid": "absPayment * numberOfPeriods",
-    "totalInterest": "totalPaid - (presentValue - futureValue)"
+    "periodicRate_aux": "annualInterestRate / 100"
   },
   "outputs": {
     "primary": "periodicRate",
@@ -62,7 +99,12 @@
         "label": "Total Interest",
         "unit": "currency"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalInterest"
   },
   "category": "Proje & Yatırım",
   "sector": "Finans & İK",
@@ -72,5 +114,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

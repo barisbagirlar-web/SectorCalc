@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Total horizontal length of the wall in meters."
+      "businessContext": "Total horizontal length of the wall in meters.",
+      "label_i18n": {
+        "en": "Wall Length",
+        "tr": "Wall Length",
+        "de": "Wall Length",
+        "fr": "Wall Length",
+        "es": "Wall Length",
+        "ar": "Wall Length"
+      }
     },
     {
       "id": "wallHeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "Vertical height of the wall in meters."
+      "businessContext": "Vertical height of the wall in meters.",
+      "label_i18n": {
+        "en": "Wall Height",
+        "tr": "Wall Height",
+        "de": "Wall Height",
+        "fr": "Wall Height",
+        "es": "Wall Height",
+        "ar": "Wall Height"
+      }
     },
     {
       "id": "blockLength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.4,
-      "businessContext": "Length of one cinder block in meters (typically 0.4 m)."
+      "businessContext": "Length of one cinder block in meters (typically 0.4 m).",
+      "label_i18n": {
+        "en": "Block Length",
+        "tr": "Block Length",
+        "de": "Block Length",
+        "fr": "Block Length",
+        "es": "Block Length",
+        "ar": "Block Length"
+      }
     },
     {
       "id": "blockHeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.2,
-      "businessContext": "Height of one cinder block in meters (typically 0.2 m)."
+      "businessContext": "Height of one cinder block in meters (typically 0.2 m).",
+      "label_i18n": {
+        "en": "Block Height",
+        "tr": "Block Height",
+        "de": "Block Height",
+        "fr": "Block Height",
+        "es": "Block Height",
+        "ar": "Block Height"
+      }
     },
     {
       "id": "mortarJointThickness",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Thickness of mortar joint between blocks in millimeters."
+      "businessContext": "Thickness of mortar joint between blocks in millimeters.",
+      "label_i18n": {
+        "en": "Mortar Joint Thickness",
+        "tr": "Mortar Joint Thickness",
+        "de": "Mortar Joint Thickness",
+        "fr": "Mortar Joint Thickness",
+        "es": "Mortar Joint Thickness",
+        "ar": "Mortar Joint Thickness"
+      }
     },
     {
       "id": "wasteFactor",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percentage of extra blocks to account for cutting and breakage."
+      "businessContext": "Percentage of extra blocks to account for cutting and breakage.",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     }
   ],
   "formulas": {
@@ -64,7 +112,12 @@
     "breakdown": [
       "netBlocksExact",
       "wasteBlocksExact"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "wasteBlocksExact"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -74,5 +127,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

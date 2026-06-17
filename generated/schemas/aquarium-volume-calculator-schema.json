@@ -104,17 +104,19 @@
     "effectiveWaterDepth": "waterFillDepth - substrateDepth",
     "volume_cm3": "interiorLength * interiorWidth * effectiveWaterDepth",
     "waterVolume_L": "volume_cm3 / 1000",
-    "waterVolume_gal": "waterVolume_L * 0.264172",
-    "____volume_cm3_toFixed_0______cm___": "' + volume_cm3.toFixed(0) + ' cm³)'",
-    "waterVolume_gal_toFixed_2______US_gallon": "waterVolume_gal.toFixed(2) + ' US gallons'",
-    "result": "waterVolume_L.toFixed(2) + ' L'"
+    "waterVolume_gal": "waterVolume_L * 0.264172"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "waterVolume_gal",
     "breakdown": [
       "interiorLength.toFixed(1) + ' × ' + interiorWidth.toFixed(1) + ' × ' + effectiveWaterDepth.toFixed(1) + ' cm (internal volume: ' + volume_cm3.toFixed(0) + ' cm³)'",
       "waterVolume_gal.toFixed(2) + ' US gallons'"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -124,5 +126,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

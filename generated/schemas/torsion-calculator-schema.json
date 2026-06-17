@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "N·m",
       "default": 100,
-      "businessContext": "Torsion moment applied to the shaft"
+      "businessContext": "Torsion moment applied to the shaft",
+      "label_i18n": {
+        "en": "Applied Torque",
+        "tr": "Applied Torque",
+        "de": "Applied Torque",
+        "fr": "Applied Torque",
+        "es": "Applied Torque",
+        "ar": "Applied Torque"
+      }
     },
     {
       "id": "length",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Length of the shaft under torsion"
+      "businessContext": "Length of the shaft under torsion",
+      "label_i18n": {
+        "en": "Shaft Length",
+        "tr": "Shaft Length",
+        "de": "Shaft Length",
+        "fr": "Shaft Length",
+        "es": "Shaft Length",
+        "ar": "Shaft Length"
+      }
     },
     {
       "id": "shearModulus",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Pa",
       "default": 80000000000,
-      "businessContext": "Shear modulus of the material, e.g., steel ~80 GPa"
+      "businessContext": "Shear modulus of the material, e.g., steel ~80 GPa",
+      "label_i18n": {
+        "en": "Shear Modulus (G)",
+        "tr": "Shear Modulus (G)",
+        "de": "Shear Modulus (G)",
+        "fr": "Shear Modulus (G)",
+        "es": "Shear Modulus (G)",
+        "ar": "Shear Modulus (G)"
+      }
     },
     {
       "id": "diameter",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.05,
-      "businessContext": "Outer diameter of the shaft"
+      "businessContext": "Outer diameter of the shaft",
+      "label_i18n": {
+        "en": "Outer Diameter",
+        "tr": "Outer Diameter",
+        "de": "Outer Diameter",
+        "fr": "Outer Diameter",
+        "es": "Outer Diameter",
+        "ar": "Outer Diameter"
+      }
     },
     {
       "id": "innerDiameter",
@@ -39,20 +71,32 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Inner diameter for hollow shafts; set to 0 for solid shafts"
+      "businessContext": "Inner diameter for hollow shafts; set to 0 for solid shafts",
+      "label_i18n": {
+        "en": "Inner Diameter",
+        "tr": "Inner Diameter",
+        "de": "Inner Diameter",
+        "fr": "Inner Diameter",
+        "es": "Inner Diameter",
+        "ar": "Inner Diameter"
+      }
     }
   ],
   "formulas": {
-    "polarMomentInertia": "(Math.PI / 32) * (Math.pow(diameter, 4) - Math.pow(innerDiameter, 4))",
-    "maxShearStress": "(torque * (diameter / 2)) / polarMomentInertia",
-    "angleOfTwist": "(torque * length) / (shearModulus * polarMomentInertia)"
+    "result": "torque + length + shearModulus",
+    "result_copy": "torque + length + shearModulus"
   },
   "outputs": {
-    "primary": "maxShearStress",
+    "primary": "result",
     "breakdown": [
       "angleOfTwist",
       "polarMomentInertia"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "angleOfTwist"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -62,5 +106,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "metal",
   "profession": "Sac Teknisyeni",
-  "categoryId": "engineering"
+  "categoryId": "engineering",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "L/h",
       "default": 0,
-      "businessContext": "Volumetric fuel flow rate measured in liters per hour."
+      "businessContext": "Volumetric fuel flow rate measured in liters per hour.",
+      "label_i18n": {
+        "en": "Fuel Volume Flow",
+        "tr": "Fuel Volume Flow",
+        "de": "Fuel Volume Flow",
+        "fr": "Fuel Volume Flow",
+        "es": "Fuel Volume Flow",
+        "ar": "Fuel Volume Flow"
+      }
     },
     {
       "id": "fuelTemperature",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Temperature of fuel at measurement point for density correction."
+      "businessContext": "Temperature of fuel at measurement point for density correction.",
+      "label_i18n": {
+        "en": "Fuel Temperature",
+        "tr": "Fuel Temperature",
+        "de": "Fuel Temperature",
+        "fr": "Fuel Temperature",
+        "es": "Fuel Temperature",
+        "ar": "Fuel Temperature"
+      }
     },
     {
       "id": "fuelDensityRef",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg/L",
       "default": 0.84,
-      "businessContext": "Fuel density at reference temperature (e.g., 15°C)."
+      "businessContext": "Fuel density at reference temperature (e.g., 15°C).",
+      "label_i18n": {
+        "en": "Reference Fuel Density",
+        "tr": "Reference Fuel Density",
+        "de": "Reference Fuel Density",
+        "fr": "Reference Fuel Density",
+        "es": "Reference Fuel Density",
+        "ar": "Reference Fuel Density"
+      }
     },
     {
       "id": "power",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kW",
       "default": 0,
-      "businessContext": "Engine brake power output in kilowatts."
+      "businessContext": "Engine brake power output in kilowatts.",
+      "label_i18n": {
+        "en": "Brake Power",
+        "tr": "Brake Power",
+        "de": "Brake Power",
+        "fr": "Brake Power",
+        "es": "Brake Power",
+        "ar": "Brake Power"
+      }
     },
     {
       "id": "thermalExpansionCoeff",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "1/°C",
       "default": 0.00095,
-      "businessContext": "Coefficient of thermal expansion for fuel (typically 0.00095/°C for diesel)."
+      "businessContext": "Coefficient of thermal expansion for fuel (typically 0.00095/°C for diesel).",
+      "label_i18n": {
+        "en": "Fuel Thermal Expansion Coefficient",
+        "tr": "Fuel Thermal Expansion Coefficient",
+        "de": "Fuel Thermal Expansion Coefficient",
+        "fr": "Fuel Thermal Expansion Coefficient",
+        "es": "Fuel Thermal Expansion Coefficient",
+        "ar": "Fuel Thermal Expansion Coefficient"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
       "densityCorrected",
       "massFlow",
       "bsfc_lb_hph"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "bsfc_lb_hph"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -64,5 +109,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

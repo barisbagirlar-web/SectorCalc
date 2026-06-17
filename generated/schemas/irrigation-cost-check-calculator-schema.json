@@ -138,93 +138,6 @@
       "businessContext_i18n": {
         "en": "Total annual cost for repairs, parts, and servicing."
       }
-    },
-    {
-      "id": "irrigated_area",
-      "label": "Irrigated area",
-      "type": "number",
-      "unit": "hectares",
-      "default": 50,
-      "min": 0.1,
-      "max": 10000,
-      "businessContext": "Total area under irrigation.",
-      "label_i18n": {
-        "en": "Irrigated area"
-      },
-      "businessContext_i18n": {
-        "en": "Total area under irrigation."
-      }
-    },
-    {
-      "id": "crop_value_per_ha",
-      "label": "Crop value per hectare",
-      "type": "number",
-      "unit": "USD/ha",
-      "default": 3000,
-      "min": 0,
-      "max": 50000,
-      "businessContext": "Average revenue generated per hectare from irrigated crops.",
-      "label_i18n": {
-        "en": "Crop value per hectare"
-      },
-      "businessContext_i18n": {
-        "en": "Average revenue generated per hectare from irrigated crops."
-      }
-    },
-    {
-      "id": "system_type",
-      "label": "Irrigation system type",
-      "type": "select",
-      "options": [
-        "Drip",
-        "Sprinkler",
-        "Flood",
-        "Center pivot",
-        "Subsurface drip"
-      ],
-      "default": "Sprinkler",
-      "businessContext": "Type of irrigation system affecting efficiency and cost structure.",
-      "label_i18n": {
-        "en": "Irrigation system type"
-      },
-      "businessContext_i18n": {
-        "en": "Type of irrigation system affecting efficiency and cost structure."
-      },
-      "unit": "unit"
-    },
-    {
-      "id": "water_source",
-      "label": "Water source",
-      "type": "select",
-      "options": [
-        "Groundwater",
-        "Surface water",
-        "Municipal",
-        "Recycled water"
-      ],
-      "default": "Groundwater",
-      "businessContext": "Source of water influencing cost and sustainability.",
-      "label_i18n": {
-        "en": "Water source"
-      },
-      "businessContext_i18n": {
-        "en": "Source of water influencing cost and sustainability."
-      },
-      "unit": "unit"
-    },
-    {
-      "id": "has_automation",
-      "label": "Automation system installed",
-      "type": "boolean",
-      "default": false,
-      "businessContext": "Indicates presence of automated scheduling or sensor-based control.",
-      "label_i18n": {
-        "en": "Automation system installed"
-      },
-      "businessContext_i18n": {
-        "en": "Indicates presence of automated scheduling or sensor-based control."
-      },
-      "unit": "unit"
     }
   ],
   "validation": {
@@ -282,19 +195,18 @@
       }
     ]
   },
-  "formulas": [
-    "water_volume",
-    "water_volume",
-    "water_volume",
-    "water_volume",
-    "water_volume",
-    "water_volume",
-    "water_volume",
-    "water_volume"
-  ],
+  "formulas": {
+    "result": "water_volume + water_cost_per_m3 + energy_cost_per_kwh",
+    "result_copy": "water_volume + water_cost_per_m3 + energy_cost_per_kwh"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "irrigation-cost-check-calculator",
   "catalogCategory": "everyday-life",

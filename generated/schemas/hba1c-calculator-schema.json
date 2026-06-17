@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mg/dL or mmol/L",
       "default": 120,
-      "businessContext": "Average blood glucose level over the past 2-3 months."
+      "businessContext": "Average blood glucose level over the past 2-3 months.",
+      "label_i18n": {
+        "en": "Average Blood Glucose",
+        "tr": "Average Blood Glucose",
+        "de": "Average Blood Glucose",
+        "fr": "Average Blood Glucose",
+        "es": "Average Blood Glucose",
+        "ar": "Average Blood Glucose"
+      }
     },
     {
       "id": "unit",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "0=mg/dL, 1=mmol/L",
       "default": 0,
-      "businessContext": "Select the unit: 0 for mg/dL, 1 for mmol/L."
+      "businessContext": "Select the unit: 0 for mg/dL, 1 for mmol/L.",
+      "label_i18n": {
+        "en": "Glucose Unit",
+        "tr": "Glucose Unit",
+        "de": "Glucose Unit",
+        "fr": "Glucose Unit",
+        "es": "Glucose Unit",
+        "ar": "Glucose Unit"
+      }
     },
     {
       "id": "confidence",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 95,
-      "businessContext": "Confidence level for uncertainty range calculation."
+      "businessContext": "Confidence level for uncertainty range calculation.",
+      "label_i18n": {
+        "en": "Confidence Level",
+        "tr": "Confidence Level",
+        "de": "Confidence Level",
+        "fr": "Confidence Level",
+        "es": "Confidence Level",
+        "ar": "Confidence Level"
+      }
     },
     {
       "id": "measurementUncertainty",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Typical measurement uncertainty of HbA1c assay method."
+      "businessContext": "Typical measurement uncertainty of HbA1c assay method.",
+      "label_i18n": {
+        "en": "Measurement Uncertainty",
+        "tr": "Measurement Uncertainty",
+        "de": "Measurement Uncertainty",
+        "fr": "Measurement Uncertainty",
+        "es": "Measurement Uncertainty",
+        "ar": "Measurement Uncertainty"
+      }
     }
   ],
   "formulas": {
@@ -50,7 +82,12 @@
       "eAG_mmol",
       "rangeLow",
       "rangeHigh"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "rangeHigh"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -60,5 +97,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

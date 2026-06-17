@@ -77,18 +77,9 @@
       "label": "Joint Efficiency (E)",
       "type": "select",
       "options": [
-        {
-          "value": 1,
-          "label": "Full radiography (1.0)"
-        },
-        {
-          "value": 0.85,
-          "label": "Spot radiography (0.85)"
-        },
-        {
-          "value": 0.7,
-          "label": "No radiography (0.7)"
-        }
+        "1",
+        "0.85",
+        "0.7"
       ],
       "default": 1,
       "businessContext": "Welded joint efficiency factor per ASME UW-12",
@@ -199,18 +190,18 @@
       }
     ]
   },
-  "formulas": [
-    "design_pressure",
-    "design_pressure",
-    "design_pressure",
-    "design_pressure",
-    "design_pressure",
-    "design_pressure",
-    "design_pressure"
-  ],
+  "formulas": {
+    "result": "design_pressure + vessel_diameter + allowable_stress",
+    "result_copy": "design_pressure + vessel_diameter + allowable_stress"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "pressure-vessel-thickness-calculator",
   "catalogCategory": "everyday-life",

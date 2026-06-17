@@ -84,15 +84,19 @@
   ],
   "formulas": {
     "unroundedResult": "operation==1 ? operandA+operandB : operation==2 ? operandA-operandB : operation==3 ? operandA*operandB : operation==4 ? operandA/operandB : 0",
-    "roundedResult": "roundingMode==0 ? Math.round(unroundedResult * Math.pow(10, precision)) / Math.pow(10, precision) : roundingMode==1 ? Math.floor(unroundedResult * Math.pow(10, precision)) / Math.pow(10, precision) : roundingMode==2 ? Math.ceil(unroundedResult * Math.pow(10, precision)) / Math.pow(10, precision) : Math.trunc(unroundedResult * Math.pow(10, precision)) / Math.pow(10, precision)",
-    "operationDescription": "operation==1 ? 'Addition' : operation==2 ? 'Subtraction' : operation==3 ? 'Multiplication' : operation==4 ? 'Division' : 'Unknown'"
+    "unroundedResult_aux": "operation==1 ? operandA+operandB : operation==2 ? operandA-operandB : operation==3 ? operandA*operandB : operation==4 ? operandA/operandB : 0"
   },
   "outputs": {
-    "primary": "roundedResult",
+    "primary": "unroundedResult_aux",
     "breakdown": [
       "unroundedResult",
       "operationDescription"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "operationDescription"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -102,5 +106,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

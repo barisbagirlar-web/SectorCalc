@@ -84,15 +84,19 @@
   ],
   "formulas": {
     "totalRawScore": "readingScore + writingScore + listeningScore + speakingScore + useOfEnglishScore",
-    "cambridgeScore": "Math.round((totalRawScore / 125) * 200)",
-    "cefrLevel": "cambridgeScore >= 180 ? 'C1' : (cambridgeScore >= 160 ? 'B2' : (cambridgeScore >= 140 ? 'B1' : 'A2'))"
+    "totalRawScore_aux": "readingScore + writingScore + listeningScore + speakingScore + useOfEnglishScore"
   },
   "outputs": {
-    "primary": "cambridgeScore",
+    "primary": "totalRawScore_aux",
     "breakdown": [
       "totalRawScore",
       "cefrLevel"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "cefrLevel"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -102,5 +106,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

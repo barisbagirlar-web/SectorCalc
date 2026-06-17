@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 2.5,
-      "businessContext": "Fixed fee for starting the ride"
+      "businessContext": "Fixed fee for starting the ride",
+      "label_i18n": {
+        "en": "Base Fare",
+        "tr": "Base Fare",
+        "de": "Base Fare",
+        "fr": "Base Fare",
+        "es": "Base Fare",
+        "ar": "Base Fare"
+      }
     },
     {
       "id": "costPerMinute",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "$/min",
       "default": 0.15,
-      "businessContext": "Charge per minute of travel time"
+      "businessContext": "Charge per minute of travel time",
+      "label_i18n": {
+        "en": "Cost Per Minute",
+        "tr": "Cost Per Minute",
+        "de": "Cost Per Minute",
+        "fr": "Cost Per Minute",
+        "es": "Cost Per Minute",
+        "ar": "Cost Per Minute"
+      }
     },
     {
       "id": "costPerMile",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$/mile",
       "default": 1.2,
-      "businessContext": "Charge per mile traveled"
+      "businessContext": "Charge per mile traveled",
+      "label_i18n": {
+        "en": "Cost Per Mile",
+        "tr": "Cost Per Mile",
+        "de": "Cost Per Mile",
+        "fr": "Cost Per Mile",
+        "es": "Cost Per Mile",
+        "ar": "Cost Per Mile"
+      }
     },
     {
       "id": "distanceMiles",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "miles",
       "default": 1,
-      "businessContext": "Total distance of the trip"
+      "businessContext": "Total distance of the trip",
+      "label_i18n": {
+        "en": "Distance (Miles)",
+        "tr": "Distance (Miles)",
+        "de": "Distance (Miles)",
+        "fr": "Distance (Miles)",
+        "es": "Distance (Miles)",
+        "ar": "Distance (Miles)"
+      }
     },
     {
       "id": "durationMinutes",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 5,
-      "businessContext": "Total trip duration"
+      "businessContext": "Total trip duration",
+      "label_i18n": {
+        "en": "Duration (Minutes)",
+        "tr": "Duration (Minutes)",
+        "de": "Duration (Minutes)",
+        "fr": "Duration (Minutes)",
+        "es": "Duration (Minutes)",
+        "ar": "Duration (Minutes)"
+      }
     },
     {
       "id": "surgeMultiplier",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1,
-      "businessContext": "Multiplier applied during high demand (e.g., 1.5x)"
+      "businessContext": "Multiplier applied during high demand (e.g., 1.5x)",
+      "label_i18n": {
+        "en": "Surge Multiplier",
+        "tr": "Surge Multiplier",
+        "de": "Surge Multiplier",
+        "fr": "Surge Multiplier",
+        "es": "Surge Multiplier",
+        "ar": "Surge Multiplier"
+      }
     },
     {
       "id": "bookingFee",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "$",
       "default": 1.5,
-      "businessContext": "Fixed booking fee added to total"
+      "businessContext": "Fixed booking fee added to total",
+      "label_i18n": {
+        "en": "Booking Fee",
+        "tr": "Booking Fee",
+        "de": "Booking Fee",
+        "fr": "Booking Fee",
+        "es": "Booking Fee",
+        "ar": "Booking Fee"
+      }
     }
   ],
   "formulas": {
@@ -71,7 +127,12 @@
       "surgeAmount",
       "bookingFeeAmount",
       "totalFare"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalFare"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -81,5 +142,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

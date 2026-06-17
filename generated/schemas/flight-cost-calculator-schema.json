@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 1000,
-      "businessContext": "Flight distance between origin and destination airports"
+      "businessContext": "Flight distance between origin and destination airports",
+      "label_i18n": {
+        "en": "Flight Distance",
+        "tr": "Flight Distance",
+        "de": "Flight Distance",
+        "fr": "Flight Distance",
+        "es": "Flight Distance",
+        "ar": "Flight Distance"
+      }
     },
     {
       "id": "avgSpeed",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "km/h",
       "default": 800,
-      "businessContext": "Average cruising speed of the aircraft"
+      "businessContext": "Average cruising speed of the aircraft",
+      "label_i18n": {
+        "en": "Average Speed",
+        "tr": "Average Speed",
+        "de": "Average Speed",
+        "fr": "Average Speed",
+        "es": "Average Speed",
+        "ar": "Average Speed"
+      }
     },
     {
       "id": "fuelConsumptionRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "L/km",
       "default": 3.5,
-      "businessContext": "Aircraft fuel consumption rate per kilometer"
+      "businessContext": "Aircraft fuel consumption rate per kilometer",
+      "label_i18n": {
+        "en": "Fuel Consumption Rate",
+        "tr": "Fuel Consumption Rate",
+        "de": "Fuel Consumption Rate",
+        "fr": "Fuel Consumption Rate",
+        "es": "Fuel Consumption Rate",
+        "ar": "Fuel Consumption Rate"
+      }
     },
     {
       "id": "fuelPrice",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD/L",
       "default": 0.8,
-      "businessContext": "Current market price of Jet A-1 fuel per liter"
+      "businessContext": "Current market price of Jet A-1 fuel per liter",
+      "label_i18n": {
+        "en": "Fuel Price",
+        "tr": "Fuel Price",
+        "de": "Fuel Price",
+        "fr": "Fuel Price",
+        "es": "Fuel Price",
+        "ar": "Fuel Price"
+      }
     },
     {
       "id": "crewCostPerHour",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD/hr",
       "default": 200,
-      "businessContext": "Hourly cost for flight crew including salaries and benefits"
+      "businessContext": "Hourly cost for flight crew including salaries and benefits",
+      "label_i18n": {
+        "en": "Crew Cost per Hour",
+        "tr": "Crew Cost per Hour",
+        "de": "Crew Cost per Hour",
+        "fr": "Crew Cost per Hour",
+        "es": "Crew Cost per Hour",
+        "ar": "Crew Cost per Hour"
+      }
     },
     {
       "id": "landingFee",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "USD",
       "default": 500,
-      "businessContext": "Fixed airport landing fee per flight"
+      "businessContext": "Fixed airport landing fee per flight",
+      "label_i18n": {
+        "en": "Landing Fee",
+        "tr": "Landing Fee",
+        "de": "Landing Fee",
+        "fr": "Landing Fee",
+        "es": "Landing Fee",
+        "ar": "Landing Fee"
+      }
     },
     {
       "id": "maintenanceCostPerHour",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "USD/hr",
       "default": 100,
-      "businessContext": "Hourly maintenance cost allocation for the aircraft"
+      "businessContext": "Hourly maintenance cost allocation for the aircraft",
+      "label_i18n": {
+        "en": "Maintenance Cost per Hour",
+        "tr": "Maintenance Cost per Hour",
+        "de": "Maintenance Cost per Hour",
+        "fr": "Maintenance Cost per Hour",
+        "es": "Maintenance Cost per Hour",
+        "ar": "Maintenance Cost per Hour"
+      }
     }
   ],
   "formulas": {
@@ -73,7 +129,12 @@
       "landingFee",
       "maintenanceCost",
       "flightHours"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -83,5 +144,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "havacilik",
   "profession": "Tasarım Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

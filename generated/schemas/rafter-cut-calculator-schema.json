@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°",
       "default": 30,
-      "businessContext": "Angle of the roof slope measured from horizontal."
+      "businessContext": "Angle of the roof slope measured from horizontal.",
+      "label_i18n": {
+        "en": "Roof Pitch",
+        "tr": "Roof Pitch",
+        "de": "Roof Pitch",
+        "fr": "Roof Pitch",
+        "es": "Roof Pitch",
+        "ar": "Roof Pitch"
+      }
     },
     {
       "id": "buildingWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 6000,
-      "businessContext": "Total external width of the building (span)."
+      "businessContext": "Total external width of the building (span).",
+      "label_i18n": {
+        "en": "Building Width",
+        "tr": "Building Width",
+        "de": "Building Width",
+        "fr": "Building Width",
+        "es": "Building Width",
+        "ar": "Building Width"
+      }
     },
     {
       "id": "overhang",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 500,
-      "businessContext": "Horizontal projection of the rafter beyond the wall plate."
+      "businessContext": "Horizontal projection of the rafter beyond the wall plate.",
+      "label_i18n": {
+        "en": "Overhang",
+        "tr": "Overhang",
+        "de": "Overhang",
+        "fr": "Overhang",
+        "es": "Overhang",
+        "ar": "Overhang"
+      }
     },
     {
       "id": "rafterDepth",
@@ -31,26 +55,37 @@
       "type": "number",
       "unit": "mm",
       "default": 150,
-      "businessContext": "Vertical depth of the rafter board (for birdsmouth calculations)."
+      "businessContext": "Vertical depth of the rafter board (for birdsmouth calculations).",
+      "label_i18n": {
+        "en": "Rafter Depth",
+        "tr": "Rafter Depth",
+        "de": "Rafter Depth",
+        "fr": "Rafter Depth",
+        "es": "Rafter Depth",
+        "ar": "Rafter Depth"
+      }
     }
   ],
   "formulas": {
-    "rafterLength": "(buildingWidth / 2 + overhang) / Math.cos(roofPitch * Math.PI / 180)",
     "totalRun": "buildingWidth / 2 + overhang",
-    "rise": "(buildingWidth / 2 + overhang) * Math.tan(roofPitch * Math.PI / 180)",
     "seatCutDepth": "rafterDepth / 3",
     "heelHeight": "rafterDepth * 2 / 3",
     "plumbCutAngle": "roofPitch"
   },
   "outputs": {
-    "primary": "rafterLength",
+    "primary": "plumbCutAngle",
     "breakdown": [
       "totalRun",
       "rise",
       "seatCutDepth",
       "heelHeight",
       "plumbCutAngle"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "plumbCutAngle"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -60,5 +95,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "insaat",
   "profession": "Proje Müdürü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

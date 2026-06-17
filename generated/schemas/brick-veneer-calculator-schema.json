@@ -99,21 +99,22 @@
     }
   ],
   "formulas": {
-    "primary": "Math.ceil( (wallWidth * wallHeight) / ((brickLength + mortarJoint) * (brickHeight + mortarJoint) / 1000000) * (1 + wasteFactor / 100) )",
     "breakdown": "wallWidth",
-    "wallArea": "wallArea",
-    "brickAreaWithMortar": "brickAreaWithMortar",
-    "bricksWithoutWaste": "bricksWithoutWaste",
-    "wasteBricks": "wasteBricks"
+    "breakdown_aux": "wallWidth"
   },
   "outputs": {
-    "primary": "primary",
+    "primary": "breakdown_aux",
     "breakdown": [
       "wallArea",
       "brickAreaWithMortar",
       "bricksWithoutWaste",
       "wasteBricks"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "wasteBricks"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -123,5 +124,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -105,17 +105,19 @@
     "activityAdjustment": "(physicalActivity > 5 ? -10 : 0)",
     "totalSleepMinutes": "baseSleepMinutes + shiftAdjustment + qualityAdjustment + activityAdjustment",
     "bedtimeMinutes": "(desiredWakeUp - totalSleepMinutes + 1440) % 1440",
-    "sleepDurationHours": "totalSleepMinutes / 60",
-    "____Math_floor_bedtimeMinutes___60______": "' + Math.floor(bedtimeMinutes / 60) + ':' + ('0' + (bedtimeMinutes % 60)).slice(-2)",
-    "____Math_round_totalSleepMinutes______mi": "' + Math.round(totalSleepMinutes) + ' minutes (' + Math.round(totalSleepMinutes / 60 * 10) / 10 + ' hours)'",
-    "result": "'Recommended sleep: ' + Math.round(totalSleepMinutes / 60 * 10) / 10 + ' hours'"
+    "sleepDurationHours": "totalSleepMinutes / 60"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "sleepDurationHours",
     "breakdown": [
       "'Bedtime: ' + Math.floor(bedtimeMinutes / 60) + ':' + ('0' + (bedtimeMinutes % 60)).slice(-2)",
       "'Sleep duration: ' + Math.round(totalSleepMinutes) + ' minutes (' + Math.round(totalSleepMinutes / 60 * 10) / 10 + ' hours)'"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "İK & Personel",
   "sector": "Finans & İK",
@@ -125,5 +127,10 @@
   "categorySlug": "workforce-hr",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

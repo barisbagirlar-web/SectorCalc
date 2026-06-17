@@ -88,17 +88,10 @@
     "concretePerHole": "holeVolume - postVolume",
     "totalConcrete": "concretePerHole * numberOfPosts",
     "totalWithWaste": "totalConcrete * (1 + wasteFactor / 100)",
-    "totalCubicMeters": "totalWithWaste / 1000000",
-    "holeVolume_toFixed_0______cm__": "holeVolume.toFixed(0) + ' cm³'",
-    "postVolume_toFixed_0______cm__": "postVolume.toFixed(0) + ' cm³'",
-    "concretePerHole_toFixed_0______cm__per_h": "concretePerHole.toFixed(0) + ' cm³ per hole'",
-    "totalConcrete_toFixed_0______cm__": "totalConcrete.toFixed(0) + ' cm³'",
-    "totalWithWaste_toFixed_0______cm___with_": "totalWithWaste.toFixed(0) + ' cm³ (with waste)'",
-    "totalCubicMeters_toFixed_4______m__": "totalCubicMeters.toFixed(4) + ' m³'",
-    "result": "totalCubicMeters.toFixed(2) + ' m³'"
+    "totalCubicMeters": "totalWithWaste / 1000000"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "totalCubicMeters",
     "breakdown": [
       "holeVolume.toFixed(0) + ' cm³'",
       "postVolume.toFixed(0) + ' cm³'",
@@ -106,7 +99,12 @@
       "totalConcrete.toFixed(0) + ' cm³'",
       "totalWithWaste.toFixed(0) + ' cm³ (with waste)'",
       "totalCubicMeters.toFixed(4) + ' m³'"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -116,5 +114,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

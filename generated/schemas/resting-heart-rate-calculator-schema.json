@@ -68,18 +68,19 @@
   ],
   "formulas": {
     "restingHeartRate": "(beats / seconds) * 60",
-    "restingHeartRateRounded": "Math.round(restingHeartRate)",
-    "classification": "(restingHeartRate < 60 ? 'Athletic' : restingHeartRate < 80 ? 'Normal' : 'Elevated')",
-    "breakdown1": "`A resting heart rate of ${restingHeartRateRounded} bpm is considered ${classification.toLowerCase()}.`",
-    "breakdown2Text": "'Normal resting heart rate ranges from 60 to 100 bpm for adults. Athletes may have 40-60 bpm.'",
-    "result": "restingHeartRateRounded + ' bpm'"
+    "breakdown2Text": "'Normal resting heart rate ranges from 60 to 100 bpm for adults. Athletes may have 40-60 bpm.'"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "breakdown2Text",
     "breakdown": [
       "breakdown1",
       "breakdown2Text"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -89,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

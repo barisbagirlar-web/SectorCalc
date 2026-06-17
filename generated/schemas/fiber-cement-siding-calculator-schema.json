@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Total length of the wall to be covered"
+      "businessContext": "Total length of the wall to be covered",
+      "label_i18n": {
+        "en": "Wall Length",
+        "tr": "Wall Length",
+        "de": "Wall Length",
+        "fr": "Wall Length",
+        "es": "Wall Length",
+        "ar": "Wall Length"
+      }
     },
     {
       "id": "wall_height",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "Height of the wall from foundation to eaves"
+      "businessContext": "Height of the wall from foundation to eaves",
+      "label_i18n": {
+        "en": "Wall Height",
+        "tr": "Wall Height",
+        "de": "Wall Height",
+        "fr": "Wall Height",
+        "es": "Wall Height",
+        "ar": "Wall Height"
+      }
     },
     {
       "id": "siding_width",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.2,
-      "businessContext": "Width of one fiber cement siding plank"
+      "businessContext": "Width of one fiber cement siding plank",
+      "label_i18n": {
+        "en": "Siding Width",
+        "tr": "Siding Width",
+        "de": "Siding Width",
+        "fr": "Siding Width",
+        "es": "Siding Width",
+        "ar": "Siding Width"
+      }
     },
     {
       "id": "siding_overlap",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.025,
-      "businessContext": "Vertical overlap between siding courses"
+      "businessContext": "Vertical overlap between siding courses",
+      "label_i18n": {
+        "en": "Siding Overlap",
+        "tr": "Siding Overlap",
+        "de": "Siding Overlap",
+        "fr": "Siding Overlap",
+        "es": "Siding Overlap",
+        "ar": "Siding Overlap"
+      }
     },
     {
       "id": "waste_factor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Percentage allowance for cutting waste and breakage"
+      "businessContext": "Percentage allowance for cutting waste and breakage",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     },
     {
       "id": "labor_rate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "USD/m²",
       "default": 15,
-      "businessContext": "Cost of labor per square meter installed"
+      "businessContext": "Cost of labor per square meter installed",
+      "label_i18n": {
+        "en": "Labor Rate",
+        "tr": "Labor Rate",
+        "de": "Labor Rate",
+        "fr": "Labor Rate",
+        "es": "Labor Rate",
+        "ar": "Labor Rate"
+      }
     },
     {
       "id": "material_cost",
@@ -55,29 +103,36 @@
       "type": "number",
       "unit": "USD/m²",
       "default": 25,
-      "businessContext": "Cost of fiber cement siding per square meter"
+      "businessContext": "Cost of fiber cement siding per square meter",
+      "label_i18n": {
+        "en": "Material Cost",
+        "tr": "Material Cost",
+        "de": "Material Cost",
+        "fr": "Material Cost",
+        "es": "Material Cost",
+        "ar": "Material Cost"
+      }
     }
   ],
   "formulas": {
     "net_area": "wall_length * wall_height",
     "exposed_width": "siding_width - siding_overlap",
-    "courses": "Math.ceil(wall_height / exposed_width)",
-    "total_siding_length": "courses * wall_length",
-    "gross_area": "total_siding_length * siding_width",
     "waste_multiplier": "1 + waste_factor / 100",
-    "material_needed": "gross_area * waste_multiplier",
-    "material_cost_total": "material_needed * material_cost",
-    "labor_cost_total": "net_area * labor_rate",
-    "total_cost": "material_cost_total + labor_cost_total"
+    "labor_cost_total": "net_area * labor_rate"
   },
   "outputs": {
-    "primary": "total_cost",
+    "primary": "labor_cost_total",
     "breakdown": [
       "net_area",
       "material_needed",
       "material_cost_total",
       "labor_cost_total"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "total_cost"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -87,5 +142,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

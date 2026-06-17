@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Dönem başındaki brüt ticari alacak tutarı"
+      "businessContext": "Dönem başındaki brüt ticari alacak tutarı",
+      "label_i18n": {
+        "en": "Dönem Başı Ticari Alacaklar",
+        "tr": "Dönem Başı Ticari Alacaklar",
+        "de": "Dönem Başı Ticari Alacaklar",
+        "fr": "Dönem Başı Ticari Alacaklar",
+        "es": "Dönem Başı Ticari Alacaklar",
+        "ar": "Dönem Başı Ticari Alacaklar"
+      }
     },
     {
       "id": "endingAR",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Dönem sonundaki brüt ticari alacak tutarı"
+      "businessContext": "Dönem sonundaki brüt ticari alacak tutarı",
+      "label_i18n": {
+        "en": "Dönem Sonu Ticari Alacaklar",
+        "tr": "Dönem Sonu Ticari Alacaklar",
+        "de": "Dönem Sonu Ticari Alacaklar",
+        "fr": "Dönem Sonu Ticari Alacaklar",
+        "es": "Dönem Sonu Ticari Alacaklar",
+        "ar": "Dönem Sonu Ticari Alacaklar"
+      }
     },
     {
       "id": "netCreditSales",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Dönem içindeki toplam kredili satışlar (brüt satışlardan iade ve iskontolar düşülmüş)"
+      "businessContext": "Dönem içindeki toplam kredili satışlar (brüt satışlardan iade ve iskontolar düşülmüş)",
+      "label_i18n": {
+        "en": "Net Kredili Satışlar",
+        "tr": "Net Kredili Satışlar",
+        "de": "Net Kredili Satışlar",
+        "fr": "Net Kredili Satışlar",
+        "es": "Net Kredili Satışlar",
+        "ar": "Net Kredili Satışlar"
+      }
     },
     {
       "id": "periodDays",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "gün",
       "default": 365,
-      "businessContext": "DSO hesaplanacak dönemin gün sayısı (genellikle 365 veya 90)"
+      "businessContext": "DSO hesaplanacak dönemin gün sayısı (genellikle 365 veya 90)",
+      "label_i18n": {
+        "en": "Dönem Gün Sayısı",
+        "tr": "Dönem Gün Sayısı",
+        "de": "Dönem Gün Sayısı",
+        "fr": "Dönem Gün Sayısı",
+        "es": "Dönem Gün Sayısı",
+        "ar": "Dönem Gün Sayısı"
+      }
     }
   ],
   "formulas": {
@@ -43,7 +75,12 @@
     "breakdown": [
       "averageAR",
       "dso"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "dso"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -53,5 +90,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

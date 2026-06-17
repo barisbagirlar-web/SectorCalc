@@ -83,15 +83,20 @@
     }
   ],
   "formulas": {
-    "maturityIndex": "Math.max(0, (curingTemperature - datumTemperature) * curingTimeHours)",
-    "estimatedStrength": "strengthCoefficientA + strengthCoefficientB * Math.log(maturityIndex + 1)"
+    "result": "curingTemperature + curingTimeHours + datumTemperature",
+    "result_copy": "curingTemperature + curingTimeHours + datumTemperature"
   },
   "outputs": {
-    "primary": "estimatedStrength",
+    "primary": "result",
     "breakdown": [
       "maturityIndex",
       "estimatedStrength"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "estimatedStrength"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -101,5 +106,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "persons",
       "default": 10,
-      "businessContext": "Total number of people attending the BBQ"
+      "businessContext": "Total number of people attending the BBQ",
+      "label_i18n": {
+        "en": "Number of Guests",
+        "tr": "Number of Guests",
+        "de": "Number of Guests",
+        "fr": "Number of Guests",
+        "es": "Number of Guests",
+        "ar": "Number of Guests"
+      }
     },
     {
       "id": "meatPerPerson",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g",
       "default": 300,
-      "businessContext": "Average cooked meat consumption per person in grams"
+      "businessContext": "Average cooked meat consumption per person in grams",
+      "label_i18n": {
+        "en": "Meat per Person",
+        "tr": "Meat per Person",
+        "de": "Meat per Person",
+        "fr": "Meat per Person",
+        "es": "Meat per Person",
+        "ar": "Meat per Person"
+      }
     },
     {
       "id": "sidesPerPerson",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "g",
       "default": 200,
-      "businessContext": "Average side dish (salads, bread) consumption per person in grams"
+      "businessContext": "Average side dish (salads, bread) consumption per person in grams",
+      "label_i18n": {
+        "en": "Sides per Person",
+        "tr": "Sides per Person",
+        "de": "Sides per Person",
+        "fr": "Sides per Person",
+        "es": "Sides per Person",
+        "ar": "Sides per Person"
+      }
     },
     {
       "id": "cookingLoss",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Percentage of weight lost during cooking due to moisture and fat rendering"
+      "businessContext": "Percentage of weight lost during cooking due to moisture and fat rendering",
+      "label_i18n": {
+        "en": "Cooking Loss Factor",
+        "tr": "Cooking Loss Factor",
+        "de": "Cooking Loss Factor",
+        "fr": "Cooking Loss Factor",
+        "es": "Cooking Loss Factor",
+        "ar": "Cooking Loss Factor"
+      }
     },
     {
       "id": "butcherYield",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 75,
-      "businessContext": "Edible meat yield from raw purchase weight after trimming bone and skin"
+      "businessContext": "Edible meat yield from raw purchase weight after trimming bone and skin",
+      "label_i18n": {
+        "en": "Butcher Yield",
+        "tr": "Butcher Yield",
+        "de": "Butcher Yield",
+        "fr": "Butcher Yield",
+        "es": "Butcher Yield",
+        "ar": "Butcher Yield"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "cookedMeatWeight",
       "totalSidesWeight"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalSidesWeight"
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Üretim & İmalat",
@@ -62,5 +107,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

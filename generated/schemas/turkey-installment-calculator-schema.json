@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TL",
       "default": 10000,
-      "businessContext": "Principal amount in Turkish Lira"
+      "businessContext": "Principal amount in Turkish Lira",
+      "label_i18n": {
+        "en": "Loan Amount (TL)",
+        "tr": "Loan Amount (TL)",
+        "de": "Loan Amount (TL)",
+        "fr": "Loan Amount (TL)",
+        "es": "Loan Amount (TL)",
+        "ar": "Loan Amount (TL)"
+      }
     },
     {
       "id": "interestRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 24,
-      "businessContext": "Nominal annual interest rate"
+      "businessContext": "Nominal annual interest rate",
+      "label_i18n": {
+        "en": "Annual Interest Rate (%)",
+        "tr": "Annual Interest Rate (%)",
+        "de": "Annual Interest Rate (%)",
+        "fr": "Annual Interest Rate (%)",
+        "es": "Annual Interest Rate (%)",
+        "ar": "Annual Interest Rate (%)"
+      }
     },
     {
       "id": "loanTerm",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "months",
       "default": 12,
-      "businessContext": "Number of monthly installments"
+      "businessContext": "Number of monthly installments",
+      "label_i18n": {
+        "en": "Loan Term (Months)",
+        "tr": "Loan Term (Months)",
+        "de": "Loan Term (Months)",
+        "fr": "Loan Term (Months)",
+        "es": "Loan Term (Months)",
+        "ar": "Loan Term (Months)"
+      }
     },
     {
       "id": "bsmv",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Banking and Insurance Transaction Tax rate on interest"
+      "businessContext": "Banking and Insurance Transaction Tax rate on interest",
+      "label_i18n": {
+        "en": "BSMV Rate (%)",
+        "tr": "BSMV Rate (%)",
+        "de": "BSMV Rate (%)",
+        "fr": "BSMV Rate (%)",
+        "es": "BSMV Rate (%)",
+        "ar": "BSMV Rate (%)"
+      }
     },
     {
       "id": "kkdf",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Resource Utilization Support Fund rate on interest"
+      "businessContext": "Resource Utilization Support Fund rate on interest",
+      "label_i18n": {
+        "en": "KKDF Rate (%)",
+        "tr": "KKDF Rate (%)",
+        "de": "KKDF Rate (%)",
+        "fr": "KKDF Rate (%)",
+        "es": "KKDF Rate (%)",
+        "ar": "KKDF Rate (%)"
+      }
     },
     {
       "id": "fee",
@@ -47,23 +87,33 @@
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "One-time fee added to loan principal"
+      "businessContext": "One-time fee added to loan principal",
+      "label_i18n": {
+        "en": "Arrangement Fee (TL)",
+        "tr": "Arrangement Fee (TL)",
+        "de": "Arrangement Fee (TL)",
+        "fr": "Arrangement Fee (TL)",
+        "es": "Arrangement Fee (TL)",
+        "ar": "Arrangement Fee (TL)"
+      }
     }
   ],
   "formulas": {
     "effectiveMonthlyRate": "(interestRate / 100 / 12) * (1 + bsmv/100 + kkdf/100)",
-    "monthlyInstallment": "((loanAmount + fee) * effectiveMonthlyRate * Math.pow(1 + effectiveMonthlyRate, loanTerm)) / (Math.pow(1 + effectiveMonthlyRate, loanTerm) - 1)",
-    "totalPayment": "monthlyInstallment * loanTerm",
-    "totalInterest": "totalPayment - (loanAmount + fee)",
-    "totalTax": "totalInterest * (bsmv/100 + kkdf/100)"
+    "effectiveMonthlyRate_aux": "(interestRate / 100 / 12) * (1 + bsmv/100 + kkdf/100)"
   },
   "outputs": {
-    "primary": "monthlyInstallment",
+    "primary": "effectiveMonthlyRate_aux",
     "breakdown": [
       "totalPayment",
       "totalInterest",
       "totalTax"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalTax"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -73,5 +123,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

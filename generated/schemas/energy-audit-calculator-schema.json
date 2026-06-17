@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kW",
       "default": 50,
-      "businessContext": "Total power rating of equipment being audited."
+      "businessContext": "Total power rating of equipment being audited.",
+      "label_i18n": {
+        "en": "Equipment Power Rating",
+        "tr": "Equipment Power Rating",
+        "de": "Equipment Power Rating",
+        "fr": "Equipment Power Rating",
+        "es": "Equipment Power Rating",
+        "ar": "Equipment Power Rating"
+      }
     },
     {
       "id": "operatingHours",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hours",
       "default": 2000,
-      "businessContext": "Annual operating hours of the equipment."
+      "businessContext": "Annual operating hours of the equipment.",
+      "label_i18n": {
+        "en": "Operating Hours per Year",
+        "tr": "Operating Hours per Year",
+        "de": "Operating Hours per Year",
+        "fr": "Operating Hours per Year",
+        "es": "Operating Hours per Year",
+        "ar": "Operating Hours per Year"
+      }
     },
     {
       "id": "loadFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 80,
-      "businessContext": "Percentage of full power at which equipment typically operates."
+      "businessContext": "Percentage of full power at which equipment typically operates.",
+      "label_i18n": {
+        "en": "Load Factor",
+        "tr": "Load Factor",
+        "de": "Load Factor",
+        "fr": "Load Factor",
+        "es": "Load Factor",
+        "ar": "Load Factor"
+      }
     },
     {
       "id": "costPerKWh",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency/kWh",
       "default": 0.12,
-      "businessContext": "Electricity cost per kilowatt-hour."
+      "businessContext": "Electricity cost per kilowatt-hour.",
+      "label_i18n": {
+        "en": "Cost per kWh",
+        "tr": "Cost per kWh",
+        "de": "Cost per kWh",
+        "fr": "Cost per kWh",
+        "es": "Cost per kWh",
+        "ar": "Cost per kWh"
+      }
     },
     {
       "id": "floorArea",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m²",
       "default": 1000,
-      "businessContext": "Total floor area of the facility being audited."
+      "businessContext": "Total floor area of the facility being audited.",
+      "label_i18n": {
+        "en": "Floor Area",
+        "tr": "Floor Area",
+        "de": "Floor Area",
+        "fr": "Floor Area",
+        "es": "Floor Area",
+        "ar": "Floor Area"
+      }
     },
     {
       "id": "emissionFactor",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kg CO2/kWh",
       "default": 0.5,
-      "businessContext": "Carbon emission factor for grid electricity."
+      "businessContext": "Carbon emission factor for grid electricity.",
+      "label_i18n": {
+        "en": "CO2 Emission Factor",
+        "tr": "CO2 Emission Factor",
+        "de": "CO2 Emission Factor",
+        "fr": "CO2 Emission Factor",
+        "es": "CO2 Emission Factor",
+        "ar": "CO2 Emission Factor"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
       "annualEnergyConsumption",
       "energyIntensity",
       "carbonFootprint"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "carbonFootprint"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -72,5 +125,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

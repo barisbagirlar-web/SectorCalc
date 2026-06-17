@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "units",
       "default": 1200,
-      "businessContext": "Yıllık talep miktarı (adet)"
+      "businessContext": "Yıllık talep miktarı (adet)",
+      "label_i18n": {
+        "en": "Yıllık Talep",
+        "tr": "Yıllık Talep",
+        "de": "Yıllık Talep",
+        "fr": "Yıllık Talep",
+        "es": "Yıllık Talep",
+        "ar": "Yıllık Talep"
+      }
     },
     {
       "id": "orderingCost",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 50,
-      "businessContext": "Sipariş başına maliyet (TL)"
+      "businessContext": "Sipariş başına maliyet (TL)",
+      "label_i18n": {
+        "en": "Sipariş Maliyeti",
+        "tr": "Sipariş Maliyeti",
+        "de": "Sipariş Maliyeti",
+        "fr": "Sipariş Maliyeti",
+        "es": "Sipariş Maliyeti",
+        "ar": "Sipariş Maliyeti"
+      }
     },
     {
       "id": "holdingCost",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "TRY/unit/year",
       "default": 2,
-      "businessContext": "Yıllık birim başına elde tutma maliyeti"
+      "businessContext": "Yıllık birim başına elde tutma maliyeti",
+      "label_i18n": {
+        "en": "Birim Elde Tutma Maliyeti",
+        "tr": "Birim Elde Tutma Maliyeti",
+        "de": "Birim Elde Tutma Maliyeti",
+        "fr": "Birim Elde Tutma Maliyeti",
+        "es": "Birim Elde Tutma Maliyeti",
+        "ar": "Birim Elde Tutma Maliyeti"
+      }
     },
     {
       "id": "dailyDemand",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "units/day",
       "default": 5,
-      "businessContext": "Günlük ortalama talep miktarı"
+      "businessContext": "Günlük ortalama talep miktarı",
+      "label_i18n": {
+        "en": "Günlük Talep",
+        "tr": "Günlük Talep",
+        "de": "Günlük Talep",
+        "fr": "Günlük Talep",
+        "es": "Günlük Talep",
+        "ar": "Günlük Talep"
+      }
     },
     {
       "id": "leadTimeDays",
@@ -39,22 +71,33 @@
       "type": "number",
       "unit": "days",
       "default": 5,
-      "businessContext": "Siparişin teslim süresi (gün)"
+      "businessContext": "Siparişin teslim süresi (gün)",
+      "label_i18n": {
+        "en": "Tedarik Süresi",
+        "tr": "Tedarik Süresi",
+        "de": "Tedarik Süresi",
+        "fr": "Tedarik Süresi",
+        "es": "Tedarik Süresi",
+        "ar": "Tedarik Süresi"
+      }
     }
   ],
   "formulas": {
-    "economicOrderQuantity": "Math.sqrt((2 * annualDemand * orderingCost) / holdingCost)",
     "reorderPoint": "dailyDemand * leadTimeDays",
-    "totalAnnualCost": "(annualDemand / economicOrderQuantity) * orderingCost + (economicOrderQuantity / 2) * holdingCost",
-    "inventoryTurnover": "annualDemand / (economicOrderQuantity / 2)"
+    "reorderPoint_aux": "dailyDemand * leadTimeDays"
   },
   "outputs": {
-    "primary": "economicOrderQuantity",
+    "primary": "reorderPoint_aux",
     "breakdown": [
       "reorderPoint",
       "totalAnnualCost",
       "inventoryTurnover"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "inventoryTurnover"
   },
   "category": "Lojistik & Tedarik Zinciri",
   "sector": "Lojistik & Sevkiyat",
@@ -64,5 +107,10 @@
   "categorySlug": "procurement-supply-chain",
   "sectorId": "lojistik",
   "profession": "Tedarik Zinciri Müdürü",
-  "categoryId": "logistics"
+  "categoryId": "logistics",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

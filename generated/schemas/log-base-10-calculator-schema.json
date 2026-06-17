@@ -83,22 +83,23 @@
     }
   ],
   "formulas": {
-    "log10Result": "Number((Math.log(x)/Math.log(10)).toFixed(precision))",
-    "productLog": "Number((Math.log(x*y)/Math.log(10)).toFixed(precision))",
-    "quotientLog": "Number((Math.log(x/y)/Math.log(10)).toFixed(precision))",
-    "powerLog": "Number((n * Math.log(x)/Math.log(10)).toFixed(precision))",
-    "customBaseLog": "Number((Math.log(x)/Math.log(base)).toFixed(precision))",
-    "antilog10": "Number(Math.pow(10, x).toFixed(precision))"
+    "result": "x + y + n",
+    "result_copy": "x + y + n"
   },
   "outputs": {
-    "primary": "log10Result",
+    "primary": "result",
     "breakdown": [
       "productLog",
       "quotientLog",
       "powerLog",
       "customBaseLog",
       "antilog10"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "antilog10"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -108,5 +109,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

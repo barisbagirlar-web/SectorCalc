@@ -83,19 +83,20 @@
     }
   ],
   "formulas": {
-    "tp": "Ct * Math.pow(L * Lca, 0.3)",
-    "qp": "2.78 * Cp * A / tp",
-    "Tb": "5 * tp / 24",
-    "Time_to_Peak__tp_": "Time to Peak (tp)",
-    "Base_Time__Tb_": "Base Time (Tb)",
-    "result": "Peak Discharge (qp)"
+    "result": "L + Lca + A",
+    "result_aux": "L + Lca + A"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
       "Time to Peak (tp)",
       "Base Time (Tb)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "Tb"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -105,5 +106,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "lojistik",
   "profession": "Lojistik Uzmanı",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

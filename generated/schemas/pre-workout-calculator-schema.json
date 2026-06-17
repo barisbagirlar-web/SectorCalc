@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 75,
-      "businessContext": "Kullanıcının kilogram cinsinden vücut ağırlığı"
+      "businessContext": "Kullanıcının kilogram cinsinden vücut ağırlığı",
+      "label_i18n": {
+        "en": "Vücut Ağırlığı",
+        "tr": "Vücut Ağırlığı",
+        "de": "Vücut Ağırlığı",
+        "fr": "Vücut Ağırlığı",
+        "es": "Vücut Ağırlığı",
+        "ar": "Vücut Ağırlığı"
+      }
     },
     {
       "id": "caffeinePerKg",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mg/kg",
       "default": 3,
-      "businessContext": "Vücut ağırlığı başına istenen kafein miktarı (mg)"
+      "businessContext": "Vücut ağırlığı başına istenen kafein miktarı (mg)",
+      "label_i18n": {
+        "en": "Kafein (mg/kg)",
+        "tr": "Kafein (mg/kg)",
+        "de": "Kafein (mg/kg)",
+        "fr": "Kafein (mg/kg)",
+        "es": "Kafein (mg/kg)",
+        "ar": "Kafein (mg/kg)"
+      }
     },
     {
       "id": "betaAlaninePerKg",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mg/kg",
       "default": 50,
-      "businessContext": "Vücut ağırlığı başına beta-alanin miktarı (mg)"
+      "businessContext": "Vücut ağırlığı başına beta-alanin miktarı (mg)",
+      "label_i18n": {
+        "en": "Beta-Alanin (mg/kg)",
+        "tr": "Beta-Alanin (mg/kg)",
+        "de": "Beta-Alanin (mg/kg)",
+        "fr": "Beta-Alanin (mg/kg)",
+        "es": "Beta-Alanin (mg/kg)",
+        "ar": "Beta-Alanin (mg/kg)"
+      }
     },
     {
       "id": "citrullinePerKg",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mg/kg",
       "default": 80,
-      "businessContext": "Vücut ağırlığı başına sitrülin malat miktarı (mg)"
+      "businessContext": "Vücut ağırlığı başına sitrülin malat miktarı (mg)",
+      "label_i18n": {
+        "en": "Sitrülin Malat (mg/kg)",
+        "tr": "Sitrülin Malat (mg/kg)",
+        "de": "Sitrülin Malat (mg/kg)",
+        "fr": "Sitrülin Malat (mg/kg)",
+        "es": "Sitrülin Malat (mg/kg)",
+        "ar": "Sitrülin Malat (mg/kg)"
+      }
     },
     {
       "id": "water",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "ml",
       "default": 300,
-      "businessContext": "Karıştırma için önerilen su miktarı (ml)"
+      "businessContext": "Karıştırma için önerilen su miktarı (ml)",
+      "label_i18n": {
+        "en": "Su Miktarı",
+        "tr": "Su Miktarı",
+        "de": "Su Miktarı",
+        "fr": "Su Miktarı",
+        "es": "Su Miktarı",
+        "ar": "Su Miktarı"
+      }
     }
   ],
   "formulas": {
@@ -56,7 +96,12 @@
       "citrullineDose",
       "totalActiveGrams",
       "waterAmount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "waterAmount"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -66,5 +111,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Satın alınan paket adedi"
+      "businessContext": "Satın alınan paket adedi",
+      "label_i18n": {
+        "en": "Paket Sayısı",
+        "tr": "Paket Sayısı",
+        "de": "Paket Sayısı",
+        "fr": "Paket Sayısı",
+        "es": "Paket Sayısı",
+        "ar": "Paket Sayısı"
+      }
     },
     {
       "id": "itemsPerBundle",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Bir paketteki ürün sayısı"
+      "businessContext": "Bir paketteki ürün sayısı",
+      "label_i18n": {
+        "en": "Paket Başına Ürün",
+        "tr": "Paket Başına Ürün",
+        "de": "Paket Başına Ürün",
+        "fr": "Paket Başına Ürün",
+        "es": "Paket Başına Ürün",
+        "ar": "Paket Başına Ürün"
+      }
     },
     {
       "id": "pricePerItem",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "TL",
       "default": 10,
-      "businessContext": "Tek bir ürünün liste fiyatı"
+      "businessContext": "Tek bir ürünün liste fiyatı",
+      "label_i18n": {
+        "en": "Birim Fiyatı",
+        "tr": "Birim Fiyatı",
+        "de": "Birim Fiyatı",
+        "fr": "Birim Fiyatı",
+        "es": "Birim Fiyatı",
+        "ar": "Birim Fiyatı"
+      }
     },
     {
       "id": "bundleDiscountPercent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Paket olarak alındığında uygulanacak indirim yüzdesi"
+      "businessContext": "Paket olarak alındığında uygulanacak indirim yüzdesi",
+      "label_i18n": {
+        "en": "Paket İndirimi (%)",
+        "tr": "Paket İndirimi (%)",
+        "de": "Paket İndirimi (%)",
+        "fr": "Paket İndirimi (%)",
+        "es": "Paket İndirimi (%)",
+        "ar": "Paket İndirimi (%)"
+      }
     },
     {
       "id": "bulkThreshold",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "adet",
       "default": 10,
-      "businessContext": "Bu sayıda veya daha fazla paket alındığında ek toplu indirim uygulanır"
+      "businessContext": "Bu sayıda veya daha fazla paket alındığında ek toplu indirim uygulanır",
+      "label_i18n": {
+        "en": "Toplu Alım Eşiği",
+        "tr": "Toplu Alım Eşiği",
+        "de": "Toplu Alım Eşiği",
+        "fr": "Toplu Alım Eşiği",
+        "es": "Toplu Alım Eşiği",
+        "ar": "Toplu Alım Eşiği"
+      }
     },
     {
       "id": "bulkDiscountPercent",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Toplu alım eşiği aşıldığında, paket indirimi sonrasına uygulanacak ek indirim yüzdesi"
+      "businessContext": "Toplu alım eşiği aşıldığında, paket indirimi sonrasına uygulanacak ek indirim yüzdesi",
+      "label_i18n": {
+        "en": "Toplu İndirim Oranı (%)",
+        "tr": "Toplu İndirim Oranı (%)",
+        "de": "Toplu İndirim Oranı (%)",
+        "fr": "Toplu İndirim Oranı (%)",
+        "es": "Toplu İndirim Oranı (%)",
+        "ar": "Toplu İndirim Oranı (%)"
+      }
     }
   ],
   "formulas": {
@@ -100,7 +148,12 @@
         "unit": "TL",
         "description": "İndirimler sonrası nihai maliyet"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "finalCost"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -110,5 +163,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

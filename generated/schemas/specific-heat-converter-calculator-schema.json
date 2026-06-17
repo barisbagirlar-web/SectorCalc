@@ -67,14 +67,19 @@
     }
   ],
   "formulas": {
-    "convertedValue": "Number((value * (fromUnit==1?1:fromUnit==2?1000:fromUnit==3?4184:fromUnit==4?4184:fromUnit==5?4186.8:1) / (toUnit==1?1:toUnit==2?1000:toUnit==3?4184:toUnit==4?4184:toUnit==5?4186.8:1)).toFixed(precision))",
-    "allConversions": "[ 'J/(kg·K): ' + (value * (fromUnit==1?1:fromUnit==2?1000:fromUnit==3?4184:fromUnit==4?4184:fromUnit==5?4186.8:1) / (1)).toFixed(precision), 'kJ/(kg·K): ' + (value * (fromUnit==1?1:fromUnit==2?1000:fromUnit==3?4184:fromUnit==4?4184:fromUnit==5?4186.8:1) / (1000)).toFixed(precision), 'cal/(g·°C): ' + (value * (fromUnit==1?1:fromUnit==2?1000:fromUnit==3?4184:fromUnit==4?4184:fromUnit==5?4186.8:1) / (4184)).toFixed(precision), 'kcal/(kg·°C): ' + (value * (fromUnit==1?1:fromUnit==2?1000:fromUnit==3?4184:fromUnit==4?4184:fromUnit==5?4186.8:1) / (4184)).toFixed(precision), 'Btu/(lb·°F): ' + (value * (fromUnit==1?1:fromUnit==2?1000:fromUnit==3?4184:fromUnit==4?4184:fromUnit==5?4186.8:1) / (4186.8)).toFixed(precision) ]"
+    "result": "value + fromUnit + toUnit",
+    "result_copy": "value + fromUnit + toUnit"
   },
   "outputs": {
-    "primary": "convertedValue",
+    "primary": "result",
     "breakdown": [
       "allConversions"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "convertedValue_aux"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -84,5 +89,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Toplu olarak yatırılan başlangıç tutarı"
+      "businessContext": "Toplu olarak yatırılan başlangıç tutarı",
+      "label_i18n": {
+        "en": "Başlangıç Yatırımı",
+        "tr": "Başlangıç Yatırımı",
+        "de": "Başlangıç Yatırımı",
+        "fr": "Başlangıç Yatırımı",
+        "es": "Başlangıç Yatırımı",
+        "ar": "Başlangıç Yatırımı"
+      }
     },
     {
       "id": "periodicInvestment",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 100,
-      "businessContext": "Her dönem yatırılan sabit tutar"
+      "businessContext": "Her dönem yatırılan sabit tutar",
+      "label_i18n": {
+        "en": "Periyodik Yatırım",
+        "tr": "Periyodik Yatırım",
+        "de": "Periyodik Yatırım",
+        "fr": "Periyodik Yatırım",
+        "es": "Periyodik Yatırım",
+        "ar": "Periyodik Yatırım"
+      }
     },
     {
       "id": "years",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 10,
-      "businessContext": "Toplam yatırım süresi, yıl cinsinden"
+      "businessContext": "Toplam yatırım süresi, yıl cinsinden",
+      "label_i18n": {
+        "en": "Yatırım Süresi (Yıl)",
+        "tr": "Yatırım Süresi (Yıl)",
+        "de": "Yatırım Süresi (Yıl)",
+        "fr": "Yatırım Süresi (Yıl)",
+        "es": "Yatırım Süresi (Yıl)",
+        "ar": "Yatırım Süresi (Yıl)"
+      }
     },
     {
       "id": "periodsPerYear",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "per year",
       "default": 12,
-      "businessContext": "Yatırım sıklığı (ör: aylık için 12)"
+      "businessContext": "Yatırım sıklığı (ör: aylık için 12)",
+      "label_i18n": {
+        "en": "Yıllık Dönem Sayısı",
+        "tr": "Yıllık Dönem Sayısı",
+        "de": "Yıllık Dönem Sayısı",
+        "fr": "Yıllık Dönem Sayısı",
+        "es": "Yıllık Dönem Sayısı",
+        "ar": "Yıllık Dönem Sayısı"
+      }
     },
     {
       "id": "annualReturnRate",
@@ -39,22 +71,33 @@
       "type": "number",
       "unit": "%",
       "default": 7,
-      "businessContext": "Yıllık beklenen getiri oranı (yüzde)"
+      "businessContext": "Yıllık beklenen getiri oranı (yüzde)",
+      "label_i18n": {
+        "en": "Beklenen Yıllık Getiri",
+        "tr": "Beklenen Yıllık Getiri",
+        "de": "Beklenen Yıllık Getiri",
+        "fr": "Beklenen Yıllık Getiri",
+        "es": "Beklenen Yıllık Getiri",
+        "ar": "Beklenen Yıllık Getiri"
+      }
     }
   ],
   "formulas": {
     "n": "years * periodsPerYear",
     "r": "annualReturnRate / 100 / periodsPerYear",
-    "totalInvested": "initialInvestment + periodicInvestment * n",
-    "finalValue": "initialInvestment * Math.pow(1 + r, n) + periodicInvestment * ((Math.pow(1 + r, n) - 1) / r)",
-    "totalReturn": "finalValue - totalInvested"
+    "totalInvested": "initialInvestment + periodicInvestment * n"
   },
   "outputs": {
-    "primary": "finalValue",
+    "primary": "totalInvested",
     "breakdown": [
       "totalInvested",
       "totalReturn"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalReturn"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -64,5 +107,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

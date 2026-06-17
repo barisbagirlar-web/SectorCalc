@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "The total weight (including bar) you lifted."
+      "businessContext": "The total weight (including bar) you lifted.",
+      "label_i18n": {
+        "en": "Lifted Weight",
+        "tr": "Lifted Weight",
+        "de": "Lifted Weight",
+        "fr": "Lifted Weight",
+        "es": "Lifted Weight",
+        "ar": "Lifted Weight"
+      }
     },
     {
       "id": "reps",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "reps",
       "default": 8,
-      "businessContext": "Number of repetitions performed until failure."
+      "businessContext": "Number of repetitions performed until failure.",
+      "label_i18n": {
+        "en": "Repetitions",
+        "tr": "Repetitions",
+        "de": "Repetitions",
+        "fr": "Repetitions",
+        "es": "Repetitions",
+        "ar": "Repetitions"
+      }
     },
     {
       "id": "desiredReps",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "reps",
       "default": 1,
-      "businessContext": "Target number of repetitions for which you want to estimate the weight."
+      "businessContext": "Target number of repetitions for which you want to estimate the weight.",
+      "label_i18n": {
+        "en": "Desired Reps",
+        "tr": "Desired Reps",
+        "de": "Desired Reps",
+        "fr": "Desired Reps",
+        "es": "Desired Reps",
+        "ar": "Desired Reps"
+      }
     },
     {
       "id": "percentage",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 70,
-      "businessContext": "Percentage of your estimated one-repetition maximum for programming working sets."
+      "businessContext": "Percentage of your estimated one-repetition maximum for programming working sets.",
+      "label_i18n": {
+        "en": "Percentage of 1RM",
+        "tr": "Percentage of 1RM",
+        "de": "Percentage of 1RM",
+        "fr": "Percentage of 1RM",
+        "es": "Percentage of 1RM",
+        "ar": "Percentage of 1RM"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "brzycki1RM",
       "weightForDesiredReps",
       "weightAtPercentage"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "weightAtPercentage"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -56,5 +93,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

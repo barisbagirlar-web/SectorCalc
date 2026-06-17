@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 10,
-      "businessContext": "Length of the product to be packaged"
+      "businessContext": "Length of the product to be packaged",
+      "label_i18n": {
+        "en": "Product Length",
+        "tr": "Product Length",
+        "de": "Product Length",
+        "fr": "Product Length",
+        "es": "Product Length",
+        "ar": "Product Length"
+      }
     },
     {
       "id": "productWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 10,
-      "businessContext": "Width of the product"
+      "businessContext": "Width of the product",
+      "label_i18n": {
+        "en": "Product Width",
+        "tr": "Product Width",
+        "de": "Product Width",
+        "fr": "Product Width",
+        "es": "Product Width",
+        "ar": "Product Width"
+      }
     },
     {
       "id": "productHeight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 10,
-      "businessContext": "Height of the product"
+      "businessContext": "Height of the product",
+      "label_i18n": {
+        "en": "Product Height",
+        "tr": "Product Height",
+        "de": "Product Height",
+        "fr": "Product Height",
+        "es": "Product Height",
+        "ar": "Product Height"
+      }
     },
     {
       "id": "materialCostPerSqm",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "EUR/m²",
       "default": 0.5,
-      "businessContext": "Cost of packaging material per square meter"
+      "businessContext": "Cost of packaging material per square meter",
+      "label_i18n": {
+        "en": "Material Cost per m²",
+        "tr": "Material Cost per m²",
+        "de": "Material Cost per m²",
+        "fr": "Material Cost per m²",
+        "es": "Material Cost per m²",
+        "ar": "Material Cost per m²"
+      }
     },
     {
       "id": "numberOfItems",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 100,
-      "businessContext": "Total number of items to package"
+      "businessContext": "Total number of items to package",
+      "label_i18n": {
+        "en": "Number of Items",
+        "tr": "Number of Items",
+        "de": "Number of Items",
+        "fr": "Number of Items",
+        "es": "Number of Items",
+        "ar": "Number of Items"
+      }
     },
     {
       "id": "wasteFactor",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Additional material percentage for waste or scrap"
+      "businessContext": "Additional material percentage for waste or scrap",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
     "breakdown": [
       "surfaceAreaPerItem",
       "totalAreaM2"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalMaterialCost"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -72,5 +125,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

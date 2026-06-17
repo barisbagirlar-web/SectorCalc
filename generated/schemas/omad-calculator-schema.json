@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "min",
       "default": 480,
-      "businessContext": "Total planned operating time for the machine."
+      "businessContext": "Total planned operating time for the machine.",
+      "label_i18n": {
+        "en": "Planned Production Time",
+        "tr": "Planned Production Time",
+        "de": "Planned Production Time",
+        "fr": "Planned Production Time",
+        "es": "Planned Production Time",
+        "ar": "Planned Production Time"
+      }
     },
     {
       "id": "unplannedDowntime",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "min",
       "default": 60,
-      "businessContext": "Time lost due to breakdowns or unscheduled stops."
+      "businessContext": "Time lost due to breakdowns or unscheduled stops.",
+      "label_i18n": {
+        "en": "Unplanned Downtime",
+        "tr": "Unplanned Downtime",
+        "de": "Unplanned Downtime",
+        "fr": "Unplanned Downtime",
+        "es": "Unplanned Downtime",
+        "ar": "Unplanned Downtime"
+      }
     },
     {
       "id": "idealCycleTime",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "min/unit",
       "default": 0.5,
-      "businessContext": "Theoretically fastest time to produce one unit."
+      "businessContext": "Theoretically fastest time to produce one unit.",
+      "label_i18n": {
+        "en": "Ideal Cycle Time",
+        "tr": "Ideal Cycle Time",
+        "de": "Ideal Cycle Time",
+        "fr": "Ideal Cycle Time",
+        "es": "Ideal Cycle Time",
+        "ar": "Ideal Cycle Time"
+      }
     },
     {
       "id": "totalUnits",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "units",
       "default": 800,
-      "businessContext": "Total output including defective units during planned time."
+      "businessContext": "Total output including defective units during planned time.",
+      "label_i18n": {
+        "en": "Total Units Produced",
+        "tr": "Total Units Produced",
+        "de": "Total Units Produced",
+        "fr": "Total Units Produced",
+        "es": "Total Units Produced",
+        "ar": "Total Units Produced"
+      }
     },
     {
       "id": "defectiveUnits",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "units",
       "default": 40,
-      "businessContext": "Units that do not meet quality standards."
+      "businessContext": "Units that do not meet quality standards.",
+      "label_i18n": {
+        "en": "Defective Units",
+        "tr": "Defective Units",
+        "de": "Defective Units",
+        "fr": "Defective Units",
+        "es": "Defective Units",
+        "ar": "Defective Units"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
       "availability",
       "performance",
       "quality"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "oee"
   },
   "category": "İmalat & Üretim",
   "sector": "Üretim & İmalat",
@@ -64,5 +109,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "efficiency"
+  "categoryId": "efficiency",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

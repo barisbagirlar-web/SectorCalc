@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "count",
       "default": 0,
-      "businessContext": "Number of paired (x,y) data points"
+      "businessContext": "Number of paired (x,y) data points",
+      "label_i18n": {
+        "en": "Sample Size (n)",
+        "tr": "Sample Size (n)",
+        "de": "Sample Size (n)",
+        "fr": "Sample Size (n)",
+        "es": "Sample Size (n)",
+        "ar": "Sample Size (n)"
+      }
     },
     {
       "id": "sumX",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Sum of all x values"
+      "businessContext": "Sum of all x values",
+      "label_i18n": {
+        "en": "Sum of X (Σx)",
+        "tr": "Sum of X (Σx)",
+        "de": "Sum of X (Σx)",
+        "fr": "Sum of X (Σx)",
+        "es": "Sum of X (Σx)",
+        "ar": "Sum of X (Σx)"
+      }
     },
     {
       "id": "sumY",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Sum of all y values"
+      "businessContext": "Sum of all y values",
+      "label_i18n": {
+        "en": "Sum of Y (Σy)",
+        "tr": "Sum of Y (Σy)",
+        "de": "Sum of Y (Σy)",
+        "fr": "Sum of Y (Σy)",
+        "es": "Sum of Y (Σy)",
+        "ar": "Sum of Y (Σy)"
+      }
     },
     {
       "id": "sumXY",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Sum of the product of each x and y pair"
+      "businessContext": "Sum of the product of each x and y pair",
+      "label_i18n": {
+        "en": "Sum of XY (Σxy)",
+        "tr": "Sum of XY (Σxy)",
+        "de": "Sum of XY (Σxy)",
+        "fr": "Sum of XY (Σxy)",
+        "es": "Sum of XY (Σxy)",
+        "ar": "Sum of XY (Σxy)"
+      }
     },
     {
       "id": "sumX2",
@@ -39,20 +71,32 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0,
-      "businessContext": "Sum of squared x values"
+      "businessContext": "Sum of squared x values",
+      "label_i18n": {
+        "en": "Sum of X² (Σx²)",
+        "tr": "Sum of X² (Σx²)",
+        "de": "Sum of X² (Σx²)",
+        "fr": "Sum of X² (Σx²)",
+        "es": "Sum of X² (Σx²)",
+        "ar": "Sum of X² (Σx²)"
+      }
     }
   ],
   "formulas": {
     "slope": "(n * sumXY - sumX * sumY) / (n * sumX2 - sumX ** 2)",
-    "intercept": "(sumY - slope * sumX) / n",
-    "equation": "'y = ' + intercept.toFixed(2) + ' + ' + slope.toFixed(2) + ' * x'"
+    "intercept": "(sumY - slope * sumX) / n"
   },
   "outputs": {
-    "primary": "equation",
+    "primary": "intercept",
     "breakdown": [
       "slope",
       "intercept"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "equation"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -62,5 +106,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

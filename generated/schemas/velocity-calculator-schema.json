@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 0,
-      "businessContext": "Starting velocity of the object"
+      "businessContext": "Starting velocity of the object",
+      "label_i18n": {
+        "en": "Initial Velocity (u)",
+        "tr": "Initial Velocity (u)",
+        "de": "Initial Velocity (u)",
+        "fr": "Initial Velocity (u)",
+        "es": "Initial Velocity (u)",
+        "ar": "Initial Velocity (u)"
+      }
     },
     {
       "id": "acceleration",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m/s²",
       "default": 0,
-      "businessContext": "Constant acceleration applied"
+      "businessContext": "Constant acceleration applied",
+      "label_i18n": {
+        "en": "Acceleration (a)",
+        "tr": "Acceleration (a)",
+        "de": "Acceleration (a)",
+        "fr": "Acceleration (a)",
+        "es": "Acceleration (a)",
+        "ar": "Acceleration (a)"
+      }
     },
     {
       "id": "time",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "s",
       "default": 0,
-      "businessContext": "Time interval for the motion"
+      "businessContext": "Time interval for the motion",
+      "label_i18n": {
+        "en": "Time (t)",
+        "tr": "Time (t)",
+        "de": "Time (t)",
+        "fr": "Time (t)",
+        "es": "Time (t)",
+        "ar": "Time (t)"
+      }
     },
     {
       "id": "distance",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Optional: known distance traveled, for comparison with calculated value"
+      "businessContext": "Optional: known distance traveled, for comparison with calculated value",
+      "label_i18n": {
+        "en": "Distance (s)",
+        "tr": "Distance (s)",
+        "de": "Distance (s)",
+        "fr": "Distance (s)",
+        "es": "Distance (s)",
+        "ar": "Distance (s)"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "distanceTravelled",
       "averageVelocity"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "averageVelocity"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

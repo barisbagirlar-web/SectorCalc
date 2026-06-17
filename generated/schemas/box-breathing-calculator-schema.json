@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "seconds",
       "default": 4,
-      "businessContext": "Duration of inhale phase per cycle."
+      "businessContext": "Duration of inhale phase per cycle.",
+      "label_i18n": {
+        "en": "Inhale Duration",
+        "tr": "Inhale Duration",
+        "de": "Inhale Duration",
+        "fr": "Inhale Duration",
+        "es": "Inhale Duration",
+        "ar": "Inhale Duration"
+      }
     },
     {
       "id": "holdTime1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "seconds",
       "default": 4,
-      "businessContext": "Duration of holding breath after inhale."
+      "businessContext": "Duration of holding breath after inhale.",
+      "label_i18n": {
+        "en": "Hold After Inhale",
+        "tr": "Hold After Inhale",
+        "de": "Hold After Inhale",
+        "fr": "Hold After Inhale",
+        "es": "Hold After Inhale",
+        "ar": "Hold After Inhale"
+      }
     },
     {
       "id": "exhaleTime",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "seconds",
       "default": 4,
-      "businessContext": "Duration of exhale phase per cycle."
+      "businessContext": "Duration of exhale phase per cycle.",
+      "label_i18n": {
+        "en": "Exhale Duration",
+        "tr": "Exhale Duration",
+        "de": "Exhale Duration",
+        "fr": "Exhale Duration",
+        "es": "Exhale Duration",
+        "ar": "Exhale Duration"
+      }
     },
     {
       "id": "holdTime2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "seconds",
       "default": 4,
-      "businessContext": "Duration of holding breath after exhale."
+      "businessContext": "Duration of holding breath after exhale.",
+      "label_i18n": {
+        "en": "Hold After Exhale",
+        "tr": "Hold After Exhale",
+        "de": "Hold After Exhale",
+        "fr": "Hold After Exhale",
+        "es": "Hold After Exhale",
+        "ar": "Hold After Exhale"
+      }
     },
     {
       "id": "numCycles",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "cycles",
       "default": 10,
-      "businessContext": "Number of complete box breathing cycles to perform."
+      "businessContext": "Number of complete box breathing cycles to perform.",
+      "label_i18n": {
+        "en": "Number of Cycles",
+        "tr": "Number of Cycles",
+        "de": "Number of Cycles",
+        "fr": "Number of Cycles",
+        "es": "Number of Cycles",
+        "ar": "Number of Cycles"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "cycleDuration",
       "breathsPerMinute"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "breathsPerMinute"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -62,5 +107,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

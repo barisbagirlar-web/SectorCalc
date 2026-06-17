@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Material thickness to be welded"
+      "businessContext": "Material thickness to be welded",
+      "label_i18n": {
+        "en": "Plate Thickness",
+        "tr": "Plate Thickness",
+        "de": "Plate Thickness",
+        "fr": "Plate Thickness",
+        "es": "Plate Thickness",
+        "ar": "Plate Thickness"
+      }
     },
     {
       "id": "rootGap",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 2,
-      "businessContext": "Gap between plate edges"
+      "businessContext": "Gap between plate edges",
+      "label_i18n": {
+        "en": "Root Gap",
+        "tr": "Root Gap",
+        "de": "Root Gap",
+        "fr": "Root Gap",
+        "es": "Root Gap",
+        "ar": "Root Gap"
+      }
     },
     {
       "id": "includedAngle",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "deg",
       "default": 60,
-      "businessContext": "Total groove angle (V-groove)"
+      "businessContext": "Total groove angle (V-groove)",
+      "label_i18n": {
+        "en": "Included Angle",
+        "tr": "Included Angle",
+        "de": "Included Angle",
+        "fr": "Included Angle",
+        "es": "Included Angle",
+        "ar": "Included Angle"
+      }
     },
     {
       "id": "weldLength",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Total length of weld"
+      "businessContext": "Total length of weld",
+      "label_i18n": {
+        "en": "Weld Length",
+        "tr": "Weld Length",
+        "de": "Weld Length",
+        "fr": "Weld Length",
+        "es": "Weld Length",
+        "ar": "Weld Length"
+      }
     },
     {
       "id": "metalDensity",
@@ -39,20 +71,32 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 7850,
-      "businessContext": "Density of filler material (e.g., steel 7850)"
+      "businessContext": "Density of filler material (e.g., steel 7850)",
+      "label_i18n": {
+        "en": "Filler Metal Density",
+        "tr": "Filler Metal Density",
+        "de": "Filler Metal Density",
+        "fr": "Filler Metal Density",
+        "es": "Filler Metal Density",
+        "ar": "Filler Metal Density"
+      }
     }
   ],
   "formulas": {
-    "crossSectionalArea": "(plateThickness * rootGap) + (Math.pow(plateThickness, 2) * Math.tan((includedAngle / 2) * Math.PI / 180))",
-    "fillerVolume": "crossSectionalArea / 1e6 * weldLength",
-    "totalFillerWeight": "fillerVolume * metalDensity"
+    "result": "plateThickness + rootGap + includedAngle",
+    "result_copy": "plateThickness + rootGap + includedAngle"
   },
   "outputs": {
-    "primary": "totalFillerWeight",
+    "primary": "result",
     "breakdown": [
       "crossSectionalArea",
       "fillerVolume"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalFillerWeight"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -62,5 +106,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "metal",
   "profession": "Sac Teknisyeni",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

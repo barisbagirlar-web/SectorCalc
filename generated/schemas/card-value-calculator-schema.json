@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TL",
       "default": 5000,
-      "businessContext": "Kart ile yapılan yıllık toplam harcama"
+      "businessContext": "Kart ile yapılan yıllık toplam harcama",
+      "label_i18n": {
+        "en": "Yıllık Harcama",
+        "tr": "Yıllık Harcama",
+        "de": "Yıllık Harcama",
+        "fr": "Yıllık Harcama",
+        "es": "Yıllık Harcama",
+        "ar": "Yıllık Harcama"
+      }
     },
     {
       "id": "rewardsRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 1,
-      "businessContext": "Harcamalardan geri alınan ödül oranı"
+      "businessContext": "Harcamalardan geri alınan ödül oranı",
+      "label_i18n": {
+        "en": "Ödül Oranı",
+        "tr": "Ödül Oranı",
+        "de": "Ödül Oranı",
+        "fr": "Ödül Oranı",
+        "es": "Ödül Oranı",
+        "ar": "Ödül Oranı"
+      }
     },
     {
       "id": "annualFee",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "TL",
       "default": 100,
-      "businessContext": "Kart için ödenen yıllık ücret"
+      "businessContext": "Kart için ödenen yıllık ücret",
+      "label_i18n": {
+        "en": "Yıllık Ücret",
+        "tr": "Yıllık Ücret",
+        "de": "Yıllık Ücret",
+        "fr": "Yıllık Ücret",
+        "es": "Yıllık Ücret",
+        "ar": "Yıllık Ücret"
+      }
     },
     {
       "id": "otherBenefits",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Sigorta, lounge erişimi gibi parasal değerler"
+      "businessContext": "Sigorta, lounge erişimi gibi parasal değerler",
+      "label_i18n": {
+        "en": "Diğer Avantajlar",
+        "tr": "Diğer Avantajlar",
+        "de": "Diğer Avantajlar",
+        "fr": "Diğer Avantajlar",
+        "es": "Diğer Avantajlar",
+        "ar": "Diğer Avantajlar"
+      }
     },
     {
       "id": "interestRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Bakiye taşınırsa yıllık faiz oranı"
+      "businessContext": "Bakiye taşınırsa yıllık faiz oranı",
+      "label_i18n": {
+        "en": "Faiz Oranı",
+        "tr": "Faiz Oranı",
+        "de": "Faiz Oranı",
+        "fr": "Faiz Oranı",
+        "es": "Faiz Oranı",
+        "ar": "Faiz Oranı"
+      }
     },
     {
       "id": "averageBalance",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Yıllık ortalama taşınan bakiye"
+      "businessContext": "Yıllık ortalama taşınan bakiye",
+      "label_i18n": {
+        "en": "Ortalama Bakiye",
+        "tr": "Ortalama Bakiye",
+        "de": "Ortalama Bakiye",
+        "fr": "Ortalama Bakiye",
+        "es": "Ortalama Bakiye",
+        "ar": "Ortalama Bakiye"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +108,12 @@
     "breakdown": [
       "grossBenefits",
       "totalCosts"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "netValue"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -70,5 +123,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

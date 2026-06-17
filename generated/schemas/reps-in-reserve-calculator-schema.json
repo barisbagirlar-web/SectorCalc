@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 10000,
-      "businessContext": "Takım veya bileşenin toplam kullanılabilir tekrar sayısı."
+      "businessContext": "Takım veya bileşenin toplam kullanılabilir tekrar sayısı.",
+      "label_i18n": {
+        "en": "Toplam Ömür (Tekrar)",
+        "tr": "Toplam Ömür (Tekrar)",
+        "de": "Toplam Ömür (Tekrar)",
+        "fr": "Toplam Ömür (Tekrar)",
+        "es": "Toplam Ömür (Tekrar)",
+        "ar": "Toplam Ömür (Tekrar)"
+      }
     },
     {
       "id": "currentUsage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Şu ana kadar yapılan tekrar sayısı."
+      "businessContext": "Şu ana kadar yapılan tekrar sayısı.",
+      "label_i18n": {
+        "en": "Mevcut Kullanım (Tekrar)",
+        "tr": "Mevcut Kullanım (Tekrar)",
+        "de": "Mevcut Kullanım (Tekrar)",
+        "fr": "Mevcut Kullanım (Tekrar)",
+        "es": "Mevcut Kullanım (Tekrar)",
+        "ar": "Mevcut Kullanım (Tekrar)"
+      }
     },
     {
       "id": "dailyUsageRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "adet/gün",
       "default": 100,
-      "businessContext": "Günlük ortalama tekrar sayısı."
+      "businessContext": "Günlük ortalama tekrar sayısı.",
+      "label_i18n": {
+        "en": "Günlük Kullanım Oranı",
+        "tr": "Günlük Kullanım Oranı",
+        "de": "Günlük Kullanım Oranı",
+        "fr": "Günlük Kullanım Oranı",
+        "es": "Günlük Kullanım Oranı",
+        "ar": "Günlük Kullanım Oranı"
+      }
     },
     {
       "id": "safetyFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Ömür üzerindeki güvenlik marjı yüzdesi."
+      "businessContext": "Ömür üzerindeki güvenlik marjı yüzdesi.",
+      "label_i18n": {
+        "en": "Güvenlik Faktörü (%)",
+        "tr": "Güvenlik Faktörü (%)",
+        "de": "Güvenlik Faktörü (%)",
+        "fr": "Güvenlik Faktörü (%)",
+        "es": "Güvenlik Faktörü (%)",
+        "ar": "Güvenlik Faktörü (%)"
+      }
     },
     {
       "id": "plannedProduction",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "adet",
       "default": 5000,
-      "businessContext": "Gelecek dönemde ihtiyaç duyulan toplam tekrar sayısı."
+      "businessContext": "Gelecek dönemde ihtiyaç duyulan toplam tekrar sayısı.",
+      "label_i18n": {
+        "en": "Planlanan Üretim (Tekrar)",
+        "tr": "Planlanan Üretim (Tekrar)",
+        "de": "Planlanan Üretim (Tekrar)",
+        "fr": "Planlanan Üretim (Tekrar)",
+        "es": "Planlanan Üretim (Tekrar)",
+        "ar": "Planlanan Üretim (Tekrar)"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "daysRemaining",
       "utilizationPercentage"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "utilizationPercentage"
   },
   "category": "İmalat & Üretim",
   "sector": "Üretim & İmalat",
@@ -62,5 +107,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

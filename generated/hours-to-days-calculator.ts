@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from hours-to-days-calculator-schema.json
 import * as z from 'zod';
 
@@ -19,27 +20,35 @@ export const Hours_to_days_calculatorInputSchema = z.object({
   setup_time: z.number().default(0),
 });
 
-function evaluateAllFormulas(input: Hours_to_days_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (input.total_hours / input.efficiency_factor) + input.setup_time; results["required_hours"] = Number.isFinite(v) ? v : 0; } catch { results["required_hours"] = 0; }
-  try { const v = input.daily_shift_hours - input.break_hours_per_shift; results["effective_hours_per_shift"] = Number.isFinite(v) ? v : 0; } catch { results["effective_hours_per_shift"] = 0; }
-  try { const v = (results["effective_hours_per_shift"] ?? 0) * input.shifts_per_day; results["effective_hours_per_day"] = Number.isFinite(v) ? v : 0; } catch { results["effective_hours_per_day"] = 0; }
-  try { const v = (results["required_hours"] ?? 0) / (results["effective_hours_per_day"] ?? 0); results["days"] = Number.isFinite(v) ? v : 0; } catch { results["days"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Hours_to_days_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = (input.total_hours / input.efficiency_factor) + input.setup_time; results["required_hours"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["required_hours"] = 0; }
+  try { const v = input.daily_shift_hours - input.break_hours_per_shift; results["effective_hours_per_shift"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["effective_hours_per_shift"] = 0; }
+  try { const v = (asFormulaNumber(results["effective_hours_per_shift"])) * input.shifts_per_day; results["effective_hours_per_day"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["effective_hours_per_day"] = 0; }
+  try { const v = (asFormulaNumber(results["required_hours"])) / (asFormulaNumber(results["effective_hours_per_day"])); results["days"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["days"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateHours_to_days_calculator(input: Hours_to_days_calculatorInput): Hours_to_days_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["days"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["days"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

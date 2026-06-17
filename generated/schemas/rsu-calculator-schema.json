@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "units",
       "default": 1000,
-      "businessContext": "Total number of restricted stock units awarded."
+      "businessContext": "Total number of restricted stock units awarded.",
+      "label_i18n": {
+        "en": "Total RSUs Granted",
+        "tr": "Total RSUs Granted",
+        "de": "Total RSUs Granted",
+        "fr": "Total RSUs Granted",
+        "es": "Total RSUs Granted",
+        "ar": "Total RSUs Granted"
+      }
     },
     {
       "id": "vestedPercentage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Percentage of RSUs that have vested."
+      "businessContext": "Percentage of RSUs that have vested.",
+      "label_i18n": {
+        "en": "Vested Percentage",
+        "tr": "Vested Percentage",
+        "de": "Vested Percentage",
+        "fr": "Vested Percentage",
+        "es": "Vested Percentage",
+        "ar": "Vested Percentage"
+      }
     },
     {
       "id": "sharePrice",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 50,
-      "businessContext": "Current market price per share."
+      "businessContext": "Current market price per share.",
+      "label_i18n": {
+        "en": "Current Share Price",
+        "tr": "Current Share Price",
+        "de": "Current Share Price",
+        "fr": "Current Share Price",
+        "es": "Current Share Price",
+        "ar": "Current Share Price"
+      }
     },
     {
       "id": "taxRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 30,
-      "businessContext": "Combined federal and state tax rate applied at vesting."
+      "businessContext": "Combined federal and state tax rate applied at vesting.",
+      "label_i18n": {
+        "en": "Estimated Tax Rate",
+        "tr": "Estimated Tax Rate",
+        "de": "Estimated Tax Rate",
+        "fr": "Estimated Tax Rate",
+        "es": "Estimated Tax Rate",
+        "ar": "Estimated Tax Rate"
+      }
     }
   ],
   "formulas": {
@@ -47,7 +79,12 @@
       "preTaxValue",
       "estimatedTax",
       "netValue"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "netValue"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -57,5 +94,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

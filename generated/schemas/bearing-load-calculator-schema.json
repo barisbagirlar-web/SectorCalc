@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "N",
       "default": 1000,
-      "businessContext": "The radial force acting on the bearing"
+      "businessContext": "The radial force acting on the bearing",
+      "label_i18n": {
+        "en": "Radial Load (Fr)",
+        "tr": "Radial Load (Fr)",
+        "de": "Radial Load (Fr)",
+        "fr": "Radial Load (Fr)",
+        "es": "Radial Load (Fr)",
+        "ar": "Radial Load (Fr)"
+      }
     },
     {
       "id": "axialLoad",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "N",
       "default": 500,
-      "businessContext": "The axial force acting on the bearing"
+      "businessContext": "The axial force acting on the bearing",
+      "label_i18n": {
+        "en": "Axial Load (Fa)",
+        "tr": "Axial Load (Fa)",
+        "de": "Axial Load (Fa)",
+        "fr": "Axial Load (Fa)",
+        "es": "Axial Load (Fa)",
+        "ar": "Axial Load (Fa)"
+      }
     },
     {
       "id": "Xfactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "none",
       "default": 0.56,
-      "businessContext": "Radial load factor from bearing tables"
+      "businessContext": "Radial load factor from bearing tables",
+      "label_i18n": {
+        "en": "Radial Factor (X)",
+        "tr": "Radial Factor (X)",
+        "de": "Radial Factor (X)",
+        "fr": "Radial Factor (X)",
+        "es": "Radial Factor (X)",
+        "ar": "Radial Factor (X)"
+      }
     },
     {
       "id": "Yfactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "none",
       "default": 1.5,
-      "businessContext": "Axial load factor from bearing tables"
+      "businessContext": "Axial load factor from bearing tables",
+      "label_i18n": {
+        "en": "Axial Factor (Y)",
+        "tr": "Axial Factor (Y)",
+        "de": "Axial Factor (Y)",
+        "fr": "Axial Factor (Y)",
+        "es": "Axial Factor (Y)",
+        "ar": "Axial Factor (Y)"
+      }
     },
     {
       "id": "dynamicLoadRating",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "N",
       "default": 5000,
-      "businessContext": "Basic dynamic load rating of the bearing"
+      "businessContext": "Basic dynamic load rating of the bearing",
+      "label_i18n": {
+        "en": "Dynamic Load Rating (C)",
+        "tr": "Dynamic Load Rating (C)",
+        "de": "Dynamic Load Rating (C)",
+        "fr": "Dynamic Load Rating (C)",
+        "es": "Dynamic Load Rating (C)",
+        "ar": "Dynamic Load Rating (C)"
+      }
     },
     {
       "id": "exponent",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "none",
       "default": 3,
-      "businessContext": "Exponent for life formula: 3 for ball bearings, 10/3 for roller bearings"
+      "businessContext": "Exponent for life formula: 3 for ball bearings, 10/3 for roller bearings",
+      "label_i18n": {
+        "en": "Life Exponent (p)",
+        "tr": "Life Exponent (p)",
+        "de": "Life Exponent (p)",
+        "fr": "Life Exponent (p)",
+        "es": "Life Exponent (p)",
+        "ar": "Life Exponent (p)"
+      }
     },
     {
       "id": "speed",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "RPM",
       "default": 1500,
-      "businessContext": "Rotational speed of the bearing in revolutions per minute"
+      "businessContext": "Rotational speed of the bearing in revolutions per minute",
+      "label_i18n": {
+        "en": "Rotational Speed (n)",
+        "tr": "Rotational Speed (n)",
+        "de": "Rotational Speed (n)",
+        "fr": "Rotational Speed (n)",
+        "es": "Rotational Speed (n)",
+        "ar": "Rotational Speed (n)"
+      }
     }
   ],
   "formulas": {
@@ -68,7 +124,12 @@
     "breakdown": [
       "equivalentLoad",
       "bearingLifeRevolutions"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "bearingLifeHours"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -78,5 +139,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

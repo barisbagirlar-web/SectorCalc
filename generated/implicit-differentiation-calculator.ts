@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from implicit-differentiation-calculator-schema.json
 import * as z from 'zod';
 
@@ -23,26 +24,34 @@ export const Implicit_differentiation_calculatorInputSchema = z.object({
   y: z.number().default(0.8660254037844386),
 });
 
-function evaluateAllFormulas(input: Implicit_differentiation_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = 2 * input.coeff_x2 * input.x + input.coeff_xy * input.y + input.coeff_x; results["partialX"] = Number.isFinite(v) ? v : 0; } catch { results["partialX"] = 0; }
-  try { const v = 2 * input.coeff_y2 * input.y + input.coeff_xy * input.x + input.coeff_y; results["partialY"] = Number.isFinite(v) ? v : 0; } catch { results["partialY"] = 0; }
-  try { const v = -(results["partialX"] ?? 0) / (results["partialY"] ?? 0); results["derivative"] = Number.isFinite(v) ? v : 0; } catch { results["derivative"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Implicit_differentiation_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = 2 * input.coeff_x2 * input.x + input.coeff_xy * input.y + input.coeff_x; results["partialX"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["partialX"] = 0; }
+  try { const v = 2 * input.coeff_y2 * input.y + input.coeff_xy * input.x + input.coeff_y; results["partialY"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["partialY"] = 0; }
+  try { const v = -(asFormulaNumber(results["partialX"])) / (asFormulaNumber(results["partialY"])); results["derivative"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["derivative"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateImplicit_differentiation_calculator(input: Implicit_differentiation_calculatorInput): Implicit_differentiation_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["derivative"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["derivative"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

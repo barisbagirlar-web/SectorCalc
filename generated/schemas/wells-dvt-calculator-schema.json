@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 2000,
-      "businessContext": "The total measured depth of the wellbore from surface to bottom."
+      "businessContext": "The total measured depth of the wellbore from surface to bottom.",
+      "label_i18n": {
+        "en": "Total Depth",
+        "tr": "Total Depth",
+        "de": "Total Depth",
+        "fr": "Total Depth",
+        "es": "Total Depth",
+        "ar": "Total Depth"
+      }
     },
     {
       "id": "shoeDepth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 1500,
-      "businessContext": "The measured depth of the casing shoe."
+      "businessContext": "The measured depth of the casing shoe.",
+      "label_i18n": {
+        "en": "Casing Shoe Depth",
+        "tr": "Casing Shoe Depth",
+        "de": "Casing Shoe Depth",
+        "fr": "Casing Shoe Depth",
+        "es": "Casing Shoe Depth",
+        "ar": "Casing Shoe Depth"
+      }
     },
     {
       "id": "casingDiameter",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 177.8,
-      "businessContext": "Inner diameter of the casing section."
+      "businessContext": "Inner diameter of the casing section.",
+      "label_i18n": {
+        "en": "Casing Inner Diameter",
+        "tr": "Casing Inner Diameter",
+        "de": "Casing Inner Diameter",
+        "fr": "Casing Inner Diameter",
+        "es": "Casing Inner Diameter",
+        "ar": "Casing Inner Diameter"
+      }
     },
     {
       "id": "openHoleDiameter",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 215.9,
-      "businessContext": "Diameter of the open hole section below the shoe."
+      "businessContext": "Diameter of the open hole section below the shoe.",
+      "label_i18n": {
+        "en": "Open Hole Diameter",
+        "tr": "Open Hole Diameter",
+        "de": "Open Hole Diameter",
+        "fr": "Open Hole Diameter",
+        "es": "Open Hole Diameter",
+        "ar": "Open Hole Diameter"
+      }
     },
     {
       "id": "fluidDensity",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1200,
-      "businessContext": "Density of the wellbore fluid."
+      "businessContext": "Density of the wellbore fluid.",
+      "label_i18n": {
+        "en": "Fluid Density",
+        "tr": "Fluid Density",
+        "de": "Fluid Density",
+        "fr": "Fluid Density",
+        "es": "Fluid Density",
+        "ar": "Fluid Density"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "volumeCasing",
       "pressureShoe"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "pressureShoe"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -62,5 +107,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -67,20 +67,23 @@
     }
   ],
   "formulas": {
-    "tempFactor": "Math.pow(23/(temp+10), 1.5)",
     "humidityFactor": "100/humidity",
     "cementAdjust": "cementType",
-    "curingTime": "baseDays * tempFactor * humidityFactor * cementAdjust",
     "baseDays": "baseDays"
   },
   "outputs": {
-    "primary": "curingTime",
+    "primary": "baseDays",
     "breakdown": [
       "baseDays",
       "tempFactor",
       "humidityFactor",
       "cementAdjust"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "baseDays"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -90,5 +93,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

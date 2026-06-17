@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "nm",
       "default": 500,
-      "businessContext": "Wavelength of the incident photon in nanometers."
+      "businessContext": "Wavelength of the incident photon in nanometers.",
+      "label_i18n": {
+        "en": "Incident light wavelength",
+        "tr": "Incident light wavelength",
+        "de": "Incident light wavelength",
+        "fr": "Incident light wavelength",
+        "es": "Incident light wavelength",
+        "ar": "Incident light wavelength"
+      }
     },
     {
       "id": "workFunction",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "eV",
       "default": 2,
-      "businessContext": "Minimum energy required to eject an electron from the material."
+      "businessContext": "Minimum energy required to eject an electron from the material.",
+      "label_i18n": {
+        "en": "Work function of material",
+        "tr": "Work function of material",
+        "de": "Work function of material",
+        "fr": "Work function of material",
+        "es": "Work function of material",
+        "ar": "Work function of material"
+      }
     },
     {
       "id": "planckConstant",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "eV·s",
       "default": 4.135667662e-15,
-      "businessContext": "Planck constant in electronvolt-seconds. Override for custom units."
+      "businessContext": "Planck constant in electronvolt-seconds. Override for custom units.",
+      "label_i18n": {
+        "en": "Planck constant",
+        "tr": "Planck constant",
+        "de": "Planck constant",
+        "fr": "Planck constant",
+        "es": "Planck constant",
+        "ar": "Planck constant"
+      }
     },
     {
       "id": "speedOfLight",
@@ -31,15 +55,22 @@
       "type": "number",
       "unit": "m/s",
       "default": 299792458,
-      "businessContext": "Speed of light in vacuum, meters per second."
+      "businessContext": "Speed of light in vacuum, meters per second.",
+      "label_i18n": {
+        "en": "Speed of light",
+        "tr": "Speed of light",
+        "de": "Speed of light",
+        "fr": "Speed of light",
+        "es": "Speed of light",
+        "ar": "Speed of light"
+      }
     }
   ],
   "formulas": {
     "photonEnergy": "(planckConstant * speedOfLight * 1000000000) / wavelength",
     "kineticEnergy": "photonEnergy - workFunction",
     "stoppingPotential": "kineticEnergy",
-    "thresholdWavelength": "(planckConstant * speedOfLight * 1000000000) / workFunction",
-    "thresholdFrequency": "workFunction / planckConstant"
+    "thresholdWavelength": "(planckConstant * speedOfLight * 1000000000) / workFunction"
   },
   "outputs": {
     "primary": "kineticEnergy",
@@ -48,7 +79,12 @@
       "stoppingPotential",
       "thresholdWavelength",
       "thresholdFrequency"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "thresholdFrequency"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -58,5 +94,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

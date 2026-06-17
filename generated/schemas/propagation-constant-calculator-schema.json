@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Ω/m",
       "default": 0.1,
-      "businessContext": "Series resistance per unit length of the transmission line"
+      "businessContext": "Series resistance per unit length of the transmission line",
+      "label_i18n": {
+        "en": "Resistance per unit length (R)",
+        "tr": "Resistance per unit length (R)",
+        "de": "Resistance per unit length (R)",
+        "fr": "Resistance per unit length (R)",
+        "es": "Resistance per unit length (R)",
+        "ar": "Resistance per unit length (R)"
+      }
     },
     {
       "id": "l",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "H/m",
       "default": 2e-7,
-      "businessContext": "Series inductance per unit length"
+      "businessContext": "Series inductance per unit length",
+      "label_i18n": {
+        "en": "Inductance per unit length (L)",
+        "tr": "Inductance per unit length (L)",
+        "de": "Inductance per unit length (L)",
+        "fr": "Inductance per unit length (L)",
+        "es": "Inductance per unit length (L)",
+        "ar": "Inductance per unit length (L)"
+      }
     },
     {
       "id": "g",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "S/m",
       "default": 0,
-      "businessContext": "Shunt conductance per unit length (use 0 for ideal lossless line)"
+      "businessContext": "Shunt conductance per unit length (use 0 for ideal lossless line)",
+      "label_i18n": {
+        "en": "Conductance per unit length (G)",
+        "tr": "Conductance per unit length (G)",
+        "de": "Conductance per unit length (G)",
+        "fr": "Conductance per unit length (G)",
+        "es": "Conductance per unit length (G)",
+        "ar": "Conductance per unit length (G)"
+      }
     },
     {
       "id": "c",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "F/m",
       "default": 3e-11,
-      "businessContext": "Shunt capacitance per unit length"
+      "businessContext": "Shunt capacitance per unit length",
+      "label_i18n": {
+        "en": "Capacitance per unit length (C)",
+        "tr": "Capacitance per unit length (C)",
+        "de": "Capacitance per unit length (C)",
+        "fr": "Capacitance per unit length (C)",
+        "es": "Capacitance per unit length (C)",
+        "ar": "Capacitance per unit length (C)"
+      }
     },
     {
       "id": "f",
@@ -39,22 +71,33 @@
       "type": "number",
       "unit": "Hz",
       "default": 1000000000,
-      "businessContext": "Operating frequency of the signal"
+      "businessContext": "Operating frequency of the signal",
+      "label_i18n": {
+        "en": "Frequency (f)",
+        "tr": "Frequency (f)",
+        "de": "Frequency (f)",
+        "fr": "Frequency (f)",
+        "es": "Frequency (f)",
+        "ar": "Frequency (f)"
+      }
     }
   ],
   "formulas": {
-    "alpha": "const omega = 2 * Math.PI * f; const A = r*g - omega*omega*l*c; const B = omega*(r*c + l*g); const magZY = Math.sqrt(A*A + B*B); const theta = Math.atan2(B, A); Math.sqrt(magZY) * Math.cos(theta/2);",
-    "beta": "const omega = 2 * Math.PI * f; const A = r*g - omega*omega*l*c; const B = omega*(r*c + l*g); const magZY = Math.sqrt(A*A + B*B); const theta = Math.atan2(B, A); Math.sqrt(magZY) * Math.sin(theta/2);",
-    "magnitude": "const omega = 2 * Math.PI * f; const A = r*g - omega*omega*l*c; const B = omega*(r*c + l*g); Math.sqrt(Math.sqrt(A*A + B*B));",
-    "alpha_dB": "const omega = 2 * Math.PI * f; const A = r*g - omega*omega*l*c; const B = omega*(r*c + l*g); const magZY = Math.sqrt(A*A + B*B); const theta = Math.atan2(B, A); const alpha = Math.sqrt(magZY) * Math.cos(theta/2); alpha * 8.685889638065035;"
+    "result": "r + l + g",
+    "result_copy": "r + l + g"
   },
   "outputs": {
-    "primary": "alpha",
+    "primary": "result",
     "breakdown": [
       "beta",
       "alpha_dB",
       "magnitude"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "alpha_dB"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -64,5 +107,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "€",
       "default": 100000,
-      "businessContext": "Gayrimenkulün satın alma bedeli"
+      "businessContext": "Gayrimenkulün satın alma bedeli",
+      "label_i18n": {
+        "en": "Alış Fiyatı",
+        "tr": "Alış Fiyatı",
+        "de": "Alış Fiyatı",
+        "fr": "Alış Fiyatı",
+        "es": "Alış Fiyatı",
+        "ar": "Alış Fiyatı"
+      }
     },
     {
       "id": "renovationCost",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "€",
       "default": 20000,
-      "businessContext": "Tadilat ve yenileme giderleri"
+      "businessContext": "Tadilat ve yenileme giderleri",
+      "label_i18n": {
+        "en": "Yenileme Maliyeti",
+        "tr": "Yenileme Maliyeti",
+        "de": "Yenileme Maliyeti",
+        "fr": "Yenileme Maliyeti",
+        "es": "Yenileme Maliyeti",
+        "ar": "Yenileme Maliyeti"
+      }
     },
     {
       "id": "holdingCosts",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "€",
       "default": 5000,
-      "businessContext": "Emlak vergisi, sigorta, faiz gibi sahip olma süresindeki maliyetler"
+      "businessContext": "Emlak vergisi, sigorta, faiz gibi sahip olma süresindeki maliyetler",
+      "label_i18n": {
+        "en": "Elde Etme Maliyetleri",
+        "tr": "Elde Etme Maliyetleri",
+        "de": "Elde Etme Maliyetleri",
+        "fr": "Elde Etme Maliyetleri",
+        "es": "Elde Etme Maliyetleri",
+        "ar": "Elde Etme Maliyetleri"
+      }
     },
     {
       "id": "sellingPrice",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "€",
       "default": 150000,
-      "businessContext": "Gayrimenkulün satış fiyatı"
+      "businessContext": "Gayrimenkulün satış fiyatı",
+      "label_i18n": {
+        "en": "Satış Fiyatı",
+        "tr": "Satış Fiyatı",
+        "de": "Satış Fiyatı",
+        "fr": "Satış Fiyatı",
+        "es": "Satış Fiyatı",
+        "ar": "Satış Fiyatı"
+      }
     },
     {
       "id": "sellingCosts",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "€",
       "default": 10000,
-      "businessContext": "Emlakçı komisyonu, tapu harçları, pazarlama giderleri"
+      "businessContext": "Emlakçı komisyonu, tapu harçları, pazarlama giderleri",
+      "label_i18n": {
+        "en": "Satış Giderleri",
+        "tr": "Satış Giderleri",
+        "de": "Satış Giderleri",
+        "fr": "Satış Giderleri",
+        "es": "Satış Giderleri",
+        "ar": "Satış Giderleri"
+      }
     },
     {
       "id": "financingCosts",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "€",
       "default": 3000,
-      "businessContext": "Kredi faizi, dosya masrafları gibi finansman giderleri"
+      "businessContext": "Kredi faizi, dosya masrafları gibi finansman giderleri",
+      "label_i18n": {
+        "en": "Finansman Maliyeti",
+        "tr": "Finansman Maliyeti",
+        "de": "Finansman Maliyeti",
+        "fr": "Finansman Maliyeti",
+        "es": "Finansman Maliyeti",
+        "ar": "Finansman Maliyeti"
+      }
     }
   ],
   "formulas": {
@@ -63,7 +111,12 @@
       "grossProfit",
       "netProfit",
       "roi"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roi"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -73,5 +126,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "plastik",
   "profession": "Proses Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

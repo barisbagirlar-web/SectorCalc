@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "Ürün veya hizmet başına maliyet"
+      "businessContext": "Ürün veya hizmet başına maliyet",
+      "label_i18n": {
+        "en": "Birim Maliyet",
+        "tr": "Birim Maliyet",
+        "de": "Birim Maliyet",
+        "fr": "Birim Maliyet",
+        "es": "Birim Maliyet",
+        "ar": "Birim Maliyet"
+      }
     },
     {
       "id": "sellingPrice",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "İndirim öncesi satış fiyatı"
+      "businessContext": "İndirim öncesi satış fiyatı",
+      "label_i18n": {
+        "en": "Liste Satış Fiyatı",
+        "tr": "Liste Satış Fiyatı",
+        "de": "Liste Satış Fiyatı",
+        "fr": "Liste Satış Fiyatı",
+        "es": "Liste Satış Fiyatı",
+        "ar": "Liste Satış Fiyatı"
+      }
     },
     {
       "id": "quantity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Adet",
       "default": 1,
-      "businessContext": "Satılan ürün adedi"
+      "businessContext": "Satılan ürün adedi",
+      "label_i18n": {
+        "en": "Miktar",
+        "tr": "Miktar",
+        "de": "Miktar",
+        "fr": "Miktar",
+        "es": "Miktar",
+        "ar": "Miktar"
+      }
     },
     {
       "id": "discount",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Satış fiyatı üzerinden yüzde indirim"
+      "businessContext": "Satış fiyatı üzerinden yüzde indirim",
+      "label_i18n": {
+        "en": "İndirim Oranı",
+        "tr": "İndirim Oranı",
+        "de": "İndirim Oranı",
+        "fr": "İndirim Oranı",
+        "es": "İndirim Oranı",
+        "ar": "İndirim Oranı"
+      }
     }
   ],
   "formulas": {
@@ -47,7 +79,12 @@
       "profitAmount",
       "totalRevenue",
       "totalCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "profitMargin"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -57,5 +94,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

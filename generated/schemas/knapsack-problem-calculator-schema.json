@@ -115,26 +115,26 @@
     }
   ],
   "formulas": {
-    "subset0": "0",
     "subset1": "weight1 <= capacity ? value1 : 0",
     "subset2": "weight2 <= capacity ? value2 : 0",
     "subset3": "weight3 <= capacity ? value3 : 0",
     "subset12": "weight1 + weight2 <= capacity ? value1 + value2 : 0",
     "subset13": "weight1 + weight3 <= capacity ? value1 + value3 : 0",
     "subset23": "weight2 + weight3 <= capacity ? value2 + value3 : 0",
-    "subset123": "weight1 + weight2 + weight3 <= capacity ? value1 + value2 + value3 : 0",
-    "maxValue": "Math.max(subset0, subset1, subset2, subset3, subset12, subset13, subset23, subset123)",
-    "optimalWeight": "(maxValue === subset0) ? 0 : (maxValue === subset1) ? weight1 : (maxValue === subset2) ? weight2 : (maxValue === subset3) ? weight3 : (maxValue === subset12) ? weight1 + weight2 : (maxValue === subset13) ? weight1 + weight3 : (maxValue === subset23) ? weight2 + weight3 : (maxValue === subset123) ? weight1 + weight2 + weight3 : -1",
-    "capacityUtilization": "(optimalWeight / capacity) * 100",
-    "itemCount": "(maxValue === subset0) ? 0 : (maxValue === subset1) ? 1 : (maxValue === subset2) ? 1 : (maxValue === subset3) ? 1 : (maxValue === subset12) ? 2 : (maxValue === subset13) ? 2 : (maxValue === subset23) ? 2 : (maxValue === subset123) ? 3 : -1"
+    "subset123": "weight1 + weight2 + weight3 <= capacity ? value1 + value2 + value3 : 0"
   },
   "outputs": {
-    "primary": "maxValue",
+    "primary": "subset123",
     "breakdown": [
       "optimalWeight",
       "capacityUtilization",
       "itemCount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "itemCount"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -144,5 +144,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

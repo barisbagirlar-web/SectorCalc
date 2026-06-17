@@ -85,9 +85,7 @@
   "formulas": {
     "annualWithdrawal": "portfolioValue * (withdrawalRate / 100)",
     "monthlyWithdrawal": "annualWithdrawal / 12",
-    "adjustedAnnualWithdrawal": "annualWithdrawal * (1 + inflationRate / 100)",
-    "sustainableYears": "Math.log(1 + (expectedReturn / 100 - inflationRate / 100) / (withdrawalRate / 100)) / Math.log(1 + (expectedReturn / 100 - inflationRate / 100))",
-    "finalPortfolioValue": "portfolioValue * (1 + expectedReturn / 100) ** retirementYears - annualWithdrawal * ((1 + expectedReturn / 100) ** retirementYears - 1) / (expectedReturn / 100)"
+    "adjustedAnnualWithdrawal": "annualWithdrawal * (1 + inflationRate / 100)"
   },
   "outputs": {
     "primary": "annualWithdrawal",
@@ -96,7 +94,12 @@
       "adjustedAnnualWithdrawal",
       "sustainableYears",
       "finalPortfolioValue"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "finalPortfolioValue"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -106,5 +109,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "saat",
       "default": 8,
-      "businessContext": "Vardiya süresi veya planlanan üretim süresi"
+      "businessContext": "Vardiya süresi veya planlanan üretim süresi",
+      "label_i18n": {
+        "en": "Planlanan Üretim Süresi",
+        "tr": "Planlanan Üretim Süresi",
+        "de": "Planlanan Üretim Süresi",
+        "fr": "Planlanan Üretim Süresi",
+        "es": "Planlanan Üretim Süresi",
+        "ar": "Planlanan Üretim Süresi"
+      }
     },
     {
       "id": "actualRunTime",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "saat",
       "default": 7.5,
-      "businessContext": "Arızalar, duruşlar sonrası net üretim süresi"
+      "businessContext": "Arızalar, duruşlar sonrası net üretim süresi",
+      "label_i18n": {
+        "en": "Gerçekleşen Çalışma Süresi",
+        "tr": "Gerçekleşen Çalışma Süresi",
+        "de": "Gerçekleşen Çalışma Süresi",
+        "fr": "Gerçekleşen Çalışma Süresi",
+        "es": "Gerçekleşen Çalışma Süresi",
+        "ar": "Gerçekleşen Çalışma Süresi"
+      }
     },
     {
       "id": "idealCycleTime",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dakika/adet",
       "default": 0.5,
-      "businessContext": "Bir ürünün ideal üretim süresi"
+      "businessContext": "Bir ürünün ideal üretim süresi",
+      "label_i18n": {
+        "en": "İdeal Çevrim Süresi",
+        "tr": "İdeal Çevrim Süresi",
+        "de": "İdeal Çevrim Süresi",
+        "fr": "İdeal Çevrim Süresi",
+        "es": "İdeal Çevrim Süresi",
+        "ar": "İdeal Çevrim Süresi"
+      }
     },
     {
       "id": "totalCount",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "adet",
       "default": 800,
-      "businessContext": "Toplam üretilen parça sayısı"
+      "businessContext": "Toplam üretilen parça sayısı",
+      "label_i18n": {
+        "en": "Toplam Üretim Adedi",
+        "tr": "Toplam Üretim Adedi",
+        "de": "Toplam Üretim Adedi",
+        "fr": "Toplam Üretim Adedi",
+        "es": "Toplam Üretim Adedi",
+        "ar": "Toplam Üretim Adedi"
+      }
     },
     {
       "id": "goodCount",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "adet",
       "default": 760,
-      "businessContext": "Kalite kontrolden geçen ürün sayısı"
+      "businessContext": "Kalite kontrolden geçen ürün sayısı",
+      "label_i18n": {
+        "en": "Sağlam Ürün Adedi",
+        "tr": "Sağlam Ürün Adedi",
+        "de": "Sağlam Ürün Adedi",
+        "fr": "Sağlam Ürün Adedi",
+        "es": "Sağlam Ürün Adedi",
+        "ar": "Sağlam Ürün Adedi"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
       "availability",
       "performance",
       "quality"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "oee"
   },
   "category": "İmalat & Üretim",
   "sector": "Üretim & İmalat",
@@ -64,5 +109,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "bar",
       "default": 200,
-      "businessContext": "Vessel pressure before decompression"
+      "businessContext": "Vessel pressure before decompression",
+      "label_i18n": {
+        "en": "Initial Pressure",
+        "tr": "Initial Pressure",
+        "de": "Initial Pressure",
+        "fr": "Initial Pressure",
+        "es": "Initial Pressure",
+        "ar": "Initial Pressure"
+      }
     },
     {
       "id": "finalPressure",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "bar",
       "default": 1,
-      "businessContext": "Target pressure after decompression"
+      "businessContext": "Target pressure after decompression",
+      "label_i18n": {
+        "en": "Final Pressure",
+        "tr": "Final Pressure",
+        "de": "Final Pressure",
+        "fr": "Final Pressure",
+        "es": "Final Pressure",
+        "ar": "Final Pressure"
+      }
     },
     {
       "id": "volume",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "L",
       "default": 1000,
-      "businessContext": "Internal volume of the pressure vessel"
+      "businessContext": "Internal volume of the pressure vessel",
+      "label_i18n": {
+        "en": "Vessel Volume",
+        "tr": "Vessel Volume",
+        "de": "Vessel Volume",
+        "fr": "Vessel Volume",
+        "es": "Vessel Volume",
+        "ar": "Vessel Volume"
+      }
     },
     {
       "id": "flowRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "SLPM",
       "default": 50,
-      "businessContext": "Standard flow rate (1 atm, 20°C) of gas release"
+      "businessContext": "Standard flow rate (1 atm, 20°C) of gas release",
+      "label_i18n": {
+        "en": "Flow Rate (Std)",
+        "tr": "Flow Rate (Std)",
+        "de": "Flow Rate (Std)",
+        "fr": "Flow Rate (Std)",
+        "es": "Flow Rate (Std)",
+        "ar": "Flow Rate (Std)"
+      }
     },
     {
       "id": "temperature",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "°C",
       "default": 25,
-      "businessContext": "Operating temperature of the gas, used for correction"
+      "businessContext": "Operating temperature of the gas, used for correction",
+      "label_i18n": {
+        "en": "Gas Temperature",
+        "tr": "Gas Temperature",
+        "de": "Gas Temperature",
+        "fr": "Gas Temperature",
+        "es": "Gas Temperature",
+        "ar": "Gas Temperature"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
       "pressureDifference",
       "timeUncorrected",
       "decompressionTime"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "decompressionTime"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -64,5 +109,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

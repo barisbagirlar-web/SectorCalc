@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 10000,
-      "businessContext": "Initial purchase price of the asset"
+      "businessContext": "Initial purchase price of the asset",
+      "label_i18n": {
+        "en": "Purchase Price",
+        "tr": "Purchase Price",
+        "de": "Purchase Price",
+        "fr": "Purchase Price",
+        "es": "Purchase Price",
+        "ar": "Purchase Price"
+      }
     },
     {
       "id": "salePrice",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 15000,
-      "businessContext": "Selling price of the asset"
+      "businessContext": "Selling price of the asset",
+      "label_i18n": {
+        "en": "Sale Price",
+        "tr": "Sale Price",
+        "de": "Sale Price",
+        "fr": "Sale Price",
+        "es": "Sale Price",
+        "ar": "Sale Price"
+      }
     },
     {
       "id": "acquisitionCost",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 500,
-      "businessContext": "Costs associated with purchasing the asset (e.g., brokerage fees)"
+      "businessContext": "Costs associated with purchasing the asset (e.g., brokerage fees)",
+      "label_i18n": {
+        "en": "Acquisition Cost",
+        "tr": "Acquisition Cost",
+        "de": "Acquisition Cost",
+        "fr": "Acquisition Cost",
+        "es": "Acquisition Cost",
+        "ar": "Acquisition Cost"
+      }
     },
     {
       "id": "improvementCost",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Costs of improvements made to the asset"
+      "businessContext": "Costs of improvements made to the asset",
+      "label_i18n": {
+        "en": "Improvement Cost",
+        "tr": "Improvement Cost",
+        "de": "Improvement Cost",
+        "fr": "Improvement Cost",
+        "es": "Improvement Cost",
+        "ar": "Improvement Cost"
+      }
     },
     {
       "id": "exemption",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Tax-exempt amount, if applicable (e.g., primary residence exemption)"
+      "businessContext": "Tax-exempt amount, if applicable (e.g., primary residence exemption)",
+      "label_i18n": {
+        "en": "Exemption Amount",
+        "tr": "Exemption Amount",
+        "de": "Exemption Amount",
+        "fr": "Exemption Amount",
+        "es": "Exemption Amount",
+        "ar": "Exemption Amount"
+      }
     },
     {
       "id": "taxRate",
@@ -47,20 +87,32 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Applicable capital gains tax rate (percentage)"
+      "businessContext": "Applicable capital gains tax rate (percentage)",
+      "label_i18n": {
+        "en": "Tax Rate",
+        "tr": "Tax Rate",
+        "de": "Tax Rate",
+        "fr": "Tax Rate",
+        "es": "Tax Rate",
+        "ar": "Tax Rate"
+      }
     }
   ],
   "formulas": {
     "capitalGain": "salePrice - (purchasePrice + acquisitionCost + improvementCost)",
-    "taxableGain": "Math.max(0, salePrice - (purchasePrice + acquisitionCost + improvementCost) - exemption)",
-    "taxOwed": "(Math.max(0, salePrice - (purchasePrice + acquisitionCost + improvementCost) - exemption) * taxRate) / 100"
+    "capitalGain_aux": "salePrice - (purchasePrice + acquisitionCost + improvementCost)"
   },
   "outputs": {
-    "primary": "taxOwed",
+    "primary": "capitalGain_aux",
     "breakdown": [
       "capitalGain",
       "taxableGain"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "taxOwed"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -70,5 +122,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

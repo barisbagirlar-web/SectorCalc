@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 1500,
-      "businessContext": "The monthly rental income from the property."
+      "businessContext": "The monthly rental income from the property.",
+      "label_i18n": {
+        "en": "Monthly Rent",
+        "tr": "Monthly Rent",
+        "de": "Monthly Rent",
+        "fr": "Monthly Rent",
+        "es": "Monthly Rent",
+        "ar": "Monthly Rent"
+      }
     },
     {
       "id": "occupancyRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 95,
-      "businessContext": "Expected occupancy rate as a percentage of the year."
+      "businessContext": "Expected occupancy rate as a percentage of the year.",
+      "label_i18n": {
+        "en": "Occupancy Rate (%)",
+        "tr": "Occupancy Rate (%)",
+        "de": "Occupancy Rate (%)",
+        "fr": "Occupancy Rate (%)",
+        "es": "Occupancy Rate (%)",
+        "ar": "Occupancy Rate (%)"
+      }
     },
     {
       "id": "managementFeePercent",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Percentage of gross income for property management."
+      "businessContext": "Percentage of gross income for property management.",
+      "label_i18n": {
+        "en": "Management Fee (%)",
+        "tr": "Management Fee (%)",
+        "de": "Management Fee (%)",
+        "fr": "Management Fee (%)",
+        "es": "Management Fee (%)",
+        "ar": "Management Fee (%)"
+      }
     },
     {
       "id": "maintenanceMonthly",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100,
-      "businessContext": "Estimated monthly maintenance and repair costs."
+      "businessContext": "Estimated monthly maintenance and repair costs.",
+      "label_i18n": {
+        "en": "Monthly Maintenance",
+        "tr": "Monthly Maintenance",
+        "de": "Monthly Maintenance",
+        "fr": "Monthly Maintenance",
+        "es": "Monthly Maintenance",
+        "ar": "Monthly Maintenance"
+      }
     },
     {
       "id": "insuranceMonthly",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD",
       "default": 50,
-      "businessContext": "Monthly insurance premium."
+      "businessContext": "Monthly insurance premium.",
+      "label_i18n": {
+        "en": "Monthly Insurance",
+        "tr": "Monthly Insurance",
+        "de": "Monthly Insurance",
+        "fr": "Monthly Insurance",
+        "es": "Monthly Insurance",
+        "ar": "Monthly Insurance"
+      }
     },
     {
       "id": "propertyTaxAnnual",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "USD",
       "default": 2000,
-      "businessContext": "Annual property tax amount."
+      "businessContext": "Annual property tax amount.",
+      "label_i18n": {
+        "en": "Annual Property Tax",
+        "tr": "Annual Property Tax",
+        "de": "Annual Property Tax",
+        "fr": "Annual Property Tax",
+        "es": "Annual Property Tax",
+        "ar": "Annual Property Tax"
+      }
     }
   ],
   "formulas": {
@@ -68,7 +116,12 @@
       "totalMaintenance",
       "totalInsurance",
       "propertyTaxAnnual"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "netMonthlyIncome"
   },
   "category": "Bakım & Güvenilirlik",
   "sector": "Üretim & İmalat",
@@ -78,5 +131,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -99,26 +99,11 @@
     }
   ],
   "formulas": {
-    "solar_declination": "23.45 * Math.sin((360/365) * (day_of_year - 81) * Math.PI / 180)",
-    "hour_angle_sunrise": "Math.acos(-Math.tan(latitude * Math.PI / 180) * Math.tan(solar_declination * Math.PI / 180)) * 180 / Math.PI",
     "solar_noon": "12 - (longitude / 15) - timezone_offset",
-    "sunrise_solar": "solar_noon - hour_angle_sunrise / 15",
-    "sunset_solar": "solar_noon + hour_angle_sunrise / 15",
-    "blue_hour_morning_start": "sunrise_solar - 0.5",
-    "blue_hour_morning_end": "sunrise_solar",
-    "blue_hour_evening_start": "sunset_solar",
-    "blue_hour_evening_end": "sunset_solar + 0.5",
-    "blue_hour_morning_duration": "blue_hour_morning_end - blue_hour_morning_start",
-    "blue_hour_evening_duration": "blue_hour_evening_end - blue_hour_evening_start",
-    "_blue_hour_morning_start__hours": "{blue_hour_morning_start} hours",
-    "_blue_hour_morning_end__hours": "{blue_hour_morning_end} hours",
-    "_blue_hour_evening_start__hours": "{blue_hour_evening_start} hours",
-    "_blue_hour_evening_end__hours": "{blue_hour_evening_end} hours",
-    "_blue_hour_morning_duration__hours": "{blue_hour_morning_duration} hours",
-    "_blue_hour_evening_duration__hours": "{blue_hour_evening_duration} hours"
+    "solar_noon_aux": "12 - (longitude / 15) - timezone_offset"
   },
   "outputs": {
-    "primary": "solar_declination",
+    "primary": "solar_noon_aux",
     "breakdown": [
       "Morning blue hour start (local time): {blue_hour_morning_start} hours",
       "Morning blue hour end (local time): {blue_hour_morning_end} hours",
@@ -126,7 +111,12 @@
       "Evening blue hour end (local time): {blue_hour_evening_end} hours",
       "Morning blue hour duration: {blue_hour_morning_duration} hours",
       "Evening blue hour duration: {blue_hour_evening_duration} hours"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "blue_hour_evening_duration"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -136,5 +126,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

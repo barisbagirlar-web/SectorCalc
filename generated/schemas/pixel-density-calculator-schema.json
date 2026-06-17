@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "px",
       "default": 1920,
-      "businessContext": "Horizontal pixel count of the display"
+      "businessContext": "Horizontal pixel count of the display",
+      "label_i18n": {
+        "en": "Screen Width",
+        "tr": "Screen Width",
+        "de": "Screen Width",
+        "fr": "Screen Width",
+        "es": "Screen Width",
+        "ar": "Screen Width"
+      }
     },
     {
       "id": "heightPx",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "px",
       "default": 1080,
-      "businessContext": "Vertical pixel count of the display"
+      "businessContext": "Vertical pixel count of the display",
+      "label_i18n": {
+        "en": "Screen Height",
+        "tr": "Screen Height",
+        "de": "Screen Height",
+        "fr": "Screen Height",
+        "es": "Screen Height",
+        "ar": "Screen Height"
+      }
     },
     {
       "id": "diagonalInch",
@@ -23,22 +39,33 @@
       "type": "number",
       "unit": "in",
       "default": 24,
-      "businessContext": "Screen diagonal measurement in inches"
+      "businessContext": "Screen diagonal measurement in inches",
+      "label_i18n": {
+        "en": "Diagonal Size",
+        "tr": "Diagonal Size",
+        "de": "Diagonal Size",
+        "fr": "Diagonal Size",
+        "es": "Diagonal Size",
+        "ar": "Diagonal Size"
+      }
     }
   ],
   "formulas": {
-    "ppi": "Math.sqrt((widthPx ** 2) + (heightPx ** 2)) / diagonalInch",
-    "dotPitchMm": "25.4 / (Math.sqrt((widthPx ** 2) + (heightPx ** 2)) / diagonalInch)",
     "totalPixels": "widthPx * heightPx",
     "aspectRatio": "widthPx / heightPx"
   },
   "outputs": {
-    "primary": "ppi",
+    "primary": "aspectRatio",
     "breakdown": [
       "dotPitchMm",
       "totalPixels",
       "aspectRatio"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "aspectRatio"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -48,5 +75,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

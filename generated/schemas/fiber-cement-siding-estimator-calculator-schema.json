@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m²",
       "default": 100,
-      "businessContext": "Total surface area to cover with siding"
+      "businessContext": "Total surface area to cover with siding",
+      "label_i18n": {
+        "en": "Wall Area",
+        "tr": "Wall Area",
+        "de": "Wall Area",
+        "fr": "Wall Area",
+        "es": "Wall Area",
+        "ar": "Wall Area"
+      }
     },
     {
       "id": "panelLength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 3.66,
-      "businessContext": "Length of one siding panel"
+      "businessContext": "Length of one siding panel",
+      "label_i18n": {
+        "en": "Panel Length",
+        "tr": "Panel Length",
+        "de": "Panel Length",
+        "fr": "Panel Length",
+        "es": "Panel Length",
+        "ar": "Panel Length"
+      }
     },
     {
       "id": "panelWidth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.2,
-      "businessContext": "Effective coverage width per panel (exposure)"
+      "businessContext": "Effective coverage width per panel (exposure)",
+      "label_i18n": {
+        "en": "Coverage Width",
+        "tr": "Coverage Width",
+        "de": "Coverage Width",
+        "fr": "Coverage Width",
+        "es": "Coverage Width",
+        "ar": "Coverage Width"
+      }
     },
     {
       "id": "wasteFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Percentage of extra material for waste (cuts, overlaps)"
+      "businessContext": "Percentage of extra material for waste (cuts, overlaps)",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     },
     {
       "id": "costPerPanel",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency/panel",
       "default": 5,
-      "businessContext": "Purchase cost of one panel"
+      "businessContext": "Purchase cost of one panel",
+      "label_i18n": {
+        "en": "Material Cost per Panel",
+        "tr": "Material Cost per Panel",
+        "de": "Material Cost per Panel",
+        "fr": "Material Cost per Panel",
+        "es": "Material Cost per Panel",
+        "ar": "Material Cost per Panel"
+      }
     },
     {
       "id": "laborHoursPerPanel",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "hours",
       "default": 0.1,
-      "businessContext": "Labor time required to install one panel"
+      "businessContext": "Labor time required to install one panel",
+      "label_i18n": {
+        "en": "Installation Time per Panel",
+        "tr": "Installation Time per Panel",
+        "de": "Installation Time per Panel",
+        "fr": "Installation Time per Panel",
+        "es": "Installation Time per Panel",
+        "ar": "Installation Time per Panel"
+      }
     },
     {
       "id": "laborCostPerHour",
@@ -55,26 +103,35 @@
       "type": "number",
       "unit": "currency/hour",
       "default": 50,
-      "businessContext": "Hourly rate for labor"
+      "businessContext": "Hourly rate for labor",
+      "label_i18n": {
+        "en": "Labor Cost per Hour",
+        "tr": "Labor Cost per Hour",
+        "de": "Labor Cost per Hour",
+        "fr": "Labor Cost per Hour",
+        "es": "Labor Cost per Hour",
+        "ar": "Labor Cost per Hour"
+      }
     }
   ],
   "formulas": {
     "panelArea": "panelLength * panelWidth",
     "adjustedArea": "wallArea * (1 + wasteFactor / 100)",
-    "numberOfPanels": "Math.ceil(adjustedArea / panelArea)",
-    "totalMaterialCost": "numberOfPanels * costPerPanel",
-    "totalLaborCost": "numberOfPanels * laborHoursPerPanel * laborCostPerHour",
-    "totalCost": "totalMaterialCost + totalLaborCost",
     "wasteMaterialArea": "adjustedArea - wallArea"
   },
   "outputs": {
-    "primary": "totalCost",
+    "primary": "wasteMaterialArea",
     "breakdown": [
       "numberOfPanels",
       "totalMaterialCost",
       "totalLaborCost",
       "wasteMaterialArea"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "wasteMaterialArea"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -84,5 +141,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

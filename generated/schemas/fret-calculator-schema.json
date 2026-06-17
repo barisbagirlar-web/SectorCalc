@@ -67,18 +67,21 @@
     }
   ],
   "formulas": {
-    "distanceToFret": "((scaleLength + compensation) - ((scaleLength + compensation) / Math.pow(2, fretNumber / 12)))",
-    "distanceToNextFret": "fretNumber < totalFrets ? ((scaleLength + compensation) - ((scaleLength + compensation) / Math.pow(2, (fretNumber + 1) / 12))) : 0",
     "distanceTo12thFret": "(scaleLength + compensation) / 2",
-    "fretSpacing": "fretNumber > 1 ? (((scaleLength + compensation) - ((scaleLength + compensation) / Math.pow(2, fretNumber / 12))) - ((scaleLength + compensation) - ((scaleLength + compensation) / Math.pow(2, (fretNumber - 1) / 12)))) : ((scaleLength + compensation) - ((scaleLength + compensation) / Math.pow(2, fretNumber / 12)))"
+    "distanceTo12thFret_aux": "(scaleLength + compensation) / 2"
   },
   "outputs": {
-    "primary": "distanceToFret",
+    "primary": "distanceTo12thFret_aux",
     "breakdown": [
       "distanceToNextFret",
       "distanceTo12thFret",
       "fretSpacing"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "fretSpacing"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -88,5 +91,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -181,18 +181,18 @@
       }
     ]
   },
-  "formulas": [
-    "energy_consumption",
-    "energy_consumption",
-    "energy_consumption",
-    "energy_consumption",
-    "energy_consumption",
-    "energy_consumption",
-    "energy_consumption"
-  ],
+  "formulas": {
+    "result": "energy_consumption + energy_source + fuel_consumption",
+    "result_copy": "energy_consumption + energy_source + fuel_consumption"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "carbon-footprint-check-calculator",
   "catalogCategory": "energy-carbon",

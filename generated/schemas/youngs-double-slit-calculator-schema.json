@@ -68,9 +68,7 @@
   ],
   "formulas": {
     "position": "(fringeOrder * wavelength * screenDistance) / slitSeparation",
-    "fringeSpacing": "(wavelength * screenDistance) / slitSeparation",
-    "angleRad": "Math.atan((fringeOrder * wavelength) / slitSeparation)",
-    "angleDeg": "(Math.atan((fringeOrder * wavelength) / slitSeparation)) * (180 / Math.PI)"
+    "fringeSpacing": "(wavelength * screenDistance) / slitSeparation"
   },
   "outputs": {
     "primary": "position",
@@ -78,7 +76,12 @@
       "fringeSpacing",
       "angleRad",
       "angleDeg"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "angleDeg"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -88,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

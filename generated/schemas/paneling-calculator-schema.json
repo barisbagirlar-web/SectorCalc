@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 4,
-      "businessContext": "Width of the room or wall to be paneled."
+      "businessContext": "Width of the room or wall to be paneled.",
+      "label_i18n": {
+        "en": "Room Width",
+        "tr": "Room Width",
+        "de": "Room Width",
+        "fr": "Room Width",
+        "es": "Room Width",
+        "ar": "Room Width"
+      }
     },
     {
       "id": "roomHeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "Height of the room or wall."
+      "businessContext": "Height of the room or wall.",
+      "label_i18n": {
+        "en": "Room Height",
+        "tr": "Room Height",
+        "de": "Room Height",
+        "fr": "Room Height",
+        "es": "Room Height",
+        "ar": "Room Height"
+      }
     },
     {
       "id": "panelWidth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 60,
-      "businessContext": "Width of a single panel."
+      "businessContext": "Width of a single panel.",
+      "label_i18n": {
+        "en": "Panel Width",
+        "tr": "Panel Width",
+        "de": "Panel Width",
+        "fr": "Panel Width",
+        "es": "Panel Width",
+        "ar": "Panel Width"
+      }
     },
     {
       "id": "panelHeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cm",
       "default": 240,
-      "businessContext": "Height of a single panel."
+      "businessContext": "Height of a single panel.",
+      "label_i18n": {
+        "en": "Panel Height",
+        "tr": "Panel Height",
+        "de": "Panel Height",
+        "fr": "Panel Height",
+        "es": "Panel Height",
+        "ar": "Panel Height"
+      }
     },
     {
       "id": "wasteFactor",
@@ -39,24 +71,32 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Percentage of extra material to account for cutting, fitting, and damage."
+      "businessContext": "Percentage of extra material to account for cutting, fitting, and damage.",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     }
   ],
   "formulas": {
     "panelWidthM": "panelWidth / 100",
-    "panelHeightM": "panelHeight / 100",
-    "horizontalCount": "Math.ceil(roomWidth / panelWidthM)",
-    "verticalCount": "Math.ceil(roomHeight / panelHeightM)",
-    "basePanels": "horizontalCount * verticalCount",
-    "totalPanels": "Math.ceil(basePanels * (1 + wasteFactor / 100))",
-    "wasteExtra": "totalPanels - basePanels"
+    "panelHeightM": "panelHeight / 100"
   },
   "outputs": {
-    "primary": "totalPanels",
+    "primary": "panelHeightM",
     "breakdown": [
       "basePanels",
       "wasteExtra"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "wasteExtra"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -66,5 +106,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

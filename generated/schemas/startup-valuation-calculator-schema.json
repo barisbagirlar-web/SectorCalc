@@ -86,19 +86,20 @@
     "exitValue": "projectedRevenue * (netProfitMargin / 100) * peRatio",
     "postMoney": "exitValue / requiredROI",
     "preMoney": "postMoney - investmentAmount",
-    "ownershipPercent": "(investmentAmount / postMoney) * 100",
-    "Pre_Money_Valuation": "Pre-Money Valuation",
-    "Exit_Value": "Exit Value",
-    "Investor_Ownership__": "Investor Ownership %",
-    "result": "Post-Money Valuation"
+    "ownershipPercent": "(investmentAmount / postMoney) * 100"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "ownershipPercent",
     "breakdown": [
       "Pre-Money Valuation",
       "Exit Value",
       "Investor Ownership %"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "ownershipPercent"
   },
   "category": "Proje & Yatırım",
   "sector": "Finans & İK",
@@ -108,5 +109,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

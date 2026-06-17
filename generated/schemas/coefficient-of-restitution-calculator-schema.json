@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 0,
-      "businessContext": "Initial velocity of the first object before collision."
+      "businessContext": "Initial velocity of the first object before collision.",
+      "label_i18n": {
+        "en": "Initial Velocity Object 1",
+        "tr": "Initial Velocity Object 1",
+        "de": "Initial Velocity Object 1",
+        "fr": "Initial Velocity Object 1",
+        "es": "Initial Velocity Object 1",
+        "ar": "Initial Velocity Object 1"
+      }
     },
     {
       "id": "v2i",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 0,
-      "businessContext": "Initial velocity of the second object before collision."
+      "businessContext": "Initial velocity of the second object before collision.",
+      "label_i18n": {
+        "en": "Initial Velocity Object 2",
+        "tr": "Initial Velocity Object 2",
+        "de": "Initial Velocity Object 2",
+        "fr": "Initial Velocity Object 2",
+        "es": "Initial Velocity Object 2",
+        "ar": "Initial Velocity Object 2"
+      }
     },
     {
       "id": "v1f",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 0,
-      "businessContext": "Final velocity of the first object after collision."
+      "businessContext": "Final velocity of the first object after collision.",
+      "label_i18n": {
+        "en": "Final Velocity Object 1",
+        "tr": "Final Velocity Object 1",
+        "de": "Final Velocity Object 1",
+        "fr": "Final Velocity Object 1",
+        "es": "Final Velocity Object 1",
+        "ar": "Final Velocity Object 1"
+      }
     },
     {
       "id": "v2f",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "m/s",
       "default": 0,
-      "businessContext": "Final velocity of the second object after collision."
+      "businessContext": "Final velocity of the second object after collision.",
+      "label_i18n": {
+        "en": "Final Velocity Object 2",
+        "tr": "Final Velocity Object 2",
+        "de": "Final Velocity Object 2",
+        "fr": "Final Velocity Object 2",
+        "es": "Final Velocity Object 2",
+        "ar": "Final Velocity Object 2"
+      }
     }
   ],
   "formulas": {
-    "relative_speed_before": "Math.abs(v1i - v2i)",
-    "relative_speed_after": "Math.abs(v1f - v2f)",
-    "coefficient_of_restitution": "relative_speed_before !== 0 ? relative_speed_after / relative_speed_before : null"
+    "result": "v1i + v2i + v1f",
+    "result_copy": "v1i + v2i + v1f"
   },
   "outputs": {
-    "primary": "coefficient_of_restitution",
+    "primary": "result",
     "breakdown": [
       "relative_speed_after",
       "relative_speed_before"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "coefficient_of_restitution"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

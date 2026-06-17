@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m³/day",
       "default": 1000,
-      "businessContext": "Daily volume of water to be fluoridated"
+      "businessContext": "Daily volume of water to be fluoridated",
+      "label_i18n": {
+        "en": "Water Flow Rate",
+        "tr": "Water Flow Rate",
+        "de": "Water Flow Rate",
+        "fr": "Water Flow Rate",
+        "es": "Water Flow Rate",
+        "ar": "Water Flow Rate"
+      }
     },
     {
       "id": "targetFluorideConc",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mg/L",
       "default": 1,
-      "businessContext": "Desired fluoride level in treated water"
+      "businessContext": "Desired fluoride level in treated water",
+      "label_i18n": {
+        "en": "Target Fluoride Concentration",
+        "tr": "Target Fluoride Concentration",
+        "de": "Target Fluoride Concentration",
+        "fr": "Target Fluoride Concentration",
+        "es": "Target Fluoride Concentration",
+        "ar": "Target Fluoride Concentration"
+      }
     },
     {
       "id": "rawFluorideConc",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mg/L",
       "default": 0.2,
-      "businessContext": "Natural fluoride level in source water"
+      "businessContext": "Natural fluoride level in source water",
+      "label_i18n": {
+        "en": "Raw Water Fluoride Concentration",
+        "tr": "Raw Water Fluoride Concentration",
+        "de": "Raw Water Fluoride Concentration",
+        "fr": "Raw Water Fluoride Concentration",
+        "es": "Raw Water Fluoride Concentration",
+        "ar": "Raw Water Fluoride Concentration"
+      }
     },
     {
       "id": "compoundPurity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 98,
-      "businessContext": "Purity of the fluoride chemical"
+      "businessContext": "Purity of the fluoride chemical",
+      "label_i18n": {
+        "en": "Compound Purity",
+        "tr": "Compound Purity",
+        "de": "Compound Purity",
+        "fr": "Compound Purity",
+        "es": "Compound Purity",
+        "ar": "Compound Purity"
+      }
     },
     {
       "id": "fluorideIonPercent",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 45,
-      "businessContext": "Percentage of fluoride ion in the compound by weight"
+      "businessContext": "Percentage of fluoride ion in the compound by weight",
+      "label_i18n": {
+        "en": "Available Fluoride Ion",
+        "tr": "Available Fluoride Ion",
+        "de": "Available Fluoride Ion",
+        "fr": "Available Fluoride Ion",
+        "es": "Available Fluoride Ion",
+        "ar": "Available Fluoride Ion"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +100,12 @@
         "label": "Pure Compound Mass",
         "unit": "g/day"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "compoundFeedRate_kg_per_day"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -70,5 +115,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "kimya",
   "profession": "Proses Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m²",
       "default": 100,
-      "businessContext": "Total external wall area excluding windows"
+      "businessContext": "Total external wall area excluding windows",
+      "label_i18n": {
+        "en": "External Wall Area",
+        "tr": "External Wall Area",
+        "de": "External Wall Area",
+        "fr": "External Wall Area",
+        "es": "External Wall Area",
+        "ar": "External Wall Area"
+      }
     },
     {
       "id": "windowArea",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m²",
       "default": 20,
-      "businessContext": "Total window area"
+      "businessContext": "Total window area",
+      "label_i18n": {
+        "en": "Window Area",
+        "tr": "Window Area",
+        "de": "Window Area",
+        "fr": "Window Area",
+        "es": "Window Area",
+        "ar": "Window Area"
+      }
     },
     {
       "id": "roofArea",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m²",
       "default": 60,
-      "businessContext": "Total roof or ceiling area exposed to exterior"
+      "businessContext": "Total roof or ceiling area exposed to exterior",
+      "label_i18n": {
+        "en": "Roof Area",
+        "tr": "Roof Area",
+        "de": "Roof Area",
+        "fr": "Roof Area",
+        "es": "Roof Area",
+        "ar": "Roof Area"
+      }
     },
     {
       "id": "uWall",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "W/m²K",
       "default": 0.25,
-      "businessContext": "Thermal transmittance of walls"
+      "businessContext": "Thermal transmittance of walls",
+      "label_i18n": {
+        "en": "U-Value Wall",
+        "tr": "U-Value Wall",
+        "de": "U-Value Wall",
+        "fr": "U-Value Wall",
+        "es": "U-Value Wall",
+        "ar": "U-Value Wall"
+      }
     },
     {
       "id": "uWindow",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "W/m²K",
       "default": 1.8,
-      "businessContext": "Thermal transmittance of windows"
+      "businessContext": "Thermal transmittance of windows",
+      "label_i18n": {
+        "en": "U-Value Window",
+        "tr": "U-Value Window",
+        "de": "U-Value Window",
+        "fr": "U-Value Window",
+        "es": "U-Value Window",
+        "ar": "U-Value Window"
+      }
     },
     {
       "id": "uRoof",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "W/m²K",
       "default": 0.2,
-      "businessContext": "Thermal transmittance of roof/ceiling"
+      "businessContext": "Thermal transmittance of roof/ceiling",
+      "label_i18n": {
+        "en": "U-Value Roof",
+        "tr": "U-Value Roof",
+        "de": "U-Value Roof",
+        "fr": "U-Value Roof",
+        "es": "U-Value Roof",
+        "ar": "U-Value Roof"
+      }
     },
     {
       "id": "indoorTemp",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Design indoor air temperature"
+      "businessContext": "Design indoor air temperature",
+      "label_i18n": {
+        "en": "Indoor Temperature",
+        "tr": "Indoor Temperature",
+        "de": "Indoor Temperature",
+        "fr": "Indoor Temperature",
+        "es": "Indoor Temperature",
+        "ar": "Indoor Temperature"
+      }
     },
     {
       "id": "outdoorTemp",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "°C",
       "default": -5,
-      "businessContext": "Design outdoor air temperature"
+      "businessContext": "Design outdoor air temperature",
+      "label_i18n": {
+        "en": "Outdoor Temperature",
+        "tr": "Outdoor Temperature",
+        "de": "Outdoor Temperature",
+        "fr": "Outdoor Temperature",
+        "es": "Outdoor Temperature",
+        "ar": "Outdoor Temperature"
+      }
     }
   ],
   "formulas": {
@@ -79,7 +143,12 @@
       "wallLoss",
       "windowLoss",
       "roofLoss"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalHeatLoss"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -89,5 +158,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

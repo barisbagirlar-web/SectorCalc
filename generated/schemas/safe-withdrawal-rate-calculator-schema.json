@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 1000000,
-      "businessContext": "The total value of your investment portfolio at the start of retirement."
+      "businessContext": "The total value of your investment portfolio at the start of retirement.",
+      "label_i18n": {
+        "en": "Initial Portfolio Value",
+        "tr": "Initial Portfolio Value",
+        "de": "Initial Portfolio Value",
+        "fr": "Initial Portfolio Value",
+        "es": "Initial Portfolio Value",
+        "ar": "Initial Portfolio Value"
+      }
     },
     {
       "id": "expectedReturnRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 7,
-      "businessContext": "Assumed average annual return of the portfolio. Typically 5-8% for a balanced portfolio."
+      "businessContext": "Assumed average annual return of the portfolio. Typically 5-8% for a balanced portfolio.",
+      "label_i18n": {
+        "en": "Expected Annual Return",
+        "tr": "Expected Annual Return",
+        "de": "Expected Annual Return",
+        "fr": "Expected Annual Return",
+        "es": "Expected Annual Return",
+        "ar": "Expected Annual Return"
+      }
     },
     {
       "id": "inflationRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 3,
-      "businessContext": "Expected long-term average inflation rate. Used to adjust withdrawals for purchasing power."
+      "businessContext": "Expected long-term average inflation rate. Used to adjust withdrawals for purchasing power.",
+      "label_i18n": {
+        "en": "Expected Inflation Rate",
+        "tr": "Expected Inflation Rate",
+        "de": "Expected Inflation Rate",
+        "fr": "Expected Inflation Rate",
+        "es": "Expected Inflation Rate",
+        "ar": "Expected Inflation Rate"
+      }
     },
     {
       "id": "retirementYears",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Number of years you expect to live in retirement (life expectancy)."
+      "businessContext": "Number of years you expect to live in retirement (life expectancy).",
+      "label_i18n": {
+        "en": "Retirement Period",
+        "tr": "Retirement Period",
+        "de": "Retirement Period",
+        "fr": "Retirement Period",
+        "es": "Retirement Period",
+        "ar": "Retirement Period"
+      }
     }
   ],
   "formulas": {
     "realRate": "(1 + expectedReturnRate/100) / (1 + inflationRate/100) - 1",
-    "annualWithdrawalAmount": "initialPortfolio * realRate / (1 - Math.pow(1 + realRate, -retirementYears))",
-    "safeWithdrawalRate": "(annualWithdrawalAmount / initialPortfolio) * 100"
+    "realRate_aux": "(1 + expectedReturnRate/100) / (1 + inflationRate/100) - 1"
   },
   "outputs": {
-    "primary": "safeWithdrawalRate",
+    "primary": "realRate_aux",
     "breakdown": [
       "annualWithdrawalAmount",
       "realRate"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "safeWithdrawalRate"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -54,5 +90,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

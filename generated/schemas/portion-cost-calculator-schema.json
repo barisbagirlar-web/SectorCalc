@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Total cost of ingredients for the batch"
+      "businessContext": "Total cost of ingredients for the batch",
+      "label_i18n": {
+        "en": "Recipe Cost",
+        "tr": "Recipe Cost",
+        "de": "Recipe Cost",
+        "fr": "Recipe Cost",
+        "es": "Recipe Cost",
+        "ar": "Recipe Cost"
+      }
     },
     {
       "id": "labor-cost",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Labor cost per batch"
+      "businessContext": "Labor cost per batch",
+      "label_i18n": {
+        "en": "Labor Cost",
+        "tr": "Labor Cost",
+        "de": "Labor Cost",
+        "fr": "Labor Cost",
+        "es": "Labor Cost",
+        "ar": "Labor Cost"
+      }
     },
     {
       "id": "other-costs",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Other costs (overhead, packaging, etc.)"
+      "businessContext": "Other costs (overhead, packaging, etc.)",
+      "label_i18n": {
+        "en": "Other Costs",
+        "tr": "Other Costs",
+        "de": "Other Costs",
+        "fr": "Other Costs",
+        "es": "Other Costs",
+        "ar": "Other Costs"
+      }
     },
     {
       "id": "number-of-portions",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "portions",
       "default": 1,
-      "businessContext": "Total number of portions or servings"
+      "businessContext": "Total number of portions or servings",
+      "label_i18n": {
+        "en": "Number of Portions",
+        "tr": "Number of Portions",
+        "de": "Number of Portions",
+        "fr": "Number of Portions",
+        "es": "Number of Portions",
+        "ar": "Number of Portions"
+      }
     },
     {
       "id": "desired-margin-percent",
@@ -39,20 +71,32 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Desired profit margin percentage"
+      "businessContext": "Desired profit margin percentage",
+      "label_i18n": {
+        "en": "Desired Profit Margin",
+        "tr": "Desired Profit Margin",
+        "de": "Desired Profit Margin",
+        "fr": "Desired Profit Margin",
+        "es": "Desired Profit Margin",
+        "ar": "Desired Profit Margin"
+      }
     }
   ],
   "formulas": {
-    "totalBatchCost": "recipeCost + laborCost + otherCosts",
-    "portionCost": "totalBatchCost / numberOfPortions",
-    "sellingPrice": "portionCost / (1 - desiredMarginPercent / 100)"
+    "result": "recipe-cost + labor-cost + other-costs",
+    "result_copy": "recipe-cost + labor-cost + other-costs"
   },
   "outputs": {
-    "primary": "portionCost",
+    "primary": "result",
     "breakdown": [
       "totalBatchCost",
       "sellingPrice"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "sellingPrice"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -62,5 +106,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

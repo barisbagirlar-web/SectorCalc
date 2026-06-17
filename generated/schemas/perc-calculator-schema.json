@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "units",
       "default": 1000,
-      "businessContext": "Number of defect-free parts produced during the planned production time."
+      "businessContext": "Number of defect-free parts produced during the planned production time.",
+      "label_i18n": {
+        "en": "Good Parts Produced",
+        "tr": "Good Parts Produced",
+        "de": "Good Parts Produced",
+        "fr": "Good Parts Produced",
+        "es": "Good Parts Produced",
+        "ar": "Good Parts Produced"
+      }
     },
     {
       "id": "totalParts",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "units",
       "default": 1100,
-      "businessContext": "Total parts produced including defective ones."
+      "businessContext": "Total parts produced including defective ones.",
+      "label_i18n": {
+        "en": "Total Parts Produced",
+        "tr": "Total Parts Produced",
+        "de": "Total Parts Produced",
+        "fr": "Total Parts Produced",
+        "es": "Total Parts Produced",
+        "ar": "Total Parts Produced"
+      }
     },
     {
       "id": "idealCycleTime",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "seconds/part",
       "default": 60,
-      "businessContext": "The theoretical fastest time to produce one part."
+      "businessContext": "The theoretical fastest time to produce one part.",
+      "label_i18n": {
+        "en": "Ideal Cycle Time",
+        "tr": "Ideal Cycle Time",
+        "de": "Ideal Cycle Time",
+        "fr": "Ideal Cycle Time",
+        "es": "Ideal Cycle Time",
+        "ar": "Ideal Cycle Time"
+      }
     },
     {
       "id": "plannedProductionTime",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "seconds",
       "default": 28800,
-      "businessContext": "Total scheduled production time for the shift or period."
+      "businessContext": "Total scheduled production time for the shift or period.",
+      "label_i18n": {
+        "en": "Planned Production Time",
+        "tr": "Planned Production Time",
+        "de": "Planned Production Time",
+        "fr": "Planned Production Time",
+        "es": "Planned Production Time",
+        "ar": "Planned Production Time"
+      }
     },
     {
       "id": "downtime",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "seconds",
       "default": 3600,
-      "businessContext": "Unplanned and planned stoppages during the planned production time."
+      "businessContext": "Unplanned and planned stoppages during the planned production time.",
+      "label_i18n": {
+        "en": "Total Downtime",
+        "tr": "Total Downtime",
+        "de": "Total Downtime",
+        "fr": "Total Downtime",
+        "es": "Total Downtime",
+        "ar": "Total Downtime"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
       "availability",
       "performance",
       "quality"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "overallOEE"
   },
   "category": "İmalat & Üretim",
   "sector": "Üretim & İmalat",
@@ -64,5 +109,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "efficiency"
+  "categoryId": "efficiency",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

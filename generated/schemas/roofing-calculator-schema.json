@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Çatının yatay uzunluğu (saçaklar dahil)"
+      "businessContext": "Çatının yatay uzunluğu (saçaklar dahil)",
+      "label_i18n": {
+        "en": "Çatı Uzunluğu",
+        "tr": "Çatı Uzunluğu",
+        "de": "Çatı Uzunluğu",
+        "fr": "Çatı Uzunluğu",
+        "es": "Çatı Uzunluğu",
+        "ar": "Çatı Uzunluğu"
+      }
     },
     {
       "id": "roofWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 8,
-      "businessContext": "Çatının yatay genişliği (saçaklar dahil)"
+      "businessContext": "Çatının yatay genişliği (saçaklar dahil)",
+      "label_i18n": {
+        "en": "Çatı Genişliği",
+        "tr": "Çatı Genişliği",
+        "de": "Çatı Genişliği",
+        "fr": "Çatı Genişliği",
+        "es": "Çatı Genişliği",
+        "ar": "Çatı Genişliği"
+      }
     },
     {
       "id": "roofPitch",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "derece",
       "default": 30,
-      "businessContext": "Çatının yatayla yaptığı açı (0-90 derece)"
+      "businessContext": "Çatının yatayla yaptığı açı (0-90 derece)",
+      "label_i18n": {
+        "en": "Çatı Eğimi",
+        "tr": "Çatı Eğimi",
+        "de": "Çatı Eğimi",
+        "fr": "Çatı Eğimi",
+        "es": "Çatı Eğimi",
+        "ar": "Çatı Eğimi"
+      }
     },
     {
       "id": "materialCostPerSqm",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TL/m²",
       "default": 50,
-      "businessContext": "Çatı kaplama malzemesinin metrekare fiyatı"
+      "businessContext": "Çatı kaplama malzemesinin metrekare fiyatı",
+      "label_i18n": {
+        "en": "Malzeme Maliyeti (m² başına)",
+        "tr": "Malzeme Maliyeti (m² başına)",
+        "de": "Malzeme Maliyeti (m² başına)",
+        "fr": "Malzeme Maliyeti (m² başına)",
+        "es": "Malzeme Maliyeti (m² başına)",
+        "ar": "Malzeme Maliyeti (m² başına)"
+      }
     },
     {
       "id": "laborCostPerSqm",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "TL/m²",
       "default": 30,
-      "businessContext": "İşçilik maliyeti (metrekare başına)"
+      "businessContext": "İşçilik maliyeti (metrekare başına)",
+      "label_i18n": {
+        "en": "İşçilik Maliyeti (m² başına)",
+        "tr": "İşçilik Maliyeti (m² başına)",
+        "de": "İşçilik Maliyeti (m² başına)",
+        "fr": "İşçilik Maliyeti (m² başına)",
+        "es": "İşçilik Maliyeti (m² başına)",
+        "ar": "İşçilik Maliyeti (m² başına)"
+      }
     },
     {
       "id": "wasteFactor",
@@ -47,26 +87,34 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Kesim ve montaj firesi (yüzde olarak)"
+      "businessContext": "Kesim ve montaj firesi (yüzde olarak)",
+      "label_i18n": {
+        "en": "Fire Oranı",
+        "tr": "Fire Oranı",
+        "de": "Fire Oranı",
+        "fr": "Fire Oranı",
+        "es": "Fire Oranı",
+        "ar": "Fire Oranı"
+      }
     }
   ],
   "formulas": {
     "flatArea": "roofLength * roofWidth",
-    "pitchRad": "roofPitch * Math.PI / 180",
-    "inclinedArea": "flatArea / Math.cos(pitchRad)",
-    "totalMaterialArea": "inclinedArea * (1 + wasteFactor / 100)",
-    "totalMaterialCost": "totalMaterialArea * materialCostPerSqm",
-    "totalLaborCost": "inclinedArea * laborCostPerSqm",
-    "totalCost": "totalMaterialCost + totalLaborCost"
+    "pitchRad": "roofPitch * Math.PI / 180"
   },
   "outputs": {
-    "primary": "totalCost",
+    "primary": "pitchRad",
     "breakdown": [
       "inclinedArea",
       "totalMaterialArea",
       "totalMaterialCost",
       "totalLaborCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -76,5 +124,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

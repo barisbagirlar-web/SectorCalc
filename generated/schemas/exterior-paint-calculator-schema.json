@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m²",
       "default": 100,
-      "businessContext": "Measured external wall area including gables but before openings."
+      "businessContext": "Measured external wall area including gables but before openings.",
+      "label_i18n": {
+        "en": "Total Wall Area",
+        "tr": "Total Wall Area",
+        "de": "Total Wall Area",
+        "fr": "Total Wall Area",
+        "es": "Total Wall Area",
+        "ar": "Total Wall Area"
+      }
     },
     {
       "id": "numberOfCoats",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "coat",
       "default": 2,
-      "businessContext": "Typically 2 for new work, 1 for repaint."
+      "businessContext": "Typically 2 for new work, 1 for repaint.",
+      "label_i18n": {
+        "en": "Number of Coats",
+        "tr": "Number of Coats",
+        "de": "Number of Coats",
+        "fr": "Number of Coats",
+        "es": "Number of Coats",
+        "ar": "Number of Coats"
+      }
     },
     {
       "id": "paintCoverage",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m²/L",
       "default": 10,
-      "businessContext": "Check paint can label; varies 8-14 m²/L."
+      "businessContext": "Check paint can label; varies 8-14 m²/L.",
+      "label_i18n": {
+        "en": "Paint Coverage Rate",
+        "tr": "Paint Coverage Rate",
+        "de": "Paint Coverage Rate",
+        "fr": "Paint Coverage Rate",
+        "es": "Paint Coverage Rate",
+        "ar": "Paint Coverage Rate"
+      }
     },
     {
       "id": "wasteFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Additional paint for loss, uneven surfaces, touch-ups."
+      "businessContext": "Additional paint for loss, uneven surfaces, touch-ups.",
+      "label_i18n": {
+        "en": "Waste Factor (%)",
+        "tr": "Waste Factor (%)",
+        "de": "Waste Factor (%)",
+        "fr": "Waste Factor (%)",
+        "es": "Waste Factor (%)",
+        "ar": "Waste Factor (%)"
+      }
     },
     {
       "id": "doorArea",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m²",
       "default": 2,
-      "businessContext": "Area of doors to deduct."
+      "businessContext": "Area of doors to deduct.",
+      "label_i18n": {
+        "en": "Total Door Area",
+        "tr": "Total Door Area",
+        "de": "Total Door Area",
+        "fr": "Total Door Area",
+        "es": "Total Door Area",
+        "ar": "Total Door Area"
+      }
     },
     {
       "id": "windowArea",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "m²",
       "default": 5,
-      "businessContext": "Area of windows to deduct."
+      "businessContext": "Area of windows to deduct.",
+      "label_i18n": {
+        "en": "Total Window Area",
+        "tr": "Total Window Area",
+        "de": "Total Window Area",
+        "fr": "Total Window Area",
+        "es": "Total Window Area",
+        "ar": "Total Window Area"
+      }
     },
     {
       "id": "otherOpeningsArea",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "m²",
       "default": 0,
-      "businessContext": "Other non-paintable openings area."
+      "businessContext": "Other non-paintable openings area.",
+      "label_i18n": {
+        "en": "Other Openings Area",
+        "tr": "Other Openings Area",
+        "de": "Other Openings Area",
+        "fr": "Other Openings Area",
+        "es": "Other Openings Area",
+        "ar": "Other Openings Area"
+      }
     }
   ],
   "formulas": {
@@ -76,7 +132,12 @@
         "label": "Effective Area (with waste)",
         "unit": "m²"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "paintNeeded"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -86,5 +147,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

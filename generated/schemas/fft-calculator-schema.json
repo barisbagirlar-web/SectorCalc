@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "RPM",
       "default": 1500,
-      "businessContext": "Rotational speed of the shaft in revolutions per minute."
+      "businessContext": "Rotational speed of the shaft in revolutions per minute.",
+      "label_i18n": {
+        "en": "Shaft Speed (RPM)",
+        "tr": "Shaft Speed (RPM)",
+        "de": "Shaft Speed (RPM)",
+        "fr": "Shaft Speed (RPM)",
+        "es": "Shaft Speed (RPM)",
+        "ar": "Shaft Speed (RPM)"
+      }
     },
     {
       "id": "numBalls",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 9,
-      "businessContext": "Number of rolling elements in the bearing."
+      "businessContext": "Number of rolling elements in the bearing.",
+      "label_i18n": {
+        "en": "Number of Balls",
+        "tr": "Number of Balls",
+        "de": "Number of Balls",
+        "fr": "Number of Balls",
+        "es": "Number of Balls",
+        "ar": "Number of Balls"
+      }
     },
     {
       "id": "ballDiameter",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 12,
-      "businessContext": "Diameter of a single rolling element."
+      "businessContext": "Diameter of a single rolling element.",
+      "label_i18n": {
+        "en": "Ball Diameter",
+        "tr": "Ball Diameter",
+        "de": "Ball Diameter",
+        "fr": "Ball Diameter",
+        "es": "Ball Diameter",
+        "ar": "Ball Diameter"
+      }
     },
     {
       "id": "pitchDiameter",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 60,
-      "businessContext": "Diameter of the circle passing through the centers of the rolling elements."
+      "businessContext": "Diameter of the circle passing through the centers of the rolling elements.",
+      "label_i18n": {
+        "en": "Pitch Diameter",
+        "tr": "Pitch Diameter",
+        "de": "Pitch Diameter",
+        "fr": "Pitch Diameter",
+        "es": "Pitch Diameter",
+        "ar": "Pitch Diameter"
+      }
     },
     {
       "id": "contactAngle",
@@ -39,17 +71,23 @@
       "type": "number",
       "unit": "deg",
       "default": 15,
-      "businessContext": "Angular contact angle of the bearing in degrees."
+      "businessContext": "Angular contact angle of the bearing in degrees.",
+      "label_i18n": {
+        "en": "Contact Angle",
+        "tr": "Contact Angle",
+        "de": "Contact Angle",
+        "fr": "Contact Angle",
+        "es": "Contact Angle",
+        "ar": "Contact Angle"
+      }
     }
   ],
   "formulas": {
-    "bpfo": "( numBalls / 2 ) * ( 1 - ( ballDiameter / pitchDiameter ) * Math.cos( contactAngle * Math.PI / 180 ) ) * shaftSpeed / 60",
-    "bpfi": "( numBalls / 2 ) * ( 1 + ( ballDiameter / pitchDiameter ) * Math.cos( contactAngle * Math.PI / 180 ) ) * shaftSpeed / 60",
-    "ftf": "( 1 / 2 ) * ( 1 - ( ballDiameter / pitchDiameter ) * Math.cos( contactAngle * Math.PI / 180 ) ) * shaftSpeed / 60",
-    "bsf": "( pitchDiameter / ( 2 * ballDiameter ) ) * ( 1 - Math.pow( ballDiameter / pitchDiameter, 2 ) * Math.pow( Math.cos( contactAngle * Math.PI / 180 ), 2 ) ) * shaftSpeed / 60"
+    "result": "shaftSpeed + numBalls + ballDiameter",
+    "result_copy": "shaftSpeed + numBalls + ballDiameter"
   },
   "outputs": {
-    "primary": "bpfo",
+    "primary": "result",
     "breakdown": [
       {
         "id": "bpfi",
@@ -66,7 +104,12 @@
         "label": "Ball Spin Frequency",
         "unit": "Hz"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "bsf"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -76,5 +119,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

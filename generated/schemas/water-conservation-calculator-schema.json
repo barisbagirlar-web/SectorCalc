@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m³",
       "default": 1000,
-      "businessContext": "Total water usage in the current period"
+      "businessContext": "Total water usage in the current period",
+      "label_i18n": {
+        "en": "Current Water Consumption",
+        "tr": "Current Water Consumption",
+        "de": "Current Water Consumption",
+        "fr": "Current Water Consumption",
+        "es": "Current Water Consumption",
+        "ar": "Current Water Consumption"
+      }
     },
     {
       "id": "baselineConsumption",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m³",
       "default": 1200,
-      "businessContext": "Water consumption in a reference period for comparison"
+      "businessContext": "Water consumption in a reference period for comparison",
+      "label_i18n": {
+        "en": "Baseline Water Consumption",
+        "tr": "Baseline Water Consumption",
+        "de": "Baseline Water Consumption",
+        "fr": "Baseline Water Consumption",
+        "es": "Baseline Water Consumption",
+        "ar": "Baseline Water Consumption"
+      }
     },
     {
       "id": "waterCostPerCubicMeter",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency/m³",
       "default": 2.5,
-      "businessContext": "Unit cost of water supply"
+      "businessContext": "Unit cost of water supply",
+      "label_i18n": {
+        "en": "Water Cost per m³",
+        "tr": "Water Cost per m³",
+        "de": "Water Cost per m³",
+        "fr": "Water Cost per m³",
+        "es": "Water Cost per m³",
+        "ar": "Water Cost per m³"
+      }
     },
     {
       "id": "leakagePercentage",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Estimated percentage of water lost due to leaks"
+      "businessContext": "Estimated percentage of water lost due to leaks",
+      "label_i18n": {
+        "en": "Leakage Percentage",
+        "tr": "Leakage Percentage",
+        "de": "Leakage Percentage",
+        "fr": "Leakage Percentage",
+        "es": "Leakage Percentage",
+        "ar": "Leakage Percentage"
+      }
     },
     {
       "id": "efficiencyImprovementPercentage",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Target percentage reduction in water use through efficiency measures"
+      "businessContext": "Target percentage reduction in water use through efficiency measures",
+      "label_i18n": {
+        "en": "Efficiency Improvement Target",
+        "tr": "Efficiency Improvement Target",
+        "de": "Efficiency Improvement Target",
+        "fr": "Efficiency Improvement Target",
+        "es": "Efficiency Improvement Target",
+        "ar": "Efficiency Improvement Target"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
       "efficiencySavings",
       "waterWasteFromLeaks",
       "costSavings"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "costSavings"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -64,5 +109,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "otomotiv-tedarik",
   "profession": "Tedarik Zinciri Yöneticisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

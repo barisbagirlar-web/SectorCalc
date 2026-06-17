@@ -67,20 +67,22 @@
     }
   ],
   "formulas": {
-    "term1": "dryBulbTemp * Math.atan(0.151977 * Math.sqrt(relativeHumidity + 8.313659))",
-    "term2": "Math.atan(dryBulbTemp + relativeHumidity)",
-    "term3": "-Math.atan(relativeHumidity - 1.676331)",
-    "term4": "0.00391838 * Math.pow(relativeHumidity, 1.5) * Math.atan(0.023101 * relativeHumidity)",
-    "wetBulbTemp": "term1 + term2 + term3 + term4 - 4.686035"
+    "result": "dryBulbTemp + relativeHumidity + atmosphericPressure",
+    "result_copy": "dryBulbTemp + relativeHumidity + atmosphericPressure"
   },
   "outputs": {
-    "primary": "wetBulbTemp",
+    "primary": "result",
     "breakdown": [
       "term1",
       "term2",
       "term3",
       "term4"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "wetBulbTemp"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -90,5 +92,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

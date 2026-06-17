@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 20,
-      "businessContext": "Cost of a single pack of cigarettes."
+      "businessContext": "Cost of a single pack of cigarettes.",
+      "label_i18n": {
+        "en": "Price per Pack",
+        "tr": "Price per Pack",
+        "de": "Price per Pack",
+        "fr": "Price per Pack",
+        "es": "Price per Pack",
+        "ar": "Price per Pack"
+      }
     },
     {
       "id": "cigarettesPerPack",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "pieces",
       "default": 20,
-      "businessContext": "Number of cigarettes in a pack."
+      "businessContext": "Number of cigarettes in a pack.",
+      "label_i18n": {
+        "en": "Cigarettes per Pack",
+        "tr": "Cigarettes per Pack",
+        "de": "Cigarettes per Pack",
+        "fr": "Cigarettes per Pack",
+        "es": "Cigarettes per Pack",
+        "ar": "Cigarettes per Pack"
+      }
     },
     {
       "id": "cigarettesPerDay",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "pieces",
       "default": 20,
-      "businessContext": "Number of cigarettes smoked per day."
+      "businessContext": "Number of cigarettes smoked per day.",
+      "label_i18n": {
+        "en": "Cigarettes per Day",
+        "tr": "Cigarettes per Day",
+        "de": "Cigarettes per Day",
+        "fr": "Cigarettes per Day",
+        "es": "Cigarettes per Day",
+        "ar": "Cigarettes per Day"
+      }
     },
     {
       "id": "periodDays",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "days",
       "default": 365,
-      "businessContext": "Number of days for total cost calculation."
+      "businessContext": "Number of days for total cost calculation.",
+      "label_i18n": {
+        "en": "Period in Days",
+        "tr": "Period in Days",
+        "de": "Period in Days",
+        "fr": "Period in Days",
+        "es": "Period in Days",
+        "ar": "Period in Days"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "dailyCost",
       "monthlyCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -54,5 +91,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

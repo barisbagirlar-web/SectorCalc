@@ -100,19 +100,7 @@
   ],
   "formulas": {
     "dayLength": "sunset - sunrise",
-    "solarNoon": "sunrise + dayLength / 2",
-    "declination": "23.45 * Math.sin((360/365) * (dateOffset - 81) * Math.PI / 180)",
-    "hourAngle": "Math.acos(-Math.tan(latitude * Math.PI / 180) * Math.tan(declination * Math.PI / 180)) * 180 / Math.PI",
-    "goldenHourMorningStart": "solarNoon - hourAngle / 15 - 0.5",
-    "goldenHourMorningEnd": "solarNoon - hourAngle / 15 + 0.5",
-    "goldenHourEveningStart": "solarNoon + hourAngle / 15 - 0.5",
-    "goldenHourEveningEnd": "solarNoon + hourAngle / 15 + 0.5",
-    "_goldenHourMorningStart__hours": "{goldenHourMorningStart} hours",
-    "_goldenHourMorningEnd__hours": "{goldenHourMorningEnd} hours",
-    "_goldenHourEveningStart__hours": "{goldenHourEveningStart} hours",
-    "_goldenHourEveningEnd__hours": "{goldenHourEveningEnd} hours",
-    "_dayLength__hours": "{dayLength} hours",
-    "_solarNoon__hours": "{solarNoon} hours"
+    "solarNoon": "sunrise + dayLength / 2"
   },
   "outputs": {
     "primary": "dayLength",
@@ -123,7 +111,12 @@
       "Evening golden hour end: {goldenHourEveningEnd} hours",
       "Day length: {dayLength} hours",
       "Solar noon: {solarNoon} hours"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "goldenHourEveningEnd"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -133,5 +126,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "madencilik",
   "profession": "Maden Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

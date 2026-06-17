@@ -68,14 +68,19 @@
   ],
   "formulas": {
     "total_liters": "total_bushels * conversion_factor * batch_count",
-    "containers_needed": "Math.ceil(total_liters / container_size)"
+    "total_liters_aux": "total_bushels * conversion_factor * batch_count"
   },
   "outputs": {
     "primary": "total_liters",
     "breakdown": [
       "total_liters",
       "containers_needed"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "containers_needed"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -85,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

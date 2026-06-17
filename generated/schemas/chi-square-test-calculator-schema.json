@@ -71,17 +71,21 @@
     "expectedA": "(a + b) * (a + c) / total",
     "expectedB": "(a + b) * (b + d) / total",
     "expectedC": "(c + d) * (a + c) / total",
-    "expectedD": "(c + d) * (b + d) / total",
-    "chiSquare": "Math.pow(a - expectedA, 2) / expectedA + Math.pow(b - expectedB, 2) / expectedB + Math.pow(c - expectedC, 2) / expectedC + Math.pow(d - expectedD, 2) / expectedD"
+    "expectedD": "(c + d) * (b + d) / total"
   },
   "outputs": {
-    "primary": "chiSquare",
+    "primary": "expectedD",
     "breakdown": [
       "expectedA",
       "expectedB",
       "expectedC",
       "expectedD"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "chiSquare"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -91,5 +95,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

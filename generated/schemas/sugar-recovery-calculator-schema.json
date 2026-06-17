@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Total mass of sugarcane processed."
+      "businessContext": "Total mass of sugarcane processed.",
+      "label_i18n": {
+        "en": "Cane Weight",
+        "tr": "Cane Weight",
+        "de": "Cane Weight",
+        "fr": "Cane Weight",
+        "es": "Cane Weight",
+        "ar": "Cane Weight"
+      }
     },
     {
       "id": "polCane",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 14,
-      "businessContext": "Sucrose content in sugarcane by weight."
+      "businessContext": "Sucrose content in sugarcane by weight.",
+      "label_i18n": {
+        "en": "Pol % Cane",
+        "tr": "Pol % Cane",
+        "de": "Pol % Cane",
+        "fr": "Pol % Cane",
+        "es": "Pol % Cane",
+        "ar": "Pol % Cane"
+      }
     },
     {
       "id": "extractionEfficiency",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 95,
-      "businessContext": "Percentage of sugar extracted from cane into juice."
+      "businessContext": "Percentage of sugar extracted from cane into juice.",
+      "label_i18n": {
+        "en": "Extraction Efficiency",
+        "tr": "Extraction Efficiency",
+        "de": "Extraction Efficiency",
+        "fr": "Extraction Efficiency",
+        "es": "Extraction Efficiency",
+        "ar": "Extraction Efficiency"
+      }
     },
     {
       "id": "boilingHouseEfficiency",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "Percentage of sugar in juice that is recovered as crystal sugar."
+      "businessContext": "Percentage of sugar in juice that is recovered as crystal sugar.",
+      "label_i18n": {
+        "en": "Boiling House Efficiency",
+        "tr": "Boiling House Efficiency",
+        "de": "Boiling House Efficiency",
+        "fr": "Boiling House Efficiency",
+        "es": "Boiling House Efficiency",
+        "ar": "Boiling House Efficiency"
+      }
     }
   ],
   "formulas": {
@@ -48,7 +80,12 @@
       "extractedSugar",
       "extractionLoss",
       "boilingLoss"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "boilingLoss"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -58,5 +95,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "efficiency"
+  "categoryId": "efficiency",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "sides",
       "default": 0,
-      "businessContext": "Number of sides of the regular polygon"
+      "businessContext": "Number of sides of the regular polygon",
+      "label_i18n": {
+        "en": "Number of Sides",
+        "tr": "Number of Sides",
+        "de": "Number of Sides",
+        "fr": "Number of Sides",
+        "es": "Number of Sides",
+        "ar": "Number of Sides"
+      }
     },
     {
       "id": "interiorAngle",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "degrees",
       "default": 0,
-      "businessContext": "Each interior angle of the polygon"
+      "businessContext": "Each interior angle of the polygon",
+      "label_i18n": {
+        "en": "Interior Angle",
+        "tr": "Interior Angle",
+        "de": "Interior Angle",
+        "fr": "Interior Angle",
+        "es": "Interior Angle",
+        "ar": "Interior Angle"
+      }
     },
     {
       "id": "sumInteriorAngles",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "degrees",
       "default": 0,
-      "businessContext": "Total sum of all interior angles"
+      "businessContext": "Total sum of all interior angles",
+      "label_i18n": {
+        "en": "Sum of Interior Angles",
+        "tr": "Sum of Interior Angles",
+        "de": "Sum of Interior Angles",
+        "fr": "Sum of Interior Angles",
+        "es": "Sum of Interior Angles",
+        "ar": "Sum of Interior Angles"
+      }
     },
     {
       "id": "exteriorAngleGiven",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "degrees",
       "default": 0,
-      "businessContext": "Pre-known exterior angle for verification"
+      "businessContext": "Pre-known exterior angle for verification",
+      "label_i18n": {
+        "en": "Exterior Angle (if known)",
+        "tr": "Exterior Angle (if known)",
+        "de": "Exterior Angle (if known)",
+        "fr": "Exterior Angle (if known)",
+        "es": "Exterior Angle (if known)",
+        "ar": "Exterior Angle (if known)"
+      }
     },
     {
       "id": "precision",
@@ -39,20 +71,32 @@
       "type": "number",
       "unit": "places",
       "default": 2,
-      "businessContext": "Number of decimal places for rounding output"
+      "businessContext": "Number of decimal places for rounding output",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     }
   ],
   "formulas": {
-    "exteriorAngle": "Math.round((sides > 0 ? 360/sides : interiorAngle > 0 ? 180 - interiorAngle : sumInteriorAngles > 0 ? 360/((sumInteriorAngles/180)+2) : exteriorAngleGiven > 0 ? exteriorAngleGiven : 0) * Math.pow(10, precision)) / Math.pow(10, precision)",
-    "interiorAngle": "Math.round((180 - exteriorAngle) * Math.pow(10, precision)) / Math.pow(10, precision)",
-    "sumExteriorAngles": "Math.round(360 * Math.pow(10, precision)) / Math.pow(10, precision)"
+    "result": "sides + interiorAngle + sumInteriorAngles",
+    "result_copy": "sides + interiorAngle + sumInteriorAngles"
   },
   "outputs": {
-    "primary": "exteriorAngle",
+    "primary": "result",
     "breakdown": [
       "interiorAngle",
       "sumExteriorAngles"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "sumExteriorAngles"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -62,5 +106,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

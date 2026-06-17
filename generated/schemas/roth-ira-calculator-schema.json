@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Your current age"
+      "businessContext": "Your current age",
+      "label_i18n": {
+        "en": "Current Age",
+        "tr": "Current Age",
+        "de": "Current Age",
+        "fr": "Current Age",
+        "es": "Current Age",
+        "ar": "Current Age"
+      }
     },
     {
       "id": "retirementAge",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "years",
       "default": 65,
-      "businessContext": "Age at which you plan to retire"
+      "businessContext": "Age at which you plan to retire",
+      "label_i18n": {
+        "en": "Retirement Age",
+        "tr": "Retirement Age",
+        "de": "Retirement Age",
+        "fr": "Retirement Age",
+        "es": "Retirement Age",
+        "ar": "Retirement Age"
+      }
     },
     {
       "id": "annualContribution",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 6000,
-      "businessContext": "Amount contributed to Roth IRA each year"
+      "businessContext": "Amount contributed to Roth IRA each year",
+      "label_i18n": {
+        "en": "Annual Contribution",
+        "tr": "Annual Contribution",
+        "de": "Annual Contribution",
+        "fr": "Annual Contribution",
+        "es": "Annual Contribution",
+        "ar": "Annual Contribution"
+      }
     },
     {
       "id": "currentBalance",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 10000,
-      "businessContext": "Current Roth IRA balance"
+      "businessContext": "Current Roth IRA balance",
+      "label_i18n": {
+        "en": "Current Balance",
+        "tr": "Current Balance",
+        "de": "Current Balance",
+        "fr": "Current Balance",
+        "es": "Current Balance",
+        "ar": "Current Balance"
+      }
     },
     {
       "id": "expectedReturn",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 7,
-      "businessContext": "Expected annual rate of return on investments"
+      "businessContext": "Expected annual rate of return on investments",
+      "label_i18n": {
+        "en": "Expected Annual Return",
+        "tr": "Expected Annual Return",
+        "de": "Expected Annual Return",
+        "fr": "Expected Annual Return",
+        "es": "Expected Annual Return",
+        "ar": "Expected Annual Return"
+      }
     },
     {
       "id": "inflationRate",
@@ -47,22 +87,32 @@
       "type": "number",
       "unit": "%",
       "default": 2.5,
-      "businessContext": "Expected average annual inflation rate"
+      "businessContext": "Expected average annual inflation rate",
+      "label_i18n": {
+        "en": "Inflation Rate",
+        "tr": "Inflation Rate",
+        "de": "Inflation Rate",
+        "fr": "Inflation Rate",
+        "es": "Inflation Rate",
+        "ar": "Inflation Rate"
+      }
     }
   ],
   "formulas": {
-    "r": "inputs.expectedReturn / 100",
-    "n": "inputs.retirementAge - inputs.currentAge",
-    "nominalFutureValue": "inputs.currentBalance * Math.pow(1 + r, n) + inputs.annualContribution * ((Math.pow(1 + r, n) - 1) / r)",
-    "inflationFactor": "Math.pow(1 + inputs.inflationRate / 100, n)",
-    "realFutureValue": "nominalFutureValue / inflationFactor"
+    "result": "currentAge + retirementAge + annualContribution",
+    "result_copy": "currentAge + retirementAge + annualContribution"
   },
   "outputs": {
-    "primary": "realFutureValue",
+    "primary": "result",
     "breakdown": [
       "nominalFutureValue",
       "realFutureValue"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "realFutureValue"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -72,5 +122,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

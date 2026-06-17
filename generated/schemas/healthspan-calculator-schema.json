@@ -100,15 +100,11 @@
   ],
   "formulas": {
     "baseRemainingYears": "80 - currentAge",
-    "smokingImpact": "Math.log(1 + smokingYears) * 2",
-    "bmiImpact": "bmi > 25 ? Math.log(1 + (bmi - 25)) * 1.5 : 0",
-    "exerciseGain": "Math.sqrt(exerciseHoursPerWeek) * 1.2",
     "dietGain": "(dietQualityScore - 50) / 10",
-    "alcoholLoss": "alcoholUnitsPerWeek * 0.5",
-    "adjustedHealthspan": "Math.max(0, baseRemainingYears - smokingImpact - bmiImpact + exerciseGain + dietGain - alcoholLoss)"
+    "alcoholLoss": "alcoholUnitsPerWeek * 0.5"
   },
   "outputs": {
-    "primary": "adjustedHealthspan",
+    "primary": "alcoholLoss",
     "breakdown": [
       "baseRemainingYears",
       "smokingImpact",
@@ -116,7 +112,12 @@
       "exerciseGain",
       "dietGain",
       "alcoholLoss"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "adjustedHealthspan"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -126,5 +127,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "saglik",
   "profession": "Biyomedikal Mühendisi",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

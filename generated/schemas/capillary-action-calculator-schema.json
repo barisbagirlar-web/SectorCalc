@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "N/m",
       "default": 0.0728,
-      "businessContext": "Surface tension of the liquid-air interface"
+      "businessContext": "Surface tension of the liquid-air interface",
+      "label_i18n": {
+        "en": "Surface Tension (γ)",
+        "tr": "Surface Tension (γ)",
+        "de": "Surface Tension (γ)",
+        "fr": "Surface Tension (γ)",
+        "es": "Surface Tension (γ)",
+        "ar": "Surface Tension (γ)"
+      }
     },
     {
       "id": "contactAngle",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°",
       "default": 20,
-      "businessContext": "Contact angle of liquid with tube wall"
+      "businessContext": "Contact angle of liquid with tube wall",
+      "label_i18n": {
+        "en": "Contact Angle (θ)",
+        "tr": "Contact Angle (θ)",
+        "de": "Contact Angle (θ)",
+        "fr": "Contact Angle (θ)",
+        "es": "Contact Angle (θ)",
+        "ar": "Contact Angle (θ)"
+      }
     },
     {
       "id": "density",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1000,
-      "businessContext": "Density of the liquid"
+      "businessContext": "Density of the liquid",
+      "label_i18n": {
+        "en": "Density (ρ)",
+        "tr": "Density (ρ)",
+        "de": "Density (ρ)",
+        "fr": "Density (ρ)",
+        "es": "Density (ρ)",
+        "ar": "Density (ρ)"
+      }
     },
     {
       "id": "radius",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.0005,
-      "businessContext": "Inner radius of the capillary tube"
+      "businessContext": "Inner radius of the capillary tube",
+      "label_i18n": {
+        "en": "Tube Radius (r)",
+        "tr": "Tube Radius (r)",
+        "de": "Tube Radius (r)",
+        "fr": "Tube Radius (r)",
+        "es": "Tube Radius (r)",
+        "ar": "Tube Radius (r)"
+      }
     },
     {
       "id": "gravity",
@@ -39,18 +71,31 @@
       "type": "number",
       "unit": "m/s²",
       "default": 9.81,
-      "businessContext": "Acceleration due to gravity"
+      "businessContext": "Acceleration due to gravity",
+      "label_i18n": {
+        "en": "Gravity (g)",
+        "tr": "Gravity (g)",
+        "de": "Gravity (g)",
+        "fr": "Gravity (g)",
+        "es": "Gravity (g)",
+        "ar": "Gravity (g)"
+      }
     }
   ],
   "formulas": {
-    "heightM": "2 * surfaceTension * Math.cos(contactAngle * Math.PI / 180) / (density * gravity * radius)",
-    "heightCm": "heightM * 100"
+    "result": "surfaceTension + contactAngle + density",
+    "result_copy": "surfaceTension + contactAngle + density"
   },
   "outputs": {
-    "primary": "heightM",
+    "primary": "result",
     "breakdown": [
       "heightCm"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "heightCm"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -60,5 +105,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

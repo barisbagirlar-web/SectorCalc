@@ -4,7 +4,7 @@
     {
       "id": "function",
       "label": "Function f(x)",
-      "type": "string",
+      "type": "number",
       "unit": "unit",
       "default": "sin(x)",
       "businessContext": "Mathematical function to expand",
@@ -67,16 +67,20 @@
     }
   ],
   "formulas": {
-    "approximation": "let sum = 0; for(let k=0; k<terms; k++) { let coeff = (k%2===0 ? 1 : -1) / factorial(2*k+1); sum += coeff * Math.pow(x_value, 2*k+1); } sum",
-    "exact": "Math.sin(x_value)",
-    "error": "Math.abs(approximation - exact)"
+    "result": "function + center + x_value",
+    "result_aux": "function + center + x_value"
   },
   "outputs": {
-    "primary": "approximation",
+    "primary": "result",
     "breakdown": [
       "exact",
       "error"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "error"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -86,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

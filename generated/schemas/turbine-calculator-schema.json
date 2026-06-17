@@ -68,17 +68,19 @@
   ],
   "formulas": {
     "sweptArea": "Math.PI * (rotorDiameter / 2) ** 2",
-    "rawPower": "0.5 * airDensity * sweptArea * Math.pow(windSpeed, 3) / 1000",
-    "power": "rawPower * efficiency / 100",
-    "__sweptArea__m_": "${sweptArea} m²",
-    "__rawPower__kW": "${rawPower} kW"
+    "sweptArea_aux": "Math.PI * (rotorDiameter / 2) ** 2"
   },
   "outputs": {
     "primary": "sweptArea",
     "breakdown": [
       "Süpürme Alanı: ${sweptArea} m²",
       "Ham Güç (Verimsiz): ${rawPower} kW"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "power"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -88,5 +90,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "havacilik",
   "profession": "Tasarım Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

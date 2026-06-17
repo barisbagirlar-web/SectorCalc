@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 1000,
-      "businessContext": "The gross bonus amount before any tax deductions."
+      "businessContext": "The gross bonus amount before any tax deductions.",
+      "label_i18n": {
+        "en": "Bonus Amount",
+        "tr": "Bonus Amount",
+        "de": "Bonus Amount",
+        "fr": "Bonus Amount",
+        "es": "Bonus Amount",
+        "ar": "Bonus Amount"
+      }
     },
     {
       "id": "federalTaxRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 22,
-      "businessContext": "Federal income tax withholding rate applied to bonuses (percent)."
+      "businessContext": "Federal income tax withholding rate applied to bonuses (percent).",
+      "label_i18n": {
+        "en": "Federal Tax Rate",
+        "tr": "Federal Tax Rate",
+        "de": "Federal Tax Rate",
+        "fr": "Federal Tax Rate",
+        "es": "Federal Tax Rate",
+        "ar": "Federal Tax Rate"
+      }
     },
     {
       "id": "socialSecurityRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 6.2,
-      "businessContext": "Social Security tax rate on bonuses (percent)."
+      "businessContext": "Social Security tax rate on bonuses (percent).",
+      "label_i18n": {
+        "en": "Social Security Rate",
+        "tr": "Social Security Rate",
+        "de": "Social Security Rate",
+        "fr": "Social Security Rate",
+        "es": "Social Security Rate",
+        "ar": "Social Security Rate"
+      }
     },
     {
       "id": "medicareRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 1.45,
-      "businessContext": "Medicare tax rate on bonuses (percent)."
+      "businessContext": "Medicare tax rate on bonuses (percent).",
+      "label_i18n": {
+        "en": "Medicare Rate",
+        "tr": "Medicare Rate",
+        "de": "Medicare Rate",
+        "fr": "Medicare Rate",
+        "es": "Medicare Rate",
+        "ar": "Medicare Rate"
+      }
     },
     {
       "id": "stateTaxRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "State income tax withholding rate on bonuses (percent)."
+      "businessContext": "State income tax withholding rate on bonuses (percent).",
+      "label_i18n": {
+        "en": "State Tax Rate",
+        "tr": "State Tax Rate",
+        "de": "State Tax Rate",
+        "fr": "State Tax Rate",
+        "es": "State Tax Rate",
+        "ar": "State Tax Rate"
+      }
     }
   ],
   "formulas": {
@@ -58,7 +98,12 @@
       "socialSecurityTax",
       "medicareTax",
       "stateTax"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "netBonus"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -68,5 +113,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

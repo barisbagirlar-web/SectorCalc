@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "Yemek öncesi vergi hariç toplam tutar"
+      "businessContext": "Yemek öncesi vergi hariç toplam tutar",
+      "label_i18n": {
+        "en": "Fatura Tutarı (Vergi Hariç)",
+        "tr": "Fatura Tutarı (Vergi Hariç)",
+        "de": "Fatura Tutarı (Vergi Hariç)",
+        "fr": "Fatura Tutarı (Vergi Hariç)",
+        "es": "Fatura Tutarı (Vergi Hariç)",
+        "ar": "Fatura Tutarı (Vergi Hariç)"
+      }
     },
     {
       "id": "taxAmount",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "Yemek faturasındaki toplam vergi miktarı"
+      "businessContext": "Yemek faturasındaki toplam vergi miktarı",
+      "label_i18n": {
+        "en": "Vergi Tutarı",
+        "tr": "Vergi Tutarı",
+        "de": "Vergi Tutarı",
+        "fr": "Vergi Tutarı",
+        "es": "Vergi Tutarı",
+        "ar": "Vergi Tutarı"
+      }
     },
     {
       "id": "tipPercentage",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Vergi öncesi tutara uygulanacak bahşiş yüzdesi"
+      "businessContext": "Vergi öncesi tutara uygulanacak bahşiş yüzdesi",
+      "label_i18n": {
+        "en": "Bahşiş Oranı",
+        "tr": "Bahşiş Oranı",
+        "de": "Bahşiş Oranı",
+        "fr": "Bahşiş Oranı",
+        "es": "Bahşiş Oranı",
+        "ar": "Bahşiş Oranı"
+      }
     },
     {
       "id": "numberOfPeople",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kişi",
       "default": 1,
-      "businessContext": "Hesabı paylaşacak kişi sayısı"
+      "businessContext": "Hesabı paylaşacak kişi sayısı",
+      "label_i18n": {
+        "en": "Kişi Sayısı",
+        "tr": "Kişi Sayısı",
+        "de": "Kişi Sayısı",
+        "fr": "Kişi Sayısı",
+        "es": "Kişi Sayısı",
+        "ar": "Kişi Sayısı"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "tipAmount",
       "totalBill"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "perPerson"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

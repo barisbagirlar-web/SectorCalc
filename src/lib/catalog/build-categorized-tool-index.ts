@@ -19,6 +19,22 @@ import { getRevenueToolByFreeSlug } from "@/lib/tools/revenue-tools";
 import { getPremium152Tools } from "@/lib/premium/premium-152-seed-reader";
 import { SUPPORTED_LOCALES } from "@/lib/i18n/locale-config";
 
+/** Premium 152 batch 1 — schema-backed routes with verified trust chain. */
+const PREMIUM_152_ACTIVE_BATCH_SLUGS: ReadonlySet<string> = new Set([
+  "7-israf-muda-avcisi-parasal-karsilik-calculator",
+  "5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator",
+  "3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator",
+  "3b-baski-parti-optimizasyonu-ve-yuvalama-calculator",
+  "3b-baski-vs-talasli-imalat-basabas-noktasi-calculator",
+]);
+
+function resolvePremium152BatchRoute(slug: string): string | null {
+  if (!PREMIUM_152_ACTIVE_BATCH_SLUGS.has(slug)) {
+    return null;
+  }
+  return `/tools/premium-schema/${slug}`;
+}
+
 export type CategorizedToolTier = "free" | "premium" | "premium-schema";
 
 export type CategorizedToolSource = "existing-free" | "existing-premium" | "user-premium-152";
@@ -95,19 +111,22 @@ function buildPremium152SeedItems(): CategorizedToolItem[] {
     const description = tool.pain ?? tool.trTitle;
     const categorySlug = tool.categorySlug as GlobalToolCategorySlug;
 
+    const batchRoute = resolvePremium152BatchRoute(tool.slug);
+    const isBatchActive = batchRoute !== null;
+
     return {
       slug: tool.slug,
       title: fillLocaleRecord((locale) =>
         locale === "tr" ? tool.trTitle : humanizeCanonicalSlug(tool.slug),
       ),
       description: fillLocaleRecord((locale) => (locale === "tr" ? description : description)),
-      tier: "premium",
+      tier: isBatchActive ? "premium-schema" : "premium",
       categorySlug,
       source: "user-premium-152",
-      routePath: null,
+      routePath: batchRoute,
       formulaContractStatus:
-        tool.formulaStatus === "source-formula-provided" ? "ready" : "missing",
-      publicStatus: tool.publicStatus as CategorizedToolPublicStatus,
+        tool.formulaStatus === "source-formula-provided" || isBatchActive ? "ready" : "missing",
+      publicStatus: isBatchActive ? "active" : (tool.publicStatus as CategorizedToolPublicStatus),
       seedId: tool.id,
     };
   });

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "units",
       "default": 0,
-      "businessContext": "The number of units consumed annually for this item."
+      "businessContext": "The number of units consumed annually for this item.",
+      "label_i18n": {
+        "en": "Annual Demand",
+        "tr": "Annual Demand",
+        "de": "Annual Demand",
+        "fr": "Annual Demand",
+        "es": "Annual Demand",
+        "ar": "Annual Demand"
+      }
     },
     {
       "id": "unitCost",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "The cost per unit of the item."
+      "businessContext": "The cost per unit of the item.",
+      "label_i18n": {
+        "en": "Unit Cost",
+        "tr": "Unit Cost",
+        "de": "Unit Cost",
+        "fr": "Unit Cost",
+        "es": "Unit Cost",
+        "ar": "Unit Cost"
+      }
     },
     {
       "id": "totalAnnualValue",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Sum of annual usage values of all items in inventory."
+      "businessContext": "Sum of annual usage values of all items in inventory.",
+      "label_i18n": {
+        "en": "Total Annual Usage Value of All Items",
+        "tr": "Total Annual Usage Value of All Items",
+        "de": "Total Annual Usage Value of All Items",
+        "fr": "Total Annual Usage Value of All Items",
+        "es": "Total Annual Usage Value of All Items",
+        "ar": "Total Annual Usage Value of All Items"
+      }
     },
     {
       "id": "cumulativeBefore",
@@ -31,22 +55,34 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "The cumulative percentage of total annual usage value accounted for by items ranked before this one (should be 0 for first item)."
+      "businessContext": "The cumulative percentage of total annual usage value accounted for by items ranked before this one (should be 0 for first item).",
+      "label_i18n": {
+        "en": "Cumulative Percentage Before This Item",
+        "tr": "Cumulative Percentage Before This Item",
+        "de": "Cumulative Percentage Before This Item",
+        "fr": "Cumulative Percentage Before This Item",
+        "es": "Cumulative Percentage Before This Item",
+        "ar": "Cumulative Percentage Before This Item"
+      }
     }
   ],
   "formulas": {
     "annualValue": "annualDemand * unitCost",
     "percentage": "totalAnnualValue !== 0 ? (annualValue / totalAnnualValue) * 100 : 0",
-    "cumulativeAfter": "cumulativeBefore + percentage",
-    "classification": "cumulativeAfter <= 80 ? 'A' : cumulativeAfter <= 95 ? 'B' : 'C'"
+    "cumulativeAfter": "cumulativeBefore + percentage"
   },
   "outputs": {
-    "primary": "classification",
+    "primary": "cumulativeAfter",
     "breakdown": [
       "annualValue",
       "percentage",
       "cumulativeAfter"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "classification"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -56,5 +92,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "lojistik",
   "profession": "Lojistik Uzmanı",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

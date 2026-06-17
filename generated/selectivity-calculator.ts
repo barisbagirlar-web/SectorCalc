@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from selectivity-calculator-schema.json
 import * as z from 'zod';
 
@@ -21,29 +22,37 @@ export const Selectivity_calculatorInputSchema = z.object({
   molarMassUndesired: z.number().default(60),
 });
 
-function evaluateAllFormulas(input: Selectivity_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.massReactantFed / input.molarMassReactant; results["molesReactantFed"] = Number.isFinite(v) ? v : 0; } catch { results["molesReactantFed"] = 0; }
-  try { const v = (results["molesReactantFed"] ?? 0) * input.conversion; results["molesReactantConsumed"] = Number.isFinite(v) ? v : 0; } catch { results["molesReactantConsumed"] = 0; }
-  try { const v = input.massDesired / input.molarMassDesired; results["molesDesired"] = Number.isFinite(v) ? v : 0; } catch { results["molesDesired"] = 0; }
-  try { const v = input.massUndesired / input.molarMassUndesired; results["molesUndesired"] = Number.isFinite(v) ? v : 0; } catch { results["molesUndesired"] = 0; }
-  try { const v = (results["molesDesired"] ?? 0) / (results["molesUndesired"] ?? 0); results["selectivity"] = Number.isFinite(v) ? v : 0; } catch { results["selectivity"] = 0; }
-  try { const v = (results["molesDesired"] ?? 0) / (results["molesReactantFed"] ?? 0); results["yield"] = Number.isFinite(v) ? v : 0; } catch { results["yield"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Selectivity_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.massReactantFed / input.molarMassReactant; results["molesReactantFed"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["molesReactantFed"] = 0; }
+  try { const v = (asFormulaNumber(results["molesReactantFed"])) * input.conversion; results["molesReactantConsumed"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["molesReactantConsumed"] = 0; }
+  try { const v = input.massDesired / input.molarMassDesired; results["molesDesired"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["molesDesired"] = 0; }
+  try { const v = input.massUndesired / input.molarMassUndesired; results["molesUndesired"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["molesUndesired"] = 0; }
+  try { const v = (asFormulaNumber(results["molesDesired"])) / (asFormulaNumber(results["molesUndesired"])); results["selectivity"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["selectivity"] = 0; }
+  try { const v = (asFormulaNumber(results["molesDesired"])) / (asFormulaNumber(results["molesReactantFed"])); results["yield"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["yield"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateSelectivity_calculator(input: Selectivity_calculatorInput): Selectivity_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["selectivity"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["selectivity"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

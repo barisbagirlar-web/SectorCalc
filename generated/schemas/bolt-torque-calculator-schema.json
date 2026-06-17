@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "The nominal diameter of the bolt's thread."
+      "businessContext": "The nominal diameter of the bolt's thread.",
+      "label_i18n": {
+        "en": "Nominal Bolt Diameter",
+        "tr": "Nominal Bolt Diameter",
+        "de": "Nominal Bolt Diameter",
+        "fr": "Nominal Bolt Diameter",
+        "es": "Nominal Bolt Diameter",
+        "ar": "Nominal Bolt Diameter"
+      }
     },
     {
       "id": "pitch",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 1.5,
-      "businessContext": "The distance between adjacent thread crests. For standard coarse threads, refer to ISO 724."
+      "businessContext": "The distance between adjacent thread crests. For standard coarse threads, refer to ISO 724.",
+      "label_i18n": {
+        "en": "Thread Pitch",
+        "tr": "Thread Pitch",
+        "de": "Thread Pitch",
+        "fr": "Thread Pitch",
+        "es": "Thread Pitch",
+        "ar": "Thread Pitch"
+      }
     },
     {
       "id": "yieldStrength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 640,
-      "businessContext": "Yield strength of the bolt material (e.g., 640 MPa for Grade 8.8)."
+      "businessContext": "Yield strength of the bolt material (e.g., 640 MPa for Grade 8.8).",
+      "label_i18n": {
+        "en": "Material Yield Strength",
+        "tr": "Material Yield Strength",
+        "de": "Material Yield Strength",
+        "fr": "Material Yield Strength",
+        "es": "Material Yield Strength",
+        "ar": "Material Yield Strength"
+      }
     },
     {
       "id": "safetyFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 2,
-      "businessContext": "Design safety factor to ensure the bolt remains below yield under service loads."
+      "businessContext": "Design safety factor to ensure the bolt remains below yield under service loads.",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     },
     {
       "id": "nutFactor",
@@ -39,20 +71,32 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0.2,
-      "businessContext": "Empirical factor accounting for thread friction and underhead friction. Typical dry steel: 0.2."
+      "businessContext": "Empirical factor accounting for thread friction and underhead friction. Typical dry steel: 0.2.",
+      "label_i18n": {
+        "en": "Nut Factor (K)",
+        "tr": "Nut Factor (K)",
+        "de": "Nut Factor (K)",
+        "fr": "Nut Factor (K)",
+        "es": "Nut Factor (K)",
+        "ar": "Nut Factor (K)"
+      }
     }
   ],
   "formulas": {
-    "tensileStressArea": "(Math.PI / 4) * Math.pow((diameter - 0.9382 * pitch), 2)",
-    "clampLoad": "(yieldStrength * tensileStressArea) / safetyFactor",
-    "torque": "(nutFactor * diameter * clampLoad) / 1000"
+    "result": "diameter + pitch + yieldStrength",
+    "result_copy": "diameter + pitch + yieldStrength"
   },
   "outputs": {
-    "primary": "torque",
+    "primary": "result",
     "breakdown": [
       "clampLoad",
       "tensileStressArea"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "torque"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -62,5 +106,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "metal",
   "profession": "Sac Teknisyeni",
-  "categoryId": "engineering"
+  "categoryId": "engineering",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

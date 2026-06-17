@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.648,
-      "businessContext": "Distance from nut to bridge (vibrating string length)"
+      "businessContext": "Distance from nut to bridge (vibrating string length)",
+      "label_i18n": {
+        "en": "Scale Length",
+        "tr": "Scale Length",
+        "de": "Scale Length",
+        "fr": "Scale Length",
+        "es": "Scale Length",
+        "ar": "Scale Length"
+      }
     },
     {
       "id": "stringDiameter",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0.254,
-      "businessContext": "Diameter of the string (e.g., 0.010 inch ≈ 0.254 mm)"
+      "businessContext": "Diameter of the string (e.g., 0.010 inch ≈ 0.254 mm)",
+      "label_i18n": {
+        "en": "String Diameter",
+        "tr": "String Diameter",
+        "de": "String Diameter",
+        "fr": "String Diameter",
+        "es": "String Diameter",
+        "ar": "String Diameter"
+      }
     },
     {
       "id": "materialDensity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 7850,
-      "businessContext": "Density of string material (steel ≈ 7850 kg/m³, nickel ≈ 8900 kg/m³)"
+      "businessContext": "Density of string material (steel ≈ 7850 kg/m³, nickel ≈ 8900 kg/m³)",
+      "label_i18n": {
+        "en": "Material Density",
+        "tr": "Material Density",
+        "de": "Material Density",
+        "fr": "Material Density",
+        "es": "Material Density",
+        "ar": "Material Density"
+      }
     },
     {
       "id": "targetFrequency",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 329.63,
-      "businessContext": "Desired pitch frequency (e.g., E4 = 329.63 Hz for high E string)"
+      "businessContext": "Desired pitch frequency (e.g., E4 = 329.63 Hz for high E string)",
+      "label_i18n": {
+        "en": "Target Frequency",
+        "tr": "Target Frequency",
+        "de": "Target Frequency",
+        "fr": "Target Frequency",
+        "es": "Target Frequency",
+        "ar": "Target Frequency"
+      }
     }
   ],
   "formulas": {
@@ -43,7 +75,12 @@
     "breakdown": [
       "mu",
       "tension"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "tension"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -53,5 +90,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "metal",
   "profession": "Sac Teknisyeni",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

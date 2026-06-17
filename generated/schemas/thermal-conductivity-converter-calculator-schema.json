@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "input unit",
       "default": 1,
-      "businessContext": "Numeric value to convert"
+      "businessContext": "Numeric value to convert",
+      "label_i18n": {
+        "en": "Thermal Conductivity Value",
+        "tr": "Thermal Conductivity Value",
+        "de": "Thermal Conductivity Value",
+        "fr": "Thermal Conductivity Value",
+        "es": "Thermal Conductivity Value",
+        "ar": "Thermal Conductivity Value"
+      }
     },
     {
       "id": "fromUnit",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "code",
       "default": 0,
-      "businessContext": "Source unit: 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)"
+      "businessContext": "Source unit: 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)",
+      "label_i18n": {
+        "en": "From Unit Code",
+        "tr": "From Unit Code",
+        "de": "From Unit Code",
+        "fr": "From Unit Code",
+        "es": "From Unit Code",
+        "ar": "From Unit Code"
+      }
     },
     {
       "id": "toUnit",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "code",
       "default": 1,
-      "businessContext": "Target unit: 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)"
+      "businessContext": "Target unit: 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)",
+      "label_i18n": {
+        "en": "To Unit Code",
+        "tr": "To Unit Code",
+        "de": "To Unit Code",
+        "fr": "To Unit Code",
+        "es": "To Unit Code",
+        "ar": "To Unit Code"
+      }
     },
     {
       "id": "precision",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "decimal places",
       "default": 2,
-      "businessContext": "Number of decimal places for result"
+      "businessContext": "Number of decimal places for result",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     }
   ],
   "formulas": {
-    "primaryResult": "((value * ({1:1.730735, 2:0.859845, 3:100}[toUnit] || 1)) / ({1:1.730735, 2:0.859845, 3:100}[fromUnit] || 1)).toFixed(precision) + ' ' + ({0:'W/(m·K)', 1:'BTU/(hr·ft·°F)', 2:'kcal/(hr·m·°C)', 3:'W/(cm·K)'})[toUnit]",
-    "breakdownFactor": "(({1:1.730735, 2:0.859845, 3:100}[toUnit] || 1) / ({1:1.730735, 2:0.859845, 3:100}[fromUnit] || 1)).toFixed(precision)",
-    "breakdownFormula": "'Multiply by factor: ' + (({1:1.730735, 2:0.859845, 3:100}[toUnit] || 1) / ({1:1.730735, 2:0.859845, 3:100}[fromUnit] || 1)).toFixed(6)"
+    "result": "value + fromUnit + toUnit",
+    "result_copy": "value + fromUnit + toUnit"
   },
   "outputs": {
-    "primary": "primaryResult",
+    "primary": "result",
     "breakdown": [
       "breakdownFactor",
       "breakdownFormula"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "breakdownFormula"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -54,5 +90,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

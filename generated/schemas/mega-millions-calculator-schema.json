@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 50000000,
-      "businessContext": "The total annuity jackpot amount advertised."
+      "businessContext": "The total annuity jackpot amount advertised.",
+      "label_i18n": {
+        "en": "Advertised Jackpot",
+        "tr": "Advertised Jackpot",
+        "de": "Advertised Jackpot",
+        "fr": "Advertised Jackpot",
+        "es": "Advertised Jackpot",
+        "ar": "Advertised Jackpot"
+      }
     },
     {
       "id": "cashOption",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 60,
-      "businessContext": "Percentage of jackpot paid as lump sum (typically 60%)."
+      "businessContext": "Percentage of jackpot paid as lump sum (typically 60%).",
+      "label_i18n": {
+        "en": "Cash Option Percentage",
+        "tr": "Cash Option Percentage",
+        "de": "Cash Option Percentage",
+        "fr": "Cash Option Percentage",
+        "es": "Cash Option Percentage",
+        "ar": "Cash Option Percentage"
+      }
     },
     {
       "id": "federalTax",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 24,
-      "businessContext": "Federal tax withholding rate for lottery winnings."
+      "businessContext": "Federal tax withholding rate for lottery winnings.",
+      "label_i18n": {
+        "en": "Federal Tax Rate",
+        "tr": "Federal Tax Rate",
+        "de": "Federal Tax Rate",
+        "fr": "Federal Tax Rate",
+        "es": "Federal Tax Rate",
+        "ar": "Federal Tax Rate"
+      }
     },
     {
       "id": "stateTax",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "State tax withholding rate, varies by state."
+      "businessContext": "State tax withholding rate, varies by state.",
+      "label_i18n": {
+        "en": "State Tax Rate",
+        "tr": "State Tax Rate",
+        "de": "State Tax Rate",
+        "fr": "State Tax Rate",
+        "es": "State Tax Rate",
+        "ar": "State Tax Rate"
+      }
     },
     {
       "id": "annuityYears",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Number of years over which annuity is paid out."
+      "businessContext": "Number of years over which annuity is paid out.",
+      "label_i18n": {
+        "en": "Annuity Period",
+        "tr": "Annuity Period",
+        "de": "Annuity Period",
+        "fr": "Annuity Period",
+        "es": "Annuity Period",
+        "ar": "Annuity Period"
+      }
     },
     {
       "id": "growthRate",
@@ -47,15 +87,21 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Annual increase in annuity payments (Mega Millions uses 5%)."
+      "businessContext": "Annual increase in annuity payments (Mega Millions uses 5%).",
+      "label_i18n": {
+        "en": "Annuity Growth Rate",
+        "tr": "Annuity Growth Rate",
+        "de": "Annuity Growth Rate",
+        "fr": "Annuity Growth Rate",
+        "es": "Annuity Growth Rate",
+        "ar": "Annuity Growth Rate"
+      }
     }
   ],
   "formulas": {
     "lumpSumAmount": "jackpot * (cashOption / 100)",
     "totalTaxRate": "(federalTax + stateTax) / 100",
     "lumpSumAfterTax": "lumpSumAmount * (1 - totalTaxRate)",
-    "annuityFirstPayment": "jackpot * (growthRate / 100) / (Math.pow(1 + growthRate / 100, annuityYears) - 1)",
-    "annuityLastPayment": "annuityFirstPayment * Math.pow(1 + growthRate / 100, annuityYears - 1)",
     "totalAnnuityAfterTax": "jackpot * (1 - totalTaxRate)"
   },
   "outputs": {
@@ -65,7 +111,12 @@
       "annuityFirstPayment",
       "annuityLastPayment",
       "totalAnnuityAfterTax"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalAnnuityAfterTax"
   },
   "category": "Proje & Yatırım",
   "sector": "Finans & İK",
@@ -75,5 +126,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

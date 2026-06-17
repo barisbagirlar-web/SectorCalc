@@ -79,7 +79,12 @@
       "projected_time_seconds",
       "speed_ms",
       "speed_kmh"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "speed_kmh"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -89,5 +94,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "havacilik",
   "profession": "Tasarım Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

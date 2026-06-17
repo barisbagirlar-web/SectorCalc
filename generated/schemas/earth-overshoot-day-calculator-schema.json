@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "billion people",
       "default": 7.9,
-      "businessContext": "Total global population in billions"
+      "businessContext": "Total global population in billions",
+      "label_i18n": {
+        "en": "World Population",
+        "tr": "World Population",
+        "de": "World Population",
+        "fr": "World Population",
+        "es": "World Population",
+        "ar": "World Population"
+      }
     },
     {
       "id": "perCapitaBiocapacity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "gha/person",
       "default": 1.6,
-      "businessContext": "Average global biocapacity availability per person in global hectares"
+      "businessContext": "Average global biocapacity availability per person in global hectares",
+      "label_i18n": {
+        "en": "Biocapacity per capita",
+        "tr": "Biocapacity per capita",
+        "de": "Biocapacity per capita",
+        "fr": "Biocapacity per capita",
+        "es": "Biocapacity per capita",
+        "ar": "Biocapacity per capita"
+      }
     },
     {
       "id": "perCapitaFootprint",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "gha/person",
       "default": 2.7,
-      "businessContext": "Average global ecological footprint per person in global hectares"
+      "businessContext": "Average global ecological footprint per person in global hectares",
+      "label_i18n": {
+        "en": "Ecological Footprint per capita",
+        "tr": "Ecological Footprint per capita",
+        "de": "Ecological Footprint per capita",
+        "fr": "Ecological Footprint per capita",
+        "es": "Ecological Footprint per capita",
+        "ar": "Ecological Footprint per capita"
+      }
     },
     {
       "id": "year",
@@ -31,22 +55,34 @@
       "type": "number",
       "unit": "year",
       "default": 2025,
-      "businessContext": "Year for which Earth Overshoot Day is calculated (used for date context)"
+      "businessContext": "Year for which Earth Overshoot Day is calculated (used for date context)",
+      "label_i18n": {
+        "en": "Calculation Year",
+        "tr": "Calculation Year",
+        "de": "Calculation Year",
+        "fr": "Calculation Year",
+        "es": "Calculation Year",
+        "ar": "Calculation Year"
+      }
     }
   ],
   "formulas": {
     "totalBiocapacity": "globalPopulation * perCapitaBiocapacity",
     "totalFootprint": "globalPopulation * perCapitaFootprint",
     "excessEarths": "totalFootprint / totalBiocapacity",
-    "overshootDayFloat": "(totalBiocapacity / totalFootprint) * 365",
-    "overshootDay": "Math.floor(overshootDayFloat)"
+    "overshootDayFloat": "(totalBiocapacity / totalFootprint) * 365"
   },
   "outputs": {
-    "primary": "overshootDay",
+    "primary": "overshootDayFloat",
     "breakdown": [
       "Earth Overshoot Day falls on day ${overshootDay} of the year.",
       "Humanity uses the equivalent of ${excessEarths} Earths."
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "overshootDay"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -56,5 +92,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

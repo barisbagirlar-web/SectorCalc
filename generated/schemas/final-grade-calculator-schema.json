@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Total points earned in homework"
+      "businessContext": "Total points earned in homework",
+      "label_i18n": {
+        "en": "Homework Score",
+        "tr": "Homework Score",
+        "de": "Homework Score",
+        "fr": "Homework Score",
+        "es": "Homework Score",
+        "ar": "Homework Score"
+      }
     },
     {
       "id": "homeworkWeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 25,
-      "businessContext": "Weight of homework in final grade (as %)"
+      "businessContext": "Weight of homework in final grade (as %)",
+      "label_i18n": {
+        "en": "Homework Weight",
+        "tr": "Homework Weight",
+        "de": "Homework Weight",
+        "fr": "Homework Weight",
+        "es": "Homework Weight",
+        "ar": "Homework Weight"
+      }
     },
     {
       "id": "midtermScore",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Score on the midterm exam"
+      "businessContext": "Score on the midterm exam",
+      "label_i18n": {
+        "en": "Midterm Exam Score",
+        "tr": "Midterm Exam Score",
+        "de": "Midterm Exam Score",
+        "fr": "Midterm Exam Score",
+        "es": "Midterm Exam Score",
+        "ar": "Midterm Exam Score"
+      }
     },
     {
       "id": "midtermWeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 30,
-      "businessContext": "Weight of midterm in final grade (%)"
+      "businessContext": "Weight of midterm in final grade (%)",
+      "label_i18n": {
+        "en": "Midterm Weight",
+        "tr": "Midterm Weight",
+        "de": "Midterm Weight",
+        "fr": "Midterm Weight",
+        "es": "Midterm Weight",
+        "ar": "Midterm Weight"
+      }
     },
     {
       "id": "finalExamScore",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Score on the final exam"
+      "businessContext": "Score on the final exam",
+      "label_i18n": {
+        "en": "Final Exam Score",
+        "tr": "Final Exam Score",
+        "de": "Final Exam Score",
+        "fr": "Final Exam Score",
+        "es": "Final Exam Score",
+        "ar": "Final Exam Score"
+      }
     },
     {
       "id": "finalExamWeight",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 35,
-      "businessContext": "Weight of final exam (%)"
+      "businessContext": "Weight of final exam (%)",
+      "label_i18n": {
+        "en": "Final Exam Weight",
+        "tr": "Final Exam Weight",
+        "de": "Final Exam Weight",
+        "fr": "Final Exam Weight",
+        "es": "Final Exam Weight",
+        "ar": "Final Exam Weight"
+      }
     },
     {
       "id": "projectScore",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Score earned on the project"
+      "businessContext": "Score earned on the project",
+      "label_i18n": {
+        "en": "Project Score",
+        "tr": "Project Score",
+        "de": "Project Score",
+        "fr": "Project Score",
+        "es": "Project Score",
+        "ar": "Project Score"
+      }
     },
     {
       "id": "projectWeight",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Weight of project in final grade (%)"
+      "businessContext": "Weight of project in final grade (%)",
+      "label_i18n": {
+        "en": "Project Weight",
+        "tr": "Project Weight",
+        "de": "Project Weight",
+        "fr": "Project Weight",
+        "es": "Project Weight",
+        "ar": "Project Weight"
+      }
     }
   ],
   "formulas": {
@@ -80,7 +144,12 @@
       "weightedMidterm",
       "weightedFinalExam",
       "weightedProject"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "finalGrade"
   },
   "category": "Proje & Yatırım",
   "sector": "Finans & İK",
@@ -90,5 +159,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

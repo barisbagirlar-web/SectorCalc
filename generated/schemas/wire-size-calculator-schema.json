@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "A",
       "default": 10,
-      "businessContext": "Continuous load current"
+      "businessContext": "Continuous load current",
+      "label_i18n": {
+        "en": "Nominal Current",
+        "tr": "Nominal Current",
+        "de": "Nominal Current",
+        "fr": "Nominal Current",
+        "es": "Nominal Current",
+        "ar": "Nominal Current"
+      }
     },
     {
       "id": "voltage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "V",
       "default": 230,
-      "businessContext": "Nominal system voltage"
+      "businessContext": "Nominal system voltage",
+      "label_i18n": {
+        "en": "System Voltage",
+        "tr": "System Voltage",
+        "de": "System Voltage",
+        "fr": "System Voltage",
+        "es": "System Voltage",
+        "ar": "System Voltage"
+      }
     },
     {
       "id": "length",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 50,
-      "businessContext": "One-way cable length"
+      "businessContext": "One-way cable length",
+      "label_i18n": {
+        "en": "Cable Length",
+        "tr": "Cable Length",
+        "de": "Cable Length",
+        "fr": "Cable Length",
+        "es": "Cable Length",
+        "ar": "Cable Length"
+      }
     },
     {
       "id": "material",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "-",
       "default": 0,
-      "businessContext": "0: Copper, 1: Aluminum"
+      "businessContext": "0: Copper, 1: Aluminum",
+      "label_i18n": {
+        "en": "Conductor Material",
+        "tr": "Conductor Material",
+        "de": "Conductor Material",
+        "fr": "Conductor Material",
+        "es": "Conductor Material",
+        "ar": "Conductor Material"
+      }
     },
     {
       "id": "voltageDropPercent",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 3,
-      "businessContext": "Allowable voltage drop"
+      "businessContext": "Allowable voltage drop",
+      "label_i18n": {
+        "en": "Max Voltage Drop Percentage",
+        "tr": "Max Voltage Drop Percentage",
+        "de": "Max Voltage Drop Percentage",
+        "fr": "Max Voltage Drop Percentage",
+        "es": "Max Voltage Drop Percentage",
+        "ar": "Max Voltage Drop Percentage"
+      }
     },
     {
       "id": "phases",
@@ -47,22 +87,33 @@
       "type": "number",
       "unit": "-",
       "default": 1,
-      "businessContext": "1: Single-phase/DC, 3: Three-phase"
+      "businessContext": "1: Single-phase/DC, 3: Three-phase",
+      "label_i18n": {
+        "en": "Number of Phases",
+        "tr": "Number of Phases",
+        "de": "Number of Phases",
+        "fr": "Number of Phases",
+        "es": "Number of Phases",
+        "ar": "Number of Phases"
+      }
     }
   ],
   "formulas": {
-    "requiredArea": "(phases == 1 ? 2 : Math.sqrt(3)) * length * current * (material == 0 ? 0.0172 : 0.0282) / (voltage * (voltageDropPercent / 100))",
-    "voltageDrop": "(phases == 1 ? 2 : Math.sqrt(3)) * length * current * (material == 0 ? 0.0172 : 0.0282) / requiredArea",
-    "powerLoss": "current * voltageDrop",
-    "recommendedSize": "requiredArea <= 1.5 ? 1.5 : requiredArea <= 2.5 ? 2.5 : requiredArea <= 4 ? 4 : requiredArea <= 6 ? 6 : requiredArea <= 10 ? 10 : requiredArea <= 16 ? 16 : requiredArea <= 25 ? 25 : requiredArea <= 35 ? 35 : requiredArea <= 50 ? 50 : requiredArea <= 70 ? 70 : requiredArea <= 95 ? 95 : requiredArea <= 120 ? 120 : requiredArea <= 150 ? 150 : requiredArea <= 185 ? 185 : requiredArea <= 240 ? 240 : requiredArea <= 300 ? 300 : requiredArea <= 400 ? 400 : 500"
+    "result": "current + voltage + length",
+    "result_copy": "current + voltage + length"
   },
   "outputs": {
-    "primary": "requiredArea",
+    "primary": "result",
     "breakdown": [
       "voltageDrop",
       "powerLoss",
       "recommendedSize"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "recommendedSize"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -72,5 +123,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "metal",
   "profession": "Sac Teknisyeni",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 80,
-      "businessContext": "Combined mass of the rider and the bicycle in kilograms."
+      "businessContext": "Combined mass of the rider and the bicycle in kilograms.",
+      "label_i18n": {
+        "en": "Total Mass (rider + bike)",
+        "tr": "Total Mass (rider + bike)",
+        "de": "Total Mass (rider + bike)",
+        "fr": "Total Mass (rider + bike)",
+        "es": "Total Mass (rider + bike)",
+        "ar": "Total Mass (rider + bike)"
+      }
     },
     {
       "id": "speed",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "km/h",
       "default": 30,
-      "businessContext": "Desired or current cycling speed in kilometers per hour."
+      "businessContext": "Desired or current cycling speed in kilometers per hour.",
+      "label_i18n": {
+        "en": "Cycling Speed",
+        "tr": "Cycling Speed",
+        "de": "Cycling Speed",
+        "fr": "Cycling Speed",
+        "es": "Cycling Speed",
+        "ar": "Cycling Speed"
+      }
     },
     {
       "id": "gradient",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Incline of the road as a percentage (positive for uphill, negative for downhill)."
+      "businessContext": "Incline of the road as a percentage (positive for uphill, negative for downhill).",
+      "label_i18n": {
+        "en": "Road Gradient",
+        "tr": "Road Gradient",
+        "de": "Road Gradient",
+        "fr": "Road Gradient",
+        "es": "Road Gradient",
+        "ar": "Road Gradient"
+      }
     },
     {
       "id": "wind_speed",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "km/h",
       "default": 0,
-      "businessContext": "Component of wind speed along the direction of travel (positive for headwind, negative for tailwind)."
+      "businessContext": "Component of wind speed along the direction of travel (positive for headwind, negative for tailwind).",
+      "label_i18n": {
+        "en": "Wind Speed (headwind positive)",
+        "tr": "Wind Speed (headwind positive)",
+        "de": "Wind Speed (headwind positive)",
+        "fr": "Wind Speed (headwind positive)",
+        "es": "Wind Speed (headwind positive)",
+        "ar": "Wind Speed (headwind positive)"
+      }
     },
     {
       "id": "rolling_resistance_coefficient",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0.005,
-      "businessContext": "Coefficient of rolling resistance, typical values: 0.0025 (smooth track), 0.005 (road), 0.008 (gravel)."
+      "businessContext": "Coefficient of rolling resistance, typical values: 0.0025 (smooth track), 0.005 (road), 0.008 (gravel).",
+      "label_i18n": {
+        "en": "Rolling Resistance Coefficient (Crr)",
+        "tr": "Rolling Resistance Coefficient (Crr)",
+        "de": "Rolling Resistance Coefficient (Crr)",
+        "fr": "Rolling Resistance Coefficient (Crr)",
+        "es": "Rolling Resistance Coefficient (Crr)",
+        "ar": "Rolling Resistance Coefficient (Crr)"
+      }
     },
     {
       "id": "air_density",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1.225,
-      "businessContext": "Density of ambient air (1.225 kg/m³ at sea level, 15°C)."
+      "businessContext": "Density of ambient air (1.225 kg/m³ at sea level, 15°C).",
+      "label_i18n": {
+        "en": "Air Density",
+        "tr": "Air Density",
+        "de": "Air Density",
+        "fr": "Air Density",
+        "es": "Air Density",
+        "ar": "Air Density"
+      }
     },
     {
       "id": "CdA",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "m²",
       "default": 0.3,
-      "businessContext": "Product of drag coefficient and frontal area, typically 0.2–0.4 m² for a cyclist."
+      "businessContext": "Product of drag coefficient and frontal area, typically 0.2–0.4 m² for a cyclist.",
+      "label_i18n": {
+        "en": "Effective Frontal Area (CdA)",
+        "tr": "Effective Frontal Area (CdA)",
+        "de": "Effective Frontal Area (CdA)",
+        "fr": "Effective Frontal Area (CdA)",
+        "es": "Effective Frontal Area (CdA)",
+        "ar": "Effective Frontal Area (CdA)"
+      }
     },
     {
       "id": "drivetrain_efficiency",
@@ -63,22 +119,33 @@
       "type": "number",
       "unit": "decimal",
       "default": 0.95,
-      "businessContext": "Efficiency of the bicycle drivetrain (0.95 = 95%)."
+      "businessContext": "Efficiency of the bicycle drivetrain (0.95 = 95%).",
+      "label_i18n": {
+        "en": "Drivetrain Efficiency",
+        "tr": "Drivetrain Efficiency",
+        "de": "Drivetrain Efficiency",
+        "fr": "Drivetrain Efficiency",
+        "es": "Drivetrain Efficiency",
+        "ar": "Drivetrain Efficiency"
+      }
     }
   ],
   "formulas": {
     "air_resistance_power": "0.5 * air_density * CdA * ((speed / 3.6 + wind_speed / 3.6) ** 2) * (speed / 3.6)",
-    "rolling_resistance_power": "(rolling_resistance_coefficient * total_mass * 9.81) * (speed / 3.6)",
-    "gravity_power": "(total_mass * 9.81 * Math.sin(Math.atan(gradient / 100))) * (speed / 3.6)",
-    "rider_power": "(air_resistance_power + rolling_resistance_power + gravity_power) / drivetrain_efficiency"
+    "rolling_resistance_power": "(rolling_resistance_coefficient * total_mass * 9.81) * (speed / 3.6)"
   },
   "outputs": {
-    "primary": "rider_power",
+    "primary": "rolling_resistance_power",
     "breakdown": [
       "air_resistance_power",
       "rolling_resistance_power",
       "gravity_power"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "rider_power"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -88,5 +155,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

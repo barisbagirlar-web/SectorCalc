@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "hp",
       "default": 100,
-      "businessContext": "Mechanical power of the engine or motor"
+      "businessContext": "Mechanical power of the engine or motor",
+      "label_i18n": {
+        "en": "Horsepower",
+        "tr": "Horsepower",
+        "de": "Horsepower",
+        "fr": "Horsepower",
+        "es": "Horsepower",
+        "ar": "Horsepower"
+      }
     },
     {
       "id": "hours",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "h",
       "default": 1,
-      "businessContext": "Duration of operation"
+      "businessContext": "Duration of operation",
+      "label_i18n": {
+        "en": "Operating Time",
+        "tr": "Operating Time",
+        "de": "Operating Time",
+        "fr": "Operating Time",
+        "es": "Operating Time",
+        "ar": "Operating Time"
+      }
     },
     {
       "id": "efficiency",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Efficiency factor (100% for direct conversion)"
+      "businessContext": "Efficiency factor (100% for direct conversion)",
+      "label_i18n": {
+        "en": "Efficiency",
+        "tr": "Efficiency",
+        "de": "Efficiency",
+        "fr": "Efficiency",
+        "es": "Efficiency",
+        "ar": "Efficiency"
+      }
     },
     {
       "id": "cost_per_kwh",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency/kWh",
       "default": 0.1,
-      "businessContext": "Cost per kWh of electricity for cost estimation"
+      "businessContext": "Cost per kWh of electricity for cost estimation",
+      "label_i18n": {
+        "en": "Electricity Cost",
+        "tr": "Electricity Cost",
+        "de": "Electricity Cost",
+        "fr": "Electricity Cost",
+        "es": "Electricity Cost",
+        "ar": "Electricity Cost"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "energy_hp_h",
       "cost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "cost"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -54,5 +91,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

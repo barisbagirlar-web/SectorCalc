@@ -67,17 +67,20 @@
     }
   ],
   "formulas": {
-    "twa": "(noise_level + 10 * (Math.log(exposure_hours / 8) / Math.LN10))",
-    "nihl": "Math.max(0, (twa - 80) * years_exposed * 0.05)",
-    "age_loss": "0.5 * Math.max(0, age - 18)",
-    "total_hearing_loss": "nihl + age_loss"
+    "result": "noise_level + exposure_hours + years_exposed",
+    "result_copy": "noise_level + exposure_hours + years_exposed"
   },
   "outputs": {
-    "primary": "total_hearing_loss",
+    "primary": "result",
     "breakdown": [
       "nihl",
       "age_loss"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "total_hearing_loss"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -87,5 +90,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

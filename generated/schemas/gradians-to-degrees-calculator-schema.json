@@ -70,16 +70,20 @@
     "standardConversion": "gradians * 0.9",
     "appliedGain": "instrumentGain",
     "appliedOffset": "instrumentOffset",
-    "rawDegrees": "gradians * instrumentGain + instrumentOffset",
-    "degrees": "Math.round(rawDegrees * 10**roundingDecimals) / 10**roundingDecimals"
+    "rawDegrees": "gradians * instrumentGain + instrumentOffset"
   },
   "outputs": {
-    "primary": "degrees",
+    "primary": "rawDegrees",
     "breakdown": [
       "standardConversion",
       "appliedGain",
       "appliedOffset"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "degrees"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -89,5 +93,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -67,17 +67,20 @@
     }
   ],
   "formulas": {
-    "generate": "const x = Math.sin(seed + 1) * 10000; const r = x - Math.floor(x); const scaled = min + r * (max - min); return Math.round(scaled * 100) / 100;",
-    "generateMultiple": "const results = []; for (let i = 0; i < count; i++) { const x = Math.sin(seed + i + 1) * 10000; const r = x - Math.floor(x); const scaled = min + r * (max - min); results.push(Math.round(scaled * 100) / 100); } return results;",
-    "_retilen_rastgele_say_": "Üretilen rastgele sayı",
-    "T_m_say_lar_n_listesi": "Tüm sayıların listesi"
+    "result": "min + max + count",
+    "result_copy": "min + max + count"
   },
   "outputs": {
-    "primary": "generate",
+    "primary": "result",
     "breakdown": [
       "Üretilen rastgele sayı",
       "Tüm sayıların listesi"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "generateMultiple"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -87,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

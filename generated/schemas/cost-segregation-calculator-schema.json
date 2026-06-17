@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 1000000,
-      "businessContext": "Total acquisition cost of the property including land and improvements."
+      "businessContext": "Total acquisition cost of the property including land and improvements.",
+      "label_i18n": {
+        "en": "Total Property Cost",
+        "tr": "Total Property Cost",
+        "de": "Total Property Cost",
+        "fr": "Total Property Cost",
+        "es": "Total Property Cost",
+        "ar": "Total Property Cost"
+      }
     },
     {
       "id": "landPercentage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Percentage of total cost allocated to land (non-depreciable)."
+      "businessContext": "Percentage of total cost allocated to land (non-depreciable).",
+      "label_i18n": {
+        "en": "Land Value Percentage",
+        "tr": "Land Value Percentage",
+        "de": "Land Value Percentage",
+        "fr": "Land Value Percentage",
+        "es": "Land Value Percentage",
+        "ar": "Land Value Percentage"
+      }
     },
     {
       "id": "buildingPercentage",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 60,
-      "businessContext": "Percentage allocated to building structure (depreciable over 39 years typically)."
+      "businessContext": "Percentage allocated to building structure (depreciable over 39 years typically).",
+      "label_i18n": {
+        "en": "Building Percentage",
+        "tr": "Building Percentage",
+        "de": "Building Percentage",
+        "fr": "Building Percentage",
+        "es": "Building Percentage",
+        "ar": "Building Percentage"
+      }
     },
     {
       "id": "personalPropertyPercentage",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Percentage allocated to 5- or 7-year property like equipment, furniture."
+      "businessContext": "Percentage allocated to 5- or 7-year property like equipment, furniture.",
+      "label_i18n": {
+        "en": "Personal Property Percentage",
+        "tr": "Personal Property Percentage",
+        "de": "Personal Property Percentage",
+        "fr": "Personal Property Percentage",
+        "es": "Personal Property Percentage",
+        "ar": "Personal Property Percentage"
+      }
     },
     {
       "id": "landImprovementsPercentage",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percentage allocated to land improvements (depreciable over 15 years)."
+      "businessContext": "Percentage allocated to land improvements (depreciable over 15 years).",
+      "label_i18n": {
+        "en": "Land Improvements Percentage",
+        "tr": "Land Improvements Percentage",
+        "de": "Land Improvements Percentage",
+        "fr": "Land Improvements Percentage",
+        "es": "Land Improvements Percentage",
+        "ar": "Land Improvements Percentage"
+      }
     },
     {
       "id": "buildingLife",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "years",
       "default": 39,
-      "businessContext": "IRS recovery period for non-residential real property (39 years)."
+      "businessContext": "IRS recovery period for non-residential real property (39 years).",
+      "label_i18n": {
+        "en": "Building Depreciation Life",
+        "tr": "Building Depreciation Life",
+        "de": "Building Depreciation Life",
+        "fr": "Building Depreciation Life",
+        "es": "Building Depreciation Life",
+        "ar": "Building Depreciation Life"
+      }
     },
     {
       "id": "personalPropertyLife",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "years",
       "default": 7,
-      "businessContext": "Recovery period for personal property (5 or 7 years)."
+      "businessContext": "Recovery period for personal property (5 or 7 years).",
+      "label_i18n": {
+        "en": "Personal Property Life",
+        "tr": "Personal Property Life",
+        "de": "Personal Property Life",
+        "fr": "Personal Property Life",
+        "es": "Personal Property Life",
+        "ar": "Personal Property Life"
+      }
     },
     {
       "id": "landImprovementsLife",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "years",
       "default": 15,
-      "businessContext": "Recovery period for land improvements (15 years)."
+      "businessContext": "Recovery period for land improvements (15 years).",
+      "label_i18n": {
+        "en": "Land Improvements Life",
+        "tr": "Land Improvements Life",
+        "de": "Land Improvements Life",
+        "fr": "Land Improvements Life",
+        "es": "Land Improvements Life",
+        "ar": "Land Improvements Life"
+      }
     }
   ],
   "formulas": {
@@ -81,7 +145,12 @@
       "buildingDepreciation",
       "personalPropertyDepreciation",
       "landImprovementsDepreciation"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalAnnualDepreciation"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -91,5 +160,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

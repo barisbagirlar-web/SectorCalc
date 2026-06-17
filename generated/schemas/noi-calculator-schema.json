@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100000,
-      "businessContext": "Total rental income from property before any expenses."
+      "businessContext": "Total rental income from property before any expenses.",
+      "label_i18n": {
+        "en": "Gross Rental Income",
+        "tr": "Gross Rental Income",
+        "de": "Gross Rental Income",
+        "fr": "Gross Rental Income",
+        "es": "Gross Rental Income",
+        "ar": "Gross Rental Income"
+      }
     },
     {
       "id": "vacancyLoss",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 5000,
-      "businessContext": "Income lost due to vacant units or non-payment."
+      "businessContext": "Income lost due to vacant units or non-payment.",
+      "label_i18n": {
+        "en": "Vacancy Loss",
+        "tr": "Vacancy Loss",
+        "de": "Vacancy Loss",
+        "fr": "Vacancy Loss",
+        "es": "Vacancy Loss",
+        "ar": "Vacancy Loss"
+      }
     },
     {
       "id": "propertyManagementFees",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 8000,
-      "businessContext": "Fees paid to property management company."
+      "businessContext": "Fees paid to property management company.",
+      "label_i18n": {
+        "en": "Property Management Fees",
+        "tr": "Property Management Fees",
+        "de": "Property Management Fees",
+        "fr": "Property Management Fees",
+        "es": "Property Management Fees",
+        "ar": "Property Management Fees"
+      }
     },
     {
       "id": "repairsMaintenance",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 6000,
-      "businessContext": "Costs for routine repairs and maintenance."
+      "businessContext": "Costs for routine repairs and maintenance.",
+      "label_i18n": {
+        "en": "Repairs & Maintenance",
+        "tr": "Repairs & Maintenance",
+        "de": "Repairs & Maintenance",
+        "fr": "Repairs & Maintenance",
+        "es": "Repairs & Maintenance",
+        "ar": "Repairs & Maintenance"
+      }
     },
     {
       "id": "propertyTaxes",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD",
       "default": 10000,
-      "businessContext": "Annual property tax expense."
+      "businessContext": "Annual property tax expense.",
+      "label_i18n": {
+        "en": "Property Taxes",
+        "tr": "Property Taxes",
+        "de": "Property Taxes",
+        "fr": "Property Taxes",
+        "es": "Property Taxes",
+        "ar": "Property Taxes"
+      }
     },
     {
       "id": "insurance",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "USD",
       "default": 4000,
-      "businessContext": "Annual property insurance premium."
+      "businessContext": "Annual property insurance premium.",
+      "label_i18n": {
+        "en": "Insurance",
+        "tr": "Insurance",
+        "de": "Insurance",
+        "fr": "Insurance",
+        "es": "Insurance",
+        "ar": "Insurance"
+      }
     },
     {
       "id": "utilities",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "USD",
       "default": 3000,
-      "businessContext": "Utility costs not paid by tenants."
+      "businessContext": "Utility costs not paid by tenants.",
+      "label_i18n": {
+        "en": "Utilities",
+        "tr": "Utilities",
+        "de": "Utilities",
+        "fr": "Utilities",
+        "es": "Utilities",
+        "ar": "Utilities"
+      }
     },
     {
       "id": "otherOperatingExpenses",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "USD",
       "default": 2000,
-      "businessContext": "Miscellaneous operating expenses."
+      "businessContext": "Miscellaneous operating expenses.",
+      "label_i18n": {
+        "en": "Other Operating Expenses",
+        "tr": "Other Operating Expenses",
+        "de": "Other Operating Expenses",
+        "fr": "Other Operating Expenses",
+        "es": "Other Operating Expenses",
+        "ar": "Other Operating Expenses"
+      }
     }
   ],
   "formulas": {
@@ -76,7 +140,12 @@
     "breakdown": [
       "effectiveGrossIncome",
       "totalOperatingExpenses"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "netOperatingIncome"
   },
   "category": "Bakım & Güvenilirlik",
   "sector": "Üretim & İmalat",
@@ -86,5 +155,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

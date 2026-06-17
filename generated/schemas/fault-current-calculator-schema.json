@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kV",
       "default": 34.5,
-      "businessContext": "Line-to-line voltage on the primary side of the transformer."
+      "businessContext": "Line-to-line voltage on the primary side of the transformer.",
+      "label_i18n": {
+        "en": "Primary Voltage",
+        "tr": "Primary Voltage",
+        "de": "Primary Voltage",
+        "fr": "Primary Voltage",
+        "es": "Primary Voltage",
+        "ar": "Primary Voltage"
+      }
     },
     {
       "id": "secondaryVoltage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "V",
       "default": 480,
-      "businessContext": "Line-to-line voltage on the secondary side of the transformer (fault location)."
+      "businessContext": "Line-to-line voltage on the secondary side of the transformer (fault location).",
+      "label_i18n": {
+        "en": "Secondary Voltage",
+        "tr": "Secondary Voltage",
+        "de": "Secondary Voltage",
+        "fr": "Secondary Voltage",
+        "es": "Secondary Voltage",
+        "ar": "Secondary Voltage"
+      }
     },
     {
       "id": "sourceSCMVA",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "MVA",
       "default": 500,
-      "businessContext": "Available short-circuit MVA from the upstream source at the primary voltage level."
+      "businessContext": "Available short-circuit MVA from the upstream source at the primary voltage level.",
+      "label_i18n": {
+        "en": "Source Short-Circuit MVA",
+        "tr": "Source Short-Circuit MVA",
+        "de": "Source Short-Circuit MVA",
+        "fr": "Source Short-Circuit MVA",
+        "es": "Source Short-Circuit MVA",
+        "ar": "Source Short-Circuit MVA"
+      }
     },
     {
       "id": "transformerKVA",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kVA",
       "default": 1000,
-      "businessContext": "Power rating of the transformer."
+      "businessContext": "Power rating of the transformer.",
+      "label_i18n": {
+        "en": "Transformer Rating",
+        "tr": "Transformer Rating",
+        "de": "Transformer Rating",
+        "fr": "Transformer Rating",
+        "es": "Transformer Rating",
+        "ar": "Transformer Rating"
+      }
     },
     {
       "id": "transformerPercentZ",
@@ -39,24 +71,34 @@
       "type": "number",
       "unit": "%",
       "default": 5.75,
-      "businessContext": "Percent impedance of the transformer based on its own kVA rating."
+      "businessContext": "Percent impedance of the transformer based on its own kVA rating.",
+      "label_i18n": {
+        "en": "Transformer %Z",
+        "tr": "Transformer %Z",
+        "de": "Transformer %Z",
+        "fr": "Transformer %Z",
+        "es": "Transformer %Z",
+        "ar": "Transformer %Z"
+      }
     }
   ],
   "formulas": {
-    "sourceImpedancePrim": "Math.pow(primaryVoltage, 2) / sourceSCMVA",
-    "sourceImpedanceSec": "sourceImpedancePrim * Math.pow((secondaryVoltage / 1000) / primaryVoltage, 2)",
-    "transformerImpedance": "(transformerPercentZ / 100) * Math.pow(secondaryVoltage, 2) / (transformerKVA * 1000)",
-    "totalImpedance": "sourceImpedanceSec + transformerImpedance",
-    "faultCurrentKA": "secondaryVoltage / (Math.sqrt(3) * totalImpedance) / 1000"
+    "result": "primaryVoltage + secondaryVoltage + sourceSCMVA",
+    "result_copy": "primaryVoltage + secondaryVoltage + sourceSCMVA"
   },
   "outputs": {
-    "primary": "faultCurrentKA",
+    "primary": "result",
     "breakdown": [
       "sourceImpedancePrim",
       "sourceImpedanceSec",
       "transformerImpedance",
       "totalImpedance"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "faultCurrentKA"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -66,5 +108,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

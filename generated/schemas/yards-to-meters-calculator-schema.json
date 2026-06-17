@@ -67,7 +67,6 @@
     }
   ],
   "formulas": {
-    "ydToM": "0.9144",
     "m1": "yards1 * 0.9144",
     "m2": "yards2 * 0.9144",
     "m3": "yards3 * 0.9144",
@@ -83,7 +82,12 @@
       "m3",
       "m4",
       "totalMeters"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalMeters"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -93,5 +97,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

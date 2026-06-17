@@ -100,19 +100,21 @@
   ],
   "formulas": {
     "adjusted_gross_income": "annual_income - pre_tax_deductions + additional_income",
-    "taxable_income": "Math.max(0, adjusted_gross_income - standard_deduction)",
-    "tax_before_credits": "(() => { const ti = taxable_income; let tax = 0; if (filing_status === 0) { if (ti <= 11000) tax = ti * 0.10; else if (ti <= 44725) tax = 1100 + (ti - 11000) * 0.12; else if (ti <= 95375) tax = 5147 + (ti - 44725) * 0.22; else if (ti <= 182100) tax = 16290 + (ti - 95375) * 0.24; else if (ti <= 231250) tax = 37104 + (ti - 182100) * 0.32; else if (ti <= 578125) tax = 52832 + (ti - 231250) * 0.35; else tax = 174238.25 + (ti - 578125) * 0.37; } else if (filing_status === 1) { if (ti <= 22000) tax = ti * 0.10; else if (ti <= 89450) tax = 2200 + (ti - 22000) * 0.12; else if (ti <= 190750) tax = 10294 + (ti - 89450) * 0.22; else if (ti <= 364200) tax = 32580 + (ti - 190750) * 0.24; else if (ti <= 462500) tax = 74208 + (ti - 364200) * 0.32; else if (ti <= 693750) tax = 105664 + (ti - 462500) * 0.35; else tax = 186601.5 + (ti - 693750) * 0.37; } else { if (ti <= 15700) tax = ti * 0.10; else if (ti <= 59850) tax = 1570 + (ti - 15700) * 0.12; else if (ti <= 95350) tax = 6868 + (ti - 59850) * 0.22; else if (ti <= 182100) tax = 14678 + (ti - 95350) * 0.24; else if (ti <= 231250) tax = 35498 + (ti - 182100) * 0.32; else if (ti <= 578100) tax = 51226 + (ti - 231250) * 0.35; else tax = 172603.5 + (ti - 578100) * 0.37; } return tax; })()",
-    "total_tax": "Math.max(0, tax_before_credits - tax_credits)",
-    "effective_tax_rate": "total_tax / annual_income * 100"
+    "adjusted_gross_income_aux": "annual_income - pre_tax_deductions + additional_income"
   },
   "outputs": {
-    "primary": "total_tax",
+    "primary": "adjusted_gross_income_aux",
     "breakdown": [
       "adjusted_gross_income",
       "taxable_income",
       "tax_before_credits",
       "effective_tax_rate"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "effective_tax_rate"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -122,5 +124,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

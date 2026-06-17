@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Total weight of milk input"
+      "businessContext": "Total weight of milk input",
+      "label_i18n": {
+        "en": "Milk Weight",
+        "tr": "Milk Weight",
+        "de": "Milk Weight",
+        "fr": "Milk Weight",
+        "es": "Milk Weight",
+        "ar": "Milk Weight"
+      }
     },
     {
       "id": "fatPercent",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 3.5,
-      "businessContext": "Percentage of fat in milk"
+      "businessContext": "Percentage of fat in milk",
+      "label_i18n": {
+        "en": "Milk Fat %",
+        "tr": "Milk Fat %",
+        "de": "Milk Fat %",
+        "fr": "Milk Fat %",
+        "es": "Milk Fat %",
+        "ar": "Milk Fat %"
+      }
     },
     {
       "id": "proteinPercent",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 3.2,
-      "businessContext": "Percentage of protein in milk"
+      "businessContext": "Percentage of protein in milk",
+      "label_i18n": {
+        "en": "Milk Protein %",
+        "tr": "Milk Protein %",
+        "de": "Milk Protein %",
+        "fr": "Milk Protein %",
+        "es": "Milk Protein %",
+        "ar": "Milk Protein %"
+      }
     },
     {
       "id": "moistureTarget",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 40,
-      "businessContext": "Target moisture content in cheese"
+      "businessContext": "Target moisture content in cheese",
+      "label_i18n": {
+        "en": "Target Moisture %",
+        "tr": "Target Moisture %",
+        "de": "Target Moisture %",
+        "fr": "Target Moisture %",
+        "es": "Target Moisture %",
+        "ar": "Target Moisture %"
+      }
     },
     {
       "id": "yieldFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0.9,
-      "businessContext": "Efficiency factor accounting for losses during processing (0.8-0.95)"
+      "businessContext": "Efficiency factor accounting for losses during processing (0.8-0.95)",
+      "label_i18n": {
+        "en": "Yield Efficiency Factor",
+        "tr": "Yield Efficiency Factor",
+        "de": "Yield Efficiency Factor",
+        "fr": "Yield Efficiency Factor",
+        "es": "Yield Efficiency Factor",
+        "ar": "Yield Efficiency Factor"
+      }
     }
   ],
   "formulas": {
@@ -56,7 +96,12 @@
       "proteinInCheese",
       "waterInCheese",
       "solidsInCheese"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "solidsInCheese"
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Üretim & İmalat",
@@ -66,5 +111,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "efficiency"
+  "categoryId": "efficiency",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

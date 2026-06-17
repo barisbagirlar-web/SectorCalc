@@ -136,96 +136,6 @@
       "businessContext_i18n": {
         "en": "Average hourly wage including benefits."
       }
-    },
-    {
-      "id": "energy_cost_per_day",
-      "label": "Energy Cost (per Day)",
-      "type": "number",
-      "unit": "USD/day",
-      "default": 200,
-      "min": 0,
-      "max": 10000,
-      "businessContext": "Daily electricity, fuel, and cooling costs.",
-      "label_i18n": {
-        "en": "Energy Cost (per Day)"
-      },
-      "businessContext_i18n": {
-        "en": "Daily electricity, fuel, and cooling costs."
-      }
-    },
-    {
-      "id": "other_variable_cost_per_liter",
-      "label": "Other Variable Cost (per Liter)",
-      "type": "number",
-      "unit": "USD/L",
-      "default": 0.05,
-      "min": 0,
-      "max": 5,
-      "businessContext": "Supplies, additives, packaging, and miscellaneous variable costs.",
-      "label_i18n": {
-        "en": "Other Variable Cost (per Liter)"
-      },
-      "businessContext_i18n": {
-        "en": "Supplies, additives, packaging, and miscellaneous variable costs."
-      }
-    },
-    {
-      "id": "fixed_cost_per_day",
-      "label": "Fixed Cost (per Day)",
-      "type": "number",
-      "unit": "USD/day",
-      "default": 500,
-      "min": 0,
-      "max": 50000,
-      "businessContext": "Depreciation, rent, insurance, and other fixed overhead.",
-      "label_i18n": {
-        "en": "Fixed Cost (per Day)"
-      },
-      "businessContext_i18n": {
-        "en": "Depreciation, rent, insurance, and other fixed overhead."
-      }
-    },
-    {
-      "id": "quality_grade",
-      "label": "Quality Grade",
-      "type": "select",
-      "unit": "unit",
-      "default": "A",
-      "min": null,
-      "max": null,
-      "businessContext": "Milk quality grade based on somatic cell count and bacteria (A, B, C).",
-      "options": [
-        "A",
-        "B",
-        "C"
-      ],
-      "label_i18n": {
-        "en": "Quality Grade"
-      },
-      "businessContext_i18n": {
-        "en": "Milk quality grade based on somatic cell count and bacteria (A, B, C)."
-      }
-    },
-    {
-      "id": "seasonal_demand_factor",
-      "label": "Seasonal Demand Factor",
-      "type": "select",
-      "unit": "unit",
-      "default": "Normal",
-      "min": null,
-      "max": null,
-      "businessContext": "Adjusts for peak/off-peak demand periods.",
-      "options": [
-        "Low",
-        "Normal",
-        "High"
-      ],
-      "label_i18n": {
-        "en": "Seasonal Demand Factor"
-      },
-      "businessContext_i18n": {
-        "en": "Adjusts for peak/off-peak demand periods."
-      }
     }
   ],
   "validation": {
@@ -329,18 +239,18 @@
       }
     ]
   },
-  "formulas": [
-    "milk_volume_liters",
-    "milk_volume_liters",
-    "milk_volume_liters",
-    "milk_volume_liters",
-    "milk_volume_liters",
-    "milk_volume_liters",
-    "milk_volume_liters"
-  ],
+  "formulas": {
+    "result": "milk_volume_liters + fat_percentage + protein_percentage",
+    "result_copy": "milk_volume_liters + fat_percentage + protein_percentage"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "dairy-profit-detector-calculator",
   "catalogCategory": "everyday-life",

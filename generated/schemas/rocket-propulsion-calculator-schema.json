@@ -86,19 +86,23 @@
     "propellantMass": "initialMass - finalMass",
     "massRatio": "initialMass / finalMass",
     "exhaustVelocity": "specificImpulse * gravitationalAcceleration",
-    "deltaV": "exhaustVelocity * Math.log(massRatio)",
     "thrust": "massFlowRate * exhaustVelocity",
     "burnTime": "propellantMass / massFlowRate"
   },
   "outputs": {
-    "primary": "deltaV",
+    "primary": "burnTime",
     "breakdown": [
       "exhaustVelocity",
       "massRatio",
       "thrust",
       "burnTime",
       "propellantMass"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "burnTime"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -108,5 +112,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "efficiency"
+  "categoryId": "efficiency",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

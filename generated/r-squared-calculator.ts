@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from r-squared-calculator-schema.json
 import * as z from 'zod';
 
@@ -19,28 +20,35 @@ export const R_squared_calculatorInputSchema = z.object({
   sumXY: z.number().default(0),
 });
 
-function evaluateAllFormulas(input: R_squared_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.n * input.sumXY - input.sumX * input.sumY; results["SS_xy"] = Number.isFinite(v) ? v : 0; } catch { results["SS_xy"] = 0; }
-  try { const v = input.n * input.sumXSq - input.sumX ** 2; results["SS_xx"] = Number.isFinite(v) ? v : 0; } catch { results["SS_xx"] = 0; }
-  try { const v = input.n * input.sumYSq - input.sumY ** 2; results["SS_yy"] = Number.isFinite(v) ? v : 0; } catch { results["SS_yy"] = 0; }
-  try { const v = (results["SS_xy"] ?? 0) / Math.sqrt((results["SS_xx"] ?? 0) * (results["SS_yy"] ?? 0)); results["r"] = Number.isFinite(v) ? v : 0; } catch { results["r"] = 0; }
-  try { const v = (results["SS_xy"] ?? 0) ** 2 / ((results["SS_xx"] ?? 0) * (results["SS_yy"] ?? 0)); results["R_squared"] = Number.isFinite(v) ? v : 0; } catch { results["R_squared"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: R_squared_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.n * input.sumXY - input.sumX * input.sumY; results["SS_xy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["SS_xy"] = 0; }
+  try { const v = input.n * input.sumXSq - input.sumX ** 2; results["SS_xx"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["SS_xx"] = 0; }
+  try { const v = input.n * input.sumYSq - input.sumY ** 2; results["SS_yy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["SS_yy"] = 0; }
+  try { const v = (asFormulaNumber(results["SS_xy"])) ** 2 / ((asFormulaNumber(results["SS_xx"])) * (asFormulaNumber(results["SS_yy"]))); results["R_squared"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["R_squared"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateR_squared_calculator(input: R_squared_calculatorInput): R_squared_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["R_squared"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["R_squared"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

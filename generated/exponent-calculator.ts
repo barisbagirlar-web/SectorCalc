@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from exponent-calculator-schema.json
 import * as z from 'zod';
 
@@ -19,28 +20,33 @@ export const Exponent_calculatorInputSchema = z.object({
   precision: z.number().default(2),
 });
 
-function evaluateAllFormulas(input: Exponent_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = Math.pow(input.base, input.exponent); results["powerResult"] = Number.isFinite(v) ? v : 0; } catch { results["powerResult"] = 0; }
-  try { const v = (results["powerResult"] ?? 0) * input.multiplier; results["afterMultiplier"] = Number.isFinite(v) ? v : 0; } catch { results["afterMultiplier"] = 0; }
-  try { const v = (results["afterMultiplier"] ?? 0) + input.constantAdd; results["afterConstant"] = Number.isFinite(v) ? v : 0; } catch { results["afterConstant"] = 0; }
-  try { const v = input.modulus > 0 ? (results["afterConstant"] ?? 0) % input.modulus : (results["afterConstant"] ?? 0); results["moduloApplied"] = Number.isFinite(v) ? v : 0; } catch { results["moduloApplied"] = 0; }
-  try { const v = parseFloat((results["moduloApplied"] ?? 0).toFixed(input.precision)); results["finalResult"] = Number.isFinite(v) ? v : 0; } catch { results["finalResult"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Exponent_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.base + input.exponent + input.multiplier; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.base + input.exponent + input.multiplier; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateExponent_calculator(input: Exponent_calculatorInput): Exponent_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["finalResult"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

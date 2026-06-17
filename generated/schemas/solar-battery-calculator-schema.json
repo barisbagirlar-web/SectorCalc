@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kWh",
       "default": 10,
-      "businessContext": "Toplam günlük enerji ihtiyacı"
+      "businessContext": "Toplam günlük enerji ihtiyacı",
+      "label_i18n": {
+        "en": "Günlük Enerji Tüketimi",
+        "tr": "Günlük Enerji Tüketimi",
+        "de": "Günlük Enerji Tüketimi",
+        "fr": "Günlük Enerji Tüketimi",
+        "es": "Günlük Enerji Tüketimi",
+        "ar": "Günlük Enerji Tüketimi"
+      }
     },
     {
       "id": "peakSunHours",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "saat",
       "default": 5,
-      "businessContext": "Günlük ortalama tam güneş ışığı süresi"
+      "businessContext": "Günlük ortalama tam güneş ışığı süresi",
+      "label_i18n": {
+        "en": "Efektif Güneşlenme Süresi",
+        "tr": "Efektif Güneşlenme Süresi",
+        "de": "Efektif Güneşlenme Süresi",
+        "fr": "Efektif Güneşlenme Süresi",
+        "es": "Efektif Güneşlenme Süresi",
+        "ar": "Efektif Güneşlenme Süresi"
+      }
     },
     {
       "id": "systemVoltage",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "V",
       "default": 24,
-      "businessContext": "Akü bankası voltajı"
+      "businessContext": "Akü bankası voltajı",
+      "label_i18n": {
+        "en": "Sistem Voltajı",
+        "tr": "Sistem Voltajı",
+        "de": "Sistem Voltajı",
+        "fr": "Sistem Voltajı",
+        "es": "Sistem Voltajı",
+        "ar": "Sistem Voltajı"
+      }
     },
     {
       "id": "depthOfDischarge",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "oran",
       "default": 0.5,
-      "businessContext": "Akünün kullanılabilir kapasite oranı (0-1 arası)"
+      "businessContext": "Akünün kullanılabilir kapasite oranı (0-1 arası)",
+      "label_i18n": {
+        "en": "Deşarj Derinliği (DoD)",
+        "tr": "Deşarj Derinliği (DoD)",
+        "de": "Deşarj Derinliği (DoD)",
+        "fr": "Deşarj Derinliği (DoD)",
+        "es": "Deşarj Derinliği (DoD)",
+        "ar": "Deşarj Derinliği (DoD)"
+      }
     },
     {
       "id": "daysOfAutonomy",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "gün",
       "default": 3,
-      "businessContext": "Güneşsiz günlerde sistemin çalışma süresi"
+      "businessContext": "Güneşsiz günlerde sistemin çalışma süresi",
+      "label_i18n": {
+        "en": "Otonomi Gün Sayısı",
+        "tr": "Otonomi Gün Sayısı",
+        "de": "Otonomi Gün Sayısı",
+        "fr": "Otonomi Gün Sayısı",
+        "es": "Otonomi Gün Sayısı",
+        "ar": "Otonomi Gün Sayısı"
+      }
     },
     {
       "id": "batteryEfficiency",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "oran",
       "default": 0.85,
-      "businessContext": "Akü şarj/deşarj verimliliği (0-1)"
+      "businessContext": "Akü şarj/deşarj verimliliği (0-1)",
+      "label_i18n": {
+        "en": "Akü Verimliliği",
+        "tr": "Akü Verimliliği",
+        "de": "Akü Verimliliği",
+        "fr": "Akü Verimliliği",
+        "es": "Akü Verimliliği",
+        "ar": "Akü Verimliliği"
+      }
     },
     {
       "id": "batteryCapacityAh",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "Ah",
       "default": 200,
-      "businessContext": "Kullanılacak her bir akünün kapasitesi"
+      "businessContext": "Kullanılacak her bir akünün kapasitesi",
+      "label_i18n": {
+        "en": "Tek Akü Kapasitesi",
+        "tr": "Tek Akü Kapasitesi",
+        "de": "Tek Akü Kapasitesi",
+        "fr": "Tek Akü Kapasitesi",
+        "es": "Tek Akü Kapasitesi",
+        "ar": "Tek Akü Kapasitesi"
+      }
     }
   ],
   "formulas": {
@@ -68,7 +124,12 @@
     "breakdown": [
       "requiredEnergyWh",
       "batteryCountExact"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "batteryCountExact"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -78,5 +139,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

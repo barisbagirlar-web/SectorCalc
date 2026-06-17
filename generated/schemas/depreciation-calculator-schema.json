@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 10000,
-      "businessContext": "The initial purchase price of the asset."
+      "businessContext": "The initial purchase price of the asset.",
+      "label_i18n": {
+        "en": "Initial Cost",
+        "tr": "Initial Cost",
+        "de": "Initial Cost",
+        "fr": "Initial Cost",
+        "es": "Initial Cost",
+        "ar": "Initial Cost"
+      }
     },
     {
       "id": "salvageValue",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 1000,
-      "businessContext": "The estimated residual value at the end of useful life."
+      "businessContext": "The estimated residual value at the end of useful life.",
+      "label_i18n": {
+        "en": "Salvage Value",
+        "tr": "Salvage Value",
+        "de": "Salvage Value",
+        "fr": "Salvage Value",
+        "es": "Salvage Value",
+        "ar": "Salvage Value"
+      }
     },
     {
       "id": "usefulLifeYears",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 5,
-      "businessContext": "The expected useful life of the asset in years."
+      "businessContext": "The expected useful life of the asset in years.",
+      "label_i18n": {
+        "en": "Useful Life (Years)",
+        "tr": "Useful Life (Years)",
+        "de": "Useful Life (Years)",
+        "fr": "Useful Life (Years)",
+        "es": "Useful Life (Years)",
+        "ar": "Useful Life (Years)"
+      }
     },
     {
       "id": "yearsElapsed",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "years",
       "default": 0,
-      "businessContext": "Number of years the asset has been in use."
+      "businessContext": "Number of years the asset has been in use.",
+      "label_i18n": {
+        "en": "Years Elapsed",
+        "tr": "Years Elapsed",
+        "de": "Years Elapsed",
+        "fr": "Years Elapsed",
+        "es": "Years Elapsed",
+        "ar": "Years Elapsed"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "accumulatedDepreciation",
       "bookValue"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "bookValue"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -54,5 +91,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

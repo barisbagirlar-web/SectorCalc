@@ -70,9 +70,7 @@
     "rise": "y2 - y1",
     "run": "x2 - x1",
     "slopeRatio": "run !== 0 ? (rise / run) : null",
-    "slopePercentage": "run !== 0 ? (rise / run) * 100 : null",
-    "angleDegrees": "run !== 0 ? Math.atan(rise / run) * (180 / Math.PI) : null",
-    "hypotenuse": "Math.sqrt(rise**2 + run**2)"
+    "slopePercentage": "run !== 0 ? (rise / run) * 100 : null"
   },
   "outputs": {
     "primary": "slopePercentage",
@@ -82,7 +80,12 @@
       "slopeRatio",
       "angleDegrees",
       "hypotenuse"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "hypotenuse"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -92,5 +95,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

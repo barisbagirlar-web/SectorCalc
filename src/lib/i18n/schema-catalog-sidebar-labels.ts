@@ -6,6 +6,7 @@ import { resolveIndustrySectorDisplayLabel } from "@/lib/i18n/industry-sector-di
 import type { SupportedLocale } from "@/lib/i18n/locale-config";
 import { SUPPORTED_LOCALES } from "@/lib/i18n/locale-config";
 import { CATEGORY_TAXONOMY, TAXONOMY_CATEGORY_NAMES } from "@/lib/tools/category-taxonomy";
+import { getSectorById } from "@/lib/tools/taxonomy";
 
 type LocaleLabelMap = Readonly<Record<SupportedLocale, string>>;
 
@@ -267,6 +268,15 @@ export function resolveSchemaCatalogSectorLabel(sectorKey: string, locale: strin
   const industryLabel = resolveIndustrySectorDisplayLabel(sectorKey, locale);
   if (industryLabel) {
     return industryLabel;
+  }
+
+  const taxonomySector = getSectorById(sectorKey);
+  if (taxonomySector) {
+    const normalized = locale.toLowerCase() as SupportedLocale;
+    if (normalized === "en" || !SUPPORTED_LOCALES.includes(normalized)) {
+      return taxonomySector.labelEn;
+    }
+    return taxonomySector.label;
   }
 
   const fromCategoryMap = SCHEMA_CATEGORY_LABELS[sectorKey];

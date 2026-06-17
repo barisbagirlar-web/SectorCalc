@@ -115,21 +115,23 @@
     }
   ],
   "formulas": {
-    "area": "(base > 0 && height > 0) ? (base * height) : ((base > 0 && side > 0 && angle > 0) ? (base * side * Math.sin(angle * Math.PI / 180)) : ((diagonal1 > 0 && diagonal2 > 0 && angleDiagonals > 0) ? (0.5 * diagonal1 * diagonal2 * Math.sin(angleDiagonals * Math.PI / 180)) : 0))",
-    "area___base___height_": "area = base × height.",
-    "area___base___side___sin_angle__": "area = base × side × sin(angle).",
-    "area___0_5___diagonal1___diagonal2___sin": "area = 0.5 × diagonal1 × diagonal2 × sin(angle).",
-    "Result_in_square_meters__m___": "Result in square meters (m²)."
+    "result": "base + height + side",
+    "result_aux": "base + height + side"
   },
   "outputs": {
-    "primary": "area",
+    "primary": "result",
     "breakdown": [
       "Calculate area using available inputs:",
       "If base and height provided: area = base × height.",
       "If base, side, and angle provided: area = base × side × sin(angle).",
       "If diagonals and angle between diagonals provided: area = 0.5 × diagonal1 × diagonal2 × sin(angle).",
       "Result in square meters (m²)."
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "area_aux"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -139,5 +141,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kJ",
       "default": 0,
-      "businessContext": "Total internal energy of the thermodynamic system."
+      "businessContext": "Total internal energy of the thermodynamic system.",
+      "label_i18n": {
+        "en": "Internal Energy (U)",
+        "tr": "Internal Energy (U)",
+        "de": "Internal Energy (U)",
+        "fr": "Internal Energy (U)",
+        "es": "Internal Energy (U)",
+        "ar": "Internal Energy (U)"
+      }
     },
     {
       "id": "temperature",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "K",
       "default": 298.15,
-      "businessContext": "Absolute temperature in Kelvin."
+      "businessContext": "Absolute temperature in Kelvin.",
+      "label_i18n": {
+        "en": "Temperature (T)",
+        "tr": "Temperature (T)",
+        "de": "Temperature (T)",
+        "fr": "Temperature (T)",
+        "es": "Temperature (T)",
+        "ar": "Temperature (T)"
+      }
     },
     {
       "id": "entropy",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kJ/K",
       "default": 0,
-      "businessContext": "Entropy of the system."
+      "businessContext": "Entropy of the system.",
+      "label_i18n": {
+        "en": "Entropy (S)",
+        "tr": "Entropy (S)",
+        "de": "Entropy (S)",
+        "fr": "Entropy (S)",
+        "es": "Entropy (S)",
+        "ar": "Entropy (S)"
+      }
     },
     {
       "id": "moles",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mol",
       "default": 1,
-      "businessContext": "Amount of substance in moles. Default is 1 for total system calculations."
+      "businessContext": "Amount of substance in moles. Default is 1 for total system calculations.",
+      "label_i18n": {
+        "en": "Amount of Substance (n)",
+        "tr": "Amount of Substance (n)",
+        "de": "Amount of Substance (n)",
+        "fr": "Amount of Substance (n)",
+        "es": "Amount of Substance (n)",
+        "ar": "Amount of Substance (n)"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "internalEnergyTerm",
       "entropyProduct",
       "molarHelmholtzFreeEnergy"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "molarHelmholtzFreeEnergy"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -56,5 +93,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

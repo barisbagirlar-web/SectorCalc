@@ -86,21 +86,21 @@
     "rollArea": "rollLength * rollWidth",
     "neededArea": "area * (1 + wasteFactor / 100)",
     "exactRolls": "neededArea / rollArea",
-    "totalCost": "exactRolls * pricePerRoll",
-    "One_roll_covers___rollArea__sq_ft____rol": "One roll covers ${rollArea} sq ft (${rollLength} ft × ${rollWidth} ft).",
-    "__neededArea__sq_ft_": "${neededArea} sq ft.",
-    "__exactRolls__": "${exactRolls}.",
-    "___totalCost___round_up_for_purchase__": "$${totalCost} (round up for purchase).",
-    "result": "You need approximately ${exactRolls} rolls (always round up to the next whole roll) for a total cost of $${totalCost} (actual cost will be higher after rounding up)."
+    "totalCost": "exactRolls * pricePerRoll"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "totalCost",
     "breakdown": [
       "One roll covers ${rollArea} sq ft (${rollLength} ft × ${rollWidth} ft).",
       "Adjusted area with ${wasteFactor}% waste: ${neededArea} sq ft.",
       "Exact number of rolls required (before rounding up): ${exactRolls}.",
       "Total cost based on exact rolls: $${totalCost} (round up for purchase)."
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -110,5 +110,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

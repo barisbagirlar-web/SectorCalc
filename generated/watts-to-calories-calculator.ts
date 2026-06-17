@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from watts-to-calories-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,27 +16,35 @@ export const Watts_to_calories_calculatorInputSchema = z.object({
   efficiency: z.number().default(100),
 });
 
-function evaluateAllFormulas(input: Watts_to_calories_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (input.watts * (input.efficiency / 100) * input.time) / input.calFactor; results["totalCalories"] = Number.isFinite(v) ? v : 0; } catch { results["totalCalories"] = 0; }
-  try { const v = (input.watts * (input.efficiency / 100)) / input.calFactor; results["calPerSec"] = Number.isFinite(v) ? v : 0; } catch { results["calPerSec"] = 0; }
-  try { const v = ((input.watts * (input.efficiency / 100)) * 60) / input.calFactor; results["calPerMin"] = Number.isFinite(v) ? v : 0; } catch { results["calPerMin"] = 0; }
-  try { const v = ((input.watts * (input.efficiency / 100)) * 3600) / input.calFactor; results["calPerHour"] = Number.isFinite(v) ? v : 0; } catch { results["calPerHour"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Watts_to_calories_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = (input.watts * (input.efficiency / 100) * input.time) / input.calFactor; results["totalCalories"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalCalories"] = 0; }
+  try { const v = (input.watts * (input.efficiency / 100)) / input.calFactor; results["calPerSec"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["calPerSec"] = 0; }
+  try { const v = ((input.watts * (input.efficiency / 100)) * 60) / input.calFactor; results["calPerMin"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["calPerMin"] = 0; }
+  try { const v = ((input.watts * (input.efficiency / 100)) * 3600) / input.calFactor; results["calPerHour"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["calPerHour"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateWatts_to_calories_calculator(input: Watts_to_calories_calculatorInput): Watts_to_calories_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalCalories"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["totalCalories"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

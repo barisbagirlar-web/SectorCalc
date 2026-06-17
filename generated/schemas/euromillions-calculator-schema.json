@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 2.5,
-      "businessContext": "Standard cost of one EuroMillions ticket line in euros. Default 2.50 EUR."
+      "businessContext": "Standard cost of one EuroMillions ticket line in euros. Default 2.50 EUR.",
+      "label_i18n": {
+        "en": "Ticket Cost per Line",
+        "tr": "Ticket Cost per Line",
+        "de": "Ticket Cost per Line",
+        "fr": "Ticket Cost per Line",
+        "es": "Ticket Cost per Line",
+        "ar": "Ticket Cost per Line"
+      }
     },
     {
       "id": "linesPerDraw",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "lines",
       "default": 1,
-      "businessContext": "Number of lines played per draw. Default 1."
+      "businessContext": "Number of lines played per draw. Default 1.",
+      "label_i18n": {
+        "en": "Lines per Draw",
+        "tr": "Lines per Draw",
+        "de": "Lines per Draw",
+        "fr": "Lines per Draw",
+        "es": "Lines per Draw",
+        "ar": "Lines per Draw"
+      }
     },
     {
       "id": "drawsPerWeek",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "draws/week",
       "default": 2,
-      "businessContext": "Number of EuroMillions draws per week (typically 2 on Tuesday and Friday)."
+      "businessContext": "Number of EuroMillions draws per week (typically 2 on Tuesday and Friday).",
+      "label_i18n": {
+        "en": "Draws per Week",
+        "tr": "Draws per Week",
+        "de": "Draws per Week",
+        "fr": "Draws per Week",
+        "es": "Draws per Week",
+        "ar": "Draws per Week"
+      }
     },
     {
       "id": "weeks",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "weeks",
       "default": 1,
-      "businessContext": "Number of weeks of continuous play."
+      "businessContext": "Number of weeks of continuous play.",
+      "label_i18n": {
+        "en": "Number of Weeks",
+        "tr": "Number of Weeks",
+        "de": "Number of Weeks",
+        "fr": "Number of Weeks",
+        "es": "Number of Weeks",
+        "ar": "Number of Weeks"
+      }
     },
     {
       "id": "bulkDiscount",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Percentage discount for multi-draw or subscription purchases (0-100)."
+      "businessContext": "Percentage discount for multi-draw or subscription purchases (0-100).",
+      "label_i18n": {
+        "en": "Bulk Discount",
+        "tr": "Bulk Discount",
+        "de": "Bulk Discount",
+        "fr": "Bulk Discount",
+        "es": "Bulk Discount",
+        "ar": "Bulk Discount"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "costBeforeDiscount",
       "totalTickets"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -62,5 +107,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

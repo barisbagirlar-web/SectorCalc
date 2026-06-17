@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 50,
-      "businessContext": "The standard price per unit before any bulk discount is applied."
+      "businessContext": "The standard price per unit before any bulk discount is applied.",
+      "label_i18n": {
+        "en": "Base Price per Unit",
+        "tr": "Base Price per Unit",
+        "de": "Base Price per Unit",
+        "fr": "Base Price per Unit",
+        "es": "Base Price per Unit",
+        "ar": "Base Price per Unit"
+      }
     },
     {
       "id": "quantity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "units",
       "default": 100,
-      "businessContext": "The total number of units being purchased in a single order."
+      "businessContext": "The total number of units being purchased in a single order.",
+      "label_i18n": {
+        "en": "Quantity Ordered",
+        "tr": "Quantity Ordered",
+        "de": "Quantity Ordered",
+        "fr": "Quantity Ordered",
+        "es": "Quantity Ordered",
+        "ar": "Quantity Ordered"
+      }
     },
     {
       "id": "maxDiscount",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "The upper limit of the discount percentage achievable with very large orders."
+      "businessContext": "The upper limit of the discount percentage achievable with very large orders.",
+      "label_i18n": {
+        "en": "Maximum Discount",
+        "tr": "Maximum Discount",
+        "de": "Maximum Discount",
+        "fr": "Maximum Discount",
+        "es": "Maximum Discount",
+        "ar": "Maximum Discount"
+      }
     },
     {
       "id": "scale",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "units",
       "default": 200,
-      "businessContext": "The quantity at which the discount reaches approximately 63% of the maximum discount (i.e., the e-folding scale)."
+      "businessContext": "The quantity at which the discount reaches approximately 63% of the maximum discount (i.e., the e-folding scale).",
+      "label_i18n": {
+        "en": "Discount Scale Factor",
+        "tr": "Discount Scale Factor",
+        "de": "Discount Scale Factor",
+        "fr": "Discount Scale Factor",
+        "es": "Discount Scale Factor",
+        "ar": "Discount Scale Factor"
+      }
     }
   ],
   "formulas": {
-    "discountRate": "maxDiscount * (1 - Math.exp(-quantity / scale))",
-    "finalPricePerUnit": "basePricePerUnit * (1 - discountRate / 100)",
-    "totalCost": "quantity * finalPricePerUnit"
+    "result": "basePricePerUnit + quantity + maxDiscount",
+    "result_copy": "basePricePerUnit + quantity + maxDiscount"
   },
   "outputs": {
-    "primary": "totalCost",
+    "primary": "result",
     "breakdown": [
       "discountRate",
       "finalPricePerUnit"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

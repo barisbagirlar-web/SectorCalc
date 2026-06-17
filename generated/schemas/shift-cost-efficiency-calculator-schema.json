@@ -138,75 +138,6 @@
       "businessContext_i18n": {
         "en": "Total energy cost (electricity, gas, etc.) for the shift."
       }
-    },
-    {
-      "id": "planned_downtime_minutes",
-      "label": "Planned Downtime (minutes)",
-      "type": "number",
-      "unit": "minutes",
-      "default": 30,
-      "min": 0,
-      "max": 480,
-      "businessContext": "Scheduled breaks, maintenance, and changeovers.",
-      "label_i18n": {
-        "en": "Planned Downtime (minutes)"
-      },
-      "businessContext_i18n": {
-        "en": "Scheduled breaks, maintenance, and changeovers."
-      }
-    },
-    {
-      "id": "unplanned_downtime_minutes",
-      "label": "Unplanned Downtime (minutes)",
-      "type": "number",
-      "unit": "minutes",
-      "default": 20,
-      "min": 0,
-      "max": 480,
-      "businessContext": "Unexpected breakdowns, material shortages, etc.",
-      "label_i18n": {
-        "en": "Unplanned Downtime (minutes)"
-      },
-      "businessContext_i18n": {
-        "en": "Unexpected breakdowns, material shortages, etc."
-      }
-    },
-    {
-      "id": "shift_type",
-      "label": "Shift Type",
-      "type": "select",
-      "unit": "unit",
-      "default": "day",
-      "min": null,
-      "max": null,
-      "options": [
-        "day",
-        "night",
-        "weekend"
-      ],
-      "businessContext": "Shift type affects labor premiums and energy tariffs.",
-      "label_i18n": {
-        "en": "Shift Type"
-      },
-      "businessContext_i18n": {
-        "en": "Shift type affects labor premiums and energy tariffs."
-      }
-    },
-    {
-      "id": "overtime_applied",
-      "label": "Overtime Applied",
-      "type": "boolean",
-      "unit": "unit",
-      "default": false,
-      "min": null,
-      "max": null,
-      "businessContext": "Indicates if overtime rates apply to any portion of the shift.",
-      "label_i18n": {
-        "en": "Overtime Applied"
-      },
-      "businessContext_i18n": {
-        "en": "Indicates if overtime rates apply to any portion of the shift."
-      }
     }
   ],
   "validation": {
@@ -248,18 +179,18 @@
       }
     ]
   },
-  "formulas": [
-    "shift_duration_hours",
-    "shift_duration_hours",
-    "shift_duration_hours",
-    "shift_duration_hours",
-    "shift_duration_hours",
-    "shift_duration_hours",
-    "shift_duration_hours"
-  ],
+  "formulas": {
+    "result": "shift_duration_hours + total_units_produced + defective_units",
+    "result_copy": "shift_duration_hours + total_units_produced + defective_units"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

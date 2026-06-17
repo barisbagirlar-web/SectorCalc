@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency/kg",
       "default": 5,
-      "businessContext": "The purchase cost of the ingredient per unit weight (e.g., per kg)."
+      "businessContext": "The purchase cost of the ingredient per unit weight (e.g., per kg).",
+      "label_i18n": {
+        "en": "Ingredient Cost per Unit",
+        "tr": "Ingredient Cost per Unit",
+        "de": "Ingredient Cost per Unit",
+        "fr": "Ingredient Cost per Unit",
+        "es": "Ingredient Cost per Unit",
+        "ar": "Ingredient Cost per Unit"
+      }
     },
     {
       "id": "ingredientQuantity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0.5,
-      "businessContext": "The amount of the ingredient used in the recipe."
+      "businessContext": "The amount of the ingredient used in the recipe.",
+      "label_i18n": {
+        "en": "Ingredient Quantity Used",
+        "tr": "Ingredient Quantity Used",
+        "de": "Ingredient Quantity Used",
+        "fr": "Ingredient Quantity Used",
+        "es": "Ingredient Quantity Used",
+        "ar": "Ingredient Quantity Used"
+      }
     },
     {
       "id": "numberOfPortions",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "portions",
       "default": 4,
-      "businessContext": "The number of portions the recipe yields."
+      "businessContext": "The number of portions the recipe yields.",
+      "label_i18n": {
+        "en": "Number of Portions",
+        "tr": "Number of Portions",
+        "de": "Number of Portions",
+        "fr": "Number of Portions",
+        "es": "Number of Portions",
+        "ar": "Number of Portions"
+      }
     },
     {
       "id": "laborCostPerHour",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency/hour",
       "default": 15,
-      "businessContext": "Hourly wage for kitchen staff."
+      "businessContext": "Hourly wage for kitchen staff.",
+      "label_i18n": {
+        "en": "Labor Cost per Hour",
+        "tr": "Labor Cost per Hour",
+        "de": "Labor Cost per Hour",
+        "fr": "Labor Cost per Hour",
+        "es": "Labor Cost per Hour",
+        "ar": "Labor Cost per Hour"
+      }
     },
     {
       "id": "laborHours",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "hours",
       "default": 1,
-      "businessContext": "Total labor time required for preparation and cooking."
+      "businessContext": "Total labor time required for preparation and cooking.",
+      "label_i18n": {
+        "en": "Labor Time",
+        "tr": "Labor Time",
+        "de": "Labor Time",
+        "fr": "Labor Time",
+        "es": "Labor Time",
+        "ar": "Labor Time"
+      }
     },
     {
       "id": "overheadPercent",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Percentage of ingredient cost to cover overheads (rent, utilities, etc.)."
+      "businessContext": "Percentage of ingredient cost to cover overheads (rent, utilities, etc.).",
+      "label_i18n": {
+        "en": "Overhead Percentage",
+        "tr": "Overhead Percentage",
+        "de": "Overhead Percentage",
+        "fr": "Overhead Percentage",
+        "es": "Overhead Percentage",
+        "ar": "Overhead Percentage"
+      }
     }
   ],
   "formulas": {
@@ -64,7 +112,12 @@
       "laborCost",
       "overheadCost",
       "costPerPortion"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "costPerPortion"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -74,5 +127,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

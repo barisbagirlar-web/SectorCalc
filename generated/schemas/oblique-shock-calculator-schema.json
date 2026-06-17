@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "unitless",
       "default": 2,
-      "businessContext": "Freestream Mach number before the shock."
+      "businessContext": "Freestream Mach number before the shock.",
+      "label_i18n": {
+        "en": "Upstream Mach Number (M₁)",
+        "tr": "Upstream Mach Number (M₁)",
+        "de": "Upstream Mach Number (M₁)",
+        "fr": "Upstream Mach Number (M₁)",
+        "es": "Upstream Mach Number (M₁)",
+        "ar": "Upstream Mach Number (M₁)"
+      }
     },
     {
       "id": "beta",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "deg",
       "default": 30,
-      "businessContext": "Angle between upstream flow direction and the shock wave."
+      "businessContext": "Angle between upstream flow direction and the shock wave.",
+      "label_i18n": {
+        "en": "Shock Angle (β)",
+        "tr": "Shock Angle (β)",
+        "de": "Shock Angle (β)",
+        "fr": "Shock Angle (β)",
+        "es": "Shock Angle (β)",
+        "ar": "Shock Angle (β)"
+      }
     },
     {
       "id": "gamma",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "unitless",
       "default": 1.4,
-      "businessContext": "Ratio of specific heats, typically 1.4 for air."
+      "businessContext": "Ratio of specific heats, typically 1.4 for air.",
+      "label_i18n": {
+        "en": "Specific Heat Ratio (γ)",
+        "tr": "Specific Heat Ratio (γ)",
+        "de": "Specific Heat Ratio (γ)",
+        "fr": "Specific Heat Ratio (γ)",
+        "es": "Specific Heat Ratio (γ)",
+        "ar": "Specific Heat Ratio (γ)"
+      }
     },
     {
       "id": "p01",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "Pa",
       "default": 101325,
-      "businessContext": "Stagnation pressure of the freestream, standard sea level is 101325 Pa."
+      "businessContext": "Stagnation pressure of the freestream, standard sea level is 101325 Pa.",
+      "label_i18n": {
+        "en": "Upstream Total Pressure (P₀₁)",
+        "tr": "Upstream Total Pressure (P₀₁)",
+        "de": "Upstream Total Pressure (P₀₁)",
+        "fr": "Upstream Total Pressure (P₀₁)",
+        "es": "Upstream Total Pressure (P₀₁)",
+        "ar": "Upstream Total Pressure (P₀₁)"
+      }
     },
     {
       "id": "T01",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "K",
       "default": 300,
-      "businessContext": "Stagnation temperature of the freestream."
+      "businessContext": "Stagnation temperature of the freestream.",
+      "label_i18n": {
+        "en": "Upstream Total Temperature (T₀₁)",
+        "tr": "Upstream Total Temperature (T₀₁)",
+        "de": "Upstream Total Temperature (T₀₁)",
+        "fr": "Upstream Total Temperature (T₀₁)",
+        "es": "Upstream Total Temperature (T₀₁)",
+        "ar": "Upstream Total Temperature (T₀₁)"
+      }
     },
     {
       "id": "gas_constant",
@@ -47,27 +87,23 @@
       "type": "number",
       "unit": "J/(kg·K)",
       "default": 287,
-      "businessContext": "Specific gas constant, 287 J/(kg·K) for dry air."
+      "businessContext": "Specific gas constant, 287 J/(kg·K) for dry air.",
+      "label_i18n": {
+        "en": "Gas Constant (R)",
+        "tr": "Gas Constant (R)",
+        "de": "Gas Constant (R)",
+        "fr": "Gas Constant (R)",
+        "es": "Gas Constant (R)",
+        "ar": "Gas Constant (R)"
+      }
     }
   ],
   "formulas": {
-    "theta": "Math.atan(2 * (1 / Math.tan(beta * Math.PI / 180)) * (mach ** 2 * Math.sin(beta * Math.PI / 180) ** 2 - 1) / (mach ** 2 * (gamma + Math.cos(2 * beta * Math.PI / 180)) + 2)) * 180 / Math.PI",
-    "Mn1": "mach * Math.sin(beta * Math.PI / 180)",
-    "Mn2": "Math.sqrt(((gamma - 1) * (mach * Math.sin(beta * Math.PI / 180)) ** 2 + 2) / (2 * gamma * (mach * Math.sin(beta * Math.PI / 180)) ** 2 - (gamma - 1)))",
-    "M2": "Mn2 / Math.sin((beta - theta) * Math.PI / 180)",
-    "p_ratio": "1 + 2 * gamma / (gamma + 1) * ((mach * Math.sin(beta * Math.PI / 180)) ** 2 - 1)",
-    "T_ratio": "(1 + 2 * gamma / (gamma + 1) * ((mach * Math.sin(beta * Math.PI / 180)) ** 2 - 1)) * (2 + (gamma - 1) * (mach * Math.sin(beta * Math.PI / 180)) ** 2) / ((gamma + 1) * (mach * Math.sin(beta * Math.PI / 180)) ** 2)",
-    "rho_ratio": "(gamma + 1) * (mach * Math.sin(beta * Math.PI / 180)) ** 2 / (2 + (gamma - 1) * (mach * Math.sin(beta * Math.PI / 180)) ** 2)",
-    "p02_p01_ratio": "(( (gamma + 1) * Mn1 ** 2 / (2 + (gamma - 1) * Mn1 ** 2) ) ** (gamma / (gamma - 1))) * ((gamma + 1) / (2 * gamma * Mn1 ** 2 - (gamma - 1))) ** (1 / (gamma - 1))",
     "p1": "p01 * (1 + (gamma - 1) / 2 * mach ** 2) ** (-gamma / (gamma - 1))",
-    "T1": "T01 * (1 + (gamma - 1) / 2 * mach ** 2) ** (-1)",
-    "p2": "p_ratio * p1",
-    "T2": "T_ratio * T1",
-    "rho2": "p2 / (gas_constant * T2)",
-    "p02": "p02_p01_ratio * p01"
+    "T1": "T01 * (1 + (gamma - 1) / 2 * mach ** 2) ** (-1)"
   },
   "outputs": {
-    "primary": "theta",
+    "primary": "T1",
     "breakdown": [
       "M2",
       "p_ratio",
@@ -77,7 +113,12 @@
       "p2",
       "T2",
       "rho2"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "p02"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -87,5 +128,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

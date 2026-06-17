@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "L",
       "default": 20,
-      "businessContext": "Volume of frying oil in the fryer"
+      "businessContext": "Volume of frying oil in the fryer",
+      "label_i18n": {
+        "en": "Oil Volume",
+        "tr": "Oil Volume",
+        "de": "Oil Volume",
+        "fr": "Oil Volume",
+        "es": "Oil Volume",
+        "ar": "Oil Volume"
+      }
     },
     {
       "id": "initialTemp",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Starting temperature of oil before heating"
+      "businessContext": "Starting temperature of oil before heating",
+      "label_i18n": {
+        "en": "Initial Oil Temperature",
+        "tr": "Initial Oil Temperature",
+        "de": "Initial Oil Temperature",
+        "fr": "Initial Oil Temperature",
+        "es": "Initial Oil Temperature",
+        "ar": "Initial Oil Temperature"
+      }
     },
     {
       "id": "fryingTemp",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 180,
-      "businessContext": "Target frying temperature"
+      "businessContext": "Target frying temperature",
+      "label_i18n": {
+        "en": "Frying Temperature",
+        "tr": "Frying Temperature",
+        "de": "Frying Temperature",
+        "fr": "Frying Temperature",
+        "es": "Frying Temperature",
+        "ar": "Frying Temperature"
+      }
     },
     {
       "id": "fryingTime",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "min",
       "default": 10,
-      "businessContext": "Duration of frying one batch of food"
+      "businessContext": "Duration of frying one batch of food",
+      "label_i18n": {
+        "en": "Frying Time per Batch",
+        "tr": "Frying Time per Batch",
+        "de": "Frying Time per Batch",
+        "fr": "Frying Time per Batch",
+        "es": "Frying Time per Batch",
+        "ar": "Frying Time per Batch"
+      }
     },
     {
       "id": "fryerPower",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kW",
       "default": 3.5,
-      "businessContext": "Rated power of the deep fryer"
+      "businessContext": "Rated power of the deep fryer",
+      "label_i18n": {
+        "en": "Fryer Power",
+        "tr": "Fryer Power",
+        "de": "Fryer Power",
+        "fr": "Fryer Power",
+        "es": "Fryer Power",
+        "ar": "Fryer Power"
+      }
     },
     {
       "id": "electricityCost",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "currency/kWh",
       "default": 0.15,
-      "businessContext": "Cost of electricity per kilowatt-hour"
+      "businessContext": "Cost of electricity per kilowatt-hour",
+      "label_i18n": {
+        "en": "Electricity Cost",
+        "tr": "Electricity Cost",
+        "de": "Electricity Cost",
+        "fr": "Electricity Cost",
+        "es": "Electricity Cost",
+        "ar": "Electricity Cost"
+      }
     },
     {
       "id": "oilCostPerLiter",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "currency/L",
       "default": 1.5,
-      "businessContext": "Purchase price of frying oil per liter"
+      "businessContext": "Purchase price of frying oil per liter",
+      "label_i18n": {
+        "en": "Oil Cost per Liter",
+        "tr": "Oil Cost per Liter",
+        "de": "Oil Cost per Liter",
+        "fr": "Oil Cost per Liter",
+        "es": "Oil Cost per Liter",
+        "ar": "Oil Cost per Liter"
+      }
     },
     {
       "id": "oilLifeBatches",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "batches",
       "default": 40,
-      "businessContext": "Number of frying batches before oil replacement"
+      "businessContext": "Number of frying batches before oil replacement",
+      "label_i18n": {
+        "en": "Oil Life (Batches)",
+        "tr": "Oil Life (Batches)",
+        "de": "Oil Life (Batches)",
+        "fr": "Oil Life (Batches)",
+        "es": "Oil Life (Batches)",
+        "ar": "Oil Life (Batches)"
+      }
     }
   ],
   "formulas": {
@@ -82,7 +146,12 @@
       "totalEnergy",
       "energyCost",
       "oilCostPerBatch"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -92,5 +161,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

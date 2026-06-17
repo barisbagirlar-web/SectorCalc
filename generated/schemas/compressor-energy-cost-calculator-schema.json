@@ -52,22 +52,10 @@
       "unit": "unit",
       "default": "rotary_screw",
       "options": [
-        {
-          "value": "reciprocating",
-          "label": "Reciprocating"
-        },
-        {
-          "value": "rotary_screw",
-          "label": "Rotary Screw"
-        },
-        {
-          "value": "centrifugal",
-          "label": "Centrifugal"
-        },
-        {
-          "value": "scroll",
-          "label": "Scroll"
-        }
+        "reciprocating",
+        "rotary_screw",
+        "centrifugal",
+        "scroll"
       ],
       "businessContext": "Different compressor types have different specific power curves and maintenance profiles.",
       "label_i18n": {
@@ -156,64 +144,6 @@
       "businessContext_i18n": {
         "en": "Operating pressure at the compressor discharge. Higher pressure increases energy consumption by ~1% per 0.1 bar."
       }
-    },
-    {
-      "id": "ambient_temperature",
-      "label": "Average Ambient Temperature",
-      "type": "number",
-      "unit": "°C",
-      "default": 25,
-      "min": -10,
-      "max": 50,
-      "businessContext": "Average ambient temperature at compressor intake. Higher temperature reduces air density and increases power.",
-      "label_i18n": {
-        "en": "Average Ambient Temperature"
-      },
-      "businessContext_i18n": {
-        "en": "Average ambient temperature at compressor intake. Higher temperature reduces air density and increases power."
-      }
-    },
-    {
-      "id": "has_vsd",
-      "label": "Variable Speed Drive (VSD) Installed",
-      "type": "boolean",
-      "unit": "unit",
-      "default": false,
-      "businessContext": "VSD can reduce energy consumption by 15-35% under part-load conditions.",
-      "label_i18n": {
-        "en": "Variable Speed Drive (VSD) Installed"
-      },
-      "businessContext_i18n": {
-        "en": "VSD can reduce energy consumption by 15-35% under part-load conditions."
-      }
-    },
-    {
-      "id": "maintenance_quality",
-      "label": "Maintenance Quality Level",
-      "type": "select",
-      "unit": "unit",
-      "default": "standard",
-      "options": [
-        {
-          "value": "poor",
-          "label": "Poor (no PM)"
-        },
-        {
-          "value": "standard",
-          "label": "Standard (scheduled PM)"
-        },
-        {
-          "value": "excellent",
-          "label": "Excellent (predictive + IoT)"
-        }
-      ],
-      "businessContext": "Maintenance quality affects efficiency, leakage, and pressure drop. Poor maintenance can increase energy use by 10-20%.",
-      "label_i18n": {
-        "en": "Maintenance Quality Level"
-      },
-      "businessContext_i18n": {
-        "en": "Maintenance quality affects efficiency, leakage, and pressure drop. Poor maintenance can increase energy use by 10-20%."
-      }
     }
   ],
   "validation": {
@@ -252,20 +182,18 @@
       }
     ]
   },
-  "formulas": [
-    "compressor_power_rating",
-    "compressor_power_rating",
-    "compressor_power_rating",
-    "compressor_power_rating",
-    "compressor_power_rating",
-    "compressor_power_rating",
-    "compressor_power_rating",
-    "compressor_power_rating",
-    "compressor_power_rating"
-  ],
+  "formulas": {
+    "result": "compressor_power_rating + motor_efficiency + compressor_type",
+    "result_copy": "compressor_power_rating + motor_efficiency + compressor_type"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "energy-carbon",
   "sectorSlug": "energy-carbon",

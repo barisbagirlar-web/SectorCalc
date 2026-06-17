@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "Cismin kütlesi (kg cinsinden)"
+      "businessContext": "Cismin kütlesi (kg cinsinden)",
+      "label_i18n": {
+        "en": "Kütle (m)",
+        "tr": "Kütle (m)",
+        "de": "Kütle (m)",
+        "fr": "Kütle (m)",
+        "es": "Kütle (m)",
+        "ar": "Kütle (m)"
+      }
     },
     {
       "id": "velocityX",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 0,
-      "businessContext": "X eksenindeki hız bileşeni"
+      "businessContext": "X eksenindeki hız bileşeni",
+      "label_i18n": {
+        "en": "Hız X (vx)",
+        "tr": "Hız X (vx)",
+        "de": "Hız X (vx)",
+        "fr": "Hız X (vx)",
+        "es": "Hız X (vx)",
+        "ar": "Hız X (vx)"
+      }
     },
     {
       "id": "velocityY",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 0,
-      "businessContext": "Y eksenindeki hız bileşeni"
+      "businessContext": "Y eksenindeki hız bileşeni",
+      "label_i18n": {
+        "en": "Hız Y (vy)",
+        "tr": "Hız Y (vy)",
+        "de": "Hız Y (vy)",
+        "fr": "Hız Y (vy)",
+        "es": "Hız Y (vy)",
+        "ar": "Hız Y (vy)"
+      }
     },
     {
       "id": "velocityZ",
@@ -31,22 +55,34 @@
       "type": "number",
       "unit": "m/s",
       "default": 0,
-      "businessContext": "Z eksenindeki hız bileşeni"
+      "businessContext": "Z eksenindeki hız bileşeni",
+      "label_i18n": {
+        "en": "Hız Z (vz)",
+        "tr": "Hız Z (vz)",
+        "de": "Hız Z (vz)",
+        "fr": "Hız Z (vz)",
+        "es": "Hız Z (vz)",
+        "ar": "Hız Z (vz)"
+      }
     }
   ],
   "formulas": {
     "momentumX": "mass * velocityX",
     "momentumY": "mass * velocityY",
-    "momentumZ": "mass * velocityZ",
-    "momentumMagnitude": "mass * Math.sqrt(velocityX**2 + velocityY**2 + velocityZ**2)"
+    "momentumZ": "mass * velocityZ"
   },
   "outputs": {
-    "primary": "momentumMagnitude",
+    "primary": "momentumZ",
     "breakdown": [
       "momentumX",
       "momentumY",
       "momentumZ"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "momentumMagnitude"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -56,5 +92,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

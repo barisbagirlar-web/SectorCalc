@@ -84,15 +84,19 @@
   ],
   "formulas": {
     "total_townships": "township_a + township_b + township_c + township_d",
-    "total_sq_miles": "total_townships * 36",
-    "rounded_sq_miles": "Math.round(total_sq_miles * Math.pow(10, decimal_places)) / Math.pow(10, decimal_places)"
+    "total_sq_miles": "total_townships * 36"
   },
   "outputs": {
-    "primary": "rounded_sq_miles",
+    "primary": "total_sq_miles",
     "breakdown": [
       "total_townships",
       "total_sq_miles"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "rounded_sq_miles"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -102,5 +106,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

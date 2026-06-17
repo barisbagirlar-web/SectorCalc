@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "L/s",
       "default": 10,
-      "businessContext": "Inlet volumetric flow rate of the reactant stream."
+      "businessContext": "Inlet volumetric flow rate of the reactant stream.",
+      "label_i18n": {
+        "en": "Volumetric Flow Rate (v0)",
+        "tr": "Volumetric Flow Rate (v0)",
+        "de": "Volumetric Flow Rate (v0)",
+        "fr": "Volumetric Flow Rate (v0)",
+        "es": "Volumetric Flow Rate (v0)",
+        "ar": "Volumetric Flow Rate (v0)"
+      }
     },
     {
       "id": "inletConcentration",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mol/L",
       "default": 1,
-      "businessContext": "Concentration of reactant A in the feed."
+      "businessContext": "Concentration of reactant A in the feed.",
+      "label_i18n": {
+        "en": "Inlet Concentration (CA0)",
+        "tr": "Inlet Concentration (CA0)",
+        "de": "Inlet Concentration (CA0)",
+        "fr": "Inlet Concentration (CA0)",
+        "es": "Inlet Concentration (CA0)",
+        "ar": "Inlet Concentration (CA0)"
+      }
     },
     {
       "id": "rateConstant",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "1/s",
       "default": 0.1,
-      "businessContext": "First-order reaction rate constant."
+      "businessContext": "First-order reaction rate constant.",
+      "label_i18n": {
+        "en": "Rate Constant (k)",
+        "tr": "Rate Constant (k)",
+        "de": "Rate Constant (k)",
+        "fr": "Rate Constant (k)",
+        "es": "Rate Constant (k)",
+        "ar": "Rate Constant (k)"
+      }
     },
     {
       "id": "conversion",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0.8,
-      "businessContext": "Required fractional conversion of reactant A."
+      "businessContext": "Required fractional conversion of reactant A.",
+      "label_i18n": {
+        "en": "Conversion (X)",
+        "tr": "Conversion (X)",
+        "de": "Conversion (X)",
+        "fr": "Conversion (X)",
+        "es": "Conversion (X)",
+        "ar": "Conversion (X)"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "residenceTime",
       "outletConcentration"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "outletConcentration"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "kimya",
   "profession": "Proses Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

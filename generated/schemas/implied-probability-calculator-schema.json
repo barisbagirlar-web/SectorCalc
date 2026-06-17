@@ -83,16 +83,20 @@
     }
   ],
   "formulas": {
-    "impliedProbabilityPercent": "oddsType == 1 ? (1 / decimalOdds) * 100 : oddsType == 2 ? (fractionalDenominator / (fractionalNumerator + fractionalDenominator)) * 100 : oddsType == 3 ? (americanOdds > 0 ? (100 / (americanOdds + 100)) * 100 : (Math.abs(americanOdds) / (Math.abs(americanOdds) + 100)) * 100) : 0",
-    "probabilityDecimal": "impliedProbabilityPercent / 100",
-    "fairDecimalOdds": "100 / impliedProbabilityPercent"
+    "result": "oddsType + decimalOdds + fractionalNumerator",
+    "result_copy": "oddsType + decimalOdds + fractionalNumerator"
   },
   "outputs": {
-    "primary": "impliedProbabilityPercent",
+    "primary": "result",
     "breakdown": [
       "probabilityDecimal",
       "fairDecimalOdds"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "fairDecimalOdds"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -102,5 +106,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

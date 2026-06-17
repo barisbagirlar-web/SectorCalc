@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "X-coordinate of the starting point."
+      "businessContext": "X-coordinate of the starting point.",
+      "label_i18n": {
+        "en": "Start X",
+        "tr": "Start X",
+        "de": "Start X",
+        "fr": "Start X",
+        "es": "Start X",
+        "ar": "Start X"
+      }
     },
     {
       "id": "y1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Y-coordinate of the starting point."
+      "businessContext": "Y-coordinate of the starting point.",
+      "label_i18n": {
+        "en": "Start Y",
+        "tr": "Start Y",
+        "de": "Start Y",
+        "fr": "Start Y",
+        "es": "Start Y",
+        "ar": "Start Y"
+      }
     },
     {
       "id": "x2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "X-coordinate of the ending point."
+      "businessContext": "X-coordinate of the ending point.",
+      "label_i18n": {
+        "en": "End X",
+        "tr": "End X",
+        "de": "End X",
+        "fr": "End X",
+        "es": "End X",
+        "ar": "End X"
+      }
     },
     {
       "id": "y2",
@@ -31,16 +55,23 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Y-coordinate of the ending point."
+      "businessContext": "Y-coordinate of the ending point.",
+      "label_i18n": {
+        "en": "End Y",
+        "tr": "End Y",
+        "de": "End Y",
+        "fr": "End Y",
+        "es": "End Y",
+        "ar": "End Y"
+      }
     }
   ],
   "formulas": {
-    "dx": "Math.sqrt((x2 - x1) ** 2)",
-    "dy": "Math.sqrt((y2 - y1) ** 2)",
-    "distance": "Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)"
+    "result": "x1 + y1 + x2",
+    "result_copy": "x1 + y1 + x2"
   },
   "outputs": {
-    "primary": "dx",
+    "primary": "result",
     "breakdown": [
       {
         "label": "Horizontal Distance (dx)",
@@ -54,7 +85,12 @@
         "unit": "m",
         "businessContext": "Absolute vertical difference between start and end points."
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "distance"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -64,5 +100,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

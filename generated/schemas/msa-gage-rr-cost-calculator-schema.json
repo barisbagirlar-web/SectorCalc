@@ -138,70 +138,6 @@
       "businessContext_i18n": {
         "en": "Average cost when a defect reaches the customer (warranty, liability, lost sales)."
       }
-    },
-    {
-      "id": "annual_production_volume",
-      "label": "Annual Production Volume",
-      "type": "number",
-      "unit": "units/year",
-      "default": 100000,
-      "min": 1,
-      "max": 100000000,
-      "businessContext": "Total number of units produced per year for the measured characteristic.",
-      "label_i18n": {
-        "en": "Annual Production Volume"
-      },
-      "businessContext_i18n": {
-        "en": "Total number of units produced per year for the measured characteristic."
-      }
-    },
-    {
-      "id": "defect_rate",
-      "label": "Current Defect Rate (ppm)",
-      "type": "number",
-      "unit": "ppm",
-      "default": 5000,
-      "min": 0,
-      "max": 1000000,
-      "businessContext": "Parts per million non-conforming based on current measurement system.",
-      "label_i18n": {
-        "en": "Current Defect Rate (ppm)"
-      },
-      "businessContext_i18n": {
-        "en": "Parts per million non-conforming based on current measurement system."
-      }
-    },
-    {
-      "id": "measurement_system_type",
-      "label": "Measurement System Type",
-      "type": "select",
-      "unit": "unit",
-      "default": "variable",
-      "options": [
-        "variable",
-        "attribute"
-      ],
-      "businessContext": "Variable (continuous) or attribute (pass/fail) measurement system.",
-      "label_i18n": {
-        "en": "Measurement System Type"
-      },
-      "businessContext_i18n": {
-        "en": "Variable (continuous) or attribute (pass/fail) measurement system."
-      }
-    },
-    {
-      "id": "include_hidden_losses",
-      "label": "Include Hidden Losses (False Positives/Negatives)",
-      "type": "boolean",
-      "unit": "unit",
-      "default": true,
-      "businessContext": "If true, calculates costs from misclassifications due to measurement error.",
-      "label_i18n": {
-        "en": "Include Hidden Losses (False Positives/Negatives)"
-      },
-      "businessContext_i18n": {
-        "en": "If true, calculates costs from misclassifications due to measurement error."
-      }
     }
   ],
   "validation": {
@@ -259,19 +195,18 @@
       }
     ]
   },
-  "formulas": [
-    "num_parts",
-    "num_parts",
-    "num_parts",
-    "num_parts",
-    "num_parts",
-    "num_parts",
-    "num_parts",
-    "num_parts"
-  ],
+  "formulas": {
+    "result": "num_parts + num_appraisers + num_trials",
+    "result_copy": "num_parts + num_appraisers + num_trials"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "msa-gage-rr-cost-calculator",
   "catalogCategory": "manufacturing-workshop",

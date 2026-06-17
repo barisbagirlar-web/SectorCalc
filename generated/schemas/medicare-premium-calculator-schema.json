@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 75000,
-      "businessContext": "Annual income used to determine IRMAA brackets"
+      "businessContext": "Annual income used to determine IRMAA brackets",
+      "label_i18n": {
+        "en": "Modified Adjusted Gross Income (MAGI)",
+        "tr": "Modified Adjusted Gross Income (MAGI)",
+        "de": "Modified Adjusted Gross Income (MAGI)",
+        "fr": "Modified Adjusted Gross Income (MAGI)",
+        "es": "Modified Adjusted Gross Income (MAGI)",
+        "ar": "Modified Adjusted Gross Income (MAGI)"
+      }
     },
     {
       "id": "filingStatus",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "category",
       "default": 1,
-      "businessContext": "1 = Single, 2 = Married Filing Jointly"
+      "businessContext": "1 = Single, 2 = Married Filing Jointly",
+      "label_i18n": {
+        "en": "Tax Filing Status",
+        "tr": "Tax Filing Status",
+        "de": "Tax Filing Status",
+        "fr": "Tax Filing Status",
+        "es": "Tax Filing Status",
+        "ar": "Tax Filing Status"
+      }
     },
     {
       "id": "partBBase",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD/month",
       "default": 174.7,
-      "businessContext": "Standard monthly Part B premium for current year"
+      "businessContext": "Standard monthly Part B premium for current year",
+      "label_i18n": {
+        "en": "Part B Standard Premium",
+        "tr": "Part B Standard Premium",
+        "de": "Part B Standard Premium",
+        "fr": "Part B Standard Premium",
+        "es": "Part B Standard Premium",
+        "ar": "Part B Standard Premium"
+      }
     },
     {
       "id": "partDBase",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD/month",
       "default": 33.35,
-      "businessContext": "National base beneficiary premium for Part D"
+      "businessContext": "National base beneficiary premium for Part D",
+      "label_i18n": {
+        "en": "Part D Base Beneficiary Premium",
+        "tr": "Part D Base Beneficiary Premium",
+        "de": "Part D Base Beneficiary Premium",
+        "fr": "Part D Base Beneficiary Premium",
+        "es": "Part D Base Beneficiary Premium",
+        "ar": "Part D Base Beneficiary Premium"
+      }
     },
     {
       "id": "planCost",
@@ -39,13 +71,24 @@
       "type": "number",
       "unit": "USD/month",
       "default": 30,
-      "businessContext": "Premium for chosen Part D or Medicare Advantage plan"
+      "businessContext": "Premium for chosen Part D or Medicare Advantage plan",
+      "label_i18n": {
+        "en": "Medicare Advantage or Part D Plan Premium",
+        "tr": "Medicare Advantage or Part D Plan Premium",
+        "de": "Medicare Advantage or Part D Plan Premium",
+        "fr": "Medicare Advantage or Part D Plan Premium",
+        "es": "Medicare Advantage or Part D Plan Premium",
+        "ar": "Medicare Advantage or Part D Plan Premium"
+      }
     }
   ],
   "formulas": {
     "irmaaB": "magi <= (filingStatus === 1 ? 103000 : 206000) ? 0 : magi <= (filingStatus === 1 ? 129000 : 258000) ? 69.90 : magi <= (filingStatus === 1 ? 161000 : 322000) ? 174.70 : magi <= (filingStatus === 1 ? 193000 : 386000) ? 279.50 : magi < (filingStatus === 1 ? 500000 : 750000) ? 384.30 : 419.30",
     "irmaaD": "magi <= (filingStatus === 1 ? 103000 : 206000) ? 0 : magi <= (filingStatus === 1 ? 129000 : 258000) ? 12.40 : magi <= (filingStatus === 1 ? 161000 : 322000) ? 32.00 : magi <= (filingStatus === 1 ? 193000 : 386000) ? 51.70 : magi < (filingStatus === 1 ? 500000 : 750000) ? 71.30 : 77.90",
-    "totalPremium": "partBBase + irmaaB + (planCost > 0 ? planCost : partDBase + irmaaD)"
+    "totalPremium": "partBBase + irmaaB + (planCost > 0 ? planCost : partDBase + irmaaD)",
+    "partBBase___irmaaB": "partBBase + irmaaB",
+    "partDBase___irmaaD": "partDBase + irmaaD",
+    "irmaaB___irmaaD": "irmaaB + irmaaD"
   },
   "outputs": {
     "primary": "totalPremium",
@@ -53,7 +96,12 @@
       "partBBase + irmaaB",
       "planCost > 0 ? planCost : partDBase + irmaaD",
       "irmaaB + irmaaD"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalPremium"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -63,5 +111,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

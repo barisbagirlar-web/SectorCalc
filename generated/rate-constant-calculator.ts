@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from rate-constant-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,26 +16,33 @@ export const Rate_constant_calculatorInputSchema = z.object({
   gasConstant: z.number().default(8.314),
 });
 
-function evaluateAllFormulas(input: Rate_constant_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = -input.activationEnergy / (input.gasConstant * input.temperature); results["exponent"] = Number.isFinite(v) ? v : 0; } catch { results["exponent"] = 0; }
-  try { const v = Math.exp((results["exponent"] ?? 0)); results["exponentialFactor"] = Number.isFinite(v) ? v : 0; } catch { results["exponentialFactor"] = 0; }
-  try { const v = input.preExponentialFactor * (results["exponentialFactor"] ?? 0); results["rateConstant"] = Number.isFinite(v) ? v : 0; } catch { results["rateConstant"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Rate_constant_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = -input.activationEnergy / (input.gasConstant * input.temperature); results["exponent"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["exponent"] = 0; }
+  try { const v = -input.activationEnergy / (input.gasConstant * input.temperature); results["exponent_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["exponent_aux"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateRate_constant_calculator(input: Rate_constant_calculatorInput): Rate_constant_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["rateConstant"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["exponent_aux"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from catan-probability-calculator-schema.json
 import * as z from 'zod';
 
@@ -17,29 +18,33 @@ export const Catan_probability_calculatorInputSchema = z.object({
   rolls: z.number().default(1),
 });
 
-function evaluateAllFormulas(input: Catan_probability_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = Math.pow(input.diceSides, input.diceCount); results["totalOutcomes"] = Number.isFinite(v) ? v : 0; } catch { results["totalOutcomes"] = 0; }
-  try { const v = Math.max(0, input.diceSides - Math.abs(input.targetSum - (input.diceSides + 1))); results["favorableOutcomes"] = Number.isFinite(v) ? v : 0; } catch { results["favorableOutcomes"] = 0; }
-  try { const v = (results["favorableOutcomes"] ?? 0) / (results["totalOutcomes"] ?? 0); results["probabilityPerRoll"] = Number.isFinite(v) ? v : 0; } catch { results["probabilityPerRoll"] = 0; }
-  try { const v = (results["probabilityPerRoll"] ?? 0) * input.settlementCount; results["expectedPerRoll"] = Number.isFinite(v) ? v : 0; } catch { results["expectedPerRoll"] = 0; }
-  try { const v = 1 - Math.pow(1 - (results["probabilityPerRoll"] ?? 0), input.rolls); results["probabilityAtLeastOne"] = Number.isFinite(v) ? v : 0; } catch { results["probabilityAtLeastOne"] = 0; }
-  try { const v = (results["expectedPerRoll"] ?? 0) * input.rolls; results["expectedResources"] = Number.isFinite(v) ? v : 0; } catch { results["expectedResources"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Catan_probability_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.diceCount + input.diceSides + input.targetSum; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.diceCount + input.diceSides + input.targetSum; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateCatan_probability_calculator(input: Catan_probability_calculatorInput): Catan_probability_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["expectedResources"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

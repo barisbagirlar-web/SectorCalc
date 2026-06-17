@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Cyan ink percentage (0–100)."
+      "businessContext": "Cyan ink percentage (0–100).",
+      "label_i18n": {
+        "en": "Cyan (C)",
+        "tr": "Cyan (C)",
+        "de": "Cyan (C)",
+        "fr": "Cyan (C)",
+        "es": "Cyan (C)",
+        "ar": "Cyan (C)"
+      }
     },
     {
       "id": "m",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Magenta ink percentage (0–100)."
+      "businessContext": "Magenta ink percentage (0–100).",
+      "label_i18n": {
+        "en": "Magenta (M)",
+        "tr": "Magenta (M)",
+        "de": "Magenta (M)",
+        "fr": "Magenta (M)",
+        "es": "Magenta (M)",
+        "ar": "Magenta (M)"
+      }
     },
     {
       "id": "y",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Yellow ink percentage (0–100)."
+      "businessContext": "Yellow ink percentage (0–100).",
+      "label_i18n": {
+        "en": "Yellow (Y)",
+        "tr": "Yellow (Y)",
+        "de": "Yellow (Y)",
+        "fr": "Yellow (Y)",
+        "es": "Yellow (Y)",
+        "ar": "Yellow (Y)"
+      }
     },
     {
       "id": "k",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Black ink percentage (0–100)."
+      "businessContext": "Black ink percentage (0–100).",
+      "label_i18n": {
+        "en": "Key / Black (K)",
+        "tr": "Key / Black (K)",
+        "de": "Key / Black (K)",
+        "fr": "Key / Black (K)",
+        "es": "Key / Black (K)",
+        "ar": "Key / Black (K)"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "R",
       "G",
       "B"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "grayscale"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -56,5 +93,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

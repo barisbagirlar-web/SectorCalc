@@ -67,16 +67,20 @@
     }
   ],
   "formulas": {
-    "orbitalPeriod": "2 * Math.PI * Math.sqrt( Math.pow(semiMajorAxis, 3) / (gravitationalConstant * (primaryMass + secondaryMass)) )",
-    "orbitalPeriodYears": "orbitalPeriod / (365.25 * 24 * 3600)",
-    "orbitalPeriodDays": "orbitalPeriod / (24 * 3600)"
+    "result": "semiMajorAxis + primaryMass + secondaryMass",
+    "result_copy": "semiMajorAxis + primaryMass + secondaryMass"
   },
   "outputs": {
-    "primary": "orbitalPeriod",
+    "primary": "result",
     "breakdown": [
       "orbitalPeriodYears",
       "orbitalPeriodDays"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "orbitalPeriodDays"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -86,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -83,18 +83,21 @@
     }
   ],
   "formulas": {
-    "requiredKVAR": "realPower * (Math.sqrt(1 - existingPowerFactor**2) / existingPowerFactor - Math.sqrt(1 - targetPowerFactor**2) / targetPowerFactor)",
-    "currentReactivePower": "realPower * Math.sqrt(1 - existingPowerFactor**2) / existingPowerFactor",
-    "targetReactivePower": "realPower * Math.sqrt(1 - targetPowerFactor**2) / targetPowerFactor",
-    "apparentPowerReduction": "(realPower / existingPowerFactor) - (realPower / targetPowerFactor)"
+    "apparentPowerReduction": "(realPower / existingPowerFactor) - (realPower / targetPowerFactor)",
+    "apparentPowerReduction_aux": "(realPower / existingPowerFactor) - (realPower / targetPowerFactor)"
   },
   "outputs": {
-    "primary": "requiredKVAR",
+    "primary": "apparentPowerReduction_aux",
     "breakdown": [
       "currentReactivePower",
       "targetReactivePower",
       "apparentPowerReduction"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "apparentPowerReduction"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -104,5 +107,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "plastik",
   "profession": "Proses Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

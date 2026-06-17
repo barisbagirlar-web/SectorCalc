@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 10000,
-      "businessContext": "Initial acquisition cost of the asset"
+      "businessContext": "Initial acquisition cost of the asset",
+      "label_i18n": {
+        "en": "Purchase Price",
+        "tr": "Purchase Price",
+        "de": "Purchase Price",
+        "fr": "Purchase Price",
+        "es": "Purchase Price",
+        "ar": "Purchase Price"
+      }
     },
     {
       "id": "annualMaintenance",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 200,
-      "businessContext": "Yearly maintenance expense"
+      "businessContext": "Yearly maintenance expense",
+      "label_i18n": {
+        "en": "Annual Maintenance Cost",
+        "tr": "Annual Maintenance Cost",
+        "de": "Annual Maintenance Cost",
+        "fr": "Annual Maintenance Cost",
+        "es": "Annual Maintenance Cost",
+        "ar": "Annual Maintenance Cost"
+      }
     },
     {
       "id": "annualEnergy",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 500,
-      "businessContext": "Yearly energy or fuel cost"
+      "businessContext": "Yearly energy or fuel cost",
+      "label_i18n": {
+        "en": "Annual Energy Cost",
+        "tr": "Annual Energy Cost",
+        "de": "Annual Energy Cost",
+        "fr": "Annual Energy Cost",
+        "es": "Annual Energy Cost",
+        "ar": "Annual Energy Cost"
+      }
     },
     {
       "id": "resaleValue",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 3000,
-      "businessContext": "Expected resale or salvage value at end of ownership period"
+      "businessContext": "Expected resale or salvage value at end of ownership period",
+      "label_i18n": {
+        "en": "Resale Value",
+        "tr": "Resale Value",
+        "de": "Resale Value",
+        "fr": "Resale Value",
+        "es": "Resale Value",
+        "ar": "Resale Value"
+      }
     },
     {
       "id": "ownershipYears",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "years",
       "default": 5,
-      "businessContext": "Duration of ownership in years"
+      "businessContext": "Duration of ownership in years",
+      "label_i18n": {
+        "en": "Ownership Period",
+        "tr": "Ownership Period",
+        "de": "Ownership Period",
+        "fr": "Ownership Period",
+        "es": "Ownership Period",
+        "ar": "Ownership Period"
+      }
     },
     {
       "id": "discountRate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Discount rate reflecting time value of money"
+      "businessContext": "Discount rate reflecting time value of money",
+      "label_i18n": {
+        "en": "Annual Discount Rate",
+        "tr": "Annual Discount Rate",
+        "de": "Annual Discount Rate",
+        "fr": "Annual Discount Rate",
+        "es": "Annual Discount Rate",
+        "ar": "Annual Discount Rate"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +108,12 @@
     "breakdown": [
       "totalUndiscounted",
       "netPresentValue"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "netPresentValue"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -70,5 +123,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

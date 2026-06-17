@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kN/m²",
       "default": 5,
-      "businessContext": "Permanent action, e.g., self-weight of structure"
+      "businessContext": "Permanent action, e.g., self-weight of structure",
+      "label_i18n": {
+        "en": "Dead Load (G)",
+        "tr": "Dead Load (G)",
+        "de": "Dead Load (G)",
+        "fr": "Dead Load (G)",
+        "es": "Dead Load (G)",
+        "ar": "Dead Load (G)"
+      }
     },
     {
       "id": "liveLoad",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kN/m²",
       "default": 3,
-      "businessContext": "Main variable action, e.g., occupancy or traffic"
+      "businessContext": "Main variable action, e.g., occupancy or traffic",
+      "label_i18n": {
+        "en": "Live Load (Q)",
+        "tr": "Live Load (Q)",
+        "de": "Live Load (Q)",
+        "fr": "Live Load (Q)",
+        "es": "Live Load (Q)",
+        "ar": "Live Load (Q)"
+      }
     },
     {
       "id": "windLoad",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kN/m²",
       "default": 1.5,
-      "businessContext": "Accompanying variable action: wind pressure"
+      "businessContext": "Accompanying variable action: wind pressure",
+      "label_i18n": {
+        "en": "Wind Load (W)",
+        "tr": "Wind Load (W)",
+        "de": "Wind Load (W)",
+        "fr": "Wind Load (W)",
+        "es": "Wind Load (W)",
+        "ar": "Wind Load (W)"
+      }
     },
     {
       "id": "snowLoad",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kN/m²",
       "default": 2,
-      "businessContext": "Accompanying variable action: snow load"
+      "businessContext": "Accompanying variable action: snow load",
+      "label_i18n": {
+        "en": "Snow Load (S)",
+        "tr": "Snow Load (S)",
+        "de": "Snow Load (S)",
+        "fr": "Snow Load (S)",
+        "es": "Snow Load (S)",
+        "ar": "Snow Load (S)"
+      }
     }
   ],
   "formulas": {
@@ -48,7 +80,12 @@
       "liveComponent",
       "windComponent",
       "snowComponent"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "snowComponent"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -58,5 +95,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

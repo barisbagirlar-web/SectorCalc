@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "items",
       "default": 10,
-      "businessContext": "Number of distinct items to be arranged."
+      "businessContext": "Number of distinct items to be arranged.",
+      "label_i18n": {
+        "en": "Total Distinct Items",
+        "tr": "Total Distinct Items",
+        "de": "Total Distinct Items",
+        "fr": "Total Distinct Items",
+        "es": "Total Distinct Items",
+        "ar": "Total Distinct Items"
+      }
     },
     {
       "id": "itemsToArrange",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "items",
       "default": 3,
-      "businessContext": "Number of items to select for arrangement."
+      "businessContext": "Number of items to select for arrangement.",
+      "label_i18n": {
+        "en": "Items to Arrange",
+        "tr": "Items to Arrange",
+        "de": "Items to Arrange",
+        "fr": "Items to Arrange",
+        "es": "Items to Arrange",
+        "ar": "Items to Arrange"
+      }
     },
     {
       "id": "costPerPermutation",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0.5,
-      "businessContext": "Cost incurred for each possible permutation (e.g., changeover cost)."
+      "businessContext": "Cost incurred for each possible permutation (e.g., changeover cost).",
+      "label_i18n": {
+        "en": "Cost per Permutation",
+        "tr": "Cost per Permutation",
+        "de": "Cost per Permutation",
+        "fr": "Cost per Permutation",
+        "es": "Cost per Permutation",
+        "ar": "Cost per Permutation"
+      }
     },
     {
       "id": "setupCost",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency",
       "default": 100,
-      "businessContext": "Fixed setup cost independent of permutations."
+      "businessContext": "Fixed setup cost independent of permutations.",
+      "label_i18n": {
+        "en": "Setup Cost",
+        "tr": "Setup Cost",
+        "de": "Setup Cost",
+        "fr": "Setup Cost",
+        "es": "Setup Cost",
+        "ar": "Setup Cost"
+      }
     },
     {
       "id": "discountPercent",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "percent",
       "default": 0,
-      "businessContext": "Discount on total cost (0-100)."
+      "businessContext": "Discount on total cost (0-100).",
+      "label_i18n": {
+        "en": "Discount Percentage",
+        "tr": "Discount Percentage",
+        "de": "Discount Percentage",
+        "fr": "Discount Percentage",
+        "es": "Discount Percentage",
+        "ar": "Discount Percentage"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "numberOfPermutations",
       "costBeforeDiscount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -62,5 +107,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "danismanlik",
   "profession": "Strateji Uzmanı",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

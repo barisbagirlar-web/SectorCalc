@@ -68,15 +68,19 @@
   ],
   "formulas": {
     "offset": "1 + gender",
-    "rawSize": "ukSize + offset + adjustment",
-    "usSize": "rounding === 0 ? Math.floor(rawSize) : rounding === 1 ? Math.round(rawSize) : Math.ceil(rawSize)"
+    "rawSize": "ukSize + offset + adjustment"
   },
   "outputs": {
-    "primary": "usSize",
+    "primary": "rawSize",
     "breakdown": [
       "offset",
       "rawSize"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "usSize"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -86,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

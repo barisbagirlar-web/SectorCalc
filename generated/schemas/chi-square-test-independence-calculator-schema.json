@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "count",
       "default": 10,
-      "businessContext": "Observed frequency for Group 1 with Outcome A"
+      "businessContext": "Observed frequency for Group 1 with Outcome A",
+      "label_i18n": {
+        "en": "Group 1, Outcome A",
+        "tr": "Group 1, Outcome A",
+        "de": "Group 1, Outcome A",
+        "fr": "Group 1, Outcome A",
+        "es": "Group 1, Outcome A",
+        "ar": "Group 1, Outcome A"
+      }
     },
     {
       "id": "b",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "count",
       "default": 10,
-      "businessContext": "Observed frequency for Group 1 with Outcome B"
+      "businessContext": "Observed frequency for Group 1 with Outcome B",
+      "label_i18n": {
+        "en": "Group 1, Outcome B",
+        "tr": "Group 1, Outcome B",
+        "de": "Group 1, Outcome B",
+        "fr": "Group 1, Outcome B",
+        "es": "Group 1, Outcome B",
+        "ar": "Group 1, Outcome B"
+      }
     },
     {
       "id": "c",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "count",
       "default": 10,
-      "businessContext": "Observed frequency for Group 2 with Outcome A"
+      "businessContext": "Observed frequency for Group 2 with Outcome A",
+      "label_i18n": {
+        "en": "Group 2, Outcome A",
+        "tr": "Group 2, Outcome A",
+        "de": "Group 2, Outcome A",
+        "fr": "Group 2, Outcome A",
+        "es": "Group 2, Outcome A",
+        "ar": "Group 2, Outcome A"
+      }
     },
     {
       "id": "d",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "count",
       "default": 10,
-      "businessContext": "Observed frequency for Group 2 with Outcome B"
+      "businessContext": "Observed frequency for Group 2 with Outcome B",
+      "label_i18n": {
+        "en": "Group 2, Outcome B",
+        "tr": "Group 2, Outcome B",
+        "de": "Group 2, Outcome B",
+        "fr": "Group 2, Outcome B",
+        "es": "Group 2, Outcome B",
+        "ar": "Group 2, Outcome B"
+      }
     }
   ],
   "formulas": {
@@ -40,8 +72,7 @@
     "expectedB": "(a + b) * (b + d) / total",
     "expectedC": "(c + d) * (a + c) / total",
     "expectedD": "(c + d) * (b + d) / total",
-    "chi2": "((a - expectedA)**2 / expectedA) + ((b - expectedB)**2 / expectedB) + ((c - expectedC)**2 / expectedC) + ((d - expectedD)**2 / expectedD)",
-    "df": "1"
+    "chi2": "((a - expectedA)**2 / expectedA) + ((b - expectedB)**2 / expectedB) + ((c - expectedC)**2 / expectedC) + ((d - expectedD)**2 / expectedD)"
   },
   "outputs": {
     "primary": "chi2",
@@ -52,7 +83,12 @@
       "expectedC",
       "expectedD",
       "df"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "chi2"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -62,5 +98,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

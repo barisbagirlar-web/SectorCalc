@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kWh",
       "default": 1000,
-      "businessContext": "Total energy consumption in the baseline period (e.g., monthly)."
+      "businessContext": "Total energy consumption in the baseline period (e.g., monthly).",
+      "label_i18n": {
+        "en": "Current Energy Usage (kWh)",
+        "tr": "Current Energy Usage (kWh)",
+        "de": "Current Energy Usage (kWh)",
+        "fr": "Current Energy Usage (kWh)",
+        "es": "Current Energy Usage (kWh)",
+        "ar": "Current Energy Usage (kWh)"
+      }
     },
     {
       "id": "energyCostPerUnit",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "$/kWh",
       "default": 0.12,
-      "businessContext": "Cost per kilowatt-hour from the utility bill or energy contract."
+      "businessContext": "Cost per kilowatt-hour from the utility bill or energy contract.",
+      "label_i18n": {
+        "en": "Energy Cost per kWh ($)",
+        "tr": "Energy Cost per kWh ($)",
+        "de": "Energy Cost per kWh ($)",
+        "fr": "Energy Cost per kWh ($)",
+        "es": "Energy Cost per kWh ($)",
+        "ar": "Energy Cost per kWh ($)"
+      }
     },
     {
       "id": "efficiencyGain",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Expected percentage reduction in energy usage due to conservation measures."
+      "businessContext": "Expected percentage reduction in energy usage due to conservation measures.",
+      "label_i18n": {
+        "en": "Efficiency Improvement (%)",
+        "tr": "Efficiency Improvement (%)",
+        "de": "Efficiency Improvement (%)",
+        "fr": "Efficiency Improvement (%)",
+        "es": "Efficiency Improvement (%)",
+        "ar": "Efficiency Improvement (%)"
+      }
     },
     {
       "id": "operatingHours",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "hours",
       "default": 720,
-      "businessContext": "Total operating hours in the analysis period (e.g., 720 hours per month)."
+      "businessContext": "Total operating hours in the analysis period (e.g., 720 hours per month).",
+      "label_i18n": {
+        "en": "Operating Hours per Period",
+        "tr": "Operating Hours per Period",
+        "de": "Operating Hours per Period",
+        "fr": "Operating Hours per Period",
+        "es": "Operating Hours per Period",
+        "ar": "Operating Hours per Period"
+      }
     },
     {
       "id": "emissionFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg/kWh",
       "default": 0.5,
-      "businessContext": "Carbon dioxide emission per kWh for the energy source (e.g., grid average)."
+      "businessContext": "Carbon dioxide emission per kWh for the energy source (e.g., grid average).",
+      "label_i18n": {
+        "en": "CO₂ Emission Factor (kg/kWh)",
+        "tr": "CO₂ Emission Factor (kg/kWh)",
+        "de": "CO₂ Emission Factor (kg/kWh)",
+        "fr": "CO₂ Emission Factor (kg/kWh)",
+        "es": "CO₂ Emission Factor (kg/kWh)",
+        "ar": "CO₂ Emission Factor (kg/kWh)"
+      }
     }
   ],
   "formulas": {
@@ -53,7 +93,12 @@
       "energySaved",
       "costSavings",
       "co2Reduction"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "co2Reduction"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -63,5 +108,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

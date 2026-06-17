@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "units",
       "default": 10000,
-      "businessContext": "Number of units per production batch"
+      "businessContext": "Number of units per production batch",
+      "label_i18n": {
+        "en": "Batch Size",
+        "tr": "Batch Size",
+        "de": "Batch Size",
+        "fr": "Batch Size",
+        "es": "Batch Size",
+        "ar": "Batch Size"
+      }
     },
     {
       "id": "cycleTime",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "seconds",
       "default": 60,
-      "businessContext": "Time to produce one unit on one machine"
+      "businessContext": "Time to produce one unit on one machine",
+      "label_i18n": {
+        "en": "Cycle Time per Unit",
+        "tr": "Cycle Time per Unit",
+        "de": "Cycle Time per Unit",
+        "fr": "Cycle Time per Unit",
+        "es": "Cycle Time per Unit",
+        "ar": "Cycle Time per Unit"
+      }
     },
     {
       "id": "OEE",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 85,
-      "businessContext": "Overall Equipment Effectiveness percentage"
+      "businessContext": "Overall Equipment Effectiveness percentage",
+      "label_i18n": {
+        "en": "OEE",
+        "tr": "OEE",
+        "de": "OEE",
+        "fr": "OEE",
+        "es": "OEE",
+        "ar": "OEE"
+      }
     },
     {
       "id": "machines",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "machines",
       "default": 1,
-      "businessContext": "Number of parallel machines"
+      "businessContext": "Number of parallel machines",
+      "label_i18n": {
+        "en": "Number of Machines",
+        "tr": "Number of Machines",
+        "de": "Number of Machines",
+        "fr": "Number of Machines",
+        "es": "Number of Machines",
+        "ar": "Number of Machines"
+      }
     },
     {
       "id": "setupTime",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "hours",
       "default": 0.5,
-      "businessContext": "Time to set up before production"
+      "businessContext": "Time to set up before production",
+      "label_i18n": {
+        "en": "Setup Time",
+        "tr": "Setup Time",
+        "de": "Setup Time",
+        "fr": "Setup Time",
+        "es": "Setup Time",
+        "ar": "Setup Time"
+      }
     },
     {
       "id": "shiftDuration",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "hours",
       "default": 8,
-      "businessContext": "Length of one work shift"
+      "businessContext": "Length of one work shift",
+      "label_i18n": {
+        "en": "Shift Duration",
+        "tr": "Shift Duration",
+        "de": "Shift Duration",
+        "fr": "Shift Duration",
+        "es": "Shift Duration",
+        "ar": "Shift Duration"
+      }
     },
     {
       "id": "breaks",
@@ -55,15 +103,22 @@
       "type": "number",
       "unit": "hours",
       "default": 0.5,
-      "businessContext": "Non-productive time per shift"
+      "businessContext": "Non-productive time per shift",
+      "label_i18n": {
+        "en": "Break Time per Shift",
+        "tr": "Break Time per Shift",
+        "de": "Break Time per Shift",
+        "fr": "Break Time per Shift",
+        "es": "Break Time per Shift",
+        "ar": "Break Time per Shift"
+      }
     }
   ],
   "formulas": {
     "effectiveCycle": "cycleTime / (OEE / 100)",
     "unitsPerHour": "3600 / effectiveCycle",
     "totalProcessingTimeHours": "(units * cycleTime / 3600) / (OEE / 100) / machines",
-    "totalTime": "setupTime + totalProcessingTimeHours",
-    "shiftsRequired": "Math.ceil(totalTime / (shiftDuration - breaks))"
+    "totalTime": "setupTime + totalProcessingTimeHours"
   },
   "outputs": {
     "primary": "totalTime",
@@ -71,7 +126,12 @@
       "effectiveCycle",
       "unitsPerHour",
       "shiftsRequired"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "shiftsRequired"
   },
   "category": "İmalat & Üretim",
   "sector": "Üretim & İmalat",
@@ -81,5 +141,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "efficiency"
+  "categoryId": "efficiency",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

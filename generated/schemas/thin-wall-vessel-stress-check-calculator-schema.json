@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 1,
-      "businessContext": "Internal design pressure of the vessel"
+      "businessContext": "Internal design pressure of the vessel",
+      "label_i18n": {
+        "en": "Internal Pressure (P)",
+        "tr": "Internal Pressure (P)",
+        "de": "Internal Pressure (P)",
+        "fr": "Internal Pressure (P)",
+        "es": "Internal Pressure (P)",
+        "ar": "Internal Pressure (P)"
+      }
     },
     {
       "id": "D",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 1000,
-      "businessContext": "Nominal inner diameter of the shell"
+      "businessContext": "Nominal inner diameter of the shell",
+      "label_i18n": {
+        "en": "Inside Diameter (D)",
+        "tr": "Inside Diameter (D)",
+        "de": "Inside Diameter (D)",
+        "fr": "Inside Diameter (D)",
+        "es": "Inside Diameter (D)",
+        "ar": "Inside Diameter (D)"
+      }
     },
     {
       "id": "t",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Minimum required wall thickness after corrosion allowance"
+      "businessContext": "Minimum required wall thickness after corrosion allowance",
+      "label_i18n": {
+        "en": "Wall Thickness (t)",
+        "tr": "Wall Thickness (t)",
+        "de": "Wall Thickness (t)",
+        "fr": "Wall Thickness (t)",
+        "es": "Wall Thickness (t)",
+        "ar": "Wall Thickness (t)"
+      }
     },
     {
       "id": "S",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 150,
-      "businessContext": "Maximum allowable stress of material at design temperature"
+      "businessContext": "Maximum allowable stress of material at design temperature",
+      "label_i18n": {
+        "en": "Allowable Stress (S)",
+        "tr": "Allowable Stress (S)",
+        "de": "Allowable Stress (S)",
+        "fr": "Allowable Stress (S)",
+        "es": "Allowable Stress (S)",
+        "ar": "Allowable Stress (S)"
+      }
     },
     {
       "id": "E",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Joint efficiency factor per design code (e.g., ASME UW-12)"
+      "businessContext": "Joint efficiency factor per design code (e.g., ASME UW-12)",
+      "label_i18n": {
+        "en": "Weld Joint Efficiency (E)",
+        "tr": "Weld Joint Efficiency (E)",
+        "de": "Weld Joint Efficiency (E)",
+        "fr": "Weld Joint Efficiency (E)",
+        "es": "Weld Joint Efficiency (E)",
+        "ar": "Weld Joint Efficiency (E)"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "hoopStress",
       "longStress"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "safetyFactor"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -62,5 +107,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "efficiency"
+  "categoryId": "efficiency",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

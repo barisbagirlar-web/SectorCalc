@@ -51,20 +51,20 @@
     }
   ],
   "formulas": {
-    "stirlingSecond": "function stirlingSecond(n,k){if(k===0||k>n)return 0;if(k===1||k===n)return 1;let sum=0;for(let i=0;i<=k;i++){sum+=((i%2===0?1:-1)*comb(k,i)*Math.pow(k-i,n))}return sum/fact(k)}",
-    "stirlingFirst": "function stirlingFirst(n,k){if(k===0||k>n)return 0;if(k===n)return 1;if(k===1)return fact(n-1);return stirlingFirst(n-1,k-1)+(n-1)*stirlingFirst(n-1,k)}",
-    "fact": "function fact(x){if(x<=1)return 1;let r=1;for(let i=2;i<=x;i++)r*=i;return r}",
-    "comb": "function comb(n,k){if(k<0||k>n)return 0;if(k===0||k===n)return 1;let r=1;for(let i=1;i<=k;i++){r=r*(n-i+1)/i}return r}",
-    "Combinatorial_interpretation": "Combinatorial interpretation",
-    "Intermediate_factorial_values": "Intermediate factorial values",
-    "result": "Stirling number S(n,k)"
+    "result": "n + k + type",
+    "result_copy": "n + k + type"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
       "Combinatorial interpretation",
       "Intermediate factorial values"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "comb"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -74,5 +74,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

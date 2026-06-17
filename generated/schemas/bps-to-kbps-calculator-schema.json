@@ -68,13 +68,18 @@
   ],
   "formulas": {
     "raw": "bps * conversionFactor",
-    "kbps": "Math.round(raw * Math.pow(10, roundingDecimal)) / Math.pow(10, roundingDecimal)"
+    "raw_aux": "bps * conversionFactor"
   },
   "outputs": {
-    "primary": "kbps",
+    "primary": "raw_aux",
     "breakdown": [
       "raw"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "kbps"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -84,5 +89,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

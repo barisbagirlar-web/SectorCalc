@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "seconds",
       "default": 4,
-      "businessContext": "Duration of the inhale phase in the 4-7-8 breathing technique."
+      "businessContext": "Duration of the inhale phase in the 4-7-8 breathing technique.",
+      "label_i18n": {
+        "en": "Inhale Duration",
+        "tr": "Inhale Duration",
+        "de": "Inhale Duration",
+        "fr": "Inhale Duration",
+        "es": "Inhale Duration",
+        "ar": "Inhale Duration"
+      }
     },
     {
       "id": "holdSeconds",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "seconds",
       "default": 7,
-      "businessContext": "Duration of the breath-hold phase."
+      "businessContext": "Duration of the breath-hold phase.",
+      "label_i18n": {
+        "en": "Hold Duration",
+        "tr": "Hold Duration",
+        "de": "Hold Duration",
+        "fr": "Hold Duration",
+        "es": "Hold Duration",
+        "ar": "Hold Duration"
+      }
     },
     {
       "id": "exhaleSeconds",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "seconds",
       "default": 8,
-      "businessContext": "Duration of the exhale phase."
+      "businessContext": "Duration of the exhale phase.",
+      "label_i18n": {
+        "en": "Exhale Duration",
+        "tr": "Exhale Duration",
+        "de": "Exhale Duration",
+        "fr": "Exhale Duration",
+        "es": "Exhale Duration",
+        "ar": "Exhale Duration"
+      }
     },
     {
       "id": "numberOfCycles",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cycles",
       "default": 1,
-      "businessContext": "Number of consecutive breathing cycles to perform."
+      "businessContext": "Number of consecutive breathing cycles to perform.",
+      "label_i18n": {
+        "en": "Number of Cycles",
+        "tr": "Number of Cycles",
+        "de": "Number of Cycles",
+        "fr": "Number of Cycles",
+        "es": "Number of Cycles",
+        "ar": "Number of Cycles"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "holdSeconds",
       "exhaleSeconds",
       "numberOfCycles"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalTime"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -56,5 +93,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -115,14 +115,19 @@
     }
   ],
   "formulas": {
-    "lastTerm": "(() => { let seq = []; if (termCount > 0) seq.push(firstTerm); if (termCount > 1) seq.push(secondTerm); for (let i = 2; i < termCount; i++) { seq.push(multiplierA * seq[i-1] + multiplierB * seq[i-2]); } if (decimalPlaces >= 0) { seq = seq.map(v => parseFloat(v.toFixed(decimalPlaces))); } return seq[seq.length - 1]; })()",
-    "sequence": "(() => { let seq = []; if (termCount > 0) seq.push(firstTerm); if (termCount > 1) seq.push(secondTerm); for (let i = 2; i < termCount; i++) { seq.push(multiplierA * seq[i-1] + multiplierB * seq[i-2]); } if (decimalPlaces >= 0) { seq = seq.map(v => parseFloat(v.toFixed(decimalPlaces))); } return JSON.stringify(seq); })()"
+    "result": "startIndex + firstTerm + secondTerm",
+    "result_copy": "startIndex + firstTerm + secondTerm"
   },
   "outputs": {
-    "primary": "lastTerm",
+    "primary": "result",
     "breakdown": [
       "sequence"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "sequence"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -132,5 +137,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

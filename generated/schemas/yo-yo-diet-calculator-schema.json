@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 80,
-      "businessContext": "Body weight at the beginning of the first diet cycle"
+      "businessContext": "Body weight at the beginning of the first diet cycle",
+      "label_i18n": {
+        "en": "Initial Weight",
+        "tr": "Initial Weight",
+        "de": "Initial Weight",
+        "fr": "Initial Weight",
+        "es": "Initial Weight",
+        "ar": "Initial Weight"
+      }
     },
     {
       "id": "currentWeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 82,
-      "businessContext": "Current body weight after all diet cycles"
+      "businessContext": "Current body weight after all diet cycles",
+      "label_i18n": {
+        "en": "Current Weight",
+        "tr": "Current Weight",
+        "de": "Current Weight",
+        "fr": "Current Weight",
+        "es": "Current Weight",
+        "ar": "Current Weight"
+      }
     },
     {
       "id": "numberOfCycles",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "count",
       "default": 3,
-      "businessContext": "Total number of completed yo-yo diet cycles"
+      "businessContext": "Total number of completed yo-yo diet cycles",
+      "label_i18n": {
+        "en": "Number of Cycles",
+        "tr": "Number of Cycles",
+        "de": "Number of Cycles",
+        "fr": "Number of Cycles",
+        "es": "Number of Cycles",
+        "ar": "Number of Cycles"
+      }
     },
     {
       "id": "weightLossPerCycle",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 5,
-      "businessContext": "Average weight lost during the loss phase of one cycle"
+      "businessContext": "Average weight lost during the loss phase of one cycle",
+      "label_i18n": {
+        "en": "Weight Loss per Cycle",
+        "tr": "Weight Loss per Cycle",
+        "de": "Weight Loss per Cycle",
+        "fr": "Weight Loss per Cycle",
+        "es": "Weight Loss per Cycle",
+        "ar": "Weight Loss per Cycle"
+      }
     },
     {
       "id": "weightRegainPerCycle",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg",
       "default": 4,
-      "businessContext": "Average weight regained during the regain phase of one cycle"
+      "businessContext": "Average weight regained during the regain phase of one cycle",
+      "label_i18n": {
+        "en": "Weight Regain per Cycle",
+        "tr": "Weight Regain per Cycle",
+        "de": "Weight Regain per Cycle",
+        "fr": "Weight Regain per Cycle",
+        "es": "Weight Regain per Cycle",
+        "ar": "Weight Regain per Cycle"
+      }
     },
     {
       "id": "cycleDurationDays",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "days",
       "default": 30,
-      "businessContext": "Average duration of one complete diet cycle (loss + regain)"
+      "businessContext": "Average duration of one complete diet cycle (loss + regain)",
+      "label_i18n": {
+        "en": "Cycle Duration",
+        "tr": "Cycle Duration",
+        "de": "Cycle Duration",
+        "fr": "Cycle Duration",
+        "es": "Cycle Duration",
+        "ar": "Cycle Duration"
+      }
     }
   ],
   "formulas": {
@@ -64,7 +112,12 @@
       "totalWeightLost",
       "totalWeightRegained",
       "averageCycleFluctuation"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "averageCycleFluctuation"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -74,5 +127,10 @@
   "sectorSlug": "cleaning",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

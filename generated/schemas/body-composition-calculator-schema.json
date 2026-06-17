@@ -115,18 +115,21 @@
     }
   ],
   "formulas": {
-    "bodyFatPercentage": "((gender === 1) ? (86.010 * Math.log(waist - neck)/Math.LN10 - 70.041 * Math.log(height)/Math.LN10 + 36.76) : (163.205 * Math.log(waist + hip - neck)/Math.LN10 - 97.684 * Math.log(height)/Math.LN10 - 78.387))",
     "bmi": "weight / ((height/100) ** 2)",
-    "leanBodyMass": "weight * (1 - (((gender === 1) ? (86.010 * Math.log(waist - neck)/Math.LN10 - 70.041 * Math.log(height)/Math.LN10 + 36.76) : (163.205 * Math.log(waist + hip - neck)/Math.LN10 - 97.684 * Math.log(height)/Math.LN10 - 78.387)) / 100))",
-    "fatMass": "weight * (((gender === 1) ? (86.010 * Math.log(waist - neck)/Math.LN10 - 70.041 * Math.log(height)/Math.LN10 + 36.76) : (163.205 * Math.log(waist + hip - neck)/Math.LN10 - 97.684 * Math.log(height)/Math.LN10 - 78.387)) / 100)"
+    "bmi_aux": "weight / ((height/100) ** 2)"
   },
   "outputs": {
-    "primary": "bodyFatPercentage",
+    "primary": "bmi_aux",
     "breakdown": [
       "bmi",
       "leanBodyMass",
       "fatMass"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "fatMass"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -136,5 +139,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

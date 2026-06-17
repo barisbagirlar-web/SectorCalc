@@ -70,21 +70,21 @@
     "rateAfterSpread": "exchangeRate * (1 + spread/100)",
     "convertedAmount": "amount * rateAfterSpread",
     "feeAmount": "convertedAmount * (feePercent/100)",
-    "finalAmount": "convertedAmount - feeAmount",
-    "__amount__USD": "${amount} USD",
-    "__rateAfterSpread_toFixed_8___BTC_USD": "${rateAfterSpread.toFixed(8)} BTC/USD",
-    "__feeAmount_toFixed_8___BTC": "${feeAmount.toFixed(8)} BTC",
-    "__finalAmount_toFixed_8___BTC": "${finalAmount.toFixed(8)} BTC",
-    "result": "Converted amount: ${finalAmount.toFixed(8)} BTC"
+    "finalAmount": "convertedAmount - feeAmount"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "finalAmount",
     "breakdown": [
       "Entered amount: ${amount} USD",
       "Rate after spread: ${rateAfterSpread.toFixed(8)} BTC/USD",
       "Fee deducted: ${feeAmount.toFixed(8)} BTC",
       "Final amount: ${finalAmount.toFixed(8)} BTC"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "finalAmount"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -94,5 +94,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "danismanlik",
   "profession": "Strateji Uzmanı",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

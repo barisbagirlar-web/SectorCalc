@@ -68,15 +68,19 @@
   ],
   "formulas": {
     "re": "velocity * distance / kinematicViscosity",
-    "delta": "flowRegime === 0 ? 5.0 * distance / Math.sqrt(velocity * distance / kinematicViscosity) : 0.37 * distance / Math.pow(velocity * distance / kinematicViscosity, 0.2)",
-    "cf": "flowRegime === 0 ? 0.664 / Math.sqrt(velocity * distance / kinematicViscosity) : 0.0592 / Math.pow(velocity * distance / kinematicViscosity, 0.2)"
+    "re_aux": "velocity * distance / kinematicViscosity"
   },
   "outputs": {
-    "primary": "delta",
+    "primary": "re_aux",
     "breakdown": [
       "re",
       "cf"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "cf"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -86,5 +90,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

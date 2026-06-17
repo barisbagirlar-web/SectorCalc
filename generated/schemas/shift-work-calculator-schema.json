@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "hours",
       "default": 40,
-      "businessContext": "Total base shift hours worked, excluding overtime"
+      "businessContext": "Total base shift hours worked, excluding overtime",
+      "label_i18n": {
+        "en": "Hours Worked",
+        "tr": "Hours Worked",
+        "de": "Hours Worked",
+        "fr": "Hours Worked",
+        "es": "Hours Worked",
+        "ar": "Hours Worked"
+      }
     },
     {
       "id": "hourlyRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 20,
-      "businessContext": "Base hourly pay rate"
+      "businessContext": "Base hourly pay rate",
+      "label_i18n": {
+        "en": "Hourly Rate",
+        "tr": "Hourly Rate",
+        "de": "Hourly Rate",
+        "fr": "Hourly Rate",
+        "es": "Hourly Rate",
+        "ar": "Hourly Rate"
+      }
     },
     {
       "id": "shiftMultiplier",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1.2,
-      "businessContext": "Multiplier applied to base hours for shift work premium"
+      "businessContext": "Multiplier applied to base hours for shift work premium",
+      "label_i18n": {
+        "en": "Shift Premium Multiplier",
+        "tr": "Shift Premium Multiplier",
+        "de": "Shift Premium Multiplier",
+        "fr": "Shift Premium Multiplier",
+        "es": "Shift Premium Multiplier",
+        "ar": "Shift Premium Multiplier"
+      }
     },
     {
       "id": "overtimeHours",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "hours",
       "default": 0,
-      "businessContext": "Overtime hours worked beyond regular shift"
+      "businessContext": "Overtime hours worked beyond regular shift",
+      "label_i18n": {
+        "en": "Overtime Hours",
+        "tr": "Overtime Hours",
+        "de": "Overtime Hours",
+        "fr": "Overtime Hours",
+        "es": "Overtime Hours",
+        "ar": "Overtime Hours"
+      }
     },
     {
       "id": "overtimeMultiplier",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1.5,
-      "businessContext": "Multiplier for overtime pay"
+      "businessContext": "Multiplier for overtime pay",
+      "label_i18n": {
+        "en": "Overtime Multiplier",
+        "tr": "Overtime Multiplier",
+        "de": "Overtime Multiplier",
+        "fr": "Overtime Multiplier",
+        "es": "Overtime Multiplier",
+        "ar": "Overtime Multiplier"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "basePay",
       "overtimePay"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalPay"
   },
   "category": "İK & Personel",
   "sector": "Finans & İK",
@@ -62,5 +107,10 @@
   "categorySlug": "workforce-hr",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "hr"
+  "categoryId": "hr",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

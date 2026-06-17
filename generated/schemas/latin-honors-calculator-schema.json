@@ -99,20 +99,22 @@
     }
   ],
   "formulas": {
-    "honors": "(totalCredits >= creditsRequired) ? (gpa >= summaMin ? \"Summa Cum Laude\" : gpa >= magnaMin ? \"Magna Cum Laude\" : gpa >= cumLaudeMin ? \"Cum Laude\" : \"No Latin Honors\") : \"Insufficient credits for Latin Honors\"",
-    "cumLaudeStatus": "(gpa >= cumLaudeMin && totalCredits >= creditsRequired) ? \"Cum Laude: Eligible\" : \"Cum Laude: Not Eligible\"",
-    "magnaStatus": "(gpa >= magnaMin && totalCredits >= creditsRequired) ? \"Magna Cum Laude: Eligible\" : \"Magna Cum Laude: Not Eligible\"",
-    "summaStatus": "(gpa >= summaMin && totalCredits >= creditsRequired) ? \"Summa Cum Laude: Eligible\" : \"Summa Cum Laude: Not Eligible\"",
-    "thresholdsInfo": "\"Thresholds: Cum Laude >= \" + cumLaudeMin + \", Magna >= \" + magnaMin + \", Summa >= \" + summaMin + \". Credits required: \" + creditsRequired"
+    "thresholdsInfo": "\"Thresholds: Cum Laude >= \" + cumLaudeMin + \", Magna >= \" + magnaMin + \", Summa >= \" + summaMin + \". Credits required: \" + creditsRequired",
+    "thresholdsInfo_aux": "\"Thresholds: Cum Laude >= \" + cumLaudeMin + \", Magna >= \" + magnaMin + \", Summa >= \" + summaMin + \". Credits required: \" + creditsRequired"
   },
   "outputs": {
-    "primary": "honors",
+    "primary": "thresholdsInfo_aux",
     "breakdown": [
       "cumLaudeStatus",
       "magnaStatus",
       "summaStatus",
       "thresholdsInfo"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "thresholdsInfo"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -122,5 +124,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

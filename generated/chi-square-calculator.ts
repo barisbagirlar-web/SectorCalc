@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from chi-square-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,37 +16,45 @@ export const Chi_square_calculatorInputSchema = z.object({
   cell22: z.number().default(0),
 });
 
-function evaluateAllFormulas(input: Chi_square_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.cell11 + input.cell12 + input.cell21 + input.cell22; results["total"] = Number.isFinite(v) ? v : 0; } catch { results["total"] = 0; }
-  try { const v = input.cell11 + input.cell12; results["row1Total"] = Number.isFinite(v) ? v : 0; } catch { results["row1Total"] = 0; }
-  try { const v = input.cell21 + input.cell22; results["row2Total"] = Number.isFinite(v) ? v : 0; } catch { results["row2Total"] = 0; }
-  try { const v = input.cell11 + input.cell21; results["col1Total"] = Number.isFinite(v) ? v : 0; } catch { results["col1Total"] = 0; }
-  try { const v = input.cell12 + input.cell22; results["col2Total"] = Number.isFinite(v) ? v : 0; } catch { results["col2Total"] = 0; }
-  try { const v = ((results["row1Total"] ?? 0) * (results["col1Total"] ?? 0)) / (results["total"] ?? 0); results["expected11"] = Number.isFinite(v) ? v : 0; } catch { results["expected11"] = 0; }
-  try { const v = ((results["row1Total"] ?? 0) * (results["col2Total"] ?? 0)) / (results["total"] ?? 0); results["expected12"] = Number.isFinite(v) ? v : 0; } catch { results["expected12"] = 0; }
-  try { const v = ((results["row2Total"] ?? 0) * (results["col1Total"] ?? 0)) / (results["total"] ?? 0); results["expected21"] = Number.isFinite(v) ? v : 0; } catch { results["expected21"] = 0; }
-  try { const v = ((results["row2Total"] ?? 0) * (results["col2Total"] ?? 0)) / (results["total"] ?? 0); results["expected22"] = Number.isFinite(v) ? v : 0; } catch { results["expected22"] = 0; }
-  try { const v = (input.cell11 - (results["expected11"] ?? 0)) ** 2 / (results["expected11"] ?? 0); results["chiSq11"] = Number.isFinite(v) ? v : 0; } catch { results["chiSq11"] = 0; }
-  try { const v = (input.cell12 - (results["expected12"] ?? 0)) ** 2 / (results["expected12"] ?? 0); results["chiSq12"] = Number.isFinite(v) ? v : 0; } catch { results["chiSq12"] = 0; }
-  try { const v = (input.cell21 - (results["expected21"] ?? 0)) ** 2 / (results["expected21"] ?? 0); results["chiSq21"] = Number.isFinite(v) ? v : 0; } catch { results["chiSq21"] = 0; }
-  try { const v = (input.cell22 - (results["expected22"] ?? 0)) ** 2 / (results["expected22"] ?? 0); results["chiSq22"] = Number.isFinite(v) ? v : 0; } catch { results["chiSq22"] = 0; }
-  try { const v = (results["chiSq11"] ?? 0) + (results["chiSq12"] ?? 0) + (results["chiSq21"] ?? 0) + (results["chiSq22"] ?? 0); results["chiSquare"] = Number.isFinite(v) ? v : 0; } catch { results["chiSquare"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Chi_square_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.cell11 + input.cell12 + input.cell21 + input.cell22; results["total"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["total"] = 0; }
+  try { const v = input.cell11 + input.cell12; results["row1Total"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["row1Total"] = 0; }
+  try { const v = input.cell21 + input.cell22; results["row2Total"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["row2Total"] = 0; }
+  try { const v = input.cell11 + input.cell21; results["col1Total"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["col1Total"] = 0; }
+  try { const v = input.cell12 + input.cell22; results["col2Total"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["col2Total"] = 0; }
+  try { const v = ((asFormulaNumber(results["row1Total"])) * (asFormulaNumber(results["col1Total"]))) / (asFormulaNumber(results["total"])); results["expected11"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["expected11"] = 0; }
+  try { const v = ((asFormulaNumber(results["row1Total"])) * (asFormulaNumber(results["col2Total"]))) / (asFormulaNumber(results["total"])); results["expected12"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["expected12"] = 0; }
+  try { const v = ((asFormulaNumber(results["row2Total"])) * (asFormulaNumber(results["col1Total"]))) / (asFormulaNumber(results["total"])); results["expected21"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["expected21"] = 0; }
+  try { const v = ((asFormulaNumber(results["row2Total"])) * (asFormulaNumber(results["col2Total"]))) / (asFormulaNumber(results["total"])); results["expected22"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["expected22"] = 0; }
+  try { const v = (input.cell11 - (asFormulaNumber(results["expected11"]))) ** 2 / (asFormulaNumber(results["expected11"])); results["chiSq11"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["chiSq11"] = 0; }
+  try { const v = (input.cell12 - (asFormulaNumber(results["expected12"]))) ** 2 / (asFormulaNumber(results["expected12"])); results["chiSq12"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["chiSq12"] = 0; }
+  try { const v = (input.cell21 - (asFormulaNumber(results["expected21"]))) ** 2 / (asFormulaNumber(results["expected21"])); results["chiSq21"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["chiSq21"] = 0; }
+  try { const v = (input.cell22 - (asFormulaNumber(results["expected22"]))) ** 2 / (asFormulaNumber(results["expected22"])); results["chiSq22"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["chiSq22"] = 0; }
+  try { const v = (asFormulaNumber(results["chiSq11"])) + (asFormulaNumber(results["chiSq12"])) + (asFormulaNumber(results["chiSq21"])) + (asFormulaNumber(results["chiSq22"])); results["chiSquare"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["chiSquare"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateChi_square_calculator(input: Chi_square_calculatorInput): Chi_square_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["chiSquare"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["chiSquare"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -59,22 +59,22 @@
     }
   ],
   "formulas": {
-    "primeFactors": "function primeFactors(n) { let factors = []; let d = 2; while (n > 1 && d <= Math.sqrt(n) + 1) { while (n % d === 0) { factors.push(d); n = n / d; } d++; } if (n > 1) factors.push(n); return factors; }",
-    "exponentForm": "function exponentForm(factors) { let map = {}; factors.forEach(f => map[f] = (map[f] || 0) + 1); return Object.entries(map).map(([p, e]) => p + (e > 1 ? '^' + e : '')).join(' × '); }",
-    "isPrime": "function isPrime(num) { if (num < 2) return false; for (let i = 2; i <= Math.sqrt(num); i++) { if (num % i === 0) return false; } return true; }",
-    "_primeFactors_": "{primeFactors}",
-    "_distinctCount_": "{distinctCount}",
-    "_totalCount_": "{totalCount}",
-    "Is_the_original_number_prime___isPrime_": "Is the original number prime? {isPrime}"
+    "result": "number + maxIterations + auto_input_3",
+    "result_aux": "number + maxIterations + auto_input_3"
   },
   "outputs": {
-    "primary": "primeFactors",
+    "primary": "result",
     "breakdown": [
       "Prime factors: {primeFactors}",
       "Number of distinct primes: {distinctCount}",
       "Total number of prime factors (with multiplicity): {totalCount}",
       "Is the original number prime? {isPrime}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "isPrime"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -84,5 +84,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

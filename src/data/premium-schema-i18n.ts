@@ -429,6 +429,26 @@ const TR_SCHEMAS: Record<string, LocalizedPremiumSchema> = {
     painStatement:
       "Üretim, bekleme, taşıma, stok, hareket, hata ve fazla işlem kaynaklı kayıpların dönemsel parasal etkisini hesaplar.",
   },
+  "5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator": {
+    title: "5S Denetim Skoru - Verimlilik Kaybı Maliyet Dönüştürücü",
+    painStatement:
+      "5S puanının parasal karşılığı bilinmez; iyileştirme önceliği verilemez ve kayıp görünmez kalır.",
+  },
+  "3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator": {
+    title: "3B Baskı Destek Yapısı ve Post-Proses Maliyet Hesaplayıcı",
+    painStatement:
+      "Destek malzemesi ve temizleme işçiliği maliyete eklenmez; teklif marjı sessizce erir.",
+  },
+  "3b-baski-parti-optimizasyonu-ve-yuvalama-calculator": {
+    title: "3B Baskı Parti Optimizasyonu ve Yuvalama Hesaplayıcı",
+    painStatement:
+      "Tablaya kaç parça sığacağı optimize edilmez; makine kapasitesi boşa harcanır.",
+  },
+  "3b-baski-vs-talasli-imalat-basabas-noktasi-calculator": {
+    title: "3B Baskı vs. Talaşlı İmalat Başabaş Noktası Hesaplayıcı",
+    painStatement:
+      "Hangi adette hangi yöntemin ekonomik olduğu bilinmez; yanlış üretim yöntemi seçilir.",
+  },
 };
 
 const PREMIUM_SCHEMA_I18N: Partial<Record<AppLocale, Record<string, LocalizedPremiumSchema>>> = {

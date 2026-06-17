@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TL",
       "default": 1000,
-      "businessContext": "Poliçe için ödenen aylık prim tutarı"
+      "businessContext": "Poliçe için ödenen aylık prim tutarı",
+      "label_i18n": {
+        "en": "Aylık Prim (TL)",
+        "tr": "Aylık Prim (TL)",
+        "de": "Aylık Prim (TL)",
+        "fr": "Aylık Prim (TL)",
+        "es": "Aylık Prim (TL)",
+        "ar": "Aylık Prim (TL)"
+      }
     },
     {
       "id": "policyTermYears",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 10,
-      "businessContext": "Poliçenin toplam süresi"
+      "businessContext": "Poliçenin toplam süresi",
+      "label_i18n": {
+        "en": "Poliçe Süresi (Yıl)",
+        "tr": "Poliçe Süresi (Yıl)",
+        "de": "Poliçe Süresi (Yıl)",
+        "fr": "Poliçe Süresi (Yıl)",
+        "es": "Poliçe Süresi (Yıl)",
+        "ar": "Poliçe Süresi (Yıl)"
+      }
     },
     {
       "id": "interestRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "İade edilen primlere uygulanan yıllık bileşik faiz oranı"
+      "businessContext": "İade edilen primlere uygulanan yıllık bileşik faiz oranı",
+      "label_i18n": {
+        "en": "Yıllık Faiz Oranı (%)",
+        "tr": "Yıllık Faiz Oranı (%)",
+        "de": "Yıllık Faiz Oranı (%)",
+        "fr": "Yıllık Faiz Oranı (%)",
+        "es": "Yıllık Faiz Oranı (%)",
+        "ar": "Yıllık Faiz Oranı (%)"
+      }
     },
     {
       "id": "claimOccurred",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "Poliçe süresince hasar talebi olup olmadığı"
+      "businessContext": "Poliçe süresince hasar talebi olup olmadığı",
+      "label_i18n": {
+        "en": "Hasar Talebi (0: Yok, 1: Var)",
+        "tr": "Hasar Talebi (0: Yok, 1: Var)",
+        "de": "Hasar Talebi (0: Yok, 1: Var)",
+        "fr": "Hasar Talebi (0: Yok, 1: Var)",
+        "es": "Hasar Talebi (0: Yok, 1: Var)",
+        "ar": "Hasar Talebi (0: Yok, 1: Var)"
+      }
     },
     {
       "id": "adminFeeRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 1,
-      "businessContext": "İade tutarından kesilecek yönetim gideri oranı"
+      "businessContext": "İade tutarından kesilecek yönetim gideri oranı",
+      "label_i18n": {
+        "en": "Yönetim Gideri Kesintisi (%)",
+        "tr": "Yönetim Gideri Kesintisi (%)",
+        "de": "Yönetim Gideri Kesintisi (%)",
+        "fr": "Yönetim Gideri Kesintisi (%)",
+        "es": "Yönetim Gideri Kesintisi (%)",
+        "ar": "Yönetim Gideri Kesintisi (%)"
+      }
     },
     {
       "id": "returnTaxRate",
@@ -47,22 +87,33 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "İade tutarı üzerinden alınan vergi oranı"
+      "businessContext": "İade tutarı üzerinden alınan vergi oranı",
+      "label_i18n": {
+        "en": "İade Vergi Oranı (%)",
+        "tr": "İade Vergi Oranı (%)",
+        "de": "İade Vergi Oranı (%)",
+        "fr": "İade Vergi Oranı (%)",
+        "es": "İade Vergi Oranı (%)",
+        "ar": "İade Vergi Oranı (%)"
+      }
     }
   ],
   "formulas": {
     "totalPremiumsPaid": "monthlyPremium * 12 * policyTermYears",
-    "grossReturn": "totalPremiumsPaid * Math.pow(1 + interestRate/100, policyTermYears) * (1 - claimOccurred)",
-    "netReturnAfterFee": "grossReturn * (1 - adminFeeRate/100)",
-    "finalReturn": "netReturnAfterFee * (1 - returnTaxRate/100)"
+    "totalPremiumsPaid_aux": "monthlyPremium * 12 * policyTermYears"
   },
   "outputs": {
-    "primary": "finalReturn",
+    "primary": "totalPremiumsPaid_aux",
     "breakdown": [
       "totalPremiumsPaid",
       "grossReturn",
       "netReturnAfterFee"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "finalReturn"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -72,5 +123,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "plastik",
   "profession": "Proses Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

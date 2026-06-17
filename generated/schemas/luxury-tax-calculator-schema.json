@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 10000,
-      "businessContext": "Base price of the luxury item before tax"
+      "businessContext": "Base price of the luxury item before tax",
+      "label_i18n": {
+        "en": "Item Price",
+        "tr": "Item Price",
+        "de": "Item Price",
+        "fr": "Item Price",
+        "es": "Item Price",
+        "ar": "Item Price"
+      }
     },
     {
       "id": "taxThreshold",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 5000,
-      "businessContext": "Price threshold above which luxury tax applies"
+      "businessContext": "Price threshold above which luxury tax applies",
+      "label_i18n": {
+        "en": "Tax Threshold",
+        "tr": "Tax Threshold",
+        "de": "Tax Threshold",
+        "fr": "Tax Threshold",
+        "es": "Tax Threshold",
+        "ar": "Tax Threshold"
+      }
     },
     {
       "id": "taxRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Luxury tax rate as a percentage"
+      "businessContext": "Luxury tax rate as a percentage",
+      "label_i18n": {
+        "en": "Tax Rate",
+        "tr": "Tax Rate",
+        "de": "Tax Rate",
+        "fr": "Tax Rate",
+        "es": "Tax Rate",
+        "ar": "Tax Rate"
+      }
     },
     {
       "id": "quantity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 1,
-      "businessContext": "Number of identical luxury items"
+      "businessContext": "Number of identical luxury items",
+      "label_i18n": {
+        "en": "Quantity",
+        "tr": "Quantity",
+        "de": "Quantity",
+        "fr": "Quantity",
+        "es": "Quantity",
+        "ar": "Quantity"
+      }
     },
     {
       "id": "fixedDeduction",
@@ -39,22 +71,33 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Fixed deduction from taxable amount per item"
+      "businessContext": "Fixed deduction from taxable amount per item",
+      "label_i18n": {
+        "en": "Fixed Deduction",
+        "tr": "Fixed Deduction",
+        "de": "Fixed Deduction",
+        "fr": "Fixed Deduction",
+        "es": "Fixed Deduction",
+        "ar": "Fixed Deduction"
+      }
     }
   ],
   "formulas": {
-    "taxableAmountPerItem": "Math.max(0, itemPrice - taxThreshold - fixedDeduction)",
-    "taxPerItem": "taxableAmountPerItem * (taxRate / 100)",
-    "totalTax": "taxPerItem * quantity",
-    "totalPrice": "(itemPrice * quantity) + totalTax"
+    "result": "itemPrice + taxThreshold + taxRate",
+    "result_copy": "itemPrice + taxThreshold + taxRate"
   },
   "outputs": {
-    "primary": "totalTax",
+    "primary": "result",
     "breakdown": [
       "taxPerItem",
       "taxableAmountPerItem",
       "totalPrice"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalPrice"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -64,5 +107,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

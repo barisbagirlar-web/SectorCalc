@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "saat",
       "default": 12,
-      "businessContext": "Şu anki saat dilimi."
+      "businessContext": "Şu anki saat dilimi.",
+      "label_i18n": {
+        "en": "Mevcut Saat (0-23)",
+        "tr": "Mevcut Saat (0-23)",
+        "de": "Mevcut Saat (0-23)",
+        "fr": "Mevcut Saat (0-23)",
+        "es": "Mevcut Saat (0-23)",
+        "ar": "Mevcut Saat (0-23)"
+      }
     },
     {
       "id": "fastingStartHour",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "saat",
       "default": 20,
-      "businessContext": "16 saatlik oruç penceresinin başlangıç saati (örn. 20:00)."
+      "businessContext": "16 saatlik oruç penceresinin başlangıç saati (örn. 20:00).",
+      "label_i18n": {
+        "en": "Oruç Başlangıç Saati",
+        "tr": "Oruç Başlangıç Saati",
+        "de": "Oruç Başlangıç Saati",
+        "fr": "Oruç Başlangıç Saati",
+        "es": "Oruç Başlangıç Saati",
+        "ar": "Oruç Başlangıç Saati"
+      }
     },
     {
       "id": "fastingDuration",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "saat",
       "default": 16,
-      "businessContext": "Oruç penceresinin toplam süresi (standart 16 saat)."
+      "businessContext": "Oruç penceresinin toplam süresi (standart 16 saat).",
+      "label_i18n": {
+        "en": "Oruç Süresi",
+        "tr": "Oruç Süresi",
+        "de": "Oruç Süresi",
+        "fr": "Oruç Süresi",
+        "es": "Oruç Süresi",
+        "ar": "Oruç Süresi"
+      }
     },
     {
       "id": "eatingDuration",
@@ -31,22 +55,33 @@
       "type": "number",
       "unit": "saat",
       "default": 8,
-      "businessContext": "Yeme penceresi süresi (genelde 8 saat)."
+      "businessContext": "Yeme penceresi süresi (genelde 8 saat).",
+      "label_i18n": {
+        "en": "Yeme Penceresi Süresi",
+        "tr": "Yeme Penceresi Süresi",
+        "de": "Yeme Penceresi Süresi",
+        "fr": "Yeme Penceresi Süresi",
+        "es": "Yeme Penceresi Süresi",
+        "ar": "Yeme Penceresi Süresi"
+      }
     }
   ],
   "formulas": {
     "fastingEndHour": "(fastingStartHour + fastingDuration) % 24",
-    "eatingWindowEndHour": "((fastingStartHour + fastingDuration) % 24 + eatingDuration) % 24",
-    "remainingFastingTime": "Math.max(0, fastingDuration - (currentHour >= fastingStartHour ? currentHour - fastingStartHour : currentHour + 24 - fastingStartHour))",
-    "progressPercent": "Math.min(100, ((currentHour >= fastingStartHour ? currentHour - fastingStartHour : currentHour + 24 - fastingStartHour) / fastingDuration) * 100)"
+    "eatingWindowEndHour": "((fastingStartHour + fastingDuration) % 24 + eatingDuration) % 24"
   },
   "outputs": {
-    "primary": "remainingFastingTime",
+    "primary": "eatingWindowEndHour",
     "breakdown": [
       "fastingEndHour",
       "eatingWindowEndHour",
       "progressPercent"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "progressPercent"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -56,5 +91,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "plastik",
   "profession": "Proses Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

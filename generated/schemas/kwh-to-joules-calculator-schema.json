@@ -85,16 +85,20 @@
   "formulas": {
     "energy_kwh": "kwh > 0 ? kwh : power_kw * time_h",
     "energy_joules": "energy_kwh * conversion_factor",
-    "rounded_joules": "Math.round(energy_joules * Math.pow(10, precision)) / Math.pow(10, precision)",
     "conversion_factor": "conversion_factor"
   },
   "outputs": {
-    "primary": "rounded_joules",
+    "primary": "conversion_factor",
     "breakdown": [
       "energy_kwh",
       "energy_joules",
       "conversion_factor"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "conversion_factor"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -104,5 +108,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

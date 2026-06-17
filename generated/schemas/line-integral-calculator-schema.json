@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Başlangıç noktasının X koordinatı"
+      "businessContext": "Başlangıç noktasının X koordinatı",
+      "label_i18n": {
+        "en": "Başlangıç X Koordinatı",
+        "tr": "Başlangıç X Koordinatı",
+        "de": "Başlangıç X Koordinatı",
+        "fr": "Başlangıç X Koordinatı",
+        "es": "Başlangıç X Koordinatı",
+        "ar": "Başlangıç X Koordinatı"
+      }
     },
     {
       "id": "y1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Başlangıç noktasının Y koordinatı"
+      "businessContext": "Başlangıç noktasının Y koordinatı",
+      "label_i18n": {
+        "en": "Başlangıç Y Koordinatı",
+        "tr": "Başlangıç Y Koordinatı",
+        "de": "Başlangıç Y Koordinatı",
+        "fr": "Başlangıç Y Koordinatı",
+        "es": "Başlangıç Y Koordinatı",
+        "ar": "Başlangıç Y Koordinatı"
+      }
     },
     {
       "id": "x2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Bitiş noktasının X koordinatı"
+      "businessContext": "Bitiş noktasının X koordinatı",
+      "label_i18n": {
+        "en": "Bitiş X Koordinatı",
+        "tr": "Bitiş X Koordinatı",
+        "de": "Bitiş X Koordinatı",
+        "fr": "Bitiş X Koordinatı",
+        "es": "Bitiş X Koordinatı",
+        "ar": "Bitiş X Koordinatı"
+      }
     },
     {
       "id": "y2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Bitiş noktasının Y koordinatı"
+      "businessContext": "Bitiş noktasının Y koordinatı",
+      "label_i18n": {
+        "en": "Bitiş Y Koordinatı",
+        "tr": "Bitiş Y Koordinatı",
+        "de": "Bitiş Y Koordinatı",
+        "fr": "Bitiş Y Koordinatı",
+        "es": "Bitiş Y Koordinatı",
+        "ar": "Bitiş Y Koordinatı"
+      }
     },
     {
       "id": "c0",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "birim/m",
       "default": 0,
-      "businessContext": "f(x,y) = c0 + cx*x + cy*y fonksiyonunun sabit terimi"
+      "businessContext": "f(x,y) = c0 + cx*x + cy*y fonksiyonunun sabit terimi",
+      "label_i18n": {
+        "en": "Sabit Terim (f0)",
+        "tr": "Sabit Terim (f0)",
+        "de": "Sabit Terim (f0)",
+        "fr": "Sabit Terim (f0)",
+        "es": "Sabit Terim (f0)",
+        "ar": "Sabit Terim (f0)"
+      }
     },
     {
       "id": "cx",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "birim/m²",
       "default": 0,
-      "businessContext": "X değişkeninin katsayısı"
+      "businessContext": "X değişkeninin katsayısı",
+      "label_i18n": {
+        "en": "X Katsayısı",
+        "tr": "X Katsayısı",
+        "de": "X Katsayısı",
+        "fr": "X Katsayısı",
+        "es": "X Katsayısı",
+        "ar": "X Katsayısı"
+      }
     },
     {
       "id": "cy",
@@ -55,25 +103,36 @@
       "type": "number",
       "unit": "birim/m²",
       "default": 0,
-      "businessContext": "Y değişkeninin katsayısı"
+      "businessContext": "Y değişkeninin katsayısı",
+      "label_i18n": {
+        "en": "Y Katsayısı",
+        "tr": "Y Katsayısı",
+        "de": "Y Katsayısı",
+        "fr": "Y Katsayısı",
+        "es": "Y Katsayısı",
+        "ar": "Y Katsayısı"
+      }
     }
   ],
   "formulas": {
     "dx": "x2 - x1",
     "dy": "y2 - y1",
-    "L": "Math.sqrt(dx**2 + dy**2)",
-    "ortalama_f": "c0 + cx*x1 + cy*y1 + (cx*dx + cy*dy)/2",
-    "integral": "L * ortalama_f"
+    "ortalama_f": "c0 + cx*x1 + cy*y1 + (cx*dx + cy*dy)/2"
   },
   "outputs": {
-    "primary": "integral",
+    "primary": "ortalama_f",
     "breakdown": [
       "dx = x2 - x1 = {dx} m",
       "dy = y2 - y1 = {dy} m",
       "L = √(dx² + dy²) = {L} m",
       "Ortalama f = c0 + cx*x1 + cy*y1 + (cx*dx + cy*dy)/2 = {ortalama_f} birim/m",
       "İntegral = L * ortalama_f = {integral} birim"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "integral"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -83,5 +142,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

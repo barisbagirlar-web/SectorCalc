@@ -320,7 +320,7 @@
         "openItem": "Open calculator →"
       },
       "free-tools": {
-        "navLabel": "Browse by category",
+        "navLabel": "Browse by sector",
         "allLabel": "All free calculators",
         "categoryToolsTitle": "{category} calculators",
         "categoryToolsSubtitle": "{count} free calculators",
@@ -330,7 +330,7 @@
         "openItem": "Open calculator →"
       },
       "premium-tools": {
-        "navLabel": "Browse by report type",
+        "navLabel": "Browse by sector",
         "allLabel": "All premium calculators",
         "categoryToolsTitle": "{category} calculators",
         "categoryToolsSubtitle": "{count} premium calculators",
@@ -1728,17 +1728,20 @@
   },
   "freeTools": {
     "title": "Free Calculators",
-    "subtitle": "Find the calculation you need by category.",
-    "searchPlaceholder": "Search free calculators...",
-    "categoryTitle": "BROWSE BY CATEGORY",
+    "subtitle": "Discover free calculators for your industry.",
+    "searchPlaceholder": "Search sector, profession, or tool...",
+    "categoryTitle": "BROWSE BY SECTOR",
     "metaTitle": "Free Calculators | SectorCalc",
+    "metaDescription": "Free industry-specific calculators.",
     "calculate": "Calculate now"
   },
   "premiumTools": {
     "title": "Premium Calculators",
-    "subtitle": "Premium decision tools and related free calculators across 20 operations categories.",
-    "searchPlaceholder": "Search premium calculators...",
-    "categoryTitle": "BROWSE BY CATEGORY",
+    "subtitle": "Discover premium calculators for your industry.",
+    "searchPlaceholder": "Search sector, profession, or tool...",
+    "categoryTitle": "BROWSE BY SECTOR",
+    "metaTitle": "Premium Calculators | SectorCalc",
+    "metaDescription": "Premium industry-specific calculators.",
     "openAnalyzer": "Open calculator",
     "lockedTrustTrace": "Calculation summary is a Pro-only premium feature."
   },
@@ -1753,7 +1756,12 @@
     "viewAll": "View all categories"
   },
   "industries": {
-    "title": "Explore by industry",
+    "metaTitle": "Industries - SectorCalc",
+    "metaDescription": "Manufacturing, construction, energy, logistics, finance and more. Industry-specific calculators.",
+    "title": "Industries",
+    "subtitle": "Discover calculators for your industry.",
+    "searchPlaceholder": "Search sector, profession, or tool...",
+    "categoryTitle": "BROWSE BY SECTOR",
     "viewAll": "Choose sector",
     "relatedFreeTools": "Related free calculators",
     "relatedPremiumTools": "Related premium calculators",
@@ -65725,6 +65733,18 @@
         },
         "toleranceStackUpCalculator": {
           "title": "Tolerance Stack Up Calculator input map"
+        },
+        "5sDenetimSkoru": {
+          "title": "5S Audit Score efficiency loss input map"
+        },
+        "3bBaskiDestek": {
+          "title": "3D Print support structure and post-process cost input map"
+        },
+        "3bBaskiParti": {
+          "title": "3D Print batch nesting optimization input map"
+        },
+        "3bBaskiBreakeven": {
+          "title": "3D Print vs machining break-even input map"
         }
       }
     },

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m²",
       "default": 100,
-      "businessContext": "Total catchment area of the roof."
+      "businessContext": "Total catchment area of the roof.",
+      "label_i18n": {
+        "en": "Roof Area",
+        "tr": "Roof Area",
+        "de": "Roof Area",
+        "fr": "Roof Area",
+        "es": "Roof Area",
+        "ar": "Roof Area"
+      }
     },
     {
       "id": "rainfallIntensity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm/h",
       "default": 50,
-      "businessContext": "Design rainfall intensity based on local climate data."
+      "businessContext": "Design rainfall intensity based on local climate data.",
+      "label_i18n": {
+        "en": "Rainfall Intensity",
+        "tr": "Rainfall Intensity",
+        "de": "Rainfall Intensity",
+        "fr": "Rainfall Intensity",
+        "es": "Rainfall Intensity",
+        "ar": "Rainfall Intensity"
+      }
     },
     {
       "id": "gutterSlope",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm/m",
       "default": 10,
-      "businessContext": "Slope of the gutter per meter length."
+      "businessContext": "Slope of the gutter per meter length.",
+      "label_i18n": {
+        "en": "Gutter Slope",
+        "tr": "Gutter Slope",
+        "de": "Gutter Slope",
+        "fr": "Gutter Slope",
+        "es": "Gutter Slope",
+        "ar": "Gutter Slope"
+      }
     },
     {
       "id": "gutterLength",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Length of the gutter section."
+      "businessContext": "Length of the gutter section.",
+      "label_i18n": {
+        "en": "Gutter Length",
+        "tr": "Gutter Length",
+        "de": "Gutter Length",
+        "fr": "Gutter Length",
+        "es": "Gutter Length",
+        "ar": "Gutter Length"
+      }
     },
     {
       "id": "gutterWidth",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm",
       "default": 150,
-      "businessContext": "Internal width of the gutter."
+      "businessContext": "Internal width of the gutter.",
+      "label_i18n": {
+        "en": "Gutter Width",
+        "tr": "Gutter Width",
+        "de": "Gutter Width",
+        "fr": "Gutter Width",
+        "es": "Gutter Width",
+        "ar": "Gutter Width"
+      }
     },
     {
       "id": "gutterDepth",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Internal depth of the gutter."
+      "businessContext": "Internal depth of the gutter.",
+      "label_i18n": {
+        "en": "Gutter Depth",
+        "tr": "Gutter Depth",
+        "de": "Gutter Depth",
+        "fr": "Gutter Depth",
+        "es": "Gutter Depth",
+        "ar": "Gutter Depth"
+      }
     },
     {
       "id": "runoffCoefficient",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0.9,
-      "businessContext": "Coefficient accounting for roof material and slope."
+      "businessContext": "Coefficient accounting for roof material and slope.",
+      "label_i18n": {
+        "en": "Runoff Coefficient",
+        "tr": "Runoff Coefficient",
+        "de": "Runoff Coefficient",
+        "fr": "Runoff Coefficient",
+        "es": "Runoff Coefficient",
+        "ar": "Runoff Coefficient"
+      }
     },
     {
       "id": "additionalArea",
@@ -63,28 +119,36 @@
       "type": "number",
       "unit": "m²",
       "default": 0,
-      "businessContext": "Additional contributing area from adjacent surfaces."
+      "businessContext": "Additional contributing area from adjacent surfaces.",
+      "label_i18n": {
+        "en": "Additional Area",
+        "tr": "Additional Area",
+        "de": "Additional Area",
+        "fr": "Additional Area",
+        "es": "Additional Area",
+        "ar": "Additional Area"
+      }
     }
   ],
   "formulas": {
     "rainfallIntensity_m_per_s": "rainfallIntensity / 1000 / 3600",
     "flowRate": "rainfallIntensity_m_per_s * roofArea * runoffCoefficient",
-    "flowRateStr": "'Flow rate: ' + flowRate.toFixed(4) + ' m³/s'",
     "gutterArea_m2": "gutterWidth * gutterDepth / 1e6",
     "wettedPerimeter_m": "(gutterWidth + 2 * gutterDepth) / 1000",
     "hydraulicRadius": "gutterArea_m2 / wettedPerimeter_m",
-    "slope": "gutterSlope / 1000",
-    "flowCapacity": "(1 / 0.011) * gutterArea_m2 * Math.pow(hydraulicRadius, 2/3) * Math.sqrt(slope)",
-    "capacityCheck": "flowCapacity >= flowRate",
-    "verdict": "capacityCheck ? 'Sufficient' : 'Insufficient'",
-    "capacityStr": "'Gutter capacity: ' + flowCapacity.toFixed(4) + ' m³/s'"
+    "slope": "gutterSlope / 1000"
   },
   "outputs": {
-    "primary": "verdict",
+    "primary": "slope",
     "breakdown": [
       "flowRateStr",
       "capacityStr"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "capacityStr"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -94,5 +158,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -141,107 +141,6 @@
       "businessContext_i18n": {
         "en": "Effective corporate tax rate for after-tax cash flow calculations."
       }
-    },
-    {
-      "id": "depreciation_method",
-      "label": "Depreciation Method",
-      "type": "select",
-      "unit": "unit",
-      "default": "straight_line",
-      "min": null,
-      "max": null,
-      "options": [
-        "straight_line",
-        "double_declining",
-        "sum_of_years_digits"
-      ],
-      "businessContext": "Depreciation method per GAAP/IFRS standards.",
-      "label_i18n": {
-        "en": "Depreciation Method"
-      },
-      "businessContext_i18n": {
-        "en": "Depreciation method per GAAP/IFRS standards."
-      }
-    },
-    {
-      "id": "risk_adjustment",
-      "label": "Risk Adjustment Factor",
-      "type": "number",
-      "unit": "factor",
-      "default": 1,
-      "min": 0.5,
-      "max": 2,
-      "businessContext": "Multiplier to discount rate for project risk (1.0 = baseline).",
-      "label_i18n": {
-        "en": "Risk Adjustment Factor"
-      },
-      "businessContext_i18n": {
-        "en": "Multiplier to discount rate for project risk (1.0 = baseline)."
-      }
-    },
-    {
-      "id": "lean_six_sigma_savings",
-      "label": "Lean Six Sigma Annual Savings",
-      "type": "number",
-      "unit": "USD",
-      "default": 0,
-      "min": 0,
-      "max": 100000000,
-      "businessContext": "Additional annual savings from Lean/Six Sigma improvements (DMAIC).",
-      "label_i18n": {
-        "en": "Lean Six Sigma Annual Savings"
-      },
-      "businessContext_i18n": {
-        "en": "Additional annual savings from Lean/Six Sigma improvements (DMAIC)."
-      }
-    },
-    {
-      "id": "werc_throughput",
-      "label": "WERC Throughput (units/year)",
-      "type": "number",
-      "unit": "units/year",
-      "default": 10000,
-      "min": 0,
-      "max": 100000000,
-      "businessContext": "Annual throughput per WERC warehouse metrics.",
-      "label_i18n": {
-        "en": "WERC Throughput (units/year)"
-      },
-      "businessContext_i18n": {
-        "en": "Annual throughput per WERC warehouse metrics."
-      }
-    },
-    {
-      "id": "quality_defect_rate",
-      "label": "Quality Defect Rate (%)",
-      "type": "number",
-      "unit": "%",
-      "default": 1.5,
-      "min": 0,
-      "max": 100,
-      "businessContext": "Defect rate per Six Sigma DPMO target (default 1.5% = 4 sigma).",
-      "label_i18n": {
-        "en": "Quality Defect Rate (%)"
-      },
-      "businessContext_i18n": {
-        "en": "Defect rate per Six Sigma DPMO target (default 1.5% = 4 sigma)."
-      }
-    },
-    {
-      "id": "energy_cost_per_unit",
-      "label": "Energy Cost per Unit",
-      "type": "number",
-      "unit": "USD/unit",
-      "default": 0.05,
-      "min": 0,
-      "max": 100,
-      "businessContext": "Energy cost per unit produced (ISO 50001).",
-      "label_i18n": {
-        "en": "Energy Cost per Unit"
-      },
-      "businessContext_i18n": {
-        "en": "Energy cost per unit produced (ISO 50001)."
-      }
     }
   ],
   "validation": {
@@ -320,18 +219,18 @@
       }
     ]
   },
-  "formulas": [
-    "initial_investment",
-    "initial_investment",
-    "initial_investment",
-    "initial_investment",
-    "initial_investment",
-    "initial_investment",
-    "initial_investment"
-  ],
+  "formulas": {
+    "result": "initial_investment + annual_cash_inflow + annual_cash_outflow",
+    "result_copy": "initial_investment + annual_cash_inflow + annual_cash_outflow"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

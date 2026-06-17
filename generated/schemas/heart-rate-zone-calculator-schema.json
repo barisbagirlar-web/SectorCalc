@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Age of the user in years"
+      "businessContext": "Age of the user in years",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "restingHeartRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "bpm",
       "default": 60,
-      "businessContext": "Resting heart rate in beats per minute"
+      "businessContext": "Resting heart rate in beats per minute",
+      "label_i18n": {
+        "en": "Resting Heart Rate",
+        "tr": "Resting Heart Rate",
+        "de": "Resting Heart Rate",
+        "fr": "Resting Heart Rate",
+        "es": "Resting Heart Rate",
+        "ar": "Resting Heart Rate"
+      }
     },
     {
       "id": "lowerIntensity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 60,
-      "businessContext": "Lower bound of target heart rate zone as percentage of heart rate reserve"
+      "businessContext": "Lower bound of target heart rate zone as percentage of heart rate reserve",
+      "label_i18n": {
+        "en": "Lower Zone Intensity",
+        "tr": "Lower Zone Intensity",
+        "de": "Lower Zone Intensity",
+        "fr": "Lower Zone Intensity",
+        "es": "Lower Zone Intensity",
+        "ar": "Lower Zone Intensity"
+      }
     },
     {
       "id": "upperIntensity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 70,
-      "businessContext": "Upper bound of target heart rate zone as percentage of heart rate reserve"
+      "businessContext": "Upper bound of target heart rate zone as percentage of heart rate reserve",
+      "label_i18n": {
+        "en": "Upper Zone Intensity",
+        "tr": "Upper Zone Intensity",
+        "de": "Upper Zone Intensity",
+        "fr": "Upper Zone Intensity",
+        "es": "Upper Zone Intensity",
+        "ar": "Upper Zone Intensity"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
     "breakdown": [
       "lowerTarget",
       "upperTarget"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "midTarget"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -56,5 +93,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

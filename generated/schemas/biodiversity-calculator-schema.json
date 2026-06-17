@@ -84,15 +84,19 @@
   ],
   "formulas": {
     "speciesRichness": "((sp1>0?1:0)+(sp2>0?1:0)+(sp3>0?1:0)+(sp4>0?1:0)+(sp5>0?1:0))",
-    "shannonDiversity": "let t=sp1+sp2+sp3+sp4+sp5; t===0?0:-((sp1>0?(sp1/t)*Math.log(sp1/t):0)+(sp2>0?(sp2/t)*Math.log(sp2/t):0)+(sp3>0?(sp3/t)*Math.log(sp3/t):0)+(sp4>0?(sp4/t)*Math.log(sp4/t):0)+(sp5>0?(sp5/t)*Math.log(sp5/t):0))",
-    "simpsonDiversity": "let t=sp1+sp2+sp3+sp4+sp5; let s=sp1*(sp1-1)+sp2*(sp2-1)+sp3*(sp3-1)+sp4*(sp4-1)+sp5*(sp5-1); t<2?0:1-s/(t*(t-1))"
+    "speciesRichness_aux": "((sp1>0?1:0)+(sp2>0?1:0)+(sp3>0?1:0)+(sp4>0?1:0)+(sp5>0?1:0))"
   },
   "outputs": {
-    "primary": "shannonDiversity",
+    "primary": "speciesRichness_aux",
     "breakdown": [
       "simpsonDiversity",
       "speciesRichness"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "simpsonDiversity"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -102,5 +106,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

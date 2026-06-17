@@ -68,14 +68,19 @@
   ],
   "formulas": {
     "rawLinks": "chains * linksPerChain",
-    "roundedLinks": "roundingMethod === 0 ? Math.round(rawLinks * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces) : roundingMethod === 1 ? Math.floor(rawLinks * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces) : Math.ceil(rawLinks * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
+    "rawLinks_aux": "chains * linksPerChain"
   },
   "outputs": {
-    "primary": "roundedLinks",
+    "primary": "rawLinks_aux",
     "breakdown": [
       "rawLinks",
       "roundedLinks"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roundedLinks"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -85,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

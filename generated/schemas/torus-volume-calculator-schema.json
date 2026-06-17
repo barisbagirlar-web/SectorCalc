@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Torusun merkezinden tüp merkezine olan mesafe"
+      "businessContext": "Torusun merkezinden tüp merkezine olan mesafe",
+      "label_i18n": {
+        "en": "Büyük Yarıçap (R)",
+        "tr": "Büyük Yarıçap (R)",
+        "de": "Büyük Yarıçap (R)",
+        "fr": "Büyük Yarıçap (R)",
+        "es": "Büyük Yarıçap (R)",
+        "ar": "Büyük Yarıçap (R)"
+      }
     },
     {
       "id": "minorRadius",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.5,
-      "businessContext": "Tüpün yarıçapı"
+      "businessContext": "Tüpün yarıçapı",
+      "label_i18n": {
+        "en": "Küçük Yarıçap (r)",
+        "tr": "Küçük Yarıçap (r)",
+        "de": "Küçük Yarıçap (r)",
+        "fr": "Küçük Yarıçap (r)",
+        "es": "Küçük Yarıçap (r)",
+        "ar": "Küçük Yarıçap (r)"
+      }
     },
     {
       "id": "density",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 0,
-      "businessContext": "Ağırlık hesabı için opsiyonel; 0 ise atlanır"
+      "businessContext": "Ağırlık hesabı için opsiyonel; 0 ise atlanır",
+      "label_i18n": {
+        "en": "Malzeme Yoğunluğu",
+        "tr": "Malzeme Yoğunluğu",
+        "de": "Malzeme Yoğunluğu",
+        "fr": "Malzeme Yoğunluğu",
+        "es": "Malzeme Yoğunluğu",
+        "ar": "Malzeme Yoğunluğu"
+      }
     },
     {
       "id": "precision",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "adet",
       "default": 2,
-      "businessContext": "Sonuçlarda gösterilecek ondalık basamak sayısı"
+      "businessContext": "Sonuçlarda gösterilecek ondalık basamak sayısı",
+      "label_i18n": {
+        "en": "Ondalık Basamak",
+        "tr": "Ondalık Basamak",
+        "de": "Ondalık Basamak",
+        "fr": "Ondalık Basamak",
+        "es": "Ondalık Basamak",
+        "ar": "Ondalık Basamak"
+      }
     }
   ],
   "formulas": {
-    "volume": "Math.round(2 * Math.PI ** 2 * majorRadius * minorRadius ** 2 * 10**precision) / 10**precision",
-    "surfaceArea": "Math.round(4 * Math.PI ** 2 * majorRadius * minorRadius * 10**precision) / 10**precision",
-    "mass": "density > 0 ? Math.round(2 * Math.PI ** 2 * majorRadius * minorRadius ** 2 * density * 10**precision) / 10**precision : 0"
+    "result": "majorRadius + minorRadius + density",
+    "result_copy": "majorRadius + minorRadius + density"
   },
   "outputs": {
-    "primary": "volume",
+    "primary": "result",
     "breakdown": [
       "surfaceArea",
       "mass"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "mass"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -54,5 +90,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100000,
-      "businessContext": "Total sales income before any deductions."
+      "businessContext": "Total sales income before any deductions.",
+      "label_i18n": {
+        "en": "Total Revenue",
+        "tr": "Total Revenue",
+        "de": "Total Revenue",
+        "fr": "Total Revenue",
+        "es": "Total Revenue",
+        "ar": "Total Revenue"
+      }
     },
     {
       "id": "cogs",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 60000,
-      "businessContext": "Direct costs attributable to the production of goods sold."
+      "businessContext": "Direct costs attributable to the production of goods sold.",
+      "label_i18n": {
+        "en": "Cost of Goods Sold",
+        "tr": "Cost of Goods Sold",
+        "de": "Cost of Goods Sold",
+        "fr": "Cost of Goods Sold",
+        "es": "Cost of Goods Sold",
+        "ar": "Cost of Goods Sold"
+      }
     },
     {
       "id": "operatingExpenses",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 20000,
-      "businessContext": "Expenses incurred from normal business operations like rent, utilities, salaries."
+      "businessContext": "Expenses incurred from normal business operations like rent, utilities, salaries.",
+      "label_i18n": {
+        "en": "Operating Expenses",
+        "tr": "Operating Expenses",
+        "de": "Operating Expenses",
+        "fr": "Operating Expenses",
+        "es": "Operating Expenses",
+        "ar": "Operating Expenses"
+      }
     },
     {
       "id": "interestExpense",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 5000,
-      "businessContext": "Cost of borrowing money."
+      "businessContext": "Cost of borrowing money.",
+      "label_i18n": {
+        "en": "Interest Expense",
+        "tr": "Interest Expense",
+        "de": "Interest Expense",
+        "fr": "Interest Expense",
+        "es": "Interest Expense",
+        "ar": "Interest Expense"
+      }
     },
     {
       "id": "taxExpense",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD",
       "default": 10000,
-      "businessContext": "Income tax owed based on taxable income."
+      "businessContext": "Income tax owed based on taxable income.",
+      "label_i18n": {
+        "en": "Tax Expense",
+        "tr": "Tax Expense",
+        "de": "Tax Expense",
+        "fr": "Tax Expense",
+        "es": "Tax Expense",
+        "ar": "Tax Expense"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "grossProfit",
       "totalExpenses"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "netProfit"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -62,5 +107,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "havacilik",
   "profession": "Tasarım Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

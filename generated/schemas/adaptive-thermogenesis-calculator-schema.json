@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kcal/gün",
       "default": 2000,
-      "businessContext": "Bireyin dinlenim durumundaki günlük enerji tüketimi"
+      "businessContext": "Bireyin dinlenim durumundaki günlük enerji tüketimi",
+      "label_i18n": {
+        "en": "Bazal Enerji Harcaması",
+        "tr": "Bazal Enerji Harcaması",
+        "de": "Bazal Enerji Harcaması",
+        "fr": "Bazal Enerji Harcaması",
+        "es": "Bazal Enerji Harcaması",
+        "ar": "Bazal Enerji Harcaması"
+      }
     },
     {
       "id": "energyIntake",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kcal/gün",
       "default": 1500,
-      "businessContext": "Diyet sırasında alınan ortalama günlük enerji"
+      "businessContext": "Diyet sırasında alınan ortalama günlük enerji",
+      "label_i18n": {
+        "en": "Günlük Enerji Alımı",
+        "tr": "Günlük Enerji Alımı",
+        "de": "Günlük Enerji Alımı",
+        "fr": "Günlük Enerji Alımı",
+        "es": "Günlük Enerji Alımı",
+        "ar": "Günlük Enerji Alımı"
+      }
     },
     {
       "id": "duration",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "gün",
       "default": 30,
-      "businessContext": "Kalori açığının uygulandığı süre"
+      "businessContext": "Kalori açığının uygulandığı süre",
+      "label_i18n": {
+        "en": "Diyet Süresi",
+        "tr": "Diyet Süresi",
+        "de": "Diyet Süresi",
+        "fr": "Diyet Süresi",
+        "es": "Diyet Süresi",
+        "ar": "Diyet Süresi"
+      }
     },
     {
       "id": "weight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Diyet öncesi veya mevcut vücut ağırlığı"
+      "businessContext": "Diyet öncesi veya mevcut vücut ağırlığı",
+      "label_i18n": {
+        "en": "Vücut Ağırlığı",
+        "tr": "Vücut Ağırlığı",
+        "de": "Vücut Ağırlığı",
+        "fr": "Vücut Ağırlığı",
+        "es": "Vücut Ağırlığı",
+        "ar": "Vücut Ağırlığı"
+      }
     },
     {
       "id": "tau",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "gün",
       "default": 14,
-      "businessContext": "Termojenik adaptasyonun yarılanma süresi (genellikle 7-14 gün)"
+      "businessContext": "Termojenik adaptasyonun yarılanma süresi (genellikle 7-14 gün)",
+      "label_i18n": {
+        "en": "Adaptasyon Zaman Sabiti",
+        "tr": "Adaptasyon Zaman Sabiti",
+        "de": "Adaptasyon Zaman Sabiti",
+        "fr": "Adaptasyon Zaman Sabiti",
+        "es": "Adaptasyon Zaman Sabiti",
+        "ar": "Adaptasyon Zaman Sabiti"
+      }
     },
     {
       "id": "fatFreeMass",
@@ -47,24 +87,34 @@
       "type": "number",
       "unit": "kg",
       "default": 50,
-      "businessContext": "Kas, kemik ve organlar gibi metabolik olarak aktif dokuların toplamı"
+      "businessContext": "Kas, kemik ve organlar gibi metabolik olarak aktif dokuların toplamı",
+      "label_i18n": {
+        "en": "Yağsız Vücut Kütlesi",
+        "tr": "Yağsız Vücut Kütlesi",
+        "de": "Yağsız Vücut Kütlesi",
+        "fr": "Yağsız Vücut Kütlesi",
+        "es": "Yağsız Vücut Kütlesi",
+        "ar": "Yağsız Vücut Kütlesi"
+      }
     }
   ],
   "formulas": {
     "initialDeficit": "bee - energyIntake",
-    "adaptationFactor": "1 - Math.exp(-duration / tau)",
-    "weightFactor": "Math.sqrt(weight / 70)",
-    "ffmFactor": "fatFreeMass / weight",
-    "adaptiveThermogenesis": "(bee - energyIntake) * (1 - Math.exp(-duration / tau)) * Math.sqrt(weight / 70) * (fatFreeMass / weight)"
+    "ffmFactor": "fatFreeMass / weight"
   },
   "outputs": {
-    "primary": "adaptiveThermogenesis",
+    "primary": "ffmFactor",
     "breakdown": [
       "initialDeficit",
       "adaptationFactor",
       "weightFactor",
       "ffmFactor"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "adaptiveThermogenesis"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -74,5 +124,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "engineering"
+  "categoryId": "engineering",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

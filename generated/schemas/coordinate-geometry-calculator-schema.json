@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "İlk noktanın X koordinatı"
+      "businessContext": "İlk noktanın X koordinatı",
+      "label_i18n": {
+        "en": "X1 Koordinatı",
+        "tr": "X1 Koordinatı",
+        "de": "X1 Koordinatı",
+        "fr": "X1 Koordinatı",
+        "es": "X1 Koordinatı",
+        "ar": "X1 Koordinatı"
+      }
     },
     {
       "id": "y1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "İlk noktanın Y koordinatı"
+      "businessContext": "İlk noktanın Y koordinatı",
+      "label_i18n": {
+        "en": "Y1 Koordinatı",
+        "tr": "Y1 Koordinatı",
+        "de": "Y1 Koordinatı",
+        "fr": "Y1 Koordinatı",
+        "es": "Y1 Koordinatı",
+        "ar": "Y1 Koordinatı"
+      }
     },
     {
       "id": "x2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "İkinci noktanın X koordinatı"
+      "businessContext": "İkinci noktanın X koordinatı",
+      "label_i18n": {
+        "en": "X2 Koordinatı",
+        "tr": "X2 Koordinatı",
+        "de": "X2 Koordinatı",
+        "fr": "X2 Koordinatı",
+        "es": "X2 Koordinatı",
+        "ar": "X2 Koordinatı"
+      }
     },
     {
       "id": "y2",
@@ -31,11 +55,18 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "İkinci noktanın Y koordinatı"
+      "businessContext": "İkinci noktanın Y koordinatı",
+      "label_i18n": {
+        "en": "Y2 Koordinatı",
+        "tr": "Y2 Koordinatı",
+        "de": "Y2 Koordinatı",
+        "fr": "Y2 Koordinatı",
+        "es": "Y2 Koordinatı",
+        "ar": "Y2 Koordinatı"
+      }
     }
   ],
   "formulas": {
-    "distance": "Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)",
     "midpointX": "(x1 + x2) / 2",
     "midpointY": "(y1 + y2) / 2",
     "slope": "(y2 - y1) / (x2 - x1)",
@@ -44,7 +75,7 @@
     "lineC": "x1 * y2 - x2 * y1"
   },
   "outputs": {
-    "primary": "distance",
+    "primary": "lineC",
     "breakdown": [
       "midpointX",
       "midpointY",
@@ -52,7 +83,12 @@
       "lineA",
       "lineB",
       "lineC"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "lineC"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -62,5 +98,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

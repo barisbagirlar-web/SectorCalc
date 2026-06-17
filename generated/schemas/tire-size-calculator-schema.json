@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 225,
-      "businessContext": "Nominal section width of the tire"
+      "businessContext": "Nominal section width of the tire",
+      "label_i18n": {
+        "en": "Tire Width",
+        "tr": "Tire Width",
+        "de": "Tire Width",
+        "fr": "Tire Width",
+        "es": "Tire Width",
+        "ar": "Tire Width"
+      }
     },
     {
       "id": "aspectRatio",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 45,
-      "businessContext": "Sidewall height as a percentage of tire width"
+      "businessContext": "Sidewall height as a percentage of tire width",
+      "label_i18n": {
+        "en": "Aspect Ratio",
+        "tr": "Aspect Ratio",
+        "de": "Aspect Ratio",
+        "fr": "Aspect Ratio",
+        "es": "Aspect Ratio",
+        "ar": "Aspect Ratio"
+      }
     },
     {
       "id": "rimDiameter",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "in",
       "default": 17,
-      "businessContext": "Diameter of the wheel rim"
+      "businessContext": "Diameter of the wheel rim",
+      "label_i18n": {
+        "en": "Rim Diameter",
+        "tr": "Rim Diameter",
+        "de": "Rim Diameter",
+        "fr": "Rim Diameter",
+        "es": "Rim Diameter",
+        "ar": "Rim Diameter"
+      }
     },
     {
       "id": "treadLoss",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "Amount of tread depth worn off, reducing overall diameter"
+      "businessContext": "Amount of tread depth worn off, reducing overall diameter",
+      "label_i18n": {
+        "en": "Tread Loss",
+        "tr": "Tread Loss",
+        "de": "Tread Loss",
+        "fr": "Tread Loss",
+        "es": "Tread Loss",
+        "ar": "Tread Loss"
+      }
     }
   ],
   "formulas": {
@@ -50,7 +82,12 @@
       "overallDiameterMm",
       "circumferenceIn",
       "circumferenceMm"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "circumferenceMm"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -60,5 +97,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

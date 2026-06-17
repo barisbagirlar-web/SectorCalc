@@ -68,7 +68,6 @@
   ],
   "formulas": {
     "yearsRule115": "115 / (interestRate * (1 - taxRate/100))",
-    "yearsExact": "Math.log(3) / (compoundingFrequency * Math.log(1 + (interestRate*(1-taxRate/100)/100) / compoundingFrequency))",
     "targetAmount": "principal * 3"
   },
   "outputs": {
@@ -76,7 +75,12 @@
     "breakdown": [
       "yearsExact",
       "targetAmount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "targetAmount"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -86,5 +90,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

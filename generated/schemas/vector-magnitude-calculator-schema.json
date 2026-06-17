@@ -71,18 +71,22 @@
     "squaredComponent2": "component2**2",
     "squaredComponent3": "component3**2",
     "squaredComponent4": "component4**2",
-    "sumOfSquares": "component1**2 + component2**2 + component3**2 + component4**2",
-    "magnitude": "Math.sqrt(component1**2 + component2**2 + component3**2 + component4**2)"
+    "sumOfSquares": "component1**2 + component2**2 + component3**2 + component4**2"
   },
   "outputs": {
-    "primary": "magnitude",
+    "primary": "sumOfSquares",
     "breakdown": [
       "squaredComponent1",
       "squaredComponent2",
       "squaredComponent3",
       "squaredComponent4",
       "sumOfSquares"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "magnitude"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -92,5 +96,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

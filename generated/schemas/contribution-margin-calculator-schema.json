@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TL/birim",
       "default": 100,
-      "businessContext": "Birim başına satış fiyatı"
+      "businessContext": "Birim başına satış fiyatı",
+      "label_i18n": {
+        "en": "Satış Fiyatı (Birim)",
+        "tr": "Satış Fiyatı (Birim)",
+        "de": "Satış Fiyatı (Birim)",
+        "fr": "Satış Fiyatı (Birim)",
+        "es": "Satış Fiyatı (Birim)",
+        "ar": "Satış Fiyatı (Birim)"
+      }
     },
     {
       "id": "variableCostPerUnit",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "TL/birim",
       "default": 60,
-      "businessContext": "Birim başına doğrudan değişken maliyet"
+      "businessContext": "Birim başına doğrudan değişken maliyet",
+      "label_i18n": {
+        "en": "Değişken Maliyet (Birim)",
+        "tr": "Değişken Maliyet (Birim)",
+        "de": "Değişken Maliyet (Birim)",
+        "fr": "Değişken Maliyet (Birim)",
+        "es": "Değişken Maliyet (Birim)",
+        "ar": "Değişken Maliyet (Birim)"
+      }
     },
     {
       "id": "unitsSold",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1000,
-      "businessContext": "Satılan toplam birim sayısı"
+      "businessContext": "Satılan toplam birim sayısı",
+      "label_i18n": {
+        "en": "Satılan Miktar",
+        "tr": "Satılan Miktar",
+        "de": "Satılan Miktar",
+        "fr": "Satılan Miktar",
+        "es": "Satılan Miktar",
+        "ar": "Satılan Miktar"
+      }
     },
     {
       "id": "fixedCosts",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TL",
       "default": 20000,
-      "businessContext": "Toplam sabit maliyetler (faaliyet karı hesaplaması için isteğe bağlı)"
+      "businessContext": "Toplam sabit maliyetler (faaliyet karı hesaplaması için isteğe bağlı)",
+      "label_i18n": {
+        "en": "Sabit Maliyetler",
+        "tr": "Sabit Maliyetler",
+        "de": "Sabit Maliyetler",
+        "fr": "Sabit Maliyetler",
+        "es": "Sabit Maliyetler",
+        "ar": "Sabit Maliyetler"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "contributionMarginPerUnit",
       "contributionMarginRatio",
       "operatingProfit"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "operatingProfit"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -56,5 +93,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

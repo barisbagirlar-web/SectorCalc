@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 3.5,
-      "businessContext": "The weight of the baby in kilograms, used to estimate daily milk intake requirement."
+      "businessContext": "The weight of the baby in kilograms, used to estimate daily milk intake requirement.",
+      "label_i18n": {
+        "en": "Baby Weight",
+        "tr": "Baby Weight",
+        "de": "Baby Weight",
+        "fr": "Baby Weight",
+        "es": "Baby Weight",
+        "ar": "Baby Weight"
+      }
     },
     {
       "id": "dailyFeeds",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "feeds",
       "default": 8,
-      "businessContext": "Number of times the baby feeds per day, used to divide total daily volume."
+      "businessContext": "Number of times the baby feeds per day, used to divide total daily volume.",
+      "label_i18n": {
+        "en": "Feeds per Day",
+        "tr": "Feeds per Day",
+        "de": "Feeds per Day",
+        "fr": "Feeds per Day",
+        "es": "Feeds per Day",
+        "ar": "Feeds per Day"
+      }
     },
     {
       "id": "milkDensity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "g/mL",
       "default": 1.03,
-      "businessContext": "Density of breast milk, typically 1.03 g/mL, for mass conversion."
+      "businessContext": "Density of breast milk, typically 1.03 g/mL, for mass conversion.",
+      "label_i18n": {
+        "en": "Milk Density",
+        "tr": "Milk Density",
+        "de": "Milk Density",
+        "fr": "Milk Density",
+        "es": "Milk Density",
+        "ar": "Milk Density"
+      }
     },
     {
       "id": "wastageFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Estimated percentage of milk lost due to spillage or storage inefficiencies."
+      "businessContext": "Estimated percentage of milk lost due to spillage or storage inefficiencies.",
+      "label_i18n": {
+        "en": "Wastage Factor",
+        "tr": "Wastage Factor",
+        "de": "Wastage Factor",
+        "fr": "Wastage Factor",
+        "es": "Wastage Factor",
+        "ar": "Wastage Factor"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "perFeedVolume",
       "totalMass",
       "productionVolume"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "productionVolume"
   },
   "category": "Gıda & Tarım",
   "sector": "Perakende & Gıda",
@@ -56,5 +93,10 @@
   "categorySlug": "food-cold-chain-hygiene",
   "sectorId": "lojistik",
   "profession": "Lojistik Uzmanı",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

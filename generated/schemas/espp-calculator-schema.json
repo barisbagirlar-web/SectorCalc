@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100,
-      "businessContext": "Current market price per share at purchase date"
+      "businessContext": "Current market price per share at purchase date",
+      "label_i18n": {
+        "en": "Fair Market Value per Share",
+        "tr": "Fair Market Value per Share",
+        "de": "Fair Market Value per Share",
+        "fr": "Fair Market Value per Share",
+        "es": "Fair Market Value per Share",
+        "ar": "Fair Market Value per Share"
+      }
     },
     {
       "id": "discountRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Discount percentage offered by the plan (e.g., 15 means 15% off FMV)"
+      "businessContext": "Discount percentage offered by the plan (e.g., 15 means 15% off FMV)",
+      "label_i18n": {
+        "en": "ESPP Discount",
+        "tr": "ESPP Discount",
+        "de": "ESPP Discount",
+        "fr": "ESPP Discount",
+        "es": "ESPP Discount",
+        "ar": "ESPP Discount"
+      }
     },
     {
       "id": "numberOfShares",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "shares",
       "default": 100,
-      "businessContext": "Total number of shares bought through the ESPP"
+      "businessContext": "Total number of shares bought through the ESPP",
+      "label_i18n": {
+        "en": "Number of Shares Purchased",
+        "tr": "Number of Shares Purchased",
+        "de": "Number of Shares Purchased",
+        "fr": "Number of Shares Purchased",
+        "es": "Number of Shares Purchased",
+        "ar": "Number of Shares Purchased"
+      }
     },
     {
       "id": "holdingPeriodMonths",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "months",
       "default": 0,
-      "businessContext": "Number of months held before selling; 0 for immediate sale"
+      "businessContext": "Number of months held before selling; 0 for immediate sale",
+      "label_i18n": {
+        "en": "Holding Period in Months",
+        "tr": "Holding Period in Months",
+        "de": "Holding Period in Months",
+        "fr": "Holding Period in Months",
+        "es": "Holding Period in Months",
+        "ar": "Holding Period in Months"
+      }
     },
     {
       "id": "ordinaryIncomeTaxRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 22,
-      "businessContext": "Applicable marginal tax rate for ordinary income"
+      "businessContext": "Applicable marginal tax rate for ordinary income",
+      "label_i18n": {
+        "en": "Ordinary Income Tax Rate",
+        "tr": "Ordinary Income Tax Rate",
+        "de": "Ordinary Income Tax Rate",
+        "fr": "Ordinary Income Tax Rate",
+        "es": "Ordinary Income Tax Rate",
+        "ar": "Ordinary Income Tax Rate"
+      }
     },
     {
       "id": "capitalGainsTaxRate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Tax rate for long-term capital gains (if holding period > 12 months)"
+      "businessContext": "Tax rate for long-term capital gains (if holding period > 12 months)",
+      "label_i18n": {
+        "en": "Long-Term Capital Gains Tax Rate",
+        "tr": "Long-Term Capital Gains Tax Rate",
+        "de": "Long-Term Capital Gains Tax Rate",
+        "fr": "Long-Term Capital Gains Tax Rate",
+        "es": "Long-Term Capital Gains Tax Rate",
+        "ar": "Long-Term Capital Gains Tax Rate"
+      }
     }
   ],
   "formulas": {
@@ -67,7 +115,12 @@
       "immediateGain",
       "taxIfSoldImmediately",
       "effectiveDiscount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "effectiveDiscount"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -77,5 +130,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

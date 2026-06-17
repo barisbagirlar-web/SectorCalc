@@ -150,70 +150,6 @@
       "businessContext_i18n": {
         "en": "Subjective rating of disease severity (0 = none, 10 = total loss)."
       }
-    },
-    {
-      "id": "weed_cover_pct",
-      "label": "Weed Cover (%)",
-      "type": "number",
-      "unit": "%",
-      "default": 5,
-      "min": 0,
-      "max": 100,
-      "businessContext": "Percentage of field area covered by weeds, competing for resources.",
-      "label_i18n": {
-        "en": "Weed Cover (%)"
-      },
-      "businessContext_i18n": {
-        "en": "Percentage of field area covered by weeds, competing for resources."
-      }
-    },
-    {
-      "id": "soil_quality_score",
-      "label": "Soil Quality Score (0-100)",
-      "type": "number",
-      "unit": "score",
-      "default": 75,
-      "min": 0,
-      "max": 100,
-      "businessContext": "Aggregate soil health metric (organic matter, pH, structure, etc.).",
-      "label_i18n": {
-        "en": "Soil Quality Score (0-100)"
-      },
-      "businessContext_i18n": {
-        "en": "Aggregate soil health metric (organic matter, pH, structure, etc.)."
-      }
-    },
-    {
-      "id": "labor_efficiency",
-      "label": "Labor Efficiency (0-100)",
-      "type": "number",
-      "unit": "score",
-      "default": 80,
-      "min": 0,
-      "max": 100,
-      "businessContext": "Rating of labor productivity and skill level in field operations.",
-      "label_i18n": {
-        "en": "Labor Efficiency (0-100)"
-      },
-      "businessContext_i18n": {
-        "en": "Rating of labor productivity and skill level in field operations."
-      }
-    },
-    {
-      "id": "equipment_reliability",
-      "label": "Equipment Reliability (0-100)",
-      "type": "number",
-      "unit": "score",
-      "default": 85,
-      "min": 0,
-      "max": 100,
-      "businessContext": "Percentage of time equipment operates without breakdown during critical periods.",
-      "label_i18n": {
-        "en": "Equipment Reliability (0-100)"
-      },
-      "businessContext_i18n": {
-        "en": "Percentage of time equipment operates without breakdown during critical periods."
-      }
     }
   ],
   "validation": {
@@ -264,19 +200,18 @@
       }
     ]
   },
-  "formulas": [
-    "expected_yield",
-    "expected_yield",
-    "expected_yield",
-    "expected_yield",
-    "expected_yield",
-    "expected_yield",
-    "expected_yield",
-    "expected_yield"
-  ],
+  "formulas": {
+    "result": "expected_yield + actual_yield + harvest_loss_pct",
+    "result_copy": "expected_yield + actual_yield + harvest_loss_pct"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "crop-yield-loss-analyzer-calculator",
   "catalogCategory": "everyday-life",

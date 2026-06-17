@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from carbohydrate-calculator-schema.json
 import * as z from 'zod';
 
@@ -19,27 +20,35 @@ export const Carbohydrate_calculatorInputSchema = z.object({
   carbPercentage: z.number().default(50),
 });
 
-function evaluateAllFormulas(input: Carbohydrate_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.gender * (10*input.weight + 6.25*input.height - 5*input.age + 5) + (1 - input.gender) * (10*input.weight + 6.25*input.height - 5*input.age - 161); results["bmr"] = Number.isFinite(v) ? v : 0; } catch { results["bmr"] = 0; }
-  try { const v = (results["bmr"] ?? 0) * input.activityLevel; results["tdee"] = Number.isFinite(v) ? v : 0; } catch { results["tdee"] = 0; }
-  try { const v = (results["tdee"] ?? 0) * input.carbPercentage / 100; results["carbCalories"] = Number.isFinite(v) ? v : 0; } catch { results["carbCalories"] = 0; }
-  try { const v = (results["carbCalories"] ?? 0) / 4; results["dailyCarbs"] = Number.isFinite(v) ? v : 0; } catch { results["dailyCarbs"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Carbohydrate_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.gender * (10*input.weight + 6.25*input.height - 5*input.age + 5) + (1 - input.gender) * (10*input.weight + 6.25*input.height - 5*input.age - 161); results["bmr"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["bmr"] = 0; }
+  try { const v = (asFormulaNumber(results["bmr"])) * input.activityLevel; results["tdee"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["tdee"] = 0; }
+  try { const v = (asFormulaNumber(results["tdee"])) * input.carbPercentage / 100; results["carbCalories"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["carbCalories"] = 0; }
+  try { const v = (asFormulaNumber(results["carbCalories"])) / 4; results["dailyCarbs"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["dailyCarbs"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateCarbohydrate_calculator(input: Carbohydrate_calculatorInput): Carbohydrate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["dailyCarbs"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["dailyCarbs"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

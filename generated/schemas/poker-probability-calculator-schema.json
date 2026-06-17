@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cards",
       "default": 2,
-      "businessContext": "Number of cards you have seen, including your hole cards and any community cards."
+      "businessContext": "Number of cards you have seen, including your hole cards and any community cards.",
+      "label_i18n": {
+        "en": "Known Cards",
+        "tr": "Known Cards",
+        "de": "Known Cards",
+        "fr": "Known Cards",
+        "es": "Known Cards",
+        "ar": "Known Cards"
+      }
     },
     {
       "id": "deckSize",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cards",
       "default": 52,
-      "businessContext": "Total number of cards in the deck."
+      "businessContext": "Total number of cards in the deck.",
+      "label_i18n": {
+        "en": "Deck Size",
+        "tr": "Deck Size",
+        "de": "Deck Size",
+        "fr": "Deck Size",
+        "es": "Deck Size",
+        "ar": "Deck Size"
+      }
     },
     {
       "id": "outs",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cards",
       "default": 4,
-      "businessContext": "Number of cards in the remaining deck that will improve your hand to a winner."
+      "businessContext": "Number of cards in the remaining deck that will improve your hand to a winner.",
+      "label_i18n": {
+        "en": "Outs",
+        "tr": "Outs",
+        "de": "Outs",
+        "fr": "Outs",
+        "es": "Outs",
+        "ar": "Outs"
+      }
     },
     {
       "id": "draws",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cards",
       "default": 1,
-      "businessContext": "Number of upcoming community cards to be dealt (e.g., 1 for turn only, 2 for turn and river)."
+      "businessContext": "Number of upcoming community cards to be dealt (e.g., 1 for turn only, 2 for turn and river).",
+      "label_i18n": {
+        "en": "Cards to Draw",
+        "tr": "Cards to Draw",
+        "de": "Cards to Draw",
+        "fr": "Cards to Draw",
+        "es": "Cards to Draw",
+        "ar": "Cards to Draw"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
     "breakdown": [
       "lossProbability",
       "oddsAgainst"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "oddsAgainst"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -56,5 +93,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

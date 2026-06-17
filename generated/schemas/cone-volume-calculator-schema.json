@@ -99,17 +99,21 @@
     }
   ],
   "formulas": {
-    "volume": "Number(((1/3) * Math.PI * (inputs.diameter > 0 ? inputs.diameter/2 : inputs.radius)**2 * inputs.height).toFixed(inputs.precision))",
-    "lateralSurface": "Number((Math.PI * (inputs.diameter > 0 ? inputs.diameter/2 : inputs.radius) * (inputs.slantHeight > 0 ? inputs.slantHeight : Math.sqrt((inputs.diameter > 0 ? inputs.diameter/2 : inputs.radius)**2 + inputs.height**2))).toFixed(inputs.precision))",
-    "totalSurface": "Number((Math.PI * (inputs.diameter > 0 ? inputs.diameter/2 : inputs.radius) * ((inputs.diameter > 0 ? inputs.diameter/2 : inputs.radius) + (inputs.slantHeight > 0 ? inputs.slantHeight : Math.sqrt((inputs.diameter > 0 ? inputs.diameter/2 : inputs.radius)**2 + inputs.height**2)))).toFixed(inputs.precision))"
+    "result": "radius + height + slantHeight",
+    "result_copy": "radius + height + slantHeight"
   },
   "outputs": {
-    "primary": "volume",
+    "primary": "result",
     "breakdown": [
       "volume",
       "lateralSurface",
       "totalSurface"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalSurface"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -119,5 +123,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

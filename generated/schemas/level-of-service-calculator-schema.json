@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "units",
       "default": 1000,
-      "businessContext": "The average total demand expected during the replenishment lead time."
+      "businessContext": "The average total demand expected during the replenishment lead time.",
+      "label_i18n": {
+        "en": "Average Demand During Lead Time",
+        "tr": "Average Demand During Lead Time",
+        "de": "Average Demand During Lead Time",
+        "fr": "Average Demand During Lead Time",
+        "es": "Average Demand During Lead Time",
+        "ar": "Average Demand During Lead Time"
+      }
     },
     {
       "id": "stdDevDemandDdlt",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "units",
       "default": 200,
-      "businessContext": "The standard deviation of demand variability during the lead time."
+      "businessContext": "The standard deviation of demand variability during the lead time.",
+      "label_i18n": {
+        "en": "Standard Deviation of Demand During Lead Time",
+        "tr": "Standard Deviation of Demand During Lead Time",
+        "de": "Standard Deviation of Demand During Lead Time",
+        "fr": "Standard Deviation of Demand During Lead Time",
+        "es": "Standard Deviation of Demand During Lead Time",
+        "ar": "Standard Deviation of Demand During Lead Time"
+      }
     },
     {
       "id": "reorderPoint",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "units",
       "default": 1200,
-      "businessContext": "Inventory level at which a new order is triggered."
+      "businessContext": "Inventory level at which a new order is triggered.",
+      "label_i18n": {
+        "en": "Reorder Point",
+        "tr": "Reorder Point",
+        "de": "Reorder Point",
+        "fr": "Reorder Point",
+        "es": "Reorder Point",
+        "ar": "Reorder Point"
+      }
     },
     {
       "id": "orderQuantity",
@@ -31,26 +55,33 @@
       "type": "number",
       "unit": "units",
       "default": 500,
-      "businessContext": "The fixed order quantity placed each time."
+      "businessContext": "The fixed order quantity placed each time.",
+      "label_i18n": {
+        "en": "Order Quantity",
+        "tr": "Order Quantity",
+        "de": "Order Quantity",
+        "fr": "Order Quantity",
+        "es": "Order Quantity",
+        "ar": "Order Quantity"
+      }
     }
   ],
   "formulas": {
     "z": "(reorderPoint - meanDemandDdlt) / stdDevDemandDdlt",
-    "csl": "1 / (1 + Math.exp(-0.07056 * Math.pow(z, 3) - 1.5976 * z))",
-    "safetyStock": "reorderPoint - meanDemandDdlt",
-    "standardNormalPDF": "(1 / Math.sqrt(2 * Math.PI)) * Math.exp(-0.5 * Math.pow(z, 2))",
-    "standardNormalLoss": "standardNormalPDF - z * (1 - csl)",
-    "fillRate": "1 - (stdDevDemandDdlt * standardNormalLoss) / orderQuantity",
-    "cslPercent": "csl * 100",
-    "fillRatePercent": "fillRate * 100"
+    "safetyStock": "reorderPoint - meanDemandDdlt"
   },
   "outputs": {
-    "primary": "cslPercent",
+    "primary": "safetyStock",
     "breakdown": [
       "fillRatePercent",
       "safetyStock",
       "z"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "fillRatePercent"
   },
   "category": "Lojistik & Tedarik Zinciri",
   "sector": "Lojistik & Sevkiyat",
@@ -60,5 +91,10 @@
   "categorySlug": "procurement-supply-chain",
   "sectorId": "lojistik",
   "profession": "Lojistik Uzmanı",
-  "categoryId": "logistics"
+  "categoryId": "logistics",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

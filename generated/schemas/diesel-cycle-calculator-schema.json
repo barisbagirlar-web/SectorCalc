@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 18,
-      "businessContext": "Ratio of cylinder volume at BDC to TDC. Typical diesel: 12-24."
+      "businessContext": "Ratio of cylinder volume at BDC to TDC. Typical diesel: 12-24.",
+      "label_i18n": {
+        "en": "Compression Ratio (r)",
+        "tr": "Compression Ratio (r)",
+        "de": "Compression Ratio (r)",
+        "fr": "Compression Ratio (r)",
+        "es": "Compression Ratio (r)",
+        "ar": "Compression Ratio (r)"
+      }
     },
     {
       "id": "rc",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 2.5,
-      "businessContext": "Ratio of volume after combustion to clearance volume. Typical: 1.5-3."
+      "businessContext": "Ratio of volume after combustion to clearance volume. Typical: 1.5-3.",
+      "label_i18n": {
+        "en": "Cutoff Ratio (rc)",
+        "tr": "Cutoff Ratio (rc)",
+        "de": "Cutoff Ratio (rc)",
+        "fr": "Cutoff Ratio (rc)",
+        "es": "Cutoff Ratio (rc)",
+        "ar": "Cutoff Ratio (rc)"
+      }
     },
     {
       "id": "T1",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "K",
       "default": 300,
-      "businessContext": "Temperature at start of compression (state 1). Standard ambient: 300 K."
+      "businessContext": "Temperature at start of compression (state 1). Standard ambient: 300 K.",
+      "label_i18n": {
+        "en": "Initial Temperature (T1)",
+        "tr": "Initial Temperature (T1)",
+        "de": "Initial Temperature (T1)",
+        "fr": "Initial Temperature (T1)",
+        "es": "Initial Temperature (T1)",
+        "ar": "Initial Temperature (T1)"
+      }
     },
     {
       "id": "p1",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "Pa",
       "default": 100000,
-      "businessContext": "Pressure at start of compression (state 1). Atmospheric: 101325 Pa."
+      "businessContext": "Pressure at start of compression (state 1). Atmospheric: 101325 Pa.",
+      "label_i18n": {
+        "en": "Initial Pressure (p1)",
+        "tr": "Initial Pressure (p1)",
+        "de": "Initial Pressure (p1)",
+        "fr": "Initial Pressure (p1)",
+        "es": "Initial Pressure (p1)",
+        "ar": "Initial Pressure (p1)"
+      }
     },
     {
       "id": "k",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1.4,
-      "businessContext": "Ratio cp/cv for air. Typically 1.4 for diatomic gases."
+      "businessContext": "Ratio cp/cv for air. Typically 1.4 for diatomic gases.",
+      "label_i18n": {
+        "en": "Specific Heat Ratio (k)",
+        "tr": "Specific Heat Ratio (k)",
+        "de": "Specific Heat Ratio (k)",
+        "fr": "Specific Heat Ratio (k)",
+        "es": "Specific Heat Ratio (k)",
+        "ar": "Specific Heat Ratio (k)"
+      }
     },
     {
       "id": "cv",
@@ -47,27 +87,23 @@
       "type": "number",
       "unit": "J/(kg·K)",
       "default": 718,
-      "businessContext": "Specific heat at constant volume for air. Standard: 718 J/(kg·K)."
+      "businessContext": "Specific heat at constant volume for air. Standard: 718 J/(kg·K).",
+      "label_i18n": {
+        "en": "Specific Heat (cv)",
+        "tr": "Specific Heat (cv)",
+        "de": "Specific Heat (cv)",
+        "fr": "Specific Heat (cv)",
+        "es": "Specific Heat (cv)",
+        "ar": "Specific Heat (cv)"
+      }
     }
   ],
   "formulas": {
     "R": "cv * (k - 1)",
-    "T2": "T1 * Math.pow(r, k - 1)",
-    "T3": "T2 * rc",
-    "T4": "T3 * Math.pow(rc / r, k - 1)",
-    "p2": "p1 * Math.pow(r, k)",
-    "p3": "p2",
-    "p4": "p3 * Math.pow(rc / r, k)",
-    "q_in": "k * cv * (T3 - T2)",
-    "q_out": "cv * (T4 - T1)",
-    "w_net": "q_in - q_out",
-    "eta": "w_net / q_in",
-    "v1": "R * T1 / p1",
-    "mep": "w_net / (v1 * (1 - 1/r))",
-    "mep_kPa": "mep / 1000"
+    "v1": "R * T1 / p1"
   },
   "outputs": {
-    "primary": "eta",
+    "primary": "v1",
     "breakdown": [
       "T2",
       "T3",
@@ -77,7 +113,12 @@
       "p4",
       "w_net",
       "mep_kPa"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "mep_kPa"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -87,5 +128,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

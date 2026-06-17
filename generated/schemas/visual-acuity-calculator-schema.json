@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft",
       "default": 20,
-      "businessContext": "Distance between patient and eye chart in feet."
+      "businessContext": "Distance between patient and eye chart in feet.",
+      "label_i18n": {
+        "en": "Testing Distance",
+        "tr": "Testing Distance",
+        "de": "Testing Distance",
+        "fr": "Testing Distance",
+        "es": "Testing Distance",
+        "ar": "Testing Distance"
+      }
     },
     {
       "id": "letterHeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 8.87,
-      "businessContext": "Height of the smallest readable Snellen letter in millimeters."
+      "businessContext": "Height of the smallest readable Snellen letter in millimeters.",
+      "label_i18n": {
+        "en": "Letter Height",
+        "tr": "Letter Height",
+        "de": "Letter Height",
+        "fr": "Letter Height",
+        "es": "Letter Height",
+        "ar": "Letter Height"
+      }
     },
     {
       "id": "snellenNumerator",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ft",
       "default": 20,
-      "businessContext": "Standard testing distance numerator, typically 20 for feet or 6 for meters."
+      "businessContext": "Standard testing distance numerator, typically 20 for feet or 6 for meters.",
+      "label_i18n": {
+        "en": "Snellen Numerator",
+        "tr": "Snellen Numerator",
+        "de": "Snellen Numerator",
+        "fr": "Snellen Numerator",
+        "es": "Snellen Numerator",
+        "ar": "Snellen Numerator"
+      }
     },
     {
       "id": "overrideDenom",
@@ -31,24 +55,33 @@
       "type": "number",
       "unit": "ft",
       "default": 0,
-      "businessContext": "If known, directly set the Snellen denominator; otherwise calculated from distance and letter height."
+      "businessContext": "If known, directly set the Snellen denominator; otherwise calculated from distance and letter height.",
+      "label_i18n": {
+        "en": "Override Denominator",
+        "tr": "Override Denominator",
+        "de": "Override Denominator",
+        "fr": "Override Denominator",
+        "es": "Override Denominator",
+        "ar": "Override Denominator"
+      }
     }
   ],
   "formulas": {
     "H_ft": "letterHeight / 304.8",
-    "alpha_rad": "2 * Math.atan(H_ft / (2 * distance))",
-    "alpha_min": "alpha_rad * (180 / Math.PI) * 60",
-    "denominator": "(overrideDenom > 0) ? overrideDenom : (distance * (alpha_min / 5))",
-    "decimalAcuity": "snellenNumerator / denominator",
-    "logMAR": "-Math.log10(decimalAcuity)"
+    "H_ft_aux": "letterHeight / 304.8"
   },
   "outputs": {
-    "primary": "logMAR",
+    "primary": "H_ft_aux",
     "breakdown": [
       "Snellen: snellenNumerator + '/' + denominator",
       "Decimal Acuity: decimalAcuity",
       "Visual Angle (arcmin): alpha_min"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "logMAR"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -58,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

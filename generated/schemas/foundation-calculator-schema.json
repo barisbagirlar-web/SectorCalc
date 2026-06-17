@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Length of the foundation in meters"
+      "businessContext": "Length of the foundation in meters",
+      "label_i18n": {
+        "en": "Foundation Length",
+        "tr": "Foundation Length",
+        "de": "Foundation Length",
+        "fr": "Foundation Length",
+        "es": "Foundation Length",
+        "ar": "Foundation Length"
+      }
     },
     {
       "id": "width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Width of the foundation in meters"
+      "businessContext": "Width of the foundation in meters",
+      "label_i18n": {
+        "en": "Foundation Width",
+        "tr": "Foundation Width",
+        "de": "Foundation Width",
+        "fr": "Foundation Width",
+        "es": "Foundation Width",
+        "ar": "Foundation Width"
+      }
     },
     {
       "id": "depth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.3,
-      "businessContext": "Depth (thickness) of the foundation in meters"
+      "businessContext": "Depth (thickness) of the foundation in meters",
+      "label_i18n": {
+        "en": "Foundation Depth",
+        "tr": "Foundation Depth",
+        "de": "Foundation Depth",
+        "fr": "Foundation Depth",
+        "es": "Foundation Depth",
+        "ar": "Foundation Depth"
+      }
     },
     {
       "id": "concreteDensity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 2400,
-      "businessContext": "Density of concrete (typically 2400 kg/m³ for normal weight concrete)"
+      "businessContext": "Density of concrete (typically 2400 kg/m³ for normal weight concrete)",
+      "label_i18n": {
+        "en": "Concrete Density",
+        "tr": "Concrete Density",
+        "de": "Concrete Density",
+        "fr": "Concrete Density",
+        "es": "Concrete Density",
+        "ar": "Concrete Density"
+      }
     },
     {
       "id": "rebarRatio",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "ratio",
       "default": 0.01,
-      "businessContext": "Volumetric ratio of reinforcement steel (e.g., 0.01 for 1%)"
+      "businessContext": "Volumetric ratio of reinforcement steel (e.g., 0.01 for 1%)",
+      "label_i18n": {
+        "en": "Rebar Ratio",
+        "tr": "Rebar Ratio",
+        "de": "Rebar Ratio",
+        "fr": "Rebar Ratio",
+        "es": "Rebar Ratio",
+        "ar": "Rebar Ratio"
+      }
     },
     {
       "id": "steelDensity",
@@ -47,21 +87,32 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 7850,
-      "businessContext": "Density of reinforcing steel (typically 7850 kg/m³)"
+      "businessContext": "Density of reinforcing steel (typically 7850 kg/m³)",
+      "label_i18n": {
+        "en": "Steel Density",
+        "tr": "Steel Density",
+        "de": "Steel Density",
+        "fr": "Steel Density",
+        "es": "Steel Density",
+        "ar": "Steel Density"
+      }
     }
   ],
   "formulas": {
-    "concreteVolume": "(inputs) => inputs.length * inputs.width * inputs.depth",
-    "concreteWeight": "(inputs) => this.concreteVolume(inputs) * inputs.concreteDensity",
-    "rebarWeight": "(inputs) => this.concreteVolume(inputs) * inputs.rebarRatio * inputs.steelDensity",
-    "totalWeight": "(inputs) => this.concreteWeight(inputs) + this.rebarWeight(inputs)"
+    "result": "length + width + depth",
+    "result_copy": "length + width + depth"
   },
   "outputs": {
-    "primary": "concreteVolume",
+    "primary": "result",
     "breakdown": [
       "concreteWeight",
       "rebarWeight"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalWeight"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -71,5 +122,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

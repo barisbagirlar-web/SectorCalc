@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 5,
-      "businessContext": "Batch başına kullanılan malt miktarı"
+      "businessContext": "Batch başına kullanılan malt miktarı",
+      "label_i18n": {
+        "en": "Malt Miktarı (kg)",
+        "tr": "Malt Miktarı (kg)",
+        "de": "Malt Miktarı (kg)",
+        "fr": "Malt Miktarı (kg)",
+        "es": "Malt Miktarı (kg)",
+        "ar": "Malt Miktarı (kg)"
+      }
     },
     {
       "id": "maltCostPerKg",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "TL/kg",
       "default": 15,
-      "businessContext": "Maltın kilogram başına maliyeti"
+      "businessContext": "Maltın kilogram başına maliyeti",
+      "label_i18n": {
+        "en": "Malt Birim Fiyatı (TL/kg)",
+        "tr": "Malt Birim Fiyatı (TL/kg)",
+        "de": "Malt Birim Fiyatı (TL/kg)",
+        "fr": "Malt Birim Fiyatı (TL/kg)",
+        "es": "Malt Birim Fiyatı (TL/kg)",
+        "ar": "Malt Birim Fiyatı (TL/kg)"
+      }
     },
     {
       "id": "hopsQuantity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "g",
       "default": 100,
-      "businessContext": "Batch başına şerbetçiotu miktarı"
+      "businessContext": "Batch başına şerbetçiotu miktarı",
+      "label_i18n": {
+        "en": "Şerbetçiotu Miktarı (g)",
+        "tr": "Şerbetçiotu Miktarı (g)",
+        "de": "Şerbetçiotu Miktarı (g)",
+        "fr": "Şerbetçiotu Miktarı (g)",
+        "es": "Şerbetçiotu Miktarı (g)",
+        "ar": "Şerbetçiotu Miktarı (g)"
+      }
     },
     {
       "id": "hopsCostPer100g",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TL/100g",
       "default": 50,
-      "businessContext": "100 gram şerbetçiotu fiyatı"
+      "businessContext": "100 gram şerbetçiotu fiyatı",
+      "label_i18n": {
+        "en": "Şerbetçiotu 100g Fiyatı (TL)",
+        "tr": "Şerbetçiotu 100g Fiyatı (TL)",
+        "de": "Şerbetçiotu 100g Fiyatı (TL)",
+        "fr": "Şerbetçiotu 100g Fiyatı (TL)",
+        "es": "Şerbetçiotu 100g Fiyatı (TL)",
+        "ar": "Şerbetçiotu 100g Fiyatı (TL)"
+      }
     },
     {
       "id": "yeastCost",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "TL",
       "default": 25,
-      "businessContext": "Batch başına maya maliyeti"
+      "businessContext": "Batch başına maya maliyeti",
+      "label_i18n": {
+        "en": "Maya Maliyeti (TL)",
+        "tr": "Maya Maliyeti (TL)",
+        "de": "Maya Maliyeti (TL)",
+        "fr": "Maya Maliyeti (TL)",
+        "es": "Maya Maliyeti (TL)",
+        "ar": "Maya Maliyeti (TL)"
+      }
     },
     {
       "id": "energyCost",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "TL/kWh",
       "default": 2.5,
-      "businessContext": "Fabrika elektrik birim fiyatı"
+      "businessContext": "Fabrika elektrik birim fiyatı",
+      "label_i18n": {
+        "en": "Enerji Birim Fiyatı (TL/kWh)",
+        "tr": "Enerji Birim Fiyatı (TL/kWh)",
+        "de": "Enerji Birim Fiyatı (TL/kWh)",
+        "fr": "Enerji Birim Fiyatı (TL/kWh)",
+        "es": "Enerji Birim Fiyatı (TL/kWh)",
+        "ar": "Enerji Birim Fiyatı (TL/kWh)"
+      }
     },
     {
       "id": "batchVolume",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "L",
       "default": 1000,
-      "businessContext": "Batch sonucu elde edilen bira miktarı (litre)"
+      "businessContext": "Batch sonucu elde edilen bira miktarı (litre)",
+      "label_i18n": {
+        "en": "Üretim Hacmi (L)",
+        "tr": "Üretim Hacmi (L)",
+        "de": "Üretim Hacmi (L)",
+        "fr": "Üretim Hacmi (L)",
+        "es": "Üretim Hacmi (L)",
+        "ar": "Üretim Hacmi (L)"
+      }
     },
     {
       "id": "overheadCost",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "TL",
       "default": 500,
-      "businessContext": "İşçilik, bakım, amortisman vb. dahil batch başına sabit gider"
+      "businessContext": "İşçilik, bakım, amortisman vb. dahil batch başına sabit gider",
+      "label_i18n": {
+        "en": "Genel Gider (TL)",
+        "tr": "Genel Gider (TL)",
+        "de": "Genel Gider (TL)",
+        "fr": "Genel Gider (TL)",
+        "es": "Genel Gider (TL)",
+        "ar": "Genel Gider (TL)"
+      }
     }
   ],
   "formulas": {
@@ -91,7 +155,12 @@
         "label": "Genel Gider (TL)",
         "unit": "TL"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "costPerLiter"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -101,5 +170,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

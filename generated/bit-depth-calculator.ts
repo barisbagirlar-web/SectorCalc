@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from bit-depth-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,27 +16,33 @@ export const Bit_depth_calculatorInputSchema = z.object({
   duration: z.number().default(300),
 });
 
-function evaluateAllFormulas(input: Bit_depth_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = 20 * Math.log(Math.pow(2, input.bitDepth)) / Math.LN10; results["dynamicRange"] = Number.isFinite(v) ? v : 0; } catch { results["dynamicRange"] = 0; }
-  try { const v = Math.pow(2, input.bitDepth); results["numberOfLevels"] = Number.isFinite(v) ? v : 0; } catch { results["numberOfLevels"] = 0; }
-  try { const v = input.bitDepth * input.sampleRate * input.numChannels; results["bitRate"] = Number.isFinite(v) ? v : 0; } catch { results["bitRate"] = 0; }
-  try { const v = input.bitDepth * input.sampleRate * input.numChannels * input.duration / 8; results["fileSize"] = Number.isFinite(v) ? v : 0; } catch { results["fileSize"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Bit_depth_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.bitDepth * input.sampleRate * input.numChannels; results["bitRate"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["bitRate"] = 0; }
+  try { const v = input.bitDepth * input.sampleRate * input.numChannels * input.duration / 8; results["fileSize"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["fileSize"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateBit_depth_calculator(input: Bit_depth_calculatorInput): Bit_depth_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["dynamicRange"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["fileSize"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

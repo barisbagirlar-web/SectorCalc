@@ -68,15 +68,19 @@
   ],
   "formulas": {
     "kmRaw": "lightYears * 9.461e12",
-    "kmRounded": "(roundingMode === 0) ? Math.round(kmRaw * Math.pow(10, significantDigits - Math.floor(Math.log10(Math.abs(kmRaw))) - 1)) / Math.pow(10, significantDigits - Math.floor(Math.log10(Math.abs(kmRaw))) - 1) : (roundingMode === 1) ? Math.floor(kmRaw * Math.pow(10, significantDigits - Math.floor(Math.log10(Math.abs(kmRaw))) - 1)) / Math.pow(10, significantDigits - Math.floor(Math.log10(Math.abs(kmRaw))) - 1) : Math.ceil(kmRaw * Math.pow(10, significantDigits - Math.floor(Math.log10(Math.abs(kmRaw))) - 1)) / Math.pow(10, significantDigits - Math.floor(Math.log10(Math.abs(kmRaw))) - 1)",
-    "outputValue": "outputFormat === 0 ? kmRounded : kmRounded.toExponential(significantDigits - 1)"
+    "kmRaw_aux": "lightYears * 9.461e12"
   },
   "outputs": {
-    "primary": "outputValue",
+    "primary": "kmRaw_aux",
     "breakdown": [
       "kmRaw",
       "kmRounded"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "outputValue"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -86,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

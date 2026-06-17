@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 200,
-      "businessContext": "Diameter of the larger pulley. Use pitch diameter if available."
+      "businessContext": "Diameter of the larger pulley. Use pitch diameter if available.",
+      "label_i18n": {
+        "en": "Large Pulley Diameter",
+        "tr": "Large Pulley Diameter",
+        "de": "Large Pulley Diameter",
+        "fr": "Large Pulley Diameter",
+        "es": "Large Pulley Diameter",
+        "ar": "Large Pulley Diameter"
+      }
     },
     {
       "id": "small_diameter",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Diameter of the smaller pulley."
+      "businessContext": "Diameter of the smaller pulley.",
+      "label_i18n": {
+        "en": "Small Pulley Diameter",
+        "tr": "Small Pulley Diameter",
+        "de": "Small Pulley Diameter",
+        "fr": "Small Pulley Diameter",
+        "es": "Small Pulley Diameter",
+        "ar": "Small Pulley Diameter"
+      }
     },
     {
       "id": "center_distance",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 500,
-      "businessContext": "Distance between the centers of the two pulleys."
+      "businessContext": "Distance between the centers of the two pulleys.",
+      "label_i18n": {
+        "en": "Center Distance",
+        "tr": "Center Distance",
+        "de": "Center Distance",
+        "fr": "Center Distance",
+        "es": "Center Distance",
+        "ar": "Center Distance"
+      }
     },
     {
       "id": "configuration",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "none",
       "default": 0,
-      "businessContext": "0 for open belt drive (pulleys rotate same direction), 1 for crossed belt drive (pulleys rotate opposite directions)."
+      "businessContext": "0 for open belt drive (pulleys rotate same direction), 1 for crossed belt drive (pulleys rotate opposite directions).",
+      "label_i18n": {
+        "en": "Belt Configuration",
+        "tr": "Belt Configuration",
+        "de": "Belt Configuration",
+        "fr": "Belt Configuration",
+        "es": "Belt Configuration",
+        "ar": "Belt Configuration"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "straight_length",
       "arc_length",
       "correction_length"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "belt_length"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -56,5 +93,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

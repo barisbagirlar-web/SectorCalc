@@ -83,22 +83,24 @@
     }
   ],
   "formulas": {
-    "survivalProbability": "Math.exp(-failureRate * time)",
     "hazardRate": "failureRate",
     "cumulativeHazard": "failureRate * time",
-    "meanTimeToFailure": "1 / failureRate",
-    "requiredTimeForTargetSurvival": "-Math.log(targetSurvivalProb) / failureRate",
-    "b10Life": "-Math.log(0.9) / failureRate"
+    "meanTimeToFailure": "1 / failureRate"
   },
   "outputs": {
-    "primary": "survivalProbability",
+    "primary": "meanTimeToFailure",
     "breakdown": [
       "hazardRate",
       "cumulativeHazard",
       "meanTimeToFailure",
       "requiredTimeForTargetSurvival",
       "b10Life"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "b10Life"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -108,5 +110,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 2,
-      "businessContext": "Number of independent quality parameters"
+      "businessContext": "Number of independent quality parameters",
+      "label_i18n": {
+        "en": "Number of Dice",
+        "tr": "Number of Dice",
+        "de": "Number of Dice",
+        "fr": "Number of Dice",
+        "es": "Number of Dice",
+        "ar": "Number of Dice"
+      }
     },
     {
       "id": "numSides",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "faces",
       "default": 6,
-      "businessContext": "Possible discrete levels per parameter"
+      "businessContext": "Possible discrete levels per parameter",
+      "label_i18n": {
+        "en": "Sides per Die",
+        "tr": "Sides per Die",
+        "de": "Sides per Die",
+        "fr": "Sides per Die",
+        "es": "Sides per Die",
+        "ar": "Sides per Die"
+      }
     },
     {
       "id": "modifier",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Fixed allowance or penalty"
+      "businessContext": "Fixed allowance or penalty",
+      "label_i18n": {
+        "en": "Sum Modifier",
+        "tr": "Sum Modifier",
+        "de": "Sum Modifier",
+        "fr": "Sum Modifier",
+        "es": "Sum Modifier",
+        "ar": "Sum Modifier"
+      }
     },
     {
       "id": "rangeMultiplier",
@@ -31,15 +55,20 @@
       "type": "number",
       "unit": "σ",
       "default": 2,
-      "businessContext": "Sigma level for expected variation band"
+      "businessContext": "Sigma level for expected variation band",
+      "label_i18n": {
+        "en": "Range Multiplier",
+        "tr": "Range Multiplier",
+        "de": "Range Multiplier",
+        "fr": "Range Multiplier",
+        "es": "Range Multiplier",
+        "ar": "Range Multiplier"
+      }
     }
   ],
   "formulas": {
     "expectedSum": "numDice * (numSides + 1) / 2 + modifier",
-    "variance": "numDice * (numSides ** 2 - 1) / 12",
-    "stdDev": "Math.sqrt(variance)",
-    "lowerRange": "expectedSum - rangeMultiplier * stdDev",
-    "upperRange": "expectedSum + rangeMultiplier * stdDev"
+    "variance": "numDice * (numSides ** 2 - 1) / 12"
   },
   "outputs": {
     "primary": "expectedSum",
@@ -48,7 +77,12 @@
       "stdDev",
       "lowerRange",
       "upperRange"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "upperRange"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -58,5 +92,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

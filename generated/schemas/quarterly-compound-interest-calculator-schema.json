@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 1000,
-      "businessContext": "The initial sum of money invested or borrowed."
+      "businessContext": "The initial sum of money invested or borrowed.",
+      "label_i18n": {
+        "en": "Principal Amount",
+        "tr": "Principal Amount",
+        "de": "Principal Amount",
+        "fr": "Principal Amount",
+        "es": "Principal Amount",
+        "ar": "Principal Amount"
+      }
     },
     {
       "id": "annualInterestRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "The nominal annual interest rate before compounding."
+      "businessContext": "The nominal annual interest rate before compounding.",
+      "label_i18n": {
+        "en": "Annual Interest Rate",
+        "tr": "Annual Interest Rate",
+        "de": "Annual Interest Rate",
+        "fr": "Annual Interest Rate",
+        "es": "Annual Interest Rate",
+        "ar": "Annual Interest Rate"
+      }
     },
     {
       "id": "years",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 10,
-      "businessContext": "The total time the money is invested or borrowed for."
+      "businessContext": "The total time the money is invested or borrowed for.",
+      "label_i18n": {
+        "en": "Number of Years",
+        "tr": "Number of Years",
+        "de": "Number of Years",
+        "fr": "Number of Years",
+        "es": "Number of Years",
+        "ar": "Number of Years"
+      }
     },
     {
       "id": "compoundingFrequency",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "times per year",
       "default": 4,
-      "businessContext": "The number of compounding periods per year. For quarterly, this is 4."
+      "businessContext": "The number of compounding periods per year. For quarterly, this is 4.",
+      "label_i18n": {
+        "en": "Compounding Frequency",
+        "tr": "Compounding Frequency",
+        "de": "Compounding Frequency",
+        "fr": "Compounding Frequency",
+        "es": "Compounding Frequency",
+        "ar": "Compounding Frequency"
+      }
     },
     {
       "id": "inflationRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "The expected average annual inflation rate, used to calculate the real value of money."
+      "businessContext": "The expected average annual inflation rate, used to calculate the real value of money.",
+      "label_i18n": {
+        "en": "Annual Inflation Rate",
+        "tr": "Annual Inflation Rate",
+        "de": "Annual Inflation Rate",
+        "fr": "Annual Inflation Rate",
+        "es": "Annual Inflation Rate",
+        "ar": "Annual Inflation Rate"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
       "totalInterest",
       "effectiveAnnualRate",
       "realFinalAmount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "realFinalAmount"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -64,5 +109,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

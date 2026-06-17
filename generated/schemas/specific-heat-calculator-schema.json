@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "J",
       "default": 0,
-      "businessContext": "Total heat energy added to the substance"
+      "businessContext": "Total heat energy added to the substance",
+      "label_i18n": {
+        "en": "Heat Added (Q)",
+        "tr": "Heat Added (Q)",
+        "de": "Heat Added (Q)",
+        "fr": "Heat Added (Q)",
+        "es": "Heat Added (Q)",
+        "ar": "Heat Added (Q)"
+      }
     },
     {
       "id": "mass",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Mass of the substance being heated"
+      "businessContext": "Mass of the substance being heated",
+      "label_i18n": {
+        "en": "Mass (m)",
+        "tr": "Mass (m)",
+        "de": "Mass (m)",
+        "fr": "Mass (m)",
+        "es": "Mass (m)",
+        "ar": "Mass (m)"
+      }
     },
     {
       "id": "temp_initial",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 0,
-      "businessContext": "Temperature of the substance before heating"
+      "businessContext": "Temperature of the substance before heating",
+      "label_i18n": {
+        "en": "Initial Temperature",
+        "tr": "Initial Temperature",
+        "de": "Initial Temperature",
+        "fr": "Initial Temperature",
+        "es": "Initial Temperature",
+        "ar": "Initial Temperature"
+      }
     },
     {
       "id": "temp_final",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 0,
-      "businessContext": "Temperature of the substance after heating"
+      "businessContext": "Temperature of the substance after heating",
+      "label_i18n": {
+        "en": "Final Temperature",
+        "tr": "Final Temperature",
+        "de": "Final Temperature",
+        "fr": "Final Temperature",
+        "es": "Final Temperature",
+        "ar": "Final Temperature"
+      }
     }
   ],
   "formulas": {
@@ -43,7 +75,12 @@
     "breakdown": [
       "deltaT",
       "specificHeat"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "specificHeat"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -53,5 +90,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

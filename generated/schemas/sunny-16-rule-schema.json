@@ -68,21 +68,22 @@
   ],
   "formulas": {
     "baseShutterSpeed": "1 / (iso / 100)",
-    "evAdjustment": "Math.pow(2, lightCondition)",
-    "ndAdjustment": "Math.pow(2, ndFilter)",
-    "shutterSpeed": "baseShutterSpeed * evAdjustment / ndAdjustment",
-    "apertureAdjustment": "Math.pow(aperture / 16, 2)",
-    "finalShutterSpeed": "shutterSpeed * apertureAdjustment"
+    "baseShutterSpeed_aux": "1 / (iso / 100)"
   },
   "outputs": {
-    "primary": "finalShutterSpeed",
+    "primary": "baseShutterSpeed_aux",
     "breakdown": [
       "baseShutterSpeed",
       "evAdjustment",
       "ndAdjustment",
       "shutterSpeed",
       "apertureAdjustment"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "finalShutterSpeed"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -92,5 +93,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

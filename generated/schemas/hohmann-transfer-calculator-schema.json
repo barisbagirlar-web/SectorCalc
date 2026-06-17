@@ -69,27 +69,20 @@
   "formulas": {
     "r1": "bodyRadius + alt1",
     "r2": "bodyRadius + alt2",
-    "v1i": "Math.sqrt(mu / r1)",
-    "v2f": "Math.sqrt(mu / r2)",
-    "a": "(r1 + r2) / 2",
-    "vp": "Math.sqrt(2 * mu / r1 - mu / a)",
-    "va": "Math.sqrt(2 * mu / r2 - mu / a)",
-    "dv1": "vp - v1i",
-    "dv2": "v2f - va",
-    "dvTotal": "dv1 + dv2",
-    "t_transfer": "Math.PI * Math.sqrt(Math.pow(a, 3) / mu)",
-    "__dv1__km_s": "${dv1} km/s",
-    "__dv2__km_s": "${dv2} km/s",
-    "__t_transfer__s": "${t_transfer} s",
-    "result": "Total Δv: ${dvTotal} km/s"
+    "a": "(r1 + r2) / 2"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "a",
     "breakdown": [
       "Δv1: ${dv1} km/s",
       "Δv2: ${dv2} km/s",
       "Transfer Time: ${t_transfer} s"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "t_transfer"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -99,5 +92,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

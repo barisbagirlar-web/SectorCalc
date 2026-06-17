@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "İlk sette kaldırılan ağırlık"
+      "businessContext": "İlk sette kaldırılan ağırlık",
+      "label_i18n": {
+        "en": "Set 1 Ağırlık (kg)",
+        "tr": "Set 1 Ağırlık (kg)",
+        "de": "Set 1 Ağırlık (kg)",
+        "fr": "Set 1 Ağırlık (kg)",
+        "es": "Set 1 Ağırlık (kg)",
+        "ar": "Set 1 Ağırlık (kg)"
+      }
     },
     {
       "id": "reps1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 10,
-      "businessContext": "İlk sette tükenişe yakın yapılan tekrar sayısı"
+      "businessContext": "İlk sette tükenişe yakın yapılan tekrar sayısı",
+      "label_i18n": {
+        "en": "Set 1 Tekrar",
+        "tr": "Set 1 Tekrar",
+        "de": "Set 1 Tekrar",
+        "fr": "Set 1 Tekrar",
+        "es": "Set 1 Tekrar",
+        "ar": "Set 1 Tekrar"
+      }
     },
     {
       "id": "weight2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 80,
-      "businessContext": "İkinci sette kaldırılan ağırlık"
+      "businessContext": "İkinci sette kaldırılan ağırlık",
+      "label_i18n": {
+        "en": "Set 2 Ağırlık (kg)",
+        "tr": "Set 2 Ağırlık (kg)",
+        "de": "Set 2 Ağırlık (kg)",
+        "fr": "Set 2 Ağırlık (kg)",
+        "es": "Set 2 Ağırlık (kg)",
+        "ar": "Set 2 Ağırlık (kg)"
+      }
     },
     {
       "id": "reps2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "adet",
       "default": 15,
-      "businessContext": "İkinci sette tükenişe yakın yapılan tekrar sayısı"
+      "businessContext": "İkinci sette tükenişe yakın yapılan tekrar sayısı",
+      "label_i18n": {
+        "en": "Set 2 Tekrar",
+        "tr": "Set 2 Tekrar",
+        "de": "Set 2 Tekrar",
+        "fr": "Set 2 Tekrar",
+        "es": "Set 2 Tekrar",
+        "ar": "Set 2 Tekrar"
+      }
     },
     {
       "id": "weight3",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg",
       "default": 60,
-      "businessContext": "Üçüncü sette kaldırılan ağırlık"
+      "businessContext": "Üçüncü sette kaldırılan ağırlık",
+      "label_i18n": {
+        "en": "Set 3 Ağırlık (kg)",
+        "tr": "Set 3 Ağırlık (kg)",
+        "de": "Set 3 Ağırlık (kg)",
+        "fr": "Set 3 Ağırlık (kg)",
+        "es": "Set 3 Ağırlık (kg)",
+        "ar": "Set 3 Ağırlık (kg)"
+      }
     },
     {
       "id": "reps3",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "adet",
       "default": 20,
-      "businessContext": "Üçüncü sette tükenişe yakın yapılan tekrar sayısı"
+      "businessContext": "Üçüncü sette tükenişe yakın yapılan tekrar sayısı",
+      "label_i18n": {
+        "en": "Set 3 Tekrar",
+        "tr": "Set 3 Tekrar",
+        "de": "Set 3 Tekrar",
+        "fr": "Set 3 Tekrar",
+        "es": "Set 3 Tekrar",
+        "ar": "Set 3 Tekrar"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
       "set1Estimate",
       "set2Estimate",
       "set3Estimate"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "estimated1RM"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -72,5 +125,10 @@
   "sectorSlug": "cleaning",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

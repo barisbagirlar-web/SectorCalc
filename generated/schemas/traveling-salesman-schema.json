@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 5,
-      "businessContext": "Total number of cities to visit in the tour."
+      "businessContext": "Total number of cities to visit in the tour.",
+      "label_i18n": {
+        "en": "Number of Cities",
+        "tr": "Number of Cities",
+        "de": "Number of Cities",
+        "fr": "Number of Cities",
+        "es": "Number of Cities",
+        "ar": "Number of Cities"
+      }
     },
     {
       "id": "avgDistance",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "km",
       "default": 100,
-      "businessContext": "Average straight-line distance between any two cities."
+      "businessContext": "Average straight-line distance between any two cities.",
+      "label_i18n": {
+        "en": "Average Distance Between Cities",
+        "tr": "Average Distance Between Cities",
+        "de": "Average Distance Between Cities",
+        "fr": "Average Distance Between Cities",
+        "es": "Average Distance Between Cities",
+        "ar": "Average Distance Between Cities"
+      }
     },
     {
       "id": "distanceStdDev",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "km",
       "default": 20,
-      "businessContext": "Standard deviation of distances to model variability."
+      "businessContext": "Standard deviation of distances to model variability.",
+      "label_i18n": {
+        "en": "Distance Standard Deviation",
+        "tr": "Distance Standard Deviation",
+        "de": "Distance Standard Deviation",
+        "fr": "Distance Standard Deviation",
+        "es": "Distance Standard Deviation",
+        "ar": "Distance Standard Deviation"
+      }
     },
     {
       "id": "speed",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "km/h",
       "default": 60,
-      "businessContext": "Average speed of the vehicle."
+      "businessContext": "Average speed of the vehicle.",
+      "label_i18n": {
+        "en": "Travel Speed",
+        "tr": "Travel Speed",
+        "de": "Travel Speed",
+        "fr": "Travel Speed",
+        "es": "Travel Speed",
+        "ar": "Travel Speed"
+      }
     },
     {
       "id": "costPerKm",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "€/km",
       "default": 0.5,
-      "businessContext": "Operational cost per kilometer including fuel, maintenance, etc."
+      "businessContext": "Operational cost per kilometer including fuel, maintenance, etc.",
+      "label_i18n": {
+        "en": "Cost per Kilometer",
+        "tr": "Cost per Kilometer",
+        "de": "Cost per Kilometer",
+        "fr": "Cost per Kilometer",
+        "es": "Cost per Kilometer",
+        "ar": "Cost per Kilometer"
+      }
     },
     {
       "id": "fixedCostPerStop",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "€",
       "default": 10,
-      "businessContext": "Fixed cost incurred each time the vehicle stops at a city."
+      "businessContext": "Fixed cost incurred each time the vehicle stops at a city.",
+      "label_i18n": {
+        "en": "Fixed Cost per Stop",
+        "tr": "Fixed Cost per Stop",
+        "de": "Fixed Cost per Stop",
+        "fr": "Fixed Cost per Stop",
+        "es": "Fixed Cost per Stop",
+        "ar": "Fixed Cost per Stop"
+      }
     },
     {
       "id": "numVehicles",
@@ -55,19 +103,23 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Number of vehicles available for the tour."
+      "businessContext": "Number of vehicles available for the tour.",
+      "label_i18n": {
+        "en": "Number of Vehicles",
+        "tr": "Number of Vehicles",
+        "de": "Number of Vehicles",
+        "fr": "Number of Vehicles",
+        "es": "Number of Vehicles",
+        "ar": "Number of Vehicles"
+      }
     }
   ],
   "formulas": {
     "estimatedTourDistance": "numCities * avgDistance",
-    "distanceVariability": "distanceStdDev * Math.sqrt(numCities)",
-    "totalDistance": "estimatedTourDistance + distanceVariability",
-    "travelTimeHours": "totalDistance / speed",
-    "totalCost": "totalDistance * costPerKm + numCities * fixedCostPerStop",
-    "costPerCity": "totalCost / numCities"
+    "estimatedTourDistance_aux": "numCities * avgDistance"
   },
   "outputs": {
-    "primary": "totalCost",
+    "primary": "estimatedTourDistance_aux",
     "breakdown": [
       "estimatedTourDistance",
       "distanceVariability",
@@ -75,7 +127,12 @@
       "travelTimeHours",
       "totalCost",
       "costPerCity"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "costPerCity"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -85,5 +142,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

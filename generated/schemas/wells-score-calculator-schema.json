@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "point",
       "default": 0,
-      "businessContext": "1 point if active cancer (excluding skin cancers), else 0"
+      "businessContext": "1 point if active cancer (excluding skin cancers), else 0",
+      "label_i18n": {
+        "en": "Active cancer (treatment or palliation within 6 months)",
+        "tr": "Active cancer (treatment or palliation within 6 months)",
+        "de": "Active cancer (treatment or palliation within 6 months)",
+        "fr": "Active cancer (treatment or palliation within 6 months)",
+        "es": "Active cancer (treatment or palliation within 6 months)",
+        "ar": "Active cancer (treatment or palliation within 6 months)"
+      }
     },
     {
       "id": "paralysis",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "point",
       "default": 0,
-      "businessContext": "1 point if present, else 0"
+      "businessContext": "1 point if present, else 0",
+      "label_i18n": {
+        "en": "Paralysis, paresis, or recent plaster immobilization of the lower extremity",
+        "tr": "Paralysis, paresis, or recent plaster immobilization of the lower extremity",
+        "de": "Paralysis, paresis, or recent plaster immobilization of the lower extremity",
+        "fr": "Paralysis, paresis, or recent plaster immobilization of the lower extremity",
+        "es": "Paralysis, paresis, or recent plaster immobilization of the lower extremity",
+        "ar": "Paralysis, paresis, or recent plaster immobilization of the lower extremity"
+      }
     },
     {
       "id": "surgeryOrBedridden",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "point",
       "default": 0,
-      "businessContext": "1 point if yes, else 0"
+      "businessContext": "1 point if yes, else 0",
+      "label_i18n": {
+        "en": "Recently bedridden >3 days or major surgery within 4 weeks",
+        "tr": "Recently bedridden >3 days or major surgery within 4 weeks",
+        "de": "Recently bedridden >3 days or major surgery within 4 weeks",
+        "fr": "Recently bedridden >3 days or major surgery within 4 weeks",
+        "es": "Recently bedridden >3 days or major surgery within 4 weeks",
+        "ar": "Recently bedridden >3 days or major surgery within 4 weeks"
+      }
     },
     {
       "id": "tendernessAlongVeins",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "point",
       "default": 0,
-      "businessContext": "1 point if present (e.g., calf, thigh, popliteal fossa), else 0"
+      "businessContext": "1 point if present (e.g., calf, thigh, popliteal fossa), else 0",
+      "label_i18n": {
+        "en": "Localized tenderness along the distribution of the deep veins",
+        "tr": "Localized tenderness along the distribution of the deep veins",
+        "de": "Localized tenderness along the distribution of the deep veins",
+        "fr": "Localized tenderness along the distribution of the deep veins",
+        "es": "Localized tenderness along the distribution of the deep veins",
+        "ar": "Localized tenderness along the distribution of the deep veins"
+      }
     },
     {
       "id": "entireLegSwollen",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "point",
       "default": 0,
-      "businessContext": "1 point if the whole leg is swollen compared to the asymptomatic side, else 0"
+      "businessContext": "1 point if the whole leg is swollen compared to the asymptomatic side, else 0",
+      "label_i18n": {
+        "en": "Entire leg swollen",
+        "tr": "Entire leg swollen",
+        "de": "Entire leg swollen",
+        "fr": "Entire leg swollen",
+        "es": "Entire leg swollen",
+        "ar": "Entire leg swollen"
+      }
     },
     {
       "id": "calfSwellingOver3cm",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "point",
       "default": 0,
-      "businessContext": "1 point if measured difference is >3 cm at 10 cm below tibial tuberosity, else 0"
+      "businessContext": "1 point if measured difference is >3 cm at 10 cm below tibial tuberosity, else 0",
+      "label_i18n": {
+        "en": "Calf swelling >3 cm compared to asymptomatic leg",
+        "tr": "Calf swelling >3 cm compared to asymptomatic leg",
+        "de": "Calf swelling >3 cm compared to asymptomatic leg",
+        "fr": "Calf swelling >3 cm compared to asymptomatic leg",
+        "es": "Calf swelling >3 cm compared to asymptomatic leg",
+        "ar": "Calf swelling >3 cm compared to asymptomatic leg"
+      }
     },
     {
       "id": "pittingEdema",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "point",
       "default": 0,
-      "businessContext": "1 point if edema is greater in the symptomatic leg, else 0"
+      "businessContext": "1 point if edema is greater in the symptomatic leg, else 0",
+      "label_i18n": {
+        "en": "Pitting edema confined to the symptomatic leg",
+        "tr": "Pitting edema confined to the symptomatic leg",
+        "de": "Pitting edema confined to the symptomatic leg",
+        "fr": "Pitting edema confined to the symptomatic leg",
+        "es": "Pitting edema confined to the symptomatic leg",
+        "ar": "Pitting edema confined to the symptomatic leg"
+      }
     },
     {
       "id": "alternativeDiagnosis",
@@ -63,18 +119,31 @@
       "type": "number",
       "unit": "point",
       "default": 0,
-      "businessContext": "If alternative diagnosis is at least as plausible, subtract 2 points (enter -2); else 0"
+      "businessContext": "If alternative diagnosis is at least as plausible, subtract 2 points (enter -2); else 0",
+      "label_i18n": {
+        "en": "Alternative diagnosis as likely or more likely than DVT",
+        "tr": "Alternative diagnosis as likely or more likely than DVT",
+        "de": "Alternative diagnosis as likely or more likely than DVT",
+        "fr": "Alternative diagnosis as likely or more likely than DVT",
+        "es": "Alternative diagnosis as likely or more likely than DVT",
+        "ar": "Alternative diagnosis as likely or more likely than DVT"
+      }
     }
   ],
   "formulas": {
     "totalScore": "activeCancer + paralysis + surgeryOrBedridden + tendernessAlongVeins + entireLegSwollen + calfSwellingOver3cm + pittingEdema + alternativeDiagnosis",
-    "riskCategory": "totalScore <= 0 ? 'Low' : totalScore <= 2 ? 'Moderate' : 'High'"
+    "totalScore_aux": "activeCancer + paralysis + surgeryOrBedridden + tendernessAlongVeins + entireLegSwollen + calfSwellingOver3cm + pittingEdema + alternativeDiagnosis"
   },
   "outputs": {
     "primary": "totalScore",
     "breakdown": [
       "riskCategory"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "riskCategory"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -84,5 +153,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

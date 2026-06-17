@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ton/day",
       "default": 1000,
-      "businessContext": "Average daily waste received at the landfill"
+      "businessContext": "Average daily waste received at the landfill",
+      "label_i18n": {
+        "en": "Daily Waste Quantity",
+        "tr": "Daily Waste Quantity",
+        "de": "Daily Waste Quantity",
+        "fr": "Daily Waste Quantity",
+        "es": "Daily Waste Quantity",
+        "ar": "Daily Waste Quantity"
+      }
     },
     {
       "id": "compactionDensity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ton/m³",
       "default": 0.8,
-      "businessContext": "In-place density of waste after compaction"
+      "businessContext": "In-place density of waste after compaction",
+      "label_i18n": {
+        "en": "Compacted Density",
+        "tr": "Compacted Density",
+        "de": "Compacted Density",
+        "fr": "Compacted Density",
+        "es": "Compacted Density",
+        "ar": "Compacted Density"
+      }
     },
     {
       "id": "coverRatio",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Additional volume for daily and intermediate cover as percentage of waste volume"
+      "businessContext": "Additional volume for daily and intermediate cover as percentage of waste volume",
+      "label_i18n": {
+        "en": "Cover to Waste Ratio",
+        "tr": "Cover to Waste Ratio",
+        "de": "Cover to Waste Ratio",
+        "fr": "Cover to Waste Ratio",
+        "es": "Cover to Waste Ratio",
+        "ar": "Cover to Waste Ratio"
+      }
     },
     {
       "id": "lifespanYears",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "years",
       "default": 20,
-      "businessContext": "Design operational life of the landfill"
+      "businessContext": "Design operational life of the landfill",
+      "label_i18n": {
+        "en": "Landfill Lifespan",
+        "tr": "Landfill Lifespan",
+        "de": "Landfill Lifespan",
+        "fr": "Landfill Lifespan",
+        "es": "Landfill Lifespan",
+        "ar": "Landfill Lifespan"
+      }
     },
     {
       "id": "existingVolume",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m³",
       "default": 500000,
-      "businessContext": "Airspace already consumed by waste and cover"
+      "businessContext": "Airspace already consumed by waste and cover",
+      "label_i18n": {
+        "en": "Already Filled Volume",
+        "tr": "Already Filled Volume",
+        "de": "Already Filled Volume",
+        "fr": "Already Filled Volume",
+        "es": "Already Filled Volume",
+        "ar": "Already Filled Volume"
+      }
     },
     {
       "id": "availableArea",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "m²",
       "default": 200000,
-      "businessContext": "Plan area available for landfilling"
+      "businessContext": "Plan area available for landfilling",
+      "label_i18n": {
+        "en": "Available Footprint Area",
+        "tr": "Available Footprint Area",
+        "de": "Available Footprint Area",
+        "fr": "Available Footprint Area",
+        "es": "Available Footprint Area",
+        "ar": "Available Footprint Area"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
     "breakdown": [
       "remainingCapacity",
       "landfillHeight"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "landfillHeight"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -72,5 +125,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

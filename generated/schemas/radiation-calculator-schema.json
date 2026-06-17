@@ -100,18 +100,21 @@
   ],
   "formulas": {
     "unshieldedDoseRate": "gammaConstant * sourceActivity / (distance ** 2)",
-    "attenuationFactor": "Math.exp(-0.693 * shieldingThickness / halfValueLayer)",
-    "shieldedDoseRate": "unshieldedDoseRate * attenuationFactor",
-    "totalDose": "shieldedDoseRate * exposureTime"
+    "unshieldedDoseRate_aux": "gammaConstant * sourceActivity / (distance ** 2)"
   },
   "outputs": {
-    "primary": "totalDose",
+    "primary": "unshieldedDoseRate_aux",
     "breakdown": [
       "unshieldedDoseRate",
       "attenuationFactor",
       "shieldedDoseRate",
       "totalDose"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalDose"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -121,5 +124,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

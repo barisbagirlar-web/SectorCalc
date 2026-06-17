@@ -69,16 +69,20 @@
   "formulas": {
     "totalDeciliters": "deciliters * batchSize",
     "unroundedCups": "deciliters * batchSize * conversionFactor",
-    "cups": "Math.floor(deciliters * batchSize * conversionFactor * Math.pow(10, precision) + 0.5) / Math.pow(10, precision)",
     "precisionUsed": "precision"
   },
   "outputs": {
-    "primary": "cups",
+    "primary": "precisionUsed",
     "breakdown": [
       "totalDeciliters",
       "unroundedCups",
       "precisionUsed"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "precisionUsed"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -88,5 +92,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

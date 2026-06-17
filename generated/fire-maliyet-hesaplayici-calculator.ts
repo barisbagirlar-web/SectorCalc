@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from fire-maliyet-hesaplayici-calculator-schema.json
 import * as z from 'zod';
 
@@ -19,31 +20,39 @@ export const Fire_maliyet_hesaplayici_calculatorInputSchema = z.object({
   laborOverhead: z.number().default(5),
 });
 
-function evaluateAllFormulas(input: Fire_maliyet_hesaplayici_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.totalMaterial - input.goodProduct - input.reworkMaterial; results["totalWasteMaterial"] = Number.isFinite(v) ? v : 0; } catch { results["totalWasteMaterial"] = 0; }
-  try { const v = ((results["totalWasteMaterial"] ?? 0) / input.totalMaterial) * 100; results["wastePercentage"] = Number.isFinite(v) ? v : 0; } catch { results["wastePercentage"] = 0; }
-  try { const v = (results["totalWasteMaterial"] ?? 0) * input.materialCost; results["materialCostLoss"] = Number.isFinite(v) ? v : 0; } catch { results["materialCostLoss"] = 0; }
-  try { const v = (results["totalWasteMaterial"] ?? 0) * input.laborOverhead; results["laborCostLoss"] = Number.isFinite(v) ? v : 0; } catch { results["laborCostLoss"] = 0; }
-  try { const v = input.reworkMaterial * input.laborOverhead; results["reworkLaborCost"] = Number.isFinite(v) ? v : 0; } catch { results["reworkLaborCost"] = 0; }
-  try { const v = (results["materialCostLoss"] ?? 0) + (results["laborCostLoss"] ?? 0) + (results["reworkLaborCost"] ?? 0); results["totalCostLoss"] = Number.isFinite(v) ? v : 0; } catch { results["totalCostLoss"] = 0; }
-  try { const v = (results["totalWasteMaterial"] ?? 0) * input.scrapPrice; results["scrapRevenue"] = Number.isFinite(v) ? v : 0; } catch { results["scrapRevenue"] = 0; }
-  try { const v = (results["totalCostLoss"] ?? 0) - (results["scrapRevenue"] ?? 0); results["netLoss"] = Number.isFinite(v) ? v : 0; } catch { results["netLoss"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Fire_maliyet_hesaplayici_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.totalMaterial - input.goodProduct - input.reworkMaterial; results["totalWasteMaterial"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalWasteMaterial"] = 0; }
+  try { const v = ((asFormulaNumber(results["totalWasteMaterial"])) / input.totalMaterial) * 100; results["wastePercentage"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["wastePercentage"] = 0; }
+  try { const v = (asFormulaNumber(results["totalWasteMaterial"])) * input.materialCost; results["materialCostLoss"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["materialCostLoss"] = 0; }
+  try { const v = (asFormulaNumber(results["totalWasteMaterial"])) * input.laborOverhead; results["laborCostLoss"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["laborCostLoss"] = 0; }
+  try { const v = input.reworkMaterial * input.laborOverhead; results["reworkLaborCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["reworkLaborCost"] = 0; }
+  try { const v = (asFormulaNumber(results["materialCostLoss"])) + (asFormulaNumber(results["laborCostLoss"])) + (asFormulaNumber(results["reworkLaborCost"])); results["totalCostLoss"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalCostLoss"] = 0; }
+  try { const v = (asFormulaNumber(results["totalWasteMaterial"])) * input.scrapPrice; results["scrapRevenue"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["scrapRevenue"] = 0; }
+  try { const v = (asFormulaNumber(results["totalCostLoss"])) - (asFormulaNumber(results["scrapRevenue"])); results["netLoss"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["netLoss"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateFire_maliyet_hesaplayici_calculator(input: Fire_maliyet_hesaplayici_calculatorInput): Fire_maliyet_hesaplayici_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["netLoss"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["netLoss"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

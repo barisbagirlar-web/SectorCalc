@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kPa",
       "default": 100,
-      "businessContext": "Dönüştürülecek kPa cinsinden basınç değeri"
+      "businessContext": "Dönüştürülecek kPa cinsinden basınç değeri",
+      "label_i18n": {
+        "en": "Basınç (kPa)",
+        "tr": "Basınç (kPa)",
+        "de": "Basınç (kPa)",
+        "fr": "Basınç (kPa)",
+        "es": "Basınç (kPa)",
+        "ar": "Basınç (kPa)"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "psi/kPa",
       "default": 0.1450377377,
-      "businessContext": "kPa'yı psi'ye çevirmek için kullanılan katsayı (varsayılan standart değer)"
+      "businessContext": "kPa'yı psi'ye çevirmek için kullanılan katsayı (varsayılan standart değer)",
+      "label_i18n": {
+        "en": "Dönüşüm Katsayısı",
+        "tr": "Dönüşüm Katsayısı",
+        "de": "Dönüşüm Katsayısı",
+        "fr": "Dönüşüm Katsayısı",
+        "es": "Dönüşüm Katsayısı",
+        "ar": "Dönüşüm Katsayısı"
+      }
     },
     {
       "id": "precision",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "adet",
       "default": 2,
-      "businessContext": "Sonuçtaki ondalık basamak sayısı"
+      "businessContext": "Sonuçtaki ondalık basamak sayısı",
+      "label_i18n": {
+        "en": "Ondalık Basamak",
+        "tr": "Ondalık Basamak",
+        "de": "Ondalık Basamak",
+        "fr": "Ondalık Basamak",
+        "es": "Ondalık Basamak",
+        "ar": "Ondalık Basamak"
+      }
     },
     {
       "id": "offset",
@@ -31,19 +55,32 @@
       "type": "number",
       "unit": "psi",
       "default": 0,
-      "businessContext": "Lineer dönüşüm sonrası eklenecek sabit ofset (genellikle 0)"
+      "businessContext": "Lineer dönüşüm sonrası eklenecek sabit ofset (genellikle 0)",
+      "label_i18n": {
+        "en": "Ofset (psi)",
+        "tr": "Ofset (psi)",
+        "de": "Ofset (psi)",
+        "fr": "Ofset (psi)",
+        "es": "Ofset (psi)",
+        "ar": "Ofset (psi)"
+      }
     }
   ],
   "formulas": {
     "psi": "pressureKpa * conversionFactor + offset",
-    "psiRounded": "Math.round(psi * Math.pow(10, precision)) / Math.pow(10, precision)"
+    "psi_aux": "pressureKpa * conversionFactor + offset"
   },
   "outputs": {
-    "primary": "psiRounded",
+    "primary": "psi_aux",
     "breakdown": [
       "psi",
       "precision"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "psiRounded"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -53,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

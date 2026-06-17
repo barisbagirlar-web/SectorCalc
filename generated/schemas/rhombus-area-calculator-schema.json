@@ -83,16 +83,20 @@
     }
   ],
   "formulas": {
-    "area": "((diagonal1 && diagonal2) ? (diagonal1 * diagonal2 / 2) : (sideLength && height) ? (sideLength * height) : (sideLength && angle) ? (sideLength ** 2 * Math.sin(angle * Math.PI / 180)) : 0)",
     "perimeter": "sideLength ? 4 * sideLength : 0",
     "diagonalProduct": "diagonal1 && diagonal2 ? diagonal1 * diagonal2 : 0"
   },
   "outputs": {
-    "primary": "area",
+    "primary": "diagonalProduct",
     "breakdown": [
       "perimeter",
       "diagonalProduct"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "diagonalProduct"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -102,5 +106,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

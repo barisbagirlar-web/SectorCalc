@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 1000,
-      "businessContext": "Par value of the bond"
+      "businessContext": "Par value of the bond",
+      "label_i18n": {
+        "en": "Face Value",
+        "tr": "Face Value",
+        "de": "Face Value",
+        "fr": "Face Value",
+        "es": "Face Value",
+        "ar": "Face Value"
+      }
     },
     {
       "id": "couponRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "% p.a.",
       "default": 5,
-      "businessContext": "Annual coupon rate"
+      "businessContext": "Annual coupon rate",
+      "label_i18n": {
+        "en": "Coupon Rate",
+        "tr": "Coupon Rate",
+        "de": "Coupon Rate",
+        "fr": "Coupon Rate",
+        "es": "Coupon Rate",
+        "ar": "Coupon Rate"
+      }
     },
     {
       "id": "currentPrice",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$",
       "default": 950,
-      "businessContext": "Current trading price"
+      "businessContext": "Current trading price",
+      "label_i18n": {
+        "en": "Current Market Price",
+        "tr": "Current Market Price",
+        "de": "Current Market Price",
+        "fr": "Current Market Price",
+        "es": "Current Market Price",
+        "ar": "Current Market Price"
+      }
     },
     {
       "id": "yearsToMaturity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "years",
       "default": 10,
-      "businessContext": "Time until bond matures"
+      "businessContext": "Time until bond matures",
+      "label_i18n": {
+        "en": "Years to Maturity",
+        "tr": "Years to Maturity",
+        "de": "Years to Maturity",
+        "fr": "Years to Maturity",
+        "es": "Years to Maturity",
+        "ar": "Years to Maturity"
+      }
     },
     {
       "id": "frequency",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "times per year",
       "default": 1,
-      "businessContext": "Number of coupon payments per year"
+      "businessContext": "Number of coupon payments per year",
+      "label_i18n": {
+        "en": "Coupon Frequency",
+        "tr": "Coupon Frequency",
+        "de": "Coupon Frequency",
+        "fr": "Coupon Frequency",
+        "es": "Coupon Frequency",
+        "ar": "Coupon Frequency"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +102,12 @@
         "unit": "$",
         "value": "annualCoupon"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "approxYTM"
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Üretim & İmalat",
@@ -72,5 +117,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

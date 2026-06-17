@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 5,
-      "businessContext": "Total weight of malt grain in the recipe"
+      "businessContext": "Total weight of malt grain in the recipe",
+      "label_i18n": {
+        "en": "Grain Weight",
+        "tr": "Grain Weight",
+        "de": "Grain Weight",
+        "fr": "Grain Weight",
+        "es": "Grain Weight",
+        "ar": "Grain Weight"
+      }
     },
     {
       "id": "hopWeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g",
       "default": 50,
-      "businessContext": "Weight of hops added for bittering"
+      "businessContext": "Weight of hops added for bittering",
+      "label_i18n": {
+        "en": "Hop Weight",
+        "tr": "Hop Weight",
+        "de": "Hop Weight",
+        "fr": "Hop Weight",
+        "es": "Hop Weight",
+        "ar": "Hop Weight"
+      }
     },
     {
       "id": "alphaAcid",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Alpha acid percentage of the hops"
+      "businessContext": "Alpha acid percentage of the hops",
+      "label_i18n": {
+        "en": "Alpha Acid",
+        "tr": "Alpha Acid",
+        "de": "Alpha Acid",
+        "fr": "Alpha Acid",
+        "es": "Alpha Acid",
+        "ar": "Alpha Acid"
+      }
     },
     {
       "id": "boilVolume",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "L",
       "default": 20,
-      "businessContext": "Volume of wort after boiling"
+      "businessContext": "Volume of wort after boiling",
+      "label_i18n": {
+        "en": "Boil Volume",
+        "tr": "Boil Volume",
+        "de": "Boil Volume",
+        "fr": "Boil Volume",
+        "es": "Boil Volume",
+        "ar": "Boil Volume"
+      }
     },
     {
       "id": "boilTime",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "min",
       "default": 60,
-      "businessContext": "Duration of the boil"
+      "businessContext": "Duration of the boil",
+      "label_i18n": {
+        "en": "Boil Time",
+        "tr": "Boil Time",
+        "de": "Boil Time",
+        "fr": "Boil Time",
+        "es": "Boil Time",
+        "ar": "Boil Time"
+      }
     },
     {
       "id": "attenuation",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 75,
-      "businessContext": "Expected attenuation of the yeast strain"
+      "businessContext": "Expected attenuation of the yeast strain",
+      "label_i18n": {
+        "en": "Yeast Attenuation",
+        "tr": "Yeast Attenuation",
+        "de": "Yeast Attenuation",
+        "fr": "Yeast Attenuation",
+        "es": "Yeast Attenuation",
+        "ar": "Yeast Attenuation"
+      }
     },
     {
       "id": "efficiency",
@@ -55,14 +103,21 @@
       "type": "number",
       "unit": "%",
       "default": 75,
-      "businessContext": "Brewhouse efficiency of the system"
+      "businessContext": "Brewhouse efficiency of the system",
+      "label_i18n": {
+        "en": "Efficiency",
+        "tr": "Efficiency",
+        "de": "Efficiency",
+        "fr": "Efficiency",
+        "es": "Efficiency",
+        "ar": "Efficiency"
+      }
     }
   ],
   "formulas": {
     "originalGravity": "1 + (grainWeight * 300 * (efficiency / 100)) / (boilVolume * 1000)",
     "finalGravity": "originalGravity - (originalGravity - 1) * (attenuation / 100)",
-    "abv": "(originalGravity - finalGravity) * 131.25",
-    "ibu": "(hopWeight * alphaAcid * (1.65 * Math.pow(0.000125, (originalGravity - 1) * 1000) * (1 - Math.exp(-0.04 * boilTime)) / 4.15) * 1000) / boilVolume"
+    "abv": "(originalGravity - finalGravity) * 131.25"
   },
   "outputs": {
     "primary": "abv",
@@ -70,7 +125,12 @@
       "originalGravity",
       "finalGravity",
       "ibu"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "ibu"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -80,5 +140,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

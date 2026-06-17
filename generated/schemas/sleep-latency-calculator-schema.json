@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "decimal hours",
       "default": 22.5,
-      "businessContext": "Time when worker turns off lights and attempts to sleep (e.g., 22.5 for 22:30)"
+      "businessContext": "Time when worker turns off lights and attempts to sleep (e.g., 22.5 for 22:30)",
+      "label_i18n": {
+        "en": "Lights Out Time (decimal hours)",
+        "tr": "Lights Out Time (decimal hours)",
+        "de": "Lights Out Time (decimal hours)",
+        "fr": "Lights Out Time (decimal hours)",
+        "es": "Lights Out Time (decimal hours)",
+        "ar": "Lights Out Time (decimal hours)"
+      }
     },
     {
       "id": "age",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "years",
       "default": 35,
-      "businessContext": "Worker's age in years; older age may increase sleep latency"
+      "businessContext": "Worker's age in years; older age may increase sleep latency",
+      "label_i18n": {
+        "en": "Worker Age",
+        "tr": "Worker Age",
+        "de": "Worker Age",
+        "fr": "Worker Age",
+        "es": "Worker Age",
+        "ar": "Worker Age"
+      }
     },
     {
       "id": "caffeineIntake",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mg",
       "default": 150,
-      "businessContext": "Total caffeine consumed in mg within 6 hours before bedtime"
+      "businessContext": "Total caffeine consumed in mg within 6 hours before bedtime",
+      "label_i18n": {
+        "en": "Caffeine Intake Before Bed",
+        "tr": "Caffeine Intake Before Bed",
+        "de": "Caffeine Intake Before Bed",
+        "fr": "Caffeine Intake Before Bed",
+        "es": "Caffeine Intake Before Bed",
+        "ar": "Caffeine Intake Before Bed"
+      }
     },
     {
       "id": "screenTime",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 60,
-      "businessContext": "Minutes spent on screens (phone, TV, computer) before lights out"
+      "businessContext": "Minutes spent on screens (phone, TV, computer) before lights out",
+      "label_i18n": {
+        "en": "Screen Time Before Bed",
+        "tr": "Screen Time Before Bed",
+        "de": "Screen Time Before Bed",
+        "fr": "Screen Time Before Bed",
+        "es": "Screen Time Before Bed",
+        "ar": "Screen Time Before Bed"
+      }
     },
     {
       "id": "roomTemperature",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Bedroom temperature in degrees Celsius; optimal is around 20°C"
+      "businessContext": "Bedroom temperature in degrees Celsius; optimal is around 20°C",
+      "label_i18n": {
+        "en": "Room Temperature",
+        "tr": "Room Temperature",
+        "de": "Room Temperature",
+        "fr": "Room Temperature",
+        "es": "Room Temperature",
+        "ar": "Room Temperature"
+      }
     },
     {
       "id": "stressLevel",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "scale",
       "default": 5,
-      "businessContext": "Self-reported stress level on a scale of 1-10, 10 being extremely stressed"
+      "businessContext": "Self-reported stress level on a scale of 1-10, 10 being extremely stressed",
+      "label_i18n": {
+        "en": "Stress Level (1-10)",
+        "tr": "Stress Level (1-10)",
+        "de": "Stress Level (1-10)",
+        "fr": "Stress Level (1-10)",
+        "es": "Stress Level (1-10)",
+        "ar": "Stress Level (1-10)"
+      }
     }
   ],
   "formulas": {
@@ -68,7 +116,12 @@
       "screenAdjustment",
       "temperatureAdjustment",
       "stressAdjustment"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "stressAdjustment"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -78,5 +131,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "engineering"
+  "categoryId": "engineering",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

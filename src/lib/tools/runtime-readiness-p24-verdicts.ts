@@ -8,12 +8,8 @@ export type P24AuditVerdict = "PASS" | "WARN" | "FAIL" | "QUARANTINE";
 
 /** Slugs with P2.4 verdict !== PASS (generated snapshot). */
 export const P24_NON_PASS_VERDICTS: Readonly<Record<string, P24AuditVerdict>> = {
-  "3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator": "QUARANTINE",
-  "3b-baski-parti-optimizasyonu-ve-yuvalama-calculator": "QUARANTINE",
-  "3b-baski-vs-talasli-imalat-basabas-noktasi-calculator": "QUARANTINE",
   "3d-print-cost-check": "WARN",
   "3d-print-job-margin-tool": "WARN",
-  "5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator": "QUARANTINE",
   "abonelik-yazilim-cloud-yillik-maliyet-hesabi": "WARN",
   "age-calculator": "WARN",
   "agirlikli-ortalama-hesaplama": "FAIL",
@@ -461,6 +457,10 @@ export const P24_NON_PASS_VERDICTS: Readonly<Record<string, P24AuditVerdict>> = 
 /** Slugs with explicit P2.4 PASS — required for Formula Gate trust eligibility. */
 export const P24_EXPLICIT_PASS_SLUGS: ReadonlySet<string> = new Set([
   "7-israf-muda-avcisi-parasal-karsilik-calculator",
+  "5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator",
+  "3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator",
+  "3b-baski-parti-optimizasyonu-ve-yuvalama-calculator",
+  "3b-baski-vs-talasli-imalat-basabas-noktasi-calculator",
   "agriculture-irrigation-yield-loss",
   "auto-shop-margin-leak-detector",
   "change-order-impact-analyzer",

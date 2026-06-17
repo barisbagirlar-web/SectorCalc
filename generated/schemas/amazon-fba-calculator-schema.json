@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "Birim başına ürün edinme maliyeti"
+      "businessContext": "Birim başına ürün edinme maliyeti",
+      "label_i18n": {
+        "en": "Ürün Maliyeti (Birim)",
+        "tr": "Ürün Maliyeti (Birim)",
+        "de": "Ürün Maliyeti (Birim)",
+        "fr": "Ürün Maliyeti (Birim)",
+        "es": "Ürün Maliyeti (Birim)",
+        "ar": "Ürün Maliyeti (Birim)"
+      }
     },
     {
       "id": "sellingPrice",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "Amazon'da listelenecek nihai satış fiyatı"
+      "businessContext": "Amazon'da listelenecek nihai satış fiyatı",
+      "label_i18n": {
+        "en": "Satış Fiyatı (KDV Dahil)",
+        "tr": "Satış Fiyatı (KDV Dahil)",
+        "de": "Satış Fiyatı (KDV Dahil)",
+        "fr": "Satış Fiyatı (KDV Dahil)",
+        "es": "Satış Fiyatı (KDV Dahil)",
+        "ar": "Satış Fiyatı (KDV Dahil)"
+      }
     },
     {
       "id": "referralFeePercentage",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Kategoriye göre Amazon komisyon oranı"
+      "businessContext": "Kategoriye göre Amazon komisyon oranı",
+      "label_i18n": {
+        "en": "Amazon Referral Ücreti (%)",
+        "tr": "Amazon Referral Ücreti (%)",
+        "de": "Amazon Referral Ücreti (%)",
+        "fr": "Amazon Referral Ücreti (%)",
+        "es": "Amazon Referral Ücreti (%)",
+        "ar": "Amazon Referral Ücreti (%)"
+      }
     },
     {
       "id": "fbaFulfillmentFee",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "Amazon tarafından alınan depolama, paketleme ve gönderim ücreti"
+      "businessContext": "Amazon tarafından alınan depolama, paketleme ve gönderim ücreti",
+      "label_i18n": {
+        "en": "FBA İşlem Ücreti (Birim)",
+        "tr": "FBA İşlem Ücreti (Birim)",
+        "de": "FBA İşlem Ücreti (Birim)",
+        "fr": "FBA İşlem Ücreti (Birim)",
+        "es": "FBA İşlem Ücreti (Birim)",
+        "ar": "FBA İşlem Ücreti (Birim)"
+      }
     },
     {
       "id": "shippingToAmazon",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "Ürünlerin Amazon deposuna gönderim maliyeti"
+      "businessContext": "Ürünlerin Amazon deposuna gönderim maliyeti",
+      "label_i18n": {
+        "en": "Amazon'a Nakliye (Birim)",
+        "tr": "Amazon'a Nakliye (Birim)",
+        "de": "Amazon'a Nakliye (Birim)",
+        "fr": "Amazon'a Nakliye (Birim)",
+        "es": "Amazon'a Nakliye (Birim)",
+        "ar": "Amazon'a Nakliye (Birim)"
+      }
     },
     {
       "id": "advertisingCost",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "PPC reklam harcaması (birim başı dağıtılmış)"
+      "businessContext": "PPC reklam harcaması (birim başı dağıtılmış)",
+      "label_i18n": {
+        "en": "Reklam Maliyeti (Birim Başı)",
+        "tr": "Reklam Maliyeti (Birim Başı)",
+        "de": "Reklam Maliyeti (Birim Başı)",
+        "fr": "Reklam Maliyeti (Birim Başı)",
+        "es": "Reklam Maliyeti (Birim Başı)",
+        "ar": "Reklam Maliyeti (Birim Başı)"
+      }
     },
     {
       "id": "storageCost",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "Aylık depolama ücreti (varsa)"
+      "businessContext": "Aylık depolama ücreti (varsa)",
+      "label_i18n": {
+        "en": "Depolama Ücreti (Birim Başı/Aylık)",
+        "tr": "Depolama Ücreti (Birim Başı/Aylık)",
+        "de": "Depolama Ücreti (Birim Başı/Aylık)",
+        "fr": "Depolama Ücreti (Birim Başı/Aylık)",
+        "es": "Depolama Ücreti (Birim Başı/Aylık)",
+        "ar": "Depolama Ücreti (Birim Başı/Aylık)"
+      }
     }
   ],
   "formulas": {
@@ -70,7 +126,12 @@
       "totalCost",
       "referralFeeAmount",
       "profitMargin"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "profitMargin"
   },
   "category": "Lojistik & Tedarik Zinciri",
   "sector": "Lojistik & Sevkiyat",
@@ -80,5 +141,10 @@
   "categorySlug": "procurement-supply-chain",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

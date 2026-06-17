@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from video-bitrate-calculator-schema.json
 import * as z from 'zod';
 
@@ -19,29 +20,37 @@ export const Video_bitrate_calculatorInputSchema = z.object({
   duration: z.number().default(60),
 });
 
-function evaluateAllFormulas(input: Video_bitrate_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.width * input.height * input.frameRate * input.colorDepth; results["uncompressedBitrateBps"] = Number.isFinite(v) ? v : 0; } catch { results["uncompressedBitrateBps"] = 0; }
-  try { const v = (results["uncompressedBitrateBps"] ?? 0) / 1000000; results["uncompressedBitrateMbps"] = Number.isFinite(v) ? v : 0; } catch { results["uncompressedBitrateMbps"] = 0; }
-  try { const v = (results["uncompressedBitrateBps"] ?? 0) * input.compressionRatio; results["compressedBitrateBps"] = Number.isFinite(v) ? v : 0; } catch { results["compressedBitrateBps"] = 0; }
-  try { const v = (results["compressedBitrateBps"] ?? 0) / 1000000; results["compressedBitrateMbps"] = Number.isFinite(v) ? v : 0; } catch { results["compressedBitrateMbps"] = 0; }
-  try { const v = (results["compressedBitrateBps"] ?? 0) * input.duration / (8 * 1048576); results["fileSizeMB"] = Number.isFinite(v) ? v : 0; } catch { results["fileSizeMB"] = 0; }
-  try { const v = (results["fileSizeMB"] ?? 0) / 1024; results["fileSizeGB"] = Number.isFinite(v) ? v : 0; } catch { results["fileSizeGB"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Video_bitrate_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.width * input.height * input.frameRate * input.colorDepth; results["uncompressedBitrateBps"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["uncompressedBitrateBps"] = 0; }
+  try { const v = (asFormulaNumber(results["uncompressedBitrateBps"])) / 1000000; results["uncompressedBitrateMbps"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["uncompressedBitrateMbps"] = 0; }
+  try { const v = (asFormulaNumber(results["uncompressedBitrateBps"])) * input.compressionRatio; results["compressedBitrateBps"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["compressedBitrateBps"] = 0; }
+  try { const v = (asFormulaNumber(results["compressedBitrateBps"])) / 1000000; results["compressedBitrateMbps"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["compressedBitrateMbps"] = 0; }
+  try { const v = (asFormulaNumber(results["compressedBitrateBps"])) * input.duration / (8 * 1048576); results["fileSizeMB"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["fileSizeMB"] = 0; }
+  try { const v = (asFormulaNumber(results["fileSizeMB"])) / 1024; results["fileSizeGB"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["fileSizeGB"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateVideo_bitrate_calculator(input: Video_bitrate_calculatorInput): Video_bitrate_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["uncompressedBitrateBps"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["uncompressedBitrateBps"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

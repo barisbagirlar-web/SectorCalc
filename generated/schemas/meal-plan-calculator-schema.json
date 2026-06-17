@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "meals",
       "default": 100,
-      "businessContext": "Number of meals served daily"
+      "businessContext": "Number of meals served daily",
+      "label_i18n": {
+        "en": "Meals per Day",
+        "tr": "Meals per Day",
+        "de": "Meals per Day",
+        "fr": "Meals per Day",
+        "es": "Meals per Day",
+        "ar": "Meals per Day"
+      }
     },
     {
       "id": "ingredientCostPerMeal",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 3.5,
-      "businessContext": "Average ingredient cost per meal"
+      "businessContext": "Average ingredient cost per meal",
+      "label_i18n": {
+        "en": "Ingredient Cost per Meal",
+        "tr": "Ingredient Cost per Meal",
+        "de": "Ingredient Cost per Meal",
+        "fr": "Ingredient Cost per Meal",
+        "es": "Ingredient Cost per Meal",
+        "ar": "Ingredient Cost per Meal"
+      }
     },
     {
       "id": "laborCostPerHour",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 20,
-      "businessContext": "Hourly rate for kitchen staff"
+      "businessContext": "Hourly rate for kitchen staff",
+      "label_i18n": {
+        "en": "Labor Cost per Hour",
+        "tr": "Labor Cost per Hour",
+        "de": "Labor Cost per Hour",
+        "fr": "Labor Cost per Hour",
+        "es": "Labor Cost per Hour",
+        "ar": "Labor Cost per Hour"
+      }
     },
     {
       "id": "prepTimePerMeal",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 10,
-      "businessContext": "Average time to prepare one meal"
+      "businessContext": "Average time to prepare one meal",
+      "label_i18n": {
+        "en": "Preparation Time per Meal",
+        "tr": "Preparation Time per Meal",
+        "de": "Preparation Time per Meal",
+        "fr": "Preparation Time per Meal",
+        "es": "Preparation Time per Meal",
+        "ar": "Preparation Time per Meal"
+      }
     },
     {
       "id": "overheadPercent",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Overhead costs as percentage of direct costs"
+      "businessContext": "Overhead costs as percentage of direct costs",
+      "label_i18n": {
+        "en": "Overhead Percentage",
+        "tr": "Overhead Percentage",
+        "de": "Overhead Percentage",
+        "fr": "Overhead Percentage",
+        "es": "Overhead Percentage",
+        "ar": "Overhead Percentage"
+      }
     },
     {
       "id": "wastePercent",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Expected food waste percentage"
+      "businessContext": "Expected food waste percentage",
+      "label_i18n": {
+        "en": "Waste Percentage",
+        "tr": "Waste Percentage",
+        "de": "Waste Percentage",
+        "fr": "Waste Percentage",
+        "es": "Waste Percentage",
+        "ar": "Waste Percentage"
+      }
     }
   ],
   "formulas": {
@@ -67,7 +115,12 @@
       "totalLaborCost",
       "wasteCost",
       "overheadCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -77,5 +130,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

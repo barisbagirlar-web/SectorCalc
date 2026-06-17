@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "sq ft",
       "default": 1000,
-      "businessContext": "Total wall surface area to be covered with stucco."
+      "businessContext": "Total wall surface area to be covered with stucco.",
+      "label_i18n": {
+        "en": "Wall Area",
+        "tr": "Wall Area",
+        "de": "Wall Area",
+        "fr": "Wall Area",
+        "es": "Wall Area",
+        "ar": "Wall Area"
+      }
     },
     {
       "id": "thickness",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "in",
       "default": 0.75,
-      "businessContext": "Target thickness of the stucco layer (typically 3/4 in)."
+      "businessContext": "Target thickness of the stucco layer (typically 3/4 in).",
+      "label_i18n": {
+        "en": "Stucco Thickness",
+        "tr": "Stucco Thickness",
+        "de": "Stucco Thickness",
+        "fr": "Stucco Thickness",
+        "es": "Stucco Thickness",
+        "ar": "Stucco Thickness"
+      }
     },
     {
       "id": "cementBagsPerCubicYard",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "bags/cu yd",
       "default": 6.5,
-      "businessContext": "Number of 94-lb cement bags per cubic yard of stucco mix (standard 1:3 mix)."
+      "businessContext": "Number of 94-lb cement bags per cubic yard of stucco mix (standard 1:3 mix).",
+      "label_i18n": {
+        "en": "Cement Content",
+        "tr": "Cement Content",
+        "de": "Cement Content",
+        "fr": "Cement Content",
+        "es": "Cement Content",
+        "ar": "Cement Content"
+      }
     },
     {
       "id": "wasteFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Additional material percentage to account for job-site waste and spillage."
+      "businessContext": "Additional material percentage to account for job-site waste and spillage.",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     },
     {
       "id": "laborRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "$/hr",
       "default": 50,
-      "businessContext": "Hourly labor cost for stucco application crew."
+      "businessContext": "Hourly labor cost for stucco application crew.",
+      "label_i18n": {
+        "en": "Labor Rate",
+        "tr": "Labor Rate",
+        "de": "Labor Rate",
+        "fr": "Labor Rate",
+        "es": "Labor Rate",
+        "ar": "Labor Rate"
+      }
     },
     {
       "id": "productivity",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "sq ft/hr",
       "default": 25,
-      "businessContext": "Average stucco application rate per worker-hour."
+      "businessContext": "Average stucco application rate per worker-hour.",
+      "label_i18n": {
+        "en": "Productivity",
+        "tr": "Productivity",
+        "de": "Productivity",
+        "fr": "Productivity",
+        "es": "Productivity",
+        "ar": "Productivity"
+      }
     },
     {
       "id": "cementCostPerBag",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "$/bag",
       "default": 15,
-      "businessContext": "Unit cost per 94-lb bag of Portland cement."
+      "businessContext": "Unit cost per 94-lb bag of Portland cement.",
+      "label_i18n": {
+        "en": "Cement Cost",
+        "tr": "Cement Cost",
+        "de": "Cement Cost",
+        "fr": "Cement Cost",
+        "es": "Cement Cost",
+        "ar": "Cement Cost"
+      }
     },
     {
       "id": "sandCostPerTon",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "$/ton",
       "default": 30,
-      "businessContext": "Unit cost per ton of clean masonry sand."
+      "businessContext": "Unit cost per ton of clean masonry sand.",
+      "label_i18n": {
+        "en": "Sand Cost",
+        "tr": "Sand Cost",
+        "de": "Sand Cost",
+        "fr": "Sand Cost",
+        "es": "Sand Cost",
+        "ar": "Sand Cost"
+      }
     }
   ],
   "formulas": {
@@ -87,7 +151,12 @@
       "sandCost",
       "laborCost",
       "wasteCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "wasteCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -97,5 +166,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

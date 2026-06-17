@@ -99,18 +99,20 @@
     }
   ],
   "formulas": {
-    "zScore": "(sampleMean - nullMean) / (stdDev / Math.sqrt(sampleSize))",
-    "pValue": "(function() { const z = (sampleMean - nullMean) / (stdDev / Math.sqrt(sampleSize)); const cdf = (x) => { const a1 = 0.254829592; const a2 = -0.284496736; const a3 = 1.421413741; const a4 = -1.453152027; const a5 = 1.061405429; const p = 0.3275911; const sign = (x >= 0) ? 1 : -1; x = Math.abs(x) / Math.sqrt(2); const t = 1.0 / (1.0 + p * x); const y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-x * x); return 0.5 * (1.0 + sign * y); }; if (tails === 2) { return 2 * (1 - cdf(Math.abs(z))); } else { return 1 - cdf(z); } })()",
-    "____zScore_toFixed_4_": "' + zScore.toFixed(4)",
-    "____pValue_toFixed_4_____pValue___alpha_": "' + pValue.toFixed(4) + (pValue < alpha ? ' (significant)' : ' (not significant)')",
-    "result": "(pValue < alpha) ? 'Reject H₀' : 'Fail to reject H₀'"
+    "result": "sampleMean + nullMean + stdDev",
+    "result_aux": "sampleMean + nullMean + stdDev"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
       "'Z-Score: ' + zScore.toFixed(4)",
       "'p-value: ' + pValue.toFixed(4) + (pValue < alpha ? ' (significant)' : ' (not significant)')"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -120,5 +122,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

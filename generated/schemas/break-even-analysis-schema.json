@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TL",
       "default": 100000,
-      "businessContext": "Total fixed costs (rent, salaries, insurance, etc.)"
+      "businessContext": "Total fixed costs (rent, salaries, insurance, etc.)",
+      "label_i18n": {
+        "en": "Fixed Costs (TL)",
+        "tr": "Fixed Costs (TL)",
+        "de": "Fixed Costs (TL)",
+        "fr": "Fixed Costs (TL)",
+        "es": "Fixed Costs (TL)",
+        "ar": "Fixed Costs (TL)"
+      }
     },
     {
       "id": "variableCostPerUnit",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "TL",
       "default": 50,
-      "businessContext": "Cost per unit that varies with production volume"
+      "businessContext": "Cost per unit that varies with production volume",
+      "label_i18n": {
+        "en": "Variable Cost per Unit (TL)",
+        "tr": "Variable Cost per Unit (TL)",
+        "de": "Variable Cost per Unit (TL)",
+        "fr": "Variable Cost per Unit (TL)",
+        "es": "Variable Cost per Unit (TL)",
+        "ar": "Variable Cost per Unit (TL)"
+      }
     },
     {
       "id": "sellingPricePerUnit",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "TL",
       "default": 100,
-      "businessContext": "Price at which each unit is sold"
+      "businessContext": "Price at which each unit is sold",
+      "label_i18n": {
+        "en": "Selling Price per Unit (TL)",
+        "tr": "Selling Price per Unit (TL)",
+        "de": "Selling Price per Unit (TL)",
+        "fr": "Selling Price per Unit (TL)",
+        "es": "Selling Price per Unit (TL)",
+        "ar": "Selling Price per Unit (TL)"
+      }
     },
     {
       "id": "expectedSalesVolume",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "units",
       "default": 3000,
-      "businessContext": "Projected number of units to be sold"
+      "businessContext": "Projected number of units to be sold",
+      "label_i18n": {
+        "en": "Expected Sales Volume (units)",
+        "tr": "Expected Sales Volume (units)",
+        "de": "Expected Sales Volume (units)",
+        "fr": "Expected Sales Volume (units)",
+        "es": "Expected Sales Volume (units)",
+        "ar": "Expected Sales Volume (units)"
+      }
     }
   ],
   "formulas": {
@@ -48,7 +80,12 @@
       "profit",
       "contributionMargin",
       "marginRatio"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "marginRatio"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -58,5 +95,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

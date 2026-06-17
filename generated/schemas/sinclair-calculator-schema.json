@@ -67,12 +67,11 @@
     }
   ],
   "formulas": {
-    "sinclairScore": "totalLifted * Math.pow(10, coefficientA * Math.pow(Math.log(bodyweight / coefficientB) / Math.log(10), 2))",
-    "adjustedFactor": "Math.pow(10, coefficientA * Math.pow(Math.log(bodyweight / coefficientB) / Math.log(10), 2))",
-    "bodyweightRatio": "bodyweight / coefficientB"
+    "bodyweightRatio": "bodyweight / coefficientB",
+    "bodyweightRatio_aux": "bodyweight / coefficientB"
   },
   "outputs": {
-    "primary": "sinclairScore",
+    "primary": "bodyweightRatio_aux",
     "breakdown": [
       {
         "id": "adjustedFactor",
@@ -84,7 +83,12 @@
         "label": "Ağırlık Oranı",
         "unit": ""
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "bodyweightRatio"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -94,5 +98,10 @@
   "sectorSlug": "cleaning",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

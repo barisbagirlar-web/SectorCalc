@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kcal",
       "default": 2000,
-      "businessContext": "Total calories burned per day from all activities and bodily functions"
+      "businessContext": "Total calories burned per day from all activities and bodily functions",
+      "label_i18n": {
+        "en": "Total Daily Energy Expenditure",
+        "tr": "Total Daily Energy Expenditure",
+        "de": "Total Daily Energy Expenditure",
+        "fr": "Total Daily Energy Expenditure",
+        "es": "Total Daily Energy Expenditure",
+        "ar": "Total Daily Energy Expenditure"
+      }
     },
     {
       "id": "bmr",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kcal",
       "default": 1500,
-      "businessContext": "Calories burned at rest to maintain vital functions"
+      "businessContext": "Calories burned at rest to maintain vital functions",
+      "label_i18n": {
+        "en": "Basal Metabolic Rate",
+        "tr": "Basal Metabolic Rate",
+        "de": "Basal Metabolic Rate",
+        "fr": "Basal Metabolic Rate",
+        "es": "Basal Metabolic Rate",
+        "ar": "Basal Metabolic Rate"
+      }
     },
     {
       "id": "tef",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kcal",
       "default": 200,
-      "businessContext": "Energy expended during digestion, absorption, and metabolism of food"
+      "businessContext": "Energy expended during digestion, absorption, and metabolism of food",
+      "label_i18n": {
+        "en": "Thermic Effect of Food",
+        "tr": "Thermic Effect of Food",
+        "de": "Thermic Effect of Food",
+        "fr": "Thermic Effect of Food",
+        "es": "Thermic Effect of Food",
+        "ar": "Thermic Effect of Food"
+      }
     },
     {
       "id": "exercise",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kcal",
       "default": 150,
-      "businessContext": "Calories burned through planned physical exercise"
+      "businessContext": "Calories burned through planned physical exercise",
+      "label_i18n": {
+        "en": "Exercise Activity Thermogenesis",
+        "tr": "Exercise Activity Thermogenesis",
+        "de": "Exercise Activity Thermogenesis",
+        "fr": "Exercise Activity Thermogenesis",
+        "es": "Exercise Activity Thermogenesis",
+        "ar": "Exercise Activity Thermogenesis"
+      }
     }
   ],
   "formulas": {
@@ -43,7 +75,12 @@
     "breakdown": [
       "neat",
       "neatPercentage"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "neatPercentage"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -53,5 +90,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

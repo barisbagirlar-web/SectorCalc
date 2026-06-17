@@ -99,16 +99,20 @@
     }
   ],
   "formulas": {
-    "totalSum": "Array.from({length: Math.max(0, Math.floor((endIndex - startIndex) / increment) + 1)}, (_, i) => startIndex + i * increment).reduce((acc, k) => acc + multiplier / Math.pow(k + shift, exponent), 0)",
-    "termsIncluded": "Math.floor((endIndex - startIndex) / increment) + 1",
-    "approximateIntegral": "exponent === 1 ? (multiplier / increment) * Math.log((endIndex + shift) / (startIndex + shift)) : (multiplier / increment) * (Math.pow(endIndex + shift, 1 - exponent) - Math.pow(startIndex + shift, 1 - exponent)) / (1 - exponent)"
+    "result": "startIndex + endIndex + exponent",
+    "result_copy": "startIndex + endIndex + exponent"
   },
   "outputs": {
-    "primary": "totalSum",
+    "primary": "result",
     "breakdown": [
       "termsIncluded",
       "approximateIntegral"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "approximateIntegral"
   },
   "category": "İK & Personel",
   "sector": "Finans & İK",
@@ -118,5 +122,10 @@
   "categorySlug": "workforce-hr",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

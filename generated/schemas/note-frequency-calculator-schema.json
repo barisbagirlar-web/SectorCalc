@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 440,
-      "businessContext": "Standard tuning frequency for A4 note."
+      "businessContext": "Standard tuning frequency for A4 note.",
+      "label_i18n": {
+        "en": "Reference Frequency (A4)",
+        "tr": "Reference Frequency (A4)",
+        "de": "Reference Frequency (A4)",
+        "fr": "Reference Frequency (A4)",
+        "es": "Reference Frequency (A4)",
+        "ar": "Reference Frequency (A4)"
+      }
     },
     {
       "id": "referenceNote",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "MIDI number",
       "default": 69,
-      "businessContext": "MIDI note number for the reference pitch; A4=69."
+      "businessContext": "MIDI note number for the reference pitch; A4=69.",
+      "label_i18n": {
+        "en": "Reference MIDI Note",
+        "tr": "Reference MIDI Note",
+        "de": "Reference MIDI Note",
+        "fr": "Reference MIDI Note",
+        "es": "Reference MIDI Note",
+        "ar": "Reference MIDI Note"
+      }
     },
     {
       "id": "targetNote",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "MIDI number",
       "default": 69,
-      "businessContext": "MIDI note number for which to calculate frequency."
+      "businessContext": "MIDI note number for which to calculate frequency.",
+      "label_i18n": {
+        "en": "Target MIDI Note",
+        "tr": "Target MIDI Note",
+        "de": "Target MIDI Note",
+        "fr": "Target MIDI Note",
+        "es": "Target MIDI Note",
+        "ar": "Target MIDI Note"
+      }
     },
     {
       "id": "centsAdjustment",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "cents",
       "default": 0,
-      "businessContext": "Fine-tuning adjustment in cents (100 cents = 1 semitone)."
+      "businessContext": "Fine-tuning adjustment in cents (100 cents = 1 semitone).",
+      "label_i18n": {
+        "en": "Cents Adjustment",
+        "tr": "Cents Adjustment",
+        "de": "Cents Adjustment",
+        "fr": "Cents Adjustment",
+        "es": "Cents Adjustment",
+        "ar": "Cents Adjustment"
+      }
     }
   ],
   "formulas": {
     "semitoneOffset": "targetNote - referenceNote",
-    "frequencyWithoutCents": "referenceFrequency * Math.pow(2, (targetNote - referenceNote) / 12)",
-    "frequency": "referenceFrequency * Math.pow(2, (targetNote - referenceNote + centsAdjustment / 100) / 12)"
+    "semitoneOffset_aux": "targetNote - referenceNote"
   },
   "outputs": {
-    "primary": "frequency",
+    "primary": "semitoneOffset_aux",
     "breakdown": [
       "semitoneOffset",
       "frequencyWithoutCents"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "frequency"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

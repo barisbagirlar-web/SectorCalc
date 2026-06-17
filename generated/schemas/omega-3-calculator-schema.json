@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mg",
       "default": 1000,
-      "businessContext": "Fish oil amount per capsule in milligrams"
+      "businessContext": "Fish oil amount per capsule in milligrams",
+      "label_i18n": {
+        "en": "Capsule Size (mg)",
+        "tr": "Capsule Size (mg)",
+        "de": "Capsule Size (mg)",
+        "fr": "Capsule Size (mg)",
+        "es": "Capsule Size (mg)",
+        "ar": "Capsule Size (mg)"
+      }
     },
     {
       "id": "capsules_per_day",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "count",
       "default": 1,
-      "businessContext": "Number of capsules consumed daily"
+      "businessContext": "Number of capsules consumed daily",
+      "label_i18n": {
+        "en": "Capsules per Day",
+        "tr": "Capsules per Day",
+        "de": "Capsules per Day",
+        "fr": "Capsules per Day",
+        "es": "Capsules per Day",
+        "ar": "Capsules per Day"
+      }
     },
     {
       "id": "epa_percent",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 18,
-      "businessContext": "Percentage of EPA in the fish oil"
+      "businessContext": "Percentage of EPA in the fish oil",
+      "label_i18n": {
+        "en": "EPA Concentration (%)",
+        "tr": "EPA Concentration (%)",
+        "de": "EPA Concentration (%)",
+        "fr": "EPA Concentration (%)",
+        "es": "EPA Concentration (%)",
+        "ar": "EPA Concentration (%)"
+      }
     },
     {
       "id": "dha_percent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 12,
-      "businessContext": "Percentage of DHA in the fish oil"
+      "businessContext": "Percentage of DHA in the fish oil",
+      "label_i18n": {
+        "en": "DHA Concentration (%)",
+        "tr": "DHA Concentration (%)",
+        "de": "DHA Concentration (%)",
+        "fr": "DHA Concentration (%)",
+        "es": "DHA Concentration (%)",
+        "ar": "DHA Concentration (%)"
+      }
     },
     {
       "id": "body_weight_kg",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Body weight for per-kilogram dosage calculation"
+      "businessContext": "Body weight for per-kilogram dosage calculation",
+      "label_i18n": {
+        "en": "Body Weight (kg)",
+        "tr": "Body Weight (kg)",
+        "de": "Body Weight (kg)",
+        "fr": "Body Weight (kg)",
+        "es": "Body Weight (kg)",
+        "ar": "Body Weight (kg)"
+      }
     }
   ],
   "formulas": {
@@ -57,7 +97,12 @@
       "total_dha_mg",
       "combined_epa_dha_mg",
       "combined_per_kg"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "combined_per_kg"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -67,5 +112,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

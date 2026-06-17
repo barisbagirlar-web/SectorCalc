@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "tasks",
       "default": 5,
-      "businessContext": "Toplam görev sayısı. Artan görevler proje süresini uzatabilir."
+      "businessContext": "Toplam görev sayısı. Artan görevler proje süresini uzatabilir.",
+      "label_i18n": {
+        "en": "Number of Tasks",
+        "tr": "Number of Tasks",
+        "de": "Number of Tasks",
+        "fr": "Number of Tasks",
+        "es": "Number of Tasks",
+        "ar": "Number of Tasks"
+      }
     },
     {
       "id": "taskDuration",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "days",
       "default": 5,
-      "businessContext": "Her bir görevin tamamlanması için gereken süre (gün)."
+      "businessContext": "Her bir görevin tamamlanması için gereken süre (gün).",
+      "label_i18n": {
+        "en": "Duration per Task",
+        "tr": "Duration per Task",
+        "de": "Duration per Task",
+        "fr": "Duration per Task",
+        "es": "Duration per Task",
+        "ar": "Duration per Task"
+      }
     },
     {
       "id": "overlap",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Ardışık görevler arasındaki örtüşme yüzdesi (fast-tracking). %0-100 arası."
+      "businessContext": "Ardışık görevler arasındaki örtüşme yüzdesi (fast-tracking). %0-100 arası.",
+      "label_i18n": {
+        "en": "Overlap Percentage",
+        "tr": "Overlap Percentage",
+        "de": "Overlap Percentage",
+        "fr": "Overlap Percentage",
+        "es": "Overlap Percentage",
+        "ar": "Overlap Percentage"
+      }
     },
     {
       "id": "startDelay",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "days",
       "default": 0,
-      "businessContext": "İlk göreve başlamadan önceki gecikme süresi."
+      "businessContext": "İlk göreve başlamadan önceki gecikme süresi.",
+      "label_i18n": {
+        "en": "Start Delay",
+        "tr": "Start Delay",
+        "de": "Start Delay",
+        "fr": "Start Delay",
+        "es": "Start Delay",
+        "ar": "Start Delay"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "totalWork",
       "overlapTime"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "overlapTime"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "plastik",
   "profession": "Proses Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

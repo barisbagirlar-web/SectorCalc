@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "L",
       "default": 100,
-      "businessContext": "Volume of liquid ice cream mix before freezing/aeration"
+      "businessContext": "Volume of liquid ice cream mix before freezing/aeration",
+      "label_i18n": {
+        "en": "Batch Mix Volume",
+        "tr": "Batch Mix Volume",
+        "de": "Batch Mix Volume",
+        "fr": "Batch Mix Volume",
+        "es": "Batch Mix Volume",
+        "ar": "Batch Mix Volume"
+      }
     },
     {
       "id": "overrunPercent",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "Percentage increase in volume due to air incorporation during freezing"
+      "businessContext": "Percentage increase in volume due to air incorporation during freezing",
+      "label_i18n": {
+        "en": "Overrun",
+        "tr": "Overrun",
+        "de": "Overrun",
+        "fr": "Overrun",
+        "es": "Overrun",
+        "ar": "Overrun"
+      }
     },
     {
       "id": "mixCostPerLiter",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency/L",
       "default": 2.5,
-      "businessContext": "Cost of ingredients for one liter of liquid mix"
+      "businessContext": "Cost of ingredients for one liter of liquid mix",
+      "label_i18n": {
+        "en": "Mix Cost per Liter",
+        "tr": "Mix Cost per Liter",
+        "de": "Mix Cost per Liter",
+        "fr": "Mix Cost per Liter",
+        "es": "Mix Cost per Liter",
+        "ar": "Mix Cost per Liter"
+      }
     },
     {
       "id": "packagingCostPerLiter",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency/L",
       "default": 0.5,
-      "businessContext": "Cost of packaging materials per liter of final ice cream"
+      "businessContext": "Cost of packaging materials per liter of final ice cream",
+      "label_i18n": {
+        "en": "Packaging Cost per Liter",
+        "tr": "Packaging Cost per Liter",
+        "de": "Packaging Cost per Liter",
+        "fr": "Packaging Cost per Liter",
+        "es": "Packaging Cost per Liter",
+        "ar": "Packaging Cost per Liter"
+      }
     },
     {
       "id": "otherCostsPerBatch",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency",
       "default": 50,
-      "businessContext": "Fixed costs per batch (labor, energy, etc.)"
+      "businessContext": "Fixed costs per batch (labor, energy, etc.)",
+      "label_i18n": {
+        "en": "Other Costs per Batch",
+        "tr": "Other Costs per Batch",
+        "de": "Other Costs per Batch",
+        "fr": "Other Costs per Batch",
+        "es": "Other Costs per Batch",
+        "ar": "Other Costs per Batch"
+      }
     },
     {
       "id": "desiredProfitMarginPercent",
@@ -47,19 +87,23 @@
       "type": "number",
       "unit": "%",
       "default": 30,
-      "businessContext": "Target profit margin as a percentage of selling price"
+      "businessContext": "Target profit margin as a percentage of selling price",
+      "label_i18n": {
+        "en": "Desired Profit Margin",
+        "tr": "Desired Profit Margin",
+        "de": "Desired Profit Margin",
+        "fr": "Desired Profit Margin",
+        "es": "Desired Profit Margin",
+        "ar": "Desired Profit Margin"
+      }
     }
   ],
   "formulas": {
-    "finalVolume": "${batchMixVolume} * (1 + ${overrunPercent} / 100)",
-    "totalMixCost": "${batchMixVolume} * ${mixCostPerLiter}",
-    "totalPackagingCost": "${finalVolume} * ${packagingCostPerLiter}",
-    "totalCost": "${totalMixCost} + ${totalPackagingCost} + ${otherCostsPerBatch}",
-    "costPerLiter": "${totalCost} / ${finalVolume}",
-    "sellingPricePerLiter": "${costPerLiter} / (1 - ${desiredProfitMarginPercent} / 100)"
+    "result": "batchMixVolume + overrunPercent + mixCostPerLiter",
+    "result_copy": "batchMixVolume + overrunPercent + mixCostPerLiter"
   },
   "outputs": {
-    "primary": "sellingPricePerLiter",
+    "primary": "result",
     "breakdown": [
       "finalVolume",
       "totalMixCost",
@@ -67,7 +111,12 @@
       "totalCost",
       "costPerLiter",
       "sellingPricePerLiter"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -77,5 +126,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

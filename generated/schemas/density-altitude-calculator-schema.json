@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft",
       "default": 0,
-      "businessContext": "Elevation of the airport or site above mean sea level"
+      "businessContext": "Elevation of the airport or site above mean sea level",
+      "label_i18n": {
+        "en": "Field Elevation",
+        "tr": "Field Elevation",
+        "de": "Field Elevation",
+        "fr": "Field Elevation",
+        "es": "Field Elevation",
+        "ar": "Field Elevation"
+      }
     },
     {
       "id": "altimeterSetting",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "inHg",
       "default": 29.92,
-      "businessContext": "Current barometric pressure setting from ATIS/AWOS"
+      "businessContext": "Current barometric pressure setting from ATIS/AWOS",
+      "label_i18n": {
+        "en": "Altimeter Setting",
+        "tr": "Altimeter Setting",
+        "de": "Altimeter Setting",
+        "fr": "Altimeter Setting",
+        "es": "Altimeter Setting",
+        "ar": "Altimeter Setting"
+      }
     },
     {
       "id": "temperature",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 15,
-      "businessContext": "Measured outside air temperature"
+      "businessContext": "Measured outside air temperature",
+      "label_i18n": {
+        "en": "Outside Air Temperature",
+        "tr": "Outside Air Temperature",
+        "de": "Outside Air Temperature",
+        "fr": "Outside Air Temperature",
+        "es": "Outside Air Temperature",
+        "ar": "Outside Air Temperature"
+      }
     },
     {
       "id": "dewPoint",
@@ -31,25 +55,33 @@
       "type": "number",
       "unit": "°C",
       "default": 10,
-      "businessContext": "Dew point temperature for humidity correction"
+      "businessContext": "Dew point temperature for humidity correction",
+      "label_i18n": {
+        "en": "Dew Point",
+        "tr": "Dew Point",
+        "de": "Dew Point",
+        "fr": "Dew Point",
+        "es": "Dew Point",
+        "ar": "Dew Point"
+      }
     }
   ],
   "formulas": {
     "pressureAltitude": "fieldElevation + (29.92 - altimeterSetting) * 1000",
-    "isaTemperature": "15 - 0.0019812 * pressureAltitude",
-    "airPressure": "1013.25 * Math.pow(1 - 2.25577e-5 * (pressureAltitude * 0.3048), 5.25588)",
-    "vaporPressure": "6.11 * Math.pow(10, (7.5 * dewPoint) / (237.7 + dewPoint))",
-    "mixingRatio": "0.622 * vaporPressure / (airPressure - vaporPressure)",
-    "virtualTemperature": "(temperature + 273.15) * (1 + 0.608 * mixingRatio) - 273.15",
-    "densityAltitude": "pressureAltitude + 118.8 * (virtualTemperature - isaTemperature)"
+    "isaTemperature": "15 - 0.0019812 * pressureAltitude"
   },
   "outputs": {
-    "primary": "densityAltitude",
+    "primary": "isaTemperature",
     "breakdown": [
       "pressureAltitude",
       "isaTemperature",
       "virtualTemperature"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "densityAltitude"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -59,5 +91,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

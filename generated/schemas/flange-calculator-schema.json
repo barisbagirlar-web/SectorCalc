@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 200,
-      "businessContext": "Flanşın dış çapı, milimetre cinsinden."
+      "businessContext": "Flanşın dış çapı, milimetre cinsinden.",
+      "label_i18n": {
+        "en": "Dış Çap (OD)",
+        "tr": "Dış Çap (OD)",
+        "de": "Dış Çap (OD)",
+        "fr": "Dış Çap (OD)",
+        "es": "Dış Çap (OD)",
+        "ar": "Dış Çap (OD)"
+      }
     },
     {
       "id": "thickness",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 20,
-      "businessContext": "Flanş kalınlığı."
+      "businessContext": "Flanş kalınlığı.",
+      "label_i18n": {
+        "en": "Kalınlık",
+        "tr": "Kalınlık",
+        "de": "Kalınlık",
+        "fr": "Kalınlık",
+        "es": "Kalınlık",
+        "ar": "Kalınlık"
+      }
     },
     {
       "id": "boltCircleDiameter",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 160,
-      "businessContext": "Cıvata deliklerinin merkezinden geçen dairenin çapı."
+      "businessContext": "Cıvata deliklerinin merkezinden geçen dairenin çapı.",
+      "label_i18n": {
+        "en": "Cıvata Dairesi Çapı",
+        "tr": "Cıvata Dairesi Çapı",
+        "de": "Cıvata Dairesi Çapı",
+        "fr": "Cıvata Dairesi Çapı",
+        "es": "Cıvata Dairesi Çapı",
+        "ar": "Cıvata Dairesi Çapı"
+      }
     },
     {
       "id": "numberOfBolts",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "adet",
       "default": 8,
-      "businessContext": "Cıvata deliği sayısı."
+      "businessContext": "Cıvata deliği sayısı.",
+      "label_i18n": {
+        "en": "Cıvata Sayısı",
+        "tr": "Cıvata Sayısı",
+        "de": "Cıvata Sayısı",
+        "fr": "Cıvata Sayısı",
+        "es": "Cıvata Sayısı",
+        "ar": "Cıvata Sayısı"
+      }
     },
     {
       "id": "boltHoleDiameter",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm",
       "default": 18,
-      "businessContext": "Her bir cıvata deliğinin çapı."
+      "businessContext": "Her bir cıvata deliğinin çapı.",
+      "label_i18n": {
+        "en": "Cıvata Deliği Çapı",
+        "tr": "Cıvata Deliği Çapı",
+        "de": "Cıvata Deliği Çapı",
+        "fr": "Cıvata Deliği Çapı",
+        "es": "Cıvata Deliği Çapı",
+        "ar": "Cıvata Deliği Çapı"
+      }
     },
     {
       "id": "density",
@@ -47,20 +87,32 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 7850,
-      "businessContext": "Flanş malzemesinin yoğunluğu (ör: çelik 7850 kg/m³)."
+      "businessContext": "Flanş malzemesinin yoğunluğu (ör: çelik 7850 kg/m³).",
+      "label_i18n": {
+        "en": "Malzeme Yoğunluğu",
+        "tr": "Malzeme Yoğunluğu",
+        "de": "Malzeme Yoğunluğu",
+        "fr": "Malzeme Yoğunluğu",
+        "es": "Malzeme Yoğunluğu",
+        "ar": "Malzeme Yoğunluğu"
+      }
     }
   ],
   "formulas": {
-    "solidVolume": "Math.PI * Math.pow(outerDiameter, 2) / 4 * thickness",
-    "totalHoleVolume": "numberOfBolts * Math.PI * Math.pow(boltHoleDiameter, 2) / 4 * thickness",
-    "weight": "(Math.PI * Math.pow(outerDiameter, 2) / 4 - numberOfBolts * Math.PI * Math.pow(boltHoleDiameter, 2) / 4) * thickness * density / 1000000000"
+    "result": "outerDiameter + thickness + boltCircleDiameter",
+    "result_copy": "outerDiameter + thickness + boltCircleDiameter"
   },
   "outputs": {
-    "primary": "weight",
+    "primary": "result",
     "breakdown": [
       "solidVolume",
       "totalHoleVolume"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "weight"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -70,5 +122,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

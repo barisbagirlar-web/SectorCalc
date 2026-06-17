@@ -99,17 +99,20 @@
     }
   ],
   "formulas": {
-    "primary": "100 / (1 + Math.exp(-(-3.5 + 0.05 * maternalAge + 0.1 * bmi - 1.2 * prevVaginalBirth + 1.5 * prevCSIndication + 0.2 * gestationalAge + 0.3 * cervicalDilation)))",
     "_3_5___0_05___maternalAge___0_1___bmi___": "-3.5 + 0.05 * maternalAge + 0.1 * bmi - 1.2 * prevVaginalBirth + 1.5 * prevCSIndication + 0.2 * gestationalAge + 0.3 * cervicalDilation",
-    "100____1___exp__z__": "100 / (1 + exp(-z))",
-    "result": "VBAC Success Probability (%)"
+    "_3_5___0_05___maternalAge___0_1___bmi____aux": "-3.5 + 0.05 * maternalAge + 0.1 * bmi - 1.2 * prevVaginalBirth + 1.5 * prevCSIndication + 0.2 * gestationalAge + 0.3 * cervicalDilation"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "_3_5___0_05___maternalAge___0_1___bmi____aux",
     "breakdown": [
       "Risk Score (z): -3.5 + 0.05 * maternalAge + 0.1 * bmi - 1.2 * prevVaginalBirth + 1.5 * prevCSIndication + 0.2 * gestationalAge + 0.3 * cervicalDilation",
       "Success Probability: 100 / (1 + exp(-z))"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "100____1___exp__z__"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -119,5 +122,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "lojistik",
   "profession": "Lojistik Uzmanı",
-  "categoryId": "logistics"
+  "categoryId": "logistics",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

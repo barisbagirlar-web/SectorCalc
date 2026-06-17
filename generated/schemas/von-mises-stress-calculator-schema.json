@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 0,
-      "businessContext": "Normal stress component in x-direction"
+      "businessContext": "Normal stress component in x-direction",
+      "label_i18n": {
+        "en": "Normal Stress σ_x",
+        "tr": "Normal Stress σ_x",
+        "de": "Normal Stress σ_x",
+        "fr": "Normal Stress σ_x",
+        "es": "Normal Stress σ_x",
+        "ar": "Normal Stress σ_x"
+      }
     },
     {
       "id": "sigma_y",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 0,
-      "businessContext": "Normal stress component in y-direction"
+      "businessContext": "Normal stress component in y-direction",
+      "label_i18n": {
+        "en": "Normal Stress σ_y",
+        "tr": "Normal Stress σ_y",
+        "de": "Normal Stress σ_y",
+        "fr": "Normal Stress σ_y",
+        "es": "Normal Stress σ_y",
+        "ar": "Normal Stress σ_y"
+      }
     },
     {
       "id": "tau_xy",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 0,
-      "businessContext": "Shear stress component in xy-plane"
+      "businessContext": "Shear stress component in xy-plane",
+      "label_i18n": {
+        "en": "Shear Stress τ_xy",
+        "tr": "Shear Stress τ_xy",
+        "de": "Shear Stress τ_xy",
+        "fr": "Shear Stress τ_xy",
+        "es": "Shear Stress τ_xy",
+        "ar": "Shear Stress τ_xy"
+      }
     },
     {
       "id": "yield_strength",
@@ -31,19 +55,32 @@
       "type": "number",
       "unit": "MPa",
       "default": 250,
-      "businessContext": "Material yield strength for safety assessment"
+      "businessContext": "Material yield strength for safety assessment",
+      "label_i18n": {
+        "en": "Yield Strength",
+        "tr": "Yield Strength",
+        "de": "Yield Strength",
+        "fr": "Yield Strength",
+        "es": "Yield Strength",
+        "ar": "Yield Strength"
+      }
     }
   ],
   "formulas": {
-    "sigma_v": "Math.sqrt(sigma_x**2 + sigma_y**2 - sigma_x * sigma_y + 3 * tau_xy**2)",
-    "safety_factor": "yield_strength / sigma_v"
+    "result": "sigma_x + sigma_y + tau_xy",
+    "result_copy": "sigma_x + sigma_y + tau_xy"
   },
   "outputs": {
-    "primary": "sigma_v",
+    "primary": "result",
     "breakdown": [
       "sigma_v",
       "safety_factor"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "safety_factor"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -53,5 +90,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "havacilik",
   "profession": "Tasarım Mühendisi",
-  "categoryId": "engineering"
+  "categoryId": "engineering",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

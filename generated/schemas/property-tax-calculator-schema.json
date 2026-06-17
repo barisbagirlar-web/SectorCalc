@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 300000,
-      "businessContext": "The fair market value of the property."
+      "businessContext": "The fair market value of the property.",
+      "label_i18n": {
+        "en": "Property Market Value",
+        "tr": "Property Market Value",
+        "de": "Property Market Value",
+        "fr": "Property Market Value",
+        "es": "Property Market Value",
+        "ar": "Property Market Value"
+      }
     },
     {
       "id": "assessmentRatio",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 80,
-      "businessContext": "Percentage of market value used for tax assessment."
+      "businessContext": "Percentage of market value used for tax assessment.",
+      "label_i18n": {
+        "en": "Assessment Ratio",
+        "tr": "Assessment Ratio",
+        "de": "Assessment Ratio",
+        "fr": "Assessment Ratio",
+        "es": "Assessment Ratio",
+        "ar": "Assessment Ratio"
+      }
     },
     {
       "id": "millRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mills",
       "default": 20,
-      "businessContext": "Tax per $1,000 of assessed value, expressed in mills."
+      "businessContext": "Tax per $1,000 of assessed value, expressed in mills.",
+      "label_i18n": {
+        "en": "Mill Rate",
+        "tr": "Mill Rate",
+        "de": "Mill Rate",
+        "fr": "Mill Rate",
+        "es": "Mill Rate",
+        "ar": "Mill Rate"
+      }
     },
     {
       "id": "exemptionAmount",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Total value of tax exemptions applied."
+      "businessContext": "Total value of tax exemptions applied.",
+      "label_i18n": {
+        "en": "Exemption Amount",
+        "tr": "Exemption Amount",
+        "de": "Exemption Amount",
+        "fr": "Exemption Amount",
+        "es": "Exemption Amount",
+        "ar": "Exemption Amount"
+      }
     },
     {
       "id": "additionalFees",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Any additional taxes or fees."
+      "businessContext": "Any additional taxes or fees.",
+      "label_i18n": {
+        "en": "Additional Fees",
+        "tr": "Additional Fees",
+        "de": "Additional Fees",
+        "fr": "Additional Fees",
+        "es": "Additional Fees",
+        "ar": "Additional Fees"
+      }
     }
   ],
   "formulas": {
@@ -53,7 +93,12 @@
       "assessedValue",
       "taxBeforeExemptions",
       "totalTax"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalTax"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -63,5 +108,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

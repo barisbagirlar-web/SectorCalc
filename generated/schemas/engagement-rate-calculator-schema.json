@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "count",
       "default": 0,
-      "businessContext": "Number of likes received"
+      "businessContext": "Number of likes received",
+      "label_i18n": {
+        "en": "Likes",
+        "tr": "Likes",
+        "de": "Likes",
+        "fr": "Likes",
+        "es": "Likes",
+        "ar": "Likes"
+      }
     },
     {
       "id": "comments",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "count",
       "default": 0,
-      "businessContext": "Number of comments received"
+      "businessContext": "Number of comments received",
+      "label_i18n": {
+        "en": "Comments",
+        "tr": "Comments",
+        "de": "Comments",
+        "fr": "Comments",
+        "es": "Comments",
+        "ar": "Comments"
+      }
     },
     {
       "id": "shares",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "count",
       "default": 0,
-      "businessContext": "Number of shares/reposts"
+      "businessContext": "Number of shares/reposts",
+      "label_i18n": {
+        "en": "Shares",
+        "tr": "Shares",
+        "de": "Shares",
+        "fr": "Shares",
+        "es": "Shares",
+        "ar": "Shares"
+      }
     },
     {
       "id": "totalImpressions",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "count",
       "default": 0,
-      "businessContext": "Total number of times content was seen"
+      "businessContext": "Total number of times content was seen",
+      "label_i18n": {
+        "en": "Total Impressions",
+        "tr": "Total Impressions",
+        "de": "Total Impressions",
+        "fr": "Total Impressions",
+        "es": "Total Impressions",
+        "ar": "Total Impressions"
+      }
     },
     {
       "id": "totalFollowers",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "count",
       "default": 0,
-      "businessContext": "Total number of followers/audience"
+      "businessContext": "Total number of followers/audience",
+      "label_i18n": {
+        "en": "Total Followers",
+        "tr": "Total Followers",
+        "de": "Total Followers",
+        "fr": "Total Followers",
+        "es": "Total Followers",
+        "ar": "Total Followers"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "engagementRateByFollowers",
       "totalEngagements"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "engagementRateByFollowers"
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Üretim & İmalat",
@@ -62,5 +107,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

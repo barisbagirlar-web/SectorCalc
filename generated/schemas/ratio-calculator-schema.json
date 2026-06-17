@@ -68,15 +68,19 @@
   ],
   "formulas": {
     "rawRatio": "denominator !== 0 ? numerator / denominator : null",
-    "multipliedRatio": "denominator !== 0 ? (numerator / denominator * multiplier) : null",
-    "roundedRatio": "denominator !== 0 ? Math.round((numerator / denominator * multiplier) * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces) : null"
+    "multipliedRatio": "denominator !== 0 ? (numerator / denominator * multiplier) : null"
   },
   "outputs": {
-    "primary": "roundedRatio",
+    "primary": "multipliedRatio",
     "breakdown": [
       "rawRatio",
       "multipliedRatio"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roundedRatio"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -86,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

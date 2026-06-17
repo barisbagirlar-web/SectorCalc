@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 1000,
-      "businessContext": "Notch frequency of the band-stop filter."
+      "businessContext": "Notch frequency of the band-stop filter.",
+      "label_i18n": {
+        "en": "Center Frequency",
+        "tr": "Center Frequency",
+        "de": "Center Frequency",
+        "fr": "Center Frequency",
+        "es": "Center Frequency",
+        "ar": "Center Frequency"
+      }
     },
     {
       "id": "lowerCutoffFrequency",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 900,
-      "businessContext": "Lower -3 dB cutoff frequency of the stopband."
+      "businessContext": "Lower -3 dB cutoff frequency of the stopband.",
+      "label_i18n": {
+        "en": "Lower Cutoff Frequency",
+        "tr": "Lower Cutoff Frequency",
+        "de": "Lower Cutoff Frequency",
+        "fr": "Lower Cutoff Frequency",
+        "es": "Lower Cutoff Frequency",
+        "ar": "Lower Cutoff Frequency"
+      }
     },
     {
       "id": "upperCutoffFrequency",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 1100,
-      "businessContext": "Upper -3 dB cutoff frequency of the stopband."
+      "businessContext": "Upper -3 dB cutoff frequency of the stopband.",
+      "label_i18n": {
+        "en": "Upper Cutoff Frequency",
+        "tr": "Upper Cutoff Frequency",
+        "de": "Upper Cutoff Frequency",
+        "fr": "Upper Cutoff Frequency",
+        "es": "Upper Cutoff Frequency",
+        "ar": "Upper Cutoff Frequency"
+      }
     },
     {
       "id": "evaluationFrequency",
@@ -31,23 +55,33 @@
       "type": "number",
       "unit": "Hz",
       "default": 800,
-      "businessContext": "Frequency at which the filter response is evaluated."
+      "businessContext": "Frequency at which the filter response is evaluated.",
+      "label_i18n": {
+        "en": "Evaluation Frequency",
+        "tr": "Evaluation Frequency",
+        "de": "Evaluation Frequency",
+        "fr": "Evaluation Frequency",
+        "es": "Evaluation Frequency",
+        "ar": "Evaluation Frequency"
+      }
     }
   ],
   "formulas": {
     "qFactor": "centerFrequency / (upperCutoffFrequency - lowerCutoffFrequency)",
     "w0": "2 * Math.PI * centerFrequency",
-    "w": "2 * Math.PI * evaluationFrequency",
-    "linearGain": "Math.abs(w0 * w0 - w * w) / Math.sqrt(Math.pow(w0 * w0 - w * w, 2) + Math.pow((w * w0) / qFactor, 2))",
-    "attenuation_dB": "20 * Math.log10(linearGain)",
-    "phaseShift_rad": "Math.atan2(- (w * w0) / qFactor, w0 * w0 - w * w)"
+    "w": "2 * Math.PI * evaluationFrequency"
   },
   "outputs": {
-    "primary": "attenuation_dB",
+    "primary": "w",
     "breakdown": [
       "linearGain",
       "phaseShift_rad"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "phaseShift_rad"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -57,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

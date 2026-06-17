@@ -64,7 +64,12 @@
       "finalVolume = initialVolume * finalTemperature / initialTemperature",
       "volumeChange = finalVolume - initialVolume",
       "volumeChangePercent = (volumeChange / initialVolume) * 100"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "volumeChangePercent____volumeChange___in"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -74,5 +79,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

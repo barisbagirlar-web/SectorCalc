@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 10000,
-      "businessContext": "Initial investment amount in U.S. dollars."
+      "businessContext": "Initial investment amount in U.S. dollars.",
+      "label_i18n": {
+        "en": "Principal Amount",
+        "tr": "Principal Amount",
+        "de": "Principal Amount",
+        "fr": "Principal Amount",
+        "es": "Principal Amount",
+        "ar": "Principal Amount"
+      }
     },
     {
       "id": "fixedRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Fixed rate of return set at bond issuance, as a percentage."
+      "businessContext": "Fixed rate of return set at bond issuance, as a percentage.",
+      "label_i18n": {
+        "en": "Fixed Rate",
+        "tr": "Fixed Rate",
+        "de": "Fixed Rate",
+        "fr": "Fixed Rate",
+        "es": "Fixed Rate",
+        "ar": "Fixed Rate"
+      }
     },
     {
       "id": "inflationRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 1.5,
-      "businessContext": "Inflation rate determined every six months, expressed as a percentage."
+      "businessContext": "Inflation rate determined every six months, expressed as a percentage.",
+      "label_i18n": {
+        "en": "Semiannual Inflation Rate",
+        "tr": "Semiannual Inflation Rate",
+        "de": "Semiannual Inflation Rate",
+        "fr": "Semiannual Inflation Rate",
+        "es": "Semiannual Inflation Rate",
+        "ar": "Semiannual Inflation Rate"
+      }
     },
     {
       "id": "years",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "years",
       "default": 5,
-      "businessContext": "Number of years the bond is held until redemption."
+      "businessContext": "Number of years the bond is held until redemption.",
+      "label_i18n": {
+        "en": "Holding Period",
+        "tr": "Holding Period",
+        "de": "Holding Period",
+        "fr": "Holding Period",
+        "es": "Holding Period",
+        "ar": "Holding Period"
+      }
     }
   ],
   "formulas": {
     "compositeRate": "fixedRate/100 + 2*(inflationRate/100) + (fixedRate/100)*(inflationRate/100)",
-    "futureValue": "principal * Math.pow(1 + compositeRate/2, 2*years)",
-    "totalInterest": "futureValue - principal"
+    "compositeRate_aux": "fixedRate/100 + 2*(inflationRate/100) + (fixedRate/100)*(inflationRate/100)"
   },
   "outputs": {
-    "primary": "futureValue",
+    "primary": "compositeRate_aux",
     "breakdown": [
       "totalInterest",
       "compositeRate"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalInterest"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -54,5 +90,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

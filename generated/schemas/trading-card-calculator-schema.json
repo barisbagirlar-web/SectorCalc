@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 100,
-      "businessContext": "Current market value of the ungraded card"
+      "businessContext": "Current market value of the ungraded card",
+      "label_i18n": {
+        "en": "Card Market Price (Ungraded)",
+        "tr": "Card Market Price (Ungraded)",
+        "de": "Card Market Price (Ungraded)",
+        "fr": "Card Market Price (Ungraded)",
+        "es": "Card Market Price (Ungraded)",
+        "ar": "Card Market Price (Ungraded)"
+      }
     },
     {
       "id": "gradingCost",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 20,
-      "businessContext": "Total cost to submit card for professional grading"
+      "businessContext": "Total cost to submit card for professional grading",
+      "label_i18n": {
+        "en": "Grading Cost",
+        "tr": "Grading Cost",
+        "de": "Grading Cost",
+        "fr": "Grading Cost",
+        "es": "Grading Cost",
+        "ar": "Grading Cost"
+      }
     },
     {
       "id": "gradeMultiplier",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ratio",
       "default": 2.5,
-      "businessContext": "Factor by which card value multiplies upon achieving the expected grade"
+      "businessContext": "Factor by which card value multiplies upon achieving the expected grade",
+      "label_i18n": {
+        "en": "Expected Grade Multiplier",
+        "tr": "Expected Grade Multiplier",
+        "de": "Expected Grade Multiplier",
+        "fr": "Expected Grade Multiplier",
+        "es": "Expected Grade Multiplier",
+        "ar": "Expected Grade Multiplier"
+      }
     },
     {
       "id": "shippingCost",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency",
       "default": 10,
-      "businessContext": "Combined shipping and insurance cost for round-trip"
+      "businessContext": "Combined shipping and insurance cost for round-trip",
+      "label_i18n": {
+        "en": "Shipping & Insurance",
+        "tr": "Shipping & Insurance",
+        "de": "Shipping & Insurance",
+        "fr": "Shipping & Insurance",
+        "es": "Shipping & Insurance",
+        "ar": "Shipping & Insurance"
+      }
     },
     {
       "id": "sellingFee",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Platform or auction house fee as a percentage of the final sale price"
+      "businessContext": "Platform or auction house fee as a percentage of the final sale price",
+      "label_i18n": {
+        "en": "Selling Fee (%)",
+        "tr": "Selling Fee (%)",
+        "de": "Selling Fee (%)",
+        "fr": "Selling Fee (%)",
+        "es": "Selling Fee (%)",
+        "ar": "Selling Fee (%)"
+      }
     }
   ],
   "formulas": {
@@ -56,7 +96,12 @@
       "gradedValue",
       "feeAmount",
       "roi"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roi"
   },
   "category": "Lojistik & Tedarik Zinciri",
   "sector": "Lojistik & Sevkiyat",
@@ -66,5 +111,10 @@
   "categorySlug": "procurement-supply-chain",
   "sectorId": "lojistik",
   "profession": "Lojistik Uzmanı",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

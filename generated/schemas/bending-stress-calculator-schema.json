@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "N·m",
       "default": 1000,
-      "businessContext": "Applied bending moment at the section of interest."
+      "businessContext": "Applied bending moment at the section of interest.",
+      "label_i18n": {
+        "en": "Bending Moment",
+        "tr": "Bending Moment",
+        "de": "Bending Moment",
+        "fr": "Bending Moment",
+        "es": "Bending Moment",
+        "ar": "Bending Moment"
+      }
     },
     {
       "id": "sectionModulus",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm³",
       "default": 100000,
-      "businessContext": "Elastic section modulus about the axis of bending."
+      "businessContext": "Elastic section modulus about the axis of bending.",
+      "label_i18n": {
+        "en": "Section Modulus",
+        "tr": "Section Modulus",
+        "de": "Section Modulus",
+        "fr": "Section Modulus",
+        "es": "Section Modulus",
+        "ar": "Section Modulus"
+      }
     },
     {
       "id": "distanceFromNeutralAxis",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 50,
-      "businessContext": "Distance from the neutral axis to the extreme fiber where stress is maximum."
+      "businessContext": "Distance from the neutral axis to the extreme fiber where stress is maximum.",
+      "label_i18n": {
+        "en": "Distance from Neutral Axis",
+        "tr": "Distance from Neutral Axis",
+        "de": "Distance from Neutral Axis",
+        "fr": "Distance from Neutral Axis",
+        "es": "Distance from Neutral Axis",
+        "ar": "Distance from Neutral Axis"
+      }
     },
     {
       "id": "momentOfInertia",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm⁴",
       "default": 5000000,
-      "businessContext": "Second moment of area about the neutral axis."
+      "businessContext": "Second moment of area about the neutral axis.",
+      "label_i18n": {
+        "en": "Moment of Inertia",
+        "tr": "Moment of Inertia",
+        "de": "Moment of Inertia",
+        "fr": "Moment of Inertia",
+        "es": "Moment of Inertia",
+        "ar": "Moment of Inertia"
+      }
     }
   ],
   "formulas": {
@@ -42,7 +74,12 @@
     "primary": "bendingStress",
     "breakdown": [
       "bendingStressAlt"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "bendingStressAlt"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -52,5 +89,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "engineering"
+  "categoryId": "engineering",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

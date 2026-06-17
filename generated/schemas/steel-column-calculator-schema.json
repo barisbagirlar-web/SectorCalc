@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "End condition factor: 1.0 for pinned-pinned, 0.5 for fixed-fixed, 0.7 for fixed-pinned, 2.0 for fixed-free."
+      "businessContext": "End condition factor: 1.0 for pinned-pinned, 0.5 for fixed-fixed, 0.7 for fixed-pinned, 2.0 for fixed-free.",
+      "label_i18n": {
+        "en": "Effective Length Factor (K)",
+        "tr": "Effective Length Factor (K)",
+        "de": "Effective Length Factor (K)",
+        "fr": "Effective Length Factor (K)",
+        "es": "Effective Length Factor (K)",
+        "ar": "Effective Length Factor (K)"
+      }
     },
     {
       "id": "unbracedLength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 3000,
-      "businessContext": "Actual length between lateral supports."
+      "businessContext": "Actual length between lateral supports.",
+      "label_i18n": {
+        "en": "Unbraced Length (L)",
+        "tr": "Unbraced Length (L)",
+        "de": "Unbraced Length (L)",
+        "fr": "Unbraced Length (L)",
+        "es": "Unbraced Length (L)",
+        "ar": "Unbraced Length (L)"
+      }
     },
     {
       "id": "width",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Width of rectangular solid section."
+      "businessContext": "Width of rectangular solid section.",
+      "label_i18n": {
+        "en": "Cross-Section Width (b)",
+        "tr": "Cross-Section Width (b)",
+        "de": "Cross-Section Width (b)",
+        "fr": "Cross-Section Width (b)",
+        "es": "Cross-Section Width (b)",
+        "ar": "Cross-Section Width (b)"
+      }
     },
     {
       "id": "thickness",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Thickness of rectangular solid section."
+      "businessContext": "Thickness of rectangular solid section.",
+      "label_i18n": {
+        "en": "Cross-Section Thickness (t)",
+        "tr": "Cross-Section Thickness (t)",
+        "de": "Cross-Section Thickness (t)",
+        "fr": "Cross-Section Thickness (t)",
+        "es": "Cross-Section Thickness (t)",
+        "ar": "Cross-Section Thickness (t)"
+      }
     },
     {
       "id": "elasticModulus",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "GPa",
       "default": 200,
-      "businessContext": "Steel typically 200 GPa."
+      "businessContext": "Steel typically 200 GPa.",
+      "label_i18n": {
+        "en": "Modulus of Elasticity (E)",
+        "tr": "Modulus of Elasticity (E)",
+        "de": "Modulus of Elasticity (E)",
+        "fr": "Modulus of Elasticity (E)",
+        "es": "Modulus of Elasticity (E)",
+        "ar": "Modulus of Elasticity (E)"
+      }
     },
     {
       "id": "yieldStrength",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 250,
-      "businessContext": "Typical S235 steel yield strength."
+      "businessContext": "Typical S235 steel yield strength.",
+      "label_i18n": {
+        "en": "Yield Strength (Fy)",
+        "tr": "Yield Strength (Fy)",
+        "de": "Yield Strength (Fy)",
+        "fr": "Yield Strength (Fy)",
+        "es": "Yield Strength (Fy)",
+        "ar": "Yield Strength (Fy)"
+      }
     },
     {
       "id": "safetyFactor",
@@ -55,21 +103,24 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1.67,
-      "businessContext": "AISC ASD typical factor of safety for compression."
+      "businessContext": "AISC ASD typical factor of safety for compression.",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
     "A": "width * thickness",
-    "I": "(width * Math.pow(thickness,3)) / 12",
-    "P_euler": "(Math.PI * Math.PI * elasticModulus * 1000 * I) / Math.pow(effectiveLengthFactor * unbracedLength, 2)",
     "P_yield": "yieldStrength * A",
-    "criticalLoad": "Math.min(P_euler, P_yield)",
-    "allowableLoad": "criticalLoad / safetyFactor",
-    "eulerStress": "P_euler / A",
     "yieldStress": "yieldStrength"
   },
   "outputs": {
-    "primary": "allowableLoad",
+    "primary": "yieldStress",
     "breakdown": [
       "criticalLoad",
       "P_euler",
@@ -78,7 +129,12 @@
       "yieldStress",
       "A",
       "I"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "yieldStress"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -88,5 +144,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "metal",
   "profession": "Sac Teknisyeni",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

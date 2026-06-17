@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kJ/mol",
       "default": 0,
-      "businessContext": "Positive for endothermic, negative for exothermic reactions."
+      "businessContext": "Positive for endothermic, negative for exothermic reactions.",
+      "label_i18n": {
+        "en": "Enthalpy Change (ΔH)",
+        "tr": "Enthalpy Change (ΔH)",
+        "de": "Enthalpy Change (ΔH)",
+        "fr": "Enthalpy Change (ΔH)",
+        "es": "Enthalpy Change (ΔH)",
+        "ar": "Enthalpy Change (ΔH)"
+      }
     },
     {
       "id": "deltaN",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mol",
       "default": 0,
-      "businessContext": "Difference between moles of gaseous products and reactants."
+      "businessContext": "Difference between moles of gaseous products and reactants.",
+      "label_i18n": {
+        "en": "Change in Moles of Gas (Δn)",
+        "tr": "Change in Moles of Gas (Δn)",
+        "de": "Change in Moles of Gas (Δn)",
+        "fr": "Change in Moles of Gas (Δn)",
+        "es": "Change in Moles of Gas (Δn)",
+        "ar": "Change in Moles of Gas (Δn)"
+      }
     },
     {
       "id": "temperatureChange",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "K",
       "default": 0,
-      "businessContext": "Positive for increase, negative for decrease."
+      "businessContext": "Positive for increase, negative for decrease.",
+      "label_i18n": {
+        "en": "Temperature Change",
+        "tr": "Temperature Change",
+        "de": "Temperature Change",
+        "fr": "Temperature Change",
+        "es": "Temperature Change",
+        "ar": "Temperature Change"
+      }
     },
     {
       "id": "pressureChange",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "atm",
       "default": 0,
-      "businessContext": "Positive for increase, negative for decrease."
+      "businessContext": "Positive for increase, negative for decrease.",
+      "label_i18n": {
+        "en": "Pressure Change",
+        "tr": "Pressure Change",
+        "de": "Pressure Change",
+        "fr": "Pressure Change",
+        "es": "Pressure Change",
+        "ar": "Pressure Change"
+      }
     },
     {
       "id": "concentrationChange",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "M",
       "default": 0,
-      "businessContext": "Positive for increase, negative for decrease."
+      "businessContext": "Positive for increase, negative for decrease.",
+      "label_i18n": {
+        "en": "Concentration Change of Reactant",
+        "tr": "Concentration Change of Reactant",
+        "de": "Concentration Change of Reactant",
+        "fr": "Concentration Change of Reactant",
+        "es": "Concentration Change of Reactant",
+        "ar": "Concentration Change of Reactant"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
       "temperatureEffect",
       "pressureEffect",
       "concentrationEffect"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "netShift"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -64,5 +109,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "kimya",
   "profession": "Proses Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

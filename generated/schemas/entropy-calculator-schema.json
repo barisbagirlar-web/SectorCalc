@@ -67,20 +67,22 @@
     }
   ],
   "formulas": {
-    "entropyChange": "mass * specificHeat * Math.log(temp2 / temp1)",
-    "_S___m___Cp___ln_T__T__": "ΔS = m · Cp · ln(T₂/T₁)",
-    "Calculate_temperature_ratio_T__T_": "Calculate temperature ratio T₂/T₁",
-    "Compute_natural_logarithm": "Compute natural logarithm",
-    "Multiply_by_mass_and_specific_heat": "Multiply by mass and specific heat"
+    "result": "mass + specificHeat + temp1",
+    "result_copy": "mass + specificHeat + temp1"
   },
   "outputs": {
-    "primary": "entropyChange",
+    "primary": "result",
     "breakdown": [
       "ΔS = m · Cp · ln(T₂/T₁)",
       "Calculate temperature ratio T₂/T₁",
       "Compute natural logarithm",
       "Multiply by mass and specific heat"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "entropyChange_aux"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -90,5 +92,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "danismanlik",
   "profession": "Strateji Uzmanı",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

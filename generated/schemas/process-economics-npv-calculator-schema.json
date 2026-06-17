@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 100000,
-      "businessContext": "The upfront capital cost required for the process improvement or new equipment."
+      "businessContext": "The upfront capital cost required for the process improvement or new equipment.",
+      "label_i18n": {
+        "en": "Initial Capital Investment",
+        "tr": "Initial Capital Investment",
+        "de": "Initial Capital Investment",
+        "fr": "Initial Capital Investment",
+        "es": "Initial Capital Investment",
+        "ar": "Initial Capital Investment"
+      }
     },
     {
       "id": "annualCostSavings",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 25000,
-      "businessContext": "Expected annual reduction in operating costs (e.g., labor, materials, energy) from the investment."
+      "businessContext": "Expected annual reduction in operating costs (e.g., labor, materials, energy) from the investment.",
+      "label_i18n": {
+        "en": "Annual Cost Savings",
+        "tr": "Annual Cost Savings",
+        "de": "Annual Cost Savings",
+        "fr": "Annual Cost Savings",
+        "es": "Annual Cost Savings",
+        "ar": "Annual Cost Savings"
+      }
     },
     {
       "id": "projectLife",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 5,
-      "businessContext": "The number of years over which the investment will generate savings."
+      "businessContext": "The number of years over which the investment will generate savings.",
+      "label_i18n": {
+        "en": "Project Life",
+        "tr": "Project Life",
+        "de": "Project Life",
+        "fr": "Project Life",
+        "es": "Project Life",
+        "ar": "Project Life"
+      }
     },
     {
       "id": "discountRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 8,
-      "businessContext": "The annual discount rate reflecting the cost of capital or required rate of return."
+      "businessContext": "The annual discount rate reflecting the cost of capital or required rate of return.",
+      "label_i18n": {
+        "en": "Discount Rate",
+        "tr": "Discount Rate",
+        "de": "Discount Rate",
+        "fr": "Discount Rate",
+        "es": "Discount Rate",
+        "ar": "Discount Rate"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "paybackPeriod",
       "annualROI"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "annualROI"
   },
   "category": "Proje & Yatırım",
   "sector": "Finans & İK",
@@ -54,5 +91,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

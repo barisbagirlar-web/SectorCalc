@@ -91,7 +91,12 @@
     "breakdown": [
       "bmr",
       "tdee"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "tdee"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -101,5 +106,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

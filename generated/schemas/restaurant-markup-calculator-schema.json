@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 4.5,
-      "businessContext": "Cost of raw ingredients for one serving."
+      "businessContext": "Cost of raw ingredients for one serving.",
+      "label_i18n": {
+        "en": "Ingredient Cost (per item)",
+        "tr": "Ingredient Cost (per item)",
+        "de": "Ingredient Cost (per item)",
+        "fr": "Ingredient Cost (per item)",
+        "es": "Ingredient Cost (per item)",
+        "ar": "Ingredient Cost (per item)"
+      }
     },
     {
       "id": "laborCost",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 2,
-      "businessContext": "Direct labor cost attributed to one serving."
+      "businessContext": "Direct labor cost attributed to one serving.",
+      "label_i18n": {
+        "en": "Labor Cost (per item)",
+        "tr": "Labor Cost (per item)",
+        "de": "Labor Cost (per item)",
+        "fr": "Labor Cost (per item)",
+        "es": "Labor Cost (per item)",
+        "ar": "Labor Cost (per item)"
+      }
     },
     {
       "id": "overheadCost",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 1,
-      "businessContext": "Indirect costs (rent, utilities, etc.) per serving."
+      "businessContext": "Indirect costs (rent, utilities, etc.) per serving.",
+      "label_i18n": {
+        "en": "Overhead Cost (per item)",
+        "tr": "Overhead Cost (per item)",
+        "de": "Overhead Cost (per item)",
+        "fr": "Overhead Cost (per item)",
+        "es": "Overhead Cost (per item)",
+        "ar": "Overhead Cost (per item)"
+      }
     },
     {
       "id": "wastePercent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 3,
-      "businessContext": "Percentage of ingredient lost to waste (trimming, spoilage)."
+      "businessContext": "Percentage of ingredient lost to waste (trimming, spoilage).",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     },
     {
       "id": "desiredMarkupPercent",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 300,
-      "businessContext": "Markup percentage on total cost to set selling price."
+      "businessContext": "Markup percentage on total cost to set selling price.",
+      "label_i18n": {
+        "en": "Desired Markup",
+        "tr": "Desired Markup",
+        "de": "Desired Markup",
+        "fr": "Desired Markup",
+        "es": "Desired Markup",
+        "ar": "Desired Markup"
+      }
     }
   ],
   "formulas": {
@@ -57,7 +97,12 @@
       "markupAmount",
       "foodCostPercent",
       "profitMarginPercent"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "profitMarginPercent"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -67,5 +112,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

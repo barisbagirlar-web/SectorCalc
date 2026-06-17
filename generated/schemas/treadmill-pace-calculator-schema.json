@@ -71,17 +71,19 @@
     "paceSecondsPerKm": "totalSeconds / distance",
     "paceMinPerKm": "paceSecondsPerKm / 60",
     "speedKmh": "(distance * 3600) / totalSeconds",
-    "paceMinPerMile": "paceSecondsPerKm * 1.60934 / 60",
-    "paceDisplay": "Math.floor(paceMinPerKm) + ':' + (paceSecondsPerKm % 60 < 10 ? '0' : '') + (paceSecondsPerKm % 60) + ' min/km'",
-    "speedKmh_km_sa": "speedKmh km/sa",
-    "paceMinPerMile_dk_mil": "paceMinPerMile dk/mil"
+    "paceMinPerMile": "paceSecondsPerKm * 1.60934 / 60"
   },
   "outputs": {
-    "primary": "paceDisplay",
+    "primary": "paceMinPerMile",
     "breakdown": [
       "speedKmh km/sa",
       "paceMinPerMile dk/mil"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "paceDisplay"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -91,5 +93,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "The upfront cost of the project or investment."
+      "businessContext": "The upfront cost of the project or investment.",
+      "label_i18n": {
+        "en": "Initial Investment Cost",
+        "tr": "Initial Investment Cost",
+        "de": "Initial Investment Cost",
+        "fr": "Initial Investment Cost",
+        "es": "Initial Investment Cost",
+        "ar": "Initial Investment Cost"
+      }
     },
     {
       "id": "annualBenefits",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency/year",
       "default": 0,
-      "businessContext": "Expected annual cash inflows from the project."
+      "businessContext": "Expected annual cash inflows from the project.",
+      "label_i18n": {
+        "en": "Annual Benefits",
+        "tr": "Annual Benefits",
+        "de": "Annual Benefits",
+        "fr": "Annual Benefits",
+        "es": "Annual Benefits",
+        "ar": "Annual Benefits"
+      }
     },
     {
       "id": "annualCosts",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency/year",
       "default": 0,
-      "businessContext": "Annual costs to operate and maintain the project."
+      "businessContext": "Annual costs to operate and maintain the project.",
+      "label_i18n": {
+        "en": "Annual Operating Costs",
+        "tr": "Annual Operating Costs",
+        "de": "Annual Operating Costs",
+        "fr": "Annual Operating Costs",
+        "es": "Annual Operating Costs",
+        "ar": "Annual Operating Costs"
+      }
     },
     {
       "id": "discountRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "The rate used to discount future cash flows to present value, reflecting opportunity cost of capital."
+      "businessContext": "The rate used to discount future cash flows to present value, reflecting opportunity cost of capital.",
+      "label_i18n": {
+        "en": "Discount Rate",
+        "tr": "Discount Rate",
+        "de": "Discount Rate",
+        "fr": "Discount Rate",
+        "es": "Discount Rate",
+        "ar": "Discount Rate"
+      }
     },
     {
       "id": "projectLifetime",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "years",
       "default": 5,
-      "businessContext": "Number of years the project is expected to generate benefits."
+      "businessContext": "Number of years the project is expected to generate benefits.",
+      "label_i18n": {
+        "en": "Project Lifetime",
+        "tr": "Project Lifetime",
+        "de": "Project Lifetime",
+        "fr": "Project Lifetime",
+        "es": "Project Lifetime",
+        "ar": "Project Lifetime"
+      }
     },
     {
       "id": "salvageValue",
@@ -47,24 +87,32 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Value of the investment at the end of its life."
+      "businessContext": "Value of the investment at the end of its life.",
+      "label_i18n": {
+        "en": "Salvage Value",
+        "tr": "Salvage Value",
+        "de": "Salvage Value",
+        "fr": "Salvage Value",
+        "es": "Salvage Value",
+        "ar": "Salvage Value"
+      }
     }
   ],
   "formulas": {
     "rate": "discountRate / 100",
-    "annuityFactor": "(1 - Math.pow(1 + rate, -projectLifetime)) / rate",
-    "netAnnualCash": "annualBenefits - annualCosts",
-    "presentValueBenefits": "annualBenefits * annuityFactor + salvageValue / Math.pow(1 + rate, projectLifetime)",
-    "presentValueCosts": "initialInvestment + annualCosts * annuityFactor",
-    "npv": "-initialInvestment + netAnnualCash * annuityFactor + salvageValue / Math.pow(1 + rate, projectLifetime)",
-    "bcr": "presentValueBenefits / presentValueCosts"
+    "netAnnualCash": "annualBenefits - annualCosts"
   },
   "outputs": {
-    "primary": "npv",
+    "primary": "netAnnualCash",
     "breakdown": [
       "npv",
       "bcr"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "bcr"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -74,5 +122,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

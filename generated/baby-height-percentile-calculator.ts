@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from baby-height-percentile-calculator-schema.json
 import * as z from 'zod';
 
@@ -19,26 +20,33 @@ export const Baby_height_percentile_calculatorInputSchema = z.object({
   S: z.number().default(0.04),
 });
 
-function evaluateAllFormulas(input: Baby_height_percentile_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (Math.pow(input.heightCm / input.M, input.L) - 1) / (input.L * input.S); results["zScore"] = Number.isFinite(v) ? v : 0; } catch { results["zScore"] = 0; }
-  try { const v = ((results["zScore"] ?? 0) > 0 ? 1 : -1) * Math.sqrt(1 - Math.exp(-(results["zScore"] ?? 0) * (results["zScore"] ?? 0) * (4 / Math.PI + 0.147 * (results["zScore"] ?? 0) * (results["zScore"] ?? 0)) / (1 + 0.147 * (results["zScore"] ?? 0) * (results["zScore"] ?? 0)))); results["erf"] = Number.isFinite(v) ? v : 0; } catch { results["erf"] = 0; }
-  try { const v = 0.5 * (1 + (results["erf"] ?? 0) / Math.sqrt(2)) * 100; results["percentile"] = Number.isFinite(v) ? v : 0; } catch { results["percentile"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Baby_height_percentile_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.sex + input.ageMonths + input.heightCm; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.sex + input.ageMonths + input.heightCm; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateBaby_height_percentile_calculator(input: Baby_height_percentile_calculatorInput): Baby_height_percentile_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["percentile"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

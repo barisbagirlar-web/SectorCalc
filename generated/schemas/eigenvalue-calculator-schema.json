@@ -67,27 +67,25 @@
     }
   ],
   "formulas": {
-    "primary": "((a + d) + Math.sqrt(Math.pow(a + d, 2) - 4 * (a * d - b * c))) / 2 + ', ' + ((a + d) - Math.sqrt(Math.pow(a + d, 2) - 4 * (a * d - b * c))) / 2",
     "trace": "a + d",
     "determinant": "a * d - b * c",
-    "discriminant": "Math.pow(a + d, 2) - 4 * (a * d - b * c)",
-    "eigenvalue1": "((a + d) + Math.sqrt(Math.pow(a + d, 2) - 4 * (a * d - b * c))) / 2",
-    "eigenvalue2": "((a + d) - Math.sqrt(Math.pow(a + d, 2) - 4 * (a * d - b * c))) / 2",
     "a___d": "a + d",
-    "a___d___b___c": "a * d - b * c",
-    "Math_pow_a___d__2____4____a___d___b___c_": "Math.pow(a + d, 2) - 4 * (a * d - b * c)",
-    "__a___d____Math_sqrt_Math_pow_a___d__2__": "((a + d) + Math.sqrt(Math.pow(a + d, 2) - 4 * (a * d - b * c))) / 2",
-    "result": "((a + d) + Math.sqrt(Math.pow(a + d, 2) - 4 * (a * d - b * c))) / 2 + ', ' + ((a + d) - Math.sqrt(Math.pow(a + d, 2) - 4 * (a * d - b * c))) / 2"
+    "a___d___b___c": "a * d - b * c"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "a___d___b___c",
     "breakdown": [
       "a + d",
       "a * d - b * c",
       "Math.pow(a + d, 2) - 4 * (a * d - b * c)",
       "((a + d) + Math.sqrt(Math.pow(a + d, 2) - 4 * (a * d - b * c))) / 2",
       "((a + d) - Math.sqrt(Math.pow(a + d, 2) - 4 * (a * d - b * c))) / 2"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -97,5 +95,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

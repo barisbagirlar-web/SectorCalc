@@ -116,13 +116,18 @@
   ],
   "formulas": {
     "totalScore": "q1 + q2 + q3 + q4 + q5 + q6 + q7",
-    "0_4_minimal_anxiety__5_9_mild_anxiety__1": "0-4 minimal anxiety, 5-9 mild anxiety, 10-14 moderate anxiety, 15-21 severe anxiety"
+    "totalScore_aux": "q1 + q2 + q3 + q4 + q5 + q6 + q7"
   },
   "outputs": {
     "primary": "totalScore",
     "breakdown": [
       "Severity interpretation based on totalScore: 0-4 minimal anxiety, 5-9 mild anxiety, 10-14 moderate anxiety, 15-21 severe anxiety"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalScore_aux"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -132,5 +137,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

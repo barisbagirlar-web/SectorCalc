@@ -22,30 +22,12 @@
       "max": null,
       "businessContext": "Select the weld joint geometry per ISO 9692. Affects volume calculation formula.",
       "options": [
-        {
-          "value": "butt",
-          "label": "Butt Joint (Square Groove)"
-        },
-        {
-          "value": "single_v",
-          "label": "Single V-Groove"
-        },
-        {
-          "value": "double_v",
-          "label": "Double V-Groove"
-        },
-        {
-          "value": "fillet",
-          "label": "Fillet Weld"
-        },
-        {
-          "value": "single_bevel",
-          "label": "Single Bevel"
-        },
-        {
-          "value": "double_bevel",
-          "label": "Double Bevel"
-        }
+        "butt",
+        "single_v",
+        "double_v",
+        "fillet",
+        "single_bevel",
+        "double_bevel"
       ],
       "label_i18n": {
         "en": "Joint Type"
@@ -160,192 +142,17 @@
       "max": null,
       "businessContext": "Select the welding process. Affects deposition efficiency and labor rate.",
       "options": [
-        {
-          "value": "SMAW",
-          "label": "Shielded Metal Arc (SMAW)"
-        },
-        {
-          "value": "GMAW",
-          "label": "Gas Metal Arc (GMAW/MIG)"
-        },
-        {
-          "value": "FCAW",
-          "label": "Flux Cored Arc (FCAW)"
-        },
-        {
-          "value": "SAW",
-          "label": "Submerged Arc (SAW)"
-        },
-        {
-          "value": "GTAW",
-          "label": "Gas Tungsten Arc (GTAW/TIG)"
-        }
+        "SMAW",
+        "GMAW",
+        "FCAW",
+        "SAW",
+        "GTAW"
       ],
       "label_i18n": {
         "en": "Welding Process"
       },
       "businessContext_i18n": {
         "en": "Select the welding process. Affects deposition efficiency and labor rate."
-      }
-    },
-    {
-      "id": "material_density",
-      "label": "Material Density",
-      "type": "number",
-      "unit": "g/cm³",
-      "default": 7.85,
-      "min": 2.7,
-      "max": 19.3,
-      "businessContext": "Density of weld metal. Steel ~7.85, Aluminum ~2.7, Stainless ~8.0.",
-      "label_i18n": {
-        "en": "Material Density"
-      },
-      "businessContext_i18n": {
-        "en": "Density of weld metal. Steel ~7.85, Aluminum ~2.7, Stainless ~8.0."
-      }
-    },
-    {
-      "id": "labor_rate",
-      "label": "Labor Rate",
-      "type": "number",
-      "unit": "USD/hr",
-      "default": 45,
-      "min": 10,
-      "max": 200,
-      "businessContext": "Hourly cost of welder including overhead.",
-      "label_i18n": {
-        "en": "Labor Rate"
-      },
-      "businessContext_i18n": {
-        "en": "Hourly cost of welder including overhead."
-      }
-    },
-    {
-      "id": "overhead_rate",
-      "label": "Overhead Rate",
-      "type": "number",
-      "unit": "%",
-      "default": 30,
-      "min": 0,
-      "max": 100,
-      "businessContext": "Percentage added to direct labor for indirect costs.",
-      "label_i18n": {
-        "en": "Overhead Rate"
-      },
-      "businessContext_i18n": {
-        "en": "Percentage added to direct labor for indirect costs."
-      }
-    },
-    {
-      "id": "consumable_cost_per_kg",
-      "label": "Consumable Cost per kg",
-      "type": "number",
-      "unit": "USD/kg",
-      "default": 5.5,
-      "min": 1,
-      "max": 50,
-      "businessContext": "Cost of filler metal per kilogram.",
-      "label_i18n": {
-        "en": "Consumable Cost per kg"
-      },
-      "businessContext_i18n": {
-        "en": "Cost of filler metal per kilogram."
-      }
-    },
-    {
-      "id": "deposition_efficiency",
-      "label": "Deposition Efficiency",
-      "type": "number",
-      "unit": "%",
-      "default": 65,
-      "min": 30,
-      "max": 99,
-      "businessContext": "Ratio of deposited metal to consumed filler. Varies by process: SMAW~65%, GMAW~90%, FCAW~85%, SAW~99%, GTAW~95%.",
-      "label_i18n": {
-        "en": "Deposition Efficiency"
-      },
-      "businessContext_i18n": {
-        "en": "Ratio of deposited metal to consumed filler. Varies by process: SMAW~65%, GMAW~90%, FCAW~85%, SAW~99%, GTAW~95%."
-      }
-    },
-    {
-      "id": "operator_factor",
-      "label": "Operator Factor",
-      "type": "number",
-      "unit": "%",
-      "default": 40,
-      "min": 10,
-      "max": 80,
-      "businessContext": "Percentage of total time that the welder is actually depositing metal. Typical range 20-50%.",
-      "label_i18n": {
-        "en": "Operator Factor"
-      },
-      "businessContext_i18n": {
-        "en": "Percentage of total time that the welder is actually depositing metal. Typical range 20-50%."
-      }
-    },
-    {
-      "id": "weld_speed",
-      "label": "Weld Speed",
-      "type": "number",
-      "unit": "mm/min",
-      "default": 300,
-      "min": 50,
-      "max": 2000,
-      "businessContext": "Travel speed of the welding arc. Affects deposition rate and time.",
-      "label_i18n": {
-        "en": "Weld Speed"
-      },
-      "businessContext_i18n": {
-        "en": "Travel speed of the welding arc. Affects deposition rate and time."
-      }
-    },
-    {
-      "id": "wire_feed_speed",
-      "label": "Wire Feed Speed (if applicable)",
-      "type": "number",
-      "unit": "m/min",
-      "default": 8,
-      "min": 1,
-      "max": 30,
-      "businessContext": "Only for GMAW/FCAW processes. Used to calculate deposition rate.",
-      "label_i18n": {
-        "en": "Wire Feed Speed (if applicable)"
-      },
-      "businessContext_i18n": {
-        "en": "Only for GMAW/FCAW processes. Used to calculate deposition rate."
-      }
-    },
-    {
-      "id": "wire_diameter",
-      "label": "Wire Diameter",
-      "type": "number",
-      "unit": "mm",
-      "default": 1.2,
-      "min": 0.8,
-      "max": 4,
-      "businessContext": "Diameter of filler wire. Affects cross-sectional area and deposition rate.",
-      "label_i18n": {
-        "en": "Wire Diameter"
-      },
-      "businessContext_i18n": {
-        "en": "Diameter of filler wire. Affects cross-sectional area and deposition rate."
-      }
-    },
-    {
-      "id": "use_premium_data",
-      "label": "Use Premium Data (historical trends)",
-      "type": "boolean",
-      "unit": "unit",
-      "default": false,
-      "min": null,
-      "max": null,
-      "businessContext": "If true, adjusts deposition efficiency and operator factor based on historical data from premium database.",
-      "label_i18n": {
-        "en": "Use Premium Data (historical trends)"
-      },
-      "businessContext_i18n": {
-        "en": "If true, adjusts deposition efficiency and operator factor based on historical data from premium database."
       }
     }
   ],
@@ -412,18 +219,18 @@
       }
     ]
   },
-  "formulas": [
-    "joint_type",
-    "joint_type",
-    "joint_type",
-    "joint_type",
-    "joint_type",
-    "joint_type",
-    "joint_type"
-  ],
+  "formulas": {
+    "result": "joint_type + plate_thickness + root_face",
+    "result_copy": "joint_type + plate_thickness + root_face"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

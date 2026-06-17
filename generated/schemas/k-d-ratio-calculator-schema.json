@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "units",
       "default": 0,
-      "businessContext": "Number of accepted/quality parts produced."
+      "businessContext": "Number of accepted/quality parts produced.",
+      "label_i18n": {
+        "en": "Accepted Parts",
+        "tr": "Accepted Parts",
+        "de": "Accepted Parts",
+        "fr": "Accepted Parts",
+        "es": "Accepted Parts",
+        "ar": "Accepted Parts"
+      }
     },
     {
       "id": "defective_parts",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "units",
       "default": 0,
-      "businessContext": "Number of defective parts identified."
+      "businessContext": "Number of defective parts identified.",
+      "label_i18n": {
+        "en": "Defective Parts",
+        "tr": "Defective Parts",
+        "de": "Defective Parts",
+        "fr": "Defective Parts",
+        "es": "Defective Parts",
+        "ar": "Defective Parts"
+      }
     },
     {
       "id": "reworked_parts",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "units",
       "default": 0,
-      "businessContext": "Number of parts that required rework."
+      "businessContext": "Number of parts that required rework.",
+      "label_i18n": {
+        "en": "Reworked Parts",
+        "tr": "Reworked Parts",
+        "de": "Reworked Parts",
+        "fr": "Reworked Parts",
+        "es": "Reworked Parts",
+        "ar": "Reworked Parts"
+      }
     },
     {
       "id": "total_inspected",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "units",
       "default": 0,
-      "businessContext": "Total number of parts inspected."
+      "businessContext": "Total number of parts inspected.",
+      "label_i18n": {
+        "en": "Total Inspected",
+        "tr": "Total Inspected",
+        "de": "Total Inspected",
+        "fr": "Total Inspected",
+        "es": "Total Inspected",
+        "ar": "Total Inspected"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "defect_rate",
       "quality_yield",
       "rework_rate"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "rework_rate"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -56,5 +93,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -68,13 +68,18 @@
   ],
   "formulas": {
     "sqm": "sqft * 0.09290304",
-    "sqft___0_09290304___sqm": "sqft * 0.09290304 = sqm"
+    "sqm_aux": "sqft * 0.09290304"
   },
   "outputs": {
     "primary": "sqm",
     "breakdown": [
       "sqft * 0.09290304 = sqm"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "sqm_aux"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -84,5 +89,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

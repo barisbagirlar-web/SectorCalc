@@ -86,19 +86,20 @@
     "skinIndex": "(oiliness + hydration) * 12.5",
     "sensitivityIndex": "sensitivity * 25",
     "pigmentationIndex": "pigmentation * 25",
-    "agingIndex": "(4 - elasticity) * 25",
-    "__sensitivityIndex_toFixed_0__": "${sensitivityIndex.toFixed(0)}",
-    "__pigmentationIndex_toFixed_0__": "${pigmentationIndex.toFixed(0)}",
-    "__agingIndex_toFixed_0__": "${agingIndex.toFixed(0)}",
-    "result": "Skin Type Index: ${skinIndex.toFixed(0)} (0=Dry, 100=Oily)"
+    "agingIndex": "(4 - elasticity) * 25"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "agingIndex",
     "breakdown": [
       "Sensitivity Index: ${sensitivityIndex.toFixed(0)}",
       "Pigmentation Index: ${pigmentationIndex.toFixed(0)}",
       "Aging Index: ${agingIndex.toFixed(0)}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "agingIndex"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -108,5 +109,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

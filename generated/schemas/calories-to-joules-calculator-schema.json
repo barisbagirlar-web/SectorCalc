@@ -69,18 +69,21 @@
   "formulas": {
     "joules": "calorieAmount * conversionFactor",
     "totalJoules": "joules * batchSize",
-    "roundedJoules": "Math.round(joules * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
-    "roundedTotalJoules": "Math.round(totalJoules * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
     "kilojoules": "joules / 1000"
   },
   "outputs": {
-    "primary": "roundedJoules",
+    "primary": "kilojoules",
     "breakdown": [
       "joules",
       "totalJoules",
       "roundedTotalJoules",
       "kilojoules"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "kilojoules"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -90,5 +93,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "kimya",
   "profession": "Proses Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

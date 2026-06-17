@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m³/s",
       "default": 0.01,
-      "businessContext": "Volumetric flow rate of the fluid. Typical range for industrial pumps: 0.001 to 1 m³/s."
+      "businessContext": "Volumetric flow rate of the fluid. Typical range for industrial pumps: 0.001 to 1 m³/s.",
+      "label_i18n": {
+        "en": "Flow Rate",
+        "tr": "Flow Rate",
+        "de": "Flow Rate",
+        "fr": "Flow Rate",
+        "es": "Flow Rate",
+        "ar": "Flow Rate"
+      }
     },
     {
       "id": "head",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Total dynamic head (TDH) that the pump must overcome, including static lift and friction losses."
+      "businessContext": "Total dynamic head (TDH) that the pump must overcome, including static lift and friction losses.",
+      "label_i18n": {
+        "en": "Total Head",
+        "tr": "Total Head",
+        "de": "Total Head",
+        "fr": "Total Head",
+        "es": "Total Head",
+        "ar": "Total Head"
+      }
     },
     {
       "id": "density",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1000,
-      "businessContext": "Density of the pumped fluid. Water: 1000 kg/m³, oil: ~900 kg/m³, chemicals vary."
+      "businessContext": "Density of the pumped fluid. Water: 1000 kg/m³, oil: ~900 kg/m³, chemicals vary.",
+      "label_i18n": {
+        "en": "Fluid Density",
+        "tr": "Fluid Density",
+        "de": "Fluid Density",
+        "fr": "Fluid Density",
+        "es": "Fluid Density",
+        "ar": "Fluid Density"
+      }
     },
     {
       "id": "pumpEfficiency",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "fraction (0-1)",
       "default": 0.7,
-      "businessContext": "Efficiency of the pump, typically 0.6-0.85 for centrifugal pumps."
+      "businessContext": "Efficiency of the pump, typically 0.6-0.85 for centrifugal pumps.",
+      "label_i18n": {
+        "en": "Pump Efficiency",
+        "tr": "Pump Efficiency",
+        "de": "Pump Efficiency",
+        "fr": "Pump Efficiency",
+        "es": "Pump Efficiency",
+        "ar": "Pump Efficiency"
+      }
     },
     {
       "id": "motorEfficiency",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "fraction (0-1)",
       "default": 0.95,
-      "businessContext": "Efficiency of the electric motor driving the pump. Typical IE3 motor: 0.93-0.96."
+      "businessContext": "Efficiency of the electric motor driving the pump. Typical IE3 motor: 0.93-0.96.",
+      "label_i18n": {
+        "en": "Motor Efficiency",
+        "tr": "Motor Efficiency",
+        "de": "Motor Efficiency",
+        "fr": "Motor Efficiency",
+        "es": "Motor Efficiency",
+        "ar": "Motor Efficiency"
+      }
     },
     {
       "id": "safetyFactor",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1.1,
-      "businessContext": "Safety margin to account for uncertainties (e.g., 1.1 = 10% extra). Common range 1.1-1.2."
+      "businessContext": "Safety margin to account for uncertainties (e.g., 1.1 = 10% extra). Common range 1.1-1.2.",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
       "hydraulicPower",
       "shaftPower",
       "motorInputPower"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalRequiredPower"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -72,5 +125,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

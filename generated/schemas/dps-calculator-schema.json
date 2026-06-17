@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 100000,
-      "businessContext": "Dağıtılan toplam kâr payı (TL)"
+      "businessContext": "Dağıtılan toplam kâr payı (TL)",
+      "label_i18n": {
+        "en": "Toplam Temettü",
+        "tr": "Toplam Temettü",
+        "de": "Toplam Temettü",
+        "fr": "Toplam Temettü",
+        "es": "Toplam Temettü",
+        "ar": "Toplam Temettü"
+      }
     },
     {
       "id": "sharesOutstanding",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 10000,
-      "businessContext": "Ödenmiş sermaye hisse adedi"
+      "businessContext": "Ödenmiş sermaye hisse adedi",
+      "label_i18n": {
+        "en": "Hisse Senedi Sayısı",
+        "tr": "Hisse Senedi Sayısı",
+        "de": "Hisse Senedi Sayısı",
+        "fr": "Hisse Senedi Sayısı",
+        "es": "Hisse Senedi Sayısı",
+        "ar": "Hisse Senedi Sayısı"
+      }
     },
     {
       "id": "netIncome",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 200000,
-      "businessContext": "Şirketin net dönem kârı"
+      "businessContext": "Şirketin net dönem kârı",
+      "label_i18n": {
+        "en": "Net Kâr",
+        "tr": "Net Kâr",
+        "de": "Net Kâr",
+        "fr": "Net Kâr",
+        "es": "Net Kâr",
+        "ar": "Net Kâr"
+      }
     },
     {
       "id": "payoutRatio",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "Kârın dağıtılma oranı (yüzde)"
+      "businessContext": "Kârın dağıtılma oranı (yüzde)",
+      "label_i18n": {
+        "en": "Temettü Dağıtım Oranı",
+        "tr": "Temettü Dağıtım Oranı",
+        "de": "Temettü Dağıtım Oranı",
+        "fr": "Temettü Dağıtım Oranı",
+        "es": "Temettü Dağıtım Oranı",
+        "ar": "Temettü Dağıtım Oranı"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "payoutRatioCalculated",
       "dpsFromPayout"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "dpsFromPayout"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

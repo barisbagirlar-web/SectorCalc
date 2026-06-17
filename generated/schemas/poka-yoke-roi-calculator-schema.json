@@ -66,22 +66,10 @@
       "unit": "%",
       "default": "95",
       "options": [
-        {
-          "value": "80",
-          "label": "80% (Low)"
-        },
-        {
-          "value": "90",
-          "label": "90% (Medium)"
-        },
-        {
-          "value": "95",
-          "label": "95% (High)"
-        },
-        {
-          "value": "99",
-          "label": "99% (Very High)"
-        }
+        "80",
+        "90",
+        "95",
+        "99"
       ],
       "businessContext": "Expected percentage of defects that will be prevented by the poka-yoke device or process.",
       "label_i18n": {
@@ -154,38 +142,6 @@
       "businessContext_i18n": {
         "en": "Fully burdened hourly labor cost for operators and inspectors."
       }
-    },
-    {
-      "id": "discount_rate",
-      "label": "Discount Rate",
-      "type": "number",
-      "unit": "%",
-      "default": 10,
-      "min": 0,
-      "max": 30,
-      "businessContext": "Annual discount rate used for net present value (NPV) calculation, reflecting the cost of capital.",
-      "label_i18n": {
-        "en": "Discount Rate"
-      },
-      "businessContext_i18n": {
-        "en": "Annual discount rate used for net present value (NPV) calculation, reflecting the cost of capital."
-      }
-    },
-    {
-      "id": "project_life_years",
-      "label": "Project Life (Years)",
-      "type": "number",
-      "unit": "years",
-      "default": 5,
-      "min": 1,
-      "max": 20,
-      "businessContext": "Expected useful life of the poka-yoke solution before major redesign or replacement.",
-      "label_i18n": {
-        "en": "Project Life (Years)"
-      },
-      "businessContext_i18n": {
-        "en": "Expected useful life of the poka-yoke solution before major redesign or replacement."
-      }
     }
   ],
   "validation": {
@@ -232,18 +188,18 @@
       }
     ]
   },
-  "formulas": [
-    "annual_units",
-    "annual_units",
-    "annual_units",
-    "annual_units",
-    "annual_units",
-    "annual_units",
-    "annual_units"
-  ],
+  "formulas": {
+    "result": "annual_units + current_defect_rate + defect_cost_per_unit",
+    "result_copy": "annual_units + current_defect_rate + defect_cost_per_unit"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "%",
       "default": 30,
-      "businessContext": "Wet basis moisture content of the material before drying"
+      "businessContext": "Wet basis moisture content of the material before drying",
+      "label_i18n": {
+        "en": "Initial Moisture Content",
+        "tr": "Initial Moisture Content",
+        "de": "Initial Moisture Content",
+        "fr": "Initial Moisture Content",
+        "es": "Initial Moisture Content",
+        "ar": "Initial Moisture Content"
+      }
     },
     {
       "id": "final_moisture",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Target moisture content after drying (wet basis)"
+      "businessContext": "Target moisture content after drying (wet basis)",
+      "label_i18n": {
+        "en": "Final Moisture Content",
+        "tr": "Final Moisture Content",
+        "de": "Final Moisture Content",
+        "fr": "Final Moisture Content",
+        "es": "Final Moisture Content",
+        "ar": "Final Moisture Content"
+      }
     },
     {
       "id": "solid_mass",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Total mass of wet material to be dried"
+      "businessContext": "Total mass of wet material to be dried",
+      "label_i18n": {
+        "en": "Wet Material Mass",
+        "tr": "Wet Material Mass",
+        "de": "Wet Material Mass",
+        "fr": "Wet Material Mass",
+        "es": "Wet Material Mass",
+        "ar": "Wet Material Mass"
+      }
     },
     {
       "id": "drying_rate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg/h",
       "default": 50,
-      "businessContext": "Moisture removal capacity of the dryer"
+      "businessContext": "Moisture removal capacity of the dryer",
+      "label_i18n": {
+        "en": "Drying Rate",
+        "tr": "Drying Rate",
+        "de": "Drying Rate",
+        "fr": "Drying Rate",
+        "es": "Drying Rate",
+        "ar": "Drying Rate"
+      }
     },
     {
       "id": "specific_energy",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kWh/kg",
       "default": 1.2,
-      "businessContext": "Energy required to evaporate 1 kg of water"
+      "businessContext": "Energy required to evaporate 1 kg of water",
+      "label_i18n": {
+        "en": "Specific Energy Consumption",
+        "tr": "Specific Energy Consumption",
+        "de": "Specific Energy Consumption",
+        "fr": "Specific Energy Consumption",
+        "es": "Specific Energy Consumption",
+        "ar": "Specific Energy Consumption"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "drying_time_h",
       "energy_consumption_kWh"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "energy_consumption_kWh"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -62,5 +107,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

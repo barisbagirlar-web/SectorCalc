@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 1000,
-      "businessContext": "Total number of items ordered by customer"
+      "businessContext": "Total number of items ordered by customer",
+      "label_i18n": {
+        "en": "Order Quantity",
+        "tr": "Order Quantity",
+        "de": "Order Quantity",
+        "fr": "Order Quantity",
+        "es": "Order Quantity",
+        "ar": "Order Quantity"
+      }
     },
     {
       "id": "unitsPerCarton",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "pcs/carton",
       "default": 50,
-      "businessContext": "How many items fit into one standard carton"
+      "businessContext": "How many items fit into one standard carton",
+      "label_i18n": {
+        "en": "Units per Carton",
+        "tr": "Units per Carton",
+        "de": "Units per Carton",
+        "fr": "Units per Carton",
+        "es": "Units per Carton",
+        "ar": "Units per Carton"
+      }
     },
     {
       "id": "cartonLength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 40,
-      "businessContext": "Length dimension of a carton"
+      "businessContext": "Length dimension of a carton",
+      "label_i18n": {
+        "en": "Carton Length",
+        "tr": "Carton Length",
+        "de": "Carton Length",
+        "fr": "Carton Length",
+        "es": "Carton Length",
+        "ar": "Carton Length"
+      }
     },
     {
       "id": "cartonWidth",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cm",
       "default": 30,
-      "businessContext": "Width dimension of a carton"
+      "businessContext": "Width dimension of a carton",
+      "label_i18n": {
+        "en": "Carton Width",
+        "tr": "Carton Width",
+        "de": "Carton Width",
+        "fr": "Carton Width",
+        "es": "Carton Width",
+        "ar": "Carton Width"
+      }
     },
     {
       "id": "cartonHeight",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "cm",
       "default": 20,
-      "businessContext": "Height dimension of a carton"
+      "businessContext": "Height dimension of a carton",
+      "label_i18n": {
+        "en": "Carton Height",
+        "tr": "Carton Height",
+        "de": "Carton Height",
+        "fr": "Carton Height",
+        "es": "Carton Height",
+        "ar": "Carton Height"
+      }
     },
     {
       "id": "cartonWeight",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kg",
       "default": 12,
-      "businessContext": "Weight of one full carton including items and packaging"
+      "businessContext": "Weight of one full carton including items and packaging",
+      "label_i18n": {
+        "en": "Carton Weight (full)",
+        "tr": "Carton Weight (full)",
+        "de": "Carton Weight (full)",
+        "fr": "Carton Weight (full)",
+        "es": "Carton Weight (full)",
+        "ar": "Carton Weight (full)"
+      }
     },
     {
       "id": "maxCartonsPerPallet",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "cartons/pallet",
       "default": 24,
-      "businessContext": "Maximum number of cartons that can be stacked on a pallet (based on dimensions)"
+      "businessContext": "Maximum number of cartons that can be stacked on a pallet (based on dimensions)",
+      "label_i18n": {
+        "en": "Max Cartons per Pallet",
+        "tr": "Max Cartons per Pallet",
+        "de": "Max Cartons per Pallet",
+        "fr": "Max Cartons per Pallet",
+        "es": "Max Cartons per Pallet",
+        "ar": "Max Cartons per Pallet"
+      }
     },
     {
       "id": "maxWeightPerPallet",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "kg",
       "default": 500,
-      "businessContext": "Maximum weight a pallet can safely carry"
+      "businessContext": "Maximum weight a pallet can safely carry",
+      "label_i18n": {
+        "en": "Max Weight per Pallet",
+        "tr": "Max Weight per Pallet",
+        "de": "Max Weight per Pallet",
+        "fr": "Max Weight per Pallet",
+        "es": "Max Weight per Pallet",
+        "ar": "Max Weight per Pallet"
+      }
     }
   ],
   "formulas": {
@@ -80,7 +144,12 @@
       "totalCartons",
       "palletsByVolume",
       "palletsByWeight"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "palletsByWeight"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -90,5 +159,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

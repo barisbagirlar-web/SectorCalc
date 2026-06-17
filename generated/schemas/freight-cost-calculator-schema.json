@@ -144,20 +144,6 @@
       "businessContext_i18n": {
         "en": "Indicates if shipment contains dangerous goods. Triggers additional compliance and handling fees."
       }
-    },
-    {
-      "id": "is_expedited",
-      "label": "Expedited Service",
-      "type": "boolean",
-      "unit": "unit",
-      "default": false,
-      "businessContext": "If true, applies a premium multiplier for time-definite delivery.",
-      "label_i18n": {
-        "en": "Expedited Service"
-      },
-      "businessContext_i18n": {
-        "en": "If true, applies a premium multiplier for time-definite delivery."
-      }
     }
   ],
   "validation": {
@@ -204,18 +190,18 @@
       }
     ]
   },
-  "formulas": [
-    "shipment_weight_kg",
-    "shipment_weight_kg",
-    "shipment_weight_kg",
-    "shipment_weight_kg",
-    "shipment_weight_kg",
-    "shipment_weight_kg",
-    "shipment_weight_kg"
-  ],
+  "formulas": {
+    "result": "shipment_weight_kg + shipment_volume_cbm + distance_km",
+    "result_copy": "shipment_weight_kg + shipment_volume_cbm + distance_km"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
@@ -226,5 +212,6 @@
   "premiumRequired": false,
   "sectorId": "kargo",
   "profession": "Lojistik Uzmanı",
-  "categoryId": "logistics"
+  "categoryId": "logistics",
+  "premiumFeatures": []
 }

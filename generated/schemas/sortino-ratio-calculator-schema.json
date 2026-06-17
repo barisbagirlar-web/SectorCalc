@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "decimal",
       "default": 0.1,
-      "businessContext": "Portfolio's average return over the period."
+      "businessContext": "Portfolio's average return over the period.",
+      "label_i18n": {
+        "en": "Average Return",
+        "tr": "Average Return",
+        "de": "Average Return",
+        "fr": "Average Return",
+        "es": "Average Return",
+        "ar": "Average Return"
+      }
     },
     {
       "id": "riskFreeRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "decimal",
       "default": 0.03,
-      "businessContext": "Risk-free rate of return (e.g., government bond yield)."
+      "businessContext": "Risk-free rate of return (e.g., government bond yield).",
+      "label_i18n": {
+        "en": "Risk-Free Rate",
+        "tr": "Risk-Free Rate",
+        "de": "Risk-Free Rate",
+        "fr": "Risk-Free Rate",
+        "es": "Risk-Free Rate",
+        "ar": "Risk-Free Rate"
+      }
     },
     {
       "id": "targetReturn",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "decimal",
       "default": 0.03,
-      "businessContext": "Minimum acceptable return (often equals risk-free rate)."
+      "businessContext": "Minimum acceptable return (often equals risk-free rate).",
+      "label_i18n": {
+        "en": "Target Return",
+        "tr": "Target Return",
+        "de": "Target Return",
+        "fr": "Target Return",
+        "es": "Target Return",
+        "ar": "Target Return"
+      }
     },
     {
       "id": "downsideDeviation",
@@ -31,19 +55,32 @@
       "type": "number",
       "unit": "decimal",
       "default": 0.05,
-      "businessContext": "Downside deviation (standard deviation of returns below target)."
+      "businessContext": "Downside deviation (standard deviation of returns below target).",
+      "label_i18n": {
+        "en": "Downside Deviation",
+        "tr": "Downside Deviation",
+        "de": "Downside Deviation",
+        "fr": "Downside Deviation",
+        "es": "Downside Deviation",
+        "ar": "Downside Deviation"
+      }
     }
   ],
   "formulas": {
-    "excessReturn": "averageReturn - targetReturn",
-    "sortinoRatio": "excessReturn / downsideDeviation"
+    "result": "averageReturn + riskFreeRate + targetReturn",
+    "result_aux": "averageReturn + riskFreeRate + targetReturn"
   },
   "outputs": {
-    "primary": "sortinoRatio",
+    "primary": "result",
     "breakdown": [
       "Excess Return = Average Return - Target Return",
       "Sortino Ratio = Excess Return / Downside Deviation"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "sortinoRatio"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -53,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mL",
       "default": 100,
-      "businessContext": "Total volume of the solution in milliliters."
+      "businessContext": "Total volume of the solution in milliliters.",
+      "label_i18n": {
+        "en": "Volume (mL)",
+        "tr": "Volume (mL)",
+        "de": "Volume (mL)",
+        "fr": "Volume (mL)",
+        "es": "Volume (mL)",
+        "ar": "Volume (mL)"
+      }
     },
     {
       "id": "targetConc",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g/100mL",
       "default": 0.9,
-      "businessContext": "Desired sodium chloride concentration for isotonicity (typically 0.9% w/v)."
+      "businessContext": "Desired sodium chloride concentration for isotonicity (typically 0.9% w/v).",
+      "label_i18n": {
+        "en": "Target concentration (g/100mL)",
+        "tr": "Target concentration (g/100mL)",
+        "de": "Target concentration (g/100mL)",
+        "fr": "Target concentration (g/100mL)",
+        "es": "Target concentration (g/100mL)",
+        "ar": "Target concentration (g/100mL)"
+      }
     },
     {
       "id": "drug1Amt",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Mass of the first active ingredient in grams."
+      "businessContext": "Mass of the first active ingredient in grams.",
+      "label_i18n": {
+        "en": "Drug 1 amount (g)",
+        "tr": "Drug 1 amount (g)",
+        "de": "Drug 1 amount (g)",
+        "fr": "Drug 1 amount (g)",
+        "es": "Drug 1 amount (g)",
+        "ar": "Drug 1 amount (g)"
+      }
     },
     {
       "id": "drug1E",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Sodium chloride equivalent of the first drug (g NaCl per g drug)."
+      "businessContext": "Sodium chloride equivalent of the first drug (g NaCl per g drug).",
+      "label_i18n": {
+        "en": "Drug 1 E-value",
+        "tr": "Drug 1 E-value",
+        "de": "Drug 1 E-value",
+        "fr": "Drug 1 E-value",
+        "es": "Drug 1 E-value",
+        "ar": "Drug 1 E-value"
+      }
     },
     {
       "id": "drug2Amt",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Mass of the second active ingredient in grams."
+      "businessContext": "Mass of the second active ingredient in grams.",
+      "label_i18n": {
+        "en": "Drug 2 amount (g)",
+        "tr": "Drug 2 amount (g)",
+        "de": "Drug 2 amount (g)",
+        "fr": "Drug 2 amount (g)",
+        "es": "Drug 2 amount (g)",
+        "ar": "Drug 2 amount (g)"
+      }
     },
     {
       "id": "drug2E",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Sodium chloride equivalent of the second drug (g NaCl per g drug)."
+      "businessContext": "Sodium chloride equivalent of the second drug (g NaCl per g drug).",
+      "label_i18n": {
+        "en": "Drug 2 E-value",
+        "tr": "Drug 2 E-value",
+        "de": "Drug 2 E-value",
+        "fr": "Drug 2 E-value",
+        "es": "Drug 2 E-value",
+        "ar": "Drug 2 E-value"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
     "breakdown": [
       "totalEquivalent",
       "requiredTotalNaCl"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "requiredNaCl"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -72,5 +125,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

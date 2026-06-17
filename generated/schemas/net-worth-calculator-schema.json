@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Liquid assets such as bank account balances, cash on hand, and short-term deposits."
+      "businessContext": "Liquid assets such as bank account balances, cash on hand, and short-term deposits.",
+      "label_i18n": {
+        "en": "Cash & Equivalents",
+        "tr": "Cash & Equivalents",
+        "de": "Cash & Equivalents",
+        "fr": "Cash & Equivalents",
+        "es": "Cash & Equivalents",
+        "ar": "Cash & Equivalents"
+      }
     },
     {
       "id": "investments",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Value of stocks, bonds, mutual funds, and other investment securities."
+      "businessContext": "Value of stocks, bonds, mutual funds, and other investment securities.",
+      "label_i18n": {
+        "en": "Investments",
+        "tr": "Investments",
+        "de": "Investments",
+        "fr": "Investments",
+        "es": "Investments",
+        "ar": "Investments"
+      }
     },
     {
       "id": "realEstate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Market value of owned real estate properties including primary residence."
+      "businessContext": "Market value of owned real estate properties including primary residence.",
+      "label_i18n": {
+        "en": "Real Estate",
+        "tr": "Real Estate",
+        "de": "Real Estate",
+        "fr": "Real Estate",
+        "es": "Real Estate",
+        "ar": "Real Estate"
+      }
     },
     {
       "id": "personalProperty",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Value of vehicles, jewelry, art, and other high-value personal belongings."
+      "businessContext": "Value of vehicles, jewelry, art, and other high-value personal belongings.",
+      "label_i18n": {
+        "en": "Personal Property",
+        "tr": "Personal Property",
+        "de": "Personal Property",
+        "fr": "Personal Property",
+        "es": "Personal Property",
+        "ar": "Personal Property"
+      }
     },
     {
       "id": "otherAssets",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Any other assets not categorized above (e.g., business ownership, intellectual property)."
+      "businessContext": "Any other assets not categorized above (e.g., business ownership, intellectual property).",
+      "label_i18n": {
+        "en": "Other Assets",
+        "tr": "Other Assets",
+        "de": "Other Assets",
+        "fr": "Other Assets",
+        "es": "Other Assets",
+        "ar": "Other Assets"
+      }
     },
     {
       "id": "currentDebt",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Short-term liabilities due within one year (credit cards, short-term loans)."
+      "businessContext": "Short-term liabilities due within one year (credit cards, short-term loans).",
+      "label_i18n": {
+        "en": "Current Debt",
+        "tr": "Current Debt",
+        "de": "Current Debt",
+        "fr": "Current Debt",
+        "es": "Current Debt",
+        "ar": "Current Debt"
+      }
     },
     {
       "id": "longTermDebt",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Liabilities with maturity beyond one year (mortgages, student loans, car loans)."
+      "businessContext": "Liabilities with maturity beyond one year (mortgages, student loans, car loans).",
+      "label_i18n": {
+        "en": "Long-Term Debt",
+        "tr": "Long-Term Debt",
+        "de": "Long-Term Debt",
+        "fr": "Long-Term Debt",
+        "es": "Long-Term Debt",
+        "ar": "Long-Term Debt"
+      }
     },
     {
       "id": "otherDebt",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Any other outstanding obligations not included above (e.g., tax liabilities, medical bills)."
+      "businessContext": "Any other outstanding obligations not included above (e.g., tax liabilities, medical bills).",
+      "label_i18n": {
+        "en": "Other Debt",
+        "tr": "Other Debt",
+        "de": "Other Debt",
+        "fr": "Other Debt",
+        "es": "Other Debt",
+        "ar": "Other Debt"
+      }
     }
   ],
   "formulas": {
@@ -76,7 +140,12 @@
     "breakdown": [
       "totalAssets",
       "totalDebt"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "netWorth"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -86,5 +155,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

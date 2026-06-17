@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from frequency-calculator-schema.json
 import * as z from 'zod';
 
@@ -21,26 +22,34 @@ export const Frequency_calculatorInputSchema = z.object({
   rpm: z.number().default(0),
 });
 
-function evaluateAllFormulas(input: Frequency_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.period !== 0 ? 1 / input.period : (input.cycles !== 0 && input.time !== 0 ? input.cycles / input.time : (input.velocity !== 0 && input.wavelength !== 0 ? input.velocity / input.wavelength : (input.angularFrequency !== 0 ? input.angularFrequency / (2 * Math.PI) : (input.rpm !== 0 ? input.rpm / 60 : 0)))); results["frequency"] = Number.isFinite(v) ? v : 0; } catch { results["frequency"] = 0; }
-  try { const v = (results["frequency"] ?? 0) * 2 * Math.PI; results["angularFrequencyOut"] = Number.isFinite(v) ? v : 0; } catch { results["angularFrequencyOut"] = 0; }
-  try { const v = (results["frequency"] ?? 0) * 60; results["rpmOut"] = Number.isFinite(v) ? v : 0; } catch { results["rpmOut"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Frequency_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.period !== 0 ? 1 / input.period : (input.cycles !== 0 && input.time !== 0 ? input.cycles / input.time : (input.velocity !== 0 && input.wavelength !== 0 ? input.velocity / input.wavelength : (input.angularFrequency !== 0 ? input.angularFrequency / (2 * Math.PI) : (input.rpm !== 0 ? input.rpm / 60 : 0)))); results["frequency"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["frequency"] = 0; }
+  try { const v = (asFormulaNumber(results["frequency"])) * 2 * Math.PI; results["angularFrequencyOut"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["angularFrequencyOut"] = 0; }
+  try { const v = (asFormulaNumber(results["frequency"])) * 60; results["rpmOut"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["rpmOut"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateFrequency_calculator(input: Frequency_calculatorInput): Frequency_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["frequency"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["frequency"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

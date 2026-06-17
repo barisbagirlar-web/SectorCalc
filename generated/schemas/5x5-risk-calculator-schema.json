@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "-",
       "default": 5,
-      "businessContext": "Olayın gerçekleşme olasılığı (1–5)"
+      "businessContext": "Olayın gerçekleşme olasılığı (1–5)",
+      "label_i18n": {
+        "en": "Olasılık",
+        "tr": "Olasılık",
+        "de": "Olasılık",
+        "fr": "Olasılık",
+        "es": "Olasılık",
+        "ar": "Olasılık"
+      }
     },
     {
       "id": "impact",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "-",
       "default": 5,
-      "businessContext": "Olayın etki derecesi (1–5)"
+      "businessContext": "Olayın etki derecesi (1–5)",
+      "label_i18n": {
+        "en": "Etki",
+        "tr": "Etki",
+        "de": "Etki",
+        "fr": "Etki",
+        "es": "Etki",
+        "ar": "Etki"
+      }
     },
     {
       "id": "probabilityWeight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "-",
       "default": 1,
-      "businessContext": "Olasılık çarpanı (ör. düzeltici faktör)"
+      "businessContext": "Olasılık çarpanı (ör. düzeltici faktör)",
+      "label_i18n": {
+        "en": "Olasılık Ağırlık",
+        "tr": "Olasılık Ağırlık",
+        "de": "Olasılık Ağırlık",
+        "fr": "Olasılık Ağırlık",
+        "es": "Olasılık Ağırlık",
+        "ar": "Olasılık Ağırlık"
+      }
     },
     {
       "id": "impactWeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "-",
       "default": 1,
-      "businessContext": "Etki çarpanı (ör. tolerans faktörü)"
+      "businessContext": "Etki çarpanı (ör. tolerans faktörü)",
+      "label_i18n": {
+        "en": "Etki Ağırlık",
+        "tr": "Etki Ağırlık",
+        "de": "Etki Ağırlık",
+        "fr": "Etki Ağırlık",
+        "es": "Etki Ağırlık",
+        "ar": "Etki Ağırlık"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "weightedProb",
       "weightedImpact",
       "riskPercentage"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "riskPercentage"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -56,5 +93,10 @@
   "sectorSlug": "daily-renovation",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

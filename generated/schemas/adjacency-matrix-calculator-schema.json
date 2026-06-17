@@ -69,19 +69,21 @@
   "formulas": {
     "trace": "a11 + a22",
     "determinant": "a11 * a22 - a12 * a21",
-    "discriminant": "(a11 + a22) * (a11 + a22) - 4 * (a11 * a22 - a12 * a21)",
-    "eigenvalue1": "((a11 + a22) + Math.sqrt((a11 + a22) * (a11 + a22) - 4 * (a11 * a22 - a12 * a21))) / 2",
-    "eigenvalue2": "((a11 + a22) - Math.sqrt((a11 + a22) * (a11 + a22) - 4 * (a11 * a22 - a12 * a21))) / 2",
-    "spectralRadius": "Math.max(Math.abs(((a11 + a22) + Math.sqrt((a11 + a22) * (a11 + a22) - 4 * (a11 * a22 - a12 * a21))) / 2), Math.abs(((a11 + a22) - Math.sqrt((a11 + a22) * (a11 + a22) - 4 * (a11 * a22 - a12 * a21))) / 2))"
+    "discriminant": "(a11 + a22) * (a11 + a22) - 4 * (a11 * a22 - a12 * a21)"
   },
   "outputs": {
-    "primary": "spectralRadius",
+    "primary": "discriminant",
     "breakdown": [
       "eigenvalue1",
       "eigenvalue2",
       "trace",
       "determinant"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "spectralRadius"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -91,5 +93,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

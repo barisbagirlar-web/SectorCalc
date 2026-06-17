@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "hours (decimal)",
       "default": 7,
-      "businessContext": "The desired wake-up time in decimal hours (e.g., 7.5 = 7:30 AM)."
+      "businessContext": "The desired wake-up time in decimal hours (e.g., 7.5 = 7:30 AM).",
+      "label_i18n": {
+        "en": "Wake-up time (24h decimal)",
+        "tr": "Wake-up time (24h decimal)",
+        "de": "Wake-up time (24h decimal)",
+        "fr": "Wake-up time (24h decimal)",
+        "es": "Wake-up time (24h decimal)",
+        "ar": "Wake-up time (24h decimal)"
+      }
     },
     {
       "id": "coreDuration",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hours",
       "default": 5,
-      "businessContext": "Duration of the core sleep segment in hours."
+      "businessContext": "Duration of the core sleep segment in hours.",
+      "label_i18n": {
+        "en": "Core sleep duration",
+        "tr": "Core sleep duration",
+        "de": "Core sleep duration",
+        "fr": "Core sleep duration",
+        "es": "Core sleep duration",
+        "ar": "Core sleep duration"
+      }
     },
     {
       "id": "napDuration",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "hours",
       "default": 1.5,
-      "businessContext": "Duration of the nap segment in hours."
+      "businessContext": "Duration of the nap segment in hours.",
+      "label_i18n": {
+        "en": "Nap duration",
+        "tr": "Nap duration",
+        "de": "Nap duration",
+        "fr": "Nap duration",
+        "es": "Nap duration",
+        "ar": "Nap duration"
+      }
     },
     {
       "id": "napTime",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "hours (decimal)",
       "default": 14,
-      "businessContext": "The desired start time for the nap (e.g., 14.0 = 2:00 PM)."
+      "businessContext": "The desired start time for the nap (e.g., 14.0 = 2:00 PM).",
+      "label_i18n": {
+        "en": "Nap start time (24h decimal)",
+        "tr": "Nap start time (24h decimal)",
+        "de": "Nap start time (24h decimal)",
+        "fr": "Nap start time (24h decimal)",
+        "es": "Nap start time (24h decimal)",
+        "ar": "Nap start time (24h decimal)"
+      }
     }
   ],
   "formulas": {
@@ -47,7 +79,12 @@
       "coreEnd",
       "napTime",
       "napEnd"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalSleep"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -57,5 +94,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

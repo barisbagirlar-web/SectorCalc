@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kWh",
       "default": 1000,
-      "businessContext": "Total energy consumption in kilowatt-hours for the billing period"
+      "businessContext": "Total energy consumption in kilowatt-hours for the billing period",
+      "label_i18n": {
+        "en": "Consumption",
+        "tr": "Consumption",
+        "de": "Consumption",
+        "fr": "Consumption",
+        "es": "Consumption",
+        "ar": "Consumption"
+      }
     },
     {
       "id": "peakRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "€/kWh",
       "default": 0.15,
-      "businessContext": "Price per kilowatt-hour during peak usage hours"
+      "businessContext": "Price per kilowatt-hour during peak usage hours",
+      "label_i18n": {
+        "en": "Peak Rate",
+        "tr": "Peak Rate",
+        "de": "Peak Rate",
+        "fr": "Peak Rate",
+        "es": "Peak Rate",
+        "ar": "Peak Rate"
+      }
     },
     {
       "id": "offPeakRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "€/kWh",
       "default": 0.1,
-      "businessContext": "Price per kilowatt-hour during off-peak usage hours"
+      "businessContext": "Price per kilowatt-hour during off-peak usage hours",
+      "label_i18n": {
+        "en": "Off-Peak Rate",
+        "tr": "Off-Peak Rate",
+        "de": "Off-Peak Rate",
+        "fr": "Off-Peak Rate",
+        "es": "Off-Peak Rate",
+        "ar": "Off-Peak Rate"
+      }
     },
     {
       "id": "peakUsage",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 60,
-      "businessContext": "Estimated percentage of total consumption that occurs during peak hours (0-100)"
+      "businessContext": "Estimated percentage of total consumption that occurs during peak hours (0-100)",
+      "label_i18n": {
+        "en": "Peak Usage Fraction",
+        "tr": "Peak Usage Fraction",
+        "de": "Peak Usage Fraction",
+        "fr": "Peak Usage Fraction",
+        "es": "Peak Usage Fraction",
+        "ar": "Peak Usage Fraction"
+      }
     },
     {
       "id": "standingCharge",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "€/day",
       "default": 0.5,
-      "businessContext": "Fixed daily charge applied by the energy supplier regardless of consumption"
+      "businessContext": "Fixed daily charge applied by the energy supplier regardless of consumption",
+      "label_i18n": {
+        "en": "Standing Charge",
+        "tr": "Standing Charge",
+        "de": "Standing Charge",
+        "fr": "Standing Charge",
+        "es": "Standing Charge",
+        "ar": "Standing Charge"
+      }
     },
     {
       "id": "days",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "days",
       "default": 30,
-      "businessContext": "Number of days in the billing period"
+      "businessContext": "Number of days in the billing period",
+      "label_i18n": {
+        "en": "Billing Days",
+        "tr": "Billing Days",
+        "de": "Billing Days",
+        "fr": "Billing Days",
+        "es": "Billing Days",
+        "ar": "Billing Days"
+      }
     },
     {
       "id": "taxRate",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Value-added tax (VAT) or similar tax percentage applied to the subtotal"
+      "businessContext": "Value-added tax (VAT) or similar tax percentage applied to the subtotal",
+      "label_i18n": {
+        "en": "Tax Rate",
+        "tr": "Tax Rate",
+        "de": "Tax Rate",
+        "fr": "Tax Rate",
+        "es": "Tax Rate",
+        "ar": "Tax Rate"
+      }
     }
   ],
   "formulas": {
@@ -73,7 +129,12 @@
     "breakdown": [
       "subtotal",
       "taxAmount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "total"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -83,5 +144,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

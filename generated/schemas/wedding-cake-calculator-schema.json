@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "people",
       "default": 100,
-      "businessContext": "The total number of wedding guests to be served cake, determines the total quantity needed and drives portion sizing to avoid shortage or excess."
+      "businessContext": "The total number of wedding guests to be served cake, determines the total quantity needed and drives portion sizing to avoid shortage or excess.",
+      "label_i18n": {
+        "en": "Guest Count",
+        "tr": "Guest Count",
+        "de": "Guest Count",
+        "fr": "Guest Count",
+        "es": "Guest Count",
+        "ar": "Guest Count"
+      }
     },
     {
       "id": "portionGrams",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g",
       "default": 150,
-      "businessContext": "Average weight of a single serving of cake in grams, based on typical dessert portions; affects total cake mass and ingredient requirements."
+      "businessContext": "Average weight of a single serving of cake in grams, based on typical dessert portions; affects total cake mass and ingredient requirements.",
+      "label_i18n": {
+        "en": "Portion Size",
+        "tr": "Portion Size",
+        "de": "Portion Size",
+        "fr": "Portion Size",
+        "es": "Portion Size",
+        "ar": "Portion Size"
+      }
     },
     {
       "id": "ingredientCostPerKg",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD/kg",
       "default": 5,
-      "businessContext": "Cost of raw materials (flour, sugar, eggs, etc.) per kilogram; fundamental for calculating the base food cost of the cake."
+      "businessContext": "Cost of raw materials (flour, sugar, eggs, etc.) per kilogram; fundamental for calculating the base food cost of the cake.",
+      "label_i18n": {
+        "en": "Ingredient Cost per kg",
+        "tr": "Ingredient Cost per kg",
+        "de": "Ingredient Cost per kg",
+        "fr": "Ingredient Cost per kg",
+        "es": "Ingredient Cost per kg",
+        "ar": "Ingredient Cost per kg"
+      }
     },
     {
       "id": "laborHours",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "h",
       "default": 4,
-      "businessContext": "Total direct labor time spent on baking and decorating the cake; used to compute labor expense."
+      "businessContext": "Total direct labor time spent on baking and decorating the cake; used to compute labor expense.",
+      "label_i18n": {
+        "en": "Labor Hours",
+        "tr": "Labor Hours",
+        "de": "Labor Hours",
+        "fr": "Labor Hours",
+        "es": "Labor Hours",
+        "ar": "Labor Hours"
+      }
     },
     {
       "id": "laborRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD/h",
       "default": 20,
-      "businessContext": "Hourly wage of the pastry chef or baker; multiplied by labor hours to get total labor cost."
+      "businessContext": "Hourly wage of the pastry chef or baker; multiplied by labor hours to get total labor cost.",
+      "label_i18n": {
+        "en": "Labor Rate",
+        "tr": "Labor Rate",
+        "de": "Labor Rate",
+        "fr": "Labor Rate",
+        "es": "Labor Rate",
+        "ar": "Labor Rate"
+      }
     },
     {
       "id": "overheadPercent",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Indirect costs (utilities, rent, equipment amortization) expressed as a percentage of direct costs (ingredients + labor); ensures full cost recovery."
+      "businessContext": "Indirect costs (utilities, rent, equipment amortization) expressed as a percentage of direct costs (ingredients + labor); ensures full cost recovery.",
+      "label_i18n": {
+        "en": "Overhead Percentage",
+        "tr": "Overhead Percentage",
+        "de": "Overhead Percentage",
+        "fr": "Overhead Percentage",
+        "es": "Overhead Percentage",
+        "ar": "Overhead Percentage"
+      }
     },
     {
       "id": "profitMarginPercent",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 30,
-      "businessContext": "Desired net profit as a percentage of total cost; used to set the final selling price and ensure business sustainability."
+      "businessContext": "Desired net profit as a percentage of total cost; used to set the final selling price and ensure business sustainability.",
+      "label_i18n": {
+        "en": "Profit Margin",
+        "tr": "Profit Margin",
+        "de": "Profit Margin",
+        "fr": "Profit Margin",
+        "es": "Profit Margin",
+        "ar": "Profit Margin"
+      }
     }
   ],
   "formulas": {
@@ -75,7 +131,12 @@
       "laborCost",
       "overheadCost",
       "pricePerServing"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "pricePerServing"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -85,5 +146,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

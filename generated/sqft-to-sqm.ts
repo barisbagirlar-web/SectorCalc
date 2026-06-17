@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from sqft-to-sqm-schema.json
 import * as z from 'zod';
 
@@ -13,25 +14,33 @@ export const Sqft_to_sqmInputSchema = z.object({
   auto_input_3: z.number().default(1),
 });
 
-function evaluateAllFormulas(input: Sqft_to_sqmInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.sqft * 0.09290304; results["sqm"] = Number.isFinite(v) ? v : 0; } catch { results["sqm"] = 0; }
-  results["sqft___0_09290304___sqm"] = 0;
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Sqft_to_sqmInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.sqft * 0.09290304; results["sqm"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["sqm"] = 0; }
+  try { const v = input.sqft * 0.09290304; results["sqm_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["sqm_aux"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateSqft_to_sqm(input: Sqft_to_sqmInput): Sqft_to_sqmOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["sqm"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["sqm"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

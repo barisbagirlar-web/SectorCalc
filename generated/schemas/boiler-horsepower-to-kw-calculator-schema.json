@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "BHP",
       "default": 1,
-      "businessContext": "Rated boiler horsepower of a single boiler unit, as per manufacturer specifications."
+      "businessContext": "Rated boiler horsepower of a single boiler unit, as per manufacturer specifications.",
+      "label_i18n": {
+        "en": "Boiler Horsepower (per unit)",
+        "tr": "Boiler Horsepower (per unit)",
+        "de": "Boiler Horsepower (per unit)",
+        "fr": "Boiler Horsepower (per unit)",
+        "es": "Boiler Horsepower (per unit)",
+        "ar": "Boiler Horsepower (per unit)"
+      }
     },
     {
       "id": "numberOfBoilers",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "units",
       "default": 1,
-      "businessContext": "Total number of identical boiler units operating in parallel."
+      "businessContext": "Total number of identical boiler units operating in parallel.",
+      "label_i18n": {
+        "en": "Number of Boilers",
+        "tr": "Number of Boilers",
+        "de": "Number of Boilers",
+        "fr": "Number of Boilers",
+        "es": "Number of Boilers",
+        "ar": "Number of Boilers"
+      }
     },
     {
       "id": "loadFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Average operating load as a percentage of full rated capacity."
+      "businessContext": "Average operating load as a percentage of full rated capacity.",
+      "label_i18n": {
+        "en": "Load Factor",
+        "tr": "Load Factor",
+        "de": "Load Factor",
+        "fr": "Load Factor",
+        "es": "Load Factor",
+        "ar": "Load Factor"
+      }
     },
     {
       "id": "boilerEfficiency",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 80,
-      "businessContext": "Overall thermal efficiency of the boiler system, based on fuel input to steam output."
+      "businessContext": "Overall thermal efficiency of the boiler system, based on fuel input to steam output.",
+      "label_i18n": {
+        "en": "Boiler Efficiency",
+        "tr": "Boiler Efficiency",
+        "de": "Boiler Efficiency",
+        "fr": "Boiler Efficiency",
+        "es": "Boiler Efficiency",
+        "ar": "Boiler Efficiency"
+      }
     },
     {
       "id": "operatingHours",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "h/year",
       "default": 8000,
-      "businessContext": "Total number of hours per year the boilers are in operation."
+      "businessContext": "Total number of hours per year the boilers are in operation.",
+      "label_i18n": {
+        "en": "Annual Operating Hours",
+        "tr": "Annual Operating Hours",
+        "de": "Annual Operating Hours",
+        "fr": "Annual Operating Hours",
+        "es": "Annual Operating Hours",
+        "ar": "Annual Operating Hours"
+      }
     },
     {
       "id": "conversionFactor",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kW/BHP",
       "default": 9.8095,
-      "businessContext": "Standard conversion factor: 1 boiler horsepower = 9.8095 kilowatts (thermal output)."
+      "businessContext": "Standard conversion factor: 1 boiler horsepower = 9.8095 kilowatts (thermal output).",
+      "label_i18n": {
+        "en": "Conversion Factor (kW per BHP)",
+        "tr": "Conversion Factor (kW per BHP)",
+        "de": "Conversion Factor (kW per BHP)",
+        "fr": "Conversion Factor (kW per BHP)",
+        "es": "Conversion Factor (kW per BHP)",
+        "ar": "Conversion Factor (kW per BHP)"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
       "totalBHP",
       "annualEnergy_kWh",
       "inputFuelPower_kW"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "inputFuelPower_kW"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -72,5 +125,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

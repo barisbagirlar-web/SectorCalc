@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "bar",
       "default": 100,
-      "businessContext": "System working pressure affects stress on components."
+      "businessContext": "System working pressure affects stress on components.",
+      "label_i18n": {
+        "en": "Operating Pressure",
+        "tr": "Operating Pressure",
+        "de": "Operating Pressure",
+        "fr": "Operating Pressure",
+        "es": "Operating Pressure",
+        "ar": "Operating Pressure"
+      }
     },
     {
       "id": "operatingTemperature",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°C",
       "default": 80,
-      "businessContext": "Elevated temperatures reduce material strength and increase corrosion rates."
+      "businessContext": "Elevated temperatures reduce material strength and increase corrosion rates.",
+      "label_i18n": {
+        "en": "Operating Temperature",
+        "tr": "Operating Temperature",
+        "de": "Operating Temperature",
+        "fr": "Operating Temperature",
+        "es": "Operating Temperature",
+        "ar": "Operating Temperature"
+      }
     },
     {
       "id": "flowRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "L/min",
       "default": 200,
-      "businessContext": "Fluid velocity contributes to erosion and vibration risks."
+      "businessContext": "Fluid velocity contributes to erosion and vibration risks.",
+      "label_i18n": {
+        "en": "Flow Rate",
+        "tr": "Flow Rate",
+        "de": "Flow Rate",
+        "fr": "Flow Rate",
+        "es": "Flow Rate",
+        "ar": "Flow Rate"
+      }
     },
     {
       "id": "vibrationLevel",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm/s",
       "default": 5,
-      "businessContext": "Vibration can cause fatigue and joint loosening."
+      "businessContext": "Vibration can cause fatigue and joint loosening.",
+      "label_i18n": {
+        "en": "Vibration Level",
+        "tr": "Vibration Level",
+        "de": "Vibration Level",
+        "fr": "Vibration Level",
+        "es": "Vibration Level",
+        "ar": "Vibration Level"
+      }
     },
     {
       "id": "wallThickness",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Thinner walls are more susceptible to failure under pressure and corrosion."
+      "businessContext": "Thinner walls are more susceptible to failure under pressure and corrosion.",
+      "label_i18n": {
+        "en": "Wall Thickness",
+        "tr": "Wall Thickness",
+        "de": "Wall Thickness",
+        "fr": "Wall Thickness",
+        "es": "Wall Thickness",
+        "ar": "Wall Thickness"
+      }
     },
     {
       "id": "corrosionRate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "mm/year",
       "default": 0.1,
-      "businessContext": "Material loss over time reduces structural integrity."
+      "businessContext": "Material loss over time reduces structural integrity.",
+      "label_i18n": {
+        "en": "Corrosion Rate",
+        "tr": "Corrosion Rate",
+        "de": "Corrosion Rate",
+        "fr": "Corrosion Rate",
+        "es": "Corrosion Rate",
+        "ar": "Corrosion Rate"
+      }
     }
   ],
   "formulas": {
@@ -68,7 +116,12 @@
       "vibrationRisk",
       "wallThinningRisk",
       "corrosionRisk"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "corrosionRisk"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -78,5 +131,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "engineering"
+  "categoryId": "engineering",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

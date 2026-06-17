@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency/unit",
       "default": 100,
-      "businessContext": "The price at which each unit is sold to customers."
+      "businessContext": "The price at which each unit is sold to customers.",
+      "label_i18n": {
+        "en": "Selling Price per Unit",
+        "tr": "Selling Price per Unit",
+        "de": "Selling Price per Unit",
+        "fr": "Selling Price per Unit",
+        "es": "Selling Price per Unit",
+        "ar": "Selling Price per Unit"
+      }
     },
     {
       "id": "costPerUnit",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency/unit",
       "default": 70,
-      "businessContext": "The direct material or purchase cost incurred for each unit."
+      "businessContext": "The direct material or purchase cost incurred for each unit.",
+      "label_i18n": {
+        "en": "Cost per Unit",
+        "tr": "Cost per Unit",
+        "de": "Cost per Unit",
+        "fr": "Cost per Unit",
+        "es": "Cost per Unit",
+        "ar": "Cost per Unit"
+      }
     },
     {
       "id": "unitsSold",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "units",
       "default": 1000,
-      "businessContext": "The total quantity of units sold in the period under consideration."
+      "businessContext": "The total quantity of units sold in the period under consideration.",
+      "label_i18n": {
+        "en": "Units Sold",
+        "tr": "Units Sold",
+        "de": "Units Sold",
+        "fr": "Units Sold",
+        "es": "Units Sold",
+        "ar": "Units Sold"
+      }
     },
     {
       "id": "additionalVariableCostPerUnit",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency/unit",
       "default": 5,
-      "businessContext": "Any other variable costs per unit that are directly attributable to the product (e.g., shipping, packaging) and form part of cost of goods sold."
+      "businessContext": "Any other variable costs per unit that are directly attributable to the product (e.g., shipping, packaging) and form part of cost of goods sold.",
+      "label_i18n": {
+        "en": "Additional Variable Cost per Unit",
+        "tr": "Additional Variable Cost per Unit",
+        "de": "Additional Variable Cost per Unit",
+        "fr": "Additional Variable Cost per Unit",
+        "es": "Additional Variable Cost per Unit",
+        "ar": "Additional Variable Cost per Unit"
+      }
     },
     {
       "id": "discountPercentage",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "The average discount or price reduction given on the selling price, expressed as a percentage."
+      "businessContext": "The average discount or price reduction given on the selling price, expressed as a percentage.",
+      "label_i18n": {
+        "en": "Discount Percentage",
+        "tr": "Discount Percentage",
+        "de": "Discount Percentage",
+        "fr": "Discount Percentage",
+        "es": "Discount Percentage",
+        "ar": "Discount Percentage"
+      }
     }
   ],
   "formulas": {
@@ -55,7 +95,12 @@
       "totalCOGS",
       "grossMarginAmount",
       "grossMarginPercentage"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "grossMarginPercentage"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -65,5 +110,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

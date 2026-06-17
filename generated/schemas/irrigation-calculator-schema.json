@@ -108,7 +108,12 @@
     "breakdown": [
       "requiredFlowRate",
       "rawWaterRequirement"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "rawWaterRequirement"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -118,5 +123,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "tarim",
   "profession": "Ziraat Mühendisi",
-  "categoryId": "efficiency"
+  "categoryId": "efficiency",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

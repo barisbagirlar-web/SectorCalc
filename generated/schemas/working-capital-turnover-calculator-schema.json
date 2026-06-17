@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Total net sales revenue for the period"
+      "businessContext": "Total net sales revenue for the period",
+      "label_i18n": {
+        "en": "Net Annual Sales",
+        "tr": "Net Annual Sales",
+        "de": "Net Annual Sales",
+        "fr": "Net Annual Sales",
+        "es": "Net Annual Sales",
+        "ar": "Net Annual Sales"
+      }
     },
     {
       "id": "begCurrentAssets",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Current assets at the start of the period"
+      "businessContext": "Current assets at the start of the period",
+      "label_i18n": {
+        "en": "Beginning Current Assets",
+        "tr": "Beginning Current Assets",
+        "de": "Beginning Current Assets",
+        "fr": "Beginning Current Assets",
+        "es": "Beginning Current Assets",
+        "ar": "Beginning Current Assets"
+      }
     },
     {
       "id": "endCurrentAssets",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Current assets at the end of the period"
+      "businessContext": "Current assets at the end of the period",
+      "label_i18n": {
+        "en": "Ending Current Assets",
+        "tr": "Ending Current Assets",
+        "de": "Ending Current Assets",
+        "fr": "Ending Current Assets",
+        "es": "Ending Current Assets",
+        "ar": "Ending Current Assets"
+      }
     },
     {
       "id": "begCurrentLiabilities",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Current liabilities at the start of the period"
+      "businessContext": "Current liabilities at the start of the period",
+      "label_i18n": {
+        "en": "Beginning Current Liabilities",
+        "tr": "Beginning Current Liabilities",
+        "de": "Beginning Current Liabilities",
+        "fr": "Beginning Current Liabilities",
+        "es": "Beginning Current Liabilities",
+        "ar": "Beginning Current Liabilities"
+      }
     },
     {
       "id": "endCurrentLiabilities",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Current liabilities at the end of the period"
+      "businessContext": "Current liabilities at the end of the period",
+      "label_i18n": {
+        "en": "Ending Current Liabilities",
+        "tr": "Ending Current Liabilities",
+        "de": "Ending Current Liabilities",
+        "fr": "Ending Current Liabilities",
+        "es": "Ending Current Liabilities",
+        "ar": "Ending Current Liabilities"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
       "averageCurrentAssets",
       "averageCurrentLiabilities",
       "averageWorkingCapital"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "workingCapitalTurnover"
   },
   "category": "İK & Personel",
   "sector": "Finans & İK",
@@ -64,5 +109,10 @@
   "categorySlug": "workforce-hr",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "hr"
+  "categoryId": "hr",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

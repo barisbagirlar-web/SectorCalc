@@ -68,7 +68,6 @@
   ],
   "formulas": {
     "impactForce": "((riderMass + boardMass) * 9.81 * dropHeight) / stoppingDistance",
-    "velocity": "Math.sqrt(2 * 9.81 * dropHeight)",
     "kineticEnergy": "(riderMass + boardMass) * 9.81 * dropHeight"
   },
   "outputs": {
@@ -76,7 +75,12 @@
     "breakdown": [
       "velocity",
       "kineticEnergy"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "kineticEnergy"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -86,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Length of slab"
+      "businessContext": "Length of slab",
+      "label_i18n": {
+        "en": "Slab Length",
+        "tr": "Slab Length",
+        "de": "Slab Length",
+        "fr": "Slab Length",
+        "es": "Slab Length",
+        "ar": "Slab Length"
+      }
     },
     {
       "id": "width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 4,
-      "businessContext": "Width of slab"
+      "businessContext": "Width of slab",
+      "label_i18n": {
+        "en": "Slab Width",
+        "tr": "Slab Width",
+        "de": "Slab Width",
+        "fr": "Slab Width",
+        "es": "Slab Width",
+        "ar": "Slab Width"
+      }
     },
     {
       "id": "thickness",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Thickness of slab"
+      "businessContext": "Thickness of slab",
+      "label_i18n": {
+        "en": "Slab Thickness",
+        "tr": "Slab Thickness",
+        "de": "Slab Thickness",
+        "fr": "Slab Thickness",
+        "es": "Slab Thickness",
+        "ar": "Slab Thickness"
+      }
     },
     {
       "id": "concreteCost",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "EUR/m³",
       "default": 100,
-      "businessContext": "Cost of ready-mix concrete"
+      "businessContext": "Cost of ready-mix concrete",
+      "label_i18n": {
+        "en": "Concrete Cost per m³",
+        "tr": "Concrete Cost per m³",
+        "de": "Concrete Cost per m³",
+        "fr": "Concrete Cost per m³",
+        "es": "Concrete Cost per m³",
+        "ar": "Concrete Cost per m³"
+      }
     },
     {
       "id": "wasteFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percentage of waste"
+      "businessContext": "Percentage of waste",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
     "breakdown": [
       "concreteVolume",
       "concreteCostTotal"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -64,5 +109,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

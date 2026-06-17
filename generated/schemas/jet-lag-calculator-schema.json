@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "time zones",
       "default": 6,
-      "businessContext": "Number of time zones crossed during travel."
+      "businessContext": "Number of time zones crossed during travel.",
+      "label_i18n": {
+        "en": "Time Zones Crossed",
+        "tr": "Time Zones Crossed",
+        "de": "Time Zones Crossed",
+        "fr": "Time Zones Crossed",
+        "es": "Time Zones Crossed",
+        "ar": "Time Zones Crossed"
+      }
     },
     {
       "id": "direction",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "east=1, west=-1",
       "default": 1,
-      "businessContext": "Travel direction: 1 for eastward, -1 for westward. Eastward travel typically causes more severe jet lag."
+      "businessContext": "Travel direction: 1 for eastward, -1 for westward. Eastward travel typically causes more severe jet lag.",
+      "label_i18n": {
+        "en": "Direction",
+        "tr": "Direction",
+        "de": "Direction",
+        "fr": "Direction",
+        "es": "Direction",
+        "ar": "Direction"
+      }
     },
     {
       "id": "flightDuration",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "hours",
       "default": 8,
-      "businessContext": "Total duration of the flight in hours."
+      "businessContext": "Total duration of the flight in hours.",
+      "label_i18n": {
+        "en": "Flight Duration",
+        "tr": "Flight Duration",
+        "de": "Flight Duration",
+        "fr": "Flight Duration",
+        "es": "Flight Duration",
+        "ar": "Flight Duration"
+      }
     },
     {
       "id": "preTravelRest",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "scale 0-10",
       "default": 7,
-      "businessContext": "Quality of rest before travel, assessed on a 0 (poor) to 10 (excellent) scale."
+      "businessContext": "Quality of rest before travel, assessed on a 0 (poor) to 10 (excellent) scale.",
+      "label_i18n": {
+        "en": "Pre-Travel Rest Quality",
+        "tr": "Pre-Travel Rest Quality",
+        "de": "Pre-Travel Rest Quality",
+        "fr": "Pre-Travel Rest Quality",
+        "es": "Pre-Travel Rest Quality",
+        "ar": "Pre-Travel Rest Quality"
+      }
     },
     {
       "id": "age",
@@ -39,20 +71,32 @@
       "type": "number",
       "unit": "years",
       "default": 35,
-      "businessContext": "Age of the operator, as older individuals may experience stronger jet lag effects."
+      "businessContext": "Age of the operator, as older individuals may experience stronger jet lag effects.",
+      "label_i18n": {
+        "en": "Operator Age",
+        "tr": "Operator Age",
+        "de": "Operator Age",
+        "fr": "Operator Age",
+        "es": "Operator Age",
+        "ar": "Operator Age"
+      }
     }
   ],
   "formulas": {
-    "jetLagSeverity": "Math.min(100, (Math.abs(timeZonesCrossed) * (direction > 0 ? 1.2 : 1) + flightDuration * 0.5) * (1 + (10 - preTravelRest) * 0.1) * (1 + Math.max(0, age - 30) * 0.01) * 10)",
-    "recoveryDays": "Math.ceil(timeZonesCrossed * (direction > 0 ? 1 : 0.75) * (1 + (10 - preTravelRest) * 0.1) * (1 + Math.max(0, age - 30) * 0.02))",
-    "fatigueScore": "Math.min(100, (Math.abs(timeZonesCrossed) * 10 + flightDuration * 5) * (1 + (10 - preTravelRest) * 0.15))"
+    "result": "timeZonesCrossed + direction + flightDuration",
+    "result_copy": "timeZonesCrossed + direction + flightDuration"
   },
   "outputs": {
-    "primary": "jetLagSeverity",
+    "primary": "result",
     "breakdown": [
       "recoveryDays",
       "fatigueScore"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "fatigueScore"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -62,5 +106,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "havacilik",
   "profession": "Tasarım Mühendisi",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

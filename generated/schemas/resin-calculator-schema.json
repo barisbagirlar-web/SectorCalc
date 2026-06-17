@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m²",
       "default": 1,
-      "businessContext": "The surface area to be coated"
+      "businessContext": "The surface area to be coated",
+      "label_i18n": {
+        "en": "Area",
+        "tr": "Area",
+        "de": "Area",
+        "fr": "Area",
+        "es": "Area",
+        "ar": "Area"
+      }
     },
     {
       "id": "thickness",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 1,
-      "businessContext": "Desired coating thickness"
+      "businessContext": "Desired coating thickness",
+      "label_i18n": {
+        "en": "Thickness",
+        "tr": "Thickness",
+        "de": "Thickness",
+        "fr": "Thickness",
+        "es": "Thickness",
+        "ar": "Thickness"
+      }
     },
     {
       "id": "resinRatio",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "parts",
       "default": 100,
-      "businessContext": "Parts of resin in the mix by weight"
+      "businessContext": "Parts of resin in the mix by weight",
+      "label_i18n": {
+        "en": "Resin Ratio",
+        "tr": "Resin Ratio",
+        "de": "Resin Ratio",
+        "fr": "Resin Ratio",
+        "es": "Resin Ratio",
+        "ar": "Resin Ratio"
+      }
     },
     {
       "id": "hardenerRatio",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "parts",
       "default": 50,
-      "businessContext": "Parts of hardener in the mix by weight"
+      "businessContext": "Parts of hardener in the mix by weight",
+      "label_i18n": {
+        "en": "Hardener Ratio",
+        "tr": "Hardener Ratio",
+        "de": "Hardener Ratio",
+        "fr": "Hardener Ratio",
+        "es": "Hardener Ratio",
+        "ar": "Hardener Ratio"
+      }
     },
     {
       "id": "resinDensity",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "g/cm³",
       "default": 1.1,
-      "businessContext": "Density of resin"
+      "businessContext": "Density of resin",
+      "label_i18n": {
+        "en": "Resin Density",
+        "tr": "Resin Density",
+        "de": "Resin Density",
+        "fr": "Resin Density",
+        "es": "Resin Density",
+        "ar": "Resin Density"
+      }
     },
     {
       "id": "hardenerDensity",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "g/cm³",
       "default": 0.95,
-      "businessContext": "Density of hardener"
+      "businessContext": "Density of hardener",
+      "label_i18n": {
+        "en": "Hardener Density",
+        "tr": "Hardener Density",
+        "de": "Hardener Density",
+        "fr": "Hardener Density",
+        "es": "Hardener Density",
+        "ar": "Hardener Density"
+      }
     },
     {
       "id": "wasteFactor",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Extra material percentage for waste and spillage"
+      "businessContext": "Extra material percentage for waste and spillage",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     }
   ],
   "formulas": {
@@ -73,7 +129,12 @@
       "hardenerWeight",
       "resinVolume",
       "hardenerVolume"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalWeight"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -83,5 +144,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "plastik",
   "profession": "Proses Mühendisi",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

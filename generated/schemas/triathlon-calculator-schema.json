@@ -99,18 +99,21 @@
     }
   ],
   "formulas": {
-    "swimTime": "return (inputs.swimDistance / 100) * inputs.swimPace;",
-    "bikeTime": "return (inputs.bikeDistance / inputs.bikeSpeed) * 60;",
-    "runTime": "return inputs.runDistance * inputs.runPace;",
-    "totalTime": "var swim = (inputs.swimDistance / 100) * inputs.swimPace; var bike = (inputs.bikeDistance / inputs.bikeSpeed) * 60; var run = inputs.runDistance * inputs.runPace; var totalMin = swim + bike + run; var h = Math.floor(totalMin / 60); var m = Math.floor(totalMin % 60); var s = Math.round(totalMin % 1 * 60); if (s === 60) { m++; s = 0; } if (m === 60) { h++; m = 0; } return h + ':' + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');"
+    "result": "swimDistance + bikeDistance + runDistance",
+    "result_copy": "swimDistance + bikeDistance + runDistance"
   },
   "outputs": {
-    "primary": "totalTime",
+    "primary": "result",
     "breakdown": [
       "swimTime",
       "bikeTime",
       "runTime"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalTime"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -120,5 +123,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

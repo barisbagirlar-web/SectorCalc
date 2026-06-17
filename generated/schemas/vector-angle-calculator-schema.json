@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "-",
       "default": 1,
-      "businessContext": "1. vektörün X bileşeni"
+      "businessContext": "1. vektörün X bileşeni",
+      "label_i18n": {
+        "en": "Vector 1 X",
+        "tr": "Vector 1 X",
+        "de": "Vector 1 X",
+        "fr": "Vector 1 X",
+        "es": "Vector 1 X",
+        "ar": "Vector 1 X"
+      }
     },
     {
       "id": "y1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "-",
       "default": 0,
-      "businessContext": "1. vektörün Y bileşeni"
+      "businessContext": "1. vektörün Y bileşeni",
+      "label_i18n": {
+        "en": "Vector 1 Y",
+        "tr": "Vector 1 Y",
+        "de": "Vector 1 Y",
+        "fr": "Vector 1 Y",
+        "es": "Vector 1 Y",
+        "ar": "Vector 1 Y"
+      }
     },
     {
       "id": "x2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "-",
       "default": 0,
-      "businessContext": "2. vektörün X bileşeni"
+      "businessContext": "2. vektörün X bileşeni",
+      "label_i18n": {
+        "en": "Vector 2 X",
+        "tr": "Vector 2 X",
+        "de": "Vector 2 X",
+        "fr": "Vector 2 X",
+        "es": "Vector 2 X",
+        "ar": "Vector 2 X"
+      }
     },
     {
       "id": "y2",
@@ -31,24 +55,34 @@
       "type": "number",
       "unit": "-",
       "default": 1,
-      "businessContext": "2. vektörün Y bileşeni"
+      "businessContext": "2. vektörün Y bileşeni",
+      "label_i18n": {
+        "en": "Vector 2 Y",
+        "tr": "Vector 2 Y",
+        "de": "Vector 2 Y",
+        "fr": "Vector 2 Y",
+        "es": "Vector 2 Y",
+        "ar": "Vector 2 Y"
+      }
     }
   ],
   "formulas": {
     "dotProduct": "x1 * x2 + y1 * y2",
-    "magnitude1": "Math.sqrt(x1*x1 + y1*y1)",
-    "magnitude2": "Math.sqrt(x2*x2 + y2*y2)",
-    "angleRad": "Math.acos((x1 * x2 + y1 * y2) / (Math.sqrt(x1*x1 + y1*y1) * Math.sqrt(x2*x2 + y2*y2)))",
-    "angleDeg": "Math.acos((x1 * x2 + y1 * y2) / (Math.sqrt(x1*x1 + y1*y1) * Math.sqrt(x2*x2 + y2*y2))) * (180 / Math.PI)"
+    "dotProduct_aux": "x1 * x2 + y1 * y2"
   },
   "outputs": {
-    "primary": "angleDeg",
+    "primary": "dotProduct_aux",
     "breakdown": [
       "dotProduct",
       "magnitude1",
       "magnitude2",
       "angleRad"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "angleDeg"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -58,5 +92,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

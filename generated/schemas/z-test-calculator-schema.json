@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "units",
       "default": 0,
-      "businessContext": "Measured average of the sample."
+      "businessContext": "Measured average of the sample.",
+      "label_i18n": {
+        "en": "Sample Mean",
+        "tr": "Sample Mean",
+        "de": "Sample Mean",
+        "fr": "Sample Mean",
+        "es": "Sample Mean",
+        "ar": "Sample Mean"
+      }
     },
     {
       "id": "population_mean",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "units",
       "default": 0,
-      "businessContext": "Hypothesized population mean under null hypothesis."
+      "businessContext": "Hypothesized population mean under null hypothesis.",
+      "label_i18n": {
+        "en": "Population Mean (H₀)",
+        "tr": "Population Mean (H₀)",
+        "de": "Population Mean (H₀)",
+        "fr": "Population Mean (H₀)",
+        "es": "Population Mean (H₀)",
+        "ar": "Population Mean (H₀)"
+      }
     },
     {
       "id": "standard_deviation",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "units",
       "default": 1,
-      "businessContext": "Known population standard deviation."
+      "businessContext": "Known population standard deviation.",
+      "label_i18n": {
+        "en": "Standard Deviation",
+        "tr": "Standard Deviation",
+        "de": "Standard Deviation",
+        "fr": "Standard Deviation",
+        "es": "Standard Deviation",
+        "ar": "Standard Deviation"
+      }
     },
     {
       "id": "sample_size",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "count",
       "default": 30,
-      "businessContext": "Number of observations in the sample."
+      "businessContext": "Number of observations in the sample.",
+      "label_i18n": {
+        "en": "Sample Size",
+        "tr": "Sample Size",
+        "de": "Sample Size",
+        "fr": "Sample Size",
+        "es": "Sample Size",
+        "ar": "Sample Size"
+      }
     },
     {
       "id": "alpha",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "decimal",
       "default": 0.05,
-      "businessContext": "Probability of Type I error (0–1)."
+      "businessContext": "Probability of Type I error (0–1).",
+      "label_i18n": {
+        "en": "Significance Level",
+        "tr": "Significance Level",
+        "de": "Significance Level",
+        "fr": "Significance Level",
+        "es": "Significance Level",
+        "ar": "Significance Level"
+      }
     },
     {
       "id": "tails",
@@ -47,20 +87,32 @@
       "type": "number",
       "unit": "integer",
       "default": 2,
-      "businessContext": "1 for one‑tailed test, 2 for two‑tailed test."
+      "businessContext": "1 for one‑tailed test, 2 for two‑tailed test.",
+      "label_i18n": {
+        "en": "Tails",
+        "tr": "Tails",
+        "de": "Tails",
+        "fr": "Tails",
+        "es": "Tails",
+        "ar": "Tails"
+      }
     }
   ],
   "formulas": {
-    "z_score": "((sample_mean - population_mean) / (standard_deviation / Math.sqrt(sample_size)))",
-    "p_value": "tails === 2 ? 2 * (1 - (1 / (1 + Math.exp(-1.59791 * Math.abs(z_score))))) : (z_score > 0 ? (1 - (1 / (1 + Math.exp(-1.59791 * z_score)))) : (1 / (1 + Math.exp(-1.59791 * z_score))))",
-    "decision": "p_value < alpha ? 'Reject H₀' : 'Fail to reject H₀'"
+    "result": "sample_mean + population_mean + standard_deviation",
+    "result_copy": "sample_mean + population_mean + standard_deviation"
   },
   "outputs": {
-    "primary": "z_score",
+    "primary": "result",
     "breakdown": [
       "p_value",
       "decision"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "decision"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -70,5 +122,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

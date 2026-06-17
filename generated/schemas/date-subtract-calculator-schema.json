@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "gün",
       "default": 44927,
-      "businessContext": "Başlangıç tarihi seri numarası (ör. 44927 = 2023-01-01)"
+      "businessContext": "Başlangıç tarihi seri numarası (ör. 44927 = 2023-01-01)",
+      "label_i18n": {
+        "en": "Başlangıç Tarihi (Seri No)",
+        "tr": "Başlangıç Tarihi (Seri No)",
+        "de": "Başlangıç Tarihi (Seri No)",
+        "fr": "Başlangıç Tarihi (Seri No)",
+        "es": "Başlangıç Tarihi (Seri No)",
+        "ar": "Başlangıç Tarihi (Seri No)"
+      }
     },
     {
       "id": "endDateSerial",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "gün",
       "default": 44937,
-      "businessContext": "Bitiş tarihi seri numarası"
+      "businessContext": "Bitiş tarihi seri numarası",
+      "label_i18n": {
+        "en": "Bitiş Tarihi (Seri No)",
+        "tr": "Bitiş Tarihi (Seri No)",
+        "de": "Bitiş Tarihi (Seri No)",
+        "fr": "Bitiş Tarihi (Seri No)",
+        "es": "Bitiş Tarihi (Seri No)",
+        "ar": "Bitiş Tarihi (Seri No)"
+      }
     },
     {
       "id": "includeEndDay",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "boolean",
       "default": 1,
-      "businessContext": "Bitiş gününün dahil edilmesi (1: evet, 0: hayır)"
+      "businessContext": "Bitiş gününün dahil edilmesi (1: evet, 0: hayır)",
+      "label_i18n": {
+        "en": "Son Gün Dahil",
+        "tr": "Son Gün Dahil",
+        "de": "Son Gün Dahil",
+        "fr": "Son Gün Dahil",
+        "es": "Son Gün Dahil",
+        "ar": "Son Gün Dahil"
+      }
     },
     {
       "id": "outputUnitFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "çarpan",
       "default": 1,
-      "businessContext": "Çıktı birim çarpanı (1: gün, 24: saat, 1440: dakika, 86400: saniye)"
+      "businessContext": "Çıktı birim çarpanı (1: gün, 24: saat, 1440: dakika, 86400: saniye)",
+      "label_i18n": {
+        "en": "Çıktı Birim Çarpanı",
+        "tr": "Çıktı Birim Çarpanı",
+        "de": "Çıktı Birim Çarpanı",
+        "fr": "Çıktı Birim Çarpanı",
+        "es": "Çıktı Birim Çarpanı",
+        "ar": "Çıktı Birim Çarpanı"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "rawDifference",
       "includeEndDayAdjustment",
       "durationInDays"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "durationInOutputUnit"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -56,5 +93,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

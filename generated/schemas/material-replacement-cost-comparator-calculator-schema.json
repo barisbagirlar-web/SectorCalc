@@ -138,134 +138,6 @@
       "businessContext_i18n": {
         "en": "Cost to retool, test, and qualify the alternative material."
       }
-    },
-    {
-      "id": "quality_impact",
-      "label": "Quality Impact on Downstream",
-      "type": "select",
-      "options": [
-        {
-          "value": "none",
-          "label": "None"
-        },
-        {
-          "value": "low",
-          "label": "Low (0.5% rework)"
-        },
-        {
-          "value": "medium",
-          "label": "Medium (1.5% rework)"
-        },
-        {
-          "value": "high",
-          "label": "High (3% rework)"
-        }
-      ],
-      "default": "none",
-      "businessContext": "Expected impact of material change on downstream rework or quality issues.",
-      "label_i18n": {
-        "en": "Quality Impact on Downstream"
-      },
-      "businessContext_i18n": {
-        "en": "Expected impact of material change on downstream rework or quality issues."
-      },
-      "unit": "unit"
-    },
-    {
-      "id": "supplier_reliability",
-      "label": "Alternative Supplier Reliability",
-      "type": "select",
-      "options": [
-        {
-          "value": "excellent",
-          "label": "Excellent (99% on-time)"
-        },
-        {
-          "value": "good",
-          "label": "Good (95% on-time)"
-        },
-        {
-          "value": "fair",
-          "label": "Fair (90% on-time)"
-        },
-        {
-          "value": "poor",
-          "label": "Poor (80% on-time)"
-        }
-      ],
-      "default": "good",
-      "businessContext": "Historical on-time delivery performance of the alternative supplier.",
-      "label_i18n": {
-        "en": "Alternative Supplier Reliability"
-      },
-      "businessContext_i18n": {
-        "en": "Historical on-time delivery performance of the alternative supplier."
-      },
-      "unit": "unit"
-    },
-    {
-      "id": "currency_risk",
-      "label": "Currency Risk Factor",
-      "type": "number",
-      "unit": "%",
-      "default": 0,
-      "min": 0,
-      "max": 20,
-      "businessContext": "Expected annual currency fluctuation risk if sourcing from different region.",
-      "label_i18n": {
-        "en": "Currency Risk Factor"
-      },
-      "businessContext_i18n": {
-        "en": "Expected annual currency fluctuation risk if sourcing from different region."
-      }
-    },
-    {
-      "id": "inventory_holding_cost",
-      "label": "Inventory Holding Cost Rate",
-      "type": "number",
-      "unit": "% per year",
-      "default": 20,
-      "min": 0,
-      "max": 100,
-      "businessContext": "Annual cost to hold inventory as a percentage of unit cost (WERC standard).",
-      "label_i18n": {
-        "en": "Inventory Holding Cost Rate"
-      },
-      "businessContext_i18n": {
-        "en": "Annual cost to hold inventory as a percentage of unit cost (WERC standard)."
-      }
-    },
-    {
-      "id": "lead_time_current",
-      "label": "Current Lead Time (days)",
-      "type": "number",
-      "unit": "days",
-      "default": 14,
-      "min": 0,
-      "max": 365,
-      "businessContext": "Average lead time for current material.",
-      "label_i18n": {
-        "en": "Current Lead Time (days)"
-      },
-      "businessContext_i18n": {
-        "en": "Average lead time for current material."
-      }
-    },
-    {
-      "id": "lead_time_alternative",
-      "label": "Alternative Lead Time (days)",
-      "type": "number",
-      "unit": "days",
-      "default": 21,
-      "min": 0,
-      "max": 365,
-      "businessContext": "Average lead time for alternative material.",
-      "label_i18n": {
-        "en": "Alternative Lead Time (days)"
-      },
-      "businessContext_i18n": {
-        "en": "Average lead time for alternative material."
-      }
     }
   ],
   "validation": {
@@ -318,24 +190,18 @@
       }
     ]
   },
-  "formulas": [
-    "current_material_cost",
-    "current_material_cost",
-    "current_material_cost",
-    "current_material_cost",
-    "current_material_cost",
-    "current_material_cost",
-    "current_material_cost",
-    "current_material_cost",
-    "current_material_cost",
-    "current_material_cost",
-    "current_material_cost",
-    "current_material_cost",
-    "current_material_cost"
-  ],
+  "formulas": {
+    "result": "current_material_cost + alternative_material_cost + annual_volume",
+    "result_copy": "current_material_cost + alternative_material_cost + annual_volume"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "material-replacement-cost-comparator-calculator",
   "catalogCategory": "everyday-life",

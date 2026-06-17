@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m³/s",
       "default": 0,
-      "businessContext": "Muskingum routing - upstream inflow at previous time step"
+      "businessContext": "Muskingum routing - upstream inflow at previous time step",
+      "label_i18n": {
+        "en": "Previous Inflow",
+        "tr": "Previous Inflow",
+        "de": "Previous Inflow",
+        "fr": "Previous Inflow",
+        "es": "Previous Inflow",
+        "ar": "Previous Inflow"
+      }
     },
     {
       "id": "inflow_curr",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m³/s",
       "default": 10,
-      "businessContext": "Muskingum routing - upstream inflow at current time step"
+      "businessContext": "Muskingum routing - upstream inflow at current time step",
+      "label_i18n": {
+        "en": "Current Inflow",
+        "tr": "Current Inflow",
+        "de": "Current Inflow",
+        "fr": "Current Inflow",
+        "es": "Current Inflow",
+        "ar": "Current Inflow"
+      }
     },
     {
       "id": "outflow_prev",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m³/s",
       "default": 0,
-      "businessContext": "Muskingum routing - downstream outflow at previous time step"
+      "businessContext": "Muskingum routing - downstream outflow at previous time step",
+      "label_i18n": {
+        "en": "Previous Outflow",
+        "tr": "Previous Outflow",
+        "de": "Previous Outflow",
+        "fr": "Previous Outflow",
+        "es": "Previous Outflow",
+        "ar": "Previous Outflow"
+      }
     },
     {
       "id": "dt",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "hours",
       "default": 1,
-      "businessContext": "Routing time step Δt, must be less than K"
+      "businessContext": "Routing time step Δt, must be less than K",
+      "label_i18n": {
+        "en": "Time Step",
+        "tr": "Time Step",
+        "de": "Time Step",
+        "fr": "Time Step",
+        "es": "Time Step",
+        "ar": "Time Step"
+      }
     },
     {
       "id": "K",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "hours",
       "default": 2,
-      "businessContext": "Muskingum parameter K, travel time of flood wave through reach"
+      "businessContext": "Muskingum parameter K, travel time of flood wave through reach",
+      "label_i18n": {
+        "en": "Storage Constant K",
+        "tr": "Storage Constant K",
+        "de": "Storage Constant K",
+        "fr": "Storage Constant K",
+        "es": "Storage Constant K",
+        "ar": "Storage Constant K"
+      }
     },
     {
       "id": "x",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0.2,
-      "businessContext": "Muskingum parameter x, 0 ≤ x ≤ 0.5, typical 0.1-0.3 for natural streams"
+      "businessContext": "Muskingum parameter x, 0 ≤ x ≤ 0.5, typical 0.1-0.3 for natural streams",
+      "label_i18n": {
+        "en": "Weighting Factor x",
+        "tr": "Weighting Factor x",
+        "de": "Weighting Factor x",
+        "fr": "Weighting Factor x",
+        "es": "Weighting Factor x",
+        "ar": "Weighting Factor x"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
       "coeff_C1",
       "coeff_C2",
       "coeff_C3"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "coeff_C3"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -72,5 +125,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "lojistik",
   "profession": "Lojistik Uzmanı",
-  "categoryId": "engineering"
+  "categoryId": "engineering",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

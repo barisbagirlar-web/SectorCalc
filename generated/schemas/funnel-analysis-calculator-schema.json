@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "count",
       "default": 1000,
-      "businessContext": "Top-of-funnel audience size (e.g., ad impressions, website visitors)"
+      "businessContext": "Top-of-funnel audience size (e.g., ad impressions, website visitors)",
+      "label_i18n": {
+        "en": "Visitors",
+        "tr": "Visitors",
+        "de": "Visitors",
+        "fr": "Visitors",
+        "es": "Visitors",
+        "ar": "Visitors"
+      }
     },
     {
       "id": "leads",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "count",
       "default": 500,
-      "businessContext": "Leads generated (e.g., form fills, sign-ups)"
+      "businessContext": "Leads generated (e.g., form fills, sign-ups)",
+      "label_i18n": {
+        "en": "Leads",
+        "tr": "Leads",
+        "de": "Leads",
+        "fr": "Leads",
+        "es": "Leads",
+        "ar": "Leads"
+      }
     },
     {
       "id": "qualifiedLeads",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "count",
       "default": 200,
-      "businessContext": "Leads meeting marketing/sales qualification criteria"
+      "businessContext": "Leads meeting marketing/sales qualification criteria",
+      "label_i18n": {
+        "en": "Qualified Leads",
+        "tr": "Qualified Leads",
+        "de": "Qualified Leads",
+        "fr": "Qualified Leads",
+        "es": "Qualified Leads",
+        "ar": "Qualified Leads"
+      }
     },
     {
       "id": "opportunities",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "count",
       "default": 100,
-      "businessContext": "Sales-qualified opportunities or trials"
+      "businessContext": "Sales-qualified opportunities or trials",
+      "label_i18n": {
+        "en": "Opportunities",
+        "tr": "Opportunities",
+        "de": "Opportunities",
+        "fr": "Opportunities",
+        "es": "Opportunities",
+        "ar": "Opportunities"
+      }
     },
     {
       "id": "customers",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "count",
       "default": 30,
-      "businessContext": "Closed-won deals or paying customers"
+      "businessContext": "Closed-won deals or paying customers",
+      "label_i18n": {
+        "en": "Customers",
+        "tr": "Customers",
+        "de": "Customers",
+        "fr": "Customers",
+        "es": "Customers",
+        "ar": "Customers"
+      }
     }
   ],
   "formulas": {
@@ -56,7 +96,12 @@
       "leadToQualifiedRate",
       "qualifiedToOpportunityRate",
       "opportunityToCustomerRate"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "overallConversion"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -66,5 +111,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

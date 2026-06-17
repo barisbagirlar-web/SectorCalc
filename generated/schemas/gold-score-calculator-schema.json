@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 10,
-      "businessContext": "Weight of the gold item in grams"
+      "businessContext": "Weight of the gold item in grams",
+      "label_i18n": {
+        "en": "Weight",
+        "tr": "Weight",
+        "de": "Weight",
+        "fr": "Weight",
+        "es": "Weight",
+        "ar": "Weight"
+      }
     },
     {
       "id": "purity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "karat",
       "default": 24,
-      "businessContext": "Karat value indicating purity (24 = pure gold)"
+      "businessContext": "Karat value indicating purity (24 = pure gold)",
+      "label_i18n": {
+        "en": "Purity",
+        "tr": "Purity",
+        "de": "Purity",
+        "fr": "Purity",
+        "es": "Purity",
+        "ar": "Purity"
+      }
     },
     {
       "id": "marketPrice",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "€/g",
       "default": 50,
-      "businessContext": "Current market price of gold per gram"
+      "businessContext": "Current market price of gold per gram",
+      "label_i18n": {
+        "en": "Market Price",
+        "tr": "Market Price",
+        "de": "Market Price",
+        "fr": "Market Price",
+        "es": "Market Price",
+        "ar": "Market Price"
+      }
     },
     {
       "id": "makingChargePercent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percentage charged for craftsmanship"
+      "businessContext": "Percentage charged for craftsmanship",
+      "label_i18n": {
+        "en": "Making Charge",
+        "tr": "Making Charge",
+        "de": "Making Charge",
+        "fr": "Making Charge",
+        "es": "Making Charge",
+        "ar": "Making Charge"
+      }
     },
     {
       "id": "taxRatePercent",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Applicable tax rate (e.g., VAT) as a percentage"
+      "businessContext": "Applicable tax rate (e.g., VAT) as a percentage",
+      "label_i18n": {
+        "en": "Tax Rate",
+        "tr": "Tax Rate",
+        "de": "Tax Rate",
+        "fr": "Tax Rate",
+        "es": "Tax Rate",
+        "ar": "Tax Rate"
+      }
     }
   ],
   "formulas": {
@@ -56,7 +96,12 @@
       "makingCharges",
       "taxAmount",
       "totalCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "goldScore"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -66,5 +111,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

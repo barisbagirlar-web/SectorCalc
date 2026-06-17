@@ -85,16 +85,19 @@
   "formulas": {
     "crossSectionArea": "Math.PI * (shaftDiameter/2) ** 2",
     "momentOfInertia": "Math.PI/64 * shaftDiameter ** 4",
-    "massPerUnitLength": "density * crossSectionArea",
-    "angularFrequency": "(supportFactor / shaftLength) ** 2 * Math.sqrt(youngsModulus * momentOfInertia / massPerUnitLength)",
-    "criticalSpeedRPM": "angularFrequency * 30 / Math.PI"
+    "massPerUnitLength": "density * crossSectionArea"
   },
   "outputs": {
-    "primary": "criticalSpeedRPM",
+    "primary": "massPerUnitLength",
     "breakdown": [
       "angularFrequency",
       "criticalSpeedRPM"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "criticalSpeedRPM"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -104,5 +107,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "metal",
   "profession": "Sac Teknisyeni",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

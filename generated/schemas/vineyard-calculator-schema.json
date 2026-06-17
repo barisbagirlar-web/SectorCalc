@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "hectares",
       "default": 5,
-      "businessContext": "Total vineyard area in hectares."
+      "businessContext": "Total vineyard area in hectares.",
+      "label_i18n": {
+        "en": "Vineyard Area",
+        "tr": "Vineyard Area",
+        "de": "Vineyard Area",
+        "fr": "Vineyard Area",
+        "es": "Vineyard Area",
+        "ar": "Vineyard Area"
+      }
     },
     {
       "id": "vineDensity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "vines/ha",
       "default": 4000,
-      "businessContext": "Number of vines per hectare."
+      "businessContext": "Number of vines per hectare.",
+      "label_i18n": {
+        "en": "Vine Density",
+        "tr": "Vine Density",
+        "de": "Vine Density",
+        "fr": "Vine Density",
+        "es": "Vine Density",
+        "ar": "Vine Density"
+      }
     },
     {
       "id": "yieldPerVine",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg/vine",
       "default": 2.5,
-      "businessContext": "Average grape yield per vine in kilograms."
+      "businessContext": "Average grape yield per vine in kilograms.",
+      "label_i18n": {
+        "en": "Grape Yield per Vine",
+        "tr": "Grape Yield per Vine",
+        "de": "Grape Yield per Vine",
+        "fr": "Grape Yield per Vine",
+        "es": "Grape Yield per Vine",
+        "ar": "Grape Yield per Vine"
+      }
     },
     {
       "id": "grapePrice",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "$/kg",
       "default": 1.2,
-      "businessContext": "Selling price per kilogram of grapes."
+      "businessContext": "Selling price per kilogram of grapes.",
+      "label_i18n": {
+        "en": "Grape Price",
+        "tr": "Grape Price",
+        "de": "Grape Price",
+        "fr": "Grape Price",
+        "es": "Grape Price",
+        "ar": "Grape Price"
+      }
     },
     {
       "id": "costPerHectare",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "$/ha",
       "default": 5000,
-      "businessContext": "Total annual maintenance cost per hectare including labor, water, and other expenses."
+      "businessContext": "Total annual maintenance cost per hectare including labor, water, and other expenses.",
+      "label_i18n": {
+        "en": "Annual Cost per Hectare",
+        "tr": "Annual Cost per Hectare",
+        "de": "Annual Cost per Hectare",
+        "fr": "Annual Cost per Hectare",
+        "es": "Annual Cost per Hectare",
+        "ar": "Annual Cost per Hectare"
+      }
     },
     {
       "id": "wasteRate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percentage of grapes lost to waste or spoilage."
+      "businessContext": "Percentage of grapes lost to waste or spoilage.",
+      "label_i18n": {
+        "en": "Waste Rate",
+        "tr": "Waste Rate",
+        "de": "Waste Rate",
+        "fr": "Waste Rate",
+        "es": "Waste Rate",
+        "ar": "Waste Rate"
+      }
     }
   ],
   "formulas": {
@@ -66,7 +114,12 @@
       "totalRevenue",
       "totalCost",
       "wasteAmount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "netProfit"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -76,5 +129,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

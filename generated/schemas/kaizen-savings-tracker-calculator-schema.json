@@ -139,108 +139,6 @@
       "businessContext_i18n": {
         "en": "Total units produced per year. Used to scale defect savings."
       }
-    },
-    {
-      "id": "cost_per_defect",
-      "label": "Cost per Defect",
-      "type": "number",
-      "unit": "USD/unit",
-      "default": 10,
-      "min": 0.5,
-      "max": 5000,
-      "businessContext": "Average cost of rework, scrap, warranty, and inspection per defective unit (COPQ, ISO 9001:2015 clause 9.1.3).",
-      "label_i18n": {
-        "en": "Cost per Defect"
-      },
-      "businessContext_i18n": {
-        "en": "Average cost of rework, scrap, warranty, and inspection per defective unit (COPQ, ISO 9001:2015 clause 9.1.3)."
-      }
-    },
-    {
-      "id": "material_cost_savings",
-      "label": "Material Cost Savings (annual)",
-      "type": "number",
-      "unit": "USD/year",
-      "default": 0,
-      "min": 0,
-      "max": 10000000,
-      "businessContext": "Direct material savings from waste reduction, scrap reduction, or better yield. Enter 0 if not applicable.",
-      "label_i18n": {
-        "en": "Material Cost Savings (annual)"
-      },
-      "businessContext_i18n": {
-        "en": "Direct material savings from waste reduction, scrap reduction, or better yield. Enter 0 if not applicable."
-      }
-    },
-    {
-      "id": "energy_cost_savings",
-      "label": "Energy Cost Savings (annual)",
-      "type": "number",
-      "unit": "USD/year",
-      "default": 0,
-      "min": 0,
-      "max": 5000000,
-      "businessContext": "Energy savings from process improvements (ISO 50001, Lean energy). Enter 0 if not applicable.",
-      "label_i18n": {
-        "en": "Energy Cost Savings (annual)"
-      },
-      "businessContext_i18n": {
-        "en": "Energy savings from process improvements (ISO 50001, Lean energy). Enter 0 if not applicable."
-      }
-    },
-    {
-      "id": "implementation_cost",
-      "label": "Implementation Cost (one-time)",
-      "type": "number",
-      "unit": "USD",
-      "default": 5000,
-      "min": 0,
-      "max": 500000,
-      "businessContext": "Total cost to implement the Kaizen (training, equipment, downtime). Used for ROI calculation.",
-      "label_i18n": {
-        "en": "Implementation Cost (one-time)"
-      },
-      "businessContext_i18n": {
-        "en": "Total cost to implement the Kaizen (training, equipment, downtime). Used for ROI calculation."
-      }
-    },
-    {
-      "id": "sustainability_factor",
-      "label": "Sustainability Factor",
-      "type": "select",
-      "unit": "dimensionless",
-      "default": "medium",
-      "options": [
-        "low",
-        "medium",
-        "high"
-      ],
-      "businessContext": "Confidence that savings will persist over time. Low = 0.7, Medium = 0.85, High = 1.0. Based on Lean sustainability audits.",
-      "label_i18n": {
-        "en": "Sustainability Factor"
-      },
-      "businessContext_i18n": {
-        "en": "Confidence that savings will persist over time. Low = 0.7, Medium = 0.85, High = 1.0. Based on Lean sustainability audits."
-      }
-    },
-    {
-      "id": "data_confidence",
-      "label": "Data Confidence Level",
-      "type": "select",
-      "unit": "dimensionless",
-      "default": "medium",
-      "options": [
-        "low",
-        "medium",
-        "high"
-      ],
-      "businessContext": "Quality of input data. Low = 0.8, Medium = 0.9, High = 1.0. Affects adjusted savings.",
-      "label_i18n": {
-        "en": "Data Confidence Level"
-      },
-      "businessContext_i18n": {
-        "en": "Quality of input data. Low = 0.8, Medium = 0.9, High = 1.0. Affects adjusted savings."
-      }
     }
   ],
   "validation": {
@@ -284,18 +182,18 @@
       }
     ]
   },
-  "formulas": [
-    "labor_rate",
-    "labor_rate",
-    "labor_rate",
-    "labor_rate",
-    "labor_rate",
-    "labor_rate",
-    "labor_rate"
-  ],
+  "formulas": {
+    "result": "labor_rate + operators_affected + time_saved_per_operator",
+    "result_copy": "labor_rate + operators_affected + time_saved_per_operator"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "kaizen-savings-tracker-calculator",
   "catalogCategory": "everyday-life",

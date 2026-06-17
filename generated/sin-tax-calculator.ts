@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from sin-tax-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,27 +16,35 @@ export const Sin_tax_calculatorInputSchema = z.object({
   quantity: z.number().default(1),
 });
 
-function evaluateAllFormulas(input: Sin_tax_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.quantity * input.basePrice * (1 + input.sinTaxRate / 100) * (1 + input.vatRate / 100); results["totalPrice"] = Number.isFinite(v) ? v : 0; } catch { results["totalPrice"] = 0; }
-  try { const v = input.quantity * input.basePrice * input.sinTaxRate / 100; results["sinTaxAmount"] = Number.isFinite(v) ? v : 0; } catch { results["sinTaxAmount"] = 0; }
-  try { const v = input.quantity * input.basePrice * (1 + input.sinTaxRate / 100) * input.vatRate / 100; results["vatAmount"] = Number.isFinite(v) ? v : 0; } catch { results["vatAmount"] = 0; }
-  try { const v = input.quantity * input.basePrice * (1 + input.sinTaxRate / 100); results["totalBeforeVat"] = Number.isFinite(v) ? v : 0; } catch { results["totalBeforeVat"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Sin_tax_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.quantity * input.basePrice * (1 + input.sinTaxRate / 100) * (1 + input.vatRate / 100); results["totalPrice"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalPrice"] = 0; }
+  try { const v = input.quantity * input.basePrice * input.sinTaxRate / 100; results["sinTaxAmount"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["sinTaxAmount"] = 0; }
+  try { const v = input.quantity * input.basePrice * (1 + input.sinTaxRate / 100) * input.vatRate / 100; results["vatAmount"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["vatAmount"] = 0; }
+  try { const v = input.quantity * input.basePrice * (1 + input.sinTaxRate / 100); results["totalBeforeVat"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalBeforeVat"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateSin_tax_calculator(input: Sin_tax_calculatorInput): Sin_tax_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalPrice"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["totalPrice"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

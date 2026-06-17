@@ -69,7 +69,6 @@
   "formulas": {
     "aspectDecimal": "width / height",
     "targetDecimal": "targetRatioW / targetRatioH",
-    "deviationPercent": "Math.sqrt((aspectDecimal - targetDecimal)**2) / targetDecimal * 100",
     "width": "width",
     "height": "height"
   },
@@ -81,7 +80,12 @@
       "deviationPercent",
       "width",
       "height"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "height"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -91,5 +95,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "madencilik",
   "profession": "Maden Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

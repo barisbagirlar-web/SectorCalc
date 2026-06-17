@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Measured actual wall thickness from ultrasonic testing (UT) gauge."
+      "businessContext": "Measured actual wall thickness from ultrasonic testing (UT) gauge.",
+      "label_i18n": {
+        "en": "Current Thickness (mm)",
+        "tr": "Current Thickness (mm)",
+        "de": "Current Thickness (mm)",
+        "fr": "Current Thickness (mm)",
+        "es": "Current Thickness (mm)",
+        "ar": "Current Thickness (mm)"
+      }
     },
     {
       "id": "minThicknessMm",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 5,
-      "businessContext": "Minimum thickness required by design code (e.g., ASME B31.3) before replacement."
+      "businessContext": "Minimum thickness required by design code (e.g., ASME B31.3) before replacement.",
+      "label_i18n": {
+        "en": "Minimum Allowable Thickness (mm)",
+        "tr": "Minimum Allowable Thickness (mm)",
+        "de": "Minimum Allowable Thickness (mm)",
+        "fr": "Minimum Allowable Thickness (mm)",
+        "es": "Minimum Allowable Thickness (mm)",
+        "ar": "Minimum Allowable Thickness (mm)"
+      }
     },
     {
       "id": "corrosionRateMmPerYear",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm/year",
       "default": 0.2,
-      "businessContext": "Estimated uniform corrosion rate based on historical UT data or industry standards."
+      "businessContext": "Estimated uniform corrosion rate based on historical UT data or industry standards.",
+      "label_i18n": {
+        "en": "Corrosion Rate (mm/year)",
+        "tr": "Corrosion Rate (mm/year)",
+        "de": "Corrosion Rate (mm/year)",
+        "fr": "Corrosion Rate (mm/year)",
+        "es": "Corrosion Rate (mm/year)",
+        "ar": "Corrosion Rate (mm/year)"
+      }
     },
     {
       "id": "measurementConfidenceFactor",
@@ -31,21 +55,32 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Safety factor to account for UT measurement uncertainty (≥1.0)."
+      "businessContext": "Safety factor to account for UT measurement uncertainty (≥1.0).",
+      "label_i18n": {
+        "en": "Measurement Confidence Factor",
+        "tr": "Measurement Confidence Factor",
+        "de": "Measurement Confidence Factor",
+        "fr": "Measurement Confidence Factor",
+        "es": "Measurement Confidence Factor",
+        "ar": "Measurement Confidence Factor"
+      }
     }
   ],
   "formulas": {
-    "remainingThickness": "Math.max(0, currentThicknessMm - minThicknessMm)",
     "effectiveCorrosionRate": "corrosionRateMmPerYear * measurementConfidenceFactor",
-    "remainingLifeYears": "(effectiveCorrosionRate <= 0) ? 999999 : remainingThickness / effectiveCorrosionRate",
-    "daysUntilReplacement": "remainingLifeYears * 365.25"
+    "effectiveCorrosionRate_aux": "corrosionRateMmPerYear * measurementConfidenceFactor"
   },
   "outputs": {
-    "primary": "daysUntilReplacement",
+    "primary": "effectiveCorrosionRate_aux",
     "breakdown": [
       "remainingThickness",
       "remainingLifeYears"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "daysUntilReplacement"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -55,5 +90,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

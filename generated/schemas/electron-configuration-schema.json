@@ -85,16 +85,19 @@
   "formulas": {
     "z_eff": "atomicNumber - screening",
     "invDiff": "1 / n1**2 - 1 / n2**2",
-    "energy": "rydberg * z_eff**2 * invDiff",
-    "Effective_Nuclear_Charge__Z_eff_": "Effective Nuclear Charge (Z_eff)",
-    "Energy_Difference_Term__1_n1_2___1_n2_2_": "Energy Difference Term (1/n1^2 - 1/n2^2)"
+    "energy": "rydberg * z_eff**2 * invDiff"
   },
   "outputs": {
     "primary": "z_eff",
     "breakdown": [
       "Effective Nuclear Charge (Z_eff)",
       "Energy Difference Term (1/n1^2 - 1/n2^2)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "energy"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -104,5 +107,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

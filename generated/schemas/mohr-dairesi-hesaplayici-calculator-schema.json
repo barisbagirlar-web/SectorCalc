@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 0,
-      "businessContext": "Mekanik tasarım doğrulamada gerilme dönüşümü ve asal gerilme hesaplaması için x yönü normal gerilmesi."
+      "businessContext": "Mekanik tasarım doğrulamada gerilme dönüşümü ve asal gerilme hesaplaması için x yönü normal gerilmesi.",
+      "label_i18n": {
+        "en": "Normal Gerilme σx",
+        "tr": "Normal Gerilme σx",
+        "de": "Normal Gerilme σx",
+        "fr": "Normal Gerilme σx",
+        "es": "Normal Gerilme σx",
+        "ar": "Normal Gerilme σx"
+      }
     },
     {
       "id": "sigma_y",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 0,
-      "businessContext": "Mekanik tasarım doğrulamada gerilme dönüşümü ve asal gerilme hesaplaması için y yönü normal gerilmesi."
+      "businessContext": "Mekanik tasarım doğrulamada gerilme dönüşümü ve asal gerilme hesaplaması için y yönü normal gerilmesi.",
+      "label_i18n": {
+        "en": "Normal Gerilme σy",
+        "tr": "Normal Gerilme σy",
+        "de": "Normal Gerilme σy",
+        "fr": "Normal Gerilme σy",
+        "es": "Normal Gerilme σy",
+        "ar": "Normal Gerilme σy"
+      }
     },
     {
       "id": "tau_xy",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 0,
-      "businessContext": "Mekanik tasarım doğrulamada gerilme dönüşümü ve asal gerilme hesaplaması için kayma gerilmesi."
+      "businessContext": "Mekanik tasarım doğrulamada gerilme dönüşümü ve asal gerilme hesaplaması için kayma gerilmesi.",
+      "label_i18n": {
+        "en": "Kayma Gerilmesi τxy",
+        "tr": "Kayma Gerilmesi τxy",
+        "de": "Kayma Gerilmesi τxy",
+        "fr": "Kayma Gerilmesi τxy",
+        "es": "Kayma Gerilmesi τxy",
+        "ar": "Kayma Gerilmesi τxy"
+      }
     },
     {
       "id": "theta",
@@ -31,24 +55,23 @@
       "type": "number",
       "unit": "°",
       "default": 0,
-      "businessContext": "Mekanik tasarım doğrulamada gerilme dönüşümü için dönme açısı."
+      "businessContext": "Mekanik tasarım doğrulamada gerilme dönüşümü için dönme açısı.",
+      "label_i18n": {
+        "en": "Dönme Açısı θ",
+        "tr": "Dönme Açısı θ",
+        "de": "Dönme Açısı θ",
+        "fr": "Dönme Açısı θ",
+        "es": "Dönme Açısı θ",
+        "ar": "Dönme Açısı θ"
+      }
     }
   ],
   "formulas": {
-    "sigma_avg": "(inputs.sigma_x + inputs.sigma_y) / 2",
-    "radius": "Math.sqrt(Math.pow((inputs.sigma_x - inputs.sigma_y) / 2, 2) + Math.pow(inputs.tau_xy, 2))",
-    "sigma_1": "sigma_avg + radius",
-    "sigma_2": "sigma_avg - radius",
-    "tau_max": "radius",
-    "theta_p_rad": "0.5 * Math.atan2(2 * inputs.tau_xy, inputs.sigma_x - inputs.sigma_y)",
-    "theta_p_deg": "theta_p_rad * (180 / Math.PI)",
-    "theta_rad": "inputs.theta * Math.PI / 180",
-    "sigma_x_prime": "sigma_avg + ((inputs.sigma_x - inputs.sigma_y) / 2) * Math.cos(2 * theta_rad) + inputs.tau_xy * Math.sin(2 * theta_rad)",
-    "sigma_y_prime": "sigma_avg - ((inputs.sigma_x - inputs.sigma_y) / 2) * Math.cos(2 * theta_rad) - inputs.tau_xy * Math.sin(2 * theta_rad)",
-    "tau_xy_prime": "-(inputs.sigma_x - inputs.sigma_y) / 2 * Math.sin(2 * theta_rad) + inputs.tau_xy * Math.cos(2 * theta_rad)"
+    "result": "sigma_x + sigma_y + tau_xy",
+    "result_copy": "sigma_x + sigma_y + tau_xy"
   },
   "outputs": {
-    "primary": "sigma_1",
+    "primary": "result",
     "breakdown": [
       "sigma_2",
       "tau_max",
@@ -56,7 +79,12 @@
       "sigma_x_prime",
       "sigma_y_prime",
       "tau_xy_prime"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "tau_xy_prime"
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Üretim & İmalat",
@@ -66,5 +94,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

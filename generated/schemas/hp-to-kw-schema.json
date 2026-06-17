@@ -100,7 +100,6 @@
   ],
   "formulas": {
     "mechanicalPowerKW": "horsepower * 0.7457",
-    "electricalPowerKW": "voltage * current * powerFactor * Math.sqrt(phases) / 1000",
     "outputPowerKW": "mechanicalPowerKW * (efficiency / 100)",
     "lossesKW": "mechanicalPowerKW - outputPowerKW"
   },
@@ -110,7 +109,12 @@
       "mechanicalPowerKW",
       "electricalPowerKW",
       "lossesKW"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "lossesKW"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -120,5 +124,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "efficiency"
+  "categoryId": "efficiency",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

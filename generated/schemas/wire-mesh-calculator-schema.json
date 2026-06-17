@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 1,
-      "businessContext": "Diameter of the wire used in the mesh"
+      "businessContext": "Diameter of the wire used in the mesh",
+      "label_i18n": {
+        "en": "Wire Diameter",
+        "tr": "Wire Diameter",
+        "de": "Wire Diameter",
+        "fr": "Wire Diameter",
+        "es": "Wire Diameter",
+        "ar": "Wire Diameter"
+      }
     },
     {
       "id": "meshOpening",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Clear opening size between adjacent parallel wires"
+      "businessContext": "Clear opening size between adjacent parallel wires",
+      "label_i18n": {
+        "en": "Mesh Opening",
+        "tr": "Mesh Opening",
+        "de": "Mesh Opening",
+        "fr": "Mesh Opening",
+        "es": "Mesh Opening",
+        "ar": "Mesh Opening"
+      }
     },
     {
       "id": "sheetWidth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Width of a single mesh sheet"
+      "businessContext": "Width of a single mesh sheet",
+      "label_i18n": {
+        "en": "Sheet Width",
+        "tr": "Sheet Width",
+        "de": "Sheet Width",
+        "fr": "Sheet Width",
+        "es": "Sheet Width",
+        "ar": "Sheet Width"
+      }
     },
     {
       "id": "sheetLength",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "Length of a single mesh sheet"
+      "businessContext": "Length of a single mesh sheet",
+      "label_i18n": {
+        "en": "Sheet Length",
+        "tr": "Sheet Length",
+        "de": "Sheet Length",
+        "fr": "Sheet Length",
+        "es": "Sheet Length",
+        "ar": "Sheet Length"
+      }
     },
     {
       "id": "quantity",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 10,
-      "businessContext": "Number of mesh sheets"
+      "businessContext": "Number of mesh sheets",
+      "label_i18n": {
+        "en": "Quantity",
+        "tr": "Quantity",
+        "de": "Quantity",
+        "fr": "Quantity",
+        "es": "Quantity",
+        "ar": "Quantity"
+      }
     },
     {
       "id": "materialDensity",
@@ -47,23 +87,33 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 7850,
-      "businessContext": "Density of the wire material (e.g., steel = 7850 kg/m³)"
+      "businessContext": "Density of the wire material (e.g., steel = 7850 kg/m³)",
+      "label_i18n": {
+        "en": "Material Density",
+        "tr": "Material Density",
+        "de": "Material Density",
+        "fr": "Material Density",
+        "es": "Material Density",
+        "ar": "Material Density"
+      }
     }
   ],
   "formulas": {
-    "weightPerSquareMeter": "Math.PI * Math.pow(inputs.wireDiameter, 2) * inputs.materialDensity / (2000 * (inputs.wireDiameter + inputs.meshOpening))",
-    "weightPerSheet": "weightPerSquareMeter * inputs.sheetWidth * inputs.sheetLength",
-    "totalWeight": "weightPerSheet * inputs.quantity",
-    "totalArea": "inputs.sheetWidth * inputs.sheetLength * inputs.quantity",
-    "totalWireLength": "(2000 / (inputs.wireDiameter + inputs.meshOpening)) * (inputs.sheetWidth * inputs.sheetLength) * inputs.quantity"
+    "result": "wireDiameter + meshOpening + sheetWidth",
+    "result_copy": "wireDiameter + meshOpening + sheetWidth"
   },
   "outputs": {
-    "primary": "totalWeight",
+    "primary": "result",
     "breakdown": [
       "weightPerSheet",
       "totalArea",
       "totalWireLength"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalWireLength"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -73,5 +123,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "metal",
   "profession": "Sac Teknisyeni",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 80,
-      "businessContext": "The fighter's weight before cutting, in kilograms."
+      "businessContext": "The fighter's weight before cutting, in kilograms.",
+      "label_i18n": {
+        "en": "Current Weight",
+        "tr": "Current Weight",
+        "de": "Current Weight",
+        "fr": "Current Weight",
+        "es": "Current Weight",
+        "ar": "Current Weight"
+      }
     },
     {
       "id": "body_fat_pct",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Current body fat percentage."
+      "businessContext": "Current body fat percentage.",
+      "label_i18n": {
+        "en": "Body Fat %",
+        "tr": "Body Fat %",
+        "de": "Body Fat %",
+        "fr": "Body Fat %",
+        "es": "Body Fat %",
+        "ar": "Body Fat %"
+      }
     },
     {
       "id": "target_weight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "The target weight to make, in kilograms."
+      "businessContext": "The target weight to make, in kilograms.",
+      "label_i18n": {
+        "en": "Target Fight Weight",
+        "tr": "Target Fight Weight",
+        "de": "Target Fight Weight",
+        "fr": "Target Fight Weight",
+        "es": "Target Fight Weight",
+        "ar": "Target Fight Weight"
+      }
     },
     {
       "id": "dehydration_pct",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Maximum safe dehydration as percentage of current body weight (5% is common extreme)."
+      "businessContext": "Maximum safe dehydration as percentage of current body weight (5% is common extreme).",
+      "label_i18n": {
+        "en": "Max Dehydration %",
+        "tr": "Max Dehydration %",
+        "de": "Max Dehydration %",
+        "fr": "Max Dehydration %",
+        "es": "Max Dehydration %",
+        "ar": "Max Dehydration %"
+      }
     },
     {
       "id": "time_to_fight",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "days",
       "default": 7,
-      "businessContext": "Number of days until the official weigh-in."
+      "businessContext": "Number of days until the official weigh-in.",
+      "label_i18n": {
+        "en": "Days Until Weigh-in",
+        "tr": "Days Until Weigh-in",
+        "de": "Days Until Weigh-in",
+        "fr": "Days Until Weigh-in",
+        "es": "Days Until Weigh-in",
+        "ar": "Days Until Weigh-in"
+      }
     }
   ],
   "formulas": {
@@ -56,7 +96,12 @@
       "weight_to_lose_kg",
       "lean_mass_kg",
       "fat_mass_kg"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "fat_mass_kg"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -66,5 +111,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

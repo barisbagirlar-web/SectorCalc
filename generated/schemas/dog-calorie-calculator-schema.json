@@ -67,21 +67,23 @@
     }
   ],
   "formulas": {
-    "rer": "70 * Math.pow(weightKg, 0.75)",
     "bcsFactor": "(bodyConditionScore < 4) ? 1.2 : (bodyConditionScore > 6) ? 0.8 : 1.0",
-    "weightChangeFactor": "1 + (desiredWeightChange * 0.1)",
-    "activityAdjusted": "70 * Math.pow(weightKg, 0.75) * activityFactor",
-    "totalCalories": "70 * Math.pow(weightKg, 0.75) * activityFactor * ((bodyConditionScore < 4) ? 1.2 : (bodyConditionScore > 6) ? 0.8 : 1.0) * (1 + (desiredWeightChange * 0.1))"
+    "weightChangeFactor": "1 + (desiredWeightChange * 0.1)"
   },
   "outputs": {
-    "primary": "totalCalories",
+    "primary": "weightChangeFactor",
     "breakdown": [
       "rer",
       "activityAdjusted",
       "bcsFactor",
       "weightChangeFactor",
       "totalCalories"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCalories"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -91,5 +93,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

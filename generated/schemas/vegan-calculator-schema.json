@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "meals/day",
       "default": 1,
-      "businessContext": "Number of plant-based meals consumed per day instead of animal-based meals."
+      "businessContext": "Number of plant-based meals consumed per day instead of animal-based meals.",
+      "label_i18n": {
+        "en": "Vegan meals per day",
+        "tr": "Vegan meals per day",
+        "de": "Vegan meals per day",
+        "fr": "Vegan meals per day",
+        "es": "Vegan meals per day",
+        "ar": "Vegan meals per day"
+      }
     },
     {
       "id": "daysPerYear",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "days",
       "default": 365,
-      "businessContext": "Number of days in a year you maintain a vegan diet."
+      "businessContext": "Number of days in a year you maintain a vegan diet.",
+      "label_i18n": {
+        "en": "Days per year on vegan diet",
+        "tr": "Days per year on vegan diet",
+        "de": "Days per year on vegan diet",
+        "fr": "Days per year on vegan diet",
+        "es": "Days per year on vegan diet",
+        "ar": "Days per year on vegan diet"
+      }
     },
     {
       "id": "waterSavedPerMeal",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "L/meal",
       "default": 1500,
-      "businessContext": "Average litres of water saved per vegan meal compared to a meat-based meal (e.g., beef ~1500 L, chicken ~1000 L)."
+      "businessContext": "Average litres of water saved per vegan meal compared to a meat-based meal (e.g., beef ~1500 L, chicken ~1000 L).",
+      "label_i18n": {
+        "en": "Water saved per meal",
+        "tr": "Water saved per meal",
+        "de": "Water saved per meal",
+        "fr": "Water saved per meal",
+        "es": "Water saved per meal",
+        "ar": "Water saved per meal"
+      }
     },
     {
       "id": "co2SavedPerMeal",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg CO₂/meal",
       "default": 2.5,
-      "businessContext": "Average kg CO₂-equivalent saved per vegan meal compared to an animal-based meal (range 1.5–6.5 kg)."
+      "businessContext": "Average kg CO₂-equivalent saved per vegan meal compared to an animal-based meal (range 1.5–6.5 kg).",
+      "label_i18n": {
+        "en": "CO₂ saved per meal",
+        "tr": "CO₂ saved per meal",
+        "de": "CO₂ saved per meal",
+        "fr": "CO₂ saved per meal",
+        "es": "CO₂ saved per meal",
+        "ar": "CO₂ saved per meal"
+      }
     },
     {
       "id": "landSavedPerMeal",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m²/meal",
       "default": 5,
-      "businessContext": "Average square metres of land saved per vegan meal compared to a meat-based meal."
+      "businessContext": "Average square metres of land saved per vegan meal compared to a meat-based meal.",
+      "label_i18n": {
+        "en": "Land saved per meal",
+        "tr": "Land saved per meal",
+        "de": "Land saved per meal",
+        "fr": "Land saved per meal",
+        "es": "Land saved per meal",
+        "ar": "Land saved per meal"
+      }
     }
   ],
   "formulas": {
@@ -56,7 +96,12 @@
       "totalLand",
       "treesEquivalent",
       "carMilesSaved"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "carMilesSaved"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -66,5 +111,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

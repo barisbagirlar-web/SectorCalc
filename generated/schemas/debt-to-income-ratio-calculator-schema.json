@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Monthly mortgage or rent payment amount"
+      "businessContext": "Monthly mortgage or rent payment amount",
+      "label_i18n": {
+        "en": "Monthly Mortgage/Rent Payment",
+        "tr": "Monthly Mortgage/Rent Payment",
+        "de": "Monthly Mortgage/Rent Payment",
+        "fr": "Monthly Mortgage/Rent Payment",
+        "es": "Monthly Mortgage/Rent Payment",
+        "ar": "Monthly Mortgage/Rent Payment"
+      }
     },
     {
       "id": "creditCardMonth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Monthly minimum credit card payment"
+      "businessContext": "Monthly minimum credit card payment",
+      "label_i18n": {
+        "en": "Monthly Credit Card Minimum Payment",
+        "tr": "Monthly Credit Card Minimum Payment",
+        "de": "Monthly Credit Card Minimum Payment",
+        "fr": "Monthly Credit Card Minimum Payment",
+        "es": "Monthly Credit Card Minimum Payment",
+        "ar": "Monthly Credit Card Minimum Payment"
+      }
     },
     {
       "id": "autoLoanMonth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Monthly auto loan installment"
+      "businessContext": "Monthly auto loan installment",
+      "label_i18n": {
+        "en": "Monthly Auto Loan Payment",
+        "tr": "Monthly Auto Loan Payment",
+        "de": "Monthly Auto Loan Payment",
+        "fr": "Monthly Auto Loan Payment",
+        "es": "Monthly Auto Loan Payment",
+        "ar": "Monthly Auto Loan Payment"
+      }
     },
     {
       "id": "studentLoanMonth",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Monthly student loan repayment"
+      "businessContext": "Monthly student loan repayment",
+      "label_i18n": {
+        "en": "Monthly Student Loan Payment",
+        "tr": "Monthly Student Loan Payment",
+        "de": "Monthly Student Loan Payment",
+        "fr": "Monthly Student Loan Payment",
+        "es": "Monthly Student Loan Payment",
+        "ar": "Monthly Student Loan Payment"
+      }
     },
     {
       "id": "otherDebtMonth",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Any other recurring monthly debt obligations"
+      "businessContext": "Any other recurring monthly debt obligations",
+      "label_i18n": {
+        "en": "Other Monthly Debt Payments",
+        "tr": "Other Monthly Debt Payments",
+        "de": "Other Monthly Debt Payments",
+        "fr": "Other Monthly Debt Payments",
+        "es": "Other Monthly Debt Payments",
+        "ar": "Other Monthly Debt Payments"
+      }
     },
     {
       "id": "grossMonthlyIncome",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "USD",
       "default": 1,
-      "businessContext": "Total monthly income before taxes and deductions"
+      "businessContext": "Total monthly income before taxes and deductions",
+      "label_i18n": {
+        "en": "Gross Monthly Income",
+        "tr": "Gross Monthly Income",
+        "de": "Gross Monthly Income",
+        "fr": "Gross Monthly Income",
+        "es": "Gross Monthly Income",
+        "ar": "Gross Monthly Income"
+      }
     }
   ],
   "formulas": {
@@ -59,7 +107,12 @@
     "breakdown": [
       "totalDebt",
       "grossMonthlyIncome"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "debtToIncomeRatio"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -69,5 +122,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

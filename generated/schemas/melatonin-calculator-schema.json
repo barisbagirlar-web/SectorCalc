@@ -71,25 +71,22 @@
     "weightMultiplier": "weight > 90 ? 1.2 : 1",
     "shiftMultiplier": "nightShift == 1 ? 1.5 : 1",
     "jetLagAddition": "jetLagFactor * 0.5",
-    "doseUncapped": "(baseDose * weightMultiplier * shiftMultiplier) + jetLagAddition",
-    "dose": "Math.min(5, doseUncapped)",
-    "doseRounded": "Math.round(dose * 100) / 100",
-    "____baseDose_____mg_": "\" + baseDose + \" mg\"",
-    "x____weightMultiplier": "x\" + weightMultiplier",
-    "x____shiftMultiplier": "x\" + shiftMultiplier",
-    "_____jetLagAddition_____mg_": "+\" + jetLagAddition + \" mg\"",
-    "____doseRounded_____mg_": "\" + doseRounded + \" mg\"",
-    "result": "doseRounded + \" mg\""
+    "doseUncapped": "(baseDose * weightMultiplier * shiftMultiplier) + jetLagAddition"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "doseUncapped",
     "breakdown": [
       "\"Base dose: \" + baseDose + \" mg\"",
       "\"Weight factor: x\" + weightMultiplier",
       "\"Shift factor: x\" + shiftMultiplier",
       "\"Jet lag addition: +\" + jetLagAddition + \" mg\"",
       "\"Total (capped at 5 mg): \" + doseRounded + \" mg\""
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "İK & Personel",
   "sector": "Finans & İK",
@@ -99,5 +96,10 @@
   "categorySlug": "workforce-hr",
   "sectorId": "havacilik",
   "profession": "Tasarım Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

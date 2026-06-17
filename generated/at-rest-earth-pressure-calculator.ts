@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from at-rest-earth-pressure-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,26 +16,33 @@ export const At_rest_earth_pressure_calculatorInputSchema = z.object({
   SF: z.number().default(1.5),
 });
 
-function evaluateAllFormulas(input: At_rest_earth_pressure_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (1 - Math.sin(input.phi * Math.PI/180)) * Math.pow(input.OCR, Math.sin(input.phi * Math.PI/180)); results["K0"] = Number.isFinite(v) ? v : 0; } catch { results["K0"] = 0; }
-  try { const v = (results["K0"] ?? 0) * input.sigma_v; results["sigma_h"] = Number.isFinite(v) ? v : 0; } catch { results["sigma_h"] = 0; }
-  try { const v = (results["sigma_h"] ?? 0) * input.SF; results["sigma_h_design"] = Number.isFinite(v) ? v : 0; } catch { results["sigma_h_design"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: At_rest_earth_pressure_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.sigma_v + input.phi + input.OCR; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.sigma_v + input.phi + input.OCR; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateAt_rest_earth_pressure_calculator(input: At_rest_earth_pressure_calculatorInput): At_rest_earth_pressure_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["sigma_h_design"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

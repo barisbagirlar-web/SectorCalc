@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 100,
-      "businessContext": "Mass of fertilizer used to prepare stock solution"
+      "businessContext": "Mass of fertilizer used to prepare stock solution",
+      "label_i18n": {
+        "en": "Fertilizer Mass",
+        "tr": "Fertilizer Mass",
+        "de": "Fertilizer Mass",
+        "fr": "Fertilizer Mass",
+        "es": "Fertilizer Mass",
+        "ar": "Fertilizer Mass"
+      }
     },
     {
       "id": "nutrientPercentage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Nutrient content by weight in fertilizer"
+      "businessContext": "Nutrient content by weight in fertilizer",
+      "label_i18n": {
+        "en": "Nutrient Percentage",
+        "tr": "Nutrient Percentage",
+        "de": "Nutrient Percentage",
+        "fr": "Nutrient Percentage",
+        "es": "Nutrient Percentage",
+        "ar": "Nutrient Percentage"
+      }
     },
     {
       "id": "waterVolumeForStock",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "L",
       "default": 1,
-      "businessContext": "Volume of water used to dissolve fertilizer for stock solution"
+      "businessContext": "Volume of water used to dissolve fertilizer for stock solution",
+      "label_i18n": {
+        "en": "Water Volume for Stock",
+        "tr": "Water Volume for Stock",
+        "de": "Water Volume for Stock",
+        "fr": "Water Volume for Stock",
+        "es": "Water Volume for Stock",
+        "ar": "Water Volume for Stock"
+      }
     },
     {
       "id": "targetPpm",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "ppm",
       "default": 150,
-      "businessContext": "Desired final nutrient concentration in reservoir"
+      "businessContext": "Desired final nutrient concentration in reservoir",
+      "label_i18n": {
+        "en": "Target PPM",
+        "tr": "Target PPM",
+        "de": "Target PPM",
+        "fr": "Target PPM",
+        "es": "Target PPM",
+        "ar": "Target PPM"
+      }
     },
     {
       "id": "reservoirWaterVolume",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "L",
       "default": 100,
-      "businessContext": "Total water volume in hydroponic reservoir to be treated"
+      "businessContext": "Total water volume in hydroponic reservoir to be treated",
+      "label_i18n": {
+        "en": "Reservoir Water Volume",
+        "tr": "Reservoir Water Volume",
+        "de": "Reservoir Water Volume",
+        "fr": "Reservoir Water Volume",
+        "es": "Reservoir Water Volume",
+        "ar": "Reservoir Water Volume"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "stockPpm",
       "stockVolumeL"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "stockVolumeML"
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Üretim & İmalat",
@@ -62,5 +107,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "tarim",
   "profession": "Ziraat Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mmHg",
       "default": 760,
-      "businessContext": "Measured pressure in millimeters of mercury, standard atmosphere = 760 mmHg"
+      "businessContext": "Measured pressure in millimeters of mercury, standard atmosphere = 760 mmHg",
+      "label_i18n": {
+        "en": "Pressure (mmHg)",
+        "tr": "Pressure (mmHg)",
+        "de": "Pressure (mmHg)",
+        "fr": "Pressure (mmHg)",
+        "es": "Pressure (mmHg)",
+        "ar": "Pressure (mmHg)"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "psi/mmHg",
       "default": 0.0193368,
-      "businessContext": "Standard conversion factor from mmHg to psi (1 mmHg = 0.0193368 psi). Adjust for custom calibrations."
+      "businessContext": "Standard conversion factor from mmHg to psi (1 mmHg = 0.0193368 psi). Adjust for custom calibrations.",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "offset",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "psi",
       "default": 0,
-      "businessContext": "Calibration offset in psi to correct systematic measurement error."
+      "businessContext": "Calibration offset in psi to correct systematic measurement error.",
+      "label_i18n": {
+        "en": "Offset",
+        "tr": "Offset",
+        "de": "Offset",
+        "fr": "Offset",
+        "es": "Offset",
+        "ar": "Offset"
+      }
     },
     {
       "id": "outputPrecision",
@@ -31,18 +55,31 @@
       "type": "number",
       "unit": "decimal places",
       "default": 4,
-      "businessContext": "Number of decimal places for the rounded output."
+      "businessContext": "Number of decimal places for the rounded output.",
+      "label_i18n": {
+        "en": "Output Precision",
+        "tr": "Output Precision",
+        "de": "Output Precision",
+        "fr": "Output Precision",
+        "es": "Output Precision",
+        "ar": "Output Precision"
+      }
     }
   ],
   "formulas": {
     "psiRaw": "pressureMMHG * conversionFactor + offset",
-    "psiRounded": "Math.round((pressureMMHG * conversionFactor + offset) * 10**outputPrecision) / 10**outputPrecision"
+    "psiRaw_aux": "pressureMMHG * conversionFactor + offset"
   },
   "outputs": {
-    "primary": "psiRounded",
+    "primary": "psiRaw_aux",
     "breakdown": [
       "psiRaw"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "psiRounded"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -52,5 +89,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

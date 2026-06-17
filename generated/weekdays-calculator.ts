@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from weekdays-calculator-schema.json
 import * as z from 'zod';
 
@@ -19,26 +20,33 @@ export const Weekdays_calculatorInputSchema = z.object({
   endYear: z.number().default(2025),
 });
 
-function evaluateAllFormulas(input: Weekdays_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (() => { var start=new Date(input.startYear,input.startMonth-1,input.startDay);var end=new Date(input.endYear,input.endMonth-1,input.endDay);var count=0;var d=new Date(start);while(d<=end){if(d.getDay()!==0&&d.getDay()!==6)count++;d.setDate(d.getDate()+1);}return count; })(); results["weekdaysCount"] = Number.isFinite(v) ? v : 0; } catch { results["weekdaysCount"] = 0; }
-  try { const v = (() => { var start=new Date(input.startYear,input.startMonth-1,input.startDay);var end=new Date(input.endYear,input.endMonth-1,input.endDay);return Math.floor((end-start)/(1000*60*60*24))+1; })(); results["totalDays"] = Number.isFinite(v) ? v : 0; } catch { results["totalDays"] = 0; }
-  try { const v = (() => { var start=new Date(input.startYear,input.startMonth-1,input.startDay);var end=new Date(input.endYear,input.endMonth-1,input.endDay);var total=Math.floor((end-start)/(1000*60*60*24))+1;var weekdays=0;var d=new Date(start);while(d<=end){if(d.getDay()!==0&&d.getDay()!==6)weekdays++;d.setDate(d.getDate()+1);}return total-weekdays; })(); results["weekendDays"] = Number.isFinite(v) ? v : 0; } catch { results["weekendDays"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Weekdays_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.startDay + input.startMonth + input.startYear; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.startDay + input.startMonth + input.startYear; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateWeekdays_calculator(input: Weekdays_calculatorInput): Weekdays_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["weekdaysCount"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

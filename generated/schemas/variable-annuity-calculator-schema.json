@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "The starting balance of the annuity, if already invested."
+      "businessContext": "The starting balance of the annuity, if already invested.",
+      "label_i18n": {
+        "en": "Initial Balance",
+        "tr": "Initial Balance",
+        "de": "Initial Balance",
+        "fr": "Initial Balance",
+        "es": "Initial Balance",
+        "ar": "Initial Balance"
+      }
     },
     {
       "id": "annualContribution",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "$",
       "default": 10000,
-      "businessContext": "The amount added to the annuity each year."
+      "businessContext": "The amount added to the annuity each year.",
+      "label_i18n": {
+        "en": "Annual Contribution",
+        "tr": "Annual Contribution",
+        "de": "Annual Contribution",
+        "fr": "Annual Contribution",
+        "es": "Annual Contribution",
+        "ar": "Annual Contribution"
+      }
     },
     {
       "id": "years",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 20,
-      "businessContext": "Number of years the annuity will grow."
+      "businessContext": "Number of years the annuity will grow.",
+      "label_i18n": {
+        "en": "Investment Period",
+        "tr": "Investment Period",
+        "de": "Investment Period",
+        "fr": "Investment Period",
+        "es": "Investment Period",
+        "ar": "Investment Period"
+      }
     },
     {
       "id": "annualReturn",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 7,
-      "businessContext": "The average annual rate of return of the underlying investments before fees."
+      "businessContext": "The average annual rate of return of the underlying investments before fees.",
+      "label_i18n": {
+        "en": "Expected Annual Return",
+        "tr": "Expected Annual Return",
+        "de": "Expected Annual Return",
+        "fr": "Expected Annual Return",
+        "es": "Expected Annual Return",
+        "ar": "Expected Annual Return"
+      }
     },
     {
       "id": "annualFee",
@@ -39,21 +71,32 @@
       "type": "number",
       "unit": "%",
       "default": 1,
-      "businessContext": "The annual management fee deducted from the account balance."
+      "businessContext": "The annual management fee deducted from the account balance.",
+      "label_i18n": {
+        "en": "Annual Fee",
+        "tr": "Annual Fee",
+        "de": "Annual Fee",
+        "fr": "Annual Fee",
+        "es": "Annual Fee",
+        "ar": "Annual Fee"
+      }
     }
   ],
   "formulas": {
-    "netRate": "(annualReturn - annualFee) / 100",
-    "futureValue": "initialBalance * Math.pow(1 + netRate, years) + (netRate === 0 ? annualContribution * years : annualContribution * ((Math.pow(1 + netRate, years) - 1) / netRate))",
     "totalContributions": "initialBalance + annualContribution * years",
-    "totalEarnings": "futureValue - totalContributions"
+    "totalContributions_aux": "initialBalance + annualContribution * years"
   },
   "outputs": {
-    "primary": "futureValue",
+    "primary": "totalContributions_aux",
     "breakdown": [
       "totalContributions",
       "totalEarnings"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalEarnings"
   },
   "category": "Proje & Yatırım",
   "sector": "Finans & İK",
@@ -63,5 +106,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

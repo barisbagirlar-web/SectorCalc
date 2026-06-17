@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "birim",
       "default": 100,
-      "businessContext": "İyileştirme sürecinin başlangıcındaki performans göstergesi değeri (adet, oran, vb.)"
+      "businessContext": "İyileştirme sürecinin başlangıcındaki performans göstergesi değeri (adet, oran, vb.)",
+      "label_i18n": {
+        "en": "Başlangıç Değeri",
+        "tr": "Başlangıç Değeri",
+        "de": "Başlangıç Değeri",
+        "fr": "Başlangıç Değeri",
+        "es": "Başlangıç Değeri",
+        "ar": "Başlangıç Değeri"
+      }
     },
     {
       "id": "targetValue",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "birim",
       "default": 80,
-      "businessContext": "Ulaşılmak istenen hedef performans göstergesi değeri"
+      "businessContext": "Ulaşılmak istenen hedef performans göstergesi değeri",
+      "label_i18n": {
+        "en": "Hedef Değer",
+        "tr": "Hedef Değer",
+        "de": "Hedef Değer",
+        "fr": "Hedef Değer",
+        "es": "Hedef Değer",
+        "ar": "Hedef Değer"
+      }
     },
     {
       "id": "currentValue",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "birim",
       "default": 90,
-      "businessContext": "Şu anki güncel performans göstergesi değeri"
+      "businessContext": "Şu anki güncel performans göstergesi değeri",
+      "label_i18n": {
+        "en": "Mevcut Değer",
+        "tr": "Mevcut Değer",
+        "de": "Mevcut Değer",
+        "fr": "Mevcut Değer",
+        "es": "Mevcut Değer",
+        "ar": "Mevcut Değer"
+      }
     },
     {
       "id": "yearsElapsed",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 1,
-      "businessContext": "Başlangıçtan bugüne kadar geçen süre (yıl cinsinden)"
+      "businessContext": "Başlangıçtan bugüne kadar geçen süre (yıl cinsinden)",
+      "label_i18n": {
+        "en": "Geçen Yıl",
+        "tr": "Geçen Yıl",
+        "de": "Geçen Yıl",
+        "fr": "Geçen Yıl",
+        "es": "Geçen Yıl",
+        "ar": "Geçen Yıl"
+      }
     },
     {
       "id": "confidenceFactor",
@@ -39,20 +71,32 @@
       "type": "number",
       "unit": "-",
       "default": 1,
-      "businessContext": "Hesaplanan iyileştirme oranına uygulanacak güven düzeyi çarpanı (1: standart, >1: daha muhafazakâr tahmin)"
+      "businessContext": "Hesaplanan iyileştirme oranına uygulanacak güven düzeyi çarpanı (1: standart, >1: daha muhafazakâr tahmin)",
+      "label_i18n": {
+        "en": "Güven Kat Sayısı",
+        "tr": "Güven Kat Sayısı",
+        "de": "Güven Kat Sayısı",
+        "fr": "Güven Kat Sayısı",
+        "es": "Güven Kat Sayısı",
+        "ar": "Güven Kat Sayısı"
+      }
     }
   ],
   "formulas": {
-    "ariRequired": "((inputs.initialValue - inputs.targetValue) / inputs.initialValue) / inputs.yearsElapsed * 100 * inputs.confidenceFactor",
-    "ariActual": "((inputs.initialValue - inputs.currentValue) / inputs.initialValue) / inputs.yearsElapsed * 100 * inputs.confidenceFactor",
-    "gapPercentage": "((inputs.currentValue - inputs.targetValue) / inputs.initialValue) * 100"
+    "result": "initialValue + targetValue + currentValue",
+    "result_copy": "initialValue + targetValue + currentValue"
   },
   "outputs": {
-    "primary": "ariRequired",
+    "primary": "result",
     "breakdown": [
       "ariActual",
       "gapPercentage"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "gapPercentage"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -62,5 +106,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

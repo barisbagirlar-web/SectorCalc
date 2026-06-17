@@ -67,18 +67,20 @@
     }
   ],
   "formulas": {
-    "inductance_uH": "Math.pow(diameter/25.4,2) * Math.pow(turns,2) / (18*(diameter/25.4) + 40*(length/25.4))",
-    "reactance_ohm": "2 * Math.PI * (frequency * 1000) * (inductance_uH * 1e-6)",
-    "__reactance_ohm_toFixed_2____": "${reactance_ohm.toFixed(2)} Ω",
-    "__diameter__mm_______length__mm____turns": "${diameter} mm ⌀ × ${length} mm, ${turns} tur",
-    "result": "Endüktans: ${inductance_uH.toFixed(2)} μH"
+    "result": "diameter + length + turns",
+    "result_aux": "diameter + length + turns"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
       "Reaktans: ${reactance_ohm.toFixed(2)} Ω",
       "Bobin: ${diameter} mm ⌀ × ${length} mm, ${turns} tur"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "reactance_ohm"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -88,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

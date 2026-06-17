@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "teeth",
       "default": 17,
-      "businessContext": "Number of teeth on the driving sprocket."
+      "businessContext": "Number of teeth on the driving sprocket.",
+      "label_i18n": {
+        "en": "Driver Sprocket Teeth",
+        "tr": "Driver Sprocket Teeth",
+        "de": "Driver Sprocket Teeth",
+        "fr": "Driver Sprocket Teeth",
+        "es": "Driver Sprocket Teeth",
+        "ar": "Driver Sprocket Teeth"
+      }
     },
     {
       "id": "drivenTeeth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "teeth",
       "default": 34,
-      "businessContext": "Number of teeth on the driven sprocket."
+      "businessContext": "Number of teeth on the driven sprocket.",
+      "label_i18n": {
+        "en": "Driven Sprocket Teeth",
+        "tr": "Driven Sprocket Teeth",
+        "de": "Driven Sprocket Teeth",
+        "fr": "Driven Sprocket Teeth",
+        "es": "Driven Sprocket Teeth",
+        "ar": "Driven Sprocket Teeth"
+      }
     },
     {
       "id": "pitch",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 12.7,
-      "businessContext": "Nominal pitch of the roller chain."
+      "businessContext": "Nominal pitch of the roller chain.",
+      "label_i18n": {
+        "en": "Chain Pitch",
+        "tr": "Chain Pitch",
+        "de": "Chain Pitch",
+        "fr": "Chain Pitch",
+        "es": "Chain Pitch",
+        "ar": "Chain Pitch"
+      }
     },
     {
       "id": "centerDistance",
@@ -31,15 +55,21 @@
       "type": "number",
       "unit": "mm",
       "default": 500,
-      "businessContext": "Desired center distance between sprocket centers."
+      "businessContext": "Desired center distance between sprocket centers.",
+      "label_i18n": {
+        "en": "Center Distance",
+        "tr": "Center Distance",
+        "de": "Center Distance",
+        "fr": "Center Distance",
+        "es": "Center Distance",
+        "ar": "Center Distance"
+      }
     }
   ],
   "formulas": {
     "chainLengthMm": "(2 * centerDistance / pitch + (driverTeeth + drivenTeeth) / 2 + ((drivenTeeth - driverTeeth) ** 2 * pitch) / (4 * Math.PI ** 2 * centerDistance)) * pitch",
     "chainLengthPitches": "2 * centerDistance / pitch + (driverTeeth + drivenTeeth) / 2 + ((drivenTeeth - driverTeeth) ** 2 * pitch) / (4 * Math.PI ** 2 * centerDistance)",
-    "speedRatio": "driverTeeth / drivenTeeth",
-    "pitchDiameterDriver": "pitch / Math.sin(Math.PI / driverTeeth)",
-    "pitchDiameterDriven": "pitch / Math.sin(Math.PI / drivenTeeth)"
+    "speedRatio": "driverTeeth / drivenTeeth"
   },
   "outputs": {
     "primary": "chainLengthMm",
@@ -48,7 +78,12 @@
       "speedRatio",
       "pitchDiameterDriver",
       "pitchDiameterDriven"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "pitchDiameterDriven"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -58,5 +93,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "otomotiv-tedarik",
   "profession": "Tedarik Zinciri Yöneticisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

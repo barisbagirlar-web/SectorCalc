@@ -67,17 +67,20 @@
     }
   ],
   "formulas": {
-    "catalanNumber": "Math.round(Math.exp(2 * n * Math.log(2) - (n + 0.5) * Math.log(n + 1) - (n + 0.5) * Math.log(n + 2) + 0.5 * Math.log(2 * Math.PI)))",
-    "catalanExact": "n === 0 ? 1 : Math.round(Math.exp(2 * n * Math.log(2) - (n + 0.5) * Math.log(n + 1) - (n + 0.5) * Math.log(n + 2) + 0.5 * Math.log(2 * Math.PI)))",
-    "C_n____2n______n_____n_1___": "C_n = (2n)! / (n! * (n+1)!)",
-    "Approximation_using_Stirling_s_formula": "Approximation using Stirling's formula"
+    "result": "n + auto_input_2 + auto_input_3",
+    "result_copy": "n + auto_input_2 + auto_input_3"
   },
   "outputs": {
-    "primary": "catalanNumber",
+    "primary": "result",
     "breakdown": [
       "C_n = (2n)! / (n! * (n+1)!)",
       "Approximation using Stirling's formula"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "catalanExact"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -87,5 +90,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

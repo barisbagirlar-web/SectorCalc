@@ -99,15 +99,19 @@
     }
   ],
   "formulas": {
-    "totalPosts": "Math.ceil(fenceLength / postSpacing) + 1 + numberOfCorners + numberOfGateOpenings * 2",
     "concretePerPost": "Math.PI * (postDiameter / 2) ** 2 * postDepth",
-    "concreteTotal": "totalPosts * concretePerPost"
+    "concretePerPost_aux": "Math.PI * (postDiameter / 2) ** 2 * postDepth"
   },
   "outputs": {
-    "primary": "totalPosts",
+    "primary": "concretePerPost_aux",
     "breakdown": [
       "concreteTotal"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "concreteTotal"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -117,5 +121,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

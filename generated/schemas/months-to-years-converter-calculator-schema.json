@@ -67,16 +67,20 @@
     }
   ],
   "formulas": {
-    "yearsRounded": "Math.round((months / monthsPerYear) * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
-    "yearsPart": "Math.floor(months / monthsPerYear)",
-    "monthsPart": "months % monthsPerYear"
+    "result": "months + monthsPerYear + decimalPlaces",
+    "result_copy": "months + monthsPerYear + decimalPlaces"
   },
   "outputs": {
-    "primary": "yearsRounded",
+    "primary": "result",
     "breakdown": [
       "yearsPart",
       "monthsPart"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "yearsPart"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -86,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

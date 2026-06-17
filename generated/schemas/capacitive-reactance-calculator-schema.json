@@ -101,9 +101,7 @@
   "formulas": {
     "C_eff": "capacitance * (1 + (tc * 1e-6) * (temperature - 25))",
     "Xc": "1 / (2 * Math.PI * frequency * C_eff)",
-    "Xc_safe": "Xc * safety_factor",
-    "Z_total": "Math.sqrt(esr ** 2 + Xc ** 2)",
-    "phase_angle": "Math.atan(-Xc / esr) * (180 / Math.PI)"
+    "Xc_safe": "Xc * safety_factor"
   },
   "outputs": {
     "primary": "Xc_safe",
@@ -111,7 +109,12 @@
       "C_eff",
       "Z_total",
       "phase_angle"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "phase_angle"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -121,5 +124,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 10000,
-      "businessContext": "Initial purchase price of the asset"
+      "businessContext": "Initial purchase price of the asset",
+      "label_i18n": {
+        "en": "Asset Cost",
+        "tr": "Asset Cost",
+        "de": "Asset Cost",
+        "fr": "Asset Cost",
+        "es": "Asset Cost",
+        "ar": "Asset Cost"
+      }
     },
     {
       "id": "salvageValue",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "$",
       "default": 1000,
-      "businessContext": "Estimated residual value at end of useful life"
+      "businessContext": "Estimated residual value at end of useful life",
+      "label_i18n": {
+        "en": "Salvage Value",
+        "tr": "Salvage Value",
+        "de": "Salvage Value",
+        "fr": "Salvage Value",
+        "es": "Salvage Value",
+        "ar": "Salvage Value"
+      }
     },
     {
       "id": "usefulLife",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 5,
-      "businessContext": "Total expected lifespan of the asset in years"
+      "businessContext": "Total expected lifespan of the asset in years",
+      "label_i18n": {
+        "en": "Useful Life",
+        "tr": "Useful Life",
+        "de": "Useful Life",
+        "fr": "Useful Life",
+        "es": "Useful Life",
+        "ar": "Useful Life"
+      }
     },
     {
       "id": "year",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "year number",
       "default": 1,
-      "businessContext": "The specific year for which depreciation expense is calculated (1-indexed)"
+      "businessContext": "The specific year for which depreciation expense is calculated (1-indexed)",
+      "label_i18n": {
+        "en": "Year of Depreciation",
+        "tr": "Year of Depreciation",
+        "de": "Year of Depreciation",
+        "fr": "Year of Depreciation",
+        "es": "Year of Depreciation",
+        "ar": "Year of Depreciation"
+      }
     }
   ],
   "formulas": {
@@ -43,7 +75,12 @@
     "breakdown": [
       "depreciation",
       "bookValueEnd"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "bookValueEnd"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -53,5 +90,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

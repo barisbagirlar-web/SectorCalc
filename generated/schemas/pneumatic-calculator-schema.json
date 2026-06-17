@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 50,
-      "businessContext": "Inner diameter of the pneumatic cylinder bore"
+      "businessContext": "Inner diameter of the pneumatic cylinder bore",
+      "label_i18n": {
+        "en": "Bore Diameter",
+        "tr": "Bore Diameter",
+        "de": "Bore Diameter",
+        "fr": "Bore Diameter",
+        "es": "Bore Diameter",
+        "ar": "Bore Diameter"
+      }
     },
     {
       "id": "rodDiameter",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 20,
-      "businessContext": "Diameter of the piston rod (0 for rodless cylinder)"
+      "businessContext": "Diameter of the piston rod (0 for rodless cylinder)",
+      "label_i18n": {
+        "en": "Rod Diameter",
+        "tr": "Rod Diameter",
+        "de": "Rod Diameter",
+        "fr": "Rod Diameter",
+        "es": "Rod Diameter",
+        "ar": "Rod Diameter"
+      }
     },
     {
       "id": "pressure",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "bar",
       "default": 6,
-      "businessContext": "Gauge pressure of compressed air supply"
+      "businessContext": "Gauge pressure of compressed air supply",
+      "label_i18n": {
+        "en": "Working Pressure",
+        "tr": "Working Pressure",
+        "de": "Working Pressure",
+        "fr": "Working Pressure",
+        "es": "Working Pressure",
+        "ar": "Working Pressure"
+      }
     },
     {
       "id": "stroke",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Distance the piston travels per cycle"
+      "businessContext": "Distance the piston travels per cycle",
+      "label_i18n": {
+        "en": "Stroke Length",
+        "tr": "Stroke Length",
+        "de": "Stroke Length",
+        "fr": "Stroke Length",
+        "es": "Stroke Length",
+        "ar": "Stroke Length"
+      }
     },
     {
       "id": "cyclesPerMinute",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "cycles/min",
       "default": 30,
-      "businessContext": "Operating frequency"
+      "businessContext": "Operating frequency",
+      "label_i18n": {
+        "en": "Cycles per Minute",
+        "tr": "Cycles per Minute",
+        "de": "Cycles per Minute",
+        "fr": "Cycles per Minute",
+        "es": "Cycles per Minute",
+        "ar": "Cycles per Minute"
+      }
     },
     {
       "id": "safetyFactor",
@@ -47,22 +87,33 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Recommended additional force percentage for selection"
+      "businessContext": "Recommended additional force percentage for selection",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
-    "forceExtend": "pressure * Math.PI * Math.pow(boreDiameter / 2, 2) * 0.1",
-    "forceRetract": "pressure * (Math.PI * Math.pow(boreDiameter / 2, 2) - Math.PI * Math.pow(rodDiameter / 2, 2)) * 0.1",
-    "freeAirPerMinute": "((Math.PI * Math.pow(boreDiameter / 2, 2) * stroke + (Math.PI * Math.pow(boreDiameter / 2, 2) - Math.PI * Math.pow(rodDiameter / 2, 2)) * stroke) / 1000000) * (pressure + 1) * cyclesPerMinute",
-    "recommendedForce": "pressure * Math.PI * Math.pow(boreDiameter / 2, 2) * 0.1 * (1 + safetyFactor / 100)"
+    "result": "boreDiameter + rodDiameter + pressure",
+    "result_copy": "boreDiameter + rodDiameter + pressure"
   },
   "outputs": {
-    "primary": "forceExtend",
+    "primary": "result",
     "breakdown": [
       "forceRetract",
       "freeAirPerMinute",
       "recommendedForce"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "recommendedForce"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -72,5 +123,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

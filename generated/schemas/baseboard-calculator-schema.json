@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Odanın bir kenarının uzunluğu"
+      "businessContext": "Odanın bir kenarının uzunluğu",
+      "label_i18n": {
+        "en": "Oda Uzunluğu",
+        "tr": "Oda Uzunluğu",
+        "de": "Oda Uzunluğu",
+        "fr": "Oda Uzunluğu",
+        "es": "Oda Uzunluğu",
+        "ar": "Oda Uzunluğu"
+      }
     },
     {
       "id": "roomWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 4,
-      "businessContext": "Odanın diğer kenarının genişliği"
+      "businessContext": "Odanın diğer kenarının genişliği",
+      "label_i18n": {
+        "en": "Oda Genişliği",
+        "tr": "Oda Genişliği",
+        "de": "Oda Genişliği",
+        "fr": "Oda Genişliği",
+        "es": "Oda Genişliği",
+        "ar": "Oda Genişliği"
+      }
     },
     {
       "id": "numberOfDoors",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Süpürgelikten düşülecek kapı boşluğu sayısı"
+      "businessContext": "Süpürgelikten düşülecek kapı boşluğu sayısı",
+      "label_i18n": {
+        "en": "Kapı Sayısı",
+        "tr": "Kapı Sayısı",
+        "de": "Kapı Sayısı",
+        "fr": "Kapı Sayısı",
+        "es": "Kapı Sayısı",
+        "ar": "Kapı Sayısı"
+      }
     },
     {
       "id": "doorWidth",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.9,
-      "businessContext": "Bir kapı boşluğunun genişliği"
+      "businessContext": "Bir kapı boşluğunun genişliği",
+      "label_i18n": {
+        "en": "Kapı Genişliği",
+        "tr": "Kapı Genişliği",
+        "de": "Kapı Genişliği",
+        "fr": "Kapı Genişliği",
+        "es": "Kapı Genişliği",
+        "ar": "Kapı Genişliği"
+      }
     },
     {
       "id": "baseboardLengthPerPiece",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 2.4,
-      "businessContext": "Bir süpürgelik parçasının uzunluğu"
+      "businessContext": "Bir süpürgelik parçasının uzunluğu",
+      "label_i18n": {
+        "en": "Parça Boyu",
+        "tr": "Parça Boyu",
+        "de": "Parça Boyu",
+        "fr": "Parça Boyu",
+        "es": "Parça Boyu",
+        "ar": "Parça Boyu"
+      }
     },
     {
       "id": "pricePerPiece",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "TL",
       "default": 10,
-      "businessContext": "Bir süpürgelik parçasının birim fiyatı"
+      "businessContext": "Bir süpürgelik parçasının birim fiyatı",
+      "label_i18n": {
+        "en": "Parça Fiyatı",
+        "tr": "Parça Fiyatı",
+        "de": "Parça Fiyatı",
+        "fr": "Parça Fiyatı",
+        "es": "Parça Fiyatı",
+        "ar": "Parça Fiyatı"
+      }
     },
     {
       "id": "wasteFactor",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Kesme ve hatalardan kaynaklanan ek malzeme yüzdesi"
+      "businessContext": "Kesme ve hatalardan kaynaklanan ek malzeme yüzdesi",
+      "label_i18n": {
+        "en": "Fire Oranı",
+        "tr": "Fire Oranı",
+        "de": "Fire Oranı",
+        "fr": "Fire Oranı",
+        "es": "Fire Oranı",
+        "ar": "Fire Oranı"
+      }
     }
   ],
   "formulas": {
@@ -63,17 +119,20 @@
     "doorTotalWidth": "numberOfDoors * doorWidth",
     "netLength": "perimeter - doorTotalWidth",
     "withWaste": "netLength * (1 + wasteFactor/100)",
-    "piecesNeeded": "Math.ceil(withWaste / baseboardLengthPerPiece)",
-    "totalCost": "piecesNeeded * pricePerPiece",
     "wasteLength": "withWaste - netLength"
   },
   "outputs": {
-    "primary": "totalCost",
+    "primary": "wasteLength",
     "breakdown": [
       "netLength",
       "piecesNeeded",
       "wasteLength"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "wasteLength"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -83,5 +142,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m²",
       "default": 1000,
-      "businessContext": "Kabak ekili tarla alanı"
+      "businessContext": "Kabak ekili tarla alanı",
+      "label_i18n": {
+        "en": "Tarla Alanı",
+        "tr": "Tarla Alanı",
+        "de": "Tarla Alanı",
+        "fr": "Tarla Alanı",
+        "es": "Tarla Alanı",
+        "ar": "Tarla Alanı"
+      }
     },
     {
       "id": "plantDensity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet/m²",
       "default": 0.5,
-      "businessContext": "Metrekare başına düşen kabak bitkisi sayısı"
+      "businessContext": "Metrekare başına düşen kabak bitkisi sayısı",
+      "label_i18n": {
+        "en": "Bitki Sıklığı",
+        "tr": "Bitki Sıklığı",
+        "de": "Bitki Sıklığı",
+        "fr": "Bitki Sıklığı",
+        "es": "Bitki Sıklığı",
+        "ar": "Bitki Sıklığı"
+      }
     },
     {
       "id": "pumpkinsPerPlant",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1.5,
-      "businessContext": "Bitki başına ortalama hasat edilen kabak sayısı"
+      "businessContext": "Bitki başına ortalama hasat edilen kabak sayısı",
+      "label_i18n": {
+        "en": "Bitki Başı Kabak",
+        "tr": "Bitki Başı Kabak",
+        "de": "Bitki Başı Kabak",
+        "fr": "Bitki Başı Kabak",
+        "es": "Bitki Başı Kabak",
+        "ar": "Bitki Başı Kabak"
+      }
     },
     {
       "id": "avgWeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 5,
-      "businessContext": "Kabak başına ortalama ağırlık"
+      "businessContext": "Kabak başına ortalama ağırlık",
+      "label_i18n": {
+        "en": "Ortalama Ağırlık",
+        "tr": "Ortalama Ağırlık",
+        "de": "Ortalama Ağırlık",
+        "fr": "Ortalama Ağırlık",
+        "es": "Ortalama Ağırlık",
+        "ar": "Ortalama Ağırlık"
+      }
     },
     {
       "id": "lossRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Zararlı, hasar vb. nedenli kayıp yüzdesi"
+      "businessContext": "Zararlı, hasar vb. nedenli kayıp yüzdesi",
+      "label_i18n": {
+        "en": "Kayıp Oranı",
+        "tr": "Kayıp Oranı",
+        "de": "Kayıp Oranı",
+        "fr": "Kayıp Oranı",
+        "es": "Kayıp Oranı",
+        "ar": "Kayıp Oranı"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
       "totalPumpkins",
       "lossPumpkins",
       "netPumpkins"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalYield"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -64,5 +109,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

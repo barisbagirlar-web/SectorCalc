@@ -99,17 +99,21 @@
     }
   ],
   "formulas": {
-    "kelvin_adjusted": "inputs.kelvin + inputs.offset",
-    "celsius": "kelvin_adjusted - 273.15",
-    "roundedCelsius": "Math.round(celsius * Math.pow(10, inputs.precision)) / Math.pow(10, inputs.precision)"
+    "result": "kelvin + offset + precision",
+    "result_copy": "kelvin + offset + precision"
   },
   "outputs": {
-    "primary": "roundedCelsius",
+    "primary": "result",
     "breakdown": [
       "kelvin_adjusted",
       "celsius",
       "roundedCelsius"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roundedCelsius"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -119,5 +123,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

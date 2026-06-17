@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "count",
       "default": 100,
-      "businessContext": "Toplam satış fırsatı sayısı (kazanılan, kaybedilen, beklemede)"
+      "businessContext": "Toplam satış fırsatı sayısı (kazanılan, kaybedilen, beklemede)",
+      "label_i18n": {
+        "en": "Total Opportunities",
+        "tr": "Total Opportunities",
+        "de": "Total Opportunities",
+        "fr": "Total Opportunities",
+        "es": "Total Opportunities",
+        "ar": "Total Opportunities"
+      }
     },
     {
       "id": "wonOpportunities",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "count",
       "default": 25,
-      "businessContext": "Kazanılan fırsat sayısı"
+      "businessContext": "Kazanılan fırsat sayısı",
+      "label_i18n": {
+        "en": "Won Opportunities",
+        "tr": "Won Opportunities",
+        "de": "Won Opportunities",
+        "fr": "Won Opportunities",
+        "es": "Won Opportunities",
+        "ar": "Won Opportunities"
+      }
     },
     {
       "id": "pendingOpportunities",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "count",
       "default": 20,
-      "businessContext": "Beklemedeki fırsat sayısı"
+      "businessContext": "Beklemedeki fırsat sayısı",
+      "label_i18n": {
+        "en": "Pending Opportunities",
+        "tr": "Pending Opportunities",
+        "de": "Pending Opportunities",
+        "fr": "Pending Opportunities",
+        "es": "Pending Opportunities",
+        "ar": "Pending Opportunities"
+      }
     },
     {
       "id": "targetWinRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 25,
-      "businessContext": "Hedeflenen kazanma oranı (%)"
+      "businessContext": "Hedeflenen kazanma oranı (%)",
+      "label_i18n": {
+        "en": "Target Win Rate",
+        "tr": "Target Win Rate",
+        "de": "Target Win Rate",
+        "fr": "Target Win Rate",
+        "es": "Target Win Rate",
+        "ar": "Target Win Rate"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "winCount",
       "lossCount",
       "gap"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "gap"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -56,5 +93,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

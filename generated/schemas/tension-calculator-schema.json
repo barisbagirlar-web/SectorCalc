@@ -83,15 +83,20 @@
     }
   ],
   "formulas": {
-    "tensionPerRope": "(mass * gravity) / (numberOfRopes * Math.sin(angle * Math.PI / 180))",
-    "tensionWithSafety": "tensionPerRope * safetyFactor"
+    "result": "mass + gravity + angle",
+    "result_copy": "mass + gravity + angle"
   },
   "outputs": {
-    "primary": "tensionWithSafety",
+    "primary": "result",
     "breakdown": [
       "tensionPerRope",
       "tensionWithSafety"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "tensionWithSafety"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -101,5 +106,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

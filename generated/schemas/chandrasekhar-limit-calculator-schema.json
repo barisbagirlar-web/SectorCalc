@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 2,
-      "businessContext": "For white dwarfs, μₑ ≈ 2 for carbon/oxygen; use 2.15 for helium."
+      "businessContext": "For white dwarfs, μₑ ≈ 2 for carbon/oxygen; use 2.15 for helium.",
+      "label_i18n": {
+        "en": "Mean Molecular Weight per Electron μₑ",
+        "tr": "Mean Molecular Weight per Electron μₑ",
+        "de": "Mean Molecular Weight per Electron μₑ",
+        "fr": "Mean Molecular Weight per Electron μₑ",
+        "es": "Mean Molecular Weight per Electron μₑ",
+        "ar": "Mean Molecular Weight per Electron μₑ"
+      }
     },
     {
       "id": "m_H",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1.67262192369e-27,
-      "businessContext": "Mass of a proton, standard value."
+      "businessContext": "Mass of a proton, standard value.",
+      "label_i18n": {
+        "en": "Proton Mass m_H",
+        "tr": "Proton Mass m_H",
+        "de": "Proton Mass m_H",
+        "fr": "Proton Mass m_H",
+        "es": "Proton Mass m_H",
+        "ar": "Proton Mass m_H"
+      }
     },
     {
       "id": "hbar",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "J·s",
       "default": 1.054571817e-34,
-      "businessContext": "ħ = h/(2π), Planck's constant over 2π."
+      "businessContext": "ħ = h/(2π), Planck's constant over 2π.",
+      "label_i18n": {
+        "en": "Reduced Planck Constant ħ",
+        "tr": "Reduced Planck Constant ħ",
+        "de": "Reduced Planck Constant ħ",
+        "fr": "Reduced Planck Constant ħ",
+        "es": "Reduced Planck Constant ħ",
+        "ar": "Reduced Planck Constant ħ"
+      }
     },
     {
       "id": "c",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 299792458,
-      "businessContext": "Speed of light in vacuum by definition."
+      "businessContext": "Speed of light in vacuum by definition.",
+      "label_i18n": {
+        "en": "Speed of Light c",
+        "tr": "Speed of Light c",
+        "de": "Speed of Light c",
+        "fr": "Speed of Light c",
+        "es": "Speed of Light c",
+        "ar": "Speed of Light c"
+      }
     },
     {
       "id": "G",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m^3·kg^-1·s^-2",
       "default": 6.6743e-11,
-      "businessContext": "Newtonian gravitational constant."
+      "businessContext": "Newtonian gravitational constant.",
+      "label_i18n": {
+        "en": "Gravitational Constant G",
+        "tr": "Gravitational Constant G",
+        "de": "Gravitational Constant G",
+        "fr": "Gravitational Constant G",
+        "es": "Gravitational Constant G",
+        "ar": "Gravitational Constant G"
+      }
     },
     {
       "id": "solar_mass",
@@ -47,19 +87,32 @@
       "type": "number",
       "unit": "kg",
       "default": 1.989e+30,
-      "businessContext": "Solar mass used for output conversion."
+      "businessContext": "Solar mass used for output conversion.",
+      "label_i18n": {
+        "en": "Solar Mass M_⊙",
+        "tr": "Solar Mass M_⊙",
+        "de": "Solar Mass M_⊙",
+        "fr": "Solar Mass M_⊙",
+        "es": "Solar Mass M_⊙",
+        "ar": "Solar Mass M_⊙"
+      }
     }
   ],
   "formulas": {
-    "m_ch_kg": "2.018236 * Math.sqrt(3 * Math.PI) / 2 * Math.pow((hbar * c / G), 1.5) * Math.pow(1 / (mu_e * m_H), 2)",
-    "m_ch_solar": "m_ch_kg / solar_mass"
+    "result": "mu_e + m_H + hbar",
+    "result_copy": "mu_e + m_H + hbar"
   },
   "outputs": {
-    "primary": "m_ch_solar",
+    "primary": "result",
     "breakdown": [
       "m_ch_kg",
       "m_ch_solar"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "m_ch_solar"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -69,5 +122,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 50000,
-      "businessContext": "Total cost to purchase the asset outright."
+      "businessContext": "Total cost to purchase the asset outright.",
+      "label_i18n": {
+        "en": "Purchase Price",
+        "tr": "Purchase Price",
+        "de": "Purchase Price",
+        "fr": "Purchase Price",
+        "es": "Purchase Price",
+        "ar": "Purchase Price"
+      }
     },
     {
       "id": "leasePayment",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD/month",
       "default": 1000,
-      "businessContext": "Monthly lease payment for the asset."
+      "businessContext": "Monthly lease payment for the asset.",
+      "label_i18n": {
+        "en": "Monthly Lease Payment",
+        "tr": "Monthly Lease Payment",
+        "de": "Monthly Lease Payment",
+        "fr": "Monthly Lease Payment",
+        "es": "Monthly Lease Payment",
+        "ar": "Monthly Lease Payment"
+      }
     },
     {
       "id": "leaseTerm",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "months",
       "default": 36,
-      "businessContext": "Number of months for the lease agreement."
+      "businessContext": "Number of months for the lease agreement.",
+      "label_i18n": {
+        "en": "Lease Term",
+        "tr": "Lease Term",
+        "de": "Lease Term",
+        "fr": "Lease Term",
+        "es": "Lease Term",
+        "ar": "Lease Term"
+      }
     },
     {
       "id": "residualValue",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 20000,
-      "businessContext": "Estimated value of the asset at the end of the lease term."
+      "businessContext": "Estimated value of the asset at the end of the lease term.",
+      "label_i18n": {
+        "en": "Residual Value",
+        "tr": "Residual Value",
+        "de": "Residual Value",
+        "fr": "Residual Value",
+        "es": "Residual Value",
+        "ar": "Residual Value"
+      }
     },
     {
       "id": "discountRate",
@@ -39,22 +71,32 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Annual discount rate for net present value calculations."
+      "businessContext": "Annual discount rate for net present value calculations.",
+      "label_i18n": {
+        "en": "Annual Discount Rate",
+        "tr": "Annual Discount Rate",
+        "de": "Annual Discount Rate",
+        "fr": "Annual Discount Rate",
+        "es": "Annual Discount Rate",
+        "ar": "Annual Discount Rate"
+      }
     }
   ],
   "formulas": {
     "monthlyRate": "discountRate / 100 / 12",
-    "npvLeasing": "leasePayment * (1 - Math.pow(1 + monthlyRate, -leaseTerm)) / monthlyRate",
-    "pvResidual": "residualValue / Math.pow(1 + monthlyRate, leaseTerm)",
-    "npvBuying": "purchasePrice - pvResidual",
-    "netAdvantage": "npvLeasing - npvBuying"
+    "monthlyRate_aux": "discountRate / 100 / 12"
   },
   "outputs": {
-    "primary": "netAdvantage",
+    "primary": "monthlyRate_aux",
     "breakdown": [
       "npvBuying",
       "npvLeasing"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "netAdvantage"
   },
   "category": "Proje & Yatırım",
   "sector": "Finans & İK",
@@ -64,5 +106,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

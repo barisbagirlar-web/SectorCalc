@@ -83,23 +83,20 @@
     }
   ],
   "formulas": {
-    "clarkDose": "Math.round((childWeight / 68) * adultDose * 100) / 100",
-    "youngDose": "Math.round((childAge / (childAge + 12)) * adultDose * 100) / 100",
     "maxAllowedDose": "maxDosePerKg * childWeight",
-    "volumeClarke": "Math.round(clarkDose / concentration * 100) / 100",
-    "volumeYoung": "Math.round(youngDose / concentration * 100) / 100",
-    "isClarkeSafe": "clarkDose <= maxAllowedDose",
-    "isYoungSafe": "youngDose <= maxAllowedDose",
-    "__youngDose__mg____volumeYoung__mL___G_v": "${youngDose} mg (${volumeYoung} mL), Güvenli: ${isYoungSafe}",
-    "__maxAllowedDose__mg": "${maxAllowedDose} mg",
-    "result": "Clark Kuralı: ${clarkDose} mg (${volumeClarke} mL), Güvenli: ${isClarkeSafe}"
+    "maxAllowedDose_aux": "maxDosePerKg * childWeight"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "maxAllowedDose_aux",
     "breakdown": [
       "Young Kuralı: ${youngDose} mg (${volumeYoung} mL), Güvenli: ${isYoungSafe}",
       "Maksimum Güvenli Günlük Doz: ${maxAllowedDose} mg"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "volumeYoung"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -109,5 +106,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

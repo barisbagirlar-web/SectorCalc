@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Cost of machinery, computers, furniture, and other equipment."
+      "businessContext": "Cost of machinery, computers, furniture, and other equipment.",
+      "label_i18n": {
+        "en": "Equipment Cost",
+        "tr": "Equipment Cost",
+        "de": "Equipment Cost",
+        "fr": "Equipment Cost",
+        "es": "Equipment Cost",
+        "ar": "Equipment Cost"
+      }
     },
     {
       "id": "legalAndPermitCost",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Legal fees, business registration, permits, and licenses."
+      "businessContext": "Legal fees, business registration, permits, and licenses.",
+      "label_i18n": {
+        "en": "Legal & Permit Cost",
+        "tr": "Legal & Permit Cost",
+        "de": "Legal & Permit Cost",
+        "fr": "Legal & Permit Cost",
+        "es": "Legal & Permit Cost",
+        "ar": "Legal & Permit Cost"
+      }
     },
     {
       "id": "depositCost",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Rental deposits, utility deposits, and other refundable deposits."
+      "businessContext": "Rental deposits, utility deposits, and other refundable deposits.",
+      "label_i18n": {
+        "en": "Deposit Cost",
+        "tr": "Deposit Cost",
+        "de": "Deposit Cost",
+        "fr": "Deposit Cost",
+        "es": "Deposit Cost",
+        "ar": "Deposit Cost"
+      }
     },
     {
       "id": "initialInventoryCost",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Cost of initial stock, raw materials, or finished goods."
+      "businessContext": "Cost of initial stock, raw materials, or finished goods.",
+      "label_i18n": {
+        "en": "Initial Inventory Cost",
+        "tr": "Initial Inventory Cost",
+        "de": "Initial Inventory Cost",
+        "fr": "Initial Inventory Cost",
+        "es": "Initial Inventory Cost",
+        "ar": "Initial Inventory Cost"
+      }
     },
     {
       "id": "marketingLaunchCost",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Marketing, advertising, and promotional expenses for launch."
+      "businessContext": "Marketing, advertising, and promotional expenses for launch.",
+      "label_i18n": {
+        "en": "Marketing Launch Cost",
+        "tr": "Marketing Launch Cost",
+        "de": "Marketing Launch Cost",
+        "fr": "Marketing Launch Cost",
+        "es": "Marketing Launch Cost",
+        "ar": "Marketing Launch Cost"
+      }
     },
     {
       "id": "workingCapital",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Cash reserve to cover initial operating expenses before revenue."
+      "businessContext": "Cash reserve to cover initial operating expenses before revenue.",
+      "label_i18n": {
+        "en": "Working Capital",
+        "tr": "Working Capital",
+        "de": "Working Capital",
+        "fr": "Working Capital",
+        "es": "Working Capital",
+        "ar": "Working Capital"
+      }
     }
   ],
   "formulas": {
@@ -68,7 +116,12 @@
       "initialInventoryOut",
       "marketingLaunchOut",
       "workingCapitalOut"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "workingCapitalOut"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -78,5 +131,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

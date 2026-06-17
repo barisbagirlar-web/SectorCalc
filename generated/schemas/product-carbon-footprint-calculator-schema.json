@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg CO₂e",
       "default": 0,
-      "businessContext": "Carbon footprint from raw material extraction and processing"
+      "businessContext": "Carbon footprint from raw material extraction and processing",
+      "label_i18n": {
+        "en": "Raw Material Footprint",
+        "tr": "Raw Material Footprint",
+        "de": "Raw Material Footprint",
+        "fr": "Raw Material Footprint",
+        "es": "Raw Material Footprint",
+        "ar": "Raw Material Footprint"
+      }
     },
     {
       "id": "manufacturing",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg CO₂e",
       "default": 0,
-      "businessContext": "Emissions from manufacturing process energy and waste"
+      "businessContext": "Emissions from manufacturing process energy and waste",
+      "label_i18n": {
+        "en": "Manufacturing Footprint",
+        "tr": "Manufacturing Footprint",
+        "de": "Manufacturing Footprint",
+        "fr": "Manufacturing Footprint",
+        "es": "Manufacturing Footprint",
+        "ar": "Manufacturing Footprint"
+      }
     },
     {
       "id": "transportDistance",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "km",
       "default": 0,
-      "businessContext": "Total distance transported over product lifecycle"
+      "businessContext": "Total distance transported over product lifecycle",
+      "label_i18n": {
+        "en": "Transport Distance",
+        "tr": "Transport Distance",
+        "de": "Transport Distance",
+        "fr": "Transport Distance",
+        "es": "Transport Distance",
+        "ar": "Transport Distance"
+      }
     },
     {
       "id": "transportFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg CO₂e/km",
       "default": 0.1,
-      "businessContext": "Emission factor per kilometer for transport mode"
+      "businessContext": "Emission factor per kilometer for transport mode",
+      "label_i18n": {
+        "en": "Transport Emission Factor",
+        "tr": "Transport Emission Factor",
+        "de": "Transport Emission Factor",
+        "fr": "Transport Emission Factor",
+        "es": "Transport Emission Factor",
+        "ar": "Transport Emission Factor"
+      }
     },
     {
       "id": "useEnergy",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kWh",
       "default": 0,
-      "businessContext": "Energy consumed during product use phase"
+      "businessContext": "Energy consumed during product use phase",
+      "label_i18n": {
+        "en": "Use Phase Energy",
+        "tr": "Use Phase Energy",
+        "de": "Use Phase Energy",
+        "fr": "Use Phase Energy",
+        "es": "Use Phase Energy",
+        "ar": "Use Phase Energy"
+      }
     },
     {
       "id": "useFactor",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kg CO₂e/kWh",
       "default": 0.5,
-      "businessContext": "Grid emission factor for use phase electricity"
+      "businessContext": "Grid emission factor for use phase electricity",
+      "label_i18n": {
+        "en": "Use Phase Emission Factor",
+        "tr": "Use Phase Emission Factor",
+        "de": "Use Phase Emission Factor",
+        "fr": "Use Phase Emission Factor",
+        "es": "Use Phase Emission Factor",
+        "ar": "Use Phase Emission Factor"
+      }
     },
     {
       "id": "endOfLife",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "kg CO₂e",
       "default": 0,
-      "businessContext": "Emissions from disposal, recycling, or incineration"
+      "businessContext": "Emissions from disposal, recycling, or incineration",
+      "label_i18n": {
+        "en": "End-of-Life Footprint",
+        "tr": "End-of-Life Footprint",
+        "de": "End-of-Life Footprint",
+        "fr": "End-of-Life Footprint",
+        "es": "End-of-Life Footprint",
+        "ar": "End-of-Life Footprint"
+      }
     }
   ],
   "formulas": {
@@ -74,7 +130,12 @@
       "transportFootprint",
       "useFootprint",
       "endOfLife"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCarbonFootprint"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -84,5 +145,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

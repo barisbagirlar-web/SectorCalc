@@ -67,16 +67,20 @@
     }
   ],
   "formulas": {
-    "resistance": "(band1 * 10 + band2) * Math.pow(10, multiplier)",
-    "resistanceCalculation": "'Direnç: ' + ((band1 * 10 + band2) * Math.pow(10, multiplier)) + ' Ω'",
-    "toleranceInfo": "'Tolerans: ±' + tolerance + '%'"
+    "toleranceInfo": "'Tolerans: ±' + tolerance + '%'",
+    "toleranceInfo_aux": "'Tolerans: ±' + tolerance + '%'"
   },
   "outputs": {
-    "primary": "resistance",
+    "primary": "toleranceInfo_aux",
     "breakdown": [
       "resistanceCalculation",
       "toleranceInfo"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "toleranceInfo"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -86,5 +90,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

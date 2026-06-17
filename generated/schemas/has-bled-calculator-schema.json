@@ -132,13 +132,18 @@
   ],
   "formulas": {
     "totalScore": "hypertension + abnormalRenal + abnormalLiver + stroke + bleeding + labileINR + elderly + drugsAlcohol",
-    "riskCategory": "totalScore >= 3 ? 'High risk' : totalScore === 2 ? 'Moderate risk' : 'Low risk'"
+    "totalScore_aux": "hypertension + abnormalRenal + abnormalLiver + stroke + bleeding + labileINR + elderly + drugsAlcohol"
   },
   "outputs": {
     "primary": "totalScore",
     "breakdown": [
       "riskCategory"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "riskCategory"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -148,5 +153,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "kimya",
   "profession": "Proses Mühendisi",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

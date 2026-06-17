@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 200,
-      "businessContext": "Weight of uncooked rice to be cooked"
+      "businessContext": "Weight of uncooked rice to be cooked",
+      "label_i18n": {
+        "en": "Uncooked Rice Weight",
+        "tr": "Uncooked Rice Weight",
+        "de": "Uncooked Rice Weight",
+        "fr": "Uncooked Rice Weight",
+        "es": "Uncooked Rice Weight",
+        "ar": "Uncooked Rice Weight"
+      }
     },
     {
       "id": "waterRatio",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ratio",
       "default": 2,
-      "businessContext": "Ratio of water volume to rice weight (e.g., 2 for 2 ml water per 1 g rice)"
+      "businessContext": "Ratio of water volume to rice weight (e.g., 2 for 2 ml water per 1 g rice)",
+      "label_i18n": {
+        "en": "Water to Rice Ratio",
+        "tr": "Water to Rice Ratio",
+        "de": "Water to Rice Ratio",
+        "fr": "Water to Rice Ratio",
+        "es": "Water to Rice Ratio",
+        "ar": "Water to Rice Ratio"
+      }
     },
     {
       "id": "yieldFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 2.5,
-      "businessContext": "How many times the uncooked weight the cooked rice becomes (typical: 2.5-3)"
+      "businessContext": "How many times the uncooked weight the cooked rice becomes (typical: 2.5-3)",
+      "label_i18n": {
+        "en": "Cooked Yield Factor",
+        "tr": "Cooked Yield Factor",
+        "de": "Cooked Yield Factor",
+        "fr": "Cooked Yield Factor",
+        "es": "Cooked Yield Factor",
+        "ar": "Cooked Yield Factor"
+      }
     },
     {
       "id": "servingSize",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "g",
       "default": 150,
-      "businessContext": "Amount of cooked rice per serving"
+      "businessContext": "Amount of cooked rice per serving",
+      "label_i18n": {
+        "en": "Serving Size per Person",
+        "tr": "Serving Size per Person",
+        "de": "Serving Size per Person",
+        "fr": "Serving Size per Person",
+        "es": "Serving Size per Person",
+        "ar": "Serving Size per Person"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "cookedRice",
       "waterNeeded"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "waterNeeded"
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Üretim & İmalat",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

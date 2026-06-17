@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Inner diameter of the thick wall vessel"
+      "businessContext": "Inner diameter of the thick wall vessel",
+      "label_i18n": {
+        "en": "Inside Diameter",
+        "tr": "Inside Diameter",
+        "de": "Inside Diameter",
+        "fr": "Inside Diameter",
+        "es": "Inside Diameter",
+        "ar": "Inside Diameter"
+      }
     },
     {
       "id": "outsideDiameter",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 200,
-      "businessContext": "Outer diameter of the thick wall vessel"
+      "businessContext": "Outer diameter of the thick wall vessel",
+      "label_i18n": {
+        "en": "Outside Diameter",
+        "tr": "Outside Diameter",
+        "de": "Outside Diameter",
+        "fr": "Outside Diameter",
+        "es": "Outside Diameter",
+        "ar": "Outside Diameter"
+      }
     },
     {
       "id": "internalPressure",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 10,
-      "businessContext": "Pressure inside the vessel"
+      "businessContext": "Pressure inside the vessel",
+      "label_i18n": {
+        "en": "Internal Pressure",
+        "tr": "Internal Pressure",
+        "de": "Internal Pressure",
+        "fr": "Internal Pressure",
+        "es": "Internal Pressure",
+        "ar": "Internal Pressure"
+      }
     },
     {
       "id": "externalPressure",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 0,
-      "businessContext": "Pressure outside the vessel, typically 0"
+      "businessContext": "Pressure outside the vessel, typically 0",
+      "label_i18n": {
+        "en": "External Pressure",
+        "tr": "External Pressure",
+        "de": "External Pressure",
+        "fr": "External Pressure",
+        "es": "External Pressure",
+        "ar": "External Pressure"
+      }
     },
     {
       "id": "yieldStrength",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 250,
-      "businessContext": "Material yield strength for safety factor calculation (0 to omit)"
+      "businessContext": "Material yield strength for safety factor calculation (0 to omit)",
+      "label_i18n": {
+        "en": "Yield Strength",
+        "tr": "Yield Strength",
+        "de": "Yield Strength",
+        "fr": "Yield Strength",
+        "es": "Yield Strength",
+        "ar": "Yield Strength"
+      }
     }
   ],
   "formulas": {
@@ -47,9 +87,7 @@
     "ro": "outsideDiameter / 2",
     "hoopStressInner": "((internalPressure * ri ** 2 - externalPressure * ro ** 2) / (ro ** 2 - ri ** 2)) + ((internalPressure - externalPressure) * ro ** 2 / (ro ** 2 - ri ** 2))",
     "radialStressInner": "-internalPressure",
-    "longitudinalStress": "(internalPressure * ri ** 2 - externalPressure * ro ** 2) / (ro ** 2 - ri ** 2)",
-    "vonMises": "Math.sqrt(0.5 * ((hoopStressInner - radialStressInner) ** 2 + (radialStressInner - longitudinalStress) ** 2 + (longitudinalStress - hoopStressInner) ** 2))",
-    "safetyFactor": "yieldStrength > 0 ? yieldStrength / vonMises : null"
+    "longitudinalStress": "(internalPressure * ri ** 2 - externalPressure * ro ** 2) / (ro ** 2 - ri ** 2)"
   },
   "outputs": {
     "primary": "hoopStressInner",
@@ -58,7 +96,12 @@
       "longitudinalStress",
       "vonMises",
       "safetyFactor"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "safetyFactor"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -68,5 +111,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

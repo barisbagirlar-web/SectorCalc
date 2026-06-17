@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 5000,
-      "businessContext": "Your monthly take-home pay after taxes and deductions."
+      "businessContext": "Your monthly take-home pay after taxes and deductions.",
+      "label_i18n": {
+        "en": "Monthly Net Income",
+        "tr": "Monthly Net Income",
+        "de": "Monthly Net Income",
+        "fr": "Monthly Net Income",
+        "es": "Monthly Net Income",
+        "ar": "Monthly Net Income"
+      }
     },
     {
       "id": "monthlyExpenses",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 3000,
-      "businessContext": "Total monthly living expenses excluding any car-related costs."
+      "businessContext": "Total monthly living expenses excluding any car-related costs.",
+      "label_i18n": {
+        "en": "Monthly Expenses (excl. car)",
+        "tr": "Monthly Expenses (excl. car)",
+        "de": "Monthly Expenses (excl. car)",
+        "fr": "Monthly Expenses (excl. car)",
+        "es": "Monthly Expenses (excl. car)",
+        "ar": "Monthly Expenses (excl. car)"
+      }
     },
     {
       "id": "downPayment",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 5000,
-      "businessContext": "Cash available for down payment on the car."
+      "businessContext": "Cash available for down payment on the car.",
+      "label_i18n": {
+        "en": "Down Payment",
+        "tr": "Down Payment",
+        "de": "Down Payment",
+        "fr": "Down Payment",
+        "es": "Down Payment",
+        "ar": "Down Payment"
+      }
     },
     {
       "id": "loanTermMonths",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "months",
       "default": 60,
-      "businessContext": "Desired loan term in months (e.g., 36, 48, 60)."
+      "businessContext": "Desired loan term in months (e.g., 36, 48, 60).",
+      "label_i18n": {
+        "en": "Loan Term (Months)",
+        "tr": "Loan Term (Months)",
+        "de": "Loan Term (Months)",
+        "fr": "Loan Term (Months)",
+        "es": "Loan Term (Months)",
+        "ar": "Loan Term (Months)"
+      }
     },
     {
       "id": "annualInterestRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Expected annual interest rate for the auto loan."
+      "businessContext": "Expected annual interest rate for the auto loan.",
+      "label_i18n": {
+        "en": "Annual Interest Rate",
+        "tr": "Annual Interest Rate",
+        "de": "Annual Interest Rate",
+        "fr": "Annual Interest Rate",
+        "es": "Annual Interest Rate",
+        "ar": "Annual Interest Rate"
+      }
     },
     {
       "id": "otherCarCosts",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "USD",
       "default": 200,
-      "businessContext": "Estimated monthly costs for insurance, maintenance, fuel, etc."
+      "businessContext": "Estimated monthly costs for insurance, maintenance, fuel, etc.",
+      "label_i18n": {
+        "en": "Monthly Other Car Costs",
+        "tr": "Monthly Other Car Costs",
+        "de": "Monthly Other Car Costs",
+        "fr": "Monthly Other Car Costs",
+        "es": "Monthly Other Car Costs",
+        "ar": "Monthly Other Car Costs"
+      }
     },
     {
       "id": "maxPaymentPercent",
@@ -55,26 +103,37 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Maximum percentage of your disposable income (after expenses) you are willing to allocate to total car costs (loan payment + other costs)."
+      "businessContext": "Maximum percentage of your disposable income (after expenses) you are willing to allocate to total car costs (loan payment + other costs).",
+      "label_i18n": {
+        "en": "Max Car Payment % of Disposable Income",
+        "tr": "Max Car Payment % of Disposable Income",
+        "de": "Max Car Payment % of Disposable Income",
+        "fr": "Max Car Payment % of Disposable Income",
+        "es": "Max Car Payment % of Disposable Income",
+        "ar": "Max Car Payment % of Disposable Income"
+      }
     }
   ],
   "formulas": {
     "disposableIncome": "monthlyNetIncome - monthlyExpenses",
     "maxTotalCarBudget": "disposableIncome * (maxPaymentPercent / 100)",
     "maxLoanPayment": "maxTotalCarBudget - otherCarCosts",
-    "monthlyInterestRate": "annualInterestRate / 12 / 100",
-    "maxLoan": "monthlyInterestRate === 0 ? maxLoanPayment * loanTermMonths : maxLoanPayment * (1 - Math.pow(1 + monthlyInterestRate, -loanTermMonths)) / monthlyInterestRate",
-    "maxCarPrice": "downPayment + maxLoan"
+    "monthlyInterestRate": "annualInterestRate / 12 / 100"
   },
   "outputs": {
-    "primary": "maxCarPrice",
+    "primary": "monthlyInterestRate",
     "breakdown": [
       "disposableIncome",
       "maxTotalCarBudget",
       "maxLoanPayment",
       "monthlyInterestRate",
       "maxLoan"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "maxCarPrice"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -84,5 +143,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

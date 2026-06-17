@@ -84,15 +84,19 @@
   ],
   "formulas": {
     "predictedHeight": "childGender === 0 ? (fatherHeightCm + motherHeightCm + 13) / 2 : (fatherHeightCm - 13 + motherHeightCm) / 2",
-    "For_boys___fatherHeight___motherHeight__": "For boys: (fatherHeight + motherHeight + 13)/2; for girls: (fatherHeight - 13 + motherHeight)/2. This gives an estimate of adult height potential based on parental heights.",
-    "The_child_s_current_height_and_age_are_n": "The child's current height and age are not part of this formula. Growth plate maturity, nutrition, and health can affect final height. Consult a pediatrician for a personalized prediction."
+    "predictedHeight_aux": "childGender === 0 ? (fatherHeightCm + motherHeightCm + 13) / 2 : (fatherHeightCm - 13 + motherHeightCm) / 2"
   },
   "outputs": {
     "primary": "predictedHeight",
     "breakdown": [
       "Mid-parental height method (Tanner): For boys: (fatherHeight + motherHeight + 13)/2; for girls: (fatherHeight - 13 + motherHeight)/2. This gives an estimate of adult height potential based on parental heights.",
       "Note: The child's current height and age are not part of this formula. Growth plate maturity, nutrition, and health can affect final height. Consult a pediatrician for a personalized prediction."
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "predictedHeight_aux"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -102,5 +106,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

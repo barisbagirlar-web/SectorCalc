@@ -51,15 +51,8 @@
     }
   ],
   "formulas": {
-    "prandtlMeyerFunction": "Math.sqrt((gamma+1)/(gamma-1))*Math.atan(Math.sqrt((gamma-1)/(gamma+1)*(mach1**2-1)))-Math.atan(Math.sqrt(mach1**2-1))",
-    "mach2": "let f = (mach) => Math.sqrt((gamma+1)/(gamma-1))*Math.atan(Math.sqrt((gamma-1)/(gamma+1)*(mach**2-1)))-Math.atan(Math.sqrt(mach**2-1)); let target = f(mach1) + deflectionAngle * Math.PI / 180; let low = 1.001, high = 100, mid; for(let i=0;i<100;i++){ mid=(low+high)/2; if(f(mid)<target) low=mid; else high=mid; } return mid;",
-    "pressureRatio": "( (1+(gamma-1)/2*mach1**2) / (1+(gamma-1)/2*mach2**2) )**(gamma/(gamma-1))",
-    "temperatureRatio": "(1+(gamma-1)/2*mach1**2)/(1+(gamma-1)/2*mach2**2)",
-    "densityRatio": "( (1+(gamma-1)/2*mach1**2) / (1+(gamma-1)/2*mach2**2) )**(1/(gamma-1))",
-    "Pressure_Ratio__P2_P1_": "Pressure Ratio (P2/P1)",
-    "Temperature_Ratio__T2_T1_": "Temperature Ratio (T2/T1)",
-    "Density_Ratio___2__1_": "Density Ratio (ρ2/ρ1)",
-    "result": "Downstream Mach Number (M2)"
+    "result": "mach1 + gamma + deflectionAngle",
+    "result_aux": "mach1 + gamma + deflectionAngle"
   },
   "outputs": {
     "primary": "result",
@@ -67,7 +60,12 @@
       "Pressure Ratio (P2/P1)",
       "Temperature Ratio (T2/T1)",
       "Density Ratio (ρ2/ρ1)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "densityRatio"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -77,5 +75,32 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [
+      {
+        "id": "mach1",
+        "type": "range",
+        "min": 1.001,
+        "max": 100,
+        "message": "M1 must be > 1"
+      },
+      {
+        "id": "gamma",
+        "type": "range",
+        "min": 1.001,
+        "max": 1.667,
+        "message": "γ must be between 1.001 and 1.667"
+      },
+      {
+        "id": "deflectionAngle",
+        "type": "range",
+        "min": 0,
+        "max": 90,
+        "message": "Deflection angle must be between 0 and 90 degrees"
+      }
+    ],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

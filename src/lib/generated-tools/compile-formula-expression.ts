@@ -1,4 +1,5 @@
 import { compileFormulaScriptFallback } from "@/lib/generated-tools/compile-formula-script";
+import { isSafeCompiledFormulaExpression } from "@/lib/generated-tools/compile-formula-safety";
 
 function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -437,6 +438,21 @@ export function isValidFormulaEvaluationExpression(expression: string): boolean 
   }
 }
 
+function transformBooleanMultiplyOne(expression: string): string {
+  const trimmed = expression.trim();
+  const multiplyOneMatch = trimmed.match(/^([\s\S]+?)\s*\*\s*1\s*$/);
+  if (!multiplyOneMatch) {
+    return expression;
+  }
+  const inner = multiplyOneMatch[1]!.trim();
+  if (/===|!==|&&|\|\||\?\s*[^:]+:/.test(inner)) {
+    return `(${inner} ? 1 : 0)`;
+  }
+  return expression;
+}
+
+export { isSafeCompiledFormulaExpression } from "@/lib/generated-tools/compile-formula-safety";
+
 export function compileFormulaExpression(
   rawExpression: string,
   options: {
@@ -499,11 +515,13 @@ export function compileFormulaExpression(
     expression = replaceIdentifierExpression(
       expression,
       formulaKey,
-      `(results[${JSON.stringify(formulaKey)}] ?? 0)`,
+      `(asFormulaNumber(results[${JSON.stringify(formulaKey)}]))`,
     );
   }
 
-  if (isValidJavaScriptExpression(expression)) {
+  expression = transformBooleanMultiplyOne(expression);
+
+  if (isSafeCompiledFormulaExpression(expression)) {
     return expression;
   }
 

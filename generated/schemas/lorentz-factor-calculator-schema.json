@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 0,
-      "businessContext": "Velocity component in X direction"
+      "businessContext": "Velocity component in X direction",
+      "label_i18n": {
+        "en": "Velocity X (m/s)",
+        "tr": "Velocity X (m/s)",
+        "de": "Velocity X (m/s)",
+        "fr": "Velocity X (m/s)",
+        "es": "Velocity X (m/s)",
+        "ar": "Velocity X (m/s)"
+      }
     },
     {
       "id": "vy",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 0,
-      "businessContext": "Velocity component in Y direction"
+      "businessContext": "Velocity component in Y direction",
+      "label_i18n": {
+        "en": "Velocity Y (m/s)",
+        "tr": "Velocity Y (m/s)",
+        "de": "Velocity Y (m/s)",
+        "fr": "Velocity Y (m/s)",
+        "es": "Velocity Y (m/s)",
+        "ar": "Velocity Y (m/s)"
+      }
     },
     {
       "id": "vz",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 0,
-      "businessContext": "Velocity component in Z direction"
+      "businessContext": "Velocity component in Z direction",
+      "label_i18n": {
+        "en": "Velocity Z (m/s)",
+        "tr": "Velocity Z (m/s)",
+        "de": "Velocity Z (m/s)",
+        "fr": "Velocity Z (m/s)",
+        "es": "Velocity Z (m/s)",
+        "ar": "Velocity Z (m/s)"
+      }
     },
     {
       "id": "c",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "m/s",
       "default": 299792458,
-      "businessContext": "Constant speed of light in vacuum, typically 299792458 m/s"
+      "businessContext": "Constant speed of light in vacuum, typically 299792458 m/s",
+      "label_i18n": {
+        "en": "Speed of Light (m/s)",
+        "tr": "Speed of Light (m/s)",
+        "de": "Speed of Light (m/s)",
+        "fr": "Speed of Light (m/s)",
+        "es": "Speed of Light (m/s)",
+        "ar": "Speed of Light (m/s)"
+      }
     }
   ],
   "formulas": {
-    "speed": "Math.sqrt(vx*vx + vy*vy + vz*vz)",
-    "beta": "Math.sqrt(vx*vx + vy*vy + vz*vz) / c",
-    "gamma": "1 / Math.sqrt(1 - (vx*vx + vy*vy + vz*vz) / (c*c))"
+    "result": "vx + vy + vz",
+    "result_copy": "vx + vy + vz"
   },
   "outputs": {
-    "primary": "gamma",
+    "primary": "result",
     "breakdown": [
       "speed",
       "beta"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "gamma"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -54,5 +90,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

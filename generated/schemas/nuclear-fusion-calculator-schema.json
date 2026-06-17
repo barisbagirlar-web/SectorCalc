@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "10^20 m^-3",
       "default": 0.5,
-      "businessContext": "Density of deuterium ions in the fusion plasma, measured in units of 10^20 particles per cubic meter."
+      "businessContext": "Density of deuterium ions in the fusion plasma, measured in units of 10^20 particles per cubic meter.",
+      "label_i18n": {
+        "en": "Deuterium Density (n_D)",
+        "tr": "Deuterium Density (n_D)",
+        "de": "Deuterium Density (n_D)",
+        "fr": "Deuterium Density (n_D)",
+        "es": "Deuterium Density (n_D)",
+        "ar": "Deuterium Density (n_D)"
+      }
     },
     {
       "id": "n_T",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "10^20 m^-3",
       "default": 0.5,
-      "businessContext": "Density of tritium ions in the fusion plasma, measured in units of 10^20 particles per cubic meter."
+      "businessContext": "Density of tritium ions in the fusion plasma, measured in units of 10^20 particles per cubic meter.",
+      "label_i18n": {
+        "en": "Tritium Density (n_T)",
+        "tr": "Tritium Density (n_T)",
+        "de": "Tritium Density (n_T)",
+        "fr": "Tritium Density (n_T)",
+        "es": "Tritium Density (n_T)",
+        "ar": "Tritium Density (n_T)"
+      }
     },
     {
       "id": "T",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "keV",
       "default": 10,
-      "businessContext": "Plasma ion temperature in kilo-electronvolts (keV), typically 10-20 keV for DT fusion."
+      "businessContext": "Plasma ion temperature in kilo-electronvolts (keV), typically 10-20 keV for DT fusion.",
+      "label_i18n": {
+        "en": "Ion Temperature (T)",
+        "tr": "Ion Temperature (T)",
+        "de": "Ion Temperature (T)",
+        "fr": "Ion Temperature (T)",
+        "es": "Ion Temperature (T)",
+        "ar": "Ion Temperature (T)"
+      }
     },
     {
       "id": "tau",
@@ -31,12 +55,19 @@
       "type": "number",
       "unit": "s",
       "default": 5,
-      "businessContext": "Energy confinement time in seconds, representing how well the plasma retains its heat."
+      "businessContext": "Energy confinement time in seconds, representing how well the plasma retains its heat.",
+      "label_i18n": {
+        "en": "Energy Confinement Time (τ)",
+        "tr": "Energy Confinement Time (τ)",
+        "de": "Energy Confinement Time (τ)",
+        "fr": "Energy Confinement Time (τ)",
+        "es": "Energy Confinement Time (τ)",
+        "ar": "Energy Confinement Time (τ)"
+      }
     }
   ],
   "formulas": {
     "tripleProduct": "(n_D + n_T) * T * tau",
-    "meetsLawson": "((n_D + n_T) * T * tau) >= 30 ? 'Yes' : 'No'",
     "margin": "((n_D + n_T) * T * tau) / 30"
   },
   "outputs": {
@@ -44,7 +75,12 @@
     "breakdown": [
       "meetsLawson",
       "margin"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "margin"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -54,5 +90,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

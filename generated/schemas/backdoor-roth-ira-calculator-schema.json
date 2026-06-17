@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 1000,
-      "businessContext": "Total value of all your traditional IRA accounts before conversion."
+      "businessContext": "Total value of all your traditional IRA accounts before conversion.",
+      "label_i18n": {
+        "en": "Total Traditional IRA Balance",
+        "tr": "Total Traditional IRA Balance",
+        "de": "Total Traditional IRA Balance",
+        "fr": "Total Traditional IRA Balance",
+        "es": "Total Traditional IRA Balance",
+        "ar": "Total Traditional IRA Balance"
+      }
     },
     {
       "id": "afterTaxBasis",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Total non-deductible contributions (already taxed)."
+      "businessContext": "Total non-deductible contributions (already taxed).",
+      "label_i18n": {
+        "en": "After-Tax Basis",
+        "tr": "After-Tax Basis",
+        "de": "After-Tax Basis",
+        "fr": "After-Tax Basis",
+        "es": "After-Tax Basis",
+        "ar": "After-Tax Basis"
+      }
     },
     {
       "id": "conversionAmount",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$",
       "default": 6000,
-      "businessContext": "Amount you wish to convert to Roth IRA."
+      "businessContext": "Amount you wish to convert to Roth IRA.",
+      "label_i18n": {
+        "en": "Conversion Amount",
+        "tr": "Conversion Amount",
+        "de": "Conversion Amount",
+        "fr": "Conversion Amount",
+        "es": "Conversion Amount",
+        "ar": "Conversion Amount"
+      }
     },
     {
       "id": "marginalTaxRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 24,
-      "businessContext": "Your current federal marginal income tax rate."
+      "businessContext": "Your current federal marginal income tax rate.",
+      "label_i18n": {
+        "en": "Marginal Tax Rate",
+        "tr": "Marginal Tax Rate",
+        "de": "Marginal Tax Rate",
+        "fr": "Marginal Tax Rate",
+        "es": "Marginal Tax Rate",
+        "ar": "Marginal Tax Rate"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "taxableAmount",
       "afterTaxBasisPct"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "afterTaxBasisPct"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -54,5 +91,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

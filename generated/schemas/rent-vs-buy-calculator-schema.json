@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "€",
       "default": 200000,
-      "businessContext": "Total purchase price of the asset"
+      "businessContext": "Total purchase price of the asset",
+      "label_i18n": {
+        "en": "Purchase Price",
+        "tr": "Purchase Price",
+        "de": "Purchase Price",
+        "fr": "Purchase Price",
+        "es": "Purchase Price",
+        "ar": "Purchase Price"
+      }
     },
     {
       "id": "downPaymentPercentage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Percentage of purchase price paid upfront"
+      "businessContext": "Percentage of purchase price paid upfront",
+      "label_i18n": {
+        "en": "Down Payment",
+        "tr": "Down Payment",
+        "de": "Down Payment",
+        "fr": "Down Payment",
+        "es": "Down Payment",
+        "ar": "Down Payment"
+      }
     },
     {
       "id": "loanInterestRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Annual interest rate on the mortgage loan"
+      "businessContext": "Annual interest rate on the mortgage loan",
+      "label_i18n": {
+        "en": "Loan Interest Rate",
+        "tr": "Loan Interest Rate",
+        "de": "Loan Interest Rate",
+        "fr": "Loan Interest Rate",
+        "es": "Loan Interest Rate",
+        "ar": "Loan Interest Rate"
+      }
     },
     {
       "id": "loanTermYears",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "years",
       "default": 20,
-      "businessContext": "Duration of the loan in years"
+      "businessContext": "Duration of the loan in years",
+      "label_i18n": {
+        "en": "Loan Term",
+        "tr": "Loan Term",
+        "de": "Loan Term",
+        "fr": "Loan Term",
+        "es": "Loan Term",
+        "ar": "Loan Term"
+      }
     },
     {
       "id": "monthlyRent",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "€",
       "default": 1000,
-      "businessContext": "Current monthly rental cost"
+      "businessContext": "Current monthly rental cost",
+      "label_i18n": {
+        "en": "Monthly Rent",
+        "tr": "Monthly Rent",
+        "de": "Monthly Rent",
+        "fr": "Monthly Rent",
+        "es": "Monthly Rent",
+        "ar": "Monthly Rent"
+      }
     },
     {
       "id": "annualRentIncrease",
@@ -47,25 +87,34 @@
       "type": "number",
       "unit": "%",
       "default": 3,
-      "businessContext": "Yearly percentage increase in rent"
+      "businessContext": "Yearly percentage increase in rent",
+      "label_i18n": {
+        "en": "Annual Rent Increase",
+        "tr": "Annual Rent Increase",
+        "de": "Annual Rent Increase",
+        "fr": "Annual Rent Increase",
+        "es": "Annual Rent Increase",
+        "ar": "Annual Rent Increase"
+      }
     }
   ],
   "formulas": {
     "monthlyInterest": "loanInterestRate/100/12",
     "months": "loanTermYears * 12",
-    "monthlyPayment": "monthlyInterest === 0 ? (purchasePrice * (1 - downPaymentPercentage/100)) / months : (purchasePrice * (1 - downPaymentPercentage/100)) * (monthlyInterest * Math.pow(1+monthlyInterest, months)) / (Math.pow(1+monthlyInterest, months) - 1)",
     "downPayment": "purchasePrice * downPaymentPercentage/100",
-    "totalBuyingCost": "downPayment + (monthlyPayment * months)",
-    "r": "annualRentIncrease/100",
-    "totalRentingCost": "r === 0 ? 12*monthlyRent*loanTermYears : 12*monthlyRent*(Math.pow(1+r, loanTermYears)-1)/r",
-    "netCostDifference": "totalBuyingCost - totalRentingCost"
+    "r": "annualRentIncrease/100"
   },
   "outputs": {
-    "primary": "netCostDifference",
+    "primary": "r",
     "breakdown": [
       "totalBuyingCost",
       "totalRentingCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "netCostDifference"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -75,5 +124,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

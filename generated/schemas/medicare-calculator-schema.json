@@ -59,19 +59,20 @@
     }
   ],
   "formulas": {
-    "baseRate": "0.0145",
-    "additionalRate": "0.009",
     "threshold": "(filingStatus === 0 ? 200000 : 250000)",
-    "baseTax": "annualIncome * baseRate",
-    "additionalTax": "Math.max(0, annualIncome - threshold) * additionalRate",
-    "totalTax": "baseTax + additionalTax"
+    "threshold_aux": "(filingStatus === 0 ? 200000 : 250000)"
   },
   "outputs": {
-    "primary": "totalTax",
+    "primary": "threshold_aux",
     "breakdown": [
       "baseTax",
       "additionalTax"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalTax"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -81,5 +82,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

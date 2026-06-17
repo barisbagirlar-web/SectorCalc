@@ -115,15 +115,20 @@
     }
   ],
   "formulas": {
-    "irr": "(function(){var c=[initialInvestment,year1,year2,year3,year4,year5];var r=guess/100;var tol=1e-7;var max=1000;for(var i=0;i<max;i++){var npv=0;for(var t=0;t<c.length;t++){npv+=c[t]/Math.pow(1+r,t);}if(Math.abs(npv)<tol)break;var d=0;for(var t=1;t<c.length;t++){d+=-t*c[t]/Math.pow(1+r,t+1);}r-=npv/d;}return r*100;})()",
-    "npvAtIrr": "(function(){var c=[initialInvestment,year1,year2,year3,year4,year5];var r=guess/100;var tol=1e-7;var max=1000;for(var i=0;i<max;i++){var npv=0;for(var t=0;t<c.length;t++){npv+=c[t]/Math.pow(1+r,t);}if(Math.abs(npv)<tol)break;var d=0;for(var t=1;t<c.length;t++){d+=-t*c[t]/Math.pow(1+r,t+1);}r-=npv/d;}var npvFinal=0;for(var t=0;t<c.length;t++){npvFinal+=c[t]/Math.pow(1+r,t);}return npvFinal;})()"
+    "result": "initialInvestment + year1 + year2",
+    "result_copy": "initialInvestment + year1 + year2"
   },
   "outputs": {
-    "primary": "irr",
+    "primary": "result",
     "breakdown": [
       "irr",
       "npvAtIrr"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "npvAtIrr"
   },
   "category": "Proje & Yatırım",
   "sector": "Finans & İK",
@@ -133,5 +138,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

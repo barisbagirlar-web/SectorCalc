@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 300000,
-      "businessContext": "The current market value of the home."
+      "businessContext": "The current market value of the home.",
+      "label_i18n": {
+        "en": "Current Home Value",
+        "tr": "Current Home Value",
+        "de": "Current Home Value",
+        "fr": "Current Home Value",
+        "es": "Current Home Value",
+        "ar": "Current Home Value"
+      }
     },
     {
       "id": "remainingMortgage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 150000,
-      "businessContext": "Outstanding principal on existing mortgage(s)."
+      "businessContext": "Outstanding principal on existing mortgage(s).",
+      "label_i18n": {
+        "en": "Remaining Mortgage Balance",
+        "tr": "Remaining Mortgage Balance",
+        "de": "Remaining Mortgage Balance",
+        "fr": "Remaining Mortgage Balance",
+        "es": "Remaining Mortgage Balance",
+        "ar": "Remaining Mortgage Balance"
+      }
     },
     {
       "id": "desiredLoanAmount",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 50000,
-      "businessContext": "The amount the borrower wants to take out."
+      "businessContext": "The amount the borrower wants to take out.",
+      "label_i18n": {
+        "en": "Desired Loan Amount",
+        "tr": "Desired Loan Amount",
+        "de": "Desired Loan Amount",
+        "fr": "Desired Loan Amount",
+        "es": "Desired Loan Amount",
+        "ar": "Desired Loan Amount"
+      }
     },
     {
       "id": "interestRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 6.5,
-      "businessContext": "Annual nominal interest rate for the home equity loan."
+      "businessContext": "Annual nominal interest rate for the home equity loan.",
+      "label_i18n": {
+        "en": "Annual Interest Rate",
+        "tr": "Annual Interest Rate",
+        "de": "Annual Interest Rate",
+        "fr": "Annual Interest Rate",
+        "es": "Annual Interest Rate",
+        "ar": "Annual Interest Rate"
+      }
     },
     {
       "id": "loanTerm",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "years",
       "default": 10,
-      "businessContext": "Repayment period in years."
+      "businessContext": "Repayment period in years.",
+      "label_i18n": {
+        "en": "Loan Term",
+        "tr": "Loan Term",
+        "de": "Loan Term",
+        "fr": "Loan Term",
+        "es": "Loan Term",
+        "ar": "Loan Term"
+      }
     },
     {
       "id": "maxLTV",
@@ -47,26 +87,34 @@
       "type": "number",
       "unit": "%",
       "default": 80,
-      "businessContext": "Maximum allowable combined loan-to-value ratio (CLTV) as a percentage. CLTV = (remaining mortgage + new loan) / home value."
+      "businessContext": "Maximum allowable combined loan-to-value ratio (CLTV) as a percentage. CLTV = (remaining mortgage + new loan) / home value.",
+      "label_i18n": {
+        "en": "Max Loan-to-Value Ratio",
+        "tr": "Max Loan-to-Value Ratio",
+        "de": "Max Loan-to-Value Ratio",
+        "fr": "Max Loan-to-Value Ratio",
+        "es": "Max Loan-to-Value Ratio",
+        "ar": "Max Loan-to-Value Ratio"
+      }
     }
   ],
   "formulas": {
-    "maxLoan": "Math.max(0, homeValue * maxLTV / 100 - remainingMortgage)",
-    "actualLoan": "Math.min(desiredLoanAmount, maxLoan)",
     "monthlyRate": "interestRate / 100 / 12",
-    "numPayments": "loanTerm * 12",
-    "monthlyPayment": "actualLoan * monthlyRate * Math.pow(1 + monthlyRate, numPayments) / (Math.pow(1 + monthlyRate, numPayments) - 1)",
-    "totalPayment": "monthlyPayment * numPayments",
-    "totalInterest": "totalPayment - actualLoan"
+    "numPayments": "loanTerm * 12"
   },
   "outputs": {
-    "primary": "monthlyPayment",
+    "primary": "numPayments",
     "breakdown": [
       "maxLoan",
       "actualLoan",
       "totalPayment",
       "totalInterest"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalInterest"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -76,5 +124,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

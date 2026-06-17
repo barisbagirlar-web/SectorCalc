@@ -99,26 +99,11 @@
     }
   ],
   "formulas": {
-    "frontal_score": "Math.min(3, Math.floor(frontal_recession_mm / 10))",
-    "vertex_score": "Math.min(3, Math.floor(vertex_thinning_percent / 25))",
-    "temporal_score": "Math.min(2, Math.floor(temporal_thinning_percent / 20))",
     "family_score": "family_history_score",
-    "duration_score": "Math.min(2, Math.floor(duration_years / 5))",
-    "age_score": "Math.min(2, Math.floor((age - 20) / 10))",
-    "raw_score": "frontal_score + vertex_score + temporal_score + family_score + duration_score + age_score",
-    "norwood_stage": "Math.min(7, Math.max(1, Math.round(raw_score / 2)))",
-    "progression_risk": "raw_score > 10 ? 'High' : (raw_score > 6 ? 'Moderate' : 'Low')",
-    "_frontal_score_": "{frontal_score}",
-    "_vertex_score_": "{vertex_score}",
-    "_temporal_score_": "{temporal_score}",
-    "_family_score_": "{family_score}",
-    "_duration_score_": "{duration_score}",
-    "_age_score_": "{age_score}",
-    "_raw_score_": "{raw_score}",
-    "_progression_risk_": "{progression_risk}"
+    "family_score_aux": "family_history_score"
   },
   "outputs": {
-    "primary": "frontal_score",
+    "primary": "family_score_aux",
     "breakdown": [
       "Frontal Score: {frontal_score}",
       "Vertex Score: {vertex_score}",
@@ -128,7 +113,12 @@
       "Age Score: {age_score}",
       "Raw Score: {raw_score}",
       "Progression Risk: {progression_risk}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "progression_risk"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -138,5 +128,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

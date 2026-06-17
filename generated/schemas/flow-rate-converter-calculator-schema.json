@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg/h",
       "default": 100,
-      "businessContext": "Mass flow rate of fluid, typically gas"
+      "businessContext": "Mass flow rate of fluid, typically gas",
+      "label_i18n": {
+        "en": "Mass Flow",
+        "tr": "Mass Flow",
+        "de": "Mass Flow",
+        "fr": "Mass Flow",
+        "es": "Mass Flow",
+        "ar": "Mass Flow"
+      }
     },
     {
       "id": "molarMass",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g/mol",
       "default": 28.96,
-      "businessContext": "Molar mass of the gas (e.g., air ≈ 28.96 g/mol)"
+      "businessContext": "Molar mass of the gas (e.g., air ≈ 28.96 g/mol)",
+      "label_i18n": {
+        "en": "Molar Mass",
+        "tr": "Molar Mass",
+        "de": "Molar Mass",
+        "fr": "Molar Mass",
+        "es": "Molar Mass",
+        "ar": "Molar Mass"
+      }
     },
     {
       "id": "temperature",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Gas temperature in Celsius"
+      "businessContext": "Gas temperature in Celsius",
+      "label_i18n": {
+        "en": "Temperature",
+        "tr": "Temperature",
+        "de": "Temperature",
+        "fr": "Temperature",
+        "es": "Temperature",
+        "ar": "Temperature"
+      }
     },
     {
       "id": "pressure",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "bar",
       "default": 1.01325,
-      "businessContext": "Absolute pressure of gas (1 atm = 1.01325 bar)"
+      "businessContext": "Absolute pressure of gas (1 atm = 1.01325 bar)",
+      "label_i18n": {
+        "en": "Pressure",
+        "tr": "Pressure",
+        "de": "Pressure",
+        "fr": "Pressure",
+        "es": "Pressure",
+        "ar": "Pressure"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "density",
       "volumetricFlowLmin"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "volumetricFlowLmin"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -54,5 +91,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

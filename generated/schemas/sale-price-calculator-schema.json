@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100,
-      "businessContext": "The base cost of the product."
+      "businessContext": "The base cost of the product.",
+      "label_i18n": {
+        "en": "Cost Price",
+        "tr": "Cost Price",
+        "de": "Cost Price",
+        "fr": "Cost Price",
+        "es": "Cost Price",
+        "ar": "Cost Price"
+      }
     },
     {
       "id": "markupPercentage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Percentage added to cost to determine initial selling price before discount and tax."
+      "businessContext": "Percentage added to cost to determine initial selling price before discount and tax.",
+      "label_i18n": {
+        "en": "Markup Percentage",
+        "tr": "Markup Percentage",
+        "de": "Markup Percentage",
+        "fr": "Markup Percentage",
+        "es": "Markup Percentage",
+        "ar": "Markup Percentage"
+      }
     },
     {
       "id": "discount",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Percentage discount applied to the initial selling price before tax."
+      "businessContext": "Percentage discount applied to the initial selling price before tax.",
+      "label_i18n": {
+        "en": "Discount",
+        "tr": "Discount",
+        "de": "Discount",
+        "fr": "Discount",
+        "es": "Discount",
+        "ar": "Discount"
+      }
     },
     {
       "id": "taxRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Sales tax rate applied to the discounted selling price."
+      "businessContext": "Sales tax rate applied to the discounted selling price.",
+      "label_i18n": {
+        "en": "Tax Rate",
+        "tr": "Tax Rate",
+        "de": "Tax Rate",
+        "fr": "Tax Rate",
+        "es": "Tax Rate",
+        "ar": "Tax Rate"
+      }
     }
   ],
   "formulas": {
@@ -48,7 +80,12 @@
       "discountAmount",
       "taxAmount",
       "discountedPrice"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "finalPrice"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -58,5 +95,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

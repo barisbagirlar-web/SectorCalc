@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "W",
       "default": 1000,
-      "businessContext": "Power consumption in watts"
+      "businessContext": "Power consumption in watts",
+      "label_i18n": {
+        "en": "Power",
+        "tr": "Power",
+        "de": "Power",
+        "fr": "Power",
+        "es": "Power",
+        "ar": "Power"
+      }
     },
     {
       "id": "time",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "h",
       "default": 1,
-      "businessContext": "Operating time in hours"
+      "businessContext": "Operating time in hours",
+      "label_i18n": {
+        "en": "Time",
+        "tr": "Time",
+        "de": "Time",
+        "fr": "Time",
+        "es": "Time",
+        "ar": "Time"
+      }
     },
     {
       "id": "efficiency",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Efficiency of the system (100% means no losses)"
+      "businessContext": "Efficiency of the system (100% means no losses)",
+      "label_i18n": {
+        "en": "Efficiency",
+        "tr": "Efficiency",
+        "de": "Efficiency",
+        "fr": "Efficiency",
+        "es": "Efficiency",
+        "ar": "Efficiency"
+      }
     },
     {
       "id": "btuType",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "1=IT, 2=th, 3=mean",
       "default": 1,
-      "businessContext": "Type of BTU: 1 for IT (ISO 31-4), 2 for thermochemical, 3 for mean"
+      "businessContext": "Type of BTU: 1 for IT (ISO 31-4), 2 for thermochemical, 3 for mean",
+      "label_i18n": {
+        "en": "BTU Type",
+        "tr": "BTU Type",
+        "de": "BTU Type",
+        "fr": "BTU Type",
+        "es": "BTU Type",
+        "ar": "BTU Type"
+      }
     },
     {
       "id": "electricityCost",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "€/kWh",
       "default": 0.152,
-      "businessContext": "Cost of electricity per kWh for cost estimation"
+      "businessContext": "Cost of electricity per kWh for cost estimation",
+      "label_i18n": {
+        "en": "Electricity Cost",
+        "tr": "Electricity Cost",
+        "de": "Electricity Cost",
+        "fr": "Electricity Cost",
+        "es": "Electricity Cost",
+        "ar": "Electricity Cost"
+      }
     },
     {
       "id": "decimalPlaces",
@@ -47,22 +87,33 @@
       "type": "number",
       "unit": "places",
       "default": 2,
-      "businessContext": "Number of decimal places for rounding outputs"
+      "businessContext": "Number of decimal places for rounding outputs",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
     "wattHours": "power * time * efficiency / 100",
     "btu": "wattHours * (btuType == 1 ? 3.412141633 : btuType == 2 ? 3.4142 : 3.608249)",
-    "btuRounded": "Math.round(btu * (10 ** decimalPlaces)) / (10 ** decimalPlaces)",
-    "cost": "wattHours / 1000 * electricityCost",
-    "costRounded": "Math.round(cost * (10 ** decimalPlaces)) / (10 ** decimalPlaces)"
+    "cost": "wattHours / 1000 * electricityCost"
   },
   "outputs": {
-    "primary": "btuRounded",
+    "primary": "cost",
     "breakdown": [
       "wattHours",
       "costRounded"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "costRounded"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -72,5 +123,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

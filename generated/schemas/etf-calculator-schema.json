@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 10000,
-      "businessContext": "Yatırımın başlangıçta yatırılan toplam tutar."
+      "businessContext": "Yatırımın başlangıçta yatırılan toplam tutar.",
+      "label_i18n": {
+        "en": "Başlangıç Yatırımı",
+        "tr": "Başlangıç Yatırımı",
+        "de": "Başlangıç Yatırımı",
+        "fr": "Başlangıç Yatırımı",
+        "es": "Başlangıç Yatırımı",
+        "ar": "Başlangıç Yatırımı"
+      }
     },
     {
       "id": "monthlyContribution",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 500,
-      "businessContext": "Her ay düzenli olarak yatırılan tutar."
+      "businessContext": "Her ay düzenli olarak yatırılan tutar.",
+      "label_i18n": {
+        "en": "Aylık Katkı",
+        "tr": "Aylık Katkı",
+        "de": "Aylık Katkı",
+        "fr": "Aylık Katkı",
+        "es": "Aylık Katkı",
+        "ar": "Aylık Katkı"
+      }
     },
     {
       "id": "annualReturnRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 8,
-      "businessContext": "ETF'nin beklenen yıllık nominal getiri oranı."
+      "businessContext": "ETF'nin beklenen yıllık nominal getiri oranı.",
+      "label_i18n": {
+        "en": "Yıllık Getiri Oranı",
+        "tr": "Yıllık Getiri Oranı",
+        "de": "Yıllık Getiri Oranı",
+        "fr": "Yıllık Getiri Oranı",
+        "es": "Yıllık Getiri Oranı",
+        "ar": "Yıllık Getiri Oranı"
+      }
     },
     {
       "id": "investmentPeriod",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 20,
-      "businessContext": "Yatırımın devam edeceği toplam süre."
+      "businessContext": "Yatırımın devam edeceği toplam süre.",
+      "label_i18n": {
+        "en": "Yatırım Süresi",
+        "tr": "Yatırım Süresi",
+        "de": "Yatırım Süresi",
+        "fr": "Yatırım Süresi",
+        "es": "Yatırım Süresi",
+        "ar": "Yatırım Süresi"
+      }
     },
     {
       "id": "expenseRatio",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 0.5,
-      "businessContext": "ETF yönetim ücreti ve diğer yıllık giderleri kapsayan oran."
+      "businessContext": "ETF yönetim ücreti ve diğer yıllık giderleri kapsayan oran.",
+      "label_i18n": {
+        "en": "Yıllık Gider Oranı",
+        "tr": "Yıllık Gider Oranı",
+        "de": "Yıllık Gider Oranı",
+        "fr": "Yıllık Gider Oranı",
+        "es": "Yıllık Gider Oranı",
+        "ar": "Yıllık Gider Oranı"
+      }
     },
     {
       "id": "inflationRate",
@@ -47,29 +87,35 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Uzun vadeli ortalama yıllık enflasyon oranı."
+      "businessContext": "Uzun vadeli ortalama yıllık enflasyon oranı.",
+      "label_i18n": {
+        "en": "Enflasyon Oranı",
+        "tr": "Enflasyon Oranı",
+        "de": "Enflasyon Oranı",
+        "fr": "Enflasyon Oranı",
+        "es": "Enflasyon Oranı",
+        "ar": "Enflasyon Oranı"
+      }
     }
   ],
   "formulas": {
     "netAnnualRate": "(annualReturnRate - expenseRatio) / 100",
-    "monthlyRate": "Math.pow(1 + netAnnualRate, 1/12) - 1",
     "totalMonths": "investmentPeriod * 12",
-    "futureValueInitial": "initialInvestment * Math.pow(1 + monthlyRate, totalMonths)",
-    "futureValueContributions": "monthlyContribution * ((Math.pow(1 + monthlyRate, totalMonths) - 1) / monthlyRate)",
-    "totalNominal": "futureValueInitial + futureValueContributions",
-    "totalContributions": "initialInvestment + (monthlyContribution * totalMonths)",
-    "totalNominalReturn": "totalNominal - totalContributions",
-    "realFutureValue": "totalNominal / Math.pow(1 + inflationRate/100, investmentPeriod)",
-    "realReturn": "realFutureValue - totalContributions"
+    "totalContributions": "initialInvestment + (monthlyContribution * totalMonths)"
   },
   "outputs": {
-    "primary": "totalNominal",
+    "primary": "totalContributions",
     "breakdown": [
       "totalContributions",
       "totalNominalReturn",
       "realFutureValue",
       "realReturn"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "realReturn"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -79,5 +125,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

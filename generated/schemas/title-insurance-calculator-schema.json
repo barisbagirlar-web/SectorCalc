@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 300000,
-      "businessContext": "The market value or purchase price of the property."
+      "businessContext": "The market value or purchase price of the property.",
+      "label_i18n": {
+        "en": "Property Value",
+        "tr": "Property Value",
+        "de": "Property Value",
+        "fr": "Property Value",
+        "es": "Property Value",
+        "ar": "Property Value"
+      }
     },
     {
       "id": "coverageAmount",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 300000,
-      "businessContext": "The amount of title insurance coverage, typically equal to the property value. Can be higher if there is additional risk."
+      "businessContext": "The amount of title insurance coverage, typically equal to the property value. Can be higher if there is additional risk.",
+      "label_i18n": {
+        "en": "Coverage Amount",
+        "tr": "Coverage Amount",
+        "de": "Coverage Amount",
+        "fr": "Coverage Amount",
+        "es": "Coverage Amount",
+        "ar": "Coverage Amount"
+      }
     },
     {
       "id": "ratePerThousand",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD/1000",
       "default": 5,
-      "businessContext": "The title insurance premium rate per $1000 of coverage. Varies by state and insurer."
+      "businessContext": "The title insurance premium rate per $1000 of coverage. Varies by state and insurer.",
+      "label_i18n": {
+        "en": "Rate per $1000",
+        "tr": "Rate per $1000",
+        "de": "Rate per $1000",
+        "fr": "Rate per $1000",
+        "es": "Rate per $1000",
+        "ar": "Rate per $1000"
+      }
     },
     {
       "id": "policyFee",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 150,
-      "businessContext": "Fixed administrative fee for issuing the title insurance policy."
+      "businessContext": "Fixed administrative fee for issuing the title insurance policy.",
+      "label_i18n": {
+        "en": "Policy Fee",
+        "tr": "Policy Fee",
+        "de": "Policy Fee",
+        "fr": "Policy Fee",
+        "es": "Policy Fee",
+        "ar": "Policy Fee"
+      }
     },
     {
       "id": "stateTaxRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 0.5,
-      "businessContext": "State tax rate applied to the premium, expressed as a percentage."
+      "businessContext": "State tax rate applied to the premium, expressed as a percentage.",
+      "label_i18n": {
+        "en": "State Tax Rate",
+        "tr": "State Tax Rate",
+        "de": "State Tax Rate",
+        "fr": "State Tax Rate",
+        "es": "State Tax Rate",
+        "ar": "State Tax Rate"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
       "policyFee",
       "stateTax",
       "totalPremium"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalPremium"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -64,5 +109,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

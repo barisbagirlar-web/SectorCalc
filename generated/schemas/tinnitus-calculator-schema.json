@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dBA",
       "default": 85,
-      "businessContext": "Çalışma ortamındaki ortalama gürültü seviyesi"
+      "businessContext": "Çalışma ortamındaki ortalama gürültü seviyesi",
+      "label_i18n": {
+        "en": "Gürültü Seviyesi (dBA)",
+        "tr": "Gürültü Seviyesi (dBA)",
+        "de": "Gürültü Seviyesi (dBA)",
+        "fr": "Gürültü Seviyesi (dBA)",
+        "es": "Gürültü Seviyesi (dBA)",
+        "ar": "Gürültü Seviyesi (dBA)"
+      }
     },
     {
       "id": "exposureDuration_h",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "saat",
       "default": 8,
-      "businessContext": "Çalışanın gürültüye maruz kaldığı günlük süre"
+      "businessContext": "Çalışanın gürültüye maruz kaldığı günlük süre",
+      "label_i18n": {
+        "en": "Günlük Maruziyet Süresi",
+        "tr": "Günlük Maruziyet Süresi",
+        "de": "Günlük Maruziyet Süresi",
+        "fr": "Günlük Maruziyet Süresi",
+        "es": "Günlük Maruziyet Süresi",
+        "ar": "Günlük Maruziyet Süresi"
+      }
     },
     {
       "id": "age_years",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 40,
-      "businessContext": "Çalışanın yaşı"
+      "businessContext": "Çalışanın yaşı",
+      "label_i18n": {
+        "en": "Yaş",
+        "tr": "Yaş",
+        "de": "Yaş",
+        "fr": "Yaş",
+        "es": "Yaş",
+        "ar": "Yaş"
+      }
     },
     {
       "id": "exposureYears",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 10,
-      "businessContext": "Toplam gürültü maruziyet yılı"
+      "businessContext": "Toplam gürültü maruziyet yılı",
+      "label_i18n": {
+        "en": "Maruziyet Yılı",
+        "tr": "Maruziyet Yılı",
+        "de": "Maruziyet Yılı",
+        "fr": "Maruziyet Yılı",
+        "es": "Maruziyet Yılı",
+        "ar": "Maruziyet Yılı"
+      }
     },
     {
       "id": "hearingProtection_dB",
@@ -39,22 +71,33 @@
       "type": "number",
       "unit": "dB",
       "default": 0,
-      "businessContext": "Kullanılan işitme koruyucunun Gürültü Azaltma Değeri (NRR)"
+      "businessContext": "Kullanılan işitme koruyucunun Gürültü Azaltma Değeri (NRR)",
+      "label_i18n": {
+        "en": "İşitme Koruyucu NRR",
+        "tr": "İşitme Koruyucu NRR",
+        "de": "İşitme Koruyucu NRR",
+        "fr": "İşitme Koruyucu NRR",
+        "es": "İşitme Koruyucu NRR",
+        "ar": "İşitme Koruyucu NRR"
+      }
     }
   ],
   "formulas": {
     "adjustedNoiseLevel": "noiseLevel_dBA - (hearingProtection_dB > 0 ? (hearingProtection_dB - 7) / 2 : 0)",
-    "permissibleTime": "8 / Math.pow(2, (adjustedNoiseLevel - 85) / 3)",
-    "dailyDosePercent": "(exposureDuration_h / permissibleTime) * 100",
-    "tinnitusRiskScore": "dailyDosePercent * (age_years / 40) * (exposureYears / 10)"
+    "adjustedNoiseLevel_aux": "noiseLevel_dBA - (hearingProtection_dB > 0 ? (hearingProtection_dB - 7) / 2 : 0)"
   },
   "outputs": {
-    "primary": "tinnitusRiskScore",
+    "primary": "adjustedNoiseLevel_aux",
     "breakdown": [
       "adjustedNoiseLevel",
       "permissibleTime",
       "dailyDosePercent"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "tinnitusRiskScore"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -64,5 +107,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

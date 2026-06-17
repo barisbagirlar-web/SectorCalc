@@ -138,104 +138,6 @@
       "businessContext_i18n": {
         "en": "Percentage of batches that require re-dyeing or are scrapped."
       }
-    },
-    {
-      "id": "water_cost_per_m3",
-      "label": "Water cost (USD/m³)",
-      "type": "number",
-      "unit": "USD/m³",
-      "default": 2.5,
-      "min": 0,
-      "max": 20,
-      "businessContext": "Cost of fresh water and wastewater treatment.",
-      "label_i18n": {
-        "en": "Water cost (USD/m³)"
-      },
-      "businessContext_i18n": {
-        "en": "Cost of fresh water and wastewater treatment."
-      }
-    },
-    {
-      "id": "water_usage_l_per_kg",
-      "label": "Water usage (L/kg fabric)",
-      "type": "number",
-      "unit": "L/kg",
-      "default": 100,
-      "min": 10,
-      "max": 500,
-      "businessContext": "Typical water consumption per kg of fabric processed.",
-      "label_i18n": {
-        "en": "Water usage (L/kg fabric)"
-      },
-      "businessContext_i18n": {
-        "en": "Typical water consumption per kg of fabric processed."
-      }
-    },
-    {
-      "id": "fabric_weight_kg",
-      "label": "Fabric weight (kg)",
-      "type": "number",
-      "unit": "kg",
-      "default": 200,
-      "min": 1,
-      "max": 50000,
-      "businessContext": "Weight of fabric in the batch.",
-      "label_i18n": {
-        "en": "Fabric weight (kg)"
-      },
-      "businessContext_i18n": {
-        "en": "Weight of fabric in the batch."
-      }
-    },
-    {
-      "id": "dye_type",
-      "label": "Dye class",
-      "type": "select",
-      "options": [
-        {
-          "value": "reactive",
-          "label": "Reactive"
-        },
-        {
-          "value": "disperse",
-          "label": "Disperse"
-        },
-        {
-          "value": "vat",
-          "label": "Vat"
-        },
-        {
-          "value": "acid",
-          "label": "Acid"
-        },
-        {
-          "value": "direct",
-          "label": "Direct"
-        }
-      ],
-      "default": "reactive",
-      "businessContext": "Chemical class of dye, affects fixation efficiency and cost.",
-      "label_i18n": {
-        "en": "Dye class"
-      },
-      "businessContext_i18n": {
-        "en": "Chemical class of dye, affects fixation efficiency and cost."
-      },
-      "unit": "unit"
-    },
-    {
-      "id": "use_lean_optimization",
-      "label": "Enable Lean optimization (reduce waste)",
-      "type": "boolean",
-      "default": false,
-      "businessContext": "If true, applies lean principles to reduce waste and rework.",
-      "label_i18n": {
-        "en": "Enable Lean optimization (reduce waste)"
-      },
-      "businessContext_i18n": {
-        "en": "If true, applies lean principles to reduce waste and rework."
-      },
-      "unit": "unit"
     }
   ],
   "validation": {
@@ -278,18 +180,18 @@
       }
     ]
   },
-  "formulas": [
-    "dye_volume_l",
-    "dye_volume_l",
-    "dye_volume_l",
-    "dye_volume_l",
-    "dye_volume_l",
-    "dye_volume_l",
-    "dye_volume_l"
-  ],
+  "formulas": {
+    "result": "dye_volume_l + dye_concentration_gpl + dye_price_per_kg",
+    "result_copy": "dye_volume_l + dye_concentration_gpl + dye_price_per_kg"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "dye-recipe-cost-optimizer-calculator",
   "catalogCategory": "everyday-life",

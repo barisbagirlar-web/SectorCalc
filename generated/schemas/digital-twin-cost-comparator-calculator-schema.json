@@ -140,38 +140,6 @@
       "businessContext_i18n": {
         "en": "Expected operational lifespan of the digital twin system. Used for amortization and total cost of ownership calculations."
       }
-    },
-    {
-      "id": "lean_six_sigma_level",
-      "label": "Lean Six Sigma Maturity Level",
-      "type": "select",
-      "unit": "none",
-      "default": "level3",
-      "min": null,
-      "max": null,
-      "businessContext": "Organizational maturity in Lean Six Sigma: level1 (initial), level2 (managed), level3 (defined), level4 (quantitatively managed), level5 (optimizing). Affects efficiency and waste reduction.",
-      "label_i18n": {
-        "en": "Lean Six Sigma Maturity Level"
-      },
-      "businessContext_i18n": {
-        "en": "Organizational maturity in Lean Six Sigma: level1 (initial), level2 (managed), level3 (defined), level4 (quantitatively managed), level5 (optimizing). Affects efficiency and waste reduction."
-      }
-    },
-    {
-      "id": "werc_benchmark",
-      "label": "WERC DC Benchmark (cost per order)",
-      "type": "number",
-      "unit": "USD/order",
-      "default": 5.5,
-      "min": 0.5,
-      "max": 50,
-      "businessContext": "Warehouse Education and Research Council (WERC) benchmark for average cost per order in distribution centers.",
-      "label_i18n": {
-        "en": "WERC DC Benchmark (cost per order)"
-      },
-      "businessContext_i18n": {
-        "en": "Warehouse Education and Research Council (WERC) benchmark for average cost per order in distribution centers."
-      }
     }
   ],
   "validation": {
@@ -215,18 +183,18 @@
       }
     ]
   },
-  "formulas": [
-    "twin_scope",
-    "twin_scope",
-    "twin_scope",
-    "twin_scope",
-    "twin_scope",
-    "twin_scope",
-    "twin_scope"
-  ],
+  "formulas": {
+    "result": "twin_scope + asset_count + sensor_density",
+    "result_copy": "twin_scope + asset_count + sensor_density"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "digital-twin-cost-comparator-calculator",
   "catalogCategory": "everyday-life",

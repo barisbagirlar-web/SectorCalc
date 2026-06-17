@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cards",
       "default": 52,
-      "businessContext": "Total number of cards in the deck."
+      "businessContext": "Total number of cards in the deck.",
+      "label_i18n": {
+        "en": "Deck Size",
+        "tr": "Deck Size",
+        "de": "Deck Size",
+        "fr": "Deck Size",
+        "es": "Deck Size",
+        "ar": "Deck Size"
+      }
     },
     {
       "id": "successesInDeck",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cards",
       "default": 4,
-      "businessContext": "Number of cards in the deck that are considered favorable outcomes."
+      "businessContext": "Number of cards in the deck that are considered favorable outcomes.",
+      "label_i18n": {
+        "en": "Successes in Deck",
+        "tr": "Successes in Deck",
+        "de": "Successes in Deck",
+        "fr": "Successes in Deck",
+        "es": "Successes in Deck",
+        "ar": "Successes in Deck"
+      }
     },
     {
       "id": "draws",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cards",
       "default": 5,
-      "businessContext": "Number of cards drawn from the deck without replacement."
+      "businessContext": "Number of cards drawn from the deck without replacement.",
+      "label_i18n": {
+        "en": "Number of Draws",
+        "tr": "Number of Draws",
+        "de": "Number of Draws",
+        "fr": "Number of Draws",
+        "es": "Number of Draws",
+        "ar": "Number of Draws"
+      }
     },
     {
       "id": "successesWanted",
@@ -31,23 +55,33 @@
       "type": "number",
       "unit": "cards",
       "default": 1,
-      "businessContext": "Number of successful cards you want to appear in the draw."
+      "businessContext": "Number of successful cards you want to appear in the draw.",
+      "label_i18n": {
+        "en": "Wanted Successes",
+        "tr": "Wanted Successes",
+        "de": "Wanted Successes",
+        "fr": "Wanted Successes",
+        "es": "Wanted Successes",
+        "ar": "Wanted Successes"
+      }
     }
   ],
   "formulas": {
-    "combination": "function combination(n, k) { if (k < 0 || k > n) return 0; if (k === 0 || k === n) return 1; if (k > n - k) k = n - k; let result = 1; for (let i = 1; i <= k; i++) { result *= (n - k + i) / i; } return result; }",
-    "numerator": "combination(successesInDeck, successesWanted) * combination(deckSize - successesInDeck, draws - successesWanted)",
-    "denominator": "combination(deckSize, draws)",
-    "probability": "numerator / denominator",
-    "probabilityPercentage": "probability * 100"
+    "result": "deckSize + successesInDeck + draws",
+    "result_copy": "deckSize + successesInDeck + draws"
   },
   "outputs": {
-    "primary": "probability",
+    "primary": "result",
     "breakdown": [
       "numerator",
       "denominator",
       "probabilityPercentage"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "probabilityPercentage"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -57,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

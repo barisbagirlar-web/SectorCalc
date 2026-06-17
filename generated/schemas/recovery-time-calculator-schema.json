@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "hours",
       "default": 0.5,
-      "businessContext": "Time from failure occurrence to detection"
+      "businessContext": "Time from failure occurrence to detection",
+      "label_i18n": {
+        "en": "Detection Time",
+        "tr": "Detection Time",
+        "de": "Detection Time",
+        "fr": "Detection Time",
+        "es": "Detection Time",
+        "ar": "Detection Time"
+      }
     },
     {
       "id": "responseTime",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hours",
       "default": 0.5,
-      "businessContext": "Time to respond and diagnose after detection"
+      "businessContext": "Time to respond and diagnose after detection",
+      "label_i18n": {
+        "en": "Response Time",
+        "tr": "Response Time",
+        "de": "Response Time",
+        "fr": "Response Time",
+        "es": "Response Time",
+        "ar": "Response Time"
+      }
     },
     {
       "id": "repairTime",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "hours",
       "default": 2,
-      "businessContext": "Time required to repair the failure"
+      "businessContext": "Time required to repair the failure",
+      "label_i18n": {
+        "en": "Repair Time",
+        "tr": "Repair Time",
+        "de": "Repair Time",
+        "fr": "Repair Time",
+        "es": "Repair Time",
+        "ar": "Repair Time"
+      }
     },
     {
       "id": "restartTime",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "hours",
       "default": 0.5,
-      "businessContext": "Time to restart and stabilize after repair"
+      "businessContext": "Time to restart and stabilize after repair",
+      "label_i18n": {
+        "en": "Restart Time",
+        "tr": "Restart Time",
+        "de": "Restart Time",
+        "fr": "Restart Time",
+        "es": "Restart Time",
+        "ar": "Restart Time"
+      }
     },
     {
       "id": "verificationTime",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "hours",
       "default": 0.5,
-      "businessContext": "Time to verify full operational performance"
+      "businessContext": "Time to verify full operational performance",
+      "label_i18n": {
+        "en": "Verification Time",
+        "tr": "Verification Time",
+        "de": "Verification Time",
+        "fr": "Verification Time",
+        "es": "Verification Time",
+        "ar": "Verification Time"
+      }
     }
   ],
   "formulas": {
@@ -58,7 +98,12 @@
       "repairPercentage",
       "restartPercentage",
       "verificationPercentage"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "verificationPercentage"
   },
   "category": "Bakım & Güvenilirlik",
   "sector": "Üretim & İmalat",
@@ -68,5 +113,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

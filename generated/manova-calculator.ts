@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from manova-calculator-schema.json
 import * as z from 'zod';
 
@@ -19,27 +20,34 @@ export const Manova_calculatorInputSchema = z.object({
   v2: z.number().default(1),
 });
 
-function evaluateAllFormulas(input: Manova_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (input.n1 * input.n2 / (input.n1 + input.n2)) * ( (input.d1 * input.d1) / input.v1 + (input.d2 * input.d2) / input.v2 ); results["T2"] = Number.isFinite(v) ? v : 0; } catch { results["T2"] = 0; }
-  try { const v = (results["T2"] ?? 0) * (input.n1 + input.n2 - 3) / (2 * (input.n1 + input.n2 - 2)); results["F_stat"] = Number.isFinite(v) ? v : 0; } catch { results["F_stat"] = 0; }
-  try { const v = 2; results["df1"] = Number.isFinite(v) ? v : 0; } catch { results["df1"] = 0; }
-  try { const v = input.n1 + input.n2 - 3; results["df2"] = Number.isFinite(v) ? v : 0; } catch { results["df2"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Manova_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = (input.n1 * input.n2 / (input.n1 + input.n2)) * ( (input.d1 * input.d1) / input.v1 + (input.d2 * input.d2) / input.v2 ); results["T2"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["T2"] = 0; }
+  try { const v = (asFormulaNumber(results["T2"])) * (input.n1 + input.n2 - 3) / (2 * (input.n1 + input.n2 - 2)); results["F_stat"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["F_stat"] = 0; }
+  try { const v = input.n1 + input.n2 - 3; results["df2"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["df2"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateManova_calculator(input: Manova_calculatorInput): Manova_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["T2"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["T2"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

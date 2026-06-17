@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Number of 1 cent coins"
+      "businessContext": "Number of 1 cent coins",
+      "label_i18n": {
+        "en": "1 Sent (Penny) Adedi",
+        "tr": "1 Sent (Penny) Adedi",
+        "de": "1 Sent (Penny) Adedi",
+        "fr": "1 Sent (Penny) Adedi",
+        "es": "1 Sent (Penny) Adedi",
+        "ar": "1 Sent (Penny) Adedi"
+      }
     },
     {
       "id": "nickelCount",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Number of 5 cent coins"
+      "businessContext": "Number of 5 cent coins",
+      "label_i18n": {
+        "en": "5 Sent (Nickel) Adedi",
+        "tr": "5 Sent (Nickel) Adedi",
+        "de": "5 Sent (Nickel) Adedi",
+        "fr": "5 Sent (Nickel) Adedi",
+        "es": "5 Sent (Nickel) Adedi",
+        "ar": "5 Sent (Nickel) Adedi"
+      }
     },
     {
       "id": "dimeCount",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Number of 10 cent coins"
+      "businessContext": "Number of 10 cent coins",
+      "label_i18n": {
+        "en": "10 Sent (Dime) Adedi",
+        "tr": "10 Sent (Dime) Adedi",
+        "de": "10 Sent (Dime) Adedi",
+        "fr": "10 Sent (Dime) Adedi",
+        "es": "10 Sent (Dime) Adedi",
+        "ar": "10 Sent (Dime) Adedi"
+      }
     },
     {
       "id": "quarterCount",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Number of 25 cent coins"
+      "businessContext": "Number of 25 cent coins",
+      "label_i18n": {
+        "en": "25 Sent (Quarter) Adedi",
+        "tr": "25 Sent (Quarter) Adedi",
+        "de": "25 Sent (Quarter) Adedi",
+        "fr": "25 Sent (Quarter) Adedi",
+        "es": "25 Sent (Quarter) Adedi",
+        "ar": "25 Sent (Quarter) Adedi"
+      }
     },
     {
       "id": "halfDollarCount",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Number of 50 cent coins"
+      "businessContext": "Number of 50 cent coins",
+      "label_i18n": {
+        "en": "50 Sent (Half Dollar) Adedi",
+        "tr": "50 Sent (Half Dollar) Adedi",
+        "de": "50 Sent (Half Dollar) Adedi",
+        "fr": "50 Sent (Half Dollar) Adedi",
+        "es": "50 Sent (Half Dollar) Adedi",
+        "ar": "50 Sent (Half Dollar) Adedi"
+      }
     },
     {
       "id": "dollarCoinCount",
@@ -47,20 +87,32 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "Number of 1 dollar coins"
+      "businessContext": "Number of 1 dollar coins",
+      "label_i18n": {
+        "en": "1 Dolar (Dollar Coin) Adedi",
+        "tr": "1 Dolar (Dollar Coin) Adedi",
+        "de": "1 Dolar (Dollar Coin) Adedi",
+        "fr": "1 Dolar (Dollar Coin) Adedi",
+        "es": "1 Dolar (Dollar Coin) Adedi",
+        "ar": "1 Dolar (Dollar Coin) Adedi"
+      }
     }
   ],
   "formulas": {
-    "totalValue": "Math.round((pennyCount*1 + nickelCount*5 + dimeCount*10 + quarterCount*25 + halfDollarCount*50 + dollarCoinCount*100))/100",
     "totalCents": "pennyCount*1 + nickelCount*5 + dimeCount*10 + quarterCount*25 + halfDollarCount*50 + dollarCoinCount*100",
     "totalCoins": "pennyCount + nickelCount + dimeCount + quarterCount + halfDollarCount + dollarCoinCount"
   },
   "outputs": {
-    "primary": "totalValue",
+    "primary": "totalCoins",
     "breakdown": [
       "totalCents",
       "totalCoins"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCoins"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -70,5 +122,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

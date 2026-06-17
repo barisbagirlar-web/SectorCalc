@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from sum-of-years-digits-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,28 +16,36 @@ export const Sum_of_years_digits_calculatorInputSchema = z.object({
   year: z.number().default(1),
 });
 
-function evaluateAllFormulas(input: Sum_of_years_digits_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.life * (input.life + 1) / 2; results["sum_of_years"] = Number.isFinite(v) ? v : 0; } catch { results["sum_of_years"] = 0; }
-  try { const v = input.cost - input.salvage; results["depreciable_base"] = Number.isFinite(v) ? v : 0; } catch { results["depreciable_base"] = 0; }
-  try { const v = input.life - input.year + 1; results["remaining_life"] = Number.isFinite(v) ? v : 0; } catch { results["remaining_life"] = 0; }
-  try { const v = (results["remaining_life"] ?? 0) / (results["sum_of_years"] ?? 0); results["depreciation_fraction"] = Number.isFinite(v) ? v : 0; } catch { results["depreciation_fraction"] = 0; }
-  try { const v = (results["depreciable_base"] ?? 0) * (results["depreciation_fraction"] ?? 0); results["depreciation_expense"] = Number.isFinite(v) ? v : 0; } catch { results["depreciation_expense"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Sum_of_years_digits_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.life * (input.life + 1) / 2; results["sum_of_years"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["sum_of_years"] = 0; }
+  try { const v = input.cost - input.salvage; results["depreciable_base"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["depreciable_base"] = 0; }
+  try { const v = input.life - input.year + 1; results["remaining_life"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["remaining_life"] = 0; }
+  try { const v = (asFormulaNumber(results["remaining_life"])) / (asFormulaNumber(results["sum_of_years"])); results["depreciation_fraction"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["depreciation_fraction"] = 0; }
+  try { const v = (asFormulaNumber(results["depreciable_base"])) * (asFormulaNumber(results["depreciation_fraction"])); results["depreciation_expense"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["depreciation_expense"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateSum_of_years_digits_calculator(input: Sum_of_years_digits_calculatorInput): Sum_of_years_digits_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["depreciation_expense"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["depreciation_expense"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

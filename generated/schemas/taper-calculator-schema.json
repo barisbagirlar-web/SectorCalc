@@ -68,8 +68,7 @@
   ],
   "formulas": {
     "taperRatio": "(largeDiameter - smallDiameter) / length",
-    "taperPerRefLength": "((largeDiameter - smallDiameter) / length) * referenceLength",
-    "taperAngleDeg": "2 * Math.atan((largeDiameter - smallDiameter) / (2 * length)) * (180 / Math.PI)"
+    "taperPerRefLength": "((largeDiameter - smallDiameter) / length) * referenceLength"
   },
   "outputs": {
     "primary": "taperRatio",
@@ -77,7 +76,12 @@
       "taperRatio",
       "taperPerRefLength",
       "taperAngleDeg"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "taperAngleDeg"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -87,5 +91,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Body weight in kilograms"
+      "businessContext": "Body weight in kilograms",
+      "label_i18n": {
+        "en": "Weight",
+        "tr": "Weight",
+        "de": "Weight",
+        "fr": "Weight",
+        "es": "Weight",
+        "ar": "Weight"
+      }
     },
     {
       "id": "height",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Height in centimeters"
+      "businessContext": "Height in centimeters",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "Height",
+        "fr": "Height",
+        "es": "Height",
+        "ar": "Height"
+      }
     },
     {
       "id": "age",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Age in years"
+      "businessContext": "Age in years",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "isMale",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "none",
       "default": 1,
-      "businessContext": "Biological sex indicator: 1 for male, 0 for female"
+      "businessContext": "Biological sex indicator: 1 for male, 0 for female",
+      "label_i18n": {
+        "en": "Sex (1=Male, 0=Female)",
+        "tr": "Sex (1=Male, 0=Female)",
+        "de": "Sex (1=Male, 0=Female)",
+        "fr": "Sex (1=Male, 0=Female)",
+        "es": "Sex (1=Male, 0=Female)",
+        "ar": "Sex (1=Male, 0=Female)"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "Male BMR (if applicable): ${maleBmr} kcal/day",
       "Female BMR (if applicable): ${femaleBmr} kcal/day"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "femaleBmr"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -54,5 +91,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

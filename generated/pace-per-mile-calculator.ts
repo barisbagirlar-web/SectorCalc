@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from pace-per-mile-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,27 +16,35 @@ export const Pace_per_mile_calculatorInputSchema = z.object({
   distance: z.number().default(1),
 });
 
-function evaluateAllFormulas(input: Pace_per_mile_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.hours * 60 + input.minutes + input.seconds / 60; results["total_time_min"] = Number.isFinite(v) ? v : 0; } catch { results["total_time_min"] = 0; }
-  try { const v = (results["total_time_min"] ?? 0) / input.distance; results["pace_min_per_mile"] = Number.isFinite(v) ? v : 0; } catch { results["pace_min_per_mile"] = 0; }
-  try { const v = (results["pace_min_per_mile"] ?? 0) * 60; results["pace_sec_per_mile"] = Number.isFinite(v) ? v : 0; } catch { results["pace_sec_per_mile"] = 0; }
-  try { const v = 60 / (results["pace_min_per_mile"] ?? 0); results["speed_mph"] = Number.isFinite(v) ? v : 0; } catch { results["speed_mph"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Pace_per_mile_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.hours * 60 + input.minutes + input.seconds / 60; results["total_time_min"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["total_time_min"] = 0; }
+  try { const v = (asFormulaNumber(results["total_time_min"])) / input.distance; results["pace_min_per_mile"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["pace_min_per_mile"] = 0; }
+  try { const v = (asFormulaNumber(results["pace_min_per_mile"])) * 60; results["pace_sec_per_mile"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["pace_sec_per_mile"] = 0; }
+  try { const v = 60 / (asFormulaNumber(results["pace_min_per_mile"])); results["speed_mph"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["speed_mph"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculatePace_per_mile_calculator(input: Pace_per_mile_calculatorInput): Pace_per_mile_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["pace_min_per_mile"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["pace_min_per_mile"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

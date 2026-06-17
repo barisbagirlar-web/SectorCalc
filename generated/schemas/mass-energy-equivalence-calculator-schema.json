@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "Cismin kilogram cinsinden kütlesi"
+      "businessContext": "Cismin kilogram cinsinden kütlesi",
+      "label_i18n": {
+        "en": "Kütle (kg)",
+        "tr": "Kütle (kg)",
+        "de": "Kütle (kg)",
+        "fr": "Kütle (kg)",
+        "es": "Kütle (kg)",
+        "ar": "Kütle (kg)"
+      }
     },
     {
       "id": "mass_g",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Cismin gram cinsinden kütlesi (opsiyonel)"
+      "businessContext": "Cismin gram cinsinden kütlesi (opsiyonel)",
+      "label_i18n": {
+        "en": "Kütle (g)",
+        "tr": "Kütle (g)",
+        "de": "Kütle (g)",
+        "fr": "Kütle (g)",
+        "es": "Kütle (g)",
+        "ar": "Kütle (g)"
+      }
     },
     {
       "id": "mass_lb",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "lb",
       "default": 0,
-      "businessContext": "Cismin pound cinsinden kütlesi (opsiyonel)"
+      "businessContext": "Cismin pound cinsinden kütlesi (opsiyonel)",
+      "label_i18n": {
+        "en": "Kütle (lb)",
+        "tr": "Kütle (lb)",
+        "de": "Kütle (lb)",
+        "fr": "Kütle (lb)",
+        "es": "Kütle (lb)",
+        "ar": "Kütle (lb)"
+      }
     },
     {
       "id": "mass_oz",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "oz",
       "default": 0,
-      "businessContext": "Cismin ons cinsinden kütlesi (opsiyonel)"
+      "businessContext": "Cismin ons cinsinden kütlesi (opsiyonel)",
+      "label_i18n": {
+        "en": "Kütle (oz)",
+        "tr": "Kütle (oz)",
+        "de": "Kütle (oz)",
+        "fr": "Kütle (oz)",
+        "es": "Kütle (oz)",
+        "ar": "Kütle (oz)"
+      }
     }
   ],
   "formulas": {
     "totalMassKg": "mass_kg + mass_g/1000 + mass_lb*0.453592 + mass_oz*0.0283495",
-    "c": "299792458",
-    "energyJoules": "totalMassKg * c * c"
+    "totalMassKg_aux": "mass_kg + mass_g/1000 + mass_lb*0.453592 + mass_oz*0.0283495"
   },
   "outputs": {
-    "primary": "energyJoules",
+    "primary": "totalMassKg_aux",
     "breakdown": [
       "totalMassKg",
       "c"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "energyJoules"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -54,5 +90,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

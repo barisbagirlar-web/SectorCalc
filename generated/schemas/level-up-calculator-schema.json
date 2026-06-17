@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet/ay",
       "default": 5000,
-      "businessContext": "Mevcut aylık üretim adedi (birim/ay)"
+      "businessContext": "Mevcut aylık üretim adedi (birim/ay)",
+      "label_i18n": {
+        "en": "Mevcut Aylık Üretim",
+        "tr": "Mevcut Aylık Üretim",
+        "de": "Mevcut Aylık Üretim",
+        "fr": "Mevcut Aylık Üretim",
+        "es": "Mevcut Aylık Üretim",
+        "ar": "Mevcut Aylık Üretim"
+      }
     },
     {
       "id": "sellingPrice",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "TL",
       "default": 100,
-      "businessContext": "Birim başına satış fiyatı (TL)"
+      "businessContext": "Birim başına satış fiyatı (TL)",
+      "label_i18n": {
+        "en": "Birim Satış Fiyatı",
+        "tr": "Birim Satış Fiyatı",
+        "de": "Birim Satış Fiyatı",
+        "fr": "Birim Satış Fiyatı",
+        "es": "Birim Satış Fiyatı",
+        "ar": "Birim Satış Fiyatı"
+      }
     },
     {
       "id": "variableCost",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "TL",
       "default": 60,
-      "businessContext": "Birim başına değişken maliyet (TL)"
+      "businessContext": "Birim başına değişken maliyet (TL)",
+      "label_i18n": {
+        "en": "Birim Değişken Maliyet",
+        "tr": "Birim Değişken Maliyet",
+        "de": "Birim Değişken Maliyet",
+        "fr": "Birim Değişken Maliyet",
+        "es": "Birim Değişken Maliyet",
+        "ar": "Birim Değişken Maliyet"
+      }
     },
     {
       "id": "fixedCosts",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TL/ay",
       "default": 150000,
-      "businessContext": "Mevcut aylık sabit maliyetler (TL/ay)"
+      "businessContext": "Mevcut aylık sabit maliyetler (TL/ay)",
+      "label_i18n": {
+        "en": "Mevcut Sabit Maliyetler",
+        "tr": "Mevcut Sabit Maliyetler",
+        "de": "Mevcut Sabit Maliyetler",
+        "fr": "Mevcut Sabit Maliyetler",
+        "es": "Mevcut Sabit Maliyetler",
+        "ar": "Mevcut Sabit Maliyetler"
+      }
     },
     {
       "id": "levelUpPercent",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Üretim seviyesini artırma hedef yüzdesi (%)"
+      "businessContext": "Üretim seviyesini artırma hedef yüzdesi (%)",
+      "label_i18n": {
+        "en": "Üretim Artış Yüzdesi",
+        "tr": "Üretim Artış Yüzdesi",
+        "de": "Üretim Artış Yüzdesi",
+        "fr": "Üretim Artış Yüzdesi",
+        "es": "Üretim Artış Yüzdesi",
+        "ar": "Üretim Artış Yüzdesi"
+      }
     },
     {
       "id": "additionalFixedCost",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "TL/ay",
       "default": 30000,
-      "businessContext": "Seviye atlama için gerekli ek aylık sabit maliyet (TL/ay)"
+      "businessContext": "Seviye atlama için gerekli ek aylık sabit maliyet (TL/ay)",
+      "label_i18n": {
+        "en": "Ek Sabit Maliyet",
+        "tr": "Ek Sabit Maliyet",
+        "de": "Ek Sabit Maliyet",
+        "fr": "Ek Sabit Maliyet",
+        "es": "Ek Sabit Maliyet",
+        "ar": "Ek Sabit Maliyet"
+      }
     }
   ],
   "formulas": {
@@ -67,7 +115,12 @@
       "profitMarginCurrent",
       "profitMarginNew",
       "roi"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roi"
   },
   "category": "İmalat & Üretim",
   "sector": "Üretim & İmalat",
@@ -77,5 +130,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

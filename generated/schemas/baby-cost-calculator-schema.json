@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "months",
       "default": 12,
-      "businessContext": "Duration for cost calculation"
+      "businessContext": "Duration for cost calculation",
+      "label_i18n": {
+        "en": "Number of Months",
+        "tr": "Number of Months",
+        "de": "Number of Months",
+        "fr": "Number of Months",
+        "es": "Number of Months",
+        "ar": "Number of Months"
+      }
     },
     {
       "id": "monthlyDiapers",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 80,
-      "businessContext": "Estimated cost of diapers per month"
+      "businessContext": "Estimated cost of diapers per month",
+      "label_i18n": {
+        "en": "Monthly Diapers Cost",
+        "tr": "Monthly Diapers Cost",
+        "de": "Monthly Diapers Cost",
+        "fr": "Monthly Diapers Cost",
+        "es": "Monthly Diapers Cost",
+        "ar": "Monthly Diapers Cost"
+      }
     },
     {
       "id": "monthlyFormula",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 120,
-      "businessContext": "Estimated cost for baby formula or food per month"
+      "businessContext": "Estimated cost for baby formula or food per month",
+      "label_i18n": {
+        "en": "Monthly Formula/Food Cost",
+        "tr": "Monthly Formula/Food Cost",
+        "de": "Monthly Formula/Food Cost",
+        "fr": "Monthly Formula/Food Cost",
+        "es": "Monthly Formula/Food Cost",
+        "ar": "Monthly Formula/Food Cost"
+      }
     },
     {
       "id": "monthlyClothing",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 50,
-      "businessContext": "Estimated clothing expenses per month"
+      "businessContext": "Estimated clothing expenses per month",
+      "label_i18n": {
+        "en": "Monthly Clothing Cost",
+        "tr": "Monthly Clothing Cost",
+        "de": "Monthly Clothing Cost",
+        "fr": "Monthly Clothing Cost",
+        "es": "Monthly Clothing Cost",
+        "ar": "Monthly Clothing Cost"
+      }
     },
     {
       "id": "monthlyChildcare",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD",
       "default": 500,
-      "businessContext": "Daycare or nanny cost per month"
+      "businessContext": "Daycare or nanny cost per month",
+      "label_i18n": {
+        "en": "Monthly Childcare Cost",
+        "tr": "Monthly Childcare Cost",
+        "de": "Monthly Childcare Cost",
+        "fr": "Monthly Childcare Cost",
+        "es": "Monthly Childcare Cost",
+        "ar": "Monthly Childcare Cost"
+      }
     },
     {
       "id": "monthlyMedical",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100,
-      "businessContext": "Health insurance premiums and out-of-pocket medical per month"
+      "businessContext": "Health insurance premiums and out-of-pocket medical per month",
+      "label_i18n": {
+        "en": "Monthly Medical Cost",
+        "tr": "Monthly Medical Cost",
+        "de": "Monthly Medical Cost",
+        "fr": "Monthly Medical Cost",
+        "es": "Monthly Medical Cost",
+        "ar": "Monthly Medical Cost"
+      }
     },
     {
       "id": "oneTimeCosts",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "USD",
       "default": 1000,
-      "businessContext": "Total one-time expenses like crib, stroller, car seat, etc."
+      "businessContext": "Total one-time expenses like crib, stroller, car seat, etc.",
+      "label_i18n": {
+        "en": "One-Time Costs",
+        "tr": "One-Time Costs",
+        "de": "One-Time Costs",
+        "fr": "One-Time Costs",
+        "es": "One-Time Costs",
+        "ar": "One-Time Costs"
+      }
     }
   ],
   "formulas": {
@@ -68,7 +124,12 @@
     "breakdown": [
       "totalMonthly",
       "oneTimeExpenses"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -78,5 +139,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "saglik",
   "profession": "Biyomedikal Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

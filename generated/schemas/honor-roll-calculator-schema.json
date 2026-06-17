@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percentage of defective products"
+      "businessContext": "Percentage of defective products",
+      "label_i18n": {
+        "en": "Defect Rate",
+        "tr": "Defect Rate",
+        "de": "Defect Rate",
+        "fr": "Defect Rate",
+        "es": "Defect Rate",
+        "ar": "Defect Rate"
+      }
     },
     {
       "id": "onTimeDelivery",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 95,
-      "businessContext": "Percentage of deliveries completed on time"
+      "businessContext": "Percentage of deliveries completed on time",
+      "label_i18n": {
+        "en": "On-Time Delivery Rate",
+        "tr": "On-Time Delivery Rate",
+        "de": "On-Time Delivery Rate",
+        "fr": "On-Time Delivery Rate",
+        "es": "On-Time Delivery Rate",
+        "ar": "On-Time Delivery Rate"
+      }
     },
     {
       "id": "productivity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "units/h",
       "default": 85,
-      "businessContext": "Actual production rate"
+      "businessContext": "Actual production rate",
+      "label_i18n": {
+        "en": "Actual Productivity",
+        "tr": "Actual Productivity",
+        "de": "Actual Productivity",
+        "fr": "Actual Productivity",
+        "es": "Actual Productivity",
+        "ar": "Actual Productivity"
+      }
     },
     {
       "id": "targetProductivity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "units/h",
       "default": 100,
-      "businessContext": "Target production rate"
+      "businessContext": "Target production rate",
+      "label_i18n": {
+        "en": "Target Productivity",
+        "tr": "Target Productivity",
+        "de": "Target Productivity",
+        "fr": "Target Productivity",
+        "es": "Target Productivity",
+        "ar": "Target Productivity"
+      }
     },
     {
       "id": "safetyIncidents",
@@ -39,24 +71,34 @@
       "type": "number",
       "unit": "count",
       "default": 0,
-      "businessContext": "Number of safety incidents (each deducts 10 points)"
+      "businessContext": "Number of safety incidents (each deducts 10 points)",
+      "label_i18n": {
+        "en": "Safety Incidents",
+        "tr": "Safety Incidents",
+        "de": "Safety Incidents",
+        "fr": "Safety Incidents",
+        "es": "Safety Incidents",
+        "ar": "Safety Incidents"
+      }
     }
   ],
   "formulas": {
-    "defectScore": "Math.max(0, 100 - defectRate)",
     "deliveryScore": "onTimeDelivery",
-    "productivityScore": "Math.max(0, Math.min(100, (productivity / targetProductivity) * 100))",
-    "safetyScore": "Math.max(0, 100 - safetyIncidents * 10)",
-    "honorScore": "(defectScore + deliveryScore + productivityScore + safetyScore) / 4"
+    "deliveryScore_aux": "onTimeDelivery"
   },
   "outputs": {
-    "primary": "honorScore",
+    "primary": "deliveryScore_aux",
     "breakdown": [
       "defectScore",
       "deliveryScore",
       "productivityScore",
       "safetyScore"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "honorScore"
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Üretim & İmalat",
@@ -66,5 +108,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "lojistik",
   "profession": "Lojistik Uzmanı",
-  "categoryId": "efficiency"
+  "categoryId": "efficiency",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

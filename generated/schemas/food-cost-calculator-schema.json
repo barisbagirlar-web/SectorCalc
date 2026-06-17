@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Cost of all ingredients used in recipe"
+      "businessContext": "Cost of all ingredients used in recipe",
+      "label_i18n": {
+        "en": "Total Ingredient Cost",
+        "tr": "Total Ingredient Cost",
+        "de": "Total Ingredient Cost",
+        "fr": "Total Ingredient Cost",
+        "es": "Total Ingredient Cost",
+        "ar": "Total Ingredient Cost"
+      }
     },
     {
       "id": "numberOfServings",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "servings",
       "default": 1,
-      "businessContext": "Total number of servings the recipe yields"
+      "businessContext": "Total number of servings the recipe yields",
+      "label_i18n": {
+        "en": "Number of Servings",
+        "tr": "Number of Servings",
+        "de": "Number of Servings",
+        "fr": "Number of Servings",
+        "es": "Number of Servings",
+        "ar": "Number of Servings"
+      }
     },
     {
       "id": "laborCostPerHour",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD/h",
       "default": 0,
-      "businessContext": "Hourly wage for labor"
+      "businessContext": "Hourly wage for labor",
+      "label_i18n": {
+        "en": "Labor Cost per Hour",
+        "tr": "Labor Cost per Hour",
+        "de": "Labor Cost per Hour",
+        "fr": "Labor Cost per Hour",
+        "es": "Labor Cost per Hour",
+        "ar": "Labor Cost per Hour"
+      }
     },
     {
       "id": "preparationTimeHours",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "hours",
       "default": 0,
-      "businessContext": "Time taken to prepare the dish"
+      "businessContext": "Time taken to prepare the dish",
+      "label_i18n": {
+        "en": "Preparation Time",
+        "tr": "Preparation Time",
+        "de": "Preparation Time",
+        "fr": "Preparation Time",
+        "es": "Preparation Time",
+        "ar": "Preparation Time"
+      }
     },
     {
       "id": "overheadPercentage",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Additional overhead costs as percentage of ingredient cost"
+      "businessContext": "Additional overhead costs as percentage of ingredient cost",
+      "label_i18n": {
+        "en": "Overhead Percentage",
+        "tr": "Overhead Percentage",
+        "de": "Overhead Percentage",
+        "fr": "Overhead Percentage",
+        "es": "Overhead Percentage",
+        "ar": "Overhead Percentage"
+      }
     },
     {
       "id": "profitMarginPercentage",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 30,
-      "businessContext": "Profit margin to apply as percentage of selling price"
+      "businessContext": "Profit margin to apply as percentage of selling price",
+      "label_i18n": {
+        "en": "Desired Profit Margin",
+        "tr": "Desired Profit Margin",
+        "de": "Desired Profit Margin",
+        "fr": "Desired Profit Margin",
+        "es": "Desired Profit Margin",
+        "ar": "Desired Profit Margin"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +108,12 @@
     "breakdown": [
       "totalCost",
       "costPerServing"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "sellingPricePerServing"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -70,5 +123,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

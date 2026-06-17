@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "Reaktöre beslenen toplam reaktan kütlesi"
+      "businessContext": "Reaktöre beslenen toplam reaktan kütlesi",
+      "label_i18n": {
+        "en": "Reaktan Kütlesi",
+        "tr": "Reaktan Kütlesi",
+        "de": "Reaktan Kütlesi",
+        "fr": "Reaktan Kütlesi",
+        "es": "Reaktan Kütlesi",
+        "ar": "Reaktan Kütlesi"
+      }
     },
     {
       "id": "molarMassReactant",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg/kmol",
       "default": 50,
-      "businessContext": "Reaktanın molar kütlesi"
+      "businessContext": "Reaktanın molar kütlesi",
+      "label_i18n": {
+        "en": "Reaktan Mol Kütlesi",
+        "tr": "Reaktan Mol Kütlesi",
+        "de": "Reaktan Mol Kütlesi",
+        "fr": "Reaktan Mol Kütlesi",
+        "es": "Reaktan Mol Kütlesi",
+        "ar": "Reaktan Mol Kütlesi"
+      }
     },
     {
       "id": "conversion",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "boyutsuz",
       "default": 0.5,
-      "businessContext": "Reaktanın fraksiyonel dönüşümü (0–1)"
+      "businessContext": "Reaktanın fraksiyonel dönüşümü (0–1)",
+      "label_i18n": {
+        "en": "Dönüşüm Oranı",
+        "tr": "Dönüşüm Oranı",
+        "de": "Dönüşüm Oranı",
+        "fr": "Dönüşüm Oranı",
+        "es": "Dönüşüm Oranı",
+        "ar": "Dönüşüm Oranı"
+      }
     },
     {
       "id": "massDesired",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 40,
-      "businessContext": "Elde edilen istenen ürün kütlesi"
+      "businessContext": "Elde edilen istenen ürün kütlesi",
+      "label_i18n": {
+        "en": "İstenen Ürün Kütlesi",
+        "tr": "İstenen Ürün Kütlesi",
+        "de": "İstenen Ürün Kütlesi",
+        "fr": "İstenen Ürün Kütlesi",
+        "es": "İstenen Ürün Kütlesi",
+        "ar": "İstenen Ürün Kütlesi"
+      }
     },
     {
       "id": "molarMassDesired",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg/kmol",
       "default": 80,
-      "businessContext": "İstenen ürünün molar kütlesi"
+      "businessContext": "İstenen ürünün molar kütlesi",
+      "label_i18n": {
+        "en": "İstenen Ürün Mol Kütlesi",
+        "tr": "İstenen Ürün Mol Kütlesi",
+        "de": "İstenen Ürün Mol Kütlesi",
+        "fr": "İstenen Ürün Mol Kütlesi",
+        "es": "İstenen Ürün Mol Kütlesi",
+        "ar": "İstenen Ürün Mol Kütlesi"
+      }
     },
     {
       "id": "massUndesired",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kg",
       "default": 20,
-      "businessContext": "Oluşan istenmeyen yan ürün kütlesi"
+      "businessContext": "Oluşan istenmeyen yan ürün kütlesi",
+      "label_i18n": {
+        "en": "İstenmeyen Ürün Kütlesi",
+        "tr": "İstenmeyen Ürün Kütlesi",
+        "de": "İstenmeyen Ürün Kütlesi",
+        "fr": "İstenmeyen Ürün Kütlesi",
+        "es": "İstenmeyen Ürün Kütlesi",
+        "ar": "İstenmeyen Ürün Kütlesi"
+      }
     },
     {
       "id": "molarMassUndesired",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "kg/kmol",
       "default": 60,
-      "businessContext": "İstenmeyen ürünün molar kütlesi"
+      "businessContext": "İstenmeyen ürünün molar kütlesi",
+      "label_i18n": {
+        "en": "İstenmeyen Ürün Mol Kütlesi",
+        "tr": "İstenmeyen Ürün Mol Kütlesi",
+        "de": "İstenmeyen Ürün Mol Kütlesi",
+        "fr": "İstenmeyen Ürün Mol Kütlesi",
+        "es": "İstenmeyen Ürün Mol Kütlesi",
+        "ar": "İstenmeyen Ürün Mol Kütlesi"
+      }
     }
   ],
   "formulas": {
@@ -70,7 +126,12 @@
     "primary": "selectivity",
     "breakdown": [
       "yield"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "yield"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -80,5 +141,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

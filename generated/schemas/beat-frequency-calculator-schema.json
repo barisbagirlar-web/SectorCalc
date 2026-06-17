@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 1000,
-      "businessContext": "Base frequency of emitted sound wave"
+      "businessContext": "Base frequency of emitted sound wave",
+      "label_i18n": {
+        "en": "Transmitted Frequency",
+        "tr": "Transmitted Frequency",
+        "de": "Transmitted Frequency",
+        "fr": "Transmitted Frequency",
+        "es": "Transmitted Frequency",
+        "ar": "Transmitted Frequency"
+      }
     },
     {
       "id": "targetSpeed",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 10,
-      "businessContext": "Speed of the reflecting target. Positive for approaching, negative for receding."
+      "businessContext": "Speed of the reflecting target. Positive for approaching, negative for receding.",
+      "label_i18n": {
+        "en": "Target Speed",
+        "tr": "Target Speed",
+        "de": "Target Speed",
+        "fr": "Target Speed",
+        "es": "Target Speed",
+        "ar": "Target Speed"
+      }
     },
     {
       "id": "angle",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°",
       "default": 0,
-      "businessContext": "Angle between target velocity vector and the line connecting source and target. 0° for head-on approach."
+      "businessContext": "Angle between target velocity vector and the line connecting source and target. 0° for head-on approach.",
+      "label_i18n": {
+        "en": "Angle (θ)",
+        "tr": "Angle (θ)",
+        "de": "Angle (θ)",
+        "fr": "Angle (θ)",
+        "es": "Angle (θ)",
+        "ar": "Angle (θ)"
+      }
     },
     {
       "id": "speedOfSound",
@@ -31,19 +55,32 @@
       "type": "number",
       "unit": "m/s",
       "default": 343,
-      "businessContext": "Speed of sound in the medium (e.g., air at 20°C)"
+      "businessContext": "Speed of sound in the medium (e.g., air at 20°C)",
+      "label_i18n": {
+        "en": "Speed of Sound",
+        "tr": "Speed of Sound",
+        "de": "Speed of Sound",
+        "fr": "Speed of Sound",
+        "es": "Speed of Sound",
+        "ar": "Speed of Sound"
+      }
     }
   ],
   "formulas": {
-    "observedFrequency": "transmittedFrequency * (speedOfSound + targetSpeed * Math.cos(angle * Math.PI / 180)) / (speedOfSound - targetSpeed * Math.cos(angle * Math.PI / 180))",
-    "beatFrequency": "Math.sqrt((transmittedFrequency - observedFrequency) ** 2)"
+    "result": "transmittedFrequency + targetSpeed + angle",
+    "result_copy": "transmittedFrequency + targetSpeed + angle"
   },
   "outputs": {
-    "primary": "beatFrequency",
+    "primary": "result",
     "breakdown": [
       "observedFrequency",
       "beatFrequency"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "beatFrequency"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -53,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

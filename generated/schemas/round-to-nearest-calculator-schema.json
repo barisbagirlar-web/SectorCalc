@@ -68,15 +68,19 @@
   ],
   "formulas": {
     "adjustedValue": "(value - offset) / nearest",
-    "roundedMultiple": "Math.round(adjustedValue)",
-    "roundedValue": "parseFloat((roundedMultiple * nearest + offset).toFixed(decimals))"
+    "adjustedValue_aux": "(value - offset) / nearest"
   },
   "outputs": {
-    "primary": "roundedValue",
+    "primary": "adjustedValue_aux",
     "breakdown": [
       "adjustedValue",
       "roundedMultiple"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roundedValue"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -86,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

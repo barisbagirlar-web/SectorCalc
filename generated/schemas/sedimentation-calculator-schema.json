@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.0001,
-      "businessContext": "Tipik çap 0.1 mm"
+      "businessContext": "Tipik çap 0.1 mm",
+      "label_i18n": {
+        "en": "Partikül Çapı",
+        "tr": "Partikül Çapı",
+        "de": "Partikül Çapı",
+        "fr": "Partikül Çapı",
+        "es": "Partikül Çapı",
+        "ar": "Partikül Çapı"
+      }
     },
     {
       "id": "particleDensity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 2600,
-      "businessContext": "Silis kumu ≈ 2600 kg/m³"
+      "businessContext": "Silis kumu ≈ 2600 kg/m³",
+      "label_i18n": {
+        "en": "Partikül Yoğunluğu",
+        "tr": "Partikül Yoğunluğu",
+        "de": "Partikül Yoğunluğu",
+        "fr": "Partikül Yoğunluğu",
+        "es": "Partikül Yoğunluğu",
+        "ar": "Partikül Yoğunluğu"
+      }
     },
     {
       "id": "fluidDensity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1000,
-      "businessContext": "Su = 1000 kg/m³"
+      "businessContext": "Su = 1000 kg/m³",
+      "label_i18n": {
+        "en": "Akışkan Yoğunluğu",
+        "tr": "Akışkan Yoğunluğu",
+        "de": "Akışkan Yoğunluğu",
+        "fr": "Akışkan Yoğunluğu",
+        "es": "Akışkan Yoğunluğu",
+        "ar": "Akışkan Yoğunluğu"
+      }
     },
     {
       "id": "fluidViscosity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "Pa·s",
       "default": 0.001,
-      "businessContext": "Su için ≈ 0.001 Pa·s (20°C)"
+      "businessContext": "Su için ≈ 0.001 Pa·s (20°C)",
+      "label_i18n": {
+        "en": "Akışkan Dinamik Viskozitesi",
+        "tr": "Akışkan Dinamik Viskozitesi",
+        "de": "Akışkan Dinamik Viskozitesi",
+        "fr": "Akışkan Dinamik Viskozitesi",
+        "es": "Akışkan Dinamik Viskozitesi",
+        "ar": "Akışkan Dinamik Viskozitesi"
+      }
     },
     {
       "id": "flowRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m³/s",
       "default": 0.1,
-      "businessContext": "Tesis tasarım debisi"
+      "businessContext": "Tesis tasarım debisi",
+      "label_i18n": {
+        "en": "Debi",
+        "tr": "Debi",
+        "de": "Debi",
+        "fr": "Debi",
+        "es": "Debi",
+        "ar": "Debi"
+      }
     },
     {
       "id": "basinLength",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "m",
       "default": 20,
-      "businessContext": "Çökeltim havuzu boyu"
+      "businessContext": "Çökeltim havuzu boyu",
+      "label_i18n": {
+        "en": "Havuz Uzunluğu",
+        "tr": "Havuz Uzunluğu",
+        "de": "Havuz Uzunluğu",
+        "fr": "Havuz Uzunluğu",
+        "es": "Havuz Uzunluğu",
+        "ar": "Havuz Uzunluğu"
+      }
     },
     {
       "id": "basinWidth",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Çökeltim havuzu eni"
+      "businessContext": "Çökeltim havuzu eni",
+      "label_i18n": {
+        "en": "Havuz Genişliği",
+        "tr": "Havuz Genişliği",
+        "de": "Havuz Genişliği",
+        "fr": "Havuz Genişliği",
+        "es": "Havuz Genişliği",
+        "ar": "Havuz Genişliği"
+      }
     },
     {
       "id": "basinDepth",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "Tipik derinlik 2-4 m"
+      "businessContext": "Tipik derinlik 2-4 m",
+      "label_i18n": {
+        "en": "Havuz Derinliği",
+        "tr": "Havuz Derinliği",
+        "de": "Havuz Derinliği",
+        "fr": "Havuz Derinliği",
+        "es": "Havuz Derinliği",
+        "ar": "Havuz Derinliği"
+      }
     }
   ],
   "formulas": {
@@ -78,7 +142,12 @@
       "settlingVelocity",
       "detentionTime",
       "reynoldsNumber"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "reynoldsNumber"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -88,5 +157,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

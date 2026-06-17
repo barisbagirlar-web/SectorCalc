@@ -139,56 +139,6 @@
       "businessContext_i18n": {
         "en": "Overall electrical system efficiency including transformers, cables, and motors. Used for loss adjustment."
       }
-    },
-    {
-      "id": "operating_hours",
-      "label": "Operating Hours per Month",
-      "type": "number",
-      "unit": "hours",
-      "default": 720,
-      "min": 0,
-      "max": 744,
-      "businessContext": "Total hours the facility operates in the billing period. Used for load factor calculation.",
-      "label_i18n": {
-        "en": "Operating Hours per Month"
-      },
-      "businessContext_i18n": {
-        "en": "Total hours the facility operates in the billing period. Used for load factor calculation."
-      }
-    },
-    {
-      "id": "tariff_type",
-      "label": "Tariff Type",
-      "type": "select",
-      "options": [
-        "Time-of-Use",
-        "Flat Rate",
-        "Tiered",
-        "Real-Time Pricing"
-      ],
-      "default": "Flat Rate",
-      "businessContext": "Utility rate structure. Affects how energy and demand charges are calculated.",
-      "label_i18n": {
-        "en": "Tariff Type"
-      },
-      "businessContext_i18n": {
-        "en": "Utility rate structure. Affects how energy and demand charges are calculated."
-      },
-      "unit": "unit"
-    },
-    {
-      "id": "include_demand_charge",
-      "label": "Include Demand Charge",
-      "type": "boolean",
-      "default": true,
-      "businessContext": "Toggle to include or exclude demand charges from total cost.",
-      "label_i18n": {
-        "en": "Include Demand Charge"
-      },
-      "businessContext_i18n": {
-        "en": "Toggle to include or exclude demand charges from total cost."
-      },
-      "unit": "unit"
     }
   ],
   "validation": {
@@ -239,18 +189,18 @@
       }
     ]
   },
-  "formulas": [
-    "energy_consumption_kwh",
-    "energy_consumption_kwh",
-    "energy_consumption_kwh",
-    "energy_consumption_kwh",
-    "energy_consumption_kwh",
-    "energy_consumption_kwh",
-    "energy_consumption_kwh"
-  ],
+  "formulas": {
+    "result": "energy_consumption_kwh + peak_demand_kw + energy_rate_per_kwh",
+    "result_copy": "energy_consumption_kwh + peak_demand_kw + energy_rate_per_kwh"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "energy-carbon",
   "sectorSlug": "energy-carbon",

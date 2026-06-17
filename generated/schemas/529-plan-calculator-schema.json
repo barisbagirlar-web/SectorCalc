@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 5,
-      "businessContext": "Age of the beneficiary"
+      "businessContext": "Age of the beneficiary",
+      "label_i18n": {
+        "en": "Child's Current Age",
+        "tr": "Child's Current Age",
+        "de": "Child's Current Age",
+        "fr": "Child's Current Age",
+        "es": "Child's Current Age",
+        "ar": "Child's Current Age"
+      }
     },
     {
       "id": "annualContribution",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 5000,
-      "businessContext": "Amount contributed each year"
+      "businessContext": "Amount contributed each year",
+      "label_i18n": {
+        "en": "Annual Contribution",
+        "tr": "Annual Contribution",
+        "de": "Annual Contribution",
+        "fr": "Annual Contribution",
+        "es": "Annual Contribution",
+        "ar": "Annual Contribution"
+      }
     },
     {
       "id": "existingBalance",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 10000,
-      "businessContext": "Current balance in the 529 plan"
+      "businessContext": "Current balance in the 529 plan",
+      "label_i18n": {
+        "en": "Existing Balance",
+        "tr": "Existing Balance",
+        "de": "Existing Balance",
+        "fr": "Existing Balance",
+        "es": "Existing Balance",
+        "ar": "Existing Balance"
+      }
     },
     {
       "id": "yearsUntilCollege",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "years",
       "default": 13,
-      "businessContext": "Number of years until college begins"
+      "businessContext": "Number of years until college begins",
+      "label_i18n": {
+        "en": "Years Until College",
+        "tr": "Years Until College",
+        "de": "Years Until College",
+        "fr": "Years Until College",
+        "es": "Years Until College",
+        "ar": "Years Until College"
+      }
     },
     {
       "id": "annualReturn",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 6,
-      "businessContext": "Expected annual investment return"
+      "businessContext": "Expected annual investment return",
+      "label_i18n": {
+        "en": "Expected Annual Return",
+        "tr": "Expected Annual Return",
+        "de": "Expected Annual Return",
+        "fr": "Expected Annual Return",
+        "es": "Expected Annual Return",
+        "ar": "Expected Annual Return"
+      }
     },
     {
       "id": "inflationRate",
@@ -47,23 +87,32 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Expected annual inflation rate"
+      "businessContext": "Expected annual inflation rate",
+      "label_i18n": {
+        "en": "Inflation Rate",
+        "tr": "Inflation Rate",
+        "de": "Inflation Rate",
+        "fr": "Inflation Rate",
+        "es": "Inflation Rate",
+        "ar": "Inflation Rate"
+      }
     }
   ],
   "formulas": {
-    "rate": "inputs.annualReturn / 100",
-    "fvExisting": "inputs.existingBalance * (1 + rate) ** inputs.yearsUntilCollege",
-    "fvContributions": "inputs.annualContribution * (((1 + rate) ** inputs.yearsUntilCollege - 1) / rate)",
-    "projectedBalance": "fvExisting + fvContributions",
-    "totalContributions": "inputs.existingBalance + inputs.annualContribution * inputs.yearsUntilCollege",
-    "totalEarnings": "projectedBalance - totalContributions"
+    "result": "childAge + annualContribution + existingBalance",
+    "result_copy": "childAge + annualContribution + existingBalance"
   },
   "outputs": {
-    "primary": "projectedBalance",
+    "primary": "result",
     "breakdown": [
       "totalContributions",
       "totalEarnings"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalEarnings"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -73,5 +122,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

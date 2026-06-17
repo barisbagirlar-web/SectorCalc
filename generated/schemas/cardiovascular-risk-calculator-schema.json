@@ -116,15 +116,19 @@
   ],
   "formulas": {
     "logit": "gender == 1 ? (-4.376 + 0.048 * age + 0.001 * totalCholesterol - 0.0007 * hdl + 0.013 * systolicBP + 0.55 * smoking + 0.85 * diabetes) : (-4.376 + 0.034 * age + 0.001 * totalCholesterol - 0.0007 * hdl + 0.013 * systolicBP + 0.55 * smoking + 0.85 * diabetes)",
-    "riskProbability": "1 / (1 + Math.exp(-logit))",
-    "riskCategory": "riskProbability < 0.1 ? 'Düşük' : (riskProbability < 0.2 ? 'Orta' : 'Yüksek')"
+    "logit_aux": "gender == 1 ? (-4.376 + 0.048 * age + 0.001 * totalCholesterol - 0.0007 * hdl + 0.013 * systolicBP + 0.55 * smoking + 0.85 * diabetes) : (-4.376 + 0.034 * age + 0.001 * totalCholesterol - 0.0007 * hdl + 0.013 * systolicBP + 0.55 * smoking + 0.85 * diabetes)"
   },
   "outputs": {
-    "primary": "riskProbability",
+    "primary": "logit_aux",
     "breakdown": [
       "logit",
       "riskCategory"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "riskCategory"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -134,5 +138,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

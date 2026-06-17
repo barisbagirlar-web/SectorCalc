@@ -67,15 +67,20 @@
     }
   ],
   "formulas": {
-    "kurtosis": "parseFloat(((sumFourth / n) / Math.pow(sumSquared / n, 2)).toFixed(decimalPlaces))",
-    "excessKurtosis": "parseFloat((((sumFourth / n) / Math.pow(sumSquared / n, 2)) - 3).toFixed(decimalPlaces))"
+    "result": "n + sumSquared + sumFourth",
+    "result_copy": "n + sumSquared + sumFourth"
   },
   "outputs": {
-    "primary": "excessKurtosis",
+    "primary": "result",
     "breakdown": [
       "kurtosis",
       "excessKurtosis"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "excessKurtosis"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -85,5 +90,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

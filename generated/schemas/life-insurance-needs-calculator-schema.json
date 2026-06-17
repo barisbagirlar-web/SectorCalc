@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 50000,
-      "businessContext": "The policyholder's current annual after-tax income that needs replacement."
+      "businessContext": "The policyholder's current annual after-tax income that needs replacement.",
+      "label_i18n": {
+        "en": "Annual Income",
+        "tr": "Annual Income",
+        "de": "Annual Income",
+        "fr": "Annual Income",
+        "es": "Annual Income",
+        "ar": "Annual Income"
+      }
     },
     {
       "id": "years_needed",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "years",
       "default": 20,
-      "businessContext": "Number of years the dependents will require income replacement."
+      "businessContext": "Number of years the dependents will require income replacement.",
+      "label_i18n": {
+        "en": "Years of Need",
+        "tr": "Years of Need",
+        "de": "Years of Need",
+        "fr": "Years of Need",
+        "es": "Years of Need",
+        "ar": "Years of Need"
+      }
     },
     {
       "id": "current_savings",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 10000,
-      "businessContext": "Total liquid assets that can be used toward future needs."
+      "businessContext": "Total liquid assets that can be used toward future needs.",
+      "label_i18n": {
+        "en": "Current Savings & Investments",
+        "tr": "Current Savings & Investments",
+        "de": "Current Savings & Investments",
+        "fr": "Current Savings & Investments",
+        "es": "Current Savings & Investments",
+        "ar": "Current Savings & Investments"
+      }
     },
     {
       "id": "outstanding_debts",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency",
       "default": 150000,
-      "businessContext": "Total debts that must be paid off upon death."
+      "businessContext": "Total debts that must be paid off upon death.",
+      "label_i18n": {
+        "en": "Outstanding Debts (e.g., mortgage, loans)",
+        "tr": "Outstanding Debts (e.g., mortgage, loans)",
+        "de": "Outstanding Debts (e.g., mortgage, loans)",
+        "fr": "Outstanding Debts (e.g., mortgage, loans)",
+        "es": "Outstanding Debts (e.g., mortgage, loans)",
+        "ar": "Outstanding Debts (e.g., mortgage, loans)"
+      }
     },
     {
       "id": "education_expenses",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency",
       "default": 50000,
-      "businessContext": "Estimated total cost for children's education."
+      "businessContext": "Estimated total cost for children's education.",
+      "label_i18n": {
+        "en": "Future Education Expenses",
+        "tr": "Future Education Expenses",
+        "de": "Future Education Expenses",
+        "fr": "Future Education Expenses",
+        "es": "Future Education Expenses",
+        "ar": "Future Education Expenses"
+      }
     },
     {
       "id": "final_expenses",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "currency",
       "default": 20000,
-      "businessContext": "Estimated cost for funeral and estate settlement."
+      "businessContext": "Estimated cost for funeral and estate settlement.",
+      "label_i18n": {
+        "en": "Final Expenses (funeral, estate settlement)",
+        "tr": "Final Expenses (funeral, estate settlement)",
+        "de": "Final Expenses (funeral, estate settlement)",
+        "fr": "Final Expenses (funeral, estate settlement)",
+        "es": "Final Expenses (funeral, estate settlement)",
+        "ar": "Final Expenses (funeral, estate settlement)"
+      }
     }
   ],
   "formulas": {
@@ -65,7 +113,12 @@
       "total_needs",
       "current_savings",
       "recommended_coverage"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "recommended_coverage"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -75,5 +128,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

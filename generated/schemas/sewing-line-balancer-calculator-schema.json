@@ -155,18 +155,18 @@
       }
     ]
   },
-  "formulas": [
-    "total_work_content",
-    "total_work_content",
-    "total_work_content",
-    "total_work_content",
-    "total_work_content",
-    "total_work_content",
-    "total_work_content"
-  ],
+  "formulas": {
+    "result": "total_work_content + number_of_operators + takt_time",
+    "result_copy": "total_work_content + number_of_operators + takt_time"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "sewing-line-balancer-calculator",
   "catalogCategory": "everyday-life",

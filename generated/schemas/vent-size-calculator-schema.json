@@ -69,21 +69,21 @@
   "formulas": {
     "flow": "(ach * volume) / 3600",
     "areaRaw": "flow / velocity",
-    "areaFinal": "areaRaw * safetyFactor",
-    "__volume__m_": "${volume} m³",
-    "__flow_toFixed_4___m__s": "${flow.toFixed(4)} m³/s",
-    "__areaRaw_toFixed_4___m_": "${areaRaw.toFixed(4)} m²",
-    "__areaFinal_toFixed_4___m_": "${areaFinal.toFixed(4)} m²",
-    "result": "Gerekli Menfez Alanı: ${areaFinal.toFixed(4)} m²"
+    "areaFinal": "areaRaw * safetyFactor"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "areaFinal",
     "breakdown": [
       "Oda Hacmi: ${volume} m³",
       "Hava Değişim Debisi: ${flow.toFixed(4)} m³/s",
       "Ham Alan: ${areaRaw.toFixed(4)} m²",
       "Emniyet Katsayılı Alan: ${areaFinal.toFixed(4)} m²"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "areaFinal"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -93,5 +93,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

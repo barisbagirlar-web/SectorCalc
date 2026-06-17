@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "count",
       "default": 4,
-      "businessContext": "How many pizzas you plan to make."
+      "businessContext": "How many pizzas you plan to make.",
+      "label_i18n": {
+        "en": "Number of Pizzas",
+        "tr": "Number of Pizzas",
+        "de": "Number of Pizzas",
+        "fr": "Number of Pizzas",
+        "es": "Number of Pizzas",
+        "ar": "Number of Pizzas"
+      }
     },
     {
       "id": "doughBallWeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g",
       "default": 250,
-      "businessContext": "Target weight of each dough ball."
+      "businessContext": "Target weight of each dough ball.",
+      "label_i18n": {
+        "en": "Dough Ball Weight",
+        "tr": "Dough Ball Weight",
+        "de": "Dough Ball Weight",
+        "fr": "Dough Ball Weight",
+        "es": "Dough Ball Weight",
+        "ar": "Dough Ball Weight"
+      }
     },
     {
       "id": "hydrationPercent",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 65,
-      "businessContext": "Water as percentage of flour weight."
+      "businessContext": "Water as percentage of flour weight.",
+      "label_i18n": {
+        "en": "Hydration",
+        "tr": "Hydration",
+        "de": "Hydration",
+        "fr": "Hydration",
+        "es": "Hydration",
+        "ar": "Hydration"
+      }
     },
     {
       "id": "yeastPercent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 1,
-      "businessContext": "Yeast as percentage of flour weight."
+      "businessContext": "Yeast as percentage of flour weight.",
+      "label_i18n": {
+        "en": "Yeast",
+        "tr": "Yeast",
+        "de": "Yeast",
+        "fr": "Yeast",
+        "es": "Yeast",
+        "ar": "Yeast"
+      }
     },
     {
       "id": "saltPercent",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Salt as percentage of flour weight."
+      "businessContext": "Salt as percentage of flour weight.",
+      "label_i18n": {
+        "en": "Salt",
+        "tr": "Salt",
+        "de": "Salt",
+        "fr": "Salt",
+        "es": "Salt",
+        "ar": "Salt"
+      }
     },
     {
       "id": "oilPercent",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Olive oil as percentage of flour weight."
+      "businessContext": "Olive oil as percentage of flour weight.",
+      "label_i18n": {
+        "en": "Oil",
+        "tr": "Oil",
+        "de": "Oil",
+        "fr": "Oil",
+        "es": "Oil",
+        "ar": "Oil"
+      }
     }
   ],
   "formulas": {
@@ -66,7 +114,12 @@
       "yeastWeight",
       "saltWeight",
       "oilWeight"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "oilWeight"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -76,5 +129,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

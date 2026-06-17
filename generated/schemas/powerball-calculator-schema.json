@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 3.5,
-      "businessContext": "Inner diameter of the mill shell, measured without liners. Determines critical speed and power draw."
+      "businessContext": "Inner diameter of the mill shell, measured without liners. Determines critical speed and power draw.",
+      "label_i18n": {
+        "en": "Internal Mill Diameter (D)",
+        "tr": "Internal Mill Diameter (D)",
+        "de": "Internal Mill Diameter (D)",
+        "fr": "Internal Mill Diameter (D)",
+        "es": "Internal Mill Diameter (D)",
+        "ar": "Internal Mill Diameter (D)"
+      }
     },
     {
       "id": "internalLength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 6,
-      "businessContext": "Effective grinding length of the mill. Affects charge volume and power."
+      "businessContext": "Effective grinding length of the mill. Affects charge volume and power.",
+      "label_i18n": {
+        "en": "Internal Mill Length (L)",
+        "tr": "Internal Mill Length (L)",
+        "de": "Internal Mill Length (L)",
+        "fr": "Internal Mill Length (L)",
+        "es": "Internal Mill Length (L)",
+        "ar": "Internal Mill Length (L)"
+      }
     },
     {
       "id": "millSpeed",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "rpm",
       "default": 18,
-      "businessContext": "Actual rotational speed of the mill. Typically 65-80% of critical speed for optimal operation."
+      "businessContext": "Actual rotational speed of the mill. Typically 65-80% of critical speed for optimal operation.",
+      "label_i18n": {
+        "en": "Mill Rotation Speed",
+        "tr": "Mill Rotation Speed",
+        "de": "Mill Rotation Speed",
+        "fr": "Mill Rotation Speed",
+        "es": "Mill Rotation Speed",
+        "ar": "Mill Rotation Speed"
+      }
     },
     {
       "id": "ballFillingFraction",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "(ratio 0–1)",
       "default": 0.3,
-      "businessContext": "Fraction of mill volume occupied by grinding media (balls). Affects power consumption and throughput."
+      "businessContext": "Fraction of mill volume occupied by grinding media (balls). Affects power consumption and throughput.",
+      "label_i18n": {
+        "en": "Ball Filling Fraction (J)",
+        "tr": "Ball Filling Fraction (J)",
+        "de": "Ball Filling Fraction (J)",
+        "fr": "Ball Filling Fraction (J)",
+        "es": "Ball Filling Fraction (J)",
+        "ar": "Ball Filling Fraction (J)"
+      }
     },
     {
       "id": "ballBulkDensity",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 4800,
-      "businessContext": "Bulk density of the grinding media charge. For steel balls, typical is 4800 kg/m³."
+      "businessContext": "Bulk density of the grinding media charge. For steel balls, typical is 4800 kg/m³.",
+      "label_i18n": {
+        "en": "Ball Bulk Density",
+        "tr": "Ball Bulk Density",
+        "de": "Ball Bulk Density",
+        "fr": "Ball Bulk Density",
+        "es": "Ball Bulk Density",
+        "ar": "Ball Bulk Density"
+      }
     },
     {
       "id": "motorEfficiency",
@@ -47,17 +87,23 @@
       "type": "number",
       "unit": "(ratio 0–1)",
       "default": 0.95,
-      "businessContext": "Efficiency of the motor and drive system. Used to calculate required input electrical power."
+      "businessContext": "Efficiency of the motor and drive system. Used to calculate required input electrical power.",
+      "label_i18n": {
+        "en": "Motor Efficiency",
+        "tr": "Motor Efficiency",
+        "de": "Motor Efficiency",
+        "fr": "Motor Efficiency",
+        "es": "Motor Efficiency",
+        "ar": "Motor Efficiency"
+      }
     }
   ],
   "formulas": {
-    "criticalSpeedRPM": "42.3 / Math.sqrt(internalDiameter)",
-    "percentCriticalSpeed": "(millSpeed / (42.3 / Math.sqrt(internalDiameter))) * 100",
-    "millPowerKW": "10.6 * (internalDiameter ** 2.5) * internalLength * (percentCriticalSpeed / 100) * ballFillingFraction * (ballBulkDensity / 1000)",
-    "motorInputPowerKW": "millPowerKW / motorEfficiency"
+    "result": "internalDiameter + internalLength + millSpeed",
+    "result_copy": "internalDiameter + internalLength + millSpeed"
   },
   "outputs": {
-    "primary": "criticalSpeedRPM",
+    "primary": "result",
     "breakdown": [
       {
         "id": "criticalSpeedRPM",
@@ -77,7 +123,12 @@
         "unit": "kW",
         "description": "Power required at the mill shell (pinion shaft)."
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "motorInputPowerKW"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -87,5 +138,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

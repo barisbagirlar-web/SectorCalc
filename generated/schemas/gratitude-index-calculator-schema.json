@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "count/week",
       "default": 5,
-      "businessContext": "Weekly frequency of explicit appreciation expressions."
+      "businessContext": "Weekly frequency of explicit appreciation expressions.",
+      "label_i18n": {
+        "en": "Appreciation Frequency",
+        "tr": "Appreciation Frequency",
+        "de": "Appreciation Frequency",
+        "fr": "Appreciation Frequency",
+        "es": "Appreciation Frequency",
+        "ar": "Appreciation Frequency"
+      }
     },
     {
       "id": "positive_feedback_ratio",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 70,
-      "businessContext": "Percentage of positive feedback among total feedback."
+      "businessContext": "Percentage of positive feedback among total feedback.",
+      "label_i18n": {
+        "en": "Positive Feedback Ratio",
+        "tr": "Positive Feedback Ratio",
+        "de": "Positive Feedback Ratio",
+        "fr": "Positive Feedback Ratio",
+        "es": "Positive Feedback Ratio",
+        "ar": "Positive Feedback Ratio"
+      }
     },
     {
       "id": "team_morale_score",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "score",
       "default": 7,
-      "businessContext": "Self-reported team morale score on a scale of 1 to 10."
+      "businessContext": "Self-reported team morale score on a scale of 1 to 10.",
+      "label_i18n": {
+        "en": "Team Morale Score",
+        "tr": "Team Morale Score",
+        "de": "Team Morale Score",
+        "fr": "Team Morale Score",
+        "es": "Team Morale Score",
+        "ar": "Team Morale Score"
+      }
     },
     {
       "id": "recognition_impact",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Estimated performance improvement due to recognition."
+      "businessContext": "Estimated performance improvement due to recognition.",
+      "label_i18n": {
+        "en": "Recognition Impact",
+        "tr": "Recognition Impact",
+        "de": "Recognition Impact",
+        "fr": "Recognition Impact",
+        "es": "Recognition Impact",
+        "ar": "Recognition Impact"
+      }
     },
     {
       "id": "gratitude_decay",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "1/day",
       "default": 0.1,
-      "businessContext": "Exponential decay constant for gratitude effects over time."
+      "businessContext": "Exponential decay constant for gratitude effects over time.",
+      "label_i18n": {
+        "en": "Gratitude Decay",
+        "tr": "Gratitude Decay",
+        "de": "Gratitude Decay",
+        "fr": "Gratitude Decay",
+        "es": "Gratitude Decay",
+        "ar": "Gratitude Decay"
+      }
     },
     {
       "id": "baseline_productivity",
@@ -47,20 +87,32 @@
       "type": "number",
       "unit": "units/day",
       "default": 100,
-      "businessContext": "Standard productivity without gratitude interventions."
+      "businessContext": "Standard productivity without gratitude interventions.",
+      "label_i18n": {
+        "en": "Baseline Productivity",
+        "tr": "Baseline Productivity",
+        "de": "Baseline Productivity",
+        "fr": "Baseline Productivity",
+        "es": "Baseline Productivity",
+        "ar": "Baseline Productivity"
+      }
     }
   ],
   "formulas": {
     "raw_gratitude_score": "appreciation_freq * positive_feedback_ratio * team_morale_score * recognition_impact",
-    "decay_factor": "Math.exp(-gratitude_decay)",
-    "gratitude_index": "(raw_gratitude_score * decay_factor) / baseline_productivity"
+    "raw_gratitude_score_aux": "appreciation_freq * positive_feedback_ratio * team_morale_score * recognition_impact"
   },
   "outputs": {
-    "primary": "gratitude_index",
+    "primary": "raw_gratitude_score_aux",
     "breakdown": [
       "raw_gratitude_score",
       "decay_factor"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "gratitude_index"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -70,5 +122,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "efficiency"
+  "categoryId": "efficiency",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

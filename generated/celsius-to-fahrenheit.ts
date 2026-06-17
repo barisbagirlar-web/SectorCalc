@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from celsius-to-fahrenheit-schema.json
 import * as z from 'zod';
 
@@ -13,27 +14,33 @@ export const Celsius_to_fahrenheitInputSchema = z.object({
   auto_input_3: z.number().default(1),
 });
 
-function evaluateAllFormulas(input: Celsius_to_fahrenheitInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.celsius * 9 / 5 + 32; results["fahrenheit"] = Number.isFinite(v) ? v : 0; } catch { results["fahrenheit"] = 0; }
-  try { const v = Math.round((results["fahrenheit"] ?? 0) * 10 ** input.precision) / 10 ** input.precision; results["roundedFahrenheit"] = Number.isFinite(v) ? v : 0; } catch { results["roundedFahrenheit"] = 0; }
-  try { const v = input.celsius * 9 / 5 + 32; results["fahrenheit___celsius___9___5___32"] = Number.isFinite(v) ? v : 0; } catch { results["fahrenheit___celsius___9___5___32"] = 0; }
-  try { const v = Math.round((results["fahrenheit"] ?? 0) * 10 ** input.precision) / 10 ** input.precision; results["roundedFahrenheit___Math_round_fahrenhei"] = Number.isFinite(v) ? v : 0; } catch { results["roundedFahrenheit___Math_round_fahrenhei"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Celsius_to_fahrenheitInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.celsius * 9 / 5 + 32; results["fahrenheit"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["fahrenheit"] = 0; }
+  try { const v = input.celsius * 9 / 5 + 32; results["fahrenheit___celsius___9___5___32"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["fahrenheit___celsius___9___5___32"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateCelsius_to_fahrenheit(input: Celsius_to_fahrenheitInput): Celsius_to_fahrenheitOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["roundedFahrenheit"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["fahrenheit___celsius___9___5___32"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -170,18 +170,18 @@
       }
     ]
   },
-  "formulas": [
-    "basic_wind_speed",
-    "basic_wind_speed",
-    "basic_wind_speed",
-    "basic_wind_speed",
-    "basic_wind_speed",
-    "basic_wind_speed",
-    "basic_wind_speed"
-  ],
+  "formulas": {
+    "result": "basic_wind_speed + terrain_category + building_height",
+    "result_copy": "basic_wind_speed + terrain_category + building_height"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",

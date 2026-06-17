@@ -67,12 +67,8 @@
     }
   ],
   "formulas": {
-    "toScientific": "if (value !== 0) { let exp = Math.floor(Math.log10(Math.abs(value))); let coeff = value / Math.pow(10, exp); return { coefficient: parseFloat(coeff.toFixed(precision)), exponent: exp }; } else { return { coefficient: 0, exponent: 0 }; }",
-    "fromScientific": "coefficient * Math.pow(10, exponent)",
-    "_coefficient_": "{coefficient}",
-    "_exponent_": "{exponent}",
-    "_value_": "{value}",
-    "result": "Scientific Notation: {coefficient} × 10^{exponent}"
+    "result": "coefficient + exponent + value",
+    "result_copy": "coefficient + exponent + value"
   },
   "outputs": {
     "primary": "result",
@@ -80,7 +76,12 @@
       "Coefficient: {coefficient}",
       "Exponent: {exponent}",
       "Standard Form: {value}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "fromScientific_aux"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -90,5 +91,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

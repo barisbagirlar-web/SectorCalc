@@ -114,18 +114,9 @@
       "unit": "dimensionless",
       "default": "round",
       "options": [
-        {
-          "value": "round",
-          "label": "Round (Cd=0.62)"
-        },
-        {
-          "value": "sharp",
-          "label": "Sharp Edge (Cd=0.85)"
-        },
-        {
-          "value": "long",
-          "label": "Long Orifice (Cd=0.50)"
-        }
+        "round",
+        "sharp",
+        "long"
       ],
       "businessContext": "Shape factor affects discharge coefficient. Round is typical for drilled holes; sharp for cracks; long for pipes.",
       "label_i18n": {
@@ -147,22 +138,6 @@
       },
       "businessContext_i18n": {
         "en": "If enabled, calculates CO2 emissions and associated cost based on grid emission factor."
-      }
-    },
-    {
-      "id": "emission_factor_kg_co2_per_kwh",
-      "label": "Grid Emission Factor (kg CO2/kWh)",
-      "type": "number",
-      "unit": "kg CO2/kWh",
-      "default": 0.5,
-      "min": 0.1,
-      "max": 1.5,
-      "businessContext": "Average CO2 emissions per kWh of electricity consumed. Varies by region (e.g., US average ~0.4, China ~0.6).",
-      "label_i18n": {
-        "en": "Grid Emission Factor (kg CO2/kWh)"
-      },
-      "businessContext_i18n": {
-        "en": "Average CO2 emissions per kWh of electricity consumed. Varies by region (e.g., US average ~0.4, China ~0.6)."
       }
     }
   ],
@@ -225,23 +200,18 @@
       }
     ]
   },
-  "formulas": [
-    "leak_diameter_mm",
-    "leak_diameter_mm",
-    "leak_diameter_mm",
-    "leak_diameter_mm",
-    "leak_diameter_mm",
-    "leak_diameter_mm",
-    "leak_diameter_mm",
-    "leak_diameter_mm",
-    "leak_diameter_mm",
-    "leak_diameter_mm",
-    "leak_diameter_mm",
-    "leak_diameter_mm"
-  ],
+  "formulas": {
+    "result": "leak_diameter_mm + system_pressure_bar + operating_hours_per_year",
+    "result_copy": "leak_diameter_mm + system_pressure_bar + operating_hours_per_year"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "energy-carbon",
   "sectorSlug": "energy-carbon",

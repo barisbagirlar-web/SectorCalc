@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "degree",
       "default": 0,
-      "businessContext": "First angle of the triangle in degrees"
+      "businessContext": "First angle of the triangle in degrees",
+      "label_i18n": {
+        "en": "Angle A",
+        "tr": "Angle A",
+        "de": "Angle A",
+        "fr": "Angle A",
+        "es": "Angle A",
+        "ar": "Angle A"
+      }
     },
     {
       "id": "angleB",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "degree",
       "default": 0,
-      "businessContext": "Second angle of the triangle in degrees"
+      "businessContext": "Second angle of the triangle in degrees",
+      "label_i18n": {
+        "en": "Angle B",
+        "tr": "Angle B",
+        "de": "Angle B",
+        "fr": "Angle B",
+        "es": "Angle B",
+        "ar": "Angle B"
+      }
     },
     {
       "id": "angleC",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "degree",
       "default": 0,
-      "businessContext": "Third angle of the triangle in degrees"
+      "businessContext": "Third angle of the triangle in degrees",
+      "label_i18n": {
+        "en": "Angle C",
+        "tr": "Angle C",
+        "de": "Angle C",
+        "fr": "Angle C",
+        "es": "Angle C",
+        "ar": "Angle C"
+      }
     },
     {
       "id": "tolerance",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "degree",
       "default": 0.0001,
-      "businessContext": "Allowed deviation from 180° for triangle validity check"
+      "businessContext": "Allowed deviation from 180° for triangle validity check",
+      "label_i18n": {
+        "en": "Tolerance",
+        "tr": "Tolerance",
+        "de": "Tolerance",
+        "fr": "Tolerance",
+        "es": "Tolerance",
+        "ar": "Tolerance"
+      }
     }
   ],
   "formulas": {
     "sum": "angleA + angleB + angleC",
-    "deviation": "Math.abs(angleA + angleB + angleC - 180)",
-    "isTriangle": "(Math.abs(angleA + angleB + angleC - 180) <= tolerance) ? 1 : 0"
+    "sum_aux": "angleA + angleB + angleC"
   },
   "outputs": {
     "primary": "sum",
     "breakdown": [
       "deviation",
       "isTriangle"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "isTriangle"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

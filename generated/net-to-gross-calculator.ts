@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from net-to-gross-calculator-schema.json
 import * as z from 'zod';
 
@@ -17,29 +18,37 @@ export const Net_to_gross_calculatorInputSchema = z.object({
   otherDeductionsFixed: z.number().default(0),
 });
 
-function evaluateAllFormulas(input: Net_to_gross_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (input.taxRate + input.socialInsuranceRate + input.additionalDeductionRate) / 100; results["totalRate"] = Number.isFinite(v) ? v : 0; } catch { results["totalRate"] = 0; }
-  try { const v = (input.netAmount + input.otherDeductionsFixed) / (1 - (results["totalRate"] ?? 0)); results["grossAmount"] = Number.isFinite(v) ? v : 0; } catch { results["grossAmount"] = 0; }
-  try { const v = (results["grossAmount"] ?? 0) * (input.taxRate / 100); results["taxAmount"] = Number.isFinite(v) ? v : 0; } catch { results["taxAmount"] = 0; }
-  try { const v = (results["grossAmount"] ?? 0) * (input.socialInsuranceRate / 100); results["socialInsuranceAmount"] = Number.isFinite(v) ? v : 0; } catch { results["socialInsuranceAmount"] = 0; }
-  try { const v = (results["grossAmount"] ?? 0) * (input.additionalDeductionRate / 100); results["additionalDeductionAmount"] = Number.isFinite(v) ? v : 0; } catch { results["additionalDeductionAmount"] = 0; }
-  try { const v = (results["taxAmount"] ?? 0) + (results["socialInsuranceAmount"] ?? 0) + (results["additionalDeductionAmount"] ?? 0) + input.otherDeductionsFixed; results["totalDeductions"] = Number.isFinite(v) ? v : 0; } catch { results["totalDeductions"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Net_to_gross_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = (input.taxRate + input.socialInsuranceRate + input.additionalDeductionRate) / 100; results["totalRate"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalRate"] = 0; }
+  try { const v = (input.netAmount + input.otherDeductionsFixed) / (1 - (asFormulaNumber(results["totalRate"]))); results["grossAmount"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["grossAmount"] = 0; }
+  try { const v = (asFormulaNumber(results["grossAmount"])) * (input.taxRate / 100); results["taxAmount"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["taxAmount"] = 0; }
+  try { const v = (asFormulaNumber(results["grossAmount"])) * (input.socialInsuranceRate / 100); results["socialInsuranceAmount"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["socialInsuranceAmount"] = 0; }
+  try { const v = (asFormulaNumber(results["grossAmount"])) * (input.additionalDeductionRate / 100); results["additionalDeductionAmount"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["additionalDeductionAmount"] = 0; }
+  try { const v = (asFormulaNumber(results["taxAmount"])) + (asFormulaNumber(results["socialInsuranceAmount"])) + (asFormulaNumber(results["additionalDeductionAmount"])) + input.otherDeductionsFixed; results["totalDeductions"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalDeductions"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateNet_to_gross_calculator(input: Net_to_gross_calculatorInput): Net_to_gross_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["grossAmount"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["grossAmount"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

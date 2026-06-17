@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "lots",
       "default": 1,
-      "businessContext": "Trade size in standard lots (1 lot = 100,000 units typically)"
+      "businessContext": "Trade size in standard lots (1 lot = 100,000 units typically)",
+      "label_i18n": {
+        "en": "Trade Size (Lots)",
+        "tr": "Trade Size (Lots)",
+        "de": "Trade Size (Lots)",
+        "fr": "Trade Size (Lots)",
+        "es": "Trade Size (Lots)",
+        "ar": "Trade Size (Lots)"
+      }
     },
     {
       "id": "contract_size",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "units",
       "default": 100000,
-      "businessContext": "Number of base currency units per standard lot"
+      "businessContext": "Number of base currency units per standard lot",
+      "label_i18n": {
+        "en": "Contract Size (Units per Lot)",
+        "tr": "Contract Size (Units per Lot)",
+        "de": "Contract Size (Units per Lot)",
+        "fr": "Contract Size (Units per Lot)",
+        "es": "Contract Size (Units per Lot)",
+        "ar": "Contract Size (Units per Lot)"
+      }
     },
     {
       "id": "pip_definition",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "quote currency",
       "default": 0.0001,
-      "businessContext": "Pip definition in quote currency (e.g., 0.0001 for most pairs, 0.01 for JPY pairs)"
+      "businessContext": "Pip definition in quote currency (e.g., 0.0001 for most pairs, 0.01 for JPY pairs)",
+      "label_i18n": {
+        "en": "Pip Size (Quote Currency)",
+        "tr": "Pip Size (Quote Currency)",
+        "de": "Pip Size (Quote Currency)",
+        "fr": "Pip Size (Quote Currency)",
+        "es": "Pip Size (Quote Currency)",
+        "ar": "Pip Size (Quote Currency)"
+      }
     },
     {
       "id": "quote_to_account_rate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "rate",
       "default": 1.2,
-      "businessContext": "Exchange rate from quote currency to account currency (amount of account currency per 1 unit of quote currency)"
+      "businessContext": "Exchange rate from quote currency to account currency (amount of account currency per 1 unit of quote currency)",
+      "label_i18n": {
+        "en": "Quote to Account Currency Rate",
+        "tr": "Quote to Account Currency Rate",
+        "de": "Quote to Account Currency Rate",
+        "fr": "Quote to Account Currency Rate",
+        "es": "Quote to Account Currency Rate",
+        "ar": "Quote to Account Currency Rate"
+      }
     }
   ],
   "formulas": {
@@ -43,7 +75,12 @@
     "breakdown": [
       "pipValueInQuote",
       "quote_to_account_rate"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "pipValueInAccount"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -53,5 +90,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "danismanlik",
   "profession": "Strateji Uzmanı",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

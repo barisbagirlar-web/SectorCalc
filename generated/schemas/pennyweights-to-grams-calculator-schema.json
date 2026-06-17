@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dwt",
       "default": 1,
-      "businessContext": "Weight in pennyweight"
+      "businessContext": "Weight in pennyweight",
+      "label_i18n": {
+        "en": "Pennyweight",
+        "tr": "Pennyweight",
+        "de": "Pennyweight",
+        "fr": "Pennyweight",
+        "es": "Pennyweight",
+        "ar": "Pennyweight"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g/dwt",
       "default": 1.55517384,
-      "businessContext": "Grams per pennyweight. Calibrated value."
+      "businessContext": "Grams per pennyweight. Calibrated value.",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "decimalPrecision",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "places",
       "default": 2,
-      "businessContext": "Number of decimal places for output"
+      "businessContext": "Number of decimal places for output",
+      "label_i18n": {
+        "en": "Decimal Precision",
+        "tr": "Decimal Precision",
+        "de": "Decimal Precision",
+        "fr": "Decimal Precision",
+        "es": "Decimal Precision",
+        "ar": "Decimal Precision"
+      }
     },
     {
       "id": "sampleCount",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "samples",
       "default": 1,
-      "businessContext": "Number of items being weighed"
+      "businessContext": "Number of items being weighed",
+      "label_i18n": {
+        "en": "Sample Count",
+        "tr": "Sample Count",
+        "de": "Sample Count",
+        "fr": "Sample Count",
+        "es": "Sample Count",
+        "ar": "Sample Count"
+      }
     },
     {
       "id": "tolerance",
@@ -39,20 +71,32 @@
       "type": "number",
       "unit": "g",
       "default": 0.001,
-      "businessContext": "Acceptable measurement uncertainty"
+      "businessContext": "Acceptable measurement uncertainty",
+      "label_i18n": {
+        "en": "Tolerance",
+        "tr": "Tolerance",
+        "de": "Tolerance",
+        "fr": "Tolerance",
+        "es": "Tolerance",
+        "ar": "Tolerance"
+      }
     }
   ],
   "formulas": {
     "gramsPerSample": "pennyweight * conversionFactor",
-    "totalGrams": "gramsPerSample * sampleCount",
-    "roundedTotalGrams": "parseFloat(totalGrams.toFixed(decimalPrecision))"
+    "totalGrams": "gramsPerSample * sampleCount"
   },
   "outputs": {
-    "primary": "roundedTotalGrams",
+    "primary": "totalGrams",
     "breakdown": [
       "gramsPerSample",
       "totalGrams"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalGrams"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -62,5 +106,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

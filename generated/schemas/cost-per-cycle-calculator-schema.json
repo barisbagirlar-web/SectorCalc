@@ -103,21 +103,21 @@
     "setupCostPerCycle": "setupCost / cycleCount",
     "materialCostPerCycle": "materialCostPerCycle",
     "laborCostPerCycle": "laborCostPerHour * cycleTime",
-    "overheadCostPerCycle": "overheadRate * cycleTime",
-    "Kurulum_Maliyeti__TL__evrim_": "Kurulum Maliyeti (TL/çevrim)",
-    "Malzeme_Maliyeti__TL__evrim_": "Malzeme Maliyeti (TL/çevrim)",
-    "___ilik_Maliyeti__TL__evrim_": "İşçilik Maliyeti (TL/çevrim)",
-    "Genel_Gider__TL__evrim_": "Genel Gider (TL/çevrim)",
-    "result": "Çevrim Başına Maliyet (TL/çevrim)"
+    "overheadCostPerCycle": "overheadRate * cycleTime"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "overheadCostPerCycle",
     "breakdown": [
       "Kurulum Maliyeti (TL/çevrim)",
       "Malzeme Maliyeti (TL/çevrim)",
       "İşçilik Maliyeti (TL/çevrim)",
       "Genel Gider (TL/çevrim)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "overheadCostPerCycle"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -127,5 +127,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

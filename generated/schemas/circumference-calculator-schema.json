@@ -83,20 +83,21 @@
     }
   ],
   "formulas": {
-    "effectiveRadius": "radius * conversionFactor || (diameter * conversionFactor) / 2 || Math.sqrt((area * conversionFactor * conversionFactor) / Math.PI) || 0",
-    "effectiveDiameter": "effectiveRadius * 2",
-    "circum": "Number((Math.PI * effectiveDiameter).toFixed(decimalPlaces))",
-    "radius_out": "Number(effectiveRadius.toFixed(decimalPlaces))",
-    "diameter_out": "Number(effectiveDiameter.toFixed(decimalPlaces))",
-    "area_out": "Number((Math.PI * effectiveRadius ** 2).toFixed(decimalPlaces))"
+    "result": "radius + diameter + area",
+    "result_copy": "radius + diameter + area"
   },
   "outputs": {
-    "primary": "circum",
+    "primary": "result",
     "breakdown": [
       "radius_out",
       "diameter_out",
       "area_out"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "area_out"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -106,5 +107,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.1,
-      "businessContext": "Thickness of first insulation layer in meters"
+      "businessContext": "Thickness of first insulation layer in meters",
+      "label_i18n": {
+        "en": "Layer 1 Thickness",
+        "tr": "Layer 1 Thickness",
+        "de": "Layer 1 Thickness",
+        "fr": "Layer 1 Thickness",
+        "es": "Layer 1 Thickness",
+        "ar": "Layer 1 Thickness"
+      }
     },
     {
       "id": "conductivity1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "W/(m·K)",
       "default": 0.04,
-      "businessContext": "Thermal conductivity of first layer"
+      "businessContext": "Thermal conductivity of first layer",
+      "label_i18n": {
+        "en": "Layer 1 Thermal Conductivity",
+        "tr": "Layer 1 Thermal Conductivity",
+        "de": "Layer 1 Thermal Conductivity",
+        "fr": "Layer 1 Thermal Conductivity",
+        "es": "Layer 1 Thermal Conductivity",
+        "ar": "Layer 1 Thermal Conductivity"
+      }
     },
     {
       "id": "thickness2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Optional second layer thickness"
+      "businessContext": "Optional second layer thickness",
+      "label_i18n": {
+        "en": "Layer 2 Thickness",
+        "tr": "Layer 2 Thickness",
+        "de": "Layer 2 Thickness",
+        "fr": "Layer 2 Thickness",
+        "es": "Layer 2 Thickness",
+        "ar": "Layer 2 Thickness"
+      }
     },
     {
       "id": "conductivity2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "W/(m·K)",
       "default": 0,
-      "businessContext": "Optional second layer thermal conductivity"
+      "businessContext": "Optional second layer thermal conductivity",
+      "label_i18n": {
+        "en": "Layer 2 Thermal Conductivity",
+        "tr": "Layer 2 Thermal Conductivity",
+        "de": "Layer 2 Thermal Conductivity",
+        "fr": "Layer 2 Thermal Conductivity",
+        "es": "Layer 2 Thermal Conductivity",
+        "ar": "Layer 2 Thermal Conductivity"
+      }
     },
     {
       "id": "thickness3",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Optional third layer thickness"
+      "businessContext": "Optional third layer thickness",
+      "label_i18n": {
+        "en": "Layer 3 Thickness",
+        "tr": "Layer 3 Thickness",
+        "de": "Layer 3 Thickness",
+        "fr": "Layer 3 Thickness",
+        "es": "Layer 3 Thickness",
+        "ar": "Layer 3 Thickness"
+      }
     },
     {
       "id": "conductivity3",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "W/(m·K)",
       "default": 0,
-      "businessContext": "Optional third layer thermal conductivity"
+      "businessContext": "Optional third layer thermal conductivity",
+      "label_i18n": {
+        "en": "Layer 3 Thermal Conductivity",
+        "tr": "Layer 3 Thermal Conductivity",
+        "de": "Layer 3 Thermal Conductivity",
+        "fr": "Layer 3 Thermal Conductivity",
+        "es": "Layer 3 Thermal Conductivity",
+        "ar": "Layer 3 Thermal Conductivity"
+      }
     },
     {
       "id": "area",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "m²",
       "default": 1,
-      "businessContext": "Surface area for heat loss calculation"
+      "businessContext": "Surface area for heat loss calculation",
+      "label_i18n": {
+        "en": "Area",
+        "tr": "Area",
+        "de": "Area",
+        "fr": "Area",
+        "es": "Area",
+        "ar": "Area"
+      }
     },
     {
       "id": "deltaT",
@@ -63,18 +119,23 @@
       "type": "number",
       "unit": "K",
       "default": 20,
-      "businessContext": "Temperature difference across insulation"
+      "businessContext": "Temperature difference across insulation",
+      "label_i18n": {
+        "en": "Temperature Difference",
+        "tr": "Temperature Difference",
+        "de": "Temperature Difference",
+        "fr": "Temperature Difference",
+        "es": "Temperature Difference",
+        "ar": "Temperature Difference"
+      }
     }
   ],
   "formulas": {
-    "r1": "(inputs.thickness1 > 0 && inputs.conductivity1 > 0) ? inputs.thickness1 / inputs.conductivity1 : 0",
-    "r2": "(inputs.thickness2 > 0 && inputs.conductivity2 > 0) ? inputs.thickness2 / inputs.conductivity2 : 0",
-    "r3": "(inputs.thickness3 > 0 && inputs.conductivity3 > 0) ? inputs.thickness3 / inputs.conductivity3 : 0",
-    "totalRValue": "r1 + r2 + r3",
-    "heatLoss": "(inputs.area * inputs.deltaT) / totalRValue"
+    "result": "thickness1 + conductivity1 + thickness2",
+    "result_copy": "thickness1 + conductivity1 + thickness2"
   },
   "outputs": {
-    "primary": "r1",
+    "primary": "result",
     "breakdown": [
       {
         "label": "Layer 1 R-Value",
@@ -96,7 +157,12 @@
         "unit": "W",
         "formulaRef": "heatLoss"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "heatLoss"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -106,5 +172,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

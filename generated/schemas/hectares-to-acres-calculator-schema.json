@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ha",
       "default": 1,
-      "businessContext": "Birinci tarla alanı hektar"
+      "businessContext": "Birinci tarla alanı hektar",
+      "label_i18n": {
+        "en": "Tarla 1 (ha)",
+        "tr": "Tarla 1 (ha)",
+        "de": "Tarla 1 (ha)",
+        "fr": "Tarla 1 (ha)",
+        "es": "Tarla 1 (ha)",
+        "ar": "Tarla 1 (ha)"
+      }
     },
     {
       "id": "field2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ha",
       "default": 0,
-      "businessContext": "İkinci tarla alanı hektar"
+      "businessContext": "İkinci tarla alanı hektar",
+      "label_i18n": {
+        "en": "Tarla 2 (ha)",
+        "tr": "Tarla 2 (ha)",
+        "de": "Tarla 2 (ha)",
+        "fr": "Tarla 2 (ha)",
+        "es": "Tarla 2 (ha)",
+        "ar": "Tarla 2 (ha)"
+      }
     },
     {
       "id": "field3",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ha",
       "default": 0,
-      "businessContext": "Üçüncü tarla alanı hektar"
+      "businessContext": "Üçüncü tarla alanı hektar",
+      "label_i18n": {
+        "en": "Tarla 3 (ha)",
+        "tr": "Tarla 3 (ha)",
+        "de": "Tarla 3 (ha)",
+        "fr": "Tarla 3 (ha)",
+        "es": "Tarla 3 (ha)",
+        "ar": "Tarla 3 (ha)"
+      }
     },
     {
       "id": "conversionFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "acre/ha",
       "default": 2.47105,
-      "businessContext": "1 hektar kaç acre? Standart uluslararası acre: 2.47105"
+      "businessContext": "1 hektar kaç acre? Standart uluslararası acre: 2.47105",
+      "label_i18n": {
+        "en": "Dönüşüm Faktörü",
+        "tr": "Dönüşüm Faktörü",
+        "de": "Dönüşüm Faktörü",
+        "fr": "Dönüşüm Faktörü",
+        "es": "Dönüşüm Faktörü",
+        "ar": "Dönüşüm Faktörü"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
       "totalHectares",
       "conversionFactor",
       "acres"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "acres"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

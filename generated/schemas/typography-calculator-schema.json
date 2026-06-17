@@ -68,10 +68,7 @@
   ],
   "formulas": {
     "recommendedFontHeight": "viewingDistance * 2.5 * ageFactor * lightingFactor * safetyFactor",
-    "Temel_y_kseklik___G_r___mesafesi___2_5_m": "Temel yükseklik = Görüş mesafesi × 2.5 mm/m",
-    "__ageFactor": "× ageFactor",
-    "__lightingFactor": "× lightingFactor",
-    "__safetyFactor": "× safetyFactor"
+    "recommendedFontHeight_aux": "viewingDistance * 2.5 * ageFactor * lightingFactor * safetyFactor"
   },
   "outputs": {
     "primary": "recommendedFontHeight",
@@ -80,7 +77,12 @@
       "Yaş düzeltmesi: × ageFactor",
       "Aydınlatma düzeltmesi: × lightingFactor",
       "Güvenlik düzeltmesi: × safetyFactor"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "recommendedFontHeight_aux"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -90,5 +92,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

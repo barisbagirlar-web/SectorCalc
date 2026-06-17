@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mg",
       "default": 90,
-      "businessContext": "The recommended dietary intake for the vitamin (e.g., Vitamin C)."
+      "businessContext": "The recommended dietary intake for the vitamin (e.g., Vitamin C).",
+      "label_i18n": {
+        "en": "Recommended Daily Allowance (RDA)",
+        "tr": "Recommended Daily Allowance (RDA)",
+        "de": "Recommended Daily Allowance (RDA)",
+        "fr": "Recommended Daily Allowance (RDA)",
+        "es": "Recommended Daily Allowance (RDA)",
+        "ar": "Recommended Daily Allowance (RDA)"
+      }
     },
     {
       "id": "food1Servings",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "servings",
       "default": 1,
-      "businessContext": "Number of servings consumed from food source 1."
+      "businessContext": "Number of servings consumed from food source 1.",
+      "label_i18n": {
+        "en": "Food 1 Servings",
+        "tr": "Food 1 Servings",
+        "de": "Food 1 Servings",
+        "fr": "Food 1 Servings",
+        "es": "Food 1 Servings",
+        "ar": "Food 1 Servings"
+      }
     },
     {
       "id": "food1VitPerServing",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mg",
       "default": 30,
-      "businessContext": "Vitamin content per serving for food 1."
+      "businessContext": "Vitamin content per serving for food 1.",
+      "label_i18n": {
+        "en": "Vitamin per Serving (Food 1)",
+        "tr": "Vitamin per Serving (Food 1)",
+        "de": "Vitamin per Serving (Food 1)",
+        "fr": "Vitamin per Serving (Food 1)",
+        "es": "Vitamin per Serving (Food 1)",
+        "ar": "Vitamin per Serving (Food 1)"
+      }
     },
     {
       "id": "food2Servings",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "servings",
       "default": 1,
-      "businessContext": "Number of servings consumed from food source 2."
+      "businessContext": "Number of servings consumed from food source 2.",
+      "label_i18n": {
+        "en": "Food 2 Servings",
+        "tr": "Food 2 Servings",
+        "de": "Food 2 Servings",
+        "fr": "Food 2 Servings",
+        "es": "Food 2 Servings",
+        "ar": "Food 2 Servings"
+      }
     },
     {
       "id": "food2VitPerServing",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mg",
       "default": 20,
-      "businessContext": "Vitamin content per serving for food 2."
+      "businessContext": "Vitamin content per serving for food 2.",
+      "label_i18n": {
+        "en": "Vitamin per Serving (Food 2)",
+        "tr": "Vitamin per Serving (Food 2)",
+        "de": "Vitamin per Serving (Food 2)",
+        "fr": "Vitamin per Serving (Food 2)",
+        "es": "Vitamin per Serving (Food 2)",
+        "ar": "Vitamin per Serving (Food 2)"
+      }
     },
     {
       "id": "food3Servings",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "servings",
       "default": 1,
-      "businessContext": "Number of servings consumed from food source 3."
+      "businessContext": "Number of servings consumed from food source 3.",
+      "label_i18n": {
+        "en": "Food 3 Servings",
+        "tr": "Food 3 Servings",
+        "de": "Food 3 Servings",
+        "fr": "Food 3 Servings",
+        "es": "Food 3 Servings",
+        "ar": "Food 3 Servings"
+      }
     },
     {
       "id": "food3VitPerServing",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "mg",
       "default": 10,
-      "businessContext": "Vitamin content per serving for food 3."
+      "businessContext": "Vitamin content per serving for food 3.",
+      "label_i18n": {
+        "en": "Vitamin per Serving (Food 3)",
+        "tr": "Vitamin per Serving (Food 3)",
+        "de": "Vitamin per Serving (Food 3)",
+        "fr": "Vitamin per Serving (Food 3)",
+        "es": "Vitamin per Serving (Food 3)",
+        "ar": "Vitamin per Serving (Food 3)"
+      }
     }
   ],
   "formulas": {
@@ -68,7 +124,12 @@
     "breakdown": [
       "percentRDA",
       "shortfallValue"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "shortfallValue"
   },
   "category": "Gıda & Tarım",
   "sector": "Perakende & Gıda",
@@ -78,5 +139,10 @@
   "categorySlug": "food-cold-chain-hygiene",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

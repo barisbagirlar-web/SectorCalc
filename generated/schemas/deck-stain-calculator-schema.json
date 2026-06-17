@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft",
       "default": 20,
-      "businessContext": "Total length of the deck in feet"
+      "businessContext": "Total length of the deck in feet",
+      "label_i18n": {
+        "en": "Deck Length",
+        "tr": "Deck Length",
+        "de": "Deck Length",
+        "fr": "Deck Length",
+        "es": "Deck Length",
+        "ar": "Deck Length"
+      }
     },
     {
       "id": "width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ft",
       "default": 12,
-      "businessContext": "Total width of the deck in feet"
+      "businessContext": "Total width of the deck in feet",
+      "label_i18n": {
+        "en": "Deck Width",
+        "tr": "Deck Width",
+        "de": "Deck Width",
+        "fr": "Deck Width",
+        "es": "Deck Width",
+        "ar": "Deck Width"
+      }
     },
     {
       "id": "coverage",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "sq ft/gal",
       "default": 250,
-      "businessContext": "Coverage rate of the stain in square feet per gallon"
+      "businessContext": "Coverage rate of the stain in square feet per gallon",
+      "label_i18n": {
+        "en": "Stain Coverage",
+        "tr": "Stain Coverage",
+        "de": "Stain Coverage",
+        "fr": "Stain Coverage",
+        "es": "Stain Coverage",
+        "ar": "Stain Coverage"
+      }
     },
     {
       "id": "coats",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "coats",
       "default": 2,
-      "businessContext": "Number of stain coats to apply"
+      "businessContext": "Number of stain coats to apply",
+      "label_i18n": {
+        "en": "Number of Coats",
+        "tr": "Number of Coats",
+        "de": "Number of Coats",
+        "fr": "Number of Coats",
+        "es": "Number of Coats",
+        "ar": "Number of Coats"
+      }
     },
     {
       "id": "waste",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Percentage of extra stain for waste and spillage"
+      "businessContext": "Percentage of extra stain for waste and spillage",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     }
   ],
   "formulas": {
@@ -55,7 +95,12 @@
       "totalAreaToCover",
       "adjustedArea",
       "totalGallons"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalGallons"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -65,5 +110,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

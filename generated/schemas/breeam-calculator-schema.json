@@ -102,12 +102,7 @@
     "energy_intensity": "energy_use / floor_area",
     "water_intensity": "water_use / floor_area",
     "waste_recycling_rate": "(recycled_waste / waste_generated) * 100",
-    "carbon_intensity": "co2_emissions / floor_area",
-    "breeam_score": "Math.min(100, (energy_intensity * 0.3 + water_intensity * 0.2 + (100 - waste_recycling_rate) * 0.2 + carbon_intensity * 0.3) / 10)",
-    "Energy_Intensity__kWh_m__": "Energy Intensity (kWh/m²)",
-    "Water_Intensity__m__m__": "Water Intensity (m³/m²)",
-    "Waste_Recycling_Rate____": "Waste Recycling Rate (%)",
-    "Carbon_Intensity__tonnes_m__": "Carbon Intensity (tonnes/m²)"
+    "carbon_intensity": "co2_emissions / floor_area"
   },
   "outputs": {
     "primary": "energy_intensity",
@@ -116,7 +111,12 @@
       "Water Intensity (m³/m²)",
       "Waste Recycling Rate (%)",
       "Carbon Intensity (tonnes/m²)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "breeam_score"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -126,5 +126,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

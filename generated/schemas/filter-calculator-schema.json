@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m³/s",
       "default": 0.001,
-      "businessContext": "Volumetric flow rate through the filter"
+      "businessContext": "Volumetric flow rate through the filter",
+      "label_i18n": {
+        "en": "Flow Rate",
+        "tr": "Flow Rate",
+        "de": "Flow Rate",
+        "fr": "Flow Rate",
+        "es": "Flow Rate",
+        "ar": "Flow Rate"
+      }
     },
     {
       "id": "viscosity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Pa·s",
       "default": 0.001,
-      "businessContext": "Dynamic viscosity of the fluid"
+      "businessContext": "Dynamic viscosity of the fluid",
+      "label_i18n": {
+        "en": "Fluid Viscosity",
+        "tr": "Fluid Viscosity",
+        "de": "Fluid Viscosity",
+        "fr": "Fluid Viscosity",
+        "es": "Fluid Viscosity",
+        "ar": "Fluid Viscosity"
+      }
     },
     {
       "id": "thickness",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.1,
-      "businessContext": "Thickness of the filter medium"
+      "businessContext": "Thickness of the filter medium",
+      "label_i18n": {
+        "en": "Filter Thickness",
+        "tr": "Filter Thickness",
+        "de": "Filter Thickness",
+        "fr": "Filter Thickness",
+        "es": "Filter Thickness",
+        "ar": "Filter Thickness"
+      }
     },
     {
       "id": "porosity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0.4,
-      "businessContext": "Void fraction of the filter medium"
+      "businessContext": "Void fraction of the filter medium",
+      "label_i18n": {
+        "en": "Porosity",
+        "tr": "Porosity",
+        "de": "Porosity",
+        "fr": "Porosity",
+        "es": "Porosity",
+        "ar": "Porosity"
+      }
     },
     {
       "id": "particleDiameter",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.001,
-      "businessContext": "Mean diameter of filter medium particles/grains"
+      "businessContext": "Mean diameter of filter medium particles/grains",
+      "label_i18n": {
+        "en": "Particle Diameter",
+        "tr": "Particle Diameter",
+        "de": "Particle Diameter",
+        "fr": "Particle Diameter",
+        "es": "Particle Diameter",
+        "ar": "Particle Diameter"
+      }
     },
     {
       "id": "filterArea",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "m²",
       "default": 0.5,
-      "businessContext": "Cross-sectional area of the filter"
+      "businessContext": "Cross-sectional area of the filter",
+      "label_i18n": {
+        "en": "Filter Area",
+        "tr": "Filter Area",
+        "de": "Filter Area",
+        "fr": "Filter Area",
+        "es": "Filter Area",
+        "ar": "Filter Area"
+      }
     }
   ],
   "formulas": {
@@ -58,7 +106,12 @@
     "primary": "pressureDrop",
     "breakdown": [
       "permeability"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "permeability"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -68,5 +121,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft",
       "default": 10,
-      "businessContext": "The total width of the wall to be covered"
+      "businessContext": "The total width of the wall to be covered",
+      "label_i18n": {
+        "en": "Wall Width",
+        "tr": "Wall Width",
+        "de": "Wall Width",
+        "fr": "Wall Width",
+        "es": "Wall Width",
+        "ar": "Wall Width"
+      }
     },
     {
       "id": "wallHeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ft",
       "default": 8,
-      "businessContext": "The total height of the wall to be covered"
+      "businessContext": "The total height of the wall to be covered",
+      "label_i18n": {
+        "en": "Wall Height",
+        "tr": "Wall Height",
+        "de": "Wall Height",
+        "fr": "Wall Height",
+        "es": "Wall Height",
+        "ar": "Wall Height"
+      }
     },
     {
       "id": "stoneLength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "in",
       "default": 6,
-      "businessContext": "Length of a single stone veneer piece"
+      "businessContext": "Length of a single stone veneer piece",
+      "label_i18n": {
+        "en": "Stone Length",
+        "tr": "Stone Length",
+        "de": "Stone Length",
+        "fr": "Stone Length",
+        "es": "Stone Length",
+        "ar": "Stone Length"
+      }
     },
     {
       "id": "stoneHeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "in",
       "default": 4,
-      "businessContext": "Height of a single stone veneer piece"
+      "businessContext": "Height of a single stone veneer piece",
+      "label_i18n": {
+        "en": "Stone Height",
+        "tr": "Stone Height",
+        "de": "Stone Height",
+        "fr": "Stone Height",
+        "es": "Stone Height",
+        "ar": "Stone Height"
+      }
     },
     {
       "id": "jointGap",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "in",
       "default": 0.5,
-      "businessContext": "Gap between stones (grout joint)"
+      "businessContext": "Gap between stones (grout joint)",
+      "label_i18n": {
+        "en": "Joint Gap",
+        "tr": "Joint Gap",
+        "de": "Joint Gap",
+        "fr": "Joint Gap",
+        "es": "Joint Gap",
+        "ar": "Joint Gap"
+      }
     },
     {
       "id": "wasteFactor",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Percentage of extra material for cuts and breakage"
+      "businessContext": "Percentage of extra material for cuts and breakage",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     },
     {
       "id": "costPerSqFt",
@@ -55,15 +103,21 @@
       "type": "number",
       "unit": "USD/sqft",
       "default": 10,
-      "businessContext": "Material cost per square foot of stone"
+      "businessContext": "Material cost per square foot of stone",
+      "label_i18n": {
+        "en": "Cost per Square Foot",
+        "tr": "Cost per Square Foot",
+        "de": "Cost per Square Foot",
+        "fr": "Cost per Square Foot",
+        "es": "Cost per Square Foot",
+        "ar": "Cost per Square Foot"
+      }
     }
   ],
   "formulas": {
     "wallAreaSqFt": "wallWidth * wallHeight",
     "stoneAreaSqFt": "((stoneLength + jointGap) * (stoneHeight + jointGap)) / 144",
     "stoneAreaNeeded": "wallAreaSqFt * (1 + wasteFactor / 100)",
-    "totalStones": "Math.ceil(stoneAreaNeeded / stoneAreaSqFt)",
-    "wasteStones": "totalStones - (wallAreaSqFt / stoneAreaSqFt)",
     "totalCost": "stoneAreaNeeded * costPerSqFt"
   },
   "outputs": {
@@ -73,7 +127,12 @@
       "stoneAreaNeeded",
       "totalStones",
       "wasteStones"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -83,5 +142,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

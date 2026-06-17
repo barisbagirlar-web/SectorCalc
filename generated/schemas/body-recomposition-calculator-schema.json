@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Total body mass in kilograms"
+      "businessContext": "Total body mass in kilograms",
+      "label_i18n": {
+        "en": "Body Weight",
+        "tr": "Body Weight",
+        "de": "Body Weight",
+        "fr": "Body Weight",
+        "es": "Body Weight",
+        "ar": "Body Weight"
+      }
     },
     {
       "id": "bodyFatPercentage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Percentage of body mass that is fat tissue"
+      "businessContext": "Percentage of body mass that is fat tissue",
+      "label_i18n": {
+        "en": "Body Fat Percentage",
+        "tr": "Body Fat Percentage",
+        "de": "Body Fat Percentage",
+        "fr": "Body Fat Percentage",
+        "es": "Body Fat Percentage",
+        "ar": "Body Fat Percentage"
+      }
     },
     {
       "id": "height",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "Height in centimeters"
+      "businessContext": "Height in centimeters",
+      "label_i18n": {
+        "en": "Height",
+        "tr": "Height",
+        "de": "Height",
+        "fr": "Height",
+        "es": "Height",
+        "ar": "Height"
+      }
     },
     {
       "id": "age",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Age in years"
+      "businessContext": "Age in years",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "activityLevel",
@@ -39,20 +71,32 @@
       "type": "number",
       "unit": "factor",
       "default": 1.55,
-      "businessContext": "Physical activity level factor (1.2 sedentary, 1.375 light, 1.55 moderate, 1.725 heavy, 1.9 athlete)"
+      "businessContext": "Physical activity level factor (1.2 sedentary, 1.375 light, 1.55 moderate, 1.725 heavy, 1.9 athlete)",
+      "label_i18n": {
+        "en": "Activity Level Multiplier",
+        "tr": "Activity Level Multiplier",
+        "de": "Activity Level Multiplier",
+        "fr": "Activity Level Multiplier",
+        "es": "Activity Level Multiplier",
+        "ar": "Activity Level Multiplier"
+      }
     }
   ],
   "formulas": {
-    "tdeeKcalPerDay": "Math.round((370 + 21.6 * (weight * (1 - bodyFatPercentage / 100))) * activityLevel)",
-    "proteinGramsPerDay": "Math.round(2.2 * weight)",
-    "fatGramsPerDay": "Math.round(1 * weight)"
+    "result": "weight + bodyFatPercentage + height",
+    "result_copy": "weight + bodyFatPercentage + height"
   },
   "outputs": {
-    "primary": "tdeeKcalPerDay",
+    "primary": "result",
     "breakdown": [
       "proteinGramsPerDay",
       "fatGramsPerDay"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "fatGramsPerDay"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -62,5 +106,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

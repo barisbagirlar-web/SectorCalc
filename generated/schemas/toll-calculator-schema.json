@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 500,
-      "businessContext": "Kat edilen mesafe"
+      "businessContext": "Kat edilen mesafe",
+      "label_i18n": {
+        "en": "Yol Mesafesi (km)",
+        "tr": "Yol Mesafesi (km)",
+        "de": "Yol Mesafesi (km)",
+        "fr": "Yol Mesafesi (km)",
+        "es": "Yol Mesafesi (km)",
+        "ar": "Yol Mesafesi (km)"
+      }
     },
     {
       "id": "base_toll_rate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "TL/km",
       "default": 0.25,
-      "businessContext": "Araç sınıfına göre km başına temel ücret"
+      "businessContext": "Araç sınıfına göre km başına temel ücret",
+      "label_i18n": {
+        "en": "Temel Geçiş Ücreti (TL/km)",
+        "tr": "Temel Geçiş Ücreti (TL/km)",
+        "de": "Temel Geçiş Ücreti (TL/km)",
+        "fr": "Temel Geçiş Ücreti (TL/km)",
+        "es": "Temel Geçiş Ücreti (TL/km)",
+        "ar": "Temel Geçiş Ücreti (TL/km)"
+      }
     },
     {
       "id": "axle_multiplier",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "çarpan",
       "default": 1,
-      "businessContext": "Aks sayısı veya sınıfına göre çarpan (örn. 2 aks:1.0, 3 aks:1.5, 4 aks:2.0)"
+      "businessContext": "Aks sayısı veya sınıfına göre çarpan (örn. 2 aks:1.0, 3 aks:1.5, 4 aks:2.0)",
+      "label_i18n": {
+        "en": "Aks/Köprü Çarpanı",
+        "tr": "Aks/Köprü Çarpanı",
+        "de": "Aks/Köprü Çarpanı",
+        "fr": "Aks/Köprü Çarpanı",
+        "es": "Aks/Köprü Çarpanı",
+        "ar": "Aks/Köprü Çarpanı"
+      }
     },
     {
       "id": "fixed_toll_fee",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TL",
       "default": 0,
-      "businessContext": "Varsa sabit köprü/otoyol giriş ücreti"
+      "businessContext": "Varsa sabit köprü/otoyol giriş ücreti",
+      "label_i18n": {
+        "en": "Sabit Geçiş Ücreti (TL)",
+        "tr": "Sabit Geçiş Ücreti (TL)",
+        "de": "Sabit Geçiş Ücreti (TL)",
+        "fr": "Sabit Geçiş Ücreti (TL)",
+        "es": "Sabit Geçiş Ücreti (TL)",
+        "ar": "Sabit Geçiş Ücreti (TL)"
+      }
     },
     {
       "id": "weight_factor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "çarpan",
       "default": 1,
-      "businessContext": "Araç ağırlığına bağlı çevresel veya altyapı katkı çarpanı (örn. >10 ton)"
+      "businessContext": "Araç ağırlığına bağlı çevresel veya altyapı katkı çarpanı (örn. >10 ton)",
+      "label_i18n": {
+        "en": "Ağırlık Faktörü",
+        "tr": "Ağırlık Faktörü",
+        "de": "Ağırlık Faktörü",
+        "fr": "Ağırlık Faktörü",
+        "es": "Ağırlık Faktörü",
+        "ar": "Ağırlık Faktörü"
+      }
     },
     {
       "id": "vat_rate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 18,
-      "businessContext": "Uygulanan katma değer vergisi oranı"
+      "businessContext": "Uygulanan katma değer vergisi oranı",
+      "label_i18n": {
+        "en": "KDV Oranı (%)",
+        "tr": "KDV Oranı (%)",
+        "de": "KDV Oranı (%)",
+        "fr": "KDV Oranı (%)",
+        "es": "KDV Oranı (%)",
+        "ar": "KDV Oranı (%)"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +108,12 @@
     "breakdown": [
       "total_toll_excl_vat",
       "vat_amount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "total_toll_incl_vat"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -70,5 +123,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -100,16 +100,10 @@
   ],
   "formulas": {
     "totalDeltaH": "deltaH1 + deltaH2 + deltaH3 + deltaH4 + deltaH5 + deltaH6",
-    "_H____deltaH1_kJ_mol": "ΔH₁ = deltaH1 kJ/mol",
-    "_H____deltaH2_kJ_mol": "ΔH₂ = deltaH2 kJ/mol",
-    "_H____deltaH3_kJ_mol": "ΔH₃ = deltaH3 kJ/mol",
-    "_H____deltaH4_kJ_mol": "ΔH₄ = deltaH4 kJ/mol",
-    "_H____deltaH5_kJ_mol": "ΔH₅ = deltaH5 kJ/mol",
-    "_H____deltaH6_kJ_mol": "ΔH₆ = deltaH6 kJ/mol",
-    "result": "Total ΔH = deltaH1 + deltaH2 + deltaH3 + deltaH4 + deltaH5 + deltaH6 kJ/mol"
+    "totalDeltaH_aux": "deltaH1 + deltaH2 + deltaH3 + deltaH4 + deltaH5 + deltaH6"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "totalDeltaH_aux",
     "breakdown": [
       "ΔH₁ = deltaH1 kJ/mol",
       "ΔH₂ = deltaH2 kJ/mol",
@@ -117,7 +111,12 @@
       "ΔH₄ = deltaH4 kJ/mol",
       "ΔH₅ = deltaH5 kJ/mol",
       "ΔH₆ = deltaH6 kJ/mol"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalDeltaH_aux"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -127,5 +126,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "kimya",
   "profession": "Proses Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

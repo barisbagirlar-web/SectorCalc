@@ -85,22 +85,20 @@
   "formulas": {
     "matThicknessM": "matThickness / 100",
     "matStiffnessNm": "matStiffness * 1000",
-    "mg": "bodyMass * g",
-    "discriminant": "Math.sqrt(mg**2 + 2 * mg * matStiffnessNm * fallHeight)",
-    "matCompression": "(mg + discriminant) / matStiffnessNm",
-    "maxForce": "matStiffnessNm * matCompression",
-    "matCompression___100": "matCompression * 100",
-    "_maxForce___mg_____bodyMass___g_": "(maxForce - mg) / (bodyMass * g)",
-    "12000___maxForce": "12000 / maxForce",
-    "result": "maxForce / 1000"
+    "mg": "bodyMass * g"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "mg",
     "breakdown": [
       "matCompression * 100",
       "(maxForce - mg) / (bodyMass * g)",
       "12000 / maxForce"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -110,5 +108,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

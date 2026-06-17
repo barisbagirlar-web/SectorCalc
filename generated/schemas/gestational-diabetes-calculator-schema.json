@@ -132,18 +132,19 @@
   ],
   "formulas": {
     "riskScore": "((age - 25) * 0.1 + (bmi - 25) * 0.2 + previousGDM * 2 + familyDiabetes * 1.5 + (fastingGlucose - 92) * 0.05 + (ogtt1h - 180) * 0.02 + (ogtt2h - 153) * 0.02 + (gestationalWeek - 24) * 0.01)",
-    "gdmProbability": "1 / (1 + Math.exp(-riskScore))",
-    "diagnosis": "((fastingGlucose >= 92 || ogtt1h >= 180 || ogtt2h >= 153) ? 1 : 0)",
-    "Risk_Skoru": "Risk Skoru",
-    "Tan__Kriteri__0_Negatif__1_Pozitif_": "Tanı Kriteri (0=Negatif, 1=Pozitif)",
-    "result": "GDM Olasılığı (%)"
+    "diagnosis": "((fastingGlucose >= 92 || ogtt1h >= 180 || ogtt2h >= 153) ? 1 : 0)"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "diagnosis",
     "breakdown": [
       "Risk Skoru",
       "Tanı Kriteri (0=Negatif, 1=Pozitif)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "diagnosis"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -153,5 +154,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -133,17 +133,19 @@
   "formulas": {
     "annualEnergySavings": "(currentBulbWattage - ledBulbWattage) * numberOfBulbs * dailyUsageHours * daysPerYear / 1000",
     "annualCostSavings": "annualEnergySavings * electricityRate",
-    "paybackPeriod": "annualCostSavings > 0 ? (ledBulbCost - currentBulbCost) * numberOfBulbs / annualCostSavings : null",
-    "__annualEnergySavings_toFixed_2___kWh_ye": "${annualEnergySavings.toFixed(2)} kWh/year",
-    "__paybackPeriod_____null___paybackPeriod": "${paybackPeriod !== null ? paybackPeriod.toFixed(2) + ' years' : 'N/A'}",
-    "result": "Annual Savings: ${annualCostSavings.toFixed(2)} currency"
+    "paybackPeriod": "annualCostSavings > 0 ? (ledBulbCost - currentBulbCost) * numberOfBulbs / annualCostSavings : null"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "paybackPeriod",
     "breakdown": [
       "Energy Savings: ${annualEnergySavings.toFixed(2)} kWh/year",
       "Payback Period: ${paybackPeriod !== null ? paybackPeriod.toFixed(2) + ' years' : 'N/A'}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "paybackPeriod"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -153,5 +155,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 1000000,
-      "businessContext": "Total upfront capital expenditure including equipment and installation"
+      "businessContext": "Total upfront capital expenditure including equipment and installation",
+      "label_i18n": {
+        "en": "Capital Cost",
+        "tr": "Capital Cost",
+        "de": "Capital Cost",
+        "fr": "Capital Cost",
+        "es": "Capital Cost",
+        "ar": "Capital Cost"
+      }
     },
     {
       "id": "annualOMCost",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "$/year",
       "default": 20000,
-      "businessContext": "Annual fixed operation and maintenance costs"
+      "businessContext": "Annual fixed operation and maintenance costs",
+      "label_i18n": {
+        "en": "Annual O&M Cost",
+        "tr": "Annual O&M Cost",
+        "de": "Annual O&M Cost",
+        "fr": "Annual O&M Cost",
+        "es": "Annual O&M Cost",
+        "ar": "Annual O&M Cost"
+      }
     },
     {
       "id": "annualEnergyProduction",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kWh/year",
       "default": 5000000,
-      "businessContext": "Annual net electricity output of the plant"
+      "businessContext": "Annual net electricity output of the plant",
+      "label_i18n": {
+        "en": "Annual Energy Production",
+        "tr": "Annual Energy Production",
+        "de": "Annual Energy Production",
+        "fr": "Annual Energy Production",
+        "es": "Annual Energy Production",
+        "ar": "Annual Energy Production"
+      }
     },
     {
       "id": "discountRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Discount rate reflecting cost of capital or hurdle rate"
+      "businessContext": "Discount rate reflecting cost of capital or hurdle rate",
+      "label_i18n": {
+        "en": "Discount Rate",
+        "tr": "Discount Rate",
+        "de": "Discount Rate",
+        "fr": "Discount Rate",
+        "es": "Discount Rate",
+        "ar": "Discount Rate"
+      }
     },
     {
       "id": "projectLifetime",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "years",
       "default": 20,
-      "businessContext": "Expected operational lifetime of the energy project"
+      "businessContext": "Expected operational lifetime of the energy project",
+      "label_i18n": {
+        "en": "Project Lifetime",
+        "tr": "Project Lifetime",
+        "de": "Project Lifetime",
+        "fr": "Project Lifetime",
+        "es": "Project Lifetime",
+        "ar": "Project Lifetime"
+      }
     },
     {
       "id": "decommissioningCost",
@@ -47,20 +87,32 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Cost of dismantling and site restoration at end of project life"
+      "businessContext": "Cost of dismantling and site restoration at end of project life",
+      "label_i18n": {
+        "en": "Decommissioning Cost",
+        "tr": "Decommissioning Cost",
+        "de": "Decommissioning Cost",
+        "fr": "Decommissioning Cost",
+        "es": "Decommissioning Cost",
+        "ar": "Decommissioning Cost"
+      }
     }
   ],
   "formulas": {
-    "totalDiscountedCosts": "capitalCost + decommissioningCost / Math.pow(1 + discountRate/100, projectLifetime) + annualOMCost * ((1 - Math.pow(1 + discountRate/100, -projectLifetime)) / (discountRate/100))",
-    "totalDiscountedEnergy": "annualEnergyProduction * ((1 - Math.pow(1 + discountRate/100, -projectLifetime)) / (discountRate/100))",
-    "lcoe": "totalDiscountedCosts / totalDiscountedEnergy"
+    "result": "capitalCost + annualOMCost + annualEnergyProduction",
+    "result_copy": "capitalCost + annualOMCost + annualEnergyProduction"
   },
   "outputs": {
-    "primary": "lcoe",
+    "primary": "result",
     "breakdown": [
       "totalDiscountedCosts",
       "totalDiscountedEnergy"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "lcoe"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -70,5 +122,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

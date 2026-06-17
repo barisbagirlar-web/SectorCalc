@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TRY/birim",
       "default": 10,
-      "businessContext": "Birim ürün başına düşen hammadde maliyeti."
+      "businessContext": "Birim ürün başına düşen hammadde maliyeti.",
+      "label_i18n": {
+        "en": "Hammadde Maliyeti",
+        "tr": "Hammadde Maliyeti",
+        "de": "Hammadde Maliyeti",
+        "fr": "Hammadde Maliyeti",
+        "es": "Hammadde Maliyeti",
+        "ar": "Hammadde Maliyeti"
+      }
     },
     {
       "id": "laborCostPerHour",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "TRY/saat",
       "default": 50,
-      "businessContext": "Bir işçinin saatlik maliyeti."
+      "businessContext": "Bir işçinin saatlik maliyeti.",
+      "label_i18n": {
+        "en": "Saatlik İşçilik Maliyeti",
+        "tr": "Saatlik İşçilik Maliyeti",
+        "de": "Saatlik İşçilik Maliyeti",
+        "fr": "Saatlik İşçilik Maliyeti",
+        "es": "Saatlik İşçilik Maliyeti",
+        "ar": "Saatlik İşçilik Maliyeti"
+      }
     },
     {
       "id": "hoursPerUnit",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "saat",
       "default": 0.5,
-      "businessContext": "Bir birim ürün için harcanan işçilik süresi."
+      "businessContext": "Bir birim ürün için harcanan işçilik süresi.",
+      "label_i18n": {
+        "en": "Birim Başına İşçilik Süresi",
+        "tr": "Birim Başına İşçilik Süresi",
+        "de": "Birim Başına İşçilik Süresi",
+        "fr": "Birim Başına İşçilik Süresi",
+        "es": "Birim Başına İşçilik Süresi",
+        "ar": "Birim Başına İşçilik Süresi"
+      }
     },
     {
       "id": "energyCostPerUnit",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TRY/birim",
       "default": 2,
-      "businessContext": "Birim ürün başına enerji maliyeti."
+      "businessContext": "Birim ürün başına enerji maliyeti.",
+      "label_i18n": {
+        "en": "Enerji Gideri (birim başına)",
+        "tr": "Enerji Gideri (birim başına)",
+        "de": "Enerji Gideri (birim başına)",
+        "fr": "Enerji Gideri (birim başına)",
+        "es": "Enerji Gideri (birim başına)",
+        "ar": "Enerji Gideri (birim başına)"
+      }
     },
     {
       "id": "additionalCost",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 5,
-      "businessContext": "Ambalaj, nakliye gibi birim başı ek giderler."
+      "businessContext": "Ambalaj, nakliye gibi birim başı ek giderler.",
+      "label_i18n": {
+        "en": "Ek Maliyetler",
+        "tr": "Ek Maliyetler",
+        "de": "Ek Maliyetler",
+        "fr": "Ek Maliyetler",
+        "es": "Ek Maliyetler",
+        "ar": "Ek Maliyetler"
+      }
     },
     {
       "id": "overheadRate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Direkt maliyetler üzerine eklenen genel gider yüzdesi."
+      "businessContext": "Direkt maliyetler üzerine eklenen genel gider yüzdesi.",
+      "label_i18n": {
+        "en": "Genel Gider Oranı",
+        "tr": "Genel Gider Oranı",
+        "de": "Genel Gider Oranı",
+        "fr": "Genel Gider Oranı",
+        "es": "Genel Gider Oranı",
+        "ar": "Genel Gider Oranı"
+      }
     },
     {
       "id": "profitMargin",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 30,
-      "businessContext": "Toplam maliyet üzerine uygulanan kâr yüzdesi."
+      "businessContext": "Toplam maliyet üzerine uygulanan kâr yüzdesi.",
+      "label_i18n": {
+        "en": "Kâr Marjı",
+        "tr": "Kâr Marjı",
+        "de": "Kâr Marjı",
+        "fr": "Kâr Marjı",
+        "es": "Kâr Marjı",
+        "ar": "Kâr Marjı"
+      }
     }
   ],
   "formulas": {
@@ -72,7 +128,12 @@
       "directCosts",
       "overheadAmount",
       "profitAmount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "sellingPrice"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -82,5 +143,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

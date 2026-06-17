@@ -100,15 +100,9 @@
   ],
   "formulas": {
     "meanRoll": "numDice * (diceSides + 1) / 2",
-    "stdRoll": "Math.sqrt(numDice * (diceSides * diceSides - 1) / 12)",
     "probLandOnTargetOneTurn": "1 / boardSpaces",
     "probNotLandOnTargetOneTurn": "1 - probLandOnTargetOneTurn",
-    "probLandAtLeastOnce": "1 - Math.pow(probNotLandOnTargetOneTurn, turns)",
-    "expectedLandings": "turns / boardSpaces",
-    "Mean_dice_roll_per_turn": "Mean dice roll per turn",
-    "Standard_deviation_of_dice_roll": "Standard deviation of dice roll",
-    "Probability_per_turn": "Probability per turn",
-    "Expected_number_of_landings": "Expected number of landings"
+    "expectedLandings": "turns / boardSpaces"
   },
   "outputs": {
     "primary": "meanRoll",
@@ -117,7 +111,12 @@
       "Standard deviation of dice roll",
       "Probability per turn",
       "Expected number of landings"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "expectedLandings"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -127,5 +126,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

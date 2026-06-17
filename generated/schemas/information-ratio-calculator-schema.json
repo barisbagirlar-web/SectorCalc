@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Yatırım portföyünün dönemsel getirisi."
+      "businessContext": "Yatırım portföyünün dönemsel getirisi.",
+      "label_i18n": {
+        "en": "Portfolio Return",
+        "tr": "Portfolio Return",
+        "de": "Portfolio Return",
+        "fr": "Portfolio Return",
+        "es": "Portfolio Return",
+        "ar": "Portfolio Return"
+      }
     },
     {
       "id": "benchmarkReturn",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 8,
-      "businessContext": "Karşılaştırma ölçütünün dönemsel getirisi."
+      "businessContext": "Karşılaştırma ölçütünün dönemsel getirisi.",
+      "label_i18n": {
+        "en": "Benchmark Return",
+        "tr": "Benchmark Return",
+        "de": "Benchmark Return",
+        "fr": "Benchmark Return",
+        "es": "Benchmark Return",
+        "ar": "Benchmark Return"
+      }
     },
     {
       "id": "trackingError",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Aktif getirinin standart sapması."
+      "businessContext": "Aktif getirinin standart sapması.",
+      "label_i18n": {
+        "en": "Tracking Error",
+        "tr": "Tracking Error",
+        "de": "Tracking Error",
+        "fr": "Tracking Error",
+        "es": "Tracking Error",
+        "ar": "Tracking Error"
+      }
     },
     {
       "id": "periodsPerYear",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "periods/year",
       "default": 12,
-      "businessContext": "Yıllıklandırma için dönem sayısı (örn. aylık:12, günlük:252)."
+      "businessContext": "Yıllıklandırma için dönem sayısı (örn. aylık:12, günlük:252).",
+      "label_i18n": {
+        "en": "Annualization Factor",
+        "tr": "Annualization Factor",
+        "de": "Annualization Factor",
+        "fr": "Annualization Factor",
+        "es": "Annualization Factor",
+        "ar": "Annualization Factor"
+      }
     }
   ],
   "formulas": {
-    "informationRatio": "(portfolioReturn - benchmarkReturn) / trackingError * Math.sqrt(periodsPerYear)",
-    "activeReturn": "portfolioReturn - benchmarkReturn",
-    "annualizedActiveReturn": "(portfolioReturn - benchmarkReturn) * Math.sqrt(periodsPerYear)"
+    "result": "portfolioReturn + benchmarkReturn + trackingError",
+    "result_aux": "portfolioReturn + benchmarkReturn + trackingError"
   },
   "outputs": {
-    "primary": "informationRatio",
+    "primary": "result",
     "breakdown": [
       "activeReturn",
       "annualizedActiveReturn"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "annualizedActiveReturn"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

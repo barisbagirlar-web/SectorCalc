@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 50,
-      "businessContext": "Diameter of the shaft in millimeters"
+      "businessContext": "Diameter of the shaft in millimeters",
+      "label_i18n": {
+        "en": "Shaft Diameter",
+        "tr": "Shaft Diameter",
+        "de": "Shaft Diameter",
+        "fr": "Shaft Diameter",
+        "es": "Shaft Diameter",
+        "ar": "Shaft Diameter"
+      }
     },
     {
       "id": "bearingLength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 80,
-      "businessContext": "Length of the bearing in millimeters"
+      "businessContext": "Length of the bearing in millimeters",
+      "label_i18n": {
+        "en": "Bearing Length",
+        "tr": "Bearing Length",
+        "de": "Bearing Length",
+        "fr": "Bearing Length",
+        "es": "Bearing Length",
+        "ar": "Bearing Length"
+      }
     },
     {
       "id": "radialLoad",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "N",
       "default": 5000,
-      "businessContext": "Applied radial load on the bearing in Newtons"
+      "businessContext": "Applied radial load on the bearing in Newtons",
+      "label_i18n": {
+        "en": "Radial Load",
+        "tr": "Radial Load",
+        "de": "Radial Load",
+        "fr": "Radial Load",
+        "es": "Radial Load",
+        "ar": "Radial Load"
+      }
     },
     {
       "id": "rotationalSpeed",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "rpm",
       "default": 1500,
-      "businessContext": "Shaft rotational speed in revolutions per minute"
+      "businessContext": "Shaft rotational speed in revolutions per minute",
+      "label_i18n": {
+        "en": "Rotational Speed",
+        "tr": "Rotational Speed",
+        "de": "Rotational Speed",
+        "fr": "Rotational Speed",
+        "es": "Rotational Speed",
+        "ar": "Rotational Speed"
+      }
     },
     {
       "id": "oilViscosity",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "cP",
       "default": 30,
-      "businessContext": "Dynamic viscosity of the lubricant in centipoise"
+      "businessContext": "Dynamic viscosity of the lubricant in centipoise",
+      "label_i18n": {
+        "en": "Oil Viscosity",
+        "tr": "Oil Viscosity",
+        "de": "Oil Viscosity",
+        "fr": "Oil Viscosity",
+        "es": "Oil Viscosity",
+        "ar": "Oil Viscosity"
+      }
     },
     {
       "id": "radialClearance",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0.05,
-      "businessContext": "Radial clearance (half of diametral clearance) between shaft and bearing in millimeters"
+      "businessContext": "Radial clearance (half of diametral clearance) between shaft and bearing in millimeters",
+      "label_i18n": {
+        "en": "Radial Clearance",
+        "tr": "Radial Clearance",
+        "de": "Radial Clearance",
+        "fr": "Radial Clearance",
+        "es": "Radial Clearance",
+        "ar": "Radial Clearance"
+      }
     }
   ],
   "formulas": {
@@ -58,17 +106,21 @@
     "oilViscosity_Pas": "oilViscosity * 0.001",
     "rotationalSpeed_rps": "rotationalSpeed / 60",
     "unitLoadPressure": "(radialLoad * 1e6) / (shaftDiameter * bearingLength)",
-    "sommerfeldNumber": "Math.pow(shaftRadius_m / radialClearance_m, 2) * (oilViscosity_Pas * rotationalSpeed_rps) / unitLoadPressure",
     "clearanceRatio": "radialClearance_m / shaftRadius_m"
   },
   "outputs": {
-    "primary": "sommerfeldNumber",
+    "primary": "clearanceRatio",
     "breakdown": [
       "unitLoadPressure",
       "clearanceRatio",
       "rotationalSpeed_rps",
       "oilViscosity_Pas"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "clearanceRatio"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -78,5 +130,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

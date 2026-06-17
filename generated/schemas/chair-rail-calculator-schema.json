@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft",
       "default": 0,
-      "businessContext": "Total length of the room in feet"
+      "businessContext": "Total length of the room in feet",
+      "label_i18n": {
+        "en": "Room Length",
+        "tr": "Room Length",
+        "de": "Room Length",
+        "fr": "Room Length",
+        "es": "Room Length",
+        "ar": "Room Length"
+      }
     },
     {
       "id": "roomWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ft",
       "default": 0,
-      "businessContext": "Total width of the room in feet"
+      "businessContext": "Total width of the room in feet",
+      "label_i18n": {
+        "en": "Room Width",
+        "tr": "Room Width",
+        "de": "Room Width",
+        "fr": "Room Width",
+        "es": "Room Width",
+        "ar": "Room Width"
+      }
     },
     {
       "id": "doorCount",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ea",
       "default": 0,
-      "businessContext": "Count of door openings where chair rail will not be installed"
+      "businessContext": "Count of door openings where chair rail will not be installed",
+      "label_i18n": {
+        "en": "Number of Doors",
+        "tr": "Number of Doors",
+        "de": "Number of Doors",
+        "fr": "Number of Doors",
+        "es": "Number of Doors",
+        "ar": "Number of Doors"
+      }
     },
     {
       "id": "doorWidth",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "ft",
       "default": 3,
-      "businessContext": "Width of each door opening to be subtracted, in feet (typical interior door: 3 ft)"
+      "businessContext": "Width of each door opening to be subtracted, in feet (typical interior door: 3 ft)",
+      "label_i18n": {
+        "en": "Standard Door Width",
+        "tr": "Standard Door Width",
+        "de": "Standard Door Width",
+        "fr": "Standard Door Width",
+        "es": "Standard Door Width",
+        "ar": "Standard Door Width"
+      }
     },
     {
       "id": "windowCount",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "ea",
       "default": 0,
-      "businessContext": "Count of window openings where chair rail will not be installed"
+      "businessContext": "Count of window openings where chair rail will not be installed",
+      "label_i18n": {
+        "en": "Number of Windows",
+        "tr": "Number of Windows",
+        "de": "Number of Windows",
+        "fr": "Number of Windows",
+        "es": "Number of Windows",
+        "ar": "Number of Windows"
+      }
     },
     {
       "id": "windowWidth",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "ft",
       "default": 4,
-      "businessContext": "Width of each window opening to be subtracted, in feet (typical window: 4 ft)"
+      "businessContext": "Width of each window opening to be subtracted, in feet (typical window: 4 ft)",
+      "label_i18n": {
+        "en": "Standard Window Width",
+        "tr": "Standard Window Width",
+        "de": "Standard Window Width",
+        "fr": "Standard Window Width",
+        "es": "Standard Window Width",
+        "ar": "Standard Window Width"
+      }
     },
     {
       "id": "wasteFactor",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Additional material percentage to account for cutting waste and miter errors"
+      "businessContext": "Additional material percentage to account for cutting waste and miter errors",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     },
     {
       "id": "pricePerFoot",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "USD/ft",
       "default": 0,
-      "businessContext": "Cost of chair rail material per linear foot"
+      "businessContext": "Cost of chair rail material per linear foot",
+      "label_i18n": {
+        "en": "Price per Linear Foot",
+        "tr": "Price per Linear Foot",
+        "de": "Price per Linear Foot",
+        "fr": "Price per Linear Foot",
+        "es": "Price per Linear Foot",
+        "ar": "Price per Linear Foot"
+      }
     }
   ],
   "formulas": {
@@ -80,7 +144,12 @@
       "netLength",
       "wasteAmount",
       "totalCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -90,5 +159,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

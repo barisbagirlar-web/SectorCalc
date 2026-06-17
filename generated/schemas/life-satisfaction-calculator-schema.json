@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "score",
       "default": 7,
-      "businessContext": "Self-rated satisfaction with financial situation."
+      "businessContext": "Self-rated satisfaction with financial situation.",
+      "label_i18n": {
+        "en": "Financial Satisfaction (1-10)",
+        "tr": "Financial Satisfaction (1-10)",
+        "de": "Financial Satisfaction (1-10)",
+        "fr": "Financial Satisfaction (1-10)",
+        "es": "Financial Satisfaction (1-10)",
+        "ar": "Financial Satisfaction (1-10)"
+      }
     },
     {
       "id": "health",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "score",
       "default": 8,
-      "businessContext": "Self-rated physical and mental health."
+      "businessContext": "Self-rated physical and mental health.",
+      "label_i18n": {
+        "en": "Health Satisfaction (1-10)",
+        "tr": "Health Satisfaction (1-10)",
+        "de": "Health Satisfaction (1-10)",
+        "fr": "Health Satisfaction (1-10)",
+        "es": "Health Satisfaction (1-10)",
+        "ar": "Health Satisfaction (1-10)"
+      }
     },
     {
       "id": "workLife",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "score",
       "default": 6,
-      "businessContext": "Satisfaction with balance between work and personal life."
+      "businessContext": "Satisfaction with balance between work and personal life.",
+      "label_i18n": {
+        "en": "Work-Life Balance (1-10)",
+        "tr": "Work-Life Balance (1-10)",
+        "de": "Work-Life Balance (1-10)",
+        "fr": "Work-Life Balance (1-10)",
+        "es": "Work-Life Balance (1-10)",
+        "ar": "Work-Life Balance (1-10)"
+      }
     },
     {
       "id": "social",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "score",
       "default": 7,
-      "businessContext": "Satisfaction with relationships and social support."
+      "businessContext": "Satisfaction with relationships and social support.",
+      "label_i18n": {
+        "en": "Social Connections (1-10)",
+        "tr": "Social Connections (1-10)",
+        "de": "Social Connections (1-10)",
+        "fr": "Social Connections (1-10)",
+        "es": "Social Connections (1-10)",
+        "ar": "Social Connections (1-10)"
+      }
     },
     {
       "id": "purpose",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "score",
       "default": 7,
-      "businessContext": "Feeling of meaning and purpose in daily activities."
+      "businessContext": "Feeling of meaning and purpose in daily activities.",
+      "label_i18n": {
+        "en": "Sense of Purpose (1-10)",
+        "tr": "Sense of Purpose (1-10)",
+        "de": "Sense of Purpose (1-10)",
+        "fr": "Sense of Purpose (1-10)",
+        "es": "Sense of Purpose (1-10)",
+        "ar": "Sense of Purpose (1-10)"
+      }
     }
   ],
   "formulas": {
@@ -51,7 +91,12 @@
     "breakdown": [
       "weightedTotal",
       "lifeSatisfactionScore"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "lifeSatisfactionScore"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -61,5 +106,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

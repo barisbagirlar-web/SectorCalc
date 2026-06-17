@@ -138,43 +138,6 @@
       "businessContext_i18n": {
         "en": "1.0 for single shift, 1.1 for two-shift, 1.2 for three-shift operations (accounts for shift differentials)."
       }
-    },
-    {
-      "id": "include_benefits",
-      "label": "Include Benefits & Payroll Taxes",
-      "type": "boolean",
-      "unit": "unit",
-      "default": true,
-      "min": null,
-      "max": null,
-      "businessContext": "If true, adds 30% burden to direct labor rate for benefits, FICA, workers' comp, etc.",
-      "label_i18n": {
-        "en": "Include Benefits & Payroll Taxes"
-      },
-      "businessContext_i18n": {
-        "en": "If true, adds 30% burden to direct labor rate for benefits, FICA, workers' comp, etc."
-      }
-    },
-    {
-      "id": "overhead_allocation_method",
-      "label": "Overhead Allocation Method",
-      "type": "select",
-      "unit": "unit",
-      "default": "direct_labor_hours",
-      "min": null,
-      "max": null,
-      "options": [
-        "direct_labor_hours",
-        "machine_hours",
-        "total_labor_cost"
-      ],
-      "businessContext": "Basis for distributing overhead to hourly rate. Direct labor hours is most common in job shops.",
-      "label_i18n": {
-        "en": "Overhead Allocation Method"
-      },
-      "businessContext_i18n": {
-        "en": "Basis for distributing overhead to hourly rate. Direct labor hours is most common in job shops."
-      }
     }
   ],
   "validation": {
@@ -213,18 +176,18 @@
       }
     ]
   },
-  "formulas": [
-    "direct_labor_hourly_rate",
-    "direct_labor_hourly_rate",
-    "direct_labor_hourly_rate",
-    "direct_labor_hourly_rate",
-    "direct_labor_hourly_rate",
-    "direct_labor_hourly_rate",
-    "direct_labor_hourly_rate"
-  ],
+  "formulas": {
+    "result": "direct_labor_hourly_rate + num_direct_labor_employees + annual_operating_hours_per_employee",
+    "result_copy": "direct_labor_hourly_rate + num_direct_labor_employees + annual_operating_hours_per_employee"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

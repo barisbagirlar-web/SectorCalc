@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 1000,
-      "businessContext": "The principal amount to be transferred in US dollars."
+      "businessContext": "The principal amount to be transferred in US dollars.",
+      "label_i18n": {
+        "en": "Transfer Amount",
+        "tr": "Transfer Amount",
+        "de": "Transfer Amount",
+        "fr": "Transfer Amount",
+        "es": "Transfer Amount",
+        "ar": "Transfer Amount"
+      }
     },
     {
       "id": "flatFeeSender",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 15,
-      "businessContext": "Fixed fee charged by the sending bank."
+      "businessContext": "Fixed fee charged by the sending bank.",
+      "label_i18n": {
+        "en": "Sender's Flat Fee",
+        "tr": "Sender's Flat Fee",
+        "de": "Sender's Flat Fee",
+        "fr": "Sender's Flat Fee",
+        "es": "Sender's Flat Fee",
+        "ar": "Sender's Flat Fee"
+      }
     },
     {
       "id": "percentageFeeSender",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Percentage fee charged by the sending bank on the transfer amount."
+      "businessContext": "Percentage fee charged by the sending bank on the transfer amount.",
+      "label_i18n": {
+        "en": "Sender's Percentage Fee",
+        "tr": "Sender's Percentage Fee",
+        "de": "Sender's Percentage Fee",
+        "fr": "Sender's Percentage Fee",
+        "es": "Sender's Percentage Fee",
+        "ar": "Sender's Percentage Fee"
+      }
     },
     {
       "id": "flatFeeIntermediary",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Fixed fee charged by any intermediary bank, typically for international transfers."
+      "businessContext": "Fixed fee charged by any intermediary bank, typically for international transfers.",
+      "label_i18n": {
+        "en": "Intermediary Bank Flat Fee",
+        "tr": "Intermediary Bank Flat Fee",
+        "de": "Intermediary Bank Flat Fee",
+        "fr": "Intermediary Bank Flat Fee",
+        "es": "Intermediary Bank Flat Fee",
+        "ar": "Intermediary Bank Flat Fee"
+      }
     },
     {
       "id": "flatFeeReceiver",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Fixed fee charged by the receiving bank."
+      "businessContext": "Fixed fee charged by the receiving bank.",
+      "label_i18n": {
+        "en": "Receiver's Flat Fee",
+        "tr": "Receiver's Flat Fee",
+        "de": "Receiver's Flat Fee",
+        "fr": "Receiver's Flat Fee",
+        "es": "Receiver's Flat Fee",
+        "ar": "Receiver's Flat Fee"
+      }
     },
     {
       "id": "isInternational",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "Set to 1 if the transfer is international (involves intermediary/receiver fees), 0 for domestic."
+      "businessContext": "Set to 1 if the transfer is international (involves intermediary/receiver fees), 0 for domestic.",
+      "label_i18n": {
+        "en": "International Transfer",
+        "tr": "International Transfer",
+        "de": "International Transfer",
+        "fr": "International Transfer",
+        "es": "International Transfer",
+        "ar": "International Transfer"
+      }
     }
   ],
   "formulas": {
@@ -59,7 +107,12 @@
     "breakdown": [
       "totalFee",
       "transferAmount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -69,5 +122,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

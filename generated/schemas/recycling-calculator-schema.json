@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Üretim sürecinde oluşan toplam atık miktarı"
+      "businessContext": "Üretim sürecinde oluşan toplam atık miktarı",
+      "label_i18n": {
+        "en": "Toplam Atık (kg)",
+        "tr": "Toplam Atık (kg)",
+        "de": "Toplam Atık (kg)",
+        "fr": "Toplam Atık (kg)",
+        "es": "Toplam Atık (kg)",
+        "ar": "Toplam Atık (kg)"
+      }
     },
     {
       "id": "recycledAmount",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 300,
-      "businessContext": "Geri dönüşüme gönderilen atık miktarı"
+      "businessContext": "Geri dönüşüme gönderilen atık miktarı",
+      "label_i18n": {
+        "en": "Geri Dönüştürülen Miktar (kg)",
+        "tr": "Geri Dönüştürülen Miktar (kg)",
+        "de": "Geri Dönüştürülen Miktar (kg)",
+        "fr": "Geri Dönüştürülen Miktar (kg)",
+        "es": "Geri Dönüştürülen Miktar (kg)",
+        "ar": "Geri Dönüştürülen Miktar (kg)"
+      }
     },
     {
       "id": "contaminationRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Geri dönüştürülen malzemedeki kirlilik oranı"
+      "businessContext": "Geri dönüştürülen malzemedeki kirlilik oranı",
+      "label_i18n": {
+        "en": "Kirlilik Oranı (%)",
+        "tr": "Kirlilik Oranı (%)",
+        "de": "Kirlilik Oranı (%)",
+        "fr": "Kirlilik Oranı (%)",
+        "es": "Kirlilik Oranı (%)",
+        "ar": "Kirlilik Oranı (%)"
+      }
     },
     {
       "id": "disposalCostPerKg",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TL/kg",
       "default": 0.5,
-      "businessContext": "Atığın kg başına bertaraf maliyeti"
+      "businessContext": "Atığın kg başına bertaraf maliyeti",
+      "label_i18n": {
+        "en": "Bertaraf Maliyeti (TL/kg)",
+        "tr": "Bertaraf Maliyeti (TL/kg)",
+        "de": "Bertaraf Maliyeti (TL/kg)",
+        "fr": "Bertaraf Maliyeti (TL/kg)",
+        "es": "Bertaraf Maliyeti (TL/kg)",
+        "ar": "Bertaraf Maliyeti (TL/kg)"
+      }
     },
     {
       "id": "revenuePerKg",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "TL/kg",
       "default": 1.2,
-      "businessContext": "Geri dönüştürülen malzemenin kg başına satış geliri"
+      "businessContext": "Geri dönüştürülen malzemenin kg başına satış geliri",
+      "label_i18n": {
+        "en": "Geri Dönüşüm Geliri (TL/kg)",
+        "tr": "Geri Dönüşüm Geliri (TL/kg)",
+        "de": "Geri Dönüşüm Geliri (TL/kg)",
+        "fr": "Geri Dönüşüm Geliri (TL/kg)",
+        "es": "Geri Dönüşüm Geliri (TL/kg)",
+        "ar": "Geri Dönüşüm Geliri (TL/kg)"
+      }
     }
   ],
   "formulas": {
@@ -58,7 +98,12 @@
       "costSavings",
       "revenueGenerated",
       "netSavings"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "netSavings"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -68,5 +113,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

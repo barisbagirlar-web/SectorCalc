@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "The total planned production quantity for the period."
+      "businessContext": "The total planned production quantity for the period.",
+      "label_i18n": {
+        "en": "Planned Production",
+        "tr": "Planned Production",
+        "de": "Planned Production",
+        "fr": "Planned Production",
+        "es": "Planned Production",
+        "ar": "Planned Production"
+      }
     },
     {
       "id": "actualProduction",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "The actual quantity produced during the period."
+      "businessContext": "The actual quantity produced during the period.",
+      "label_i18n": {
+        "en": "Actual Production",
+        "tr": "Actual Production",
+        "de": "Actual Production",
+        "fr": "Actual Production",
+        "es": "Actual Production",
+        "ar": "Actual Production"
+      }
     },
     {
       "id": "goodParts",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "The number of defect-free units produced."
+      "businessContext": "The number of defect-free units produced.",
+      "label_i18n": {
+        "en": "Good Parts",
+        "tr": "Good Parts",
+        "de": "Good Parts",
+        "fr": "Good Parts",
+        "es": "Good Parts",
+        "ar": "Good Parts"
+      }
     },
     {
       "id": "totalParts",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "adet",
       "default": 0,
-      "businessContext": "The total number of units produced, including defects."
+      "businessContext": "The total number of units produced, including defects.",
+      "label_i18n": {
+        "en": "Total Parts",
+        "tr": "Total Parts",
+        "de": "Total Parts",
+        "fr": "Total Parts",
+        "es": "Total Parts",
+        "ar": "Total Parts"
+      }
     }
   ],
   "formulas": {
-    "ihd": "return (plannedProduction && totalParts) ? ((actualProduction / plannedProduction) * (goodParts / totalParts) * 100).toFixed(2) : '0.00'",
-    "availability": "return plannedProduction ? ((actualProduction / plannedProduction) * 100).toFixed(2) : '0.00'",
-    "quality": "return totalParts ? ((goodParts / totalParts) * 100).toFixed(2) : '0.00'"
+    "result": "plannedProduction + actualProduction + goodParts",
+    "result_copy": "plannedProduction + actualProduction + goodParts"
   },
   "outputs": {
-    "primary": "ihd",
+    "primary": "result",
     "breakdown": [
       "availability",
       "quality"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "quality"
   },
   "category": "İmalat & Üretim",
   "sector": "Üretim & İmalat",
@@ -54,5 +90,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

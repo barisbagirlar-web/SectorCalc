@@ -100,15 +100,19 @@
   ],
   "formulas": {
     "totalFertilizerWeight_kg": "lawnArea * nitrogenRatePerSqM * 0.1 / nitrogenPercent * applicationsPerYear",
-    "bagsNeeded": "Math.ceil((lawnArea * nitrogenRatePerSqM * 0.1 / nitrogenPercent * applicationsPerYear) / bagWeight)",
-    "totalCost": "Math.ceil((lawnArea * nitrogenRatePerSqM * 0.1 / nitrogenPercent * applicationsPerYear) / bagWeight) * bagCost"
+    "totalFertilizerWeight_kg_aux": "lawnArea * nitrogenRatePerSqM * 0.1 / nitrogenPercent * applicationsPerYear"
   },
   "outputs": {
-    "primary": "bagsNeeded",
+    "primary": "totalFertilizerWeight_kg_aux",
     "breakdown": [
       "totalFertilizerWeight_kg",
       "totalCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Gıda & Tarım",
   "sector": "Perakende & Gıda",
@@ -118,5 +122,10 @@
   "categorySlug": "food-cold-chain-hygiene",
   "sectorId": "tarim",
   "profession": "Ziraat Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

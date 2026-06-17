@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "nights",
       "default": 15,
-      "businessContext": "Total number of nights booked in the period."
+      "businessContext": "Total number of nights booked in the period.",
+      "label_i18n": {
+        "en": "Booked Nights",
+        "tr": "Booked Nights",
+        "de": "Booked Nights",
+        "fr": "Booked Nights",
+        "es": "Booked Nights",
+        "ar": "Booked Nights"
+      }
     },
     {
       "id": "totalAvailableNights",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "nights",
       "default": 30,
-      "businessContext": "Total nights the property was available for booking."
+      "businessContext": "Total nights the property was available for booking.",
+      "label_i18n": {
+        "en": "Total Available Nights",
+        "tr": "Total Available Nights",
+        "de": "Total Available Nights",
+        "fr": "Total Available Nights",
+        "es": "Total Available Nights",
+        "ar": "Total Available Nights"
+      }
     },
     {
       "id": "averageDailyRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$/night",
       "default": 120,
-      "businessContext": "Average nightly rental rate before fees."
+      "businessContext": "Average nightly rental rate before fees.",
+      "label_i18n": {
+        "en": "Average Daily Rate",
+        "tr": "Average Daily Rate",
+        "de": "Average Daily Rate",
+        "fr": "Average Daily Rate",
+        "es": "Average Daily Rate",
+        "ar": "Average Daily Rate"
+      }
     },
     {
       "id": "cleaningFeePerBooking",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "$",
       "default": 50,
-      "businessContext": "Fixed cleaning fee added per booking."
+      "businessContext": "Fixed cleaning fee added per booking.",
+      "label_i18n": {
+        "en": "Cleaning Fee per Booking",
+        "tr": "Cleaning Fee per Booking",
+        "de": "Cleaning Fee per Booking",
+        "fr": "Cleaning Fee per Booking",
+        "es": "Cleaning Fee per Booking",
+        "ar": "Cleaning Fee per Booking"
+      }
     },
     {
       "id": "numberOfBookings",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "count",
       "default": 3,
-      "businessContext": "Total number of separate bookings in the period."
+      "businessContext": "Total number of separate bookings in the period.",
+      "label_i18n": {
+        "en": "Number of Bookings",
+        "tr": "Number of Bookings",
+        "de": "Number of Bookings",
+        "fr": "Number of Bookings",
+        "es": "Number of Bookings",
+        "ar": "Number of Bookings"
+      }
     },
     {
       "id": "fixedMonthlyCosts",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "$",
       "default": 800,
-      "businessContext": "All fixed monthly expenses (mortgage, utilities, insurance, etc.)."
+      "businessContext": "All fixed monthly expenses (mortgage, utilities, insurance, etc.).",
+      "label_i18n": {
+        "en": "Fixed Monthly Costs",
+        "tr": "Fixed Monthly Costs",
+        "de": "Fixed Monthly Costs",
+        "fr": "Fixed Monthly Costs",
+        "es": "Fixed Monthly Costs",
+        "ar": "Fixed Monthly Costs"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +108,12 @@
     "breakdown": [
       "totalRevenue",
       "netIncome"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "netIncome"
   },
   "category": "Yalın Üretim",
   "sector": "Üretim & İmalat",
@@ -70,5 +123,10 @@
   "categorySlug": "lean-production",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

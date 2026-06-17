@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Protein content per serving"
+      "businessContext": "Protein content per serving",
+      "label_i18n": {
+        "en": "Protein (g)",
+        "tr": "Protein (g)",
+        "de": "Protein (g)",
+        "fr": "Protein (g)",
+        "es": "Protein (g)",
+        "ar": "Protein (g)"
+      }
     },
     {
       "id": "carbs_g",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Carbohydrate content per serving"
+      "businessContext": "Carbohydrate content per serving",
+      "label_i18n": {
+        "en": "Carbohydrates (g)",
+        "tr": "Carbohydrates (g)",
+        "de": "Carbohydrates (g)",
+        "fr": "Carbohydrates (g)",
+        "es": "Carbohydrates (g)",
+        "ar": "Carbohydrates (g)"
+      }
     },
     {
       "id": "fat_g",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Fat content per serving"
+      "businessContext": "Fat content per serving",
+      "label_i18n": {
+        "en": "Fat (g)",
+        "tr": "Fat (g)",
+        "de": "Fat (g)",
+        "fr": "Fat (g)",
+        "es": "Fat (g)",
+        "ar": "Fat (g)"
+      }
     },
     {
       "id": "fiber_g",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Fiber content per serving"
+      "businessContext": "Fiber content per serving",
+      "label_i18n": {
+        "en": "Fiber (g)",
+        "tr": "Fiber (g)",
+        "de": "Fiber (g)",
+        "fr": "Fiber (g)",
+        "es": "Fiber (g)",
+        "ar": "Fiber (g)"
+      }
     },
     {
       "id": "alcohol_g",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Alcohol content per serving"
+      "businessContext": "Alcohol content per serving",
+      "label_i18n": {
+        "en": "Alcohol (g)",
+        "tr": "Alcohol (g)",
+        "de": "Alcohol (g)",
+        "fr": "Alcohol (g)",
+        "es": "Alcohol (g)",
+        "ar": "Alcohol (g)"
+      }
     },
     {
       "id": "serving_size_g",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "g",
       "default": 100,
-      "businessContext": "Total weight of the serving"
+      "businessContext": "Total weight of the serving",
+      "label_i18n": {
+        "en": "Serving Size (g)",
+        "tr": "Serving Size (g)",
+        "de": "Serving Size (g)",
+        "fr": "Serving Size (g)",
+        "es": "Serving Size (g)",
+        "ar": "Serving Size (g)"
+      }
     }
   ],
   "formulas": {
@@ -68,7 +116,12 @@
       "caloriesFromFiber",
       "caloriesFromAlcohol",
       "caloriesPer100g"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "caloriesPer100g"
   },
   "category": "Gıda & Tarım",
   "sector": "Perakende & Gıda",
@@ -78,5 +131,10 @@
   "categorySlug": "food-cold-chain-hygiene",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

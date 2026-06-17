@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m²",
       "default": 100,
-      "businessContext": "Total paintable surface area in square meters"
+      "businessContext": "Total paintable surface area in square meters",
+      "label_i18n": {
+        "en": "Surface Area",
+        "tr": "Surface Area",
+        "de": "Surface Area",
+        "fr": "Surface Area",
+        "es": "Surface Area",
+        "ar": "Surface Area"
+      }
     },
     {
       "id": "paintCoverage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m²/L",
       "default": 10,
-      "businessContext": "Area covered by one liter of paint"
+      "businessContext": "Area covered by one liter of paint",
+      "label_i18n": {
+        "en": "Paint Coverage",
+        "tr": "Paint Coverage",
+        "de": "Paint Coverage",
+        "fr": "Paint Coverage",
+        "es": "Paint Coverage",
+        "ar": "Paint Coverage"
+      }
     },
     {
       "id": "paintPrice",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$/L",
       "default": 30,
-      "businessContext": "Cost of one liter of paint"
+      "businessContext": "Cost of one liter of paint",
+      "label_i18n": {
+        "en": "Paint Price per Liter",
+        "tr": "Paint Price per Liter",
+        "de": "Paint Price per Liter",
+        "fr": "Paint Price per Liter",
+        "es": "Paint Price per Liter",
+        "ar": "Paint Price per Liter"
+      }
     },
     {
       "id": "coats",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "coats",
       "default": 2,
-      "businessContext": "How many layers of paint to apply"
+      "businessContext": "How many layers of paint to apply",
+      "label_i18n": {
+        "en": "Number of Coats",
+        "tr": "Number of Coats",
+        "de": "Number of Coats",
+        "fr": "Number of Coats",
+        "es": "Number of Coats",
+        "ar": "Number of Coats"
+      }
     },
     {
       "id": "laborHours",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "hours",
       "default": 8,
-      "businessContext": "Total labor hours required for the job"
+      "businessContext": "Total labor hours required for the job",
+      "label_i18n": {
+        "en": "Labor Hours",
+        "tr": "Labor Hours",
+        "de": "Labor Hours",
+        "fr": "Labor Hours",
+        "es": "Labor Hours",
+        "ar": "Labor Hours"
+      }
     },
     {
       "id": "laborRate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "$/hour",
       "default": 50,
-      "businessContext": "Hourly labor cost"
+      "businessContext": "Hourly labor cost",
+      "label_i18n": {
+        "en": "Labor Rate",
+        "tr": "Labor Rate",
+        "de": "Labor Rate",
+        "fr": "Labor Rate",
+        "es": "Labor Rate",
+        "ar": "Labor Rate"
+      }
     },
     {
       "id": "wasteFactor",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Extra paint needed due to spillage, overspray, etc."
+      "businessContext": "Extra paint needed due to spillage, overspray, etc.",
+      "label_i18n": {
+        "en": "Waste Factor (%)",
+        "tr": "Waste Factor (%)",
+        "de": "Waste Factor (%)",
+        "fr": "Waste Factor (%)",
+        "es": "Waste Factor (%)",
+        "ar": "Waste Factor (%)"
+      }
     }
   ],
   "formulas": {
@@ -70,7 +126,12 @@
       "totalPaintNeeded",
       "totalPaintCost",
       "totalLaborCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -80,5 +141,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

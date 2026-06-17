@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Tüketilen enerji içeceği porsiyon adedi."
+      "businessContext": "Tüketilen enerji içeceği porsiyon adedi.",
+      "label_i18n": {
+        "en": "Porsiyon Sayısı",
+        "tr": "Porsiyon Sayısı",
+        "de": "Porsiyon Sayısı",
+        "fr": "Porsiyon Sayısı",
+        "es": "Porsiyon Sayısı",
+        "ar": "Porsiyon Sayısı"
+      }
     },
     {
       "id": "caffeinePerServing",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mg",
       "default": 80,
-      "businessContext": "Bir porsiyondaki kafein miktarı."
+      "businessContext": "Bir porsiyondaki kafein miktarı.",
+      "label_i18n": {
+        "en": "Porsiyon Başına Kafein",
+        "tr": "Porsiyon Başına Kafein",
+        "de": "Porsiyon Başına Kafein",
+        "fr": "Porsiyon Başına Kafein",
+        "es": "Porsiyon Başına Kafein",
+        "ar": "Porsiyon Başına Kafein"
+      }
     },
     {
       "id": "sugarPerServing",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "g",
       "default": 27,
-      "businessContext": "Bir porsiyondaki şeker miktarı."
+      "businessContext": "Bir porsiyondaki şeker miktarı.",
+      "label_i18n": {
+        "en": "Porsiyon Başına Şeker",
+        "tr": "Porsiyon Başına Şeker",
+        "de": "Porsiyon Başına Şeker",
+        "fr": "Porsiyon Başına Şeker",
+        "es": "Porsiyon Başına Şeker",
+        "ar": "Porsiyon Başına Şeker"
+      }
     },
     {
       "id": "costPerCan",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TL",
       "default": 2.5,
-      "businessContext": "Bir kutu enerji içeceğinin satın alma maliyeti."
+      "businessContext": "Bir kutu enerji içeceğinin satın alma maliyeti.",
+      "label_i18n": {
+        "en": "Kutu Başına Maliyet",
+        "tr": "Kutu Başına Maliyet",
+        "de": "Kutu Başına Maliyet",
+        "fr": "Kutu Başına Maliyet",
+        "es": "Kutu Başına Maliyet",
+        "ar": "Kutu Başına Maliyet"
+      }
     },
     {
       "id": "servingsPerCan",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Bir kutudaki porsiyon sayısı."
+      "businessContext": "Bir kutudaki porsiyon sayısı.",
+      "label_i18n": {
+        "en": "Kutu Başına Porsiyon",
+        "tr": "Kutu Başına Porsiyon",
+        "de": "Kutu Başına Porsiyon",
+        "fr": "Kutu Başına Porsiyon",
+        "es": "Kutu Başına Porsiyon",
+        "ar": "Kutu Başına Porsiyon"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
       "totalSugar",
       "costPerServing",
       "caffeinePerCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "caffeinePerCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -64,5 +109,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

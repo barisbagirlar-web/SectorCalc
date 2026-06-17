@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$/pizza",
       "default": 0.5,
-      "businessContext": "Cost of dough used per pizza"
+      "businessContext": "Cost of dough used per pizza",
+      "label_i18n": {
+        "en": "Dough Cost per Pizza",
+        "tr": "Dough Cost per Pizza",
+        "de": "Dough Cost per Pizza",
+        "fr": "Dough Cost per Pizza",
+        "es": "Dough Cost per Pizza",
+        "ar": "Dough Cost per Pizza"
+      }
     },
     {
       "id": "sauceCost",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "$/pizza",
       "default": 0.3,
-      "businessContext": "Cost of sauce used per pizza"
+      "businessContext": "Cost of sauce used per pizza",
+      "label_i18n": {
+        "en": "Sauce Cost per Pizza",
+        "tr": "Sauce Cost per Pizza",
+        "de": "Sauce Cost per Pizza",
+        "fr": "Sauce Cost per Pizza",
+        "es": "Sauce Cost per Pizza",
+        "ar": "Sauce Cost per Pizza"
+      }
     },
     {
       "id": "cheeseCost",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$/pizza",
       "default": 0.6,
-      "businessContext": "Cost of cheese used per pizza"
+      "businessContext": "Cost of cheese used per pizza",
+      "label_i18n": {
+        "en": "Cheese Cost per Pizza",
+        "tr": "Cheese Cost per Pizza",
+        "de": "Cheese Cost per Pizza",
+        "fr": "Cheese Cost per Pizza",
+        "es": "Cheese Cost per Pizza",
+        "ar": "Cheese Cost per Pizza"
+      }
     },
     {
       "id": "toppingsCost",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "$/pizza",
       "default": 0.4,
-      "businessContext": "Cost of additional toppings per pizza"
+      "businessContext": "Cost of additional toppings per pizza",
+      "label_i18n": {
+        "en": "Toppings Cost per Pizza",
+        "tr": "Toppings Cost per Pizza",
+        "de": "Toppings Cost per Pizza",
+        "fr": "Toppings Cost per Pizza",
+        "es": "Toppings Cost per Pizza",
+        "ar": "Toppings Cost per Pizza"
+      }
     },
     {
       "id": "laborCost",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "$/pizza",
       "default": 0.75,
-      "businessContext": "Labor cost allocated per pizza"
+      "businessContext": "Labor cost allocated per pizza",
+      "label_i18n": {
+        "en": "Labor Cost per Pizza",
+        "tr": "Labor Cost per Pizza",
+        "de": "Labor Cost per Pizza",
+        "fr": "Labor Cost per Pizza",
+        "es": "Labor Cost per Pizza",
+        "ar": "Labor Cost per Pizza"
+      }
     },
     {
       "id": "overheadCost",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "$/pizza",
       "default": 0.25,
-      "businessContext": "Fixed overhead allocated per pizza"
+      "businessContext": "Fixed overhead allocated per pizza",
+      "label_i18n": {
+        "en": "Overhead Cost per Pizza",
+        "tr": "Overhead Cost per Pizza",
+        "de": "Overhead Cost per Pizza",
+        "fr": "Overhead Cost per Pizza",
+        "es": "Overhead Cost per Pizza",
+        "ar": "Overhead Cost per Pizza"
+      }
     },
     {
       "id": "marginPercent",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 40,
-      "businessContext": "Target profit margin percentage"
+      "businessContext": "Target profit margin percentage",
+      "label_i18n": {
+        "en": "Desired Profit Margin",
+        "tr": "Desired Profit Margin",
+        "de": "Desired Profit Margin",
+        "fr": "Desired Profit Margin",
+        "es": "Desired Profit Margin",
+        "ar": "Desired Profit Margin"
+      }
     }
   ],
   "formulas": {
@@ -70,7 +126,12 @@
       "totalCostPerPizza",
       "totalIngredientCost",
       "profitPerPizza"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "profitPerPizza"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -80,5 +141,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

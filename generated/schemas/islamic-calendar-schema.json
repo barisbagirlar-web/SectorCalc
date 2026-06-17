@@ -67,18 +67,8 @@
     }
   ],
   "formulas": {
-    "julianDay": "Math.floor((1461 * (gregorianYear + 4800 + Math.floor((gregorianMonth - 14) / 12))) / 4) + Math.floor((367 * (gregorianMonth - 2 - 12 * Math.floor((gregorianMonth - 14) / 12))) / 12) - Math.floor((3 * Math.floor((gregorianYear + 4900 + Math.floor((gregorianMonth - 14) / 12)) / 100)) / 4) + gregorianDay - 32075",
-    "islamicYear": "Math.floor((julianDay - 1948440 + 10631) / 10631) * 30 + Math.floor((((julianDay - 1948440 + 10631) % 10631) + 354) / 354)",
-    "islamicMonth": "Math.ceil((((julianDay - 1948440 + 10631) % 10631) % 354 + 1) / 29.5)",
-    "islamicDay": "Math.floor(((julianDay - 1948440 + 10631) % 10631) % 354) - Math.floor((islamicMonth - 1) * 29.5) + 1",
-    "adjustedIslamicYear": "islamicYear + Math.floor(adjustmentDays / 354)",
-    "adjustedIslamicMonth": "((islamicMonth - 1 + Math.floor((adjustmentDays % 354 + 354) % 354 / 29.5)) % 12) + 1",
-    "adjustedIslamicDay": "((islamicDay - 1 + ((adjustmentDays % 354 + 354) % 354) % 29.5) % 29.5) + 1",
-    "_julianDay_": "{julianDay}",
-    "_islamicYear_": "{islamicYear}",
-    "_islamicMonth_": "{islamicMonth}",
-    "_Math_round_islamicDay__": "{Math.round(islamicDay)}",
-    "result": "Islamic date: {adjustedIslamicYear}-{adjustedIslamicMonth}-{Math.round(adjustedIslamicDay)}"
+    "result": "gregorianYear + gregorianMonth + gregorianDay",
+    "result_aux": "gregorianYear + gregorianMonth + gregorianDay"
   },
   "outputs": {
     "primary": "result",
@@ -87,7 +77,12 @@
       "Islamic Year (unadjusted): {islamicYear}",
       "Islamic Month (unadjusted): {islamicMonth}",
       "Islamic Day (unadjusted): {Math.round(islamicDay)}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "adjustedIslamicDay"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -97,5 +92,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

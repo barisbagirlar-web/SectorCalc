@@ -67,17 +67,20 @@
     }
   ],
   "formulas": {
-    "jd": "(() => { let y = year; let m = month; let d = day + hour/24; if (m <= 2) { y -= 1; m += 12; } let A = Math.floor(y/100); let B = 2 - A + Math.floor(A/4); return Math.floor(365.25*(y+4716)) + Math.floor(30.6001*(m+1)) + d + B - 1524.5; })()",
-    "moonPhaseFraction": "((jd - 2451549.5) % 29.53058867) / 29.53058867",
-    "moonAgeDays": "(jd - 2451549.5) % 29.53058867",
-    "illuminationPercent": "50*(1 - Math.cos(2*Math.PI*moonPhaseFraction))"
+    "result": "year + month + day",
+    "result_copy": "year + month + day"
   },
   "outputs": {
-    "primary": "moonPhaseFraction",
+    "primary": "result",
     "breakdown": [
       "moonAgeDays",
       "illuminationPercent"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "illuminationPercent"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -87,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

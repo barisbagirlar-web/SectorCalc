@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 4,
-      "businessContext": "Clear span of the slab (simply supported)"
+      "businessContext": "Clear span of the slab (simply supported)",
+      "label_i18n": {
+        "en": "Span Length",
+        "tr": "Span Length",
+        "de": "Span Length",
+        "fr": "Span Length",
+        "es": "Span Length",
+        "ar": "Span Length"
+      }
     },
     {
       "id": "live_load",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kN/m²",
       "default": 3,
-      "businessContext": "Imposed load (occupancy)"
+      "businessContext": "Imposed load (occupancy)",
+      "label_i18n": {
+        "en": "Live Load",
+        "tr": "Live Load",
+        "de": "Live Load",
+        "fr": "Live Load",
+        "es": "Live Load",
+        "ar": "Live Load"
+      }
     },
     {
       "id": "dead_load",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kN/m²",
       "default": 1.5,
-      "businessContext": "Superimposed dead load (finishes, services)"
+      "businessContext": "Superimposed dead load (finishes, services)",
+      "label_i18n": {
+        "en": "Dead Load (excluding self-weight)",
+        "tr": "Dead Load (excluding self-weight)",
+        "de": "Dead Load (excluding self-weight)",
+        "fr": "Dead Load (excluding self-weight)",
+        "es": "Dead Load (excluding self-weight)",
+        "ar": "Dead Load (excluding self-weight)"
+      }
     },
     {
       "id": "thickness",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 150,
-      "businessContext": "Total depth of slab"
+      "businessContext": "Total depth of slab",
+      "label_i18n": {
+        "en": "Slab Thickness",
+        "tr": "Slab Thickness",
+        "de": "Slab Thickness",
+        "fr": "Slab Thickness",
+        "es": "Slab Thickness",
+        "ar": "Slab Thickness"
+      }
     },
     {
       "id": "concrete_strength",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 25,
-      "businessContext": "28-day cylinder compressive strength"
+      "businessContext": "28-day cylinder compressive strength",
+      "label_i18n": {
+        "en": "Concrete Characteristic Strength (fck)",
+        "tr": "Concrete Characteristic Strength (fck)",
+        "de": "Concrete Characteristic Strength (fck)",
+        "fr": "Concrete Characteristic Strength (fck)",
+        "es": "Concrete Characteristic Strength (fck)",
+        "ar": "Concrete Characteristic Strength (fck)"
+      }
     },
     {
       "id": "steel_yield",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 500,
-      "businessContext": "Characteristic yield strength of reinforcement"
+      "businessContext": "Characteristic yield strength of reinforcement",
+      "label_i18n": {
+        "en": "Steel Yield Strength (fyk)",
+        "tr": "Steel Yield Strength (fyk)",
+        "de": "Steel Yield Strength (fyk)",
+        "fr": "Steel Yield Strength (fyk)",
+        "es": "Steel Yield Strength (fyk)",
+        "ar": "Steel Yield Strength (fyk)"
+      }
     },
     {
       "id": "cover",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "mm",
       "default": 25,
-      "businessContext": "Clear cover to reinforcement"
+      "businessContext": "Clear cover to reinforcement",
+      "label_i18n": {
+        "en": "Concrete Cover",
+        "tr": "Concrete Cover",
+        "de": "Concrete Cover",
+        "fr": "Concrete Cover",
+        "es": "Concrete Cover",
+        "ar": "Concrete Cover"
+      }
     }
   ],
   "formulas": {
@@ -64,18 +120,20 @@
     "factored_load": "1.35 * total_dead + 1.5 * live_load",
     "factored_moment": "factored_load * span * span / 8",
     "d": "thickness - cover - 5",
-    "K": "factored_moment * 1e6 / (1000 * d * d * concrete_strength)",
-    "lever_arm": "d * Math.min(0.95, 0.5 + Math.sqrt(0.25 - K / 1.134))",
-    "required_area": "(factored_moment * 1e6) / (0.87 * steel_yield * lever_arm)",
-    "steel_ratio": "required_area / (1000 * d)"
+    "K": "factored_moment * 1e6 / (1000 * d * d * concrete_strength)"
   },
   "outputs": {
-    "primary": "required_area",
+    "primary": "K",
     "breakdown": [
       "factored_moment",
       "steel_ratio",
       "lever_arm"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "steel_ratio"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -85,5 +143,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

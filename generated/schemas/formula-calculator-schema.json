@@ -68,10 +68,7 @@
   ],
   "formulas": {
     "primary": "(a + b) * (c - d)",
-    "breakdown": "a",
-    "Toplam__A_B_": "Toplam (A+B)",
-    "Fark__C_D_": "Fark (C-D)",
-    "_arp_m": "Çarpım"
+    "breakdown": "a"
   },
   "outputs": {
     "primary": "primary",
@@ -79,7 +76,12 @@
       "Toplam (A+B)",
       "Fark (C-D)",
       "Çarpım"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "Fark__C_D_"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -89,5 +91,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

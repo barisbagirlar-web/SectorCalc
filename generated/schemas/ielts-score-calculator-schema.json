@@ -68,14 +68,19 @@
   ],
   "formulas": {
     "averageScore": "(listening + reading + writing + speaking) / 4",
-    "overallBand": "Math.round(((listening + reading + writing + speaking) / 4) * 2) / 2"
+    "averageScore_aux": "(listening + reading + writing + speaking) / 4"
   },
   "outputs": {
-    "primary": "overallBand",
+    "primary": "averageScore_aux",
     "breakdown": [
       "averageScore",
       "overallBand"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "overallBand"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -85,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

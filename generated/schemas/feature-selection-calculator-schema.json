@@ -99,20 +99,23 @@
     }
   ],
   "formulas": {
-    "predictive_power": "Math.abs(correlation) * variance * (accuracy_impact / 100)",
     "compliance_factor": "compliance_score",
     "stability_factor": "stability",
-    "cost_factor": "1 / (cost + 1)",
-    "feature_selection_score": "predictive_power * compliance_factor * stability_factor * cost_factor"
+    "cost_factor": "1 / (cost + 1)"
   },
   "outputs": {
-    "primary": "feature_selection_score",
+    "primary": "cost_factor",
     "breakdown": [
       "predictive_power",
       "cost_factor",
       "stability_factor",
       "compliance_factor"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "feature_selection_score"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -122,5 +125,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

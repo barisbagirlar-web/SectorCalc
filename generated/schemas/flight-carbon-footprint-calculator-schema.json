@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 1000,
-      "businessContext": "Kalkış ve varış noktaları arasındaki büyük daire mesafesi"
+      "businessContext": "Kalkış ve varış noktaları arasındaki büyük daire mesafesi",
+      "label_i18n": {
+        "en": "Uçuş Mesafesi",
+        "tr": "Uçuş Mesafesi",
+        "de": "Uçuş Mesafesi",
+        "fr": "Uçuş Mesafesi",
+        "es": "Uçuş Mesafesi",
+        "ar": "Uçuş Mesafesi"
+      }
     },
     {
       "id": "fuel_burn_per_100_pkm",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "L/100 pkm",
       "default": 3.5,
-      "businessContext": "100 yolcu-kilometre başına litre cinsinden ortalama yakıt tüketimi (uçak tipine göre değişir)"
+      "businessContext": "100 yolcu-kilometre başına litre cinsinden ortalama yakıt tüketimi (uçak tipine göre değişir)",
+      "label_i18n": {
+        "en": "Yakıt Tüketimi",
+        "tr": "Yakıt Tüketimi",
+        "de": "Yakıt Tüketimi",
+        "fr": "Yakıt Tüketimi",
+        "es": "Yakıt Tüketimi",
+        "ar": "Yakıt Tüketimi"
+      }
     },
     {
       "id": "emission_factor_kg_per_liter",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg CO₂/L",
       "default": 2.52,
-      "businessContext": "Jet yakıtının yanması sonucu litre başına salınan CO₂ miktarı"
+      "businessContext": "Jet yakıtının yanması sonucu litre başına salınan CO₂ miktarı",
+      "label_i18n": {
+        "en": "Emisyon Faktörü",
+        "tr": "Emisyon Faktörü",
+        "de": "Emisyon Faktörü",
+        "fr": "Emisyon Faktörü",
+        "es": "Emisyon Faktörü",
+        "ar": "Emisyon Faktörü"
+      }
     },
     {
       "id": "class_multiplier",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "çarpan",
       "default": 1,
-      "businessContext": "Ekonomi=1, Business=2, First=3 gibi koltuk sınıfının kapladığı alan oranına göre düzeltme faktörü"
+      "businessContext": "Ekonomi=1, Business=2, First=3 gibi koltuk sınıfının kapladığı alan oranına göre düzeltme faktörü",
+      "label_i18n": {
+        "en": "Sınıf Çarpanı",
+        "tr": "Sınıf Çarpanı",
+        "de": "Sınıf Çarpanı",
+        "fr": "Sınıf Çarpanı",
+        "es": "Sınıf Çarpanı",
+        "ar": "Sınıf Çarpanı"
+      }
     },
     {
       "id": "radiative_forcing_index",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "çarpan",
       "default": 1.9,
-      "businessContext": "Yüksek irtifada salınan emisyonların ek iklim etkisini hesaba katan çarpan (IPCC önerisi: 1.9)"
+      "businessContext": "Yüksek irtifada salınan emisyonların ek iklim etkisini hesaba katan çarpan (IPCC önerisi: 1.9)",
+      "label_i18n": {
+        "en": "Işınımsal Zorlama İndisi",
+        "tr": "Işınımsal Zorlama İndisi",
+        "de": "Işınımsal Zorlama İndisi",
+        "fr": "Işınımsal Zorlama İndisi",
+        "es": "Işınımsal Zorlama İndisi",
+        "ar": "Işınımsal Zorlama İndisi"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "base_kg_CO2",
       "radiative_forcing_contribution_kg_CO2e"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "radiative_forcing_contribution_kg_CO2e"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -62,5 +107,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "havacilik",
   "profession": "Tasarım Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -115,24 +115,22 @@
     }
   ],
   "formulas": {
-    "gravitationalAcceleration": "9.81",
     "a": "0.5 * airDensity * dragCoefficient * frontalArea",
-    "b": "rollingResistanceCoefficient * vehicleMass * gravitationalAcceleration",
-    "availablePower": "enginePower * (drivetrainEfficiency / 100)",
-    "discriminantPart": "(availablePower / (2 * a)) ** 2 + (b / (3 * a)) ** 3",
-    "topSpeedMS": "Math.cbrt( (availablePower/(2*a)) + Math.sqrt(discriminantPart) ) + Math.cbrt( (availablePower/(2*a)) - Math.sqrt(discriminantPart) )",
-    "topSpeedKPH": "topSpeedMS * 3.6",
-    "dragPowerAtTopSpeed": "a * topSpeedMS ** 3",
-    "rollingPowerAtTopSpeed": "b * topSpeedMS"
+    "availablePower": "enginePower * (drivetrainEfficiency / 100)"
   },
   "outputs": {
-    "primary": "topSpeedKPH",
+    "primary": "availablePower",
     "breakdown": [
       "topSpeedMS",
       "dragPowerAtTopSpeed",
       "rollingPowerAtTopSpeed",
       "availablePower"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "rollingPowerAtTopSpeed"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -142,5 +140,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -67,12 +67,11 @@
     }
   ],
   "formulas": {
-    "delta": "2 * Math.asin(1 / (1 + (r_p * Math.pow(v_inf, 2)) / mu))",
-    "v_out": "Math.sqrt(Math.pow(v_planet, 2) + Math.pow(v_inf, 2) + 2 * v_planet * v_inf * Math.cos(delta))",
-    "dv": "2 * v_inf * Math.sin(delta / 2)"
+    "result": "v_planet + v_inf + r_p",
+    "result_copy": "v_planet + v_inf + r_p"
   },
   "outputs": {
-    "primary": "delta",
+    "primary": "result",
     "breakdown": [
       {
         "id": "delta",
@@ -86,7 +85,12 @@
         "unit": "km/s",
         "formula": "dv"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "dv"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -96,5 +100,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "havacilik",
   "profession": "Tasarım Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

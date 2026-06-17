@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m²K/W",
       "default": 0.13,
-      "businessContext": "İç mekan ile duvar yüzeyi arasındaki ısıl direnç (TS EN ISO 6946). Tipik değer: 0.13 (iç yüzey, yatay ısı akışı)."
+      "businessContext": "İç mekan ile duvar yüzeyi arasındaki ısıl direnç (TS EN ISO 6946). Tipik değer: 0.13 (iç yüzey, yatay ısı akışı).",
+      "label_i18n": {
+        "en": "İç Yüzey Isıl Direnci (Rsi)",
+        "tr": "İç Yüzey Isıl Direnci (Rsi)",
+        "de": "İç Yüzey Isıl Direnci (Rsi)",
+        "fr": "İç Yüzey Isıl Direnci (Rsi)",
+        "es": "İç Yüzey Isıl Direnci (Rsi)",
+        "ar": "İç Yüzey Isıl Direnci (Rsi)"
+      }
     },
     {
       "id": "thickness1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.1,
-      "businessContext": "İlk yapı malzemesi katmanının kalınlığı (ör. tuğla, yalıtım). Katman yoksa 0 girin."
+      "businessContext": "İlk yapı malzemesi katmanının kalınlığı (ör. tuğla, yalıtım). Katman yoksa 0 girin.",
+      "label_i18n": {
+        "en": "1. Katman Kalınlığı",
+        "tr": "1. Katman Kalınlığı",
+        "de": "1. Katman Kalınlığı",
+        "fr": "1. Katman Kalınlığı",
+        "es": "1. Katman Kalınlığı",
+        "ar": "1. Katman Kalınlığı"
+      }
     },
     {
       "id": "conductivity1",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "W/mK",
       "default": 0.7,
-      "businessContext": "İlk katman malzemesinin ısıl iletkenlik katsayısı (TS 825)."
+      "businessContext": "İlk katman malzemesinin ısıl iletkenlik katsayısı (TS 825).",
+      "label_i18n": {
+        "en": "1. Katman Isıl İletkenlik (λ)",
+        "tr": "1. Katman Isıl İletkenlik (λ)",
+        "de": "1. Katman Isıl İletkenlik (λ)",
+        "fr": "1. Katman Isıl İletkenlik (λ)",
+        "es": "1. Katman Isıl İletkenlik (λ)",
+        "ar": "1. Katman Isıl İletkenlik (λ)"
+      }
     },
     {
       "id": "thickness2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.05,
-      "businessContext": "İkinci yapı malzemesi katmanının kalınlığı. Katman yoksa 0 girin."
+      "businessContext": "İkinci yapı malzemesi katmanının kalınlığı. Katman yoksa 0 girin.",
+      "label_i18n": {
+        "en": "2. Katman Kalınlığı",
+        "tr": "2. Katman Kalınlığı",
+        "de": "2. Katman Kalınlığı",
+        "fr": "2. Katman Kalınlığı",
+        "es": "2. Katman Kalınlığı",
+        "ar": "2. Katman Kalınlığı"
+      }
     },
     {
       "id": "conductivity2",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "W/mK",
       "default": 0.04,
-      "businessContext": "İkinci katman malzemesinin ısıl iletkenlik katsayısı."
+      "businessContext": "İkinci katman malzemesinin ısıl iletkenlik katsayısı.",
+      "label_i18n": {
+        "en": "2. Katman Isıl İletkenlik (λ)",
+        "tr": "2. Katman Isıl İletkenlik (λ)",
+        "de": "2. Katman Isıl İletkenlik (λ)",
+        "fr": "2. Katman Isıl İletkenlik (λ)",
+        "es": "2. Katman Isıl İletkenlik (λ)",
+        "ar": "2. Katman Isıl İletkenlik (λ)"
+      }
     },
     {
       "id": "thickness3",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.02,
-      "businessContext": "Üçüncü yapı malzemesi katmanının kalınlığı. Katman yoksa 0 girin."
+      "businessContext": "Üçüncü yapı malzemesi katmanının kalınlığı. Katman yoksa 0 girin.",
+      "label_i18n": {
+        "en": "3. Katman Kalınlığı",
+        "tr": "3. Katman Kalınlığı",
+        "de": "3. Katman Kalınlığı",
+        "fr": "3. Katman Kalınlığı",
+        "es": "3. Katman Kalınlığı",
+        "ar": "3. Katman Kalınlığı"
+      }
     },
     {
       "id": "conductivity3",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "W/mK",
       "default": 0.5,
-      "businessContext": "Üçüncü katman malzemesinin ısıl iletkenlik katsayısı."
+      "businessContext": "Üçüncü katman malzemesinin ısıl iletkenlik katsayısı.",
+      "label_i18n": {
+        "en": "3. Katman Isıl İletkenlik (λ)",
+        "tr": "3. Katman Isıl İletkenlik (λ)",
+        "de": "3. Katman Isıl İletkenlik (λ)",
+        "fr": "3. Katman Isıl İletkenlik (λ)",
+        "es": "3. Katman Isıl İletkenlik (λ)",
+        "ar": "3. Katman Isıl İletkenlik (λ)"
+      }
     },
     {
       "id": "rse",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "m²K/W",
       "default": 0.04,
-      "businessContext": "Duvar dış yüzeyi ile dış ortam arasındaki ısıl direnç (TS EN ISO 6946). Tipik değer: 0.04 (dış yüzey)."
+      "businessContext": "Duvar dış yüzeyi ile dış ortam arasındaki ısıl direnç (TS EN ISO 6946). Tipik değer: 0.04 (dış yüzey).",
+      "label_i18n": {
+        "en": "Dış Yüzey Isıl Direnci (Rse)",
+        "tr": "Dış Yüzey Isıl Direnci (Rse)",
+        "de": "Dış Yüzey Isıl Direnci (Rse)",
+        "fr": "Dış Yüzey Isıl Direnci (Rse)",
+        "es": "Dış Yüzey Isıl Direnci (Rse)",
+        "ar": "Dış Yüzey Isıl Direnci (Rse)"
+      }
     }
   ],
   "formulas": {
@@ -88,7 +152,12 @@
         "unit": "m²K/W",
         "formula": "[r1, r2, r3]"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "uValue"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -98,5 +167,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

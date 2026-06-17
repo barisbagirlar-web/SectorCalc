@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Pa",
       "default": 101325,
-      "businessContext": "Actual pressure reading from sensor in pascals."
+      "businessContext": "Actual pressure reading from sensor in pascals.",
+      "label_i18n": {
+        "en": "Pressure Reading (Pa)",
+        "tr": "Pressure Reading (Pa)",
+        "de": "Pressure Reading (Pa)",
+        "fr": "Pressure Reading (Pa)",
+        "es": "Pressure Reading (Pa)",
+        "ar": "Pressure Reading (Pa)"
+      }
     },
     {
       "id": "calibrationFactor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Multiplier for sensor calibration, typically 0.95-1.05."
+      "businessContext": "Multiplier for sensor calibration, typically 0.95-1.05.",
+      "label_i18n": {
+        "en": "Calibration Factor",
+        "tr": "Calibration Factor",
+        "de": "Calibration Factor",
+        "fr": "Calibration Factor",
+        "es": "Calibration Factor",
+        "ar": "Calibration Factor"
+      }
     },
     {
       "id": "sensorMaxPa",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Pa",
       "default": 100000,
-      "businessContext": "Maximum pressure rating of the sensor."
+      "businessContext": "Maximum pressure rating of the sensor.",
+      "label_i18n": {
+        "en": "Sensor Full Scale (Pa)",
+        "tr": "Sensor Full Scale (Pa)",
+        "de": "Sensor Full Scale (Pa)",
+        "fr": "Sensor Full Scale (Pa)",
+        "es": "Sensor Full Scale (Pa)",
+        "ar": "Sensor Full Scale (Pa)"
+      }
     },
     {
       "id": "sensorAccuracyClass",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "% FS",
       "default": 0.5,
-      "businessContext": "Accuracy as a percentage of full scale (e.g., 0.5 for 0.5% FS)."
+      "businessContext": "Accuracy as a percentage of full scale (e.g., 0.5 for 0.5% FS).",
+      "label_i18n": {
+        "en": "Sensor Accuracy Class",
+        "tr": "Sensor Accuracy Class",
+        "de": "Sensor Accuracy Class",
+        "fr": "Sensor Accuracy Class",
+        "es": "Sensor Accuracy Class",
+        "ar": "Sensor Accuracy Class"
+      }
     },
     {
       "id": "outputDecimals",
@@ -39,22 +71,34 @@
       "type": "number",
       "unit": "digits",
       "default": 4,
-      "businessContext": "Number of decimal digits for psi output; must be integer >=0."
+      "businessContext": "Number of decimal digits for psi output; must be integer >=0.",
+      "label_i18n": {
+        "en": "Output Decimal Places",
+        "tr": "Output Decimal Places",
+        "de": "Output Decimal Places",
+        "fr": "Output Decimal Places",
+        "es": "Output Decimal Places",
+        "ar": "Output Decimal Places"
+      }
     }
   ],
   "formulas": {
     "rawPsi": "pressurePascals / 6894.76 * calibrationFactor",
     "uncertaintyPsi": "(sensorMaxPa * sensorAccuracyClass / 100) / 6894.76",
-    "relativeUncertaintyPercent": "rawPsi !== 0 ? (uncertaintyPsi / rawPsi) * 100 : 0",
-    "primaryOutput": "Math.round(rawPsi * Math.pow(10, outputDecimals)) / Math.pow(10, outputDecimals)"
+    "relativeUncertaintyPercent": "rawPsi !== 0 ? (uncertaintyPsi / rawPsi) * 100 : 0"
   },
   "outputs": {
-    "primary": "primaryOutput",
+    "primary": "relativeUncertaintyPercent",
     "breakdown": [
       "rawPsi",
       "uncertaintyPsi",
       "relativeUncertaintyPercent"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "primaryOutput"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -64,5 +108,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

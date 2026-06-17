@@ -85,13 +85,7 @@
   "formulas": {
     "acuteDailyLoad": "acuteLoad / acutePeriodDays",
     "chronicDailyLoad": "chronicLoad / chronicPeriodDays",
-    "acwr": "acuteDailyLoad / chronicDailyLoad",
-    "isOverThreshold": "acwr > acwrThreshold",
-    "status": "isOverThreshold ? 'YÜKSEK RİSK' : 'DÜŞÜK RİSK'",
-    "Akut_G_nl_k_Ortalama": "Akut Günlük Ortalama",
-    "Kronik_G_nl_k_Ortalama": "Kronik Günlük Ortalama",
-    "ACWR_De_eri": "ACWR Değeri",
-    "Risk_Durumu": "Risk Durumu"
+    "acwr": "acuteDailyLoad / chronicDailyLoad"
   },
   "outputs": {
     "primary": "acuteDailyLoad",
@@ -100,7 +94,12 @@
       "Kronik Günlük Ortalama",
       "ACWR Değeri",
       "Risk Durumu"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "status"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -110,5 +109,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

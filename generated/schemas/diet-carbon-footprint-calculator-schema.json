@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg/week",
       "default": 0.5,
-      "businessContext": "Beef, lamb, and pork have high carbon footprint due to methane emissions and land use. Input weekly consumption."
+      "businessContext": "Beef, lamb, and pork have high carbon footprint due to methane emissions and land use. Input weekly consumption.",
+      "label_i18n": {
+        "en": "Red Meat Consumption",
+        "tr": "Red Meat Consumption",
+        "de": "Red Meat Consumption",
+        "fr": "Red Meat Consumption",
+        "es": "Red Meat Consumption",
+        "ar": "Red Meat Consumption"
+      }
     },
     {
       "id": "poultry",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg/week",
       "default": 0.5,
-      "businessContext": "Chicken, turkey, etc. have moderate carbon footprint compared to red meat."
+      "businessContext": "Chicken, turkey, etc. have moderate carbon footprint compared to red meat.",
+      "label_i18n": {
+        "en": "Poultry Consumption",
+        "tr": "Poultry Consumption",
+        "de": "Poultry Consumption",
+        "fr": "Poultry Consumption",
+        "es": "Poultry Consumption",
+        "ar": "Poultry Consumption"
+      }
     },
     {
       "id": "dairy",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg/week",
       "default": 3,
-      "businessContext": "Includes milk, cheese, yogurt. Emissions from enteric fermentation, manure, and feed production."
+      "businessContext": "Includes milk, cheese, yogurt. Emissions from enteric fermentation, manure, and feed production.",
+      "label_i18n": {
+        "en": "Dairy Consumption (Milk Equiv.)",
+        "tr": "Dairy Consumption (Milk Equiv.)",
+        "de": "Dairy Consumption (Milk Equiv.)",
+        "fr": "Dairy Consumption (Milk Equiv.)",
+        "es": "Dairy Consumption (Milk Equiv.)",
+        "ar": "Dairy Consumption (Milk Equiv.)"
+      }
     },
     {
       "id": "plant",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg/week",
       "default": 5,
-      "businessContext": "Fresh produce has relatively low carbon footprint, but transport and refrigeration contribute."
+      "businessContext": "Fresh produce has relatively low carbon footprint, but transport and refrigeration contribute.",
+      "label_i18n": {
+        "en": "Fruits & Vegetables",
+        "tr": "Fruits & Vegetables",
+        "de": "Fruits & Vegetables",
+        "fr": "Fruits & Vegetables",
+        "es": "Fruits & Vegetables",
+        "ar": "Fruits & Vegetables"
+      }
     },
     {
       "id": "grains",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg/week",
       "default": 3,
-      "businessContext": "Wheat, rice, maize, etc. Staple foods with moderate emissions from cultivation and processing."
+      "businessContext": "Wheat, rice, maize, etc. Staple foods with moderate emissions from cultivation and processing.",
+      "label_i18n": {
+        "en": "Grains & Starches",
+        "tr": "Grains & Starches",
+        "de": "Grains & Starches",
+        "fr": "Grains & Starches",
+        "es": "Grains & Starches",
+        "ar": "Grains & Starches"
+      }
     },
     {
       "id": "foodWaste",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kg/week",
       "default": 1,
-      "businessContext": "Edible food discarded. Embodies production emissions and generates methane in landfills."
+      "businessContext": "Edible food discarded. Embodies production emissions and generates methane in landfills.",
+      "label_i18n": {
+        "en": "Food Waste",
+        "tr": "Food Waste",
+        "de": "Food Waste",
+        "fr": "Food Waste",
+        "es": "Food Waste",
+        "ar": "Food Waste"
+      }
     }
   ],
   "formulas": {
@@ -68,7 +116,12 @@
       "plantCO2",
       "grainsCO2",
       "wasteCO2"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalWeeklyCO2"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -78,5 +131,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

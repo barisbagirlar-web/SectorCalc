@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Length of concrete pavement"
+      "businessContext": "Length of concrete pavement",
+      "label_i18n": {
+        "en": "Pavement Length",
+        "tr": "Pavement Length",
+        "de": "Pavement Length",
+        "fr": "Pavement Length",
+        "es": "Pavement Length",
+        "ar": "Pavement Length"
+      }
     },
     {
       "id": "width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 4,
-      "businessContext": "Width of concrete pavement"
+      "businessContext": "Width of concrete pavement",
+      "label_i18n": {
+        "en": "Pavement Width",
+        "tr": "Pavement Width",
+        "de": "Pavement Width",
+        "fr": "Pavement Width",
+        "es": "Pavement Width",
+        "ar": "Pavement Width"
+      }
     },
     {
       "id": "thickness",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.15,
-      "businessContext": "Thickness of concrete slab"
+      "businessContext": "Thickness of concrete slab",
+      "label_i18n": {
+        "en": "Pavement Thickness",
+        "tr": "Pavement Thickness",
+        "de": "Pavement Thickness",
+        "fr": "Pavement Thickness",
+        "es": "Pavement Thickness",
+        "ar": "Pavement Thickness"
+      }
     },
     {
       "id": "wasteFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percentage of material wastage"
+      "businessContext": "Percentage of material wastage",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     },
     {
       "id": "concreteDensity",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 2400,
-      "businessContext": "Density of concrete mix"
+      "businessContext": "Density of concrete mix",
+      "label_i18n": {
+        "en": "Concrete Density",
+        "tr": "Concrete Density",
+        "de": "Concrete Density",
+        "fr": "Concrete Density",
+        "es": "Concrete Density",
+        "ar": "Concrete Density"
+      }
     },
     {
       "id": "costPerCubicMeter",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "currency/m³",
       "default": 100,
-      "businessContext": "Unit cost of concrete"
+      "businessContext": "Unit cost of concrete",
+      "label_i18n": {
+        "en": "Cost per m³",
+        "tr": "Cost per m³",
+        "de": "Cost per m³",
+        "fr": "Cost per m³",
+        "es": "Cost per m³",
+        "ar": "Cost per m³"
+      }
     }
   ],
   "formulas": {
@@ -64,7 +112,12 @@
       "wasteVolume",
       "totalVolume",
       "weight"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "weight"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -74,5 +127,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

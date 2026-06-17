@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 1000,
-      "businessContext": "Ürün/hizmetin KDV hariç tutarı"
+      "businessContext": "Ürün/hizmetin KDV hariç tutarı",
+      "label_i18n": {
+        "en": "Net Tutar (TRY)",
+        "tr": "Net Tutar (TRY)",
+        "de": "Net Tutar (TRY)",
+        "fr": "Net Tutar (TRY)",
+        "es": "Net Tutar (TRY)",
+        "ar": "Net Tutar (TRY)"
+      }
     },
     {
       "id": "vatRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Geçerli KDV oranı"
+      "businessContext": "Geçerli KDV oranı",
+      "label_i18n": {
+        "en": "KDV Oranı (%)",
+        "tr": "KDV Oranı (%)",
+        "de": "KDV Oranı (%)",
+        "fr": "KDV Oranı (%)",
+        "es": "KDV Oranı (%)",
+        "ar": "KDV Oranı (%)"
+      }
     },
     {
       "id": "quantity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Ürün adedi veya hizmet sayısı"
+      "businessContext": "Ürün adedi veya hizmet sayısı",
+      "label_i18n": {
+        "en": "Adet",
+        "tr": "Adet",
+        "de": "Adet",
+        "fr": "Adet",
+        "es": "Adet",
+        "ar": "Adet"
+      }
     },
     {
       "id": "discount",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Net tutar üzerinden yüzde indirim"
+      "businessContext": "Net tutar üzerinden yüzde indirim",
+      "label_i18n": {
+        "en": "İskonto (%)",
+        "tr": "İskonto (%)",
+        "de": "İskonto (%)",
+        "fr": "İskonto (%)",
+        "es": "İskonto (%)",
+        "ar": "İskonto (%)"
+      }
     },
     {
       "id": "additionalCost",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "KDV matrahına eklenen diğer masraflar"
+      "businessContext": "KDV matrahına eklenen diğer masraflar",
+      "label_i18n": {
+        "en": "Ek Masraflar (TRY)",
+        "tr": "Ek Masraflar (TRY)",
+        "de": "Ek Masraflar (TRY)",
+        "fr": "Ek Masraflar (TRY)",
+        "es": "Ek Masraflar (TRY)",
+        "ar": "Ek Masraflar (TRY)"
+      }
     }
   ],
   "formulas": {
@@ -53,7 +93,12 @@
     "breakdown": [
       "vatAmount",
       "totalNet"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "grossTotal"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -63,5 +108,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

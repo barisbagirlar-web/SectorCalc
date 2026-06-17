@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "year",
       "default": 1990,
-      "businessContext": "User's birth year"
+      "businessContext": "User's birth year",
+      "label_i18n": {
+        "en": "Doğum Yılı (Birth Year)",
+        "tr": "Doğum Yılı (Birth Year)",
+        "de": "Doğum Yılı (Birth Year)",
+        "fr": "Doğum Yılı (Birth Year)",
+        "es": "Doğum Yılı (Birth Year)",
+        "ar": "Doğum Yılı (Birth Year)"
+      }
     },
     {
       "id": "birthMonth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "month",
       "default": 1,
-      "businessContext": "User's birth month (1-12)"
+      "businessContext": "User's birth month (1-12)",
+      "label_i18n": {
+        "en": "Doğum Ayı (Birth Month)",
+        "tr": "Doğum Ayı (Birth Month)",
+        "de": "Doğum Ayı (Birth Month)",
+        "fr": "Doğum Ayı (Birth Month)",
+        "es": "Doğum Ayı (Birth Month)",
+        "ar": "Doğum Ayı (Birth Month)"
+      }
     },
     {
       "id": "birthDay",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "day",
       "default": 1,
-      "businessContext": "User's birth day (1-31)"
+      "businessContext": "User's birth day (1-31)",
+      "label_i18n": {
+        "en": "Doğum Günü (Birth Day)",
+        "tr": "Doğum Günü (Birth Day)",
+        "de": "Doğum Günü (Birth Day)",
+        "fr": "Doğum Günü (Birth Day)",
+        "es": "Doğum Günü (Birth Day)",
+        "ar": "Doğum Günü (Birth Day)"
+      }
     },
     {
       "id": "currentYear",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "year",
       "default": 2025,
-      "businessContext": "Current year for calculation"
+      "businessContext": "Current year for calculation",
+      "label_i18n": {
+        "en": "Mevcut Yıl (Current Year)",
+        "tr": "Mevcut Yıl (Current Year)",
+        "de": "Mevcut Yıl (Current Year)",
+        "fr": "Mevcut Yıl (Current Year)",
+        "es": "Mevcut Yıl (Current Year)",
+        "ar": "Mevcut Yıl (Current Year)"
+      }
     },
     {
       "id": "currentMonth",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "month",
       "default": 6,
-      "businessContext": "Current month (1-12)"
+      "businessContext": "Current month (1-12)",
+      "label_i18n": {
+        "en": "Mevcut Ay (Current Month)",
+        "tr": "Mevcut Ay (Current Month)",
+        "de": "Mevcut Ay (Current Month)",
+        "fr": "Mevcut Ay (Current Month)",
+        "es": "Mevcut Ay (Current Month)",
+        "ar": "Mevcut Ay (Current Month)"
+      }
     },
     {
       "id": "currentDay",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "day",
       "default": 10,
-      "businessContext": "Current day (1-31)"
+      "businessContext": "Current day (1-31)",
+      "label_i18n": {
+        "en": "Mevcut Gün (Current Day)",
+        "tr": "Mevcut Gün (Current Day)",
+        "de": "Mevcut Gün (Current Day)",
+        "fr": "Mevcut Gün (Current Day)",
+        "es": "Mevcut Gün (Current Day)",
+        "ar": "Mevcut Gün (Current Day)"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +108,12 @@
     "breakdown": [
       "internationalAge",
       "dangiYear"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "dangiYear"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -70,5 +123,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

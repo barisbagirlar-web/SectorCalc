@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "days",
       "default": 30,
-      "businessContext": "Number of days in which the habit was actively tracked."
+      "businessContext": "Number of days in which the habit was actively tracked.",
+      "label_i18n": {
+        "en": "Tracked Days",
+        "tr": "Tracked Days",
+        "de": "Tracked Days",
+        "fr": "Tracked Days",
+        "es": "Tracked Days",
+        "ar": "Tracked Days"
+      }
     },
     {
       "id": "successfulDays",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "days",
       "default": 0,
-      "businessContext": "Number of days the habit was successfully performed."
+      "businessContext": "Number of days the habit was successfully performed.",
+      "label_i18n": {
+        "en": "Successful Days",
+        "tr": "Successful Days",
+        "de": "Successful Days",
+        "fr": "Successful Days",
+        "es": "Successful Days",
+        "ar": "Successful Days"
+      }
     },
     {
       "id": "targetDays",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "days",
       "default": 30,
-      "businessContext": "Target number of successful days within the tracking period."
+      "businessContext": "Target number of successful days within the tracking period.",
+      "label_i18n": {
+        "en": "Target Days",
+        "tr": "Target Days",
+        "de": "Target Days",
+        "fr": "Target Days",
+        "es": "Target Days",
+        "ar": "Target Days"
+      }
     },
     {
       "id": "totalDays",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "days",
       "default": 30,
-      "businessContext": "Total number of days in the evaluation period."
+      "businessContext": "Total number of days in the evaluation period.",
+      "label_i18n": {
+        "en": "Total Period Days",
+        "tr": "Total Period Days",
+        "de": "Total Period Days",
+        "fr": "Total Period Days",
+        "es": "Total Period Days",
+        "ar": "Total Period Days"
+      }
     },
     {
       "id": "currentStreak",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "days",
       "default": 0,
-      "businessContext": "Consecutive days the habit has been successfully performed."
+      "businessContext": "Consecutive days the habit has been successfully performed.",
+      "label_i18n": {
+        "en": "Current Streak",
+        "tr": "Current Streak",
+        "de": "Current Streak",
+        "fr": "Current Streak",
+        "es": "Current Streak",
+        "ar": "Current Streak"
+      }
     },
     {
       "id": "bestStreak",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "days",
       "default": 0,
-      "businessContext": "Longest streak of consecutive successful days ever achieved."
+      "businessContext": "Longest streak of consecutive successful days ever achieved.",
+      "label_i18n": {
+        "en": "Best Streak",
+        "tr": "Best Streak",
+        "de": "Best Streak",
+        "fr": "Best Streak",
+        "es": "Best Streak",
+        "ar": "Best Streak"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +108,12 @@
     "breakdown": [
       "trackingRatio",
       "streakRatio"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "streakRatio"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -70,5 +123,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

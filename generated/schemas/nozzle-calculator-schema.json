@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "bar",
       "default": 1,
-      "businessContext": "Nozzle giriş ve çıkışı arasındaki basınç farkı"
+      "businessContext": "Nozzle giriş ve çıkışı arasındaki basınç farkı",
+      "label_i18n": {
+        "en": "Basınç Farkı (ΔP)",
+        "tr": "Basınç Farkı (ΔP)",
+        "de": "Basınç Farkı (ΔP)",
+        "fr": "Basınç Farkı (ΔP)",
+        "es": "Basınç Farkı (ΔP)",
+        "ar": "Basınç Farkı (ΔP)"
+      }
     },
     {
       "id": "diameter",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Nozzle orifis çapı"
+      "businessContext": "Nozzle orifis çapı",
+      "label_i18n": {
+        "en": "Nozzle Çapı",
+        "tr": "Nozzle Çapı",
+        "de": "Nozzle Çapı",
+        "fr": "Nozzle Çapı",
+        "es": "Nozzle Çapı",
+        "ar": "Nozzle Çapı"
+      }
     },
     {
       "id": "dischargeCoefficient",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "-",
       "default": 0.98,
-      "businessContext": "Nozzle geometrisine bağlı akış katsayısı"
+      "businessContext": "Nozzle geometrisine bağlı akış katsayısı",
+      "label_i18n": {
+        "en": "Deşarj Katsayısı (Cd)",
+        "tr": "Deşarj Katsayısı (Cd)",
+        "de": "Deşarj Katsayısı (Cd)",
+        "fr": "Deşarj Katsayısı (Cd)",
+        "es": "Deşarj Katsayısı (Cd)",
+        "ar": "Deşarj Katsayısı (Cd)"
+      }
     },
     {
       "id": "density",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1000,
-      "businessContext": "Akışkan yoğunluğu (ör. su için 1000 kg/m³)"
+      "businessContext": "Akışkan yoğunluğu (ör. su için 1000 kg/m³)",
+      "label_i18n": {
+        "en": "Akışkan Yoğunluğu",
+        "tr": "Akışkan Yoğunluğu",
+        "de": "Akışkan Yoğunluğu",
+        "fr": "Akışkan Yoğunluğu",
+        "es": "Akışkan Yoğunluğu",
+        "ar": "Akışkan Yoğunluğu"
+      }
     },
     {
       "id": "viscosity",
@@ -39,24 +71,33 @@
       "type": "number",
       "unit": "m²/s",
       "default": 0.000001,
-      "businessContext": "Akışkanın kinematik viskozitesi (su için 1e-6 m²/s)"
+      "businessContext": "Akışkanın kinematik viskozitesi (su için 1e-6 m²/s)",
+      "label_i18n": {
+        "en": "Kinematik Viskozite",
+        "tr": "Kinematik Viskozite",
+        "de": "Kinematik Viskozite",
+        "fr": "Kinematik Viskozite",
+        "es": "Kinematik Viskozite",
+        "ar": "Kinematik Viskozite"
+      }
     }
   ],
   "formulas": {
     "area": "Math.PI * (diameter / 1000) ** 2 / 4",
-    "deltaP_Pa": "pressureDrop * 100000",
-    "flowRate": "dischargeCoefficient * area * Math.sqrt(2 * deltaP_Pa / density)",
-    "massFlowRate": "flowRate * density",
-    "velocity": "flowRate / area",
-    "reynoldsNumber": "velocity * (diameter / 1000) / viscosity"
+    "deltaP_Pa": "pressureDrop * 100000"
   },
   "outputs": {
-    "primary": "flowRate",
+    "primary": "deltaP_Pa",
     "breakdown": [
       "massFlowRate",
       "velocity",
       "reynoldsNumber"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "reynoldsNumber"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -66,5 +107,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

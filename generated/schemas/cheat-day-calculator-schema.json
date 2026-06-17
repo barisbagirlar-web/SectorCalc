@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "units",
       "default": 100,
-      "businessContext": "Standard number of units produced per normal working day."
+      "businessContext": "Standard number of units produced per normal working day.",
+      "label_i18n": {
+        "en": "Normal Daily Output",
+        "tr": "Normal Daily Output",
+        "de": "Normal Daily Output",
+        "fr": "Normal Daily Output",
+        "es": "Normal Daily Output",
+        "ar": "Normal Daily Output"
+      }
     },
     {
       "id": "cheatDayOutputPercent",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "Percentage of normal output achieved on a cheat day."
+      "businessContext": "Percentage of normal output achieved on a cheat day.",
+      "label_i18n": {
+        "en": "Cheat Day Output (%)",
+        "tr": "Cheat Day Output (%)",
+        "de": "Cheat Day Output (%)",
+        "fr": "Cheat Day Output (%)",
+        "es": "Cheat Day Output (%)",
+        "ar": "Cheat Day Output (%)"
+      }
     },
     {
       "id": "numCheatDays",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "days",
       "default": 1,
-      "businessContext": "Number of cheat days in the period."
+      "businessContext": "Number of cheat days in the period.",
+      "label_i18n": {
+        "en": "Number of Cheat Days",
+        "tr": "Number of Cheat Days",
+        "de": "Number of Cheat Days",
+        "fr": "Number of Cheat Days",
+        "es": "Number of Cheat Days",
+        "ar": "Number of Cheat Days"
+      }
     },
     {
       "id": "totalDays",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "days",
       "default": 30,
-      "businessContext": "Total working days in the calculation period (e.g., month)."
+      "businessContext": "Total working days in the calculation period (e.g., month).",
+      "label_i18n": {
+        "en": "Total Days in Period",
+        "tr": "Total Days in Period",
+        "de": "Total Days in Period",
+        "fr": "Total Days in Period",
+        "es": "Total Days in Period",
+        "ar": "Total Days in Period"
+      }
     }
   ],
   "formulas": {
@@ -48,7 +80,12 @@
       "cheatContribution",
       "potentialFullOutput",
       "loss"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "loss"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -58,5 +95,10 @@
   "sectorSlug": "cleaning",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

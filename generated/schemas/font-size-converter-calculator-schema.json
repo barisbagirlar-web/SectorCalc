@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "pt",
       "default": 12,
-      "businessContext": "The font size in points (1 pt = 1/72 inch). Standard sizes: 10, 11, 12, 14."
+      "businessContext": "The font size in points (1 pt = 1/72 inch). Standard sizes: 10, 11, 12, 14.",
+      "label_i18n": {
+        "en": "Font Size (Points)",
+        "tr": "Font Size (Points)",
+        "de": "Font Size (Points)",
+        "fr": "Font Size (Points)",
+        "es": "Font Size (Points)",
+        "ar": "Font Size (Points)"
+      }
     },
     {
       "id": "ppi",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ppi",
       "default": 96,
-      "businessContext": "Pixel density (pixels per inch) of the target display. Common: 96 (Windows), 72 (Mac)."
+      "businessContext": "Pixel density (pixels per inch) of the target display. Common: 96 (Windows), 72 (Mac).",
+      "label_i18n": {
+        "en": "Screen PPI",
+        "tr": "Screen PPI",
+        "de": "Screen PPI",
+        "fr": "Screen PPI",
+        "es": "Screen PPI",
+        "ar": "Screen PPI"
+      }
     },
     {
       "id": "baseFontSizePx",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "px",
       "default": 16,
-      "businessContext": "Browser default root font size in pixels, used for em/percentage calculation. Typically 16px."
+      "businessContext": "Browser default root font size in pixels, used for em/percentage calculation. Typically 16px.",
+      "label_i18n": {
+        "en": "Base Font Size (Pixels)",
+        "tr": "Base Font Size (Pixels)",
+        "de": "Base Font Size (Pixels)",
+        "fr": "Base Font Size (Pixels)",
+        "es": "Base Font Size (Pixels)",
+        "ar": "Base Font Size (Pixels)"
+      }
     },
     {
       "id": "rootFontSizePx",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "px",
       "default": 16,
-      "businessContext": "Explicit root element font size for rem calculation. Default equals base font size."
+      "businessContext": "Explicit root element font size for rem calculation. Default equals base font size.",
+      "label_i18n": {
+        "en": "Root Font Size (Pixels)",
+        "tr": "Root Font Size (Pixels)",
+        "de": "Root Font Size (Pixels)",
+        "fr": "Root Font Size (Pixels)",
+        "es": "Root Font Size (Pixels)",
+        "ar": "Root Font Size (Pixels)"
+      }
     },
     {
       "id": "customScale",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "ratio",
       "default": 1,
-      "businessContext": "Additional multiplicative factor for custom-converted size (e.g., 1.2 for 120%)."
+      "businessContext": "Additional multiplicative factor for custom-converted size (e.g., 1.2 for 120%).",
+      "label_i18n": {
+        "en": "Custom Scaling Ratio",
+        "tr": "Custom Scaling Ratio",
+        "de": "Custom Scaling Ratio",
+        "fr": "Custom Scaling Ratio",
+        "es": "Custom Scaling Ratio",
+        "ar": "Custom Scaling Ratio"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +100,12 @@
       "mm",
       "inches",
       "customPx"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "customPx"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -70,5 +115,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

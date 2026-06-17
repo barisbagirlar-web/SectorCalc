@@ -87,11 +87,7 @@
     "recommendedNapMinutes": "(availableMinutes >= sleepCycleMinutes) ? sleepCycleMinutes : ((availableMinutes >= minNapMinutes) ? minNapMinutes : 0)",
     "cycleNapWakeTime": "currentTimeHours + sleepCycleMinutes/60",
     "shortNapWakeTime": "currentTimeHours + minNapMinutes/60",
-    "maxNapWakeTime": "currentTimeHours + maxNapMinutes/60",
-    "__availableMinutes__dakika": "${availableMinutes} dakika",
-    "__cycleNapWakeTime_toFixed_2__": "${cycleNapWakeTime.toFixed(2)}",
-    "__shortNapWakeTime_toFixed_2__": "${shortNapWakeTime.toFixed(2)}",
-    "__maxNapWakeTime_toFixed_2__": "${maxNapWakeTime.toFixed(2)}"
+    "maxNapWakeTime": "currentTimeHours + maxNapMinutes/60"
   },
   "outputs": {
     "primary": "availableMinutes",
@@ -100,7 +96,12 @@
       "Tam döngü (${sleepCycleMinutes} dk) → uyanış: ${cycleNapWakeTime.toFixed(2)}",
       "Kısa şekerleme (${minNapMinutes} dk) → uyanış: ${shortNapWakeTime.toFixed(2)}",
       "Maksimum kısa şekerleme (${maxNapMinutes} dk) → uyanış: ${maxNapWakeTime.toFixed(2)}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "maxNapWakeTime"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -110,5 +111,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

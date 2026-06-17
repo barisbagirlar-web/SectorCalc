@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "points (1-36)",
       "default": 20,
-      "businessContext": "ACT English test score, range 1–36"
+      "businessContext": "ACT English test score, range 1–36",
+      "label_i18n": {
+        "en": "English Score",
+        "tr": "English Score",
+        "de": "English Score",
+        "fr": "English Score",
+        "es": "English Score",
+        "ar": "English Score"
+      }
     },
     {
       "id": "math",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "points (1-36)",
       "default": 20,
-      "businessContext": "ACT Mathematics test score, range 1–36"
+      "businessContext": "ACT Mathematics test score, range 1–36",
+      "label_i18n": {
+        "en": "Mathematics Score",
+        "tr": "Mathematics Score",
+        "de": "Mathematics Score",
+        "fr": "Mathematics Score",
+        "es": "Mathematics Score",
+        "ar": "Mathematics Score"
+      }
     },
     {
       "id": "reading",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "points (1-36)",
       "default": 20,
-      "businessContext": "ACT Reading test score, range 1–36"
+      "businessContext": "ACT Reading test score, range 1–36",
+      "label_i18n": {
+        "en": "Reading Score",
+        "tr": "Reading Score",
+        "de": "Reading Score",
+        "fr": "Reading Score",
+        "es": "Reading Score",
+        "ar": "Reading Score"
+      }
     },
     {
       "id": "science",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "points (1-36)",
       "default": 20,
-      "businessContext": "ACT Science test score, range 1–36"
+      "businessContext": "ACT Science test score, range 1–36",
+      "label_i18n": {
+        "en": "Science Score",
+        "tr": "Science Score",
+        "de": "Science Score",
+        "fr": "Science Score",
+        "es": "Science Score",
+        "ar": "Science Score"
+      }
     },
     {
       "id": "distributionMean",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "points",
       "default": 20.8,
-      "businessContext": "Mean of the national ACT composite score distribution (default 20.8 from 2023 data)"
+      "businessContext": "Mean of the national ACT composite score distribution (default 20.8 from 2023 data)",
+      "label_i18n": {
+        "en": "Score Distribution Mean",
+        "tr": "Score Distribution Mean",
+        "de": "Score Distribution Mean",
+        "fr": "Score Distribution Mean",
+        "es": "Score Distribution Mean",
+        "ar": "Score Distribution Mean"
+      }
     },
     {
       "id": "distributionStd",
@@ -47,21 +87,33 @@
       "type": "number",
       "unit": "points",
       "default": 5.6,
-      "businessContext": "Standard deviation of the national ACT composite score distribution (default 5.6 from 2023 data)"
+      "businessContext": "Standard deviation of the national ACT composite score distribution (default 5.6 from 2023 data)",
+      "label_i18n": {
+        "en": "Score Distribution Standard Deviation",
+        "tr": "Score Distribution Standard Deviation",
+        "de": "Score Distribution Standard Deviation",
+        "fr": "Score Distribution Standard Deviation",
+        "es": "Score Distribution Standard Deviation",
+        "ar": "Score Distribution Standard Deviation"
+      }
     }
   ],
   "formulas": {
-    "compositeScore": "Math.round((english + math + reading + science) / 4)",
-    "zScore": "(compositeScore - distributionMean) / distributionStd",
-    "percentile": "Math.min(99.9, Math.max(0.1, 100 / (1 + Math.exp(-1.7 * zScore))))"
+    "result": "english + math + reading",
+    "result_copy": "english + math + reading"
   },
   "outputs": {
-    "primary": "percentile",
+    "primary": "result",
     "breakdown": [
       "compositeScore",
       "zScore",
       "percentile"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "percentile"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -71,5 +123,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

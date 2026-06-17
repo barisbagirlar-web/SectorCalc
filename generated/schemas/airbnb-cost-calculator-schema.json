@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100,
-      "businessContext": "The base price per night for the listing"
+      "businessContext": "The base price per night for the listing",
+      "label_i18n": {
+        "en": "Nightly Rate",
+        "tr": "Nightly Rate",
+        "de": "Nightly Rate",
+        "fr": "Nightly Rate",
+        "es": "Nightly Rate",
+        "ar": "Nightly Rate"
+      }
     },
     {
       "id": "numNights",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "nights",
       "default": 1,
-      "businessContext": "Duration of stay"
+      "businessContext": "Duration of stay",
+      "label_i18n": {
+        "en": "Number of Nights",
+        "tr": "Number of Nights",
+        "de": "Number of Nights",
+        "fr": "Number of Nights",
+        "es": "Number of Nights",
+        "ar": "Number of Nights"
+      }
     },
     {
       "id": "cleaningFee",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 50,
-      "businessContext": "One-time cleaning fee charged per booking"
+      "businessContext": "One-time cleaning fee charged per booking",
+      "label_i18n": {
+        "en": "Cleaning Fee",
+        "tr": "Cleaning Fee",
+        "de": "Cleaning Fee",
+        "fr": "Cleaning Fee",
+        "es": "Cleaning Fee",
+        "ar": "Cleaning Fee"
+      }
     },
     {
       "id": "serviceFeeRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 14,
-      "businessContext": "Airbnb host service fee percentage"
+      "businessContext": "Airbnb host service fee percentage",
+      "label_i18n": {
+        "en": "Service Fee Rate",
+        "tr": "Service Fee Rate",
+        "de": "Service Fee Rate",
+        "fr": "Service Fee Rate",
+        "es": "Service Fee Rate",
+        "ar": "Service Fee Rate"
+      }
     },
     {
       "id": "occupancyTaxRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Local occupancy / transient tax percentage"
+      "businessContext": "Local occupancy / transient tax percentage",
+      "label_i18n": {
+        "en": "Occupancy Tax Rate",
+        "tr": "Occupancy Tax Rate",
+        "de": "Occupancy Tax Rate",
+        "fr": "Occupancy Tax Rate",
+        "es": "Occupancy Tax Rate",
+        "ar": "Occupancy Tax Rate"
+      }
     },
     {
       "id": "extraGuestFee",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "USD",
       "default": 20,
-      "businessContext": "Fee per extra guest per night beyond base occupancy"
+      "businessContext": "Fee per extra guest per night beyond base occupancy",
+      "label_i18n": {
+        "en": "Additional Guest Fee (per guest per night)",
+        "tr": "Additional Guest Fee (per guest per night)",
+        "de": "Additional Guest Fee (per guest per night)",
+        "fr": "Additional Guest Fee (per guest per night)",
+        "es": "Additional Guest Fee (per guest per night)",
+        "ar": "Additional Guest Fee (per guest per night)"
+      }
     },
     {
       "id": "extraGuests",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "guests",
       "default": 0,
-      "businessContext": "Number of guests exceeding the base occupancy (e.g., beyond 2)"
+      "businessContext": "Number of guests exceeding the base occupancy (e.g., beyond 2)",
+      "label_i18n": {
+        "en": "Number of Extra Guests",
+        "tr": "Number of Extra Guests",
+        "de": "Number of Extra Guests",
+        "fr": "Number of Extra Guests",
+        "es": "Number of Extra Guests",
+        "ar": "Number of Extra Guests"
+      }
     },
     {
       "id": "discountRate",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Percentage discount applied to the total (e.g., long-stay discount)"
+      "businessContext": "Percentage discount applied to the total (e.g., long-stay discount)",
+      "label_i18n": {
+        "en": "Discount Rate",
+        "tr": "Discount Rate",
+        "de": "Discount Rate",
+        "fr": "Discount Rate",
+        "es": "Discount Rate",
+        "ar": "Discount Rate"
+      }
     }
   ],
   "formulas": {
@@ -86,7 +150,12 @@
       "serviceFee",
       "tax",
       "discountAmount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -96,5 +165,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

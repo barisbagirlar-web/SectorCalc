@@ -102,10 +102,7 @@
     "totalH": "betaGammaDose * wR_betaGamma + alphaDose * wR_alpha + neutronDose * wR_neutron",
     "betaGammaContrib": "betaGammaDose * wR_betaGamma",
     "alphaContrib": "alphaDose * wR_alpha",
-    "neutronContrib": "neutronDose * wR_neutron",
-    "_betaGammaContrib__Sv": "{betaGammaContrib} Sv",
-    "_alphaContrib__Sv": "{alphaContrib} Sv",
-    "_neutronContrib__Sv": "{neutronContrib} Sv"
+    "neutronContrib": "neutronDose * wR_neutron"
   },
   "outputs": {
     "primary": "totalH",
@@ -113,7 +110,12 @@
       "Beta/Gamma: {betaGammaContrib} Sv",
       "Alpha: {alphaContrib} Sv",
       "Neutron: {neutronContrib} Sv"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "neutronContrib"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -123,5 +125,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

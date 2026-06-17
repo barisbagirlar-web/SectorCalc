@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kCal",
       "default": 10000,
-      "businessContext": "Total energy produced by the system over the measurement period."
+      "businessContext": "Total energy produced by the system over the measurement period.",
+      "label_i18n": {
+        "en": "Total Energy Generated",
+        "tr": "Total Energy Generated",
+        "de": "Total Energy Generated",
+        "fr": "Total Energy Generated",
+        "es": "Total Energy Generated",
+        "ar": "Total Energy Generated"
+      }
     },
     {
       "id": "totalConsumed",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kCal",
       "default": 8000,
-      "businessContext": "Total energy utilized by core processes, excluding auxiliary systems."
+      "businessContext": "Total energy utilized by core processes, excluding auxiliary systems.",
+      "label_i18n": {
+        "en": "Total Energy Consumed",
+        "tr": "Total Energy Consumed",
+        "de": "Total Energy Consumed",
+        "fr": "Total Energy Consumed",
+        "es": "Total Energy Consumed",
+        "ar": "Total Energy Consumed"
+      }
     },
     {
       "id": "lossPercent",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percentage of surplus energy lost during transmission and conversion."
+      "businessContext": "Percentage of surplus energy lost during transmission and conversion.",
+      "label_i18n": {
+        "en": "Transmission Loss",
+        "tr": "Transmission Loss",
+        "de": "Transmission Loss",
+        "fr": "Transmission Loss",
+        "es": "Transmission Loss",
+        "ar": "Transmission Loss"
+      }
     },
     {
       "id": "storageEfficiency",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "Efficiency of energy storage systems in recovering surplus energy."
+      "businessContext": "Efficiency of energy storage systems in recovering surplus energy.",
+      "label_i18n": {
+        "en": "Storage Efficiency",
+        "tr": "Storage Efficiency",
+        "de": "Storage Efficiency",
+        "fr": "Storage Efficiency",
+        "es": "Storage Efficiency",
+        "ar": "Storage Efficiency"
+      }
     },
     {
       "id": "auxConsumption",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kCal",
       "default": 200,
-      "businessContext": "Energy consumed by auxiliary systems (e.g., cooling, controls)."
+      "businessContext": "Energy consumed by auxiliary systems (e.g., cooling, controls).",
+      "label_i18n": {
+        "en": "Auxiliary Consumption",
+        "tr": "Auxiliary Consumption",
+        "de": "Auxiliary Consumption",
+        "fr": "Auxiliary Consumption",
+        "es": "Auxiliary Consumption",
+        "ar": "Auxiliary Consumption"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "grossSurplus",
       "totalLosses"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalLosses"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -62,5 +107,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

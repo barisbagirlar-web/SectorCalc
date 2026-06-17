@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "rpm",
       "default": 1500,
-      "businessContext": "Rotational speed of the spindle"
+      "businessContext": "Rotational speed of the spindle",
+      "label_i18n": {
+        "en": "Spindle Speed",
+        "tr": "Spindle Speed",
+        "de": "Spindle Speed",
+        "fr": "Spindle Speed",
+        "es": "Spindle Speed",
+        "ar": "Spindle Speed"
+      }
     },
     {
       "id": "toolDiameter",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Diameter of the cutting tool"
+      "businessContext": "Diameter of the cutting tool",
+      "label_i18n": {
+        "en": "Tool Diameter",
+        "tr": "Tool Diameter",
+        "de": "Tool Diameter",
+        "fr": "Tool Diameter",
+        "es": "Tool Diameter",
+        "ar": "Tool Diameter"
+      }
     },
     {
       "id": "numberFlutes",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "flutes",
       "default": 4,
-      "businessContext": "Number of cutting flutes on the tool"
+      "businessContext": "Number of cutting flutes on the tool",
+      "label_i18n": {
+        "en": "Number of Flutes",
+        "tr": "Number of Flutes",
+        "de": "Number of Flutes",
+        "fr": "Number of Flutes",
+        "es": "Number of Flutes",
+        "ar": "Number of Flutes"
+      }
     },
     {
       "id": "chipLoad",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm/tooth",
       "default": 0.1,
-      "businessContext": "Thickness of material removed per tooth per revolution"
+      "businessContext": "Thickness of material removed per tooth per revolution",
+      "label_i18n": {
+        "en": "Chip Load",
+        "tr": "Chip Load",
+        "de": "Chip Load",
+        "fr": "Chip Load",
+        "es": "Chip Load",
+        "ar": "Chip Load"
+      }
     },
     {
       "id": "axialDepthOfCut",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm",
       "default": 5,
-      "businessContext": "Depth of material removal along the tool axis"
+      "businessContext": "Depth of material removal along the tool axis",
+      "label_i18n": {
+        "en": "Axial Depth of Cut",
+        "tr": "Axial Depth of Cut",
+        "de": "Axial Depth of Cut",
+        "fr": "Axial Depth of Cut",
+        "es": "Axial Depth of Cut",
+        "ar": "Axial Depth of Cut"
+      }
     },
     {
       "id": "radialWidthOfCut",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "mm",
       "default": 5,
-      "businessContext": "Width of material engagement perpendicular to tool axis"
+      "businessContext": "Width of material engagement perpendicular to tool axis",
+      "label_i18n": {
+        "en": "Radial Width of Cut",
+        "tr": "Radial Width of Cut",
+        "de": "Radial Width of Cut",
+        "fr": "Radial Width of Cut",
+        "es": "Radial Width of Cut",
+        "ar": "Radial Width of Cut"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +108,12 @@
     "breakdown": [
       "cuttingSpeed",
       "feedRate"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "materialRemovalRate"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -70,5 +123,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

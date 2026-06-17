@@ -67,16 +67,20 @@
     }
   ],
   "formulas": {
-    "predictedTime": "recentTime * Math.pow(marathonDistance / recentDistance, exponent)",
-    "predictedPace": "predictedTime / marathonDistance",
-    "predictedTimeHours": "predictedTime / 60"
+    "result": "recentDistance + recentTime + marathonDistance",
+    "result_copy": "recentDistance + recentTime + marathonDistance"
   },
   "outputs": {
-    "primary": "predictedTime",
+    "primary": "result",
     "breakdown": [
       "predictedPace",
       "predictedTimeHours"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "predictedTimeHours"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -86,5 +90,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

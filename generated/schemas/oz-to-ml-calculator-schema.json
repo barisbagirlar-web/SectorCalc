@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "fl oz",
       "default": 1,
-      "businessContext": "Amount of liquid in fluid ounces to convert to milliliters"
+      "businessContext": "Amount of liquid in fluid ounces to convert to milliliters",
+      "label_i18n": {
+        "en": "Fluid Ounces",
+        "tr": "Fluid Ounces",
+        "de": "Fluid Ounces",
+        "fr": "Fluid Ounces",
+        "es": "Fluid Ounces",
+        "ar": "Fluid Ounces"
+      }
     },
     {
       "id": "ounceType",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "0 for US fluid ounce (29.5735 ml), 1 for UK imperial fluid ounce (28.4131 ml)"
+      "businessContext": "0 for US fluid ounce (29.5735 ml), 1 for UK imperial fluid ounce (28.4131 ml)",
+      "label_i18n": {
+        "en": "Ounce System",
+        "tr": "Ounce System",
+        "de": "Ounce System",
+        "fr": "Ounce System",
+        "es": "Ounce System",
+        "ar": "Ounce System"
+      }
     },
     {
       "id": "decimalPlaces",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "count",
       "default": 2,
-      "businessContext": "Number of decimal places for the output, typically 2 for laboratory precision"
+      "businessContext": "Number of decimal places for the output, typically 2 for laboratory precision",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "batchSize",
@@ -31,13 +55,20 @@
       "type": "number",
       "unit": "units",
       "default": 1,
-      "businessContext": "Multiply conversion result by number of units if converting for a batch"
+      "businessContext": "Multiply conversion result by number of units if converting for a batch",
+      "label_i18n": {
+        "en": "Batch Size Multiplier",
+        "tr": "Batch Size Multiplier",
+        "de": "Batch Size Multiplier",
+        "fr": "Batch Size Multiplier",
+        "es": "Batch Size Multiplier",
+        "ar": "Batch Size Multiplier"
+      }
     }
   ],
   "formulas": {
     "conversionFactor": "(ounceType === 0 ? 29.5735 : 28.4131)",
-    "baseMilliliters": "fluidOunces * conversionFactor * batchSize",
-    "roundedMilliliters": "Math.round(baseMilliliters * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
+    "baseMilliliters": "fluidOunces * conversionFactor * batchSize"
   },
   "outputs": {
     "primary": "conversionFactor",
@@ -56,7 +87,12 @@
         "unit": "ml/fl oz",
         "businessContext": "Applied conversion factor based on ounce system"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roundedMilliliters"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -66,5 +102,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

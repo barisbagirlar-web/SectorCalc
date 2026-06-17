@@ -116,25 +116,21 @@
   ],
   "formulas": {
     "loadFactor": "actualLoad / motorRatedPower",
-    "deltaTRated": "maxInsulationTemp - ratedAmbient",
-    "ultimateTempRise": "deltaTRated * Math.pow(loadFactor, 2) * dutyCycle",
-    "motorTemperature": "ambientTemperature + ultimateTempRise",
-    "temperatureMargin": "maxInsulationTemp - motorTemperature",
-    "timeToBurnout": "motorTemperature > maxInsulationTemp ? 0 : (ultimateTempRise > (maxInsulationTemp - ambientTemperature) ? -thermalTimeConstant * Math.log(1 - (maxInsulationTemp - ambientTemperature) / ultimateTempRise) : Infinity)",
-    "loadFactor_toFixed_3_": "loadFactor.toFixed(3)",
-    "ultimateTempRise_toFixed_1_______C_": "ultimateTempRise.toFixed(1) + ' °C'",
-    "motorTemperature_toFixed_1_______C_": "motorTemperature.toFixed(1) + ' °C'",
-    "temperatureMargin_toFixed_1_______C_": "temperatureMargin.toFixed(1) + ' °C'",
-    "result": "timeToBurnout === Infinity ? 'Motor Safe' : timeToBurnout.toFixed(1) + ' minutes'"
+    "deltaTRated": "maxInsulationTemp - ratedAmbient"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "deltaTRated",
     "breakdown": [
       "loadFactor.toFixed(3)",
       "ultimateTempRise.toFixed(1) + ' °C'",
       "motorTemperature.toFixed(1) + ' °C'",
       "temperatureMargin.toFixed(1) + ' °C'"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -144,5 +140,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

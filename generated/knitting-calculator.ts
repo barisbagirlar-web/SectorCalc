@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from knitting-calculator-schema.json
 import * as z from 'zod';
 
@@ -19,26 +20,34 @@ export const Knitting_calculatorInputSchema = z.object({
   yarnDensity: z.number().default(50),
 });
 
-function evaluateAllFormulas(input: Knitting_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.fabricWidth * input.stitchGauge * input.fabricLength * input.rowGauge; results["totalStitches"] = Number.isFinite(v) ? v : 0; } catch { results["totalStitches"] = 0; }
-  try { const v = ((results["totalStitches"] ?? 0) * input.yarnPerStitch) / 100; results["totalYarnLength"] = Number.isFinite(v) ? v : 0; } catch { results["totalYarnLength"] = 0; }
-  try { const v = (results["totalYarnLength"] ?? 0) * (input.yarnDensity / 1000); results["totalYarnWeight"] = Number.isFinite(v) ? v : 0; } catch { results["totalYarnWeight"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Knitting_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.fabricWidth * input.stitchGauge * input.fabricLength * input.rowGauge; results["totalStitches"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalStitches"] = 0; }
+  try { const v = ((asFormulaNumber(results["totalStitches"])) * input.yarnPerStitch) / 100; results["totalYarnLength"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalYarnLength"] = 0; }
+  try { const v = (asFormulaNumber(results["totalYarnLength"])) * (input.yarnDensity / 1000); results["totalYarnWeight"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalYarnWeight"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateKnitting_calculator(input: Knitting_calculatorInput): Knitting_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalYarnLength"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["totalYarnLength"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

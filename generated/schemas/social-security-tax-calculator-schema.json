@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Enter the gross pay for the pay period"
+      "businessContext": "Enter the gross pay for the pay period",
+      "label_i18n": {
+        "en": "Gross Pay per Period",
+        "tr": "Gross Pay per Period",
+        "de": "Gross Pay per Period",
+        "fr": "Gross Pay per Period",
+        "es": "Gross Pay per Period",
+        "ar": "Gross Pay per Period"
+      }
     },
     {
       "id": "employeeRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 6.2,
-      "businessContext": "Social security tax rate for employee (e.g., 6.2%)"
+      "businessContext": "Social security tax rate for employee (e.g., 6.2%)",
+      "label_i18n": {
+        "en": "Employee SS Rate (%)",
+        "tr": "Employee SS Rate (%)",
+        "de": "Employee SS Rate (%)",
+        "fr": "Employee SS Rate (%)",
+        "es": "Employee SS Rate (%)",
+        "ar": "Employee SS Rate (%)"
+      }
     },
     {
       "id": "employerRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 6.2,
-      "businessContext": "Social security tax rate for employer (e.g., 6.2%)"
+      "businessContext": "Social security tax rate for employer (e.g., 6.2%)",
+      "label_i18n": {
+        "en": "Employer SS Rate (%)",
+        "tr": "Employer SS Rate (%)",
+        "de": "Employer SS Rate (%)",
+        "fr": "Employer SS Rate (%)",
+        "es": "Employer SS Rate (%)",
+        "ar": "Employer SS Rate (%)"
+      }
     },
     {
       "id": "annualCeiling",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency",
       "default": 160200,
-      "businessContext": "Maximum amount of annual earnings subject to social security tax"
+      "businessContext": "Maximum amount of annual earnings subject to social security tax",
+      "label_i18n": {
+        "en": "Annual Wage Ceiling",
+        "tr": "Annual Wage Ceiling",
+        "de": "Annual Wage Ceiling",
+        "fr": "Annual Wage Ceiling",
+        "es": "Annual Wage Ceiling",
+        "ar": "Annual Wage Ceiling"
+      }
     },
     {
       "id": "payPeriods",
@@ -39,22 +71,32 @@
       "type": "number",
       "unit": "periods/year",
       "default": 12,
-      "businessContext": "Number of pay periods per year (e.g., 12 for monthly, 26 for bi-weekly)"
+      "businessContext": "Number of pay periods per year (e.g., 12 for monthly, 26 for bi-weekly)",
+      "label_i18n": {
+        "en": "Pay Periods per Year",
+        "tr": "Pay Periods per Year",
+        "de": "Pay Periods per Year",
+        "fr": "Pay Periods per Year",
+        "es": "Pay Periods per Year",
+        "ar": "Pay Periods per Year"
+      }
     }
   ],
   "formulas": {
     "perPeriodCeiling": "annualCeiling / payPeriods",
-    "taxableAmount": "Math.min(grossPay, perPeriodCeiling)",
-    "employeeSS": "(employeeRate / 100) * taxableAmount",
-    "employerSS": "(employerRate / 100) * taxableAmount",
-    "totalSS": "employeeSS + employerSS"
+    "perPeriodCeiling_aux": "annualCeiling / payPeriods"
   },
   "outputs": {
-    "primary": "totalSS",
+    "primary": "perPeriodCeiling_aux",
     "breakdown": [
       "employeeSS",
       "employerSS"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalSS"
   },
   "category": "İK & Personel",
   "sector": "Finans & İK",
@@ -64,5 +106,10 @@
   "categorySlug": "workforce-hr",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

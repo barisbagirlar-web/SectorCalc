@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ha",
       "default": 1,
-      "businessContext": "Area of the field to fertilize"
+      "businessContext": "Area of the field to fertilize",
+      "label_i18n": {
+        "en": "Field Area",
+        "tr": "Field Area",
+        "de": "Field Area",
+        "fr": "Field Area",
+        "es": "Field Area",
+        "ar": "Field Area"
+      }
     },
     {
       "id": "nitrogenRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg/ha",
       "default": 100,
-      "businessContext": "Desired application rate of nitrogen per hectare"
+      "businessContext": "Desired application rate of nitrogen per hectare",
+      "label_i18n": {
+        "en": "Nitrogen Rate (N)",
+        "tr": "Nitrogen Rate (N)",
+        "de": "Nitrogen Rate (N)",
+        "fr": "Nitrogen Rate (N)",
+        "es": "Nitrogen Rate (N)",
+        "ar": "Nitrogen Rate (N)"
+      }
     },
     {
       "id": "phosphorusRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg/ha",
       "default": 50,
-      "businessContext": "Desired application rate of phosphorus (as P2O5) per hectare"
+      "businessContext": "Desired application rate of phosphorus (as P2O5) per hectare",
+      "label_i18n": {
+        "en": "Phosphorus Rate (P2O5)",
+        "tr": "Phosphorus Rate (P2O5)",
+        "de": "Phosphorus Rate (P2O5)",
+        "fr": "Phosphorus Rate (P2O5)",
+        "es": "Phosphorus Rate (P2O5)",
+        "ar": "Phosphorus Rate (P2O5)"
+      }
     },
     {
       "id": "potassiumRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg/ha",
       "default": 50,
-      "businessContext": "Desired application rate of potassium (as K2O) per hectare"
+      "businessContext": "Desired application rate of potassium (as K2O) per hectare",
+      "label_i18n": {
+        "en": "Potassium Rate (K2O)",
+        "tr": "Potassium Rate (K2O)",
+        "de": "Potassium Rate (K2O)",
+        "fr": "Potassium Rate (K2O)",
+        "es": "Potassium Rate (K2O)",
+        "ar": "Potassium Rate (K2O)"
+      }
     },
     {
       "id": "fertilizerN",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Percentage of nitrogen in the fertilizer"
+      "businessContext": "Percentage of nitrogen in the fertilizer",
+      "label_i18n": {
+        "en": "Fertilizer N Content",
+        "tr": "Fertilizer N Content",
+        "de": "Fertilizer N Content",
+        "fr": "Fertilizer N Content",
+        "es": "Fertilizer N Content",
+        "ar": "Fertilizer N Content"
+      }
     },
     {
       "id": "fertilizerP",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percentage of phosphorus pentoxide in the fertilizer"
+      "businessContext": "Percentage of phosphorus pentoxide in the fertilizer",
+      "label_i18n": {
+        "en": "Fertilizer P2O5 Content",
+        "tr": "Fertilizer P2O5 Content",
+        "de": "Fertilizer P2O5 Content",
+        "fr": "Fertilizer P2O5 Content",
+        "es": "Fertilizer P2O5 Content",
+        "ar": "Fertilizer P2O5 Content"
+      }
     },
     {
       "id": "fertilizerK",
@@ -55,20 +103,32 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percentage of potassium oxide in the fertilizer"
+      "businessContext": "Percentage of potassium oxide in the fertilizer",
+      "label_i18n": {
+        "en": "Fertilizer K2O Content",
+        "tr": "Fertilizer K2O Content",
+        "de": "Fertilizer K2O Content",
+        "fr": "Fertilizer K2O Content",
+        "es": "Fertilizer K2O Content",
+        "ar": "Fertilizer K2O Content"
+      }
     }
   ],
   "formulas": {
-    "perHaRequirement": "Math.max(nitrogenRate / (fertilizerN / 100), phosphorusRate / (fertilizerP / 100), potassiumRate / (fertilizerK / 100))",
-    "totalFertilizerKg": "area * perHaRequirement",
-    "totalFertilizerTons": "totalFertilizerKg / 1000"
+    "result": "area + nitrogenRate + phosphorusRate",
+    "result_copy": "area + nitrogenRate + phosphorusRate"
   },
   "outputs": {
-    "primary": "totalFertilizerKg",
+    "primary": "result",
     "breakdown": [
       "perHaRequirement",
       "totalFertilizerTons"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalFertilizerTons"
   },
   "category": "Gıda & Tarım",
   "sector": "Perakende & Gıda",
@@ -78,5 +138,10 @@
   "categorySlug": "food-cold-chain-hygiene",
   "sectorId": "tarim",
   "profession": "Ziraat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

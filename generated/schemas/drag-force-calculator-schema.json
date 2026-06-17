@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1.225,
-      "businessContext": "The density of the fluid through which the object moves. For air at sea level and 15°C, use 1.225 kg/m³."
+      "businessContext": "The density of the fluid through which the object moves. For air at sea level and 15°C, use 1.225 kg/m³.",
+      "label_i18n": {
+        "en": "Fluid Density (ρ)",
+        "tr": "Fluid Density (ρ)",
+        "de": "Fluid Density (ρ)",
+        "fr": "Fluid Density (ρ)",
+        "es": "Fluid Density (ρ)",
+        "ar": "Fluid Density (ρ)"
+      }
     },
     {
       "id": "velocity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 10,
-      "businessContext": "Relative velocity between the object and the fluid."
+      "businessContext": "Relative velocity between the object and the fluid.",
+      "label_i18n": {
+        "en": "Flow Velocity (v)",
+        "tr": "Flow Velocity (v)",
+        "de": "Flow Velocity (v)",
+        "fr": "Flow Velocity (v)",
+        "es": "Flow Velocity (v)",
+        "ar": "Flow Velocity (v)"
+      }
     },
     {
       "id": "dragCoefficient",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0.5,
-      "businessContext": "Empirical coefficient that depends on the shape of the object. Typical values: smooth sphere 0.47, streamlined body 0.04, cube 1.05."
+      "businessContext": "Empirical coefficient that depends on the shape of the object. Typical values: smooth sphere 0.47, streamlined body 0.04, cube 1.05.",
+      "label_i18n": {
+        "en": "Drag Coefficient (Cd)",
+        "tr": "Drag Coefficient (Cd)",
+        "de": "Drag Coefficient (Cd)",
+        "fr": "Drag Coefficient (Cd)",
+        "es": "Drag Coefficient (Cd)",
+        "ar": "Drag Coefficient (Cd)"
+      }
     },
     {
       "id": "referenceArea",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m²",
       "default": 1,
-      "businessContext": "The frontal area of the object perpendicular to the flow, or other appropriate reference area."
+      "businessContext": "The frontal area of the object perpendicular to the flow, or other appropriate reference area.",
+      "label_i18n": {
+        "en": "Reference Area (A)",
+        "tr": "Reference Area (A)",
+        "de": "Reference Area (A)",
+        "fr": "Reference Area (A)",
+        "es": "Reference Area (A)",
+        "ar": "Reference Area (A)"
+      }
     }
   ],
   "formulas": {
@@ -43,7 +75,12 @@
     "breakdown": [
       "dynamicPressure",
       "dragForce"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "dragForce"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -53,5 +90,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "engineering"
+  "categoryId": "engineering",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

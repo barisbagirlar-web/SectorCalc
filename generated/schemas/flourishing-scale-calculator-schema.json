@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "point",
       "default": 4,
-      "businessContext": "Rate on a scale from 1 (Strongly Disagree) to 7 (Strongly Agree)"
+      "businessContext": "Rate on a scale from 1 (Strongly Disagree) to 7 (Strongly Agree)",
+      "label_i18n": {
+        "en": "I lead a purposeful and meaningful life",
+        "tr": "I lead a purposeful and meaningful life",
+        "de": "I lead a purposeful and meaningful life",
+        "fr": "I lead a purposeful and meaningful life",
+        "es": "I lead a purposeful and meaningful life",
+        "ar": "I lead a purposeful and meaningful life"
+      }
     },
     {
       "id": "item2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "point",
       "default": 4,
-      "businessContext": "Rate on a scale from 1 (Strongly Disagree) to 7 (Strongly Agree)"
+      "businessContext": "Rate on a scale from 1 (Strongly Disagree) to 7 (Strongly Agree)",
+      "label_i18n": {
+        "en": "My social relationships are supportive and rewarding",
+        "tr": "My social relationships are supportive and rewarding",
+        "de": "My social relationships are supportive and rewarding",
+        "fr": "My social relationships are supportive and rewarding",
+        "es": "My social relationships are supportive and rewarding",
+        "ar": "My social relationships are supportive and rewarding"
+      }
     },
     {
       "id": "item3",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "point",
       "default": 4,
-      "businessContext": "Rate on a scale from 1 (Strongly Disagree) to 7 (Strongly Agree)"
+      "businessContext": "Rate on a scale from 1 (Strongly Disagree) to 7 (Strongly Agree)",
+      "label_i18n": {
+        "en": "I am engaged and interested in my daily activities",
+        "tr": "I am engaged and interested in my daily activities",
+        "de": "I am engaged and interested in my daily activities",
+        "fr": "I am engaged and interested in my daily activities",
+        "es": "I am engaged and interested in my daily activities",
+        "ar": "I am engaged and interested in my daily activities"
+      }
     },
     {
       "id": "item4",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "point",
       "default": 4,
-      "businessContext": "Rate on a scale from 1 (Strongly Disagree) to 7 (Strongly Agree)"
+      "businessContext": "Rate on a scale from 1 (Strongly Disagree) to 7 (Strongly Agree)",
+      "label_i18n": {
+        "en": "I actively contribute to the happiness and well-being of others",
+        "tr": "I actively contribute to the happiness and well-being of others",
+        "de": "I actively contribute to the happiness and well-being of others",
+        "fr": "I actively contribute to the happiness and well-being of others",
+        "es": "I actively contribute to the happiness and well-being of others",
+        "ar": "I actively contribute to the happiness and well-being of others"
+      }
     },
     {
       "id": "item5",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "point",
       "default": 4,
-      "businessContext": "Rate on a scale from 1 (Strongly Disagree) to 7 (Strongly Agree)"
+      "businessContext": "Rate on a scale from 1 (Strongly Disagree) to 7 (Strongly Agree)",
+      "label_i18n": {
+        "en": "I am competent and capable in the activities that are important to me",
+        "tr": "I am competent and capable in the activities that are important to me",
+        "de": "I am competent and capable in the activities that are important to me",
+        "fr": "I am competent and capable in the activities that are important to me",
+        "es": "I am competent and capable in the activities that are important to me",
+        "ar": "I am competent and capable in the activities that are important to me"
+      }
     },
     {
       "id": "item6",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "point",
       "default": 4,
-      "businessContext": "Rate on a scale from 1 (Strongly Disagree) to 7 (Strongly Agree)"
+      "businessContext": "Rate on a scale from 1 (Strongly Disagree) to 7 (Strongly Agree)",
+      "label_i18n": {
+        "en": "I am a good person and live a good life",
+        "tr": "I am a good person and live a good life",
+        "de": "I am a good person and live a good life",
+        "fr": "I am a good person and live a good life",
+        "es": "I am a good person and live a good life",
+        "ar": "I am a good person and live a good life"
+      }
     },
     {
       "id": "item7",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "point",
       "default": 4,
-      "businessContext": "Rate on a scale from 1 (Strongly Disagree) to 7 (Strongly Agree)"
+      "businessContext": "Rate on a scale from 1 (Strongly Disagree) to 7 (Strongly Agree)",
+      "label_i18n": {
+        "en": "I am optimistic about my future",
+        "tr": "I am optimistic about my future",
+        "de": "I am optimistic about my future",
+        "fr": "I am optimistic about my future",
+        "es": "I am optimistic about my future",
+        "ar": "I am optimistic about my future"
+      }
     },
     {
       "id": "item8",
@@ -63,20 +119,32 @@
       "type": "number",
       "unit": "point",
       "default": 4,
-      "businessContext": "Rate on a scale from 1 (Strongly Disagree) to 7 (Strongly Agree)"
+      "businessContext": "Rate on a scale from 1 (Strongly Disagree) to 7 (Strongly Agree)",
+      "label_i18n": {
+        "en": "People respect me",
+        "tr": "People respect me",
+        "de": "People respect me",
+        "fr": "People respect me",
+        "es": "People respect me",
+        "ar": "People respect me"
+      }
     }
   ],
   "formulas": {
     "totalScore": "item1 + item2 + item3 + item4 + item5 + item6 + item7 + item8",
-    "averageScore": "(item1 + item2 + item3 + item4 + item5 + item6 + item7 + item8) / 8",
-    "category": "totalScore >= 48 ? 'High Flourishing' : totalScore >= 40 ? 'Moderate Flourishing' : 'Low Flourishing'"
+    "averageScore": "(item1 + item2 + item3 + item4 + item5 + item6 + item7 + item8) / 8"
   },
   "outputs": {
     "primary": "totalScore",
     "breakdown": [
       "averageScore",
       "category"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "category"
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Üretim & İmalat",
@@ -86,5 +154,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

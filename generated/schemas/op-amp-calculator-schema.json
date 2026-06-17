@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "V",
       "default": 1,
-      "businessContext": "Input signal voltage from sensor or source (peak or DC)"
+      "businessContext": "Input signal voltage from sensor or source (peak or DC)",
+      "label_i18n": {
+        "en": "Input Voltage (Vin)",
+        "tr": "Input Voltage (Vin)",
+        "de": "Input Voltage (Vin)",
+        "fr": "Input Voltage (Vin)",
+        "es": "Input Voltage (Vin)",
+        "ar": "Input Voltage (Vin)"
+      }
     },
     {
       "id": "rin",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 1000,
-      "businessContext": "Resistance from non-inverting terminal to ground; sets input impedance"
+      "businessContext": "Resistance from non-inverting terminal to ground; sets input impedance",
+      "label_i18n": {
+        "en": "Input Resistance (Rin)",
+        "tr": "Input Resistance (Rin)",
+        "de": "Input Resistance (Rin)",
+        "fr": "Input Resistance (Rin)",
+        "es": "Input Resistance (Rin)",
+        "ar": "Input Resistance (Rin)"
+      }
     },
     {
       "id": "rf",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 1000,
-      "businessContext": "Feedback resistor between output and inverting input for gain setting"
+      "businessContext": "Feedback resistor between output and inverting input for gain setting",
+      "label_i18n": {
+        "en": "Feedback Resistance (Rf)",
+        "tr": "Feedback Resistance (Rf)",
+        "de": "Feedback Resistance (Rf)",
+        "fr": "Feedback Resistance (Rf)",
+        "es": "Feedback Resistance (Rf)",
+        "ar": "Feedback Resistance (Rf)"
+      }
     },
     {
       "id": "vcc",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "V",
       "default": 12,
-      "businessContext": "Positive supply rail; output cannot exceed Vcc - 1.5V (typical)"
+      "businessContext": "Positive supply rail; output cannot exceed Vcc - 1.5V (typical)",
+      "label_i18n": {
+        "en": "Positive Supply (Vcc)",
+        "tr": "Positive Supply (Vcc)",
+        "de": "Positive Supply (Vcc)",
+        "fr": "Positive Supply (Vcc)",
+        "es": "Positive Supply (Vcc)",
+        "ar": "Positive Supply (Vcc)"
+      }
     },
     {
       "id": "vee",
@@ -39,20 +71,32 @@
       "type": "number",
       "unit": "V",
       "default": 0,
-      "businessContext": "Negative supply rail; for single supply this is ground (0V)"
+      "businessContext": "Negative supply rail; for single supply this is ground (0V)",
+      "label_i18n": {
+        "en": "Negative Supply (Vee)",
+        "tr": "Negative Supply (Vee)",
+        "de": "Negative Supply (Vee)",
+        "fr": "Negative Supply (Vee)",
+        "es": "Negative Supply (Vee)",
+        "ar": "Negative Supply (Vee)"
+      }
     }
   ],
   "formulas": {
     "gain": "1 + (rf / rin)",
-    "vout_ideal": "vin * (1 + (rf / rin))",
-    "vout": "Math.min(vcc - 1.5, Math.max(vee + 0.5, vin * (1 + rf / rin)))"
+    "vout_ideal": "vin * (1 + (rf / rin))"
   },
   "outputs": {
-    "primary": "vout",
+    "primary": "vout_ideal",
     "breakdown": [
       "gain",
       "vout_ideal"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "vout"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -62,5 +106,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "otomotiv-tedarik",
   "profession": "Tedarik Zinciri Yöneticisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

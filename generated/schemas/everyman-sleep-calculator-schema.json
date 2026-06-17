@@ -70,10 +70,7 @@
     "totalCoreMinutes": "coreHours * 60 + coreMinutes",
     "totalNapMinutes": "napCount * napDuration",
     "totalMinutes": "coreHours * 60 + coreMinutes + napCount * napDuration",
-    "totalHours": "(coreHours * 60 + coreMinutes + napCount * napDuration) / 60",
-    "_totalCoreMinutes___60__saat": "{totalCoreMinutes / 60} saat",
-    "_totalNapMinutes___60__saat": "{totalNapMinutes / 60} saat",
-    "_napCount_": "{napCount}"
+    "totalHours": "(coreHours * 60 + coreMinutes + napCount * napDuration) / 60"
   },
   "outputs": {
     "primary": "totalCoreMinutes",
@@ -81,7 +78,12 @@
       "Çekirdek Uyku: {totalCoreMinutes / 60} saat",
       "Toplam Şekerleme: {totalNapMinutes / 60} saat",
       "Şekerleme Sayısı: {napCount}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalHours"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -91,5 +93,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "plastik",
   "profession": "Proses Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

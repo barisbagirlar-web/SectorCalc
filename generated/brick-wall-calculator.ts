@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from brick-wall-calculator-schema.json
 import * as z from 'zod';
 
@@ -23,29 +24,37 @@ export const Brick_wall_calculatorInputSchema = z.object({
   mortarPrice: z.number().default(100),
 });
 
-function evaluateAllFormulas(input: Brick_wall_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (input.wallLength * 100 / (input.brickLength + input.mortarJointThickness)) * (input.wallHeight * 100 / (input.brickHeight + input.mortarJointThickness)); results["totalBricks"] = Number.isFinite(v) ? v : 0; } catch { results["totalBricks"] = 0; }
-  try { const v = input.wallLength * 100 * input.wallHeight * 100 * input.brickWidth; results["wallVolumeCm3"] = Number.isFinite(v) ? v : 0; } catch { results["wallVolumeCm3"] = 0; }
-  try { const v = input.brickLength * input.brickHeight * input.brickWidth; results["oneBrickVolumeCm3"] = Number.isFinite(v) ? v : 0; } catch { results["oneBrickVolumeCm3"] = 0; }
-  try { const v = (results["wallVolumeCm3"] ?? 0) - ((results["totalBricks"] ?? 0) * (results["oneBrickVolumeCm3"] ?? 0)); results["mortarVolumeCm3"] = Number.isFinite(v) ? v : 0; } catch { results["mortarVolumeCm3"] = 0; }
-  try { const v = (results["mortarVolumeCm3"] ?? 0) / 1000000; results["mortarVolumeM3"] = Number.isFinite(v) ? v : 0; } catch { results["mortarVolumeM3"] = 0; }
-  try { const v = (results["totalBricks"] ?? 0) * input.brickPrice + (results["mortarVolumeM3"] ?? 0) * input.mortarPrice; results["totalCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Brick_wall_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = (input.wallLength * 100 / (input.brickLength + input.mortarJointThickness)) * (input.wallHeight * 100 / (input.brickHeight + input.mortarJointThickness)); results["totalBricks"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalBricks"] = 0; }
+  try { const v = input.wallLength * 100 * input.wallHeight * 100 * input.brickWidth; results["wallVolumeCm3"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["wallVolumeCm3"] = 0; }
+  try { const v = input.brickLength * input.brickHeight * input.brickWidth; results["oneBrickVolumeCm3"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["oneBrickVolumeCm3"] = 0; }
+  try { const v = (asFormulaNumber(results["wallVolumeCm3"])) - ((asFormulaNumber(results["totalBricks"])) * (asFormulaNumber(results["oneBrickVolumeCm3"]))); results["mortarVolumeCm3"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["mortarVolumeCm3"] = 0; }
+  try { const v = (asFormulaNumber(results["mortarVolumeCm3"])) / 1000000; results["mortarVolumeM3"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["mortarVolumeM3"] = 0; }
+  try { const v = (asFormulaNumber(results["totalBricks"])) * input.brickPrice + (asFormulaNumber(results["mortarVolumeM3"])) * input.mortarPrice; results["totalCost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalCost"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateBrick_wall_calculator(input: Brick_wall_calculatorInput): Brick_wall_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalBricks"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["totalBricks"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

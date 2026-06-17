@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 0,
-      "businessContext": "Starting velocity of the object before acceleration"
+      "businessContext": "Starting velocity of the object before acceleration",
+      "label_i18n": {
+        "en": "Initial Velocity",
+        "tr": "Initial Velocity",
+        "de": "Initial Velocity",
+        "fr": "Initial Velocity",
+        "es": "Initial Velocity",
+        "ar": "Initial Velocity"
+      }
     },
     {
       "id": "finalVelocity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 10,
-      "businessContext": "Ending velocity after acceleration period"
+      "businessContext": "Ending velocity after acceleration period",
+      "label_i18n": {
+        "en": "Final Velocity",
+        "tr": "Final Velocity",
+        "de": "Final Velocity",
+        "fr": "Final Velocity",
+        "es": "Final Velocity",
+        "ar": "Final Velocity"
+      }
     },
     {
       "id": "time",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "s",
       "default": 5,
-      "businessContext": "Duration over which velocity changes"
+      "businessContext": "Duration over which velocity changes",
+      "label_i18n": {
+        "en": "Time Interval",
+        "tr": "Time Interval",
+        "de": "Time Interval",
+        "fr": "Time Interval",
+        "es": "Time Interval",
+        "ar": "Time Interval"
+      }
     },
     {
       "id": "force",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "N",
       "default": 100,
-      "businessContext": "Net force applied to the object (optional for alternative calculation)"
+      "businessContext": "Net force applied to the object (optional for alternative calculation)",
+      "label_i18n": {
+        "en": "Applied Force",
+        "tr": "Applied Force",
+        "de": "Applied Force",
+        "fr": "Applied Force",
+        "es": "Applied Force",
+        "ar": "Applied Force"
+      }
     },
     {
       "id": "mass",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg",
       "default": 20,
-      "businessContext": "Mass of the object being accelerated"
+      "businessContext": "Mass of the object being accelerated",
+      "label_i18n": {
+        "en": "Mass",
+        "tr": "Mass",
+        "de": "Mass",
+        "fr": "Mass",
+        "es": "Mass",
+        "ar": "Mass"
+      }
     }
   ],
   "formulas": {
@@ -51,7 +91,12 @@
     "breakdown": [
       "Acceleration from velocity change: a = (vf - vi) / t",
       "Acceleration from Newton's second law: a = F / m (if force and mass are provided)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "acceleration_force"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -61,5 +106,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "danismanlik",
   "profession": "Strateji Uzmanı",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

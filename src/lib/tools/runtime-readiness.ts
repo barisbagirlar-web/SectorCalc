@@ -1,8 +1,12 @@
 import { getFormulaContractBySlug } from "@/lib/formula-governance/contracts";
 import {
+  isPremiumSchemaExtendedProductionSlug,
+} from "@/lib/formula-governance/oracle/premium-schema-extended-production-locators";
+import {
   isFreeFullLoopRuntimeSlug,
   resolveFullLoopContractSlug,
 } from "@/lib/formula-governance/runtime-validation/full-loop-runtime-registry";
+import { getToolGuideSpec } from "@/lib/tool-guides/premium-input-guide-specs";
 import {
   localizeFreeTrafficToolInputs,
   localizeRevenueToolInputs,
@@ -89,12 +93,42 @@ type ResolvedInput = {
   readonly required?: boolean;
 };
 
+function resolveExtendedProductionInputs(slug: string): readonly ResolvedInput[] {
+  const guideSpec = getToolGuideSpec(slug);
+  if (guideSpec?.inputMap?.length) {
+    return guideSpec.inputMap.map((entry) => ({
+      key: entry.inputKey,
+      label: entry.inputKey.replace(/([A-Z])/g, " $1").replace(/^./, (c) => c.toUpperCase()),
+      required: entry.visualRole !== "output",
+    }));
+  }
+
+  const contract =
+    getFormulaContractBySlug(slug) ?? getFormulaContractBySlug(resolveFullLoopContractSlug(slug));
+  if (!contract?.requiredInputs?.length) {
+    return [];
+  }
+
+  return contract.requiredInputs.map((key) => ({
+    key,
+    label: key.replace(/([A-Z])/g, " $1").replace(/^./, (c) => c.toUpperCase()),
+    required: true,
+  }));
+}
+
+function isExtendedProductionSlug(slug: string): boolean {
+  return isPremiumSchemaExtendedProductionSlug(slug);
+}
+
 function resolveNativePremiumSchema(slug: string) {
   return resolvePremiumSchemaFromBacking(slug);
 }
 
 function resolveTier(slug: string): RuntimeToolTier {
   if (resolveNativePremiumSchema(slug)) {
+    return "premium-schema";
+  }
+  if (isExtendedProductionSlug(slug)) {
     return "premium-schema";
   }
   if (getRevenueToolByPaidSlug(slug) || getRevenueToolByPremiumRouteSlug(slug)) {
@@ -107,6 +141,9 @@ function resolveTier(slug: string): RuntimeToolTier {
 }
 
 function hasActiveRoute(slug: string, tier: RuntimeToolTier): boolean {
+  if (isExtendedProductionSlug(slug)) {
+    return true;
+  }
   if (tier === "premium-schema" && resolveNativePremiumSchema(slug)) {
     return true;
   }
@@ -120,6 +157,10 @@ function hasActiveRoute(slug: string, tier: RuntimeToolTier): boolean {
 }
 
 function resolveInputs(slug: string, locale: SupportedLocale): readonly ResolvedInput[] {
+  if (isExtendedProductionSlug(slug)) {
+    return resolveExtendedProductionInputs(slug);
+  }
+
   const revenuePaid = getRevenueToolByPaidSlug(slug) ?? getRevenueToolByPremiumRouteSlug(slug);
   if (revenuePaid?.paidInputs?.length) {
     return revenuePaid.paidInputs.map((input) => ({
@@ -209,6 +250,9 @@ function hasValidationPath(slug: string, tier: RuntimeToolTier): boolean {
   }
 
   if (tier === "premium" || tier === "premium-schema") {
+    if (isExtendedProductionSlug(slug)) {
+      return true;
+    }
     if (resolveNativePremiumSchema(slug)) {
       return true;
     }
@@ -235,7 +279,8 @@ function hasResultRenderer(slug: string, tier: RuntimeToolTier): boolean {
 
   if (tier === "premium" || tier === "premium-schema") {
     return Boolean(
-      resolveNativePremiumSchema(slug) ||
+      isExtendedProductionSlug(slug) ||
+        resolveNativePremiumSchema(slug) ||
         getRevenueToolByPremiumRouteSlug(slug) ||
         getRevenueToolByPaidSlug(slug),
     );

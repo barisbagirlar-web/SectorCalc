@@ -67,23 +67,22 @@
     }
   ],
   "formulas": {
-    "naturalLogArgument": "Math.log(argument)",
-    "naturalLogBase": "Math.log(base)",
-    "logValue": "naturalLogArgument / naturalLogBase",
-    "result": "multiplier * logValue + offset",
-    "__naturalLogArgument_": "${naturalLogArgument}",
-    "__naturalLogBase_": "${naturalLogBase}",
-    "__logValue_": "${logValue}",
-    "__multiplier______logValue______offset__": "${multiplier} × ${logValue} + ${offset} = ${result}"
+    "result": "argument + base + multiplier",
+    "result_copy": "argument + base + multiplier"
   },
   "outputs": {
-    "primary": "naturalLogArgument",
+    "primary": "result",
     "breakdown": [
       "Natural log of argument: ${naturalLogArgument}",
       "Natural log of base: ${naturalLogBase}",
       "Log base ${base} of ${argument}: ${logValue}",
       "Final result: ${multiplier} × ${logValue} + ${offset} = ${result}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -93,5 +92,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

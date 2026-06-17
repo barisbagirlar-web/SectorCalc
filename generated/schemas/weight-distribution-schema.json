@@ -70,16 +70,19 @@
     "frontAxleLoad": "totalWeight * (rearAxleDist / wheelbase)",
     "rearAxleLoad": "totalWeight * (frontAxleDist / wheelbase)",
     "frontAxlePercent": "(frontAxleLoad / totalWeight) * 100",
-    "rearAxlePercent": "(rearAxleLoad / totalWeight) * 100",
-    "_frontAxleLoad__kg___frontAxlePercent___": "{frontAxleLoad} kg ({frontAxlePercent}%)",
-    "_rearAxleLoad__kg___rearAxlePercent___": "{rearAxleLoad} kg ({rearAxlePercent}%)"
+    "rearAxlePercent": "(rearAxleLoad / totalWeight) * 100"
   },
   "outputs": {
     "primary": "frontAxleLoad",
     "breakdown": [
       "Front Axle Load: {frontAxleLoad} kg ({frontAxlePercent}%)",
       "Rear Axle Load: {rearAxleLoad} kg ({rearAxlePercent}%)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "rearAxlePercent"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -89,5 +92,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

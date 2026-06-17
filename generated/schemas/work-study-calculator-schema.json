@@ -116,9 +116,7 @@
   ],
   "formulas": {
     "normalTime": "observedTime * (ratingFactor / 100)",
-    "standardTime": "normalTime * (1 + allowanceFactor / 100)",
-    "requiredSamples": "Math.pow((zScore * standardDeviation) / ((precision / 100) * observedTime), 2)",
-    "actualPrecision": "(zScore * standardDeviation) / (Math.sqrt(cycleCount) * observedTime) * 100"
+    "standardTime": "normalTime * (1 + allowanceFactor / 100)"
   },
   "outputs": {
     "primary": "standardTime",
@@ -127,7 +125,12 @@
       "standardTime",
       "requiredSamples",
       "actualPrecision"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "actualPrecision"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -137,5 +140,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "efficiency"
+  "categoryId": "efficiency",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

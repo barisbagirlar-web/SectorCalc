@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "W",
       "default": 1000,
-      "businessContext": "The power in watts to be converted to various horsepower units."
+      "businessContext": "The power in watts to be converted to various horsepower units.",
+      "label_i18n": {
+        "en": "Power (W)",
+        "tr": "Power (W)",
+        "de": "Power (W)",
+        "fr": "Power (W)",
+        "es": "Power (W)",
+        "ar": "Power (W)"
+      }
     },
     {
       "id": "factorMechanical",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "W/HP",
       "default": 745.6998715822702,
-      "businessContext": "Conversion factor for mechanical/imperial horsepower (1 HP = 745.6998715822702 W)."
+      "businessContext": "Conversion factor for mechanical/imperial horsepower (1 HP = 745.6998715822702 W).",
+      "label_i18n": {
+        "en": "Mechanical HP Factor (W/HP)",
+        "tr": "Mechanical HP Factor (W/HP)",
+        "de": "Mechanical HP Factor (W/HP)",
+        "fr": "Mechanical HP Factor (W/HP)",
+        "es": "Mechanical HP Factor (W/HP)",
+        "ar": "Mechanical HP Factor (W/HP)"
+      }
     },
     {
       "id": "factorMetric",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "W/HP",
       "default": 735.49875,
-      "businessContext": "Conversion factor for metric horsepower (1 HP = 735.49875 W)."
+      "businessContext": "Conversion factor for metric horsepower (1 HP = 735.49875 W).",
+      "label_i18n": {
+        "en": "Metric HP Factor (W/HP)",
+        "tr": "Metric HP Factor (W/HP)",
+        "de": "Metric HP Factor (W/HP)",
+        "fr": "Metric HP Factor (W/HP)",
+        "es": "Metric HP Factor (W/HP)",
+        "ar": "Metric HP Factor (W/HP)"
+      }
     },
     {
       "id": "factorElectrical",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "W/HP",
       "default": 746,
-      "businessContext": "Conversion factor for electrical horsepower (1 HP = 746 W)."
+      "businessContext": "Conversion factor for electrical horsepower (1 HP = 746 W).",
+      "label_i18n": {
+        "en": "Electrical HP Factor (W/HP)",
+        "tr": "Electrical HP Factor (W/HP)",
+        "de": "Electrical HP Factor (W/HP)",
+        "fr": "Electrical HP Factor (W/HP)",
+        "es": "Electrical HP Factor (W/HP)",
+        "ar": "Electrical HP Factor (W/HP)"
+      }
     },
     {
       "id": "factorBoiler",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "W/HP",
       "default": 9809.5,
-      "businessContext": "Conversion factor for boiler horsepower (1 boiler HP = 9809.5 W)."
+      "businessContext": "Conversion factor for boiler horsepower (1 boiler HP = 9809.5 W).",
+      "label_i18n": {
+        "en": "Boiler HP Factor (W/HP)",
+        "tr": "Boiler HP Factor (W/HP)",
+        "de": "Boiler HP Factor (W/HP)",
+        "fr": "Boiler HP Factor (W/HP)",
+        "es": "Boiler HP Factor (W/HP)",
+        "ar": "Boiler HP Factor (W/HP)"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
       "metricHp",
       "electricalHp",
       "boilerHp"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "boilerHp"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -64,5 +109,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

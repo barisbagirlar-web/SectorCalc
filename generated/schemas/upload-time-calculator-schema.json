@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "MB",
       "default": 100,
-      "businessContext": "Size of the file to upload in megabytes (MB)."
+      "businessContext": "Size of the file to upload in megabytes (MB).",
+      "label_i18n": {
+        "en": "File Size (MB)",
+        "tr": "File Size (MB)",
+        "de": "File Size (MB)",
+        "fr": "File Size (MB)",
+        "es": "File Size (MB)",
+        "ar": "File Size (MB)"
+      }
     },
     {
       "id": "uploadSpeed",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Mbps",
       "default": 10,
-      "businessContext": "Upload bandwidth in megabits per second (Mbps)."
+      "businessContext": "Upload bandwidth in megabits per second (Mbps).",
+      "label_i18n": {
+        "en": "Upload Speed (Mbps)",
+        "tr": "Upload Speed (Mbps)",
+        "de": "Upload Speed (Mbps)",
+        "fr": "Upload Speed (Mbps)",
+        "es": "Upload Speed (Mbps)",
+        "ar": "Upload Speed (Mbps)"
+      }
     },
     {
       "id": "overheadFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1.1,
-      "businessContext": "Multiplier accounting for protocol overhead (e.g., 1.1 for 10% overhead)."
+      "businessContext": "Multiplier accounting for protocol overhead (e.g., 1.1 for 10% overhead).",
+      "label_i18n": {
+        "en": "Overhead Factor",
+        "tr": "Overhead Factor",
+        "de": "Overhead Factor",
+        "fr": "Overhead Factor",
+        "es": "Overhead Factor",
+        "ar": "Overhead Factor"
+      }
     },
     {
       "id": "numConnections",
@@ -31,15 +55,22 @@
       "type": "number",
       "unit": "connections",
       "default": 1,
-      "businessContext": "Number of parallel upload connections."
+      "businessContext": "Number of parallel upload connections.",
+      "label_i18n": {
+        "en": "Parallel Connections",
+        "tr": "Parallel Connections",
+        "de": "Parallel Connections",
+        "fr": "Parallel Connections",
+        "es": "Parallel Connections",
+        "ar": "Parallel Connections"
+      }
     }
   ],
   "formulas": {
     "rawTimeSeconds": "(fileSize * 8) / uploadSpeed",
     "uploadTimeSeconds": "(fileSize * 8 * overheadFactor) / (uploadSpeed * numConnections)",
     "overheadTimeSeconds": "(fileSize * 8 * (overheadFactor - 1)) / (uploadSpeed * numConnections)",
-    "effectiveSpeedMbps": "(uploadSpeed * numConnections) / overheadFactor",
-    "formattedTime": "(function(){ let sec = (fileSize * 8 * overheadFactor) / (uploadSpeed * numConnections); let hrs = Math.floor(sec / 3600); let mins = Math.floor((sec % 3600) / 60); let secs = Math.round(sec % 60); return hrs > 0 ? hrs + 'h ' + mins + 'm ' + secs + 's' : mins > 0 ? mins + 'm ' + secs + 's' : secs + 's'; })()"
+    "effectiveSpeedMbps": "(uploadSpeed * numConnections) / overheadFactor"
   },
   "outputs": {
     "primary": "uploadTimeSeconds",
@@ -48,7 +79,12 @@
       "rawTimeSeconds",
       "overheadTimeSeconds",
       "effectiveSpeedMbps"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "formattedTime"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -58,5 +94,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

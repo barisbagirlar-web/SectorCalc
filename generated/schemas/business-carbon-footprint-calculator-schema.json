@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kWh",
       "default": 0,
-      "businessContext": "Annual electricity consumption from the grid"
+      "businessContext": "Annual electricity consumption from the grid",
+      "label_i18n": {
+        "en": "Electricity Usage",
+        "tr": "Electricity Usage",
+        "de": "Electricity Usage",
+        "fr": "Electricity Usage",
+        "es": "Electricity Usage",
+        "ar": "Electricity Usage"
+      }
     },
     {
       "id": "naturalGasUsage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m³",
       "default": 0,
-      "businessContext": "Annual natural gas consumption for heating/processes"
+      "businessContext": "Annual natural gas consumption for heating/processes",
+      "label_i18n": {
+        "en": "Natural Gas Usage",
+        "tr": "Natural Gas Usage",
+        "de": "Natural Gas Usage",
+        "fr": "Natural Gas Usage",
+        "es": "Natural Gas Usage",
+        "ar": "Natural Gas Usage"
+      }
     },
     {
       "id": "vehicleFuel",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "L",
       "default": 0,
-      "businessContext": "Annual fuel consumption by company-owned vehicles (petrol/diesel)"
+      "businessContext": "Annual fuel consumption by company-owned vehicles (petrol/diesel)",
+      "label_i18n": {
+        "en": "Vehicle Fuel Usage",
+        "tr": "Vehicle Fuel Usage",
+        "de": "Vehicle Fuel Usage",
+        "fr": "Vehicle Fuel Usage",
+        "es": "Vehicle Fuel Usage",
+        "ar": "Vehicle Fuel Usage"
+      }
     },
     {
       "id": "businessFlights",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "km",
       "default": 0,
-      "businessContext": "Total distance travelled by air for business purposes"
+      "businessContext": "Total distance travelled by air for business purposes",
+      "label_i18n": {
+        "en": "Business Air Travel",
+        "tr": "Business Air Travel",
+        "de": "Business Air Travel",
+        "fr": "Business Air Travel",
+        "es": "Business Air Travel",
+        "ar": "Business Air Travel"
+      }
     },
     {
       "id": "wasteGenerated",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Total waste sent to landfill annually"
+      "businessContext": "Total waste sent to landfill annually",
+      "label_i18n": {
+        "en": "Waste Generated",
+        "tr": "Waste Generated",
+        "de": "Waste Generated",
+        "fr": "Waste Generated",
+        "es": "Waste Generated",
+        "ar": "Waste Generated"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
       "scope1Emissions",
       "scope2Emissions",
       "scope3Emissions"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCarbonFootprint"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -64,5 +109,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

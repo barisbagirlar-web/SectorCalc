@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°C",
       "default": 25,
-      "businessContext": "Initial temperature of surroundings"
+      "businessContext": "Initial temperature of surroundings",
+      "label_i18n": {
+        "en": "Ambient Temperature",
+        "tr": "Ambient Temperature",
+        "de": "Ambient Temperature",
+        "fr": "Ambient Temperature",
+        "es": "Ambient Temperature",
+        "ar": "Ambient Temperature"
+      }
     },
     {
       "id": "grillArea",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m²",
       "default": 0.5,
-      "businessContext": "Area of grill surface exposed to heat"
+      "businessContext": "Area of grill surface exposed to heat",
+      "label_i18n": {
+        "en": "Grill Surface Area",
+        "tr": "Grill Surface Area",
+        "de": "Grill Surface Area",
+        "fr": "Grill Surface Area",
+        "es": "Grill Surface Area",
+        "ar": "Grill Surface Area"
+      }
     },
     {
       "id": "heatInput",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "W",
       "default": 2000,
-      "businessContext": "Electrical or gas power input to grill"
+      "businessContext": "Electrical or gas power input to grill",
+      "label_i18n": {
+        "en": "Heat Input Power",
+        "tr": "Heat Input Power",
+        "de": "Heat Input Power",
+        "fr": "Heat Input Power",
+        "es": "Heat Input Power",
+        "ar": "Heat Input Power"
+      }
     },
     {
       "id": "efficiency",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 80,
-      "businessContext": "Percentage of heat transferred to grill surface (0-100)"
+      "businessContext": "Percentage of heat transferred to grill surface (0-100)",
+      "label_i18n": {
+        "en": "Efficiency",
+        "tr": "Efficiency",
+        "de": "Efficiency",
+        "fr": "Efficiency",
+        "es": "Efficiency",
+        "ar": "Efficiency"
+      }
     },
     {
       "id": "heatTransferCoeff",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "W/(m²·°C)",
       "default": 10,
-      "businessContext": "Combined convection and radiation coefficient"
+      "businessContext": "Combined convection and radiation coefficient",
+      "label_i18n": {
+        "en": "Heat Transfer Coefficient",
+        "tr": "Heat Transfer Coefficient",
+        "de": "Heat Transfer Coefficient",
+        "fr": "Heat Transfer Coefficient",
+        "es": "Heat Transfer Coefficient",
+        "ar": "Heat Transfer Coefficient"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "temperatureRise",
       "effectiveHeat"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "grillTemperature"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -62,5 +107,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

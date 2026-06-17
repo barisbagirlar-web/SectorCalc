@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "servings",
       "default": 1,
-      "businessContext": "Total meals you intend to prepare"
+      "businessContext": "Total meals you intend to prepare",
+      "label_i18n": {
+        "en": "Number of Servings Needed",
+        "tr": "Number of Servings Needed",
+        "de": "Number of Servings Needed",
+        "fr": "Number of Servings Needed",
+        "es": "Number of Servings Needed",
+        "ar": "Number of Servings Needed"
+      }
     },
     {
       "id": "recipeServings",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "servings",
       "default": 4,
-      "businessContext": "Servings yielded by one full recipe batch"
+      "businessContext": "Servings yielded by one full recipe batch",
+      "label_i18n": {
+        "en": "Servings per Recipe",
+        "tr": "Servings per Recipe",
+        "de": "Servings per Recipe",
+        "fr": "Servings per Recipe",
+        "es": "Servings per Recipe",
+        "ar": "Servings per Recipe"
+      }
     },
     {
       "id": "recipeCost",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 12.5,
-      "businessContext": "Cost of all raw ingredients for one recipe batch"
+      "businessContext": "Cost of all raw ingredients for one recipe batch",
+      "label_i18n": {
+        "en": "Total Recipe Cost",
+        "tr": "Total Recipe Cost",
+        "de": "Total Recipe Cost",
+        "fr": "Total Recipe Cost",
+        "es": "Total Recipe Cost",
+        "ar": "Total Recipe Cost"
+      }
     },
     {
       "id": "wastePercentage",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percentage of ingredients lost to trimming, spillage, or overcooking"
+      "businessContext": "Percentage of ingredients lost to trimming, spillage, or overcooking",
+      "label_i18n": {
+        "en": "Expected Waste",
+        "tr": "Expected Waste",
+        "de": "Expected Waste",
+        "fr": "Expected Waste",
+        "es": "Expected Waste",
+        "ar": "Expected Waste"
+      }
     },
     {
       "id": "packagingCostPerServing",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 0.3,
-      "businessContext": "Cost of disposable containers, foil, film per portion"
+      "businessContext": "Cost of disposable containers, foil, film per portion",
+      "label_i18n": {
+        "en": "Packaging Cost per Serving",
+        "tr": "Packaging Cost per Serving",
+        "de": "Packaging Cost per Serving",
+        "fr": "Packaging Cost per Serving",
+        "es": "Packaging Cost per Serving",
+        "ar": "Packaging Cost per Serving"
+      }
     },
     {
       "id": "fixedCost",
@@ -47,28 +87,35 @@
       "type": "number",
       "unit": "EUR",
       "default": 0,
-      "businessContext": "Equipment rental, utilities, or any one-time overhead"
+      "businessContext": "Equipment rental, utilities, or any one-time overhead",
+      "label_i18n": {
+        "en": "Fixed Costs",
+        "tr": "Fixed Costs",
+        "de": "Fixed Costs",
+        "fr": "Fixed Costs",
+        "es": "Fixed Costs",
+        "ar": "Fixed Costs"
+      }
     }
   ],
   "formulas": {
     "effectiveServingsPerBatch": "recipeServings * (1 - wastePercentage / 100)",
-    "numberOfBatches": "Math.ceil(desiredServings / effectiveServingsPerBatch)",
-    "totalIngredientCost": "numberOfBatches * recipeCost",
-    "totalPackagingCost": "desiredServings * packagingCostPerServing",
-    "totalVariableCost": "totalIngredientCost + totalPackagingCost",
-    "totalCost": "totalVariableCost + fixedCost",
-    "costPerServing": "totalCost / desiredServings",
-    "wastedServings": "numberOfBatches * recipeServings - desiredServings"
+    "totalPackagingCost": "desiredServings * packagingCostPerServing"
   },
   "outputs": {
-    "primary": "totalCost",
+    "primary": "totalPackagingCost",
     "breakdown": [
       "costPerServing",
       "numberOfBatches",
       "totalIngredientCost",
       "totalPackagingCost",
       "wastedServings"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "wastedServings"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -78,5 +125,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

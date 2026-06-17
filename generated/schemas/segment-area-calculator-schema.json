@@ -68,21 +68,22 @@
   ],
   "formulas": {
     "thetaRad": "centralAngle * Math.PI / 180",
-    "areaSingle": "0.5 * radius ** 2 * (thetaRad - Math.sin(thetaRad))",
-    "chordLength": "2 * radius * Math.sin(thetaRad / 2)",
-    "arcLength": "radius * thetaRad",
-    "height": "radius * (1 - Math.cos(thetaRad / 2))",
-    "totalArea": "areaSingle * numberOfSegments * scaleFactor"
+    "arcLength": "radius * thetaRad"
   },
   "outputs": {
-    "primary": "totalArea",
+    "primary": "arcLength",
     "breakdown": [
       "areaSingle",
       "chordLength",
       "arcLength",
       "height",
       "thetaRad"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalArea"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -92,5 +93,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

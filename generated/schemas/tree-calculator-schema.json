@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 15,
-      "businessContext": "Ağacın toplam yüksekliği (metre)."
+      "businessContext": "Ağacın toplam yüksekliği (metre).",
+      "label_i18n": {
+        "en": "Ağaç Yüksekliği (m)",
+        "tr": "Ağaç Yüksekliği (m)",
+        "de": "Ağaç Yüksekliği (m)",
+        "fr": "Ağaç Yüksekliği (m)",
+        "es": "Ağaç Yüksekliği (m)",
+        "ar": "Ağaç Yüksekliği (m)"
+      }
     },
     {
       "id": "dbh",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 30,
-      "businessContext": "Göğüs yüksekliğindeki çap (1.3 m)."
+      "businessContext": "Göğüs yüksekliğindeki çap (1.3 m).",
+      "label_i18n": {
+        "en": "Gövde Çapı (cm)",
+        "tr": "Gövde Çapı (cm)",
+        "de": "Gövde Çapı (cm)",
+        "fr": "Gövde Çapı (cm)",
+        "es": "Gövde Çapı (cm)",
+        "ar": "Gövde Çapı (cm)"
+      }
     },
     {
       "id": "woodDensity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 600,
-      "businessContext": "Kuru odun yoğunluğu (türe göre 300-900)."
+      "businessContext": "Kuru odun yoğunluğu (türe göre 300-900).",
+      "label_i18n": {
+        "en": "Odun Yoğunluğu (kg/m³)",
+        "tr": "Odun Yoğunluğu (kg/m³)",
+        "de": "Odun Yoğunluğu (kg/m³)",
+        "fr": "Odun Yoğunluğu (kg/m³)",
+        "es": "Odun Yoğunluğu (kg/m³)",
+        "ar": "Odun Yoğunluğu (kg/m³)"
+      }
     },
     {
       "id": "carbonFraction",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "oran",
       "default": 0.5,
-      "businessContext": "Biyokütledeki karbon oranı (genelde 0.47-0.5)."
+      "businessContext": "Biyokütledeki karbon oranı (genelde 0.47-0.5).",
+      "label_i18n": {
+        "en": "Karbon Oranı",
+        "tr": "Karbon Oranı",
+        "de": "Karbon Oranı",
+        "fr": "Karbon Oranı",
+        "es": "Karbon Oranı",
+        "ar": "Karbon Oranı"
+      }
     },
     {
       "id": "formFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "oran",
       "default": 0.5,
-      "businessContext": "Gövde hacmi düzeltme faktörü (0.4-0.6)."
+      "businessContext": "Gövde hacmi düzeltme faktörü (0.4-0.6).",
+      "label_i18n": {
+        "en": "Form Faktörü",
+        "tr": "Form Faktörü",
+        "de": "Form Faktörü",
+        "fr": "Form Faktörü",
+        "es": "Form Faktörü",
+        "ar": "Form Faktörü"
+      }
     },
     {
       "id": "branchFactor",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "oran",
       "default": 0.3,
-      "businessContext": "Gövde biyokütlesine oranla dal miktarı."
+      "businessContext": "Gövde biyokütlesine oranla dal miktarı.",
+      "label_i18n": {
+        "en": "Dal Biyokütle Oranı",
+        "tr": "Dal Biyokütle Oranı",
+        "de": "Dal Biyokütle Oranı",
+        "fr": "Dal Biyokütle Oranı",
+        "es": "Dal Biyokütle Oranı",
+        "ar": "Dal Biyokütle Oranı"
+      }
     }
   ],
   "formulas": {
@@ -64,7 +112,12 @@
       "biomassTrunk",
       "biomassBranches",
       "totalBiomass"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCarbon"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -74,5 +127,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

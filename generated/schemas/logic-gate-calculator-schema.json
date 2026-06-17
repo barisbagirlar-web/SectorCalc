@@ -87,18 +87,20 @@
     "sum": "A + B + C + D",
     "andResult": "product",
     "orResult": "sum > 0 ? 1 : 0",
-    "xorResult": "sum % 2",
     "nandResult": "1 - andResult",
-    "norResult": "1 - orResult",
-    "xnorResult": "1 - xorResult",
-    "output": "gateType == 1 ? andResult : gateType == 2 ? orResult : gateType == 3 ? xorResult : gateType == 4 ? nandResult : gateType == 5 ? norResult : xnorResult"
+    "norResult": "1 - orResult"
   },
   "outputs": {
-    "primary": "output",
+    "primary": "norResult",
     "breakdown": [
       "product",
       "sum"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "output"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -108,5 +110,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

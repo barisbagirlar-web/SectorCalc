@@ -67,17 +67,21 @@
     }
   ],
   "formulas": {
-    "bmi": "weight / Math.pow(height/100, 2)",
     "weight": "weight",
     "height": "height"
   },
   "outputs": {
-    "primary": "bmi",
+    "primary": "height",
     "breakdown": [
       "weight",
       "height",
       "bmi"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "height"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -87,5 +91,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

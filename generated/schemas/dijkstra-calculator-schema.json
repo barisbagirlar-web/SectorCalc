@@ -103,18 +103,22 @@
     "path_ABD": "d_AB + d_BD",
     "path_ACD": "d_AC + d_CD",
     "path_ABCD": "d_AB + d_BC + d_CD",
-    "path_ACBD": "d_AC + d_BC + d_BD",
-    "shortest": "Math.min(path_direct, path_ABD, path_ACD, path_ABCD, path_ACBD)"
+    "path_ACBD": "d_AC + d_BC + d_BD"
   },
   "outputs": {
-    "primary": "shortest",
+    "primary": "path_ACBD",
     "breakdown": [
       "path_direct",
       "path_ABD",
       "path_ACD",
       "path_ABCD",
       "path_ACBD"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "shortest"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -124,5 +128,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

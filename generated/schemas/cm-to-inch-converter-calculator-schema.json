@@ -48,18 +48,9 @@
       "unit": "unit",
       "default": "standard",
       "options": [
-        {
-          "value": "standard",
-          "label": "Standard (1 in = 2.54 cm)"
-        },
-        {
-          "value": "high",
-          "label": "High (1 in = 2.540005 cm)"
-        },
-        {
-          "value": "survey",
-          "label": "Survey (1 in = 2.54000508 cm)"
-        }
+        "standard",
+        "high",
+        "survey"
       ],
       "businessContext": "Select the conversion factor precision based on industry standard (ISO 80000-1, NIST).",
       "label_i18n": {
@@ -76,18 +67,9 @@
       "unit": "unit",
       "default": "general",
       "options": [
-        {
-          "value": "general",
-          "label": "General (ISO 2768-m)"
-        },
-        {
-          "value": "fine",
-          "label": "Fine (ISO 2768-f)"
-        },
-        {
-          "value": "very_fine",
-          "label": "Very Fine (ISO 2768-v)"
-        }
+        "general",
+        "fine",
+        "very_fine"
       ],
       "businessContext": "Tolerance class for dimensional inspection per ISO 2768. Affects alert thresholds.",
       "label_i18n": {
@@ -169,18 +151,18 @@
       }
     ]
   },
-  "formulas": [
-    "length_cm",
-    "length_cm",
-    "length_cm",
-    "length_cm",
-    "length_cm",
-    "length_cm",
-    "length_cm"
-  ],
+  "formulas": {
+    "result": "length_cm + measurement_uncertainty + conversion_precision",
+    "result_copy": "length_cm + measurement_uncertainty + conversion_precision"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "cm-to-inch-converter-calculator",
   "catalogCategory": "conversion",

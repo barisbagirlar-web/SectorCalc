@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Asfaltlanacak alanın uzunluğu"
+      "businessContext": "Asfaltlanacak alanın uzunluğu",
+      "label_i18n": {
+        "en": "Uzunluk",
+        "tr": "Uzunluk",
+        "de": "Uzunluk",
+        "fr": "Uzunluk",
+        "es": "Uzunluk",
+        "ar": "Uzunluk"
+      }
     },
     {
       "id": "width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Asfaltlanacak alanın genişliği"
+      "businessContext": "Asfaltlanacak alanın genişliği",
+      "label_i18n": {
+        "en": "Genişlik",
+        "tr": "Genişlik",
+        "de": "Genişlik",
+        "fr": "Genişlik",
+        "es": "Genişlik",
+        "ar": "Genişlik"
+      }
     },
     {
       "id": "thickness",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 5,
-      "businessContext": "Asfalt tabakasının kalınlığı"
+      "businessContext": "Asfalt tabakasının kalınlığı",
+      "label_i18n": {
+        "en": "Kalınlık",
+        "tr": "Kalınlık",
+        "de": "Kalınlık",
+        "fr": "Kalınlık",
+        "es": "Kalınlık",
+        "ar": "Kalınlık"
+      }
     },
     {
       "id": "density",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "t/m³",
       "default": 2.4,
-      "businessContext": "Sıkıştırılmış asfalt yoğunluğu"
+      "businessContext": "Sıkıştırılmış asfalt yoğunluğu",
+      "label_i18n": {
+        "en": "Yoğunluk",
+        "tr": "Yoğunluk",
+        "de": "Yoğunluk",
+        "fr": "Yoğunluk",
+        "es": "Yoğunluk",
+        "ar": "Yoğunluk"
+      }
     },
     {
       "id": "compactionFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 95,
-      "businessContext": "Sıkıştırma faktörü yüzdesi"
+      "businessContext": "Sıkıştırma faktörü yüzdesi",
+      "label_i18n": {
+        "en": "Sıkıştırma Faktörü",
+        "tr": "Sıkıştırma Faktörü",
+        "de": "Sıkıştırma Faktörü",
+        "fr": "Sıkıştırma Faktörü",
+        "es": "Sıkıştırma Faktörü",
+        "ar": "Sıkıştırma Faktörü"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "volume",
       "looseVolume"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "weight"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -62,5 +107,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

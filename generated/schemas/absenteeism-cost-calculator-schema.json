@@ -144,22 +144,6 @@
       "businessContext_i18n": {
         "en": "Industry sector for benchmarking and adjusting cost factors."
       }
-    },
-    {
-      "id": "include_overtime_penalty",
-      "label": "Include Overtime Penalty",
-      "type": "boolean",
-      "unit": "unit",
-      "default": true,
-      "min": null,
-      "max": null,
-      "businessContext": "If true, applies a 1.5x multiplier to replacement costs for overtime hours.",
-      "label_i18n": {
-        "en": "Include Overtime Penalty"
-      },
-      "businessContext_i18n": {
-        "en": "If true, applies a 1.5x multiplier to replacement costs for overtime hours."
-      }
     }
   ],
   "validation": {
@@ -216,18 +200,18 @@
       }
     ]
   },
-  "formulas": [
-    "total_employees",
-    "total_employees",
-    "total_employees",
-    "total_employees",
-    "total_employees",
-    "total_employees",
-    "total_employees"
-  ],
+  "formulas": {
+    "result": "total_employees + absenteeism_rate + avg_hourly_wage",
+    "result_copy": "total_employees + absenteeism_rate + avg_hourly_wage"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

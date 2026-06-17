@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "fathoms",
       "default": 1,
-      "businessContext": "The length value in fathoms to convert."
+      "businessContext": "The length value in fathoms to convert.",
+      "label_i18n": {
+        "en": "Fathoms",
+        "tr": "Fathoms",
+        "de": "Fathoms",
+        "fr": "Fathoms",
+        "es": "Fathoms",
+        "ar": "Fathoms"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m/fa",
       "default": 1.8288,
-      "businessContext": "The exact conversion factor from fathoms to meters, as defined by international standards."
+      "businessContext": "The exact conversion factor from fathoms to meters, as defined by international standards.",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "decimalPlaces",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "digits",
       "default": 2,
-      "businessContext": "Number of decimal places for the output, based on precision requirements."
+      "businessContext": "Number of decimal places for the output, based on precision requirements.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "tolerance",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.001,
-      "businessContext": "Acceptable measurement tolerance for quality assurance."
+      "businessContext": "Acceptable measurement tolerance for quality assurance.",
+      "label_i18n": {
+        "en": "Tolerance",
+        "tr": "Tolerance",
+        "de": "Tolerance",
+        "fr": "Tolerance",
+        "es": "Tolerance",
+        "ar": "Tolerance"
+      }
     },
     {
       "id": "measurementUncertainty",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 0.05,
-      "businessContext": "Relative measurement uncertainty in the input fathom value (percentage)."
+      "businessContext": "Relative measurement uncertainty in the input fathom value (percentage).",
+      "label_i18n": {
+        "en": "Measurement Uncertainty",
+        "tr": "Measurement Uncertainty",
+        "de": "Measurement Uncertainty",
+        "fr": "Measurement Uncertainty",
+        "es": "Measurement Uncertainty",
+        "ar": "Measurement Uncertainty"
+      }
     },
     {
       "id": "safetyFactor",
@@ -47,23 +87,33 @@
       "type": "number",
       "unit": "unitless",
       "default": 1,
-      "businessContext": "Safety factor applied to the converted value for engineering design, if applicable."
+      "businessContext": "Safety factor applied to the converted value for engineering design, if applicable.",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
     "rawMeters": "fathoms * conversionFactor",
-    "converted": "rawMeters * safetyFactor",
-    "convertedRounded": "Math.round(converted * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
-    "upperBound": "convertedRounded + tolerance",
-    "lowerBound": "convertedRounded - tolerance"
+    "converted": "rawMeters * safetyFactor"
   },
   "outputs": {
-    "primary": "convertedRounded",
+    "primary": "converted",
     "breakdown": [
       "rawMeters",
       "upperBound",
       "lowerBound"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "lowerBound"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -73,5 +123,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

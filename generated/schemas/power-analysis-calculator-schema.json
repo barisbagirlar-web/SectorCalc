@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "V",
       "default": 230,
-      "businessContext": "The electrical potential difference in volts"
+      "businessContext": "The electrical potential difference in volts",
+      "label_i18n": {
+        "en": "Voltage (V)",
+        "tr": "Voltage (V)",
+        "de": "Voltage (V)",
+        "fr": "Voltage (V)",
+        "es": "Voltage (V)",
+        "ar": "Voltage (V)"
+      }
     },
     {
       "id": "current",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "A",
       "default": 10,
-      "businessContext": "The electrical current in amperes"
+      "businessContext": "The electrical current in amperes",
+      "label_i18n": {
+        "en": "Current (I)",
+        "tr": "Current (I)",
+        "de": "Current (I)",
+        "fr": "Current (I)",
+        "es": "Current (I)",
+        "ar": "Current (I)"
+      }
     },
     {
       "id": "resistance",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 23,
-      "businessContext": "The electrical resistance in ohms"
+      "businessContext": "The electrical resistance in ohms",
+      "label_i18n": {
+        "en": "Resistance (R)",
+        "tr": "Resistance (R)",
+        "de": "Resistance (R)",
+        "fr": "Resistance (R)",
+        "es": "Resistance (R)",
+        "ar": "Resistance (R)"
+      }
     },
     {
       "id": "time",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "h",
       "default": 1,
-      "businessContext": "The duration of operation in hours"
+      "businessContext": "The duration of operation in hours",
+      "label_i18n": {
+        "en": "Time (t)",
+        "tr": "Time (t)",
+        "de": "Time (t)",
+        "fr": "Time (t)",
+        "es": "Time (t)",
+        "ar": "Time (t)"
+      }
     }
   ],
   "formulas": {
@@ -48,7 +80,12 @@
       "power_VR",
       "power_IR",
       "energy"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "energy"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -58,5 +95,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

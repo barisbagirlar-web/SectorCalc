@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "The total amount of all items before any deductions or additions."
+      "businessContext": "The total amount of all items before any deductions or additions.",
+      "label_i18n": {
+        "en": "Subtotal",
+        "tr": "Subtotal",
+        "de": "Subtotal",
+        "fr": "Subtotal",
+        "es": "Subtotal",
+        "ar": "Subtotal"
+      }
     },
     {
       "id": "discountPercent",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Discount rate applied to the subtotal."
+      "businessContext": "Discount rate applied to the subtotal.",
+      "label_i18n": {
+        "en": "Discount Percentage",
+        "tr": "Discount Percentage",
+        "de": "Discount Percentage",
+        "fr": "Discount Percentage",
+        "es": "Discount Percentage",
+        "ar": "Discount Percentage"
+      }
     },
     {
       "id": "taxRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Tax rate applied after discount, e.g., VAT."
+      "businessContext": "Tax rate applied after discount, e.g., VAT.",
+      "label_i18n": {
+        "en": "Tax Rate",
+        "tr": "Tax Rate",
+        "de": "Tax Rate",
+        "fr": "Tax Rate",
+        "es": "Tax Rate",
+        "ar": "Tax Rate"
+      }
     },
     {
       "id": "shippingCost",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Flat shipping charge added to the invoice."
+      "businessContext": "Flat shipping charge added to the invoice.",
+      "label_i18n": {
+        "en": "Shipping Cost",
+        "tr": "Shipping Cost",
+        "de": "Shipping Cost",
+        "fr": "Shipping Cost",
+        "es": "Shipping Cost",
+        "ar": "Shipping Cost"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "Discount Amount",
       "Tax Amount",
       "Subtotal After Discount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "Subtotal After Discount"
   },
   "category": "Lojistik & Tedarik Zinciri",
   "sector": "Lojistik & Sevkiyat",
@@ -56,5 +93,10 @@
   "categorySlug": "procurement-supply-chain",
   "sectorId": "lojistik",
   "profession": "Lojistik Uzmanı",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

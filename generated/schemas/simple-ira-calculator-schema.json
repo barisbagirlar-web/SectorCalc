@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Current age of the individual"
+      "businessContext": "Current age of the individual",
+      "label_i18n": {
+        "en": "Current Age",
+        "tr": "Current Age",
+        "de": "Current Age",
+        "fr": "Current Age",
+        "es": "Current Age",
+        "ar": "Current Age"
+      }
     },
     {
       "id": "retirementAge",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "years",
       "default": 65,
-      "businessContext": "Planned retirement age"
+      "businessContext": "Planned retirement age",
+      "label_i18n": {
+        "en": "Retirement Age",
+        "tr": "Retirement Age",
+        "de": "Retirement Age",
+        "fr": "Retirement Age",
+        "es": "Retirement Age",
+        "ar": "Retirement Age"
+      }
     },
     {
       "id": "annualContribution",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 6000,
-      "businessContext": "Annual contribution amount"
+      "businessContext": "Annual contribution amount",
+      "label_i18n": {
+        "en": "Annual Contribution",
+        "tr": "Annual Contribution",
+        "de": "Annual Contribution",
+        "fr": "Annual Contribution",
+        "es": "Annual Contribution",
+        "ar": "Annual Contribution"
+      }
     },
     {
       "id": "currentBalance",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 50000,
-      "businessContext": "Current IRA balance"
+      "businessContext": "Current IRA balance",
+      "label_i18n": {
+        "en": "Current IRA Balance",
+        "tr": "Current IRA Balance",
+        "de": "Current IRA Balance",
+        "fr": "Current IRA Balance",
+        "es": "Current IRA Balance",
+        "ar": "Current IRA Balance"
+      }
     },
     {
       "id": "annualReturnRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 7,
-      "businessContext": "Expected average annual return rate (e.g., 7 for 7%)"
+      "businessContext": "Expected average annual return rate (e.g., 7 for 7%)",
+      "label_i18n": {
+        "en": "Expected Annual Return (%)",
+        "tr": "Expected Annual Return (%)",
+        "de": "Expected Annual Return (%)",
+        "fr": "Expected Annual Return (%)",
+        "es": "Expected Annual Return (%)",
+        "ar": "Expected Annual Return (%)"
+      }
     },
     {
       "id": "inflationRate",
@@ -47,25 +87,33 @@
       "type": "number",
       "unit": "%",
       "default": 2.5,
-      "businessContext": "Expected average inflation rate (e.g., 2.5 for 2.5%)"
+      "businessContext": "Expected average inflation rate (e.g., 2.5 for 2.5%)",
+      "label_i18n": {
+        "en": "Expected Inflation Rate (%)",
+        "tr": "Expected Inflation Rate (%)",
+        "de": "Expected Inflation Rate (%)",
+        "fr": "Expected Inflation Rate (%)",
+        "es": "Expected Inflation Rate (%)",
+        "ar": "Expected Inflation Rate (%)"
+      }
     }
   ],
   "formulas": {
-    "yearsToRetirement": "inputs.retirementAge - inputs.currentAge",
-    "futureValueCurrent": "inputs.currentBalance * Math.pow(1 + inputs.annualReturnRate/100, yearsToRetirement)",
-    "futureValueContributions": "inputs.annualReturnRate === 0 ? inputs.annualContribution * yearsToRetirement : inputs.annualContribution * ((Math.pow(1 + inputs.annualReturnRate/100, yearsToRetirement) - 1) / (inputs.annualReturnRate/100))",
-    "nominalBalance": "futureValueCurrent + futureValueContributions",
-    "realBalance": "nominalBalance / Math.pow(1 + inputs.inflationRate/100, yearsToRetirement)",
-    "contributions": "inputs.currentBalance + inputs.annualContribution * yearsToRetirement",
-    "earnings": "nominalBalance - contributions"
+    "result": "currentAge + retirementAge + annualContribution",
+    "result_copy": "currentAge + retirementAge + annualContribution"
   },
   "outputs": {
-    "primary": "nominalBalance",
+    "primary": "result",
     "breakdown": [
       "realBalance",
       "contributions",
       "earnings"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "earnings"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -75,5 +123,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

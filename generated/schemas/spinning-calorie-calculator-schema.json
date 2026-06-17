@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "min",
       "default": 30,
-      "businessContext": "Spinning seansının dakika cinsinden süresi"
+      "businessContext": "Spinning seansının dakika cinsinden süresi",
+      "label_i18n": {
+        "en": "Süre (dk)",
+        "tr": "Süre (dk)",
+        "de": "Süre (dk)",
+        "fr": "Süre (dk)",
+        "es": "Süre (dk)",
+        "ar": "Süre (dk)"
+      }
     },
     {
       "id": "speed_kmh",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "km/h",
       "default": 20,
-      "businessContext": "Seans boyunca ortalama pedal çevirme hızı"
+      "businessContext": "Seans boyunca ortalama pedal çevirme hızı",
+      "label_i18n": {
+        "en": "Ortalama Hız",
+        "tr": "Ortalama Hız",
+        "de": "Ortalama Hız",
+        "fr": "Ortalama Hız",
+        "es": "Ortalama Hız",
+        "ar": "Ortalama Hız"
+      }
     },
     {
       "id": "resistance_level",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "1-10",
       "default": 5,
-      "businessContext": "Bisiklet direncinin 1 ile 10 arasındaki seviyesi"
+      "businessContext": "Bisiklet direncinin 1 ile 10 arasındaki seviyesi",
+      "label_i18n": {
+        "en": "Direnç Seviyesi",
+        "tr": "Direnç Seviyesi",
+        "de": "Direnç Seviyesi",
+        "fr": "Direnç Seviyesi",
+        "es": "Direnç Seviyesi",
+        "ar": "Direnç Seviyesi"
+      }
     },
     {
       "id": "weight_kg",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Kullanıcının vücut ağırlığı"
+      "businessContext": "Kullanıcının vücut ağırlığı",
+      "label_i18n": {
+        "en": "Ağırlık",
+        "tr": "Ağırlık",
+        "de": "Ağırlık",
+        "fr": "Ağırlık",
+        "es": "Ağırlık",
+        "ar": "Ağırlık"
+      }
     },
     {
       "id": "age_years",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Kullanıcının yaşı (opsiyonel, formülde doğrudan kullanılmaz)"
+      "businessContext": "Kullanıcının yaşı (opsiyonel, formülde doğrudan kullanılmaz)",
+      "label_i18n": {
+        "en": "Yaş",
+        "tr": "Yaş",
+        "de": "Yaş",
+        "fr": "Yaş",
+        "es": "Yaş",
+        "ar": "Yaş"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "met_value",
       "calories_per_minute"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "calories_per_minute"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -62,5 +107,10 @@
   "sectorSlug": "cleaning",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

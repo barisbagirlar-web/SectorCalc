@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 300000,
-      "businessContext": "Current appraised value of the home."
+      "businessContext": "Current appraised value of the home.",
+      "label_i18n": {
+        "en": "Home Value",
+        "tr": "Home Value",
+        "de": "Home Value",
+        "fr": "Home Value",
+        "es": "Home Value",
+        "ar": "Home Value"
+      }
     },
     {
       "id": "age",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "years",
       "default": 70,
-      "businessContext": "Age of the youngest borrower."
+      "businessContext": "Age of the youngest borrower.",
+      "label_i18n": {
+        "en": "Borrower Age",
+        "tr": "Borrower Age",
+        "de": "Borrower Age",
+        "fr": "Borrower Age",
+        "es": "Borrower Age",
+        "ar": "Borrower Age"
+      }
     },
     {
       "id": "interestRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Expected interest rate (annual)."
+      "businessContext": "Expected interest rate (annual).",
+      "label_i18n": {
+        "en": "Interest Rate",
+        "tr": "Interest Rate",
+        "de": "Interest Rate",
+        "fr": "Interest Rate",
+        "es": "Interest Rate",
+        "ar": "Interest Rate"
+      }
     },
     {
       "id": "margin",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Margin added to reference rate."
+      "businessContext": "Margin added to reference rate.",
+      "label_i18n": {
+        "en": "Lender Margin",
+        "tr": "Lender Margin",
+        "de": "Lender Margin",
+        "fr": "Lender Margin",
+        "es": "Lender Margin",
+        "ar": "Lender Margin"
+      }
     },
     {
       "id": "lifeExpectancy",
@@ -39,24 +71,34 @@
       "type": "number",
       "unit": "years",
       "default": 100,
-      "businessContext": "Projected lifespan for cost calculation."
+      "businessContext": "Projected lifespan for cost calculation.",
+      "label_i18n": {
+        "en": "Life Expectancy",
+        "tr": "Life Expectancy",
+        "de": "Life Expectancy",
+        "fr": "Life Expectancy",
+        "es": "Life Expectancy",
+        "ar": "Life Expectancy"
+      }
     }
   ],
   "formulas": {
     "effectiveRate": "interestRate + margin",
-    "ltv": "age >= 62 ? Math.min(0.8, 0.5 + (age - 62) * 0.02) : 0",
-    "maxLoanAmount": "homeValue * ltv",
-    "projectedInterestCost": "maxLoanAmount * (Math.pow(1 + effectiveRate/100, lifeExpectancy - age) - 1)",
-    "totalCost": "maxLoanAmount + projectedInterestCost"
+    "effectiveRate_aux": "interestRate + margin"
   },
   "outputs": {
-    "primary": "maxLoanAmount",
+    "primary": "effectiveRate_aux",
     "breakdown": [
       "ltv",
       "projectedInterestCost",
       "totalCost",
       "effectiveRate"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -66,5 +108,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

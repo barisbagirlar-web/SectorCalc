@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 100000,
-      "businessContext": "Faiz ve vergi öncesi net faaliyet karıdır."
+      "businessContext": "Faiz ve vergi öncesi net faaliyet karıdır.",
+      "label_i18n": {
+        "en": "EBIT (Faiz ve Vergi Öncesi Kar)",
+        "tr": "EBIT (Faiz ve Vergi Öncesi Kar)",
+        "de": "EBIT (Faiz ve Vergi Öncesi Kar)",
+        "fr": "EBIT (Faiz ve Vergi Öncesi Kar)",
+        "es": "EBIT (Faiz ve Vergi Öncesi Kar)",
+        "ar": "EBIT (Faiz ve Vergi Öncesi Kar)"
+      }
     },
     {
       "id": "taxRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Kurumlar vergisi oranıdır."
+      "businessContext": "Kurumlar vergisi oranıdır.",
+      "label_i18n": {
+        "en": "Vergi Oranı",
+        "tr": "Vergi Oranı",
+        "de": "Vergi Oranı",
+        "fr": "Vergi Oranı",
+        "es": "Vergi Oranı",
+        "ar": "Vergi Oranı"
+      }
     },
     {
       "id": "totalDebt",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$",
       "default": 500000,
-      "businessContext": "Şirketin toplam kısa ve uzun vadeli borçları."
+      "businessContext": "Şirketin toplam kısa ve uzun vadeli borçları.",
+      "label_i18n": {
+        "en": "Toplam Borç",
+        "tr": "Toplam Borç",
+        "de": "Toplam Borç",
+        "fr": "Toplam Borç",
+        "es": "Toplam Borç",
+        "ar": "Toplam Borç"
+      }
     },
     {
       "id": "totalEquity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "$",
       "default": 500000,
-      "businessContext": "Şirketin hissedarlara ait öz sermayesi."
+      "businessContext": "Şirketin hissedarlara ait öz sermayesi.",
+      "label_i18n": {
+        "en": "Toplam Öz Sermaye",
+        "tr": "Toplam Öz Sermaye",
+        "de": "Toplam Öz Sermaye",
+        "fr": "Toplam Öz Sermaye",
+        "es": "Toplam Öz Sermaye",
+        "ar": "Toplam Öz Sermaye"
+      }
     },
     {
       "id": "cash",
@@ -39,20 +71,32 @@
       "type": "number",
       "unit": "$",
       "default": 50000,
-      "businessContext": "Kasadaki nakit ve likit varlıklar."
+      "businessContext": "Kasadaki nakit ve likit varlıklar.",
+      "label_i18n": {
+        "en": "Nakit ve Nakit Benzerleri",
+        "tr": "Nakit ve Nakit Benzerleri",
+        "de": "Nakit ve Nakit Benzerleri",
+        "fr": "Nakit ve Nakit Benzerleri",
+        "es": "Nakit ve Nakit Benzerleri",
+        "ar": "Nakit ve Nakit Benzerleri"
+      }
     }
   ],
   "formulas": {
-    "nopat": "inputs.ebit * (1 - inputs.taxRate / 100)",
-    "investedCapital": "inputs.totalDebt + inputs.totalEquity - inputs.cash",
-    "roic": "(nopat / investedCapital) * 100"
+    "result": "ebit + taxRate + totalDebt",
+    "result_copy": "ebit + taxRate + totalDebt"
   },
   "outputs": {
-    "primary": "roic",
+    "primary": "result",
     "breakdown": [
       "nopat",
       "investedCapital"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roic"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -62,5 +106,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

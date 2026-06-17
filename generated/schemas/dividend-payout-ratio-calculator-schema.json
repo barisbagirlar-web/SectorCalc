@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 1000000,
-      "businessContext": "Total amount of dividends paid to shareholders in the period (e.g., quarterly or annually)."
+      "businessContext": "Total amount of dividends paid to shareholders in the period (e.g., quarterly or annually).",
+      "label_i18n": {
+        "en": "Paid Dividends",
+        "tr": "Paid Dividends",
+        "de": "Paid Dividends",
+        "fr": "Paid Dividends",
+        "es": "Paid Dividends",
+        "ar": "Paid Dividends"
+      }
     },
     {
       "id": "netIncome",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 5000000,
-      "businessContext": "Company’s net income (profit after all expenses) for the same period."
+      "businessContext": "Company’s net income (profit after all expenses) for the same period.",
+      "label_i18n": {
+        "en": "Net Income",
+        "tr": "Net Income",
+        "de": "Net Income",
+        "fr": "Net Income",
+        "es": "Net Income",
+        "ar": "Net Income"
+      }
     },
     {
       "id": "dividendsPerShare",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency per share",
       "default": 2,
-      "businessContext": "Dividends paid per outstanding share (alternative numerator for per-share calculation)."
+      "businessContext": "Dividends paid per outstanding share (alternative numerator for per-share calculation).",
+      "label_i18n": {
+        "en": "Dividends Per Share",
+        "tr": "Dividends Per Share",
+        "de": "Dividends Per Share",
+        "fr": "Dividends Per Share",
+        "es": "Dividends Per Share",
+        "ar": "Dividends Per Share"
+      }
     },
     {
       "id": "earningsPerShare",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency per share",
       "default": 5,
-      "businessContext": "Earnings per share for the period (alternative denominator for per-share calculation)."
+      "businessContext": "Earnings per share for the period (alternative denominator for per-share calculation).",
+      "label_i18n": {
+        "en": "Earnings Per Share",
+        "tr": "Earnings Per Share",
+        "de": "Earnings Per Share",
+        "fr": "Earnings Per Share",
+        "es": "Earnings Per Share",
+        "ar": "Earnings Per Share"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "dividendPayoutRatioDecimal",
       "retentionRatioPercent"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "retentionRatioPercent"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

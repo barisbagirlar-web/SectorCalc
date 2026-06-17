@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 10,
-      "businessContext": "Bir gacha çekiminin birim maliyeti."
+      "businessContext": "Bir gacha çekiminin birim maliyeti.",
+      "label_i18n": {
+        "en": "Tek Çekim Maliyeti",
+        "tr": "Tek Çekim Maliyeti",
+        "de": "Tek Çekim Maliyeti",
+        "fr": "Tek Çekim Maliyeti",
+        "es": "Tek Çekim Maliyeti",
+        "ar": "Tek Çekim Maliyeti"
+      }
     },
     {
       "id": "baseProbability",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 0.6,
-      "businessContext": "Her bir çekimde başarılı sonuç alma olasılığı (yüzde)."
+      "businessContext": "Her bir çekimde başarılı sonuç alma olasılığı (yüzde).",
+      "label_i18n": {
+        "en": "Temel Başarı Olasılığı",
+        "tr": "Temel Başarı Olasılığı",
+        "de": "Temel Başarı Olasılığı",
+        "fr": "Temel Başarı Olasılığı",
+        "es": "Temel Başarı Olasılığı",
+        "ar": "Temel Başarı Olasılığı"
+      }
     },
     {
       "id": "hardPityAt",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "adet",
       "default": 90,
-      "businessContext": "Bu çekim sayısına ulaşıldığında başarı garanti olur. 0 ise garanti yok."
+      "businessContext": "Bu çekim sayısına ulaşıldığında başarı garanti olur. 0 ise garanti yok.",
+      "label_i18n": {
+        "en": "Garanti Eşiği (Çekim Sayısı)",
+        "tr": "Garanti Eşiği (Çekim Sayısı)",
+        "de": "Garanti Eşiği (Çekim Sayısı)",
+        "fr": "Garanti Eşiği (Çekim Sayısı)",
+        "es": "Garanti Eşiği (Çekim Sayısı)",
+        "ar": "Garanti Eşiği (Çekim Sayısı)"
+      }
     },
     {
       "id": "desiredSuccesses",
@@ -31,23 +55,33 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Elde edilmek istenen başarılı sonuç sayısı."
+      "businessContext": "Elde edilmek istenen başarılı sonuç sayısı.",
+      "label_i18n": {
+        "en": "Hedef Başarı Sayısı",
+        "tr": "Hedef Başarı Sayısı",
+        "de": "Hedef Başarı Sayısı",
+        "fr": "Hedef Başarı Sayısı",
+        "es": "Hedef Başarı Sayısı",
+        "ar": "Hedef Başarı Sayısı"
+      }
     }
   ],
   "formulas": {
     "pDecimal": "baseProbability / 100",
     "q": "1 - pDecimal",
-    "hardPityPulls": "hardPityAt",
-    "expectedPullsOne": "hardPityPulls > 0 ? (1 - Math.pow(q, hardPityPulls)) / pDecimal : 1 / pDecimal",
-    "totalPulls": "expectedPullsOne * desiredSuccesses",
-    "totalCost": "totalPulls * costPerPull"
+    "hardPityPulls": "hardPityAt"
   },
   "outputs": {
-    "primary": "totalCost",
+    "primary": "hardPityPulls",
     "breakdown": [
       "expectedPullsOne",
       "totalPulls"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -57,5 +91,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

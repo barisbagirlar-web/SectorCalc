@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "%",
       "default": 60,
-      "businessContext": "Average score of trainees before training, as percentage of maximum."
+      "businessContext": "Average score of trainees before training, as percentage of maximum.",
+      "label_i18n": {
+        "en": "Pre-Training Assessment Score",
+        "tr": "Pre-Training Assessment Score",
+        "de": "Pre-Training Assessment Score",
+        "fr": "Pre-Training Assessment Score",
+        "es": "Pre-Training Assessment Score",
+        "ar": "Pre-Training Assessment Score"
+      }
     },
     {
       "id": "postScore",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 80,
-      "businessContext": "Average score of trainees after training, as percentage of maximum."
+      "businessContext": "Average score of trainees after training, as percentage of maximum.",
+      "label_i18n": {
+        "en": "Post-Training Assessment Score",
+        "tr": "Post-Training Assessment Score",
+        "de": "Post-Training Assessment Score",
+        "fr": "Post-Training Assessment Score",
+        "es": "Post-Training Assessment Score",
+        "ar": "Post-Training Assessment Score"
+      }
     },
     {
       "id": "trainingDuration",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "hours",
       "default": 40,
-      "businessContext": "Total hours of training delivered."
+      "businessContext": "Total hours of training delivered.",
+      "label_i18n": {
+        "en": "Training Duration",
+        "tr": "Training Duration",
+        "de": "Training Duration",
+        "fr": "Training Duration",
+        "es": "Training Duration",
+        "ar": "Training Duration"
+      }
     },
     {
       "id": "hourlyCost",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "€",
       "default": 100,
-      "businessContext": "Cost per hour including instructor, materials, overhead."
+      "businessContext": "Cost per hour including instructor, materials, overhead.",
+      "label_i18n": {
+        "en": "Training Cost per Hour",
+        "tr": "Training Cost per Hour",
+        "de": "Training Cost per Hour",
+        "fr": "Training Cost per Hour",
+        "es": "Training Cost per Hour",
+        "ar": "Training Cost per Hour"
+      }
     },
     {
       "id": "scrapRateBefore",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percentage of defective output before training."
+      "businessContext": "Percentage of defective output before training.",
+      "label_i18n": {
+        "en": "Scrap Rate Before Training",
+        "tr": "Scrap Rate Before Training",
+        "de": "Scrap Rate Before Training",
+        "fr": "Scrap Rate Before Training",
+        "es": "Scrap Rate Before Training",
+        "ar": "Scrap Rate Before Training"
+      }
     },
     {
       "id": "scrapRateAfter",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Percentage of defective output after training."
+      "businessContext": "Percentage of defective output after training.",
+      "label_i18n": {
+        "en": "Scrap Rate After Training",
+        "tr": "Scrap Rate After Training",
+        "de": "Scrap Rate After Training",
+        "fr": "Scrap Rate After Training",
+        "es": "Scrap Rate After Training",
+        "ar": "Scrap Rate After Training"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
       "skillGain",
       "qualityImprovement",
       "costEfficiency"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "trainingEffectiveness"
   },
   "category": "İmalat & Üretim",
   "sector": "Üretim & İmalat",
@@ -72,5 +125,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

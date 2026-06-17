@@ -85,18 +85,20 @@
   "formulas": {
     "V_ms": "designSpeed / 3.6",
     "requiredE_percent": "((V_ms**2 / (gravity * curveRadius)) - frictionCoeff) * 100",
-    "requiredSuperelevation": "Math.max(0, Math.min(requiredE_percent, maxSuperelevation))",
-    "calculatedSuperelevation": "requiredE_percent",
-    "isSuperelevationCapped": "requiredE_percent > maxSuperelevation",
-    "requiredFrictionCoefficient": "(V_ms**2 / (gravity * curveRadius)) - (requiredSuperelevation / 100)"
+    "calculatedSuperelevation": "requiredE_percent"
   },
   "outputs": {
-    "primary": "requiredSuperelevation",
+    "primary": "calculatedSuperelevation",
     "breakdown": [
       "calculatedSuperelevation",
       "isSuperelevationCapped",
       "requiredFrictionCoefficient"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "requiredFrictionCoefficient"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -106,5 +108,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

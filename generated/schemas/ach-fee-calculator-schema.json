@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 100,
-      "businessContext": "Bir ay içindeki toplam ACH işlem sayısı."
+      "businessContext": "Bir ay içindeki toplam ACH işlem sayısı.",
+      "label_i18n": {
+        "en": "Aylık İşlem Sayısı",
+        "tr": "Aylık İşlem Sayısı",
+        "de": "Aylık İşlem Sayısı",
+        "fr": "Aylık İşlem Sayısı",
+        "es": "Aylık İşlem Sayısı",
+        "ar": "Aylık İşlem Sayısı"
+      }
     },
     {
       "id": "flatFeePerTransaction",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "TL",
       "default": 0.5,
-      "businessContext": "Her işlem için ödenen sabit ücret."
+      "businessContext": "Her işlem için ödenen sabit ücret.",
+      "label_i18n": {
+        "en": "İşlem Başı Sabit Ücret",
+        "tr": "İşlem Başı Sabit Ücret",
+        "de": "İşlem Başı Sabit Ücret",
+        "fr": "İşlem Başı Sabit Ücret",
+        "es": "İşlem Başı Sabit Ücret",
+        "ar": "İşlem Başı Sabit Ücret"
+      }
     },
     {
       "id": "percentageFeeRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 0.1,
-      "businessContext": "Toplam işlem hacmi üzerinden alınan yüzdelik oran."
+      "businessContext": "Toplam işlem hacmi üzerinden alınan yüzdelik oran.",
+      "label_i18n": {
+        "en": "İşlem Hacmi Yüzdelik Ücreti",
+        "tr": "İşlem Hacmi Yüzdelik Ücreti",
+        "de": "İşlem Hacmi Yüzdelik Ücreti",
+        "fr": "İşlem Hacmi Yüzdelik Ücreti",
+        "es": "İşlem Hacmi Yüzdelik Ücreti",
+        "ar": "İşlem Hacmi Yüzdelik Ücreti"
+      }
     },
     {
       "id": "totalMonthlyVolume",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TL",
       "default": 50000,
-      "businessContext": "Bir ay içindeki tüm ACH işlemlerinin toplam parasal hacmi."
+      "businessContext": "Bir ay içindeki tüm ACH işlemlerinin toplam parasal hacmi.",
+      "label_i18n": {
+        "en": "Aylık Toplam İşlem Hacmi",
+        "tr": "Aylık Toplam İşlem Hacmi",
+        "de": "Aylık Toplam İşlem Hacmi",
+        "fr": "Aylık Toplam İşlem Hacmi",
+        "es": "Aylık Toplam İşlem Hacmi",
+        "ar": "Aylık Toplam İşlem Hacmi"
+      }
     },
     {
       "id": "monthlyBaseFee",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "TL",
       "default": 10,
-      "businessContext": "ACH hizmeti için aylık ödenen sabit ücret."
+      "businessContext": "ACH hizmeti için aylık ödenen sabit ücret.",
+      "label_i18n": {
+        "en": "Aylık Sabit Ücret",
+        "tr": "Aylık Sabit Ücret",
+        "de": "Aylık Sabit Ücret",
+        "fr": "Aylık Sabit Ücret",
+        "es": "Aylık Sabit Ücret",
+        "ar": "Aylık Sabit Ücret"
+      }
     }
   ],
   "formulas": {
@@ -68,7 +108,12 @@
         "unit": "TL",
         "formula": "volumeFee"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalFee"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -78,5 +123,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

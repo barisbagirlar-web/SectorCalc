@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 10000,
-      "businessContext": "The initial lump sum investment amount."
+      "businessContext": "The initial lump sum investment amount.",
+      "label_i18n": {
+        "en": "Initial Investment",
+        "tr": "Initial Investment",
+        "de": "Initial Investment",
+        "fr": "Initial Investment",
+        "es": "Initial Investment",
+        "ar": "Initial Investment"
+      }
     },
     {
       "id": "monthlyContribution",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 500,
-      "businessContext": "The amount added to the portfolio each month."
+      "businessContext": "The amount added to the portfolio each month.",
+      "label_i18n": {
+        "en": "Monthly Contribution",
+        "tr": "Monthly Contribution",
+        "de": "Monthly Contribution",
+        "fr": "Monthly Contribution",
+        "es": "Monthly Contribution",
+        "ar": "Monthly Contribution"
+      }
     },
     {
       "id": "annualReturnRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 7,
-      "businessContext": "Expected average annual return rate of the portfolio."
+      "businessContext": "Expected average annual return rate of the portfolio.",
+      "label_i18n": {
+        "en": "Annual Return Rate",
+        "tr": "Annual Return Rate",
+        "de": "Annual Return Rate",
+        "fr": "Annual Return Rate",
+        "es": "Annual Return Rate",
+        "ar": "Annual Return Rate"
+      }
     },
     {
       "id": "years",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Total number of years the investment will grow."
+      "businessContext": "Total number of years the investment will grow.",
+      "label_i18n": {
+        "en": "Investment Horizon",
+        "tr": "Investment Horizon",
+        "de": "Investment Horizon",
+        "fr": "Investment Horizon",
+        "es": "Investment Horizon",
+        "ar": "Investment Horizon"
+      }
     }
   ],
   "formulas": {
-    "futureValue": "initialInvestment * Math.pow(1 + annualReturnRate/12/100, years*12) + monthlyContribution * ((Math.pow(1 + annualReturnRate/12/100, years*12) - 1) / (annualReturnRate/12/100))",
     "totalContributions": "initialInvestment + monthlyContribution * years * 12",
-    "totalInterest": "futureValue - totalContributions"
+    "totalContributions_aux": "initialInvestment + monthlyContribution * years * 12"
   },
   "outputs": {
-    "primary": "futureValue",
+    "primary": "totalContributions_aux",
     "breakdown": [
       "totalContributions",
       "totalInterest"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalInterest"
   },
   "category": "Proje & Yatırım",
   "sector": "Finans & İK",
@@ -54,5 +90,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

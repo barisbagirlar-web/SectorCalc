@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ratio",
       "default": 5,
-      "businessContext": "Yıllık envanter devir hızı (satılan mal maliyeti / ortalama envanter)"
+      "businessContext": "Yıllık envanter devir hızı (satılan mal maliyeti / ortalama envanter)",
+      "label_i18n": {
+        "en": "Envanter Devir Hızı",
+        "tr": "Envanter Devir Hızı",
+        "de": "Envanter Devir Hızı",
+        "fr": "Envanter Devir Hızı",
+        "es": "Envanter Devir Hızı",
+        "ar": "Envanter Devir Hızı"
+      }
     },
     {
       "id": "machineUtilization",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 85,
-      "businessContext": "Makinelerin fiili çalışma süresinin planlanan süreye oranı"
+      "businessContext": "Makinelerin fiili çalışma süresinin planlanan süreye oranı",
+      "label_i18n": {
+        "en": "Makine Kullanım Oranı",
+        "tr": "Makine Kullanım Oranı",
+        "de": "Makine Kullanım Oranı",
+        "fr": "Makine Kullanım Oranı",
+        "es": "Makine Kullanım Oranı",
+        "ar": "Makine Kullanım Oranı"
+      }
     },
     {
       "id": "orderAccuracy",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 98,
-      "businessContext": "Hatızısız teslim edilen siparişlerin toplam siparişlere oranı"
+      "businessContext": "Hatızısız teslim edilen siparişlerin toplam siparişlere oranı",
+      "label_i18n": {
+        "en": "Sipariş Doğruluk Oranı",
+        "tr": "Sipariş Doğruluk Oranı",
+        "de": "Sipariş Doğruluk Oranı",
+        "fr": "Sipariş Doğruluk Oranı",
+        "es": "Sipariş Doğruluk Oranı",
+        "ar": "Sipariş Doğruluk Oranı"
+      }
     },
     {
       "id": "defectRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Üretimdeki kusurlu ürün oranı"
+      "businessContext": "Üretimdeki kusurlu ürün oranı",
+      "label_i18n": {
+        "en": "Hata Oranı",
+        "tr": "Hata Oranı",
+        "de": "Hata Oranı",
+        "fr": "Hata Oranı",
+        "es": "Hata Oranı",
+        "ar": "Hata Oranı"
+      }
     },
     {
       "id": "maintenanceCompliance",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "Planlanan bakım görevlerinin zamanında tamamlanma oranı"
+      "businessContext": "Planlanan bakım görevlerinin zamanında tamamlanma oranı",
+      "label_i18n": {
+        "en": "Bakım Uyum Oranı",
+        "tr": "Bakım Uyum Oranı",
+        "de": "Bakım Uyum Oranı",
+        "fr": "Bakım Uyum Oranı",
+        "es": "Bakım Uyum Oranı",
+        "ar": "Bakım Uyum Oranı"
+      }
     },
     {
       "id": "safetyScore",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "score",
       "default": 95,
-      "businessContext": "İSG denetim puanı (0-100)"
+      "businessContext": "İSG denetim puanı (0-100)",
+      "label_i18n": {
+        "en": "İş Güvenliği Skoru",
+        "tr": "İş Güvenliği Skoru",
+        "de": "İş Güvenliği Skoru",
+        "fr": "İş Güvenliği Skoru",
+        "es": "İş Güvenliği Skoru",
+        "ar": "İş Güvenliği Skoru"
+      }
     }
   ],
   "formulas": {
@@ -68,7 +116,12 @@
       "defectComponent",
       "maintenanceComponent",
       "safetyComponent"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "timiScore"
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Üretim & İmalat",
@@ -78,5 +131,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "plastik",
   "profession": "Üretim Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

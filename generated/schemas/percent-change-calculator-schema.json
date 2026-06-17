@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "units",
       "default": 100,
-      "businessContext": "The starting value or baseline measurement."
+      "businessContext": "The starting value or baseline measurement.",
+      "label_i18n": {
+        "en": "Initial Value",
+        "tr": "Initial Value",
+        "de": "Initial Value",
+        "fr": "Initial Value",
+        "es": "Initial Value",
+        "ar": "Initial Value"
+      }
     },
     {
       "id": "finalValue",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "units",
       "default": 110,
-      "businessContext": "The ending value or current measurement."
+      "businessContext": "The ending value or current measurement.",
+      "label_i18n": {
+        "en": "Final Value",
+        "tr": "Final Value",
+        "de": "Final Value",
+        "fr": "Final Value",
+        "es": "Final Value",
+        "ar": "Final Value"
+      }
     },
     {
       "id": "decimalPlaces",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "digits",
       "default": 2,
-      "businessContext": "Number of decimal places for rounding the result."
+      "businessContext": "Number of decimal places for rounding the result.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "multiplier",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "factor",
       "default": 100,
-      "businessContext": "Factor to convert the relative change to a scaled percentage; typical value is 100 for percentage, 10000 for basis points."
+      "businessContext": "Factor to convert the relative change to a scaled percentage; typical value is 100 for percentage, 10000 for basis points.",
+      "label_i18n": {
+        "en": "Multiplier",
+        "tr": "Multiplier",
+        "de": "Multiplier",
+        "fr": "Multiplier",
+        "es": "Multiplier",
+        "ar": "Multiplier"
+      }
     }
   ],
   "formulas": {
     "absoluteChange": "finalValue - initialValue",
-    "relativeChange": "(finalValue - initialValue) / initialValue",
-    "percentChange": "Math.round(((finalValue - initialValue) / initialValue) * multiplier * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
+    "relativeChange": "(finalValue - initialValue) / initialValue"
   },
   "outputs": {
-    "primary": "percentChange",
+    "primary": "relativeChange",
     "breakdown": [
       "absoluteChange",
       "relativeChange"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "percentChange"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "danismanlik",
   "profession": "Strateji Uzmanı",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "X entegrasyon alt sınırı"
+      "businessContext": "X entegrasyon alt sınırı",
+      "label_i18n": {
+        "en": "X Alt Sınır",
+        "tr": "X Alt Sınır",
+        "de": "X Alt Sınır",
+        "fr": "X Alt Sınır",
+        "es": "X Alt Sınır",
+        "ar": "X Alt Sınır"
+      }
     },
     {
       "id": "xUpper",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "X entegrasyon üst sınırı"
+      "businessContext": "X entegrasyon üst sınırı",
+      "label_i18n": {
+        "en": "X Üst Sınır",
+        "tr": "X Üst Sınır",
+        "de": "X Üst Sınır",
+        "fr": "X Üst Sınır",
+        "es": "X Üst Sınır",
+        "ar": "X Üst Sınır"
+      }
     },
     {
       "id": "yLower",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Y entegrasyon alt sınırı"
+      "businessContext": "Y entegrasyon alt sınırı",
+      "label_i18n": {
+        "en": "Y Alt Sınır",
+        "tr": "Y Alt Sınır",
+        "de": "Y Alt Sınır",
+        "fr": "Y Alt Sınır",
+        "es": "Y Alt Sınır",
+        "ar": "Y Alt Sınır"
+      }
     },
     {
       "id": "yUpper",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Y entegrasyon üst sınırı"
+      "businessContext": "Y entegrasyon üst sınırı",
+      "label_i18n": {
+        "en": "Y Üst Sınır",
+        "tr": "Y Üst Sınır",
+        "de": "Y Üst Sınır",
+        "fr": "Y Üst Sınır",
+        "es": "Y Üst Sınır",
+        "ar": "Y Üst Sınır"
+      }
     },
     {
       "id": "zLower",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Z entegrasyon alt sınırı"
+      "businessContext": "Z entegrasyon alt sınırı",
+      "label_i18n": {
+        "en": "Z Alt Sınır",
+        "tr": "Z Alt Sınır",
+        "de": "Z Alt Sınır",
+        "fr": "Z Alt Sınır",
+        "es": "Z Alt Sınır",
+        "ar": "Z Alt Sınır"
+      }
     },
     {
       "id": "zUpper",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Z entegrasyon üst sınırı"
+      "businessContext": "Z entegrasyon üst sınırı",
+      "label_i18n": {
+        "en": "Z Üst Sınır",
+        "tr": "Z Üst Sınır",
+        "de": "Z Üst Sınır",
+        "fr": "Z Üst Sınır",
+        "es": "Z Üst Sınır",
+        "ar": "Z Üst Sınır"
+      }
     },
     {
       "id": "density",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1000,
-      "businessContext": "Sabit yoğunluk"
+      "businessContext": "Sabit yoğunluk",
+      "label_i18n": {
+        "en": "Yoğunluk",
+        "tr": "Yoğunluk",
+        "de": "Yoğunluk",
+        "fr": "Yoğunluk",
+        "es": "Yoğunluk",
+        "ar": "Yoğunluk"
+      }
     }
   ],
   "formulas": {
@@ -67,7 +123,12 @@
     "breakdown": [
       "volume",
       "mass"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "mass"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -77,5 +138,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

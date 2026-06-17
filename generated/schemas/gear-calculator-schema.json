@@ -104,9 +104,7 @@
     "gearRatio": "z2 / z1",
     "centerDistance": "(module * z1 + module * z2) / 2",
     "addendum": "ha * module",
-    "dedendum": "hf * module",
-    "baseDiameter1": "module * z1 * Math.cos(pressureAngle * Math.PI / 180)",
-    "baseDiameter2": "module * z2 * Math.cos(pressureAngle * Math.PI / 180)"
+    "dedendum": "hf * module"
   },
   "outputs": {
     "primary": "gearRatio",
@@ -118,7 +116,12 @@
       "dedendum",
       "baseDiameter1",
       "baseDiameter2"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "baseDiameter2"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -128,5 +131,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

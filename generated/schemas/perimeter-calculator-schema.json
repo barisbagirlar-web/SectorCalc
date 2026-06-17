@@ -138,7 +138,12 @@
     "primary": "perimeter",
     "breakdown": [
       "perimeter = side1 + side2 + side3 + side4 + side5 + side6 + side7 + side8"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "perimeter___side1___side2___side3___side"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -148,5 +153,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

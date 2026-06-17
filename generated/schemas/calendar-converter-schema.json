@@ -67,27 +67,21 @@
     }
   ],
   "formulas": {
-    "julianDay": "367 * gregorianYear - Math.floor(7 * (gregorianYear + Math.floor((gregorianMonth + 9) / 12)) / 4) + Math.floor(275 * gregorianMonth / 9) + gregorianDay + 1721013.5 + 0.5",
-    "julianYear": "Math.floor((julianDay - 1721013.5 - 0.5) / 365.25)",
-    "julianMonth": "Math.floor((julianDay - 1721013.5 - 0.5 - Math.floor(365.25 * julianYear)) / 30.6001)",
-    "julianDayOfMonth": "julianDay - 1721013.5 - 0.5 - Math.floor(365.25 * julianYear) - Math.floor(30.6001 * julianMonth)",
-    "islamicYear": "Math.floor((julianDay - 1948439.5) / 354.367)",
-    "islamicMonth": "Math.floor(((julianDay - 1948439.5) - Math.floor(354.367 * islamicYear)) / 29.53059) + 1",
-    "islamicDay": "Math.floor((julianDay - 1948439.5) - Math.floor(354.367 * islamicYear) - Math.floor(29.53059 * (islamicMonth - 1))) + 1",
-    "hebrewYear": "Math.floor((julianDay - 347997.5) / 365.2468)",
-    "hebrewMonth": "Math.floor(((julianDay - 347997.5) - Math.floor(365.2468 * hebrewYear)) / 29.53059) + 1",
-    "hebrewDay": "Math.floor((julianDay - 347997.5) - Math.floor(365.2468 * hebrewYear) - Math.floor(29.53059 * (hebrewMonth - 1))) + 1",
-    "_julianYear___julianMonth___julianDayOfM": "{julianYear}-{julianMonth}-{julianDayOfMonth}",
-    "_islamicYear___islamicMonth___islamicDay": "{islamicYear}-{islamicMonth}-{islamicDay}",
-    "_hebrewYear___hebrewMonth___hebrewDay_": "{hebrewYear}-{hebrewMonth}-{hebrewDay}"
+    "result": "gregorianYear + gregorianMonth + gregorianDay",
+    "result_aux": "gregorianYear + gregorianMonth + gregorianDay"
   },
   "outputs": {
-    "primary": "julianDay",
+    "primary": "result",
     "breakdown": [
       "Julian: {julianYear}-{julianMonth}-{julianDayOfMonth}",
       "Islamic: {islamicYear}-{islamicMonth}-{islamicDay}",
       "Hebrew: {hebrewYear}-{hebrewMonth}-{hebrewDay}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "_hebrewYear___hebrewMonth___hebrewDay_"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -97,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

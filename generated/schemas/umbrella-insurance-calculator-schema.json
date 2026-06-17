@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 500000,
-      "businessContext": "Total value of all owned assets (home, cars, investments, etc.)"
+      "businessContext": "Total value of all owned assets (home, cars, investments, etc.)",
+      "label_i18n": {
+        "en": "Total Assets",
+        "tr": "Total Assets",
+        "de": "Total Assets",
+        "fr": "Total Assets",
+        "es": "Total Assets",
+        "ar": "Total Assets"
+      }
     },
     {
       "id": "totalLiabilities",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "$",
       "default": 200000,
-      "businessContext": "Outstanding debts (mortgage, loans, etc.)"
+      "businessContext": "Outstanding debts (mortgage, loans, etc.)",
+      "label_i18n": {
+        "en": "Total Liabilities",
+        "tr": "Total Liabilities",
+        "de": "Total Liabilities",
+        "fr": "Total Liabilities",
+        "es": "Total Liabilities",
+        "ar": "Total Liabilities"
+      }
     },
     {
       "id": "underlyingCoverage",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$",
       "default": 300000,
-      "businessContext": "Combined liability limits from auto, home, and other primary insurance policies"
+      "businessContext": "Combined liability limits from auto, home, and other primary insurance policies",
+      "label_i18n": {
+        "en": "Underlying Liability Coverage",
+        "tr": "Underlying Liability Coverage",
+        "de": "Underlying Liability Coverage",
+        "fr": "Underlying Liability Coverage",
+        "es": "Underlying Liability Coverage",
+        "ar": "Underlying Liability Coverage"
+      }
     },
     {
       "id": "riskFactor",
@@ -31,23 +55,34 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Multiplier based on occupation, lifestyle, and property risks (100% = standard)"
+      "businessContext": "Multiplier based on occupation, lifestyle, and property risks (100% = standard)",
+      "label_i18n": {
+        "en": "Risk Factor",
+        "tr": "Risk Factor",
+        "de": "Risk Factor",
+        "fr": "Risk Factor",
+        "es": "Risk Factor",
+        "ar": "Risk Factor"
+      }
     }
   ],
   "formulas": {
     "netWorth": "totalAssets - totalLiabilities",
     "riskAdjustedNetWorth": "netWorth * (riskFactor / 100)",
-    "coverageGap": "riskAdjustedNetWorth - underlyingCoverage",
-    "recommendedCoverage": "Math.max(0, coverageGap)",
-    "finalRecommendation": "recommendedCoverage > 0 ? Math.max(1000000, recommendedCoverage) : 0"
+    "coverageGap": "riskAdjustedNetWorth - underlyingCoverage"
   },
   "outputs": {
-    "primary": "finalRecommendation",
+    "primary": "coverageGap",
     "breakdown": [
       "netWorth",
       "riskAdjustedNetWorth",
       "coverageGap"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "finalRecommendation"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -57,5 +92,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

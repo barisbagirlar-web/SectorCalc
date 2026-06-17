@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100000,
-      "businessContext": "The upfront cost of the investment project."
+      "businessContext": "The upfront cost of the investment project.",
+      "label_i18n": {
+        "en": "Initial Investment",
+        "tr": "Initial Investment",
+        "de": "Initial Investment",
+        "fr": "Initial Investment",
+        "es": "Initial Investment",
+        "ar": "Initial Investment"
+      }
     },
     {
       "id": "discountRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Annual discount rate used to calculate present value of future cash flows."
+      "businessContext": "Annual discount rate used to calculate present value of future cash flows.",
+      "label_i18n": {
+        "en": "Discount Rate",
+        "tr": "Discount Rate",
+        "de": "Discount Rate",
+        "fr": "Discount Rate",
+        "es": "Discount Rate",
+        "ar": "Discount Rate"
+      }
     },
     {
       "id": "cashFlowYear1",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 30000,
-      "businessContext": "Net cash inflow expected at the end of Year 1."
+      "businessContext": "Net cash inflow expected at the end of Year 1.",
+      "label_i18n": {
+        "en": "Cash Flow Year 1",
+        "tr": "Cash Flow Year 1",
+        "de": "Cash Flow Year 1",
+        "fr": "Cash Flow Year 1",
+        "es": "Cash Flow Year 1",
+        "ar": "Cash Flow Year 1"
+      }
     },
     {
       "id": "cashFlowYear2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 30000,
-      "businessContext": "Net cash inflow expected at the end of Year 2."
+      "businessContext": "Net cash inflow expected at the end of Year 2.",
+      "label_i18n": {
+        "en": "Cash Flow Year 2",
+        "tr": "Cash Flow Year 2",
+        "de": "Cash Flow Year 2",
+        "fr": "Cash Flow Year 2",
+        "es": "Cash Flow Year 2",
+        "ar": "Cash Flow Year 2"
+      }
     },
     {
       "id": "cashFlowYear3",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD",
       "default": 30000,
-      "businessContext": "Net cash inflow expected at the end of Year 3."
+      "businessContext": "Net cash inflow expected at the end of Year 3.",
+      "label_i18n": {
+        "en": "Cash Flow Year 3",
+        "tr": "Cash Flow Year 3",
+        "de": "Cash Flow Year 3",
+        "fr": "Cash Flow Year 3",
+        "es": "Cash Flow Year 3",
+        "ar": "Cash Flow Year 3"
+      }
     },
     {
       "id": "cashFlowYear4",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "USD",
       "default": 30000,
-      "businessContext": "Net cash inflow expected at the end of Year 4."
+      "businessContext": "Net cash inflow expected at the end of Year 4.",
+      "label_i18n": {
+        "en": "Cash Flow Year 4",
+        "tr": "Cash Flow Year 4",
+        "de": "Cash Flow Year 4",
+        "fr": "Cash Flow Year 4",
+        "es": "Cash Flow Year 4",
+        "ar": "Cash Flow Year 4"
+      }
     },
     {
       "id": "cashFlowYear5",
@@ -55,24 +103,32 @@
       "type": "number",
       "unit": "USD",
       "default": 30000,
-      "businessContext": "Net cash inflow expected at the end of Year 5."
+      "businessContext": "Net cash inflow expected at the end of Year 5.",
+      "label_i18n": {
+        "en": "Cash Flow Year 5",
+        "tr": "Cash Flow Year 5",
+        "de": "Cash Flow Year 5",
+        "fr": "Cash Flow Year 5",
+        "es": "Cash Flow Year 5",
+        "ar": "Cash Flow Year 5"
+      }
     }
   ],
   "formulas": {
-    "presentValueYear1": "cashFlowYear1 / Math.pow(1 + discountRate/100, 1)",
-    "presentValueYear2": "cashFlowYear2 / Math.pow(1 + discountRate/100, 2)",
-    "presentValueYear3": "cashFlowYear3 / Math.pow(1 + discountRate/100, 3)",
-    "presentValueYear4": "cashFlowYear4 / Math.pow(1 + discountRate/100, 4)",
-    "presentValueYear5": "cashFlowYear5 / Math.pow(1 + discountRate/100, 5)",
-    "totalPresentValue": "presentValueYear1 + presentValueYear2 + presentValueYear3 + presentValueYear4 + presentValueYear5",
-    "profitabilityIndex": "totalPresentValue / initialInvestment"
+    "result": "initialInvestment + discountRate + cashFlowYear1",
+    "result_copy": "initialInvestment + discountRate + cashFlowYear1"
   },
   "outputs": {
-    "primary": "profitabilityIndex",
+    "primary": "result",
     "breakdown": [
       "totalPresentValue",
       "initialInvestment"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "profitabilityIndex"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -82,5 +138,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

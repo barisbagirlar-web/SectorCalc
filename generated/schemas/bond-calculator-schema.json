@@ -88,13 +88,7 @@
     "totalPeriods": "yearsToMaturity * frequency",
     "pvCoupons": "couponPayment * (1 - (1 + discountRate) ** (-totalPeriods)) / discountRate",
     "pvFace": "faceValue * (1 + discountRate) ** (-totalPeriods)",
-    "bondPrice": "discountRate === 0 ? faceValue + couponPayment * totalPeriods : pvCoupons + pvFace",
-    "Coupon_Payment": "Coupon Payment",
-    "Discount_Rate_per_Period": "Discount Rate per Period",
-    "Total_Periods": "Total Periods",
-    "Present_Value_of_Coupons": "Present Value of Coupons",
-    "Present_Value_of_Face_Value": "Present Value of Face Value",
-    "Bond_Price": "Bond Price"
+    "bondPrice": "discountRate === 0 ? faceValue + couponPayment * totalPeriods : pvCoupons + pvFace"
   },
   "outputs": {
     "primary": "couponPayment",
@@ -105,7 +99,12 @@
       "Present Value of Coupons",
       "Present Value of Face Value",
       "Bond Price"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "bondPrice"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -115,5 +114,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

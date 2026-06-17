@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kWh",
       "default": 1000,
-      "businessContext": "Total monthly electricity consumption"
+      "businessContext": "Total monthly electricity consumption",
+      "label_i18n": {
+        "en": "Electricity Consumption",
+        "tr": "Electricity Consumption",
+        "de": "Electricity Consumption",
+        "fr": "Electricity Consumption",
+        "es": "Electricity Consumption",
+        "ar": "Electricity Consumption"
+      }
     },
     {
       "id": "naturalGasConsumption",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m³",
       "default": 500,
-      "businessContext": "Total monthly natural gas consumption"
+      "businessContext": "Total monthly natural gas consumption",
+      "label_i18n": {
+        "en": "Natural Gas Consumption",
+        "tr": "Natural Gas Consumption",
+        "de": "Natural Gas Consumption",
+        "fr": "Natural Gas Consumption",
+        "es": "Natural Gas Consumption",
+        "ar": "Natural Gas Consumption"
+      }
     },
     {
       "id": "dieselConsumption",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "liters",
       "default": 100,
-      "businessContext": "Total monthly diesel consumption"
+      "businessContext": "Total monthly diesel consumption",
+      "label_i18n": {
+        "en": "Diesel Consumption",
+        "tr": "Diesel Consumption",
+        "de": "Diesel Consumption",
+        "fr": "Diesel Consumption",
+        "es": "Diesel Consumption",
+        "ar": "Diesel Consumption"
+      }
     },
     {
       "id": "productionOutput",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "units",
       "default": 1000,
-      "businessContext": "Total monthly production output (e.g., kg, pieces)"
+      "businessContext": "Total monthly production output (e.g., kg, pieces)",
+      "label_i18n": {
+        "en": "Production Output",
+        "tr": "Production Output",
+        "de": "Production Output",
+        "fr": "Production Output",
+        "es": "Production Output",
+        "ar": "Production Output"
+      }
     },
     {
       "id": "electricityEmissionFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg CO₂/kWh",
       "default": 0.5,
-      "businessContext": "Emission factor for grid electricity"
+      "businessContext": "Emission factor for grid electricity",
+      "label_i18n": {
+        "en": "Electricity Emission Factor",
+        "tr": "Electricity Emission Factor",
+        "de": "Electricity Emission Factor",
+        "fr": "Electricity Emission Factor",
+        "es": "Electricity Emission Factor",
+        "ar": "Electricity Emission Factor"
+      }
     },
     {
       "id": "naturalGasEmissionFactor",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kg CO₂/m³",
       "default": 2,
-      "businessContext": "Emission factor for natural gas"
+      "businessContext": "Emission factor for natural gas",
+      "label_i18n": {
+        "en": "Natural Gas Emission Factor",
+        "tr": "Natural Gas Emission Factor",
+        "de": "Natural Gas Emission Factor",
+        "fr": "Natural Gas Emission Factor",
+        "es": "Natural Gas Emission Factor",
+        "ar": "Natural Gas Emission Factor"
+      }
     },
     {
       "id": "dieselEmissionFactor",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "kg CO₂/liter",
       "default": 2.7,
-      "businessContext": "Emission factor for diesel fuel"
+      "businessContext": "Emission factor for diesel fuel",
+      "label_i18n": {
+        "en": "Diesel Emission Factor",
+        "tr": "Diesel Emission Factor",
+        "de": "Diesel Emission Factor",
+        "fr": "Diesel Emission Factor",
+        "es": "Diesel Emission Factor",
+        "ar": "Diesel Emission Factor"
+      }
     }
   ],
   "formulas": {
@@ -71,7 +127,12 @@
       "electricityEmissions",
       "naturalGasEmissions",
       "dieselEmissions"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "carbonIntensity"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -81,5 +142,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -85,18 +85,21 @@
   "formulas": {
     "rawStrength": "force / area",
     "tempFactor": "1 + 0.002 * (temperature - 23)",
-    "humidityFactor": "1 + 0.001 * (humidity - 50)",
-    "speedFactor": "Math.log(speed + 1) / Math.log(11)",
-    "correctedStrength": "rawStrength * tempFactor * humidityFactor * speedFactor"
+    "humidityFactor": "1 + 0.001 * (humidity - 50)"
   },
   "outputs": {
-    "primary": "correctedStrength",
+    "primary": "humidityFactor",
     "breakdown": [
       "rawStrength",
       "tempFactor",
       "humidityFactor",
       "speedFactor"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "correctedStrength"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -106,5 +109,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

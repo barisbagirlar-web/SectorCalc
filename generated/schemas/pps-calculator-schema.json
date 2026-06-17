@@ -86,10 +86,7 @@
     "productionRate_pps": "(conveyorSpeed / pieceSpacing) * numLanes * (efficiency / 100)",
     "productionRate_pcsPerMinute": "productionRate_pps * 60",
     "productionRate_pcsPerHour": "productionRate_pps * 3600",
-    "productionRate_pcsPerShift": "productionRate_pps * 3600 * shiftDuration",
-    "productionRate_pcsPerMinute_pieces_minut": "productionRate_pcsPerMinute pieces/minute",
-    "productionRate_pcsPerHour_pieces_hour": "productionRate_pcsPerHour pieces/hour",
-    "productionRate_pcsPerShift_pieces_shift_": "productionRate_pcsPerShift pieces/shift (assuming ${shiftDuration}h shift)"
+    "productionRate_pcsPerShift": "productionRate_pps * 3600 * shiftDuration"
   },
   "outputs": {
     "primary": "productionRate_pps",
@@ -97,7 +94,12 @@
       "Production Rate (pieces/minute): productionRate_pcsPerMinute pieces/minute",
       "Production Rate (pieces/hour): productionRate_pcsPerHour pieces/hour",
       "Production Rate (pieces/shift): productionRate_pcsPerShift pieces/shift (assuming ${shiftDuration}h shift)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "productionRate_pcsPerShift"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -107,5 +109,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "efficiency"
+  "categoryId": "efficiency",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

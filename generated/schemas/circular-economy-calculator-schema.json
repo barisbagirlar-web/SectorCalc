@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Üretim sürecine giren toplam hammadde miktarı"
+      "businessContext": "Üretim sürecine giren toplam hammadde miktarı",
+      "label_i18n": {
+        "en": "Toplam Hammadde Girişi",
+        "tr": "Toplam Hammadde Girişi",
+        "de": "Toplam Hammadde Girişi",
+        "fr": "Toplam Hammadde Girişi",
+        "es": "Toplam Hammadde Girişi",
+        "ar": "Toplam Hammadde Girişi"
+      }
     },
     {
       "id": "recycled_input",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 200,
-      "businessContext": "Geri dönüştürülmüş malzemeden gelen girdi miktarı"
+      "businessContext": "Geri dönüştürülmüş malzemeden gelen girdi miktarı",
+      "label_i18n": {
+        "en": "Geri Dönüştürülmüş Girdi",
+        "tr": "Geri Dönüştürülmüş Girdi",
+        "de": "Geri Dönüştürülmüş Girdi",
+        "fr": "Geri Dönüştürülmüş Girdi",
+        "es": "Geri Dönüştürülmüş Girdi",
+        "ar": "Geri Dönüştürülmüş Girdi"
+      }
     },
     {
       "id": "reused_input",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "Yeniden kullanım yoluyla sağlanan girdi miktarı"
+      "businessContext": "Yeniden kullanım yoluyla sağlanan girdi miktarı",
+      "label_i18n": {
+        "en": "Yeniden Kullanılan Girdi",
+        "tr": "Yeniden Kullanılan Girdi",
+        "de": "Yeniden Kullanılan Girdi",
+        "fr": "Yeniden Kullanılan Girdi",
+        "es": "Yeniden Kullanılan Girdi",
+        "ar": "Yeniden Kullanılan Girdi"
+      }
     },
     {
       "id": "total_waste_generated",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 300,
-      "businessContext": "Üretim sürecinde oluşan toplam atık miktarı"
+      "businessContext": "Üretim sürecinde oluşan toplam atık miktarı",
+      "label_i18n": {
+        "en": "Toplam Atık Üretimi",
+        "tr": "Toplam Atık Üretimi",
+        "de": "Toplam Atık Üretimi",
+        "fr": "Toplam Atık Üretimi",
+        "es": "Toplam Atık Üretimi",
+        "ar": "Toplam Atık Üretimi"
+      }
     },
     {
       "id": "recycled_waste",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg",
       "default": 150,
-      "businessContext": "Atığın geri dönüştürülen kısmı"
+      "businessContext": "Atığın geri dönüştürülen kısmı",
+      "label_i18n": {
+        "en": "Geri Dönüştürülen Atık",
+        "tr": "Geri Dönüştürülen Atık",
+        "de": "Geri Dönüştürülen Atık",
+        "fr": "Geri Dönüştürülen Atık",
+        "es": "Geri Dönüştürülen Atık",
+        "ar": "Geri Dönüştürülen Atık"
+      }
     },
     {
       "id": "reused_waste",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kg",
       "default": 50,
-      "businessContext": "Atığın yeniden kullanılan kısmı"
+      "businessContext": "Atığın yeniden kullanılan kısmı",
+      "label_i18n": {
+        "en": "Yeniden Kullanılan Atık",
+        "tr": "Yeniden Kullanılan Atık",
+        "de": "Yeniden Kullanılan Atık",
+        "fr": "Yeniden Kullanılan Atık",
+        "es": "Yeniden Kullanılan Atık",
+        "ar": "Yeniden Kullanılan Atık"
+      }
     }
   ],
   "formulas": {
@@ -66,7 +114,12 @@
       "reuse_rate",
       "recycling_rate",
       "landfill_rate"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "landfill_rate"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -76,5 +129,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

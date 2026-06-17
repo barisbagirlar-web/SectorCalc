@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mpg (UK)",
       "default": 40,
-      "businessContext": "Fuel efficiency in miles per imperial gallon"
+      "businessContext": "Fuel efficiency in miles per imperial gallon",
+      "label_i18n": {
+        "en": "UK MPG",
+        "tr": "UK MPG",
+        "de": "UK MPG",
+        "fr": "UK MPG",
+        "es": "UK MPG",
+        "ar": "UK MPG"
+      }
     },
     {
       "id": "imp_gal_l",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "litres",
       "default": 4.54609,
-      "businessContext": "Conversion constant: 1 imperial gallon = 4.54609 litres"
+      "businessContext": "Conversion constant: 1 imperial gallon = 4.54609 litres",
+      "label_i18n": {
+        "en": "Imperial Gallon to Litres",
+        "tr": "Imperial Gallon to Litres",
+        "de": "Imperial Gallon to Litres",
+        "fr": "Imperial Gallon to Litres",
+        "es": "Imperial Gallon to Litres",
+        "ar": "Imperial Gallon to Litres"
+      }
     },
     {
       "id": "us_gal_l",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "litres",
       "default": 3.785411784,
-      "businessContext": "Conversion constant: 1 US gallon = 3.785411784 litres"
+      "businessContext": "Conversion constant: 1 US gallon = 3.785411784 litres",
+      "label_i18n": {
+        "en": "US Gallon to Litres",
+        "tr": "US Gallon to Litres",
+        "de": "US Gallon to Litres",
+        "fr": "US Gallon to Litres",
+        "es": "US Gallon to Litres",
+        "ar": "US Gallon to Litres"
+      }
     },
     {
       "id": "uk_mpg_adjustment",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mpg (UK)",
       "default": 0,
-      "businessContext": "Optional offset to UK MPG for scenario testing"
+      "businessContext": "Optional offset to UK MPG for scenario testing",
+      "label_i18n": {
+        "en": "UK MPG Adjustment",
+        "tr": "UK MPG Adjustment",
+        "de": "UK MPG Adjustment",
+        "fr": "UK MPG Adjustment",
+        "es": "UK MPG Adjustment",
+        "ar": "UK MPG Adjustment"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "conversion_factor",
       "adjusted_uk_mpg"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "conversion_factor"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -54,5 +91,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

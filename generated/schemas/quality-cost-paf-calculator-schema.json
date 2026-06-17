@@ -139,75 +139,6 @@
       "businessContext_i18n": {
         "en": "Costs for warranty claims, returns, and replacements after delivery."
       }
-    },
-    {
-      "id": "external_failure_liability_cost",
-      "label": "External Failure Liability & Lost Sales Cost",
-      "type": "number",
-      "unit": "USD",
-      "default": 30000,
-      "min": 0,
-      "max": 500000,
-      "businessContext": "Costs from lawsuits, penalties, and lost future sales due to poor quality.",
-      "label_i18n": {
-        "en": "External Failure Liability & Lost Sales Cost"
-      },
-      "businessContext_i18n": {
-        "en": "Costs from lawsuits, penalties, and lost future sales due to poor quality."
-      }
-    },
-    {
-      "id": "quality_improvement_investment",
-      "label": "Quality Improvement Investment (Optional)",
-      "type": "number",
-      "unit": "USD",
-      "default": 0,
-      "min": 0,
-      "max": 500000,
-      "businessContext": "Additional investment in quality improvement initiatives (e.g., Six Sigma projects).",
-      "label_i18n": {
-        "en": "Quality Improvement Investment (Optional)"
-      },
-      "businessContext_i18n": {
-        "en": "Additional investment in quality improvement initiatives (e.g., Six Sigma projects)."
-      }
-    },
-    {
-      "id": "industry_type",
-      "label": "Industry Type",
-      "type": "select",
-      "options": [
-        "Automotive",
-        "Aerospace",
-        "Electronics",
-        "Pharmaceutical",
-        "Food & Beverage",
-        "General Manufacturing",
-        "Other"
-      ],
-      "default": "General Manufacturing",
-      "businessContext": "Industry context for benchmarking and threshold adjustments.",
-      "label_i18n": {
-        "en": "Industry Type"
-      },
-      "businessContext_i18n": {
-        "en": "Industry context for benchmarking and threshold adjustments."
-      },
-      "unit": "unit"
-    },
-    {
-      "id": "include_hidden_drivers",
-      "label": "Include Hidden Loss Drivers",
-      "type": "boolean",
-      "default": true,
-      "businessContext": "Toggle to include intangible costs like lost customer goodwill and overtime.",
-      "label_i18n": {
-        "en": "Include Hidden Loss Drivers"
-      },
-      "businessContext_i18n": {
-        "en": "Toggle to include intangible costs like lost customer goodwill and overtime."
-      },
-      "unit": "unit"
     }
   ],
   "validation": {
@@ -254,23 +185,18 @@
       }
     ]
   },
-  "formulas": [
-    "total_sales",
-    "total_sales",
-    "total_sales",
-    "total_sales",
-    "total_sales",
-    "total_sales",
-    "total_sales",
-    "total_sales",
-    "total_sales",
-    "total_sales",
-    "total_sales",
-    "total_sales"
-  ],
+  "formulas": {
+    "result": "total_sales + prevention_training_cost + prevention_design_cost",
+    "result_copy": "total_sales + prevention_training_cost + prevention_design_cost"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

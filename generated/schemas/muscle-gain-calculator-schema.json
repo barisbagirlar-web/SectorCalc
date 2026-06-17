@@ -116,19 +116,21 @@
   ],
   "formulas": {
     "bmr": "gender * (10*weight + 6.25*height - 5*age + 5) + (1-gender) * (10*weight + 6.25*height - 5*age - 161)",
-    "tdee": "bmr * activityLevel",
-    "proteinEfficiency": "Math.min(proteinIntake / (2.2 * weight), 1)",
-    "maxMuscleGain": "0.5",
-    "muscleGainMonthly": "Math.min((calorieSurplus * 30 / 7700) * proteinEfficiency, maxMuscleGain)"
+    "tdee": "bmr * activityLevel"
   },
   "outputs": {
-    "primary": "muscleGainMonthly",
+    "primary": "tdee",
     "breakdown": [
       "bmr",
       "tdee",
       "proteinEfficiency",
       "maxMuscleGain"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "muscleGainMonthly"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -138,5 +140,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 100,
-      "businessContext": "The total distance the freight will travel from origin to destination."
+      "businessContext": "The total distance the freight will travel from origin to destination.",
+      "label_i18n": {
+        "en": "Shipping Distance",
+        "tr": "Shipping Distance",
+        "de": "Shipping Distance",
+        "fr": "Shipping Distance",
+        "es": "Shipping Distance",
+        "ar": "Shipping Distance"
+      }
     },
     {
       "id": "weight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Total weight of the goods being shipped."
+      "businessContext": "Total weight of the goods being shipped.",
+      "label_i18n": {
+        "en": "Shipment Weight",
+        "tr": "Shipment Weight",
+        "de": "Shipment Weight",
+        "fr": "Shipment Weight",
+        "es": "Shipment Weight",
+        "ar": "Shipment Weight"
+      }
     },
     {
       "id": "fuelCostPerLiter",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$/L",
       "default": 1.5,
-      "businessContext": "Current cost of diesel or fuel per liter."
+      "businessContext": "Current cost of diesel or fuel per liter.",
+      "label_i18n": {
+        "en": "Fuel Cost per Liter",
+        "tr": "Fuel Cost per Liter",
+        "de": "Fuel Cost per Liter",
+        "fr": "Fuel Cost per Liter",
+        "es": "Fuel Cost per Liter",
+        "ar": "Fuel Cost per Liter"
+      }
     },
     {
       "id": "fuelEfficiency",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "km/L",
       "default": 5,
-      "businessContext": "Average kilometers the transport vehicle travels per liter of fuel."
+      "businessContext": "Average kilometers the transport vehicle travels per liter of fuel.",
+      "label_i18n": {
+        "en": "Fuel Efficiency",
+        "tr": "Fuel Efficiency",
+        "de": "Fuel Efficiency",
+        "fr": "Fuel Efficiency",
+        "es": "Fuel Efficiency",
+        "ar": "Fuel Efficiency"
+      }
     },
     {
       "id": "ratePerKg",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "$/kg",
       "default": 0.1,
-      "businessContext": "Cost of handling, loading, and unloading per kilogram."
+      "businessContext": "Cost of handling, loading, and unloading per kilogram.",
+      "label_i18n": {
+        "en": "Handling Rate per Kg",
+        "tr": "Handling Rate per Kg",
+        "de": "Handling Rate per Kg",
+        "fr": "Handling Rate per Kg",
+        "es": "Handling Rate per Kg",
+        "ar": "Handling Rate per Kg"
+      }
     },
     {
       "id": "otherCharges",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Any tolls, surcharges, or fixed costs not included elsewhere."
+      "businessContext": "Any tolls, surcharges, or fixed costs not included elsewhere.",
+      "label_i18n": {
+        "en": "Additional Charges",
+        "tr": "Additional Charges",
+        "de": "Additional Charges",
+        "fr": "Additional Charges",
+        "es": "Additional Charges",
+        "ar": "Additional Charges"
+      }
     }
   ],
   "formulas": {
@@ -61,7 +109,12 @@
       "fuelCost",
       "weightCost",
       "otherCharges"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Lojistik & Tedarik Zinciri",
   "sector": "Lojistik & Sevkiyat",
@@ -71,5 +124,10 @@
   "categorySlug": "procurement-supply-chain",
   "sectorId": "kargo",
   "profession": "Lojistik Uzmanı",
-  "categoryId": "logistics"
+  "categoryId": "logistics",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

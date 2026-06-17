@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cups",
       "default": 1,
-      "businessContext": "Number of standard cups to convert to grams."
+      "businessContext": "Number of standard cups to convert to grams.",
+      "label_i18n": {
+        "en": "Cup Amount",
+        "tr": "Cup Amount",
+        "de": "Cup Amount",
+        "fr": "Cup Amount",
+        "es": "Cup Amount",
+        "ar": "Cup Amount"
+      }
     },
     {
       "id": "cupVolume",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mL",
       "default": 236.588,
-      "businessContext": "Volume of one cup in milliliters. Standard US cup is 236.588 mL."
+      "businessContext": "Volume of one cup in milliliters. Standard US cup is 236.588 mL.",
+      "label_i18n": {
+        "en": "Cup Volume",
+        "tr": "Cup Volume",
+        "de": "Cup Volume",
+        "fr": "Cup Volume",
+        "es": "Cup Volume",
+        "ar": "Cup Volume"
+      }
     },
     {
       "id": "density",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "g/mL",
       "default": 1,
-      "businessContext": "Density of the ingredient in grams per milliliter at 20°C. Water = 1 g/mL."
+      "businessContext": "Density of the ingredient in grams per milliliter at 20°C. Water = 1 g/mL.",
+      "label_i18n": {
+        "en": "Density",
+        "tr": "Density",
+        "de": "Density",
+        "fr": "Density",
+        "es": "Density",
+        "ar": "Density"
+      }
     },
     {
       "id": "temperature",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Temperature of the ingredient for density correction. Default is 20°C."
+      "businessContext": "Temperature of the ingredient for density correction. Default is 20°C.",
+      "label_i18n": {
+        "en": "Temperature",
+        "tr": "Temperature",
+        "de": "Temperature",
+        "fr": "Temperature",
+        "es": "Temperature",
+        "ar": "Temperature"
+      }
     },
     {
       "id": "densityCorrectionFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "1/°C",
       "default": 0,
-      "businessContext": "Linear temperature coefficient of density. Density(T) = density(20°C) × (1 + coeff × (T−20)). Usually small; set to 0 if no correction needed."
+      "businessContext": "Linear temperature coefficient of density. Density(T) = density(20°C) × (1 + coeff × (T−20)). Usually small; set to 0 if no correction needed.",
+      "label_i18n": {
+        "en": "Temp. Correction Factor",
+        "tr": "Temp. Correction Factor",
+        "de": "Temp. Correction Factor",
+        "fr": "Temp. Correction Factor",
+        "es": "Temp. Correction Factor",
+        "ar": "Temp. Correction Factor"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "volumeInML",
       "correctedDensity"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "massInGrams"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -62,5 +107,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

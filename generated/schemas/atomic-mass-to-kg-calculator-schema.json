@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "u",
       "default": 1,
-      "businessContext": "Tek bir atom veya molekülün kütlesi, atomik kütle birimi (u) cinsinden."
+      "businessContext": "Tek bir atom veya molekülün kütlesi, atomik kütle birimi (u) cinsinden.",
+      "label_i18n": {
+        "en": "Atomik Kütle (u)",
+        "tr": "Atomik Kütle (u)",
+        "de": "Atomik Kütle (u)",
+        "fr": "Atomik Kütle (u)",
+        "es": "Atomik Kütle (u)",
+        "ar": "Atomik Kütle (u)"
+      }
     },
     {
       "id": "numberOfEntities",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 6.02214076e+23,
-      "businessContext": "Dönüştürülecek toplam atom/molekül sayısı."
+      "businessContext": "Dönüştürülecek toplam atom/molekül sayısı.",
+      "label_i18n": {
+        "en": "Varlık Sayısı",
+        "tr": "Varlık Sayısı",
+        "de": "Varlık Sayısı",
+        "fr": "Varlık Sayısı",
+        "es": "Varlık Sayısı",
+        "ar": "Varlık Sayısı"
+      }
     },
     {
       "id": "conversionFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg/u",
       "default": 1.6605390666e-27,
-      "businessContext": "1 atomik kütle biriminin kilogram cinsinden karşılığı (CODATA 2018)."
+      "businessContext": "1 atomik kütle biriminin kilogram cinsinden karşılığı (CODATA 2018).",
+      "label_i18n": {
+        "en": "Dönüşüm Faktörü (u → kg)",
+        "tr": "Dönüşüm Faktörü (u → kg)",
+        "de": "Dönüşüm Faktörü (u → kg)",
+        "fr": "Dönüşüm Faktörü (u → kg)",
+        "es": "Dönüşüm Faktörü (u → kg)",
+        "ar": "Dönüşüm Faktörü (u → kg)"
+      }
     },
     {
       "id": "batchSize",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "parti",
       "default": 1,
-      "businessContext": "Eğer birden fazla parti varsa çarpan olarak kullanılır."
+      "businessContext": "Eğer birden fazla parti varsa çarpan olarak kullanılır.",
+      "label_i18n": {
+        "en": "Parti Büyüklüğü (İsteğe bağlı)",
+        "tr": "Parti Büyüklüğü (İsteğe bağlı)",
+        "de": "Parti Büyüklüğü (İsteğe bağlı)",
+        "fr": "Parti Büyüklüğü (İsteğe bağlı)",
+        "es": "Parti Büyüklüğü (İsteğe bağlı)",
+        "ar": "Parti Büyüklüğü (İsteğe bağlı)"
+      }
     },
     {
       "id": "outputUnitMultiplier",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "çarpan",
       "default": 1,
-      "businessContext": "Çıktı birimini kg'dan başka bir birime dönüştürmek için çarpan (örn: 1000 g için, 1000000 mg için)."
+      "businessContext": "Çıktı birimini kg'dan başka bir birime dönüştürmek için çarpan (örn: 1000 g için, 1000000 mg için).",
+      "label_i18n": {
+        "en": "Çıktı Birim Çarpanı",
+        "tr": "Çıktı Birim Çarpanı",
+        "de": "Çıktı Birim Çarpanı",
+        "fr": "Çıktı Birim Çarpanı",
+        "es": "Çıktı Birim Çarpanı",
+        "ar": "Çıktı Birim Çarpanı"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
       "mass_Kg",
       "mass_Grams",
       "numberOfMoles"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalMass"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -64,5 +109,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "L/100km",
       "default": 10,
-      "businessContext": "Average fuel consumption per 100 km under typical load conditions."
+      "businessContext": "Average fuel consumption per 100 km under typical load conditions.",
+      "label_i18n": {
+        "en": "Current Fuel Consumption",
+        "tr": "Current Fuel Consumption",
+        "de": "Current Fuel Consumption",
+        "fr": "Current Fuel Consumption",
+        "es": "Current Fuel Consumption",
+        "ar": "Current Fuel Consumption"
+      }
     },
     {
       "id": "annualDistance",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "km",
       "default": 30000,
-      "businessContext": "Total kilometers traveled by the vehicle per year."
+      "businessContext": "Total kilometers traveled by the vehicle per year.",
+      "label_i18n": {
+        "en": "Annual Distance Traveled",
+        "tr": "Annual Distance Traveled",
+        "de": "Annual Distance Traveled",
+        "fr": "Annual Distance Traveled",
+        "es": "Annual Distance Traveled",
+        "ar": "Annual Distance Traveled"
+      }
     },
     {
       "id": "fuelPrice",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$/L",
       "default": 1.5,
-      "businessContext": "Unit price of fuel (e.g., diesel, gasoline)."
+      "businessContext": "Unit price of fuel (e.g., diesel, gasoline).",
+      "label_i18n": {
+        "en": "Fuel Price",
+        "tr": "Fuel Price",
+        "de": "Fuel Price",
+        "fr": "Fuel Price",
+        "es": "Fuel Price",
+        "ar": "Fuel Price"
+      }
     },
     {
       "id": "efficiencyImprovement",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Expected percentage reduction in fuel consumption due to improvements."
+      "businessContext": "Expected percentage reduction in fuel consumption due to improvements.",
+      "label_i18n": {
+        "en": "Efficiency Improvement",
+        "tr": "Efficiency Improvement",
+        "de": "Efficiency Improvement",
+        "fr": "Efficiency Improvement",
+        "es": "Efficiency Improvement",
+        "ar": "Efficiency Improvement"
+      }
     },
     {
       "id": "engineLoadFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 70,
-      "businessContext": "Average engine load as a percentage, adjusting real-world consumption."
+      "businessContext": "Average engine load as a percentage, adjusting real-world consumption.",
+      "label_i18n": {
+        "en": "Engine Load Factor",
+        "tr": "Engine Load Factor",
+        "de": "Engine Load Factor",
+        "fr": "Engine Load Factor",
+        "es": "Engine Load Factor",
+        "ar": "Engine Load Factor"
+      }
     },
     {
       "id": "operatingYears",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "years",
       "default": 1,
-      "businessContext": "Number of years over which savings accumulate."
+      "businessContext": "Number of years over which savings accumulate.",
+      "label_i18n": {
+        "en": "Operating Years",
+        "tr": "Operating Years",
+        "de": "Operating Years",
+        "fr": "Operating Years",
+        "es": "Operating Years",
+        "ar": "Operating Years"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
     "breakdown": [
       "annualFuelSaved",
       "annualCostSavings"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalSavings"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -72,5 +125,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

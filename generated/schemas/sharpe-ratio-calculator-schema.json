@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Portföyün yıllıklandırılmış getiri oranı."
+      "businessContext": "Portföyün yıllıklandırılmış getiri oranı.",
+      "label_i18n": {
+        "en": "Yıllık Portföy Getirisi (%)",
+        "tr": "Yıllık Portföy Getirisi (%)",
+        "de": "Yıllık Portföy Getirisi (%)",
+        "fr": "Yıllık Portföy Getirisi (%)",
+        "es": "Yıllık Portföy Getirisi (%)",
+        "ar": "Yıllık Portföy Getirisi (%)"
+      }
     },
     {
       "id": "riskFreeRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Genellikle aynı vadedeki devlet tahvili faizi."
+      "businessContext": "Genellikle aynı vadedeki devlet tahvili faizi.",
+      "label_i18n": {
+        "en": "Yıllık Risksiz Getiri (%)",
+        "tr": "Yıllık Risksiz Getiri (%)",
+        "de": "Yıllık Risksiz Getiri (%)",
+        "fr": "Yıllık Risksiz Getiri (%)",
+        "es": "Yıllık Risksiz Getiri (%)",
+        "ar": "Yıllık Risksiz Getiri (%)"
+      }
     },
     {
       "id": "dailyStdDev",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 1.5,
-      "businessContext": "Portföyün günlük getirilerinin standart sapması."
+      "businessContext": "Portföyün günlük getirilerinin standart sapması.",
+      "label_i18n": {
+        "en": "Günlük Standart Sapma (%)",
+        "tr": "Günlük Standart Sapma (%)",
+        "de": "Günlük Standart Sapma (%)",
+        "fr": "Günlük Standart Sapma (%)",
+        "es": "Günlük Standart Sapma (%)",
+        "ar": "Günlük Standart Sapma (%)"
+      }
     },
     {
       "id": "tradingDays",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "gün",
       "default": 252,
-      "businessContext": "Yıllık işlem günü sayısı; hisse senedi piyasaları için genellikle 252."
+      "businessContext": "Yıllık işlem günü sayısı; hisse senedi piyasaları için genellikle 252.",
+      "label_i18n": {
+        "en": "Yıllık İşlem Günü Sayısı",
+        "tr": "Yıllık İşlem Günü Sayısı",
+        "de": "Yıllık İşlem Günü Sayısı",
+        "fr": "Yıllık İşlem Günü Sayısı",
+        "es": "Yıllık İşlem Günü Sayısı",
+        "ar": "Yıllık İşlem Günü Sayısı"
+      }
     }
   ],
   "formulas": {
-    "excessReturn": "portfolioReturn - riskFreeRate",
-    "annualizedStdDev": "dailyStdDev * Math.sqrt(tradingDays)",
-    "sharpeRatio": "excessReturn / annualizedStdDev"
+    "result": "portfolioReturn + riskFreeRate + dailyStdDev",
+    "result_aux": "portfolioReturn + riskFreeRate + dailyStdDev"
   },
   "outputs": {
-    "primary": "sharpeRatio",
+    "primary": "result",
     "breakdown": [
       "excessReturn",
       "annualizedStdDev"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "sharpeRatio"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

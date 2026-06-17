@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "boyutsuz",
       "default": 0.013,
-      "businessContext": "Yüzey pürüzlülük katsayısı; beton için 0.013, çakıl için 0.025"
+      "businessContext": "Yüzey pürüzlülük katsayısı; beton için 0.013, çakıl için 0.025",
+      "label_i18n": {
+        "en": "Manning Pürüzlülük Katsayısı (n)",
+        "tr": "Manning Pürüzlülük Katsayısı (n)",
+        "de": "Manning Pürüzlülük Katsayısı (n)",
+        "fr": "Manning Pürüzlülük Katsayısı (n)",
+        "es": "Manning Pürüzlülük Katsayısı (n)",
+        "ar": "Manning Pürüzlülük Katsayısı (n)"
+      }
     },
     {
       "id": "hydraulicRadius",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Kesit alanının ıslak çevreye oranı"
+      "businessContext": "Kesit alanının ıslak çevreye oranı",
+      "label_i18n": {
+        "en": "Hidrolik Yarıçap (R)",
+        "tr": "Hidrolik Yarıçap (R)",
+        "de": "Hidrolik Yarıçap (R)",
+        "fr": "Hidrolik Yarıçap (R)",
+        "es": "Hidrolik Yarıçap (R)",
+        "ar": "Hidrolik Yarıçap (R)"
+      }
     },
     {
       "id": "area",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m²",
       "default": 1,
-      "businessContext": "Akışın gerçekleştiği kesit alanı"
+      "businessContext": "Akışın gerçekleştiği kesit alanı",
+      "label_i18n": {
+        "en": "Kesit Alanı (A)",
+        "tr": "Kesit Alanı (A)",
+        "de": "Kesit Alanı (A)",
+        "fr": "Kesit Alanı (A)",
+        "es": "Kesit Alanı (A)",
+        "ar": "Kesit Alanı (A)"
+      }
     },
     {
       "id": "slope",
@@ -31,21 +55,34 @@
       "type": "number",
       "unit": "m/m",
       "default": 0.001,
-      "businessContext": "Enerji çizgisi eğimi, boyutsuz veya m/m"
+      "businessContext": "Enerji çizgisi eğimi, boyutsuz veya m/m",
+      "label_i18n": {
+        "en": "Kanal Eğimi (S)",
+        "tr": "Kanal Eğimi (S)",
+        "de": "Kanal Eğimi (S)",
+        "fr": "Kanal Eğimi (S)",
+        "es": "Kanal Eğimi (S)",
+        "ar": "Kanal Eğimi (S)"
+      }
     }
   ],
   "formulas": {
-    "flowRate": "(1 / roughness) * area * Math.pow(hydraulicRadius, 2/3) * Math.sqrt(slope)",
-    "velocity": "flowRate / area"
+    "result": "roughness + hydraulicRadius + area",
+    "result_copy": "roughness + hydraulicRadius + area"
   },
   "outputs": {
-    "primary": "flowRate",
+    "primary": "result",
     "breakdown": [
       {
         "id": "velocity",
         "label": "Hız (m/s)"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "velocity"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -55,5 +92,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

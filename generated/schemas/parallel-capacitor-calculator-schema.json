@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "μF",
       "default": 0,
-      "businessContext": "Capacitance of the first capacitor in microfarads"
+      "businessContext": "Capacitance of the first capacitor in microfarads",
+      "label_i18n": {
+        "en": "Capacitor 1 (C1)",
+        "tr": "Capacitor 1 (C1)",
+        "de": "Capacitor 1 (C1)",
+        "fr": "Capacitor 1 (C1)",
+        "es": "Capacitor 1 (C1)",
+        "ar": "Capacitor 1 (C1)"
+      }
     },
     {
       "id": "c2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "μF",
       "default": 0,
-      "businessContext": "Capacitance of the second capacitor in microfarads"
+      "businessContext": "Capacitance of the second capacitor in microfarads",
+      "label_i18n": {
+        "en": "Capacitor 2 (C2)",
+        "tr": "Capacitor 2 (C2)",
+        "de": "Capacitor 2 (C2)",
+        "fr": "Capacitor 2 (C2)",
+        "es": "Capacitor 2 (C2)",
+        "ar": "Capacitor 2 (C2)"
+      }
     },
     {
       "id": "c3",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "μF",
       "default": 0,
-      "businessContext": "Capacitance of the third capacitor in microfarads"
+      "businessContext": "Capacitance of the third capacitor in microfarads",
+      "label_i18n": {
+        "en": "Capacitor 3 (C3)",
+        "tr": "Capacitor 3 (C3)",
+        "de": "Capacitor 3 (C3)",
+        "fr": "Capacitor 3 (C3)",
+        "es": "Capacitor 3 (C3)",
+        "ar": "Capacitor 3 (C3)"
+      }
     },
     {
       "id": "c4",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "μF",
       "default": 0,
-      "businessContext": "Capacitance of the fourth capacitor in microfarads"
+      "businessContext": "Capacitance of the fourth capacitor in microfarads",
+      "label_i18n": {
+        "en": "Capacitor 4 (C4)",
+        "tr": "Capacitor 4 (C4)",
+        "de": "Capacitor 4 (C4)",
+        "fr": "Capacitor 4 (C4)",
+        "es": "Capacitor 4 (C4)",
+        "ar": "Capacitor 4 (C4)"
+      }
     },
     {
       "id": "c5",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "μF",
       "default": 0,
-      "businessContext": "Capacitance of the fifth capacitor in microfarads"
+      "businessContext": "Capacitance of the fifth capacitor in microfarads",
+      "label_i18n": {
+        "en": "Capacitor 5 (C5)",
+        "tr": "Capacitor 5 (C5)",
+        "de": "Capacitor 5 (C5)",
+        "fr": "Capacitor 5 (C5)",
+        "es": "Capacitor 5 (C5)",
+        "ar": "Capacitor 5 (C5)"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +100,12 @@
       "c4_str",
       "c5_str",
       "total_str"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "total_str"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -70,5 +115,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

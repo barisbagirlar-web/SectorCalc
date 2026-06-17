@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°",
       "default": 38,
-      "businessContext": "Typical spring angle of crown molding (angle between molding and wall)"
+      "businessContext": "Typical spring angle of crown molding (angle between molding and wall)",
+      "label_i18n": {
+        "en": "Spring Angle",
+        "tr": "Spring Angle",
+        "de": "Spring Angle",
+        "fr": "Spring Angle",
+        "es": "Spring Angle",
+        "ar": "Spring Angle"
+      }
     },
     {
       "id": "cornerAngle",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°",
       "default": 90,
-      "businessContext": "Angle of the corner (e.g., 90° for standard inside/outside corner)"
+      "businessContext": "Angle of the corner (e.g., 90° for standard inside/outside corner)",
+      "label_i18n": {
+        "en": "Corner Angle",
+        "tr": "Corner Angle",
+        "de": "Corner Angle",
+        "fr": "Corner Angle",
+        "es": "Corner Angle",
+        "ar": "Corner Angle"
+      }
     },
     {
       "id": "wallLength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ft",
       "default": 10,
-      "businessContext": "Length of one wall to be fitted with molding"
+      "businessContext": "Length of one wall to be fitted with molding",
+      "label_i18n": {
+        "en": "Wall Length",
+        "tr": "Wall Length",
+        "de": "Wall Length",
+        "fr": "Wall Length",
+        "es": "Wall Length",
+        "ar": "Wall Length"
+      }
     },
     {
       "id": "wasteFactor",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Additional material percentage for waste and cutting errors"
+      "businessContext": "Additional material percentage for waste and cutting errors",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     }
   ],
   "formulas": {
-    "miterAngle": "Math.atan( Math.sin(springAngle * Math.PI/180) / Math.tan(cornerAngle/2 * Math.PI/180) ) * 180/Math.PI",
-    "bevelAngle": "Math.asin( Math.cos(springAngle * Math.PI/180) * Math.cos(cornerAngle/2 * Math.PI/180) ) * 180/Math.PI",
-    "totalMoldingLength": "wallLength * 2 * (1 + wasteFactor/100)"
+    "totalMoldingLength": "wallLength * 2 * (1 + wasteFactor/100)",
+    "totalMoldingLength_aux": "wallLength * 2 * (1 + wasteFactor/100)"
   },
   "outputs": {
-    "primary": "miterAngle",
+    "primary": "totalMoldingLength_aux",
     "breakdown": [
       "bevelAngle",
       "totalMoldingLength"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalMoldingLength"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -54,5 +90,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

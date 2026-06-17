@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Outer diameter of the pipe"
+      "businessContext": "Outer diameter of the pipe",
+      "label_i18n": {
+        "en": "Outer Diameter",
+        "tr": "Outer Diameter",
+        "de": "Outer Diameter",
+        "fr": "Outer Diameter",
+        "es": "Outer Diameter",
+        "ar": "Outer Diameter"
+      }
     },
     {
       "id": "wallThickness",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 5,
-      "businessContext": "Wall thickness of the pipe"
+      "businessContext": "Wall thickness of the pipe",
+      "label_i18n": {
+        "en": "Wall Thickness",
+        "tr": "Wall Thickness",
+        "de": "Wall Thickness",
+        "fr": "Wall Thickness",
+        "es": "Wall Thickness",
+        "ar": "Wall Thickness"
+      }
     },
     {
       "id": "length",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Length of each pipe"
+      "businessContext": "Length of each pipe",
+      "label_i18n": {
+        "en": "Length",
+        "tr": "Length",
+        "de": "Length",
+        "fr": "Length",
+        "es": "Length",
+        "ar": "Length"
+      }
     },
     {
       "id": "quantity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 1,
-      "businessContext": "Number of pipes to calculate total volume"
+      "businessContext": "Number of pipes to calculate total volume",
+      "label_i18n": {
+        "en": "Number of Pipes",
+        "tr": "Number of Pipes",
+        "de": "Number of Pipes",
+        "fr": "Number of Pipes",
+        "es": "Number of Pipes",
+        "ar": "Number of Pipes"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "singleVolume",
       "totalVolumeLiters",
       "innerDiameter"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalVolumeLiters"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -56,5 +93,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

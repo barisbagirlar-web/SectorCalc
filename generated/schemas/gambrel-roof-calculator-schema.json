@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Mahya ile saçak arası toplam yatay mesafe"
+      "businessContext": "Mahya ile saçak arası toplam yatay mesafe",
+      "label_i18n": {
+        "en": "Bina Genişliği (Açıklık)",
+        "tr": "Bina Genişliği (Açıklık)",
+        "de": "Bina Genişliği (Açıklık)",
+        "fr": "Bina Genişliği (Açıklık)",
+        "es": "Bina Genişliği (Açıklık)",
+        "ar": "Bina Genişliği (Açıklık)"
+      }
     },
     {
       "id": "length",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 20,
-      "businessContext": "Bina boyu, mahya yönündeki uzunluk"
+      "businessContext": "Bina boyu, mahya yönündeki uzunluk",
+      "label_i18n": {
+        "en": "Bina Uzunluğu",
+        "tr": "Bina Uzunluğu",
+        "de": "Bina Uzunluğu",
+        "fr": "Bina Uzunluğu",
+        "es": "Bina Uzunluğu",
+        "ar": "Bina Uzunluğu"
+      }
     },
     {
       "id": "lowerAngle",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "derece",
       "default": 60,
-      "businessContext": "Saçaktan kırılma noktasına kadar olan alt yüzeyin yatayla yaptığı açı"
+      "businessContext": "Saçaktan kırılma noktasına kadar olan alt yüzeyin yatayla yaptığı açı",
+      "label_i18n": {
+        "en": "Alt Eğim Açısı",
+        "tr": "Alt Eğim Açısı",
+        "de": "Alt Eğim Açısı",
+        "fr": "Alt Eğim Açısı",
+        "es": "Alt Eğim Açısı",
+        "ar": "Alt Eğim Açısı"
+      }
     },
     {
       "id": "upperAngle",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "derece",
       "default": 30,
-      "businessContext": "Kırılma noktasından mahyaya kadar olan üst yüzeyin yatayla yaptığı açı"
+      "businessContext": "Kırılma noktasından mahyaya kadar olan üst yüzeyin yatayla yaptığı açı",
+      "label_i18n": {
+        "en": "Üst Eğim Açısı",
+        "tr": "Üst Eğim Açısı",
+        "de": "Üst Eğim Açısı",
+        "fr": "Üst Eğim Açısı",
+        "es": "Üst Eğim Açısı",
+        "ar": "Üst Eğim Açısı"
+      }
     },
     {
       "id": "lowerRun",
@@ -39,29 +71,36 @@
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "Saçaktan kırılma noktasına kadar yatay mesafe"
+      "businessContext": "Saçaktan kırılma noktasına kadar yatay mesafe",
+      "label_i18n": {
+        "en": "Alt İz Düşüm Mesafesi",
+        "tr": "Alt İz Düşüm Mesafesi",
+        "de": "Alt İz Düşüm Mesafesi",
+        "fr": "Alt İz Düşüm Mesafesi",
+        "es": "Alt İz Düşüm Mesafesi",
+        "ar": "Alt İz Düşüm Mesafesi"
+      }
     }
   ],
   "formulas": {
     "radLower": "lowerAngle * Math.PI / 180",
     "radUpper": "upperAngle * Math.PI / 180",
     "upperRun": "width / 2 - lowerRun",
-    "lowerLength": "lowerRun / Math.cos(radLower)",
-    "upperLength": "upperRun / Math.cos(radUpper)",
-    "lowerArea": "2 * length * lowerLength",
-    "upperArea": "2 * length * upperLength",
-    "totalArea": "lowerArea + upperArea",
-    "ridgeLength": "length",
-    "roofHeight": "upperRun * Math.tan(radUpper) + lowerRun * Math.tan(radLower)"
+    "ridgeLength": "length"
   },
   "outputs": {
-    "primary": "totalArea",
+    "primary": "ridgeLength",
     "breakdown": [
       "upperArea",
       "lowerArea",
       "ridgeLength",
       "roofHeight"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roofHeight"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -71,5 +110,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

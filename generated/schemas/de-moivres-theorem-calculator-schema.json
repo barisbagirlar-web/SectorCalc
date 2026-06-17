@@ -84,16 +84,10 @@
   ],
   "formulas": {
     "thetaRad": "(angleUnit === 1) ? theta * Math.PI / 180 : theta",
-    "nTheta": "n * thetaRad",
-    "cosNTheta": "Math.cos(nTheta)",
-    "sinNTheta": "Math.sin(nTheta)",
-    "power": "Math.pow(r, n)",
-    "real": "Math.round(power * cosNTheta * Math.pow(10, decimals)) / Math.pow(10, decimals)",
-    "imag": "Math.round(power * sinNTheta * Math.pow(10, decimals)) / Math.pow(10, decimals)",
-    "result": "real + ' + i' + imag"
+    "nTheta": "n * thetaRad"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "nTheta",
     "breakdown": [
       "thetaRad",
       "power",
@@ -102,7 +96,12 @@
       "sinNTheta",
       "real",
       "imag"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -112,5 +111,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from hat-size-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,26 +16,34 @@ export const Hat_size_calculatorInputSchema = z.object({
   fitPreference: z.number().default(1),
 });
 
-function evaluateAllFormulas(input: Hat_size_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = ((input.headCircumference * (input.unitSystem === 1 ? 2.54 : 1)) + input.hairThickness + (input.fitPreference === 0 ? -0.5 : input.fitPreference === 2 ? 0.5 : 0)) / 2.54 / Math.PI; results["usSize"] = Number.isFinite(v) ? v : 0; } catch { results["usSize"] = 0; }
-  try { const v = (input.headCircumference * (input.unitSystem === 1 ? 2.54 : 1)) + input.hairThickness + (input.fitPreference === 0 ? -0.5 : input.fitPreference === 2 ? 0.5 : 0); results["euSize"] = Number.isFinite(v) ? v : 0; } catch { results["euSize"] = 0; }
-  try { const v = ((input.headCircumference * (input.unitSystem === 1 ? 2.54 : 1)) + input.hairThickness + (input.fitPreference === 0 ? -0.5 : input.fitPreference === 2 ? 0.5 : 0)) / 2.54 / Math.PI - 0.125; results["ukSize"] = Number.isFinite(v) ? v : 0; } catch { results["ukSize"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Hat_size_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = ((input.headCircumference * (input.unitSystem === 1 ? 2.54 : 1)) + input.hairThickness + (input.fitPreference === 0 ? -0.5 : input.fitPreference === 2 ? 0.5 : 0)) / 2.54 / Math.PI; results["usSize"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["usSize"] = 0; }
+  try { const v = (input.headCircumference * (input.unitSystem === 1 ? 2.54 : 1)) + input.hairThickness + (input.fitPreference === 0 ? -0.5 : input.fitPreference === 2 ? 0.5 : 0); results["euSize"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["euSize"] = 0; }
+  try { const v = ((input.headCircumference * (input.unitSystem === 1 ? 2.54 : 1)) + input.hairThickness + (input.fitPreference === 0 ? -0.5 : input.fitPreference === 2 ? 0.5 : 0)) / 2.54 / Math.PI - 0.125; results["ukSize"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["ukSize"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateHat_size_calculator(input: Hat_size_calculatorInput): Hat_size_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["usSize"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["usSize"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -141,20 +141,20 @@
     "rightLimit": "rightNumerator / rightDenominator",
     "primary": "(leftLimit + rightLimit) / 2",
     "breakdown_0": "leftLimit",
-    "breakdown_1": "rightLimit",
-    "breakdown_2": "Math.abs(leftLimit - rightLimit)",
-    "Left_hand_limit": "Left-hand limit",
-    "Right_hand_limit": "Right-hand limit",
-    "Absolute_difference_between_left_and_rig": "Absolute difference between left and right limits",
-    "result": "Approximate limit value (average of left and right)"
+    "breakdown_1": "rightLimit"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "breakdown_1",
     "breakdown": [
       "Left-hand limit",
       "Right-hand limit",
       "Absolute difference between left and right limits"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "breakdown_2"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -164,5 +164,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

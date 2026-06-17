@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 1,
-      "businessContext": "Distance in kilometers to convert to meters."
+      "businessContext": "Distance in kilometers to convert to meters.",
+      "label_i18n": {
+        "en": "Distance (km)",
+        "tr": "Distance (km)",
+        "de": "Distance (km)",
+        "fr": "Distance (km)",
+        "es": "Distance (km)",
+        "ar": "Distance (km)"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m/km",
       "default": 1000,
-      "businessContext": "Meters per kilometer. Standard value is 1000."
+      "businessContext": "Meters per kilometer. Standard value is 1000.",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "decimalPrecision",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "places",
       "default": 2,
-      "businessContext": "Number of decimal places for rounding the result."
+      "businessContext": "Number of decimal places for rounding the result.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "roundingMethod",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "code",
       "default": 0,
-      "businessContext": "0 = round, 1 = floor, 2 = ceil."
+      "businessContext": "0 = round, 1 = floor, 2 = ceil.",
+      "label_i18n": {
+        "en": "Rounding Method",
+        "tr": "Rounding Method",
+        "de": "Rounding Method",
+        "fr": "Rounding Method",
+        "es": "Rounding Method",
+        "ar": "Rounding Method"
+      }
     },
     {
       "id": "minimumValue",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Output value floor, useful for safety margins."
+      "businessContext": "Output value floor, useful for safety margins.",
+      "label_i18n": {
+        "en": "Minimum Threshold (m)",
+        "tr": "Minimum Threshold (m)",
+        "de": "Minimum Threshold (m)",
+        "fr": "Minimum Threshold (m)",
+        "es": "Minimum Threshold (m)",
+        "ar": "Minimum Threshold (m)"
+      }
     },
     {
       "id": "maximumValue",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "m",
       "default": 999999,
-      "businessContext": "Output value ceiling, for limiting results."
+      "businessContext": "Output value ceiling, for limiting results.",
+      "label_i18n": {
+        "en": "Maximum Threshold (m)",
+        "tr": "Maximum Threshold (m)",
+        "de": "Maximum Threshold (m)",
+        "fr": "Maximum Threshold (m)",
+        "es": "Maximum Threshold (m)",
+        "ar": "Maximum Threshold (m)"
+      }
     },
     {
       "id": "scaleFactor",
@@ -55,20 +103,32 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Batch multiplier for bulk conversions."
+      "businessContext": "Batch multiplier for bulk conversions.",
+      "label_i18n": {
+        "en": "Scale Factor",
+        "tr": "Scale Factor",
+        "de": "Scale Factor",
+        "fr": "Scale Factor",
+        "es": "Scale Factor",
+        "ar": "Scale Factor"
+      }
     }
   ],
   "formulas": {
     "rawMeters": "inputKm * conversionFactor * scaleFactor",
-    "rounded": "roundingMethod === 0 ? Math.round(rawMeters * Math.pow(10, decimalPrecision)) / Math.pow(10, decimalPrecision) : roundingMethod === 1 ? Math.floor(rawMeters * Math.pow(10, decimalPrecision)) / Math.pow(10, decimalPrecision) : Math.ceil(rawMeters * Math.pow(10, decimalPrecision)) / Math.pow(10, decimalPrecision)",
-    "clamped": "Math.max(minimumValue, Math.min(maximumValue, rounded))"
+    "rawMeters_aux": "inputKm * conversionFactor * scaleFactor"
   },
   "outputs": {
-    "primary": "clamped",
+    "primary": "rawMeters_aux",
     "breakdown": [
       "rawMeters",
       "rounded"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "clamped"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -78,5 +138,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

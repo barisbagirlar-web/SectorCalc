@@ -60,13 +60,18 @@
   ],
   "formulas": {
     "grm": "propertyPrice / annualRentalIncome",
-    "propertyPrice___annualRentalIncome___grm": "propertyPrice / annualRentalIncome = grm"
+    "grm_aux": "propertyPrice / annualRentalIncome"
   },
   "outputs": {
     "primary": "grm",
     "breakdown": [
       "propertyPrice / annualRentalIncome = grm"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "grm_aux"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -76,5 +81,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

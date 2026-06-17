@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from paint-coverage-calculator-schema.json
 import * as z from 'zod';
 
@@ -19,25 +20,33 @@ export const Paint_coverage_calculatorInputSchema = z.object({
   paint_price_per_liter: z.number().default(30),
 });
 
-function evaluateAllFormulas(input: Paint_coverage_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (input.area_sqm * input.coats) / (input.coverage_per_liter / input.roughness_factor) * (1 + input.waste_factor / 100); results["paint_liters"] = Number.isFinite(v) ? v : 0; } catch { results["paint_liters"] = 0; }
-  try { const v = (input.area_sqm * input.coats) / (input.coverage_per_liter / input.roughness_factor) * (1 + input.waste_factor / 100) * input.paint_price_per_liter; results["total_cost"] = Number.isFinite(v) ? v : 0; } catch { results["total_cost"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Paint_coverage_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = (input.area_sqm * input.coats) / (input.coverage_per_liter / input.roughness_factor) * (1 + input.waste_factor / 100); results["paint_liters"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["paint_liters"] = 0; }
+  try { const v = (input.area_sqm * input.coats) / (input.coverage_per_liter / input.roughness_factor) * (1 + input.waste_factor / 100) * input.paint_price_per_liter; results["total_cost"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["total_cost"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculatePaint_coverage_calculator(input: Paint_coverage_calculatorInput): Paint_coverage_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["paint_liters"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["paint_liters"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

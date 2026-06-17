@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 200000,
-      "businessContext": "The initial principal balance of the FHA loan, excluding upfront MIP if financed separately."
+      "businessContext": "The initial principal balance of the FHA loan, excluding upfront MIP if financed separately.",
+      "label_i18n": {
+        "en": "Loan Amount",
+        "tr": "Loan Amount",
+        "de": "Loan Amount",
+        "fr": "Loan Amount",
+        "es": "Loan Amount",
+        "ar": "Loan Amount"
+      }
     },
     {
       "id": "interestRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 3.5,
-      "businessContext": "Annual nominal interest rate for the loan."
+      "businessContext": "Annual nominal interest rate for the loan.",
+      "label_i18n": {
+        "en": "Interest Rate",
+        "tr": "Interest Rate",
+        "de": "Interest Rate",
+        "fr": "Interest Rate",
+        "es": "Interest Rate",
+        "ar": "Interest Rate"
+      }
     },
     {
       "id": "loanTerm",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Total duration of the loan in years."
+      "businessContext": "Total duration of the loan in years.",
+      "label_i18n": {
+        "en": "Loan Term",
+        "tr": "Loan Term",
+        "de": "Loan Term",
+        "fr": "Loan Term",
+        "es": "Loan Term",
+        "ar": "Loan Term"
+      }
     },
     {
       "id": "propertyTaxAnnual",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "$",
       "default": 2400,
-      "businessContext": "Total annual property tax amount for the home."
+      "businessContext": "Total annual property tax amount for the home.",
+      "label_i18n": {
+        "en": "Annual Property Tax",
+        "tr": "Annual Property Tax",
+        "de": "Annual Property Tax",
+        "fr": "Annual Property Tax",
+        "es": "Annual Property Tax",
+        "ar": "Annual Property Tax"
+      }
     },
     {
       "id": "hazardInsuranceAnnual",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "$",
       "default": 1000,
-      "businessContext": "Total annual premium for hazard/homeowners insurance."
+      "businessContext": "Total annual premium for hazard/homeowners insurance.",
+      "label_i18n": {
+        "en": "Annual Hazard Insurance",
+        "tr": "Annual Hazard Insurance",
+        "de": "Annual Hazard Insurance",
+        "fr": "Annual Hazard Insurance",
+        "es": "Annual Hazard Insurance",
+        "ar": "Annual Hazard Insurance"
+      }
     },
     {
       "id": "mipAnnualRate",
@@ -47,24 +87,35 @@
       "type": "number",
       "unit": "%",
       "default": 0.85,
-      "businessContext": "Annual FHA Mortgage Insurance Premium rate as a percentage of the loan amount (e.g., 0.85 for 30-year, >95% LTV)."
+      "businessContext": "Annual FHA Mortgage Insurance Premium rate as a percentage of the loan amount (e.g., 0.85 for 30-year, >95% LTV).",
+      "label_i18n": {
+        "en": "Annual MIP Rate",
+        "tr": "Annual MIP Rate",
+        "de": "Annual MIP Rate",
+        "fr": "Annual MIP Rate",
+        "es": "Annual MIP Rate",
+        "ar": "Annual MIP Rate"
+      }
     }
   ],
   "formulas": {
-    "principalAndInterest": "(loanAmount * ((interestRate/100/12) * Math.pow(1 + (interestRate/100/12), loanTerm*12)) / (Math.pow(1 + (interestRate/100/12), loanTerm*12) - 1))",
     "propertyTaxMonthly": "propertyTaxAnnual / 12",
     "hazardInsuranceMonthly": "hazardInsuranceAnnual / 12",
-    "mipMonthly": "(loanAmount * mipAnnualRate / 100) / 12",
-    "totalMonthlyPayment": "principalAndInterest + propertyTaxMonthly + hazardInsuranceMonthly + mipMonthly"
+    "mipMonthly": "(loanAmount * mipAnnualRate / 100) / 12"
   },
   "outputs": {
-    "primary": "totalMonthlyPayment",
+    "primary": "mipMonthly",
     "breakdown": [
       "principalAndInterest",
       "propertyTaxMonthly",
       "hazardInsuranceMonthly",
       "mipMonthly"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalMonthlyPayment"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -74,5 +125,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "servings",
       "default": 4,
-      "businessContext": "Number of portions to prepare."
+      "businessContext": "Number of portions to prepare.",
+      "label_i18n": {
+        "en": "Number of Servings",
+        "tr": "Number of Servings",
+        "de": "Number of Servings",
+        "fr": "Number of Servings",
+        "es": "Number of Servings",
+        "ar": "Number of Servings"
+      }
     },
     {
       "id": "portionWeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g",
       "default": 100,
-      "businessContext": "Dry pasta weight per person in grams. Standard is 80-100g."
+      "businessContext": "Dry pasta weight per person in grams. Standard is 80-100g.",
+      "label_i18n": {
+        "en": "Pasta per Portion",
+        "tr": "Pasta per Portion",
+        "de": "Pasta per Portion",
+        "fr": "Pasta per Portion",
+        "es": "Pasta per Portion",
+        "ar": "Pasta per Portion"
+      }
     },
     {
       "id": "waterRatio",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "L/kg",
       "default": 10,
-      "businessContext": "Water needed per kilogram of dry pasta. Typically 10 liters per kg."
+      "businessContext": "Water needed per kilogram of dry pasta. Typically 10 liters per kg.",
+      "label_i18n": {
+        "en": "Water Ratio",
+        "tr": "Water Ratio",
+        "de": "Water Ratio",
+        "fr": "Water Ratio",
+        "es": "Water Ratio",
+        "ar": "Water Ratio"
+      }
     },
     {
       "id": "saltConcentration",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "g/L",
       "default": 10,
-      "businessContext": "Salt added per liter of water. Standard is 10 g/L."
+      "businessContext": "Salt added per liter of water. Standard is 10 g/L.",
+      "label_i18n": {
+        "en": "Salt Concentration",
+        "tr": "Salt Concentration",
+        "de": "Salt Concentration",
+        "fr": "Salt Concentration",
+        "es": "Salt Concentration",
+        "ar": "Salt Concentration"
+      }
     },
     {
       "id": "cookingTimeLoss",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "ratio",
       "default": 1.8,
-      "businessContext": "Multiplier for cooked weight relative to dry weight. Cooked pasta absorbs water. Typical 1.8-2.0."
+      "businessContext": "Multiplier for cooked weight relative to dry weight. Cooked pasta absorbs water. Typical 1.8-2.0.",
+      "label_i18n": {
+        "en": "Water Absorption Factor",
+        "tr": "Water Absorption Factor",
+        "de": "Water Absorption Factor",
+        "fr": "Water Absorption Factor",
+        "es": "Water Absorption Factor",
+        "ar": "Water Absorption Factor"
+      }
     },
     {
       "id": "caloriesPer100g",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kcal",
       "default": 371,
-      "businessContext": "Energy content per 100 grams of dry pasta (typical 371 kcal)."
+      "businessContext": "Energy content per 100 grams of dry pasta (typical 371 kcal).",
+      "label_i18n": {
+        "en": "Calories per 100g Dry",
+        "tr": "Calories per 100g Dry",
+        "de": "Calories per 100g Dry",
+        "fr": "Calories per 100g Dry",
+        "es": "Calories per 100g Dry",
+        "ar": "Calories per 100g Dry"
+      }
     }
   ],
   "formulas": {
@@ -84,7 +132,12 @@
         "unit": "kcal",
         "formula": "totalCalories"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCalories"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -94,5 +147,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

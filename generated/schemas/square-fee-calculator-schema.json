@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "The length of the rectangular area in meters."
+      "businessContext": "The length of the rectangular area in meters.",
+      "label_i18n": {
+        "en": "Length",
+        "tr": "Length",
+        "de": "Length",
+        "fr": "Length",
+        "es": "Length",
+        "ar": "Length"
+      }
     },
     {
       "id": "width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "The width of the rectangular area in meters."
+      "businessContext": "The width of the rectangular area in meters.",
+      "label_i18n": {
+        "en": "Width",
+        "tr": "Width",
+        "de": "Width",
+        "fr": "Width",
+        "es": "Width",
+        "ar": "Width"
+      }
     },
     {
       "id": "pricePerSquareMeter",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$/m²",
       "default": 100,
-      "businessContext": "The cost per square meter for the area."
+      "businessContext": "The cost per square meter for the area.",
+      "label_i18n": {
+        "en": "Price per Square Meter",
+        "tr": "Price per Square Meter",
+        "de": "Price per Square Meter",
+        "fr": "Price per Square Meter",
+        "es": "Price per Square Meter",
+        "ar": "Price per Square Meter"
+      }
     },
     {
       "id": "taxRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Applicable tax rate as a percentage."
+      "businessContext": "Applicable tax rate as a percentage.",
+      "label_i18n": {
+        "en": "Tax Rate",
+        "tr": "Tax Rate",
+        "de": "Tax Rate",
+        "fr": "Tax Rate",
+        "es": "Tax Rate",
+        "ar": "Tax Rate"
+      }
     },
     {
       "id": "serviceFee",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Fixed service charge additional to the area cost."
+      "businessContext": "Fixed service charge additional to the area cost.",
+      "label_i18n": {
+        "en": "Service Fee",
+        "tr": "Service Fee",
+        "de": "Service Fee",
+        "fr": "Service Fee",
+        "es": "Service Fee",
+        "ar": "Service Fee"
+      }
     }
   ],
   "formulas": {
@@ -56,7 +96,12 @@
       "subtotal",
       "taxAmount",
       "serviceFee"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalFee"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -66,5 +111,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "L",
       "default": 12,
-      "businessContext": "The volume of the scuba cylinder in liters."
+      "businessContext": "The volume of the scuba cylinder in liters.",
+      "label_i18n": {
+        "en": "Tank Volume",
+        "tr": "Tank Volume",
+        "de": "Tank Volume",
+        "fr": "Tank Volume",
+        "es": "Tank Volume",
+        "ar": "Tank Volume"
+      }
     },
     {
       "id": "startPressure",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "bar",
       "default": 200,
-      "businessContext": "The pressure of the full tank."
+      "businessContext": "The pressure of the full tank.",
+      "label_i18n": {
+        "en": "Starting Pressure",
+        "tr": "Starting Pressure",
+        "de": "Starting Pressure",
+        "fr": "Starting Pressure",
+        "es": "Starting Pressure",
+        "ar": "Starting Pressure"
+      }
     },
     {
       "id": "reservePressure",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "bar",
       "default": 50,
-      "businessContext": "The pressure at which the dive should be ended, typically for safety reserve."
+      "businessContext": "The pressure at which the dive should be ended, typically for safety reserve.",
+      "label_i18n": {
+        "en": "Reserve Pressure",
+        "tr": "Reserve Pressure",
+        "de": "Reserve Pressure",
+        "fr": "Reserve Pressure",
+        "es": "Reserve Pressure",
+        "ar": "Reserve Pressure"
+      }
     },
     {
       "id": "diveDepth",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 18,
-      "businessContext": "The planned average depth of the dive."
+      "businessContext": "The planned average depth of the dive.",
+      "label_i18n": {
+        "en": "Average Dive Depth",
+        "tr": "Average Dive Depth",
+        "de": "Average Dive Depth",
+        "fr": "Average Dive Depth",
+        "es": "Average Dive Depth",
+        "ar": "Average Dive Depth"
+      }
     },
     {
       "id": "sacRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "L/min",
       "default": 20,
-      "businessContext": "The diver's personal surface air consumption rate."
+      "businessContext": "The diver's personal surface air consumption rate.",
+      "label_i18n": {
+        "en": "Surface Air Consumption",
+        "tr": "Surface Air Consumption",
+        "de": "Surface Air Consumption",
+        "fr": "Surface Air Consumption",
+        "es": "Surface Air Consumption",
+        "ar": "Surface Air Consumption"
+      }
     },
     {
       "id": "waterDensity",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "atm/bar per 10m",
       "default": 1.03,
-      "businessContext": "1.00 for freshwater, 1.03 for saltwater; reflects pressure increase per 10m depth."
+      "businessContext": "1.00 for freshwater, 1.03 for saltwater; reflects pressure increase per 10m depth.",
+      "label_i18n": {
+        "en": "Water Density Factor",
+        "tr": "Water Density Factor",
+        "de": "Water Density Factor",
+        "fr": "Water Density Factor",
+        "es": "Water Density Factor",
+        "ar": "Water Density Factor"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
       "ambientPressure",
       "totalGas",
       "breathingRateDepth"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "maxDiveTime"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -72,5 +125,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

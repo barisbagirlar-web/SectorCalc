@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 100,
-      "businessContext": "Ürünün vergi hariç birim fiyatı"
+      "businessContext": "Ürünün vergi hariç birim fiyatı",
+      "label_i18n": {
+        "en": "Birim Fiyat",
+        "tr": "Birim Fiyat",
+        "de": "Birim Fiyat",
+        "fr": "Birim Fiyat",
+        "es": "Birim Fiyat",
+        "ar": "Birim Fiyat"
+      }
     },
     {
       "id": "quantity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 1,
-      "businessContext": "Satılan veya üretilen birim sayısı"
+      "businessContext": "Satılan veya üretilen birim sayısı",
+      "label_i18n": {
+        "en": "Miktar",
+        "tr": "Miktar",
+        "de": "Miktar",
+        "fr": "Miktar",
+        "es": "Miktar",
+        "ar": "Miktar"
+      }
     },
     {
       "id": "adValoremRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Vergi matrahına uygulanan yüzdesel oran"
+      "businessContext": "Vergi matrahına uygulanan yüzdesel oran",
+      "label_i18n": {
+        "en": "Ad Valorem Oranı",
+        "tr": "Ad Valorem Oranı",
+        "de": "Ad Valorem Oranı",
+        "fr": "Ad Valorem Oranı",
+        "es": "Ad Valorem Oranı",
+        "ar": "Ad Valorem Oranı"
+      }
     },
     {
       "id": "specificTaxPerUnit",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency",
       "default": 5,
-      "businessContext": "Her birim başına uygulanan sabit vergi tutarı"
+      "businessContext": "Her birim başına uygulanan sabit vergi tutarı",
+      "label_i18n": {
+        "en": "Birim Spesifik Vergi",
+        "tr": "Birim Spesifik Vergi",
+        "de": "Birim Spesifik Vergi",
+        "fr": "Birim Spesifik Vergi",
+        "es": "Birim Spesifik Vergi",
+        "ar": "Birim Spesifik Vergi"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "specificTaxAmount",
       "adValoremTaxAmount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "adValoremTaxAmount"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -54,5 +91,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

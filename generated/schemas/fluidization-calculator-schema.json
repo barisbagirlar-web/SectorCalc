@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.001,
-      "businessContext": "Average diameter of particles in the bed."
+      "businessContext": "Average diameter of particles in the bed.",
+      "label_i18n": {
+        "en": "Particle Diameter (dp)",
+        "tr": "Particle Diameter (dp)",
+        "de": "Particle Diameter (dp)",
+        "fr": "Particle Diameter (dp)",
+        "es": "Particle Diameter (dp)",
+        "ar": "Particle Diameter (dp)"
+      }
     },
     {
       "id": "particleDensity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 2500,
-      "businessContext": "Density of the solid particles."
+      "businessContext": "Density of the solid particles.",
+      "label_i18n": {
+        "en": "Particle Density (ρp)",
+        "tr": "Particle Density (ρp)",
+        "de": "Particle Density (ρp)",
+        "fr": "Particle Density (ρp)",
+        "es": "Particle Density (ρp)",
+        "ar": "Particle Density (ρp)"
+      }
     },
     {
       "id": "fluidDensity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1.2,
-      "businessContext": "Density of the fluidizing medium."
+      "businessContext": "Density of the fluidizing medium.",
+      "label_i18n": {
+        "en": "Fluid Density (ρf)",
+        "tr": "Fluid Density (ρf)",
+        "de": "Fluid Density (ρf)",
+        "fr": "Fluid Density (ρf)",
+        "es": "Fluid Density (ρf)",
+        "ar": "Fluid Density (ρf)"
+      }
     },
     {
       "id": "fluidViscosity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "Pa·s",
       "default": 0.000018,
-      "businessContext": "Dynamic viscosity of the fluid."
+      "businessContext": "Dynamic viscosity of the fluid.",
+      "label_i18n": {
+        "en": "Fluid Viscosity (μ)",
+        "tr": "Fluid Viscosity (μ)",
+        "de": "Fluid Viscosity (μ)",
+        "fr": "Fluid Viscosity (μ)",
+        "es": "Fluid Viscosity (μ)",
+        "ar": "Fluid Viscosity (μ)"
+      }
     },
     {
       "id": "voidFraction",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0.4,
-      "businessContext": "Void fraction (porosity) of the bed at minimum fluidization."
+      "businessContext": "Void fraction (porosity) of the bed at minimum fluidization.",
+      "label_i18n": {
+        "en": "Void Fraction at Min. Fluidization (εmf)",
+        "tr": "Void Fraction at Min. Fluidization (εmf)",
+        "de": "Void Fraction at Min. Fluidization (εmf)",
+        "fr": "Void Fraction at Min. Fluidization (εmf)",
+        "es": "Void Fraction at Min. Fluidization (εmf)",
+        "ar": "Void Fraction at Min. Fluidization (εmf)"
+      }
     },
     {
       "id": "sphericity",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0.8,
-      "businessContext": "Sphericity factor of particles, ranging from 0 to 1."
+      "businessContext": "Sphericity factor of particles, ranging from 0 to 1.",
+      "label_i18n": {
+        "en": "Sphericity (φ)",
+        "tr": "Sphericity (φ)",
+        "de": "Sphericity (φ)",
+        "fr": "Sphericity (φ)",
+        "es": "Sphericity (φ)",
+        "ar": "Sphericity (φ)"
+      }
     },
     {
       "id": "gravity",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "m/s²",
       "default": 9.81,
-      "businessContext": "Gravitational acceleration."
+      "businessContext": "Gravitational acceleration.",
+      "label_i18n": {
+        "en": "Gravity (g)",
+        "tr": "Gravity (g)",
+        "de": "Gravity (g)",
+        "fr": "Gravity (g)",
+        "es": "Gravity (g)",
+        "ar": "Gravity (g)"
+      }
     },
     {
       "id": "bedHeight",
@@ -63,23 +119,32 @@
       "type": "number",
       "unit": "m",
       "default": 0.5,
-      "businessContext": "Height of the fixed bed."
+      "businessContext": "Height of the fixed bed.",
+      "label_i18n": {
+        "en": "Bed Height (L)",
+        "tr": "Bed Height (L)",
+        "de": "Bed Height (L)",
+        "fr": "Bed Height (L)",
+        "es": "Bed Height (L)",
+        "ar": "Bed Height (L)"
+      }
     }
   ],
   "formulas": {
-    "a": "1.75 * (1 - voidFraction) / (Math.pow(voidFraction, 3) * sphericity) * (fluidDensity / particleDiameter)",
-    "b": "150 * Math.pow(1 - voidFraction, 2) / (Math.pow(voidFraction, 3) * Math.pow(sphericity, 2)) * (fluidViscosity / Math.pow(particleDiameter, 2))",
     "c": "(particleDensity - fluidDensity) * gravity",
-    "Umf": "(-b + Math.sqrt(b * b + 4 * a * c)) / (2 * a)",
-    "DeltaP_mf": "(particleDensity - fluidDensity) * (1 - voidFraction) * gravity * bedHeight",
-    "Re_mf": "particleDiameter * Umf * fluidDensity / fluidViscosity"
+    "DeltaP_mf": "(particleDensity - fluidDensity) * (1 - voidFraction) * gravity * bedHeight"
   },
   "outputs": {
-    "primary": "Umf",
+    "primary": "DeltaP_mf",
     "breakdown": [
       "DeltaP_mf",
       "Re_mf"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "Re_mf"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -89,5 +154,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

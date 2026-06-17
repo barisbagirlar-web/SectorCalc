@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "hours",
       "default": 0,
-      "businessContext": "Credit hours for course 1"
+      "businessContext": "Credit hours for course 1",
+      "label_i18n": {
+        "en": "Course 1 Credit Hours",
+        "tr": "Course 1 Credit Hours",
+        "de": "Course 1 Credit Hours",
+        "fr": "Course 1 Credit Hours",
+        "es": "Course 1 Credit Hours",
+        "ar": "Course 1 Credit Hours"
+      }
     },
     {
       "id": "course1Grade",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Grade point for course 1 on a 4.0 scale"
+      "businessContext": "Grade point for course 1 on a 4.0 scale",
+      "label_i18n": {
+        "en": "Course 1 Grade (4.0 scale)",
+        "tr": "Course 1 Grade (4.0 scale)",
+        "de": "Course 1 Grade (4.0 scale)",
+        "fr": "Course 1 Grade (4.0 scale)",
+        "es": "Course 1 Grade (4.0 scale)",
+        "ar": "Course 1 Grade (4.0 scale)"
+      }
     },
     {
       "id": "course2Credit",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "hours",
       "default": 0,
-      "businessContext": "Credit hours for course 2"
+      "businessContext": "Credit hours for course 2",
+      "label_i18n": {
+        "en": "Course 2 Credit Hours",
+        "tr": "Course 2 Credit Hours",
+        "de": "Course 2 Credit Hours",
+        "fr": "Course 2 Credit Hours",
+        "es": "Course 2 Credit Hours",
+        "ar": "Course 2 Credit Hours"
+      }
     },
     {
       "id": "course2Grade",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Grade point for course 2 on a 4.0 scale"
+      "businessContext": "Grade point for course 2 on a 4.0 scale",
+      "label_i18n": {
+        "en": "Course 2 Grade (4.0 scale)",
+        "tr": "Course 2 Grade (4.0 scale)",
+        "de": "Course 2 Grade (4.0 scale)",
+        "fr": "Course 2 Grade (4.0 scale)",
+        "es": "Course 2 Grade (4.0 scale)",
+        "ar": "Course 2 Grade (4.0 scale)"
+      }
     },
     {
       "id": "course3Credit",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "hours",
       "default": 0,
-      "businessContext": "Credit hours for course 3"
+      "businessContext": "Credit hours for course 3",
+      "label_i18n": {
+        "en": "Course 3 Credit Hours",
+        "tr": "Course 3 Credit Hours",
+        "de": "Course 3 Credit Hours",
+        "fr": "Course 3 Credit Hours",
+        "es": "Course 3 Credit Hours",
+        "ar": "Course 3 Credit Hours"
+      }
     },
     {
       "id": "course3Grade",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Grade point for course 3 on a 4.0 scale"
+      "businessContext": "Grade point for course 3 on a 4.0 scale",
+      "label_i18n": {
+        "en": "Course 3 Grade (4.0 scale)",
+        "tr": "Course 3 Grade (4.0 scale)",
+        "de": "Course 3 Grade (4.0 scale)",
+        "fr": "Course 3 Grade (4.0 scale)",
+        "es": "Course 3 Grade (4.0 scale)",
+        "ar": "Course 3 Grade (4.0 scale)"
+      }
     },
     {
       "id": "course4Credit",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "hours",
       "default": 0,
-      "businessContext": "Credit hours for course 4"
+      "businessContext": "Credit hours for course 4",
+      "label_i18n": {
+        "en": "Course 4 Credit Hours",
+        "tr": "Course 4 Credit Hours",
+        "de": "Course 4 Credit Hours",
+        "fr": "Course 4 Credit Hours",
+        "es": "Course 4 Credit Hours",
+        "ar": "Course 4 Credit Hours"
+      }
     },
     {
       "id": "course4Grade",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Grade point for course 4 on a 4.0 scale"
+      "businessContext": "Grade point for course 4 on a 4.0 scale",
+      "label_i18n": {
+        "en": "Course 4 Grade (4.0 scale)",
+        "tr": "Course 4 Grade (4.0 scale)",
+        "de": "Course 4 Grade (4.0 scale)",
+        "fr": "Course 4 Grade (4.0 scale)",
+        "es": "Course 4 Grade (4.0 scale)",
+        "ar": "Course 4 Grade (4.0 scale)"
+      }
     }
   ],
   "formulas": {
@@ -76,7 +140,12 @@
     "breakdown": [
       "totalGradePoints",
       "totalCredits"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "gpa"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -86,5 +155,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -136,70 +136,6 @@
       "businessContext_i18n": {
         "en": "Allocated manufacturing overhead as a percentage of direct labor and material costs, following standard cost accounting."
       }
-    },
-    {
-      "id": "waste_disposal_cost_per_kg",
-      "label": "Waste Disposal Cost per kg",
-      "type": "number",
-      "unit": "USD/kg",
-      "default": 0.05,
-      "min": 0,
-      "max": 100,
-      "businessContext": "Cost to dispose of non-recyclable waste per kilogram, including landfill fees or incineration.",
-      "label_i18n": {
-        "en": "Waste Disposal Cost per kg"
-      },
-      "businessContext_i18n": {
-        "en": "Cost to dispose of non-recyclable waste per kilogram, including landfill fees or incineration."
-      }
-    },
-    {
-      "id": "quality_rework_rate",
-      "label": "Quality Rework Rate (%)",
-      "type": "number",
-      "unit": "%",
-      "default": 2,
-      "min": 0,
-      "max": 100,
-      "businessContext": "Percentage of batches requiring rework due to quality deviations, tracked via Six Sigma metrics.",
-      "label_i18n": {
-        "en": "Quality Rework Rate (%)"
-      },
-      "businessContext_i18n": {
-        "en": "Percentage of batches requiring rework due to quality deviations, tracked via Six Sigma metrics."
-      }
-    },
-    {
-      "id": "currency",
-      "label": "Currency",
-      "type": "select",
-      "unit": "unit",
-      "default": "USD",
-      "min": null,
-      "max": null,
-      "businessContext": "ISO 4217 currency code for cost reporting. All input costs are assumed in this currency.",
-      "label_i18n": {
-        "en": "Currency"
-      },
-      "businessContext_i18n": {
-        "en": "ISO 4217 currency code for cost reporting. All input costs are assumed in this currency."
-      }
-    },
-    {
-      "id": "include_environmental_cost",
-      "label": "Include Environmental Cost",
-      "type": "boolean",
-      "unit": "unit",
-      "default": false,
-      "min": null,
-      "max": null,
-      "businessContext": "Toggle to include estimated carbon tax or environmental compliance costs in the total cost.",
-      "label_i18n": {
-        "en": "Include Environmental Cost"
-      },
-      "businessContext_i18n": {
-        "en": "Toggle to include estimated carbon tax or environmental compliance costs in the total cost."
-      }
     }
   ],
   "validation": {
@@ -239,18 +175,18 @@
       }
     ]
   },
-  "formulas": [
-    "material_cost_per_kg",
-    "material_cost_per_kg",
-    "material_cost_per_kg",
-    "material_cost_per_kg",
-    "material_cost_per_kg",
-    "material_cost_per_kg",
-    "material_cost_per_kg"
-  ],
+  "formulas": {
+    "result": "material_cost_per_kg + recipe_yield_percent + labor_rate_per_hour",
+    "result_copy": "material_cost_per_kg + recipe_yield_percent + labor_rate_per_hour"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "recipe-cost-check-calculator",
   "catalogCategory": "everyday-life",

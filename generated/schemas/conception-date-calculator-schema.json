@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "days",
       "default": 365,
-      "businessContext": "The deadline or target completion date expressed as number of days from a reference date (e.g., 2024-01-01)."
+      "businessContext": "The deadline or target completion date expressed as number of days from a reference date (e.g., 2024-01-01).",
+      "label_i18n": {
+        "en": "Target Date (days from epoch)",
+        "tr": "Target Date (days from epoch)",
+        "de": "Target Date (days from epoch)",
+        "fr": "Target Date (days from epoch)",
+        "es": "Target Date (days from epoch)",
+        "ar": "Target Date (days from epoch)"
+      }
     },
     {
       "id": "plannedDurationDays",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "days",
       "default": 100,
-      "businessContext": "The estimated total work duration in calendar days."
+      "businessContext": "The estimated total work duration in calendar days.",
+      "label_i18n": {
+        "en": "Planned Duration",
+        "tr": "Planned Duration",
+        "de": "Planned Duration",
+        "fr": "Planned Duration",
+        "es": "Planned Duration",
+        "ar": "Planned Duration"
+      }
     },
     {
       "id": "bufferDays",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "days",
       "default": 10,
-      "businessContext": "Additional safety margin in days."
+      "businessContext": "Additional safety margin in days.",
+      "label_i18n": {
+        "en": "Buffer Days",
+        "tr": "Buffer Days",
+        "de": "Buffer Days",
+        "fr": "Buffer Days",
+        "es": "Buffer Days",
+        "ar": "Buffer Days"
+      }
     },
     {
       "id": "efficiencyFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "ratio",
       "default": 1,
-      "businessContext": "Productivity factor; 1 = 100% efficiency. A value less than 1 increases effective duration."
+      "businessContext": "Productivity factor; 1 = 100% efficiency. A value less than 1 increases effective duration.",
+      "label_i18n": {
+        "en": "Efficiency Factor",
+        "tr": "Efficiency Factor",
+        "de": "Efficiency Factor",
+        "fr": "Efficiency Factor",
+        "es": "Efficiency Factor",
+        "ar": "Efficiency Factor"
+      }
     }
   ],
   "formulas": {
@@ -43,7 +75,12 @@
     "breakdown": [
       "effectiveDuration",
       "conceptionDate"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "conceptionDate"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -53,5 +90,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "efficiency"
+  "categoryId": "efficiency",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

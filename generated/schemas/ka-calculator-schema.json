@@ -67,16 +67,20 @@
     }
   ],
   "formulas": {
-    "ka": "Math.pow(10, -ph) * (concentrationA / concentrationHA)",
-    "pKa": "ph - (Math.log(concentrationA / concentrationHA) / Math.log(10))",
-    "ratio": "concentrationA / concentrationHA"
+    "ratio": "concentrationA / concentrationHA",
+    "ratio_aux": "concentrationA / concentrationHA"
   },
   "outputs": {
-    "primary": "ka",
+    "primary": "ratio_aux",
     "breakdown": [
       "pKa",
       "ratio"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "ratio"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -86,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

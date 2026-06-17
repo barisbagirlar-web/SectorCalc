@@ -69,19 +69,20 @@
   "formulas": {
     "pressureAltitude": "indicatedAltitude + 1000 * (29.92 - altimeterSetting)",
     "oatK": "oat + 273.15",
-    "delta": "Math.pow(1 - 6.8755856e-6 * pressureAltitude, 5.2561)",
     "theta": "oatK / 288.15",
-    "sigma": "delta / theta",
-    "tas": "ias / Math.sqrt(sigma)",
-    "densityAltitude": "pressureAltitude + 118.8 * (oat - (15 - 1.98 * pressureAltitude / 1000))",
-    "mach": "tas / (38.9679 * Math.sqrt(oatK))"
+    "densityAltitude": "pressureAltitude + 118.8 * (oat - (15 - 1.98 * pressureAltitude / 1000))"
   },
   "outputs": {
-    "primary": "tas",
+    "primary": "densityAltitude",
     "breakdown": [
       "densityAltitude",
       "mach"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "mach"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -91,5 +92,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

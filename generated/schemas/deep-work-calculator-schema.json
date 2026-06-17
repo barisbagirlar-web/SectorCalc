@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "hours",
       "default": 8,
-      "businessContext": "Total available work hours per day"
+      "businessContext": "Total available work hours per day",
+      "label_i18n": {
+        "en": "Daily Work Hours",
+        "tr": "Daily Work Hours",
+        "de": "Daily Work Hours",
+        "fr": "Daily Work Hours",
+        "es": "Daily Work Hours",
+        "ar": "Daily Work Hours"
+      }
     },
     {
       "id": "meetingCount",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "count",
       "default": 3,
-      "businessContext": "Average number of meetings per day"
+      "businessContext": "Average number of meetings per day",
+      "label_i18n": {
+        "en": "Number of Meetings",
+        "tr": "Number of Meetings",
+        "de": "Number of Meetings",
+        "fr": "Number of Meetings",
+        "es": "Number of Meetings",
+        "ar": "Number of Meetings"
+      }
     },
     {
       "id": "meetingDuration",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 30,
-      "businessContext": "Average duration per meeting in minutes"
+      "businessContext": "Average duration per meeting in minutes",
+      "label_i18n": {
+        "en": "Average Meeting Duration",
+        "tr": "Average Meeting Duration",
+        "de": "Average Meeting Duration",
+        "fr": "Average Meeting Duration",
+        "es": "Average Meeting Duration",
+        "ar": "Average Meeting Duration"
+      }
     },
     {
       "id": "interruptionCount",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "count",
       "default": 10,
-      "businessContext": "Number of unplanned interruptions per day"
+      "businessContext": "Number of unplanned interruptions per day",
+      "label_i18n": {
+        "en": "Interruptions per Day",
+        "tr": "Interruptions per Day",
+        "de": "Interruptions per Day",
+        "fr": "Interruptions per Day",
+        "es": "Interruptions per Day",
+        "ar": "Interruptions per Day"
+      }
     },
     {
       "id": "recoveryTime",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 15,
-      "businessContext": "Minutes to regain deep focus after an interruption"
+      "businessContext": "Minutes to regain deep focus after an interruption",
+      "label_i18n": {
+        "en": "Recovery Time per Interruption",
+        "tr": "Recovery Time per Interruption",
+        "de": "Recovery Time per Interruption",
+        "fr": "Recovery Time per Interruption",
+        "es": "Recovery Time per Interruption",
+        "ar": "Recovery Time per Interruption"
+      }
     },
     {
       "id": "deepWorkBlock",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 90,
-      "businessContext": "Typical length of an uninterrupted deep work session"
+      "businessContext": "Typical length of an uninterrupted deep work session",
+      "label_i18n": {
+        "en": "Deep Work Block Duration",
+        "tr": "Deep Work Block Duration",
+        "de": "Deep Work Block Duration",
+        "fr": "Deep Work Block Duration",
+        "es": "Deep Work Block Duration",
+        "ar": "Deep Work Block Duration"
+      }
     },
     {
       "id": "shallowWorkPercent",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 30,
-      "businessContext": "Percentage of daily hours spent on shallow, low-value tasks"
+      "businessContext": "Percentage of daily hours spent on shallow, low-value tasks",
+      "label_i18n": {
+        "en": "Shallow Work %",
+        "tr": "Shallow Work %",
+        "de": "Shallow Work %",
+        "fr": "Shallow Work %",
+        "es": "Shallow Work %",
+        "ar": "Shallow Work %"
+      }
     }
   ],
   "formulas": {
@@ -63,21 +119,23 @@
     "meetingTimeMinutes": "meetingCount * meetingDuration",
     "interruptionTimeMinutes": "interruptionCount * recoveryTime",
     "shallowTimeMinutes": "(shallowWorkPercent / 100) * totalMinutes",
-    "deepWorkTimeMinutes": "Math.max(0, totalMinutes - meetingTimeMinutes - interruptionTimeMinutes - shallowTimeMinutes)",
-    "effectiveDeepWorkHours": "deepWorkTimeMinutes / 60",
     "shallowWorkHours": "shallowTimeMinutes / 60",
     "meetingHours": "meetingTimeMinutes / 60",
-    "interruptionHours": "interruptionTimeMinutes / 60",
-    "productivityLossPercent": "totalMinutes > 0 ? ((totalMinutes - deepWorkTimeMinutes) / totalMinutes) * 100 : 0"
+    "interruptionHours": "interruptionTimeMinutes / 60"
   },
   "outputs": {
-    "primary": "effectiveDeepWorkHours",
+    "primary": "interruptionHours",
     "breakdown": [
       "shallowWorkHours",
       "meetingHours",
       "interruptionHours",
       "effectiveDeepWorkHours"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "productivityLossPercent"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -87,5 +145,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

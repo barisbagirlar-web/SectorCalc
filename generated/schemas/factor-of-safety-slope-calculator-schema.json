@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°",
       "default": 30,
-      "businessContext": "Eğimin yatay ile yaptığı açı"
+      "businessContext": "Eğimin yatay ile yaptığı açı",
+      "label_i18n": {
+        "en": "Şev Açısı",
+        "tr": "Şev Açısı",
+        "de": "Şev Açısı",
+        "fr": "Şev Açısı",
+        "es": "Şev Açısı",
+        "ar": "Şev Açısı"
+      }
     },
     {
       "id": "cohesion",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kPa",
       "default": 0,
-      "businessContext": "Zemin kohezyon değeri"
+      "businessContext": "Zemin kohezyon değeri",
+      "label_i18n": {
+        "en": "Kohezyon",
+        "tr": "Kohezyon",
+        "de": "Kohezyon",
+        "fr": "Kohezyon",
+        "es": "Kohezyon",
+        "ar": "Kohezyon"
+      }
     },
     {
       "id": "frictionAngle",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°",
       "default": 25,
-      "businessContext": "Zemin için efektif kayma direnci açısı"
+      "businessContext": "Zemin için efektif kayma direnci açısı",
+      "label_i18n": {
+        "en": "İçsel Sürtünme Açısı",
+        "tr": "İçsel Sürtünme Açısı",
+        "de": "İçsel Sürtünme Açısı",
+        "fr": "İçsel Sürtünme Açısı",
+        "es": "İçsel Sürtünme Açısı",
+        "ar": "İçsel Sürtünme Açısı"
+      }
     },
     {
       "id": "soilUnitWeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kN/m³",
       "default": 18,
-      "businessContext": "Doğal birim ağırlık"
+      "businessContext": "Doğal birim ağırlık",
+      "label_i18n": {
+        "en": "Zemin Birim Hacim Ağırlığı",
+        "tr": "Zemin Birim Hacim Ağırlığı",
+        "de": "Zemin Birim Hacim Ağırlığı",
+        "fr": "Zemin Birim Hacim Ağırlığı",
+        "es": "Zemin Birim Hacim Ağırlığı",
+        "ar": "Zemin Birim Hacim Ağırlığı"
+      }
     },
     {
       "id": "slipDepth",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 2,
-      "businessContext": "Yüzeyden kayma düzlemine dik derinlik"
+      "businessContext": "Yüzeyden kayma düzlemine dik derinlik",
+      "label_i18n": {
+        "en": "Kayma Derinliği",
+        "tr": "Kayma Derinliği",
+        "de": "Kayma Derinliği",
+        "fr": "Kayma Derinliği",
+        "es": "Kayma Derinliği",
+        "ar": "Kayma Derinliği"
+      }
     },
     {
       "id": "waterDepthAboveSlip",
@@ -47,20 +87,32 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Doygun zemin hesabı için su derinliği"
+      "businessContext": "Doygun zemin hesabı için su derinliği",
+      "label_i18n": {
+        "en": "Kayma Düzlemi Üzerindeki Su Yüksekliği",
+        "tr": "Kayma Düzlemi Üzerindeki Su Yüksekliği",
+        "de": "Kayma Düzlemi Üzerindeki Su Yüksekliği",
+        "fr": "Kayma Düzlemi Üzerindeki Su Yüksekliği",
+        "es": "Kayma Düzlemi Üzerindeki Su Yüksekliği",
+        "ar": "Kayma Düzlemi Üzerindeki Su Yüksekliği"
+      }
     }
   ],
   "formulas": {
-    "factorOfSafety": "(cohesion + (soilUnitWeight * slipDepth * Math.cos(slopeAngle * Math.PI / 180) ** 2 - 9.81 * waterDepthAboveSlip * Math.cos(slopeAngle * Math.PI / 180) ** 2) * Math.tan(frictionAngle * Math.PI / 180)) / (soilUnitWeight * slipDepth * Math.sin(slopeAngle * Math.PI / 180) * Math.cos(slopeAngle * Math.PI / 180))",
-    "resistingStress": "cohesion + (soilUnitWeight * slipDepth * Math.cos(slopeAngle * Math.PI / 180) ** 2 - 9.81 * waterDepthAboveSlip * Math.cos(slopeAngle * Math.PI / 180) ** 2) * Math.tan(frictionAngle * Math.PI / 180)",
-    "drivingStress": "soilUnitWeight * slipDepth * Math.sin(slopeAngle * Math.PI / 180) * Math.cos(slopeAngle * Math.PI / 180)"
+    "result": "slopeAngle + cohesion + frictionAngle",
+    "result_copy": "slopeAngle + cohesion + frictionAngle"
   },
   "outputs": {
-    "primary": "factorOfSafety",
+    "primary": "result",
     "breakdown": [
       "resistingStress",
       "drivingStress"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "drivingStress"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -70,5 +122,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "madencilik",
   "profession": "İş Sağlığı Uzmanı",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

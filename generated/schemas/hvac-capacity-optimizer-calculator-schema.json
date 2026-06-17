@@ -143,36 +143,6 @@
       "businessContext_i18n": {
         "en": "Estimated leakage as percentage of total airflow; affects effective capacity."
       }
-    },
-    {
-      "id": "occupancy_density",
-      "label": "Occupancy Density",
-      "type": "number",
-      "unit": "people/m²",
-      "default": 0.05,
-      "min": 0.01,
-      "max": 0.5,
-      "businessContext": "People per square meter, impacts internal heat gain (ASHRAE 62.1).",
-      "label_i18n": {
-        "en": "Occupancy Density"
-      },
-      "businessContext_i18n": {
-        "en": "People per square meter, impacts internal heat gain (ASHRAE 62.1)."
-      }
-    },
-    {
-      "id": "is_preventive_maintenance_active",
-      "label": "Preventive Maintenance Active",
-      "type": "boolean",
-      "unit": "unit",
-      "default": true,
-      "businessContext": "Indicates if PM schedule is followed; affects degradation factor.",
-      "label_i18n": {
-        "en": "Preventive Maintenance Active"
-      },
-      "businessContext_i18n": {
-        "en": "Indicates if PM schedule is followed; affects degradation factor."
-      }
     }
   ],
   "validation": {
@@ -219,18 +189,18 @@
       }
     ]
   },
-  "formulas": [
-    "cooling_load",
-    "cooling_load",
-    "cooling_load",
-    "cooling_load",
-    "cooling_load",
-    "cooling_load",
-    "cooling_load"
-  ],
+  "formulas": {
+    "result": "cooling_load + heating_load + system_type",
+    "result_copy": "cooling_load + heating_load + system_type"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "hvac-capacity-optimizer-calculator",
   "catalogCategory": "everyday-life",

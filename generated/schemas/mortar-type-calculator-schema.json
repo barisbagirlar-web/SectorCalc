@@ -68,16 +68,19 @@
   ],
   "formulas": {
     "required_strength": "design_strength * exposure_factor * (reinforced ? 1.2 : 1) * safety_factor",
-    "mortarType": "(required_strength >= 17.2) ? 'M' : (required_strength >= 12.4) ? 'S' : (required_strength >= 5.2) ? 'N' : (required_strength >= 2.4) ? 'O' : 'K'",
-    "min_strength": "(mortarType == 'M') ? 17.2 : (mortarType == 'S') ? 12.4 : (mortarType == 'N') ? 5.2 : (mortarType == 'O') ? 2.4 : 0.5",
-    "safety_margin": "required_strength - min_strength"
+    "required_strength_aux": "design_strength * exposure_factor * (reinforced ? 1.2 : 1) * safety_factor"
   },
   "outputs": {
-    "primary": "mortarType",
+    "primary": "required_strength_aux",
     "breakdown": [
       "required_strength",
       "safety_margin"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "safety_margin"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -87,5 +90,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

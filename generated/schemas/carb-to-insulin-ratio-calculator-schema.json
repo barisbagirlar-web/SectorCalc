@@ -84,18 +84,19 @@
   ],
   "formulas": {
     "meal_dose": "carbs / icr",
-    "correction_dose": "Math.max(0, (current_bg - target_bg) / isf)",
-    "total_insulin": "carbs / icr + Math.max(0, (current_bg - target_bg) / isf)",
-    "Meal_Insulin_Dose__U_": "Meal Insulin Dose (U)",
-    "Correction_Insulin_Dose__U_": "Correction Insulin Dose (U)",
-    "result": "Total Insulin Dose (U)"
+    "meal_dose_aux": "carbs / icr"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "meal_dose_aux",
     "breakdown": [
       "Meal Insulin Dose (U)",
       "Correction Insulin Dose (U)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "total_insulin"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -105,5 +106,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

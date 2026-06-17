@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "K",
       "default": 500,
-      "businessContext": "Temperature of the high-temperature heat source in Kelvin"
+      "businessContext": "Temperature of the high-temperature heat source in Kelvin",
+      "label_i18n": {
+        "en": "Hot Reservoir Temperature (K)",
+        "tr": "Hot Reservoir Temperature (K)",
+        "de": "Hot Reservoir Temperature (K)",
+        "fr": "Hot Reservoir Temperature (K)",
+        "es": "Hot Reservoir Temperature (K)",
+        "ar": "Hot Reservoir Temperature (K)"
+      }
     },
     {
       "id": "coldTemp",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "K",
       "default": 300,
-      "businessContext": "Temperature of the low-temperature heat sink in Kelvin"
+      "businessContext": "Temperature of the low-temperature heat sink in Kelvin",
+      "label_i18n": {
+        "en": "Cold Reservoir Temperature (K)",
+        "tr": "Cold Reservoir Temperature (K)",
+        "de": "Cold Reservoir Temperature (K)",
+        "fr": "Cold Reservoir Temperature (K)",
+        "es": "Cold Reservoir Temperature (K)",
+        "ar": "Cold Reservoir Temperature (K)"
+      }
     },
     {
       "id": "heatInput",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kJ",
       "default": 1000,
-      "businessContext": "Heat energy supplied to the engine per cycle or time interval"
+      "businessContext": "Heat energy supplied to the engine per cycle or time interval",
+      "label_i18n": {
+        "en": "Heat Input (kJ)",
+        "tr": "Heat Input (kJ)",
+        "de": "Heat Input (kJ)",
+        "fr": "Heat Input (kJ)",
+        "es": "Heat Input (kJ)",
+        "ar": "Heat Input (kJ)"
+      }
     },
     {
       "id": "workOutput",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kJ",
       "default": 400,
-      "businessContext": "Net mechanical work produced by the engine"
+      "businessContext": "Net mechanical work produced by the engine",
+      "label_i18n": {
+        "en": "Net Work Output (kJ)",
+        "tr": "Net Work Output (kJ)",
+        "de": "Net Work Output (kJ)",
+        "fr": "Net Work Output (kJ)",
+        "es": "Net Work Output (kJ)",
+        "ar": "Net Work Output (kJ)"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "actualEfficiency",
       "efficiencyGap"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "efficiencyGap"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -54,5 +91,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

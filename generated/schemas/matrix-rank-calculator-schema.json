@@ -68,17 +68,20 @@
   ],
   "formulas": {
     "determinant": "a11*a22 - a12*a21",
-    "isZeroMatrix": "Math.abs(a11)<1e-10 && Math.abs(a12)<1e-10 && Math.abs(a21)<1e-10 && Math.abs(a22)<1e-10",
-    "isFullRank": "Math.abs(a11*a22 - a12*a21) > 1e-10",
-    "rank": "(Math.abs(a11*a22 - a12*a21) > 1e-10) ? 2 : ((Math.abs(a11)<1e-10 && Math.abs(a12)<1e-10 && Math.abs(a21)<1e-10 && Math.abs(a22)<1e-10) ? 0 : 1)"
+    "determinant_aux": "a11*a22 - a12*a21"
   },
   "outputs": {
-    "primary": "rank",
+    "primary": "determinant_aux",
     "breakdown": [
       "determinant",
       "isZeroMatrix",
       "isFullRank"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "rank"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -88,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 350,
-      "businessContext": "Mass of cement in the concrete batch, typically in kilograms."
+      "businessContext": "Mass of cement in the concrete batch, typically in kilograms.",
+      "label_i18n": {
+        "en": "Cement Mass",
+        "tr": "Cement Mass",
+        "de": "Cement Mass",
+        "fr": "Cement Mass",
+        "es": "Cement Mass",
+        "ar": "Cement Mass"
+      }
     },
     {
       "id": "waterMass",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 175,
-      "businessContext": "Mass of water in the batch, including water in admixtures if applicable."
+      "businessContext": "Mass of water in the batch, including water in admixtures if applicable.",
+      "label_i18n": {
+        "en": "Water Mass",
+        "tr": "Water Mass",
+        "de": "Water Mass",
+        "fr": "Water Mass",
+        "es": "Water Mass",
+        "ar": "Water Mass"
+      }
     },
     {
       "id": "fineAggregateMass",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 800,
-      "businessContext": "Mass of fine aggregate (sand) in the batch."
+      "businessContext": "Mass of fine aggregate (sand) in the batch.",
+      "label_i18n": {
+        "en": "Fine Aggregate (Sand) Mass",
+        "tr": "Fine Aggregate (Sand) Mass",
+        "de": "Fine Aggregate (Sand) Mass",
+        "fr": "Fine Aggregate (Sand) Mass",
+        "es": "Fine Aggregate (Sand) Mass",
+        "ar": "Fine Aggregate (Sand) Mass"
+      }
     },
     {
       "id": "coarseAggregateMass",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1050,
-      "businessContext": "Mass of coarse aggregate (gravel or crushed stone) in the batch."
+      "businessContext": "Mass of coarse aggregate (gravel or crushed stone) in the batch.",
+      "label_i18n": {
+        "en": "Coarse Aggregate Mass",
+        "tr": "Coarse Aggregate Mass",
+        "de": "Coarse Aggregate Mass",
+        "fr": "Coarse Aggregate Mass",
+        "es": "Coarse Aggregate Mass",
+        "ar": "Coarse Aggregate Mass"
+      }
     },
     {
       "id": "admixtureMass",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Mass of chemical admixtures added (if any), in kilograms. Convert liquid volume to mass using density if applicable."
+      "businessContext": "Mass of chemical admixtures added (if any), in kilograms. Convert liquid volume to mass using density if applicable.",
+      "label_i18n": {
+        "en": "Admixture Mass",
+        "tr": "Admixture Mass",
+        "de": "Admixture Mass",
+        "fr": "Admixture Mass",
+        "es": "Admixture Mass",
+        "ar": "Admixture Mass"
+      }
     },
     {
       "id": "freshDensity",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 2400,
-      "businessContext": "Measured unit weight (density) of the fresh concrete. Typical range: 2200–2500 kg/m³."
+      "businessContext": "Measured unit weight (density) of the fresh concrete. Typical range: 2200–2500 kg/m³.",
+      "label_i18n": {
+        "en": "Fresh Concrete Density",
+        "tr": "Fresh Concrete Density",
+        "de": "Fresh Concrete Density",
+        "fr": "Fresh Concrete Density",
+        "es": "Fresh Concrete Density",
+        "ar": "Fresh Concrete Density"
+      }
     },
     {
       "id": "bagMass",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "kg",
       "default": 50,
-      "businessContext": "Standard mass of one cement bag (e.g., 50 kg). Used to calculate yield per bag."
+      "businessContext": "Standard mass of one cement bag (e.g., 50 kg). Used to calculate yield per bag.",
+      "label_i18n": {
+        "en": "Cement Bag Mass",
+        "tr": "Cement Bag Mass",
+        "de": "Cement Bag Mass",
+        "fr": "Cement Bag Mass",
+        "es": "Cement Bag Mass",
+        "ar": "Cement Bag Mass"
+      }
     }
   ],
   "formulas": {
@@ -68,7 +124,12 @@
     "breakdown": [
       "totalMass",
       "yieldPerBag"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "yieldPerBag"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -78,5 +139,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "kimya",
   "profession": "Proses Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "The total horizontal width of the roof area to be covered."
+      "businessContext": "The total horizontal width of the roof area to be covered.",
+      "label_i18n": {
+        "en": "Roof Width (m)",
+        "tr": "Roof Width (m)",
+        "de": "Roof Width (m)",
+        "fr": "Roof Width (m)",
+        "es": "Roof Width (m)",
+        "ar": "Roof Width (m)"
+      }
     },
     {
       "id": "roofLength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "The length of the roof slope from ridge to eave."
+      "businessContext": "The length of the roof slope from ridge to eave.",
+      "label_i18n": {
+        "en": "Roof Length (m)",
+        "tr": "Roof Length (m)",
+        "de": "Roof Length (m)",
+        "fr": "Roof Length (m)",
+        "es": "Roof Length (m)",
+        "ar": "Roof Length (m)"
+      }
     },
     {
       "id": "sheetWidth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.76,
-      "businessContext": "The coverage width of one sheet after accounting for side overlap."
+      "businessContext": "The coverage width of one sheet after accounting for side overlap.",
+      "label_i18n": {
+        "en": "Sheet Effective Width (m)",
+        "tr": "Sheet Effective Width (m)",
+        "de": "Sheet Effective Width (m)",
+        "fr": "Sheet Effective Width (m)",
+        "es": "Sheet Effective Width (m)",
+        "ar": "Sheet Effective Width (m)"
+      }
     },
     {
       "id": "sheetLength",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 2.5,
-      "businessContext": "The length of a single corrugated sheet."
+      "businessContext": "The length of a single corrugated sheet.",
+      "label_i18n": {
+        "en": "Sheet Length (m)",
+        "tr": "Sheet Length (m)",
+        "de": "Sheet Length (m)",
+        "fr": "Sheet Length (m)",
+        "es": "Sheet Length (m)",
+        "ar": "Sheet Length (m)"
+      }
     },
     {
       "id": "overlapLength",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.15,
-      "businessContext": "The lengthwise overlap between sheets to ensure watertightness."
+      "businessContext": "The lengthwise overlap between sheets to ensure watertightness.",
+      "label_i18n": {
+        "en": "End Overlap (m)",
+        "tr": "End Overlap (m)",
+        "de": "End Overlap (m)",
+        "fr": "End Overlap (m)",
+        "es": "End Overlap (m)",
+        "ar": "End Overlap (m)"
+      }
     },
     {
       "id": "pricePerSheet",
@@ -47,24 +87,34 @@
       "type": "number",
       "unit": "currency",
       "default": 25,
-      "businessContext": "Cost of one sheet in local currency."
+      "businessContext": "Cost of one sheet in local currency.",
+      "label_i18n": {
+        "en": "Price per Sheet",
+        "tr": "Price per Sheet",
+        "de": "Price per Sheet",
+        "fr": "Price per Sheet",
+        "es": "Price per Sheet",
+        "ar": "Price per Sheet"
+      }
     }
   ],
   "formulas": {
-    "rows": "Math.ceil(roofWidth / sheetWidth)",
-    "perRow": "roofLength <= sheetLength ? 1 : Math.ceil((roofLength - sheetLength) / (sheetLength - overlapLength)) + 1",
-    "totalSheets": "rows * perRow",
-    "totalCost": "totalSheets * pricePerSheet",
-    "roofArea": "roofWidth * roofLength"
+    "roofArea": "roofWidth * roofLength",
+    "roofArea_aux": "roofWidth * roofLength"
   },
   "outputs": {
-    "primary": "totalSheets",
+    "primary": "roofArea_aux",
     "breakdown": [
       "rows",
       "perRow",
       "totalCost",
       "roofArea"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roofArea"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -74,5 +124,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "metal",
   "profession": "Sac Teknisyeni",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -68,15 +68,12 @@
   ],
   "formulas": {
     "discriminant": "b*b - 4*a*c",
-    "root1": "(-b + Math.sqrt(b*b - 4*a*c)) / (2*a)",
-    "root2": "(-b - Math.sqrt(b*b - 4*a*c)) / (2*a)",
     "vertexX": "-b/(2*a)",
     "vertexY": "c - (b*b)/(4*a)",
-    "evalAtX": "a*x*x + b*x + c",
-    "primaryOutput": "'Roots: x₁ = ' + ((-b + Math.sqrt(b*b - 4*a*c)) / (2*a)).toFixed(4) + ', x₂ = ' + ((-b - Math.sqrt(b*b - 4*a*c)) / (2*a)).toFixed(4) + '. Vertex: (' + (-b/(2*a)).toFixed(4) + ', ' + (c - (b*b)/(4*a)).toFixed(4) + '). f(' + x + ') = ' + (a*x*x + b*x + c).toFixed(4)"
+    "evalAtX": "a*x*x + b*x + c"
   },
   "outputs": {
-    "primary": "primaryOutput",
+    "primary": "evalAtX",
     "breakdown": [
       "discriminant",
       "root1",
@@ -84,7 +81,12 @@
       "vertexX",
       "vertexY",
       "evalAtX"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "primaryOutput"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -94,5 +96,16 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [
+      {
+        "id": "a_nonzero",
+        "condition": "a != 0",
+        "message": "Coefficient a must be non-zero for a quadratic equation."
+      }
+    ],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

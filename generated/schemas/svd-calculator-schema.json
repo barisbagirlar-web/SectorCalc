@@ -68,29 +68,22 @@
   ],
   "formulas": {
     "traceATA": "a11*a11 + a12*a12 + a21*a21 + a22*a22",
-    "detA": "a11*a22 - a12*a21",
-    "discriminant": "Math.sqrt(Math.max(0, traceATA*traceATA - 4*detA*detA))",
-    "lambda1": "(traceATA + discriminant) / 2",
-    "lambda2": "(traceATA - discriminant) / 2",
-    "sigma1": "Math.sqrt(lambda1)",
-    "sigma2": "Math.sqrt(lambda2)",
-    "condNumber": "sigma2 > 0 ? sigma1 / sigma2 : Infinity",
-    "__sigma1_toFixed_4__": "${sigma1.toFixed(4)}",
-    "__sigma2_toFixed_4__": "${sigma2.toFixed(4)}",
-    "__condNumber_toFixed_4__": "${condNumber.toFixed(4)}",
-    "__detA_toFixed_4__": "${detA.toFixed(4)}",
-    "__traceATA_toFixed_4__": "${traceATA.toFixed(4)}",
-    "result": "σ₁ = ${sigma1.toFixed(4)}, σ₂ = ${sigma2.toFixed(4)}"
+    "detA": "a11*a22 - a12*a21"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "detA",
     "breakdown": [
       "Maximum singular value: ${sigma1.toFixed(4)}",
       "Minimum singular value: ${sigma2.toFixed(4)}",
       "Condition number: ${condNumber.toFixed(4)}",
       "Determinant: ${detA.toFixed(4)}",
       "Trace of AᵀA: ${traceATA.toFixed(4)}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "condNumber"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -100,5 +93,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

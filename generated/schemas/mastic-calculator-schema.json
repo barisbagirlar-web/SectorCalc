@@ -100,15 +100,19 @@
   ],
   "formulas": {
     "totalVolumeMl": "jointLength * jointWidth * jointDepth * numberOfJoints / 1000",
-    "totalVolumeWithWasteMl": "totalVolumeMl * (1 + wasteFactor / 100)",
-    "cartridgesNeeded": "Math.ceil(totalVolumeWithWasteMl / cartridgeVolume)"
+    "totalVolumeWithWasteMl": "totalVolumeMl * (1 + wasteFactor / 100)"
   },
   "outputs": {
-    "primary": "cartridgesNeeded",
+    "primary": "totalVolumeWithWasteMl",
     "breakdown": [
       "totalVolumeMl",
       "totalVolumeWithWasteMl"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "cartridgesNeeded"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -118,5 +122,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

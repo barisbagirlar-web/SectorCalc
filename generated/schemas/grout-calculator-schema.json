@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 300,
-      "businessContext": "Tile length in millimeters."
+      "businessContext": "Tile length in millimeters.",
+      "label_i18n": {
+        "en": "Tile Length",
+        "tr": "Tile Length",
+        "de": "Tile Length",
+        "fr": "Tile Length",
+        "es": "Tile Length",
+        "ar": "Tile Length"
+      }
     },
     {
       "id": "tileWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 300,
-      "businessContext": "Tile width in millimeters."
+      "businessContext": "Tile width in millimeters.",
+      "label_i18n": {
+        "en": "Tile Width",
+        "tr": "Tile Width",
+        "de": "Tile Width",
+        "fr": "Tile Width",
+        "es": "Tile Width",
+        "ar": "Tile Width"
+      }
     },
     {
       "id": "gapWidth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 5,
-      "businessContext": "Width of the grout joint between tiles."
+      "businessContext": "Width of the grout joint between tiles.",
+      "label_i18n": {
+        "en": "Grout Joint Width",
+        "tr": "Grout Joint Width",
+        "de": "Grout Joint Width",
+        "fr": "Grout Joint Width",
+        "es": "Grout Joint Width",
+        "ar": "Grout Joint Width"
+      }
     },
     {
       "id": "gapDepth",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Depth of the grout joint (tile thickness)."
+      "businessContext": "Depth of the grout joint (tile thickness).",
+      "label_i18n": {
+        "en": "Grout Joint Depth",
+        "tr": "Grout Joint Depth",
+        "de": "Grout Joint Depth",
+        "fr": "Grout Joint Depth",
+        "es": "Grout Joint Depth",
+        "ar": "Grout Joint Depth"
+      }
     },
     {
       "id": "totalArea",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m²",
       "default": 10,
-      "businessContext": "Total surface area covered with tiles."
+      "businessContext": "Total surface area covered with tiles.",
+      "label_i18n": {
+        "en": "Total Tiled Area",
+        "tr": "Total Tiled Area",
+        "de": "Total Tiled Area",
+        "fr": "Total Tiled Area",
+        "es": "Total Tiled Area",
+        "ar": "Total Tiled Area"
+      }
     },
     {
       "id": "wasteFactor",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percentage of extra grout to account for waste and spillage."
+      "businessContext": "Percentage of extra grout to account for waste and spillage.",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     },
     {
       "id": "bagYield",
@@ -55,24 +103,36 @@
       "type": "number",
       "unit": "m³ per bag",
       "default": 0.012,
-      "businessContext": "Volume of grout one bag produces when mixed."
+      "businessContext": "Volume of grout one bag produces when mixed.",
+      "label_i18n": {
+        "en": "Bag Yield",
+        "tr": "Bag Yield",
+        "de": "Bag Yield",
+        "fr": "Bag Yield",
+        "es": "Bag Yield",
+        "ar": "Bag Yield"
+      }
     }
   ],
   "formulas": {
     "groutVolume": "(totalArea * gapDepth * gapWidth * (tileLength + tileWidth)) / (1000 * tileLength * tileWidth)",
     "wasteVolume": "groutVolume * wasteFactor / 100",
     "totalVolume": "groutVolume * (1 + wasteFactor / 100)",
-    "exactBags": "totalVolume / bagYield",
-    "numberOfBags": "Math.ceil(totalVolume / bagYield)"
+    "exactBags": "totalVolume / bagYield"
   },
   "outputs": {
-    "primary": "numberOfBags",
+    "primary": "exactBags",
     "breakdown": [
       "groutVolume",
       "wasteVolume",
       "totalVolume",
       "exactBags"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "numberOfBags"
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Üretim & İmalat",
@@ -82,5 +142,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

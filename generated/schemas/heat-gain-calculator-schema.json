@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m²",
       "default": 10,
-      "businessContext": "Area of external walls exposed to outdoors."
+      "businessContext": "Area of external walls exposed to outdoors.",
+      "label_i18n": {
+        "en": "Wall Area",
+        "tr": "Wall Area",
+        "de": "Wall Area",
+        "fr": "Wall Area",
+        "es": "Wall Area",
+        "ar": "Wall Area"
+      }
     },
     {
       "id": "wallUvalue",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "W/m²·K",
       "default": 0.5,
-      "businessContext": "Thermal transmittance of wall."
+      "businessContext": "Thermal transmittance of wall.",
+      "label_i18n": {
+        "en": "Wall U-Value",
+        "tr": "Wall U-Value",
+        "de": "Wall U-Value",
+        "fr": "Wall U-Value",
+        "es": "Wall U-Value",
+        "ar": "Wall U-Value"
+      }
     },
     {
       "id": "tempDiff",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "K",
       "default": 15,
-      "businessContext": "Indoor-outdoor temperature difference."
+      "businessContext": "Indoor-outdoor temperature difference.",
+      "label_i18n": {
+        "en": "Temperature Difference",
+        "tr": "Temperature Difference",
+        "de": "Temperature Difference",
+        "fr": "Temperature Difference",
+        "es": "Temperature Difference",
+        "ar": "Temperature Difference"
+      }
     },
     {
       "id": "windowArea",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m²",
       "default": 4,
-      "businessContext": "Area of windows."
+      "businessContext": "Area of windows.",
+      "label_i18n": {
+        "en": "Window Area",
+        "tr": "Window Area",
+        "de": "Window Area",
+        "fr": "Window Area",
+        "es": "Window Area",
+        "ar": "Window Area"
+      }
     },
     {
       "id": "windowUvalue",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "W/m²·K",
       "default": 2,
-      "businessContext": "Thermal transmittance of window."
+      "businessContext": "Thermal transmittance of window.",
+      "label_i18n": {
+        "en": "Window U-Value",
+        "tr": "Window U-Value",
+        "de": "Window U-Value",
+        "fr": "Window U-Value",
+        "es": "Window U-Value",
+        "ar": "Window U-Value"
+      }
     },
     {
       "id": "windowSHGC",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0.7,
-      "businessContext": "Solar Heat Gain Coefficient."
+      "businessContext": "Solar Heat Gain Coefficient.",
+      "label_i18n": {
+        "en": "Window SHGC",
+        "tr": "Window SHGC",
+        "de": "Window SHGC",
+        "fr": "Window SHGC",
+        "es": "Window SHGC",
+        "ar": "Window SHGC"
+      }
     },
     {
       "id": "solarRadiation",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "W/m²",
       "default": 500,
-      "businessContext": "Incident solar radiation on window."
+      "businessContext": "Incident solar radiation on window.",
+      "label_i18n": {
+        "en": "Solar Radiation",
+        "tr": "Solar Radiation",
+        "de": "Solar Radiation",
+        "fr": "Solar Radiation",
+        "es": "Solar Radiation",
+        "ar": "Solar Radiation"
+      }
     }
   ],
   "formulas": {
@@ -68,7 +124,12 @@
     "breakdown": [
       "conductionHeatGain",
       "solarHeatGain"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalHeatGain"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -78,5 +139,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

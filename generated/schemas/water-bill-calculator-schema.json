@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m³",
       "default": 0,
-      "businessContext": "The meter reading at the start of the billing period, in cubic meters."
+      "businessContext": "The meter reading at the start of the billing period, in cubic meters.",
+      "label_i18n": {
+        "en": "Previous Meter Reading (m³)",
+        "tr": "Previous Meter Reading (m³)",
+        "de": "Previous Meter Reading (m³)",
+        "fr": "Previous Meter Reading (m³)",
+        "es": "Previous Meter Reading (m³)",
+        "ar": "Previous Meter Reading (m³)"
+      }
     },
     {
       "id": "currentMeterReading",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m³",
       "default": 0,
-      "businessContext": "The meter reading at the end of the billing period, in cubic meters."
+      "businessContext": "The meter reading at the end of the billing period, in cubic meters.",
+      "label_i18n": {
+        "en": "Current Meter Reading (m³)",
+        "tr": "Current Meter Reading (m³)",
+        "de": "Current Meter Reading (m³)",
+        "fr": "Current Meter Reading (m³)",
+        "es": "Current Meter Reading (m³)",
+        "ar": "Current Meter Reading (m³)"
+      }
     },
     {
       "id": "fixedCharge",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 5,
-      "businessContext": "Monthly fixed service charge regardless of consumption."
+      "businessContext": "Monthly fixed service charge regardless of consumption.",
+      "label_i18n": {
+        "en": "Fixed Charge",
+        "tr": "Fixed Charge",
+        "de": "Fixed Charge",
+        "fr": "Fixed Charge",
+        "es": "Fixed Charge",
+        "ar": "Fixed Charge"
+      }
     },
     {
       "id": "ratePerCubicMeter",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency/m³",
       "default": 1.5,
-      "businessContext": "Variable charge per cubic meter of water consumed."
+      "businessContext": "Variable charge per cubic meter of water consumed.",
+      "label_i18n": {
+        "en": "Rate per Cubic Meter",
+        "tr": "Rate per Cubic Meter",
+        "de": "Rate per Cubic Meter",
+        "fr": "Rate per Cubic Meter",
+        "es": "Rate per Cubic Meter",
+        "ar": "Rate per Cubic Meter"
+      }
     },
     {
       "id": "taxRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Tax percentage applied to the subtotal (usage + fixed charge)."
+      "businessContext": "Tax percentage applied to the subtotal (usage + fixed charge).",
+      "label_i18n": {
+        "en": "Tax Rate (%)",
+        "tr": "Tax Rate (%)",
+        "de": "Tax Rate (%)",
+        "fr": "Tax Rate (%)",
+        "es": "Tax Rate (%)",
+        "ar": "Tax Rate (%)"
+      }
     }
   ],
   "formulas": {
@@ -56,7 +96,12 @@
       "waterUsageCost",
       "fixedCharge",
       "taxAmount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalBill"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -66,5 +111,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

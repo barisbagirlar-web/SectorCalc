@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "bar",
       "default": 10,
-      "businessContext": "Vana girişindeki akışkan basıncı"
+      "businessContext": "Vana girişindeki akışkan basıncı",
+      "label_i18n": {
+        "en": "Giriş Basıncı",
+        "tr": "Giriş Basıncı",
+        "de": "Giriş Basıncı",
+        "fr": "Giriş Basıncı",
+        "es": "Giriş Basıncı",
+        "ar": "Giriş Basıncı"
+      }
     },
     {
       "id": "flowRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "L/dk",
       "default": 100,
-      "businessContext": "Vana üzerinden geçen akışkan debisi"
+      "businessContext": "Vana üzerinden geçen akışkan debisi",
+      "label_i18n": {
+        "en": "Akış Debisi",
+        "tr": "Akış Debisi",
+        "de": "Akış Debisi",
+        "fr": "Akış Debisi",
+        "es": "Akış Debisi",
+        "ar": "Akış Debisi"
+      }
     },
     {
       "id": "specificGravity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "(su=1)",
       "default": 1,
-      "businessContext": "Akışkanın suya göre özgül ağırlığı"
+      "businessContext": "Akışkanın suya göre özgül ağırlığı",
+      "label_i18n": {
+        "en": "Özgül Ağırlık",
+        "tr": "Özgül Ağırlık",
+        "de": "Özgül Ağırlık",
+        "fr": "Özgül Ağırlık",
+        "es": "Özgül Ağırlık",
+        "ar": "Özgül Ağırlık"
+      }
     },
     {
       "id": "kvCoefficient",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m³/h @ 1 bar",
       "default": 10,
-      "businessContext": "Vana akış katsayısı (Kv)"
+      "businessContext": "Vana akış katsayısı (Kv)",
+      "label_i18n": {
+        "en": "Kv Katsayısı",
+        "tr": "Kv Katsayısı",
+        "de": "Kv Katsayısı",
+        "fr": "Kv Katsayısı",
+        "es": "Kv Katsayısı",
+        "ar": "Kv Katsayısı"
+      }
     },
     {
       "id": "safetyFactor",
@@ -39,20 +71,32 @@
       "type": "number",
       "unit": "≥1",
       "default": 1.2,
-      "businessContext": "Hesaplanan basınç düşümüne uygulanan emniyet çarpanı"
+      "businessContext": "Hesaplanan basınç düşümüne uygulanan emniyet çarpanı",
+      "label_i18n": {
+        "en": "Emniyet Faktörü",
+        "tr": "Emniyet Faktörü",
+        "de": "Emniyet Faktörü",
+        "fr": "Emniyet Faktörü",
+        "es": "Emniyet Faktörü",
+        "ar": "Emniyet Faktörü"
+      }
     }
   ],
   "formulas": {
-    "pressureDrop": "specificGravity * Math.pow((flowRate * 0.06) / kvCoefficient, 2)",
-    "adjustedPressureDrop": "safetyFactor * specificGravity * Math.pow((flowRate * 0.06) / kvCoefficient, 2)",
-    "reducedPressure": "upstreamPressure - safetyFactor * specificGravity * Math.pow((flowRate * 0.06) / kvCoefficient, 2)"
+    "result": "upstreamPressure + flowRate + specificGravity",
+    "result_copy": "upstreamPressure + flowRate + specificGravity"
   },
   "outputs": {
-    "primary": "reducedPressure",
+    "primary": "result",
     "breakdown": [
       "pressureDrop",
       "adjustedPressureDrop"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "reducedPressure"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -62,5 +106,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

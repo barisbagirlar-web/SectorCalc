@@ -83,18 +83,20 @@
     }
   ],
   "formulas": {
-    "approximation": "(function(){var a=lowerBound,b=upperBound,n=numIntervals,m=method,ft=functionType;var dx=(b-a)/n;var f;switch(ft){case 0:f=function(x){return Math.sin(x);};break;case 1:f=function(x){return Math.cos(x);};break;case 2:f=function(x){return x*x;};break;case 3:f=function(x){return Math.exp(x);};break;case 4:f=function(x){return Math.log(x);};break;default:f=function(x){return x;}}var sum=0;if(m===0){for(var i=0;i<n;i++){sum+=f(a+i*dx);}}else if(m===1){for(var i=1;i<=n;i++){sum+=f(a+i*dx);}}else if(m===2){for(var i=0;i<n;i++){sum+=f(a+(i+0.5)*dx);}}else if(m===3){sum=f(a)/2+f(b)/2;for(var i=1;i<n;i++){sum+=f(a+i*dx);}}return sum*dx;})()",
     "intervalWidth": "(upperBound - lowerBound) / numIntervals",
-    "numIntervalsOut": "numIntervals",
-    "methodDescription": "[{0:'Left Riemann Sum', 1:'Right Riemann Sum', 2:'Midpoint Riemann Sum', 3:'Trapezoidal Rule'}][method]"
+    "numIntervalsOut": "numIntervals"
   },
   "outputs": {
-    "primary": "approximation",
+    "primary": "numIntervalsOut",
     "breakdown": [
       "intervalWidth",
-      "numIntervalsOut",
-      "methodDescription"
-    ]
+      "numIntervalsOut"
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "numIntervalsOut"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -104,5 +106,21 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [
+      {
+        "id": "lowerBoundLessThanUpperBound",
+        "expression": "lowerBound < upperBound",
+        "errorMessage": "Lower bound must be less than upper bound."
+      },
+      {
+        "id": "numIntervalsPositive",
+        "expression": "numIntervals > 0",
+        "errorMessage": "Number of intervals must be positive."
+      }
+    ],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

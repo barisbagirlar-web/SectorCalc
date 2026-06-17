@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "shares",
       "default": 1000000,
-      "businessContext": "Current total number of shares issued and outstanding before the new issuance."
+      "businessContext": "Current total number of shares issued and outstanding before the new issuance.",
+      "label_i18n": {
+        "en": "Total Outstanding Shares",
+        "tr": "Total Outstanding Shares",
+        "de": "Total Outstanding Shares",
+        "fr": "Total Outstanding Shares",
+        "es": "Total Outstanding Shares",
+        "ar": "Total Outstanding Shares"
+      }
     },
     {
       "id": "newSharesIssued",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "shares",
       "default": 200000,
-      "businessContext": "Number of new shares to be created and issued in the funding round."
+      "businessContext": "Number of new shares to be created and issued in the funding round.",
+      "label_i18n": {
+        "en": "New Shares Issued",
+        "tr": "New Shares Issued",
+        "de": "New Shares Issued",
+        "fr": "New Shares Issued",
+        "es": "New Shares Issued",
+        "ar": "New Shares Issued"
+      }
     },
     {
       "id": "investorCurrentShares",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "shares",
       "default": 100000,
-      "businessContext": "Number of shares currently owned by the investor before the round."
+      "businessContext": "Number of shares currently owned by the investor before the round.",
+      "label_i18n": {
+        "en": "Investor's Current Shares",
+        "tr": "Investor's Current Shares",
+        "de": "Investor's Current Shares",
+        "fr": "Investor's Current Shares",
+        "es": "Investor's Current Shares",
+        "ar": "Investor's Current Shares"
+      }
     },
     {
       "id": "investorNewShares",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "shares",
       "default": 0,
-      "businessContext": "Number of new shares the investor purchases in this round (0 if not participating)."
+      "businessContext": "Number of new shares the investor purchases in this round (0 if not participating).",
+      "label_i18n": {
+        "en": "Investor's New Shares Purchased",
+        "tr": "Investor's New Shares Purchased",
+        "de": "Investor's New Shares Purchased",
+        "fr": "Investor's New Shares Purchased",
+        "es": "Investor's New Shares Purchased",
+        "ar": "Investor's New Shares Purchased"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
     "breakdown": [
       "ownershipBefore",
       "ownershipAfter"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "dilutionPercent"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -56,5 +93,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

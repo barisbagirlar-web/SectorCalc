@@ -70,22 +70,21 @@
     "ovulationDay": "cycleLength - lutealPhase",
     "fertileStartDay": "ovulationDay - 5",
     "fertileEndDay": "ovulationDay + 1",
-    "ageFactor": "age <= 30 ? 1 : Math.max(0.1, 1 - (age - 30) * 0.02)",
-    "cycleFactor": "(cycleLength >= 26 && cycleLength <= 32) ? 1 : 0.8",
-    "baseProb": "0.2",
-    "probabilityPerCycle": "baseProb * ageFactor * cycleFactor",
-    "cumulativeProbability": "1 - Math.pow(1 - probabilityPerCycle, monthsTrying)",
-    "cumulativeProbability___100": "cumulativeProbability * 100",
-    "result": "probabilityPerCycle * 100"
+    "cycleFactor": "(cycleLength >= 26 && cycleLength <= 32) ? 1 : 0.8"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "cycleFactor",
     "breakdown": [
       "ovulationDay",
       "fertileStartDay",
       "fertileEndDay",
       "cumulativeProbability * 100"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -95,5 +94,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "plastik",
   "profession": "Proses Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

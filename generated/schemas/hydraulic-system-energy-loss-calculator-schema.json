@@ -138,44 +138,6 @@
       "businessContext_i18n": {
         "en": "Total number of elbows, tees, reducers, and other fittings."
       }
-    },
-    {
-      "id": "system_type",
-      "label": "System Type",
-      "type": "select",
-      "unit": "unit",
-      "default": "industrial",
-      "min": null,
-      "max": null,
-      "options": [
-        "industrial",
-        "mobile",
-        "marine",
-        "aerospace"
-      ],
-      "businessContext": "Application type influences typical loss factors and maintenance intervals.",
-      "label_i18n": {
-        "en": "System Type"
-      },
-      "businessContext_i18n": {
-        "en": "Application type influences typical loss factors and maintenance intervals."
-      }
-    },
-    {
-      "id": "is_new_system",
-      "label": "New System (less than 1 year in service)",
-      "type": "boolean",
-      "unit": "unit",
-      "default": false,
-      "min": null,
-      "max": null,
-      "businessContext": "New systems may have different loss characteristics due to break-in period.",
-      "label_i18n": {
-        "en": "New System (less than 1 year in service)"
-      },
-      "businessContext_i18n": {
-        "en": "New systems may have different loss characteristics due to break-in period."
-      }
     }
   ],
   "validation": {
@@ -223,18 +185,18 @@
       }
     ]
   },
-  "formulas": [
-    "flow_rate",
-    "flow_rate",
-    "flow_rate",
-    "flow_rate",
-    "flow_rate",
-    "flow_rate",
-    "flow_rate"
-  ],
+  "formulas": {
+    "result": "flow_rate + pressure_drop_total + fluid_density",
+    "result_copy": "flow_rate + pressure_drop_total + fluid_density"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "hydraulic-system-energy-loss-calculator",
   "catalogCategory": "energy-carbon",

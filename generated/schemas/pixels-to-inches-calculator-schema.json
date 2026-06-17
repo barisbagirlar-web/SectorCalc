@@ -68,20 +68,20 @@
   ],
   "formulas": {
     "widthInches": "widthPixels / ppi",
-    "heightInches": "heightPixels / ppi",
-    "diagonalInches": "Math.sqrt(Math.pow(widthPixels / ppi, 2) + Math.pow(heightPixels / ppi, 2))",
-    "____widthInches_toFixed_decimals______in": "\" + widthInches.toFixed(decimals) + \" inches\"",
-    "____heightInches_toFixed_decimals______i": "\" + heightInches.toFixed(decimals) + \" inches\"",
-    "____diagonalInches_toFixed_decimals_____": "\" + diagonalInches.toFixed(decimals) + \" inches\"",
-    "result": "\"Width: \" + widthInches.toFixed(decimals) + \" in, Height: \" + heightInches.toFixed(decimals) + \" in\""
+    "heightInches": "heightPixels / ppi"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "heightInches",
     "breakdown": [
       "\"Width: \" + widthInches.toFixed(decimals) + \" inches\"",
       "\"Height: \" + heightInches.toFixed(decimals) + \" inches\"",
       "\"Diagonal: \" + diagonalInches.toFixed(decimals) + \" inches\""
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -91,5 +91,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "madencilik",
   "profession": "Maden Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -117,18 +117,21 @@
   "formulas": {
     "waterVolume": "tankLength * tankWidth * waterDepth",
     "waterWeight": "waterVolume * 1000",
-    "singleFishWeightKg": "conditionFactor * Math.pow(fishLength, 3) / 1000",
-    "maxBiomass": "stockingDensity * waterVolume",
-    "recommendedFish": "Math.floor(safetyFactor * maxBiomass / singleFishWeightKg)"
+    "maxBiomass": "stockingDensity * waterVolume"
   },
   "outputs": {
-    "primary": "recommendedFish",
+    "primary": "maxBiomass",
     "breakdown": [
       "waterVolume",
       "waterWeight",
       "singleFishWeightKg",
       "maxBiomass"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "recommendedFish"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -138,5 +141,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

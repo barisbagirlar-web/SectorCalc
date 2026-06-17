@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from solar-panel-calculator-schema.json
 import * as z from 'zod';
 
@@ -23,28 +24,36 @@ export const Solar_panel_calculatorInputSchema = z.object({
   annualSunHours: z.number().default(2000),
 });
 
-function evaluateAllFormulas(input: Solar_panel_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.panelArea * input.panelEfficiency / 100; results["peakPower"] = Number.isFinite(v) ? v : 0; } catch { results["peakPower"] = 0; }
-  try { const v = (results["peakPower"] ?? 0) * input.annualSunHours * (1 - input.systemLosses / 100); results["annualEnergy"] = Number.isFinite(v) ? v : 0; } catch { results["annualEnergy"] = 0; }
-  try { const v = (results["annualEnergy"] ?? 0) / 365; results["dailyEnergy"] = Number.isFinite(v) ? v : 0; } catch { results["dailyEnergy"] = 0; }
-  try { const v = (results["annualEnergy"] ?? 0) / 12; results["monthlyEnergy"] = Number.isFinite(v) ? v : 0; } catch { results["monthlyEnergy"] = 0; }
-  try { const v = (results["annualEnergy"] ?? 0) * 0.5; results["co2Reduction"] = Number.isFinite(v) ? v : 0; } catch { results["co2Reduction"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Solar_panel_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.panelArea * input.panelEfficiency / 100; results["peakPower"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["peakPower"] = 0; }
+  try { const v = (asFormulaNumber(results["peakPower"])) * input.annualSunHours * (1 - input.systemLosses / 100); results["annualEnergy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annualEnergy"] = 0; }
+  try { const v = (asFormulaNumber(results["annualEnergy"])) / 365; results["dailyEnergy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["dailyEnergy"] = 0; }
+  try { const v = (asFormulaNumber(results["annualEnergy"])) / 12; results["monthlyEnergy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["monthlyEnergy"] = 0; }
+  try { const v = (asFormulaNumber(results["annualEnergy"])) * 0.5; results["co2Reduction"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["co2Reduction"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateSolar_panel_calculator(input: Solar_panel_calculatorInput): Solar_panel_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["peakPower"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["peakPower"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

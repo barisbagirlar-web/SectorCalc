@@ -84,17 +84,21 @@
   ],
   "formulas": {
     "decimalAcuity": "(viewingFeet > 0 && letterFeet > 0) ? viewingFeet / letterFeet : (viewingMeters > 0 && letterMeters > 0) ? viewingMeters / letterMeters : 1",
-    "logMAR": "Math.log(1 / ((viewingFeet > 0 && letterFeet > 0) ? viewingFeet / letterFeet : (viewingMeters > 0 && letterMeters > 0) ? viewingMeters / letterMeters : 1)) / Math.LN10",
     "MAR_arcmin": "1 / ((viewingFeet > 0 && letterFeet > 0) ? viewingFeet / letterFeet : (viewingMeters > 0 && letterMeters > 0) ? viewingMeters / letterMeters : 1)",
     "requiredLetterDistance": "targetDecimalAcuity > 0 ? ((viewingFeet > 0) ? viewingFeet : viewingMeters) / targetDecimalAcuity : 0"
   },
   "outputs": {
-    "primary": "logMAR",
+    "primary": "requiredLetterDistance",
     "breakdown": [
       "decimalAcuity",
       "MAR_arcmin",
       "requiredLetterDistance"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "requiredLetterDistance"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -104,5 +108,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "havacilik",
   "profession": "Tasarım Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

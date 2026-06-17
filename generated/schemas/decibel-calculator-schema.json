@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "W",
       "default": 1,
-      "businessContext": "The reference power level (e.g., 1 mW = 0.001 W for dBm)"
+      "businessContext": "The reference power level (e.g., 1 mW = 0.001 W for dBm)",
+      "label_i18n": {
+        "en": "Reference Power",
+        "tr": "Reference Power",
+        "de": "Reference Power",
+        "fr": "Reference Power",
+        "es": "Reference Power",
+        "ar": "Reference Power"
+      }
     },
     {
       "id": "powerMeas",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "W",
       "default": 2,
-      "businessContext": "The measured power level"
+      "businessContext": "The measured power level",
+      "label_i18n": {
+        "en": "Measured Power",
+        "tr": "Measured Power",
+        "de": "Measured Power",
+        "fr": "Measured Power",
+        "es": "Measured Power",
+        "ar": "Measured Power"
+      }
     },
     {
       "id": "ampRef",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "V",
       "default": 1,
-      "businessContext": "The reference amplitude (voltage, pressure) in linear units"
+      "businessContext": "The reference amplitude (voltage, pressure) in linear units",
+      "label_i18n": {
+        "en": "Reference Amplitude",
+        "tr": "Reference Amplitude",
+        "de": "Reference Amplitude",
+        "fr": "Reference Amplitude",
+        "es": "Reference Amplitude",
+        "ar": "Reference Amplitude"
+      }
     },
     {
       "id": "ampMeas",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "V",
       "default": 2,
-      "businessContext": "The measured amplitude"
+      "businessContext": "The measured amplitude",
+      "label_i18n": {
+        "en": "Measured Amplitude",
+        "tr": "Measured Amplitude",
+        "de": "Measured Amplitude",
+        "fr": "Measured Amplitude",
+        "es": "Measured Amplitude",
+        "ar": "Measured Amplitude"
+      }
     }
   ],
   "formulas": {
-    "powerDecibel": "10 * Math.log10(powerMeas / powerRef)",
-    "amplitudeDecibel": "20 * Math.log10(ampMeas / ampRef)",
-    "powerRatio": "powerMeas / powerRef"
+    "powerRatio": "powerMeas / powerRef",
+    "powerRatio_aux": "powerMeas / powerRef"
   },
   "outputs": {
-    "primary": "powerDecibel",
+    "primary": "powerRatio_aux",
     "breakdown": [
       "amplitudeDecibel",
       "powerRatio"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "powerRatio"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -54,5 +90,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

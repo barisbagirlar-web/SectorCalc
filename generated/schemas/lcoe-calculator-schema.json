@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$/kW",
       "default": 1000,
-      "businessContext": "Upfront capital expenditure per installed kilowatt"
+      "businessContext": "Upfront capital expenditure per installed kilowatt",
+      "label_i18n": {
+        "en": "Capital Cost per kW",
+        "tr": "Capital Cost per kW",
+        "de": "Capital Cost per kW",
+        "fr": "Capital Cost per kW",
+        "es": "Capital Cost per kW",
+        "ar": "Capital Cost per kW"
+      }
     },
     {
       "id": "plantCapacity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kW",
       "default": 100000,
-      "businessContext": "Total installed capacity of the power plant"
+      "businessContext": "Total installed capacity of the power plant",
+      "label_i18n": {
+        "en": "Plant Capacity",
+        "tr": "Plant Capacity",
+        "de": "Plant Capacity",
+        "fr": "Plant Capacity",
+        "es": "Plant Capacity",
+        "ar": "Plant Capacity"
+      }
     },
     {
       "id": "fixedOandM",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$/kW-year",
       "default": 20,
-      "businessContext": "Annual fixed operating and maintenance cost per kW"
+      "businessContext": "Annual fixed operating and maintenance cost per kW",
+      "label_i18n": {
+        "en": "Fixed O&M Cost",
+        "tr": "Fixed O&M Cost",
+        "de": "Fixed O&M Cost",
+        "fr": "Fixed O&M Cost",
+        "es": "Fixed O&M Cost",
+        "ar": "Fixed O&M Cost"
+      }
     },
     {
       "id": "variableOandM",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "$/MWh",
       "default": 5,
-      "businessContext": "Variable O&M cost per MWh generated"
+      "businessContext": "Variable O&M cost per MWh generated",
+      "label_i18n": {
+        "en": "Variable O&M Cost",
+        "tr": "Variable O&M Cost",
+        "de": "Variable O&M Cost",
+        "fr": "Variable O&M Cost",
+        "es": "Variable O&M Cost",
+        "ar": "Variable O&M Cost"
+      }
     },
     {
       "id": "fuelCost",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "$/MWh",
       "default": 0,
-      "businessContext": "Fuel cost per MWh (0 for renewable plants)"
+      "businessContext": "Fuel cost per MWh (0 for renewable plants)",
+      "label_i18n": {
+        "en": "Fuel Cost",
+        "tr": "Fuel Cost",
+        "de": "Fuel Cost",
+        "fr": "Fuel Cost",
+        "es": "Fuel Cost",
+        "ar": "Fuel Cost"
+      }
     },
     {
       "id": "capacityFactor",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 25,
-      "businessContext": "Plant capacity factor as a percentage (0-100)"
+      "businessContext": "Plant capacity factor as a percentage (0-100)",
+      "label_i18n": {
+        "en": "Capacity Factor",
+        "tr": "Capacity Factor",
+        "de": "Capacity Factor",
+        "fr": "Capacity Factor",
+        "es": "Capacity Factor",
+        "ar": "Capacity Factor"
+      }
     },
     {
       "id": "discountRate",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 8,
-      "businessContext": "Annual discount rate (WACC) in percent"
+      "businessContext": "Annual discount rate (WACC) in percent",
+      "label_i18n": {
+        "en": "Discount Rate",
+        "tr": "Discount Rate",
+        "de": "Discount Rate",
+        "fr": "Discount Rate",
+        "es": "Discount Rate",
+        "ar": "Discount Rate"
+      }
     },
     {
       "id": "lifetimeYears",
@@ -63,31 +119,40 @@
       "type": "number",
       "unit": "years",
       "default": 25,
-      "businessContext": "Economic lifetime of the plant in years"
+      "businessContext": "Economic lifetime of the plant in years",
+      "label_i18n": {
+        "en": "Lifetime",
+        "tr": "Lifetime",
+        "de": "Lifetime",
+        "fr": "Lifetime",
+        "es": "Lifetime",
+        "ar": "Lifetime"
+      }
     }
   ],
   "formulas": {
     "totalCapitalCost": "capitalCostPerKW * plantCapacity",
     "discountRateDec": "discountRate / 100",
-    "crf": "(discountRateDec * Math.pow(1 + discountRateDec, lifetimeYears)) / (Math.pow(1 + discountRateDec, lifetimeYears) - 1)",
-    "annualCapitalCost": "totalCapitalCost * crf",
     "annualFixedOandM": "fixedOandM * plantCapacity",
     "capacityFactorDec": "capacityFactor / 100",
     "annualEnergyOutput": "plantCapacity * capacityFactorDec * 8760 / 1000",
     "annualVariableOandM": "variableOandM * annualEnergyOutput",
-    "annualFuelCost": "fuelCost * annualEnergyOutput",
-    "totalAnnualCost": "annualCapitalCost + annualFixedOandM + annualVariableOandM + annualFuelCost",
-    "lcoe": "totalAnnualCost / annualEnergyOutput"
+    "annualFuelCost": "fuelCost * annualEnergyOutput"
   },
   "outputs": {
-    "primary": "lcoe",
+    "primary": "annualFuelCost",
     "breakdown": [
       "annualCapitalCost",
       "annualFixedOandM",
       "annualVariableOandM",
       "annualFuelCost",
       "annualEnergyOutput"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "lcoe"
   },
   "category": "Proje & Yatırım",
   "sector": "Finans & İK",
@@ -97,5 +162,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

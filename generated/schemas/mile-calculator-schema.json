@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mi",
       "default": 100,
-      "businessContext": "Total distance traveled in miles for the trip or period."
+      "businessContext": "Total distance traveled in miles for the trip or period.",
+      "label_i18n": {
+        "en": "Distance (miles)",
+        "tr": "Distance (miles)",
+        "de": "Distance (miles)",
+        "fr": "Distance (miles)",
+        "es": "Distance (miles)",
+        "ar": "Distance (miles)"
+      }
     },
     {
       "id": "fuelEfficiency",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mpg",
       "default": 25,
-      "businessContext": "Vehicle fuel efficiency in miles per gallon."
+      "businessContext": "Vehicle fuel efficiency in miles per gallon.",
+      "label_i18n": {
+        "en": "Fuel Efficiency",
+        "tr": "Fuel Efficiency",
+        "de": "Fuel Efficiency",
+        "fr": "Fuel Efficiency",
+        "es": "Fuel Efficiency",
+        "ar": "Fuel Efficiency"
+      }
     },
     {
       "id": "fuelPrice",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$/gal",
       "default": 3.5,
-      "businessContext": "Current fuel price per gallon."
+      "businessContext": "Current fuel price per gallon.",
+      "label_i18n": {
+        "en": "Fuel Price",
+        "tr": "Fuel Price",
+        "de": "Fuel Price",
+        "fr": "Fuel Price",
+        "es": "Fuel Price",
+        "ar": "Fuel Price"
+      }
     },
     {
       "id": "maintenanceCost",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "$/mi",
       "default": 0.05,
-      "businessContext": "Estimated maintenance cost per mile (tires, oil, repairs)."
+      "businessContext": "Estimated maintenance cost per mile (tires, oil, repairs).",
+      "label_i18n": {
+        "en": "Maintenance Cost",
+        "tr": "Maintenance Cost",
+        "de": "Maintenance Cost",
+        "fr": "Maintenance Cost",
+        "es": "Maintenance Cost",
+        "ar": "Maintenance Cost"
+      }
     },
     {
       "id": "otherFixedCosts",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "$/year",
       "default": 1200,
-      "businessContext": "Total annual fixed costs like insurance and registration."
+      "businessContext": "Total annual fixed costs like insurance and registration.",
+      "label_i18n": {
+        "en": "Annual Fixed Costs",
+        "tr": "Annual Fixed Costs",
+        "de": "Annual Fixed Costs",
+        "fr": "Annual Fixed Costs",
+        "es": "Annual Fixed Costs",
+        "ar": "Annual Fixed Costs"
+      }
     },
     {
       "id": "annualMiles",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "mi",
       "default": 12000,
-      "businessContext": "Estimated total miles driven per year."
+      "businessContext": "Estimated total miles driven per year.",
+      "label_i18n": {
+        "en": "Annual Mileage",
+        "tr": "Annual Mileage",
+        "de": "Annual Mileage",
+        "fr": "Annual Mileage",
+        "es": "Annual Mileage",
+        "ar": "Annual Mileage"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
       "fuelCostPerMile",
       "maintenanceCostPerMile",
       "fixedCostPerMile"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCostPerMile"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -72,5 +125,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -83,20 +83,22 @@
     }
   ],
   "formulas": {
-    "numberOfSteps": "Math.ceil(totalHeight / stepHeight)",
-    "actualStepHeight": "totalHeight / numberOfSteps",
-    "totalRun": "(numberOfSteps - 1) * stepDepth",
-    "totalLength": "totalRun + landingWidth",
-    "headroomCompliant": "headroom >= 210 ? 'Compliant' : 'Non-compliant'"
+    "result": "totalHeight + stepHeight + stepDepth",
+    "result_copy": "totalHeight + stepHeight + stepDepth"
   },
   "outputs": {
-    "primary": "numberOfSteps",
+    "primary": "result",
     "breakdown": [
       "actualStepHeight",
       "totalRun",
       "totalLength",
       "headroomCompliant"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "headroomCompliant"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -106,5 +108,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

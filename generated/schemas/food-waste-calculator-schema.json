@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Total amount of food prepared or produced in the period."
+      "businessContext": "Total amount of food prepared or produced in the period.",
+      "label_i18n": {
+        "en": "Total Food Produced",
+        "tr": "Total Food Produced",
+        "de": "Total Food Produced",
+        "fr": "Total Food Produced",
+        "es": "Total Food Produced",
+        "ar": "Total Food Produced"
+      }
     },
     {
       "id": "totalFoodWasted",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Total food discarded or not consumed."
+      "businessContext": "Total food discarded or not consumed.",
+      "label_i18n": {
+        "en": "Total Food Wasted",
+        "tr": "Total Food Wasted",
+        "de": "Total Food Wasted",
+        "fr": "Total Food Wasted",
+        "es": "Total Food Wasted",
+        "ar": "Total Food Wasted"
+      }
     },
     {
       "id": "costPerKg",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency/kg",
       "default": 0,
-      "businessContext": "Average cost of food ingredients per kilogram."
+      "businessContext": "Average cost of food ingredients per kilogram.",
+      "label_i18n": {
+        "en": "Cost per kg",
+        "tr": "Cost per kg",
+        "de": "Cost per kg",
+        "fr": "Cost per kg",
+        "es": "Cost per kg",
+        "ar": "Cost per kg"
+      }
     },
     {
       "id": "mealsServed",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "meals",
       "default": 0,
-      "businessContext": "Number of meals served from the produced food."
+      "businessContext": "Number of meals served from the produced food.",
+      "label_i18n": {
+        "en": "Meals Served",
+        "tr": "Meals Served",
+        "de": "Meals Served",
+        "fr": "Meals Served",
+        "es": "Meals Served",
+        "ar": "Meals Served"
+      }
     }
   ],
   "formulas": {
@@ -45,7 +77,12 @@
     "breakdown": [
       "wastePercentage",
       "wasteCostPerMeal"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "wasteCostPerMeal"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -55,5 +92,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

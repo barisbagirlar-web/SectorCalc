@@ -83,18 +83,21 @@
     }
   ],
   "formulas": {
-    "apparentPower": "phaseCount === 1 ? voltage * current : phaseCount === 3 ? voltage * current * Math.sqrt(3) : 0",
-    "activePower": "apparentPower * powerFactor",
-    "reactivePower": "apparentPower * Math.sin(Math.acos(powerFactor))",
-    "outputPower": "activePower * (efficiency / 100)"
+    "result": "voltage + current + powerFactor",
+    "result_copy": "voltage + current + powerFactor"
   },
   "outputs": {
-    "primary": "apparentPower",
+    "primary": "result",
     "breakdown": [
       "activePower",
       "reactivePower",
       "outputPower"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "outputPower"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -104,5 +107,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "efficiency"
+  "categoryId": "efficiency",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

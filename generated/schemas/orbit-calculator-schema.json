@@ -67,20 +67,22 @@
     }
   ],
   "formulas": {
-    "orbitalPeriodMinutes": "2 * Math.PI * Math.sqrt(Math.pow((perigeeAltitude + apogeeAltitude + 2 * earthRadius) / 2, 3) / mu) / 60",
     "semiMajorAxis": "(perigeeAltitude + apogeeAltitude + 2 * earthRadius) / 2",
-    "eccentricity": "(apogeeAltitude - perigeeAltitude) / (perigeeAltitude + apogeeAltitude + 2 * earthRadius)",
-    "perigeeVelocity": "Math.sqrt(mu * (2 / (perigeeAltitude + earthRadius) - 1 / ((perigeeAltitude + apogeeAltitude + 2 * earthRadius) / 2)))",
-    "apogeeVelocity": "Math.sqrt(mu * (2 / (apogeeAltitude + earthRadius) - 1 / ((perigeeAltitude + apogeeAltitude + 2 * earthRadius) / 2)))"
+    "eccentricity": "(apogeeAltitude - perigeeAltitude) / (perigeeAltitude + apogeeAltitude + 2 * earthRadius)"
   },
   "outputs": {
-    "primary": "orbitalPeriodMinutes",
+    "primary": "eccentricity",
     "breakdown": [
       "semiMajorAxis",
       "eccentricity",
       "perigeeVelocity",
       "apogeeVelocity"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "apogeeVelocity"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -90,5 +92,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

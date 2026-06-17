@@ -140,7 +140,12 @@
     "breakdown": [
       "threshold",
       "manipulationIndicator"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "manipulationIndicator"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -150,5 +155,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

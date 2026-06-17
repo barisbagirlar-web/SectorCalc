@@ -83,20 +83,21 @@
     }
   ],
   "formulas": {
-    "r": "annualReturn / 100",
     "S": "annualIncome * (savingsRate / 100)",
-    "yearsToBillionaire": "Math.log((desiredNetWorth * r + S) / (currentNetWorth * r + S)) / Math.log(1 + r)",
-    "annualSavings": "S",
-    "totalContributions": "S * yearsToBillionaire",
-    "totalInterestEarned": "desiredNetWorth - currentNetWorth - (S * yearsToBillionaire)"
+    "annualSavings": "S"
   },
   "outputs": {
-    "primary": "yearsToBillionaire",
+    "primary": "annualSavings",
     "breakdown": [
       "annualSavings",
       "totalContributions",
       "totalInterestEarned"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalInterestEarned"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -106,5 +107,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

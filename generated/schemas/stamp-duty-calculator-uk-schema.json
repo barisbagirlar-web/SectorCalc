@@ -67,16 +67,8 @@
     }
   ],
   "formulas": {
-    "calculateStampDuty": "let price = propertyPrice; let ftb = isFirstTimeBuyer; let additional = isAdditionalProperty; let nonUK = isNonUKResident; let sd = 0; let remaining = price; let bands = []; if (price <= 125000) { sd = 0; } else if (price <= 250000) { if (ftb === 1) { sd = 0; } else { sd = (price - 125000) * 0.02; } } else if (price <= 925000) { if (ftb === 1) { sd = (price - 250000) * 0.05; } else { sd = 125000 * 0 + (250000 - 125000) * 0.02 + (price - 250000) * 0.05; } } else if (price <= 1500000) { sd = 125000 * 0 + (250000 - 125000) * 0.02 + (925000 - 250000) * 0.05 + (price - 925000) * 0.1; } else { sd = 125000 * 0 + (250000 - 125000) * 0.02 + (925000 - 250000) * 0.05 + (1500000 - 925000) * 0.1 + (price - 1500000) * 0.12; } if (additional === 1) { sd += price * 0.03; } if (nonUK === 1) { sd += price * 0.02; } sd;",
-    "calculateBreakdown": "let price = propertyPrice; let ftb = isFirstTimeBuyer; let additional = isAdditionalProperty; let nonUK = isNonUKResident; let breakdown = []; let sd = 0; let remaining = price; let band1 = Math.min(price, 125000); let tax1 = 0; breakdown.push('0% on first £125,000: £' + tax1.toFixed(2)); remaining -= band1; if (remaining > 0) { let band2 = Math.min(remaining, 125000); let tax2 = 0; if (ftb === 1) { tax2 = 0; } else { tax2 = band2 * 0.02; } breakdown.push('2% on next £125,000: £' + tax2.toFixed(2)); sd += tax2; remaining -= band2; } if (remaining > 0) { let band3 = Math.min(remaining, 675000); let tax3 = band3 * 0.05; breakdown.push('5% on next £675,000: £' + tax3.toFixed(2)); sd += tax3; remaining -= band3; } if (remaining > 0) { let band4 = Math.min(remaining, 575000); let tax4 = band4 * 0.1; breakdown.push('10% on next £575,000: £' + tax4.toFixed(2)); sd += tax4; remaining -= band4; } if (remaining > 0) { let tax5 = remaining * 0.12; breakdown.push('12% on remaining: £' + tax5.toFixed(2)); sd += tax5; } if (additional === 1) { let surcharge = price * 0.03; breakdown.push('Additional property surcharge (3%): £' + surcharge.toFixed(2)); sd += surcharge; } if (nonUK === 1) { let nonUKsurcharge = price * 0.02; breakdown.push('Non-UK resident surcharge (2%): £' + nonUKsurcharge.toFixed(2)); sd += nonUKsurcharge; } breakdown;",
-    "_calculateBreakdown_0__": "{calculateBreakdown[0]}",
-    "_calculateBreakdown_1__": "{calculateBreakdown[1]}",
-    "_calculateBreakdown_2__": "{calculateBreakdown[2]}",
-    "_calculateBreakdown_3__": "{calculateBreakdown[3]}",
-    "_calculateBreakdown_4__": "{calculateBreakdown[4]}",
-    "_calculateBreakdown_5__": "{calculateBreakdown[5]}",
-    "_calculateBreakdown_6__": "{calculateBreakdown[6]}",
-    "result": "Total Stamp Duty: £{calculateStampDuty.toFixed(2)}"
+    "result": "propertyPrice + isFirstTimeBuyer + isAdditionalProperty",
+    "result_copy": "propertyPrice + isFirstTimeBuyer + isAdditionalProperty"
   },
   "outputs": {
     "primary": "result",
@@ -88,7 +80,12 @@
       "{calculateBreakdown[4]}",
       "{calculateBreakdown[5]}",
       "{calculateBreakdown[6]}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "calculateBreakdown"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -98,5 +95,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

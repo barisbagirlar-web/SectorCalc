@@ -84,15 +84,19 @@
   ],
   "formulas": {
     "pressure_head": "operating_pressure / (fluid_density * 9.81)",
-    "velocity_head": "(flow_rate / (Math.PI * Math.pow(pipe_diameter / 2, 2)))**2 / (2 * 9.81)",
-    "adjusted_head": "(operating_pressure / (fluid_density * 9.81) + (flow_rate / (Math.PI * Math.pow(pipe_diameter / 2, 2)))**2 / (2 * 9.81)) * efficiency_factor"
+    "pressure_head_aux": "operating_pressure / (fluid_density * 9.81)"
   },
   "outputs": {
-    "primary": "adjusted_head",
+    "primary": "pressure_head_aux",
     "breakdown": [
       "pressure_head",
       "velocity_head"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "adjusted_head"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -102,5 +106,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

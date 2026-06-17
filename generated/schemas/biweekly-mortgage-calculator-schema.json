@@ -68,26 +68,22 @@
   ],
   "formulas": {
     "monthlyRate": "annualRate / 100 / 12",
-    "numberOfMonths": "termYears * 12",
-    "monthlyPayment": "principal * (monthlyRate * Math.pow(1 + monthlyRate, numberOfMonths)) / (Math.pow(1 + monthlyRate, numberOfMonths) - 1)",
-    "biweeklyBase": "monthlyPayment / 2",
-    "biweeklyPayment": "biweeklyBase + extraBiweekly",
-    "r_bw": "Math.pow(1 + annualRate/100, 1/26) - 1",
-    "n_bw": "-Math.log(1 - principal * r_bw / biweeklyPayment) / Math.log(1 + r_bw)",
-    "payoffYearsBiweekly": "n_bw / 26",
-    "totalInterestMonthly": "monthlyPayment * numberOfMonths - principal",
-    "totalInterestBiweekly": "biweeklyPayment * n_bw - principal",
-    "interestSaved": "totalInterestMonthly - totalInterestBiweekly"
+    "numberOfMonths": "termYears * 12"
   },
   "outputs": {
-    "primary": "interestSaved",
+    "primary": "numberOfMonths",
     "breakdown": [
       "monthlyPayment",
       "biweeklyPayment",
       "totalInterestMonthly",
       "totalInterestBiweekly",
       "payoffYearsBiweekly"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "interestSaved"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -97,5 +93,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

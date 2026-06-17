@@ -99,19 +99,22 @@
     }
   ],
   "formulas": {
-    "dryingTimeHours": "- Math.log((targetWeight - dryWeight) / (initialWeight - dryWeight)) / (dryingRateConstant * (processEfficiency / 100))",
     "weightLossAmount": "initialWeight - targetWeight",
-    "totalTimeHours": "setupTime + dryingTimeHours",
-    "totalTimeDays": "totalTimeHours / 24"
+    "weightLossAmount_aux": "initialWeight - targetWeight"
   },
   "outputs": {
-    "primary": "totalTimeHours",
+    "primary": "weightLossAmount_aux",
     "breakdown": [
       "dryingTimeHours",
       "setupTime",
       "totalTimeDays",
       "weightLossAmount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalTimeDays"
   },
   "category": "İmalat & Üretim",
   "sector": "Üretim & İmalat",
@@ -121,5 +124,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

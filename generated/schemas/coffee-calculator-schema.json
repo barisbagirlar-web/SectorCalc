@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "grams",
       "default": 15,
-      "businessContext": "Average grams of coffee beans per cup."
+      "businessContext": "Average grams of coffee beans per cup.",
+      "label_i18n": {
+        "en": "Coffee Beans Used",
+        "tr": "Coffee Beans Used",
+        "de": "Coffee Beans Used",
+        "fr": "Coffee Beans Used",
+        "es": "Coffee Beans Used",
+        "ar": "Coffee Beans Used"
+      }
     },
     {
       "id": "waterAmount",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ml",
       "default": 250,
-      "businessContext": "Water volume per cup."
+      "businessContext": "Water volume per cup.",
+      "label_i18n": {
+        "en": "Water Used",
+        "tr": "Water Used",
+        "de": "Water Used",
+        "fr": "Water Used",
+        "es": "Water Used",
+        "ar": "Water Used"
+      }
     },
     {
       "id": "beanCostPerKg",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency/kg",
       "default": 20,
-      "businessContext": "Cost of coffee beans per kilogram."
+      "businessContext": "Cost of coffee beans per kilogram.",
+      "label_i18n": {
+        "en": "Bean Cost",
+        "tr": "Bean Cost",
+        "de": "Bean Cost",
+        "fr": "Bean Cost",
+        "es": "Bean Cost",
+        "ar": "Bean Cost"
+      }
     },
     {
       "id": "electricityCostPerKwh",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency/kWh",
       "default": 0.15,
-      "businessContext": "Cost of electricity per kilowatt-hour."
+      "businessContext": "Cost of electricity per kilowatt-hour.",
+      "label_i18n": {
+        "en": "Electricity Cost",
+        "tr": "Electricity Cost",
+        "de": "Electricity Cost",
+        "fr": "Electricity Cost",
+        "es": "Electricity Cost",
+        "ar": "Electricity Cost"
+      }
     },
     {
       "id": "machinePowerWatts",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "watts",
       "default": 1000,
-      "businessContext": "Power consumption of coffee machine."
+      "businessContext": "Power consumption of coffee machine.",
+      "label_i18n": {
+        "en": "Machine Power",
+        "tr": "Machine Power",
+        "de": "Machine Power",
+        "fr": "Machine Power",
+        "es": "Machine Power",
+        "ar": "Machine Power"
+      }
     },
     {
       "id": "brewTimeMinutes",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 3,
-      "businessContext": "Time to brew one cup."
+      "businessContext": "Time to brew one cup.",
+      "label_i18n": {
+        "en": "Brew Time",
+        "tr": "Brew Time",
+        "de": "Brew Time",
+        "fr": "Brew Time",
+        "es": "Brew Time",
+        "ar": "Brew Time"
+      }
     },
     {
       "id": "laborCostPerHour",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "currency/hour",
       "default": 12,
-      "businessContext": "Barista labor cost per hour."
+      "businessContext": "Barista labor cost per hour.",
+      "label_i18n": {
+        "en": "Labor Cost",
+        "tr": "Labor Cost",
+        "de": "Labor Cost",
+        "fr": "Labor Cost",
+        "es": "Labor Cost",
+        "ar": "Labor Cost"
+      }
     },
     {
       "id": "overheadFactor",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Overhead costs as percentage of direct costs."
+      "businessContext": "Overhead costs as percentage of direct costs.",
+      "label_i18n": {
+        "en": "Overhead %",
+        "tr": "Overhead %",
+        "de": "Overhead %",
+        "fr": "Overhead %",
+        "es": "Overhead %",
+        "ar": "Overhead %"
+      }
     }
   ],
   "formulas": {
@@ -79,7 +143,12 @@
       "coffeeCost",
       "energyCost",
       "laborCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -89,5 +158,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "rev",
       "default": 1,
-      "businessContext": "Number of complete rotations of the input shaft."
+      "businessContext": "Number of complete rotations of the input shaft.",
+      "label_i18n": {
+        "en": "Revolutions",
+        "tr": "Revolutions",
+        "de": "Revolutions",
+        "fr": "Revolutions",
+        "es": "Revolutions",
+        "ar": "Revolutions"
+      }
     },
     {
       "id": "gearRatio",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ratio",
       "default": 1,
-      "businessContext": "Gear ratio multiplier applied to input revolutions."
+      "businessContext": "Gear ratio multiplier applied to input revolutions.",
+      "label_i18n": {
+        "en": "Gear Ratio",
+        "tr": "Gear Ratio",
+        "de": "Gear Ratio",
+        "fr": "Gear Ratio",
+        "es": "Gear Ratio",
+        "ar": "Gear Ratio"
+      }
     },
     {
       "id": "phaseOffsetRev",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "rev",
       "default": 0,
-      "businessContext": "Initial phase offset in revolutions."
+      "businessContext": "Initial phase offset in revolutions.",
+      "label_i18n": {
+        "en": "Phase Offset (Rev)",
+        "tr": "Phase Offset (Rev)",
+        "de": "Phase Offset (Rev)",
+        "fr": "Phase Offset (Rev)",
+        "es": "Phase Offset (Rev)",
+        "ar": "Phase Offset (Rev)"
+      }
     },
     {
       "id": "radPerRev",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "rad/rev",
       "default": 6.283185307179586,
-      "businessContext": "Conversion constant (default 2π)."
+      "businessContext": "Conversion constant (default 2π).",
+      "label_i18n": {
+        "en": "Radians per Revolution",
+        "tr": "Radians per Revolution",
+        "de": "Radians per Revolution",
+        "fr": "Radians per Revolution",
+        "es": "Radians per Revolution",
+        "ar": "Radians per Revolution"
+      }
     },
     {
       "id": "decimalPlaces",
@@ -39,20 +71,32 @@
       "type": "number",
       "unit": "places",
       "default": 6,
-      "businessContext": "Number of decimal places for output precision."
+      "businessContext": "Number of decimal places for output precision.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     }
   ],
   "formulas": {
-    "effectiveRevolutions": "inputs.rev * inputs.gearRatio",
-    "offsetRadians": "inputs.phaseOffsetRev * inputs.radPerRev",
-    "totalRadians": "Math.round(((inputs.rev * inputs.gearRatio + inputs.phaseOffsetRev) * inputs.radPerRev) * Math.pow(10, inputs.decimalPlaces)) / Math.pow(10, inputs.decimalPlaces)"
+    "result": "rev + gearRatio + phaseOffsetRev",
+    "result_copy": "rev + gearRatio + phaseOffsetRev"
   },
   "outputs": {
-    "primary": "totalRadians",
+    "primary": "result",
     "breakdown": [
       "effectiveRevolutions",
       "offsetRadians"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalRadians"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -62,5 +106,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -68,18 +68,19 @@
   ],
   "formulas": {
     "baseKW": "tons * conversionFactor",
-    "withSafety": "baseKW * safetyFactor",
-    "finalKW": "Math.round(withSafety * Math.pow(10, decimals)) / Math.pow(10, decimals)",
-    "____baseKW_toFixed_decimals______kW_": "' + baseKW.toFixed(decimals) + ' kW'",
-    "____finalKW_____kW_": "' + finalKW + ' kW'",
-    "result": "finalKW + ' kW'"
+    "withSafety": "baseKW * safetyFactor"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "withSafety",
     "breakdown": [
       "'Base: ' + baseKW.toFixed(decimals) + ' kW'",
       "'With safety factor (' + safetyFactor + '): ' + finalKW + ' kW'"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -89,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

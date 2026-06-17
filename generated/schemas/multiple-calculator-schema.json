@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "units",
       "default": 100,
-      "businessContext": "Number of units to be produced"
+      "businessContext": "Number of units to be produced",
+      "label_i18n": {
+        "en": "Production Quantity",
+        "tr": "Production Quantity",
+        "de": "Production Quantity",
+        "fr": "Production Quantity",
+        "es": "Production Quantity",
+        "ar": "Production Quantity"
+      }
     },
     {
       "id": "materialCostPerUnit",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 10,
-      "businessContext": "Cost of raw materials per unit"
+      "businessContext": "Cost of raw materials per unit",
+      "label_i18n": {
+        "en": "Material Cost per Unit",
+        "tr": "Material Cost per Unit",
+        "de": "Material Cost per Unit",
+        "fr": "Material Cost per Unit",
+        "es": "Material Cost per Unit",
+        "ar": "Material Cost per Unit"
+      }
     },
     {
       "id": "laborCostPerUnit",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 5,
-      "businessContext": "Direct labor cost per unit"
+      "businessContext": "Direct labor cost per unit",
+      "label_i18n": {
+        "en": "Labor Cost per Unit",
+        "tr": "Labor Cost per Unit",
+        "de": "Labor Cost per Unit",
+        "fr": "Labor Cost per Unit",
+        "es": "Labor Cost per Unit",
+        "ar": "Labor Cost per Unit"
+      }
     },
     {
       "id": "overheadFixed",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency",
       "default": 1000,
-      "businessContext": "Total fixed overhead costs for the production run"
+      "businessContext": "Total fixed overhead costs for the production run",
+      "label_i18n": {
+        "en": "Fixed Overhead Costs",
+        "tr": "Fixed Overhead Costs",
+        "de": "Fixed Overhead Costs",
+        "fr": "Fixed Overhead Costs",
+        "es": "Fixed Overhead Costs",
+        "ar": "Fixed Overhead Costs"
+      }
     },
     {
       "id": "profitMarginPercent",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Desired profit margin as percentage of cost"
+      "businessContext": "Desired profit margin as percentage of cost",
+      "label_i18n": {
+        "en": "Profit Margin (%)",
+        "tr": "Profit Margin (%)",
+        "de": "Profit Margin (%)",
+        "fr": "Profit Margin (%)",
+        "es": "Profit Margin (%)",
+        "ar": "Profit Margin (%)"
+      }
     },
     {
       "id": "taxRatePercent",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 18,
-      "businessContext": "Applicable sales tax rate"
+      "businessContext": "Applicable sales tax rate",
+      "label_i18n": {
+        "en": "Tax Rate (%)",
+        "tr": "Tax Rate (%)",
+        "de": "Tax Rate (%)",
+        "fr": "Tax Rate (%)",
+        "es": "Tax Rate (%)",
+        "ar": "Tax Rate (%)"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
       "totalCost",
       "sellingPrice",
       "profitPerUnit"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "profitPerUnit"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -72,5 +125,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

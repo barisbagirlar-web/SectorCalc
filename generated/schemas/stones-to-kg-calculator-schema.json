@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "st",
       "default": 0,
-      "businessContext": "Enter the weight in stones to be converted to kilograms."
+      "businessContext": "Enter the weight in stones to be converted to kilograms.",
+      "label_i18n": {
+        "en": "Weight in stones",
+        "tr": "Weight in stones",
+        "de": "Weight in stones",
+        "fr": "Weight in stones",
+        "es": "Weight in stones",
+        "ar": "Weight in stones"
+      }
     },
     {
       "id": "pounds",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "lb",
       "default": 0,
-      "businessContext": "Enter any additional pounds (0–13). 1 stone = 14 pounds."
+      "businessContext": "Enter any additional pounds (0–13). 1 stone = 14 pounds.",
+      "label_i18n": {
+        "en": "Additional pounds",
+        "tr": "Additional pounds",
+        "de": "Additional pounds",
+        "fr": "Additional pounds",
+        "es": "Additional pounds",
+        "ar": "Additional pounds"
+      }
     },
     {
       "id": "conversionFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg/st",
       "default": 6.35029,
-      "businessContext": "Standard conversion factor: 1 stone = 6.35029 kg. Adjust if local standards require a different factor."
+      "businessContext": "Standard conversion factor: 1 stone = 6.35029 kg. Adjust if local standards require a different factor.",
+      "label_i18n": {
+        "en": "Conversion factor",
+        "tr": "Conversion factor",
+        "de": "Conversion factor",
+        "fr": "Conversion factor",
+        "es": "Conversion factor",
+        "ar": "Conversion factor"
+      }
     },
     {
       "id": "precision",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "digits",
       "default": 2,
-      "businessContext": "Number of decimal places for the output in kilograms."
+      "businessContext": "Number of decimal places for the output in kilograms.",
+      "label_i18n": {
+        "en": "Decimal places",
+        "tr": "Decimal places",
+        "de": "Decimal places",
+        "fr": "Decimal places",
+        "es": "Decimal places",
+        "ar": "Decimal places"
+      }
     }
   ],
   "formulas": {
-    "weight_kg": "Math.round((stones + pounds/14) * conversionFactor * Math.pow(10, precision)) / Math.pow(10, precision)",
     "total_stones": "stones + pounds/14",
     "raw_kg": "(stones + pounds/14) * conversionFactor"
   },
   "outputs": {
-    "primary": "weight_kg",
+    "primary": "raw_kg",
     "breakdown": [
       "total_stones",
       "raw_kg"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "raw_kg"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

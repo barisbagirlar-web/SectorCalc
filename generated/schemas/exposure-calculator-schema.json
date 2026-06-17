@@ -83,19 +83,20 @@
     }
   ],
   "formulas": {
-    "dailyExposure": "spl + exchangeRate * Math.log(duration / criterionTime) / Math.log(2)",
-    "dose": "(duration / criterionTime) * Math.pow(2, (spl - criterionLevel) / exchangeRate) * 100",
-    "exceedance": "(spl + exchangeRate * Math.log(duration / criterionTime) / Math.log(2) > criterionLevel) ? (spl + exchangeRate * Math.log(duration / criterionTime) / Math.log(2) - criterionLevel) : 0",
-    "Noise_Dose____": "Noise Dose (%)",
-    "Limit_Exceedance__dB_": "Limit Exceedance (dB)",
-    "result": "Daily Noise Exposure Level (L_EX,8h)"
+    "result": "duration + spl + exchangeRate",
+    "result_aux": "duration + spl + exchangeRate"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
       "Noise Dose (%)",
       "Limit Exceedance (dB)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "exceedance"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -105,5 +106,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "danismanlik",
   "profession": "Strateji Uzmanı",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

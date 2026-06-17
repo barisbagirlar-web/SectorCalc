@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TL",
       "default": 100000,
-      "businessContext": "Mevcut yatırımın başlangıç tutarı"
+      "businessContext": "Mevcut yatırımın başlangıç tutarı",
+      "label_i18n": {
+        "en": "Yatırım Tutarı",
+        "tr": "Yatırım Tutarı",
+        "de": "Yatırım Tutarı",
+        "fr": "Yatırım Tutarı",
+        "es": "Yatırım Tutarı",
+        "ar": "Yatırım Tutarı"
+      }
     },
     {
       "id": "currentReturnRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Mevcut yatırımın yıllık getiri oranı"
+      "businessContext": "Mevcut yatırımın yıllık getiri oranı",
+      "label_i18n": {
+        "en": "Mevcut Getiri Oranı",
+        "tr": "Mevcut Getiri Oranı",
+        "de": "Mevcut Getiri Oranı",
+        "fr": "Mevcut Getiri Oranı",
+        "es": "Mevcut Getiri Oranı",
+        "ar": "Mevcut Getiri Oranı"
+      }
     },
     {
       "id": "alternativeReturnRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 8,
-      "businessContext": "Alternatif yatırımın yıllık getiri oranı"
+      "businessContext": "Alternatif yatırımın yıllık getiri oranı",
+      "label_i18n": {
+        "en": "Alternatif Getiri Oranı",
+        "tr": "Alternatif Getiri Oranı",
+        "de": "Alternatif Getiri Oranı",
+        "fr": "Alternatif Getiri Oranı",
+        "es": "Alternatif Getiri Oranı",
+        "ar": "Alternatif Getiri Oranı"
+      }
     },
     {
       "id": "timePeriod",
@@ -31,21 +55,33 @@
       "type": "number",
       "unit": "Yıl",
       "default": 1,
-      "businessContext": "Yatırım süresi (yıl)"
+      "businessContext": "Yatırım süresi (yıl)",
+      "label_i18n": {
+        "en": "Vade",
+        "tr": "Vade",
+        "de": "Vade",
+        "fr": "Vade",
+        "es": "Vade",
+        "ar": "Vade"
+      }
     }
   ],
   "formulas": {
     "currentReturn": "investmentAmount * currentReturnRate / 100 * timePeriod",
-    "alternativeReturn": "investmentAmount * alternativeReturnRate / 100 * timePeriod",
-    "opportunityCost": "alternativeReturn - currentReturn"
+    "alternativeReturn": "investmentAmount * alternativeReturnRate / 100 * timePeriod"
   },
   "outputs": {
-    "primary": "opportunityCost",
+    "primary": "alternativeReturn",
     "breakdown": [
       "currentReturn",
       "alternativeReturn",
       "opportunityCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "opportunityCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -55,5 +91,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

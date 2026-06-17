@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "persons",
       "default": 20,
-      "businessContext": "Total number of invited guests"
+      "businessContext": "Total number of invited guests",
+      "label_i18n": {
+        "en": "Number of Guests",
+        "tr": "Number of Guests",
+        "de": "Number of Guests",
+        "fr": "Number of Guests",
+        "es": "Number of Guests",
+        "ar": "Number of Guests"
+      }
     },
     {
       "id": "foodCostPerGuest",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 15,
-      "businessContext": "Average cost of food per person"
+      "businessContext": "Average cost of food per person",
+      "label_i18n": {
+        "en": "Food Cost per Guest",
+        "tr": "Food Cost per Guest",
+        "de": "Food Cost per Guest",
+        "fr": "Food Cost per Guest",
+        "es": "Food Cost per Guest",
+        "ar": "Food Cost per Guest"
+      }
     },
     {
       "id": "drinkCostPerGuest",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 8,
-      "businessContext": "Average cost of beverages per person"
+      "businessContext": "Average cost of beverages per person",
+      "label_i18n": {
+        "en": "Drink Cost per Guest",
+        "tr": "Drink Cost per Guest",
+        "de": "Drink Cost per Guest",
+        "fr": "Drink Cost per Guest",
+        "es": "Drink Cost per Guest",
+        "ar": "Drink Cost per Guest"
+      }
     },
     {
       "id": "decorationCost",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100,
-      "businessContext": "Total cost for decorations"
+      "businessContext": "Total cost for decorations",
+      "label_i18n": {
+        "en": "Decoration Cost",
+        "tr": "Decoration Cost",
+        "de": "Decoration Cost",
+        "fr": "Decoration Cost",
+        "es": "Decoration Cost",
+        "ar": "Decoration Cost"
+      }
     },
     {
       "id": "entertainmentCost",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD",
       "default": 200,
-      "businessContext": "Cost for music, games, or hired entertainers"
+      "businessContext": "Cost for music, games, or hired entertainers",
+      "label_i18n": {
+        "en": "Entertainment Cost",
+        "tr": "Entertainment Cost",
+        "de": "Entertainment Cost",
+        "fr": "Entertainment Cost",
+        "es": "Entertainment Cost",
+        "ar": "Entertainment Cost"
+      }
     },
     {
       "id": "venueRental",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "USD",
       "default": 300,
-      "businessContext": "Cost to rent the party venue"
+      "businessContext": "Cost to rent the party venue",
+      "label_i18n": {
+        "en": "Venue Rental",
+        "tr": "Venue Rental",
+        "de": "Venue Rental",
+        "fr": "Venue Rental",
+        "es": "Venue Rental",
+        "ar": "Venue Rental"
+      }
     },
     {
       "id": "cakeCost",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "USD",
       "default": 50,
-      "businessContext": "Cost of birthday cake"
+      "businessContext": "Cost of birthday cake",
+      "label_i18n": {
+        "en": "Cake Cost",
+        "tr": "Cake Cost",
+        "de": "Cake Cost",
+        "fr": "Cake Cost",
+        "es": "Cake Cost",
+        "ar": "Cake Cost"
+      }
     },
     {
       "id": "miscCost",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "USD",
       "default": 50,
-      "businessContext": "Any other costs not listed"
+      "businessContext": "Any other costs not listed",
+      "label_i18n": {
+        "en": "Miscellaneous Cost",
+        "tr": "Miscellaneous Cost",
+        "de": "Miscellaneous Cost",
+        "fr": "Miscellaneous Cost",
+        "es": "Miscellaneous Cost",
+        "ar": "Miscellaneous Cost"
+      }
     }
   ],
   "formulas": {
@@ -78,7 +142,12 @@
       "totalFoodCost",
       "totalDrinkCost",
       "costPerGuest"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "costPerGuest"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -88,5 +157,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

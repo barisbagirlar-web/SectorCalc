@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 10,
-      "businessContext": "Cost of raw materials per unit of product"
+      "businessContext": "Cost of raw materials per unit of product",
+      "label_i18n": {
+        "en": "Raw Material Cost per Unit",
+        "tr": "Raw Material Cost per Unit",
+        "de": "Raw Material Cost per Unit",
+        "fr": "Raw Material Cost per Unit",
+        "es": "Raw Material Cost per Unit",
+        "ar": "Raw Material Cost per Unit"
+      }
     },
     {
       "id": "labor_cost",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 5,
-      "businessContext": "Direct labor cost per unit"
+      "businessContext": "Direct labor cost per unit",
+      "label_i18n": {
+        "en": "Labor Cost per Unit",
+        "tr": "Labor Cost per Unit",
+        "de": "Labor Cost per Unit",
+        "fr": "Labor Cost per Unit",
+        "es": "Labor Cost per Unit",
+        "ar": "Labor Cost per Unit"
+      }
     },
     {
       "id": "overhead_cost",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 3,
-      "businessContext": "Manufacturing overhead per unit"
+      "businessContext": "Manufacturing overhead per unit",
+      "label_i18n": {
+        "en": "Overhead Cost per Unit",
+        "tr": "Overhead Cost per Unit",
+        "de": "Overhead Cost per Unit",
+        "fr": "Overhead Cost per Unit",
+        "es": "Overhead Cost per Unit",
+        "ar": "Overhead Cost per Unit"
+      }
     },
     {
       "id": "selling_price",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 25,
-      "businessContext": "Price at which product is sold"
+      "businessContext": "Price at which product is sold",
+      "label_i18n": {
+        "en": "Selling Price per Unit",
+        "tr": "Selling Price per Unit",
+        "de": "Selling Price per Unit",
+        "fr": "Selling Price per Unit",
+        "es": "Selling Price per Unit",
+        "ar": "Selling Price per Unit"
+      }
     },
     {
       "id": "production_volume",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "units",
       "default": 1000,
-      "businessContext": "Number of units produced per period"
+      "businessContext": "Number of units produced per period",
+      "label_i18n": {
+        "en": "Production Volume",
+        "tr": "Production Volume",
+        "de": "Production Volume",
+        "fr": "Production Volume",
+        "es": "Production Volume",
+        "ar": "Production Volume"
+      }
     },
     {
       "id": "defect_rate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Percentage of defective units"
+      "businessContext": "Percentage of defective units",
+      "label_i18n": {
+        "en": "Defect Rate",
+        "tr": "Defect Rate",
+        "de": "Defect Rate",
+        "fr": "Defect Rate",
+        "es": "Defect Rate",
+        "ar": "Defect Rate"
+      }
     }
   ],
   "formulas": {
@@ -68,7 +116,12 @@
       "total_profit",
       "defect_cost",
       "gross_margin_percentage"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "effective_profit"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -78,5 +131,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

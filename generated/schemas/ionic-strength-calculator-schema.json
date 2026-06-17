@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mol/L",
       "default": 0.1,
-      "businessContext": "Concentration of the first ion in solution"
+      "businessContext": "Concentration of the first ion in solution",
+      "label_i18n": {
+        "en": "Ion 1 Concentration",
+        "tr": "Ion 1 Concentration",
+        "de": "Ion 1 Concentration",
+        "fr": "Ion 1 Concentration",
+        "es": "Ion 1 Concentration",
+        "ar": "Ion 1 Concentration"
+      }
     },
     {
       "id": "charge1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "e",
       "default": 1,
-      "businessContext": "Charge number of the first ion (e.g., Na+ = 1, Ca2+ = 2)"
+      "businessContext": "Charge number of the first ion (e.g., Na+ = 1, Ca2+ = 2)",
+      "label_i18n": {
+        "en": "Ion 1 Charge",
+        "tr": "Ion 1 Charge",
+        "de": "Ion 1 Charge",
+        "fr": "Ion 1 Charge",
+        "es": "Ion 1 Charge",
+        "ar": "Ion 1 Charge"
+      }
     },
     {
       "id": "concentration2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mol/L",
       "default": 0,
-      "businessContext": "Concentration of the second ion in solution"
+      "businessContext": "Concentration of the second ion in solution",
+      "label_i18n": {
+        "en": "Ion 2 Concentration",
+        "tr": "Ion 2 Concentration",
+        "de": "Ion 2 Concentration",
+        "fr": "Ion 2 Concentration",
+        "es": "Ion 2 Concentration",
+        "ar": "Ion 2 Concentration"
+      }
     },
     {
       "id": "charge2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "e",
       "default": 0,
-      "businessContext": "Charge number of the second ion (enter 0 if not used)"
+      "businessContext": "Charge number of the second ion (enter 0 if not used)",
+      "label_i18n": {
+        "en": "Ion 2 Charge",
+        "tr": "Ion 2 Charge",
+        "de": "Ion 2 Charge",
+        "fr": "Ion 2 Charge",
+        "es": "Ion 2 Charge",
+        "ar": "Ion 2 Charge"
+      }
     },
     {
       "id": "concentration3",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mol/L",
       "default": 0,
-      "businessContext": "Concentration of the third ion in solution"
+      "businessContext": "Concentration of the third ion in solution",
+      "label_i18n": {
+        "en": "Ion 3 Concentration",
+        "tr": "Ion 3 Concentration",
+        "de": "Ion 3 Concentration",
+        "fr": "Ion 3 Concentration",
+        "es": "Ion 3 Concentration",
+        "ar": "Ion 3 Concentration"
+      }
     },
     {
       "id": "charge3",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "e",
       "default": 0,
-      "businessContext": "Charge number of the third ion (enter 0 if not used)"
+      "businessContext": "Charge number of the third ion (enter 0 if not used)",
+      "label_i18n": {
+        "en": "Ion 3 Charge",
+        "tr": "Ion 3 Charge",
+        "de": "Ion 3 Charge",
+        "fr": "Ion 3 Charge",
+        "es": "Ion 3 Charge",
+        "ar": "Ion 3 Charge"
+      }
     },
     {
       "id": "concentration4",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "mol/L",
       "default": 0,
-      "businessContext": "Concentration of the fourth ion in solution"
+      "businessContext": "Concentration of the fourth ion in solution",
+      "label_i18n": {
+        "en": "Ion 4 Concentration",
+        "tr": "Ion 4 Concentration",
+        "de": "Ion 4 Concentration",
+        "fr": "Ion 4 Concentration",
+        "es": "Ion 4 Concentration",
+        "ar": "Ion 4 Concentration"
+      }
     },
     {
       "id": "charge4",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "e",
       "default": 0,
-      "businessContext": "Charge number of the fourth ion (enter 0 if not used)"
+      "businessContext": "Charge number of the fourth ion (enter 0 if not used)",
+      "label_i18n": {
+        "en": "Ion 4 Charge",
+        "tr": "Ion 4 Charge",
+        "de": "Ion 4 Charge",
+        "fr": "Ion 4 Charge",
+        "es": "Ion 4 Charge",
+        "ar": "Ion 4 Charge"
+      }
     }
   ],
   "formulas": {
@@ -80,7 +144,12 @@
       "term2",
       "term3",
       "term4"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "term4"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -90,5 +159,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

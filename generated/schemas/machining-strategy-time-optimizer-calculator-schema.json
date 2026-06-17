@@ -154,43 +154,6 @@
         "es": "Number of Passes (n_passes)",
         "ar": "Number of Passes (n_passes)"
       }
-    },
-    {
-      "id": "machine_type",
-      "label": "Machine Type",
-      "type": "select",
-      "unit": "unit",
-      "default": "CNC Lathe",
-      "options": [
-        "CNC Lathe",
-        "CNC Mill",
-        "Multi-Axis"
-      ],
-      "businessContext": "ISO 841 for coordinate systems; affects spindle power and rigidity.",
-      "label_i18n": {
-        "en": "Machine Type",
-        "tr": "Machine Type",
-        "de": "Machine Type",
-        "fr": "Machine Type",
-        "es": "Machine Type",
-        "ar": "Machine Type"
-      }
-    },
-    {
-      "id": "use_high_feed",
-      "label": "High Feed Strategy",
-      "type": "boolean",
-      "unit": "unit",
-      "default": false,
-      "businessContext": "Lean Six Sigma approach to reduce cycle time; may increase tool wear.",
-      "label_i18n": {
-        "en": "High Feed Strategy",
-        "tr": "High Feed Strategy",
-        "de": "High Feed Strategy",
-        "fr": "High Feed Strategy",
-        "es": "High Feed Strategy",
-        "ar": "High Feed Strategy"
-      }
     }
   ],
   "validation": {
@@ -224,20 +187,18 @@
       }
     ]
   },
-  "formulas": [
-    "cutting_speed",
-    "cutting_speed",
-    "cutting_speed",
-    "cutting_speed",
-    "cutting_speed",
-    "cutting_speed",
-    "cutting_speed",
-    "cutting_speed",
-    "cutting_speed"
-  ],
+  "formulas": {
+    "result": "cutting_speed + feed_rate + depth_of_cut",
+    "result_copy": "cutting_speed + feed_rate + depth_of_cut"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "machining-strategy-time-optimizer-calculator",
   "catalogCategory": "manufacturing-workshop",

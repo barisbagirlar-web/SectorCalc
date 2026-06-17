@@ -131,22 +131,22 @@
     }
   ],
   "formulas": {
-    "n": "8",
-    "mean": "(inputs.dataPoint1 + inputs.dataPoint2 + inputs.dataPoint3 + inputs.dataPoint4 + inputs.dataPoint5 + inputs.dataPoint6 + inputs.dataPoint7 + inputs.dataPoint8) / 8",
-    "ss": "Math.pow(inputs.dataPoint1 - mean, 2) + Math.pow(inputs.dataPoint2 - mean, 2) + Math.pow(inputs.dataPoint3 - mean, 2) + Math.pow(inputs.dataPoint4 - mean, 2) + Math.pow(inputs.dataPoint5 - mean, 2) + Math.pow(inputs.dataPoint6 - mean, 2) + Math.pow(inputs.dataPoint7 - mean, 2) + Math.pow(inputs.dataPoint8 - mean, 2)",
-    "variance": "ss / (n - 1)",
-    "stdDev": "Math.sqrt(variance)",
-    "sumCubedDev": "Math.pow((inputs.dataPoint1 - mean) / stdDev, 3) + Math.pow((inputs.dataPoint2 - mean) / stdDev, 3) + Math.pow((inputs.dataPoint3 - mean) / stdDev, 3) + Math.pow((inputs.dataPoint4 - mean) / stdDev, 3) + Math.pow((inputs.dataPoint5 - mean) / stdDev, 3) + Math.pow((inputs.dataPoint6 - mean) / stdDev, 3) + Math.pow((inputs.dataPoint7 - mean) / stdDev, 3) + Math.pow((inputs.dataPoint8 - mean) / stdDev, 3)",
-    "skewness": "(n / ((n - 1) * (n - 2))) * sumCubedDev"
+    "result": "dataPoint1 + dataPoint2 + dataPoint3",
+    "result_copy": "dataPoint1 + dataPoint2 + dataPoint3"
   },
   "outputs": {
-    "primary": "skewness",
+    "primary": "result",
     "breakdown": [
       "mean",
       "stdDev",
       "variance",
       "sumCubedDev"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "skewness"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -156,5 +156,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

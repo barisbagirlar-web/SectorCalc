@@ -86,16 +86,19 @@
     "1": "shape",
     "2": "shape",
     "3": "shape",
-    "4": "shape",
-    "I_y": "I_y",
-    "Shape_description": "Shape description"
+    "4": "shape"
   },
   "outputs": {
     "primary": "1",
     "breakdown": [
       "I_y",
       "Shape description"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "I_y"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -105,5 +108,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "km",
       "default": 100,
-      "businessContext": "Distance between old and new location"
+      "businessContext": "Distance between old and new location",
+      "label_i18n": {
+        "en": "Distance",
+        "tr": "Distance",
+        "de": "Distance",
+        "fr": "Distance",
+        "es": "Distance",
+        "ar": "Distance"
+      }
     },
     {
       "id": "weight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Total weight of items to move"
+      "businessContext": "Total weight of items to move",
+      "label_i18n": {
+        "en": "Total Weight",
+        "tr": "Total Weight",
+        "de": "Total Weight",
+        "fr": "Total Weight",
+        "es": "Total Weight",
+        "ar": "Total Weight"
+      }
     },
     {
       "id": "laborHours",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "h",
       "default": 8,
-      "businessContext": "Estimated labor hours required"
+      "businessContext": "Estimated labor hours required",
+      "label_i18n": {
+        "en": "Labor Hours",
+        "tr": "Labor Hours",
+        "de": "Labor Hours",
+        "fr": "Labor Hours",
+        "es": "Labor Hours",
+        "ar": "Labor Hours"
+      }
     },
     {
       "id": "packingItems",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "items",
       "default": 20,
-      "businessContext": "Number of items requiring special packing"
+      "businessContext": "Number of items requiring special packing",
+      "label_i18n": {
+        "en": "Packing Items",
+        "tr": "Packing Items",
+        "de": "Packing Items",
+        "fr": "Packing Items",
+        "es": "Packing Items",
+        "ar": "Packing Items"
+      }
     },
     {
       "id": "ratePerKm",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "$/km",
       "default": 0.5,
-      "businessContext": "Transport cost rate per kilometer"
+      "businessContext": "Transport cost rate per kilometer",
+      "label_i18n": {
+        "en": "Rate per km",
+        "tr": "Rate per km",
+        "de": "Rate per km",
+        "fr": "Rate per km",
+        "es": "Rate per km",
+        "ar": "Rate per km"
+      }
     },
     {
       "id": "ratePerKg",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "$/kg",
       "default": 0.2,
-      "businessContext": "Transport cost rate per kilogram"
+      "businessContext": "Transport cost rate per kilogram",
+      "label_i18n": {
+        "en": "Rate per kg",
+        "tr": "Rate per kg",
+        "de": "Rate per kg",
+        "fr": "Rate per kg",
+        "es": "Rate per kg",
+        "ar": "Rate per kg"
+      }
     },
     {
       "id": "hourlyRate",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "$/h",
       "default": 25,
-      "businessContext": "Hourly rate for labor"
+      "businessContext": "Hourly rate for labor",
+      "label_i18n": {
+        "en": "Hourly Labor Rate",
+        "tr": "Hourly Labor Rate",
+        "de": "Hourly Labor Rate",
+        "fr": "Hourly Labor Rate",
+        "es": "Hourly Labor Rate",
+        "ar": "Hourly Labor Rate"
+      }
     },
     {
       "id": "packingCostPerItem",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "$/item",
       "default": 10,
-      "businessContext": "Cost per item for special packing"
+      "businessContext": "Cost per item for special packing",
+      "label_i18n": {
+        "en": "Packing Cost per Item",
+        "tr": "Packing Cost per Item",
+        "de": "Packing Cost per Item",
+        "fr": "Packing Cost per Item",
+        "es": "Packing Cost per Item",
+        "ar": "Packing Cost per Item"
+      }
     }
   ],
   "formulas": {
@@ -78,7 +142,12 @@
       "transportCost",
       "laborCost",
       "packingCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalMovingCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -88,5 +157,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "lojistik",
   "profession": "Lojistik Uzmanı",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

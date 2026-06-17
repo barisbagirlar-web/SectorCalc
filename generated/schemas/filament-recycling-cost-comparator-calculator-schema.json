@@ -138,120 +138,6 @@
       "businessContext_i18n": {
         "en": "Cost to collect and transport scrap plastic to recycling facility."
       }
-    },
-    {
-      "id": "virgin_filament_price",
-      "label": "Virgin Filament Market Price",
-      "type": "number",
-      "unit": "USD/kg",
-      "default": 25,
-      "min": 10,
-      "max": 100,
-      "businessContext": "Current market price for virgin PLA/ABS/PETG filament.",
-      "label_i18n": {
-        "en": "Virgin Filament Market Price"
-      },
-      "businessContext_i18n": {
-        "en": "Current market price for virgin PLA/ABS/PETG filament."
-      }
-    },
-    {
-      "id": "recycling_yield",
-      "label": "Recycling Yield",
-      "type": "number",
-      "unit": "%",
-      "default": 85,
-      "min": 50,
-      "max": 100,
-      "businessContext": "Percentage of input waste that becomes usable filament (losses due to contamination, degradation).",
-      "label_i18n": {
-        "en": "Recycling Yield"
-      },
-      "businessContext_i18n": {
-        "en": "Percentage of input waste that becomes usable filament (losses due to contamination, degradation)."
-      }
-    },
-    {
-      "id": "quality_factor",
-      "label": "Quality Factor (vs Virgin)",
-      "type": "number",
-      "unit": "%",
-      "default": 90,
-      "min": 60,
-      "max": 100,
-      "businessContext": "Relative mechanical/print quality of recycled filament compared to virgin (e.g., 90% means 10% more material needed for same strength).",
-      "label_i18n": {
-        "en": "Quality Factor (vs Virgin)"
-      },
-      "businessContext_i18n": {
-        "en": "Relative mechanical/print quality of recycled filament compared to virgin (e.g., 90% means 10% more material needed for same strength)."
-      }
-    },
-    {
-      "id": "annual_production_volume",
-      "label": "Annual Production Volume",
-      "type": "number",
-      "unit": "kg/year",
-      "default": 10000,
-      "min": 1000,
-      "max": 1000000,
-      "businessContext": "Total kg of recycled filament produced per year.",
-      "label_i18n": {
-        "en": "Annual Production Volume"
-      },
-      "businessContext_i18n": {
-        "en": "Total kg of recycled filament produced per year."
-      }
-    },
-    {
-      "id": "waste_type",
-      "label": "Waste Type",
-      "type": "select",
-      "options": [
-        "PLA",
-        "ABS",
-        "PETG",
-        "Mixed"
-      ],
-      "default": "PLA",
-      "businessContext": "Type of plastic waste being recycled; affects processing parameters and yield.",
-      "label_i18n": {
-        "en": "Waste Type"
-      },
-      "businessContext_i18n": {
-        "en": "Type of plastic waste being recycled; affects processing parameters and yield."
-      },
-      "unit": "unit"
-    },
-    {
-      "id": "include_carbon_cost",
-      "label": "Include Carbon Cost",
-      "type": "boolean",
-      "default": true,
-      "businessContext": "If true, adds a carbon penalty cost based on estimated emissions.",
-      "label_i18n": {
-        "en": "Include Carbon Cost"
-      },
-      "businessContext_i18n": {
-        "en": "If true, adds a carbon penalty cost based on estimated emissions."
-      },
-      "unit": "unit"
-    },
-    {
-      "id": "carbon_price",
-      "label": "Carbon Price",
-      "type": "number",
-      "unit": "USD/ton CO2e",
-      "default": 50,
-      "min": 0,
-      "max": 200,
-      "businessContext": "Social cost of carbon or carbon tax per metric ton of CO2 equivalent.",
-      "label_i18n": {
-        "en": "Carbon Price"
-      },
-      "businessContext_i18n": {
-        "en": "Social cost of carbon or carbon tax per metric ton of CO2 equivalent."
-      }
     }
   ],
   "validation": {
@@ -285,20 +171,18 @@
       }
     ]
   },
-  "formulas": [
-    "recycling_machine_cost",
-    "recycling_machine_cost",
-    "recycling_machine_cost",
-    "recycling_machine_cost",
-    "recycling_machine_cost",
-    "recycling_machine_cost",
-    "recycling_machine_cost",
-    "recycling_machine_cost",
-    "recycling_machine_cost"
-  ],
+  "formulas": {
+    "result": "recycling_machine_cost + machine_life_years + annual_maintenance_cost",
+    "result_copy": "recycling_machine_cost + machine_life_years + annual_maintenance_cost"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "filament-recycling-cost-comparator-calculator",
   "catalogCategory": "everyday-life",

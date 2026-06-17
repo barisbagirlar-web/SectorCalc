@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft",
       "default": 40,
-      "businessContext": "Length of a single roof plane along the eave (horizontal)."
+      "businessContext": "Length of a single roof plane along the eave (horizontal).",
+      "label_i18n": {
+        "en": "Roof Length",
+        "tr": "Roof Length",
+        "de": "Roof Length",
+        "fr": "Roof Length",
+        "es": "Roof Length",
+        "ar": "Roof Length"
+      }
     },
     {
       "id": "roofWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ft",
       "default": 30,
-      "businessContext": "Horizontal span from eave to ridge of one roof plane."
+      "businessContext": "Horizontal span from eave to ridge of one roof plane.",
+      "label_i18n": {
+        "en": "Roof Width",
+        "tr": "Roof Width",
+        "de": "Roof Width",
+        "fr": "Roof Width",
+        "es": "Roof Width",
+        "ar": "Roof Width"
+      }
     },
     {
       "id": "pitch",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "in/12in",
       "default": 4,
-      "businessContext": "Roof pitch expressed as rise in inches per 12 inches of run (e.g., 4 for a 4/12 pitch)."
+      "businessContext": "Roof pitch expressed as rise in inches per 12 inches of run (e.g., 4 for a 4/12 pitch).",
+      "label_i18n": {
+        "en": "Pitch (rise per 12'')",
+        "tr": "Pitch (rise per 12'')",
+        "de": "Pitch (rise per 12'')",
+        "fr": "Pitch (rise per 12'')",
+        "es": "Pitch (rise per 12'')",
+        "ar": "Pitch (rise per 12'')"
+      }
     },
     {
       "id": "numberOfPlanes",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "count",
       "default": 2,
-      "businessContext": "Number of identical roof planes (e.g., 2 for a standard gable roof)."
+      "businessContext": "Number of identical roof planes (e.g., 2 for a standard gable roof).",
+      "label_i18n": {
+        "en": "Number of Planes",
+        "tr": "Number of Planes",
+        "de": "Number of Planes",
+        "fr": "Number of Planes",
+        "es": "Number of Planes",
+        "ar": "Number of Planes"
+      }
     },
     {
       "id": "wasteFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Percentage of extra material to account for cutting waste and errors."
+      "businessContext": "Percentage of extra material to account for cutting waste and errors.",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     },
     {
       "id": "bundleCoverage",
@@ -47,24 +87,33 @@
       "type": "number",
       "unit": "sq ft",
       "default": 33.33,
-      "businessContext": "Area covered by one bundle of shingles (sq ft); typically 33.33 sq ft for 3-bundle squares."
+      "businessContext": "Area covered by one bundle of shingles (sq ft); typically 33.33 sq ft for 3-bundle squares.",
+      "label_i18n": {
+        "en": "Bundle Coverage",
+        "tr": "Bundle Coverage",
+        "de": "Bundle Coverage",
+        "fr": "Bundle Coverage",
+        "es": "Bundle Coverage",
+        "ar": "Bundle Coverage"
+      }
     }
   ],
   "formulas": {
-    "slopeFactor": "Math.sqrt(1 + Math.pow(pitch / 12, 2))",
-    "singlePlaneArea": "roofLength * roofWidth * slopeFactor",
-    "totalArea": "singlePlaneArea * numberOfPlanes",
-    "areaWithWaste": "totalArea * (1 + wasteFactor / 100)",
-    "bundlesNeeded": "Math.ceil(areaWithWaste / bundleCoverage)",
-    "squares": "areaWithWaste / 100"
+    "result": "roofLength + roofWidth + pitch",
+    "result_copy": "roofLength + roofWidth + pitch"
   },
   "outputs": {
-    "primary": "bundlesNeeded",
+    "primary": "result",
     "breakdown": [
       "totalArea",
       "areaWithWaste",
       "squares"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "squares"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -74,5 +123,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "havacilik",
   "profession": "Tasarım Mühendisi",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

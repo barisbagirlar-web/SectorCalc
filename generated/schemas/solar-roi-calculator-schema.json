@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TL",
       "default": 50000,
-      "businessContext": "Güneş paneli sisteminin toplam kurulum maliyeti (TL)"
+      "businessContext": "Güneş paneli sisteminin toplam kurulum maliyeti (TL)",
+      "label_i18n": {
+        "en": "Sistem Maliyeti",
+        "tr": "Sistem Maliyeti",
+        "de": "Sistem Maliyeti",
+        "fr": "Sistem Maliyeti",
+        "es": "Sistem Maliyeti",
+        "ar": "Sistem Maliyeti"
+      }
     },
     {
       "id": "yillikUretim",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kWh",
       "default": 5000,
-      "businessContext": "Sistemin yıllık tahmini enerji üretimi (kWh)"
+      "businessContext": "Sistemin yıllık tahmini enerji üretimi (kWh)",
+      "label_i18n": {
+        "en": "Yıllık Enerji Üretimi",
+        "tr": "Yıllık Enerji Üretimi",
+        "de": "Yıllık Enerji Üretimi",
+        "fr": "Yıllık Enerji Üretimi",
+        "es": "Yıllık Enerji Üretimi",
+        "ar": "Yıllık Enerji Üretimi"
+      }
     },
     {
       "id": "elektrikFiyati",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "TL/kWh",
       "default": 1.2,
-      "businessContext": "Elektrik birim fiyatı (TL/kWh)"
+      "businessContext": "Elektrik birim fiyatı (TL/kWh)",
+      "label_i18n": {
+        "en": "Elektrik Birim Fiyatı",
+        "tr": "Elektrik Birim Fiyatı",
+        "de": "Elektrik Birim Fiyatı",
+        "fr": "Elektrik Birim Fiyatı",
+        "es": "Elektrik Birim Fiyatı",
+        "ar": "Elektrik Birim Fiyatı"
+      }
     },
     {
       "id": "sistemOmru",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 25,
-      "businessContext": "Sistemin beklenen kullanım ömrü (yıl)"
+      "businessContext": "Sistemin beklenen kullanım ömrü (yıl)",
+      "label_i18n": {
+        "en": "Sistem Ömrü",
+        "tr": "Sistem Ömrü",
+        "de": "Sistem Ömrü",
+        "fr": "Sistem Ömrü",
+        "es": "Sistem Ömrü",
+        "ar": "Sistem Ömrü"
+      }
     },
     {
       "id": "tesvikOrani",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Devlet teşvik oranı (%)"
+      "businessContext": "Devlet teşvik oranı (%)",
+      "label_i18n": {
+        "en": "Teşvik Oranı",
+        "tr": "Teşvik Oranı",
+        "de": "Teşvik Oranı",
+        "fr": "Teşvik Oranı",
+        "es": "Teşvik Oranı",
+        "ar": "Teşvik Oranı"
+      }
     }
   ],
   "formulas": {
@@ -58,7 +98,12 @@
       "yillikTasarruf",
       "toplamTasarruf",
       "netKar"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roi"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -68,5 +113,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

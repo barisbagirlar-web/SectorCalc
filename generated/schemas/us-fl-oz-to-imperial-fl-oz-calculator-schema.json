@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "fl oz (US)",
       "default": 1,
-      "businessContext": "Volume in US fluid ounces"
+      "businessContext": "Volume in US fluid ounces",
+      "label_i18n": {
+        "en": "US Fluid Ounces",
+        "tr": "US Fluid Ounces",
+        "de": "US Fluid Ounces",
+        "fr": "US Fluid Ounces",
+        "es": "US Fluid Ounces",
+        "ar": "US Fluid Ounces"
+      }
     },
     {
       "id": "batchSize",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "units",
       "default": 100,
-      "businessContext": "Number of units per batch"
+      "businessContext": "Number of units per batch",
+      "label_i18n": {
+        "en": "Batch Size",
+        "tr": "Batch Size",
+        "de": "Batch Size",
+        "fr": "Batch Size",
+        "es": "Batch Size",
+        "ar": "Batch Size"
+      }
     },
     {
       "id": "packageCount",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "packages",
       "default": 1,
-      "businessContext": "Number of identical packages"
+      "businessContext": "Number of identical packages",
+      "label_i18n": {
+        "en": "Package Count",
+        "tr": "Package Count",
+        "de": "Package Count",
+        "fr": "Package Count",
+        "es": "Package Count",
+        "ar": "Package Count"
+      }
     },
     {
       "id": "tolerance",
@@ -31,23 +55,33 @@
       "type": "number",
       "unit": "%",
       "default": 0.5,
-      "businessContext": "Allowed deviation (±%) for quality control"
+      "businessContext": "Allowed deviation (±%) for quality control",
+      "label_i18n": {
+        "en": "Measurement Tolerance",
+        "tr": "Measurement Tolerance",
+        "de": "Measurement Tolerance",
+        "fr": "Measurement Tolerance",
+        "es": "Measurement Tolerance",
+        "ar": "Measurement Tolerance"
+      }
     }
   ],
   "formulas": {
-    "conversionFactor": "1.040842731",
-    "imperialFlOz": "usFlOz * conversionFactor",
-    "totalImperialFlOz": "imperialFlOz * batchSize * packageCount",
-    "minTotal": "totalImperialFlOz * (1 - tolerance/100)",
-    "maxTotal": "totalImperialFlOz * (1 + tolerance/100)"
+    "result": "usFlOz + batchSize + packageCount",
+    "result_copy": "usFlOz + batchSize + packageCount"
   },
   "outputs": {
-    "primary": "totalImperialFlOz",
+    "primary": "result",
     "breakdown": [
       "imperialFlOz",
       "minTotal",
       "maxTotal"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "maxTotal"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -57,5 +91,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

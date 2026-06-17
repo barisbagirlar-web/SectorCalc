@@ -83,24 +83,22 @@
     }
   ],
   "formulas": {
-    "conduitArea": "Math.PI * Math.pow(conduitInnerDiameter / 2, 2)",
-    "cableArea": "Math.PI * Math.pow(cableOuterDiameter / 2, 2)",
-    "totalCableArea": "numberOfConductors * cableArea",
-    "fillPercentage": "(totalCableArea / conduitArea) * 100",
     "allowedFillPercent": "conduitFillLimitPercent > 0 ? conduitFillLimitPercent - safetyMarginPercent : (numberOfConductors === 1 ? 53 : numberOfConductors === 2 ? 31 : 40) - safetyMarginPercent",
-    "allowedCableArea": "(allowedFillPercent / 100) * conduitArea",
-    "maxAllowedConductors": "Math.floor(allowedCableArea / cableArea)",
-    "isCompliant": "fillPercentage <= allowedFillPercent",
-    "remainingArea": "allowedCableArea - totalCableArea"
+    "allowedFillPercent_aux": "conduitFillLimitPercent > 0 ? conduitFillLimitPercent - safetyMarginPercent : (numberOfConductors === 1 ? 53 : numberOfConductors === 2 ? 31 : 40) - safetyMarginPercent"
   },
   "outputs": {
-    "primary": "fillPercentage",
+    "primary": "allowedFillPercent_aux",
     "breakdown": [
       "allowedFillPercent",
       "maxAllowedConductors",
       "remainingArea",
       "isCompliant"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "remainingArea"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -110,5 +108,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

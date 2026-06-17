@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "The average value of inventory over a period."
+      "businessContext": "The average value of inventory over a period.",
+      "label_i18n": {
+        "en": "Average Inventory",
+        "tr": "Average Inventory",
+        "de": "Average Inventory",
+        "fr": "Average Inventory",
+        "es": "Average Inventory",
+        "ar": "Average Inventory"
+      }
     },
     {
       "id": "cogs",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Direct cost of producing goods sold."
+      "businessContext": "Direct cost of producing goods sold.",
+      "label_i18n": {
+        "en": "Cost of Goods Sold (COGS)",
+        "tr": "Cost of Goods Sold (COGS)",
+        "de": "Cost of Goods Sold (COGS)",
+        "fr": "Cost of Goods Sold (COGS)",
+        "es": "Cost of Goods Sold (COGS)",
+        "ar": "Cost of Goods Sold (COGS)"
+      }
     },
     {
       "id": "averageReceivables",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Average amount owed by customers."
+      "businessContext": "Average amount owed by customers.",
+      "label_i18n": {
+        "en": "Average Accounts Receivable",
+        "tr": "Average Accounts Receivable",
+        "de": "Average Accounts Receivable",
+        "fr": "Average Accounts Receivable",
+        "es": "Average Accounts Receivable",
+        "ar": "Average Accounts Receivable"
+      }
     },
     {
       "id": "revenue",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Total sales revenue for the period."
+      "businessContext": "Total sales revenue for the period.",
+      "label_i18n": {
+        "en": "Revenue",
+        "tr": "Revenue",
+        "de": "Revenue",
+        "fr": "Revenue",
+        "es": "Revenue",
+        "ar": "Revenue"
+      }
     },
     {
       "id": "averagePayables",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Average amount owed to suppliers."
+      "businessContext": "Average amount owed to suppliers.",
+      "label_i18n": {
+        "en": "Average Accounts Payable",
+        "tr": "Average Accounts Payable",
+        "de": "Average Accounts Payable",
+        "fr": "Average Accounts Payable",
+        "es": "Average Accounts Payable",
+        "ar": "Average Accounts Payable"
+      }
     },
     {
       "id": "daysInPeriod",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "days",
       "default": 365,
-      "businessContext": "Number of days in the measurement period (typically 365 for annual)."
+      "businessContext": "Number of days in the measurement period (typically 365 for annual).",
+      "label_i18n": {
+        "en": "Days in Period",
+        "tr": "Days in Period",
+        "de": "Days in Period",
+        "fr": "Days in Period",
+        "es": "Days in Period",
+        "ar": "Days in Period"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
       "dio",
       "dso",
       "dpo"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "cashConversionCycle"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -72,5 +125,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

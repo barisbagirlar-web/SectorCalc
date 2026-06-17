@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 1000000,
-      "businessContext": "Total annual expenditure on purchased goods and services (in USD)"
+      "businessContext": "Total annual expenditure on purchased goods and services (in USD)",
+      "label_i18n": {
+        "en": "Annual Spend on Purchased Goods & Services",
+        "tr": "Annual Spend on Purchased Goods & Services",
+        "de": "Annual Spend on Purchased Goods & Services",
+        "fr": "Annual Spend on Purchased Goods & Services",
+        "es": "Annual Spend on Purchased Goods & Services",
+        "ar": "Annual Spend on Purchased Goods & Services"
+      }
     },
     {
       "id": "emissionFactorPurchasedGoods",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kgCO2e/$",
       "default": 0.5,
-      "businessContext": "Average emission factor for the purchased goods sector (kg CO2-equivalent per dollar spent)"
+      "businessContext": "Average emission factor for the purchased goods sector (kg CO2-equivalent per dollar spent)",
+      "label_i18n": {
+        "en": "Emission Factor for Purchased Goods",
+        "tr": "Emission Factor for Purchased Goods",
+        "de": "Emission Factor for Purchased Goods",
+        "fr": "Emission Factor for Purchased Goods",
+        "es": "Emission Factor for Purchased Goods",
+        "ar": "Emission Factor for Purchased Goods"
+      }
     },
     {
       "id": "businessTravelDistance",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "km",
       "default": 50000,
-      "businessContext": "Total distance traveled for business purposes per year (sum over all employees and trips)"
+      "businessContext": "Total distance traveled for business purposes per year (sum over all employees and trips)",
+      "label_i18n": {
+        "en": "Total Business Travel Distance",
+        "tr": "Total Business Travel Distance",
+        "de": "Total Business Travel Distance",
+        "fr": "Total Business Travel Distance",
+        "es": "Total Business Travel Distance",
+        "ar": "Total Business Travel Distance"
+      }
     },
     {
       "id": "emissionFactorBusinessTravel",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kgCO2e/km",
       "default": 0.2,
-      "businessContext": "Average emission factor for business travel (e.g., air travel ~0.2 kg CO2e per km)"
+      "businessContext": "Average emission factor for business travel (e.g., air travel ~0.2 kg CO2e per km)",
+      "label_i18n": {
+        "en": "Emission Factor for Business Travel",
+        "tr": "Emission Factor for Business Travel",
+        "de": "Emission Factor for Business Travel",
+        "fr": "Emission Factor for Business Travel",
+        "es": "Emission Factor for Business Travel",
+        "ar": "Emission Factor for Business Travel"
+      }
     },
     {
       "id": "employeeCommutingDistance",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "km",
       "default": 200000,
-      "businessContext": "Total distance commuted by all employees per year (round-trip distance × working days × employees)"
+      "businessContext": "Total distance commuted by all employees per year (round-trip distance × working days × employees)",
+      "label_i18n": {
+        "en": "Total Employee Commuting Distance",
+        "tr": "Total Employee Commuting Distance",
+        "de": "Total Employee Commuting Distance",
+        "fr": "Total Employee Commuting Distance",
+        "es": "Total Employee Commuting Distance",
+        "ar": "Total Employee Commuting Distance"
+      }
     },
     {
       "id": "emissionFactorCommuting",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kgCO2e/km",
       "default": 0.15,
-      "businessContext": "Average emission factor for employee commuting (e.g., car ~0.15 kg CO2e per km)"
+      "businessContext": "Average emission factor for employee commuting (e.g., car ~0.15 kg CO2e per km)",
+      "label_i18n": {
+        "en": "Emission Factor for Commuting",
+        "tr": "Emission Factor for Commuting",
+        "de": "Emission Factor for Commuting",
+        "fr": "Emission Factor for Commuting",
+        "es": "Emission Factor for Commuting",
+        "ar": "Emission Factor for Commuting"
+      }
     },
     {
       "id": "wasteGenerated",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "tonnes",
       "default": 100,
-      "businessContext": "Total waste generated in operations per year (in metric tonnes)"
+      "businessContext": "Total waste generated in operations per year (in metric tonnes)",
+      "label_i18n": {
+        "en": "Total Waste Generated",
+        "tr": "Total Waste Generated",
+        "de": "Total Waste Generated",
+        "fr": "Total Waste Generated",
+        "es": "Total Waste Generated",
+        "ar": "Total Waste Generated"
+      }
     },
     {
       "id": "emissionFactorWaste",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "kgCO2e/tonne",
       "default": 500,
-      "businessContext": "Emission factor for waste disposal/treatment (kg CO2-equivalent per tonne of waste)"
+      "businessContext": "Emission factor for waste disposal/treatment (kg CO2-equivalent per tonne of waste)",
+      "label_i18n": {
+        "en": "Emission Factor for Waste",
+        "tr": "Emission Factor for Waste",
+        "de": "Emission Factor for Waste",
+        "fr": "Emission Factor for Waste",
+        "es": "Emission Factor for Waste",
+        "ar": "Emission Factor for Waste"
+      }
     }
   ],
   "formulas": {
@@ -80,7 +144,12 @@
       "businessTravelEmissions",
       "commutingEmissions",
       "wasteEmissions"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "wasteEmissions"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -90,5 +159,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 2000,
-      "businessContext": "Total essential monthly living expenses (e.g., housing, food, utilities, transportation, insurance)."
+      "businessContext": "Total essential monthly living expenses (e.g., housing, food, utilities, transportation, insurance).",
+      "label_i18n": {
+        "en": "Monthly Essential Expenses",
+        "tr": "Monthly Essential Expenses",
+        "de": "Monthly Essential Expenses",
+        "fr": "Monthly Essential Expenses",
+        "es": "Monthly Essential Expenses",
+        "ar": "Monthly Essential Expenses"
+      }
     },
     {
       "id": "coverageMonths",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "months",
       "default": 6,
-      "businessContext": "Number of months of expenses the emergency fund should cover (typically 3-6)."
+      "businessContext": "Number of months of expenses the emergency fund should cover (typically 3-6).",
+      "label_i18n": {
+        "en": "Desired Coverage (Months)",
+        "tr": "Desired Coverage (Months)",
+        "de": "Desired Coverage (Months)",
+        "fr": "Desired Coverage (Months)",
+        "es": "Desired Coverage (Months)",
+        "ar": "Desired Coverage (Months)"
+      }
     },
     {
       "id": "currentSavings",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Amount already saved toward the emergency fund."
+      "businessContext": "Amount already saved toward the emergency fund.",
+      "label_i18n": {
+        "en": "Current Emergency Savings",
+        "tr": "Current Emergency Savings",
+        "de": "Current Emergency Savings",
+        "fr": "Current Emergency Savings",
+        "es": "Current Emergency Savings",
+        "ar": "Current Emergency Savings"
+      }
     },
     {
       "id": "safetyMargin",
@@ -31,22 +55,34 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Additional percentage buffer for unforeseen costs."
+      "businessContext": "Additional percentage buffer for unforeseen costs.",
+      "label_i18n": {
+        "en": "Safety Margin (%)",
+        "tr": "Safety Margin (%)",
+        "de": "Safety Margin (%)",
+        "fr": "Safety Margin (%)",
+        "es": "Safety Margin (%)",
+        "ar": "Safety Margin (%)"
+      }
     }
   ],
   "formulas": {
     "totalEmergencyFund": "monthlyExpenses * coverageMonths * (1 + safetyMargin / 100)",
     "safetyMarginAmount": "monthlyExpenses * coverageMonths * (safetyMargin / 100)",
-    "monthsCoveredByCurrent": "monthlyExpenses !== 0 ? currentSavings / (monthlyExpenses * (1 + safetyMargin / 100)) : 0",
-    "additionalSavingsNeeded": "Math.max(0, totalEmergencyFund - currentSavings)"
+    "monthsCoveredByCurrent": "monthlyExpenses !== 0 ? currentSavings / (monthlyExpenses * (1 + safetyMargin / 100)) : 0"
   },
   "outputs": {
-    "primary": "additionalSavingsNeeded",
+    "primary": "monthsCoveredByCurrent",
     "breakdown": [
       "totalEmergencyFund",
       "safetyMarginAmount",
       "monthsCoveredByCurrent"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "additionalSavingsNeeded"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -56,5 +92,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

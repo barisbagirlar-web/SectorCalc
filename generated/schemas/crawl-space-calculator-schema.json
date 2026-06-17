@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft",
       "default": 30,
-      "businessContext": "Horizontal dimension (long side) of the crawl space."
+      "businessContext": "Horizontal dimension (long side) of the crawl space.",
+      "label_i18n": {
+        "en": "Crawl Space Length",
+        "tr": "Crawl Space Length",
+        "de": "Crawl Space Length",
+        "fr": "Crawl Space Length",
+        "es": "Crawl Space Length",
+        "ar": "Crawl Space Length"
+      }
     },
     {
       "id": "width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ft",
       "default": 20,
-      "businessContext": "Horizontal dimension (short side) of the crawl space."
+      "businessContext": "Horizontal dimension (short side) of the crawl space.",
+      "label_i18n": {
+        "en": "Crawl Space Width",
+        "tr": "Crawl Space Width",
+        "de": "Crawl Space Width",
+        "fr": "Crawl Space Width",
+        "es": "Crawl Space Width",
+        "ar": "Crawl Space Width"
+      }
     },
     {
       "id": "height",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ft",
       "default": 4,
-      "businessContext": "Vertical distance from dirt floor to bottom of floor joists."
+      "businessContext": "Vertical distance from dirt floor to bottom of floor joists.",
+      "label_i18n": {
+        "en": "Crawl Space Height",
+        "tr": "Crawl Space Height",
+        "de": "Crawl Space Height",
+        "fr": "Crawl Space Height",
+        "es": "Crawl Space Height",
+        "ar": "Crawl Space Height"
+      }
     },
     {
       "id": "ventRatio",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "decimal",
       "default": 0.00667,
-      "businessContext": "Ratio of net free vent area to floor area. Building code: 1/150 (no vapor barrier) ≈ 0.00667; 1/1500 (with vapor barrier) ≈ 0.000667."
+      "businessContext": "Ratio of net free vent area to floor area. Building code: 1/150 (no vapor barrier) ≈ 0.00667; 1/1500 (with vapor barrier) ≈ 0.000667.",
+      "label_i18n": {
+        "en": "Vent Area Ratio",
+        "tr": "Vent Area Ratio",
+        "de": "Vent Area Ratio",
+        "fr": "Vent Area Ratio",
+        "es": "Vent Area Ratio",
+        "ar": "Vent Area Ratio"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "floorArea",
       "volume",
       "perimeter"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "requiredVentArea"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -56,5 +93,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -68,15 +68,18 @@
   ],
   "formulas": {
     "primary": "marketCap / totalSales",
-    "psPerShare": "pricePerShare / salesPerShare",
-    "P_S_Oran___Hisse_Ba__na_": "P/S Oranı (Hisse Başına)",
-    "result": "P/S Oranı (Piyasa Değeri)"
+    "psPerShare": "pricePerShare / salesPerShare"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "psPerShare",
     "breakdown": [
       "P/S Oranı (Hisse Başına)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "psPerShare"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -86,5 +89,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

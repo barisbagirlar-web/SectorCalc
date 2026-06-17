@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Currency",
       "default": 1000,
-      "businessContext": "The nominal value of the bond, paid at maturity."
+      "businessContext": "The nominal value of the bond, paid at maturity.",
+      "label_i18n": {
+        "en": "Face Value",
+        "tr": "Face Value",
+        "de": "Face Value",
+        "fr": "Face Value",
+        "es": "Face Value",
+        "ar": "Face Value"
+      }
     },
     {
       "id": "couponRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Annual coupon rate as percentage of face value."
+      "businessContext": "Annual coupon rate as percentage of face value.",
+      "label_i18n": {
+        "en": "Coupon Rate",
+        "tr": "Coupon Rate",
+        "de": "Coupon Rate",
+        "fr": "Coupon Rate",
+        "es": "Coupon Rate",
+        "ar": "Coupon Rate"
+      }
     },
     {
       "id": "yearsToMaturity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 10,
-      "businessContext": "Number of years until the bond matures."
+      "businessContext": "Number of years until the bond matures.",
+      "label_i18n": {
+        "en": "Years to Maturity",
+        "tr": "Years to Maturity",
+        "de": "Years to Maturity",
+        "fr": "Years to Maturity",
+        "es": "Years to Maturity",
+        "ar": "Years to Maturity"
+      }
     },
     {
       "id": "yieldToMaturity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 4,
-      "businessContext": "Annual discount rate (market interest rate) for the bond."
+      "businessContext": "Annual discount rate (market interest rate) for the bond.",
+      "label_i18n": {
+        "en": "Yield to Maturity",
+        "tr": "Yield to Maturity",
+        "de": "Yield to Maturity",
+        "fr": "Yield to Maturity",
+        "es": "Yield to Maturity",
+        "ar": "Yield to Maturity"
+      }
     },
     {
       "id": "frequency",
@@ -39,24 +71,34 @@
       "type": "number",
       "unit": "payments/year",
       "default": 2,
-      "businessContext": "Number of coupon payments per year (e.g., 2 for semiannual)."
+      "businessContext": "Number of coupon payments per year (e.g., 2 for semiannual).",
+      "label_i18n": {
+        "en": "Coupon Frequency",
+        "tr": "Coupon Frequency",
+        "de": "Coupon Frequency",
+        "fr": "Coupon Frequency",
+        "es": "Coupon Frequency",
+        "ar": "Coupon Frequency"
+      }
     }
   ],
   "formulas": {
-    "annualCoupon": "inputs.faceValue * inputs.couponRate / 100",
-    "periodCoupon": "annualCoupon / inputs.frequency",
-    "numPeriods": "inputs.yearsToMaturity * inputs.frequency",
-    "periodRate": "(inputs.yieldToMaturity / 100) / inputs.frequency",
-    "bondPrice": "periodRate === 0 ? (periodCoupon * numPeriods + inputs.faceValue) : (periodCoupon * (1 - Math.pow(1 + periodRate, -numPeriods)) / periodRate + inputs.faceValue * Math.pow(1 + periodRate, -numPeriods))"
+    "result": "faceValue + couponRate + yearsToMaturity",
+    "result_copy": "faceValue + couponRate + yearsToMaturity"
   },
   "outputs": {
-    "primary": "bondPrice",
+    "primary": "result",
     "breakdown": [
       "annualCoupon",
       "periodCoupon",
       "numPeriods",
       "periodRate"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "bondPrice"
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Üretim & İmalat",
@@ -66,5 +108,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

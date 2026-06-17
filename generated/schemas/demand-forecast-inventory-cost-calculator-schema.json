@@ -64,22 +64,10 @@
       "label": "Target Service Level",
       "type": "select",
       "options": [
-        {
-          "value": 0.9,
-          "label": "90% (Z=1.28)"
-        },
-        {
-          "value": 0.95,
-          "label": "95% (Z=1.65)"
-        },
-        {
-          "value": 0.975,
-          "label": "97.5% (Z=1.96)"
-        },
-        {
-          "value": 0.99,
-          "label": "99% (Z=2.33)"
-        }
+        "0.9",
+        "0.95",
+        "0.975",
+        "0.99"
       ],
       "unit": "probability",
       "default": 0.95,
@@ -156,38 +144,6 @@
       "businessContext_i18n": {
         "en": "Lost profit + penalty per unit of unmet demand (Six Sigma cost of poor quality)."
       }
-    },
-    {
-      "id": "periods_per_year",
-      "label": "Periods per Year",
-      "type": "number",
-      "unit": "periods",
-      "default": 12,
-      "min": 1,
-      "max": 365,
-      "businessContext": "Number of demand periods in a year (e.g., 12 for monthly, 52 for weekly).",
-      "label_i18n": {
-        "en": "Periods per Year"
-      },
-      "businessContext_i18n": {
-        "en": "Number of demand periods in a year (e.g., 12 for monthly, 52 for weekly)."
-      }
-    },
-    {
-      "id": "use_abc_classification",
-      "label": "Use ABC Classification",
-      "type": "boolean",
-      "unit": "unit",
-      "default": false,
-      "min": 0,
-      "max": 1,
-      "businessContext": "If true, applies ABC analysis to adjust service level (Pareto principle in inventory management).",
-      "label_i18n": {
-        "en": "Use ABC Classification"
-      },
-      "businessContext_i18n": {
-        "en": "If true, applies ABC analysis to adjust service level (Pareto principle in inventory management)."
-      }
     }
   ],
   "validation": {
@@ -255,18 +211,18 @@
       }
     ]
   },
-  "formulas": [
-    "historical_demand_mean",
-    "historical_demand_mean",
-    "historical_demand_mean",
-    "historical_demand_mean",
-    "historical_demand_mean",
-    "historical_demand_mean",
-    "historical_demand_mean"
-  ],
+  "formulas": {
+    "result": "historical_demand_mean + demand_std_dev + lead_time_days",
+    "result_copy": "historical_demand_mean + demand_std_dev + lead_time_days"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "demand-forecast-inventory-cost-calculator",
   "catalogCategory": "everyday-life",

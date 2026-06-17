@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "%",
       "default": 12,
-      "businessContext": "Expected or historical average annual return of the stock or portfolio being analyzed, expressed as a percentage."
+      "businessContext": "Expected or historical average annual return of the stock or portfolio being analyzed, expressed as a percentage.",
+      "label_i18n": {
+        "en": "Stock/Portfolio Average Return",
+        "tr": "Stock/Portfolio Average Return",
+        "de": "Stock/Portfolio Average Return",
+        "fr": "Stock/Portfolio Average Return",
+        "es": "Stock/Portfolio Average Return",
+        "ar": "Stock/Portfolio Average Return"
+      }
     },
     {
       "id": "marketReturn",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Average annual return of the benchmark market index (e.g., S&P 500), expressed as a percentage."
+      "businessContext": "Average annual return of the benchmark market index (e.g., S&P 500), expressed as a percentage.",
+      "label_i18n": {
+        "en": "Market Average Return",
+        "tr": "Market Average Return",
+        "de": "Market Average Return",
+        "fr": "Market Average Return",
+        "es": "Market Average Return",
+        "ar": "Market Average Return"
+      }
     },
     {
       "id": "riskFreeRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 3,
-      "businessContext": "Annual return of a risk-free asset (e.g., government bond yield), expressed as a percentage."
+      "businessContext": "Annual return of a risk-free asset (e.g., government bond yield), expressed as a percentage.",
+      "label_i18n": {
+        "en": "Risk-Free Rate",
+        "tr": "Risk-Free Rate",
+        "de": "Risk-Free Rate",
+        "fr": "Risk-Free Rate",
+        "es": "Risk-Free Rate",
+        "ar": "Risk-Free Rate"
+      }
     },
     {
       "id": "covSM",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%^2",
       "default": 0.015,
-      "businessContext": "Covariance between the stock/portfolio returns and market returns, typically computed from historical data."
+      "businessContext": "Covariance between the stock/portfolio returns and market returns, typically computed from historical data.",
+      "label_i18n": {
+        "en": "Covariance (Stock, Market)",
+        "tr": "Covariance (Stock, Market)",
+        "de": "Covariance (Stock, Market)",
+        "fr": "Covariance (Stock, Market)",
+        "es": "Covariance (Stock, Market)",
+        "ar": "Covariance (Stock, Market)"
+      }
     },
     {
       "id": "varM",
@@ -39,22 +71,33 @@
       "type": "number",
       "unit": "%^2",
       "default": 0.01,
-      "businessContext": "Variance of the benchmark market index returns, measuring total risk of the market."
+      "businessContext": "Variance of the benchmark market index returns, measuring total risk of the market.",
+      "label_i18n": {
+        "en": "Variance of Market Returns",
+        "tr": "Variance of Market Returns",
+        "de": "Variance of Market Returns",
+        "fr": "Variance of Market Returns",
+        "es": "Variance of Market Returns",
+        "ar": "Variance of Market Returns"
+      }
     }
   ],
   "formulas": {
-    "alpha": "(stockReturn - riskFreeRate) - (covSM / varM) * (marketReturn - riskFreeRate)",
     "beta": "covSM / varM",
-    "marketExcessReturn": "marketReturn - riskFreeRate",
-    "stockExcessReturn": "stockReturn - riskFreeRate"
+    "beta_aux": "covSM / varM"
   },
   "outputs": {
-    "primary": "alpha",
+    "primary": "beta_aux",
     "breakdown": [
       "beta",
       "marketExcessReturn",
       "stockExcessReturn"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "stockExcessReturn"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -64,5 +107,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

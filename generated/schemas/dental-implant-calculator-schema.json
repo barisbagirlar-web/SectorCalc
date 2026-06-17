@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "€",
       "default": 25,
-      "businessContext": "Cost of titanium blank per implant"
+      "businessContext": "Cost of titanium blank per implant",
+      "label_i18n": {
+        "en": "Titanium Cost per Implant (€)",
+        "tr": "Titanium Cost per Implant (€)",
+        "de": "Titanium Cost per Implant (€)",
+        "fr": "Titanium Cost per Implant (€)",
+        "es": "Titanium Cost per Implant (€)",
+        "ar": "Titanium Cost per Implant (€)"
+      }
     },
     {
       "id": "machiningTime",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hours",
       "default": 0.5,
-      "businessContext": "CNC machining time per single implant"
+      "businessContext": "CNC machining time per single implant",
+      "label_i18n": {
+        "en": "Machining Time per Implant (hours)",
+        "tr": "Machining Time per Implant (hours)",
+        "de": "Machining Time per Implant (hours)",
+        "fr": "Machining Time per Implant (hours)",
+        "es": "Machining Time per Implant (hours)",
+        "ar": "Machining Time per Implant (hours)"
+      }
     },
     {
       "id": "machineRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "€/hour",
       "default": 120,
-      "businessContext": "Operating cost of CNC machine per hour"
+      "businessContext": "Operating cost of CNC machine per hour",
+      "label_i18n": {
+        "en": "Machine Hourly Rate (€/hour)",
+        "tr": "Machine Hourly Rate (€/hour)",
+        "de": "Machine Hourly Rate (€/hour)",
+        "fr": "Machine Hourly Rate (€/hour)",
+        "es": "Machine Hourly Rate (€/hour)",
+        "ar": "Machine Hourly Rate (€/hour)"
+      }
     },
     {
       "id": "laborCost",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "€/hour",
       "default": 40,
-      "businessContext": "Operator wage rate per hour"
+      "businessContext": "Operator wage rate per hour",
+      "label_i18n": {
+        "en": "Labor Cost per Hour (€/hour)",
+        "tr": "Labor Cost per Hour (€/hour)",
+        "de": "Labor Cost per Hour (€/hour)",
+        "fr": "Labor Cost per Hour (€/hour)",
+        "es": "Labor Cost per Hour (€/hour)",
+        "ar": "Labor Cost per Hour (€/hour)"
+      }
     },
     {
       "id": "overheadPercent",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 25,
-      "businessContext": "Indirect cost percentage applied to direct cost"
+      "businessContext": "Indirect cost percentage applied to direct cost",
+      "label_i18n": {
+        "en": "Overhead & Indirect Cost (%)",
+        "tr": "Overhead & Indirect Cost (%)",
+        "de": "Overhead & Indirect Cost (%)",
+        "fr": "Overhead & Indirect Cost (%)",
+        "es": "Overhead & Indirect Cost (%)",
+        "ar": "Overhead & Indirect Cost (%)"
+      }
     },
     {
       "id": "batchSize",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "units",
       "default": 10,
-      "businessContext": "Number of implants per batch for setup cost distribution"
+      "businessContext": "Number of implants per batch for setup cost distribution",
+      "label_i18n": {
+        "en": "Batch Size (units)",
+        "tr": "Batch Size (units)",
+        "de": "Batch Size (units)",
+        "fr": "Batch Size (units)",
+        "es": "Batch Size (units)",
+        "ar": "Batch Size (units)"
+      }
     },
     {
       "id": "setupTime",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "hours",
       "default": 1,
-      "businessContext": "Machine setup time per batch"
+      "businessContext": "Machine setup time per batch",
+      "label_i18n": {
+        "en": "Setup Time per Batch (hours)",
+        "tr": "Setup Time per Batch (hours)",
+        "de": "Setup Time per Batch (hours)",
+        "fr": "Setup Time per Batch (hours)",
+        "es": "Setup Time per Batch (hours)",
+        "ar": "Setup Time per Batch (hours)"
+      }
     }
   ],
   "formulas": {
@@ -76,7 +132,12 @@
       "machiningCost",
       "laborCostOutput",
       "materialCostOutput"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "İmalat & Üretim",
   "sector": "Üretim & İmalat",
@@ -86,5 +147,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

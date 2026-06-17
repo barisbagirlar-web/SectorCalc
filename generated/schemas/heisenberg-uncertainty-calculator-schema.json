@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 1e-9,
-      "businessContext": "Standard deviation of position measurement (nanometer scale typical)."
+      "businessContext": "Standard deviation of position measurement (nanometer scale typical).",
+      "label_i18n": {
+        "en": "Position uncertainty (Δx)",
+        "tr": "Position uncertainty (Δx)",
+        "de": "Position uncertainty (Δx)",
+        "fr": "Position uncertainty (Δx)",
+        "es": "Position uncertainty (Δx)",
+        "ar": "Position uncertainty (Δx)"
+      }
     },
     {
       "id": "deltaP",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg·m/s",
       "default": 1e-25,
-      "businessContext": "Standard deviation of momentum measurement. Adjust based on measurement system."
+      "businessContext": "Standard deviation of momentum measurement. Adjust based on measurement system.",
+      "label_i18n": {
+        "en": "Momentum uncertainty (Δp)",
+        "tr": "Momentum uncertainty (Δp)",
+        "de": "Momentum uncertainty (Δp)",
+        "fr": "Momentum uncertainty (Δp)",
+        "es": "Momentum uncertainty (Δp)",
+        "ar": "Momentum uncertainty (Δp)"
+      }
     },
     {
       "id": "hBar",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "J·s",
       "default": 1.054571817e-34,
-      "businessContext": "Fundamental quantum constant. Typically fixed, but adjustable for theoretical scenarios."
+      "businessContext": "Fundamental quantum constant. Typically fixed, but adjustable for theoretical scenarios.",
+      "label_i18n": {
+        "en": "Reduced Planck constant (ħ)",
+        "tr": "Reduced Planck constant (ħ)",
+        "de": "Reduced Planck constant (ħ)",
+        "fr": "Reduced Planck constant (ħ)",
+        "es": "Reduced Planck constant (ħ)",
+        "ar": "Reduced Planck constant (ħ)"
+      }
     },
     {
       "id": "tolerance",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "-",
       "default": 1,
-      "businessContext": "Safety factor multiplier for minimum uncertainty product. >=1 ensures strict Heisenberg compliance."
+      "businessContext": "Safety factor multiplier for minimum uncertainty product. >=1 ensures strict Heisenberg compliance.",
+      "label_i18n": {
+        "en": "Compliance tolerance",
+        "tr": "Compliance tolerance",
+        "de": "Compliance tolerance",
+        "fr": "Compliance tolerance",
+        "es": "Compliance tolerance",
+        "ar": "Compliance tolerance"
+      }
     },
     {
       "id": "mass",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg",
       "default": 9.10938356e-31,
-      "businessContext": "Mass of the particle (e.g., electron) for velocity uncertainty derivation."
+      "businessContext": "Mass of the particle (e.g., electron) for velocity uncertainty derivation.",
+      "label_i18n": {
+        "en": "Particle mass",
+        "tr": "Particle mass",
+        "de": "Particle mass",
+        "fr": "Particle mass",
+        "es": "Particle mass",
+        "ar": "Particle mass"
+      }
     },
     {
       "id": "deltaV",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 0,
-      "businessContext": "If 0, will be calculated as Δp/mass. Else used as direct input for alternative computations."
+      "businessContext": "If 0, will be calculated as Δp/mass. Else used as direct input for alternative computations.",
+      "label_i18n": {
+        "en": "Velocity uncertainty (Δv)",
+        "tr": "Velocity uncertainty (Δv)",
+        "de": "Velocity uncertainty (Δv)",
+        "fr": "Velocity uncertainty (Δv)",
+        "es": "Velocity uncertainty (Δv)",
+        "ar": "Velocity uncertainty (Δv)"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
       "product",
       "minProduct",
       "deltaV"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "deltaV"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -72,5 +125,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

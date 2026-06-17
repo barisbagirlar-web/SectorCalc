@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "L",
       "default": 100,
-      "businessContext": "The volume of cream used in butter production"
+      "businessContext": "The volume of cream used in butter production",
+      "label_i18n": {
+        "en": "Cream Volume",
+        "tr": "Cream Volume",
+        "de": "Cream Volume",
+        "fr": "Cream Volume",
+        "es": "Cream Volume",
+        "ar": "Cream Volume"
+      }
     },
     {
       "id": "creamFatPercentage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 35,
-      "businessContext": "Fat content of the cream"
+      "businessContext": "Fat content of the cream",
+      "label_i18n": {
+        "en": "Cream Fat %",
+        "tr": "Cream Fat %",
+        "de": "Cream Fat %",
+        "fr": "Cream Fat %",
+        "es": "Cream Fat %",
+        "ar": "Cream Fat %"
+      }
     },
     {
       "id": "butterFatPercentage",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 80,
-      "businessContext": "Target fat content in butter"
+      "businessContext": "Target fat content in butter",
+      "label_i18n": {
+        "en": "Butter Fat %",
+        "tr": "Butter Fat %",
+        "de": "Butter Fat %",
+        "fr": "Butter Fat %",
+        "es": "Butter Fat %",
+        "ar": "Butter Fat %"
+      }
     },
     {
       "id": "processEfficiency",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "Efficiency of the churning process"
+      "businessContext": "Efficiency of the churning process",
+      "label_i18n": {
+        "en": "Process Efficiency",
+        "tr": "Process Efficiency",
+        "de": "Process Efficiency",
+        "fr": "Process Efficiency",
+        "es": "Process Efficiency",
+        "ar": "Process Efficiency"
+      }
     },
     {
       "id": "saltPercentage",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Percentage of salt to add (0 for unsalted butter)"
+      "businessContext": "Percentage of salt to add (0 for unsalted butter)",
+      "label_i18n": {
+        "en": "Salt %",
+        "tr": "Salt %",
+        "de": "Salt %",
+        "fr": "Salt %",
+        "es": "Salt %",
+        "ar": "Salt %"
+      }
     }
   ],
   "formulas": {
@@ -58,7 +98,12 @@
       "buttermilkVolume",
       "saltWeight",
       "butterWithSalt"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "butterWithSalt"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -68,5 +113,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "efficiency"
+  "categoryId": "efficiency",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

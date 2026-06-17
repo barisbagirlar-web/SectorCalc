@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Gy",
       "default": 0,
-      "businessContext": "Measured or calculated absorbed dose in Gray"
+      "businessContext": "Measured or calculated absorbed dose in Gray",
+      "label_i18n": {
+        "en": "Absorbed Dose (Gy)",
+        "tr": "Absorbed Dose (Gy)",
+        "de": "Absorbed Dose (Gy)",
+        "fr": "Absorbed Dose (Gy)",
+        "es": "Absorbed Dose (Gy)",
+        "ar": "Absorbed Dose (Gy)"
+      }
     },
     {
       "id": "calibrationFactor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Multiplier for instrument calibration"
+      "businessContext": "Multiplier for instrument calibration",
+      "label_i18n": {
+        "en": "Calibration Factor",
+        "tr": "Calibration Factor",
+        "de": "Calibration Factor",
+        "fr": "Calibration Factor",
+        "es": "Calibration Factor",
+        "ar": "Calibration Factor"
+      }
     },
     {
       "id": "safetyMargin",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Safety factor to apply for regulatory limits"
+      "businessContext": "Safety factor to apply for regulatory limits",
+      "label_i18n": {
+        "en": "Safety Margin",
+        "tr": "Safety Margin",
+        "de": "Safety Margin",
+        "fr": "Safety Margin",
+        "es": "Safety Margin",
+        "ar": "Safety Margin"
+      }
     },
     {
       "id": "minimalDetectionLimit",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "Gy",
       "default": 0.001,
-      "businessContext": "Smallest dose reliably measurable"
+      "businessContext": "Smallest dose reliably measurable",
+      "label_i18n": {
+        "en": "Minimal Detection Limit",
+        "tr": "Minimal Detection Limit",
+        "de": "Minimal Detection Limit",
+        "fr": "Minimal Detection Limit",
+        "es": "Minimal Detection Limit",
+        "ar": "Minimal Detection Limit"
+      }
     }
   ],
   "formulas": {
@@ -48,7 +80,12 @@
       "adjustedDose_mGy",
       "adjustedDose_µGy",
       "signalToNoiseRatio"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "signalToNoiseRatio"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -58,5 +95,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

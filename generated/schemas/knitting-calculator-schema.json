@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 100,
-      "businessContext": "Enter the width of the fabric panel in centimeters."
+      "businessContext": "Enter the width of the fabric panel in centimeters.",
+      "label_i18n": {
+        "en": "Fabric Width",
+        "tr": "Fabric Width",
+        "de": "Fabric Width",
+        "fr": "Fabric Width",
+        "es": "Fabric Width",
+        "ar": "Fabric Width"
+      }
     },
     {
       "id": "fabricLength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 100,
-      "businessContext": "Enter the length of the fabric panel in centimeters."
+      "businessContext": "Enter the length of the fabric panel in centimeters.",
+      "label_i18n": {
+        "en": "Fabric Length",
+        "tr": "Fabric Length",
+        "de": "Fabric Length",
+        "fr": "Fabric Length",
+        "es": "Fabric Length",
+        "ar": "Fabric Length"
+      }
     },
     {
       "id": "stitchGauge",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "stitches/cm",
       "default": 5,
-      "businessContext": "Enter the number of stitches per centimeter in the width direction."
+      "businessContext": "Enter the number of stitches per centimeter in the width direction.",
+      "label_i18n": {
+        "en": "Stitch Gauge",
+        "tr": "Stitch Gauge",
+        "de": "Stitch Gauge",
+        "fr": "Stitch Gauge",
+        "es": "Stitch Gauge",
+        "ar": "Stitch Gauge"
+      }
     },
     {
       "id": "rowGauge",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "rows/cm",
       "default": 7,
-      "businessContext": "Enter the number of rows per centimeter in the length direction."
+      "businessContext": "Enter the number of rows per centimeter in the length direction.",
+      "label_i18n": {
+        "en": "Row Gauge",
+        "tr": "Row Gauge",
+        "de": "Row Gauge",
+        "fr": "Row Gauge",
+        "es": "Row Gauge",
+        "ar": "Row Gauge"
+      }
     },
     {
       "id": "yarnPerStitch",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "cm",
       "default": 1.5,
-      "businessContext": "Enter the length of yarn consumed per stitch in centimeters."
+      "businessContext": "Enter the length of yarn consumed per stitch in centimeters.",
+      "label_i18n": {
+        "en": "Yarn per Stitch",
+        "tr": "Yarn per Stitch",
+        "de": "Yarn per Stitch",
+        "fr": "Yarn per Stitch",
+        "es": "Yarn per Stitch",
+        "ar": "Yarn per Stitch"
+      }
     },
     {
       "id": "yarnDensity",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "tex",
       "default": 50,
-      "businessContext": "Enter the yarn linear density in tex (grams per 1000 meters)."
+      "businessContext": "Enter the yarn linear density in tex (grams per 1000 meters).",
+      "label_i18n": {
+        "en": "Yarn Linear Density",
+        "tr": "Yarn Linear Density",
+        "de": "Yarn Linear Density",
+        "fr": "Yarn Linear Density",
+        "es": "Yarn Linear Density",
+        "ar": "Yarn Linear Density"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +108,12 @@
     "breakdown": [
       "totalStitches",
       "totalYarnWeight"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalYarnWeight"
   },
   "category": "Tekstil & Moda",
   "sector": "Perakende & Gıda",
@@ -70,5 +123,10 @@
   "categorySlug": "textile-print-lab",
   "sectorId": "tekstil",
   "profession": "Üretim Mühendisi",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

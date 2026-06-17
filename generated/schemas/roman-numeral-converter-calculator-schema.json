@@ -132,9 +132,7 @@
   ],
   "formulas": {
     "arabic": "((s1 < s2 ? -s1 : s1) + (s2 < s3 ? -s2 : s2) + (s3 < s4 ? -s3 : s3) + (s4 < s5 ? -s4 : s4) + (s5 < s6 ? -s5 : s5) + (s6 < s7 ? -s6 : s6) + (s7 < s8 ? -s7 : s7) + s8)",
-    "Enter_the_values_of_Roman_numeral_symbol": "Enter the values of Roman numeral symbols (I=1, V=5, X=10, L=50, C=100, D=500, M=1000) in order from left to right.",
-    "The_calculator_applies_subtractive_notat": "The calculator applies subtractive notation: for each pair, if a symbol is smaller than the next, its value is subtracted; otherwise it is added.",
-    "The_final_result_is_the_equivalent_Arabi": "The final result is the equivalent Arabic number."
+    "arabic_aux": "((s1 < s2 ? -s1 : s1) + (s2 < s3 ? -s2 : s2) + (s3 < s4 ? -s3 : s3) + (s4 < s5 ? -s4 : s4) + (s5 < s6 ? -s5 : s5) + (s6 < s7 ? -s6 : s6) + (s7 < s8 ? -s7 : s7) + s8)"
   },
   "outputs": {
     "primary": "arabic",
@@ -142,7 +140,12 @@
       "Step 1: Enter the values of Roman numeral symbols (I=1, V=5, X=10, L=50, C=100, D=500, M=1000) in order from left to right.",
       "Step 2: The calculator applies subtractive notation: for each pair, if a symbol is smaller than the next, its value is subtracted; otherwise it is added.",
       "Step 3: The final result is the equivalent Arabic number."
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "arabic_aux"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -152,5 +155,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

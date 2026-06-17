@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1000,
-      "businessContext": "Üretim hattından çıkan toplam ürün miktarı"
+      "businessContext": "Üretim hattından çıkan toplam ürün miktarı",
+      "label_i18n": {
+        "en": "Toplam Üretilen Birim",
+        "tr": "Toplam Üretilen Birim",
+        "de": "Toplam Üretilen Birim",
+        "fr": "Toplam Üretilen Birim",
+        "es": "Toplam Üretilen Birim",
+        "ar": "Toplam Üretilen Birim"
+      }
     },
     {
       "id": "total_labor_hours",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "saat",
       "default": 100,
-      "businessContext": "Üretim için harcanan toplam insan gücü süresi"
+      "businessContext": "Üretim için harcanan toplam insan gücü süresi",
+      "label_i18n": {
+        "en": "Toplam İşçilik Saati",
+        "tr": "Toplam İşçilik Saati",
+        "de": "Toplam İşçilik Saati",
+        "fr": "Toplam İşçilik Saati",
+        "es": "Toplam İşçilik Saati",
+        "ar": "Toplam İşçilik Saati"
+      }
     },
     {
       "id": "defect_rate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Üretilen ürünler içindeki hatalı oranı"
+      "businessContext": "Üretilen ürünler içindeki hatalı oranı",
+      "label_i18n": {
+        "en": "Hata Oranı",
+        "tr": "Hata Oranı",
+        "de": "Hata Oranı",
+        "fr": "Hata Oranı",
+        "es": "Hata Oranı",
+        "ar": "Hata Oranı"
+      }
     },
     {
       "id": "standard_productivity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "adet/saat",
       "default": 10,
-      "businessContext": "Referans olarak kabul edilen saatlik üretim miktarı"
+      "businessContext": "Referans olarak kabul edilen saatlik üretim miktarı",
+      "label_i18n": {
+        "en": "Standart Verimlilik",
+        "tr": "Standart Verimlilik",
+        "de": "Standart Verimlilik",
+        "fr": "Standart Verimlilik",
+        "es": "Standart Verimlilik",
+        "ar": "Standart Verimlilik"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "good_units",
       "efficiency"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "efficiency"
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Üretim & İmalat",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "efficiency"
+  "categoryId": "efficiency",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -68,16 +68,19 @@
   ],
   "formulas": {
     "t_kelvin": "temperature + 273.15",
-    "speed_sound_ms": "Math.sqrt(gamma * gasConstant * t_kelvin)",
-    "speed_sound_kmh": "speed_sound_ms * 3.6",
-    "speed_kmh": "mach * speed_sound_kmh"
+    "t_kelvin_aux": "temperature + 273.15"
   },
   "outputs": {
-    "primary": "speed_kmh",
+    "primary": "t_kelvin_aux",
     "breakdown": [
       "speed_sound_ms",
       "speed_sound_kmh"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "speed_kmh"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -87,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

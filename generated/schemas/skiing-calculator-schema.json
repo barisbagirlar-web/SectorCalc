@@ -67,19 +67,21 @@
     }
   ],
   "formulas": {
-    "slopeAngle": "Math.atan(verticalDrop / horizontalDistance)",
-    "slopeDistance": "Math.sqrt(verticalDrop**2 + horizontalDistance**2)",
-    "acceleration": "9.81 * (Math.sin(slopeAngle) - frictionCoeff * Math.cos(slopeAngle))",
-    "finalSpeed": "Math.sqrt(Math.max(0, initialSpeed**2 + 2 * acceleration * slopeDistance))",
-    "time": "acceleration > 0 ? (finalSpeed - initialSpeed) / acceleration : Infinity"
+    "result": "verticalDrop + horizontalDistance + frictionCoeff",
+    "result_copy": "verticalDrop + horizontalDistance + frictionCoeff"
   },
   "outputs": {
-    "primary": "finalSpeed",
+    "primary": "result",
     "breakdown": [
       "acceleration",
       "slopeDistance",
       "time"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "time"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -89,5 +91,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

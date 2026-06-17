@@ -68,22 +68,22 @@
   ],
   "formulas": {
     "wavePowerPerMeter": "(waterDensity * gravity ** 2 * waveHeight ** 2 * wavePeriod) / (16 * Math.PI)",
-    "H_squared___waveHeight_": "H_squared = waveHeight²",
-    "g_squared___gravity_": "g_squared = gravity²",
-    "numerator___waterDensity___g_squared___H": "numerator = waterDensity * g_squared * H_squared * wavePeriod",
-    "denominator___16____": "denominator = 16 * π",
-    "wave_power_per_meter___numerator___denom": "wave_power_per_meter = numerator / denominator",
-    "result": "wave_power_per_meter = (ρ * g² * H² * T) / (16π) [W/m]"
+    "denominator___16____": "denominator = 16 * π"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "denominator___16____",
     "breakdown": [
       "H_squared = waveHeight²",
       "g_squared = gravity²",
       "numerator = waterDensity * g_squared * H_squared * wavePeriod",
       "denominator = 16 * π",
       "wave_power_per_meter = numerator / denominator"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "wave_power_per_meter___numerator___denom"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -93,5 +93,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "havacilik",
   "profession": "Tasarım Mühendisi",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -139,38 +139,6 @@
       "businessContext_i18n": {
         "en": "Annual budget allocated to reliability improvement projects (training, redesign, predictive maintenance)."
       }
-    },
-    {
-      "id": "availability_target",
-      "label": "Availability Target",
-      "type": "number",
-      "unit": "%",
-      "default": 95,
-      "min": 0,
-      "max": 100,
-      "businessContext": "Target operational availability (uptime / total time). Used for gap analysis.",
-      "label_i18n": {
-        "en": "Availability Target"
-      },
-      "businessContext_i18n": {
-        "en": "Target operational availability (uptime / total time). Used for gap analysis."
-      }
-    },
-    {
-      "id": "industry_benchmark_mtbf",
-      "label": "Industry Benchmark MTBF",
-      "type": "number",
-      "unit": "hours",
-      "default": 1000,
-      "min": 1,
-      "max": 100000,
-      "businessContext": "Reference MTBF from industry standards (e.g., WERC, ISO) for comparison.",
-      "label_i18n": {
-        "en": "Industry Benchmark MTBF"
-      },
-      "businessContext_i18n": {
-        "en": "Reference MTBF from industry standards (e.g., WERC, ISO) for comparison."
-      }
     }
   ],
   "validation": {
@@ -212,19 +180,18 @@
       }
     ]
   },
-  "formulas": [
-    "operating_hours_per_year",
-    "operating_hours_per_year",
-    "operating_hours_per_year",
-    "operating_hours_per_year",
-    "operating_hours_per_year",
-    "operating_hours_per_year",
-    "operating_hours_per_year",
-    "operating_hours_per_year"
-  ],
+  "formulas": {
+    "result": "operating_hours_per_year + number_of_units + mtbf",
+    "result_copy": "operating_hours_per_year + number_of_units + mtbf"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "manufacturing-workshop",
   "sectorSlug": "cnc-manufacturing",

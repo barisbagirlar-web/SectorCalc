@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Total annual income of parents before taxes and deductions"
+      "businessContext": "Total annual income of parents before taxes and deductions",
+      "label_i18n": {
+        "en": "Parent Adjusted Gross Income",
+        "tr": "Parent Adjusted Gross Income",
+        "de": "Parent Adjusted Gross Income",
+        "fr": "Parent Adjusted Gross Income",
+        "es": "Parent Adjusted Gross Income",
+        "ar": "Parent Adjusted Gross Income"
+      }
     },
     {
       "id": "parent_assets",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Cash, savings, investments, and other non-retirement assets of parents"
+      "businessContext": "Cash, savings, investments, and other non-retirement assets of parents",
+      "label_i18n": {
+        "en": "Parent Non-Retirement Assets",
+        "tr": "Parent Non-Retirement Assets",
+        "de": "Parent Non-Retirement Assets",
+        "fr": "Parent Non-Retirement Assets",
+        "es": "Parent Non-Retirement Assets",
+        "ar": "Parent Non-Retirement Assets"
+      }
     },
     {
       "id": "student_income",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Student's total annual income from work, gifts, and other sources"
+      "businessContext": "Student's total annual income from work, gifts, and other sources",
+      "label_i18n": {
+        "en": "Student Annual Income",
+        "tr": "Student Annual Income",
+        "de": "Student Annual Income",
+        "fr": "Student Annual Income",
+        "es": "Student Annual Income",
+        "ar": "Student Annual Income"
+      }
     },
     {
       "id": "student_assets",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Student's cash, savings, and other investments"
+      "businessContext": "Student's cash, savings, and other investments",
+      "label_i18n": {
+        "en": "Student Assets",
+        "tr": "Student Assets",
+        "de": "Student Assets",
+        "fr": "Student Assets",
+        "es": "Student Assets",
+        "ar": "Student Assets"
+      }
     },
     {
       "id": "household_size",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "people",
       "default": 4,
-      "businessContext": "Number of people living in the household, including the student"
+      "businessContext": "Number of people living in the household, including the student",
+      "label_i18n": {
+        "en": "Household Size",
+        "tr": "Household Size",
+        "de": "Household Size",
+        "fr": "Household Size",
+        "es": "Household Size",
+        "ar": "Household Size"
+      }
     },
     {
       "id": "number_in_college",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "people",
       "default": 1,
-      "businessContext": "Number of household members attending college at least half-time"
+      "businessContext": "Number of household members attending college at least half-time",
+      "label_i18n": {
+        "en": "Number in College",
+        "tr": "Number in College",
+        "de": "Number in College",
+        "fr": "Number in College",
+        "es": "Number in College",
+        "ar": "Number in College"
+      }
     },
     {
       "id": "state_tax_rate",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Estimated state income tax rate for allowance calculation"
+      "businessContext": "Estimated state income tax rate for allowance calculation",
+      "label_i18n": {
+        "en": "State Tax Rate",
+        "tr": "State Tax Rate",
+        "de": "State Tax Rate",
+        "fr": "State Tax Rate",
+        "es": "State Tax Rate",
+        "ar": "State Tax Rate"
+      }
     },
     {
       "id": "age_older_parent",
@@ -63,31 +119,35 @@
       "type": "number",
       "unit": "years",
       "default": 45,
-      "businessContext": "Age of the older parent, used to determine asset protection allowance"
+      "businessContext": "Age of the older parent, used to determine asset protection allowance",
+      "label_i18n": {
+        "en": "Age of Older Parent",
+        "tr": "Age of Older Parent",
+        "de": "Age of Older Parent",
+        "fr": "Age of Older Parent",
+        "es": "Age of Older Parent",
+        "ar": "Age of Older Parent"
+      }
     }
   ],
   "formulas": {
-    "ipa": "15000 + 5000 * (max(0, household_size - 1)) + 3000 * (max(0, number_in_college - 1))",
     "apa": "age_older_parent < 26 ? 0 : (age_older_parent >= 65 ? 100000 : (age_older_parent - 25) * 2500)",
     "federal_tax": "parent_agi * 0.15",
     "state_tax": "parent_agi * (state_tax_rate / 100)",
     "fica": "parent_agi * 0.0765",
-    "available_income": "parent_agi - federal_tax - state_tax - fica - ipa",
-    "parent_income_contribution": "max(0, available_income * 0.25)",
-    "parent_asset_contribution": "max(0, (parent_assets - apa) * 0.12)",
-    "total_parent_contribution": "(parent_income_contribution + parent_asset_contribution) / number_in_college",
-    "student_income_allowance": "6000",
-    "student_income_contribution": "max(0, (student_income - student_income_allowance) * 0.5)",
-    "student_asset_contribution": "student_assets * 0.2",
-    "total_student_contribution": "student_income_contribution + student_asset_contribution",
-    "efc": "ceil(total_parent_contribution + total_student_contribution)"
+    "student_asset_contribution": "student_assets * 0.2"
   },
   "outputs": {
-    "primary": "efc",
+    "primary": "student_asset_contribution",
     "breakdown": [
       "total_parent_contribution",
       "total_student_contribution"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "efc"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -97,5 +157,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

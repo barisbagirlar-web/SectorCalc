@@ -68,15 +68,19 @@
   ],
   "formulas": {
     "intermediatePsi": "torrValue * conversionFactor",
-    "adjustedPsi": "torrValue * conversionFactor + offset",
-    "roundedPsi": "Math.round((torrValue * conversionFactor + offset) * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)"
+    "adjustedPsi": "torrValue * conversionFactor + offset"
   },
   "outputs": {
-    "primary": "roundedPsi",
+    "primary": "adjustedPsi",
     "breakdown": [
       "intermediatePsi",
       "adjustedPsi"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roundedPsi"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -86,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -131,28 +131,15 @@
     }
   ],
   "formulas": {
-    "activePressureCoefficient": "Math.tan((45 - frictionAngle / 2) * Math.PI / 180) ** 2",
-    "totalActiveForce": "0.5 * soilDensity * height ** 2 * activePressureCoefficient",
-    "overturningMoment": "totalActiveForce * height / 3",
     "wallWeight": "stemThickness * height * 25",
     "baseWeight": "baseWidth * baseThickness * 25",
     "heelWeight": "heelLength * baseThickness * 25",
     "toeWeight": "toeLength * baseThickness * 25",
     "totalWeight": "wallWeight + baseWeight + heelWeight + toeWeight",
-    "resistingMoment": "totalWeight * baseWidth / 2",
-    "factorOfSafetyOverturning": "resistingMoment / overturningMoment",
-    "slidingResistance": "totalWeight * Math.tan(frictionAngle * Math.PI / 180)",
-    "factorOfSafetySliding": "slidingResistance / totalActiveForce",
-    "_activePressureCoefficient_toFixed_4__": "{activePressureCoefficient.toFixed(4)}",
-    "_totalActiveForce_toFixed_2__": "{totalActiveForce.toFixed(2)}",
-    "_overturningMoment_toFixed_2__": "{overturningMoment.toFixed(2)}",
-    "_totalWeight_toFixed_2__": "{totalWeight.toFixed(2)}",
-    "_resistingMoment_toFixed_2__": "{resistingMoment.toFixed(2)}",
-    "_factorOfSafetySliding_toFixed_2__": "{factorOfSafetySliding.toFixed(2)}",
-    "result": "Factor of Safety against Overturning: {factorOfSafetyOverturning.toFixed(2)}"
+    "resistingMoment": "totalWeight * baseWidth / 2"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "resistingMoment",
     "breakdown": [
       "Active Earth Pressure Coefficient (Ka): {activePressureCoefficient.toFixed(4)}",
       "Total Active Force (kN): {totalActiveForce.toFixed(2)}",
@@ -160,7 +147,12 @@
       "Total Weight (kN): {totalWeight.toFixed(2)}",
       "Resisting Moment (kN·m): {resistingMoment.toFixed(2)}",
       "Factor of Safety against Sliding: {factorOfSafetySliding.toFixed(2)}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "factorOfSafetySliding"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -170,5 +162,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "tarim",
   "profession": "Ziraat Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

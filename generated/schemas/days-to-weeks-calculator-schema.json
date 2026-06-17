@@ -67,16 +67,20 @@
     }
   ],
   "formulas": {
-    "compute": "function(inputs) { const totalDays = inputs.totalDays; let daysPerWeek = inputs.daysPerWeek; if (daysPerWeek <= 0) daysPerWeek = 7; const precision = inputs.precision; const showRemainder = inputs.showRemainder; const weeks = totalDays / daysPerWeek; const roundedWeeks = Math.round(weeks * Math.pow(10, precision)) / Math.pow(10, precision); const fullWeeks = Math.floor(totalDays / daysPerWeek); let remainderDays = totalDays - fullWeeks * daysPerWeek; remainderDays = Math.round(remainderDays * 1e6) / 1e6; return { primary: roundedWeeks, breakdown: showRemainder === 1 ? [fullWeeks, remainderDays] : [] }; }",
-    "fullWeeks": "fullWeeks",
-    "remainderDays": "remainderDays"
+    "result": "totalDays + daysPerWeek + precision",
+    "result_copy": "totalDays + daysPerWeek + precision"
   },
   "outputs": {
-    "primary": "compute",
+    "primary": "result",
     "breakdown": [
       "fullWeeks",
       "remainderDays"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "remainderDays"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -86,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

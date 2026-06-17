@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "W/mK",
       "default": 0.04,
-      "businessContext": "Thermal conductivity of the material (k) in W/mK."
+      "businessContext": "Thermal conductivity of the material (k) in W/mK.",
+      "label_i18n": {
+        "en": "Thermal Conductivity",
+        "tr": "Thermal Conductivity",
+        "de": "Thermal Conductivity",
+        "fr": "Thermal Conductivity",
+        "es": "Thermal Conductivity",
+        "ar": "Thermal Conductivity"
+      }
     },
     {
       "id": "area",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m²",
       "default": 1,
-      "businessContext": "Cross-sectional area perpendicular to heat flow in m²."
+      "businessContext": "Cross-sectional area perpendicular to heat flow in m².",
+      "label_i18n": {
+        "en": "Area",
+        "tr": "Area",
+        "de": "Area",
+        "fr": "Area",
+        "es": "Area",
+        "ar": "Area"
+      }
     },
     {
       "id": "hotTemp",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 100,
-      "businessContext": "Temperature of the hot side in °C."
+      "businessContext": "Temperature of the hot side in °C.",
+      "label_i18n": {
+        "en": "Hot Temperature",
+        "tr": "Hot Temperature",
+        "de": "Hot Temperature",
+        "fr": "Hot Temperature",
+        "es": "Hot Temperature",
+        "ar": "Hot Temperature"
+      }
     },
     {
       "id": "coldTemp",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Temperature of the cold side in °C."
+      "businessContext": "Temperature of the cold side in °C.",
+      "label_i18n": {
+        "en": "Cold Temperature",
+        "tr": "Cold Temperature",
+        "de": "Cold Temperature",
+        "fr": "Cold Temperature",
+        "es": "Cold Temperature",
+        "ar": "Cold Temperature"
+      }
     },
     {
       "id": "thickness",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.1,
-      "businessContext": "Thickness of the material layer in m."
+      "businessContext": "Thickness of the material layer in m.",
+      "label_i18n": {
+        "en": "Thickness",
+        "tr": "Thickness",
+        "de": "Thickness",
+        "fr": "Thickness",
+        "es": "Thickness",
+        "ar": "Thickness"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "thermalResistance",
       "heatFlux"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "heatFlux"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -62,5 +107,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "engineering"
+  "categoryId": "engineering",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -134,19 +134,20 @@
     "overall_percentile": "(1 - (overall_rank / total_candidates)) * 100",
     "qa_percentile": "(1 - (qa_rank / qa_total)) * 100",
     "varc_percentile": "(1 - (varc_rank / varc_total)) * 100",
-    "lrdi_percentile": "(1 - (lrdi_rank / lrdi_total)) * 100",
-    "____qa_percentile_toFixed_2_____": "<%= qa_percentile.toFixed(2) %>%",
-    "____varc_percentile_toFixed_2_____": "<%= varc_percentile.toFixed(2) %>%",
-    "____lrdi_percentile_toFixed_2_____": "<%= lrdi_percentile.toFixed(2) %>%",
-    "result": "Overall Percentile: <%= overall_percentile.toFixed(2) %>%"
+    "lrdi_percentile": "(1 - (lrdi_rank / lrdi_total)) * 100"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "lrdi_percentile",
     "breakdown": [
       "QA Percentile: <%= qa_percentile.toFixed(2) %>%",
       "VARC Percentile: <%= varc_percentile.toFixed(2) %>%",
       "LRDI Percentile: <%= lrdi_percentile.toFixed(2) %>%"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "lrdi_percentile"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -156,5 +157,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

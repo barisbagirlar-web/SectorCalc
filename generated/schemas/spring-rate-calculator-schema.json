@@ -68,10 +68,7 @@
   ],
   "formulas": {
     "springRate": "(shearModulus * 1000 * wireDiameter**4) / (8 * meanCoilDiameter**3 * activeCoils)",
-    "k____G___d_4_____8___D_3___N_": "k = (G * d^4) / (8 * D^3 * N)",
-    "shearModulus___1000": "shearModulus * 1000",
-    "k____G_MPa___d_4_____8___D_3___N_": "k = (G_MPa * d^4) / (8 * D^3 * N)",
-    "springRate_N_mm": "springRate N/mm"
+    "shearModulus___1000": "shearModulus * 1000"
   },
   "outputs": {
     "primary": "springRate",
@@ -80,7 +77,12 @@
       "GPa -> MPa: shearModulus * 1000",
       "k = (G_MPa * d^4) / (8 * D^3 * N)",
       "Hesaplanan yay oranı: springRate N/mm"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "k____G_MPa___d_4_____8___D_3___N_"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -90,5 +92,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

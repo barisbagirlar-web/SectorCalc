@@ -131,16 +131,20 @@
     }
   ],
   "formulas": {
-    "totalCredits": "inputs.credit1 + inputs.credit2 + inputs.credit3 + inputs.credit4",
-    "totalPoints": "inputs.credit1 * inputs.grade1 + inputs.credit2 * inputs.grade2 + inputs.credit3 * inputs.grade3 + inputs.credit4 * inputs.grade4",
-    "gpa": "(inputs.credit1 * inputs.grade1 + inputs.credit2 * inputs.grade2 + inputs.credit3 * inputs.grade3 + inputs.credit4 * inputs.grade4) / (inputs.credit1 + inputs.credit2 + inputs.credit3 + inputs.credit4)"
+    "result": "credit1 + grade1 + credit2",
+    "result_copy": "credit1 + grade1 + credit2"
   },
   "outputs": {
-    "primary": "gpa",
+    "primary": "result",
     "breakdown": [
       "totalCredits",
       "totalPoints"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "gpa"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -150,5 +154,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

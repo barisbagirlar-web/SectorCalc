@@ -67,18 +67,20 @@
     }
   ],
   "formulas": {
-    "exponent": "number === 0 ? 0 : (notationMode === 0 ? Math.floor(Math.log10(Math.abs(number))) : Math.floor(Math.log10(Math.abs(number)) / 3) * 3)",
-    "mantissa": "(function() { if (number === 0) return 0; var exp = number === 0 ? 0 : (notationMode === 0 ? Math.floor(Math.log10(Math.abs(number))) : Math.floor(Math.log10(Math.abs(number)) / 3) * 3); var m = number / Math.pow(10, exp); if (m === 0) return 0; var d = Math.ceil(Math.log10(Math.abs(m))); var power = sigFig - d; var mag = Math.pow(10, power); return Math.round(m * mag) / mag; })()",
-    "primary": "mantissa + ' × 10^' + exponent",
-    "String_mantissa_": "String(mantissa)",
-    "String_exponent_": "String(exponent)"
+    "result": "number + sigFig + notationMode",
+    "result_aux": "number + sigFig + notationMode"
   },
   "outputs": {
-    "primary": "primary",
+    "primary": "result",
     "breakdown": [
       "String(mantissa)",
       "String(exponent)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "primary"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -88,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

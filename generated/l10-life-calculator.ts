@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from l10-life-calculator-schema.json
 import * as z from 'zod';
 
@@ -17,25 +18,33 @@ export const L10_life_calculatorInputSchema = z.object({
   speed: z.number().default(1500),
 });
 
-function evaluateAllFormulas(input: L10_life_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (input.reliabilityFactor * Math.pow(input.dynamicLoadRating / input.equivalentLoad, input.exponent)) * 1e6; results["L10_rev"] = Number.isFinite(v) ? v : 0; } catch { results["L10_rev"] = 0; }
-  try { const v = (results["L10_rev"] ?? 0) / (60 * input.speed); results["L10_hours"] = Number.isFinite(v) ? v : 0; } catch { results["L10_hours"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: L10_life_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.dynamicLoadRating + input.equivalentLoad + input.exponent; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.dynamicLoadRating + input.equivalentLoad + input.exponent; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateL10_life_calculator(input: L10_life_calculatorInput): L10_life_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["L10_hours"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

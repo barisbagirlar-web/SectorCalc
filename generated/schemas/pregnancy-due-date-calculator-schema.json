@@ -202,18 +202,18 @@
       }
     ]
   },
-  "formulas": [
-    "lmp_date",
-    "lmp_date",
-    "lmp_date",
-    "lmp_date",
-    "lmp_date",
-    "lmp_date",
-    "lmp_date"
-  ],
+  "formulas": {
+    "result": "lmp_date + cycle_length + luteal_phase_length",
+    "result_copy": "lmp_date + cycle_length + luteal_phase_length"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

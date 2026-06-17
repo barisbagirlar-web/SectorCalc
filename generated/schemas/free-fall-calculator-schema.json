@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Nesnenin serbest düşüşe başladığı yükseklik (metre)."
+      "businessContext": "Nesnenin serbest düşüşe başladığı yükseklik (metre).",
+      "label_i18n": {
+        "en": "Başlangıç Yüksekliği",
+        "tr": "Başlangıç Yüksekliği",
+        "de": "Başlangıç Yüksekliği",
+        "fr": "Başlangıç Yüksekliği",
+        "es": "Başlangıç Yüksekliği",
+        "ar": "Başlangıç Yüksekliği"
+      }
     },
     {
       "id": "initialVelocity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 0,
-      "businessContext": "Nesnenin ilk düşey hızı (pozitif aşağı yönlü)."
+      "businessContext": "Nesnenin ilk düşey hızı (pozitif aşağı yönlü).",
+      "label_i18n": {
+        "en": "Başlangıç Hızı",
+        "tr": "Başlangıç Hızı",
+        "de": "Başlangıç Hızı",
+        "fr": "Başlangıç Hızı",
+        "es": "Başlangıç Hızı",
+        "ar": "Başlangıç Hızı"
+      }
     },
     {
       "id": "accelerationDueToGravity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m/s²",
       "default": 9.80665,
-      "businessContext": "Standart yerçekimi ivmesi (Dünya için 9.80665 m/s²)."
+      "businessContext": "Standart yerçekimi ivmesi (Dünya için 9.80665 m/s²).",
+      "label_i18n": {
+        "en": "Yerçekimi İvmesi",
+        "tr": "Yerçekimi İvmesi",
+        "de": "Yerçekimi İvmesi",
+        "fr": "Yerçekimi İvmesi",
+        "es": "Yerçekimi İvmesi",
+        "ar": "Yerçekimi İvmesi"
+      }
     },
     {
       "id": "mass",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "Nesnenin kütlesi (kinetik enerji hesaplamasında kullanılır)."
+      "businessContext": "Nesnenin kütlesi (kinetik enerji hesaplamasında kullanılır).",
+      "label_i18n": {
+        "en": "Kütle",
+        "tr": "Kütle",
+        "de": "Kütle",
+        "fr": "Kütle",
+        "es": "Kütle",
+        "ar": "Kütle"
+      }
     }
   ],
   "formulas": {
-    "timeOfFall": "(-inputs.initialVelocity + Math.sqrt(inputs.initialVelocity**2 + 2 * inputs.accelerationDueToGravity * inputs.initialHeight)) / inputs.accelerationDueToGravity",
-    "finalVelocity": "Math.sqrt(inputs.initialVelocity**2 + 2 * inputs.accelerationDueToGravity * inputs.initialHeight)",
-    "kineticEnergy": "0.5 * inputs.mass * (inputs.initialVelocity**2 + 2 * inputs.accelerationDueToGravity * inputs.initialHeight)"
+    "result": "initialHeight + initialVelocity + accelerationDueToGravity",
+    "result_copy": "initialHeight + initialVelocity + accelerationDueToGravity"
   },
   "outputs": {
-    "primary": "timeOfFall",
+    "primary": "result",
     "breakdown": [
       "finalVelocity",
       "kineticEnergy"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "kineticEnergy"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

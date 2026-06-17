@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percentage of material scrapped during production."
+      "businessContext": "Percentage of material scrapped during production.",
+      "label_i18n": {
+        "en": "Scrap Rate (%)",
+        "tr": "Scrap Rate (%)",
+        "de": "Scrap Rate (%)",
+        "fr": "Scrap Rate (%)",
+        "es": "Scrap Rate (%)",
+        "ar": "Scrap Rate (%)"
+      }
     },
     {
       "id": "materialCost",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "€",
       "default": 1000,
-      "businessContext": "Cost of raw materials per batch."
+      "businessContext": "Cost of raw materials per batch.",
+      "label_i18n": {
+        "en": "Material Cost (€)",
+        "tr": "Material Cost (€)",
+        "de": "Material Cost (€)",
+        "fr": "Material Cost (€)",
+        "es": "Material Cost (€)",
+        "ar": "Material Cost (€)"
+      }
     },
     {
       "id": "batchSize",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "units",
       "default": 100,
-      "businessContext": "Number of units produced in a batch."
+      "businessContext": "Number of units produced in a batch.",
+      "label_i18n": {
+        "en": "Batch Size (units)",
+        "tr": "Batch Size (units)",
+        "de": "Batch Size (units)",
+        "fr": "Batch Size (units)",
+        "es": "Batch Size (units)",
+        "ar": "Batch Size (units)"
+      }
     },
     {
       "id": "reworkFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "factor",
       "default": 0.1,
-      "businessContext": "Factor accounting for rework effort (0-1)."
+      "businessContext": "Factor accounting for rework effort (0-1).",
+      "label_i18n": {
+        "en": "Rework Factor",
+        "tr": "Rework Factor",
+        "de": "Rework Factor",
+        "fr": "Rework Factor",
+        "es": "Rework Factor",
+        "ar": "Rework Factor"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "scrapCost",
       "reworkCost",
       "totalCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "score"
   },
   "category": "İmalat & Üretim",
   "sector": "Üretim & İmalat",
@@ -56,5 +93,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

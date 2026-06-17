@@ -67,16 +67,20 @@
     }
   ],
   "formulas": {
-    "overallScore": "Math.round((listening + reading + speaking + writing) / 4)",
-    "Average_of_four_communicative_skill_scor": "Average of four communicative skill scores (Listening, Reading, Speaking, Writing), each on 10–90 scale.",
-    "Overall_score_is_rounded_to_the_nearest_": "Overall score is rounded to the nearest integer."
+    "result": "listening + reading + speaking",
+    "result_aux": "listening + reading + speaking"
   },
   "outputs": {
-    "primary": "overallScore",
+    "primary": "result",
     "breakdown": [
       "Average of four communicative skill scores (Listening, Reading, Speaking, Writing), each on 10–90 scale.",
       "Overall score is rounded to the nearest integer."
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "overallScore_aux"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -86,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

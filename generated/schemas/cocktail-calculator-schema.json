@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "servings",
       "default": 10,
-      "businessContext": "Total number of cocktails to prepare"
+      "businessContext": "Total number of cocktails to prepare",
+      "label_i18n": {
+        "en": "Number of Cocktails",
+        "tr": "Number of Cocktails",
+        "de": "Number of Cocktails",
+        "fr": "Number of Cocktails",
+        "es": "Number of Cocktails",
+        "ar": "Number of Cocktails"
+      }
     },
     {
       "id": "drinkVolume",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ml",
       "default": 200,
-      "businessContext": "Volume of each cocktail"
+      "businessContext": "Volume of each cocktail",
+      "label_i18n": {
+        "en": "Drink Volume per Cocktail",
+        "tr": "Drink Volume per Cocktail",
+        "de": "Drink Volume per Cocktail",
+        "fr": "Drink Volume per Cocktail",
+        "es": "Drink Volume per Cocktail",
+        "ar": "Drink Volume per Cocktail"
+      }
     },
     {
       "id": "ingredient1Part",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "part",
       "default": 2,
-      "businessContext": "Parts of first ingredient in the recipe"
+      "businessContext": "Parts of first ingredient in the recipe",
+      "label_i18n": {
+        "en": "Ingredient 1 Proportion",
+        "tr": "Ingredient 1 Proportion",
+        "de": "Ingredient 1 Proportion",
+        "fr": "Ingredient 1 Proportion",
+        "es": "Ingredient 1 Proportion",
+        "ar": "Ingredient 1 Proportion"
+      }
     },
     {
       "id": "ingredient2Part",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "part",
       "default": 1,
-      "businessContext": "Parts of second ingredient"
+      "businessContext": "Parts of second ingredient",
+      "label_i18n": {
+        "en": "Ingredient 2 Proportion",
+        "tr": "Ingredient 2 Proportion",
+        "de": "Ingredient 2 Proportion",
+        "fr": "Ingredient 2 Proportion",
+        "es": "Ingredient 2 Proportion",
+        "ar": "Ingredient 2 Proportion"
+      }
     },
     {
       "id": "ingredient3Part",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "part",
       "default": 1.5,
-      "businessContext": "Parts of third ingredient"
+      "businessContext": "Parts of third ingredient",
+      "label_i18n": {
+        "en": "Ingredient 3 Proportion",
+        "tr": "Ingredient 3 Proportion",
+        "de": "Ingredient 3 Proportion",
+        "fr": "Ingredient 3 Proportion",
+        "es": "Ingredient 3 Proportion",
+        "ar": "Ingredient 3 Proportion"
+      }
     },
     {
       "id": "ingredient4Part",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "part",
       "default": 0,
-      "businessContext": "Parts of fourth ingredient (optional)"
+      "businessContext": "Parts of fourth ingredient (optional)",
+      "label_i18n": {
+        "en": "Ingredient 4 Proportion",
+        "tr": "Ingredient 4 Proportion",
+        "de": "Ingredient 4 Proportion",
+        "fr": "Ingredient 4 Proportion",
+        "es": "Ingredient 4 Proportion",
+        "ar": "Ingredient 4 Proportion"
+      }
     },
     {
       "id": "wastagePercentage",
@@ -55,27 +103,34 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Extra volume to account for spillage/waste"
+      "businessContext": "Extra volume to account for spillage/waste",
+      "label_i18n": {
+        "en": "Wastage Percentage",
+        "tr": "Wastage Percentage",
+        "de": "Wastage Percentage",
+        "fr": "Wastage Percentage",
+        "es": "Wastage Percentage",
+        "ar": "Wastage Percentage"
+      }
     }
   ],
   "formulas": {
-    "totalParts": "inputs.ingredient1Part + inputs.ingredient2Part + inputs.ingredient3Part + inputs.ingredient4Part",
-    "totalVolume": "inputs.numberOfCocktails * inputs.drinkVolume",
-    "totalVolumeWithWastage": "totalVolume * (1 + (inputs.wastagePercentage / 100))",
-    "volumePerPart": "totalVolumeWithWastage / totalParts",
-    "ingredient1Total": "inputs.ingredient1Part * volumePerPart",
-    "ingredient2Total": "inputs.ingredient2Part * volumePerPart",
-    "ingredient3Total": "inputs.ingredient3Part * volumePerPart",
-    "ingredient4Total": "inputs.ingredient4Part * volumePerPart"
+    "result": "numberOfCocktails + drinkVolume + ingredient1Part",
+    "result_copy": "numberOfCocktails + drinkVolume + ingredient1Part"
   },
   "outputs": {
-    "primary": "totalVolumeWithWastage",
+    "primary": "result",
     "breakdown": [
       "ingredient1Total",
       "ingredient2Total",
       "ingredient3Total",
       "ingredient4Total"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "ingredient4Total"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -85,5 +140,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

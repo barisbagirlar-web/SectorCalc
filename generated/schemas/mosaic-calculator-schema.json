@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m²",
       "default": 1,
-      "businessContext": "Mozaik döşenecek toplam alan"
+      "businessContext": "Mozaik döşenecek toplam alan",
+      "label_i18n": {
+        "en": "Kaplama Alanı",
+        "tr": "Kaplama Alanı",
+        "de": "Kaplama Alanı",
+        "fr": "Kaplama Alanı",
+        "es": "Kaplama Alanı",
+        "ar": "Kaplama Alanı"
+      }
     },
     {
       "id": "tileLength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 2,
-      "businessContext": "Bir karonun boyu"
+      "businessContext": "Bir karonun boyu",
+      "label_i18n": {
+        "en": "Karo Uzunluğu",
+        "tr": "Karo Uzunluğu",
+        "de": "Karo Uzunluğu",
+        "fr": "Karo Uzunluğu",
+        "es": "Karo Uzunluğu",
+        "ar": "Karo Uzunluğu"
+      }
     },
     {
       "id": "tileWidth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 2,
-      "businessContext": "Bir karonun eni"
+      "businessContext": "Bir karonun eni",
+      "label_i18n": {
+        "en": "Karo Genişliği",
+        "tr": "Karo Genişliği",
+        "de": "Karo Genişliği",
+        "fr": "Karo Genişliği",
+        "es": "Karo Genişliği",
+        "ar": "Karo Genişliği"
+      }
     },
     {
       "id": "wasteFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Kesim ve zayiat için eklenen yüzde"
+      "businessContext": "Kesim ve zayiat için eklenen yüzde",
+      "label_i18n": {
+        "en": "Fire Faktörü",
+        "tr": "Fire Faktörü",
+        "de": "Fire Faktörü",
+        "fr": "Fire Faktörü",
+        "es": "Fire Faktörü",
+        "ar": "Fire Faktörü"
+      }
     },
     {
       "id": "costPerTile",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0.1,
-      "businessContext": "Karo birim fiyatı (para birimi cinsinden)"
+      "businessContext": "Karo birim fiyatı (para birimi cinsinden)",
+      "label_i18n": {
+        "en": "Karo Başına Maliyet",
+        "tr": "Karo Başına Maliyet",
+        "de": "Karo Başına Maliyet",
+        "fr": "Karo Başına Maliyet",
+        "es": "Karo Başına Maliyet",
+        "ar": "Karo Başına Maliyet"
+      }
     }
   ],
   "formulas": {
@@ -53,7 +93,12 @@
     "breakdown": [
       "wasteTiles",
       "totalCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -63,5 +108,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

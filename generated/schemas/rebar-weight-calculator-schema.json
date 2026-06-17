@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 12,
-      "businessContext": "Nominal diameter of rebar"
+      "businessContext": "Nominal diameter of rebar",
+      "label_i18n": {
+        "en": "Diameter",
+        "tr": "Diameter",
+        "de": "Diameter",
+        "fr": "Diameter",
+        "es": "Diameter",
+        "ar": "Diameter"
+      }
     },
     {
       "id": "length",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 12,
-      "businessContext": "Length of each rebar piece"
+      "businessContext": "Length of each rebar piece",
+      "label_i18n": {
+        "en": "Length",
+        "tr": "Length",
+        "de": "Length",
+        "fr": "Length",
+        "es": "Length",
+        "ar": "Length"
+      }
     },
     {
       "id": "quantity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "pieces",
       "default": 1,
-      "businessContext": "Number of rebars"
+      "businessContext": "Number of rebars",
+      "label_i18n": {
+        "en": "Quantity",
+        "tr": "Quantity",
+        "de": "Quantity",
+        "fr": "Quantity",
+        "es": "Quantity",
+        "ar": "Quantity"
+      }
     },
     {
       "id": "density",
@@ -31,19 +55,32 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 7850,
-      "businessContext": "Density of steel (typically 7850 kg/m³)"
+      "businessContext": "Density of steel (typically 7850 kg/m³)",
+      "label_i18n": {
+        "en": "Density",
+        "tr": "Density",
+        "de": "Density",
+        "fr": "Density",
+        "es": "Density",
+        "ar": "Density"
+      }
     }
   ],
   "formulas": {
-    "weightPerPiece": "Math.PI * Math.pow(diameter/1000, 2) / 4 * length * density",
-    "totalWeight": "weightPerPiece * quantity"
+    "result": "diameter + length + quantity",
+    "result_copy": "diameter + length + quantity"
   },
   "outputs": {
-    "primary": "totalWeight",
+    "primary": "result",
     "breakdown": [
       "weightPerPiece",
       "totalWeight"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalWeight"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -53,5 +90,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "metal",
   "profession": "Sac Teknisyeni",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

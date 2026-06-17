@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 200000,
-      "businessContext": "The total price of the motorcycle before any additional taxes, down payment, or trade-in."
+      "businessContext": "The total price of the motorcycle before any additional taxes, down payment, or trade-in.",
+      "label_i18n": {
+        "en": "Vehicle Price",
+        "tr": "Vehicle Price",
+        "de": "Vehicle Price",
+        "fr": "Vehicle Price",
+        "es": "Vehicle Price",
+        "ar": "Vehicle Price"
+      }
     },
     {
       "id": "downPayment",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 40000,
-      "businessContext": "Initial cash amount paid upfront to reduce the loan principal."
+      "businessContext": "Initial cash amount paid upfront to reduce the loan principal.",
+      "label_i18n": {
+        "en": "Down Payment",
+        "tr": "Down Payment",
+        "de": "Down Payment",
+        "fr": "Down Payment",
+        "es": "Down Payment",
+        "ar": "Down Payment"
+      }
     },
     {
       "id": "tradeIn",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 0,
-      "businessContext": "Value of a vehicle traded in as part of the purchase, reducing the amount to finance."
+      "businessContext": "Value of a vehicle traded in as part of the purchase, reducing the amount to finance.",
+      "label_i18n": {
+        "en": "Trade-in Value",
+        "tr": "Trade-in Value",
+        "de": "Trade-in Value",
+        "fr": "Trade-in Value",
+        "es": "Trade-in Value",
+        "ar": "Trade-in Value"
+      }
     },
     {
       "id": "interestRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Yearly interest rate of the loan, expressed as a percentage."
+      "businessContext": "Yearly interest rate of the loan, expressed as a percentage.",
+      "label_i18n": {
+        "en": "Annual Interest Rate",
+        "tr": "Annual Interest Rate",
+        "de": "Annual Interest Rate",
+        "fr": "Annual Interest Rate",
+        "es": "Annual Interest Rate",
+        "ar": "Annual Interest Rate"
+      }
     },
     {
       "id": "loanTerm",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "months",
       "default": 36,
-      "businessContext": "Duration of the loan repayment period in months."
+      "businessContext": "Duration of the loan repayment period in months.",
+      "label_i18n": {
+        "en": "Loan Term",
+        "tr": "Loan Term",
+        "de": "Loan Term",
+        "fr": "Loan Term",
+        "es": "Loan Term",
+        "ar": "Loan Term"
+      }
     },
     {
       "id": "salesTaxRate",
@@ -47,23 +87,33 @@
       "type": "number",
       "unit": "%",
       "default": 18,
-      "businessContext": "Applicable sales tax percentage added to the vehicle price."
+      "businessContext": "Applicable sales tax percentage added to the vehicle price.",
+      "label_i18n": {
+        "en": "Sales Tax Rate",
+        "tr": "Sales Tax Rate",
+        "de": "Sales Tax Rate",
+        "fr": "Sales Tax Rate",
+        "es": "Sales Tax Rate",
+        "ar": "Sales Tax Rate"
+      }
     }
   ],
   "formulas": {
     "monthlyInterestRate": "interestRate / 100 / 12",
-    "loanAmount": "vehiclePrice * (1 + salesTaxRate / 100) - downPayment - tradeIn",
-    "monthlyPayment": "loanAmount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, loanTerm) / (Math.pow(1 + monthlyInterestRate, loanTerm) - 1)",
-    "totalPayment": "monthlyPayment * loanTerm",
-    "totalInterest": "totalPayment - loanAmount"
+    "loanAmount": "vehiclePrice * (1 + salesTaxRate / 100) - downPayment - tradeIn"
   },
   "outputs": {
-    "primary": "monthlyPayment",
+    "primary": "loanAmount",
     "breakdown": [
       "loanAmount",
       "totalPayment",
       "totalInterest"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalInterest"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -73,5 +123,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Value of work actually performed."
+      "businessContext": "Value of work actually performed.",
+      "label_i18n": {
+        "en": "Earned Value (EV)",
+        "tr": "Earned Value (EV)",
+        "de": "Earned Value (EV)",
+        "fr": "Earned Value (EV)",
+        "es": "Earned Value (EV)",
+        "ar": "Earned Value (EV)"
+      }
     },
     {
       "id": "ac",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Total cost incurred for work performed."
+      "businessContext": "Total cost incurred for work performed.",
+      "label_i18n": {
+        "en": "Actual Cost (AC)",
+        "tr": "Actual Cost (AC)",
+        "de": "Actual Cost (AC)",
+        "fr": "Actual Cost (AC)",
+        "es": "Actual Cost (AC)",
+        "ar": "Actual Cost (AC)"
+      }
     },
     {
       "id": "pv",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Authorized budget for scheduled work."
+      "businessContext": "Authorized budget for scheduled work.",
+      "label_i18n": {
+        "en": "Planned Value (PV)",
+        "tr": "Planned Value (PV)",
+        "de": "Planned Value (PV)",
+        "fr": "Planned Value (PV)",
+        "es": "Planned Value (PV)",
+        "ar": "Planned Value (PV)"
+      }
     },
     {
       "id": "bac",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Total original budget for the project."
+      "businessContext": "Total original budget for the project.",
+      "label_i18n": {
+        "en": "Budget at Completion (BAC)",
+        "tr": "Budget at Completion (BAC)",
+        "de": "Budget at Completion (BAC)",
+        "fr": "Budget at Completion (BAC)",
+        "es": "Budget at Completion (BAC)",
+        "ar": "Budget at Completion (BAC)"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "cv",
       "spi",
       "eac"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "eac"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -56,5 +93,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

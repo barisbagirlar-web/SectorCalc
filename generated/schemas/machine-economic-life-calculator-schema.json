@@ -139,105 +139,6 @@
       "businessContext_i18n": {
         "en": "Selling price per unit produced by the machine."
       }
-    },
-    {
-      "id": "quality_defect_rate",
-      "label": "Initial Defect Rate",
-      "type": "number",
-      "unit": "%",
-      "default": 1,
-      "min": 0,
-      "max": 100,
-      "businessContext": "Percentage of defective units in the first year, used to model quality degradation over time.",
-      "label_i18n": {
-        "en": "Initial Defect Rate"
-      },
-      "businessContext_i18n": {
-        "en": "Percentage of defective units in the first year, used to model quality degradation over time."
-      }
-    },
-    {
-      "id": "defect_rate_annual_increase",
-      "label": "Defect Rate Annual Increase",
-      "type": "number",
-      "unit": "% per year",
-      "default": 0.5,
-      "min": 0,
-      "max": 10,
-      "businessContext": "Yearly increase in defect rate due to machine wear, impacting rework and scrap costs.",
-      "label_i18n": {
-        "en": "Defect Rate Annual Increase"
-      },
-      "businessContext_i18n": {
-        "en": "Yearly increase in defect rate due to machine wear, impacting rework and scrap costs."
-      }
-    },
-    {
-      "id": "maintenance_strategy",
-      "label": "Maintenance Strategy",
-      "type": "select",
-      "options": [
-        "Preventive",
-        "Predictive",
-        "Reactive"
-      ],
-      "default": "Preventive",
-      "businessContext": "Type of maintenance program in place, affecting downtime and cost patterns.",
-      "label_i18n": {
-        "en": "Maintenance Strategy"
-      },
-      "businessContext_i18n": {
-        "en": "Type of maintenance program in place, affecting downtime and cost patterns."
-      },
-      "unit": "unit"
-    },
-    {
-      "id": "utilization_rate",
-      "label": "Utilization Rate",
-      "type": "number",
-      "unit": "%",
-      "default": 85,
-      "min": 0,
-      "max": 100,
-      "businessContext": "Percentage of available time the machine is actually producing.",
-      "label_i18n": {
-        "en": "Utilization Rate"
-      },
-      "businessContext_i18n": {
-        "en": "Percentage of available time the machine is actually producing."
-      }
-    },
-    {
-      "id": "energy_cost_per_kwh",
-      "label": "Energy Cost per kWh",
-      "type": "number",
-      "unit": "USD/kWh",
-      "default": 0.12,
-      "min": 0,
-      "max": 1,
-      "businessContext": "Cost of electricity per kilowatt-hour, used for energy consumption modeling.",
-      "label_i18n": {
-        "en": "Energy Cost per kWh"
-      },
-      "businessContext_i18n": {
-        "en": "Cost of electricity per kilowatt-hour, used for energy consumption modeling."
-      }
-    },
-    {
-      "id": "power_consumption_kw",
-      "label": "Power Consumption",
-      "type": "number",
-      "unit": "kW",
-      "default": 50,
-      "min": 0,
-      "max": 10000,
-      "businessContext": "Rated power consumption of the machine during operation.",
-      "label_i18n": {
-        "en": "Power Consumption"
-      },
-      "businessContext_i18n": {
-        "en": "Rated power consumption of the machine during operation."
-      }
     }
   ],
   "validation": {
@@ -281,18 +182,18 @@
       }
     ]
   },
-  "formulas": [
-    "purchase_price",
-    "purchase_price",
-    "purchase_price",
-    "purchase_price",
-    "purchase_price",
-    "purchase_price",
-    "purchase_price"
-  ],
+  "formulas": {
+    "result": "purchase_price + salvage_value + useful_life_years",
+    "result_copy": "purchase_price + salvage_value + useful_life_years"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

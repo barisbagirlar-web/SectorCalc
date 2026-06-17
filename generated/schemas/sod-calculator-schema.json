@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft",
       "default": 0,
-      "businessContext": "Length of the area to be covered with sod in feet."
+      "businessContext": "Length of the area to be covered with sod in feet.",
+      "label_i18n": {
+        "en": "Length (ft)",
+        "tr": "Length (ft)",
+        "de": "Length (ft)",
+        "fr": "Length (ft)",
+        "es": "Length (ft)",
+        "ar": "Length (ft)"
+      }
     },
     {
       "id": "width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ft",
       "default": 0,
-      "businessContext": "Width of the area to be covered with sod in feet."
+      "businessContext": "Width of the area to be covered with sod in feet.",
+      "label_i18n": {
+        "en": "Width (ft)",
+        "tr": "Width (ft)",
+        "de": "Width (ft)",
+        "fr": "Width (ft)",
+        "es": "Width (ft)",
+        "ar": "Width (ft)"
+      }
     },
     {
       "id": "wasteFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Additional percentage of sod to account for cutting and fitting waste."
+      "businessContext": "Additional percentage of sod to account for cutting and fitting waste.",
+      "label_i18n": {
+        "en": "Waste Factor (%)",
+        "tr": "Waste Factor (%)",
+        "de": "Waste Factor (%)",
+        "fr": "Waste Factor (%)",
+        "es": "Waste Factor (%)",
+        "ar": "Waste Factor (%)"
+      }
     },
     {
       "id": "rollCoverage",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "sq ft",
       "default": 10,
-      "businessContext": "Area covered by a single roll of sod in square feet."
+      "businessContext": "Area covered by a single roll of sod in square feet.",
+      "label_i18n": {
+        "en": "Coverage per Roll (sq ft)",
+        "tr": "Coverage per Roll (sq ft)",
+        "de": "Coverage per Roll (sq ft)",
+        "fr": "Coverage per Roll (sq ft)",
+        "es": "Coverage per Roll (sq ft)",
+        "ar": "Coverage per Roll (sq ft)"
+      }
     },
     {
       "id": "pricePerRoll",
@@ -39,25 +71,36 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Unit cost of one roll of sod in dollars."
+      "businessContext": "Unit cost of one roll of sod in dollars.",
+      "label_i18n": {
+        "en": "Price per Roll ($)",
+        "tr": "Price per Roll ($)",
+        "de": "Price per Roll ($)",
+        "fr": "Price per Roll ($)",
+        "es": "Price per Roll ($)",
+        "ar": "Price per Roll ($)"
+      }
     }
   ],
   "formulas": {
     "area": "length * width",
     "wasteArea": "area * wasteFactor / 100",
-    "netArea": "area + wasteArea",
-    "rollsNeeded": "Math.ceil(netArea / rollCoverage)",
-    "totalCost": "rollsNeeded * pricePerRoll"
+    "netArea": "area + wasteArea"
   },
   "outputs": {
-    "primary": "totalCost",
+    "primary": "netArea",
     "breakdown": [
       "area",
       "wasteArea",
       "netArea",
       "rollsNeeded",
       "totalCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -67,5 +110,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

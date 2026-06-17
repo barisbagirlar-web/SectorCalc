@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "points",
       "default": 30,
-      "businessContext": "Number of correct answers minus 0.25 times wrong answers for Math Level 2"
+      "businessContext": "Number of correct answers minus 0.25 times wrong answers for Math Level 2",
+      "label_i18n": {
+        "en": "Math Level 2 Raw Score",
+        "tr": "Math Level 2 Raw Score",
+        "de": "Math Level 2 Raw Score",
+        "fr": "Math Level 2 Raw Score",
+        "es": "Math Level 2 Raw Score",
+        "ar": "Math Level 2 Raw Score"
+      }
     },
     {
       "id": "rawPhysics",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "points",
       "default": 40,
-      "businessContext": "Number of correct answers minus 0.25 times wrong answers for Physics"
+      "businessContext": "Number of correct answers minus 0.25 times wrong answers for Physics",
+      "label_i18n": {
+        "en": "Physics Raw Score",
+        "tr": "Physics Raw Score",
+        "de": "Physics Raw Score",
+        "fr": "Physics Raw Score",
+        "es": "Physics Raw Score",
+        "ar": "Physics Raw Score"
+      }
     },
     {
       "id": "rawChemistry",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "points",
       "default": 35,
-      "businessContext": "Number of correct answers minus 0.25 times wrong answers for Chemistry"
+      "businessContext": "Number of correct answers minus 0.25 times wrong answers for Chemistry",
+      "label_i18n": {
+        "en": "Chemistry Raw Score",
+        "tr": "Chemistry Raw Score",
+        "de": "Chemistry Raw Score",
+        "fr": "Chemistry Raw Score",
+        "es": "Chemistry Raw Score",
+        "ar": "Chemistry Raw Score"
+      }
     },
     {
       "id": "rawUSH",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "points",
       "default": 25,
-      "businessContext": "Number of correct answers minus 0.25 times wrong answers for U.S. History"
+      "businessContext": "Number of correct answers minus 0.25 times wrong answers for U.S. History",
+      "label_i18n": {
+        "en": "U.S. History Raw Score",
+        "tr": "U.S. History Raw Score",
+        "de": "U.S. History Raw Score",
+        "fr": "U.S. History Raw Score",
+        "es": "U.S. History Raw Score",
+        "ar": "U.S. History Raw Score"
+      }
     }
   ],
   "formulas": {
@@ -48,7 +80,12 @@
       "physicsScaled",
       "chemistryScaled",
       "ushScaled"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "averageScaled"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -58,5 +95,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

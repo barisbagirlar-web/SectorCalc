@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100000,
-      "businessContext": "Total pre-tax balance in traditional IRA account before conversion."
+      "businessContext": "Total pre-tax balance in traditional IRA account before conversion.",
+      "label_i18n": {
+        "en": "Current Traditional IRA Balance",
+        "tr": "Current Traditional IRA Balance",
+        "de": "Current Traditional IRA Balance",
+        "fr": "Current Traditional IRA Balance",
+        "es": "Current Traditional IRA Balance",
+        "ar": "Current Traditional IRA Balance"
+      }
     },
     {
       "id": "amountToConvert",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100000,
-      "businessContext": "Portion of the traditional IRA balance to convert to a Roth IRA; cannot exceed currentBalance."
+      "businessContext": "Portion of the traditional IRA balance to convert to a Roth IRA; cannot exceed currentBalance.",
+      "label_i18n": {
+        "en": "Amount to Convert",
+        "tr": "Amount to Convert",
+        "de": "Amount to Convert",
+        "fr": "Amount to Convert",
+        "es": "Amount to Convert",
+        "ar": "Amount to Convert"
+      }
     },
     {
       "id": "currentTaxRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 24,
-      "businessContext": "Expected income tax rate in the year of conversion, expressed as a percentage."
+      "businessContext": "Expected income tax rate in the year of conversion, expressed as a percentage.",
+      "label_i18n": {
+        "en": "Current Marginal Tax Rate",
+        "tr": "Current Marginal Tax Rate",
+        "de": "Current Marginal Tax Rate",
+        "fr": "Current Marginal Tax Rate",
+        "es": "Current Marginal Tax Rate",
+        "ar": "Current Marginal Tax Rate"
+      }
     },
     {
       "id": "expectedRetirementTaxRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 24,
-      "businessContext": "Estimated marginal tax rate during retirement when traditional IRA withdrawals will be taxed."
+      "businessContext": "Estimated marginal tax rate during retirement when traditional IRA withdrawals will be taxed.",
+      "label_i18n": {
+        "en": "Expected Retirement Tax Rate",
+        "tr": "Expected Retirement Tax Rate",
+        "de": "Expected Retirement Tax Rate",
+        "fr": "Expected Retirement Tax Rate",
+        "es": "Expected Retirement Tax Rate",
+        "ar": "Expected Retirement Tax Rate"
+      }
     },
     {
       "id": "yearsToRetirement",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "years",
       "default": 20,
-      "businessContext": "Number of years until retirement, during which converted funds grow tax-free."
+      "businessContext": "Number of years until retirement, during which converted funds grow tax-free.",
+      "label_i18n": {
+        "en": "Years to Retirement",
+        "tr": "Years to Retirement",
+        "de": "Years to Retirement",
+        "fr": "Years to Retirement",
+        "es": "Years to Retirement",
+        "ar": "Years to Retirement"
+      }
     },
     {
       "id": "annualReturnRate",
@@ -47,16 +87,23 @@
       "type": "number",
       "unit": "%",
       "default": 7,
-      "businessContext": "Assumed average annual investment return before inflation."
+      "businessContext": "Assumed average annual investment return before inflation.",
+      "label_i18n": {
+        "en": "Expected Annual Return",
+        "tr": "Expected Annual Return",
+        "de": "Expected Annual Return",
+        "fr": "Expected Annual Return",
+        "es": "Expected Annual Return",
+        "ar": "Expected Annual Return"
+      }
     }
   ],
   "formulas": {
-    "convertAfterTaxValue": "amountToConvert * (1 - currentTaxRate / 100) * Math.pow(1 + annualReturnRate / 100, yearsToRetirement)",
-    "noConvertAfterTaxValue": "amountToConvert * Math.pow(1 + annualReturnRate / 100, yearsToRetirement) * (1 - expectedRetirementTaxRate / 100)",
-    "conversionBenefit": "convertAfterTaxValue - noConvertAfterTaxValue"
+    "result": "currentBalance + amountToConvert + currentTaxRate",
+    "result_copy": "currentBalance + amountToConvert + currentTaxRate"
   },
   "outputs": {
-    "primary": "convertAfterTaxValue",
+    "primary": "result",
     "breakdown": [
       {
         "id": "convertAfterTaxValue",
@@ -68,7 +115,12 @@
         "label": "Traditional IRA After-Tax Value",
         "unit": "USD"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "conversionBenefit"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -78,5 +130,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

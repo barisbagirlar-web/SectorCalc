@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 100000,
-      "businessContext": "Total credit sales minus returns and allowances."
+      "businessContext": "Total credit sales minus returns and allowances.",
+      "label_i18n": {
+        "en": "Net Credit Sales",
+        "tr": "Net Credit Sales",
+        "de": "Net Credit Sales",
+        "fr": "Net Credit Sales",
+        "es": "Net Credit Sales",
+        "ar": "Net Credit Sales"
+      }
     },
     {
       "id": "beginningAR",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 20000,
-      "businessContext": "Accounts receivable at start of period."
+      "businessContext": "Accounts receivable at start of period.",
+      "label_i18n": {
+        "en": "Beginning Accounts Receivable",
+        "tr": "Beginning Accounts Receivable",
+        "de": "Beginning Accounts Receivable",
+        "fr": "Beginning Accounts Receivable",
+        "es": "Beginning Accounts Receivable",
+        "ar": "Beginning Accounts Receivable"
+      }
     },
     {
       "id": "endingAR",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 25000,
-      "businessContext": "Accounts receivable at end of period."
+      "businessContext": "Accounts receivable at end of period.",
+      "label_i18n": {
+        "en": "Ending Accounts Receivable",
+        "tr": "Ending Accounts Receivable",
+        "de": "Ending Accounts Receivable",
+        "fr": "Ending Accounts Receivable",
+        "es": "Ending Accounts Receivable",
+        "ar": "Ending Accounts Receivable"
+      }
     },
     {
       "id": "daysInPeriod",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "days",
       "default": 365,
-      "businessContext": "Number of days in the accounting period (e.g., 365 for year)."
+      "businessContext": "Number of days in the accounting period (e.g., 365 for year).",
+      "label_i18n": {
+        "en": "Days in Period",
+        "tr": "Days in Period",
+        "de": "Days in Period",
+        "fr": "Days in Period",
+        "es": "Days in Period",
+        "ar": "Days in Period"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "averageAccountsReceivable",
       "daysSalesOutstanding"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "daysSalesOutstanding"
   },
   "category": "İK & Personel",
   "sector": "Finans & İK",
@@ -54,5 +91,10 @@
   "categorySlug": "workforce-hr",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

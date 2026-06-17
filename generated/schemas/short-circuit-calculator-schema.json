@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "V",
       "default": 400,
-      "businessContext": "Nominal line-to-line voltage of the power system (e.g., 400 V for low voltage)."
+      "businessContext": "Nominal line-to-line voltage of the power system (e.g., 400 V for low voltage).",
+      "label_i18n": {
+        "en": "System Voltage (LL)",
+        "tr": "System Voltage (LL)",
+        "de": "System Voltage (LL)",
+        "fr": "System Voltage (LL)",
+        "es": "System Voltage (LL)",
+        "ar": "System Voltage (LL)"
+      }
     },
     {
       "id": "sourceImpedance",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 0.01,
-      "businessContext": "The equivalent impedance of the upstream network (often negligible for transformer-fed systems)."
+      "businessContext": "The equivalent impedance of the upstream network (often negligible for transformer-fed systems).",
+      "label_i18n": {
+        "en": "Source Impedance",
+        "tr": "Source Impedance",
+        "de": "Source Impedance",
+        "fr": "Source Impedance",
+        "es": "Source Impedance",
+        "ar": "Source Impedance"
+      }
     },
     {
       "id": "transformerRating",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kVA",
       "default": 1000,
-      "businessContext": "Rated apparent power of the transformer."
+      "businessContext": "Rated apparent power of the transformer.",
+      "label_i18n": {
+        "en": "Transformer Rating",
+        "tr": "Transformer Rating",
+        "de": "Transformer Rating",
+        "fr": "Transformer Rating",
+        "es": "Transformer Rating",
+        "ar": "Transformer Rating"
+      }
     },
     {
       "id": "transformerImpedancePercent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percent impedance voltage of the transformer, typically 4–6% for distribution transformers."
+      "businessContext": "Percent impedance voltage of the transformer, typically 4–6% for distribution transformers.",
+      "label_i18n": {
+        "en": "Impedance Voltage (%Z)",
+        "tr": "Impedance Voltage (%Z)",
+        "de": "Impedance Voltage (%Z)",
+        "fr": "Impedance Voltage (%Z)",
+        "es": "Impedance Voltage (%Z)",
+        "ar": "Impedance Voltage (%Z)"
+      }
     },
     {
       "id": "cableLength",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 50,
-      "businessContext": "Length of the cable between transformer and fault point."
+      "businessContext": "Length of the cable between transformer and fault point.",
+      "label_i18n": {
+        "en": "Cable Length",
+        "tr": "Cable Length",
+        "de": "Cable Length",
+        "fr": "Cable Length",
+        "es": "Cable Length",
+        "ar": "Cable Length"
+      }
     },
     {
       "id": "cableCrossSection",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "mm²",
       "default": 25,
-      "businessContext": "Cross-sectional area of the cable conductor."
+      "businessContext": "Cross-sectional area of the cable conductor.",
+      "label_i18n": {
+        "en": "Cable Cross-Section",
+        "tr": "Cable Cross-Section",
+        "de": "Cable Cross-Section",
+        "fr": "Cable Cross-Section",
+        "es": "Cable Cross-Section",
+        "ar": "Cable Cross-Section"
+      }
     },
     {
       "id": "resistivity",
@@ -55,23 +103,35 @@
       "type": "number",
       "unit": "Ω·mm²/m",
       "default": 0.0175,
-      "businessContext": "Electrical resistivity of the conductor material (0.0175 for copper, 0.0282 for aluminum)."
+      "businessContext": "Electrical resistivity of the conductor material (0.0175 for copper, 0.0282 for aluminum).",
+      "label_i18n": {
+        "en": "Conductor Resistivity",
+        "tr": "Conductor Resistivity",
+        "de": "Conductor Resistivity",
+        "fr": "Conductor Resistivity",
+        "es": "Conductor Resistivity",
+        "ar": "Conductor Resistivity"
+      }
     }
   ],
   "formulas": {
     "transformerImpedance": "(voltage * voltage) / (transformerRating * 1000) * (transformerImpedancePercent / 100)",
     "cableImpedance": "(resistivity * cableLength) / cableCrossSection",
-    "totalImpedance": "sourceImpedance + transformerImpedance + cableImpedance",
-    "shortCircuitCurrent": "voltage / (Math.sqrt(3) * totalImpedance)"
+    "totalImpedance": "sourceImpedance + transformerImpedance + cableImpedance"
   },
   "outputs": {
-    "primary": "shortCircuitCurrent",
+    "primary": "totalImpedance",
     "breakdown": [
       "sourceImpedance",
       "transformerImpedance",
       "cableImpedance",
       "totalImpedance"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "shortCircuitCurrent"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -81,5 +141,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

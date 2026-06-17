@@ -115,16 +115,20 @@
     }
   ],
   "formulas": {
-    "E": "E0 - (8.314 * T) / (n * 96485) * Math.log( Math.pow(Red, b) / Math.pow(Ox, a) )",
     "RT_nF": "(8.314 * T) / (n * 96485)",
-    "lnQ": "Math.log( Math.pow(Red, b) / Math.pow(Ox, a) )"
+    "RT_nF_aux": "(8.314 * T) / (n * 96485)"
   },
   "outputs": {
-    "primary": "E",
+    "primary": "RT_nF_aux",
     "breakdown": [
       "RT_nF",
       "lnQ"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "lnQ"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -134,5 +138,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "kimya",
   "profession": "Proses Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

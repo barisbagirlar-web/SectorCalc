@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 0.5,
-      "businessContext": "The sine of the angle to compute the arcsine. Must be between -1 and 1. Typical use in engineering for angle determination from ratios."
+      "businessContext": "The sine of the angle to compute the arcsine. Must be between -1 and 1. Typical use in engineering for angle determination from ratios.",
+      "label_i18n": {
+        "en": "Sine Value",
+        "tr": "Sine Value",
+        "de": "Sine Value",
+        "fr": "Sine Value",
+        "es": "Sine Value",
+        "ar": "Sine Value"
+      }
     },
     {
       "id": "outputUnit",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "binary",
       "default": 1,
-      "businessContext": "Select output angle unit: 0 for degrees (common in construction), 1 for radians (mathematical analysis)."
+      "businessContext": "Select output angle unit: 0 for degrees (common in construction), 1 for radians (mathematical analysis).",
+      "label_i18n": {
+        "en": "Output Unit (0:Degrees, 1:Radians)",
+        "tr": "Output Unit (0:Degrees, 1:Radians)",
+        "de": "Output Unit (0:Degrees, 1:Radians)",
+        "fr": "Output Unit (0:Degrees, 1:Radians)",
+        "es": "Output Unit (0:Degrees, 1:Radians)",
+        "ar": "Output Unit (0:Degrees, 1:Radians)"
+      }
     },
     {
       "id": "decimalPlaces",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "count",
       "default": 4,
-      "businessContext": "Number of decimal places for rounding the result, ensuring measurement precision."
+      "businessContext": "Number of decimal places for rounding the result, ensuring measurement precision.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "angleSelection",
@@ -31,26 +55,33 @@
       "type": "number",
       "unit": "code",
       "default": 0,
-      "businessContext": "Principal value in [-90°,90°], supplementary is 180° - principal for specific applications like geometry."
+      "businessContext": "Principal value in [-90°,90°], supplementary is 180° - principal for specific applications like geometry.",
+      "label_i18n": {
+        "en": "Angle Selection (0:Principal, 1:Supplementary, 2:Both)",
+        "tr": "Angle Selection (0:Principal, 1:Supplementary, 2:Both)",
+        "de": "Angle Selection (0:Principal, 1:Supplementary, 2:Both)",
+        "fr": "Angle Selection (0:Principal, 1:Supplementary, 2:Both)",
+        "es": "Angle Selection (0:Principal, 1:Supplementary, 2:Both)",
+        "ar": "Angle Selection (0:Principal, 1:Supplementary, 2:Both)"
+      }
     }
   ],
   "formulas": {
-    "principalRad": "Math.asin(sineValue)",
-    "principalDeg": "(principalRad * 180 / Math.PI)",
-    "supplementaryRad": "(Math.PI - principalRad)",
-    "supplementaryDeg": "(supplementaryRad * 180 / Math.PI)",
-    "primaryOutput": "(outputUnit === 0 ? (angleSelection === 0 ? parseFloat(principalDeg.toFixed(decimalPlaces)) : (angleSelection === 1 ? parseFloat(supplementaryDeg.toFixed(decimalPlaces)) : (parseFloat(principalDeg.toFixed(decimalPlaces)) + ', ' + parseFloat(supplementaryDeg.toFixed(decimalPlaces))))) : (angleSelection === 0 ? parseFloat(principalRad.toFixed(decimalPlaces)) : (angleSelection === 1 ? parseFloat(supplementaryRad.toFixed(decimalPlaces)) : (parseFloat(principalRad.toFixed(decimalPlaces)) + ', ' + parseFloat(supplementaryRad.toFixed(decimalPlaces))))))",
-    "breakdown1": "`Sine Input: ${sineValue}`",
-    "breakdown2": "`Principal Angle (rad): ${parseFloat(principalRad.toFixed(decimalPlaces))} rad, (deg): ${parseFloat(principalDeg.toFixed(decimalPlaces))}°`",
-    "breakdown3": "`Supplementary Angle (rad): ${parseFloat(supplementaryRad.toFixed(decimalPlaces))} rad, (deg): ${parseFloat(supplementaryDeg.toFixed(decimalPlaces))}°`"
+    "result": "sineValue + outputUnit + decimalPlaces",
+    "result_copy": "sineValue + outputUnit + decimalPlaces"
   },
   "outputs": {
-    "primary": "primaryOutput",
+    "primary": "result",
     "breakdown": [
       "breakdown1",
       "breakdown2",
       "breakdown3"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "primaryOutput"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -60,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

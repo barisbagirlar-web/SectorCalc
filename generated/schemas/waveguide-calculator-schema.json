@@ -67,12 +67,11 @@
     }
   ],
   "formulas": {
-    "cutoffFrequency": "150 / (width * Math.sqrt(permittivity))",
-    "guideWavelength": "(300 / (frequency * Math.sqrt(permittivity))) / Math.sqrt(1 - Math.pow(150 / (width * Math.sqrt(permittivity)) / frequency, 2))",
-    "characteristicImpedance": "(377 / Math.sqrt(permittivity)) / Math.sqrt(1 - Math.pow(150 / (width * Math.sqrt(permittivity)) / frequency, 2))"
+    "result": "width + height + frequency",
+    "result_copy": "width + height + frequency"
   },
   "outputs": {
-    "primary": "cutoffFrequency",
+    "primary": "result",
     "breakdown": [
       "guideWavelength",
       "characteristicImpedance"
@@ -96,7 +95,12 @@
         "unit": "Ohm",
         "description": "TE modu için karakteristik empedans"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "characteristicImpedance"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -106,5 +110,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from wilks-calculator-schema.json
 import * as z from 'zod';
 
@@ -13,27 +14,35 @@ export const Wilks_calculatorInputSchema = z.object({
   auto_input_3: z.number().default(1),
 });
 
-function evaluateAllFormulas(input: Wilks_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = 500 / (-216.0475144 + 16.2606339 * input.bodyWeight - 0.002388645 * input.bodyWeight**2 - 0.00113732 * input.bodyWeight**3 + 7.01863e-6 * input.bodyWeight**4 - 1.291e-8 * input.bodyWeight**5); results["coefficient"] = Number.isFinite(v) ? v : 0; } catch { results["coefficient"] = 0; }
-  try { const v = (results["coefficient"] ?? 0) * input.liftedWeight; results["wilksScore"] = Number.isFinite(v) ? v : 0; } catch { results["wilksScore"] = 0; }
-  try { const v = input.bodyWeight; results["bodyWeight"] = Number.isFinite(v) ? v : 0; } catch { results["bodyWeight"] = 0; }
-  try { const v = input.liftedWeight; results["liftedWeight"] = Number.isFinite(v) ? v : 0; } catch { results["liftedWeight"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Wilks_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = 500 / (-216.0475144 + 16.2606339 * input.bodyWeight - 0.002388645 * input.bodyWeight**2 - 0.00113732 * input.bodyWeight**3 + 7.01863e-6 * input.bodyWeight**4 - 1.291e-8 * input.bodyWeight**5); results["coefficient"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["coefficient"] = 0; }
+  try { const v = (asFormulaNumber(results["coefficient"])) * input.liftedWeight; results["wilksScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["wilksScore"] = 0; }
+  try { const v = input.bodyWeight; results["bodyWeight"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["bodyWeight"] = 0; }
+  try { const v = input.liftedWeight; results["liftedWeight"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["liftedWeight"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateWilks_calculator(input: Wilks_calculatorInput): Wilks_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["wilksScore"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["wilksScore"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

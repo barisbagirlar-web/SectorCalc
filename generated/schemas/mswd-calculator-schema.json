@@ -67,11 +67,9 @@
     }
   ],
   "formulas": {
-    "1": "1",
     "mswd": "sumWeightedSquaredResiduals / (numberOfDataPoints - numberOfParameters)",
     "sumWeightedSquaredResiduals": "sumWeightedSquaredResiduals",
-    "numberOfDataPoints___numberOfParameters": "numberOfDataPoints - numberOfParameters",
-    "Math_sqrt_2____numberOfDataPoints___numb": "Math.sqrt(2 / (numberOfDataPoints - numberOfParameters))"
+    "numberOfDataPoints___numberOfParameters": "numberOfDataPoints - numberOfParameters"
   },
   "outputs": {
     "primary": "mswd",
@@ -80,7 +78,12 @@
       "numberOfDataPoints - numberOfParameters",
       "1",
       "Math.sqrt(2 / (numberOfDataPoints - numberOfParameters))"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "Math_sqrt_2____numberOfDataPoints___numb"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -90,5 +93,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

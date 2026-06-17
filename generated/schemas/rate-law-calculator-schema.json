@@ -67,16 +67,20 @@
     }
   ],
   "formulas": {
-    "rateConstant": "(reactionOrder === 0) ? ((initialConcentration - finalConcentration) / time) : (reactionOrder === 1) ? (Math.log(initialConcentration / finalConcentration) / time) : (reactionOrder === 2) ? ((1/finalConcentration - 1/initialConcentration) / time) : 0",
-    "rateLawExpression": "reactionOrder === 0 ? 'Rate = k' : reactionOrder === 1 ? 'Rate = k[A]' : reactionOrder === 2 ? 'Rate = k[A]²' : 'Rate = k[A]^' + reactionOrder",
-    "halfLife": "(reactionOrder === 0) ? ((initialConcentration * time) / (2 * (initialConcentration - finalConcentration))) : (reactionOrder === 1) ? ((Math.log(2) * time) / Math.log(initialConcentration / finalConcentration)) : (reactionOrder === 2) ? (time / ((initialConcentration / finalConcentration) - 1)) : 0"
+    "result": "initialConcentration + finalConcentration + time",
+    "result_copy": "initialConcentration + finalConcentration + time"
   },
   "outputs": {
-    "primary": "rateConstant",
+    "primary": "result",
     "breakdown": [
       "rateLawExpression",
       "halfLife"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "halfLife"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -86,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "kimya",
   "profession": "Ar-Ge Uzmanı",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

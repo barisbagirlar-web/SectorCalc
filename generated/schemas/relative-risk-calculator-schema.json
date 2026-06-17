@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "count",
       "default": 10,
-      "businessContext": "Number of events (failures, outcomes) in the exposed group."
+      "businessContext": "Number of events (failures, outcomes) in the exposed group.",
+      "label_i18n": {
+        "en": "Exposed Events",
+        "tr": "Exposed Events",
+        "de": "Exposed Events",
+        "fr": "Exposed Events",
+        "es": "Exposed Events",
+        "ar": "Exposed Events"
+      }
     },
     {
       "id": "exposed_total",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "count",
       "default": 100,
-      "businessContext": "Total number of subjects in the exposed group."
+      "businessContext": "Total number of subjects in the exposed group.",
+      "label_i18n": {
+        "en": "Exposed Total",
+        "tr": "Exposed Total",
+        "de": "Exposed Total",
+        "fr": "Exposed Total",
+        "es": "Exposed Total",
+        "ar": "Exposed Total"
+      }
     },
     {
       "id": "control_events",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "count",
       "default": 5,
-      "businessContext": "Number of events in the control (unexposed) group."
+      "businessContext": "Number of events in the control (unexposed) group.",
+      "label_i18n": {
+        "en": "Control Events",
+        "tr": "Control Events",
+        "de": "Control Events",
+        "fr": "Control Events",
+        "es": "Control Events",
+        "ar": "Control Events"
+      }
     },
     {
       "id": "control_total",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "count",
       "default": 100,
-      "businessContext": "Total number of subjects in the control group."
+      "businessContext": "Total number of subjects in the control group.",
+      "label_i18n": {
+        "en": "Control Total",
+        "tr": "Control Total",
+        "de": "Control Total",
+        "fr": "Control Total",
+        "es": "Control Total",
+        "ar": "Control Total"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "risk_exposed",
       "risk_unexposed"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "relative_risk"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -54,5 +91,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

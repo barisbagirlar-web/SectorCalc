@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "persons",
       "default": 100,
-      "businessContext": "Total number of people attending the event."
+      "businessContext": "Total number of people attending the event.",
+      "label_i18n": {
+        "en": "Number of Attendees",
+        "tr": "Number of Attendees",
+        "de": "Number of Attendees",
+        "fr": "Number of Attendees",
+        "es": "Number of Attendees",
+        "ar": "Number of Attendees"
+      }
     },
     {
       "id": "travelDistance",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "km",
       "default": 100,
-      "businessContext": "One-way distance travelled by each attendee (return trip considered automatically)."
+      "businessContext": "One-way distance travelled by each attendee (return trip considered automatically).",
+      "label_i18n": {
+        "en": "Average Travel Distance per Attendee (one-way)",
+        "tr": "Average Travel Distance per Attendee (one-way)",
+        "de": "Average Travel Distance per Attendee (one-way)",
+        "fr": "Average Travel Distance per Attendee (one-way)",
+        "es": "Average Travel Distance per Attendee (one-way)",
+        "ar": "Average Travel Distance per Attendee (one-way)"
+      }
     },
     {
       "id": "travelEmissionFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kgCO2/km",
       "default": 0.2,
-      "businessContext": "CO2 emitted per passenger-km (0.2 for car, 0.04 for train, 0.255 for flight)."
+      "businessContext": "CO2 emitted per passenger-km (0.2 for car, 0.04 for train, 0.255 for flight).",
+      "label_i18n": {
+        "en": "Travel Emission Factor",
+        "tr": "Travel Emission Factor",
+        "de": "Travel Emission Factor",
+        "fr": "Travel Emission Factor",
+        "es": "Travel Emission Factor",
+        "ar": "Travel Emission Factor"
+      }
     },
     {
       "id": "venueEnergy",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kWh",
       "default": 500,
-      "businessContext": "Daily electricity and heating consumption of the event venue."
+      "businessContext": "Daily electricity and heating consumption of the event venue.",
+      "label_i18n": {
+        "en": "Venue Energy Consumption per Day",
+        "tr": "Venue Energy Consumption per Day",
+        "de": "Venue Energy Consumption per Day",
+        "fr": "Venue Energy Consumption per Day",
+        "es": "Venue Energy Consumption per Day",
+        "ar": "Venue Energy Consumption per Day"
+      }
     },
     {
       "id": "eventDays",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "days",
       "default": 1,
-      "businessContext": "Number of days the event takes place."
+      "businessContext": "Number of days the event takes place.",
+      "label_i18n": {
+        "en": "Event Duration",
+        "tr": "Event Duration",
+        "de": "Event Duration",
+        "fr": "Event Duration",
+        "es": "Event Duration",
+        "ar": "Event Duration"
+      }
     },
     {
       "id": "wastePerAttendee",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0.5,
-      "businessContext": "Average waste generated per attendee per day."
+      "businessContext": "Average waste generated per attendee per day.",
+      "label_i18n": {
+        "en": "Waste per Attendee per Day",
+        "tr": "Waste per Attendee per Day",
+        "de": "Waste per Attendee per Day",
+        "fr": "Waste per Attendee per Day",
+        "es": "Waste per Attendee per Day",
+        "ar": "Waste per Attendee per Day"
+      }
     },
     {
       "id": "accommodationNights",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "nights",
       "default": 1,
-      "businessContext": "Number of hotel nights per attendee."
+      "businessContext": "Number of hotel nights per attendee.",
+      "label_i18n": {
+        "en": "Accommodation Nights per Attendee",
+        "tr": "Accommodation Nights per Attendee",
+        "de": "Accommodation Nights per Attendee",
+        "fr": "Accommodation Nights per Attendee",
+        "es": "Accommodation Nights per Attendee",
+        "ar": "Accommodation Nights per Attendee"
+      }
     }
   ],
   "formulas": {
@@ -72,7 +128,12 @@
       "venueCO2",
       "accommodationCO2",
       "wasteCO2"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCO2"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -82,5 +143,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

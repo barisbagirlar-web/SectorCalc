@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 1000,
-      "businessContext": "Initial investment or loan amount."
+      "businessContext": "Initial investment or loan amount.",
+      "label_i18n": {
+        "en": "Principal Amount",
+        "tr": "Principal Amount",
+        "de": "Principal Amount",
+        "fr": "Principal Amount",
+        "es": "Principal Amount",
+        "ar": "Principal Amount"
+      }
     },
     {
       "id": "annualRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Nominal annual interest rate."
+      "businessContext": "Nominal annual interest rate.",
+      "label_i18n": {
+        "en": "Annual Interest Rate",
+        "tr": "Annual Interest Rate",
+        "de": "Annual Interest Rate",
+        "fr": "Annual Interest Rate",
+        "es": "Annual Interest Rate",
+        "ar": "Annual Interest Rate"
+      }
     },
     {
       "id": "timeInDays",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "days",
       "default": 365,
-      "businessContext": "Total number of days the money is invested or borrowed for."
+      "businessContext": "Total number of days the money is invested or borrowed for.",
+      "label_i18n": {
+        "en": "Time Period",
+        "tr": "Time Period",
+        "de": "Time Period",
+        "fr": "Time Period",
+        "es": "Time Period",
+        "ar": "Time Period"
+      }
     },
     {
       "id": "daysInYear",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "days/year",
       "default": 365,
-      "businessContext": "Day count convention: 365 for standard, 360 for some financial markets."
+      "businessContext": "Day count convention: 365 for standard, 360 for some financial markets.",
+      "label_i18n": {
+        "en": "Days in Year",
+        "tr": "Days in Year",
+        "de": "Days in Year",
+        "fr": "Days in Year",
+        "es": "Days in Year",
+        "ar": "Days in Year"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "totalInterest",
       "effectiveAnnualRate"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "effectiveAnnualRate"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -54,5 +91,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

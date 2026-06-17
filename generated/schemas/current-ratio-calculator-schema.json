@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Cash on hand and highly liquid short-term investments"
+      "businessContext": "Cash on hand and highly liquid short-term investments",
+      "label_i18n": {
+        "en": "Cash & Equivalents",
+        "tr": "Cash & Equivalents",
+        "de": "Cash & Equivalents",
+        "fr": "Cash & Equivalents",
+        "es": "Cash & Equivalents",
+        "ar": "Cash & Equivalents"
+      }
     },
     {
       "id": "receivables",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Money owed by customers for goods or services delivered"
+      "businessContext": "Money owed by customers for goods or services delivered",
+      "label_i18n": {
+        "en": "Accounts Receivable",
+        "tr": "Accounts Receivable",
+        "de": "Accounts Receivable",
+        "fr": "Accounts Receivable",
+        "es": "Accounts Receivable",
+        "ar": "Accounts Receivable"
+      }
     },
     {
       "id": "inventory",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Raw materials, work-in-progress, and finished goods held for sale"
+      "businessContext": "Raw materials, work-in-progress, and finished goods held for sale",
+      "label_i18n": {
+        "en": "Inventory",
+        "tr": "Inventory",
+        "de": "Inventory",
+        "fr": "Inventory",
+        "es": "Inventory",
+        "ar": "Inventory"
+      }
     },
     {
       "id": "otherCurrentAssets",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Any other short-term assets not included above, such as prepaid expenses"
+      "businessContext": "Any other short-term assets not included above, such as prepaid expenses",
+      "label_i18n": {
+        "en": "Other Current Assets",
+        "tr": "Other Current Assets",
+        "de": "Other Current Assets",
+        "fr": "Other Current Assets",
+        "es": "Other Current Assets",
+        "ar": "Other Current Assets"
+      }
     },
     {
       "id": "payables",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Money owed to suppliers for goods and services purchased on credit"
+      "businessContext": "Money owed to suppliers for goods and services purchased on credit",
+      "label_i18n": {
+        "en": "Accounts Payable",
+        "tr": "Accounts Payable",
+        "de": "Accounts Payable",
+        "fr": "Accounts Payable",
+        "es": "Accounts Payable",
+        "ar": "Accounts Payable"
+      }
     },
     {
       "id": "shortTermDebt",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Borrowings and current portion of long-term debt due within one year"
+      "businessContext": "Borrowings and current portion of long-term debt due within one year",
+      "label_i18n": {
+        "en": "Short-Term Debt",
+        "tr": "Short-Term Debt",
+        "de": "Short-Term Debt",
+        "fr": "Short-Term Debt",
+        "es": "Short-Term Debt",
+        "ar": "Short-Term Debt"
+      }
     },
     {
       "id": "otherCurrentLiabilities",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Other obligations due within one year, such as accrued expenses, taxes payable"
+      "businessContext": "Other obligations due within one year, such as accrued expenses, taxes payable",
+      "label_i18n": {
+        "en": "Other Current Liabilities",
+        "tr": "Other Current Liabilities",
+        "de": "Other Current Liabilities",
+        "fr": "Other Current Liabilities",
+        "es": "Other Current Liabilities",
+        "ar": "Other Current Liabilities"
+      }
     }
   ],
   "formulas": {
@@ -68,7 +124,12 @@
     "breakdown": [
       "totalCurrentAssets",
       "totalCurrentLiabilities"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "currentRatio"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -78,5 +139,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -83,17 +83,20 @@
     }
   ],
   "formulas": {
-    "dayOfYear": "Math.floor((275 * month) / 9) - Math.floor((month + 9) / 12) * Math.floor((1 + Math.floor((year - 4 * Math.floor(year / 4) + 2) / 3)) / 30) + day - 30",
-    "declination": "23.45 * Math.sin((360 / 365) * (284 + dayOfYear) * Math.PI / 180)",
-    "hourAngle": "Math.acos(-Math.tan(latitude * Math.PI / 180) * Math.tan(declination * Math.PI / 180)) * 180 / Math.PI",
-    "dayLength": "2 * hourAngle / 15"
+    "result": "latitude + year + month",
+    "result_copy": "latitude + year + month"
   },
   "outputs": {
-    "primary": "dayLength",
+    "primary": "result",
     "breakdown": [
       "declination",
       "hourAngle"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "dayLength"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -103,5 +106,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

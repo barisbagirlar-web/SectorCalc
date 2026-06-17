@@ -68,13 +68,18 @@
   ],
   "formulas": {
     "raw_meters": "miles * conversion_factor",
-    "rounded_meters": "rounding_mode === 0 ? Math.round(raw_meters * Math.pow(10, precision)) / Math.pow(10, precision) : rounding_mode === 1 ? Math.floor(raw_meters * Math.pow(10, precision)) / Math.pow(10, precision) : Math.ceil(raw_meters * Math.pow(10, precision)) / Math.pow(10, precision)"
+    "raw_meters_aux": "miles * conversion_factor"
   },
   "outputs": {
-    "primary": "rounded_meters",
+    "primary": "raw_meters_aux",
     "breakdown": [
       "raw_meters"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "rounded_meters"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -84,5 +89,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

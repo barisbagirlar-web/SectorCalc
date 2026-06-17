@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Maternal age at conception"
+      "businessContext": "Maternal age at conception",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "bmi",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg/m²",
       "default": 25,
-      "businessContext": "Pre-pregnancy body mass index"
+      "businessContext": "Pre-pregnancy body mass index",
+      "label_i18n": {
+        "en": "BMI",
+        "tr": "BMI",
+        "de": "BMI",
+        "fr": "BMI",
+        "es": "BMI",
+        "ar": "BMI"
+      }
     },
     {
       "id": "familyHistory",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "First-degree relative with diabetes (1 if yes, 0 if no)"
+      "businessContext": "First-degree relative with diabetes (1 if yes, 0 if no)",
+      "label_i18n": {
+        "en": "Family History of Diabetes",
+        "tr": "Family History of Diabetes",
+        "de": "Family History of Diabetes",
+        "fr": "Family History of Diabetes",
+        "es": "Family History of Diabetes",
+        "ar": "Family History of Diabetes"
+      }
     },
     {
       "id": "previousGdm",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "binary",
       "default": 0,
-      "businessContext": "History of gestational diabetes in prior pregnancy (1 if yes, 0 if no)"
+      "businessContext": "History of gestational diabetes in prior pregnancy (1 if yes, 0 if no)",
+      "label_i18n": {
+        "en": "Previous Gestational Diabetes",
+        "tr": "Previous Gestational Diabetes",
+        "de": "Previous Gestational Diabetes",
+        "fr": "Previous Gestational Diabetes",
+        "es": "Previous Gestational Diabetes",
+        "ar": "Previous Gestational Diabetes"
+      }
     },
     {
       "id": "ethnicity",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "score",
       "default": 1,
-      "businessContext": "High-risk ethnicity score (e.g., South Asian=2, Hispanic=1.5, Caucasian=1, etc.)"
+      "businessContext": "High-risk ethnicity score (e.g., South Asian=2, Hispanic=1.5, Caucasian=1, etc.)",
+      "label_i18n": {
+        "en": "Ethnicity Risk Factor",
+        "tr": "Ethnicity Risk Factor",
+        "de": "Ethnicity Risk Factor",
+        "fr": "Ethnicity Risk Factor",
+        "es": "Ethnicity Risk Factor",
+        "ar": "Ethnicity Risk Factor"
+      }
     },
     {
       "id": "fastingGlucose",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 90,
-      "businessContext": "First trimester fasting glucose level"
+      "businessContext": "First trimester fasting glucose level",
+      "label_i18n": {
+        "en": "Fasting Plasma Glucose",
+        "tr": "Fasting Plasma Glucose",
+        "de": "Fasting Plasma Glucose",
+        "fr": "Fasting Plasma Glucose",
+        "es": "Fasting Plasma Glucose",
+        "ar": "Fasting Plasma Glucose"
+      }
     },
     {
       "id": "hba1c",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 5.2,
-      "businessContext": "Glycated hemoglobin percentage"
+      "businessContext": "Glycated hemoglobin percentage",
+      "label_i18n": {
+        "en": "HbA1c",
+        "tr": "HbA1c",
+        "de": "HbA1c",
+        "fr": "HbA1c",
+        "es": "HbA1c",
+        "ar": "HbA1c"
+      }
     },
     {
       "id": "triglycerides",
@@ -63,20 +119,32 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 130,
-      "businessContext": "Fasting triglyceride level"
+      "businessContext": "Fasting triglyceride level",
+      "label_i18n": {
+        "en": "Triglycerides",
+        "tr": "Triglycerides",
+        "de": "Triglycerides",
+        "fr": "Triglycerides",
+        "es": "Triglycerides",
+        "ar": "Triglycerides"
+      }
     }
   ],
   "formulas": {
     "logitScore": "(age-25)*0.05 + (bmi-22)*0.1 + familyHistory*0.7 + previousGdm*1.2 + ethnicity*0.4 + (fastingGlucose-80)*0.02 + (hba1c-4.5)*0.5 + (triglycerides-100)*0.003",
-    "riskRaw": "1/(1+Math.exp(-logitScore))",
-    "riskPercent": "riskRaw*100"
+    "logitScore_aux": "(age-25)*0.05 + (bmi-22)*0.1 + familyHistory*0.7 + previousGdm*1.2 + ethnicity*0.4 + (fastingGlucose-80)*0.02 + (hba1c-4.5)*0.5 + (triglycerides-100)*0.003"
   },
   "outputs": {
-    "primary": "riskPercent",
+    "primary": "logitScore_aux",
     "breakdown": [
       "logitScore",
       "riskRaw"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "riskPercent"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -86,5 +154,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

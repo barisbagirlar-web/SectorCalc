@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 5,
-      "businessContext": "Measured length of existing beard in millimeters."
+      "businessContext": "Measured length of existing beard in millimeters.",
+      "label_i18n": {
+        "en": "Current Beard Length",
+        "tr": "Current Beard Length",
+        "de": "Current Beard Length",
+        "fr": "Current Beard Length",
+        "es": "Current Beard Length",
+        "ar": "Current Beard Length"
+      }
     },
     {
       "id": "desired_length",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 30,
-      "businessContext": "Target beard length in millimeters."
+      "businessContext": "Target beard length in millimeters.",
+      "label_i18n": {
+        "en": "Desired Beard Length",
+        "tr": "Desired Beard Length",
+        "de": "Desired Beard Length",
+        "fr": "Desired Beard Length",
+        "es": "Desired Beard Length",
+        "ar": "Desired Beard Length"
+      }
     },
     {
       "id": "growth_rate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm/day",
       "default": 0.4,
-      "businessContext": "Average beard growth rate per day. Typical range 0.3-0.5 mm/day."
+      "businessContext": "Average beard growth rate per day. Typical range 0.3-0.5 mm/day.",
+      "label_i18n": {
+        "en": "Average Daily Growth Rate",
+        "tr": "Average Daily Growth Rate",
+        "de": "Average Daily Growth Rate",
+        "fr": "Average Daily Growth Rate",
+        "es": "Average Daily Growth Rate",
+        "ar": "Average Daily Growth Rate"
+      }
     },
     {
       "id": "resting_days",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "days",
       "default": 2,
-      "businessContext": "Number of days per month when beard does not grow (e.g., due to shaving cycles or rest phases)."
+      "businessContext": "Number of days per month when beard does not grow (e.g., due to shaving cycles or rest phases).",
+      "label_i18n": {
+        "en": "Resting Days per Month",
+        "tr": "Resting Days per Month",
+        "de": "Resting Days per Month",
+        "fr": "Resting Days per Month",
+        "es": "Resting Days per Month",
+        "ar": "Resting Days per Month"
+      }
     },
     {
       "id": "genetic_factor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1,
-      "businessContext": "Factor accounting for genetic variations (1.0 = average, >1 faster growth)."
+      "businessContext": "Factor accounting for genetic variations (1.0 = average, >1 faster growth).",
+      "label_i18n": {
+        "en": "Genetic Growth Factor",
+        "tr": "Genetic Growth Factor",
+        "de": "Genetic Growth Factor",
+        "fr": "Genetic Growth Factor",
+        "es": "Genetic Growth Factor",
+        "ar": "Genetic Growth Factor"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
       "monthlyGrowth",
       "monthsRequired",
       "lengthNeeded"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "monthlyGrowth"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -64,5 +109,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

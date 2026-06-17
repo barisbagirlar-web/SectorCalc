@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "hours",
       "default": 1,
-      "businessContext": "Duration of one riding lesson in hours."
+      "businessContext": "Duration of one riding lesson in hours.",
+      "label_i18n": {
+        "en": "Lesson Duration (hours)",
+        "tr": "Lesson Duration (hours)",
+        "de": "Lesson Duration (hours)",
+        "fr": "Lesson Duration (hours)",
+        "es": "Lesson Duration (hours)",
+        "ar": "Lesson Duration (hours)"
+      }
     },
     {
       "id": "hourlyRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 50,
-      "businessContext": "Cost per hour for the riding instructor."
+      "businessContext": "Cost per hour for the riding instructor.",
+      "label_i18n": {
+        "en": "Instructor Hourly Rate",
+        "tr": "Instructor Hourly Rate",
+        "de": "Instructor Hourly Rate",
+        "fr": "Instructor Hourly Rate",
+        "es": "Instructor Hourly Rate",
+        "ar": "Instructor Hourly Rate"
+      }
     },
     {
       "id": "horseMaintenancePerLesson",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 20,
-      "businessContext": "Additional cost for horse care, feed, and tack per lesson."
+      "businessContext": "Additional cost for horse care, feed, and tack per lesson.",
+      "label_i18n": {
+        "en": "Horse Maintenance Cost per Lesson",
+        "tr": "Horse Maintenance Cost per Lesson",
+        "de": "Horse Maintenance Cost per Lesson",
+        "fr": "Horse Maintenance Cost per Lesson",
+        "es": "Horse Maintenance Cost per Lesson",
+        "ar": "Horse Maintenance Cost per Lesson"
+      }
     },
     {
       "id": "equipmentRental",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency",
       "default": 10,
-      "businessContext": "Cost for renting helmet, boots, etc. per lesson."
+      "businessContext": "Cost for renting helmet, boots, etc. per lesson.",
+      "label_i18n": {
+        "en": "Equipment Rental per Lesson",
+        "tr": "Equipment Rental per Lesson",
+        "de": "Equipment Rental per Lesson",
+        "fr": "Equipment Rental per Lesson",
+        "es": "Equipment Rental per Lesson",
+        "ar": "Equipment Rental per Lesson"
+      }
     },
     {
       "id": "insurancePerLesson",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency",
       "default": 5,
-      "businessContext": "Insurance cost allocated per lesson."
+      "businessContext": "Insurance cost allocated per lesson.",
+      "label_i18n": {
+        "en": "Insurance Fee per Lesson",
+        "tr": "Insurance Fee per Lesson",
+        "de": "Insurance Fee per Lesson",
+        "fr": "Insurance Fee per Lesson",
+        "es": "Insurance Fee per Lesson",
+        "ar": "Insurance Fee per Lesson"
+      }
     },
     {
       "id": "travelCost",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "currency",
       "default": 5,
-      "businessContext": "Travel expenses to reach the stable per lesson."
+      "businessContext": "Travel expenses to reach the stable per lesson.",
+      "label_i18n": {
+        "en": "Travel Cost per Lesson",
+        "tr": "Travel Cost per Lesson",
+        "de": "Travel Cost per Lesson",
+        "fr": "Travel Cost per Lesson",
+        "es": "Travel Cost per Lesson",
+        "ar": "Travel Cost per Lesson"
+      }
     },
     {
       "id": "numberOfLessons",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "lessons",
       "default": 4,
-      "businessContext": "Total number of lessons in the package."
+      "businessContext": "Total number of lessons in the package.",
+      "label_i18n": {
+        "en": "Number of Lessons",
+        "tr": "Number of Lessons",
+        "de": "Number of Lessons",
+        "fr": "Number of Lessons",
+        "es": "Number of Lessons",
+        "ar": "Number of Lessons"
+      }
     }
   ],
   "formulas": {
@@ -76,7 +132,12 @@
       "equipmentTotal",
       "insuranceTotal",
       "travelTotal"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "travelTotal"
   },
   "category": "Bakım & Güvenilirlik",
   "sector": "Üretim & İmalat",
@@ -86,5 +147,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

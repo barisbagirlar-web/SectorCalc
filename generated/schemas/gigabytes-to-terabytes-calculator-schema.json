@@ -68,17 +68,20 @@
   ],
   "formulas": {
     "conversionFactor": "useBinary === 1 ? 1024 : 1000",
-    "terabytesExact": "gigabytes / conversionFactor",
-    "terabytesRounded": "Math.round(terabytesExact * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
-    "verificationDelta": "verificationTB !== 0 ? terabytesRounded - verificationTB : null"
+    "terabytesExact": "gigabytes / conversionFactor"
   },
   "outputs": {
-    "primary": "terabytesRounded",
+    "primary": "terabytesExact",
     "breakdown": [
       "terabytesExact",
       "conversionFactor",
       "verificationDelta"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "verificationDelta"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -88,5 +91,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "bilisim",
   "profession": "Veri Uzmanı",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

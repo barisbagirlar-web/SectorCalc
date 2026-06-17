@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "hours",
       "default": 8,
-      "businessContext": "Total scheduled working hours per day"
+      "businessContext": "Total scheduled working hours per day",
+      "label_i18n": {
+        "en": "Total Work Hours",
+        "tr": "Total Work Hours",
+        "de": "Total Work Hours",
+        "fr": "Total Work Hours",
+        "es": "Total Work Hours",
+        "ar": "Total Work Hours"
+      }
     },
     {
       "id": "breakHours",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hours",
       "default": 1,
-      "businessContext": "Total break time (e.g., lunch, coffee breaks)"
+      "businessContext": "Total break time (e.g., lunch, coffee breaks)",
+      "label_i18n": {
+        "en": "Break Time",
+        "tr": "Break Time",
+        "de": "Break Time",
+        "fr": "Break Time",
+        "es": "Break Time",
+        "ar": "Break Time"
+      }
     },
     {
       "id": "meetingHours",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "hours",
       "default": 1.5,
-      "businessContext": "Time spent in scheduled meetings"
+      "businessContext": "Time spent in scheduled meetings",
+      "label_i18n": {
+        "en": "Meeting Time",
+        "tr": "Meeting Time",
+        "de": "Meeting Time",
+        "fr": "Meeting Time",
+        "es": "Meeting Time",
+        "ar": "Meeting Time"
+      }
     },
     {
       "id": "interruptionCount",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "count",
       "default": 10,
-      "businessContext": "Average number of unplanned interruptions per day"
+      "businessContext": "Average number of unplanned interruptions per day",
+      "label_i18n": {
+        "en": "Interruption Count",
+        "tr": "Interruption Count",
+        "de": "Interruption Count",
+        "fr": "Interruption Count",
+        "es": "Interruption Count",
+        "ar": "Interruption Count"
+      }
     },
     {
       "id": "avgInterruptionDuration",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 5,
-      "businessContext": "Average duration of each interruption"
+      "businessContext": "Average duration of each interruption",
+      "label_i18n": {
+        "en": "Avg Interruption Duration",
+        "tr": "Avg Interruption Duration",
+        "de": "Avg Interruption Duration",
+        "fr": "Avg Interruption Duration",
+        "es": "Avg Interruption Duration",
+        "ar": "Avg Interruption Duration"
+      }
     }
   ],
   "formulas": {
@@ -56,7 +96,12 @@
       "meetingOut",
       "interruptionOut",
       "nonFocusOut"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "focusOut"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -66,5 +111,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -139,48 +139,6 @@
       "businessContext_i18n": {
         "en": "Markup applied to parts cost to cover handling and profit."
       }
-    },
-    {
-      "id": "complexity_factor",
-      "label": "Job Complexity Factor",
-      "type": "select",
-      "options": [
-        {
-          "value": 1,
-          "label": "Standard"
-        },
-        {
-          "value": 1.2,
-          "label": "Moderate"
-        },
-        {
-          "value": 1.5,
-          "label": "Complex"
-        }
-      ],
-      "default": 1,
-      "businessContext": "Adjusts labor time for job difficulty (e.g., engine rebuild vs. oil change).",
-      "label_i18n": {
-        "en": "Job Complexity Factor"
-      },
-      "businessContext_i18n": {
-        "en": "Adjusts labor time for job difficulty (e.g., engine rebuild vs. oil change)."
-      },
-      "unit": "unit"
-    },
-    {
-      "id": "warranty_included",
-      "label": "Include Extended Warranty?",
-      "type": "boolean",
-      "default": false,
-      "businessContext": "Adds a fixed warranty fee to the quote.",
-      "label_i18n": {
-        "en": "Include Extended Warranty?"
-      },
-      "businessContext_i18n": {
-        "en": "Adds a fixed warranty fee to the quote."
-      },
-      "unit": "unit"
     }
   ],
   "validation": {
@@ -216,18 +174,18 @@
       }
     ]
   },
-  "formulas": [
-    "parts_cost",
-    "parts_cost",
-    "parts_cost",
-    "parts_cost",
-    "parts_cost",
-    "parts_cost",
-    "parts_cost"
-  ],
+  "formulas": {
+    "result": "parts_cost + labor_hours + labor_rate",
+    "result_copy": "parts_cost + labor_hours + labor_rate"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "auto-repair-parts-labor-quote-calculator",
   "catalogCategory": "everyday-life",

@@ -83,7 +83,6 @@
     }
   ],
   "formulas": {
-    "totalSoundPressureLevel": "10 * Math.log10( Math.pow(10, spl1/10) + Math.pow(10, spl2/10) + Math.pow(10, spl3/10) + Math.pow(10, spl4/10) + Math.pow(10, spl5/10) )",
     "spl1Result": "\"SPL 1: \" + spl1 + \" dB\"",
     "spl2Result": "\"SPL 2: \" + spl2 + \" dB\"",
     "spl3Result": "\"SPL 3: \" + spl3 + \" dB\"",
@@ -91,14 +90,19 @@
     "spl5Result": "\"SPL 5: \" + spl5 + \" dB\""
   },
   "outputs": {
-    "primary": "totalSoundPressureLevel",
+    "primary": "spl5Result",
     "breakdown": [
       "spl1Result",
       "spl2Result",
       "spl3Result",
       "spl4Result",
       "spl5Result"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "spl5Result"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -108,5 +112,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

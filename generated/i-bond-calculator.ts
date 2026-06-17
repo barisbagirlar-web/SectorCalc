@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from i-bond-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,28 +16,33 @@ export const I_bond_calculatorInputSchema = z.object({
   years: z.number().default(5),
 });
 
-function evaluateAllFormulas(input: I_bond_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (input.fixedRate/100) + 2*(input.inflationRate/100) + (input.fixedRate/100)*(input.inflationRate/100); results["compositeRateDecimal"] = Number.isFinite(v) ? v : 0; } catch { results["compositeRateDecimal"] = 0; }
-  try { const v = input.principal * Math.pow(1 + (results["compositeRateDecimal"] ?? 0)/2, 2*input.years); results["finalValue"] = Number.isFinite(v) ? v : 0; } catch { results["finalValue"] = 0; }
-  try { const v = (results["finalValue"] ?? 0) - input.principal; results["totalInterest"] = Number.isFinite(v) ? v : 0; } catch { results["totalInterest"] = 0; }
-  try { const v = (results["compositeRateDecimal"] ?? 0) * 100; results["compositeRatePercent"] = Number.isFinite(v) ? v : 0; } catch { results["compositeRatePercent"] = 0; }
-  try { const v = (Math.pow(1 + (results["compositeRateDecimal"] ?? 0)/2, 2) - 1) * 100; results["effectiveAnnualRate"] = Number.isFinite(v) ? v : 0; } catch { results["effectiveAnnualRate"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: I_bond_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = (input.fixedRate/100) + 2*(input.inflationRate/100) + (input.fixedRate/100)*(input.inflationRate/100); results["compositeRateDecimal"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["compositeRateDecimal"] = 0; }
+  try { const v = (asFormulaNumber(results["compositeRateDecimal"])) * 100; results["compositeRatePercent"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["compositeRatePercent"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateI_bond_calculator(input: I_bond_calculatorInput): I_bond_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["finalValue"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["compositeRatePercent"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

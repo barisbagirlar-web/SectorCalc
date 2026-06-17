@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m³",
       "default": 0,
-      "businessContext": "Yıllık doğal gaz tüketimi (metreküp)"
+      "businessContext": "Yıllık doğal gaz tüketimi (metreküp)",
+      "label_i18n": {
+        "en": "Doğal Gaz Tüketimi",
+        "tr": "Doğal Gaz Tüketimi",
+        "de": "Doğal Gaz Tüketimi",
+        "fr": "Doğal Gaz Tüketimi",
+        "es": "Doğal Gaz Tüketimi",
+        "ar": "Doğal Gaz Tüketimi"
+      }
     },
     {
       "id": "diesel_stationary",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "litre",
       "default": 0,
-      "businessContext": "Sabit ekipmanlarda kullanılan dizel"
+      "businessContext": "Sabit ekipmanlarda kullanılan dizel",
+      "label_i18n": {
+        "en": "Dizel Tüketimi (Sabit)",
+        "tr": "Dizel Tüketimi (Sabit)",
+        "de": "Dizel Tüketimi (Sabit)",
+        "fr": "Dizel Tüketimi (Sabit)",
+        "es": "Dizel Tüketimi (Sabit)",
+        "ar": "Dizel Tüketimi (Sabit)"
+      }
     },
     {
       "id": "gasoline_mobile",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "litre",
       "default": 0,
-      "businessContext": "Araçlarda kullanılan benzin"
+      "businessContext": "Araçlarda kullanılan benzin",
+      "label_i18n": {
+        "en": "Benzin Tüketimi (Mobil)",
+        "tr": "Benzin Tüketimi (Mobil)",
+        "de": "Benzin Tüketimi (Mobil)",
+        "fr": "Benzin Tüketimi (Mobil)",
+        "es": "Benzin Tüketimi (Mobil)",
+        "ar": "Benzin Tüketimi (Mobil)"
+      }
     },
     {
       "id": "diesel_mobile",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "litre",
       "default": 0,
-      "businessContext": "Araçlarda kullanılan dizel"
+      "businessContext": "Araçlarda kullanılan dizel",
+      "label_i18n": {
+        "en": "Dizel Tüketimi (Mobil)",
+        "tr": "Dizel Tüketimi (Mobil)",
+        "de": "Dizel Tüketimi (Mobil)",
+        "fr": "Dizel Tüketimi (Mobil)",
+        "es": "Dizel Tüketimi (Mobil)",
+        "ar": "Dizel Tüketimi (Mobil)"
+      }
     },
     {
       "id": "lpg_volume",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "LPG tüketimi (kg)"
+      "businessContext": "LPG tüketimi (kg)",
+      "label_i18n": {
+        "en": "LPG Tüketimi",
+        "tr": "LPG Tüketimi",
+        "de": "LPG Tüketimi",
+        "fr": "LPG Tüketimi",
+        "es": "LPG Tüketimi",
+        "ar": "LPG Tüketimi"
+      }
     },
     {
       "id": "coal_ton",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "ton",
       "default": 0,
-      "businessContext": "Kömür tüketimi (ton)"
+      "businessContext": "Kömür tüketimi (ton)",
+      "label_i18n": {
+        "en": "Kömür Tüketimi",
+        "tr": "Kömür Tüketimi",
+        "de": "Kömür Tüketimi",
+        "fr": "Kömür Tüketimi",
+        "es": "Kömür Tüketimi",
+        "ar": "Kömür Tüketimi"
+      }
     },
     {
       "id": "refrigerant_leak",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Soğutucu gaz kaçağı (kg, R-410A eşdeğeri)"
+      "businessContext": "Soğutucu gaz kaçağı (kg, R-410A eşdeğeri)",
+      "label_i18n": {
+        "en": "Soğutucu Kaçağı",
+        "tr": "Soğutucu Kaçağı",
+        "de": "Soğutucu Kaçağı",
+        "fr": "Soğutucu Kaçağı",
+        "es": "Soğutucu Kaçağı",
+        "ar": "Soğutucu Kaçağı"
+      }
     },
     {
       "id": "process_emissions",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "tCO₂",
       "default": 0,
-      "businessContext": "Üretim prosesinden kaynaklanan doğrudan emisyonlar (ton CO₂)"
+      "businessContext": "Üretim prosesinden kaynaklanan doğrudan emisyonlar (ton CO₂)",
+      "label_i18n": {
+        "en": "Proses Emisyonları",
+        "tr": "Proses Emisyonları",
+        "de": "Proses Emisyonları",
+        "fr": "Proses Emisyonları",
+        "es": "Proses Emisyonları",
+        "ar": "Proses Emisyonları"
+      }
     }
   ],
   "formulas": {
@@ -88,7 +152,12 @@
       "coal_emissions",
       "refrigerant_emissions",
       "process_emissions_total"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "total"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -98,5 +167,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

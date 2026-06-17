@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "The total bill amount before tip and any additional charges."
+      "businessContext": "The total bill amount before tip and any additional charges.",
+      "label_i18n": {
+        "en": "Bill Amount",
+        "tr": "Bill Amount",
+        "de": "Bill Amount",
+        "fr": "Bill Amount",
+        "es": "Bill Amount",
+        "ar": "Bill Amount"
+      }
     },
     {
       "id": "tipPercentage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "The percentage of the bill to be given as tip."
+      "businessContext": "The percentage of the bill to be given as tip.",
+      "label_i18n": {
+        "en": "Tip Percentage",
+        "tr": "Tip Percentage",
+        "de": "Tip Percentage",
+        "fr": "Tip Percentage",
+        "es": "Tip Percentage",
+        "ar": "Tip Percentage"
+      }
     },
     {
       "id": "numberOfPeople",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "persons",
       "default": 1,
-      "businessContext": "The number of people sharing the bill equally."
+      "businessContext": "The number of people sharing the bill equally.",
+      "label_i18n": {
+        "en": "Number of People",
+        "tr": "Number of People",
+        "de": "Number of People",
+        "fr": "Number of People",
+        "es": "Number of People",
+        "ar": "Number of People"
+      }
     },
     {
       "id": "serviceChargePercent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Additional service charge percentage added to the bill, if any."
+      "businessContext": "Additional service charge percentage added to the bill, if any.",
+      "label_i18n": {
+        "en": "Service Charge Percentage",
+        "tr": "Service Charge Percentage",
+        "de": "Service Charge Percentage",
+        "fr": "Service Charge Percentage",
+        "es": "Service Charge Percentage",
+        "ar": "Service Charge Percentage"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "totalBill",
       "perPersonAmount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "perPersonAmount"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

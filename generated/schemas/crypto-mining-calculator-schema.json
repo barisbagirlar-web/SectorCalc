@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TH/s",
       "default": 100,
-      "businessContext": "The total hash rate of the mining hardware."
+      "businessContext": "The total hash rate of the mining hardware.",
+      "label_i18n": {
+        "en": "Hash Rate",
+        "tr": "Hash Rate",
+        "de": "Hash Rate",
+        "fr": "Hash Rate",
+        "es": "Hash Rate",
+        "ar": "Hash Rate"
+      }
     },
     {
       "id": "powerConsumption",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "W",
       "default": 3000,
-      "businessContext": "Total power consumption of the mining rig."
+      "businessContext": "Total power consumption of the mining rig.",
+      "label_i18n": {
+        "en": "Power Consumption",
+        "tr": "Power Consumption",
+        "de": "Power Consumption",
+        "fr": "Power Consumption",
+        "es": "Power Consumption",
+        "ar": "Power Consumption"
+      }
     },
     {
       "id": "electricityCost",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$/kWh",
       "default": 0.12,
-      "businessContext": "Cost of electricity per kilowatt-hour."
+      "businessContext": "Cost of electricity per kilowatt-hour.",
+      "label_i18n": {
+        "en": "Electricity Cost",
+        "tr": "Electricity Cost",
+        "de": "Electricity Cost",
+        "fr": "Electricity Cost",
+        "es": "Electricity Cost",
+        "ar": "Electricity Cost"
+      }
     },
     {
       "id": "poolFee",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Fee percentage charged by the mining pool."
+      "businessContext": "Fee percentage charged by the mining pool.",
+      "label_i18n": {
+        "en": "Pool Fee",
+        "tr": "Pool Fee",
+        "de": "Pool Fee",
+        "fr": "Pool Fee",
+        "es": "Pool Fee",
+        "ar": "Pool Fee"
+      }
     },
     {
       "id": "dailyRevenuePerTH",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "$/day/TH/s",
       "default": 0.06,
-      "businessContext": "Estimated daily revenue in USD per TH/s of hash rate, based on current network conditions."
+      "businessContext": "Estimated daily revenue in USD per TH/s of hash rate, based on current network conditions.",
+      "label_i18n": {
+        "en": "Daily Revenue per TH/s",
+        "tr": "Daily Revenue per TH/s",
+        "de": "Daily Revenue per TH/s",
+        "fr": "Daily Revenue per TH/s",
+        "es": "Daily Revenue per TH/s",
+        "ar": "Daily Revenue per TH/s"
+      }
     }
   ],
   "formulas": {
@@ -55,7 +95,12 @@
       "dailyGrossRevenue",
       "dailyElectricityCost",
       "dailyPoolFee"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "dailyProfit"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -65,5 +110,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

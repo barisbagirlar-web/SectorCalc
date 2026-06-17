@@ -100,23 +100,22 @@
   ],
   "formulas": {
     "area": "width * height",
-    "sectionModulus": "width * Math.pow(height, 2) / 6",
     "volume": "width * height * length",
     "mass": "width * height * length * density",
     "weight": "width * height * length * density * 9.81",
-    "maxMoment": "(yieldStrength * 1e6) * (width * Math.pow(height, 2) / 6) / safetyFactor",
-    "maxUniformLoad": "8 * ((yieldStrength * 1e6) * (width * Math.pow(height, 2) / 6) / safetyFactor) / Math.pow(length, 2)",
-    "maxTotalLoad": "8 * ((yieldStrength * 1e6) * (width * Math.pow(height, 2) / 6) / safetyFactor) / length",
-    "width___height___length___density___9_81": "width * height * length * density * 9.81",
-    "_yieldStrength___1e6_____width___Math_po": "(yieldStrength * 1e6) * (width * Math.pow(height, 2) / 6) / safetyFactor",
-    "result": "8 * ((yieldStrength * 1e6) * (width * Math.pow(height, 2) / 6) / safetyFactor) / length"
+    "width___height___length___density___9_81": "width * height * length * density * 9.81"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "width___height___length___density___9_81",
     "breakdown": [
       "width * height * length * density * 9.81",
       "(yieldStrength * 1e6) * (width * Math.pow(height, 2) / 6) / safetyFactor"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -126,5 +125,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

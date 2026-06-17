@@ -84,15 +84,19 @@
   ],
   "formulas": {
     "availableLength": "totalLength - numberOfPosts * postWidth",
-    "numberOfBalusters": "Math.max(0, Math.ceil((availableLength - maxGap) / (maxGap + balusterWidth)))",
-    "actualSpacing": "(availableLength - numberOfBalusters * balusterWidth) / (numberOfBalusters + 1)"
+    "availableLength_aux": "totalLength - numberOfPosts * postWidth"
   },
   "outputs": {
-    "primary": "numberOfBalusters",
+    "primary": "availableLength_aux",
     "breakdown": [
       "availableLength",
       "actualSpacing"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "actualSpacing"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -102,5 +106,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

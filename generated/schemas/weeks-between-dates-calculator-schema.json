@@ -99,16 +99,20 @@
     }
   ],
   "formulas": {
-    "daysBetween": "(new Date(endYear, endMonth - 1, endDay) - new Date(startYear, startMonth - 1, startDay)) / (1000 * 60 * 60 * 24)",
-    "weeksBetween": "daysBetween / 7",
-    "remainingDays": "daysBetween % 7"
+    "result": "startDay + startMonth + startYear",
+    "result_copy": "startDay + startMonth + startYear"
   },
   "outputs": {
-    "primary": "weeksBetween",
+    "primary": "result",
     "breakdown": [
       "daysBetween",
       "remainingDays"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "weeksBetween"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -118,5 +122,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

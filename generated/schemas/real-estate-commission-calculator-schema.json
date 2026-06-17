@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "€",
       "default": 300000,
-      "businessContext": "The final agreed sale price of the property."
+      "businessContext": "The final agreed sale price of the property.",
+      "label_i18n": {
+        "en": "Sale Price",
+        "tr": "Sale Price",
+        "de": "Sale Price",
+        "fr": "Sale Price",
+        "es": "Sale Price",
+        "ar": "Sale Price"
+      }
     },
     {
       "id": "totalCommissionRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "The combined commission percentage for both buyer and seller agents."
+      "businessContext": "The combined commission percentage for both buyer and seller agents.",
+      "label_i18n": {
+        "en": "Total Commission Rate",
+        "tr": "Total Commission Rate",
+        "de": "Total Commission Rate",
+        "fr": "Total Commission Rate",
+        "es": "Total Commission Rate",
+        "ar": "Total Commission Rate"
+      }
     },
     {
       "id": "buyerAgentSplit",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "The percentage of the total commission that goes to the buyer's agent."
+      "businessContext": "The percentage of the total commission that goes to the buyer's agent.",
+      "label_i18n": {
+        "en": "Buyer Agent Split",
+        "tr": "Buyer Agent Split",
+        "de": "Buyer Agent Split",
+        "fr": "Buyer Agent Split",
+        "es": "Buyer Agent Split",
+        "ar": "Buyer Agent Split"
+      }
     },
     {
       "id": "additionalFlatFee",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "€",
       "default": 0,
-      "businessContext": "Any additional fixed fees (e.g., administrative charges) beyond the commission."
+      "businessContext": "Any additional fixed fees (e.g., administrative charges) beyond the commission.",
+      "label_i18n": {
+        "en": "Additional Flat Fee",
+        "tr": "Additional Flat Fee",
+        "de": "Additional Flat Fee",
+        "fr": "Additional Flat Fee",
+        "es": "Additional Flat Fee",
+        "ar": "Additional Flat Fee"
+      }
     },
     {
       "id": "vatRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "The Value Added Tax rate applied to the commission, if applicable."
+      "businessContext": "The Value Added Tax rate applied to the commission, if applicable.",
+      "label_i18n": {
+        "en": "VAT Rate",
+        "tr": "VAT Rate",
+        "de": "VAT Rate",
+        "fr": "VAT Rate",
+        "es": "VAT Rate",
+        "ar": "VAT Rate"
+      }
     },
     {
       "id": "isVatApplicable",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "(0/1)",
       "default": 1,
-      "businessContext": "Indicates whether VAT is applied (1 = yes, 0 = no)."
+      "businessContext": "Indicates whether VAT is applied (1 = yes, 0 = no).",
+      "label_i18n": {
+        "en": "VAT Applicable",
+        "tr": "VAT Applicable",
+        "de": "VAT Applicable",
+        "fr": "VAT Applicable",
+        "es": "VAT Applicable",
+        "ar": "VAT Applicable"
+      }
     }
   ],
   "formulas": {
@@ -67,7 +115,12 @@
       "vatAmount",
       "additionalFlatFee",
       "totalCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "netProceeds"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -77,5 +130,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

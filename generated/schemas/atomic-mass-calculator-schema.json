@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 6,
-      "businessContext": "Atomdaki proton sayısı (atom numarası)"
+      "businessContext": "Atomdaki proton sayısı (atom numarası)",
+      "label_i18n": {
+        "en": "Proton Sayısı",
+        "tr": "Proton Sayısı",
+        "de": "Proton Sayısı",
+        "fr": "Proton Sayısı",
+        "es": "Proton Sayısı",
+        "ar": "Proton Sayısı"
+      }
     },
     {
       "id": "neutronCount",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet",
       "default": 6,
-      "businessContext": "Atomdaki nötron sayısı"
+      "businessContext": "Atomdaki nötron sayısı",
+      "label_i18n": {
+        "en": "Nötron Sayısı",
+        "tr": "Nötron Sayısı",
+        "de": "Nötron Sayısı",
+        "fr": "Nötron Sayısı",
+        "es": "Nötron Sayısı",
+        "ar": "Nötron Sayısı"
+      }
     },
     {
       "id": "electronCount",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "adet",
       "default": 6,
-      "businessContext": "Atomdaki elektron sayısı (nötr atomda proton sayısına eşit)"
+      "businessContext": "Atomdaki elektron sayısı (nötr atomda proton sayısına eşit)",
+      "label_i18n": {
+        "en": "Elektron Sayısı",
+        "tr": "Elektron Sayısı",
+        "de": "Elektron Sayısı",
+        "fr": "Elektron Sayısı",
+        "es": "Elektron Sayısı",
+        "ar": "Elektron Sayısı"
+      }
     },
     {
       "id": "protonMass",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "u",
       "default": 1.007276,
-      "businessContext": "Bir protonun atomik kütle birimi cinsinden kütlesi"
+      "businessContext": "Bir protonun atomik kütle birimi cinsinden kütlesi",
+      "label_i18n": {
+        "en": "Proton Kütlesi",
+        "tr": "Proton Kütlesi",
+        "de": "Proton Kütlesi",
+        "fr": "Proton Kütlesi",
+        "es": "Proton Kütlesi",
+        "ar": "Proton Kütlesi"
+      }
     },
     {
       "id": "neutronMass",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "u",
       "default": 1.008665,
-      "businessContext": "Bir nötronun atomik kütle birimi cinsinden kütlesi"
+      "businessContext": "Bir nötronun atomik kütle birimi cinsinden kütlesi",
+      "label_i18n": {
+        "en": "Nötron Kütlesi",
+        "tr": "Nötron Kütlesi",
+        "de": "Nötron Kütlesi",
+        "fr": "Nötron Kütlesi",
+        "es": "Nötron Kütlesi",
+        "ar": "Nötron Kütlesi"
+      }
     },
     {
       "id": "electronMass",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "u",
       "default": 0.00054858,
-      "businessContext": "Bir elektronun atomik kütle birimi cinsinden kütlesi"
+      "businessContext": "Bir elektronun atomik kütle birimi cinsinden kütlesi",
+      "label_i18n": {
+        "en": "Elektron Kütlesi",
+        "tr": "Elektron Kütlesi",
+        "de": "Elektron Kütlesi",
+        "fr": "Elektron Kütlesi",
+        "es": "Elektron Kütlesi",
+        "ar": "Elektron Kütlesi"
+      }
     },
     {
       "id": "bindingEnergy",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "MeV",
       "default": 0,
-      "businessContext": "Çekirdeğin bağlanma enerjisi (isteğe bağlı, varsa kütle düzeltmesi için)"
+      "businessContext": "Çekirdeğin bağlanma enerjisi (isteğe bağlı, varsa kütle düzeltmesi için)",
+      "label_i18n": {
+        "en": "Bağlanma Enerjisi",
+        "tr": "Bağlanma Enerjisi",
+        "de": "Bağlanma Enerjisi",
+        "fr": "Bağlanma Enerjisi",
+        "es": "Bağlanma Enerjisi",
+        "ar": "Bağlanma Enerjisi"
+      }
     }
   ],
   "formulas": {
@@ -68,7 +124,12 @@
     "breakdown": [
       "massNumber",
       "massDefect"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "massDefect"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -78,5 +139,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

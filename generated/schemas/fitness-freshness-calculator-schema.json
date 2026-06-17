@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "yrs",
       "default": 5,
-      "businessContext": "Age of the machine in years"
+      "businessContext": "Age of the machine in years",
+      "label_i18n": {
+        "en": "Machine Age",
+        "tr": "Machine Age",
+        "de": "Machine Age",
+        "fr": "Machine Age",
+        "es": "Machine Age",
+        "ar": "Machine Age"
+      }
     },
     {
       "id": "maintenanceFrequency",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "per year",
       "default": 12,
-      "businessContext": "Number of maintenance visits per year"
+      "businessContext": "Number of maintenance visits per year",
+      "label_i18n": {
+        "en": "Maintenance Frequency",
+        "tr": "Maintenance Frequency",
+        "de": "Maintenance Frequency",
+        "fr": "Maintenance Frequency",
+        "es": "Maintenance Frequency",
+        "ar": "Maintenance Frequency"
+      }
     },
     {
       "id": "productShelfLife",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "days",
       "default": 30,
-      "businessContext": "Total shelf life of the product in days"
+      "businessContext": "Total shelf life of the product in days",
+      "label_i18n": {
+        "en": "Product Shelf Life",
+        "tr": "Product Shelf Life",
+        "de": "Product Shelf Life",
+        "fr": "Product Shelf Life",
+        "es": "Product Shelf Life",
+        "ar": "Product Shelf Life"
+      }
     },
     {
       "id": "productAge",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "days",
       "default": 10,
-      "businessContext": "Current age of the product since production"
+      "businessContext": "Current age of the product since production",
+      "label_i18n": {
+        "en": "Product Current Age",
+        "tr": "Product Current Age",
+        "de": "Product Current Age",
+        "fr": "Product Current Age",
+        "es": "Product Current Age",
+        "ar": "Product Current Age"
+      }
     }
   ],
   "formulas": {
-    "machineFitness": "Math.max(0, Math.min(100, 100 - machineAge * 5 + maintenanceFrequency * 2))",
-    "productFreshness": "Math.max(0, Math.min(100, (1 - productAge / productShelfLife) * 100))",
-    "overallFitnessFreshness": "(machineFitness + productFreshness) / 2"
+    "result": "machineAge + maintenanceFrequency + productShelfLife",
+    "result_copy": "machineAge + maintenanceFrequency + productShelfLife"
   },
   "outputs": {
-    "primary": "overallFitnessFreshness",
+    "primary": "result",
     "breakdown": [
       "machineFitness",
       "productFreshness"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "overallFitnessFreshness"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -54,5 +90,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

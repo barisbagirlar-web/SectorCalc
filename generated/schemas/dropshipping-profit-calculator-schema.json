@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 50,
-      "businessContext": "The price at which the product is sold to customers"
+      "businessContext": "The price at which the product is sold to customers",
+      "label_i18n": {
+        "en": "Selling Price per Unit",
+        "tr": "Selling Price per Unit",
+        "de": "Selling Price per Unit",
+        "fr": "Selling Price per Unit",
+        "es": "Selling Price per Unit",
+        "ar": "Selling Price per Unit"
+      }
     },
     {
       "id": "costPrice",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 30,
-      "businessContext": "The price paid to the supplier per unit"
+      "businessContext": "The price paid to the supplier per unit",
+      "label_i18n": {
+        "en": "Cost Price per Unit",
+        "tr": "Cost Price per Unit",
+        "de": "Cost Price per Unit",
+        "fr": "Cost Price per Unit",
+        "es": "Cost Price per Unit",
+        "ar": "Cost Price per Unit"
+      }
     },
     {
       "id": "shippingCost",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 5,
-      "businessContext": "The shipping cost incurred per unit delivered"
+      "businessContext": "The shipping cost incurred per unit delivered",
+      "label_i18n": {
+        "en": "Shipping Cost per Unit",
+        "tr": "Shipping Cost per Unit",
+        "de": "Shipping Cost per Unit",
+        "fr": "Shipping Cost per Unit",
+        "es": "Shipping Cost per Unit",
+        "ar": "Shipping Cost per Unit"
+      }
     },
     {
       "id": "orderVolume",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "orders/month",
       "default": 100,
-      "businessContext": "Number of orders processed per month"
+      "businessContext": "Number of orders processed per month",
+      "label_i18n": {
+        "en": "Monthly Order Volume",
+        "tr": "Monthly Order Volume",
+        "de": "Monthly Order Volume",
+        "fr": "Monthly Order Volume",
+        "es": "Monthly Order Volume",
+        "ar": "Monthly Order Volume"
+      }
     },
     {
       "id": "fixedCosts",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency/month",
       "default": 200,
-      "businessContext": "Fixed operational costs per month (e.g., store subscriptions, marketing)"
+      "businessContext": "Fixed operational costs per month (e.g., store subscriptions, marketing)",
+      "label_i18n": {
+        "en": "Monthly Fixed Costs",
+        "tr": "Monthly Fixed Costs",
+        "de": "Monthly Fixed Costs",
+        "fr": "Monthly Fixed Costs",
+        "es": "Monthly Fixed Costs",
+        "ar": "Monthly Fixed Costs"
+      }
     },
     {
       "id": "feePercentage",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 3,
-      "businessContext": "Transaction fee as a percentage of the selling price"
+      "businessContext": "Transaction fee as a percentage of the selling price",
+      "label_i18n": {
+        "en": "Payment Gateway Fee",
+        "tr": "Payment Gateway Fee",
+        "de": "Payment Gateway Fee",
+        "fr": "Payment Gateway Fee",
+        "es": "Payment Gateway Fee",
+        "ar": "Payment Gateway Fee"
+      }
     }
   ],
   "formulas": {
@@ -64,7 +112,12 @@
       "grossProfit",
       "totalFees",
       "netProfitMargin"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "netProfitMargin"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -74,5 +127,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

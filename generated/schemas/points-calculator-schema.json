@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 100,
-      "businessContext": "The total amount spent in the transaction."
+      "businessContext": "The total amount spent in the transaction.",
+      "label_i18n": {
+        "en": "Purchase Amount",
+        "tr": "Purchase Amount",
+        "de": "Purchase Amount",
+        "fr": "Purchase Amount",
+        "es": "Purchase Amount",
+        "ar": "Purchase Amount"
+      }
     },
     {
       "id": "basePointsRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "points/currency",
       "default": 1,
-      "businessContext": "Points earned per unit of currency spent before multipliers."
+      "businessContext": "Points earned per unit of currency spent before multipliers.",
+      "label_i18n": {
+        "en": "Base Points Rate",
+        "tr": "Base Points Rate",
+        "de": "Base Points Rate",
+        "fr": "Base Points Rate",
+        "es": "Base Points Rate",
+        "ar": "Base Points Rate"
+      }
     },
     {
       "id": "tierMultiplier",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1,
-      "businessContext": "Multiplier based on customer loyalty tier (e.g., 1 for base, 1.5 for silver, 2 for gold)."
+      "businessContext": "Multiplier based on customer loyalty tier (e.g., 1 for base, 1.5 for silver, 2 for gold).",
+      "label_i18n": {
+        "en": "Tier Multiplier",
+        "tr": "Tier Multiplier",
+        "de": "Tier Multiplier",
+        "fr": "Tier Multiplier",
+        "es": "Tier Multiplier",
+        "ar": "Tier Multiplier"
+      }
     },
     {
       "id": "bonusPoints",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Additional flat bonus points from promotions or campaigns."
+      "businessContext": "Additional flat bonus points from promotions or campaigns.",
+      "label_i18n": {
+        "en": "Bonus Points",
+        "tr": "Bonus Points",
+        "de": "Bonus Points",
+        "fr": "Bonus Points",
+        "es": "Bonus Points",
+        "ar": "Bonus Points"
+      }
     },
     {
       "id": "capPoints",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "points",
       "default": 1000,
-      "businessContext": "Maximum points that can be earned in this transaction; 0 for no cap."
+      "businessContext": "Maximum points that can be earned in this transaction; 0 for no cap.",
+      "label_i18n": {
+        "en": "Points Cap",
+        "tr": "Points Cap",
+        "de": "Points Cap",
+        "fr": "Points Cap",
+        "es": "Points Cap",
+        "ar": "Points Cap"
+      }
     },
     {
       "id": "pointsConversionRate",
@@ -47,21 +87,32 @@
       "type": "number",
       "unit": "currency/point",
       "default": 0.01,
-      "businessContext": "Value of one point when redeemed (e.g., 0.01 means 1 point = 0.01 currency)."
+      "businessContext": "Value of one point when redeemed (e.g., 0.01 means 1 point = 0.01 currency).",
+      "label_i18n": {
+        "en": "Points to Currency Conversion",
+        "tr": "Points to Currency Conversion",
+        "de": "Points to Currency Conversion",
+        "fr": "Points to Currency Conversion",
+        "es": "Points to Currency Conversion",
+        "ar": "Points to Currency Conversion"
+      }
     }
   ],
   "formulas": {
     "basePointsEarned": "purchaseAmount * basePointsRate",
-    "totalBeforeCap": "basePointsEarned * tierMultiplier + bonusPoints",
-    "totalPoints": "capPoints > 0 ? Math.min(totalBeforeCap, capPoints) : totalBeforeCap",
-    "monetaryValue": "totalPoints * pointsConversionRate"
+    "totalBeforeCap": "basePointsEarned * tierMultiplier + bonusPoints"
   },
   "outputs": {
-    "primary": "totalPoints",
+    "primary": "totalBeforeCap",
     "breakdown": [
       "basePointsEarned",
       "monetaryValue"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "monetaryValue"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -71,5 +122,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "madencilik",
   "profession": "Maden Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

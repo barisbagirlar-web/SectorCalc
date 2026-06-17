@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m³/s",
       "default": 0.1,
-      "businessContext": "Inlet volumetric flow rate of the reactant stream."
+      "businessContext": "Inlet volumetric flow rate of the reactant stream.",
+      "label_i18n": {
+        "en": "Volumetric Flow Rate",
+        "tr": "Volumetric Flow Rate",
+        "de": "Volumetric Flow Rate",
+        "fr": "Volumetric Flow Rate",
+        "es": "Volumetric Flow Rate",
+        "ar": "Volumetric Flow Rate"
+      }
     },
     {
       "id": "inletConcentration",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mol/m³",
       "default": 100,
-      "businessContext": "Concentration of reactant A at reactor inlet."
+      "businessContext": "Concentration of reactant A at reactor inlet.",
+      "label_i18n": {
+        "en": "Inlet Concentration",
+        "tr": "Inlet Concentration",
+        "de": "Inlet Concentration",
+        "fr": "Inlet Concentration",
+        "es": "Inlet Concentration",
+        "ar": "Inlet Concentration"
+      }
     },
     {
       "id": "conversion",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "fraction (0-1)",
       "default": 0.9,
-      "businessContext": "Fraction of reactant A to be converted to products."
+      "businessContext": "Fraction of reactant A to be converted to products.",
+      "label_i18n": {
+        "en": "Desired Conversion",
+        "tr": "Desired Conversion",
+        "de": "Desired Conversion",
+        "fr": "Desired Conversion",
+        "es": "Desired Conversion",
+        "ar": "Desired Conversion"
+      }
     },
     {
       "id": "rateConstant",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "variable",
       "default": 0.5,
-      "businessContext": "Reaction rate constant. For first-order, units are s⁻¹; for second-order, m³/(mol·s)."
+      "businessContext": "Reaction rate constant. For first-order, units are s⁻¹; for second-order, m³/(mol·s).",
+      "label_i18n": {
+        "en": "Rate Constant",
+        "tr": "Rate Constant",
+        "de": "Rate Constant",
+        "fr": "Rate Constant",
+        "es": "Rate Constant",
+        "ar": "Rate Constant"
+      }
     },
     {
       "id": "reactionOrder",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "Order of reaction with respect to reactant A."
+      "businessContext": "Order of reaction with respect to reactant A.",
+      "label_i18n": {
+        "en": "Reaction Order",
+        "tr": "Reaction Order",
+        "de": "Reaction Order",
+        "fr": "Reaction Order",
+        "es": "Reaction Order",
+        "ar": "Reaction Order"
+      }
     },
     {
       "id": "safetyFactor",
@@ -47,16 +87,23 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1.2,
-      "businessContext": "Safety factor to account for uncertainties in kinetics and operation."
+      "businessContext": "Safety factor to account for uncertainties in kinetics and operation.",
+      "label_i18n": {
+        "en": "Safety Factor",
+        "tr": "Safety Factor",
+        "de": "Safety Factor",
+        "fr": "Safety Factor",
+        "es": "Safety Factor",
+        "ar": "Safety Factor"
+      }
     }
   ],
   "formulas": {
-    "reactorVolume": "volumetricFlowRate * conversion / (rateConstant * Math.pow(inletConcentration, reactionOrder - 1) * Math.pow(1 - conversion, reactionOrder)) * safetyFactor",
-    "residenceTime": "reactorVolume / volumetricFlowRate",
-    "outletConcentration": "inletConcentration * (1 - conversion)"
+    "outletConcentration": "inletConcentration * (1 - conversion)",
+    "outletConcentration_aux": "inletConcentration * (1 - conversion)"
   },
   "outputs": {
-    "primary": "reactorVolume",
+    "primary": "outletConcentration_aux",
     "breakdown": [
       {
         "label": "Residence Time",
@@ -68,7 +115,12 @@
         "value": "${outletConcentration}",
         "unit": "mol/m³"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "outletConcentration"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -78,5 +130,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "kimya",
   "profession": "Proses Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

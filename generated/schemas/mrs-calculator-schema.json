@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1000,
-      "businessContext": "Üretim için toplam sipariş miktarı"
+      "businessContext": "Üretim için toplam sipariş miktarı",
+      "label_i18n": {
+        "en": "Sipariş Miktarı",
+        "tr": "Sipariş Miktarı",
+        "de": "Sipariş Miktarı",
+        "fr": "Sipariş Miktarı",
+        "es": "Sipariş Miktarı",
+        "ar": "Sipariş Miktarı"
+      }
     },
     {
       "id": "unitWeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg/adet",
       "default": 2.5,
-      "businessContext": "Her bir ürünün ağırlığı"
+      "businessContext": "Her bir ürünün ağırlığı",
+      "label_i18n": {
+        "en": "Birim Ağırlık",
+        "tr": "Birim Ağırlık",
+        "de": "Birim Ağırlık",
+        "fr": "Birim Ağırlık",
+        "es": "Birim Ağırlık",
+        "ar": "Birim Ağırlık"
+      }
     },
     {
       "id": "scrapRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Üretim sürecinde beklenen fire yüzdesi"
+      "businessContext": "Üretim sürecinde beklenen fire yüzdesi",
+      "label_i18n": {
+        "en": "Fire Oranı",
+        "tr": "Fire Oranı",
+        "de": "Fire Oranı",
+        "fr": "Fire Oranı",
+        "es": "Fire Oranı",
+        "ar": "Fire Oranı"
+      }
     },
     {
       "id": "machineEfficiency",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 95,
-      "businessContext": "Makinelerin ortalama verimliliği"
+      "businessContext": "Makinelerin ortalama verimliliği",
+      "label_i18n": {
+        "en": "Makine Verimi",
+        "tr": "Makine Verimi",
+        "de": "Makine Verimi",
+        "fr": "Makine Verimi",
+        "es": "Makine Verimi",
+        "ar": "Makine Verimi"
+      }
     },
     {
       "id": "materialCostPerKg",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "TL/kg",
       "default": 12.5,
-      "businessContext": "Kg başına hammadde maliyeti"
+      "businessContext": "Kg başına hammadde maliyeti",
+      "label_i18n": {
+        "en": "Hammadde Maliyeti",
+        "tr": "Hammadde Maliyeti",
+        "de": "Hammadde Maliyeti",
+        "fr": "Hammadde Maliyeti",
+        "es": "Hammadde Maliyeti",
+        "ar": "Hammadde Maliyeti"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "totalMaterialWeight",
       "effectiveMaterialWeight"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "İmalat & Üretim",
   "sector": "Üretim & İmalat",
@@ -62,5 +107,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

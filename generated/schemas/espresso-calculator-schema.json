@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 18,
-      "businessContext": "Bir shot espresso için kullanılan kahve miktarı (gram)"
+      "businessContext": "Bir shot espresso için kullanılan kahve miktarı (gram)",
+      "label_i18n": {
+        "en": "Shot Başına Kahve Dozu",
+        "tr": "Shot Başına Kahve Dozu",
+        "de": "Shot Başına Kahve Dozu",
+        "fr": "Shot Başına Kahve Dozu",
+        "es": "Shot Başına Kahve Dozu",
+        "ar": "Shot Başına Kahve Dozu"
+      }
     },
     {
       "id": "coffeeBagPrice",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 10,
-      "businessContext": "Bir paket kahvenin toplam maliyeti"
+      "businessContext": "Bir paket kahvenin toplam maliyeti",
+      "label_i18n": {
+        "en": "Kahve Paketi Fiyatı",
+        "tr": "Kahve Paketi Fiyatı",
+        "de": "Kahve Paketi Fiyatı",
+        "fr": "Kahve Paketi Fiyatı",
+        "es": "Kahve Paketi Fiyatı",
+        "ar": "Kahve Paketi Fiyatı"
+      }
     },
     {
       "id": "bagWeight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "g",
       "default": 1000,
-      "businessContext": "Kahve paketinin net ağırlığı"
+      "businessContext": "Kahve paketinin net ağırlığı",
+      "label_i18n": {
+        "en": "Paket Ağırlığı",
+        "tr": "Paket Ağırlığı",
+        "de": "Paket Ağırlığı",
+        "fr": "Paket Ağırlığı",
+        "es": "Paket Ağırlığı",
+        "ar": "Paket Ağırlığı"
+      }
     },
     {
       "id": "wastePercentage",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Öğütme ve hazırlık sırasında oluşan kahve kaybı yüzdesi"
+      "businessContext": "Öğütme ve hazırlık sırasında oluşan kahve kaybı yüzdesi",
+      "label_i18n": {
+        "en": "Fire Oranı",
+        "tr": "Fire Oranı",
+        "de": "Fire Oranı",
+        "fr": "Fire Oranı",
+        "es": "Fire Oranı",
+        "ar": "Fire Oranı"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "shotsPerBag",
       "costPerGram",
       "totalUsableCoffee"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "costPerShot"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -56,5 +93,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

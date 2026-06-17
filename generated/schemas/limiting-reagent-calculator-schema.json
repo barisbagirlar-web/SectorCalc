@@ -134,17 +134,20 @@
     "moles1": "reactant1Mass / reactant1MolarMass",
     "moles2": "reactant2Mass / reactant2MolarMass",
     "ratio1": "moles1 / reactant1Coefficient",
-    "ratio2": "moles2 / reactant2Coefficient",
-    "limitingReagent": "ratio1 <= ratio2 ? 'Reactant 1' : 'Reactant 2'",
-    "theoreticalYield": "Math.min(ratio1, ratio2) * productCoefficient * productMolarMass"
+    "ratio2": "moles2 / reactant2Coefficient"
   },
   "outputs": {
-    "primary": "limitingReagent",
+    "primary": "ratio2",
     "breakdown": [
       "moles1",
       "moles2",
       "theoreticalYield"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "theoreticalYield"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -154,5 +157,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

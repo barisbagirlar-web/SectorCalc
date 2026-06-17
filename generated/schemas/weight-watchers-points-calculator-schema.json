@@ -68,21 +68,25 @@
   ],
   "formulas": {
     "rawPoints": "calories * 0.0305 + saturatedFat * 0.275 + sugar * 0.12 - protein * 0.098",
-    "points": "Math.round(Math.max(0, rawPoints))",
     "caloriesContrib": "calories * 0.0305",
     "saturatedFatContrib": "saturatedFat * 0.275",
     "sugarContrib": "sugar * 0.12",
     "proteinContrib": "protein * 0.098"
   },
   "outputs": {
-    "primary": "points",
+    "primary": "proteinContrib",
     "breakdown": [
       "rawPoints",
       "caloriesContrib",
       "saturatedFatContrib",
       "sugarContrib",
       "proteinContrib"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "proteinContrib"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -92,5 +96,10 @@
   "sectorSlug": "daily-renovation",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

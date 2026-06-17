@@ -68,15 +68,19 @@
   ],
   "formulas": {
     "speed_mps": "speed_ms * factor_m_to_mi",
-    "speed_mph_unrounded": "speed_ms * factor_m_to_mi * factor_s_to_h",
-    "speed_mph_rounded": "Math.round(speed_ms * factor_m_to_mi * factor_s_to_h * Math.pow(10, decimal_places)) / Math.pow(10, decimal_places)"
+    "speed_mph_unrounded": "speed_ms * factor_m_to_mi * factor_s_to_h"
   },
   "outputs": {
-    "primary": "speed_mph_rounded",
+    "primary": "speed_mph_unrounded",
     "breakdown": [
       "speed_mps",
       "speed_mph_unrounded"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "speed_mph_rounded"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -86,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

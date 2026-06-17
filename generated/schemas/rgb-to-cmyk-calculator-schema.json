@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "value",
       "default": 0,
-      "businessContext": "Red color component (0-255)"
+      "businessContext": "Red color component (0-255)",
+      "label_i18n": {
+        "en": "Red (R)",
+        "tr": "Red (R)",
+        "de": "Red (R)",
+        "fr": "Red (R)",
+        "es": "Red (R)",
+        "ar": "Red (R)"
+      }
     },
     {
       "id": "green",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "value",
       "default": 0,
-      "businessContext": "Green color component (0-255)"
+      "businessContext": "Green color component (0-255)",
+      "label_i18n": {
+        "en": "Green (G)",
+        "tr": "Green (G)",
+        "de": "Green (G)",
+        "fr": "Green (G)",
+        "es": "Green (G)",
+        "ar": "Green (G)"
+      }
     },
     {
       "id": "blue",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "value",
       "default": 0,
-      "businessContext": "Blue color component (0-255)"
+      "businessContext": "Blue color component (0-255)",
+      "label_i18n": {
+        "en": "Blue (B)",
+        "tr": "Blue (B)",
+        "de": "Blue (B)",
+        "fr": "Blue (B)",
+        "es": "Blue (B)",
+        "ar": "Blue (B)"
+      }
     },
     {
       "id": "maxValue",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "value",
       "default": 255,
-      "businessContext": "Maximum value of color components (typically 255 for 8-bit)"
+      "businessContext": "Maximum value of color components (typically 255 for 8-bit)",
+      "label_i18n": {
+        "en": "Max Input Value",
+        "tr": "Max Input Value",
+        "de": "Max Input Value",
+        "fr": "Max Input Value",
+        "es": "Max Input Value",
+        "ar": "Max Input Value"
+      }
     },
     {
       "id": "scale",
@@ -39,22 +71,33 @@
       "type": "number",
       "unit": "percent",
       "default": 100,
-      "businessContext": "Output scaling factor (100 for percentage)"
+      "businessContext": "Output scaling factor (100 for percentage)",
+      "label_i18n": {
+        "en": "Output Scale",
+        "tr": "Output Scale",
+        "de": "Output Scale",
+        "fr": "Output Scale",
+        "es": "Output Scale",
+        "ar": "Output Scale"
+      }
     }
   ],
   "formulas": {
-    "cyan": "(Math.max(red/maxValue, green/maxValue, blue/maxValue) === 0) ? 0 : ((Math.max(red/maxValue, green/maxValue, blue/maxValue) - (red/maxValue)) / Math.max(red/maxValue, green/maxValue, blue/maxValue)) * scale",
-    "magenta": "(Math.max(red/maxValue, green/maxValue, blue/maxValue) === 0) ? 0 : ((Math.max(red/maxValue, green/maxValue, blue/maxValue) - (green/maxValue)) / Math.max(red/maxValue, green/maxValue, blue/maxValue)) * scale",
-    "yellow": "(Math.max(red/maxValue, green/maxValue, blue/maxValue) === 0) ? 0 : ((Math.max(red/maxValue, green/maxValue, blue/maxValue) - (blue/maxValue)) / Math.max(red/maxValue, green/maxValue, blue/maxValue)) * scale",
-    "key": "((1 - Math.max(red/maxValue, green/maxValue, blue/maxValue)) * scale)"
+    "result": "red + green + blue",
+    "result_copy": "red + green + blue"
   },
   "outputs": {
-    "primary": "key",
+    "primary": "result",
     "breakdown": [
       "cyan",
       "magenta",
       "yellow"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "key"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -64,5 +107,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "yenilenebilir",
   "profession": "Enerji Mühendisi",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

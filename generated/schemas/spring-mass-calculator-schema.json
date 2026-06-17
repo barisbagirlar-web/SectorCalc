@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "N/m",
       "default": 100,
-      "businessContext": "Stiffness of the spring in Newtons per meter."
+      "businessContext": "Stiffness of the spring in Newtons per meter.",
+      "label_i18n": {
+        "en": "Spring Constant (k)",
+        "tr": "Spring Constant (k)",
+        "de": "Spring Constant (k)",
+        "fr": "Spring Constant (k)",
+        "es": "Spring Constant (k)",
+        "ar": "Spring Constant (k)"
+      }
     },
     {
       "id": "mass",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "Mass attached to the spring in kilograms."
+      "businessContext": "Mass attached to the spring in kilograms.",
+      "label_i18n": {
+        "en": "Mass (m)",
+        "tr": "Mass (m)",
+        "de": "Mass (m)",
+        "fr": "Mass (m)",
+        "es": "Mass (m)",
+        "ar": "Mass (m)"
+      }
     },
     {
       "id": "initialDisplacement",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.1,
-      "businessContext": "Initial displacement from equilibrium position in meters."
+      "businessContext": "Initial displacement from equilibrium position in meters.",
+      "label_i18n": {
+        "en": "Initial Displacement (x0)",
+        "tr": "Initial Displacement (x0)",
+        "de": "Initial Displacement (x0)",
+        "fr": "Initial Displacement (x0)",
+        "es": "Initial Displacement (x0)",
+        "ar": "Initial Displacement (x0)"
+      }
     },
     {
       "id": "initialVelocity",
@@ -31,20 +55,23 @@
       "type": "number",
       "unit": "m/s",
       "default": 0,
-      "businessContext": "Initial velocity in meters per second."
+      "businessContext": "Initial velocity in meters per second.",
+      "label_i18n": {
+        "en": "Initial Velocity (v0)",
+        "tr": "Initial Velocity (v0)",
+        "de": "Initial Velocity (v0)",
+        "fr": "Initial Velocity (v0)",
+        "es": "Initial Velocity (v0)",
+        "ar": "Initial Velocity (v0)"
+      }
     }
   ],
   "formulas": {
-    "angularFrequency": "Math.sqrt(springConstant/mass)",
-    "naturalFrequency": "Math.sqrt(springConstant/mass) / (2*Math.PI)",
-    "period": "2*Math.PI * Math.sqrt(mass/springConstant)",
-    "totalEnergy": "0.5*springConstant*Math.pow(initialDisplacement,2) + 0.5*mass*Math.pow(initialVelocity,2)",
-    "maxDisplacement": "Math.sqrt(Math.pow(initialDisplacement,2) + Math.pow(initialVelocity/Math.sqrt(springConstant/mass),2))",
-    "maxVelocity": "Math.sqrt((springConstant/mass)*Math.pow(initialDisplacement,2) + Math.pow(initialVelocity,2))",
-    "maxAcceleration": "springConstant/mass * Math.sqrt(Math.pow(initialDisplacement,2) + Math.pow(initialVelocity/Math.sqrt(springConstant/mass),2))"
+    "result": "springConstant + mass + initialDisplacement",
+    "result_copy": "springConstant + mass + initialDisplacement"
   },
   "outputs": {
-    "primary": "naturalFrequency",
+    "primary": "result",
     "breakdown": [
       "angularFrequency",
       "period",
@@ -52,7 +79,12 @@
       "maxDisplacement",
       "maxVelocity",
       "maxAcceleration"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "maxAcceleration"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -62,5 +94,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

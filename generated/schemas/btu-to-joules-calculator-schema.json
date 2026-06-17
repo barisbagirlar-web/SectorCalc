@@ -85,21 +85,21 @@
   "formulas": {
     "conversionFactor": "factorOverride !== 0 ? factorOverride : (btuStandard === 1 ? 1055.05585262 : (btuStandard === 2 ? 1054.350 : (btuStandard === 3 ? 1055.056 : (btuStandard === 4 ? 1055.87 : 1055.05585262))))",
     "rawJoules": "btuValue * conversionFactor",
-    "joules": "outputUnit === 2 ? rawJoules / 1000 : rawJoules",
-    "roundedJoules": "Math.round(joules * Math.pow(10, precision)) / Math.pow(10, precision)",
-    "__conversionFactor__J_BTU_": "${conversionFactor} J/BTU`",
-    "__rawJoules____outputUnit_____2____kJ___": "${rawJoules} ${outputUnit === 2 ? 'kJ' : 'J'}`",
-    "__btuStandard_____1____IT____btuStandard": "${btuStandard === 1 ? 'IT' : btuStandard === 2 ? 'Thermochemical' : btuStandard === 3 ? 'ISO' : btuStandard === 4 ? 'Mean' : 'Unknown'}`",
-    "__precision__decimal_places_": "${precision} decimal places`"
+    "joules": "outputUnit === 2 ? rawJoules / 1000 : rawJoules"
   },
   "outputs": {
-    "primary": "roundedJoules",
+    "primary": "joules",
     "breakdown": [
       "`Conversion factor: ${conversionFactor} J/BTU`",
       "`Raw energy: ${rawJoules} ${outputUnit === 2 ? 'kJ' : 'J'}`",
       "`Standard used: ${btuStandard === 1 ? 'IT' : btuStandard === 2 ? 'Thermochemical' : btuStandard === 3 ? 'ISO' : btuStandard === 4 ? 'Mean' : 'Unknown'}`",
       "`Precision: ${precision} decimal places`"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roundedJoules"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -109,5 +109,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "kimya",
   "profession": "Proses Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

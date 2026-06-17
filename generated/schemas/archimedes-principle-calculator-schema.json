@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1000,
-      "businessContext": "Density of the fluid (e.g., water = 1000 kg/m³)"
+      "businessContext": "Density of the fluid (e.g., water = 1000 kg/m³)",
+      "label_i18n": {
+        "en": "Fluid Density",
+        "tr": "Fluid Density",
+        "de": "Fluid Density",
+        "fr": "Fluid Density",
+        "es": "Fluid Density",
+        "ar": "Fluid Density"
+      }
     },
     {
       "id": "objectVolume",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m³",
       "default": 0.5,
-      "businessContext": "Total volume of the submerged object"
+      "businessContext": "Total volume of the submerged object",
+      "label_i18n": {
+        "en": "Object Volume",
+        "tr": "Object Volume",
+        "de": "Object Volume",
+        "fr": "Object Volume",
+        "es": "Object Volume",
+        "ar": "Object Volume"
+      }
     },
     {
       "id": "objectMass",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 500,
-      "businessContext": "Mass of the object"
+      "businessContext": "Mass of the object",
+      "label_i18n": {
+        "en": "Object Mass",
+        "tr": "Object Mass",
+        "de": "Object Mass",
+        "fr": "Object Mass",
+        "es": "Object Mass",
+        "ar": "Object Mass"
+      }
     },
     {
       "id": "gravity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m/s²",
       "default": 9.81,
-      "businessContext": "Standard gravity (9.81 m/s² on Earth)"
+      "businessContext": "Standard gravity (9.81 m/s² on Earth)",
+      "label_i18n": {
+        "en": "Gravitational Acceleration",
+        "tr": "Gravitational Acceleration",
+        "de": "Gravitational Acceleration",
+        "fr": "Gravitational Acceleration",
+        "es": "Gravitational Acceleration",
+        "ar": "Gravitational Acceleration"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "objectDensity",
       "netForce",
       "floats"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "floats"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -56,5 +93,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

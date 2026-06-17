@@ -70,17 +70,20 @@
     "avogadro": "6.02214076e+23",
     "volumePerAtom": "molarMass / (density * avogadro)",
     "packingFactorUsed": "structureType == 0 ? manualPackingFactor : (structureType == 1 ? 0.52 : structureType == 2 ? 0.68 : structureType == 3 ? 0.74 : 0.74)",
-    "atomicVolume": "packingFactorUsed * volumePerAtom",
-    "atomicRadiusCm": "Math.pow(3 * atomicVolume / (4 * Math.PI), 1/3)",
-    "atomicRadius": "atomicRadiusCm * 1e10"
+    "atomicVolume": "packingFactorUsed * volumePerAtom"
   },
   "outputs": {
-    "primary": "atomicRadius",
+    "primary": "atomicVolume",
     "breakdown": [
       "volumePerAtom",
       "atomicVolume",
       "packingFactorUsed"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "atomicRadius"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -90,5 +93,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

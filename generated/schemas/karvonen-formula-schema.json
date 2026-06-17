@@ -84,18 +84,19 @@
   ],
   "formulas": {
     "heartRateReserve": "max_hr - resting_hr",
-    "targetHRMin": "Math.round(resting_hr + heartRateReserve * (intensity_min / 100))",
-    "targetHRMax": "Math.round(resting_hr + heartRateReserve * (intensity_max / 100))",
-    "heartRateReserve_bpm": "heartRateReserve bpm",
-    "targetHRMin___targetHRMax_bpm": "targetHRMin - targetHRMax bpm",
-    "result": "targetHRMin - targetHRMax bpm"
+    "heartRateReserve_aux": "max_hr - resting_hr"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "heartRateReserve_aux",
     "breakdown": [
       "Heart Rate Reserve: heartRateReserve bpm",
       "Target HR Zone: targetHRMin - targetHRMax bpm"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "targetHRMax"
   },
   "category": "İK & Personel",
   "sector": "Finans & İK",
@@ -105,5 +106,10 @@
   "categorySlug": "workforce-hr",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

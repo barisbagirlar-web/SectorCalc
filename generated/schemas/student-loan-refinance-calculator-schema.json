@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 30000,
-      "businessContext": "The outstanding principal balance of the existing student loan."
+      "businessContext": "The outstanding principal balance of the existing student loan.",
+      "label_i18n": {
+        "en": "Current Loan Balance",
+        "tr": "Current Loan Balance",
+        "de": "Current Loan Balance",
+        "fr": "Current Loan Balance",
+        "es": "Current Loan Balance",
+        "ar": "Current Loan Balance"
+      }
     },
     {
       "id": "currentRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 6.8,
-      "businessContext": "Annual Percentage Rate of the current loan."
+      "businessContext": "Annual Percentage Rate of the current loan.",
+      "label_i18n": {
+        "en": "Current Interest Rate (APR)",
+        "tr": "Current Interest Rate (APR)",
+        "de": "Current Interest Rate (APR)",
+        "fr": "Current Interest Rate (APR)",
+        "es": "Current Interest Rate (APR)",
+        "ar": "Current Interest Rate (APR)"
+      }
     },
     {
       "id": "currentTermRemaining",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "months",
       "default": 120,
-      "businessContext": "Number of months left on the current loan."
+      "businessContext": "Number of months left on the current loan.",
+      "label_i18n": {
+        "en": "Remaining Term",
+        "tr": "Remaining Term",
+        "de": "Remaining Term",
+        "fr": "Remaining Term",
+        "es": "Remaining Term",
+        "ar": "Remaining Term"
+      }
     },
     {
       "id": "newRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 4.5,
-      "businessContext": "Offered APR for the refinanced loan."
+      "businessContext": "Offered APR for the refinanced loan.",
+      "label_i18n": {
+        "en": "New Interest Rate (APR)",
+        "tr": "New Interest Rate (APR)",
+        "de": "New Interest Rate (APR)",
+        "fr": "New Interest Rate (APR)",
+        "es": "New Interest Rate (APR)",
+        "ar": "New Interest Rate (APR)"
+      }
     },
     {
       "id": "newTerm",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "months",
       "default": 120,
-      "businessContext": "Repayment period for the refinanced loan in months."
+      "businessContext": "Repayment period for the refinanced loan in months.",
+      "label_i18n": {
+        "en": "New Loan Term",
+        "tr": "New Loan Term",
+        "de": "New Loan Term",
+        "fr": "New Loan Term",
+        "es": "New Loan Term",
+        "ar": "New Loan Term"
+      }
     },
     {
       "id": "originationFee",
@@ -47,28 +87,34 @@
       "type": "number",
       "unit": "%",
       "default": 1,
-      "businessContext": "One-time fee charged by the lender, expressed as a percentage of the loan balance."
+      "businessContext": "One-time fee charged by the lender, expressed as a percentage of the loan balance.",
+      "label_i18n": {
+        "en": "Origination Fee",
+        "tr": "Origination Fee",
+        "de": "Origination Fee",
+        "fr": "Origination Fee",
+        "es": "Origination Fee",
+        "ar": "Origination Fee"
+      }
     }
   ],
   "formulas": {
     "monthlyRateCurrent": "currentRate / 1200",
     "monthlyRateNew": "newRate / 1200",
-    "currentMonthlyPayment": "currentBalance * (monthlyRateCurrent * Math.pow(1 + monthlyRateCurrent, currentTermRemaining)) / (Math.pow(1 + monthlyRateCurrent, currentTermRemaining) - 1)",
-    "newMonthlyPayment": "currentBalance * (monthlyRateNew * Math.pow(1 + monthlyRateNew, newTerm)) / (Math.pow(1 + monthlyRateNew, newTerm) - 1)",
-    "totalInterestCurrent": "currentMonthlyPayment * currentTermRemaining - currentBalance",
-    "totalInterestNew": "newMonthlyPayment * newTerm - currentBalance",
-    "feeCost": "currentBalance * (originationFee / 100)",
-    "totalSavings": "totalInterestCurrent - totalInterestNew - feeCost",
-    "monthlyPaymentReduction": "currentMonthlyPayment - newMonthlyPayment",
-    "interestSaved": "totalInterestCurrent - totalInterestNew"
+    "feeCost": "currentBalance * (originationFee / 100)"
   },
   "outputs": {
-    "primary": "totalSavings",
+    "primary": "feeCost",
     "breakdown": [
       "monthlyPaymentReduction",
       "interestSaved",
       "feeCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "interestSaved"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -78,5 +124,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

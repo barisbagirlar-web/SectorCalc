@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mL",
       "default": 330,
-      "businessContext": "Net volume of the alcoholic beverage"
+      "businessContext": "Net volume of the alcoholic beverage",
+      "label_i18n": {
+        "en": "Volume (mL)",
+        "tr": "Volume (mL)",
+        "de": "Volume (mL)",
+        "fr": "Volume (mL)",
+        "es": "Volume (mL)",
+        "ar": "Volume (mL)"
+      }
     },
     {
       "id": "abv",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Alcohol percentage by volume"
+      "businessContext": "Alcohol percentage by volume",
+      "label_i18n": {
+        "en": "Alcohol by Volume (%)",
+        "tr": "Alcohol by Volume (%)",
+        "de": "Alcohol by Volume (%)",
+        "fr": "Alcohol by Volume (%)",
+        "es": "Alcohol by Volume (%)",
+        "ar": "Alcohol by Volume (%)"
+      }
     },
     {
       "id": "standardGrams",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "g",
       "default": 14,
-      "businessContext": "Definition of one standard drink in grams of pure alcohol"
+      "businessContext": "Definition of one standard drink in grams of pure alcohol",
+      "label_i18n": {
+        "en": "Standard Drink Size (g alcohol)",
+        "tr": "Standard Drink Size (g alcohol)",
+        "de": "Standard Drink Size (g alcohol)",
+        "fr": "Standard Drink Size (g alcohol)",
+        "es": "Standard Drink Size (g alcohol)",
+        "ar": "Standard Drink Size (g alcohol)"
+      }
     },
     {
       "id": "quantity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 1,
-      "businessContext": "Number of identical drinks consumed"
+      "businessContext": "Number of identical drinks consumed",
+      "label_i18n": {
+        "en": "Quantity (units)",
+        "tr": "Quantity (units)",
+        "de": "Quantity (units)",
+        "fr": "Quantity (units)",
+        "es": "Quantity (units)",
+        "ar": "Quantity (units)"
+      }
     }
   ],
   "formulas": {
@@ -43,7 +75,12 @@
     "breakdown": [
       "gramsAlcohol",
       "totalStandardDrinks"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalStandardDrinks"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -53,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

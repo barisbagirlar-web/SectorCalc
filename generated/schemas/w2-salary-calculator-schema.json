@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 75000,
-      "businessContext": "Total annual salary before taxes and deductions"
+      "businessContext": "Total annual salary before taxes and deductions",
+      "label_i18n": {
+        "en": "Gross Annual Salary ($)",
+        "tr": "Gross Annual Salary ($)",
+        "de": "Gross Annual Salary ($)",
+        "fr": "Gross Annual Salary ($)",
+        "es": "Gross Annual Salary ($)",
+        "ar": "Gross Annual Salary ($)"
+      }
     },
     {
       "id": "preTaxDeductions",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Annual contributions to 401(k), HSA, etc."
+      "businessContext": "Annual contributions to 401(k), HSA, etc.",
+      "label_i18n": {
+        "en": "Pre-Tax Deductions ($)",
+        "tr": "Pre-Tax Deductions ($)",
+        "de": "Pre-Tax Deductions ($)",
+        "fr": "Pre-Tax Deductions ($)",
+        "es": "Pre-Tax Deductions ($)",
+        "ar": "Pre-Tax Deductions ($)"
+      }
     },
     {
       "id": "federalTaxRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 22,
-      "businessContext": "Estimated marginal or effective federal income tax rate"
+      "businessContext": "Estimated marginal or effective federal income tax rate",
+      "label_i18n": {
+        "en": "Federal Tax Rate (%)",
+        "tr": "Federal Tax Rate (%)",
+        "de": "Federal Tax Rate (%)",
+        "fr": "Federal Tax Rate (%)",
+        "es": "Federal Tax Rate (%)",
+        "ar": "Federal Tax Rate (%)"
+      }
     },
     {
       "id": "stateTaxRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Estimated effective state income tax rate"
+      "businessContext": "Estimated effective state income tax rate",
+      "label_i18n": {
+        "en": "State Tax Rate (%)",
+        "tr": "State Tax Rate (%)",
+        "de": "State Tax Rate (%)",
+        "fr": "State Tax Rate (%)",
+        "es": "State Tax Rate (%)",
+        "ar": "State Tax Rate (%)"
+      }
     },
     {
       "id": "socialSecurityRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 6.2,
-      "businessContext": "Employee share of Social Security tax"
+      "businessContext": "Employee share of Social Security tax",
+      "label_i18n": {
+        "en": "Social Security Rate (%)",
+        "tr": "Social Security Rate (%)",
+        "de": "Social Security Rate (%)",
+        "fr": "Social Security Rate (%)",
+        "es": "Social Security Rate (%)",
+        "ar": "Social Security Rate (%)"
+      }
     },
     {
       "id": "medicareRate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 1.45,
-      "businessContext": "Employee share of Medicare tax"
+      "businessContext": "Employee share of Medicare tax",
+      "label_i18n": {
+        "en": "Medicare Rate (%)",
+        "tr": "Medicare Rate (%)",
+        "de": "Medicare Rate (%)",
+        "fr": "Medicare Rate (%)",
+        "es": "Medicare Rate (%)",
+        "ar": "Medicare Rate (%)"
+      }
     },
     {
       "id": "otherDeductions",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Other annual post-tax deductions (e.g., union dues, charitable)"
+      "businessContext": "Other annual post-tax deductions (e.g., union dues, charitable)",
+      "label_i18n": {
+        "en": "Other Deductions ($)",
+        "tr": "Other Deductions ($)",
+        "de": "Other Deductions ($)",
+        "fr": "Other Deductions ($)",
+        "es": "Other Deductions ($)",
+        "ar": "Other Deductions ($)"
+      }
     }
   ],
   "formulas": {
@@ -77,7 +133,12 @@
       "medicareTax",
       "totalTaxes",
       "netPay"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "netPay"
   },
   "category": "İK & Personel",
   "sector": "Finans & İK",
@@ -87,5 +148,10 @@
   "categorySlug": "workforce-hr",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "hr"
+  "categoryId": "hr",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

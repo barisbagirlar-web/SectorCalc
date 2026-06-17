@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "The weight of the swimmer in kilograms"
+      "businessContext": "The weight of the swimmer in kilograms",
+      "label_i18n": {
+        "en": "Body Weight",
+        "tr": "Body Weight",
+        "de": "Body Weight",
+        "fr": "Body Weight",
+        "es": "Body Weight",
+        "ar": "Body Weight"
+      }
     },
     {
       "id": "durationMinutes",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 30,
-      "businessContext": "Total time spent swimming in minutes"
+      "businessContext": "Total time spent swimming in minutes",
+      "label_i18n": {
+        "en": "Swimming Duration",
+        "tr": "Swimming Duration",
+        "de": "Swimming Duration",
+        "fr": "Swimming Duration",
+        "es": "Swimming Duration",
+        "ar": "Swimming Duration"
+      }
     },
     {
       "id": "metValue",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "MET",
       "default": 8,
-      "businessContext": "Metabolic Equivalent of Task for swimming stroke (e.g., 6-10)"
+      "businessContext": "Metabolic Equivalent of Task for swimming stroke (e.g., 6-10)",
+      "label_i18n": {
+        "en": "MET Value",
+        "tr": "MET Value",
+        "de": "MET Value",
+        "fr": "MET Value",
+        "es": "MET Value",
+        "ar": "MET Value"
+      }
     },
     {
       "id": "calorieBurnRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1,
-      "businessContext": "Individual metabolism factor to adjust calorie burn (0.8-1.2, default 1)"
+      "businessContext": "Individual metabolism factor to adjust calorie burn (0.8-1.2, default 1)",
+      "label_i18n": {
+        "en": "Calorie Burn Rate Factor",
+        "tr": "Calorie Burn Rate Factor",
+        "de": "Calorie Burn Rate Factor",
+        "fr": "Calorie Burn Rate Factor",
+        "es": "Calorie Burn Rate Factor",
+        "ar": "Calorie Burn Rate Factor"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "caloriesPerMinute",
       "caloriesPerHour"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "caloriesPerHour"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

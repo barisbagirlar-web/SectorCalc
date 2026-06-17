@@ -51,18 +51,20 @@
     }
   ],
   "formulas": {
-    "npshFt": "Math.pow((speed * Math.sqrt(flowRate) / suctionSpecificSpeed), (4/3))",
-    "npshM": "npshFt * 0.3048",
-    "npshFt_toFixed_2______ft__US_customary__": "npshFt.toFixed(2) + ' ft (US customary)'",
-    "npshM_toFixed_2______m__metric__": "npshM.toFixed(2) + ' m (metric)'",
-    "result": "npshM.toFixed(2) + ' m'"
+    "result": "speed + flowRate + suctionSpecificSpeed",
+    "result_aux": "speed + flowRate + suctionSpecificSpeed"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
       "npshFt.toFixed(2) + ' ft (US customary)'",
       "npshM.toFixed(2) + ' m (metric)'"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -72,5 +74,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

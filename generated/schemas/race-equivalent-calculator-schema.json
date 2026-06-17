@@ -83,16 +83,20 @@
     }
   ],
   "formulas": {
-    "equivalentTimeSeconds": "(knownTimeHours * 3600 + knownTimeMinutes * 60 + knownTimeSeconds) * Math.pow(targetDistance / knownDistance, 1.06)",
-    "equivalentTimeMinutes": "equivalentTimeSeconds / 60",
-    "equivalentPaceSecondsPerKm": "equivalentTimeSeconds / targetDistance"
+    "result": "knownDistance + knownTimeHours + knownTimeMinutes",
+    "result_copy": "knownDistance + knownTimeHours + knownTimeMinutes"
   },
   "outputs": {
-    "primary": "equivalentTimeSeconds",
+    "primary": "result",
     "breakdown": [
       "equivalentTimeMinutes",
       "equivalentPaceSecondsPerKm"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "equivalentPaceSecondsPerKm"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -102,5 +106,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

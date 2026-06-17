@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 72,
-      "businessContext": "Age of the IRA account holder. Must be at least 70.5 for QCD eligibility."
+      "businessContext": "Age of the IRA account holder. Must be at least 70.5 for QCD eligibility.",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "distributionAmount",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 10000,
-      "businessContext": "Amount intended for charitable distribution directly from IRA (max $100,000 per year)."
+      "businessContext": "Amount intended for charitable distribution directly from IRA (max $100,000 per year).",
+      "label_i18n": {
+        "en": "Distribution Amount",
+        "tr": "Distribution Amount",
+        "de": "Distribution Amount",
+        "fr": "Distribution Amount",
+        "es": "Distribution Amount",
+        "ar": "Distribution Amount"
+      }
     },
     {
       "id": "marginalTaxRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 24,
-      "businessContext": "Your top marginal income tax rate, used to estimate tax savings."
+      "businessContext": "Your top marginal income tax rate, used to estimate tax savings.",
+      "label_i18n": {
+        "en": "Marginal Tax Rate",
+        "tr": "Marginal Tax Rate",
+        "de": "Marginal Tax Rate",
+        "fr": "Marginal Tax Rate",
+        "es": "Marginal Tax Rate",
+        "ar": "Marginal Tax Rate"
+      }
     },
     {
       "id": "iraBalance",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "USD",
       "default": 500000,
-      "businessContext": "Total value of your traditional IRA, for reference (RMD computation may apply)."
+      "businessContext": "Total value of your traditional IRA, for reference (RMD computation may apply).",
+      "label_i18n": {
+        "en": "IRA Balance",
+        "tr": "IRA Balance",
+        "de": "IRA Balance",
+        "fr": "IRA Balance",
+        "es": "IRA Balance",
+        "ar": "IRA Balance"
+      }
     }
   ],
   "formulas": {
     "eligible": "age >= 70.5 ? 1 : 0",
-    "qualifiedDistribution": "eligible ? Math.min(distributionAmount, 100000) : 0",
-    "taxSavings": "qualifiedDistribution * marginalTaxRate / 100"
+    "eligible_aux": "age >= 70.5 ? 1 : 0"
   },
   "outputs": {
-    "primary": "taxSavings",
+    "primary": "eligible_aux",
     "breakdown": [
       "qualifiedDistribution",
       "eligible"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "taxSavings"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -54,5 +90,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

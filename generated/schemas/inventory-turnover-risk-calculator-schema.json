@@ -138,22 +138,6 @@
       "businessContext_i18n": {
         "en": "Percentage of inventory records matching physical counts (cycle count accuracy)."
       }
-    },
-    {
-      "id": "industry_benchmark_turnover",
-      "label": "Industry Benchmark Turnover (turns/year)",
-      "type": "number",
-      "unit": "turns/year",
-      "default": 6,
-      "min": 0.1,
-      "max": 100,
-      "businessContext": "Expected turnover rate for the industry (e.g., WERC benchmark).",
-      "label_i18n": {
-        "en": "Industry Benchmark Turnover (turns/year)"
-      },
-      "businessContext_i18n": {
-        "en": "Expected turnover rate for the industry (e.g., WERC benchmark)."
-      }
     }
   ],
   "validation": {
@@ -243,18 +227,18 @@
       }
     ]
   },
-  "formulas": [
-    "avg_inventory_value",
-    "avg_inventory_value",
-    "avg_inventory_value",
-    "avg_inventory_value",
-    "avg_inventory_value",
-    "avg_inventory_value",
-    "avg_inventory_value"
-  ],
+  "formulas": {
+    "result": "avg_inventory_value + cogs_annual + demand_variability_coefficient",
+    "result_copy": "avg_inventory_value + cogs_annual + demand_variability_coefficient"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "inventory-turnover-risk-calculator",
   "catalogCategory": "everyday-life",

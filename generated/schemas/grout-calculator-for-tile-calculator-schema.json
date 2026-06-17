@@ -121,20 +121,20 @@
     "D_m": "tileThickness / 1000",
     "volumePerM2": "((L_m + W_m) / (L_m * W_m)) * J_m * D_m * wasteFactor * 1000",
     "totalVolume": "volumePerM2 * area",
-    "totalWeight": "totalVolume * groutDensity",
-    "tilesNeeded": "Math.ceil(area / ((tileLength/1000) * (tileWidth/1000)))",
-    "__volumePerM2_toFixed_2___L_m_": "${volumePerM2.toFixed(2)} L/m²",
-    "__totalVolume_toFixed_2___L": "${totalVolume.toFixed(2)} L",
-    "__tilesNeeded__pieces": "${tilesNeeded} pieces",
-    "result": "Total Grout Weight: ${totalWeight.toFixed(2)} kg"
+    "totalWeight": "totalVolume * groutDensity"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "totalWeight",
     "breakdown": [
       "Grout Volume per m²: ${volumePerM2.toFixed(2)} L/m²",
       "Total Grout Volume: ${totalVolume.toFixed(2)} L",
       "Tiles Needed: ${tilesNeeded} pieces"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "tilesNeeded"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -144,5 +144,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

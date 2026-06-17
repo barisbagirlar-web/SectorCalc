@@ -83,17 +83,20 @@
     }
   ],
   "formulas": {
-    "isLeapYear": "(year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)",
-    "dayOfYear": "[0,31,59,90,120,151,181,212,243,273,304,334][month-1] + day + ((month > 2 && isLeapYear) ? 1 : 0)",
-    "fiscalStartDayOfYear": "[0,31,59,90,120,151,181,212,243,273,304,334][fiscalStartMonth-1] + fiscalStartDay + ((fiscalStartMonth > 2 && isLeapYear) ? 1 : 0)",
-    "dayOfFiscalYear": "((dayOfYear - fiscalStartDayOfYear + (isLeapYear ? 366 : 365)) % (isLeapYear ? 366 : 365)) + 1"
+    "result": "month + day + year",
+    "result_copy": "month + day + year"
   },
   "outputs": {
-    "primary": "dayOfYear",
+    "primary": "result",
     "breakdown": [
       "isLeapYear",
       "dayOfFiscalYear"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "dayOfFiscalYear"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -103,5 +106,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

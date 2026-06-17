@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "V",
       "default": 230,
-      "businessContext": "The voltage applied to the primary winding of the transformer."
+      "businessContext": "The voltage applied to the primary winding of the transformer.",
+      "label_i18n": {
+        "en": "Primary Voltage (V)",
+        "tr": "Primary Voltage (V)",
+        "de": "Primary Voltage (V)",
+        "fr": "Primary Voltage (V)",
+        "es": "Primary Voltage (V)",
+        "ar": "Primary Voltage (V)"
+      }
     },
     {
       "id": "secondaryVoltage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "V",
       "default": 12,
-      "businessContext": "The desired or measured voltage at the secondary winding."
+      "businessContext": "The desired or measured voltage at the secondary winding.",
+      "label_i18n": {
+        "en": "Secondary Voltage (V)",
+        "tr": "Secondary Voltage (V)",
+        "de": "Secondary Voltage (V)",
+        "fr": "Secondary Voltage (V)",
+        "es": "Secondary Voltage (V)",
+        "ar": "Secondary Voltage (V)"
+      }
     },
     {
       "id": "powerRating",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "VA",
       "default": 100,
-      "businessContext": "The apparent power (volt-ampere) rating of the transformer."
+      "businessContext": "The apparent power (volt-ampere) rating of the transformer.",
+      "label_i18n": {
+        "en": "Power Rating (VA)",
+        "tr": "Power Rating (VA)",
+        "de": "Power Rating (VA)",
+        "fr": "Power Rating (VA)",
+        "es": "Power Rating (VA)",
+        "ar": "Power Rating (VA)"
+      }
     },
     {
       "id": "primaryTurns",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "turns",
       "default": 1000,
-      "businessContext": "Number of turns in the primary winding."
+      "businessContext": "Number of turns in the primary winding.",
+      "label_i18n": {
+        "en": "Primary Turns",
+        "tr": "Primary Turns",
+        "de": "Primary Turns",
+        "fr": "Primary Turns",
+        "es": "Primary Turns",
+        "ar": "Primary Turns"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "primaryCurrent",
       "secondaryCurrent",
       "turnsRatio"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "turnsRatio"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -56,5 +93,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

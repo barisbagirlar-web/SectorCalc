@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD/year",
       "default": 50000,
-      "businessContext": "Gross annual income of the individual"
+      "businessContext": "Gross annual income of the individual",
+      "label_i18n": {
+        "en": "Annual Income",
+        "tr": "Annual Income",
+        "de": "Annual Income",
+        "fr": "Annual Income",
+        "es": "Annual Income",
+        "ar": "Annual Income"
+      }
     },
     {
       "id": "yearsToRetirement",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Number of years until retirement"
+      "businessContext": "Number of years until retirement",
+      "label_i18n": {
+        "en": "Years to Retirement",
+        "tr": "Years to Retirement",
+        "de": "Years to Retirement",
+        "fr": "Years to Retirement",
+        "es": "Years to Retirement",
+        "ar": "Years to Retirement"
+      }
     },
     {
       "id": "expenseRatio",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ratio",
       "default": 0.3,
-      "businessContext": "Fraction of income spent on personal expenses (e.g., 0.3 for 30%)"
+      "businessContext": "Fraction of income spent on personal expenses (e.g., 0.3 for 30%)",
+      "label_i18n": {
+        "en": "Personal Expense Ratio",
+        "tr": "Personal Expense Ratio",
+        "de": "Personal Expense Ratio",
+        "fr": "Personal Expense Ratio",
+        "es": "Personal Expense Ratio",
+        "ar": "Personal Expense Ratio"
+      }
     },
     {
       "id": "rateOfReturn",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "decimal",
       "default": 0.05,
-      "businessContext": "Expected annual investment return (e.g., 0.05 for 5%)"
+      "businessContext": "Expected annual investment return (e.g., 0.05 for 5%)",
+      "label_i18n": {
+        "en": "Rate of Return",
+        "tr": "Rate of Return",
+        "de": "Rate of Return",
+        "fr": "Rate of Return",
+        "es": "Rate of Return",
+        "ar": "Rate of Return"
+      }
     },
     {
       "id": "inflationRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "decimal",
       "default": 0.02,
-      "businessContext": "Expected annual inflation rate (e.g., 0.02 for 2%)"
+      "businessContext": "Expected annual inflation rate (e.g., 0.02 for 2%)",
+      "label_i18n": {
+        "en": "Inflation Rate",
+        "tr": "Inflation Rate",
+        "de": "Inflation Rate",
+        "fr": "Inflation Rate",
+        "es": "Inflation Rate",
+        "ar": "Inflation Rate"
+      }
     },
     {
       "id": "currentSavings",
@@ -47,22 +87,33 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Existing savings or liquid assets"
+      "businessContext": "Existing savings or liquid assets",
+      "label_i18n": {
+        "en": "Current Savings",
+        "tr": "Current Savings",
+        "de": "Current Savings",
+        "fr": "Current Savings",
+        "es": "Current Savings",
+        "ar": "Current Savings"
+      }
     }
   ],
   "formulas": {
     "netAnnualContribution": "annualIncome * (1 - expenseRatio)",
-    "realRate": "(1 + rateOfReturn) / (1 + inflationRate) - 1",
-    "presentValue": "realRate === 0 ? netAnnualContribution * yearsToRetirement : netAnnualContribution * (1 - Math.pow(1 + realRate, -yearsToRetirement)) / realRate",
-    "humanLifeValue": "presentValue + currentSavings"
+    "realRate": "(1 + rateOfReturn) / (1 + inflationRate) - 1"
   },
   "outputs": {
-    "primary": "humanLifeValue",
+    "primary": "realRate",
     "breakdown": [
       "netAnnualContribution",
       "realRate",
       "presentValue"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "humanLifeValue"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -72,5 +123,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

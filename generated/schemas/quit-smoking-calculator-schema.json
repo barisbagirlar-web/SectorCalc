@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cigarettes/day",
       "default": 20,
-      "businessContext": "Average number of cigarettes smoked per day."
+      "businessContext": "Average number of cigarettes smoked per day.",
+      "label_i18n": {
+        "en": "Cigarettes per Day",
+        "tr": "Cigarettes per Day",
+        "de": "Cigarettes per Day",
+        "fr": "Cigarettes per Day",
+        "es": "Cigarettes per Day",
+        "ar": "Cigarettes per Day"
+      }
     },
     {
       "id": "costPerPack",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 10,
-      "businessContext": "Cost of one pack of cigarettes."
+      "businessContext": "Cost of one pack of cigarettes.",
+      "label_i18n": {
+        "en": "Cost per Pack",
+        "tr": "Cost per Pack",
+        "de": "Cost per Pack",
+        "fr": "Cost per Pack",
+        "es": "Cost per Pack",
+        "ar": "Cost per Pack"
+      }
     },
     {
       "id": "packSize",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cigarettes",
       "default": 20,
-      "businessContext": "Number of cigarettes in a standard pack."
+      "businessContext": "Number of cigarettes in a standard pack.",
+      "label_i18n": {
+        "en": "Cigarettes per Pack",
+        "tr": "Cigarettes per Pack",
+        "de": "Cigarettes per Pack",
+        "fr": "Cigarettes per Pack",
+        "es": "Cigarettes per Pack",
+        "ar": "Cigarettes per Pack"
+      }
     },
     {
       "id": "yearsSmoked",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "years",
       "default": 10,
-      "businessContext": "Total number of years the user has smoked."
+      "businessContext": "Total number of years the user has smoked.",
+      "label_i18n": {
+        "en": "Years Smoked",
+        "tr": "Years Smoked",
+        "de": "Years Smoked",
+        "fr": "Years Smoked",
+        "es": "Years Smoked",
+        "ar": "Years Smoked"
+      }
     },
     {
       "id": "avgCigLifeLost",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 11,
-      "businessContext": "Estimated life shortening per cigarette based on medical research."
+      "businessContext": "Estimated life shortening per cigarette based on medical research.",
+      "label_i18n": {
+        "en": "Life Lost per Cigarette",
+        "tr": "Life Lost per Cigarette",
+        "de": "Life Lost per Cigarette",
+        "fr": "Life Lost per Cigarette",
+        "es": "Life Lost per Cigarette",
+        "ar": "Life Lost per Cigarette"
+      }
     }
   ],
   "formulas": {
@@ -56,7 +96,12 @@
       "monthlySavings",
       "lifeGainedPerYear",
       "pastLifeLostYears"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "pastLifeLostYears"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -66,5 +111,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "saglik",
   "profession": "Biyomedikal Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

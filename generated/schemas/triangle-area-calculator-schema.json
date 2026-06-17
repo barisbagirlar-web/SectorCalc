@@ -99,16 +99,20 @@
     }
   ],
   "formulas": {
-    "area": "function(inputs) {\n  const { side1, side2, side3, base, height, angle } = inputs;\n  if (side1 > 0 && side2 > 0 && angle > 0) {\n    const rad = angle * Math.PI / 180;\n    const area = 0.5 * side1 * side2 * Math.sin(rad);\n    const steps = 'SAS: 0.5 x ' + side1 + ' x ' + side2 + ' x sin(' + angle + '°) = ' + area.toFixed(4) + ' m²';\n    return { area: area, method: 'SAS (Side-Angle-Side)', steps: steps };\n  } else if (base > 0 && height > 0) {\n    const area = 0.5 * base * height;\n    const steps = 'Base-Height: 0.5 x ' + base + ' x ' + height + ' = ' + area.toFixed(4) + ' m²';\n    return { area: area, method: 'Base & Height', steps: steps };\n  } else if (side1 > 0 && side2 > 0 && side3 > 0) {\n    const s = (side1 + side2 + side3) / 2;\n    const area = Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));\n    if (isNaN(area)) {\n      return { area: 0, method: 'Invalid sides', steps: 'Side lengths do not form a valid triangle.' };\n    }\n    const steps = 'Heron: s = (' + side1 + '+' + side2 + '+' + side3 + ')/2 = ' + s.toFixed(4) + '; area = √[s(s-a)(s-b)(s-c)] = ' + area.toFixed(4) + ' m²';\n    return { area: area, method: 'Heron formula', steps: steps };\n  } else {\n    return { area: 0, method: 'Insufficient inputs', steps: 'Provide base & height, three sides, or two sides and included angle.' };\n  }\n}",
-    "method": "method",
-    "steps": "steps"
+    "result": "side1 + side2 + side3",
+    "result_copy": "side1 + side2 + side3"
   },
   "outputs": {
-    "primary": "area",
+    "primary": "result",
     "breakdown": [
       "method",
       "steps"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "steps"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -118,5 +122,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -67,16 +67,20 @@
     }
   ],
   "formulas": {
-    "r": "Math.sqrt(Math.pow(pointX - originX, 2) + Math.pow(pointY - originY, 2))",
-    "theta_rad": "Math.atan2(pointY - originY, pointX - originX)",
-    "theta_deg": "(Math.atan2(pointY - originY, pointX - originX) * 180) / Math.PI"
+    "result": "pointX + pointY + originX",
+    "result_copy": "pointX + pointY + originX"
   },
   "outputs": {
-    "primary": "r",
+    "primary": "result",
     "breakdown": [
       "theta_rad",
       "theta_deg"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "theta_deg"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -86,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

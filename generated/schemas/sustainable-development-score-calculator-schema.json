@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kWh/unit",
       "default": 10,
-      "businessContext": "Total energy consumed per production unit"
+      "businessContext": "Total energy consumed per production unit",
+      "label_i18n": {
+        "en": "Energy Consumption per Unit",
+        "tr": "Energy Consumption per Unit",
+        "de": "Energy Consumption per Unit",
+        "fr": "Energy Consumption per Unit",
+        "es": "Energy Consumption per Unit",
+        "ar": "Energy Consumption per Unit"
+      }
     },
     {
       "id": "waterPerUnit",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "L/unit",
       "default": 50,
-      "businessContext": "Total water usage per production unit"
+      "businessContext": "Total water usage per production unit",
+      "label_i18n": {
+        "en": "Water Consumption per Unit",
+        "tr": "Water Consumption per Unit",
+        "de": "Water Consumption per Unit",
+        "fr": "Water Consumption per Unit",
+        "es": "Water Consumption per Unit",
+        "ar": "Water Consumption per Unit"
+      }
     },
     {
       "id": "wastePerUnit",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg/unit",
       "default": 2,
-      "businessContext": "Total waste produced per production unit"
+      "businessContext": "Total waste produced per production unit",
+      "label_i18n": {
+        "en": "Waste Generation per Unit",
+        "tr": "Waste Generation per Unit",
+        "de": "Waste Generation per Unit",
+        "fr": "Waste Generation per Unit",
+        "es": "Waste Generation per Unit",
+        "ar": "Waste Generation per Unit"
+      }
     },
     {
       "id": "renewablePct",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 30,
-      "businessContext": "Share of energy from renewable sources"
+      "businessContext": "Share of energy from renewable sources",
+      "label_i18n": {
+        "en": "Renewable Energy Share",
+        "tr": "Renewable Energy Share",
+        "de": "Renewable Energy Share",
+        "fr": "Renewable Energy Share",
+        "es": "Renewable Energy Share",
+        "ar": "Renewable Energy Share"
+      }
     },
     {
       "id": "recycledPct",
@@ -39,26 +71,35 @@
       "type": "number",
       "unit": "%",
       "default": 25,
-      "businessContext": "Percentage of recycled materials used in production"
+      "businessContext": "Percentage of recycled materials used in production",
+      "label_i18n": {
+        "en": "Recycled Material Content",
+        "tr": "Recycled Material Content",
+        "de": "Recycled Material Content",
+        "fr": "Recycled Material Content",
+        "es": "Recycled Material Content",
+        "ar": "Recycled Material Content"
+      }
     }
   ],
   "formulas": {
-    "sustainabilityScore": "Math.max(0, Math.min(100, ((1 - energyPerUnit / 50) * 100 + (1 - waterPerUnit / 100) * 100 + (1 - wastePerUnit / 5) * 100 + renewablePct + recycledPct) / 5))",
-    "energyScore": "Math.max(0, Math.min(100, (1 - energyPerUnit / 50) * 100))",
-    "waterScore": "Math.max(0, Math.min(100, (1 - waterPerUnit / 100) * 100))",
-    "wasteScore": "Math.max(0, Math.min(100, (1 - wastePerUnit / 5) * 100))",
-    "renewableScore": "Math.max(0, Math.min(100, renewablePct))",
-    "recycledScore": "Math.max(0, Math.min(100, recycledPct))"
+    "result": "energyPerUnit + waterPerUnit + wastePerUnit",
+    "result_copy": "energyPerUnit + waterPerUnit + wastePerUnit"
   },
   "outputs": {
-    "primary": "sustainabilityScore",
+    "primary": "result",
     "breakdown": [
       "energyScore",
       "waterScore",
       "wasteScore",
       "renewableScore",
       "recycledScore"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "recycledScore"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -68,5 +109,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "yenilenebilir",
   "profession": "Enerji Mühendisi",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

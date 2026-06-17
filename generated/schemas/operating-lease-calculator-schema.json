@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 50000,
-      "businessContext": "Initial purchase price of the asset."
+      "businessContext": "Initial purchase price of the asset.",
+      "label_i18n": {
+        "en": "Asset Cost",
+        "tr": "Asset Cost",
+        "de": "Asset Cost",
+        "fr": "Asset Cost",
+        "es": "Asset Cost",
+        "ar": "Asset Cost"
+      }
     },
     {
       "id": "residualValue",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 10000,
-      "businessContext": "Estimated value of the asset at end of lease."
+      "businessContext": "Estimated value of the asset at end of lease.",
+      "label_i18n": {
+        "en": "Residual Value",
+        "tr": "Residual Value",
+        "de": "Residual Value",
+        "fr": "Residual Value",
+        "es": "Residual Value",
+        "ar": "Residual Value"
+      }
     },
     {
       "id": "leaseTerm",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "months",
       "default": 36,
-      "businessContext": "Duration of the lease in months."
+      "businessContext": "Duration of the lease in months.",
+      "label_i18n": {
+        "en": "Lease Term",
+        "tr": "Lease Term",
+        "de": "Lease Term",
+        "fr": "Lease Term",
+        "es": "Lease Term",
+        "ar": "Lease Term"
+      }
     },
     {
       "id": "interestRate",
@@ -31,23 +55,32 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Annual interest rate for lease financing."
+      "businessContext": "Annual interest rate for lease financing.",
+      "label_i18n": {
+        "en": "Annual Interest Rate",
+        "tr": "Annual Interest Rate",
+        "de": "Annual Interest Rate",
+        "fr": "Annual Interest Rate",
+        "es": "Annual Interest Rate",
+        "ar": "Annual Interest Rate"
+      }
     }
   ],
   "formulas": {
     "monthlyInterestRate": "interestRate / 100 / 12",
-    "pvResidual": "residualValue / Math.pow(1 + monthlyInterestRate, leaseTerm)",
-    "pvAnnuityFactor": "(1 - Math.pow(1 + monthlyInterestRate, -leaseTerm)) / monthlyInterestRate",
-    "monthlyPayment": "(assetCost - pvResidual) / pvAnnuityFactor",
-    "totalLeaseCost": "monthlyPayment * leaseTerm",
-    "totalInterest": "totalLeaseCost - (assetCost - residualValue)"
+    "monthlyInterestRate_aux": "interestRate / 100 / 12"
   },
   "outputs": {
-    "primary": "monthlyPayment",
+    "primary": "monthlyInterestRate_aux",
     "breakdown": [
       "totalLeaseCost",
       "totalInterest"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalInterest"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -57,5 +90,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

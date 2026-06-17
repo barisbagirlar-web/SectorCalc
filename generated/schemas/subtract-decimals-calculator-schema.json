@@ -68,15 +68,19 @@
   ],
   "formulas": {
     "rawDifference": "valueA - valueB",
-    "roundedDifference": "Math.round((valueA - valueB) * Math.pow(10, precision)) / Math.pow(10, precision)",
-    "finalResult": "Math.round((valueA - valueB) * Math.pow(10, precision)) / Math.pow(10, precision) + offset"
+    "rawDifference_aux": "valueA - valueB"
   },
   "outputs": {
-    "primary": "finalResult",
+    "primary": "rawDifference_aux",
     "breakdown": [
       "rawDifference",
       "roundedDifference"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "finalResult"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -86,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

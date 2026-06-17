@@ -67,7 +67,6 @@
     }
   ],
   "formulas": {
-    "constant": "100.5",
     "weightComponent": "-0.1636 * weightKg",
     "timeComponent": "-1.438 * timeMinutes",
     "heartRateComponent": "-0.1928 * heartRateBpm",
@@ -82,7 +81,12 @@
       "timeComponent",
       "heartRateComponent",
       "genderComponent"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "vo2max"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -92,5 +96,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

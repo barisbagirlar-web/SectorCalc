@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Length of the beam between supports"
+      "businessContext": "Length of the beam between supports",
+      "label_i18n": {
+        "en": "Beam Length",
+        "tr": "Beam Length",
+        "de": "Beam Length",
+        "fr": "Beam Length",
+        "es": "Beam Length",
+        "ar": "Beam Length"
+      }
     },
     {
       "id": "loadMagnitude",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kN",
       "default": 100,
-      "businessContext": "Magnitude of the concentrated load"
+      "businessContext": "Magnitude of the concentrated load",
+      "label_i18n": {
+        "en": "Point Load",
+        "tr": "Point Load",
+        "de": "Point Load",
+        "fr": "Point Load",
+        "es": "Point Load",
+        "ar": "Point Load"
+      }
     },
     {
       "id": "loadDistanceFromLeft",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Distance from left support to the load application point"
+      "businessContext": "Distance from left support to the load application point",
+      "label_i18n": {
+        "en": "Load Distance from Left",
+        "tr": "Load Distance from Left",
+        "de": "Load Distance from Left",
+        "fr": "Load Distance from Left",
+        "es": "Load Distance from Left",
+        "ar": "Load Distance from Left"
+      }
     },
     {
       "id": "calculationPoint",
@@ -31,14 +55,21 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Distance from left support at which shear force is evaluated"
+      "businessContext": "Distance from left support at which shear force is evaluated",
+      "label_i18n": {
+        "en": "Shear Force Location",
+        "tr": "Shear Force Location",
+        "de": "Shear Force Location",
+        "fr": "Shear Force Location",
+        "es": "Shear Force Location",
+        "ar": "Shear Force Location"
+      }
     }
   ],
   "formulas": {
     "leftReaction": "(loadMagnitude * (beamLength - loadDistanceFromLeft)) / beamLength",
     "rightReaction": "(loadMagnitude * loadDistanceFromLeft) / beamLength",
-    "shearForce": "calculationPoint <= loadDistanceFromLeft ? (loadMagnitude * (beamLength - loadDistanceFromLeft)) / beamLength : -(loadMagnitude * loadDistanceFromLeft) / beamLength",
-    "maxShearForce": "Math.max((loadMagnitude * (beamLength - loadDistanceFromLeft)) / beamLength, (loadMagnitude * loadDistanceFromLeft) / beamLength)"
+    "shearForce": "calculationPoint <= loadDistanceFromLeft ? (loadMagnitude * (beamLength - loadDistanceFromLeft)) / beamLength : -(loadMagnitude * loadDistanceFromLeft) / beamLength"
   },
   "outputs": {
     "primary": "shearForce",
@@ -46,7 +77,12 @@
       "leftReaction",
       "rightReaction",
       "maxShearForce"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "maxShearForce"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -56,5 +92,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

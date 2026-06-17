@@ -68,17 +68,19 @@
   ],
   "formulas": {
     "eraStart": "(gregorianYear >= 2019) ? 2019 : (gregorianYear >= 1989) ? 1989 : (gregorianYear >= 1926) ? 1926 : (gregorianYear >= 1912) ? 1912 : (gregorianYear >= 1868) ? 1868 : 0",
-    "eraName": "(gregorianYear >= 2019) ? 'Reiwa' : (gregorianYear >= 1989) ? 'Heisei' : (gregorianYear >= 1926) ? 'Showa' : (gregorianYear >= 1912) ? 'Taisho' : (gregorianYear >= 1868) ? 'Meiji' : 'Unknown'",
-    "eraYear": "gregorianYear - eraStart + 1",
-    "__gregorianYear_": "${gregorianYear}",
-    "__eraStart_": "${eraStart}"
+    "eraYear": "gregorianYear - eraStart + 1"
   },
   "outputs": {
     "primary": "eraStart",
     "breakdown": [
       "Gregorian Year: ${gregorianYear}",
       "Era Start Year: ${eraStart}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "eraYear"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -88,5 +90,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

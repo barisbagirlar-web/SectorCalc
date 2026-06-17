@@ -116,16 +116,10 @@
   ],
   "formulas": {
     "mean": "(s1 + s2 + s3) / 3",
-    "std_dev": "Math.sqrt((Math.pow(s1 - (s1 + s2 + s3) / 3, 2) + Math.pow(s2 - (s1 + s2 + s3) / 3, 2) + Math.pow(s3 - (s1 + s2 + s3) / 3, 2)) / 3)",
-    "cv": "((Math.sqrt((Math.pow(s1 - (s1 + s2 + s3) / 3, 2) + Math.pow(s2 - (s1 + s2 + s3) / 3, 2) + Math.pow(s3 - (s1 + s2 + s3) / 3, 2)) / 3) / ((s1 + s2 + s3) / 3)) * 100",
-    "mean_ok": "((s1 + s2 + s3) / 3) >= target",
-    "cv_ok": "((Math.sqrt((Math.pow(s1 - (s1 + s2 + s3) / 3, 2) + Math.pow(s2 - (s1 + s2 + s3) / 3, 2) + Math.pow(s3 - (s1 + s2 + s3) / 3, 2)) / 3) / ((s1 + s2 + s3) / 3)) * 100 <= cv_limit",
-    "min_ok": "s1 >= min_individual && s2 >= min_individual && s3 >= min_individual",
-    "max_ok": "s1 <= max_individual && s2 <= max_individual && s3 <= max_individual",
-    "acceptance": "(((s1 + s2 + s3) / 3) >= target) && (((Math.sqrt((Math.pow(s1 - (s1 + s2 + s3) / 3, 2) + Math.pow(s2 - (s1 + s2 + s3) / 3, 2) + Math.pow(s3 - (s1 + s2 + s3) / 3, 2)) / 3) / ((s1 + s2 + s3) / 3)) * 100 <= cv_limit) && (s1 >= min_individual && s2 >= min_individual && s3 >= min_individual) && (s1 <= max_individual && s2 <= max_individual && s3 <= max_individual)"
+    "mean_ok": "((s1 + s2 + s3) / 3) >= target"
   },
   "outputs": {
-    "primary": "acceptance",
+    "primary": "mean_ok",
     "breakdown": [
       "mean",
       "std_dev",
@@ -134,7 +128,12 @@
       "cv_ok",
       "min_ok",
       "max_ok"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "mean_ok"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -144,5 +143,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

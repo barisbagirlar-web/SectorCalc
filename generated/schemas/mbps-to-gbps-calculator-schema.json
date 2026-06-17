@@ -84,15 +84,19 @@
   ],
   "formulas": {
     "adjustedMbps": "mbpsValue + calibrationOffset",
-    "rawGbps": "(mbpsValue + calibrationOffset) / conversionFactor",
-    "primaryGbps": "Math.round(((mbpsValue + calibrationOffset) / conversionFactor) * Math.pow(10, decimalPrecision)) / Math.pow(10, decimalPrecision)"
+    "rawGbps": "(mbpsValue + calibrationOffset) / conversionFactor"
   },
   "outputs": {
-    "primary": "primaryGbps",
+    "primary": "rawGbps",
     "breakdown": [
       "adjustedMbps",
       "rawGbps"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "primaryGbps"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -102,5 +106,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm/s",
       "default": 2.5,
-      "businessContext": "Ekipman titreşim RMS değeri"
+      "businessContext": "Ekipman titreşim RMS değeri",
+      "label_i18n": {
+        "en": "Titreşim Seviyesi",
+        "tr": "Titreşim Seviyesi",
+        "de": "Titreşim Seviyesi",
+        "fr": "Titreşim Seviyesi",
+        "es": "Titreşim Seviyesi",
+        "ar": "Titreşim Seviyesi"
+      }
     },
     {
       "id": "temperature",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°C",
       "default": 60,
-      "businessContext": "Ekipman çalışma sıcaklığı"
+      "businessContext": "Ekipman çalışma sıcaklığı",
+      "label_i18n": {
+        "en": "Sıcaklık",
+        "tr": "Sıcaklık",
+        "de": "Sıcaklık",
+        "fr": "Sıcaklık",
+        "es": "Sıcaklık",
+        "ar": "Sıcaklık"
+      }
     },
     {
       "id": "runtimeHours",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "saat",
       "default": 2000,
-      "businessContext": "Son bakımdan sonra çalışma saati"
+      "businessContext": "Son bakımdan sonra çalışma saati",
+      "label_i18n": {
+        "en": "Çalışma Süresi",
+        "tr": "Çalışma Süresi",
+        "de": "Çalışma Süresi",
+        "fr": "Çalışma Süresi",
+        "es": "Çalışma Süresi",
+        "ar": "Çalışma Süresi"
+      }
     },
     {
       "id": "oilQuality",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 80,
-      "businessContext": "Yağ kalite endeksi (0-100)"
+      "businessContext": "Yağ kalite endeksi (0-100)",
+      "label_i18n": {
+        "en": "Yağ Kalitesi",
+        "tr": "Yağ Kalitesi",
+        "de": "Yağ Kalitesi",
+        "fr": "Yağ Kalitesi",
+        "es": "Yağ Kalitesi",
+        "ar": "Yağ Kalitesi"
+      }
     },
     {
       "id": "noiseLevel",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "dB",
       "default": 85,
-      "businessContext": "Ortalama gürültü seviyesi"
+      "businessContext": "Ortalama gürültü seviyesi",
+      "label_i18n": {
+        "en": "Gürültü Seviyesi",
+        "tr": "Gürültü Seviyesi",
+        "de": "Gürültü Seviyesi",
+        "fr": "Gürültü Seviyesi",
+        "es": "Gürültü Seviyesi",
+        "ar": "Gürültü Seviyesi"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "conditionScore",
       "healthPercentage"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "ecogGrade"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -62,5 +107,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

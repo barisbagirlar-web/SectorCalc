@@ -67,19 +67,20 @@
     }
   ],
   "formulas": {
-    "binomialCoefficient": "function binomial(n, k) { if (k < 0 || k > n) return 0; if (k === 0 || k === n) return 1; k = Math.min(k, n - k); let c = 1; for (let i = 0; i < k; i++) { c = c * (n - i) / (i + 1); } return c; }",
-    "generateTriangle": "function generateTriangle(rows) { let triangle = []; for (let n = 0; n < rows; n++) { let row = []; for (let k = 0; k <= n; k++) { row.push(binomial(n, k)); } triangle.push(row); } return triangle; }",
-    "filterByMaxValue": "function filterByMaxValue(triangle, maxVal) { return triangle.map(row => row.filter(val => val <= maxVal)); }",
-    "generateTriangle_numRows_": "generateTriangle(numRows)",
-    "filterByMaxValue_generateTriangle_numRow": "filterByMaxValue(generateTriangle(numRows), maxValue)",
-    "result": "binomialCoefficient(rowIndex, colIndex)"
+    "result": "rowIndex + colIndex + numRows",
+    "result_aux": "rowIndex + colIndex + numRows"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
       "generateTriangle(numRows)",
       "filterByMaxValue(generateTriangle(numRows), maxValue)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "generateTriangle"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -89,5 +90,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -138,144 +138,6 @@
       "businessContext_i18n": {
         "en": "Horizontal length of a single rack bay (center-to-center of uprights)."
       }
-    },
-    {
-      "id": "num_bays",
-      "label": "Number of Bays",
-      "type": "number",
-      "unit": "count",
-      "default": 10,
-      "min": 1,
-      "max": 100,
-      "businessContext": "Number of adjacent rack bays in a row.",
-      "label_i18n": {
-        "en": "Number of Bays"
-      },
-      "businessContext_i18n": {
-        "en": "Number of adjacent rack bays in a row."
-      }
-    },
-    {
-      "id": "num_levels",
-      "label": "Number of Levels",
-      "type": "number",
-      "unit": "count",
-      "default": 5,
-      "min": 1,
-      "max": 10,
-      "businessContext": "Number of horizontal beam levels per bay.",
-      "label_i18n": {
-        "en": "Number of Levels"
-      },
-      "businessContext_i18n": {
-        "en": "Number of horizontal beam levels per bay."
-      }
-    },
-    {
-      "id": "pallet_weight_kg",
-      "label": "Average Pallet Weight (kg)",
-      "type": "number",
-      "unit": "kg",
-      "default": 800,
-      "min": 100,
-      "max": 2000,
-      "businessContext": "Average weight of a loaded pallet, used for structural load calculations.",
-      "label_i18n": {
-        "en": "Average Pallet Weight (kg)"
-      },
-      "businessContext_i18n": {
-        "en": "Average weight of a loaded pallet, used for structural load calculations."
-      }
-    },
-    {
-      "id": "utilization_rate",
-      "label": "Current Utilization Rate (%)",
-      "type": "number",
-      "unit": "%",
-      "default": 75,
-      "min": 0,
-      "max": 100,
-      "businessContext": "Percentage of rack positions currently occupied.",
-      "label_i18n": {
-        "en": "Current Utilization Rate (%)"
-      },
-      "businessContext_i18n": {
-        "en": "Percentage of rack positions currently occupied."
-      }
-    },
-    {
-      "id": "storage_strategy",
-      "label": "Storage Strategy",
-      "type": "select",
-      "options": [
-        "FIFO",
-        "LIFO",
-        "Random",
-        "ABC"
-      ],
-      "default": "FIFO",
-      "businessContext": "Warehouse inventory rotation strategy affecting throughput and space utilization.",
-      "label_i18n": {
-        "en": "Storage Strategy"
-      },
-      "businessContext_i18n": {
-        "en": "Warehouse inventory rotation strategy affecting throughput and space utilization."
-      },
-      "unit": "unit"
-    },
-    {
-      "id": "forklift_type",
-      "label": "Forklift Type",
-      "type": "select",
-      "options": [
-        "Counterbalance",
-        "Reach",
-        "VNA",
-        "Turret"
-      ],
-      "default": "Reach",
-      "businessContext": "Forklift type determines required aisle width and lift height capability.",
-      "label_i18n": {
-        "en": "Forklift Type"
-      },
-      "businessContext_i18n": {
-        "en": "Forklift type determines required aisle width and lift height capability."
-      },
-      "unit": "unit"
-    },
-    {
-      "id": "seismic_zone",
-      "label": "Seismic Zone",
-      "type": "select",
-      "options": [
-        "Zone 0 (None)",
-        "Zone 1 (Low)",
-        "Zone 2 (Moderate)",
-        "Zone 3 (High)"
-      ],
-      "default": "Zone 1 (Low)",
-      "businessContext": "Seismic classification per ASCE 7 / IBC, affects rack bracing requirements.",
-      "label_i18n": {
-        "en": "Seismic Zone"
-      },
-      "businessContext_i18n": {
-        "en": "Seismic classification per ASCE 7 / IBC, affects rack bracing requirements."
-      },
-      "unit": "unit"
-    },
-    {
-      "id": "include_beam_deflection_check",
-      "label": "Include Beam Deflection Check",
-      "type": "boolean",
-      "default": true,
-      "businessContext": "If enabled, validates beam deflection against L/180 standard (RMI/ANSI MH16.1).",
-      "label_i18n": {
-        "en": "Include Beam Deflection Check"
-      },
-      "businessContext_i18n": {
-        "en": "If enabled, validates beam deflection against L/180 standard (RMI/ANSI MH16.1)."
-      },
-      "unit": "unit"
     }
   ],
   "validation": {
@@ -311,18 +173,18 @@
       }
     ]
   },
-  "formulas": [
-    "rack_height_mm",
-    "rack_height_mm",
-    "rack_height_mm",
-    "rack_height_mm",
-    "rack_height_mm",
-    "rack_height_mm",
-    "rack_height_mm"
-  ],
+  "formulas": {
+    "result": "rack_height_mm + pallet_depth_mm + pallet_width_mm",
+    "result_copy": "rack_height_mm + pallet_depth_mm + pallet_width_mm"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "pallet-rack-optimizer-calculator",
   "catalogCategory": "everyday-life",

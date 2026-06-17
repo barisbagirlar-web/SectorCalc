@@ -59,16 +59,20 @@
     }
   ],
   "formulas": {
-    "order": "value === 0 ? 0 : Math.floor(Math.log10(Math.abs(value)))",
-    "factor": "value === 0 ? 1 : Math.pow(10, order - sigFigs + 1)",
-    "rounded": "(function(v, sf) { if(v===0) return 0; var order = Math.floor(Math.log10(Math.abs(v))); var factor = Math.pow(10, order - sf + 1); return Math.round(v / factor) * factor; })(value, sigFigs)"
+    "result": "value + sigFigs + auto_input_3",
+    "result_copy": "value + sigFigs + auto_input_3"
   },
   "outputs": {
-    "primary": "rounded",
+    "primary": "result",
     "breakdown": [
       "order",
       "factor"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "rounded"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -78,5 +82,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

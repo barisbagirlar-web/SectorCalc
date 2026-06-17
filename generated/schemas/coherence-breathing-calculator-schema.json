@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "bpm",
       "default": 5,
-      "businessContext": "Desired breathing cycles per minute (typically 5-6 for coherence)"
+      "businessContext": "Desired breathing cycles per minute (typically 5-6 for coherence)",
+      "label_i18n": {
+        "en": "Target Breathing Rate",
+        "tr": "Target Breathing Rate",
+        "de": "Target Breathing Rate",
+        "fr": "Target Breathing Rate",
+        "es": "Target Breathing Rate",
+        "ar": "Target Breathing Rate"
+      }
     },
     {
       "id": "ratio",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ratio",
       "default": 0.5,
-      "businessContext": "Ratio of inhale duration to exhale duration (e.g., 0.5 means inhale is half of exhale)"
+      "businessContext": "Ratio of inhale duration to exhale duration (e.g., 0.5 means inhale is half of exhale)",
+      "label_i18n": {
+        "en": "Inhale/Exhale Ratio",
+        "tr": "Inhale/Exhale Ratio",
+        "de": "Inhale/Exhale Ratio",
+        "fr": "Inhale/Exhale Ratio",
+        "es": "Inhale/Exhale Ratio",
+        "ar": "Inhale/Exhale Ratio"
+      }
     },
     {
       "id": "duration",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "min",
       "default": 10,
-      "businessContext": "Total duration of the practice session"
+      "businessContext": "Total duration of the practice session",
+      "label_i18n": {
+        "en": "Practice Duration",
+        "tr": "Practice Duration",
+        "de": "Practice Duration",
+        "fr": "Practice Duration",
+        "es": "Practice Duration",
+        "ar": "Practice Duration"
+      }
     },
     {
       "id": "restingRate",
@@ -31,15 +55,22 @@
       "type": "number",
       "unit": "bpm",
       "default": 12,
-      "businessContext": "Your typical resting breathing rate for comparison"
+      "businessContext": "Your typical resting breathing rate for comparison",
+      "label_i18n": {
+        "en": "Resting Breathing Rate",
+        "tr": "Resting Breathing Rate",
+        "de": "Resting Breathing Rate",
+        "fr": "Resting Breathing Rate",
+        "es": "Resting Breathing Rate",
+        "ar": "Resting Breathing Rate"
+      }
     }
   ],
   "formulas": {
     "breathCycle": "60 / breathingRate",
     "inhaleDuration": "breathCycle * ratio / (1 + ratio)",
     "exhaleDuration": "breathCycle / (1 + ratio)",
-    "totalCycles": "duration * breathingRate",
-    "coherenceScore": "Math.min(100, Math.max(0, 100 * (1 - Math.abs(breathingRate - 5) / 10) * (1 - Math.abs(ratio - 0.5) / 2)))"
+    "totalCycles": "duration * breathingRate"
   },
   "outputs": {
     "primary": "breathCycle",
@@ -64,7 +95,12 @@
         "label": "Breath Cycle Duration",
         "unit": "s"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "coherenceScore"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -74,5 +110,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

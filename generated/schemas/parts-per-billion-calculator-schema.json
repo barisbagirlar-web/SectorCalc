@@ -83,20 +83,22 @@
     }
   ],
   "formulas": {
-    "compute": "function(inputs) { const ppm_mass = inputs.solute_mass_mg && inputs.solution_volume_L ? (inputs.solute_mass_mg / (inputs.solution_volume_L * inputs.solution_density_kg_per_L)) : 0; const ppb_mass = ppm_mass * 1000; const mg_per_L = inputs.solution_volume_L ? inputs.solute_mass_mg / inputs.solution_volume_L : 0; const ppm_mass_exact = inputs.solution_density_kg_per_L ? mg_per_L / inputs.solution_density_kg_per_L : 0; const ppb_gas = inputs.gas_solute_volume_mL && inputs.total_gas_volume_L ? (inputs.gas_solute_volume_mL / (inputs.total_gas_volume_L * 1000)) * 1e9 : 0; const ppb = (inputs.solute_mass_mg || inputs.gas_solute_volume_mL) ? (ppb_mass || ppb_gas) : 0; return { ppb: ppb, mass_based_ppb: ppb_mass, gas_based_ppb: ppb_gas, concentration_mg_per_L: mg_per_L, concentration_ppm: ppm_mass_exact }; }",
-    "mass_based_ppb": "mass_based_ppb",
-    "gas_based_ppb": "gas_based_ppb",
-    "concentration_mg_per_L": "concentration_mg_per_L",
-    "concentration_ppm": "concentration_ppm"
+    "result": "solute_mass_mg + solution_volume_L + solution_density_kg_per_L",
+    "result_copy": "solute_mass_mg + solution_volume_L + solution_density_kg_per_L"
   },
   "outputs": {
-    "primary": "compute",
+    "primary": "result",
     "breakdown": [
       "mass_based_ppb",
       "gas_based_ppb",
       "concentration_mg_per_L",
       "concentration_ppm"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "concentration_ppm"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -106,5 +108,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

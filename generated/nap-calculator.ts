@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from nap-calculator-schema.json
 import * as z from 'zod';
 
@@ -17,32 +18,36 @@ export const Nap_calculatorInputSchema = z.object({
   maxNapMinutes: z.number().default(30),
 });
 
-function evaluateAllFormulas(input: Nap_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (input.wakeUpTimeHours - input.currentTimeHours) * 60; results["availableMinutes"] = Number.isFinite(v) ? v : 0; } catch { results["availableMinutes"] = 0; }
-  try { const v = ((results["availableMinutes"] ?? 0) >= input.sleepCycleMinutes) ? input.sleepCycleMinutes : (((results["availableMinutes"] ?? 0) >= input.minNapMinutes) ? input.minNapMinutes : 0); results["recommendedNapMinutes"] = Number.isFinite(v) ? v : 0; } catch { results["recommendedNapMinutes"] = 0; }
-  try { const v = input.currentTimeHours + input.sleepCycleMinutes/60; results["cycleNapWakeTime"] = Number.isFinite(v) ? v : 0; } catch { results["cycleNapWakeTime"] = 0; }
-  try { const v = input.currentTimeHours + input.minNapMinutes/60; results["shortNapWakeTime"] = Number.isFinite(v) ? v : 0; } catch { results["shortNapWakeTime"] = 0; }
-  try { const v = input.currentTimeHours + input.maxNapMinutes/60; results["maxNapWakeTime"] = Number.isFinite(v) ? v : 0; } catch { results["maxNapWakeTime"] = 0; }
-  results["__availableMinutes__dakika"] = 0;
-  results["__cycleNapWakeTime_toFixed_2__"] = 0;
-  results["__shortNapWakeTime_toFixed_2__"] = 0;
-  results["__maxNapWakeTime_toFixed_2__"] = 0;
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Nap_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = (input.wakeUpTimeHours - input.currentTimeHours) * 60; results["availableMinutes"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["availableMinutes"] = 0; }
+  try { const v = ((asFormulaNumber(results["availableMinutes"])) >= input.sleepCycleMinutes) ? input.sleepCycleMinutes : (((asFormulaNumber(results["availableMinutes"])) >= input.minNapMinutes) ? input.minNapMinutes : 0); results["recommendedNapMinutes"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["recommendedNapMinutes"] = 0; }
+  try { const v = input.currentTimeHours + input.sleepCycleMinutes/60; results["cycleNapWakeTime"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["cycleNapWakeTime"] = 0; }
+  try { const v = input.currentTimeHours + input.minNapMinutes/60; results["shortNapWakeTime"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["shortNapWakeTime"] = 0; }
+  try { const v = input.currentTimeHours + input.maxNapMinutes/60; results["maxNapWakeTime"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["maxNapWakeTime"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateNap_calculator(input: Nap_calculatorInput): Nap_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["availableMinutes"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["availableMinutes"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

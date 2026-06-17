@@ -71,21 +71,21 @@
     "failureRatePerHour": "numFailures / effectiveOperatingHours",
     "mtbfHours": "effectiveOperatingHours / numFailures",
     "failureRateFPMH": "failureRatePerHour * 1000000",
-    "failureRateFIT": "failureRatePerHour * 1000000000",
-    "__effectiveOperatingHours_toFixed_2___ho": "${effectiveOperatingHours.toFixed(2)} hours",
-    "__failureRatePerHour_toExponential_4___p": "${failureRatePerHour.toExponential(4)} per hour",
-    "__mtbfHours_toFixed_2___hours": "${mtbfHours.toFixed(2)} hours",
-    "__failureRateFIT_toFixed_2___failures_pe": "${failureRateFIT.toFixed(2)} failures per billion hours",
-    "result": "Failure Rate: ${failureRateFPMH.toFixed(2)} failures per million hours"
+    "failureRateFIT": "failureRatePerHour * 1000000000"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "failureRateFIT",
     "breakdown": [
       "Effective Operating Hours: ${effectiveOperatingHours.toFixed(2)} hours",
       "Failure Rate (λ): ${failureRatePerHour.toExponential(4)} per hour",
       "MTBF: ${mtbfHours.toFixed(2)} hours",
       "FIT Rate: ${failureRateFIT.toFixed(2)} failures per billion hours"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "failureRateFIT"
   },
   "category": "Bakım & Güvenilirlik",
   "sector": "Üretim & İmalat",
@@ -95,5 +95,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

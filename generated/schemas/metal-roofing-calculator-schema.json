@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m²",
       "default": 100,
-      "businessContext": "Metal çatı kaplanacak toplam alan"
+      "businessContext": "Metal çatı kaplanacak toplam alan",
+      "label_i18n": {
+        "en": "Çatı Alanı",
+        "tr": "Çatı Alanı",
+        "de": "Çatı Alanı",
+        "fr": "Çatı Alanı",
+        "es": "Çatı Alanı",
+        "ar": "Çatı Alanı"
+      }
     },
     {
       "id": "materialCostPerUnit",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "€/m²",
       "default": 15,
-      "businessContext": "Metal kaplama malzemesinin metrekare fiyatı"
+      "businessContext": "Metal kaplama malzemesinin metrekare fiyatı",
+      "label_i18n": {
+        "en": "Malzeme Birim Fiyatı",
+        "tr": "Malzeme Birim Fiyatı",
+        "de": "Malzeme Birim Fiyatı",
+        "fr": "Malzeme Birim Fiyatı",
+        "es": "Malzeme Birim Fiyatı",
+        "ar": "Malzeme Birim Fiyatı"
+      }
     },
     {
       "id": "laborCostPerUnit",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "€/m²",
       "default": 10,
-      "businessContext": "Metrekare başına işçilik maliyeti"
+      "businessContext": "Metrekare başına işçilik maliyeti",
+      "label_i18n": {
+        "en": "İşçilik Birim Fiyatı",
+        "tr": "İşçilik Birim Fiyatı",
+        "de": "İşçilik Birim Fiyatı",
+        "fr": "İşçilik Birim Fiyatı",
+        "es": "İşçilik Birim Fiyatı",
+        "ar": "İşçilik Birim Fiyatı"
+      }
     },
     {
       "id": "wasteFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Kesim ve montaj fire yüzdesi"
+      "businessContext": "Kesim ve montaj fire yüzdesi",
+      "label_i18n": {
+        "en": "Fire Oranı",
+        "tr": "Fire Oranı",
+        "de": "Fire Oranı",
+        "fr": "Fire Oranı",
+        "es": "Fire Oranı",
+        "ar": "Fire Oranı"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "materialCost",
       "laborCost",
       "wasteCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -56,5 +93,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "metal",
   "profession": "Yüzey İşlem Uzmanı",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

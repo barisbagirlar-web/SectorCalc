@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mmHg",
       "default": 120,
-      "businessContext": "Sistolik kan basıncı ölçümü"
+      "businessContext": "Sistolik kan basıncı ölçümü",
+      "label_i18n": {
+        "en": "Sistolik Basınç (mmHg)",
+        "tr": "Sistolik Basınç (mmHg)",
+        "de": "Sistolik Basınç (mmHg)",
+        "fr": "Sistolik Basınç (mmHg)",
+        "es": "Sistolik Basınç (mmHg)",
+        "ar": "Sistolik Basınç (mmHg)"
+      }
     },
     {
       "id": "diastolic",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mmHg",
       "default": 80,
-      "businessContext": "Diastolik kan basıncı ölçümü"
+      "businessContext": "Diastolik kan basıncı ölçümü",
+      "label_i18n": {
+        "en": "Diastolik Basınç (mmHg)",
+        "tr": "Diastolik Basınç (mmHg)",
+        "de": "Diastolik Basınç (mmHg)",
+        "fr": "Diastolik Basınç (mmHg)",
+        "es": "Diastolik Basınç (mmHg)",
+        "ar": "Diastolik Basınç (mmHg)"
+      }
     },
     {
       "id": "heartRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "bpm",
       "default": 72,
-      "businessContext": "Dakikadaki kalp atışı sayısı"
+      "businessContext": "Dakikadaki kalp atışı sayısı",
+      "label_i18n": {
+        "en": "Nabız (bpm)",
+        "tr": "Nabız (bpm)",
+        "de": "Nabız (bpm)",
+        "fr": "Nabız (bpm)",
+        "es": "Nabız (bpm)",
+        "ar": "Nabız (bpm)"
+      }
     },
     {
       "id": "age",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "yıl",
       "default": 30,
-      "businessContext": "Kişinin yaşı"
+      "businessContext": "Kişinin yaşı",
+      "label_i18n": {
+        "en": "Yaş",
+        "tr": "Yaş",
+        "de": "Yaş",
+        "fr": "Yaş",
+        "es": "Yaş",
+        "ar": "Yaş"
+      }
     }
   ],
   "formulas": {
-    "classification": "(systolic < 120 && diastolic < 80) ? 'Normal' : (systolic < 130 && diastolic < 80) ? 'Yükselmiş' : (systolic >= 140 || diastolic >= 90) ? 'Evre 2 Hipertansiyon' : 'Evre 1 Hipertansiyon'",
     "map": "diastolic + (systolic - diastolic) / 3",
     "pulsePressure": "systolic - diastolic"
   },
   "outputs": {
-    "primary": "classification",
+    "primary": "pulsePressure",
     "breakdown": [
       "map",
       "pulsePressure"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "pulsePressure"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -54,5 +90,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -152,22 +152,6 @@
       "businessContext_i18n": {
         "en": "If pursuing certification, additional costs for documentation, commissioning, and materials."
       }
-    },
-    {
-      "id": "phased_renovation",
-      "label": "Phased Renovation",
-      "type": "boolean",
-      "unit": "unit",
-      "default": false,
-      "min": null,
-      "max": null,
-      "businessContext": "True if renovation is done in phases (e.g., floor by floor) to reduce disruption.",
-      "label_i18n": {
-        "en": "Phased Renovation"
-      },
-      "businessContext_i18n": {
-        "en": "True if renovation is done in phases (e.g., floor by floor) to reduce disruption."
-      }
     }
   ],
   "validation": {
@@ -206,19 +190,18 @@
       }
     ]
   },
-  "formulas": [
-    "total_area_sqft",
-    "total_area_sqft",
-    "total_area_sqft",
-    "total_area_sqft",
-    "total_area_sqft",
-    "total_area_sqft",
-    "total_area_sqft",
-    "total_area_sqft"
-  ],
+  "formulas": {
+    "result": "total_area_sqft + scope_complexity + material_quality",
+    "result_copy": "total_area_sqft + scope_complexity + material_quality"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "renovation-budget-optimizer-calculator",
   "catalogCategory": "everyday-life",

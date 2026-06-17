@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100,
-      "businessContext": "The original price before any discounts or taxes."
+      "businessContext": "The original price before any discounts or taxes.",
+      "label_i18n": {
+        "en": "List Price",
+        "tr": "List Price",
+        "de": "List Price",
+        "fr": "List Price",
+        "es": "List Price",
+        "ar": "List Price"
+      }
     },
     {
       "id": "discountPercent",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Percentage discount applied to the list price."
+      "businessContext": "Percentage discount applied to the list price.",
+      "label_i18n": {
+        "en": "Discount (%)",
+        "tr": "Discount (%)",
+        "de": "Discount (%)",
+        "fr": "Discount (%)",
+        "es": "Discount (%)",
+        "ar": "Discount (%)"
+      }
     },
     {
       "id": "vatPercent",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Value Added Tax percentage applied to the discounted price."
+      "businessContext": "Value Added Tax percentage applied to the discounted price.",
+      "label_i18n": {
+        "en": "VAT (%)",
+        "tr": "VAT (%)",
+        "de": "VAT (%)",
+        "fr": "VAT (%)",
+        "es": "VAT (%)",
+        "ar": "VAT (%)"
+      }
     },
     {
       "id": "extraCharge",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Any additional fixed charges (e.g., shipping, handling) added before tax."
+      "businessContext": "Any additional fixed charges (e.g., shipping, handling) added before tax.",
+      "label_i18n": {
+        "en": "Extra Charges",
+        "tr": "Extra Charges",
+        "de": "Extra Charges",
+        "fr": "Extra Charges",
+        "es": "Extra Charges",
+        "ar": "Extra Charges"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "discountedPrice",
       "vatAmount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "netPrice"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -54,5 +91,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "lojistik",
   "profession": "Lojistik Uzmanı",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

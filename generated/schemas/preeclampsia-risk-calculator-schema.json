@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Age of the pregnant woman at expected date of delivery."
+      "businessContext": "Age of the pregnant woman at expected date of delivery.",
+      "label_i18n": {
+        "en": "Maternal Age",
+        "tr": "Maternal Age",
+        "de": "Maternal Age",
+        "fr": "Maternal Age",
+        "es": "Maternal Age",
+        "ar": "Maternal Age"
+      }
     },
     {
       "id": "bmi",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg/m²",
       "default": 25,
-      "businessContext": "Body Mass Index before pregnancy."
+      "businessContext": "Body Mass Index before pregnancy.",
+      "label_i18n": {
+        "en": "Pre-pregnancy BMI",
+        "tr": "Pre-pregnancy BMI",
+        "de": "Pre-pregnancy BMI",
+        "fr": "Pre-pregnancy BMI",
+        "es": "Pre-pregnancy BMI",
+        "ar": "Pre-pregnancy BMI"
+      }
     },
     {
       "id": "systolic_bp",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mmHg",
       "default": 120,
-      "businessContext": "Systolic blood pressure reading in early pregnancy."
+      "businessContext": "Systolic blood pressure reading in early pregnancy.",
+      "label_i18n": {
+        "en": "Systolic Blood Pressure",
+        "tr": "Systolic Blood Pressure",
+        "de": "Systolic Blood Pressure",
+        "fr": "Systolic Blood Pressure",
+        "es": "Systolic Blood Pressure",
+        "ar": "Systolic Blood Pressure"
+      }
     },
     {
       "id": "diastolic_bp",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mmHg",
       "default": 80,
-      "businessContext": "Diastolic blood pressure reading in early pregnancy."
+      "businessContext": "Diastolic blood pressure reading in early pregnancy.",
+      "label_i18n": {
+        "en": "Diastolic Blood Pressure",
+        "tr": "Diastolic Blood Pressure",
+        "de": "Diastolic Blood Pressure",
+        "fr": "Diastolic Blood Pressure",
+        "es": "Diastolic Blood Pressure",
+        "ar": "Diastolic Blood Pressure"
+      }
     },
     {
       "id": "previous_preeclampsia",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "boolean",
       "default": 0,
-      "businessContext": "History of preeclampsia in a previous pregnancy (0 = No, 1 = Yes)."
+      "businessContext": "History of preeclampsia in a previous pregnancy (0 = No, 1 = Yes).",
+      "label_i18n": {
+        "en": "Previous Preeclampsia",
+        "tr": "Previous Preeclampsia",
+        "de": "Previous Preeclampsia",
+        "fr": "Previous Preeclampsia",
+        "es": "Previous Preeclampsia",
+        "ar": "Previous Preeclampsia"
+      }
     },
     {
       "id": "family_history",
@@ -47,13 +87,19 @@
       "type": "number",
       "unit": "boolean",
       "default": 0,
-      "businessContext": "Mother or sister had preeclampsia (0 = No, 1 = Yes)."
+      "businessContext": "Mother or sister had preeclampsia (0 = No, 1 = Yes).",
+      "label_i18n": {
+        "en": "Family History of Preeclampsia",
+        "tr": "Family History of Preeclampsia",
+        "de": "Family History of Preeclampsia",
+        "fr": "Family History of Preeclampsia",
+        "es": "Family History of Preeclampsia",
+        "ar": "Family History of Preeclampsia"
+      }
     }
   ],
   "formulas": {
     "linear_predictor": "-10 + 0.03 * age + 0.05 * bmi + 0.02 * systolic_bp + 0.03 * diastolic_bp + 1.5 * previous_preeclampsia + 0.8 * family_history",
-    "risk_prob": "1 / (1 + Math.exp(-linear_predictor))",
-    "risk_percent": "risk_prob * 100",
     "age_contrib": "0.03 * age",
     "bmi_contrib": "0.05 * bmi",
     "sbp_contrib": "0.02 * systolic_bp",
@@ -62,7 +108,7 @@
     "fam_contrib": "0.8 * family_history"
   },
   "outputs": {
-    "primary": "risk_percent",
+    "primary": "fam_contrib",
     "breakdown": [
       "age_contrib",
       "bmi_contrib",
@@ -70,7 +116,12 @@
       "dbp_contrib",
       "prev_contrib",
       "fam_contrib"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "fam_contrib"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -80,5 +131,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "lojistik",
   "profession": "Lojistik Uzmanı",
-  "categoryId": "logistics"
+  "categoryId": "logistics",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -68,17 +68,20 @@
   ],
   "formulas": {
     "rawValue": "mphValue * (outputUnit === 0 ? 1.609344 : outputUnit === 1 ? 0.44704 : 0.868976)",
-    "conversionFactorUsed": "outputUnit === 0 ? 1.609344 : outputUnit === 1 ? 0.44704 : 0.868976",
-    "convertedSpeed": "(roundingMode === 0 ? Math.round : roundingMode === 1 ? Math.floor : Math.ceil)(rawValue * Math.pow(10, precision)) / Math.pow(10, precision)",
-    "formattedResult": "convertedSpeed + ' ' + (outputUnit === 0 ? 'km/h' : outputUnit === 1 ? 'm/s' : 'knots')"
+    "conversionFactorUsed": "outputUnit === 0 ? 1.609344 : outputUnit === 1 ? 0.44704 : 0.868976"
   },
   "outputs": {
-    "primary": "convertedSpeed",
+    "primary": "conversionFactorUsed",
     "breakdown": [
       "rawValue",
       "conversionFactorUsed",
       "formattedResult"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "formattedResult"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -88,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -134,10 +134,7 @@
     "total_direct_cost": "raw_material_cost + (processing_time * labor_cost_per_hour) + (energy_consumption_per_kg * energy_cost_per_kwh) + packaging_cost_per_kg",
     "adjusted_cost_for_yield": "total_direct_cost / (yield_percentage / 100)",
     "overhead_cost": "adjusted_cost_for_yield * (overhead_percentage / 100)",
-    "total_cost_per_kg": "adjusted_cost_for_yield + overhead_cost",
-    "Total_Direct_Cost_per_kg__before_yield_a": "Total Direct Cost per kg (before yield adjustment)",
-    "Adjusted_Cost_per_kg__accounting_for_yie": "Adjusted Cost per kg (accounting for yield loss)",
-    "Overhead_Cost_per_kg": "Overhead Cost per kg"
+    "total_cost_per_kg": "adjusted_cost_for_yield + overhead_cost"
   },
   "outputs": {
     "primary": "total_direct_cost",
@@ -145,7 +142,12 @@
       "Total Direct Cost per kg (before yield adjustment)",
       "Adjusted Cost per kg (accounting for yield loss)",
       "Overhead Cost per kg"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "total_cost_per_kg"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -155,5 +157,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

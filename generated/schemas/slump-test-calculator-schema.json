@@ -101,20 +101,19 @@
   "formulas": {
     "topRadius": "topDiameter / 2",
     "bottomRadius": "bottomDiameter / 2",
-    "coneVolume": "(Math.PI / 3) * moldHeight * (Math.pow(bottomRadius, 2) + Math.pow(topRadius, 2) + bottomRadius * topRadius)",
-    "coneVolumeLiters": "coneVolume / 1000000",
-    "slump": "moldHeight - measuredHeight",
-    "passFail": "slump >= specMin && slump <= specMax ? 'Pass' : 'Fail'",
-    "_coneVolumeLiters__liters": "{coneVolumeLiters} liters",
-    "_specMin_____specMax__mm": "{specMin} - {specMax} mm",
-    "result": "Slump: {slump} mm - {passFail}"
+    "slump": "moldHeight - measuredHeight"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "slump",
     "breakdown": [
       "Cone Volume: {coneVolumeLiters} liters",
       "Specified Range: {specMin} - {specMax} mm"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "passFail"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -124,5 +123,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "plastik",
   "profession": "Proses Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -78,7 +78,12 @@
       "decayedAmount",
       "numberOfHalfLives",
       "safeRemaining"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "safeRemaining"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -88,5 +93,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -85,16 +85,20 @@
   "formulas": {
     "annualSavings": "annualIncome - annualExpenses",
     "savingsRate": "(annualIncome - annualExpenses) / annualIncome",
-    "futurePortfolioNeeded": "annualExpenses / (safeWithdrawalRate / 100)",
-    "yearsToFI": "Math.log((futurePortfolioNeeded * (expectedReturn / 100) + annualSavings) / (currentPortfolio * (expectedReturn / 100) + annualSavings)) / Math.log(1 + expectedReturn / 100)"
+    "futurePortfolioNeeded": "annualExpenses / (safeWithdrawalRate / 100)"
   },
   "outputs": {
-    "primary": "yearsToFI",
+    "primary": "futurePortfolioNeeded",
     "breakdown": [
       "annualSavings",
       "savingsRate",
       "futurePortfolioNeeded"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "yearsToFI"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -104,5 +108,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

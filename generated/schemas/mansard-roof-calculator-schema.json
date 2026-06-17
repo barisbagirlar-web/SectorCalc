@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Total horizontal distance from eave to eave across the ridge."
+      "businessContext": "Total horizontal distance from eave to eave across the ridge.",
+      "label_i18n": {
+        "en": "Building Width (Span)",
+        "tr": "Building Width (Span)",
+        "de": "Building Width (Span)",
+        "fr": "Building Width (Span)",
+        "es": "Building Width (Span)",
+        "ar": "Building Width (Span)"
+      }
     },
     {
       "id": "buildingLength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 15,
-      "businessContext": "Length of building parallel to ridge."
+      "businessContext": "Length of building parallel to ridge.",
+      "label_i18n": {
+        "en": "Building Length",
+        "tr": "Building Length",
+        "de": "Building Length",
+        "fr": "Building Length",
+        "es": "Building Length",
+        "ar": "Building Length"
+      }
     },
     {
       "id": "lowerAngle",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "deg",
       "default": 70,
-      "businessContext": "Angle of lower slope from horizontal, typically steep (60-80°)."
+      "businessContext": "Angle of lower slope from horizontal, typically steep (60-80°).",
+      "label_i18n": {
+        "en": "Lower Slope Angle",
+        "tr": "Lower Slope Angle",
+        "de": "Lower Slope Angle",
+        "fr": "Lower Slope Angle",
+        "es": "Lower Slope Angle",
+        "ar": "Lower Slope Angle"
+      }
     },
     {
       "id": "upperAngle",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "deg",
       "default": 30,
-      "businessContext": "Angle of upper slope from horizontal, typically shallower (10-30°)."
+      "businessContext": "Angle of upper slope from horizontal, typically shallower (10-30°).",
+      "label_i18n": {
+        "en": "Upper Slope Angle",
+        "tr": "Upper Slope Angle",
+        "de": "Upper Slope Angle",
+        "fr": "Upper Slope Angle",
+        "es": "Upper Slope Angle",
+        "ar": "Upper Slope Angle"
+      }
     },
     {
       "id": "lowerHeight",
@@ -39,27 +71,33 @@
       "type": "number",
       "unit": "m",
       "default": 2.5,
-      "businessContext": "Vertical rise from eave to break point where slope changes."
+      "businessContext": "Vertical rise from eave to break point where slope changes.",
+      "label_i18n": {
+        "en": "Lower Vertical Height",
+        "tr": "Lower Vertical Height",
+        "de": "Lower Vertical Height",
+        "fr": "Lower Vertical Height",
+        "es": "Lower Vertical Height",
+        "ar": "Lower Vertical Height"
+      }
     }
   ],
   "formulas": {
     "halfSpan": "buildingWidth / 2",
-    "x1": "lowerHeight / Math.tan(lowerAngle * Math.PI/180)",
-    "h2": "(halfSpan - x1) * Math.tan(upperAngle * Math.PI/180)",
-    "lowerSlopeLength": "Math.sqrt(lowerHeight**2 + x1**2)",
-    "upperSlopeLength": "Math.sqrt(h2**2 + (halfSpan - x1)**2)",
-    "lowerRoofArea": "2 * buildingLength * lowerSlopeLength",
-    "upperRoofArea": "2 * buildingLength * upperSlopeLength",
-    "totalRoofArea": "lowerRoofArea + upperRoofArea",
-    "ridgeHeight": "lowerHeight + h2"
+    "halfSpan_aux": "buildingWidth / 2"
   },
   "outputs": {
-    "primary": "totalRoofArea",
+    "primary": "halfSpan_aux",
     "breakdown": [
       "lowerRoofArea",
       "upperRoofArea",
       "ridgeHeight"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "ridgeHeight"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -69,5 +107,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

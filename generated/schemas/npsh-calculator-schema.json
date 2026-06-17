@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "bar",
       "default": 1.01325,
-      "businessContext": "Standard atmospheric pressure at sea level."
+      "businessContext": "Standard atmospheric pressure at sea level.",
+      "label_i18n": {
+        "en": "Atmospheric Pressure",
+        "tr": "Atmospheric Pressure",
+        "de": "Atmospheric Pressure",
+        "fr": "Atmospheric Pressure",
+        "es": "Atmospheric Pressure",
+        "ar": "Atmospheric Pressure"
+      }
     },
     {
       "id": "vaporPressure",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "bar",
       "default": 0.02339,
-      "businessContext": "Vapor pressure of the fluid at pumping temperature."
+      "businessContext": "Vapor pressure of the fluid at pumping temperature.",
+      "label_i18n": {
+        "en": "Vapor Pressure",
+        "tr": "Vapor Pressure",
+        "de": "Vapor Pressure",
+        "fr": "Vapor Pressure",
+        "es": "Vapor Pressure",
+        "ar": "Vapor Pressure"
+      }
     },
     {
       "id": "liquidDensity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1000,
-      "businessContext": "Density of the fluid being pumped."
+      "businessContext": "Density of the fluid being pumped.",
+      "label_i18n": {
+        "en": "Liquid Density",
+        "tr": "Liquid Density",
+        "de": "Liquid Density",
+        "fr": "Liquid Density",
+        "es": "Liquid Density",
+        "ar": "Liquid Density"
+      }
     },
     {
       "id": "staticSuctionHead",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Height from fluid surface to pump centerline. Positive if fluid above pump, negative for suction lift."
+      "businessContext": "Height from fluid surface to pump centerline. Positive if fluid above pump, negative for suction lift.",
+      "label_i18n": {
+        "en": "Static Suction Head",
+        "tr": "Static Suction Head",
+        "de": "Static Suction Head",
+        "fr": "Static Suction Head",
+        "es": "Static Suction Head",
+        "ar": "Static Suction Head"
+      }
     },
     {
       "id": "frictionHeadLoss",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.5,
-      "businessContext": "Friction losses in suction piping, including fittings."
+      "businessContext": "Friction losses in suction piping, including fittings.",
+      "label_i18n": {
+        "en": "Friction Head Loss",
+        "tr": "Friction Head Loss",
+        "de": "Friction Head Loss",
+        "fr": "Friction Head Loss",
+        "es": "Friction Head Loss",
+        "ar": "Friction Head Loss"
+      }
     },
     {
       "id": "velocityHead",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.2,
-      "businessContext": "Velocity head at pump suction, typically v²/(2g)."
+      "businessContext": "Velocity head at pump suction, typically v²/(2g).",
+      "label_i18n": {
+        "en": "Velocity Head",
+        "tr": "Velocity Head",
+        "de": "Velocity Head",
+        "fr": "Velocity Head",
+        "es": "Velocity Head",
+        "ar": "Velocity Head"
+      }
     }
   ],
   "formulas": {
@@ -64,7 +112,12 @@
       "frictionHeadLoss",
       "velocityHead",
       "npsha"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "npsha"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -74,5 +127,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

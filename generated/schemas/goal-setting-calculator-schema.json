@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "%",
       "default": 70,
-      "businessContext": "Current Overall Equipment Effectiveness percentage"
+      "businessContext": "Current Overall Equipment Effectiveness percentage",
+      "label_i18n": {
+        "en": "Current OEE",
+        "tr": "Current OEE",
+        "de": "Current OEE",
+        "fr": "Current OEE",
+        "es": "Current OEE",
+        "ar": "Current OEE"
+      }
     },
     {
       "id": "targetOEE",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 85,
-      "businessContext": "Target OEE percentage to achieve"
+      "businessContext": "Target OEE percentage to achieve",
+      "label_i18n": {
+        "en": "Target OEE",
+        "tr": "Target OEE",
+        "de": "Target OEE",
+        "fr": "Target OEE",
+        "es": "Target OEE",
+        "ar": "Target OEE"
+      }
     },
     {
       "id": "timeframe",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "months",
       "default": 6,
-      "businessContext": "Time period in months to achieve the target OEE"
+      "businessContext": "Time period in months to achieve the target OEE",
+      "label_i18n": {
+        "en": "Timeframe",
+        "tr": "Timeframe",
+        "de": "Timeframe",
+        "fr": "Timeframe",
+        "es": "Timeframe",
+        "ar": "Timeframe"
+      }
     },
     {
       "id": "currentAvailability",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 80,
-      "businessContext": "Current availability proportion of planned production time"
+      "businessContext": "Current availability proportion of planned production time",
+      "label_i18n": {
+        "en": "Current Availability",
+        "tr": "Current Availability",
+        "de": "Current Availability",
+        "fr": "Current Availability",
+        "es": "Current Availability",
+        "ar": "Current Availability"
+      }
     },
     {
       "id": "currentPerformance",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "Current performance speed vs ideal cycle time"
+      "businessContext": "Current performance speed vs ideal cycle time",
+      "label_i18n": {
+        "en": "Current Performance",
+        "tr": "Current Performance",
+        "de": "Current Performance",
+        "fr": "Current Performance",
+        "es": "Current Performance",
+        "ar": "Current Performance"
+      }
     },
     {
       "id": "currentQuality",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 95,
-      "businessContext": "Current quality rate (good units/total units)"
+      "businessContext": "Current quality rate (good units/total units)",
+      "label_i18n": {
+        "en": "Current Quality",
+        "tr": "Current Quality",
+        "de": "Current Quality",
+        "fr": "Current Quality",
+        "es": "Current Quality",
+        "ar": "Current Quality"
+      }
     }
   ],
   "formulas": {
@@ -61,7 +109,12 @@
       "Target OEE: {targetOEE}%",
       "Total OEE improvement needed: {deltaOEE}%",
       "Required monthly OEE increase: {monthlyOEEincrease}% per month"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "monthlyOEEincrease"
   },
   "category": "İmalat & Üretim",
   "sector": "Üretim & İmalat",
@@ -71,5 +124,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "efficiency"
+  "categoryId": "efficiency",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

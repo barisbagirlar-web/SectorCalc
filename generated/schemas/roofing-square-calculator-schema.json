@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft",
       "default": 30,
-      "businessContext": "Çatı taban alanının uzun kenarı"
+      "businessContext": "Çatı taban alanının uzun kenarı",
+      "label_i18n": {
+        "en": "Çatı Uzunluğu",
+        "tr": "Çatı Uzunluğu",
+        "de": "Çatı Uzunluğu",
+        "fr": "Çatı Uzunluğu",
+        "es": "Çatı Uzunluğu",
+        "ar": "Çatı Uzunluğu"
+      }
     },
     {
       "id": "roofWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ft",
       "default": 20,
-      "businessContext": "Çatı taban alanının kısa kenarı"
+      "businessContext": "Çatı taban alanının kısa kenarı",
+      "label_i18n": {
+        "en": "Çatı Genişliği",
+        "tr": "Çatı Genişliği",
+        "de": "Çatı Genişliği",
+        "fr": "Çatı Genişliği",
+        "es": "Çatı Genişliği",
+        "ar": "Çatı Genişliği"
+      }
     },
     {
       "id": "pitchAngle",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "derece",
       "default": 20,
-      "businessContext": "Çatı eğim açısı, yatay düzleme göre"
+      "businessContext": "Çatı eğim açısı, yatay düzleme göre",
+      "label_i18n": {
+        "en": "Çatı Eğim Açısı",
+        "tr": "Çatı Eğim Açısı",
+        "de": "Çatı Eğim Açısı",
+        "fr": "Çatı Eğim Açısı",
+        "es": "Çatı Eğim Açısı",
+        "ar": "Çatı Eğim Açısı"
+      }
     },
     {
       "id": "wastePercent",
@@ -31,22 +55,33 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Kesim ve hata payı için eklenen fire oranı"
+      "businessContext": "Kesim ve hata payı için eklenen fire oranı",
+      "label_i18n": {
+        "en": "Fire Yüzdesi",
+        "tr": "Fire Yüzdesi",
+        "de": "Fire Yüzdesi",
+        "fr": "Fire Yüzdesi",
+        "es": "Fire Yüzdesi",
+        "ar": "Fire Yüzdesi"
+      }
     }
   ],
   "formulas": {
-    "roofArea": "roofLength * roofWidth * (1 / Math.cos(pitchAngle * Math.PI / 180))",
-    "wasteArea": "roofArea * (wastePercent / 100)",
-    "totalArea": "roofArea + wasteArea",
-    "roofingSquares": "totalArea / 100"
+    "result": "roofLength + roofWidth + pitchAngle",
+    "result_copy": "roofLength + roofWidth + pitchAngle"
   },
   "outputs": {
-    "primary": "roofingSquares",
+    "primary": "result",
     "breakdown": [
       "roofArea",
       "wasteArea",
       "totalArea"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roofingSquares"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -56,5 +91,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

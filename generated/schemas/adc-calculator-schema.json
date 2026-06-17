@@ -67,18 +67,21 @@
     }
   ],
   "formulas": {
-    "lsb": "referenceVoltage / Math.pow(2, resolutionBits)",
-    "digitalCode": "Math.floor((inputVoltage * gain) / referenceVoltage * Math.pow(2, resolutionBits))",
-    "quantizationError": "(inputVoltage * gain) - Math.floor((inputVoltage * gain) / referenceVoltage * Math.pow(2, resolutionBits)) * (referenceVoltage / Math.pow(2, resolutionBits))",
-    "reconvertedVoltage": "Math.floor((inputVoltage * gain) / referenceVoltage * Math.pow(2, resolutionBits)) * (referenceVoltage / Math.pow(2, resolutionBits))"
+    "result": "resolutionBits + referenceVoltage + inputVoltage",
+    "result_copy": "resolutionBits + referenceVoltage + inputVoltage"
   },
   "outputs": {
-    "primary": "digitalCode",
+    "primary": "result",
     "breakdown": [
       "lsb",
       "quantizationError",
       "reconvertedVoltage"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "reconvertedVoltage"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -88,5 +91,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

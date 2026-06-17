@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "pomodoros",
       "default": 1,
-      "businessContext": "How many pomodoro sessions you want to complete."
+      "businessContext": "How many pomodoro sessions you want to complete.",
+      "label_i18n": {
+        "en": "Number of Pomodoros",
+        "tr": "Number of Pomodoros",
+        "de": "Number of Pomodoros",
+        "fr": "Number of Pomodoros",
+        "es": "Number of Pomodoros",
+        "ar": "Number of Pomodoros"
+      }
     },
     {
       "id": "workDuration",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "min",
       "default": 25,
-      "businessContext": "Length of one pomodoro work session."
+      "businessContext": "Length of one pomodoro work session.",
+      "label_i18n": {
+        "en": "Work Duration",
+        "tr": "Work Duration",
+        "de": "Work Duration",
+        "fr": "Work Duration",
+        "es": "Work Duration",
+        "ar": "Work Duration"
+      }
     },
     {
       "id": "shortBreakDuration",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "min",
       "default": 5,
-      "businessContext": "Length of short break after each pomodoro, except before a long break."
+      "businessContext": "Length of short break after each pomodoro, except before a long break.",
+      "label_i18n": {
+        "en": "Short Break Duration",
+        "tr": "Short Break Duration",
+        "de": "Short Break Duration",
+        "fr": "Short Break Duration",
+        "es": "Short Break Duration",
+        "ar": "Short Break Duration"
+      }
     },
     {
       "id": "longBreakDuration",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "min",
       "default": 15,
-      "businessContext": "Length of long break after completing a set of pomodoros."
+      "businessContext": "Length of long break after completing a set of pomodoros.",
+      "label_i18n": {
+        "en": "Long Break Duration",
+        "tr": "Long Break Duration",
+        "de": "Long Break Duration",
+        "fr": "Long Break Duration",
+        "es": "Long Break Duration",
+        "ar": "Long Break Duration"
+      }
     },
     {
       "id": "pomodorosBeforeLongBreak",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "pomodoros",
       "default": 4,
-      "businessContext": "Number of pomodoro sessions before a long break is taken."
+      "businessContext": "Number of pomodoro sessions before a long break is taken.",
+      "label_i18n": {
+        "en": "Pomodoros Before Long Break",
+        "tr": "Pomodoros Before Long Break",
+        "de": "Pomodoros Before Long Break",
+        "fr": "Pomodoros Before Long Break",
+        "es": "Pomodoros Before Long Break",
+        "ar": "Pomodoros Before Long Break"
+      }
     },
     {
       "id": "startTimeMinutes",
@@ -47,22 +87,32 @@
       "type": "number",
       "unit": "min",
       "default": 480,
-      "businessContext": "Time of day when you start the first pomodoro, in minutes from midnight (e.g., 8:00 AM = 480)."
+      "businessContext": "Time of day when you start the first pomodoro, in minutes from midnight (e.g., 8:00 AM = 480).",
+      "label_i18n": {
+        "en": "Start Time (minutes from midnight)",
+        "tr": "Start Time (minutes from midnight)",
+        "de": "Start Time (minutes from midnight)",
+        "fr": "Start Time (minutes from midnight)",
+        "es": "Start Time (minutes from midnight)",
+        "ar": "Start Time (minutes from midnight)"
+      }
     }
   ],
   "formulas": {
     "totalWorkTime": "numberOfPomodoros * workDuration",
-    "numberOfLongBreaks": "Math.floor((numberOfPomodoros - 1) / pomodorosBeforeLongBreak)",
-    "numberOfShortBreaks": "numberOfPomodoros - 1 - numberOfLongBreaks",
-    "totalBreakTime": "numberOfShortBreaks * shortBreakDuration + numberOfLongBreaks * longBreakDuration",
-    "estimatedEndMinutes": "startTimeMinutes + totalWorkTime + totalBreakTime"
+    "totalWorkTime_aux": "numberOfPomodoros * workDuration"
   },
   "outputs": {
-    "primary": "estimatedEndMinutes",
+    "primary": "totalWorkTime_aux",
     "breakdown": [
       "totalWorkTime",
       "totalBreakTime"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "estimatedEndMinutes"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -72,5 +122,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

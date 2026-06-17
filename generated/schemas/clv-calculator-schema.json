@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 100,
-      "businessContext": "Müşteri başına ortalama harcama tutarı."
+      "businessContext": "Müşteri başına ortalama harcama tutarı.",
+      "label_i18n": {
+        "en": "Ortalama Sipariş Değeri",
+        "tr": "Ortalama Sipariş Değeri",
+        "de": "Ortalama Sipariş Değeri",
+        "fr": "Ortalama Sipariş Değeri",
+        "es": "Ortalama Sipariş Değeri",
+        "ar": "Ortalama Sipariş Değeri"
+      }
     },
     {
       "id": "orderFrequency",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "adet/yıl",
       "default": 4,
-      "businessContext": "Müşterinin yılda kaç kez sipariş verdiği."
+      "businessContext": "Müşterinin yılda kaç kez sipariş verdiği.",
+      "label_i18n": {
+        "en": "Yıllık Sipariş Sıklığı",
+        "tr": "Yıllık Sipariş Sıklığı",
+        "de": "Yıllık Sipariş Sıklığı",
+        "fr": "Yıllık Sipariş Sıklığı",
+        "es": "Yıllık Sipariş Sıklığı",
+        "ar": "Yıllık Sipariş Sıklığı"
+      }
     },
     {
       "id": "customerLifespan",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "yıl",
       "default": 3,
-      "businessContext": "Müşterinin aktif kaldığı süre."
+      "businessContext": "Müşterinin aktif kaldığı süre.",
+      "label_i18n": {
+        "en": "Müşteri Ömrü",
+        "tr": "Müşteri Ömrü",
+        "de": "Müşteri Ömrü",
+        "fr": "Müşteri Ömrü",
+        "es": "Müşteri Ömrü",
+        "ar": "Müşteri Ömrü"
+      }
     },
     {
       "id": "profitMargin",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 25,
-      "businessContext": "Sipariş değerinden elde edilen kar oranı."
+      "businessContext": "Sipariş değerinden elde edilen kar oranı.",
+      "label_i18n": {
+        "en": "Kar Marjı",
+        "tr": "Kar Marjı",
+        "de": "Kar Marjı",
+        "fr": "Kar Marjı",
+        "es": "Kar Marjı",
+        "ar": "Kar Marjı"
+      }
     },
     {
       "id": "discountRate",
@@ -39,20 +71,32 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Gelecek nakit akışlarını bugüne indirgemek için kullanılan oran. %0 basit CLV için."
+      "businessContext": "Gelecek nakit akışlarını bugüne indirgemek için kullanılan oran. %0 basit CLV için.",
+      "label_i18n": {
+        "en": "İndirim Oranı",
+        "tr": "İndirim Oranı",
+        "de": "İndirim Oranı",
+        "fr": "İndirim Oranı",
+        "es": "İndirim Oranı",
+        "ar": "İndirim Oranı"
+      }
     }
   ],
   "formulas": {
     "annualProfit": "({averageOrderValue} * {orderFrequency} * ({profitMargin} / 100))",
-    "clv": "({discountRate} > 0) ? ({annualProfit} * ((1 - Math.pow(1 + {discountRate} / 100, -{customerLifespan})) / ({discountRate} / 100))) : ({annualProfit} * {customerLifespan})",
     "totalProfitUndiscounted": "({annualProfit} * {customerLifespan})"
   },
   "outputs": {
-    "primary": "clv",
+    "primary": "totalProfitUndiscounted",
     "breakdown": [
       "annualProfit",
       "totalProfitUndiscounted"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalProfitUndiscounted"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -62,5 +106,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

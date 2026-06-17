@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 100,
-      "businessContext": "Measured blood glucose concentration for diabetes management"
+      "businessContext": "Measured blood glucose concentration for diabetes management",
+      "label_i18n": {
+        "en": "Blood Glucose",
+        "tr": "Blood Glucose",
+        "de": "Blood Glucose",
+        "fr": "Blood Glucose",
+        "es": "Blood Glucose",
+        "ar": "Blood Glucose"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "unitless",
       "default": 0.0555,
-      "businessContext": "Conversion constant from mg/dL to mmol/L used in laboratory reporting"
+      "businessContext": "Conversion constant from mg/dL to mmol/L used in laboratory reporting",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "timeSinceMeal",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "hours",
       "default": 2,
-      "businessContext": "Time elapsed since last meal to adjust for postprandial variation"
+      "businessContext": "Time elapsed since last meal to adjust for postprandial variation",
+      "label_i18n": {
+        "en": "Time Since Last Meal",
+        "tr": "Time Since Last Meal",
+        "de": "Time Since Last Meal",
+        "fr": "Time Since Last Meal",
+        "es": "Time Since Last Meal",
+        "ar": "Time Since Last Meal"
+      }
     },
     {
       "id": "targetLow",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 70,
-      "businessContext": "Lower therapeutic target for glucose level in gestational diabetes"
+      "businessContext": "Lower therapeutic target for glucose level in gestational diabetes",
+      "label_i18n": {
+        "en": "Target Low Glucose",
+        "tr": "Target Low Glucose",
+        "de": "Target Low Glucose",
+        "fr": "Target Low Glucose",
+        "es": "Target Low Glucose",
+        "ar": "Target Low Glucose"
+      }
     },
     {
       "id": "targetHigh",
@@ -39,20 +71,32 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 140,
-      "businessContext": "Upper therapeutic target for glucose level in gestational diabetes"
+      "businessContext": "Upper therapeutic target for glucose level in gestational diabetes",
+      "label_i18n": {
+        "en": "Target High Glucose",
+        "tr": "Target High Glucose",
+        "de": "Target High Glucose",
+        "fr": "Target High Glucose",
+        "es": "Target High Glucose",
+        "ar": "Target High Glucose"
+      }
     }
   ],
   "formulas": {
     "glucoseScore": "(bloodGlucose - targetLow) / (targetHigh - targetLow)",
-    "glucoseMmol": "bloodGlucose * conversionFactor",
-    "adjustedGlucose": "bloodGlucose / (1 + ((2 - timeSinceMeal) + Math.sqrt((2 - timeSinceMeal)*(2 - timeSinceMeal))) / 2 * 0.2)"
+    "glucoseMmol": "bloodGlucose * conversionFactor"
   },
   "outputs": {
     "primary": "glucoseScore",
     "breakdown": [
       "glucoseMmol",
       "adjustedGlucose"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "adjustedGlucose"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -62,5 +106,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

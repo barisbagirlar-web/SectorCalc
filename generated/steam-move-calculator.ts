@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from steam-move-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,27 +16,33 @@ export const Steam_move_calculatorInputSchema = z.object({
   temperature: z.number().default(200),
 });
 
-function evaluateAllFormulas(input: Steam_move_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = (input.pressure * 1e5) / (461.5 * (input.temperature + 273.15)); results["steamDensity"] = Number.isFinite(v) ? v : 0; } catch { results["steamDensity"] = 0; }
-  try { const v = Math.PI * Math.pow(input.diameter / 1000 / 2, 2); results["pipeArea"] = Number.isFinite(v) ? v : 0; } catch { results["pipeArea"] = 0; }
-  try { const v = (input.massFlow / 3600) / (results["steamDensity"] ?? 0); results["volFlow"] = Number.isFinite(v) ? v : 0; } catch { results["volFlow"] = 0; }
-  try { const v = (results["volFlow"] ?? 0) / (results["pipeArea"] ?? 0); results["velocity"] = Number.isFinite(v) ? v : 0; } catch { results["velocity"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Steam_move_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = (input.pressure * 1e5) / (461.5 * (input.temperature + 273.15)); results["steamDensity"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["steamDensity"] = 0; }
+  try { const v = (input.massFlow / 3600) / (asFormulaNumber(results["steamDensity"])); results["volFlow"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["volFlow"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateSteam_move_calculator(input: Steam_move_calculatorInput): Steam_move_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["velocity"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["volFlow"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

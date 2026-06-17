@@ -110,7 +110,12 @@
       "loadCenterDeratingFactor",
       "capacityAtLoadCenter",
       "capacityAtLiftHeight"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "finalSafeLoad"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -120,5 +125,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

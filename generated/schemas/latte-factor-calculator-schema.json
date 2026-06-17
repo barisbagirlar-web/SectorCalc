@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 5,
-      "businessContext": "The amount you spend daily on the item you're eliminating"
+      "businessContext": "The amount you spend daily on the item you're eliminating",
+      "label_i18n": {
+        "en": "Daily Expense Amount",
+        "tr": "Daily Expense Amount",
+        "de": "Daily Expense Amount",
+        "fr": "Daily Expense Amount",
+        "es": "Daily Expense Amount",
+        "ar": "Daily Expense Amount"
+      }
     },
     {
       "id": "daysPerWeek",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "days/week",
       "default": 5,
-      "businessContext": "Number of days per week you make this purchase"
+      "businessContext": "Number of days per week you make this purchase",
+      "label_i18n": {
+        "en": "Days per Week",
+        "tr": "Days per Week",
+        "de": "Days per Week",
+        "fr": "Days per Week",
+        "es": "Days per Week",
+        "ar": "Days per Week"
+      }
     },
     {
       "id": "years",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 10,
-      "businessContext": "Number of years you plan to invest the saved money"
+      "businessContext": "Number of years you plan to invest the saved money",
+      "label_i18n": {
+        "en": "Investment Horizon",
+        "tr": "Investment Horizon",
+        "de": "Investment Horizon",
+        "fr": "Investment Horizon",
+        "es": "Investment Horizon",
+        "ar": "Investment Horizon"
+      }
     },
     {
       "id": "annualReturnRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 7,
-      "businessContext": "Expected annual return rate on investment (e.g., 7 for 7%)"
+      "businessContext": "Expected annual return rate on investment (e.g., 7 for 7%)",
+      "label_i18n": {
+        "en": "Expected Annual Return",
+        "tr": "Expected Annual Return",
+        "de": "Expected Annual Return",
+        "fr": "Expected Annual Return",
+        "es": "Expected Annual Return",
+        "ar": "Expected Annual Return"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "annualContribution",
       "totalContributions",
       "interestEarned"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "interestEarned"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -56,5 +93,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

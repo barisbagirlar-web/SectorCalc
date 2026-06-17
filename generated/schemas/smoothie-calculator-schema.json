@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "servings",
       "default": 1,
-      "businessContext": "Number of smoothie servings to prepare"
+      "businessContext": "Number of smoothie servings to prepare",
+      "label_i18n": {
+        "en": "Number of Servings",
+        "tr": "Number of Servings",
+        "de": "Number of Servings",
+        "fr": "Number of Servings",
+        "es": "Number of Servings",
+        "ar": "Number of Servings"
+      }
     },
     {
       "id": "baseVolumeML",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ml",
       "default": 200,
-      "businessContext": "Volume of liquid base (milk, juice, etc.) per smoothie in milliliters"
+      "businessContext": "Volume of liquid base (milk, juice, etc.) per smoothie in milliliters",
+      "label_i18n": {
+        "en": "Base Liquid per Serving",
+        "tr": "Base Liquid per Serving",
+        "de": "Base Liquid per Serving",
+        "fr": "Base Liquid per Serving",
+        "es": "Base Liquid per Serving",
+        "ar": "Base Liquid per Serving"
+      }
     },
     {
       "id": "fruitGrams",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "g",
       "default": 150,
-      "businessContext": "Weight of fruit per smoothie in grams"
+      "businessContext": "Weight of fruit per smoothie in grams",
+      "label_i18n": {
+        "en": "Fruit per Serving",
+        "tr": "Fruit per Serving",
+        "de": "Fruit per Serving",
+        "fr": "Fruit per Serving",
+        "es": "Fruit per Serving",
+        "ar": "Fruit per Serving"
+      }
     },
     {
       "id": "iceGrams",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "g",
       "default": 80,
-      "businessContext": "Weight of ice per smoothie in grams"
+      "businessContext": "Weight of ice per smoothie in grams",
+      "label_i18n": {
+        "en": "Ice per Serving",
+        "tr": "Ice per Serving",
+        "de": "Ice per Serving",
+        "fr": "Ice per Serving",
+        "es": "Ice per Serving",
+        "ar": "Ice per Serving"
+      }
     },
     {
       "id": "baseCostPerLiter",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD/L",
       "default": 1.5,
-      "businessContext": "Cost of one liter of liquid base in USD"
+      "businessContext": "Cost of one liter of liquid base in USD",
+      "label_i18n": {
+        "en": "Base Liquid Cost per Liter",
+        "tr": "Base Liquid Cost per Liter",
+        "de": "Base Liquid Cost per Liter",
+        "fr": "Base Liquid Cost per Liter",
+        "es": "Base Liquid Cost per Liter",
+        "ar": "Base Liquid Cost per Liter"
+      }
     },
     {
       "id": "fruitCostPerKg",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "USD/kg",
       "default": 4,
-      "businessContext": "Cost of one kilogram of fruit in USD"
+      "businessContext": "Cost of one kilogram of fruit in USD",
+      "label_i18n": {
+        "en": "Fruit Cost per kg",
+        "tr": "Fruit Cost per kg",
+        "de": "Fruit Cost per kg",
+        "fr": "Fruit Cost per kg",
+        "es": "Fruit Cost per kg",
+        "ar": "Fruit Cost per kg"
+      }
     },
     {
       "id": "iceCostPerKg",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "USD/kg",
       "default": 0.1,
-      "businessContext": "Cost of one kilogram of ice in USD"
+      "businessContext": "Cost of one kilogram of ice in USD",
+      "label_i18n": {
+        "en": "Ice Cost per kg",
+        "tr": "Ice Cost per kg",
+        "de": "Ice Cost per kg",
+        "fr": "Ice Cost per kg",
+        "es": "Ice Cost per kg",
+        "ar": "Ice Cost per kg"
+      }
     }
   ],
   "formulas": {
@@ -74,7 +130,12 @@
       "fruitCost",
       "iceCost",
       "totalCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "costPerSmoothie"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -84,5 +145,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

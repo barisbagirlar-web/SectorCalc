@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TRY/L",
       "default": 20,
-      "businessContext": "Current fuel price in TRY per liter."
+      "businessContext": "Current fuel price in TRY per liter.",
+      "label_i18n": {
+        "en": "Fuel Price per Liter",
+        "tr": "Fuel Price per Liter",
+        "de": "Fuel Price per Liter",
+        "fr": "Fuel Price per Liter",
+        "es": "Fuel Price per Liter",
+        "ar": "Fuel Price per Liter"
+      }
     },
     {
       "id": "annualDistance",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "km",
       "default": 20000,
-      "businessContext": "Total kilometers driven per year."
+      "businessContext": "Total kilometers driven per year.",
+      "label_i18n": {
+        "en": "Annual Distance",
+        "tr": "Annual Distance",
+        "de": "Annual Distance",
+        "fr": "Annual Distance",
+        "es": "Annual Distance",
+        "ar": "Annual Distance"
+      }
     },
     {
       "id": "fuelConsumption",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "L/100km",
       "default": 7,
-      "businessContext": "Average fuel consumption of the vehicle."
+      "businessContext": "Average fuel consumption of the vehicle.",
+      "label_i18n": {
+        "en": "Fuel Consumption",
+        "tr": "Fuel Consumption",
+        "de": "Fuel Consumption",
+        "fr": "Fuel Consumption",
+        "es": "Fuel Consumption",
+        "ar": "Fuel Consumption"
+      }
     },
     {
       "id": "maintenanceCost",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 3000,
-      "businessContext": "Annual maintenance and repair costs."
+      "businessContext": "Annual maintenance and repair costs.",
+      "label_i18n": {
+        "en": "Annual Maintenance Cost",
+        "tr": "Annual Maintenance Cost",
+        "de": "Annual Maintenance Cost",
+        "fr": "Annual Maintenance Cost",
+        "es": "Annual Maintenance Cost",
+        "ar": "Annual Maintenance Cost"
+      }
     },
     {
       "id": "insuranceCost",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 2500,
-      "businessContext": "Annual vehicle insurance cost."
+      "businessContext": "Annual vehicle insurance cost.",
+      "label_i18n": {
+        "en": "Annual Insurance Cost",
+        "tr": "Annual Insurance Cost",
+        "de": "Annual Insurance Cost",
+        "fr": "Annual Insurance Cost",
+        "es": "Annual Insurance Cost",
+        "ar": "Annual Insurance Cost"
+      }
     },
     {
       "id": "taxCost",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 1500,
-      "businessContext": "Annual vehicle tax."
+      "businessContext": "Annual vehicle tax.",
+      "label_i18n": {
+        "en": "Annual Tax Cost",
+        "tr": "Annual Tax Cost",
+        "de": "Annual Tax Cost",
+        "fr": "Annual Tax Cost",
+        "es": "Annual Tax Cost",
+        "ar": "Annual Tax Cost"
+      }
     },
     {
       "id": "otherCost",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 1000,
-      "businessContext": "Other annual costs (parking, tolls, etc.)."
+      "businessContext": "Other annual costs (parking, tolls, etc.).",
+      "label_i18n": {
+        "en": "Other Annual Costs",
+        "tr": "Other Annual Costs",
+        "de": "Other Annual Costs",
+        "fr": "Other Annual Costs",
+        "es": "Other Annual Costs",
+        "ar": "Other Annual Costs"
+      }
     }
   ],
   "formulas": {
@@ -68,7 +124,12 @@
     "breakdown": [
       "fuelCost",
       "otherAnnualCosts"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "otherAnnualCosts"
   },
   "category": "Bakım & Güvenilirlik",
   "sector": "Üretim & İmalat",
@@ -78,5 +139,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

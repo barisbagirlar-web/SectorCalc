@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 500000,
-      "businessContext": "Total balance in the retirement account as of December 31 of the previous year."
+      "businessContext": "Total balance in the retirement account as of December 31 of the previous year.",
+      "label_i18n": {
+        "en": "Account Balance (IRA Balance)",
+        "tr": "Account Balance (IRA Balance)",
+        "de": "Account Balance (IRA Balance)",
+        "fr": "Account Balance (IRA Balance)",
+        "es": "Account Balance (IRA Balance)",
+        "ar": "Account Balance (IRA Balance)"
+      }
     },
     {
       "id": "age",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "years",
       "default": 73,
-      "businessContext": "Age of the account owner as of the current year. Used to determine the life expectancy factor."
+      "businessContext": "Age of the account owner as of the current year. Used to determine the life expectancy factor.",
+      "label_i18n": {
+        "en": "Age (Current Year Age)",
+        "tr": "Age (Current Year Age)",
+        "de": "Age (Current Year Age)",
+        "fr": "Age (Current Year Age)",
+        "es": "Age (Current Year Age)",
+        "ar": "Age (Current Year Age)"
+      }
     },
     {
       "id": "spouseAge",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 70,
-      "businessContext": "Age of spouse if the account owner is married and spouse is the sole beneficiary. Used for joint life expectancy factor."
+      "businessContext": "Age of spouse if the account owner is married and spouse is the sole beneficiary. Used for joint life expectancy factor.",
+      "label_i18n": {
+        "en": "Spouse Age (if applicable)",
+        "tr": "Spouse Age (if applicable)",
+        "de": "Spouse Age (if applicable)",
+        "fr": "Spouse Age (if applicable)",
+        "es": "Spouse Age (if applicable)",
+        "ar": "Spouse Age (if applicable)"
+      }
     },
     {
       "id": "beneficiaryType",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "code",
       "default": 1,
-      "businessContext": "1 = Spouse sole beneficiary, 2 = Non-spouse beneficiary, 3 = No designated beneficiary. Determines which life expectancy table to use."
+      "businessContext": "1 = Spouse sole beneficiary, 2 = Non-spouse beneficiary, 3 = No designated beneficiary. Determines which life expectancy table to use.",
+      "label_i18n": {
+        "en": "Beneficiary Type",
+        "tr": "Beneficiary Type",
+        "de": "Beneficiary Type",
+        "fr": "Beneficiary Type",
+        "es": "Beneficiary Type",
+        "ar": "Beneficiary Type"
+      }
     },
     {
       "id": "lifeExpectancyFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "years",
       "default": 0,
-      "businessContext": "Optional override for the life expectancy factor. If 0, the factor is calculated based on age and beneficiary type using IRS tables."
+      "businessContext": "Optional override for the life expectancy factor. If 0, the factor is calculated based on age and beneficiary type using IRS tables.",
+      "label_i18n": {
+        "en": "Life Expectancy Factor (Override)",
+        "tr": "Life Expectancy Factor (Override)",
+        "de": "Life Expectancy Factor (Override)",
+        "fr": "Life Expectancy Factor (Override)",
+        "es": "Life Expectancy Factor (Override)",
+        "ar": "Life Expectancy Factor (Override)"
+      }
     }
   ],
   "formulas": {
@@ -51,7 +91,12 @@
     "breakdown": [
       "lifeExpectancyFactorCalc",
       "rmdAmount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "rmdAmount"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -61,5 +106,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

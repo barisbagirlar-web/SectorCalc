@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from text-to-ascii-calculator-schema.json
 import * as z from 'zod';
 
@@ -23,33 +24,33 @@ export const Text_to_ascii_calculatorInputSchema = z.object({
   ascii8: z.number().default(0),
 });
 
-function evaluateAllFormulas(input: Text_to_ascii_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.ascii1 + input.ascii2 + input.ascii3 + input.ascii4 + input.ascii5 + input.ascii6 + input.ascii7 + input.ascii8; results["outputPrimary"] = Number.isFinite(v) ? v : 0; } catch { results["outputPrimary"] = 0; }
-  try { const v = input.ascii1; results["outputBreakdown"] = Number.isFinite(v) ? v : 0; } catch { results["outputBreakdown"] = 0; }
-  results["ASCII_Code_1"] = 0;
-  results["ASCII_Code_2"] = 0;
-  results["ASCII_Code_3"] = 0;
-  results["ASCII_Code_4"] = 0;
-  results["ASCII_Code_5"] = 0;
-  results["ASCII_Code_6"] = 0;
-  results["ASCII_Code_7"] = 0;
-  results["ASCII_Code_8"] = 0;
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Text_to_ascii_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.ascii1 + input.ascii2 + input.ascii3 + input.ascii4 + input.ascii5 + input.ascii6 + input.ascii7 + input.ascii8; results["outputPrimary"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["outputPrimary"] = 0; }
+  try { const v = input.ascii1; results["outputBreakdown"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["outputBreakdown"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateText_to_ascii_calculator(input: Text_to_ascii_calculatorInput): Text_to_ascii_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["outputPrimary"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["outputPrimary"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Total interest-bearing debt (short-term + long-term)"
+      "businessContext": "Total interest-bearing debt (short-term + long-term)",
+      "label_i18n": {
+        "en": "Total Debt",
+        "tr": "Total Debt",
+        "de": "Total Debt",
+        "fr": "Total Debt",
+        "es": "Total Debt",
+        "ar": "Total Debt"
+      }
     },
     {
       "id": "commonStock",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Common stock equity"
+      "businessContext": "Common stock equity",
+      "label_i18n": {
+        "en": "Common Stock",
+        "tr": "Common Stock",
+        "de": "Common Stock",
+        "fr": "Common Stock",
+        "es": "Common Stock",
+        "ar": "Common Stock"
+      }
     },
     {
       "id": "preferredStock",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Preferred stock equity"
+      "businessContext": "Preferred stock equity",
+      "label_i18n": {
+        "en": "Preferred Stock",
+        "tr": "Preferred Stock",
+        "de": "Preferred Stock",
+        "fr": "Preferred Stock",
+        "es": "Preferred Stock",
+        "ar": "Preferred Stock"
+      }
     },
     {
       "id": "retainedEarnings",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Accumulated retained earnings"
+      "businessContext": "Accumulated retained earnings",
+      "label_i18n": {
+        "en": "Retained Earnings",
+        "tr": "Retained Earnings",
+        "de": "Retained Earnings",
+        "fr": "Retained Earnings",
+        "es": "Retained Earnings",
+        "ar": "Retained Earnings"
+      }
     },
     {
       "id": "otherEquity",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Other comprehensive equity components"
+      "businessContext": "Other comprehensive equity components",
+      "label_i18n": {
+        "en": "Other Equity",
+        "tr": "Other Equity",
+        "de": "Other Equity",
+        "fr": "Other Equity",
+        "es": "Other Equity",
+        "ar": "Other Equity"
+      }
     }
   ],
   "formulas": {
@@ -53,7 +93,12 @@
       "totalDebt",
       "totalEquity",
       "totalCapital"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "debtToCapitalRatio"
   },
   "category": "Proje & Yatırım",
   "sector": "Finans & İK",
@@ -63,5 +108,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

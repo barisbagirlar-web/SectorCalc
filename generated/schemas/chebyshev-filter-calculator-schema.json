@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dB",
       "default": 1,
-      "businessContext": "Maximum ripple in the passband (Ap). Must be >0."
+      "businessContext": "Maximum ripple in the passband (Ap). Must be >0.",
+      "label_i18n": {
+        "en": "Passband Ripple (dB)",
+        "tr": "Passband Ripple (dB)",
+        "de": "Passband Ripple (dB)",
+        "fr": "Passband Ripple (dB)",
+        "es": "Passband Ripple (dB)",
+        "ar": "Passband Ripple (dB)"
+      }
     },
     {
       "id": "stopbandAttenuation",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dB",
       "default": 40,
-      "businessContext": "Minimum attenuation required in the stopband (As). Must be > passbandRipple."
+      "businessContext": "Minimum attenuation required in the stopband (As). Must be > passbandRipple.",
+      "label_i18n": {
+        "en": "Stopband Attenuation (dB)",
+        "tr": "Stopband Attenuation (dB)",
+        "de": "Stopband Attenuation (dB)",
+        "fr": "Stopband Attenuation (dB)",
+        "es": "Stopband Attenuation (dB)",
+        "ar": "Stopband Attenuation (dB)"
+      }
     },
     {
       "id": "cutoffFrequency",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 1000,
-      "businessContext": "Passband edge frequency (wp). For low-pass prototype, must be < stopbandFrequency."
+      "businessContext": "Passband edge frequency (wp). For low-pass prototype, must be < stopbandFrequency.",
+      "label_i18n": {
+        "en": "Cutoff Frequency (Hz)",
+        "tr": "Cutoff Frequency (Hz)",
+        "de": "Cutoff Frequency (Hz)",
+        "fr": "Cutoff Frequency (Hz)",
+        "es": "Cutoff Frequency (Hz)",
+        "ar": "Cutoff Frequency (Hz)"
+      }
     },
     {
       "id": "stopbandFrequency",
@@ -31,24 +55,34 @@
       "type": "number",
       "unit": "Hz",
       "default": 2000,
-      "businessContext": "Stopband edge frequency (ws). Must be > cutoffFrequency."
+      "businessContext": "Stopband edge frequency (ws). Must be > cutoffFrequency.",
+      "label_i18n": {
+        "en": "Stopband Frequency (Hz)",
+        "tr": "Stopband Frequency (Hz)",
+        "de": "Stopband Frequency (Hz)",
+        "fr": "Stopband Frequency (Hz)",
+        "es": "Stopband Frequency (Hz)",
+        "ar": "Stopband Frequency (Hz)"
+      }
     }
   ],
   "formulas": {
-    "epsilon": "Math.sqrt(Math.pow(10, 0.1 * passbandRipple) - 1)",
-    "delta": "Math.sqrt((Math.pow(10, 0.1 * stopbandAttenuation) - 1) / (Math.pow(10, 0.1 * passbandRipple) - 1))",
     "selectivity": "stopbandFrequency / cutoffFrequency",
-    "n_raw": "Math.acosh(delta) / Math.acosh(selectivity)",
-    "order": "Math.ceil(n_raw)"
+    "selectivity_aux": "stopbandFrequency / cutoffFrequency"
   },
   "outputs": {
-    "primary": "order",
+    "primary": "selectivity_aux",
     "breakdown": [
       "epsilon",
       "delta",
       "selectivity",
       "n_raw"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "order"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -58,5 +92,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

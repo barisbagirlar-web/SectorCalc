@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 5,
-      "businessContext": "Weight of backpack and essential gear (excluding consumables and extra clothing)."
+      "businessContext": "Weight of backpack and essential gear (excluding consumables and extra clothing).",
+      "label_i18n": {
+        "en": "Base Pack Weight",
+        "tr": "Base Pack Weight",
+        "de": "Base Pack Weight",
+        "fr": "Base Pack Weight",
+        "es": "Base Pack Weight",
+        "ar": "Base Pack Weight"
+      }
     },
     {
       "id": "foodWeightPerDay",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0.6,
-      "businessContext": "Estimated weight of food consumed per person per day."
+      "businessContext": "Estimated weight of food consumed per person per day.",
+      "label_i18n": {
+        "en": "Food Weight per Day",
+        "tr": "Food Weight per Day",
+        "de": "Food Weight per Day",
+        "fr": "Food Weight per Day",
+        "es": "Food Weight per Day",
+        "ar": "Food Weight per Day"
+      }
     },
     {
       "id": "waterWeightPerDay",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 2,
-      "businessContext": "Weight of water carried per day (1 liter = 1 kg)."
+      "businessContext": "Weight of water carried per day (1 liter = 1 kg).",
+      "label_i18n": {
+        "en": "Water Weight per Day",
+        "tr": "Water Weight per Day",
+        "de": "Water Weight per Day",
+        "fr": "Water Weight per Day",
+        "es": "Water Weight per Day",
+        "ar": "Water Weight per Day"
+      }
     },
     {
       "id": "fuelWeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0.2,
-      "businessContext": "Total weight of fuel (e.g., gas canister)."
+      "businessContext": "Total weight of fuel (e.g., gas canister).",
+      "label_i18n": {
+        "en": "Fuel Weight",
+        "tr": "Fuel Weight",
+        "de": "Fuel Weight",
+        "fr": "Fuel Weight",
+        "es": "Fuel Weight",
+        "ar": "Fuel Weight"
+      }
     },
     {
       "id": "clothingWeight",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "Weight of extra clothing and layers beyond base clothing."
+      "businessContext": "Weight of extra clothing and layers beyond base clothing.",
+      "label_i18n": {
+        "en": "Extra Clothing Weight",
+        "tr": "Extra Clothing Weight",
+        "de": "Extra Clothing Weight",
+        "fr": "Extra Clothing Weight",
+        "es": "Extra Clothing Weight",
+        "ar": "Extra Clothing Weight"
+      }
     },
     {
       "id": "tripDays",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "days",
       "default": 3,
-      "businessContext": "Number of days for the backpacking trip."
+      "businessContext": "Number of days for the backpacking trip.",
+      "label_i18n": {
+        "en": "Trip Duration",
+        "tr": "Trip Duration",
+        "de": "Trip Duration",
+        "fr": "Trip Duration",
+        "es": "Trip Duration",
+        "ar": "Trip Duration"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
       "baseWeight",
       "clothingWeight",
       "fuelWeight"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalPackWeight"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -72,5 +125,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

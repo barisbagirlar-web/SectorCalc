@@ -53,19 +53,20 @@
   "formulas": {
     "equivalentNumerator": "numerator * multiplier",
     "equivalentDenominator": "denominator * multiplier",
-    "decimalValue": "numerator / denominator",
-    "__numerator____denominator_": "${numerator}/${denominator}",
-    "__multiplier_": "${multiplier}",
-    "__decimalValue_": "${decimalValue}",
-    "result": "Eşdeğer kesir: ${equivalentNumerator}/${equivalentDenominator}"
+    "decimalValue": "numerator / denominator"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "decimalValue",
     "breakdown": [
       "Orijinal kesir: ${numerator}/${denominator}",
       "Çarpan: ${multiplier}",
       "Ondalık değer: ${decimalValue}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "decimalValue"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -75,5 +76,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

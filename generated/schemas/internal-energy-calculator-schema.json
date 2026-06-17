@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "Maddenin kütlesi"
+      "businessContext": "Maddenin kütlesi",
+      "label_i18n": {
+        "en": "Kütle (m)",
+        "tr": "Kütle (m)",
+        "de": "Kütle (m)",
+        "fr": "Kütle (m)",
+        "es": "Kütle (m)",
+        "ar": "Kütle (m)"
+      }
     },
     {
       "id": "specificHeatCapacity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kJ/(kg·K)",
       "default": 0.718,
-      "businessContext": "İdeal gaz veya sıkıştırılamaz akışkan için cᵥ"
+      "businessContext": "İdeal gaz veya sıkıştırılamaz akışkan için cᵥ",
+      "label_i18n": {
+        "en": "Sabit Hacimde Özgül Isı Kapasitesi (cᵥ)",
+        "tr": "Sabit Hacimde Özgül Isı Kapasitesi (cᵥ)",
+        "de": "Sabit Hacimde Özgül Isı Kapasitesi (cᵥ)",
+        "fr": "Sabit Hacimde Özgül Isı Kapasitesi (cᵥ)",
+        "es": "Sabit Hacimde Özgül Isı Kapasitesi (cᵥ)",
+        "ar": "Sabit Hacimde Özgül Isı Kapasitesi (cᵥ)"
+      }
     },
     {
       "id": "initialTemperature",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "K",
       "default": 300,
-      "businessContext": "Başlangıç sıcaklığı (Kelvin)"
+      "businessContext": "Başlangıç sıcaklığı (Kelvin)",
+      "label_i18n": {
+        "en": "Başlangıç Sıcaklığı (T₁)",
+        "tr": "Başlangıç Sıcaklığı (T₁)",
+        "de": "Başlangıç Sıcaklığı (T₁)",
+        "fr": "Başlangıç Sıcaklığı (T₁)",
+        "es": "Başlangıç Sıcaklığı (T₁)",
+        "ar": "Başlangıç Sıcaklığı (T₁)"
+      }
     },
     {
       "id": "finalTemperature",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "K",
       "default": 350,
-      "businessContext": "Son sıcaklık (Kelvin)"
+      "businessContext": "Son sıcaklık (Kelvin)",
+      "label_i18n": {
+        "en": "Son Sıcaklık (T₂)",
+        "tr": "Son Sıcaklık (T₂)",
+        "de": "Son Sıcaklık (T₂)",
+        "fr": "Son Sıcaklık (T₂)",
+        "es": "Son Sıcaklık (T₂)",
+        "ar": "Son Sıcaklık (T₂)"
+      }
     }
   ],
   "formulas": {
@@ -42,7 +74,12 @@
     "primary": "internalEnergy",
     "breakdown": [
       "deltaT"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "internalEnergy"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -52,5 +89,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

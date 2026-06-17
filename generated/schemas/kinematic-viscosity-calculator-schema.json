@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Pa·s",
       "default": 0.001,
-      "businessContext": "Fluid’s dynamic viscosity in Pascal-seconds (1 Pa·s = 1 N·s/m² = 10 P)"
+      "businessContext": "Fluid’s dynamic viscosity in Pascal-seconds (1 Pa·s = 1 N·s/m² = 10 P)",
+      "label_i18n": {
+        "en": "Dynamic Viscosity (μ)",
+        "tr": "Dynamic Viscosity (μ)",
+        "de": "Dynamic Viscosity (μ)",
+        "fr": "Dynamic Viscosity (μ)",
+        "es": "Dynamic Viscosity (μ)",
+        "ar": "Dynamic Viscosity (μ)"
+      }
     },
     {
       "id": "density",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1000,
-      "businessContext": "Fluid’s mass density in kg/m³ (water ≈ 1000 kg/m³)"
+      "businessContext": "Fluid’s mass density in kg/m³ (water ≈ 1000 kg/m³)",
+      "label_i18n": {
+        "en": "Density (ρ)",
+        "tr": "Density (ρ)",
+        "de": "Density (ρ)",
+        "fr": "Density (ρ)",
+        "es": "Density (ρ)",
+        "ar": "Density (ρ)"
+      }
     },
     {
       "id": "velocity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 1,
-      "businessContext": "Mean flow velocity (m/s)"
+      "businessContext": "Mean flow velocity (m/s)",
+      "label_i18n": {
+        "en": "Flow Velocity (v)",
+        "tr": "Flow Velocity (v)",
+        "de": "Flow Velocity (v)",
+        "fr": "Flow Velocity (v)",
+        "es": "Flow Velocity (v)",
+        "ar": "Flow Velocity (v)"
+      }
     },
     {
       "id": "characteristicLength",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.1,
-      "businessContext": "Characteristic linear dimension (e.g., pipe diameter) in meters"
+      "businessContext": "Characteristic linear dimension (e.g., pipe diameter) in meters",
+      "label_i18n": {
+        "en": "Characteristic Length (L)",
+        "tr": "Characteristic Length (L)",
+        "de": "Characteristic Length (L)",
+        "fr": "Characteristic Length (L)",
+        "es": "Characteristic Length (L)",
+        "ar": "Characteristic Length (L)"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "reynoldsNumber",
       "kinematicViscosity_cSt"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "kinematicViscosity_cSt"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -54,5 +91,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "engineering"
+  "categoryId": "engineering",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

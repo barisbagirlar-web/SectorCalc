@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 10000,
-      "businessContext": "Total amount spent on the marketing campaign."
+      "businessContext": "Total amount spent on the marketing campaign.",
+      "label_i18n": {
+        "en": "Total Marketing Cost",
+        "tr": "Total Marketing Cost",
+        "de": "Total Marketing Cost",
+        "fr": "Total Marketing Cost",
+        "es": "Total Marketing Cost",
+        "ar": "Total Marketing Cost"
+      }
     },
     {
       "id": "numberOfLeads",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "leads",
       "default": 500,
-      "businessContext": "Total number of leads or prospects generated from the campaign."
+      "businessContext": "Total number of leads or prospects generated from the campaign.",
+      "label_i18n": {
+        "en": "Number of Leads Generated",
+        "tr": "Number of Leads Generated",
+        "de": "Number of Leads Generated",
+        "fr": "Number of Leads Generated",
+        "es": "Number of Leads Generated",
+        "ar": "Number of Leads Generated"
+      }
     },
     {
       "id": "conversionRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percentage of leads that convert into paying customers."
+      "businessContext": "Percentage of leads that convert into paying customers.",
+      "label_i18n": {
+        "en": "Conversion Rate",
+        "tr": "Conversion Rate",
+        "de": "Conversion Rate",
+        "fr": "Conversion Rate",
+        "es": "Conversion Rate",
+        "ar": "Conversion Rate"
+      }
     },
     {
       "id": "averageSaleRevenue",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "$",
       "default": 200,
-      "businessContext": "Average revenue generated from a single sale."
+      "businessContext": "Average revenue generated from a single sale.",
+      "label_i18n": {
+        "en": "Average Revenue per Sale",
+        "tr": "Average Revenue per Sale",
+        "de": "Average Revenue per Sale",
+        "fr": "Average Revenue per Sale",
+        "es": "Average Revenue per Sale",
+        "ar": "Average Revenue per Sale"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "revenue",
       "netProfit"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roi"
   },
   "category": "Proje & Yatırım",
   "sector": "Finans & İK",
@@ -54,5 +91,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

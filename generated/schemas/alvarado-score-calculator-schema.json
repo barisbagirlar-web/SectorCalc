@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "point",
       "default": 0,
-      "businessContext": "1 point if present, 0 otherwise"
+      "businessContext": "1 point if present, 0 otherwise",
+      "label_i18n": {
+        "en": "Migration of pain to RLQ",
+        "tr": "Migration of pain to RLQ",
+        "de": "Migration of pain to RLQ",
+        "fr": "Migration of pain to RLQ",
+        "es": "Migration of pain to RLQ",
+        "ar": "Migration of pain to RLQ"
+      }
     },
     {
       "id": "anorexia",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "point",
       "default": 0,
-      "businessContext": "1 point if present, 0 otherwise"
+      "businessContext": "1 point if present, 0 otherwise",
+      "label_i18n": {
+        "en": "Anorexia",
+        "tr": "Anorexia",
+        "de": "Anorexia",
+        "fr": "Anorexia",
+        "es": "Anorexia",
+        "ar": "Anorexia"
+      }
     },
     {
       "id": "nauseaVomiting",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "point",
       "default": 0,
-      "businessContext": "1 point if present, 0 otherwise"
+      "businessContext": "1 point if present, 0 otherwise",
+      "label_i18n": {
+        "en": "Nausea or vomiting",
+        "tr": "Nausea or vomiting",
+        "de": "Nausea or vomiting",
+        "fr": "Nausea or vomiting",
+        "es": "Nausea or vomiting",
+        "ar": "Nausea or vomiting"
+      }
     },
     {
       "id": "rlqTenderness",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "point",
       "default": 0,
-      "businessContext": "2 points if present, 0 otherwise"
+      "businessContext": "2 points if present, 0 otherwise",
+      "label_i18n": {
+        "en": "Tenderness in right lower quadrant",
+        "tr": "Tenderness in right lower quadrant",
+        "de": "Tenderness in right lower quadrant",
+        "fr": "Tenderness in right lower quadrant",
+        "es": "Tenderness in right lower quadrant",
+        "ar": "Tenderness in right lower quadrant"
+      }
     },
     {
       "id": "reboundTenderness",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "point",
       "default": 0,
-      "businessContext": "1 point if present, 0 otherwise"
+      "businessContext": "1 point if present, 0 otherwise",
+      "label_i18n": {
+        "en": "Rebound tenderness",
+        "tr": "Rebound tenderness",
+        "de": "Rebound tenderness",
+        "fr": "Rebound tenderness",
+        "es": "Rebound tenderness",
+        "ar": "Rebound tenderness"
+      }
     },
     {
       "id": "tempElevated",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "point",
       "default": 0,
-      "businessContext": "1 point if elevated, 0 otherwise"
+      "businessContext": "1 point if elevated, 0 otherwise",
+      "label_i18n": {
+        "en": "Elevated temperature (>37.3°C)",
+        "tr": "Elevated temperature (>37.3°C)",
+        "de": "Elevated temperature (>37.3°C)",
+        "fr": "Elevated temperature (>37.3°C)",
+        "es": "Elevated temperature (>37.3°C)",
+        "ar": "Elevated temperature (>37.3°C)"
+      }
     },
     {
       "id": "leukocytosis",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "point",
       "default": 0,
-      "businessContext": "2 points if present, 0 otherwise"
+      "businessContext": "2 points if present, 0 otherwise",
+      "label_i18n": {
+        "en": "Leukocytosis (>10,000/mm³)",
+        "tr": "Leukocytosis (>10,000/mm³)",
+        "de": "Leukocytosis (>10,000/mm³)",
+        "fr": "Leukocytosis (>10,000/mm³)",
+        "es": "Leukocytosis (>10,000/mm³)",
+        "ar": "Leukocytosis (>10,000/mm³)"
+      }
     },
     {
       "id": "leftShift",
@@ -63,18 +119,31 @@
       "type": "number",
       "unit": "point",
       "default": 0,
-      "businessContext": "1 point if present, 0 otherwise"
+      "businessContext": "1 point if present, 0 otherwise",
+      "label_i18n": {
+        "en": "Left shift (neutrophils >75%)",
+        "tr": "Left shift (neutrophils >75%)",
+        "de": "Left shift (neutrophils >75%)",
+        "fr": "Left shift (neutrophils >75%)",
+        "es": "Left shift (neutrophils >75%)",
+        "ar": "Left shift (neutrophils >75%)"
+      }
     }
   ],
   "formulas": {
     "totalScore": "migrationPain + anorexia + nauseaVomiting + rlqTenderness + reboundTenderness + tempElevated + leukocytosis + leftShift",
-    "interpretation": "totalScore <= 4 ? 'Low risk' : totalScore <= 6 ? 'Equivocal' : totalScore <= 8 ? 'Probable appendicitis' : 'Very probable appendicitis'"
+    "totalScore_aux": "migrationPain + anorexia + nauseaVomiting + rlqTenderness + reboundTenderness + tempElevated + leukocytosis + leftShift"
   },
   "outputs": {
     "primary": "totalScore",
     "breakdown": [
       "interpretation"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "interpretation"
   },
   "category": "İK & Personel",
   "sector": "Finans & İK",
@@ -84,5 +153,10 @@
   "categorySlug": "workforce-hr",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

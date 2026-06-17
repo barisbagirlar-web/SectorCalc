@@ -67,20 +67,20 @@
     }
   ],
   "formulas": {
-    "conversionFactor": "(() => { const factors = [1, 1000, 16.01846337396, 27679.9047102]; return factors[fromUnit-1] / factors[toUnit-1]; })()",
-    "rawOutput": "inputValue * conversionFactor",
-    "finalOutput": "Math.round(rawOutput * Math.pow(10, precision)) / Math.pow(10, precision)",
-    "outputWithUnit": "finalOutput + ' ' + (toUnit == 1 ? 'kg/m³' : toUnit == 2 ? 'g/cm³' : toUnit == 3 ? 'lb/ft³' : 'lb/in³')",
-    "inputInKgM3": "inputValue * [1, 1000, 16.01846337396, 27679.9047102][fromUnit-1]",
-    "____inputInKgM3": "' + inputInKgM3",
-    "____conversionFactor": "' + conversionFactor"
+    "result": "inputValue + fromUnit + toUnit",
+    "result_aux": "inputValue + fromUnit + toUnit"
   },
   "outputs": {
-    "primary": "outputWithUnit",
+    "primary": "result",
     "breakdown": [
       "'Input equivalent in kg/m³: ' + inputInKgM3",
       "'Conversion factor: ' + conversionFactor"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "inputInKgM3"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -90,5 +90,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

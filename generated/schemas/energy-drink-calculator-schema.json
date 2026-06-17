@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ml",
       "default": 250,
-      "businessContext": "Volume of one can or bottle in milliliters"
+      "businessContext": "Volume of one can or bottle in milliliters",
+      "label_i18n": {
+        "en": "Can Volume",
+        "tr": "Can Volume",
+        "de": "Can Volume",
+        "fr": "Can Volume",
+        "es": "Can Volume",
+        "ar": "Can Volume"
+      }
     },
     {
       "id": "caffeinePer100ml",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mg/100ml",
       "default": 32,
-      "businessContext": "Caffeine content per 100 ml, typically found on nutrition label"
+      "businessContext": "Caffeine content per 100 ml, typically found on nutrition label",
+      "label_i18n": {
+        "en": "Caffeine per 100ml",
+        "tr": "Caffeine per 100ml",
+        "de": "Caffeine per 100ml",
+        "fr": "Caffeine per 100ml",
+        "es": "Caffeine per 100ml",
+        "ar": "Caffeine per 100ml"
+      }
     },
     {
       "id": "sugarPer100ml",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "g/100ml",
       "default": 11,
-      "businessContext": "Sugar content per 100 ml, as listed on the product"
+      "businessContext": "Sugar content per 100 ml, as listed on the product",
+      "label_i18n": {
+        "en": "Sugar per 100ml",
+        "tr": "Sugar per 100ml",
+        "de": "Sugar per 100ml",
+        "fr": "Sugar per 100ml",
+        "es": "Sugar per 100ml",
+        "ar": "Sugar per 100ml"
+      }
     },
     {
       "id": "caloriesPer100ml",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kcal/100ml",
       "default": 45,
-      "businessContext": "Energy content in kilocalories per 100 ml"
+      "businessContext": "Energy content in kilocalories per 100 ml",
+      "label_i18n": {
+        "en": "Calories per 100ml",
+        "tr": "Calories per 100ml",
+        "de": "Calories per 100ml",
+        "fr": "Calories per 100ml",
+        "es": "Calories per 100ml",
+        "ar": "Calories per 100ml"
+      }
     },
     {
       "id": "cansPerPack",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "cans",
       "default": 4,
-      "businessContext": "Number of cans or bottles in a multipack"
+      "businessContext": "Number of cans or bottles in a multipack",
+      "label_i18n": {
+        "en": "Cans per Pack",
+        "tr": "Cans per Pack",
+        "de": "Cans per Pack",
+        "fr": "Cans per Pack",
+        "es": "Cans per Pack",
+        "ar": "Cans per Pack"
+      }
     },
     {
       "id": "pricePerPack",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "€",
       "default": 5.99,
-      "businessContext": "Retail price for the entire pack in euros"
+      "businessContext": "Retail price for the entire pack in euros",
+      "label_i18n": {
+        "en": "Price per Pack",
+        "tr": "Price per Pack",
+        "de": "Price per Pack",
+        "fr": "Price per Pack",
+        "es": "Price per Pack",
+        "ar": "Price per Pack"
+      }
     }
   ],
   "formulas": {
@@ -64,7 +112,12 @@
       "totalSugar",
       "costPerCan",
       "costPer100ml"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "costPer100ml"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -74,5 +127,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

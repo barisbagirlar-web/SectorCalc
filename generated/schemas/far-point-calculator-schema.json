@@ -68,9 +68,7 @@
   ],
   "formulas": {
     "effectiveRadius": "earthRadius / (1 - refractionCoefficient)",
-    "horizonDistance": "Math.sqrt(2 * effectiveRadius * (observerHeight / 1000))",
-    "targetHorizonDistance": "Math.sqrt(2 * effectiveRadius * (targetHeight / 1000))",
-    "lineOfSightDistance": "horizonDistance + targetHorizonDistance"
+    "effectiveRadius_aux": "earthRadius / (1 - refractionCoefficient)"
   },
   "outputs": {
     "primary": "effectiveRadius",
@@ -93,7 +91,12 @@
         "unit": "km",
         "description": "Distance to the visible horizon from the target's height."
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "lineOfSightDistance"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -103,5 +106,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

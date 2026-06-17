@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Weight of the person in kilograms."
+      "businessContext": "Weight of the person in kilograms.",
+      "label_i18n": {
+        "en": "Body Weight",
+        "tr": "Body Weight",
+        "de": "Body Weight",
+        "fr": "Body Weight",
+        "es": "Body Weight",
+        "ar": "Body Weight"
+      }
     },
     {
       "id": "duration",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "min",
       "default": 30,
-      "businessContext": "Duration of walking activity in minutes."
+      "businessContext": "Duration of walking activity in minutes.",
+      "label_i18n": {
+        "en": "Walking Duration",
+        "tr": "Walking Duration",
+        "de": "Walking Duration",
+        "fr": "Walking Duration",
+        "es": "Walking Duration",
+        "ar": "Walking Duration"
+      }
     },
     {
       "id": "speed",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "km/h",
       "default": 5,
-      "businessContext": "Average walking speed in kilometers per hour."
+      "businessContext": "Average walking speed in kilometers per hour.",
+      "label_i18n": {
+        "en": "Walking Speed",
+        "tr": "Walking Speed",
+        "de": "Walking Speed",
+        "fr": "Walking Speed",
+        "es": "Walking Speed",
+        "ar": "Walking Speed"
+      }
     },
     {
       "id": "grade",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Incline grade of the walking surface as a percentage (0% for flat)."
+      "businessContext": "Incline grade of the walking surface as a percentage (0% for flat).",
+      "label_i18n": {
+        "en": "Incline Grade",
+        "tr": "Incline Grade",
+        "de": "Incline Grade",
+        "fr": "Incline Grade",
+        "es": "Incline Grade",
+        "ar": "Incline Grade"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "VO2",
       "MET"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "calories"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

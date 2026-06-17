@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 10000,
-      "businessContext": "The total cost of the asset before any deductions."
+      "businessContext": "The total cost of the asset before any deductions.",
+      "label_i18n": {
+        "en": "Asset Cost (Purchase Price)",
+        "tr": "Asset Cost (Purchase Price)",
+        "de": "Asset Cost (Purchase Price)",
+        "fr": "Asset Cost (Purchase Price)",
+        "es": "Asset Cost (Purchase Price)",
+        "ar": "Asset Cost (Purchase Price)"
+      }
     },
     {
       "id": "bonusRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "The applicable bonus depreciation percentage for the tax year."
+      "businessContext": "The applicable bonus depreciation percentage for the tax year.",
+      "label_i18n": {
+        "en": "Bonus Depreciation Rate (%)",
+        "tr": "Bonus Depreciation Rate (%)",
+        "de": "Bonus Depreciation Rate (%)",
+        "fr": "Bonus Depreciation Rate (%)",
+        "es": "Bonus Depreciation Rate (%)",
+        "ar": "Bonus Depreciation Rate (%)"
+      }
     },
     {
       "id": "businessUse",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "The percentage the asset is used for business purposes."
+      "businessContext": "The percentage the asset is used for business purposes.",
+      "label_i18n": {
+        "en": "Business Use Percentage",
+        "tr": "Business Use Percentage",
+        "de": "Business Use Percentage",
+        "fr": "Business Use Percentage",
+        "es": "Business Use Percentage",
+        "ar": "Business Use Percentage"
+      }
     },
     {
       "id": "section179",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Any Section 179 deduction claimed on this asset before bonus depreciation."
+      "businessContext": "Any Section 179 deduction claimed on this asset before bonus depreciation.",
+      "label_i18n": {
+        "en": "Section 179 Deduction",
+        "tr": "Section 179 Deduction",
+        "de": "Section 179 Deduction",
+        "fr": "Section 179 Deduction",
+        "es": "Section 179 Deduction",
+        "ar": "Section 179 Deduction"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "remainingBasis",
       "totalFirstYear"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalFirstYear"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -54,5 +91,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

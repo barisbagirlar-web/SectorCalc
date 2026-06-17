@@ -99,19 +99,21 @@
     }
   ],
   "formulas": {
-    "lambdaRaw": "(halfLife > 0 ? Math.log(2) / halfLife : (meanLifetime > 0 ? 1 / meanLifetime : (initialQuantity > 0 && finalQuantity > 0 && timeElapsed > 0 ? -Math.log(finalQuantity / initialQuantity) / timeElapsed : 0)))",
-    "decayConstant": "lambdaRaw * timeUnitConversion",
-    "halfLifeBased": "halfLife > 0 ? Math.log(2) / halfLife * timeUnitConversion : null",
     "meanLifetimeBased": "meanLifetime > 0 ? 1 / meanLifetime * timeUnitConversion : null",
-    "quantityBased": "initialQuantity > 0 && finalQuantity > 0 && timeElapsed > 0 ? -Math.log(finalQuantity / initialQuantity) / timeElapsed * timeUnitConversion : null"
+    "meanLifetimeBased_aux": "meanLifetime > 0 ? 1 / meanLifetime * timeUnitConversion : null"
   },
   "outputs": {
-    "primary": "decayConstant",
+    "primary": "meanLifetimeBased_aux",
     "breakdown": [
       "halfLifeBased",
       "meanLifetimeBased",
       "quantityBased"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "quantityBased"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -121,5 +123,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

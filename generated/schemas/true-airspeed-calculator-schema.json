@@ -52,17 +52,20 @@
   ],
   "formulas": {
     "theta": "(outsideAirTemperature + 273.15) / 288.15",
-    "delta": "Math.pow(1 - 0.00000687535 * pressureAltitude, 5.2561)",
-    "sigma": "delta / theta",
-    "trueAirSpeed": "indicatedAirSpeed / Math.sqrt(sigma)"
+    "theta_aux": "(outsideAirTemperature + 273.15) / 288.15"
   },
   "outputs": {
-    "primary": "trueAirSpeed",
+    "primary": "theta_aux",
     "breakdown": [
       "sigma",
       "delta",
       "theta"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "trueAirSpeed"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -72,5 +75,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

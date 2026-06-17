@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "shares",
       "default": 0,
-      "businessContext": "Number of shares currently held"
+      "businessContext": "Number of shares currently held",
+      "label_i18n": {
+        "en": "Current Shares Owned",
+        "tr": "Current Shares Owned",
+        "de": "Current Shares Owned",
+        "fr": "Current Shares Owned",
+        "es": "Current Shares Owned",
+        "ar": "Current Shares Owned"
+      }
     },
     {
       "id": "currentAvgPrice",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "price/share",
       "default": 0,
-      "businessContext": "Average price per share of current holdings"
+      "businessContext": "Average price per share of current holdings",
+      "label_i18n": {
+        "en": "Current Average Price",
+        "tr": "Current Average Price",
+        "de": "Current Average Price",
+        "fr": "Current Average Price",
+        "es": "Current Average Price",
+        "ar": "Current Average Price"
+      }
     },
     {
       "id": "purchaseQuantity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "shares",
       "default": 0,
-      "businessContext": "Number of shares in new purchase"
+      "businessContext": "Number of shares in new purchase",
+      "label_i18n": {
+        "en": "New Purchase Quantity",
+        "tr": "New Purchase Quantity",
+        "de": "New Purchase Quantity",
+        "fr": "New Purchase Quantity",
+        "es": "New Purchase Quantity",
+        "ar": "New Purchase Quantity"
+      }
     },
     {
       "id": "purchasePrice",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "price/share",
       "default": 0,
-      "businessContext": "Price per share of new purchase"
+      "businessContext": "Price per share of new purchase",
+      "label_i18n": {
+        "en": "New Purchase Price per Share",
+        "tr": "New Purchase Price per Share",
+        "de": "New Purchase Price per Share",
+        "fr": "New Purchase Price per Share",
+        "es": "New Purchase Price per Share",
+        "ar": "New Purchase Price per Share"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "totalCost",
       "totalShares"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalShares"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -54,5 +91,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

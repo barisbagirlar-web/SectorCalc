@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Total weight of the aircraft including payload and fuel"
+      "businessContext": "Total weight of the aircraft including payload and fuel",
+      "label_i18n": {
+        "en": "Aircraft Weight",
+        "tr": "Aircraft Weight",
+        "de": "Aircraft Weight",
+        "fr": "Aircraft Weight",
+        "es": "Aircraft Weight",
+        "ar": "Aircraft Weight"
+      }
     },
     {
       "id": "wingArea",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m²",
       "default": 20,
-      "businessContext": "Total planform wing area"
+      "businessContext": "Total planform wing area",
+      "label_i18n": {
+        "en": "Wing Area",
+        "tr": "Wing Area",
+        "de": "Wing Area",
+        "fr": "Wing Area",
+        "es": "Wing Area",
+        "ar": "Wing Area"
+      }
     },
     {
       "id": "airDensity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1.225,
-      "businessContext": "Density of air at current altitude"
+      "businessContext": "Density of air at current altitude",
+      "label_i18n": {
+        "en": "Air Density",
+        "tr": "Air Density",
+        "de": "Air Density",
+        "fr": "Air Density",
+        "es": "Air Density",
+        "ar": "Air Density"
+      }
     },
     {
       "id": "liftCoefficient",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1.5,
-      "businessContext": "Maximum lift coefficient of the airfoil"
+      "businessContext": "Maximum lift coefficient of the airfoil",
+      "label_i18n": {
+        "en": "Maximum Lift Coefficient (CL_max)",
+        "tr": "Maximum Lift Coefficient (CL_max)",
+        "de": "Maximum Lift Coefficient (CL_max)",
+        "fr": "Maximum Lift Coefficient (CL_max)",
+        "es": "Maximum Lift Coefficient (CL_max)",
+        "ar": "Maximum Lift Coefficient (CL_max)"
+      }
     }
   ],
   "formulas": {
     "wingLoadingMetric": "weight / wingArea",
-    "wingLoadingImperial": "(weight * 2.20462) / (wingArea * 10.7639)",
-    "stallSpeedKMH": "Math.sqrt((2 * weight * 9.81) / (airDensity * wingArea * liftCoefficient)) * 3.6"
+    "wingLoadingImperial": "(weight * 2.20462) / (wingArea * 10.7639)"
   },
   "outputs": {
     "primary": "wingLoadingMetric",
     "breakdown": [
       "wingLoadingImperial",
       "stallSpeedKMH"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "stallSpeedKMH"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -54,5 +90,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "havacilik",
   "profession": "Tasarım Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

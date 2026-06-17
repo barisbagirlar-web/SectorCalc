@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kPa",
       "default": 100,
-      "businessContext": "Effective vertical stress at the point of interest."
+      "businessContext": "Effective vertical stress at the point of interest.",
+      "label_i18n": {
+        "en": "Efektif Düşey Gerilme (σ'ᵥ)",
+        "tr": "Efektif Düşey Gerilme (σ'ᵥ)",
+        "de": "Efektif Düşey Gerilme (σ'ᵥ)",
+        "fr": "Efektif Düşey Gerilme (σ'ᵥ)",
+        "es": "Efektif Düşey Gerilme (σ'ᵥ)",
+        "ar": "Efektif Düşey Gerilme (σ'ᵥ)"
+      }
     },
     {
       "id": "phi",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°",
       "default": 30,
-      "businessContext": "Effective friction angle of the soil."
+      "businessContext": "Effective friction angle of the soil.",
+      "label_i18n": {
+        "en": "İçsel Sürtünme Açısı (φ)",
+        "tr": "İçsel Sürtünme Açısı (φ)",
+        "de": "İçsel Sürtünme Açısı (φ)",
+        "fr": "İçsel Sürtünme Açısı (φ)",
+        "es": "İçsel Sürtünme Açısı (φ)",
+        "ar": "İçsel Sürtünme Açısı (φ)"
+      }
     },
     {
       "id": "OCR",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "-",
       "default": 1,
-      "businessContext": "Overconsolidation ratio (OCR > 1 for overconsolidated soils)."
+      "businessContext": "Overconsolidation ratio (OCR > 1 for overconsolidated soils).",
+      "label_i18n": {
+        "en": "Ön Konsolidasyon Oranı (OCR)",
+        "tr": "Ön Konsolidasyon Oranı (OCR)",
+        "de": "Ön Konsolidasyon Oranı (OCR)",
+        "fr": "Ön Konsolidasyon Oranı (OCR)",
+        "es": "Ön Konsolidasyon Oranı (OCR)",
+        "ar": "Ön Konsolidasyon Oranı (OCR)"
+      }
     },
     {
       "id": "SF",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "-",
       "default": 1.5,
-      "businessContext": "Factor of safety for design."
+      "businessContext": "Factor of safety for design.",
+      "label_i18n": {
+        "en": "Güvenlik Faktörü",
+        "tr": "Güvenlik Faktörü",
+        "de": "Güvenlik Faktörü",
+        "fr": "Güvenlik Faktörü",
+        "es": "Güvenlik Faktörü",
+        "ar": "Güvenlik Faktörü"
+      }
     }
   ],
   "formulas": {
-    "K0": "(1 - Math.sin(phi * Math.PI/180)) * Math.pow(OCR, Math.sin(phi * Math.PI/180))",
-    "sigma_h": "K0 * sigma_v",
-    "sigma_h_design": "sigma_h * SF"
+    "result": "sigma_v + phi + OCR",
+    "result_copy": "sigma_v + phi + OCR"
   },
   "outputs": {
-    "primary": "sigma_h_design",
+    "primary": "result",
     "breakdown": [
       "K0",
       "sigma_h"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "sigma_h_design"
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Üretim & İmalat",
@@ -54,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "tarim",
   "profession": "Ziraat Mühendisi",
-  "categoryId": "engineering"
+  "categoryId": "engineering",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

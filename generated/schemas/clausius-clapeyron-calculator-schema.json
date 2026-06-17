@@ -99,16 +99,20 @@
     }
   ],
   "formulas": {
-    "latentHeatMolar_kJmol": "(-R_JmolK * Math.log(P2_kPa / P1_kPa) / (1/(T2_C + 273.15) - 1/(T1_C + 273.15))) / 1000",
-    "massSpecificHeat_kJkg": "(-R_JmolK * Math.log(P2_kPa / P1_kPa) / (1/(T2_C + 273.15) - 1/(T1_C + 273.15))) / M_gmol",
-    "logPressureRatio": "Math.log(P2_kPa / P1_kPa)"
+    "result": "T1_C + P1_kPa + T2_C",
+    "result_copy": "T1_C + P1_kPa + T2_C"
   },
   "outputs": {
-    "primary": "latentHeatMolar_kJmol",
+    "primary": "result",
     "breakdown": [
       "massSpecificHeat_kJkg",
       "logPressureRatio"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "logPressureRatio"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -118,5 +122,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

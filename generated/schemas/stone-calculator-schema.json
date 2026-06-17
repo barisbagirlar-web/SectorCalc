@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Proje alanının uzunluğu"
+      "businessContext": "Proje alanının uzunluğu",
+      "label_i18n": {
+        "en": "Uzunluk",
+        "tr": "Uzunluk",
+        "de": "Uzunluk",
+        "fr": "Uzunluk",
+        "es": "Uzunluk",
+        "ar": "Uzunluk"
+      }
     },
     {
       "id": "width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Proje alanının genişliği"
+      "businessContext": "Proje alanının genişliği",
+      "label_i18n": {
+        "en": "Genişlik",
+        "tr": "Genişlik",
+        "de": "Genişlik",
+        "fr": "Genişlik",
+        "es": "Genişlik",
+        "ar": "Genişlik"
+      }
     },
     {
       "id": "depth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 10,
-      "businessContext": "Agrega tabakasının derinliği"
+      "businessContext": "Agrega tabakasının derinliği",
+      "label_i18n": {
+        "en": "Derinlik",
+        "tr": "Derinlik",
+        "de": "Derinlik",
+        "fr": "Derinlik",
+        "es": "Derinlik",
+        "ar": "Derinlik"
+      }
     },
     {
       "id": "density",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1600,
-      "businessContext": "Kullanılan taşın yoğunluğu"
+      "businessContext": "Kullanılan taşın yoğunluğu",
+      "label_i18n": {
+        "en": "Yoğunluk",
+        "tr": "Yoğunluk",
+        "de": "Yoğunluk",
+        "fr": "Yoğunluk",
+        "es": "Yoğunluk",
+        "ar": "Yoğunluk"
+      }
     },
     {
       "id": "costPerTon",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "TL/ton",
       "default": 150,
-      "businessContext": "Agreganın ton başına satın alma maliyeti"
+      "businessContext": "Agreganın ton başına satın alma maliyeti",
+      "label_i18n": {
+        "en": "Ton Başına Maliyet",
+        "tr": "Ton Başına Maliyet",
+        "de": "Ton Başına Maliyet",
+        "fr": "Ton Başına Maliyet",
+        "es": "Ton Başına Maliyet",
+        "ar": "Ton Başına Maliyet"
+      }
     },
     {
       "id": "wastagePercent",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Operasyonel fire oranı yüzdesi"
+      "businessContext": "Operasyonel fire oranı yüzdesi",
+      "label_i18n": {
+        "en": "Fire Oranı",
+        "tr": "Fire Oranı",
+        "de": "Fire Oranı",
+        "fr": "Fire Oranı",
+        "es": "Fire Oranı",
+        "ar": "Fire Oranı"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +108,12 @@
     "breakdown": [
       "volumeM3",
       "weightTons"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -70,5 +123,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

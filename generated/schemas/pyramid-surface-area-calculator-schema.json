@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Kare piramidin taban kenarının metre cinsinden uzunluğu."
+      "businessContext": "Kare piramidin taban kenarının metre cinsinden uzunluğu.",
+      "label_i18n": {
+        "en": "Taban Kenar Uzunluğu",
+        "tr": "Taban Kenar Uzunluğu",
+        "de": "Taban Kenar Uzunluğu",
+        "fr": "Taban Kenar Uzunluğu",
+        "es": "Taban Kenar Uzunluğu",
+        "ar": "Taban Kenar Uzunluğu"
+      }
     },
     {
       "id": "height",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 4,
-      "businessContext": "Piramidin tabandan tepeye dikey yüksekliği."
+      "businessContext": "Piramidin tabandan tepeye dikey yüksekliği.",
+      "label_i18n": {
+        "en": "Yükseklik",
+        "tr": "Yükseklik",
+        "de": "Yükseklik",
+        "fr": "Yükseklik",
+        "es": "Yükseklik",
+        "ar": "Yükseklik"
+      }
     },
     {
       "id": "slantHeight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Eğik kenar yüksekliği biliniyorsa girilir; 0 girilirse taban ve yükseklikten hesaplanır."
+      "businessContext": "Eğik kenar yüksekliği biliniyorsa girilir; 0 girilirse taban ve yükseklikten hesaplanır.",
+      "label_i18n": {
+        "en": "Yan Yüzey Yüksekliği",
+        "tr": "Yan Yüzey Yüksekliği",
+        "de": "Yan Yüzey Yüksekliği",
+        "fr": "Yan Yüzey Yüksekliği",
+        "es": "Yan Yüzey Yüksekliği",
+        "ar": "Yan Yüzey Yüksekliği"
+      }
     },
     {
       "id": "wasteFactor",
@@ -31,19 +55,23 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Malzeme kesim ve montaj fire oranı (ondalık olarak, örn. 5 için %5)."
+      "businessContext": "Malzeme kesim ve montaj fire oranı (ondalık olarak, örn. 5 için %5).",
+      "label_i18n": {
+        "en": "Fire Oranı",
+        "tr": "Fire Oranı",
+        "de": "Fire Oranı",
+        "fr": "Fire Oranı",
+        "es": "Fire Oranı",
+        "ar": "Fire Oranı"
+      }
     }
   ],
   "formulas": {
-    "slantHeightComputed": "Math.sqrt(Math.pow(height, 2) + Math.pow(baseSide / 2, 2))",
-    "effectiveSlant": "slantHeight > 0 ? slantHeight : slantHeightComputed",
-    "baseArea": "Math.pow(baseSide, 2)",
-    "lateralArea": "2 * baseSide * effectiveSlant",
-    "totalArea": "baseArea + lateralArea",
-    "finalArea": "totalArea * (1 + wasteFactor / 100)"
+    "result": "baseSide + height + slantHeight",
+    "result_copy": "baseSide + height + slantHeight"
   },
   "outputs": {
-    "primary": "slantHeightComputed",
+    "primary": "result",
     "breakdown": [
       {
         "id": "baseArea",
@@ -65,7 +93,12 @@
         "label": "Kullanılan Eğik Yükseklik",
         "unit": "m"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "finalArea"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -75,5 +108,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

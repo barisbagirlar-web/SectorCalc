@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100000,
-      "businessContext": "Earnings Before Interest and Taxes"
+      "businessContext": "Earnings Before Interest and Taxes",
+      "label_i18n": {
+        "en": "EBIT",
+        "tr": "EBIT",
+        "de": "EBIT",
+        "fr": "EBIT",
+        "es": "EBIT",
+        "ar": "EBIT"
+      }
     },
     {
       "id": "interestExpense",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 20000,
-      "businessContext": "Total interest payments on debt"
+      "businessContext": "Total interest payments on debt",
+      "label_i18n": {
+        "en": "Interest Expense",
+        "tr": "Interest Expense",
+        "de": "Interest Expense",
+        "fr": "Interest Expense",
+        "es": "Interest Expense",
+        "ar": "Interest Expense"
+      }
     },
     {
       "id": "ebitda",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 120000,
-      "businessContext": "Earnings Before Interest, Taxes, Depreciation and Amortization"
+      "businessContext": "Earnings Before Interest, Taxes, Depreciation and Amortization",
+      "label_i18n": {
+        "en": "EBITDA",
+        "tr": "EBITDA",
+        "de": "EBITDA",
+        "fr": "EBITDA",
+        "es": "EBITDA",
+        "ar": "EBITDA"
+      }
     },
     {
       "id": "depreciation",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 20000,
-      "businessContext": "Depreciation and amortization expenses"
+      "businessContext": "Depreciation and amortization expenses",
+      "label_i18n": {
+        "en": "Depreciation & Amortization",
+        "tr": "Depreciation & Amortization",
+        "de": "Depreciation & Amortization",
+        "fr": "Depreciation & Amortization",
+        "es": "Depreciation & Amortization",
+        "ar": "Depreciation & Amortization"
+      }
     }
   ],
   "formulas": {
@@ -43,7 +75,12 @@
     "breakdown": [
       "ebit",
       "interestExpense"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "ebitdaCoverageRatio"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -53,5 +90,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

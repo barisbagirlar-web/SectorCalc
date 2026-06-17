@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "barrel",
       "default": 1,
-      "businessContext": "Quantity of beer in barrels"
+      "businessContext": "Quantity of beer in barrels",
+      "label_i18n": {
+        "en": "Beer Barrels",
+        "tr": "Beer Barrels",
+        "de": "Beer Barrels",
+        "fr": "Beer Barrels",
+        "es": "Beer Barrels",
+        "ar": "Beer Barrels"
+      }
     },
     {
       "id": "litersPerBarrel",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "L/barrel",
       "default": 117.3478,
-      "businessContext": "Conversion factor. Standard US beer barrel: 117.3478 L"
+      "businessContext": "Conversion factor. Standard US beer barrel: 117.3478 L",
+      "label_i18n": {
+        "en": "Liters per Barrel",
+        "tr": "Liters per Barrel",
+        "de": "Liters per Barrel",
+        "fr": "Liters per Barrel",
+        "es": "Liters per Barrel",
+        "ar": "Liters per Barrel"
+      }
     },
     {
       "id": "temperatureC",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Actual temperature of the beer"
+      "businessContext": "Actual temperature of the beer",
+      "label_i18n": {
+        "en": "Temperature",
+        "tr": "Temperature",
+        "de": "Temperature",
+        "fr": "Temperature",
+        "es": "Temperature",
+        "ar": "Temperature"
+      }
     },
     {
       "id": "referenceTemperatureC",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Reference temperature (standard 20°C)"
+      "businessContext": "Reference temperature (standard 20°C)",
+      "label_i18n": {
+        "en": "Reference Temperature",
+        "tr": "Reference Temperature",
+        "de": "Reference Temperature",
+        "fr": "Reference Temperature",
+        "es": "Reference Temperature",
+        "ar": "Reference Temperature"
+      }
     },
     {
       "id": "thermalExpansionCoefficient",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "1/°C",
       "default": 0.0003,
-      "businessContext": "Volumetric thermal expansion coefficient for beer (approx. 0.0003 per °C)"
+      "businessContext": "Volumetric thermal expansion coefficient for beer (approx. 0.0003 per °C)",
+      "label_i18n": {
+        "en": "Thermal Expansion Coefficient",
+        "tr": "Thermal Expansion Coefficient",
+        "de": "Thermal Expansion Coefficient",
+        "fr": "Thermal Expansion Coefficient",
+        "es": "Thermal Expansion Coefficient",
+        "ar": "Thermal Expansion Coefficient"
+      }
     },
     {
       "id": "correctionFactor",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "-",
       "default": 1,
-      "businessContext": "Manual correction factor (e.g., for foam, ullage, etc.)"
+      "businessContext": "Manual correction factor (e.g., for foam, ullage, etc.)",
+      "label_i18n": {
+        "en": "Correction Factor",
+        "tr": "Correction Factor",
+        "de": "Correction Factor",
+        "fr": "Correction Factor",
+        "es": "Correction Factor",
+        "ar": "Correction Factor"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
       "volumeAtReference",
       "temperatureCorrectionFactor",
       "volumeAfterTemperatureCorrection"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "volumeLiters"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -72,5 +125,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

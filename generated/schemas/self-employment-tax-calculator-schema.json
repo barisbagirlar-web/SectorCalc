@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 50000,
-      "businessContext": "Your net profit from business activities after expenses."
+      "businessContext": "Your net profit from business activities after expenses.",
+      "label_i18n": {
+        "en": "Net Earnings from Self-Employment",
+        "tr": "Net Earnings from Self-Employment",
+        "de": "Net Earnings from Self-Employment",
+        "fr": "Net Earnings from Self-Employment",
+        "es": "Net Earnings from Self-Employment",
+        "ar": "Net Earnings from Self-Employment"
+      }
     },
     {
       "id": "socialSecurityRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 12.4,
-      "businessContext": "Combined employer and employee rate for Social Security (2023)."
+      "businessContext": "Combined employer and employee rate for Social Security (2023).",
+      "label_i18n": {
+        "en": "Social Security Tax Rate",
+        "tr": "Social Security Tax Rate",
+        "de": "Social Security Tax Rate",
+        "fr": "Social Security Tax Rate",
+        "es": "Social Security Tax Rate",
+        "ar": "Social Security Tax Rate"
+      }
     },
     {
       "id": "medicareRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 2.9,
-      "businessContext": "Combined employer and employee rate for Medicare (2023)."
+      "businessContext": "Combined employer and employee rate for Medicare (2023).",
+      "label_i18n": {
+        "en": "Medicare Tax Rate",
+        "tr": "Medicare Tax Rate",
+        "de": "Medicare Tax Rate",
+        "fr": "Medicare Tax Rate",
+        "es": "Medicare Tax Rate",
+        "ar": "Medicare Tax Rate"
+      }
     },
     {
       "id": "socialSecurityWageBase",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "$",
       "default": 160200,
-      "businessContext": "Maximum earnings subject to Social Security tax (2023)."
+      "businessContext": "Maximum earnings subject to Social Security tax (2023).",
+      "label_i18n": {
+        "en": "Social Security Wage Base Limit",
+        "tr": "Social Security Wage Base Limit",
+        "de": "Social Security Wage Base Limit",
+        "fr": "Social Security Wage Base Limit",
+        "es": "Social Security Wage Base Limit",
+        "ar": "Social Security Wage Base Limit"
+      }
     },
     {
       "id": "additionalMedicareThreshold",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "$",
       "default": 200000,
-      "businessContext": "Earnings above this threshold incur additional Medicare tax (single filer 2023)."
+      "businessContext": "Earnings above this threshold incur additional Medicare tax (single filer 2023).",
+      "label_i18n": {
+        "en": "Additional Medicare Tax Threshold",
+        "tr": "Additional Medicare Tax Threshold",
+        "de": "Additional Medicare Tax Threshold",
+        "fr": "Additional Medicare Tax Threshold",
+        "es": "Additional Medicare Tax Threshold",
+        "ar": "Additional Medicare Tax Threshold"
+      }
     },
     {
       "id": "additionalMedicareRate",
@@ -47,22 +87,33 @@
       "type": "number",
       "unit": "%",
       "default": 0.9,
-      "businessContext": "Extra Medicare tax rate on earnings above threshold (2023)."
+      "businessContext": "Extra Medicare tax rate on earnings above threshold (2023).",
+      "label_i18n": {
+        "en": "Additional Medicare Tax Rate",
+        "tr": "Additional Medicare Tax Rate",
+        "de": "Additional Medicare Tax Rate",
+        "fr": "Additional Medicare Tax Rate",
+        "es": "Additional Medicare Tax Rate",
+        "ar": "Additional Medicare Tax Rate"
+      }
     }
   ],
   "formulas": {
-    "socialSecurityTax": "Math.min(netEarnings, socialSecurityWageBase) * (socialSecurityRate / 100)",
     "medicareTax": "netEarnings * (medicareRate / 100)",
-    "additionalMedicareTax": "netEarnings > additionalMedicareThreshold ? (netEarnings - additionalMedicareThreshold) * (additionalMedicareRate / 100) : 0",
-    "totalSelfEmploymentTax": "socialSecurityTax + medicareTax + additionalMedicareTax"
+    "additionalMedicareTax": "netEarnings > additionalMedicareThreshold ? (netEarnings - additionalMedicareThreshold) * (additionalMedicareRate / 100) : 0"
   },
   "outputs": {
-    "primary": "totalSelfEmploymentTax",
+    "primary": "additionalMedicareTax",
     "breakdown": [
       "socialSecurityTax",
       "medicareTax",
       "additionalMedicareTax"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalSelfEmploymentTax"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -72,5 +123,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

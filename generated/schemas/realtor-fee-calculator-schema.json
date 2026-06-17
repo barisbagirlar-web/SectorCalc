@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 300000,
-      "businessContext": "The total sale price of the property"
+      "businessContext": "The total sale price of the property",
+      "label_i18n": {
+        "en": "Property Sale Price",
+        "tr": "Property Sale Price",
+        "de": "Property Sale Price",
+        "fr": "Property Sale Price",
+        "es": "Property Sale Price",
+        "ar": "Property Sale Price"
+      }
     },
     {
       "id": "commissionRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 6,
-      "businessContext": "The percentage commission charged by the realtor(s)"
+      "businessContext": "The percentage commission charged by the realtor(s)",
+      "label_i18n": {
+        "en": "Commission Rate",
+        "tr": "Commission Rate",
+        "de": "Commission Rate",
+        "fr": "Commission Rate",
+        "es": "Commission Rate",
+        "ar": "Commission Rate"
+      }
     },
     {
       "id": "additionalFixedFee",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Any extra fixed costs (e.g., marketing, administration) added to the total fee"
+      "businessContext": "Any extra fixed costs (e.g., marketing, administration) added to the total fee",
+      "label_i18n": {
+        "en": "Additional Fixed Fee",
+        "tr": "Additional Fixed Fee",
+        "de": "Additional Fixed Fee",
+        "fr": "Additional Fixed Fee",
+        "es": "Additional Fixed Fee",
+        "ar": "Additional Fixed Fee"
+      }
     },
     {
       "id": "splitRatio",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "decimal (0 to 1)",
       "default": 0.5,
-      "businessContext": "Proportion of total fee going to Agent 1; (1-ratio) goes to Agent 2. Use 1 for a single agent."
+      "businessContext": "Proportion of total fee going to Agent 1; (1-ratio) goes to Agent 2. Use 1 for a single agent.",
+      "label_i18n": {
+        "en": "Agent Split Ratio",
+        "tr": "Agent Split Ratio",
+        "de": "Agent Split Ratio",
+        "fr": "Agent Split Ratio",
+        "es": "Agent Split Ratio",
+        "ar": "Agent Split Ratio"
+      }
     }
   ],
   "formulas": {
@@ -47,7 +79,12 @@
       "additionalFixedFee",
       "agent1Fee",
       "agent2Fee"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "agent2Fee"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -57,5 +94,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

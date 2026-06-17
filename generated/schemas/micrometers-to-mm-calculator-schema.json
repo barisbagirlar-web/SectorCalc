@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "µm",
       "default": 0,
-      "businessContext": "Measured length in micrometers"
+      "businessContext": "Measured length in micrometers",
+      "label_i18n": {
+        "en": "Micrometer Value",
+        "tr": "Micrometer Value",
+        "de": "Micrometer Value",
+        "fr": "Micrometer Value",
+        "es": "Micrometer Value",
+        "ar": "Micrometer Value"
+      }
     },
     {
       "id": "calibrationFactor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Instrument calibration correction as percentage"
+      "businessContext": "Instrument calibration correction as percentage",
+      "label_i18n": {
+        "en": "Calibration Factor",
+        "tr": "Calibration Factor",
+        "de": "Calibration Factor",
+        "fr": "Calibration Factor",
+        "es": "Calibration Factor",
+        "ar": "Calibration Factor"
+      }
     },
     {
       "id": "temperatureCoeff",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "µm/°C",
       "default": 0,
-      "businessContext": "Material linear thermal expansion coefficient"
+      "businessContext": "Material linear thermal expansion coefficient",
+      "label_i18n": {
+        "en": "Temperature Coefficient",
+        "tr": "Temperature Coefficient",
+        "de": "Temperature Coefficient",
+        "fr": "Temperature Coefficient",
+        "es": "Temperature Coefficient",
+        "ar": "Temperature Coefficient"
+      }
     },
     {
       "id": "ambientTemperature",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Temperature during measurement in Celsius"
+      "businessContext": "Temperature during measurement in Celsius",
+      "label_i18n": {
+        "en": "Ambient Temperature",
+        "tr": "Ambient Temperature",
+        "de": "Ambient Temperature",
+        "fr": "Ambient Temperature",
+        "es": "Ambient Temperature",
+        "ar": "Ambient Temperature"
+      }
     }
   ],
   "formulas": {
@@ -43,7 +75,12 @@
     "breakdown": [
       "correctedMicrometers",
       "mm"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "mm"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -53,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

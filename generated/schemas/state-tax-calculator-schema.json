@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 50000,
-      "businessContext": "Annual gross income before taxes"
+      "businessContext": "Annual gross income before taxes",
+      "label_i18n": {
+        "en": "Gross Income",
+        "tr": "Gross Income",
+        "de": "Gross Income",
+        "fr": "Gross Income",
+        "es": "Gross Income",
+        "ar": "Gross Income"
+      }
     },
     {
       "id": "stateTaxRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Applicable state income tax rate"
+      "businessContext": "Applicable state income tax rate",
+      "label_i18n": {
+        "en": "State Tax Rate",
+        "tr": "State Tax Rate",
+        "de": "State Tax Rate",
+        "fr": "State Tax Rate",
+        "es": "State Tax Rate",
+        "ar": "State Tax Rate"
+      }
     },
     {
       "id": "standardDeduction",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 12000,
-      "businessContext": "Standard deduction amount for the tax year"
+      "businessContext": "Standard deduction amount for the tax year",
+      "label_i18n": {
+        "en": "Standard Deduction",
+        "tr": "Standard Deduction",
+        "de": "Standard Deduction",
+        "fr": "Standard Deduction",
+        "es": "Standard Deduction",
+        "ar": "Standard Deduction"
+      }
     },
     {
       "id": "additionalDeductions",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Other deductions (e.g., mortgage interest, charitable contributions)"
+      "businessContext": "Other deductions (e.g., mortgage interest, charitable contributions)",
+      "label_i18n": {
+        "en": "Additional Deductions",
+        "tr": "Additional Deductions",
+        "de": "Additional Deductions",
+        "fr": "Additional Deductions",
+        "es": "Additional Deductions",
+        "ar": "Additional Deductions"
+      }
     },
     {
       "id": "taxCredits",
@@ -39,21 +71,33 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Non-refundable tax credits to reduce tax liability"
+      "businessContext": "Non-refundable tax credits to reduce tax liability",
+      "label_i18n": {
+        "en": "Tax Credits",
+        "tr": "Tax Credits",
+        "de": "Tax Credits",
+        "fr": "Tax Credits",
+        "es": "Tax Credits",
+        "ar": "Tax Credits"
+      }
     }
   ],
   "formulas": {
     "taxableIncome": "grossIncome - standardDeduction - additionalDeductions",
-    "taxBeforeCredits": "taxableIncome > 0 ? taxableIncome * stateTaxRate / 100 : 0",
-    "totalTaxOwed": "Math.max(0, taxBeforeCredits - taxCredits)"
+    "taxBeforeCredits": "taxableIncome > 0 ? taxableIncome * stateTaxRate / 100 : 0"
   },
   "outputs": {
-    "primary": "totalTaxOwed",
+    "primary": "taxBeforeCredits",
     "breakdown": [
       "taxableIncome",
       "taxBeforeCredits",
       "totalTaxOwed"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalTaxOwed"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -63,5 +107,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

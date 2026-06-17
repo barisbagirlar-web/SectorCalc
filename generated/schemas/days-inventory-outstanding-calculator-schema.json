@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency (e.g., USD)",
       "default": 0,
-      "businessContext": "The average value of inventory held during the period. Typically (Beginning Inventory + Ending Inventory) / 2."
+      "businessContext": "The average value of inventory held during the period. Typically (Beginning Inventory + Ending Inventory) / 2.",
+      "label_i18n": {
+        "en": "Average Inventory",
+        "tr": "Average Inventory",
+        "de": "Average Inventory",
+        "fr": "Average Inventory",
+        "es": "Average Inventory",
+        "ar": "Average Inventory"
+      }
     },
     {
       "id": "costOfGoodsSold",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency (e.g., USD)",
       "default": 0,
-      "businessContext": "The total cost of goods sold during the period."
+      "businessContext": "The total cost of goods sold during the period.",
+      "label_i18n": {
+        "en": "Cost of Goods Sold (COGS)",
+        "tr": "Cost of Goods Sold (COGS)",
+        "de": "Cost of Goods Sold (COGS)",
+        "fr": "Cost of Goods Sold (COGS)",
+        "es": "Cost of Goods Sold (COGS)",
+        "ar": "Cost of Goods Sold (COGS)"
+      }
     },
     {
       "id": "periodDays",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "days",
       "default": 365,
-      "businessContext": "Number of days in the measurement period. Standard is 365 for annual calculation."
+      "businessContext": "Number of days in the measurement period. Standard is 365 for annual calculation.",
+      "label_i18n": {
+        "en": "Period Length (Days)",
+        "tr": "Period Length (Days)",
+        "de": "Period Length (Days)",
+        "fr": "Period Length (Days)",
+        "es": "Period Length (Days)",
+        "ar": "Period Length (Days)"
+      }
     },
     {
       "id": "inventoryTurnover",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "ratio",
       "default": 0,
-      "businessContext": "If known, enter the inventory turnover ratio (COGS / Average Inventory). If provided, DIO will be calculated as Period Days / Turnover Ratio. Leave 0 to calculate from Average Inventory and COGS."
+      "businessContext": "If known, enter the inventory turnover ratio (COGS / Average Inventory). If provided, DIO will be calculated as Period Days / Turnover Ratio. Leave 0 to calculate from Average Inventory and COGS.",
+      "label_i18n": {
+        "en": "Inventory Turnover Ratio (Optional)",
+        "tr": "Inventory Turnover Ratio (Optional)",
+        "de": "Inventory Turnover Ratio (Optional)",
+        "fr": "Inventory Turnover Ratio (Optional)",
+        "es": "Inventory Turnover Ratio (Optional)",
+        "ar": "Inventory Turnover Ratio (Optional)"
+      }
     }
   ],
   "formulas": {
@@ -43,7 +75,12 @@
     "breakdown": [
       "inventoryTurnoverRatio",
       "daysInventoryOutstanding"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "inventoryTurnoverRatio"
   },
   "category": "Lojistik & Tedarik Zinciri",
   "sector": "Lojistik & Sevkiyat",
@@ -53,5 +90,10 @@
   "categorySlug": "procurement-supply-chain",
   "sectorId": "lojistik",
   "profession": "Lojistik Uzmanı",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

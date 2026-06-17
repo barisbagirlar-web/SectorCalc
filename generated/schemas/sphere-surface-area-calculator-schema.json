@@ -100,23 +100,21 @@
   ],
   "formulas": {
     "radiusUsed": "inputType === 0 ? radius : diameter / 2",
-    "areaM2": "4 * Math.PI * Math.pow(radiusUsed, 2)",
-    "conversionFactor": "outputUnit === 0 ? 1 : outputUnit === 1 ? 10000 : outputUnit === 2 ? 1000000 : outputUnit === 3 ? 10.7639 : 1",
-    "convertedArea": "areaM2 * conversionFactor",
-    "totalCost": "areaM2 * costPerSquareMeter * (1 + wasteFactor / 100)",
-    "_radiusUsed__m": "{radiusUsed} m",
-    "_areaM2_": "{areaM2}",
-    "_convertedArea_": "{convertedArea}",
-    "_totalCost_": "{totalCost}"
+    "conversionFactor": "outputUnit === 0 ? 1 : outputUnit === 1 ? 10000 : outputUnit === 2 ? 1000000 : outputUnit === 3 ? 10.7639 : 1"
   },
   "outputs": {
-    "primary": "convertedArea",
+    "primary": "conversionFactor",
     "breakdown": [
       "Effective radius: {radiusUsed} m",
       "Surface area (m²): {areaM2}",
       "Converted area: {convertedArea}",
       "Total cost including waste: {totalCost}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -126,5 +124,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

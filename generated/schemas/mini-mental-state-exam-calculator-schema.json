@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Score for orientation to time and place (0-10 points)"
+      "businessContext": "Score for orientation to time and place (0-10 points)",
+      "label_i18n": {
+        "en": "Orientation Score",
+        "tr": "Orientation Score",
+        "de": "Orientation Score",
+        "fr": "Orientation Score",
+        "es": "Orientation Score",
+        "ar": "Orientation Score"
+      }
     },
     {
       "id": "registration",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Score for registration of three words (0-3 points)"
+      "businessContext": "Score for registration of three words (0-3 points)",
+      "label_i18n": {
+        "en": "Registration Score",
+        "tr": "Registration Score",
+        "de": "Registration Score",
+        "fr": "Registration Score",
+        "es": "Registration Score",
+        "ar": "Registration Score"
+      }
     },
     {
       "id": "attention",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Score for attention and calculation (serial sevens or spelling backwards) (0-5 points)"
+      "businessContext": "Score for attention and calculation (serial sevens or spelling backwards) (0-5 points)",
+      "label_i18n": {
+        "en": "Attention and Calculation Score",
+        "tr": "Attention and Calculation Score",
+        "de": "Attention and Calculation Score",
+        "fr": "Attention and Calculation Score",
+        "es": "Attention and Calculation Score",
+        "ar": "Attention and Calculation Score"
+      }
     },
     {
       "id": "recall",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Score for delayed recall of three words (0-3 points)"
+      "businessContext": "Score for delayed recall of three words (0-3 points)",
+      "label_i18n": {
+        "en": "Recall Score",
+        "tr": "Recall Score",
+        "de": "Recall Score",
+        "fr": "Recall Score",
+        "es": "Recall Score",
+        "ar": "Recall Score"
+      }
     },
     {
       "id": "language",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "points",
       "default": 0,
-      "businessContext": "Score for language tasks including naming, repetition, comprehension, reading, writing, and drawing (0-9 points)"
+      "businessContext": "Score for language tasks including naming, repetition, comprehension, reading, writing, and drawing (0-9 points)",
+      "label_i18n": {
+        "en": "Language Score",
+        "tr": "Language Score",
+        "de": "Language Score",
+        "fr": "Language Score",
+        "es": "Language Score",
+        "ar": "Language Score"
+      }
     }
   ],
   "formulas": {
@@ -58,7 +98,12 @@
       "attention",
       "recall",
       "language"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "language"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -68,5 +113,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "havacilik",
   "profession": "Tasarım Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

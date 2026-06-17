@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 50000,
-      "businessContext": "Total income received from all 1099 contracts before any deductions."
+      "businessContext": "Total income received from all 1099 contracts before any deductions.",
+      "label_i18n": {
+        "en": "Gross Income ($)",
+        "tr": "Gross Income ($)",
+        "de": "Gross Income ($)",
+        "fr": "Gross Income ($)",
+        "es": "Gross Income ($)",
+        "ar": "Gross Income ($)"
+      }
     },
     {
       "id": "businessExpenses",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "$",
       "default": 5000,
-      "businessContext": "Ordinary and necessary expenses directly related to the business (e.g., supplies, home office, mileage)."
+      "businessContext": "Ordinary and necessary expenses directly related to the business (e.g., supplies, home office, mileage).",
+      "label_i18n": {
+        "en": "Business Expenses ($)",
+        "tr": "Business Expenses ($)",
+        "de": "Business Expenses ($)",
+        "fr": "Business Expenses ($)",
+        "es": "Business Expenses ($)",
+        "ar": "Business Expenses ($)"
+      }
     },
     {
       "id": "federalTaxRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 22,
-      "businessContext": "Marginal federal income tax rate applied to taxable income after deductions."
+      "businessContext": "Marginal federal income tax rate applied to taxable income after deductions.",
+      "label_i18n": {
+        "en": "Federal Tax Rate (%)",
+        "tr": "Federal Tax Rate (%)",
+        "de": "Federal Tax Rate (%)",
+        "fr": "Federal Tax Rate (%)",
+        "es": "Federal Tax Rate (%)",
+        "ar": "Federal Tax Rate (%)"
+      }
     },
     {
       "id": "stateTaxRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Combined state and local income tax rate, if applicable."
+      "businessContext": "Combined state and local income tax rate, if applicable.",
+      "label_i18n": {
+        "en": "State Tax Rate (%)",
+        "tr": "State Tax Rate (%)",
+        "de": "State Tax Rate (%)",
+        "fr": "State Tax Rate (%)",
+        "es": "State Tax Rate (%)",
+        "ar": "State Tax Rate (%)"
+      }
     },
     {
       "id": "selfEmploymentTaxRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 15.3,
-      "businessContext": "Social Security and Medicare taxes for self-employed individuals (typically 15.3% on 92.35% of net profit)."
+      "businessContext": "Social Security and Medicare taxes for self-employed individuals (typically 15.3% on 92.35% of net profit).",
+      "label_i18n": {
+        "en": "Self-Employment Tax Rate (%)",
+        "tr": "Self-Employment Tax Rate (%)",
+        "de": "Self-Employment Tax Rate (%)",
+        "fr": "Self-Employment Tax Rate (%)",
+        "es": "Self-Employment Tax Rate (%)",
+        "ar": "Self-Employment Tax Rate (%)"
+      }
     }
   ],
   "formulas": {
@@ -56,7 +96,12 @@
       "federalTax",
       "stateTax",
       "seTax"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalTax"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -66,5 +111,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

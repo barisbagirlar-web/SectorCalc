@@ -99,20 +99,22 @@
     }
   ],
   "formulas": {
-    "parentIncomeContrib": "Math.max(0, parentAGI - (10000 + familySize * 5000 + numberInCollege * 3000)) * 0.22",
-    "parentAssetContrib": "Math.max(0, parentAssets - (2000 * familySize)) * 0.12",
-    "studentIncomeContrib": "Math.max(0, studentIncome - 7000) * 0.50",
     "studentAssetContrib": "studentAssets * 0.20",
-    "sai": "Math.round(parentIncomeContrib + parentAssetContrib + studentIncomeContrib + studentAssetContrib)"
+    "studentAssetContrib_aux": "studentAssets * 0.20"
   },
   "outputs": {
-    "primary": "sai",
+    "primary": "studentAssetContrib_aux",
     "breakdown": [
       "parentIncomeContrib",
       "parentAssetContrib",
       "studentIncomeContrib",
       "studentAssetContrib"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "sai"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -122,5 +124,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

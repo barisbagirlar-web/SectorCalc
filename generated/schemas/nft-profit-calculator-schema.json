@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "The initial cost to acquire the NFT, including any minting or purchase expenses."
+      "businessContext": "The initial cost to acquire the NFT, including any minting or purchase expenses.",
+      "label_i18n": {
+        "en": "Purchase Price",
+        "tr": "Purchase Price",
+        "de": "Purchase Price",
+        "fr": "Purchase Price",
+        "es": "Purchase Price",
+        "ar": "Purchase Price"
+      }
     },
     {
       "id": "gasFee",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Transaction fee paid for minting or transferring the NFT on the blockchain."
+      "businessContext": "Transaction fee paid for minting or transferring the NFT on the blockchain.",
+      "label_i18n": {
+        "en": "Gas Fee",
+        "tr": "Gas Fee",
+        "de": "Gas Fee",
+        "fr": "Gas Fee",
+        "es": "Gas Fee",
+        "ar": "Gas Fee"
+      }
     },
     {
       "id": "listingFee",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Fee charged by the marketplace for listing the NFT for sale."
+      "businessContext": "Fee charged by the marketplace for listing the NFT for sale.",
+      "label_i18n": {
+        "en": "Listing Fee",
+        "tr": "Listing Fee",
+        "de": "Listing Fee",
+        "fr": "Listing Fee",
+        "es": "Listing Fee",
+        "ar": "Listing Fee"
+      }
     },
     {
       "id": "salePrice",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "The expected price at which the NFT will be sold on the secondary market."
+      "businessContext": "The expected price at which the NFT will be sold on the secondary market.",
+      "label_i18n": {
+        "en": "Estimated Sale Price",
+        "tr": "Estimated Sale Price",
+        "de": "Estimated Sale Price",
+        "fr": "Estimated Sale Price",
+        "es": "Estimated Sale Price",
+        "ar": "Estimated Sale Price"
+      }
     },
     {
       "id": "royaltyPercent",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Percentage of the sale price paid to the original creator as a royalty."
+      "businessContext": "Percentage of the sale price paid to the original creator as a royalty.",
+      "label_i18n": {
+        "en": "Royalty Percentage",
+        "tr": "Royalty Percentage",
+        "de": "Royalty Percentage",
+        "fr": "Royalty Percentage",
+        "es": "Royalty Percentage",
+        "ar": "Royalty Percentage"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "totalCost",
       "roiPercent"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roiPercent"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -62,5 +107,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

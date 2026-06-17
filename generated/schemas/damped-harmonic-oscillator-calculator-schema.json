@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1,
-      "businessContext": "Mass of the oscillating body."
+      "businessContext": "Mass of the oscillating body.",
+      "label_i18n": {
+        "en": "Mass (m)",
+        "tr": "Mass (m)",
+        "de": "Mass (m)",
+        "fr": "Mass (m)",
+        "es": "Mass (m)",
+        "ar": "Mass (m)"
+      }
     },
     {
       "id": "dampingCoeff",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "N·s/m",
       "default": 0.5,
-      "businessContext": "Viscous damping coefficient."
+      "businessContext": "Viscous damping coefficient.",
+      "label_i18n": {
+        "en": "Damping Coefficient (c)",
+        "tr": "Damping Coefficient (c)",
+        "de": "Damping Coefficient (c)",
+        "fr": "Damping Coefficient (c)",
+        "es": "Damping Coefficient (c)",
+        "ar": "Damping Coefficient (c)"
+      }
     },
     {
       "id": "springConst",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "N/m",
       "default": 10,
-      "businessContext": "Stiffness of the spring."
+      "businessContext": "Stiffness of the spring.",
+      "label_i18n": {
+        "en": "Spring Constant (k)",
+        "tr": "Spring Constant (k)",
+        "de": "Spring Constant (k)",
+        "fr": "Spring Constant (k)",
+        "es": "Spring Constant (k)",
+        "ar": "Spring Constant (k)"
+      }
     },
     {
       "id": "initDisp",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.1,
-      "businessContext": "Displacement at t=0."
+      "businessContext": "Displacement at t=0.",
+      "label_i18n": {
+        "en": "Initial Displacement (x₀)",
+        "tr": "Initial Displacement (x₀)",
+        "de": "Initial Displacement (x₀)",
+        "fr": "Initial Displacement (x₀)",
+        "es": "Initial Displacement (x₀)",
+        "ar": "Initial Displacement (x₀)"
+      }
     },
     {
       "id": "initVeloc",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 0,
-      "businessContext": "Velocity at t=0."
+      "businessContext": "Velocity at t=0.",
+      "label_i18n": {
+        "en": "Initial Velocity (v₀)",
+        "tr": "Initial Velocity (v₀)",
+        "de": "Initial Velocity (v₀)",
+        "fr": "Initial Velocity (v₀)",
+        "es": "Initial Velocity (v₀)",
+        "ar": "Initial Velocity (v₀)"
+      }
     },
     {
       "id": "time",
@@ -47,22 +87,33 @@
       "type": "number",
       "unit": "s",
       "default": 1,
-      "businessContext": "Time instant to evaluate displacement."
+      "businessContext": "Time instant to evaluate displacement.",
+      "label_i18n": {
+        "en": "Time (t)",
+        "tr": "Time (t)",
+        "de": "Time (t)",
+        "fr": "Time (t)",
+        "es": "Time (t)",
+        "ar": "Time (t)"
+      }
     }
   ],
   "formulas": {
-    "displacementAtTime": "(m = mass, c = dampingCoeff, k = springConst, x0 = initDisp, v0 = initVeloc, t = time, z = c / (2 * Math.sqrt(m * k)), wn = Math.sqrt(k / m), wd = wn * Math.sqrt(1 - z * z), Math.exp(-z * wn * t) * (x0 * Math.cos(wd * t) + (v0 + z * wn * x0) / wd * Math.sin(wd * t)))",
-    "dampingRatio": "(m = mass, c = dampingCoeff, k = springConst, c / (2 * Math.sqrt(m * k)))",
-    "naturalFrequency": "(m = mass, k = springConst, Math.sqrt(k / m))",
-    "dampedFrequency": "(m = mass, c = dampingCoeff, k = springConst, z = c / (2 * Math.sqrt(m * k)), wn = Math.sqrt(k / m), wn * Math.sqrt(1 - z * z))"
+    "result": "mass + dampingCoeff + springConst",
+    "result_copy": "mass + dampingCoeff + springConst"
   },
   "outputs": {
-    "primary": "displacementAtTime",
+    "primary": "result",
     "breakdown": [
       "dampingRatio",
       "naturalFrequency",
       "dampedFrequency"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "dampedFrequency"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -72,5 +123,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

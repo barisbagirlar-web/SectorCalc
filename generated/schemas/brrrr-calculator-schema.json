@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100000,
-      "businessContext": "The acquisition cost of the property before any rehabilitation."
+      "businessContext": "The acquisition cost of the property before any rehabilitation.",
+      "label_i18n": {
+        "en": "Purchase Price",
+        "tr": "Purchase Price",
+        "de": "Purchase Price",
+        "fr": "Purchase Price",
+        "es": "Purchase Price",
+        "ar": "Purchase Price"
+      }
     },
     {
       "id": "rehabCost",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 20000,
-      "businessContext": "Total budget for renovating the property to increase its value and rentability."
+      "businessContext": "Total budget for renovating the property to increase its value and rentability.",
+      "label_i18n": {
+        "en": "Rehab Cost",
+        "tr": "Rehab Cost",
+        "de": "Rehab Cost",
+        "fr": "Rehab Cost",
+        "es": "Rehab Cost",
+        "ar": "Rehab Cost"
+      }
     },
     {
       "id": "afterRepairValue",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 150000,
-      "businessContext": "Estimated market value of the property after rehabilitation is complete."
+      "businessContext": "Estimated market value of the property after rehabilitation is complete.",
+      "label_i18n": {
+        "en": "After Repair Value (ARV)",
+        "tr": "After Repair Value (ARV)",
+        "de": "After Repair Value (ARV)",
+        "fr": "After Repair Value (ARV)",
+        "es": "After Repair Value (ARV)",
+        "ar": "After Repair Value (ARV)"
+      }
     },
     {
       "id": "monthlyRent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 1500,
-      "businessContext": "Gross monthly rental income expected from the property after rehab."
+      "businessContext": "Gross monthly rental income expected from the property after rehab.",
+      "label_i18n": {
+        "en": "Monthly Rent",
+        "tr": "Monthly Rent",
+        "de": "Monthly Rent",
+        "fr": "Monthly Rent",
+        "es": "Monthly Rent",
+        "ar": "Monthly Rent"
+      }
     },
     {
       "id": "downPaymentPercent",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Percentage of purchase price paid upfront as down payment."
+      "businessContext": "Percentage of purchase price paid upfront as down payment.",
+      "label_i18n": {
+        "en": "Down Payment (%)",
+        "tr": "Down Payment (%)",
+        "de": "Down Payment (%)",
+        "fr": "Down Payment (%)",
+        "es": "Down Payment (%)",
+        "ar": "Down Payment (%)"
+      }
     },
     {
       "id": "interestRate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 4,
-      "businessContext": "Annual interest rate on the mortgage used for purchase."
+      "businessContext": "Annual interest rate on the mortgage used for purchase.",
+      "label_i18n": {
+        "en": "Interest Rate (%)",
+        "tr": "Interest Rate (%)",
+        "de": "Interest Rate (%)",
+        "fr": "Interest Rate (%)",
+        "es": "Interest Rate (%)",
+        "ar": "Interest Rate (%)"
+      }
     },
     {
       "id": "loanTermYears",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Duration of the mortgage loan in years."
+      "businessContext": "Duration of the mortgage loan in years.",
+      "label_i18n": {
+        "en": "Loan Term (Years)",
+        "tr": "Loan Term (Years)",
+        "de": "Loan Term (Years)",
+        "fr": "Loan Term (Years)",
+        "es": "Loan Term (Years)",
+        "ar": "Loan Term (Years)"
+      }
     },
     {
       "id": "monthlyExpenses",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "USD",
       "default": 500,
-      "businessContext": "Total monthly operating expenses including taxes, insurance, management, maintenance, and vacancy allowance."
+      "businessContext": "Total monthly operating expenses including taxes, insurance, management, maintenance, and vacancy allowance.",
+      "label_i18n": {
+        "en": "Monthly Expenses",
+        "tr": "Monthly Expenses",
+        "de": "Monthly Expenses",
+        "fr": "Monthly Expenses",
+        "es": "Monthly Expenses",
+        "ar": "Monthly Expenses"
+      }
     }
   ],
   "formulas": {
@@ -71,19 +135,20 @@
     "loanAmount": "purchasePrice - downPayment",
     "monthlyInterestRate": "interestRate / 100 / 12",
     "numberOfPayments": "loanTermYears * 12",
-    "monthlyMortgagePayment": "loanAmount * monthlyInterestRate / (1 - Math.pow(1 + monthlyInterestRate, -numberOfPayments))",
-    "totalInvestment": "downPayment + rehabCost",
-    "monthlyCashFlow": "monthlyRent - monthlyExpenses - monthlyMortgagePayment",
-    "annualCashFlow": "monthlyCashFlow * 12",
-    "cashOnCashReturn": "(annualCashFlow / totalInvestment) * 100"
+    "totalInvestment": "downPayment + rehabCost"
   },
   "outputs": {
-    "primary": "cashOnCashReturn",
+    "primary": "totalInvestment",
     "breakdown": [
       "monthlyCashFlow",
       "totalInvestment",
       "monthlyMortgagePayment"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "cashOnCashReturn"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -93,5 +158,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

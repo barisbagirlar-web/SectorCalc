@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 1000,
-      "businessContext": "Current credit card balance before interest"
+      "businessContext": "Current credit card balance before interest",
+      "label_i18n": {
+        "en": "Outstanding Balance",
+        "tr": "Outstanding Balance",
+        "de": "Outstanding Balance",
+        "fr": "Outstanding Balance",
+        "es": "Outstanding Balance",
+        "ar": "Outstanding Balance"
+      }
     },
     {
       "id": "annualInterestRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 18,
-      "businessContext": "Annual percentage rate applied to balance"
+      "businessContext": "Annual percentage rate applied to balance",
+      "label_i18n": {
+        "en": "Annual Interest Rate (APR)",
+        "tr": "Annual Interest Rate (APR)",
+        "de": "Annual Interest Rate (APR)",
+        "fr": "Annual Interest Rate (APR)",
+        "es": "Annual Interest Rate (APR)",
+        "ar": "Annual Interest Rate (APR)"
+      }
     },
     {
       "id": "minPaymentPercent",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Percentage of balance used in minimum payment calculation"
+      "businessContext": "Percentage of balance used in minimum payment calculation",
+      "label_i18n": {
+        "en": "Minimum Payment Percentage",
+        "tr": "Minimum Payment Percentage",
+        "de": "Minimum Payment Percentage",
+        "fr": "Minimum Payment Percentage",
+        "es": "Minimum Payment Percentage",
+        "ar": "Minimum Payment Percentage"
+      }
     },
     {
       "id": "fixedMinAmount",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 25,
-      "businessContext": "Dollar floor for minimum payment if percentage is lower"
+      "businessContext": "Dollar floor for minimum payment if percentage is lower",
+      "label_i18n": {
+        "en": "Fixed Minimum Amount",
+        "tr": "Fixed Minimum Amount",
+        "de": "Fixed Minimum Amount",
+        "fr": "Fixed Minimum Amount",
+        "es": "Fixed Minimum Amount",
+        "ar": "Fixed Minimum Amount"
+      }
     },
     {
       "id": "pastDueAmount",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Any past due amount added to minimum payment"
+      "businessContext": "Any past due amount added to minimum payment",
+      "label_i18n": {
+        "en": "Past Due Amount",
+        "tr": "Past Due Amount",
+        "de": "Past Due Amount",
+        "fr": "Past Due Amount",
+        "es": "Past Due Amount",
+        "ar": "Past Due Amount"
+      }
     },
     {
       "id": "overLimitAmount",
@@ -47,22 +87,33 @@
       "type": "number",
       "unit": "USD",
       "default": 0,
-      "businessContext": "Over limit fee added to minimum payment"
+      "businessContext": "Over limit fee added to minimum payment",
+      "label_i18n": {
+        "en": "Over Limit Amount",
+        "tr": "Over Limit Amount",
+        "de": "Over Limit Amount",
+        "fr": "Over Limit Amount",
+        "es": "Over Limit Amount",
+        "ar": "Over Limit Amount"
+      }
     }
   ],
   "formulas": {
     "monthlyInterest": "(annualInterestRate / 100 / 12) * outstandingBalance",
-    "totalBalance": "outstandingBalance + monthlyInterest",
-    "baseMin": "Math.max((minPaymentPercent / 100) * totalBalance, fixedMinAmount)",
-    "minPayment": "baseMin + pastDueAmount + overLimitAmount"
+    "totalBalance": "outstandingBalance + monthlyInterest"
   },
   "outputs": {
-    "primary": "minPayment",
+    "primary": "totalBalance",
     "breakdown": [
       "monthlyInterest",
       "totalBalance",
       "baseMin"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "minPayment"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -72,5 +123,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

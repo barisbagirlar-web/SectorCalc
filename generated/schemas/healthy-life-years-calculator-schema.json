@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 73,
-      "businessContext": "Total expected years of life from birth based on current mortality rates."
+      "businessContext": "Total expected years of life from birth based on current mortality rates.",
+      "label_i18n": {
+        "en": "Life Expectancy at Birth (years)",
+        "tr": "Life Expectancy at Birth (years)",
+        "de": "Life Expectancy at Birth (years)",
+        "fr": "Life Expectancy at Birth (years)",
+        "es": "Life Expectancy at Birth (years)",
+        "ar": "Life Expectancy at Birth (years)"
+      }
     },
     {
       "id": "severe_prevalence",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "proportion",
       "default": 0.1,
-      "businessContext": "Proportion of population with severe long-standing activity limitation, expressed as a decimal (0-1)."
+      "businessContext": "Proportion of population with severe long-standing activity limitation, expressed as a decimal (0-1).",
+      "label_i18n": {
+        "en": "Prevalence of Severe Activity Limitation",
+        "tr": "Prevalence of Severe Activity Limitation",
+        "de": "Prevalence of Severe Activity Limitation",
+        "fr": "Prevalence of Severe Activity Limitation",
+        "es": "Prevalence of Severe Activity Limitation",
+        "ar": "Prevalence of Severe Activity Limitation"
+      }
     },
     {
       "id": "moderate_prevalence",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "proportion",
       "default": 0.15,
-      "businessContext": "Proportion of population with moderate activity limitation, expressed as a decimal (0-1)."
+      "businessContext": "Proportion of population with moderate activity limitation, expressed as a decimal (0-1).",
+      "label_i18n": {
+        "en": "Prevalence of Moderate Activity Limitation",
+        "tr": "Prevalence of Moderate Activity Limitation",
+        "de": "Prevalence of Moderate Activity Limitation",
+        "fr": "Prevalence of Moderate Activity Limitation",
+        "es": "Prevalence of Moderate Activity Limitation",
+        "ar": "Prevalence of Moderate Activity Limitation"
+      }
     },
     {
       "id": "severe_weight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "factor",
       "default": 0.7,
-      "businessContext": "Health loss weight for severe state (0 = full health, 1 = worst possible health)."
+      "businessContext": "Health loss weight for severe state (0 = full health, 1 = worst possible health).",
+      "label_i18n": {
+        "en": "Disability Weight for Severe Limitation",
+        "tr": "Disability Weight for Severe Limitation",
+        "de": "Disability Weight for Severe Limitation",
+        "fr": "Disability Weight for Severe Limitation",
+        "es": "Disability Weight for Severe Limitation",
+        "ar": "Disability Weight for Severe Limitation"
+      }
     },
     {
       "id": "moderate_weight",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "factor",
       "default": 0.3,
-      "businessContext": "Health loss weight for moderate state (0 = full health, 1 = worst possible health)."
+      "businessContext": "Health loss weight for moderate state (0 = full health, 1 = worst possible health).",
+      "label_i18n": {
+        "en": "Disability Weight for Moderate Limitation",
+        "tr": "Disability Weight for Moderate Limitation",
+        "de": "Disability Weight for Moderate Limitation",
+        "fr": "Disability Weight for Moderate Limitation",
+        "es": "Disability Weight for Moderate Limitation",
+        "ar": "Disability Weight for Moderate Limitation"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "total_life_expectancy",
       "unhealthy_years"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "unhealthy_years"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -62,5 +107,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "saglik",
   "profession": "Biyomedikal Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

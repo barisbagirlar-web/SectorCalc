@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m³",
       "default": 1,
-      "businessContext": "Required volume of concrete in cubic meters."
+      "businessContext": "Required volume of concrete in cubic meters.",
+      "label_i18n": {
+        "en": "Concrete Volume",
+        "tr": "Concrete Volume",
+        "de": "Concrete Volume",
+        "fr": "Concrete Volume",
+        "es": "Concrete Volume",
+        "ar": "Concrete Volume"
+      }
     },
     {
       "id": "cementRatio",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "-",
       "default": 1,
-      "businessContext": "Part of cement in the concrete mix ratio (e.g., 1 for 1:2:4)."
+      "businessContext": "Part of cement in the concrete mix ratio (e.g., 1 for 1:2:4).",
+      "label_i18n": {
+        "en": "Cement Ratio",
+        "tr": "Cement Ratio",
+        "de": "Cement Ratio",
+        "fr": "Cement Ratio",
+        "es": "Cement Ratio",
+        "ar": "Cement Ratio"
+      }
     },
     {
       "id": "sandRatio",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "-",
       "default": 1.5,
-      "businessContext": "Part of sand in the concrete mix ratio."
+      "businessContext": "Part of sand in the concrete mix ratio.",
+      "label_i18n": {
+        "en": "Sand Ratio",
+        "tr": "Sand Ratio",
+        "de": "Sand Ratio",
+        "fr": "Sand Ratio",
+        "es": "Sand Ratio",
+        "ar": "Sand Ratio"
+      }
     },
     {
       "id": "aggregateRatio",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "-",
       "default": 3,
-      "businessContext": "Part of aggregate (coarse aggregate) in the mix ratio."
+      "businessContext": "Part of aggregate (coarse aggregate) in the mix ratio.",
+      "label_i18n": {
+        "en": "Aggregate Ratio",
+        "tr": "Aggregate Ratio",
+        "de": "Aggregate Ratio",
+        "fr": "Aggregate Ratio",
+        "es": "Aggregate Ratio",
+        "ar": "Aggregate Ratio"
+      }
     },
     {
       "id": "waterCementRatio",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "-",
       "default": 0.5,
-      "businessContext": "Ratio of water to cement by weight for desired workability."
+      "businessContext": "Ratio of water to cement by weight for desired workability.",
+      "label_i18n": {
+        "en": "Water-Cement Ratio",
+        "tr": "Water-Cement Ratio",
+        "de": "Water-Cement Ratio",
+        "fr": "Water-Cement Ratio",
+        "es": "Water-Cement Ratio",
+        "ar": "Water-Cement Ratio"
+      }
     },
     {
       "id": "dryFactor",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "-",
       "default": 1.54,
-      "businessContext": "Multiplication factor to convert wet volume to dry volume, accounting for air voids."
+      "businessContext": "Multiplication factor to convert wet volume to dry volume, accounting for air voids.",
+      "label_i18n": {
+        "en": "Dry Volume Factor",
+        "tr": "Dry Volume Factor",
+        "de": "Dry Volume Factor",
+        "fr": "Dry Volume Factor",
+        "es": "Dry Volume Factor",
+        "ar": "Dry Volume Factor"
+      }
     },
     {
       "id": "wastagePercent",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percentage of extra material to account for handling and compaction losses."
+      "businessContext": "Percentage of extra material to account for handling and compaction losses.",
+      "label_i18n": {
+        "en": "Wastage %",
+        "tr": "Wastage %",
+        "de": "Wastage %",
+        "fr": "Wastage %",
+        "es": "Wastage %",
+        "ar": "Wastage %"
+      }
     }
   ],
   "formulas": {
@@ -83,7 +139,12 @@
       "sandWeight",
       "aggregateWeight",
       "waterWeight"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalMixWeight"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -93,5 +154,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

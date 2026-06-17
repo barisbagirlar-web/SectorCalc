@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Total weight of raw material fed into the process"
+      "businessContext": "Total weight of raw material fed into the process",
+      "label_i18n": {
+        "en": "Raw Material Input",
+        "tr": "Raw Material Input",
+        "de": "Raw Material Input",
+        "fr": "Raw Material Input",
+        "es": "Raw Material Input",
+        "ar": "Raw Material Input"
+      }
     },
     {
       "id": "productOutput",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Net weight of finished good product obtained"
+      "businessContext": "Net weight of finished good product obtained",
+      "label_i18n": {
+        "en": "Product Output",
+        "tr": "Product Output",
+        "de": "Product Output",
+        "fr": "Product Output",
+        "es": "Product Output",
+        "ar": "Product Output"
+      }
     },
     {
       "id": "expectedYieldPercent",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 95,
-      "businessContext": "Standard or budgeted yield percentage for the process"
+      "businessContext": "Standard or budgeted yield percentage for the process",
+      "label_i18n": {
+        "en": "Expected Yield (%)",
+        "tr": "Expected Yield (%)",
+        "de": "Expected Yield (%)",
+        "fr": "Expected Yield (%)",
+        "es": "Expected Yield (%)",
+        "ar": "Expected Yield (%)"
+      }
     },
     {
       "id": "wasteMaterial",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 0,
-      "businessContext": "Weight of waste or scrap produced during production"
+      "businessContext": "Weight of waste or scrap produced during production",
+      "label_i18n": {
+        "en": "Waste Material",
+        "tr": "Waste Material",
+        "de": "Waste Material",
+        "fr": "Waste Material",
+        "es": "Waste Material",
+        "ar": "Waste Material"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "yieldVariance",
       "wastePercent",
       "materialLossPercent"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "materialLossPercent"
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Üretim & İmalat",
@@ -56,5 +93,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

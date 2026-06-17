@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 10000,
-      "businessContext": "The lump sum amount you invest initially."
+      "businessContext": "The lump sum amount you invest initially.",
+      "label_i18n": {
+        "en": "Initial Investment",
+        "tr": "Initial Investment",
+        "de": "Initial Investment",
+        "fr": "Initial Investment",
+        "es": "Initial Investment",
+        "ar": "Initial Investment"
+      }
     },
     {
       "id": "monthlyContribution",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 500,
-      "businessContext": "The fixed amount you invest each month."
+      "businessContext": "The fixed amount you invest each month.",
+      "label_i18n": {
+        "en": "Monthly Contribution",
+        "tr": "Monthly Contribution",
+        "de": "Monthly Contribution",
+        "fr": "Monthly Contribution",
+        "es": "Monthly Contribution",
+        "ar": "Monthly Contribution"
+      }
     },
     {
       "id": "annualReturnRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 7,
-      "businessContext": "Expected annualized return rate of the mutual fund."
+      "businessContext": "Expected annualized return rate of the mutual fund.",
+      "label_i18n": {
+        "en": "Expected Annual Return Rate",
+        "tr": "Expected Annual Return Rate",
+        "de": "Expected Annual Return Rate",
+        "fr": "Expected Annual Return Rate",
+        "es": "Expected Annual Return Rate",
+        "ar": "Expected Annual Return Rate"
+      }
     },
     {
       "id": "investmentPeriod",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "years",
       "default": 20,
-      "businessContext": "Number of years you plan to stay invested."
+      "businessContext": "Number of years you plan to stay invested.",
+      "label_i18n": {
+        "en": "Investment Period",
+        "tr": "Investment Period",
+        "de": "Investment Period",
+        "fr": "Investment Period",
+        "es": "Investment Period",
+        "ar": "Investment Period"
+      }
     },
     {
       "id": "inflationRate",
@@ -39,22 +71,33 @@
       "type": "number",
       "unit": "%",
       "default": 2.5,
-      "businessContext": "Expected average annual inflation rate to adjust future value."
+      "businessContext": "Expected average annual inflation rate to adjust future value.",
+      "label_i18n": {
+        "en": "Expected Inflation Rate",
+        "tr": "Expected Inflation Rate",
+        "de": "Expected Inflation Rate",
+        "fr": "Expected Inflation Rate",
+        "es": "Expected Inflation Rate",
+        "ar": "Expected Inflation Rate"
+      }
     }
   ],
   "formulas": {
-    "futureValue": "initialInvestment * Math.pow(1 + annualReturnRate/100/12, investmentPeriod*12) + monthlyContribution * ( (Math.pow(1 + annualReturnRate/100/12, investmentPeriod*12) - 1) / (annualReturnRate/100/12) )",
     "totalInvested": "initialInvestment + monthlyContribution * investmentPeriod * 12",
-    "totalEarnings": "futureValue - totalInvested",
-    "inflationAdjustedValue": "futureValue / Math.pow(1 + inflationRate/100, investmentPeriod)"
+    "totalInvested_aux": "initialInvestment + monthlyContribution * investmentPeriod * 12"
   },
   "outputs": {
-    "primary": "futureValue",
+    "primary": "totalInvested_aux",
     "breakdown": [
       "totalInvested",
       "totalEarnings",
       "inflationAdjustedValue"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "inflationAdjustedValue"
   },
   "category": "Proje & Yatırım",
   "sector": "Finans & İK",
@@ -64,5 +107,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

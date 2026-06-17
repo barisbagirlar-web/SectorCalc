@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "µs",
       "default": 0,
-      "businessContext": "Time duration in microseconds to be converted to nanoseconds."
+      "businessContext": "Time duration in microseconds to be converted to nanoseconds.",
+      "label_i18n": {
+        "en": "Microseconds",
+        "tr": "Microseconds",
+        "de": "Microseconds",
+        "fr": "Microseconds",
+        "es": "Microseconds",
+        "ar": "Microseconds"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ns/µs",
       "default": 1000,
-      "businessContext": "Standard conversion factor from microseconds to nanoseconds. Fixed at 1000 for certified calculations. Do not alter without recalibration."
+      "businessContext": "Standard conversion factor from microseconds to nanoseconds. Fixed at 1000 for certified calculations. Do not alter without recalibration.",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "decimalPlaces",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "places",
       "default": 0,
-      "businessContext": "Number of decimal places for rounding the result. Use 0 for integer nanoseconds as per standard."
+      "businessContext": "Number of decimal places for rounding the result. Use 0 for integer nanoseconds as per standard.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "batchSize",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "items",
       "default": 1,
-      "businessContext": "If converting multiple identical durations, enter the quantity. Acts as a multiplier."
+      "businessContext": "If converting multiple identical durations, enter the quantity. Acts as a multiplier.",
+      "label_i18n": {
+        "en": "Batch Size",
+        "tr": "Batch Size",
+        "de": "Batch Size",
+        "fr": "Batch Size",
+        "es": "Batch Size",
+        "ar": "Batch Size"
+      }
     },
     {
       "id": "tolerance",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "ns",
       "default": 0,
-      "businessContext": "Acceptable deviation in nanoseconds for quality assurance. The result will be checked against ± tolerance."
+      "businessContext": "Acceptable deviation in nanoseconds for quality assurance. The result will be checked against ± tolerance.",
+      "label_i18n": {
+        "en": "Tolerance",
+        "tr": "Tolerance",
+        "de": "Tolerance",
+        "fr": "Tolerance",
+        "es": "Tolerance",
+        "ar": "Tolerance"
+      }
     },
     {
       "id": "calibrationOffset",
@@ -47,22 +87,33 @@
       "type": "number",
       "unit": "ns",
       "default": 0,
-      "businessContext": "Instrument calibration offset added to the converted value."
+      "businessContext": "Instrument calibration offset added to the converted value.",
+      "label_i18n": {
+        "en": "Calibration Offset",
+        "tr": "Calibration Offset",
+        "de": "Calibration Offset",
+        "fr": "Calibration Offset",
+        "es": "Calibration Offset",
+        "ar": "Calibration Offset"
+      }
     }
   ],
   "formulas": {
     "rawNanoseconds": "microseconds * conversionFactor * batchSize + calibrationOffset",
-    "nanoseconds": "Math.round((microseconds * conversionFactor * batchSize + calibrationOffset) * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
-    "minAcceptable": "(Math.round((microseconds * conversionFactor * batchSize + calibrationOffset) * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)) - Math.abs(tolerance)",
-    "maxAcceptable": "(Math.round((microseconds * conversionFactor * batchSize + calibrationOffset) * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)) + Math.abs(tolerance)"
+    "rawNanoseconds_aux": "microseconds * conversionFactor * batchSize + calibrationOffset"
   },
   "outputs": {
-    "primary": "nanoseconds",
+    "primary": "rawNanoseconds_aux",
     "breakdown": [
       "rawNanoseconds",
       "minAcceptable",
       "maxAcceptable"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "maxAcceptable"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -72,5 +123,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

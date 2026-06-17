@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 80,
-      "businessContext": "Athlete's body weight before weight cut"
+      "businessContext": "Athlete's body weight before weight cut",
+      "label_i18n": {
+        "en": "Current Weight",
+        "tr": "Current Weight",
+        "de": "Current Weight",
+        "fr": "Current Weight",
+        "es": "Current Weight",
+        "ar": "Current Weight"
+      }
     },
     {
       "id": "targetWeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 75,
-      "businessContext": "Maximum allowed weight for competition"
+      "businessContext": "Maximum allowed weight for competition",
+      "label_i18n": {
+        "en": "Target Weight Class",
+        "tr": "Target Weight Class",
+        "de": "Target Weight Class",
+        "fr": "Target Weight Class",
+        "es": "Target Weight Class",
+        "ar": "Target Weight Class"
+      }
     },
     {
       "id": "hoursUntilWeighIn",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "hr",
       "default": 24,
-      "businessContext": "Hours until official weigh-in"
+      "businessContext": "Hours until official weigh-in",
+      "label_i18n": {
+        "en": "Time Until Weigh-in",
+        "tr": "Time Until Weigh-in",
+        "de": "Time Until Weigh-in",
+        "fr": "Time Until Weigh-in",
+        "es": "Time Until Weigh-in",
+        "ar": "Time Until Weigh-in"
+      }
     },
     {
       "id": "bodyFatPercentage",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Estimated body fat percentage"
+      "businessContext": "Estimated body fat percentage",
+      "label_i18n": {
+        "en": "Body Fat Percentage",
+        "tr": "Body Fat Percentage",
+        "de": "Body Fat Percentage",
+        "fr": "Body Fat Percentage",
+        "es": "Body Fat Percentage",
+        "ar": "Body Fat Percentage"
+      }
     },
     {
       "id": "maxDehydrationPercentage",
@@ -39,13 +71,20 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Maximum safe water loss as % of body weight (typically 2-5%)"
+      "businessContext": "Maximum safe water loss as % of body weight (typically 2-5%)",
+      "label_i18n": {
+        "en": "Safe Dehydration Limit",
+        "tr": "Safe Dehydration Limit",
+        "de": "Safe Dehydration Limit",
+        "fr": "Safe Dehydration Limit",
+        "es": "Safe Dehydration Limit",
+        "ar": "Safe Dehydration Limit"
+      }
     }
   ],
   "formulas": {
     "requiredWeightLoss": "currentWeight - targetWeight",
     "maxSafeWaterLoss": "currentWeight * maxDehydrationPercentage / 100",
-    "excessWeight": "Math.max(0, requiredWeightLoss - maxSafeWaterLoss)",
     "cutRatePerHour": "requiredWeightLoss / hoursUntilWeighIn"
   },
   "outputs": {
@@ -54,7 +93,12 @@
       "maxSafeWaterLoss",
       "excessWeight",
       "cutRatePerHour"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "cutRatePerHour"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -64,5 +108,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

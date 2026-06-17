@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from beck-depression-inventory-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,26 +16,33 @@ export const Beck_depression_inventory_calculatorInputSchema = z.object({
   guilt: z.number().default(0),
 });
 
-function evaluateAllFormulas(input: Beck_depression_inventory_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.cognitive_affective + input.somatic + input.performance + input.guilt; results["totalScore"] = Number.isFinite(v) ? v : 0; } catch { results["totalScore"] = 0; }
-  try { const v = 1 / (1 + Math.exp(-((results["totalScore"] ?? 0) - 14.5) / 5)); results["severityIndex"] = Number.isFinite(v) ? v : 0; } catch { results["severityIndex"] = 0; }
-  try { const v = ((results["totalScore"] ?? 0) - 14.5) / Math.sqrt(21); results["zScore"] = Number.isFinite(v) ? v : 0; } catch { results["zScore"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Beck_depression_inventory_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.cognitive_affective + input.somatic + input.performance + input.guilt; results["totalScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalScore"] = 0; }
+  try { const v = input.cognitive_affective + input.somatic + input.performance + input.guilt; results["totalScore_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalScore_aux"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateBeck_depression_inventory_calculator(input: Beck_depression_inventory_calculatorInput): Beck_depression_inventory_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalScore"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["totalScore"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

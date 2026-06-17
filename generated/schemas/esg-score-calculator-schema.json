@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "points (0-100)",
       "default": 0,
-      "businessContext": "Aggregated environmental performance score. Higher is better."
+      "businessContext": "Aggregated environmental performance score. Higher is better.",
+      "label_i18n": {
+        "en": "Environmental Score",
+        "tr": "Environmental Score",
+        "de": "Environmental Score",
+        "fr": "Environmental Score",
+        "es": "Environmental Score",
+        "ar": "Environmental Score"
+      }
     },
     {
       "id": "socialScore",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "points (0-100)",
       "default": 0,
-      "businessContext": "Aggregated social performance score. Higher is better."
+      "businessContext": "Aggregated social performance score. Higher is better.",
+      "label_i18n": {
+        "en": "Social Score",
+        "tr": "Social Score",
+        "de": "Social Score",
+        "fr": "Social Score",
+        "es": "Social Score",
+        "ar": "Social Score"
+      }
     },
     {
       "id": "governScore",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "points (0-100)",
       "default": 0,
-      "businessContext": "Aggregated governance performance score. Higher is better."
+      "businessContext": "Aggregated governance performance score. Higher is better.",
+      "label_i18n": {
+        "en": "Governance Score",
+        "tr": "Governance Score",
+        "de": "Governance Score",
+        "fr": "Governance Score",
+        "es": "Governance Score",
+        "ar": "Governance Score"
+      }
     },
     {
       "id": "weightE",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "decimal",
       "default": 0.33,
-      "businessContext": "Weight for environmental score. Must be >0. Sum of all weights should be positive."
+      "businessContext": "Weight for environmental score. Must be >0. Sum of all weights should be positive.",
+      "label_i18n": {
+        "en": "Weight Environment",
+        "tr": "Weight Environment",
+        "de": "Weight Environment",
+        "fr": "Weight Environment",
+        "es": "Weight Environment",
+        "ar": "Weight Environment"
+      }
     },
     {
       "id": "weightS",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "decimal",
       "default": 0.33,
-      "businessContext": "Weight for social score."
+      "businessContext": "Weight for social score.",
+      "label_i18n": {
+        "en": "Weight Social",
+        "tr": "Weight Social",
+        "de": "Weight Social",
+        "fr": "Weight Social",
+        "es": "Weight Social",
+        "ar": "Weight Social"
+      }
     },
     {
       "id": "weightG",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "decimal",
       "default": 0.34,
-      "businessContext": "Weight for governance score."
+      "businessContext": "Weight for governance score.",
+      "label_i18n": {
+        "en": "Weight Governance",
+        "tr": "Weight Governance",
+        "de": "Weight Governance",
+        "fr": "Weight Governance",
+        "es": "Weight Governance",
+        "ar": "Weight Governance"
+      }
     }
   ],
   "formulas": {
@@ -63,7 +111,12 @@
       "environContrib",
       "socialContrib",
       "governContrib"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "esgScore"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -73,5 +126,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

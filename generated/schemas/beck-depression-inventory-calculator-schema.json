@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "puan",
       "default": 0,
-      "businessContext": "BDI Bilişsel-Duygusal alt ölçek toplamı"
+      "businessContext": "BDI Bilişsel-Duygusal alt ölçek toplamı",
+      "label_i18n": {
+        "en": "Bilişsel-Duygusal Puan",
+        "tr": "Bilişsel-Duygusal Puan",
+        "de": "Bilişsel-Duygusal Puan",
+        "fr": "Bilişsel-Duygusal Puan",
+        "es": "Bilişsel-Duygusal Puan",
+        "ar": "Bilişsel-Duygusal Puan"
+      }
     },
     {
       "id": "somatic",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "puan",
       "default": 0,
-      "businessContext": "BDI Somatik alt ölçek toplamı"
+      "businessContext": "BDI Somatik alt ölçek toplamı",
+      "label_i18n": {
+        "en": "Somatik Puan",
+        "tr": "Somatik Puan",
+        "de": "Somatik Puan",
+        "fr": "Somatik Puan",
+        "es": "Somatik Puan",
+        "ar": "Somatik Puan"
+      }
     },
     {
       "id": "performance",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "puan",
       "default": 0,
-      "businessContext": "BDI Performans alt ölçek toplamı"
+      "businessContext": "BDI Performans alt ölçek toplamı",
+      "label_i18n": {
+        "en": "Performans Puan",
+        "tr": "Performans Puan",
+        "de": "Performans Puan",
+        "fr": "Performans Puan",
+        "es": "Performans Puan",
+        "ar": "Performans Puan"
+      }
     },
     {
       "id": "guilt",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "puan",
       "default": 0,
-      "businessContext": "BDI Suçluluk-İrritabilite alt ölçek toplamı"
+      "businessContext": "BDI Suçluluk-İrritabilite alt ölçek toplamı",
+      "label_i18n": {
+        "en": "Suçluluk-İrritabilite Puan",
+        "tr": "Suçluluk-İrritabilite Puan",
+        "de": "Suçluluk-İrritabilite Puan",
+        "fr": "Suçluluk-İrritabilite Puan",
+        "es": "Suçluluk-İrritabilite Puan",
+        "ar": "Suçluluk-İrritabilite Puan"
+      }
     }
   ],
   "formulas": {
     "totalScore": "cognitive_affective + somatic + performance + guilt",
-    "severityIndex": "1 / (1 + Math.exp(-(totalScore - 14.5) / 5))",
-    "zScore": "(totalScore - 14.5) / Math.sqrt(21)"
+    "totalScore_aux": "cognitive_affective + somatic + performance + guilt"
   },
   "outputs": {
     "primary": "totalScore",
     "breakdown": [
       "severityIndex",
       "zScore"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "zScore"
   },
   "category": "Lojistik & Tedarik Zinciri",
   "sector": "Lojistik & Sevkiyat",
@@ -54,5 +90,10 @@
   "categorySlug": "procurement-supply-chain",
   "sectorId": "lojistik",
   "profession": "İthalat/İhracat Uzmanı",
-  "categoryId": "logistics"
+  "categoryId": "logistics",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

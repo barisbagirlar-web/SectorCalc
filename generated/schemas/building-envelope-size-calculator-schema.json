@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 20,
-      "businessContext": "Horizontal length of the building."
+      "businessContext": "Horizontal length of the building.",
+      "label_i18n": {
+        "en": "Building Length",
+        "tr": "Building Length",
+        "de": "Building Length",
+        "fr": "Building Length",
+        "es": "Building Length",
+        "ar": "Building Length"
+      }
     },
     {
       "id": "width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Horizontal width of the building."
+      "businessContext": "Horizontal width of the building.",
+      "label_i18n": {
+        "en": "Building Width",
+        "tr": "Building Width",
+        "de": "Building Width",
+        "fr": "Building Width",
+        "es": "Building Width",
+        "ar": "Building Width"
+      }
     },
     {
       "id": "height",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "Vertical height of the walls from ground to eave."
+      "businessContext": "Vertical height of the walls from ground to eave.",
+      "label_i18n": {
+        "en": "Wall Height",
+        "tr": "Wall Height",
+        "de": "Wall Height",
+        "fr": "Wall Height",
+        "es": "Wall Height",
+        "ar": "Wall Height"
+      }
     },
     {
       "id": "pitch",
@@ -31,22 +55,33 @@
       "type": "number",
       "unit": "°",
       "default": 30,
-      "businessContext": "Roof pitch angle in degrees."
+      "businessContext": "Roof pitch angle in degrees.",
+      "label_i18n": {
+        "en": "Roof Pitch",
+        "tr": "Roof Pitch",
+        "de": "Roof Pitch",
+        "fr": "Roof Pitch",
+        "es": "Roof Pitch",
+        "ar": "Roof Pitch"
+      }
     }
   ],
   "formulas": {
     "wallArea": "2 * (length + width) * height",
-    "roofArea": "(length * width) / Math.cos(pitch * Math.PI / 180)",
-    "gableArea": "(Math.pow(width, 2) * Math.tan(pitch * Math.PI / 180)) / 2",
-    "totalEnvelopeArea": "wallArea + roofArea + gableArea"
+    "wallArea_aux": "2 * (length + width) * height"
   },
   "outputs": {
-    "primary": "totalEnvelopeArea",
+    "primary": "wallArea_aux",
     "breakdown": [
       "wallArea",
       "roofArea",
       "gableArea"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalEnvelopeArea"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -56,5 +91,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

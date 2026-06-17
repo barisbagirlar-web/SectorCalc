@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "units",
       "default": 0,
-      "businessContext": "The actual number of units produced."
+      "businessContext": "The actual number of units produced.",
+      "label_i18n": {
+        "en": "Actual Output",
+        "tr": "Actual Output",
+        "de": "Actual Output",
+        "fr": "Actual Output",
+        "es": "Actual Output",
+        "ar": "Actual Output"
+      }
     },
     {
       "id": "plannedOutput",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "units",
       "default": 0,
-      "businessContext": "The target number of units to be produced."
+      "businessContext": "The target number of units to be produced.",
+      "label_i18n": {
+        "en": "Planned Output",
+        "tr": "Planned Output",
+        "de": "Planned Output",
+        "fr": "Planned Output",
+        "es": "Planned Output",
+        "ar": "Planned Output"
+      }
     },
     {
       "id": "availableTime",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "hours",
       "default": 0,
-      "businessContext": "Total time available for production."
+      "businessContext": "Total time available for production.",
+      "label_i18n": {
+        "en": "Available Time",
+        "tr": "Available Time",
+        "de": "Available Time",
+        "fr": "Available Time",
+        "es": "Available Time",
+        "ar": "Available Time"
+      }
     },
     {
       "id": "downtime",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "hours",
       "default": 0,
-      "businessContext": "Unplanned stoppages or idle time."
+      "businessContext": "Unplanned stoppages or idle time.",
+      "label_i18n": {
+        "en": "Downtime",
+        "tr": "Downtime",
+        "de": "Downtime",
+        "fr": "Downtime",
+        "es": "Downtime",
+        "ar": "Downtime"
+      }
     },
     {
       "id": "cycleTime",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "seconds",
       "default": 0,
-      "businessContext": "Time required to produce one unit."
+      "businessContext": "Time required to produce one unit.",
+      "label_i18n": {
+        "en": "Cycle Time per Unit",
+        "tr": "Cycle Time per Unit",
+        "de": "Cycle Time per Unit",
+        "fr": "Cycle Time per Unit",
+        "es": "Cycle Time per Unit",
+        "ar": "Cycle Time per Unit"
+      }
     }
   ],
   "formulas": {
@@ -57,7 +97,12 @@
       "utilization",
       "performance",
       "actualProductionTime"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "performance"
   },
   "category": "İmalat & Üretim",
   "sector": "Üretim & İmalat",
@@ -67,5 +112,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "efficiency"
+  "categoryId": "efficiency",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

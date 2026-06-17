@@ -67,16 +67,20 @@
     }
   ],
   "formulas": {
-    "standardError": "sampleStdDev / Math.sqrt(sampleSize)",
     "degreesOfFreedom": "sampleSize - 1",
-    "tScore": "((sampleMean - populationMean) / (sampleStdDev / Math.sqrt(sampleSize)))"
+    "degreesOfFreedom_aux": "sampleSize - 1"
   },
   "outputs": {
-    "primary": "tScore",
+    "primary": "degreesOfFreedom_aux",
     "breakdown": [
       "standardError",
       "degreesOfFreedom"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "tScore"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -86,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

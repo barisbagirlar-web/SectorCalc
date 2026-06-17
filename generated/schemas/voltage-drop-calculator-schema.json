@@ -19,14 +19,8 @@
       "max": null,
       "businessContext": "Material affects resistivity; copper and aluminum are common in industrial installations.",
       "options": [
-        {
-          "value": "copper",
-          "label": "Copper"
-        },
-        {
-          "value": "aluminum",
-          "label": "Aluminum"
-        }
+        "copper",
+        "aluminum"
       ],
       "label_i18n": {
         "en": "Conductor Material"
@@ -45,70 +39,22 @@
       "max": null,
       "businessContext": "Cross-sectional area determines resistance per unit length.",
       "options": [
-        {
-          "value": "14",
-          "label": "14 AWG"
-        },
-        {
-          "value": "12",
-          "label": "12 AWG"
-        },
-        {
-          "value": "10",
-          "label": "10 AWG"
-        },
-        {
-          "value": "8",
-          "label": "8 AWG"
-        },
-        {
-          "value": "6",
-          "label": "6 AWG"
-        },
-        {
-          "value": "4",
-          "label": "4 AWG"
-        },
-        {
-          "value": "2",
-          "label": "2 AWG"
-        },
-        {
-          "value": "1",
-          "label": "1 AWG"
-        },
-        {
-          "value": "1/0",
-          "label": "1/0 AWG"
-        },
-        {
-          "value": "2/0",
-          "label": "2/0 AWG"
-        },
-        {
-          "value": "3/0",
-          "label": "3/0 AWG"
-        },
-        {
-          "value": "4/0",
-          "label": "4/0 AWG"
-        },
-        {
-          "value": "250",
-          "label": "250 kcmil"
-        },
-        {
-          "value": "300",
-          "label": "300 kcmil"
-        },
-        {
-          "value": "350",
-          "label": "350 kcmil"
-        },
-        {
-          "value": "500",
-          "label": "500 kcmil"
-        }
+        "14",
+        "12",
+        "10",
+        "8",
+        "6",
+        "4",
+        "2",
+        "1",
+        "1/0",
+        "2/0",
+        "3/0",
+        "4/0",
+        "250",
+        "300",
+        "350",
+        "500"
       ],
       "label_i18n": {
         "en": "Conductor Size (AWG or kcmil)"
@@ -175,14 +121,8 @@
       "max": null,
       "businessContext": "Single-phase or three-phase affects the voltage drop formula (factor sqrt(3) for three-phase).",
       "options": [
-        {
-          "value": "single_phase",
-          "label": "Single-Phase"
-        },
-        {
-          "value": "three_phase",
-          "label": "Three-Phase"
-        }
+        "single_phase",
+        "three_phase"
       ],
       "label_i18n": {
         "en": "Phase Type"
@@ -273,18 +213,18 @@
       }
     ]
   },
-  "formulas": [
-    "conductor_material",
-    "conductor_material",
-    "conductor_material",
-    "conductor_material",
-    "conductor_material",
-    "conductor_material",
-    "conductor_material"
-  ],
+  "formulas": {
+    "result": "conductor_material + conductor_size + circuit_length",
+    "result_copy": "conductor_material + conductor_size + circuit_length"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",

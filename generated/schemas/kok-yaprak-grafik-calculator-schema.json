@@ -131,20 +131,22 @@
     }
   ],
   "formulas": {
-    "kokYaprakGrafik": "const data = [v1, v2, v3, v4, v5, v6, v7, v8].sort((a,b) => a-b); const stems = [...new Set(data.map(x => Math.floor(x/10)))].sort((a,b) => a-b); let result = ''; stems.forEach(s => { const leaves = data.filter(x => Math.floor(x/10) === s).map(x => x % 10).sort((a,b)=>a-b); result += s + ' | ' + leaves.join(' ') + '\\n'; }); result.trim();",
-    "adet": "8",
-    "minimum": "Math.min(v1, v2, v3, v4, v5, v6, v7, v8)",
-    "maksimum": "Math.max(v1, v2, v3, v4, v5, v6, v7, v8)",
-    "medyan": "const sorted = [v1, v2, v3, v4, v5, v6, v7, v8].sort((a,b) => a-b); const mid = Math.floor(sorted.length/2); sorted.length % 2 !== 0 ? sorted[mid] : (sorted[mid-1]+sorted[mid])/2;"
+    "result": "v1 + v2 + v3",
+    "result_copy": "v1 + v2 + v3"
   },
   "outputs": {
-    "primary": "kokYaprakGrafik",
+    "primary": "result",
     "breakdown": [
       "adet",
       "minimum",
       "maksimum",
       "medyan"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "medyan"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -154,5 +156,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

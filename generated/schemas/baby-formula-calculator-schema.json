@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 4,
-      "businessContext": "Bebeğin mevcut ağırlığı."
+      "businessContext": "Bebeğin mevcut ağırlığı.",
+      "label_i18n": {
+        "en": "Bebeğin Ağırlığı (kg)",
+        "tr": "Bebeğin Ağırlığı (kg)",
+        "de": "Bebeğin Ağırlığı (kg)",
+        "fr": "Bebeğin Ağırlığı (kg)",
+        "es": "Bebeğin Ağırlığı (kg)",
+        "ar": "Bebeğin Ağırlığı (kg)"
+      }
     },
     {
       "id": "feedingCount",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kez",
       "default": 8,
-      "businessContext": "Bebeğin günde kaç kez beslendiği."
+      "businessContext": "Bebeğin günde kaç kez beslendiği.",
+      "label_i18n": {
+        "en": "Günlük Öğün Sayısı",
+        "tr": "Günlük Öğün Sayısı",
+        "de": "Günlük Öğün Sayısı",
+        "fr": "Günlük Öğün Sayısı",
+        "es": "Günlük Öğün Sayısı",
+        "ar": "Günlük Öğün Sayısı"
+      }
     },
     {
       "id": "dailyMlPerKg",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ml/kg",
       "default": 150,
-      "businessContext": "Bebeğin kg başına günlük ihtiyaç duyduğu hazır mama miktarı (genellikle 150-200 ml)."
+      "businessContext": "Bebeğin kg başına günlük ihtiyaç duyduğu hazır mama miktarı (genellikle 150-200 ml).",
+      "label_i18n": {
+        "en": "Günlük Sıvı İhtiyacı (ml/kg)",
+        "tr": "Günlük Sıvı İhtiyacı (ml/kg)",
+        "de": "Günlük Sıvı İhtiyacı (ml/kg)",
+        "fr": "Günlük Sıvı İhtiyacı (ml/kg)",
+        "es": "Günlük Sıvı İhtiyacı (ml/kg)",
+        "ar": "Günlük Sıvı İhtiyacı (ml/kg)"
+      }
     },
     {
       "id": "waterPerScoop",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "ml",
       "default": 60,
-      "businessContext": "Bir ölçek mama tozu için eklenmesi gereken su miktarı (üretici talimatı)."
+      "businessContext": "Bir ölçek mama tozu için eklenmesi gereken su miktarı (üretici talimatı).",
+      "label_i18n": {
+        "en": "Bir Ölçek İçin Su Miktarı",
+        "tr": "Bir Ölçek İçin Su Miktarı",
+        "de": "Bir Ölçek İçin Su Miktarı",
+        "fr": "Bir Ölçek İçin Su Miktarı",
+        "es": "Bir Ölçek İçin Su Miktarı",
+        "ar": "Bir Ölçek İçin Su Miktarı"
+      }
     },
     {
       "id": "scoopWeight",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "g",
       "default": 4.5,
-      "businessContext": "Bir ölçek mama tozunun ağırlığı (genelde 4-5g)."
+      "businessContext": "Bir ölçek mama tozunun ağırlığı (genelde 4-5g).",
+      "label_i18n": {
+        "en": "Bir Ölçek Toz Ağırlığı",
+        "tr": "Bir Ölçek Toz Ağırlığı",
+        "de": "Bir Ölçek Toz Ağırlığı",
+        "fr": "Bir Ölçek Toz Ağırlığı",
+        "es": "Bir Ölçek Toz Ağırlığı",
+        "ar": "Bir Ölçek Toz Ağırlığı"
+      }
     }
   ],
   "formulas": {
@@ -54,7 +94,12 @@
     "breakdown": [
       "perFeedingMl",
       "scoopsPerFeeding"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "dailyPowder"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -64,5 +109,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

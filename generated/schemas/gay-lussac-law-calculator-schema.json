@@ -68,10 +68,7 @@
   ],
   "formulas": {
     "calculated_value": "p1 === 0 ? (p2 * t1 / t2) : (t1 === 0 ? (p1 * t2 / p2) : (p2 === 0 ? (p1 * t2 / t1) : (p2 * t1 / p1)))",
-    "P__T____P__T___constant_volume_and_mass_": "P₁/T₁ = P₂/T₂ (constant volume and mass)",
-    "Substitute_known_values_and_solve_for_th": "Substitute known values and solve for the unknown.",
-    "P____P____T____T_": "P₁ = P₂ * T₁ / T₂",
-    "T____P____T____P_": "T₁ = P₁ * T₂ / P₂"
+    "calculated_value_aux": "p1 === 0 ? (p2 * t1 / t2) : (t1 === 0 ? (p1 * t2 / p2) : (p2 === 0 ? (p1 * t2 / t1) : (p2 * t1 / p1)))"
   },
   "outputs": {
     "primary": "calculated_value",
@@ -82,7 +79,12 @@
       "If solving for T₁: T₁ = P₁ * T₂ / P₂",
       "If solving for P₂: P₂ = P₁ * T₂ / T₁",
       "If solving for T₂: T₂ = P₂ * T₁ / P₁"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "calculated_value_aux"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -92,5 +94,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -84,16 +84,7 @@
   ],
   "formulas": {
     "effectiveLength": "fasciaBoardLength - overlap",
-    "boardsNeeded": "Math.ceil(totalRoofLength / effectiveLength)",
-    "totalBoards": "Math.ceil(boardsNeeded * (1 + wasteFactor / 100))",
-    "totalCost": "totalBoards * pricePerBoard",
-    "__fasciaBoardLength__m": "${fasciaBoardLength} m",
-    "__effectiveLength__m": "${effectiveLength} m",
-    "__boardsNeeded_": "${boardsNeeded}",
-    "__wasteFactor__": "${wasteFactor}%",
-    "__totalBoards_": "${totalBoards}",
-    "___pricePerBoard_": "$${pricePerBoard}",
-    "___totalCost_": "$${totalCost}"
+    "effectiveLength_aux": "fasciaBoardLength - overlap"
   },
   "outputs": {
     "primary": "effectiveLength",
@@ -105,7 +96,12 @@
       "Total boards required (including waste): ${totalBoards}",
       "Price per board: $${pricePerBoard}",
       "Total cost: $${totalCost}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -115,5 +111,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -67,15 +67,20 @@
     }
   ],
   "formulas": {
-    "calculatedEV": "Math.log2((aperture * aperture) / shutterSpeed) + Math.log2(iso / 100)",
-    "difference": "measuredEV - calculatedEV"
+    "result": "aperture + shutterSpeed + iso",
+    "result_copy": "aperture + shutterSpeed + iso"
   },
   "outputs": {
-    "primary": "calculatedEV",
+    "primary": "result",
     "breakdown": [
       "calculatedEV",
       "difference"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "difference"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -85,5 +90,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

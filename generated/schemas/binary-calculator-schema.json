@@ -51,18 +51,20 @@
     }
   ],
   "formulas": {
-    "primary": "(() => { const a = binary1; const b = binary2; const op = operation; const decA = parseInt(a.toString(), 2); const decB = parseInt(b.toString(), 2); let result; switch(op) { case 0: result = decA & decB; break; case 1: result = decA | decB; break; case 2: result = decA ^ decB; break; case 3: result = decA + decB; break; case 4: result = decA - decB; break; default: result = 0; } return result.toString(2); })()",
     "breakdown": "binary1",
-    "Decimal_operation": "Decimal operation",
-    "Binary_operation": "Binary operation",
-    "result": "Result (binary)"
+    "breakdown_aux": "binary1"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "breakdown",
     "breakdown": [
       "Decimal operation",
       "Binary operation"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "breakdown"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -72,5 +74,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

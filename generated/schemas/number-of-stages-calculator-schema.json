@@ -68,15 +68,19 @@
   ],
   "formulas": {
     "overallPR": "p_out / p_in",
-    "stagesExact": "safety_factor * Math.log(p_out/p_in) / Math.log(r_max)",
-    "stages": "Math.ceil(safety_factor * Math.log(p_out/p_in) / Math.log(r_max))"
+    "overallPR_aux": "p_out / p_in"
   },
   "outputs": {
-    "primary": "stages",
+    "primary": "overallPR_aux",
     "breakdown": [
       "overallPR",
       "stagesExact"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "stages"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -86,5 +90,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "hours",
       "default": 1000,
-      "businessContext": "Total hours machine has been operating"
+      "businessContext": "Total hours machine has been operating",
+      "label_i18n": {
+        "en": "Operating Hours",
+        "tr": "Operating Hours",
+        "de": "Operating Hours",
+        "fr": "Operating Hours",
+        "es": "Operating Hours",
+        "ar": "Operating Hours"
+      }
     },
     {
       "id": "temperature",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°C",
       "default": 80,
-      "businessContext": "Average operating temperature"
+      "businessContext": "Average operating temperature",
+      "label_i18n": {
+        "en": "Temperature",
+        "tr": "Temperature",
+        "de": "Temperature",
+        "fr": "Temperature",
+        "es": "Temperature",
+        "ar": "Temperature"
+      }
     },
     {
       "id": "vibration",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm/s",
       "default": 5,
-      "businessContext": "RMS vibration velocity"
+      "businessContext": "RMS vibration velocity",
+      "label_i18n": {
+        "en": "Vibration Level",
+        "tr": "Vibration Level",
+        "de": "Vibration Level",
+        "fr": "Vibration Level",
+        "es": "Vibration Level",
+        "ar": "Vibration Level"
+      }
     },
     {
       "id": "maintenanceScore",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "index",
       "default": 0.8,
-      "businessContext": "Preventive maintenance compliance (0-1, 1=fully compliant)"
+      "businessContext": "Preventive maintenance compliance (0-1, 1=fully compliant)",
+      "label_i18n": {
+        "en": "Maintenance Score",
+        "tr": "Maintenance Score",
+        "de": "Maintenance Score",
+        "fr": "Maintenance Score",
+        "es": "Maintenance Score",
+        "ar": "Maintenance Score"
+      }
     },
     {
       "id": "beta_hours",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "log(HR)/hour",
       "default": 0.0001,
-      "businessContext": "Effect of operating hours on log hazard"
+      "businessContext": "Effect of operating hours on log hazard",
+      "label_i18n": {
+        "en": "Coefficient: Operating Hours",
+        "tr": "Coefficient: Operating Hours",
+        "de": "Coefficient: Operating Hours",
+        "fr": "Coefficient: Operating Hours",
+        "es": "Coefficient: Operating Hours",
+        "ar": "Coefficient: Operating Hours"
+      }
     },
     {
       "id": "beta_temp",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "log(HR)/°C",
       "default": 0.03,
-      "businessContext": "Effect of temperature on log hazard"
+      "businessContext": "Effect of temperature on log hazard",
+      "label_i18n": {
+        "en": "Coefficient: Temperature",
+        "tr": "Coefficient: Temperature",
+        "de": "Coefficient: Temperature",
+        "fr": "Coefficient: Temperature",
+        "es": "Coefficient: Temperature",
+        "ar": "Coefficient: Temperature"
+      }
     },
     {
       "id": "beta_vibration",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "log(HR)/(mm/s)",
       "default": 0.1,
-      "businessContext": "Effect of vibration on log hazard"
+      "businessContext": "Effect of vibration on log hazard",
+      "label_i18n": {
+        "en": "Coefficient: Vibration",
+        "tr": "Coefficient: Vibration",
+        "de": "Coefficient: Vibration",
+        "fr": "Coefficient: Vibration",
+        "es": "Coefficient: Vibration",
+        "ar": "Coefficient: Vibration"
+      }
     },
     {
       "id": "beta_maintenance",
@@ -63,18 +119,31 @@
       "type": "number",
       "unit": "log(HR)/index",
       "default": -0.5,
-      "businessContext": "Effect of maintenance compliance on log hazard (negative reduces hazard)"
+      "businessContext": "Effect of maintenance compliance on log hazard (negative reduces hazard)",
+      "label_i18n": {
+        "en": "Coefficient: Maintenance Score",
+        "tr": "Coefficient: Maintenance Score",
+        "de": "Coefficient: Maintenance Score",
+        "fr": "Coefficient: Maintenance Score",
+        "es": "Coefficient: Maintenance Score",
+        "ar": "Coefficient: Maintenance Score"
+      }
     }
   ],
   "formulas": {
-    "linearPredictor": "inputs.beta_hours * inputs.operatingHours + inputs.beta_temp * inputs.temperature + inputs.beta_vibration * inputs.vibration + inputs.beta_maintenance * inputs.maintenanceScore",
-    "hazardRatio": "Math.exp(inputs.beta_hours * inputs.operatingHours + inputs.beta_temp * inputs.temperature + inputs.beta_vibration * inputs.vibration + inputs.beta_maintenance * inputs.maintenanceScore)"
+    "result": "operatingHours + temperature + vibration",
+    "result_copy": "operatingHours + temperature + vibration"
   },
   "outputs": {
-    "primary": "hazardRatio",
+    "primary": "result",
     "breakdown": [
       "linearPredictor"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "hazardRatio"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -84,5 +153,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

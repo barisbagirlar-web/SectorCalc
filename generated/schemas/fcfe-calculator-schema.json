@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 1000000,
-      "businessContext": "Net income after taxes and interest"
+      "businessContext": "Net income after taxes and interest",
+      "label_i18n": {
+        "en": "Net Income",
+        "tr": "Net Income",
+        "de": "Net Income",
+        "fr": "Net Income",
+        "es": "Net Income",
+        "ar": "Net Income"
+      }
     },
     {
       "id": "capex",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 500000,
-      "businessContext": "Expenditures on fixed assets"
+      "businessContext": "Expenditures on fixed assets",
+      "label_i18n": {
+        "en": "Capital Expenditures",
+        "tr": "Capital Expenditures",
+        "de": "Capital Expenditures",
+        "fr": "Capital Expenditures",
+        "es": "Capital Expenditures",
+        "ar": "Capital Expenditures"
+      }
     },
     {
       "id": "depreciation",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 200000,
-      "businessContext": "Depreciation and amortization expenses"
+      "businessContext": "Depreciation and amortization expenses",
+      "label_i18n": {
+        "en": "Depreciation",
+        "tr": "Depreciation",
+        "de": "Depreciation",
+        "fr": "Depreciation",
+        "es": "Depreciation",
+        "ar": "Depreciation"
+      }
     },
     {
       "id": "changeWC",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100000,
-      "businessContext": "Increase in non-cash working capital (current assets minus current liabilities)"
+      "businessContext": "Increase in non-cash working capital (current assets minus current liabilities)",
+      "label_i18n": {
+        "en": "Change in Working Capital",
+        "tr": "Change in Working Capital",
+        "de": "Change in Working Capital",
+        "fr": "Change in Working Capital",
+        "es": "Change in Working Capital",
+        "ar": "Change in Working Capital"
+      }
     },
     {
       "id": "newDebt",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "USD",
       "default": 300000,
-      "businessContext": "Proceeds from new borrowings"
+      "businessContext": "Proceeds from new borrowings",
+      "label_i18n": {
+        "en": "New Debt Issued",
+        "tr": "New Debt Issued",
+        "de": "New Debt Issued",
+        "fr": "New Debt Issued",
+        "es": "New Debt Issued",
+        "ar": "New Debt Issued"
+      }
     },
     {
       "id": "repayments",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "USD",
       "default": 200000,
-      "businessContext": "Repayment of existing debt"
+      "businessContext": "Repayment of existing debt",
+      "label_i18n": {
+        "en": "Debt Repayments",
+        "tr": "Debt Repayments",
+        "de": "Debt Repayments",
+        "fr": "Debt Repayments",
+        "es": "Debt Repayments",
+        "ar": "Debt Repayments"
+      }
     }
   ],
   "formulas": {
@@ -61,7 +109,12 @@
       "netCapEx",
       "netBorrowing",
       "fcfe"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "fcfe"
   },
   "category": "Proje & Yatırım",
   "sector": "Finans & İK",
@@ -71,5 +124,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "havacilik",
   "profession": "Tasarım Mühendisi",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

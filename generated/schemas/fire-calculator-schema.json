@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Your current age."
+      "businessContext": "Your current age.",
+      "label_i18n": {
+        "en": "Current Age",
+        "tr": "Current Age",
+        "de": "Current Age",
+        "fr": "Current Age",
+        "es": "Current Age",
+        "ar": "Current Age"
+      }
     },
     {
       "id": "retirementAge",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "years",
       "default": 45,
-      "businessContext": "Age at which you plan to retire."
+      "businessContext": "Age at which you plan to retire.",
+      "label_i18n": {
+        "en": "Target Retirement Age",
+        "tr": "Target Retirement Age",
+        "de": "Target Retirement Age",
+        "fr": "Target Retirement Age",
+        "es": "Target Retirement Age",
+        "ar": "Target Retirement Age"
+      }
     },
     {
       "id": "lifeExpectancy",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 85,
-      "businessContext": "Expected lifespan for planning."
+      "businessContext": "Expected lifespan for planning.",
+      "label_i18n": {
+        "en": "Life Expectancy",
+        "tr": "Life Expectancy",
+        "de": "Life Expectancy",
+        "fr": "Life Expectancy",
+        "es": "Life Expectancy",
+        "ar": "Life Expectancy"
+      }
     },
     {
       "id": "annualExpenses",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency",
       "default": 40000,
-      "businessContext": "Estimated yearly spending after retirement."
+      "businessContext": "Estimated yearly spending after retirement.",
+      "label_i18n": {
+        "en": "Annual Expenses in Retirement",
+        "tr": "Annual Expenses in Retirement",
+        "de": "Annual Expenses in Retirement",
+        "fr": "Annual Expenses in Retirement",
+        "es": "Annual Expenses in Retirement",
+        "ar": "Annual Expenses in Retirement"
+      }
     },
     {
       "id": "currentSavings",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency",
       "default": 100000,
-      "businessContext": "Total current retirement savings."
+      "businessContext": "Total current retirement savings.",
+      "label_i18n": {
+        "en": "Current Savings",
+        "tr": "Current Savings",
+        "de": "Current Savings",
+        "fr": "Current Savings",
+        "es": "Current Savings",
+        "ar": "Current Savings"
+      }
     },
     {
       "id": "annualContribution",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "currency",
       "default": 20000,
-      "businessContext": "Amount saved each year until retirement."
+      "businessContext": "Amount saved each year until retirement.",
+      "label_i18n": {
+        "en": "Annual Contribution",
+        "tr": "Annual Contribution",
+        "de": "Annual Contribution",
+        "fr": "Annual Contribution",
+        "es": "Annual Contribution",
+        "ar": "Annual Contribution"
+      }
     },
     {
       "id": "expectedReturn",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 7,
-      "businessContext": "Expected average annual investment return."
+      "businessContext": "Expected average annual investment return.",
+      "label_i18n": {
+        "en": "Expected Annual Return",
+        "tr": "Expected Annual Return",
+        "de": "Expected Annual Return",
+        "fr": "Expected Annual Return",
+        "es": "Expected Annual Return",
+        "ar": "Expected Annual Return"
+      }
     },
     {
       "id": "withdrawalRate",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "%",
       "default": 4,
-      "businessContext": "Percentage of savings you can withdraw annually."
+      "businessContext": "Percentage of savings you can withdraw annually.",
+      "label_i18n": {
+        "en": "Safe Withdrawal Rate",
+        "tr": "Safe Withdrawal Rate",
+        "de": "Safe Withdrawal Rate",
+        "fr": "Safe Withdrawal Rate",
+        "es": "Safe Withdrawal Rate",
+        "ar": "Safe Withdrawal Rate"
+      }
     }
   ],
   "formulas": {
@@ -80,7 +144,12 @@
       "requiredSavings",
       "yearsToRetirement",
       "isFeasible"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "isFeasible"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -90,5 +159,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -83,19 +83,21 @@
     }
   ],
   "formulas": {
-    "primary": "(() => { const v = value * Math.pow(10, exponent); let e = 0; while (Math.abs(v) >= 1000 && e < maxExponent) { v /= 1000; e += 3; } while (Math.abs(v) < 1 && e > minExponent) { v *= 1000; e -= 3; } const mantissa = v.toFixed(precision); return mantissa + 'e' + e; })()",
     "breakdown": "value",
-    "Original_Value": "Original Value",
-    "Log10_of_Value": "Log10 of Value",
-    "Adjusted_Exponent": "Adjusted Exponent"
+    "breakdown_aux": "value"
   },
   "outputs": {
-    "primary": "primary",
+    "primary": "breakdown_aux",
     "breakdown": [
       "Original Value",
       "Log10 of Value",
       "Adjusted Exponent"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "breakdown"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -105,5 +107,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

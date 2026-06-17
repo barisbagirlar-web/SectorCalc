@@ -141,22 +141,6 @@
       "businessContext_i18n": {
         "en": "Indicates whether Single-Minute Exchange of Die principles have been formally applied."
       }
-    },
-    {
-      "id": "target_changeover_time",
-      "label": "Target Changeover Time (minutes)",
-      "type": "number",
-      "unit": "minutes",
-      "default": 10,
-      "min": 0,
-      "max": 120,
-      "businessContext": "SMED target for changeover time reduction. Typically <10 minutes for world-class performance.",
-      "label_i18n": {
-        "en": "Target Changeover Time (minutes)"
-      },
-      "businessContext_i18n": {
-        "en": "SMED target for changeover time reduction. Typically <10 minutes for world-class performance."
-      }
     }
   ],
   "validation": {
@@ -201,18 +185,18 @@
       }
     ]
   },
-  "formulas": [
-    "changeover_time_matrix",
-    "changeover_time_matrix",
-    "changeover_time_matrix",
-    "changeover_time_matrix",
-    "changeover_time_matrix",
-    "changeover_time_matrix",
-    "changeover_time_matrix"
-  ],
+  "formulas": {
+    "result": "changeover_time_matrix + number_of_changeovers_per_month + setup_external_time",
+    "result_copy": "changeover_time_matrix + number_of_changeovers_per_month + setup_external_time"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "changeover-matrix-optimizer-calculator",
   "catalogCategory": "everyday-life",

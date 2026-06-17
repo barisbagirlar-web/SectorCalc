@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1000,
-      "businessContext": "Akışkanın yoğunluğu (kg/m³). Su için 1000, hava için yaklaşık 1.225."
+      "businessContext": "Akışkanın yoğunluğu (kg/m³). Su için 1000, hava için yaklaşık 1.225.",
+      "label_i18n": {
+        "en": "Akışkan Yoğunluğu",
+        "tr": "Akışkan Yoğunluğu",
+        "de": "Akışkan Yoğunluğu",
+        "fr": "Akışkan Yoğunluğu",
+        "es": "Akışkan Yoğunluğu",
+        "ar": "Akışkan Yoğunluğu"
+      }
     },
     {
       "id": "gravity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m/s²",
       "default": 9.81,
-      "businessContext": "Yerçekimi ivmesi (m/s²). Dünya yüzeyinde ortalama ~9.81."
+      "businessContext": "Yerçekimi ivmesi (m/s²). Dünya yüzeyinde ortalama ~9.81.",
+      "label_i18n": {
+        "en": "Yerçekimi İvmesi",
+        "tr": "Yerçekimi İvmesi",
+        "de": "Yerçekimi İvmesi",
+        "fr": "Yerçekimi İvmesi",
+        "es": "Yerçekimi İvmesi",
+        "ar": "Yerçekimi İvmesi"
+      }
     },
     {
       "id": "height",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Sıvı sütununun yüksekliği veya derinlik (m)."
+      "businessContext": "Sıvı sütununun yüksekliği veya derinlik (m).",
+      "label_i18n": {
+        "en": "Yükseklik / Derinlik",
+        "tr": "Yükseklik / Derinlik",
+        "de": "Yükseklik / Derinlik",
+        "fr": "Yükseklik / Derinlik",
+        "es": "Yükseklik / Derinlik",
+        "ar": "Yükseklik / Derinlik"
+      }
     },
     {
       "id": "atmPressure",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "Pa",
       "default": 101325,
-      "businessContext": "Yüzeydeki atmosfer basıncı (Pa). Deniz seviyesinde standart 101325."
+      "businessContext": "Yüzeydeki atmosfer basıncı (Pa). Deniz seviyesinde standart 101325.",
+      "label_i18n": {
+        "en": "Atmosfer Basıncı",
+        "tr": "Atmosfer Basıncı",
+        "de": "Atmosfer Basıncı",
+        "fr": "Atmosfer Basıncı",
+        "es": "Atmosfer Basıncı",
+        "ar": "Atmosfer Basıncı"
+      }
     }
   ],
   "formulas": {
@@ -43,7 +75,12 @@
     "breakdown": [
       "pressure",
       "absolutePressure"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "absolutePressure"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -53,5 +90,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

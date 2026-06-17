@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "€",
       "default": 1000,
-      "businessContext": "One-time upfront investment amount"
+      "businessContext": "One-time upfront investment amount",
+      "label_i18n": {
+        "en": "Initial Deposit",
+        "tr": "Initial Deposit",
+        "de": "Initial Deposit",
+        "fr": "Initial Deposit",
+        "es": "Initial Deposit",
+        "ar": "Initial Deposit"
+      }
     },
     {
       "id": "monthlyContribution",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "€",
       "default": 100,
-      "businessContext": "Regular monthly savings added"
+      "businessContext": "Regular monthly savings added",
+      "label_i18n": {
+        "en": "Monthly Contribution",
+        "tr": "Monthly Contribution",
+        "de": "Monthly Contribution",
+        "fr": "Monthly Contribution",
+        "es": "Monthly Contribution",
+        "ar": "Monthly Contribution"
+      }
     },
     {
       "id": "annualInterestRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Expected yearly interest rate"
+      "businessContext": "Expected yearly interest rate",
+      "label_i18n": {
+        "en": "Annual Interest Rate",
+        "tr": "Annual Interest Rate",
+        "de": "Annual Interest Rate",
+        "fr": "Annual Interest Rate",
+        "es": "Annual Interest Rate",
+        "ar": "Annual Interest Rate"
+      }
     },
     {
       "id": "years",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "years",
       "default": 10,
-      "businessContext": "Investment horizon"
+      "businessContext": "Investment horizon",
+      "label_i18n": {
+        "en": "Number of Years",
+        "tr": "Number of Years",
+        "de": "Number of Years",
+        "fr": "Number of Years",
+        "es": "Number of Years",
+        "ar": "Number of Years"
+      }
     }
   ],
   "formulas": {
-    "futureValue": "initialDeposit * Math.pow(1 + annualInterestRate/100/12, 12*years) + monthlyContribution * ((Math.pow(1 + annualInterestRate/100/12, 12*years) - 1) / (annualInterestRate/100/12))",
     "totalContributions": "initialDeposit + monthlyContribution * 12 * years",
-    "totalInterest": "(initialDeposit * Math.pow(1 + annualInterestRate/100/12, 12*years) + monthlyContribution * ((Math.pow(1 + annualInterestRate/100/12, 12*years) - 1) / (annualInterestRate/100/12))) - (initialDeposit + monthlyContribution * 12 * years)"
+    "totalContributions_aux": "initialDeposit + monthlyContribution * 12 * years"
   },
   "outputs": {
-    "primary": "futureValue",
+    "primary": "totalContributions_aux",
     "breakdown": [
       "totalContributions",
       "totalInterest"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalInterest"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -54,5 +90,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

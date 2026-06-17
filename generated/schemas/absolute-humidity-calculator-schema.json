@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Air temperature in Celsius"
+      "businessContext": "Air temperature in Celsius",
+      "label_i18n": {
+        "en": "Temperature",
+        "tr": "Temperature",
+        "de": "Temperature",
+        "fr": "Temperature",
+        "es": "Temperature",
+        "ar": "Temperature"
+      }
     },
     {
       "id": "relativeHumidity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 50,
-      "businessContext": "Relative humidity percentage (0-100)"
+      "businessContext": "Relative humidity percentage (0-100)",
+      "label_i18n": {
+        "en": "Relative Humidity",
+        "tr": "Relative Humidity",
+        "de": "Relative Humidity",
+        "fr": "Relative Humidity",
+        "es": "Relative Humidity",
+        "ar": "Relative Humidity"
+      }
     },
     {
       "id": "molarMassWater",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "g/mol",
       "default": 18.015,
-      "businessContext": "Molar mass of water vapor, standard value 18.015 g/mol"
+      "businessContext": "Molar mass of water vapor, standard value 18.015 g/mol",
+      "label_i18n": {
+        "en": "Molar Mass of Water",
+        "tr": "Molar Mass of Water",
+        "de": "Molar Mass of Water",
+        "fr": "Molar Mass of Water",
+        "es": "Molar Mass of Water",
+        "ar": "Molar Mass of Water"
+      }
     },
     {
       "id": "gasConstant",
@@ -31,22 +55,33 @@
       "type": "number",
       "unit": "J/(mol·K)",
       "default": 8.314,
-      "businessContext": "Ideal gas constant R, standard value 8.314 J/(mol·K)"
+      "businessContext": "Ideal gas constant R, standard value 8.314 J/(mol·K)",
+      "label_i18n": {
+        "en": "Universal Gas Constant",
+        "tr": "Universal Gas Constant",
+        "de": "Universal Gas Constant",
+        "fr": "Universal Gas Constant",
+        "es": "Universal Gas Constant",
+        "ar": "Universal Gas Constant"
+      }
     }
   ],
   "formulas": {
     "kelvinTemperature": "temperature + 273.15",
-    "saturationVaporPressure": "6.112 * Math.exp((17.67 * temperature) / (temperature + 243.5))",
-    "actualVaporPressure": "saturationVaporPressure * (relativeHumidity / 100)",
-    "absoluteHumidity": "(actualVaporPressure * 100 * molarMassWater) / (gasConstant * kelvinTemperature)"
+    "kelvinTemperature_aux": "temperature + 273.15"
   },
   "outputs": {
-    "primary": "absoluteHumidity",
+    "primary": "kelvinTemperature_aux",
     "breakdown": [
       "saturationVaporPressure",
       "actualVaporPressure",
       "kelvinTemperature"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "absoluteHumidity"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -56,5 +91,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

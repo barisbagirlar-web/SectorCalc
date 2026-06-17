@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Price paid to acquire the goods (VAT-inclusive)."
+      "businessContext": "Price paid to acquire the goods (VAT-inclusive).",
+      "label_i18n": {
+        "en": "Purchase Price",
+        "tr": "Purchase Price",
+        "de": "Purchase Price",
+        "fr": "Purchase Price",
+        "es": "Purchase Price",
+        "ar": "Purchase Price"
+      }
     },
     {
       "id": "sellingPrice",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Price charged to the customer (VAT-inclusive)."
+      "businessContext": "Price charged to the customer (VAT-inclusive).",
+      "label_i18n": {
+        "en": "Selling Price",
+        "tr": "Selling Price",
+        "de": "Selling Price",
+        "fr": "Selling Price",
+        "es": "Selling Price",
+        "ar": "Selling Price"
+      }
     },
     {
       "id": "vatRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Standard VAT rate percentage applicable to the goods."
+      "businessContext": "Standard VAT rate percentage applicable to the goods.",
+      "label_i18n": {
+        "en": "VAT Rate",
+        "tr": "VAT Rate",
+        "de": "VAT Rate",
+        "fr": "VAT Rate",
+        "es": "VAT Rate",
+        "ar": "VAT Rate"
+      }
     },
     {
       "id": "allowableCosts",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Costs directly attributable to the sale that reduce the margin (e.g., refurbishment, transport)."
+      "businessContext": "Costs directly attributable to the sale that reduce the margin (e.g., refurbishment, transport).",
+      "label_i18n": {
+        "en": "Allowable Costs",
+        "tr": "Allowable Costs",
+        "de": "Allowable Costs",
+        "fr": "Allowable Costs",
+        "es": "Allowable Costs",
+        "ar": "Allowable Costs"
+      }
     }
   ],
   "formulas": {
@@ -45,7 +77,12 @@
       "grossMargin",
       "vatDue",
       "netMargin"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "netMargin"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -55,5 +92,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

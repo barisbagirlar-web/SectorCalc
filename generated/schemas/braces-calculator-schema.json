@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Yatay mesafe"
+      "businessContext": "Yatay mesafe",
+      "label_i18n": {
+        "en": "Açıklık (Span)",
+        "tr": "Açıklık (Span)",
+        "de": "Açıklık (Span)",
+        "fr": "Açıklık (Span)",
+        "es": "Açıklık (Span)",
+        "ar": "Açıklık (Span)"
+      }
     },
     {
       "id": "height",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "Dikey mesafe"
+      "businessContext": "Dikey mesafe",
+      "label_i18n": {
+        "en": "Yükseklik (Height)",
+        "tr": "Yükseklik (Height)",
+        "de": "Yükseklik (Height)",
+        "fr": "Yükseklik (Height)",
+        "es": "Yükseklik (Height)",
+        "ar": "Yükseklik (Height)"
+      }
     },
     {
       "id": "bays",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "adet",
       "default": 4,
-      "businessContext": "Brace takılacak bölme sayısı"
+      "businessContext": "Brace takılacak bölme sayısı",
+      "label_i18n": {
+        "en": "Bölme Sayısı",
+        "tr": "Bölme Sayısı",
+        "de": "Bölme Sayısı",
+        "fr": "Bölme Sayısı",
+        "es": "Bölme Sayısı",
+        "ar": "Bölme Sayısı"
+      }
     },
     {
       "id": "crossSectionArea",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m²",
       "default": 0.001,
-      "businessContext": "Bir brace'in enine kesit alanı"
+      "businessContext": "Bir brace'in enine kesit alanı",
+      "label_i18n": {
+        "en": "Kesit Alanı",
+        "tr": "Kesit Alanı",
+        "de": "Kesit Alanı",
+        "fr": "Kesit Alanı",
+        "es": "Kesit Alanı",
+        "ar": "Kesit Alanı"
+      }
     },
     {
       "id": "materialDensity",
@@ -39,26 +71,35 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 7850,
-      "businessContext": "Brace malzemesinin yoğunluğu (ör. çelik)"
+      "businessContext": "Brace malzemesinin yoğunluğu (ör. çelik)",
+      "label_i18n": {
+        "en": "Malzeme Yoğunluğu",
+        "tr": "Malzeme Yoğunluğu",
+        "de": "Malzeme Yoğunluğu",
+        "fr": "Malzeme Yoğunluğu",
+        "es": "Malzeme Yoğunluğu",
+        "ar": "Malzeme Yoğunluğu"
+      }
     }
   ],
   "formulas": {
-    "braceLength": "Math.sqrt(span**2 + height**2)",
-    "angleDeg": "Math.atan(height / span) * (180 / Math.PI)",
-    "totalBraceLength": "braceLength * bays",
-    "braceVolume": "braceLength * crossSectionArea",
-    "braceWeight": "braceVolume * materialDensity",
-    "totalWeight": "braceWeight * bays"
+    "result": "span + height + bays",
+    "result_copy": "span + height + bays"
   },
   "outputs": {
-    "primary": "totalWeight",
+    "primary": "result",
     "breakdown": [
       "braceLength",
       "angleDeg",
       "totalBraceLength",
       "braceVolume",
       "braceWeight"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalWeight"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -68,5 +109,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -67,16 +67,20 @@
     }
   ],
   "formulas": {
-    "battingRunRate": "runsScored / (Math.floor(oversFaced) + (oversFaced - Math.floor(oversFaced)) * (10/6))",
-    "bowlingRunRate": "runsConceded / (Math.floor(oversBowled) + (oversBowled - Math.floor(oversBowled)) * (10/6))",
-    "netRunRate": "battingRunRate - bowlingRunRate"
+    "result": "runsScored + oversFaced + runsConceded",
+    "result_copy": "runsScored + oversFaced + runsConceded"
   },
   "outputs": {
-    "primary": "netRunRate",
+    "primary": "result",
     "breakdown": [
       "battingRunRate",
       "bowlingRunRate"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "netRunRate"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -86,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

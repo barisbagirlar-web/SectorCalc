@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cm",
       "default": 100,
-      "businessContext": "Length of the aquarium in centimeters"
+      "businessContext": "Length of the aquarium in centimeters",
+      "label_i18n": {
+        "en": "Aquarium Length",
+        "tr": "Aquarium Length",
+        "de": "Aquarium Length",
+        "fr": "Aquarium Length",
+        "es": "Aquarium Length",
+        "ar": "Aquarium Length"
+      }
     },
     {
       "id": "tankWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm",
       "default": 40,
-      "businessContext": "Width of the aquarium in centimeters"
+      "businessContext": "Width of the aquarium in centimeters",
+      "label_i18n": {
+        "en": "Aquarium Width",
+        "tr": "Aquarium Width",
+        "de": "Aquarium Width",
+        "fr": "Aquarium Width",
+        "es": "Aquarium Width",
+        "ar": "Aquarium Width"
+      }
     },
     {
       "id": "tankHeight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 50,
-      "businessContext": "Height of the aquarium (water depth) in centimeters"
+      "businessContext": "Height of the aquarium (water depth) in centimeters",
+      "label_i18n": {
+        "en": "Aquarium Height",
+        "tr": "Aquarium Height",
+        "de": "Aquarium Height",
+        "fr": "Aquarium Height",
+        "es": "Aquarium Height",
+        "ar": "Aquarium Height"
+      }
     },
     {
       "id": "desiredLux",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "lx",
       "default": 20,
-      "businessContext": "Target light intensity at the substrate level in lux (10-20 low, 20-40 medium, 40+ high)"
+      "businessContext": "Target light intensity at the substrate level in lux (10-20 low, 20-40 medium, 40+ high)",
+      "label_i18n": {
+        "en": "Desired Illuminance",
+        "tr": "Desired Illuminance",
+        "de": "Desired Illuminance",
+        "fr": "Desired Illuminance",
+        "es": "Desired Illuminance",
+        "ar": "Desired Illuminance"
+      }
     },
     {
       "id": "lightEfficiency",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "lm/W",
       "default": 100,
-      "businessContext": "Lumens per watt of the light source (LED: 80-100, T5: 90-110)"
+      "businessContext": "Lumens per watt of the light source (LED: 80-100, T5: 90-110)",
+      "label_i18n": {
+        "en": "Light Efficiency",
+        "tr": "Light Efficiency",
+        "de": "Light Efficiency",
+        "fr": "Light Efficiency",
+        "es": "Light Efficiency",
+        "ar": "Light Efficiency"
+      }
     },
     {
       "id": "photoperiod",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "h/day",
       "default": 8,
-      "businessContext": "Daily lighting duration in hours"
+      "businessContext": "Daily lighting duration in hours",
+      "label_i18n": {
+        "en": "Photoperiod",
+        "tr": "Photoperiod",
+        "de": "Photoperiod",
+        "fr": "Photoperiod",
+        "es": "Photoperiod",
+        "ar": "Photoperiod"
+      }
     },
     {
       "id": "electricityCost",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "currency/kWh",
       "default": 0.15,
-      "businessContext": "Cost of electricity per kilowatt-hour (e.g., EUR or USD)"
+      "businessContext": "Cost of electricity per kilowatt-hour (e.g., EUR or USD)",
+      "label_i18n": {
+        "en": "Electricity Cost",
+        "tr": "Electricity Cost",
+        "de": "Electricity Cost",
+        "fr": "Electricity Cost",
+        "es": "Electricity Cost",
+        "ar": "Electricity Cost"
+      }
     }
   ],
   "formulas": {
@@ -70,7 +126,12 @@
       "requiredLumens",
       "dailyEnergy",
       "monthlyCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "monthlyCost"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -80,5 +141,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

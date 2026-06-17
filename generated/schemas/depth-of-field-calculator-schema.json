@@ -67,26 +67,21 @@
     }
   ],
   "formulas": {
-    "hyperfocal": "Math.pow(focalLength, 2) / (aperture * circleOfConfusion)",
     "subjectDistanceMM": "subjectDistance * 1000",
-    "nearLimitMM": "(hyperfocal * subjectDistanceMM) / (hyperfocal + (subjectDistanceMM - focalLength))",
-    "farLimitMM": "(hyperfocal * subjectDistanceMM) / (hyperfocal - (subjectDistanceMM - focalLength))",
-    "totalDoFMM": "farLimitMM - nearLimitMM",
-    "nearLimit": "nearLimitMM / 1000",
-    "farLimit": "farLimitMM / 1000",
-    "totalDoF": "totalDoFMM / 1000",
-    "Near_Focus_Limit__m_": "Near Focus Limit (m)",
-    "Far_Focus_Limit__m_": "Far Focus Limit (m)",
-    "Hyperfocal_Distance__m_": "Hyperfocal Distance (m)",
-    "result": "Total Depth of Field (m)"
+    "subjectDistanceMM_aux": "subjectDistance * 1000"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "subjectDistanceMM_aux",
     "breakdown": [
       "Near Focus Limit (m)",
       "Far Focus Limit (m)",
       "Hyperfocal Distance (m)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalDoF"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -96,5 +91,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -67,17 +67,20 @@
     }
   ],
   "formulas": {
-    "estimatedPrimes": "(upperBound / Math.log(upperBound)) - (lowerBound / Math.log(lowerBound))",
-    "errorMargin": "(tolerance / 100) * ((upperBound / Math.log(upperBound)) - (lowerBound / Math.log(lowerBound)))",
-    "estimatedPrimes____upperBound___Math_log": "estimatedPrimes = (upperBound / Math.log(upperBound)) - (lowerBound / Math.log(lowerBound))",
-    "errorMargin___tolerance__of_the_estimate": "errorMargin = tolerance% of the estimate, i.e., (tolerance / 100) * estimatedPrimes"
+    "result": "lowerBound + upperBound + sampleSize",
+    "result_copy": "lowerBound + upperBound + sampleSize"
   },
   "outputs": {
-    "primary": "estimatedPrimes",
+    "primary": "result",
     "breakdown": [
       "Estimated using Prime Number Theorem: estimatedPrimes = (upperBound / Math.log(upperBound)) - (lowerBound / Math.log(lowerBound))",
       "Error margin: errorMargin = tolerance% of the estimate, i.e., (tolerance / 100) * estimatedPrimes"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "estimatedPrimes____upperBound___Math_log"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -87,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "L",
       "default": 10,
-      "businessContext": "Volume of the first wine, typically the one with higher ABV"
+      "businessContext": "Volume of the first wine, typically the one with higher ABV",
+      "label_i18n": {
+        "en": "Volume of Wine 1",
+        "tr": "Volume of Wine 1",
+        "de": "Volume of Wine 1",
+        "fr": "Volume of Wine 1",
+        "es": "Volume of Wine 1",
+        "ar": "Volume of Wine 1"
+      }
     },
     {
       "id": "abv1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Alcohol by volume percentage of the first wine"
+      "businessContext": "Alcohol by volume percentage of the first wine",
+      "label_i18n": {
+        "en": "ABV of Wine 1",
+        "tr": "ABV of Wine 1",
+        "de": "ABV of Wine 1",
+        "fr": "ABV of Wine 1",
+        "es": "ABV of Wine 1",
+        "ar": "ABV of Wine 1"
+      }
     },
     {
       "id": "abv2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Alcohol by volume percentage of the second wine, lower than target ABV"
+      "businessContext": "Alcohol by volume percentage of the second wine, lower than target ABV",
+      "label_i18n": {
+        "en": "ABV of Wine 2",
+        "tr": "ABV of Wine 2",
+        "de": "ABV of Wine 2",
+        "fr": "ABV of Wine 2",
+        "es": "ABV of Wine 2",
+        "ar": "ABV of Wine 2"
+      }
     },
     {
       "id": "targetABV",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 13,
-      "businessContext": "Desired alcohol by volume percentage of the final blend"
+      "businessContext": "Desired alcohol by volume percentage of the final blend",
+      "label_i18n": {
+        "en": "Target ABV",
+        "tr": "Target ABV",
+        "de": "Target ABV",
+        "fr": "Target ABV",
+        "es": "Target ABV",
+        "ar": "Target ABV"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "totalVolume",
       "finalABV"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "finalABV"
   },
   "category": "Gıda & Tarım",
   "sector": "Perakende & Gıda",
@@ -54,5 +91,10 @@
   "categorySlug": "food-cold-chain-hygiene",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

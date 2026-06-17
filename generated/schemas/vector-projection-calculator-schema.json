@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "unitless",
       "default": 1,
-      "businessContext": "Vector A x-component"
+      "businessContext": "Vector A x-component",
+      "label_i18n": {
+        "en": "A x-component",
+        "tr": "A x-component",
+        "de": "A x-component",
+        "fr": "A x-component",
+        "es": "A x-component",
+        "ar": "A x-component"
+      }
     },
     {
       "id": "a_y",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "unitless",
       "default": 0,
-      "businessContext": "Vector A y-component"
+      "businessContext": "Vector A y-component",
+      "label_i18n": {
+        "en": "A y-component",
+        "tr": "A y-component",
+        "de": "A y-component",
+        "fr": "A y-component",
+        "es": "A y-component",
+        "ar": "A y-component"
+      }
     },
     {
       "id": "a_z",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "unitless",
       "default": 0,
-      "businessContext": "Vector A z-component"
+      "businessContext": "Vector A z-component",
+      "label_i18n": {
+        "en": "A z-component",
+        "tr": "A z-component",
+        "de": "A z-component",
+        "fr": "A z-component",
+        "es": "A z-component",
+        "ar": "A z-component"
+      }
     },
     {
       "id": "b_x",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "unitless",
       "default": 1,
-      "businessContext": "Vector B x-component"
+      "businessContext": "Vector B x-component",
+      "label_i18n": {
+        "en": "B x-component",
+        "tr": "B x-component",
+        "de": "B x-component",
+        "fr": "B x-component",
+        "es": "B x-component",
+        "ar": "B x-component"
+      }
     },
     {
       "id": "b_y",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "unitless",
       "default": 0,
-      "businessContext": "Vector B y-component"
+      "businessContext": "Vector B y-component",
+      "label_i18n": {
+        "en": "B y-component",
+        "tr": "B y-component",
+        "de": "B y-component",
+        "fr": "B y-component",
+        "es": "B y-component",
+        "ar": "B y-component"
+      }
     },
     {
       "id": "b_z",
@@ -47,24 +87,33 @@
       "type": "number",
       "unit": "unitless",
       "default": 0,
-      "businessContext": "Vector B z-component"
+      "businessContext": "Vector B z-component",
+      "label_i18n": {
+        "en": "B z-component",
+        "tr": "B z-component",
+        "de": "B z-component",
+        "fr": "B z-component",
+        "es": "B z-component",
+        "ar": "B z-component"
+      }
     }
   ],
   "formulas": {
     "dotProduct": "a_x * b_x + a_y * b_y + a_z * b_z",
-    "magnitudeB": "Math.sqrt(b_x * b_x + b_y * b_y + b_z * b_z)",
-    "scalarProjection": "dotProduct / magnitudeB",
-    "projectionX": "dotProduct * b_x / (magnitudeB * magnitudeB)",
-    "projectionY": "dotProduct * b_y / (magnitudeB * magnitudeB)",
-    "projectionZ": "dotProduct * b_z / (magnitudeB * magnitudeB)"
+    "dotProduct_aux": "a_x * b_x + a_y * b_y + a_z * b_z"
   },
   "outputs": {
-    "primary": "scalarProjection",
+    "primary": "dotProduct_aux",
     "breakdown": [
       "projectionX",
       "projectionY",
       "projectionZ"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "projectionZ"
   },
   "category": "Proje & Yatırım",
   "sector": "Finans & İK",
@@ -74,5 +123,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

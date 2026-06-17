@@ -151,44 +151,6 @@
       "businessContext_i18n": {
         "en": "ISO 5817 weld quality level: B=stringent, C=moderate, D=basic."
       }
-    },
-    {
-      "id": "inspection_method",
-      "label": "Inspection Method",
-      "type": "select",
-      "unit": "unit",
-      "default": "visual",
-      "min": null,
-      "max": null,
-      "options": [
-        "visual",
-        "ultrasonic",
-        "radiographic",
-        "magnetic_particle"
-      ],
-      "businessContext": "NDT method used; affects confidence factor.",
-      "label_i18n": {
-        "en": "Inspection Method"
-      },
-      "businessContext_i18n": {
-        "en": "NDT method used; affects confidence factor."
-      }
-    },
-    {
-      "id": "is_fatigue_loading",
-      "label": "Fatigue Loading",
-      "type": "boolean",
-      "unit": "unit",
-      "default": false,
-      "min": null,
-      "max": null,
-      "businessContext": "If true, applies S-N curve reduction per AWS D1.1 fatigue categories.",
-      "label_i18n": {
-        "en": "Fatigue Loading"
-      },
-      "businessContext_i18n": {
-        "en": "If true, applies S-N curve reduction per AWS D1.1 fatigue categories."
-      }
     }
   ],
   "validation": {
@@ -230,18 +192,18 @@
       }
     ]
   },
-  "formulas": [
-    "weld_type",
-    "weld_type",
-    "weld_type",
-    "weld_type",
-    "weld_type",
-    "weld_type",
-    "weld_type"
-  ],
+  "formulas": {
+    "result": "weld_type + base_material_yield_strength + weld_material_tensile_strength",
+    "result_copy": "weld_type + base_material_yield_strength + weld_material_tensile_strength"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

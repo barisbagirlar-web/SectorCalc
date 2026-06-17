@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 100,
-      "businessContext": "Length of the straight pipe section"
+      "businessContext": "Length of the straight pipe section",
+      "label_i18n": {
+        "en": "Pipe Length",
+        "tr": "Pipe Length",
+        "de": "Pipe Length",
+        "fr": "Pipe Length",
+        "es": "Pipe Length",
+        "ar": "Pipe Length"
+      }
     },
     {
       "id": "innerDiameter",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 50,
-      "businessContext": "Inside diameter of the pipe"
+      "businessContext": "Inside diameter of the pipe",
+      "label_i18n": {
+        "en": "Internal Diameter",
+        "tr": "Internal Diameter",
+        "de": "Internal Diameter",
+        "fr": "Internal Diameter",
+        "es": "Internal Diameter",
+        "ar": "Internal Diameter"
+      }
     },
     {
       "id": "flowRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "L/s",
       "default": 10,
-      "businessContext": "Volumetric flow rate of the fluid"
+      "businessContext": "Volumetric flow rate of the fluid",
+      "label_i18n": {
+        "en": "Flow Rate",
+        "tr": "Flow Rate",
+        "de": "Flow Rate",
+        "fr": "Flow Rate",
+        "es": "Flow Rate",
+        "ar": "Flow Rate"
+      }
     },
     {
       "id": "roughness",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0.045,
-      "businessContext": "Surface roughness of the pipe material (e.g., 0.045 for commercial steel)"
+      "businessContext": "Surface roughness of the pipe material (e.g., 0.045 for commercial steel)",
+      "label_i18n": {
+        "en": "Pipe Roughness",
+        "tr": "Pipe Roughness",
+        "de": "Pipe Roughness",
+        "fr": "Pipe Roughness",
+        "es": "Pipe Roughness",
+        "ar": "Pipe Roughness"
+      }
     },
     {
       "id": "fluidDensity",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1000,
-      "businessContext": "Density of the fluid (e.g., 1000 for water at 20°C)"
+      "businessContext": "Density of the fluid (e.g., 1000 for water at 20°C)",
+      "label_i18n": {
+        "en": "Fluid Density",
+        "tr": "Fluid Density",
+        "de": "Fluid Density",
+        "fr": "Fluid Density",
+        "es": "Fluid Density",
+        "ar": "Fluid Density"
+      }
     },
     {
       "id": "dynamicViscosity",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "Pa·s",
       "default": 0.001,
-      "businessContext": "Dynamic viscosity of the fluid (e.g., 0.001 for water at 20°C)"
+      "businessContext": "Dynamic viscosity of the fluid (e.g., 0.001 for water at 20°C)",
+      "label_i18n": {
+        "en": "Dynamic Viscosity",
+        "tr": "Dynamic Viscosity",
+        "de": "Dynamic Viscosity",
+        "fr": "Dynamic Viscosity",
+        "es": "Dynamic Viscosity",
+        "ar": "Dynamic Viscosity"
+      }
     }
   ],
   "formulas": {
@@ -55,19 +103,21 @@
     "flowRateM3ps": "flowRate / 1000",
     "crossArea": "Math.PI * (diameterM / 2) ** 2",
     "velocity": "flowRateM3ps / crossArea",
-    "reynoldsNumber": "fluidDensity * velocity * diameterM / dynamicViscosity",
-    "frictionFactor": "0.25 / Math.pow(Math.log10(roughness / (1000 * 3.7 * diameterM) + 5.74 / Math.pow(reynoldsNumber, 0.9)), 2)",
-    "headLoss": "frictionFactor * (pipeLength / diameterM) * (velocity ** 2 / (2 * 9.81))",
-    "pressureDrop": "frictionFactor * (pipeLength / diameterM) * (fluidDensity * velocity ** 2 / 2)"
+    "reynoldsNumber": "fluidDensity * velocity * diameterM / dynamicViscosity"
   },
   "outputs": {
-    "primary": "headLoss",
+    "primary": "reynoldsNumber",
     "breakdown": [
       "velocity",
       "reynoldsNumber",
       "frictionFactor",
       "pressureDrop"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "pressureDrop"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -77,5 +127,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "metal",
   "profession": "Sac Teknisyeni",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

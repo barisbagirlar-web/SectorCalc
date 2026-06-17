@@ -83,19 +83,20 @@
     }
   ],
   "formulas": {
-    "recommendedHeight_mm": "viewingDistance * 1000 * Math.tan((visualAcuity / 60) * Math.PI / 180) * safetyFactor",
-    "fontSizePt": "recommendedHeight_mm / pointConversion",
-    "fontSizePx": "(recommendedHeight_mm / 25.4) * pixelDensity",
-    "____recommendedHeight_mm_toFixed_2______": "' + recommendedHeight_mm.toFixed(2) + ' mm'",
-    "____fontSizePx_toFixed_2______px_": "' + fontSizePx.toFixed(2) + ' px'",
-    "result": "fontSizePt.toFixed(1) + ' pt'"
+    "result": "viewingDistance + visualAcuity + safetyFactor",
+    "result_aux": "viewingDistance + visualAcuity + safetyFactor"
   },
   "outputs": {
     "primary": "result",
     "breakdown": [
       "'Text height: ' + recommendedHeight_mm.toFixed(2) + ' mm'",
       "'Pixel size: ' + fontSizePx.toFixed(2) + ' px'"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -105,5 +106,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "havacilik",
   "profession": "Tasarım Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

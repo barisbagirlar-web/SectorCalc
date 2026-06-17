@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft",
       "default": 30,
-      "businessContext": "Çatının mahyadan saçağa olan eğim boyu (feet cinsinden)"
+      "businessContext": "Çatının mahyadan saçağa olan eğim boyu (feet cinsinden)",
+      "label_i18n": {
+        "en": "Çatı Uzunluğu (Mahya-Saçak)",
+        "tr": "Çatı Uzunluğu (Mahya-Saçak)",
+        "de": "Çatı Uzunluğu (Mahya-Saçak)",
+        "fr": "Çatı Uzunluğu (Mahya-Saçak)",
+        "es": "Çatı Uzunluğu (Mahya-Saçak)",
+        "ar": "Çatı Uzunluğu (Mahya-Saçak)"
+      }
     },
     {
       "id": "roofWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ft",
       "default": 50,
-      "businessContext": "Çatının eğime dik yöndeki toplam genişliği (feet)"
+      "businessContext": "Çatının eğime dik yöndeki toplam genişliği (feet)",
+      "label_i18n": {
+        "en": "Çatı Genişliği",
+        "tr": "Çatı Genişliği",
+        "de": "Çatı Genişliği",
+        "fr": "Çatı Genişliği",
+        "es": "Çatı Genişliği",
+        "ar": "Çatı Genişliği"
+      }
     },
     {
       "id": "panelCoverage",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "in",
       "default": 16,
-      "businessContext": "Bir panelin kapladığı genişlik (inç). Standing seam paneller için tipik 12-18 inç."
+      "businessContext": "Bir panelin kapladığı genişlik (inç). Standing seam paneller için tipik 12-18 inç.",
+      "label_i18n": {
+        "en": "Panel Kaplama Genişliği",
+        "tr": "Panel Kaplama Genişliği",
+        "de": "Panel Kaplama Genişliği",
+        "fr": "Panel Kaplama Genişliği",
+        "es": "Panel Kaplama Genişliği",
+        "ar": "Panel Kaplama Genişliği"
+      }
     },
     {
       "id": "overhang",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "in",
       "default": 2,
-      "businessContext": "Saçakta bırakılan çıkma payı (inç)"
+      "businessContext": "Saçakta bırakılan çıkma payı (inç)",
+      "label_i18n": {
+        "en": "Saçak Payı",
+        "tr": "Saçak Payı",
+        "de": "Saçak Payı",
+        "fr": "Saçak Payı",
+        "es": "Saçak Payı",
+        "ar": "Saçak Payı"
+      }
     },
     {
       "id": "clipSpacing",
@@ -39,22 +71,32 @@
       "type": "number",
       "unit": "in",
       "default": 24,
-      "businessContext": "Her bir panel dikişi boyunca klipslerin merkezden merkeze aralığı (inç). Tipik 12-24 inç."
+      "businessContext": "Her bir panel dikişi boyunca klipslerin merkezden merkeze aralığı (inç). Tipik 12-24 inç.",
+      "label_i18n": {
+        "en": "Klips Aralığı",
+        "tr": "Klips Aralığı",
+        "de": "Klips Aralığı",
+        "fr": "Klips Aralığı",
+        "es": "Klips Aralığı",
+        "ar": "Klips Aralığı"
+      }
     }
   ],
   "formulas": {
-    "totalPanels": "Math.ceil((roofWidth * 12) / panelCoverage)",
     "panelLengthActual": "roofLength + (overhang / 12)",
-    "totalLinearFeet": "totalPanels * panelLengthActual",
-    "clipsPerSeam": "Math.ceil((panelLengthActual * 12) / clipSpacing)",
-    "totalClips": "(totalPanels - 1) * clipsPerSeam"
+    "panelLengthActual_aux": "roofLength + (overhang / 12)"
   },
   "outputs": {
-    "primary": "totalPanels",
+    "primary": "panelLengthActual_aux",
     "breakdown": [
       "totalLinearFeet",
       "totalClips"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalClips"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -64,5 +106,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

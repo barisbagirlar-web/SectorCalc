@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "cigarettes/day",
       "default": 20,
-      "businessContext": "Average number of cigarettes smoked daily."
+      "businessContext": "Average number of cigarettes smoked daily.",
+      "label_i18n": {
+        "en": "Cigarettes per Day",
+        "tr": "Cigarettes per Day",
+        "de": "Cigarettes per Day",
+        "fr": "Cigarettes per Day",
+        "es": "Cigarettes per Day",
+        "ar": "Cigarettes per Day"
+      }
     },
     {
       "id": "cigarettesPerPack",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cigarettes/pack",
       "default": 20,
-      "businessContext": "Standard pack size in your region."
+      "businessContext": "Standard pack size in your region.",
+      "label_i18n": {
+        "en": "Cigarettes per Pack",
+        "tr": "Cigarettes per Pack",
+        "de": "Cigarettes per Pack",
+        "fr": "Cigarettes per Pack",
+        "es": "Cigarettes per Pack",
+        "ar": "Cigarettes per Pack"
+      }
     },
     {
       "id": "pricePerPack",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency/pack",
       "default": 10,
-      "businessContext": "Cost of a single pack in your local currency."
+      "businessContext": "Cost of a single pack in your local currency.",
+      "label_i18n": {
+        "en": "Price per Pack",
+        "tr": "Price per Pack",
+        "de": "Price per Pack",
+        "fr": "Price per Pack",
+        "es": "Price per Pack",
+        "ar": "Price per Pack"
+      }
     },
     {
       "id": "yearsSmoking",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "years",
       "default": 10,
-      "businessContext": "Total number of years the habit has persisted."
+      "businessContext": "Total number of years the habit has persisted.",
+      "label_i18n": {
+        "en": "Years Smoking",
+        "tr": "Years Smoking",
+        "de": "Years Smoking",
+        "fr": "Years Smoking",
+        "es": "Years Smoking",
+        "ar": "Years Smoking"
+      }
     }
   ],
   "formulas": {
@@ -49,7 +81,12 @@
       "monthlyCost",
       "yearlyCost",
       "totalCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -59,5 +96,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

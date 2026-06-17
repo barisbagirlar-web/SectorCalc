@@ -100,18 +100,21 @@
   ],
   "formulas": {
     "N": "n1 + n2 + n3",
-    "sum_R2_n": "Math.pow(R1,2)/n1 + Math.pow(R2,2)/n2 + Math.pow(R3,2)/n3",
-    "H": "12/(N*(N+1)) * sum_R2_n - 3*(N+1)",
     "df": "3 - 1"
   },
   "outputs": {
-    "primary": "H",
+    "primary": "df",
     "breakdown": [
       "N",
       "sum_R2_n",
       "H",
       "df"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "df"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -121,5 +124,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

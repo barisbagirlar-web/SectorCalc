@@ -118,21 +118,10 @@
     "deltaT": "Ts - Tinf",
     "Tf_K": "Tinf + 273.15",
     "beta": "1 / Tf_K",
-    "Gr": "9.81 * beta * Math.abs(deltaT) * Math.pow(L, 3) / (nu * nu)",
-    "Ra": "Gr * Pr",
-    "Nu": "Ra <= 1e9 ? 0.59 * Math.pow(Ra, 0.25) : 0.1 * Math.pow(Ra, 1/3)",
-    "h": "Nu * k / L",
-    "A": "L * W",
-    "Q": "h * A * deltaT",
-    "Grashof_Say_s___Gr_": "Grashof Sayısı (Gr)",
-    "Rayleigh_Say_s___Ra_": "Rayleigh Sayısı (Ra)",
-    "Nusselt_Say_s___Nu_": "Nusselt Sayısı (Nu)",
-    "Is__Ta__n_m_Katsay_s___h___W_m_K_": "Isı Taşınım Katsayısı (h) [W/m²K]",
-    "Alan__A___m__": "Alan (A) [m²]",
-    "S_cakl_k_Fark____T____C_": "Sıcaklık Farkı (ΔT) [°C]"
+    "A": "L * W"
   },
   "outputs": {
-    "primary": "Q",
+    "primary": "A",
     "breakdown": [
       "Grashof Sayısı (Gr)",
       "Rayleigh Sayısı (Ra)",
@@ -140,7 +129,12 @@
       "Isı Taşınım Katsayısı (h) [W/m²K]",
       "Alan (A) [m²]",
       "Sıcaklık Farkı (ΔT) [°C]"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "Q"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -150,5 +144,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

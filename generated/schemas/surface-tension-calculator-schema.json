@@ -83,14 +83,8 @@
     }
   ],
   "formulas": {
-    "surfaceTension": "(density * gravity * height * radius) / (2 * Math.cos(contactAngle * Math.PI / 180))",
-    "__height___m": "{{height}} m",
-    "__radius___m": "{{radius}} m",
-    "__density___kg_m_": "{{density}} kg/m³",
-    "__gravity___m_s_": "{{gravity}} m/s²",
-    "__contactAngle___": "{{contactAngle}}°",
-    "__surfaceTension___N_m___1000______surfa": "{{surfaceTension}} N/m (×1000 => {{surfaceTension * 1000}} mN/m)",
-    "result": "Surface Tension: {{surfaceTension}} N/m"
+    "result": "density + gravity + height",
+    "result_aux": "density + gravity + height"
   },
   "outputs": {
     "primary": "result",
@@ -101,7 +95,12 @@
       "Gravity: {{gravity}} m/s²",
       "Contact Angle: {{contactAngle}}°",
       "Calculated Surface Tension: {{surfaceTension}} N/m (×1000 => {{surfaceTension * 1000}} mN/m)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "surfaceTension_aux"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -111,5 +110,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

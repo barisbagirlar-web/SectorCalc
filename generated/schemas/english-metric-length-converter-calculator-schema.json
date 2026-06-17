@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "in",
       "default": 0,
-      "businessContext": "Uzunluk değeri inç cinsinden"
+      "businessContext": "Uzunluk değeri inç cinsinden",
+      "label_i18n": {
+        "en": "İnç",
+        "tr": "İnç",
+        "de": "İnç",
+        "fr": "İnç",
+        "es": "İnç",
+        "ar": "İnç"
+      }
     },
     {
       "id": "in_feet",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ft",
       "default": 0,
-      "businessContext": "Uzunluk değeri fit cinsinden"
+      "businessContext": "Uzunluk değeri fit cinsinden",
+      "label_i18n": {
+        "en": "Fit",
+        "tr": "Fit",
+        "de": "Fit",
+        "fr": "Fit",
+        "es": "Fit",
+        "ar": "Fit"
+      }
     },
     {
       "id": "in_yard",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "yd",
       "default": 0,
-      "businessContext": "Uzunluk değeri yarda cinsinden"
+      "businessContext": "Uzunluk değeri yarda cinsinden",
+      "label_i18n": {
+        "en": "Yarda",
+        "tr": "Yarda",
+        "de": "Yarda",
+        "fr": "Yarda",
+        "es": "Yarda",
+        "ar": "Yarda"
+      }
     },
     {
       "id": "in_mile",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mi",
       "default": 0,
-      "businessContext": "Uzunluk değeri mil cinsinden"
+      "businessContext": "Uzunluk değeri mil cinsinden",
+      "label_i18n": {
+        "en": "Mil",
+        "tr": "Mil",
+        "de": "Mil",
+        "fr": "Mil",
+        "es": "Mil",
+        "ar": "Mil"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "Santimetre",
       "Milimetre"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "Milimetre"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

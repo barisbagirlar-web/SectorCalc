@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "V",
       "default": 12,
-      "businessContext": "Voltage supplied to the circuit"
+      "businessContext": "Voltage supplied to the circuit",
+      "label_i18n": {
+        "en": "Supply Voltage",
+        "tr": "Supply Voltage",
+        "de": "Supply Voltage",
+        "fr": "Supply Voltage",
+        "es": "Supply Voltage",
+        "ar": "Supply Voltage"
+      }
     },
     {
       "id": "resistance1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 1000,
-      "businessContext": "Resistance of the first resistor"
+      "businessContext": "Resistance of the first resistor",
+      "label_i18n": {
+        "en": "Resistance R1",
+        "tr": "Resistance R1",
+        "de": "Resistance R1",
+        "fr": "Resistance R1",
+        "es": "Resistance R1",
+        "ar": "Resistance R1"
+      }
     },
     {
       "id": "resistance2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "Ω",
       "default": 2200,
-      "businessContext": "Resistance of the second resistor"
+      "businessContext": "Resistance of the second resistor",
+      "label_i18n": {
+        "en": "Resistance R2",
+        "tr": "Resistance R2",
+        "de": "Resistance R2",
+        "fr": "Resistance R2",
+        "es": "Resistance R2",
+        "ar": "Resistance R2"
+      }
     }
   ],
   "formulas": {
@@ -40,7 +64,12 @@
       "powerTotal",
       "powerR1",
       "powerR2"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "powerR2"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -50,5 +79,10 @@
   "sectorSlug": "cleaning",
   "sectorId": "otomotiv-tedarik",
   "profession": "Tedarik Zinciri Yöneticisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

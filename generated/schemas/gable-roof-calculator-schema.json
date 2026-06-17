@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Width of the building (gable end span)"
+      "businessContext": "Width of the building (gable end span)",
+      "label_i18n": {
+        "en": "Building Width",
+        "tr": "Building Width",
+        "de": "Building Width",
+        "fr": "Building Width",
+        "es": "Building Width",
+        "ar": "Building Width"
+      }
     },
     {
       "id": "buildingLength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 12,
-      "businessContext": "Length of the building (ridge direction)"
+      "businessContext": "Length of the building (ridge direction)",
+      "label_i18n": {
+        "en": "Building Length",
+        "tr": "Building Length",
+        "de": "Building Length",
+        "fr": "Building Length",
+        "es": "Building Length",
+        "ar": "Building Length"
+      }
     },
     {
       "id": "roofPitch",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "deg",
       "default": 30,
-      "businessContext": "Angle of roof slope from horizontal in degrees"
+      "businessContext": "Angle of roof slope from horizontal in degrees",
+      "label_i18n": {
+        "en": "Roof Pitch",
+        "tr": "Roof Pitch",
+        "de": "Roof Pitch",
+        "fr": "Roof Pitch",
+        "es": "Roof Pitch",
+        "ar": "Roof Pitch"
+      }
     },
     {
       "id": "overhang",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.5,
-      "businessContext": "Horizontal projection of eaves beyond wall"
+      "businessContext": "Horizontal projection of eaves beyond wall",
+      "label_i18n": {
+        "en": "Eave Overhang",
+        "tr": "Eave Overhang",
+        "de": "Eave Overhang",
+        "fr": "Eave Overhang",
+        "es": "Eave Overhang",
+        "ar": "Eave Overhang"
+      }
     },
     {
       "id": "rafterSpacing",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.6,
-      "businessContext": "Center-to-center distance between rafters"
+      "businessContext": "Center-to-center distance between rafters",
+      "label_i18n": {
+        "en": "Rafter Spacing",
+        "tr": "Rafter Spacing",
+        "de": "Rafter Spacing",
+        "fr": "Rafter Spacing",
+        "es": "Rafter Spacing",
+        "ar": "Rafter Spacing"
+      }
     },
     {
       "id": "wasteFactor",
@@ -47,24 +87,34 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Additional percentage for material waste"
+      "businessContext": "Additional percentage for material waste",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     }
   ],
   "formulas": {
-    "totalRoofAreaIncludingWaste": "2 * buildingLength * ((buildingWidth / 2 + overhang) / Math.cos(roofPitch * Math.PI / 180)) * (1 + wasteFactor / 100)",
-    "rafterLength": "(buildingWidth / 2 + overhang) / Math.cos(roofPitch * Math.PI / 180)",
     "ridgeLength": "buildingLength",
-    "roofSurfaceArea": "2 * buildingLength * ((buildingWidth / 2 + overhang) / Math.cos(roofPitch * Math.PI / 180))",
-    "totalRafters": "2 * (Math.ceil(buildingLength / rafterSpacing) + 1)"
+    "ridgeLength_aux": "buildingLength"
   },
   "outputs": {
-    "primary": "totalRoofAreaIncludingWaste",
+    "primary": "ridgeLength_aux",
     "breakdown": [
       "rafterLength",
       "ridgeLength",
       "roofSurfaceArea",
       "totalRafters"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalRafters"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -74,5 +124,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "insaat",
   "profession": "Proje Müdürü",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

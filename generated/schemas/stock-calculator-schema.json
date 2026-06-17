@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet/yıl",
       "default": 1000,
-      "businessContext": "Ürünün yıllık talep miktarı"
+      "businessContext": "Ürünün yıllık talep miktarı",
+      "label_i18n": {
+        "en": "Yıllık Talep",
+        "tr": "Yıllık Talep",
+        "de": "Yıllık Talep",
+        "fr": "Yıllık Talep",
+        "es": "Yıllık Talep",
+        "ar": "Yıllık Talep"
+      }
     },
     {
       "id": "orderingCost",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "para birimi/sipariş",
       "default": 50,
-      "businessContext": "Her sipariş için sabit maliyet"
+      "businessContext": "Her sipariş için sabit maliyet",
+      "label_i18n": {
+        "en": "Sipariş Maliyeti",
+        "tr": "Sipariş Maliyeti",
+        "de": "Sipariş Maliyeti",
+        "fr": "Sipariş Maliyeti",
+        "es": "Sipariş Maliyeti",
+        "ar": "Sipariş Maliyeti"
+      }
     },
     {
       "id": "holdingCost",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "para birimi/adet/yıl",
       "default": 2,
-      "businessContext": "Bir adet ürünü bir yıl stokta tutma maliyeti"
+      "businessContext": "Bir adet ürünü bir yıl stokta tutma maliyeti",
+      "label_i18n": {
+        "en": "Stokta Tutma Maliyeti",
+        "tr": "Stokta Tutma Maliyeti",
+        "de": "Stokta Tutma Maliyeti",
+        "fr": "Stokta Tutma Maliyeti",
+        "es": "Stokta Tutma Maliyeti",
+        "ar": "Stokta Tutma Maliyeti"
+      }
     },
     {
       "id": "unitCost",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "para birimi/adet",
       "default": 0,
-      "businessContext": "Ürün başına satın alma maliyeti (opsiyonel)"
+      "businessContext": "Ürün başına satın alma maliyeti (opsiyonel)",
+      "label_i18n": {
+        "en": "Birim Maliyet",
+        "tr": "Birim Maliyet",
+        "de": "Birim Maliyet",
+        "fr": "Birim Maliyet",
+        "es": "Birim Maliyet",
+        "ar": "Birim Maliyet"
+      }
     },
     {
       "id": "leadTimeDays",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "gün",
       "default": 7,
-      "businessContext": "Sipariş verilmesi ile teslim alınması arasındaki süre (gün)"
+      "businessContext": "Sipariş verilmesi ile teslim alınması arasındaki süre (gün)",
+      "label_i18n": {
+        "en": "Tedarik Süresi",
+        "tr": "Tedarik Süresi",
+        "de": "Tedarik Süresi",
+        "fr": "Tedarik Süresi",
+        "es": "Tedarik Süresi",
+        "ar": "Tedarik Süresi"
+      }
     },
     {
       "id": "workingDaysPerYear",
@@ -47,25 +87,34 @@
       "type": "number",
       "unit": "gün",
       "default": 250,
-      "businessContext": "Yıldaki çalışma günü sayısı"
+      "businessContext": "Yıldaki çalışma günü sayısı",
+      "label_i18n": {
+        "en": "Yıllık Çalışma Günü",
+        "tr": "Yıllık Çalışma Günü",
+        "de": "Yıllık Çalışma Günü",
+        "fr": "Yıllık Çalışma Günü",
+        "es": "Yıllık Çalışma Günü",
+        "ar": "Yıllık Çalışma Günü"
+      }
     }
   ],
   "formulas": {
-    "eoq": "Math.sqrt((2 * annualDemand * orderingCost) / holdingCost)",
     "dailyDemand": "annualDemand / workingDaysPerYear",
-    "reorderPoint": "dailyDemand * leadTimeDays",
-    "ordersPerYear": "annualDemand / eoq",
-    "averageInventory": "eoq / 2",
-    "totalAnnualCost": "annualDemand * unitCost + (ordersPerYear * orderingCost) + (averageInventory * holdingCost)"
+    "reorderPoint": "dailyDemand * leadTimeDays"
   },
   "outputs": {
-    "primary": "eoq",
+    "primary": "reorderPoint",
     "breakdown": [
       "reorderPoint",
       "ordersPerYear",
       "averageInventory",
       "totalAnnualCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalAnnualCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -75,5 +124,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

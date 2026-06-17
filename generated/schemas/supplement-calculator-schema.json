@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "Weight of the base material in kg"
+      "businessContext": "Weight of the base material in kg",
+      "label_i18n": {
+        "en": "Base Material Weight",
+        "tr": "Base Material Weight",
+        "de": "Base Material Weight",
+        "fr": "Base Material Weight",
+        "es": "Base Material Weight",
+        "ar": "Base Material Weight"
+      }
     },
     {
       "id": "baseConc",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Initial concentration of the target substance in the base material (%)"
+      "businessContext": "Initial concentration of the target substance in the base material (%)",
+      "label_i18n": {
+        "en": "Base Concentration",
+        "tr": "Base Concentration",
+        "de": "Base Concentration",
+        "fr": "Base Concentration",
+        "es": "Base Concentration",
+        "ar": "Base Concentration"
+      }
     },
     {
       "id": "desiredConc",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Target final concentration of the mixture (%)"
+      "businessContext": "Target final concentration of the mixture (%)",
+      "label_i18n": {
+        "en": "Desired Concentration",
+        "tr": "Desired Concentration",
+        "de": "Desired Concentration",
+        "fr": "Desired Concentration",
+        "es": "Desired Concentration",
+        "ar": "Desired Concentration"
+      }
     },
     {
       "id": "suppConc",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "Concentration of the target substance in the supplement (%)"
+      "businessContext": "Concentration of the target substance in the supplement (%)",
+      "label_i18n": {
+        "en": "Supplement Concentration",
+        "tr": "Supplement Concentration",
+        "de": "Supplement Concentration",
+        "fr": "Supplement Concentration",
+        "es": "Supplement Concentration",
+        "ar": "Supplement Concentration"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "totalWeight",
       "finalConc"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "finalConc"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -54,5 +91,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -99,12 +99,11 @@
     }
   ],
   "formulas": {
-    "wordSimilarity": "(matchingWords / Math.max(totalWordsDocA || totalWordsDocB || 1, 1)) * 100",
-    "citationOverlap": "(matchingCitations / Math.max(totalCitationsA || totalCitationsB || 1, 1)) * 100",
-    "overallSimilarity": "(wordSimilarity * 0.7 + citationOverlap * 0.3)"
+    "result": "matchingWords + totalWordsDocA + totalWordsDocB",
+    "result_copy": "matchingWords + totalWordsDocA + totalWordsDocB"
   },
   "outputs": {
-    "primary": "wordSimilarity",
+    "primary": "result",
     "breakdown": [
       {
         "id": "wordSimilarity",
@@ -118,7 +117,12 @@
         "unit": "%",
         "formula": "citationOverlap"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "overallSimilarity"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -128,5 +132,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

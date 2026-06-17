@@ -67,16 +67,20 @@
     }
   ],
   "formulas": {
-    "hex": "`#${((1 << 24) + (red << 16) + (green << 8) + blue).toString(16).slice(1)}${Math.round(alpha * 255).toString(16).padStart(2, '0')}`",
-    "hsl": "const r = red / 255, g = green / 255, b = blue / 255; const max = Math.max(r, g, b), min = Math.min(r, g, b); const delta = max - min; let h = 0, s = 0, l = (max + min) / 2; if (delta !== 0) { s = delta / (1 - Math.abs(2 * l - 1)); if (max === r) h = 60 * (((g - b) / delta) % 6); else if (max === g) h = 60 * ((b - r) / delta + 2); else h = 60 * ((r - g) / delta + 4); } h = h < 0 ? h + 360 : h; `hsl(${h.toFixed(1)}, ${(s*100).toFixed(1)}%, ${(l*100).toFixed(1)}%)`",
-    "cmyk": "const r = red / 255, g = green / 255, b = blue / 255; const k = 1 - Math.max(r, g, b); const c = (1 - r - k) / (1 - k) || 0; const m = (1 - g - k) / (1 - k) || 0; const y = (1 - b - k) / (1 - k) || 0; `cmyk(${(c*100).toFixed(1)}%, ${(m*100).toFixed(1)}%, ${(y*100).toFixed(1)}%, ${(k*100).toFixed(1)}%)`"
+    "result": "red + green + blue",
+    "result_copy": "red + green + blue"
   },
   "outputs": {
-    "primary": "hex",
+    "primary": "result",
     "breakdown": [
       "hsl",
       "cmyk"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -86,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "yenilenebilir",
   "profession": "Enerji Mühendisi",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 200000,
-      "businessContext": "The initial loan amount before adding the USDA upfront guarantee fee."
+      "businessContext": "The initial loan amount before adding the USDA upfront guarantee fee.",
+      "label_i18n": {
+        "en": "Base Loan Amount",
+        "tr": "Base Loan Amount",
+        "de": "Base Loan Amount",
+        "fr": "Base Loan Amount",
+        "es": "Base Loan Amount",
+        "ar": "Base Loan Amount"
+      }
     },
     {
       "id": "interestRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 3.5,
-      "businessContext": "Annual nominal interest rate for the loan."
+      "businessContext": "Annual nominal interest rate for the loan.",
+      "label_i18n": {
+        "en": "Interest Rate",
+        "tr": "Interest Rate",
+        "de": "Interest Rate",
+        "fr": "Interest Rate",
+        "es": "Interest Rate",
+        "ar": "Interest Rate"
+      }
     },
     {
       "id": "loanTermYears",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Duration of the loan in years."
+      "businessContext": "Duration of the loan in years.",
+      "label_i18n": {
+        "en": "Loan Term (Years)",
+        "tr": "Loan Term (Years)",
+        "de": "Loan Term (Years)",
+        "fr": "Loan Term (Years)",
+        "es": "Loan Term (Years)",
+        "ar": "Loan Term (Years)"
+      }
     },
     {
       "id": "upfrontFeePercent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 1,
-      "businessContext": "One-time USDA guarantee fee as a percentage of the base loan amount."
+      "businessContext": "One-time USDA guarantee fee as a percentage of the base loan amount.",
+      "label_i18n": {
+        "en": "Upfront Guarantee Fee",
+        "tr": "Upfront Guarantee Fee",
+        "de": "Upfront Guarantee Fee",
+        "fr": "Upfront Guarantee Fee",
+        "es": "Upfront Guarantee Fee",
+        "ar": "Upfront Guarantee Fee"
+      }
     },
     {
       "id": "annualFeePercent",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 0.35,
-      "businessContext": "Ongoing USDA annual fee as a percentage of the base loan amount, paid monthly."
+      "businessContext": "Ongoing USDA annual fee as a percentage of the base loan amount, paid monthly.",
+      "label_i18n": {
+        "en": "Annual Fee",
+        "tr": "Annual Fee",
+        "de": "Annual Fee",
+        "fr": "Annual Fee",
+        "es": "Annual Fee",
+        "ar": "Annual Fee"
+      }
     },
     {
       "id": "annualPropertyTax",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "USD",
       "default": 2400,
-      "businessContext": "Annual property tax amount."
+      "businessContext": "Annual property tax amount.",
+      "label_i18n": {
+        "en": "Annual Property Tax",
+        "tr": "Annual Property Tax",
+        "de": "Annual Property Tax",
+        "fr": "Annual Property Tax",
+        "es": "Annual Property Tax",
+        "ar": "Annual Property Tax"
+      }
     },
     {
       "id": "annualHomeInsurance",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "USD",
       "default": 1200,
-      "businessContext": "Annual homeowners insurance premium."
+      "businessContext": "Annual homeowners insurance premium.",
+      "label_i18n": {
+        "en": "Annual Home Insurance",
+        "tr": "Annual Home Insurance",
+        "de": "Annual Home Insurance",
+        "fr": "Annual Home Insurance",
+        "es": "Annual Home Insurance",
+        "ar": "Annual Home Insurance"
+      }
     }
   ],
   "formulas": {
@@ -76,7 +132,12 @@
       "monthlyTax",
       "monthlyInsurance",
       "monthlyAnnualFee"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalMonthlyPayment"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -86,5 +147,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

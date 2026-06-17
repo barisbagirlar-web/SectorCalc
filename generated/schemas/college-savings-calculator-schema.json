@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 0,
-      "businessContext": "Current age of the child"
+      "businessContext": "Current age of the child",
+      "label_i18n": {
+        "en": "Child's Current Age",
+        "tr": "Child's Current Age",
+        "de": "Child's Current Age",
+        "fr": "Child's Current Age",
+        "es": "Child's Current Age",
+        "ar": "Child's Current Age"
+      }
     },
     {
       "id": "yearsToCollege",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "years",
       "default": 18,
-      "businessContext": "Number of years until college starts"
+      "businessContext": "Number of years until college starts",
+      "label_i18n": {
+        "en": "Years Until College",
+        "tr": "Years Until College",
+        "de": "Years Until College",
+        "fr": "Years Until College",
+        "es": "Years Until College",
+        "ar": "Years Until College"
+      }
     },
     {
       "id": "currentSavings",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Amount already saved for college"
+      "businessContext": "Amount already saved for college",
+      "label_i18n": {
+        "en": "Current Savings",
+        "tr": "Current Savings",
+        "de": "Current Savings",
+        "fr": "Current Savings",
+        "es": "Current Savings",
+        "ar": "Current Savings"
+      }
     },
     {
       "id": "annualContribution",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Amount contributed each year toward college"
+      "businessContext": "Amount contributed each year toward college",
+      "label_i18n": {
+        "en": "Annual Contribution",
+        "tr": "Annual Contribution",
+        "de": "Annual Contribution",
+        "fr": "Annual Contribution",
+        "es": "Annual Contribution",
+        "ar": "Annual Contribution"
+      }
     },
     {
       "id": "expectedReturn",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Expected annual return on invested savings"
+      "businessContext": "Expected annual return on invested savings",
+      "label_i18n": {
+        "en": "Expected Rate of Return",
+        "tr": "Expected Rate of Return",
+        "de": "Expected Rate of Return",
+        "fr": "Expected Rate of Return",
+        "es": "Expected Rate of Return",
+        "ar": "Expected Rate of Return"
+      }
     },
     {
       "id": "inflationRate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "Expected annual inflation rate for college costs"
+      "businessContext": "Expected annual inflation rate for college costs",
+      "label_i18n": {
+        "en": "Inflation Rate",
+        "tr": "Inflation Rate",
+        "de": "Inflation Rate",
+        "fr": "Inflation Rate",
+        "es": "Inflation Rate",
+        "ar": "Inflation Rate"
+      }
     },
     {
       "id": "annualCollegeCost",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "$",
       "default": 20000,
-      "businessContext": "Current annual cost of college in today's dollars"
+      "businessContext": "Current annual cost of college in today's dollars",
+      "label_i18n": {
+        "en": "Annual College Cost (Today's $)",
+        "tr": "Annual College Cost (Today's $)",
+        "de": "Annual College Cost (Today's $)",
+        "fr": "Annual College Cost (Today's $)",
+        "es": "Annual College Cost (Today's $)",
+        "ar": "Annual College Cost (Today's $)"
+      }
     },
     {
       "id": "collegeYears",
@@ -63,24 +119,34 @@
       "type": "number",
       "unit": "years",
       "default": 4,
-      "businessContext": "Number of years of college attendance"
+      "businessContext": "Number of years of college attendance",
+      "label_i18n": {
+        "en": "Years of College",
+        "tr": "Years of College",
+        "de": "Years of College",
+        "fr": "Years of College",
+        "es": "Years of College",
+        "ar": "Years of College"
+      }
     }
   ],
   "formulas": {
-    "totalSavings": "currentSavings * Math.pow(1 + expectedReturn/100, yearsToCollege) + annualContribution * ((Math.pow(1 + expectedReturn/100, yearsToCollege) - 1) / (expectedReturn/100))",
     "totalContributions": "currentSavings + annualContribution * yearsToCollege",
-    "totalInterestEarned": "totalSavings - totalContributions",
-    "inflationAdjustedCollegeCost": "annualCollegeCost * collegeYears * Math.pow(1 + inflationRate/100, yearsToCollege)",
-    "shortfall": "totalSavings - inflationAdjustedCollegeCost"
+    "totalContributions_aux": "currentSavings + annualContribution * yearsToCollege"
   },
   "outputs": {
-    "primary": "shortfall",
+    "primary": "totalContributions_aux",
     "breakdown": [
       "totalSavings",
       "inflationAdjustedCollegeCost",
       "totalContributions",
       "totalInterestEarned"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "shortfall"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -90,5 +156,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

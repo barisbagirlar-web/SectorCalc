@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 50000,
-      "businessContext": "Total yearly cost of attendance including tuition, fees, room, and board."
+      "businessContext": "Total yearly cost of attendance including tuition, fees, room, and board.",
+      "label_i18n": {
+        "en": "Cost of Attendance",
+        "tr": "Cost of Attendance",
+        "de": "Cost of Attendance",
+        "fr": "Cost of Attendance",
+        "es": "Cost of Attendance",
+        "ar": "Cost of Attendance"
+      }
     },
     {
       "id": "meritCapPercent",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "percent",
       "default": 50,
-      "businessContext": "Maximum percentage of cost of attendance that can be covered by merit aid."
+      "businessContext": "Maximum percentage of cost of attendance that can be covered by merit aid.",
+      "label_i18n": {
+        "en": "Merit Aid Cap (%)",
+        "tr": "Merit Aid Cap (%)",
+        "de": "Merit Aid Cap (%)",
+        "fr": "Merit Aid Cap (%)",
+        "es": "Merit Aid Cap (%)",
+        "ar": "Merit Aid Cap (%)"
+      }
     },
     {
       "id": "otherAid",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Total amount of other scholarships, grants, or financial aid already awarded."
+      "businessContext": "Total amount of other scholarships, grants, or financial aid already awarded.",
+      "label_i18n": {
+        "en": "Other Financial Aid",
+        "tr": "Other Financial Aid",
+        "de": "Other Financial Aid",
+        "fr": "Other Financial Aid",
+        "es": "Other Financial Aid",
+        "ar": "Other Financial Aid"
+      }
     },
     {
       "id": "efc",
@@ -31,26 +55,35 @@
       "type": "number",
       "unit": "currency",
       "default": 20000,
-      "businessContext": "Expected family contribution as determined by financial need analysis."
+      "businessContext": "Expected family contribution as determined by financial need analysis.",
+      "label_i18n": {
+        "en": "Expected Family Contribution",
+        "tr": "Expected Family Contribution",
+        "de": "Expected Family Contribution",
+        "fr": "Expected Family Contribution",
+        "es": "Expected Family Contribution",
+        "ar": "Expected Family Contribution"
+      }
     }
   ],
   "formulas": {
     "maxMerit": "coa * (meritCapPercent / 100)",
-    "availableForMerit": "Math.max(0, coa - otherAid)",
-    "meritAwarded": "Math.min(maxMerit, availableForMerit)",
-    "remainingCost": "coa - otherAid - meritAwarded",
-    "outOfPocket": "Math.min(efc, remainingCost)",
-    "unmetNeed": "Math.max(0, remainingCost - efc)"
+    "maxMerit_aux": "coa * (meritCapPercent / 100)"
   },
   "outputs": {
-    "primary": "meritAwarded",
+    "primary": "maxMerit_aux",
     "breakdown": [
       "maxMerit",
       "otherAid",
       "remainingCost",
       "outOfPocket",
       "unmetNeed"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "unmetNeed"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -60,5 +93,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1000,
-      "businessContext": "Fluid density at operating conditions"
+      "businessContext": "Fluid density at operating conditions",
+      "label_i18n": {
+        "en": "Density (kg/m³)",
+        "tr": "Density (kg/m³)",
+        "de": "Density (kg/m³)",
+        "fr": "Density (kg/m³)",
+        "es": "Density (kg/m³)",
+        "ar": "Density (kg/m³)"
+      }
     },
     {
       "id": "velocity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 2,
-      "businessContext": "Average fluid velocity in pipe"
+      "businessContext": "Average fluid velocity in pipe",
+      "label_i18n": {
+        "en": "Flow Velocity (m/s)",
+        "tr": "Flow Velocity (m/s)",
+        "de": "Flow Velocity (m/s)",
+        "fr": "Flow Velocity (m/s)",
+        "es": "Flow Velocity (m/s)",
+        "ar": "Flow Velocity (m/s)"
+      }
     },
     {
       "id": "diameter",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.1,
-      "businessContext": "Internal diameter of the pipe"
+      "businessContext": "Internal diameter of the pipe",
+      "label_i18n": {
+        "en": "Pipe Inner Diameter (m)",
+        "tr": "Pipe Inner Diameter (m)",
+        "de": "Pipe Inner Diameter (m)",
+        "fr": "Pipe Inner Diameter (m)",
+        "es": "Pipe Inner Diameter (m)",
+        "ar": "Pipe Inner Diameter (m)"
+      }
     },
     {
       "id": "temperature",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Fluid temperature for density correction if needed"
+      "businessContext": "Fluid temperature for density correction if needed",
+      "label_i18n": {
+        "en": "Temperature (°C)",
+        "tr": "Temperature (°C)",
+        "de": "Temperature (°C)",
+        "fr": "Temperature (°C)",
+        "es": "Temperature (°C)",
+        "ar": "Temperature (°C)"
+      }
     },
     {
       "id": "pressure",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "bar",
       "default": 1,
-      "businessContext": "Operating pressure for compressible fluids"
+      "businessContext": "Operating pressure for compressible fluids",
+      "label_i18n": {
+        "en": "Pressure (bar)",
+        "tr": "Pressure (bar)",
+        "de": "Pressure (bar)",
+        "fr": "Pressure (bar)",
+        "es": "Pressure (bar)",
+        "ar": "Pressure (bar)"
+      }
     },
     {
       "id": "compressibility",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1,
-      "businessContext": "For gases, typically 1 for ideal gas"
+      "businessContext": "For gases, typically 1 for ideal gas",
+      "label_i18n": {
+        "en": "Compressibility Factor (Z)",
+        "tr": "Compressibility Factor (Z)",
+        "de": "Compressibility Factor (Z)",
+        "fr": "Compressibility Factor (Z)",
+        "es": "Compressibility Factor (Z)",
+        "ar": "Compressibility Factor (Z)"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
       "crossSectionArea",
       "volumetricFlowRate",
       "correctedDensity"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "correctedDensity"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -72,5 +125,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

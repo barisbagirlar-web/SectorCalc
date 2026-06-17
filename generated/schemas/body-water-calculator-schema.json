@@ -70,15 +70,18 @@
     "tbwMale": "2.447 - (0.09156 * age) + (0.1074 * height) + (0.3362 * weight)",
     "tbwFemale": "-2.097 + (0.1069 * height) + (0.2466 * weight)",
     "totalBodyWater": "sex === 1 ? tbwMale : tbwFemale",
-    "waterPercentage": "((sex === 1 ? tbwMale : tbwFemale) / weight) * 100",
-    "___waterPercentage_toFixed_2__": "%${waterPercentage.toFixed(2)}",
-    "result": "toplam vücut suyu: ${totalBodyWater.toFixed(2)} litre"
+    "waterPercentage": "((sex === 1 ? tbwMale : tbwFemale) / weight) * 100"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "waterPercentage",
     "breakdown": [
       "Vücut su yüzdesi: %${waterPercentage.toFixed(2)}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "waterPercentage"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -88,5 +91,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

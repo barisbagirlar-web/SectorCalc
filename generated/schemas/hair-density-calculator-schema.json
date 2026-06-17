@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "count",
       "default": 100,
-      "businessContext": "Number of hairs observed in the sample area."
+      "businessContext": "Number of hairs observed in the sample area.",
+      "label_i18n": {
+        "en": "Counted Hairs",
+        "tr": "Counted Hairs",
+        "de": "Counted Hairs",
+        "fr": "Counted Hairs",
+        "es": "Counted Hairs",
+        "ar": "Counted Hairs"
+      }
     },
     {
       "id": "sample_area_cm2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "cm²",
       "default": 1,
-      "businessContext": "Area of the sample region in square centimeters."
+      "businessContext": "Area of the sample region in square centimeters.",
+      "label_i18n": {
+        "en": "Sample Area",
+        "tr": "Sample Area",
+        "de": "Sample Area",
+        "fr": "Sample Area",
+        "es": "Sample Area",
+        "ar": "Sample Area"
+      }
     },
     {
       "id": "magnification",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "x",
       "default": 1,
-      "businessContext": "Magnification factor of the optical device (1 for no magnification)."
+      "businessContext": "Magnification factor of the optical device (1 for no magnification).",
+      "label_i18n": {
+        "en": "Magnification",
+        "tr": "Magnification",
+        "de": "Magnification",
+        "fr": "Magnification",
+        "es": "Magnification",
+        "ar": "Magnification"
+      }
     },
     {
       "id": "calibration_factor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "unitless",
       "default": 1,
-      "businessContext": "Device-specific calibration coefficient to correct the measurement."
+      "businessContext": "Device-specific calibration coefficient to correct the measurement.",
+      "label_i18n": {
+        "en": "Calibration Factor",
+        "tr": "Calibration Factor",
+        "de": "Calibration Factor",
+        "fr": "Calibration Factor",
+        "es": "Calibration Factor",
+        "ar": "Calibration Factor"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "raw_density",
       "effective_area"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "effective_area"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -54,5 +91,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "saglik",
   "profession": "Biyomedikal Mühendisi",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -67,16 +67,20 @@
     }
   ],
   "formulas": {
-    "productDecimal": "inputs.numerator1 / inputs.denominator1 * inputs.numerator2 / inputs.denominator2",
-    "productNumerator": "inputs.numerator1 * inputs.numerator2",
-    "productDenominator": "inputs.denominator1 * inputs.denominator2"
+    "result": "numerator1 + denominator1 + numerator2",
+    "result_copy": "numerator1 + denominator1 + numerator2"
   },
   "outputs": {
-    "primary": "productDecimal",
+    "primary": "result",
     "breakdown": [
       "productNumerator",
       "productDenominator"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "productDenominator"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -86,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -101,19 +101,20 @@
   "formulas": {
     "esalPerVehicle": "(axleLoad / standardLoad) ** 4",
     "dailyESAL": "trafficCount * esalPerVehicle",
-    "designESAL": "dailyESAL * 365 * designLife",
-    "requiredThickness": "1000 * (designESAL ** 0.1) / (Math.sqrt(subgradeCBR)) * reliabilityFactor",
-    "surfaceThickness": "0.15 * requiredThickness",
-    "baseThickness": "0.35 * requiredThickness",
-    "subbaseThickness": "0.50 * requiredThickness"
+    "designESAL": "dailyESAL * 365 * designLife"
   },
   "outputs": {
-    "primary": "requiredThickness",
+    "primary": "designESAL",
     "breakdown": [
       "surfaceThickness",
       "baseThickness",
       "subbaseThickness"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "subbaseThickness"
   },
   "category": "Bakım & Güvenilirlik",
   "sector": "Üretim & İmalat",
@@ -123,5 +124,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

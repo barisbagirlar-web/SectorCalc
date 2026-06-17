@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "MB",
       "default": 0,
-      "businessContext": "The amount of data in megabytes to convert."
+      "businessContext": "The amount of data in megabytes to convert.",
+      "label_i18n": {
+        "en": "Megabytes (MB)",
+        "tr": "Megabytes (MB)",
+        "de": "Megabytes (MB)",
+        "fr": "Megabytes (MB)",
+        "es": "Megabytes (MB)",
+        "ar": "Megabytes (MB)"
+      }
     },
     {
       "id": "conversionFactor",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "MB/GB",
       "default": 1024,
-      "businessContext": "Use 1024 for binary (IEC) or 1000 for SI standard."
+      "businessContext": "Use 1024 for binary (IEC) or 1000 for SI standard.",
+      "label_i18n": {
+        "en": "Conversion Factor",
+        "tr": "Conversion Factor",
+        "de": "Conversion Factor",
+        "fr": "Conversion Factor",
+        "es": "Conversion Factor",
+        "ar": "Conversion Factor"
+      }
     },
     {
       "id": "decimalPlaces",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "places",
       "default": 2,
-      "businessContext": "Number of decimal places for the primary output."
+      "businessContext": "Number of decimal places for the primary output.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "batchSize",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "items",
       "default": 1,
-      "businessContext": "Multiply the result by this factor for batch conversions (e.g., number of files)."
+      "businessContext": "Multiply the result by this factor for batch conversions (e.g., number of files).",
+      "label_i18n": {
+        "en": "Batch Size",
+        "tr": "Batch Size",
+        "de": "Batch Size",
+        "fr": "Batch Size",
+        "es": "Batch Size",
+        "ar": "Batch Size"
+      }
     }
   ],
   "formulas": {
     "exactGigabytes": "megabytes / conversionFactor",
-    "gigabytes": "Math.round((megabytes / conversionFactor) * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces) * batchSize",
-    "terabytes": "Math.round((megabytes / conversionFactor) * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces) * batchSize / 1024"
+    "exactGigabytes_aux": "megabytes / conversionFactor"
   },
   "outputs": {
-    "primary": "gigabytes",
+    "primary": "exactGigabytes_aux",
     "breakdown": [
       "exactGigabytes",
       "terabytes"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "terabytes"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "bilisim",
   "profession": "Sistem Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

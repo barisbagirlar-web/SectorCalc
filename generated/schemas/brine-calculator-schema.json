@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 10,
-      "businessContext": "Mass of salt added to brine"
+      "businessContext": "Mass of salt added to brine",
+      "label_i18n": {
+        "en": "Salt Mass",
+        "tr": "Salt Mass",
+        "de": "Salt Mass",
+        "fr": "Salt Mass",
+        "es": "Salt Mass",
+        "ar": "Salt Mass"
+      }
     },
     {
       "id": "waterMass",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "Mass of water for brine solution"
+      "businessContext": "Mass of water for brine solution",
+      "label_i18n": {
+        "en": "Water Mass",
+        "tr": "Water Mass",
+        "de": "Water Mass",
+        "fr": "Water Mass",
+        "es": "Water Mass",
+        "ar": "Water Mass"
+      }
     },
     {
       "id": "saltPurity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "Purity of salt used (0-100)"
+      "businessContext": "Purity of salt used (0-100)",
+      "label_i18n": {
+        "en": "Salt Purity",
+        "tr": "Salt Purity",
+        "de": "Salt Purity",
+        "fr": "Salt Purity",
+        "es": "Salt Purity",
+        "ar": "Salt Purity"
+      }
     },
     {
       "id": "temp",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Operating temperature for density correction"
+      "businessContext": "Operating temperature for density correction",
+      "label_i18n": {
+        "en": "Temperature",
+        "tr": "Temperature",
+        "de": "Temperature",
+        "fr": "Temperature",
+        "es": "Temperature",
+        "ar": "Temperature"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "density",
       "freezingPoint"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "freezingPoint"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -54,5 +91,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

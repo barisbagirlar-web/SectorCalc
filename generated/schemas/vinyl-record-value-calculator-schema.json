@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "€",
       "default": 20,
-      "businessContext": "The typical market price for a common, good-condition record of similar genre."
+      "businessContext": "The typical market price for a common, good-condition record of similar genre.",
+      "label_i18n": {
+        "en": "Base Price (€)",
+        "tr": "Base Price (€)",
+        "de": "Base Price (€)",
+        "fr": "Base Price (€)",
+        "es": "Base Price (€)",
+        "ar": "Base Price (€)"
+      }
     },
     {
       "id": "conditionScore",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "pts",
       "default": 7,
-      "businessContext": "Goldmine grading: 1=Poor, 10=Mint/Sealed"
+      "businessContext": "Goldmine grading: 1=Poor, 10=Mint/Sealed",
+      "label_i18n": {
+        "en": "Condition (1-10)",
+        "tr": "Condition (1-10)",
+        "de": "Condition (1-10)",
+        "fr": "Condition (1-10)",
+        "es": "Condition (1-10)",
+        "ar": "Condition (1-10)"
+      }
     },
     {
       "id": "rarityScore",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "pts",
       "default": 5,
-      "businessContext": "Scarcity rating: 1=Mass-produced, 10=Only a handful known"
+      "businessContext": "Scarcity rating: 1=Mass-produced, 10=Only a handful known",
+      "label_i18n": {
+        "en": "Rarity (1-10)",
+        "tr": "Rarity (1-10)",
+        "de": "Rarity (1-10)",
+        "fr": "Rarity (1-10)",
+        "es": "Rarity (1-10)",
+        "ar": "Rarity (1-10)"
+      }
     },
     {
       "id": "popularityScore",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "pts",
       "default": 5,
-      "businessContext": "Current market demand for the artist: 1=No interest, 10=Cult following"
+      "businessContext": "Current market demand for the artist: 1=No interest, 10=Cult following",
+      "label_i18n": {
+        "en": "Artist Popularity (1-10)",
+        "tr": "Artist Popularity (1-10)",
+        "de": "Artist Popularity (1-10)",
+        "fr": "Artist Popularity (1-10)",
+        "es": "Artist Popularity (1-10)",
+        "ar": "Artist Popularity (1-10)"
+      }
     },
     {
       "id": "ageYears",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "yr",
       "default": 10,
-      "businessContext": "Years since the record's first pressing"
+      "businessContext": "Years since the record's first pressing",
+      "label_i18n": {
+        "en": "Record Age (years)",
+        "tr": "Record Age (years)",
+        "de": "Record Age (years)",
+        "fr": "Record Age (years)",
+        "es": "Record Age (years)",
+        "ar": "Record Age (years)"
+      }
     }
   ],
   "formulas": {
@@ -56,7 +96,12 @@
       "rarityMultiplier",
       "popularityMultiplier",
       "ageMultiplier"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalValue"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -66,5 +111,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "madencilik",
   "profession": "Maden Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

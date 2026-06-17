@@ -102,10 +102,7 @@
     "divergence": "dFx_dx + dFy_dy + dFz_dz",
     "contributionX": "dFx_dx",
     "contributionY": "dFy_dy",
-    "contributionZ": "dFz_dz",
-    "_F_x__x___contributionX": "∂F_x/∂x = contributionX",
-    "_F_y__y___contributionY": "∂F_y/∂y = contributionY",
-    "_F_z__z___contributionZ": "∂F_z/∂z = contributionZ"
+    "contributionZ": "dFz_dz"
   },
   "outputs": {
     "primary": "divergence",
@@ -114,7 +111,12 @@
       "∂F_y/∂y = contributionY",
       "∂F_z/∂z = contributionZ",
       "Toplam diverjans = divergence"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "contributionZ"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -124,5 +126,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "hours",
       "default": 3,
-      "businessContext": "The main sleep block duration in hours, usually 2-4 hours in polyphasic schedules."
+      "businessContext": "The main sleep block duration in hours, usually 2-4 hours in polyphasic schedules.",
+      "label_i18n": {
+        "en": "Core Sleep Duration (hours)",
+        "tr": "Core Sleep Duration (hours)",
+        "de": "Core Sleep Duration (hours)",
+        "fr": "Core Sleep Duration (hours)",
+        "es": "Core Sleep Duration (hours)",
+        "ar": "Core Sleep Duration (hours)"
+      }
     },
     {
       "id": "numberOfNaps",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "naps/day",
       "default": 4,
-      "businessContext": "Total number of short nap periods per day (typically 1-6)."
+      "businessContext": "Total number of short nap periods per day (typically 1-6).",
+      "label_i18n": {
+        "en": "Number of Naps",
+        "tr": "Number of Naps",
+        "de": "Number of Naps",
+        "fr": "Number of Naps",
+        "es": "Number of Naps",
+        "ar": "Number of Naps"
+      }
     },
     {
       "id": "napDuration",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "minutes",
       "default": 20,
-      "businessContext": "Length of each nap in minutes (common ranges: 15-25 min)."
+      "businessContext": "Length of each nap in minutes (common ranges: 15-25 min).",
+      "label_i18n": {
+        "en": "Nap Duration (minutes)",
+        "tr": "Nap Duration (minutes)",
+        "de": "Nap Duration (minutes)",
+        "fr": "Nap Duration (minutes)",
+        "es": "Nap Duration (minutes)",
+        "ar": "Nap Duration (minutes)"
+      }
     },
     {
       "id": "sleepGoal",
@@ -31,14 +55,21 @@
       "type": "number",
       "unit": "hours",
       "default": 8,
-      "businessContext": "Your desired total sleep target for comparison (standard is 7-9 hours)."
+      "businessContext": "Your desired total sleep target for comparison (standard is 7-9 hours).",
+      "label_i18n": {
+        "en": "Sleep Goal (hours)",
+        "tr": "Sleep Goal (hours)",
+        "de": "Sleep Goal (hours)",
+        "fr": "Sleep Goal (hours)",
+        "es": "Sleep Goal (hours)",
+        "ar": "Sleep Goal (hours)"
+      }
     }
   ],
   "formulas": {
     "coreSleepDuration": "coreSleepDuration",
     "napSleepHours": "(numberOfNaps * napDuration) / 60",
-    "totalSleepHours": "coreSleepDuration + ((numberOfNaps * napDuration) / 60)",
-    "sleepDeficit": "Math.max(0, sleepGoal - (coreSleepDuration + ((numberOfNaps * napDuration) / 60)))"
+    "totalSleepHours": "coreSleepDuration + ((numberOfNaps * napDuration) / 60)"
   },
   "outputs": {
     "primary": "totalSleepHours",
@@ -46,7 +77,12 @@
       "coreSleepDuration",
       "napSleepHours",
       "sleepDeficit"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "sleepDeficit"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -56,5 +92,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -454,6 +454,90 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) => assertFinite(num(inputs, "a") - num(inputs, "b")),
   },
   {
+    id: "cost.product2",
+    family: "cost",
+    label: "Two-factor product cost",
+    fn: (inputs) => nonNegative(num(inputs, "a") * num(inputs, "b")),
+  },
+  {
+    id: "cost.fixed_plus_variable_total",
+    family: "cost",
+    label: "Fixed cost plus variable unit cost times quantity",
+    fn: (inputs) =>
+      nonNegative(num(inputs, "fixedCost") + num(inputs, "unitCost") * num(inputs, "quantity")),
+  },
+  {
+    id: "cost.method_crossover_quantity",
+    family: "cost",
+    label: "Quantity where two fixed-plus-variable methods break even",
+    fn: (inputs) => {
+      const slopeDelta = num(inputs, "unitB") - num(inputs, "unitA");
+      if (slopeDelta === 0) {
+        return 0;
+      }
+      return nonNegative((num(inputs, "fixedA") - num(inputs, "fixedB")) / slopeDelta);
+    },
+  },
+  {
+    id: "lean.efficiency_gap_percent",
+    family: "cost",
+    label: "Efficiency gap percent from current score",
+    fn: (inputs) => nonNegative(100 - num(inputs, "currentScore")),
+  },
+  {
+    id: "lean.score_gap_percent",
+    family: "cost",
+    label: "Score gap percent between current and target",
+    fn: (inputs) => nonNegative(num(inputs, "targetScore") - num(inputs, "currentScore")),
+  },
+  {
+    id: "cost.labor_capacity_cost",
+    family: "cost",
+    label: "Labor capacity cost scaled by loss factor",
+    fn: (inputs) =>
+      nonNegative(
+        num(inputs, "headcount") *
+          num(inputs, "hours") *
+          num(inputs, "hourlyCost") *
+          (num(inputs, "lossFactor") / 100),
+      ),
+  },
+  {
+    id: "layout.floor_parts_fit",
+    family: "benchmark",
+    label: "How many parts fit along one bed span",
+    fn: (inputs) => {
+      const part = num(inputs, "part");
+      if (part <= 0) {
+        return 0;
+      }
+      return Math.max(0, Math.floor(num(inputs, "span") / part));
+    },
+  },
+  {
+    id: "layout.nest_parts_count",
+    family: "benchmark",
+    label: "Nested parts count from row and column fit",
+    fn: (inputs) => nonNegative(num(inputs, "rows") * num(inputs, "cols")),
+  },
+  {
+    id: "layout.rect_bed_utilization_pct",
+    family: "benchmark",
+    label: "Rectangular bed utilization percent",
+    fn: (inputs) => {
+      const bedArea = num(inputs, "bedWidth") * num(inputs, "bedDepth");
+      if (bedArea <= 0) {
+        return 0;
+      }
+      const usedArea =
+        num(inputs, "partsPerRow") *
+        num(inputs, "partsPerColumn") *
+        num(inputs, "partWidth") *
+        num(inputs, "partDepth");
+      return assertFinite(Math.min(100, (usedArea / bedArea) * 100));
+    },
+  },
+  {
     id: "cost.margin_rate_on_price",
     family: "cost",
     label: "Margin rate on price",
@@ -1329,6 +1413,51 @@ const FORMULA_META_DETAILS: Record<
     description: "Signed difference between two numeric amounts.",
     requiredInputs: ["a", "b"],
     outputHint: "currency",
+  },
+  "cost.product2": {
+    description: "Product of two numeric cost drivers.",
+    requiredInputs: ["a", "b"],
+    outputHint: "currency",
+  },
+  "cost.fixed_plus_variable_total": {
+    description: "Fixed cost plus unit cost multiplied by quantity.",
+    requiredInputs: ["fixedCost", "unitCost", "quantity"],
+    outputHint: "currency",
+  },
+  "cost.method_crossover_quantity": {
+    description: "Break-even quantity between two linear cost methods.",
+    requiredInputs: ["fixedA", "fixedB", "unitA", "unitB"],
+    outputHint: "number",
+  },
+  "lean.efficiency_gap_percent": {
+    description: "Percent efficiency gap from a current score.",
+    requiredInputs: ["currentScore"],
+    outputHint: "percentage",
+  },
+  "lean.score_gap_percent": {
+    description: "Percent gap between current and target scores.",
+    requiredInputs: ["currentScore", "targetScore"],
+    outputHint: "percentage",
+  },
+  "cost.labor_capacity_cost": {
+    description: "Labor capacity cost scaled by a loss factor percent.",
+    requiredInputs: ["headcount", "hours", "hourlyCost", "lossFactor"],
+    outputHint: "currency",
+  },
+  "layout.floor_parts_fit": {
+    description: "Count of parts that fit along one bed span.",
+    requiredInputs: ["span", "part"],
+    outputHint: "number",
+  },
+  "layout.nest_parts_count": {
+    description: "Total nested parts from rows and columns.",
+    requiredInputs: ["rows", "cols"],
+    outputHint: "number",
+  },
+  "layout.rect_bed_utilization_pct": {
+    description: "Rectangular bed utilization percent.",
+    requiredInputs: ["partsPerRow", "partsPerColumn", "partWidth", "partDepth", "bedWidth", "bedDepth"],
+    outputHint: "percentage",
   },
   "cost.margin_rate_on_price": {
     description: "Gross margin percent based on price and cost.",

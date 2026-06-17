@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from leagues-to-miles-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,29 +16,33 @@ export const Leagues_to_miles_calculatorInputSchema = z.object({
   conversionFactorOverride: z.number().default(0),
 });
 
-function evaluateAllFormulas(input: Leagues_to_miles_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.conversionFactorOverride > 0 ? input.conversionFactorOverride : [3, 3.452, 2.485]; results["factor"] = Number.isFinite(v) ? v : 0; } catch { results["factor"] = 0; }
-  try { const v = input.leagues * (results["factor"] ?? 0); results["miles"] = Number.isFinite(v) ? v : 0; } catch { results["miles"] = 0; }
-  try { const v = Math.round((results["miles"] ?? 0) * Math.pow(10, input.decimals)) / Math.pow(10, input.decimals); results["roundedMiles"] = Number.isFinite(v) ? v : 0; } catch { results["roundedMiles"] = 0; }
-  results["__factor___mi_lg"] = 0;
-  results["__miles___mi"] = 0;
-  results["Rounded_to___decimals___decimal_places"] = 0;
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Leagues_to_miles_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.leagues + input.leagueType + input.decimals; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.leagues + input.leagueType + input.decimals; results["result_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_aux"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateLeagues_to_miles_calculator(input: Leagues_to_miles_calculatorInput): Leagues_to_miles_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["factor"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

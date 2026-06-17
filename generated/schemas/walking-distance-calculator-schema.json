@@ -68,21 +68,20 @@
   ],
   "formulas": {
     "horizontalDistance": "stepCount * stepLength / 100000",
-    "elevationGain": "stepCount * stepLength * incline / 10000",
-    "pathDistance": "stepCount * stepLength / 100000 / Math.cos(Math.atan(incline/100))",
-    "totalDistance": "stepCount * stepLength / 100000 / Math.cos(Math.atan(incline/100)) * terrainFactor",
-    "Horizontal_Distance__km_": "Horizontal Distance (km)",
-    "Elevation_Gain__m_": "Elevation Gain (m)",
-    "Path_Distance_on_Slope__km_": "Path Distance on Slope (km)",
-    "result": "Total Walking Distance (km)"
+    "elevationGain": "stepCount * stepLength * incline / 10000"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "elevationGain",
     "breakdown": [
       "Horizontal Distance (km)",
       "Elevation Gain (m)",
       "Path Distance on Slope (km)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalDistance"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -92,5 +91,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

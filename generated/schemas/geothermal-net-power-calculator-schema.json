@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg/s",
       "default": 50,
-      "businessContext": "The mass flow rate of geothermal fluid from the production well."
+      "businessContext": "The mass flow rate of geothermal fluid from the production well.",
+      "label_i18n": {
+        "en": "Mass Flow Rate",
+        "tr": "Mass Flow Rate",
+        "de": "Mass Flow Rate",
+        "fr": "Mass Flow Rate",
+        "es": "Mass Flow Rate",
+        "ar": "Mass Flow Rate"
+      }
     },
     {
       "id": "specificHeat",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "J/(kg·K)",
       "default": 4200,
-      "businessContext": "Specific heat capacity of the geothermal fluid (water)."
+      "businessContext": "Specific heat capacity of the geothermal fluid (water).",
+      "label_i18n": {
+        "en": "Specific Heat Capacity",
+        "tr": "Specific Heat Capacity",
+        "de": "Specific Heat Capacity",
+        "fr": "Specific Heat Capacity",
+        "es": "Specific Heat Capacity",
+        "ar": "Specific Heat Capacity"
+      }
     },
     {
       "id": "inletTemp",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 150,
-      "businessContext": "Temperature of the geothermal fluid at the wellhead."
+      "businessContext": "Temperature of the geothermal fluid at the wellhead.",
+      "label_i18n": {
+        "en": "Inlet Temperature",
+        "tr": "Inlet Temperature",
+        "de": "Inlet Temperature",
+        "fr": "Inlet Temperature",
+        "es": "Inlet Temperature",
+        "ar": "Inlet Temperature"
+      }
     },
     {
       "id": "outletTemp",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 80,
-      "businessContext": "Temperature of the geothermal fluid after heat extraction (reinjection temperature)."
+      "businessContext": "Temperature of the geothermal fluid after heat extraction (reinjection temperature).",
+      "label_i18n": {
+        "en": "Outlet Temperature",
+        "tr": "Outlet Temperature",
+        "de": "Outlet Temperature",
+        "fr": "Outlet Temperature",
+        "es": "Outlet Temperature",
+        "ar": "Outlet Temperature"
+      }
     },
     {
       "id": "conversionEfficiency",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 12,
-      "businessContext": "Efficiency of converting thermal energy to electricity (typical binary plant 10-15%)."
+      "businessContext": "Efficiency of converting thermal energy to electricity (typical binary plant 10-15%).",
+      "label_i18n": {
+        "en": "Conversion Efficiency",
+        "tr": "Conversion Efficiency",
+        "de": "Conversion Efficiency",
+        "fr": "Conversion Efficiency",
+        "es": "Conversion Efficiency",
+        "ar": "Conversion Efficiency"
+      }
     },
     {
       "id": "parasiticLoad",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kW",
       "default": 100,
-      "businessContext": "Power consumed by pumps and auxiliary equipment."
+      "businessContext": "Power consumed by pumps and auxiliary equipment.",
+      "label_i18n": {
+        "en": "Parasitic Load",
+        "tr": "Parasitic Load",
+        "de": "Parasitic Load",
+        "fr": "Parasitic Load",
+        "es": "Parasitic Load",
+        "ar": "Parasitic Load"
+      }
     }
   ],
   "formulas": {
@@ -59,7 +107,12 @@
     "breakdown": [
       "grossPower",
       "parasiticLoad"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "netPower"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -69,5 +122,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "persons",
       "default": 30,
-      "businessContext": "Expected number of trick-or-treaters"
+      "businessContext": "Expected number of trick-or-treaters",
+      "label_i18n": {
+        "en": "Number of Children",
+        "tr": "Number of Children",
+        "de": "Number of Children",
+        "fr": "Number of Children",
+        "es": "Number of Children",
+        "ar": "Number of Children"
+      }
     },
     {
       "id": "candy_per_child",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "pieces",
       "default": 5,
-      "businessContext": "Average candy pieces given to each child"
+      "businessContext": "Average candy pieces given to each child",
+      "label_i18n": {
+        "en": "Candy Pieces per Child",
+        "tr": "Candy Pieces per Child",
+        "de": "Candy Pieces per Child",
+        "fr": "Candy Pieces per Child",
+        "es": "Candy Pieces per Child",
+        "ar": "Candy Pieces per Child"
+      }
     },
     {
       "id": "cost_per_candy",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 0.5,
-      "businessContext": "Unit cost of each candy piece"
+      "businessContext": "Unit cost of each candy piece",
+      "label_i18n": {
+        "en": "Cost per Candy Piece",
+        "tr": "Cost per Candy Piece",
+        "de": "Cost per Candy Piece",
+        "fr": "Cost per Candy Piece",
+        "es": "Cost per Candy Piece",
+        "ar": "Cost per Candy Piece"
+      }
     },
     {
       "id": "decor_budget",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "USD",
       "default": 50,
-      "businessContext": "Budget allocated for Halloween decorations"
+      "businessContext": "Budget allocated for Halloween decorations",
+      "label_i18n": {
+        "en": "Decoration Budget",
+        "tr": "Decoration Budget",
+        "de": "Decoration Budget",
+        "fr": "Decoration Budget",
+        "es": "Decoration Budget",
+        "ar": "Decoration Budget"
+      }
     },
     {
       "id": "pumpkin_count",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "pieces",
       "default": 3,
-      "businessContext": "Number of pumpkins to carve"
+      "businessContext": "Number of pumpkins to carve",
+      "label_i18n": {
+        "en": "Number of Pumpkins",
+        "tr": "Number of Pumpkins",
+        "de": "Number of Pumpkins",
+        "fr": "Number of Pumpkins",
+        "es": "Number of Pumpkins",
+        "ar": "Number of Pumpkins"
+      }
     },
     {
       "id": "pumpkin_cost",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "USD",
       "default": 10,
-      "businessContext": "Unit cost of each pumpkin"
+      "businessContext": "Unit cost of each pumpkin",
+      "label_i18n": {
+        "en": "Cost per Pumpkin",
+        "tr": "Cost per Pumpkin",
+        "de": "Cost per Pumpkin",
+        "fr": "Cost per Pumpkin",
+        "es": "Cost per Pumpkin",
+        "ar": "Cost per Pumpkin"
+      }
     }
   ],
   "formulas": {
@@ -64,7 +112,12 @@
       "candy_cost",
       "pumpkin_total_cost",
       "cost_per_child"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "cost_per_child"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -74,5 +127,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "tickets",
       "default": 14000000,
-      "businessContext": "Total number of unique possible outcomes (e.g., 1 in 14 million for 6/49 lottery)"
+      "businessContext": "Total number of unique possible outcomes (e.g., 1 in 14 million for 6/49 lottery)",
+      "label_i18n": {
+        "en": "Total Combinations/Tickets",
+        "tr": "Total Combinations/Tickets",
+        "de": "Total Combinations/Tickets",
+        "fr": "Total Combinations/Tickets",
+        "es": "Total Combinations/Tickets",
+        "ar": "Total Combinations/Tickets"
+      }
     },
     {
       "id": "ticketsPurchased",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "tickets",
       "default": 1,
-      "businessContext": "Number of tickets/lines you buy"
+      "businessContext": "Number of tickets/lines you buy",
+      "label_i18n": {
+        "en": "Tickets Purchased",
+        "tr": "Tickets Purchased",
+        "de": "Tickets Purchased",
+        "fr": "Tickets Purchased",
+        "es": "Tickets Purchased",
+        "ar": "Tickets Purchased"
+      }
     },
     {
       "id": "ticketCost",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 2,
-      "businessContext": "Price per ticket/entry"
+      "businessContext": "Price per ticket/entry",
+      "label_i18n": {
+        "en": "Cost per Ticket",
+        "tr": "Cost per Ticket",
+        "de": "Cost per Ticket",
+        "fr": "Cost per Ticket",
+        "es": "Cost per Ticket",
+        "ar": "Cost per Ticket"
+      }
     },
     {
       "id": "prizeAmount",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency",
       "default": 10000000,
-      "businessContext": "Total prize money for the top prize"
+      "businessContext": "Total prize money for the top prize",
+      "label_i18n": {
+        "en": "Jackpot/Prize Amount",
+        "tr": "Jackpot/Prize Amount",
+        "de": "Jackpot/Prize Amount",
+        "fr": "Jackpot/Prize Amount",
+        "es": "Jackpot/Prize Amount",
+        "ar": "Jackpot/Prize Amount"
+      }
     },
     {
       "id": "numberOfPrizes",
@@ -39,22 +71,34 @@
       "type": "number",
       "unit": "prizes",
       "default": 1,
-      "businessContext": "Number of top prizes available (e.g., 1 jackpot)"
+      "businessContext": "Number of top prizes available (e.g., 1 jackpot)",
+      "label_i18n": {
+        "en": "Number of Top Prizes",
+        "tr": "Number of Top Prizes",
+        "de": "Number of Top Prizes",
+        "fr": "Number of Top Prizes",
+        "es": "Number of Top Prizes",
+        "ar": "Number of Top Prizes"
+      }
     }
   ],
   "formulas": {
     "winProbability": "ticketsPurchased / totalTickets",
     "totalCost": "ticketsPurchased * ticketCost",
-    "expectedReturn": "(prizeAmount * numberOfPrizes * ticketsPurchased) / totalTickets",
-    "netExpected": "expectedReturn - totalCost"
+    "expectedReturn": "(prizeAmount * numberOfPrizes * ticketsPurchased) / totalTickets"
   },
   "outputs": {
-    "primary": "netExpected",
+    "primary": "expectedReturn",
     "breakdown": [
       "winProbability",
       "totalCost",
       "expectedReturn"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "netExpected"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -64,5 +108,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

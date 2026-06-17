@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "units",
       "default": 100,
-      "businessContext": "The initial amount before change. Represents baseline measurement."
+      "businessContext": "The initial amount before change. Represents baseline measurement.",
+      "label_i18n": {
+        "en": "Original Value",
+        "tr": "Original Value",
+        "de": "Original Value",
+        "fr": "Original Value",
+        "es": "Original Value",
+        "ar": "Original Value"
+      }
     },
     {
       "id": "newValue",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "units",
       "default": 120,
-      "businessContext": "The final amount after change. Used to compare with original."
+      "businessContext": "The final amount after change. Used to compare with original.",
+      "label_i18n": {
+        "en": "New Value",
+        "tr": "New Value",
+        "de": "New Value",
+        "fr": "New Value",
+        "es": "New Value",
+        "ar": "New Value"
+      }
     },
     {
       "id": "decimalPlaces",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "places",
       "default": 2,
-      "businessContext": "Precision of the percentage output. Typical industrial reports require 1-2 decimals."
+      "businessContext": "Precision of the percentage output. Typical industrial reports require 1-2 decimals.",
+      "label_i18n": {
+        "en": "Decimal Places",
+        "tr": "Decimal Places",
+        "de": "Decimal Places",
+        "fr": "Decimal Places",
+        "es": "Decimal Places",
+        "ar": "Decimal Places"
+      }
     },
     {
       "id": "thresholdPercent",
@@ -31,22 +55,33 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Optional threshold to flag significant increase. Triggers alert if exceeded."
+      "businessContext": "Optional threshold to flag significant increase. Triggers alert if exceeded.",
+      "label_i18n": {
+        "en": "Increase Threshold (%)",
+        "tr": "Increase Threshold (%)",
+        "de": "Increase Threshold (%)",
+        "fr": "Increase Threshold (%)",
+        "es": "Increase Threshold (%)",
+        "ar": "Increase Threshold (%)"
+      }
     }
   ],
   "formulas": {
     "absoluteIncrease": "newValue - originalValue",
-    "percentIncrease": "((newValue - originalValue) / originalValue) * 100",
-    "roundedPercentIncrease": "Math.round(percentIncrease * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)",
-    "thresholdExceeded": "percentIncrease > thresholdPercent"
+    "percentIncrease": "((newValue - originalValue) / originalValue) * 100"
   },
   "outputs": {
-    "primary": "roundedPercentIncrease",
+    "primary": "percentIncrease",
     "breakdown": [
       "absoluteIncrease",
       "percentIncrease",
       "thresholdExceeded"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roundedPercentIncrease"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -56,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

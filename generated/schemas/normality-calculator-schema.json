@@ -67,17 +67,20 @@
     }
   ],
   "formulas": {
-    "result": "Normality (N)",
-    "Equivalent_Weight__g_eq_": "Equivalent Weight (g/eq)",
-    "Normality__N_": "Normality (N)",
-    "primary_result": "Normality (N)"
+    "result": "weight + molecularWeight + valency",
+    "result_aux": "weight + molecularWeight + valency"
   },
   "outputs": {
-    "primary": "primary_result",
+    "primary": "result",
     "breakdown": [
       "Equivalent Weight (g/eq)",
       "Normality (N)"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -87,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "kimya",
   "profession": "Proses Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

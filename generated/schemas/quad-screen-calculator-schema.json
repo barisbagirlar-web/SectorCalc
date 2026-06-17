@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "inch",
       "default": 24,
-      "businessContext": "Diagonal size of one screen in inches."
+      "businessContext": "Diagonal size of one screen in inches.",
+      "label_i18n": {
+        "en": "Screen Diagonal",
+        "tr": "Screen Diagonal",
+        "de": "Screen Diagonal",
+        "fr": "Screen Diagonal",
+        "es": "Screen Diagonal",
+        "ar": "Screen Diagonal"
+      }
     },
     {
       "id": "aspectWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ratio",
       "default": 16,
-      "businessContext": "Width part of aspect ratio (e.g., 16 for 16:9)."
+      "businessContext": "Width part of aspect ratio (e.g., 16 for 16:9).",
+      "label_i18n": {
+        "en": "Aspect Width",
+        "tr": "Aspect Width",
+        "de": "Aspect Width",
+        "fr": "Aspect Width",
+        "es": "Aspect Width",
+        "ar": "Aspect Width"
+      }
     },
     {
       "id": "aspectHeight",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ratio",
       "default": 9,
-      "businessContext": "Height part of aspect ratio (e.g., 9 for 16:9)."
+      "businessContext": "Height part of aspect ratio (e.g., 9 for 16:9).",
+      "label_i18n": {
+        "en": "Aspect Height",
+        "tr": "Aspect Height",
+        "de": "Aspect Height",
+        "fr": "Aspect Height",
+        "es": "Aspect Height",
+        "ar": "Aspect Height"
+      }
     },
     {
       "id": "numberOfScreens",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "units",
       "default": 4,
-      "businessContext": "Number of screens in the quad setup."
+      "businessContext": "Number of screens in the quad setup.",
+      "label_i18n": {
+        "en": "Number of Screens",
+        "tr": "Number of Screens",
+        "de": "Number of Screens",
+        "fr": "Number of Screens",
+        "es": "Number of Screens",
+        "ar": "Number of Screens"
+      }
     },
     {
       "id": "costPerScreen",
@@ -39,15 +71,20 @@
       "type": "number",
       "unit": "USD",
       "default": 200,
-      "businessContext": "Purchase cost per individual screen."
+      "businessContext": "Purchase cost per individual screen.",
+      "label_i18n": {
+        "en": "Cost per Screen",
+        "tr": "Cost per Screen",
+        "de": "Cost per Screen",
+        "fr": "Cost per Screen",
+        "es": "Cost per Screen",
+        "ar": "Cost per Screen"
+      }
     }
   ],
   "formulas": {
-    "screenWidth": "screenDiagonal * aspectWidth / Math.sqrt(aspectWidth**2 + aspectHeight**2)",
-    "screenHeight": "screenDiagonal * aspectHeight / Math.sqrt(aspectWidth**2 + aspectHeight**2)",
-    "screenArea": "screenWidth * screenHeight",
-    "totalArea": "screenArea * numberOfScreens",
-    "totalCost": "costPerScreen * numberOfScreens"
+    "totalCost": "costPerScreen * numberOfScreens",
+    "totalCost_aux": "costPerScreen * numberOfScreens"
   },
   "outputs": {
     "primary": "totalCost",
@@ -56,7 +93,12 @@
       "screenHeight",
       "screenArea",
       "totalArea"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -66,5 +108,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

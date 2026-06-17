@@ -60,13 +60,18 @@
   ],
   "formulas": {
     "liters": "pintType === 1 ? pints * 0.473176473 : pintType === 2 ? pints * 0.550610471 : pints * 0.56826125",
-    "pints___conversionFactor": "pints * conversionFactor"
+    "liters_aux": "pintType === 1 ? pints * 0.473176473 : pintType === 2 ? pints * 0.550610471 : pints * 0.56826125"
   },
   "outputs": {
     "primary": "liters",
     "breakdown": [
       "pints * conversionFactor"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "pints___conversionFactor"
   },
   "category": "Otomotiv",
   "sector": "Üretim & İmalat",
@@ -76,5 +81,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

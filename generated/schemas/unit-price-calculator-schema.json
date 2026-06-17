@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 1000,
-      "businessContext": "Total cost of goods or services before additional costs and discounts."
+      "businessContext": "Total cost of goods or services before additional costs and discounts.",
+      "label_i18n": {
+        "en": "Total Cost",
+        "tr": "Total Cost",
+        "de": "Total Cost",
+        "fr": "Total Cost",
+        "es": "Total Cost",
+        "ar": "Total Cost"
+      }
     },
     {
       "id": "quantity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 100,
-      "businessContext": "Number of units purchased."
+      "businessContext": "Number of units purchased.",
+      "label_i18n": {
+        "en": "Quantity",
+        "tr": "Quantity",
+        "de": "Quantity",
+        "fr": "Quantity",
+        "es": "Quantity",
+        "ar": "Quantity"
+      }
     },
     {
       "id": "additionalCosts",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Extra costs such as shipping, handling, or setup fees."
+      "businessContext": "Extra costs such as shipping, handling, or setup fees.",
+      "label_i18n": {
+        "en": "Additional Costs",
+        "tr": "Additional Costs",
+        "de": "Additional Costs",
+        "fr": "Additional Costs",
+        "es": "Additional Costs",
+        "ar": "Additional Costs"
+      }
     },
     {
       "id": "discountPercent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Discount percentage applied to the total cost."
+      "businessContext": "Discount percentage applied to the total cost.",
+      "label_i18n": {
+        "en": "Discount (%)",
+        "tr": "Discount (%)",
+        "de": "Discount (%)",
+        "fr": "Discount (%)",
+        "es": "Discount (%)",
+        "ar": "Discount (%)"
+      }
     },
     {
       "id": "taxRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Sales tax or VAT percentage applied after discount."
+      "businessContext": "Sales tax or VAT percentage applied after discount.",
+      "label_i18n": {
+        "en": "Tax Rate (%)",
+        "tr": "Tax Rate (%)",
+        "de": "Tax Rate (%)",
+        "fr": "Tax Rate (%)",
+        "es": "Tax Rate (%)",
+        "ar": "Tax Rate (%)"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "netUnitPrice",
       "discountAmount"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "unitPrice"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -62,5 +107,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

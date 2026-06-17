@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mol",
       "default": 3,
-      "businessContext": "Moles of fatty acid reactant"
+      "businessContext": "Moles of fatty acid reactant",
+      "label_i18n": {
+        "en": "Fatty Acid (mol)",
+        "tr": "Fatty Acid (mol)",
+        "de": "Fatty Acid (mol)",
+        "fr": "Fatty Acid (mol)",
+        "es": "Fatty Acid (mol)",
+        "ar": "Fatty Acid (mol)"
+      }
     },
     {
       "id": "fa_mw",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g/mol",
       "default": 282.47,
-      "businessContext": "Molecular weight of the fatty acid"
+      "businessContext": "Molecular weight of the fatty acid",
+      "label_i18n": {
+        "en": "Fatty Acid MW (g/mol)",
+        "tr": "Fatty Acid MW (g/mol)",
+        "de": "Fatty Acid MW (g/mol)",
+        "fr": "Fatty Acid MW (g/mol)",
+        "es": "Fatty Acid MW (g/mol)",
+        "ar": "Fatty Acid MW (g/mol)"
+      }
     },
     {
       "id": "glycerol_moles",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mol",
       "default": 1,
-      "businessContext": "Moles of glycerol reactant"
+      "businessContext": "Moles of glycerol reactant",
+      "label_i18n": {
+        "en": "Glycerol (mol)",
+        "tr": "Glycerol (mol)",
+        "de": "Glycerol (mol)",
+        "fr": "Glycerol (mol)",
+        "es": "Glycerol (mol)",
+        "ar": "Glycerol (mol)"
+      }
     },
     {
       "id": "glycerol_mw",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "g/mol",
       "default": 92.09,
-      "businessContext": "Molecular weight of glycerol"
+      "businessContext": "Molecular weight of glycerol",
+      "label_i18n": {
+        "en": "Glycerol MW (g/mol)",
+        "tr": "Glycerol MW (g/mol)",
+        "de": "Glycerol MW (g/mol)",
+        "fr": "Glycerol MW (g/mol)",
+        "es": "Glycerol MW (g/mol)",
+        "ar": "Glycerol MW (g/mol)"
+      }
     },
     {
       "id": "yield_percent",
@@ -39,20 +71,32 @@
       "type": "number",
       "unit": "%",
       "default": 95,
-      "businessContext": "Reaction yield percentage"
+      "businessContext": "Reaction yield percentage",
+      "label_i18n": {
+        "en": "Yield (%)",
+        "tr": "Yield (%)",
+        "de": "Yield (%)",
+        "fr": "Yield (%)",
+        "es": "Yield (%)",
+        "ar": "Yield (%)"
+      }
     }
   ],
   "formulas": {
-    "theoretical_mass": "Math.min(fa_moles / 3, glycerol_moles) * (3 * fa_mw + glycerol_mw - 3 * 18.015)",
-    "water_mass": "Math.min(fa_moles / 3, glycerol_moles) * 3 * 18.015",
-    "actual_triglyceride_mass": "theoretical_mass * yield_percent / 100"
+    "result": "fa_moles + fa_mw + glycerol_moles",
+    "result_copy": "fa_moles + fa_mw + glycerol_moles"
   },
   "outputs": {
-    "primary": "actual_triglyceride_mass",
+    "primary": "result",
     "breakdown": [
       "theoretical_mass",
       "water_mass"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "actual_triglyceride_mass"
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Üretim & İmalat",
@@ -62,5 +106,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "kimya",
   "profession": "Proses Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

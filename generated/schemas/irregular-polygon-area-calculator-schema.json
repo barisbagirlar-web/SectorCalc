@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "X-coordinate of vertex 1 in meters"
+      "businessContext": "X-coordinate of vertex 1 in meters",
+      "label_i18n": {
+        "en": "Vertex 1 - X",
+        "tr": "Vertex 1 - X",
+        "de": "Vertex 1 - X",
+        "fr": "Vertex 1 - X",
+        "es": "Vertex 1 - X",
+        "ar": "Vertex 1 - X"
+      }
     },
     {
       "id": "y1",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Y-coordinate of vertex 1 in meters"
+      "businessContext": "Y-coordinate of vertex 1 in meters",
+      "label_i18n": {
+        "en": "Vertex 1 - Y",
+        "tr": "Vertex 1 - Y",
+        "de": "Vertex 1 - Y",
+        "fr": "Vertex 1 - Y",
+        "es": "Vertex 1 - Y",
+        "ar": "Vertex 1 - Y"
+      }
     },
     {
       "id": "x2",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "X-coordinate of vertex 2 in meters"
+      "businessContext": "X-coordinate of vertex 2 in meters",
+      "label_i18n": {
+        "en": "Vertex 2 - X",
+        "tr": "Vertex 2 - X",
+        "de": "Vertex 2 - X",
+        "fr": "Vertex 2 - X",
+        "es": "Vertex 2 - X",
+        "ar": "Vertex 2 - X"
+      }
     },
     {
       "id": "y2",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Y-coordinate of vertex 2 in meters"
+      "businessContext": "Y-coordinate of vertex 2 in meters",
+      "label_i18n": {
+        "en": "Vertex 2 - Y",
+        "tr": "Vertex 2 - Y",
+        "de": "Vertex 2 - Y",
+        "fr": "Vertex 2 - Y",
+        "es": "Vertex 2 - Y",
+        "ar": "Vertex 2 - Y"
+      }
     },
     {
       "id": "x3",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "X-coordinate of vertex 3 in meters"
+      "businessContext": "X-coordinate of vertex 3 in meters",
+      "label_i18n": {
+        "en": "Vertex 3 - X",
+        "tr": "Vertex 3 - X",
+        "de": "Vertex 3 - X",
+        "fr": "Vertex 3 - X",
+        "es": "Vertex 3 - X",
+        "ar": "Vertex 3 - X"
+      }
     },
     {
       "id": "y3",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Y-coordinate of vertex 3 in meters"
+      "businessContext": "Y-coordinate of vertex 3 in meters",
+      "label_i18n": {
+        "en": "Vertex 3 - Y",
+        "tr": "Vertex 3 - Y",
+        "de": "Vertex 3 - Y",
+        "fr": "Vertex 3 - Y",
+        "es": "Vertex 3 - Y",
+        "ar": "Vertex 3 - Y"
+      }
     },
     {
       "id": "x4",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "X-coordinate of vertex 4 in meters"
+      "businessContext": "X-coordinate of vertex 4 in meters",
+      "label_i18n": {
+        "en": "Vertex 4 - X",
+        "tr": "Vertex 4 - X",
+        "de": "Vertex 4 - X",
+        "fr": "Vertex 4 - X",
+        "es": "Vertex 4 - X",
+        "ar": "Vertex 4 - X"
+      }
     },
     {
       "id": "y4",
@@ -63,23 +119,34 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Y-coordinate of vertex 4 in meters"
+      "businessContext": "Y-coordinate of vertex 4 in meters",
+      "label_i18n": {
+        "en": "Vertex 4 - Y",
+        "tr": "Vertex 4 - Y",
+        "de": "Vertex 4 - Y",
+        "fr": "Vertex 4 - Y",
+        "es": "Vertex 4 - Y",
+        "ar": "Vertex 4 - Y"
+      }
     }
   ],
   "formulas": {
     "sum1": "x1*y2 + x2*y3 + x3*y4 + x4*y1",
-    "sum2": "y1*x2 + y2*x3 + y3*x4 + y4*x1",
-    "absDiff": "Math.abs(sum1 - sum2)",
-    "area": "absDiff / 2"
+    "sum2": "y1*x2 + y2*x3 + y3*x4 + y4*x1"
   },
   "outputs": {
-    "primary": "area",
+    "primary": "sum2",
     "breakdown": [
       "sum1",
       "sum2",
       "absDiff",
       "area"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "area"
   },
   "category": "Proje & Yatırım",
   "sector": "Finans & İK",
@@ -89,5 +156,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

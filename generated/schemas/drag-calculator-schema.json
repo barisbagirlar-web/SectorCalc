@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 1.225,
-      "businessContext": "Density of the fluid medium (e.g., air at sea level: 1.225 kg/m³)"
+      "businessContext": "Density of the fluid medium (e.g., air at sea level: 1.225 kg/m³)",
+      "label_i18n": {
+        "en": "Fluid Density",
+        "tr": "Fluid Density",
+        "de": "Fluid Density",
+        "fr": "Fluid Density",
+        "es": "Fluid Density",
+        "ar": "Fluid Density"
+      }
     },
     {
       "id": "flow_velocity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m/s",
       "default": 10,
-      "businessContext": "Relative velocity between object and fluid"
+      "businessContext": "Relative velocity between object and fluid",
+      "label_i18n": {
+        "en": "Flow Velocity",
+        "tr": "Flow Velocity",
+        "de": "Flow Velocity",
+        "fr": "Flow Velocity",
+        "es": "Flow Velocity",
+        "ar": "Flow Velocity"
+      }
     },
     {
       "id": "drag_coefficient",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "-",
       "default": 0.47,
-      "businessContext": "Dimensionless drag coefficient (e.g., sphere: 0.47)"
+      "businessContext": "Dimensionless drag coefficient (e.g., sphere: 0.47)",
+      "label_i18n": {
+        "en": "Drag Coefficient",
+        "tr": "Drag Coefficient",
+        "de": "Drag Coefficient",
+        "fr": "Drag Coefficient",
+        "es": "Drag Coefficient",
+        "ar": "Drag Coefficient"
+      }
     },
     {
       "id": "reference_area",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m²",
       "default": 0.1,
-      "businessContext": "Cross-sectional area of the object perpendicular to flow"
+      "businessContext": "Cross-sectional area of the object perpendicular to flow",
+      "label_i18n": {
+        "en": "Reference Area",
+        "tr": "Reference Area",
+        "de": "Reference Area",
+        "fr": "Reference Area",
+        "es": "Reference Area",
+        "ar": "Reference Area"
+      }
     }
   ],
   "formulas": {
@@ -42,7 +74,12 @@
     "primary": "drag_force",
     "breakdown": [
       "dynamic_pressure"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "dynamic_pressure"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -52,5 +89,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "engineering"
+  "categoryId": "engineering",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

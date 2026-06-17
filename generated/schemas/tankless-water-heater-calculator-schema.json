@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "L/min",
       "default": 6,
-      "businessContext": "Volumetric flow rate of water through the heater"
+      "businessContext": "Volumetric flow rate of water through the heater",
+      "label_i18n": {
+        "en": "Flow Rate",
+        "tr": "Flow Rate",
+        "de": "Flow Rate",
+        "fr": "Flow Rate",
+        "es": "Flow Rate",
+        "ar": "Flow Rate"
+      }
     },
     {
       "id": "inletTemp",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°C",
       "default": 10,
-      "businessContext": "Temperature of incoming cold water"
+      "businessContext": "Temperature of incoming cold water",
+      "label_i18n": {
+        "en": "Inlet Temperature",
+        "tr": "Inlet Temperature",
+        "de": "Inlet Temperature",
+        "fr": "Inlet Temperature",
+        "es": "Inlet Temperature",
+        "ar": "Inlet Temperature"
+      }
     },
     {
       "id": "outletTemp",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 40,
-      "businessContext": "Desired temperature of hot water output"
+      "businessContext": "Desired temperature of hot water output",
+      "label_i18n": {
+        "en": "Outlet Temperature",
+        "tr": "Outlet Temperature",
+        "de": "Outlet Temperature",
+        "fr": "Outlet Temperature",
+        "es": "Outlet Temperature",
+        "ar": "Outlet Temperature"
+      }
     },
     {
       "id": "efficiency",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 98,
-      "businessContext": "Heater thermal efficiency (0-100%)"
+      "businessContext": "Heater thermal efficiency (0-100%)",
+      "label_i18n": {
+        "en": "Efficiency",
+        "tr": "Efficiency",
+        "de": "Efficiency",
+        "fr": "Efficiency",
+        "es": "Efficiency",
+        "ar": "Efficiency"
+      }
     },
     {
       "id": "energyCost",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "per kWh",
       "default": 0.15,
-      "businessContext": "Cost of energy (electricity or gas) per kilowatt-hour"
+      "businessContext": "Cost of energy (electricity or gas) per kilowatt-hour",
+      "label_i18n": {
+        "en": "Energy Cost",
+        "tr": "Energy Cost",
+        "de": "Energy Cost",
+        "fr": "Energy Cost",
+        "es": "Energy Cost",
+        "ar": "Energy Cost"
+      }
     },
     {
       "id": "usageTime",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "hours",
       "default": 2,
-      "businessContext": "Average daily duration of water heater operation"
+      "businessContext": "Average daily duration of water heater operation",
+      "label_i18n": {
+        "en": "Daily Usage",
+        "tr": "Daily Usage",
+        "de": "Daily Usage",
+        "fr": "Daily Usage",
+        "es": "Daily Usage",
+        "ar": "Daily Usage"
+      }
     },
     {
       "id": "daysPerMonth",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "days",
       "default": 30,
-      "businessContext": "Number of days per month for cost estimation"
+      "businessContext": "Number of days per month for cost estimation",
+      "label_i18n": {
+        "en": "Days per Month",
+        "tr": "Days per Month",
+        "de": "Days per Month",
+        "fr": "Days per Month",
+        "es": "Days per Month",
+        "ar": "Days per Month"
+      }
     },
     {
       "id": "specificHeat",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "kJ/(kg·°C)",
       "default": 4.186,
-      "businessContext": "Specific heat capacity of water (4.186 kJ/(kg·°C) for water)"
+      "businessContext": "Specific heat capacity of water (4.186 kJ/(kg·°C) for water)",
+      "label_i18n": {
+        "en": "Specific Heat",
+        "tr": "Specific Heat",
+        "de": "Specific Heat",
+        "fr": "Specific Heat",
+        "es": "Specific Heat",
+        "ar": "Specific Heat"
+      }
     }
   ],
   "formulas": {
@@ -80,7 +144,12 @@
       "dailyCost",
       "monthlyCost",
       "annualCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "annualCost"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -90,5 +159,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

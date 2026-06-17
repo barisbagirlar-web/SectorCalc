@@ -1,0 +1,161 @@
+import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calculator-schema";
+
+export const THREE_B_PRINTING_VS_MACHINING_BREAKEVEN_SCHEMA: PremiumCalculatorSchema = {
+  id: "3b-baski-vs-talasli-imalat-basabas-noktasi-calculator",
+  legacyPaidSlug: "3b-baski-vs-talasli-imalat-basabas-noktasi-calculator",
+  name: "3D Printing vs Machining Break-Even Calculator",
+  sectorSlug: "cnc-additive-manufacturing",
+  category: "cost",
+  painStatement:
+    "Teams pick additive or machining without knowing the quantity where each method is cheaper.",
+
+  inputs: [
+    {
+      id: "printingSetupCost",
+      label: "3D printing setup cost",
+      type: "number",
+      unit: "currency",
+      required: true,
+      smartDefault: 100,
+      validation: { min: 0 },
+      helper: "One-time setup, programming, and preparation for additive.",
+      expertMeaning: "Fixed intercept for printing total cost curve.",
+    },
+    {
+      id: "printingUnitCost",
+      label: "3D printing unit cost",
+      type: "number",
+      unit: "currency/part",
+      required: true,
+      smartDefault: 5,
+      validation: { min: 0 },
+      helper: "Variable cost per printed part including material and machine time.",
+      expertMeaning: "Slope for printing total cost curve.",
+    },
+    {
+      id: "machiningSetupCost",
+      label: "Machining setup cost",
+      type: "number",
+      unit: "currency",
+      required: true,
+      smartDefault: 500,
+      validation: { min: 0 },
+      helper: "Fixture, programming, and first-article setup for machining.",
+      expertMeaning: "Fixed intercept for machining total cost curve.",
+    },
+    {
+      id: "machiningUnitCost",
+      label: "Machining unit cost",
+      type: "number",
+      unit: "currency/part",
+      required: true,
+      smartDefault: 2,
+      validation: { min: 0 },
+      helper: "Variable machining cost per good part.",
+      expertMeaning: "Slope for machining total cost curve.",
+    },
+    {
+      id: "analysisQuantity",
+      label: "Analysis quantity",
+      type: "number",
+      unit: "parts",
+      required: true,
+      smartDefault: 100,
+      validation: { min: 1 },
+      helper: "Quantity used to compare total costs at a specific demand level.",
+      expertMeaning: "Not the break-even quantity — used for scenario totals only.",
+    },
+  ],
+
+  formulaPipeline: [
+    {
+      formulaId: "cost.method_crossover_quantity",
+      inputMap: {
+        fixedA: "printingSetupCost",
+        fixedB: "machiningSetupCost",
+        unitA: "printingUnitCost",
+        unitB: "machiningUnitCost",
+      },
+      outputId: "breakEvenQuantity",
+    },
+    {
+      formulaId: "cost.fixed_plus_variable_total",
+      inputMap: {
+        fixedCost: "printingSetupCost",
+        unitCost: "printingUnitCost",
+        quantity: "analysisQuantity",
+      },
+      outputId: "printingTotalCost",
+    },
+    {
+      formulaId: "cost.fixed_plus_variable_total",
+      inputMap: {
+        fixedCost: "machiningSetupCost",
+        unitCost: "machiningUnitCost",
+        quantity: "analysisQuantity",
+      },
+      outputId: "machiningTotalCost",
+    },
+    {
+      formulaId: "cost.difference",
+      inputMap: { a: "printingTotalCost", b: "machiningTotalCost" },
+      outputId: "totalCostDelta",
+    },
+  ],
+
+  outputs: [
+    {
+      id: "breakEvenQuantity",
+      label: "Break-even quantity",
+      unit: "parts",
+      format: "number",
+      isBigNumber: true,
+    },
+    {
+      id: "printingTotalCost",
+      label: "Printing total cost",
+      unit: "currency",
+      format: "currency",
+    },
+    {
+      id: "machiningTotalCost",
+      label: "Machining total cost",
+      unit: "currency",
+      format: "currency",
+    },
+    {
+      id: "totalCostDelta",
+      label: "Printing minus machining total",
+      unit: "currency",
+      format: "currency",
+    },
+  ],
+
+  thresholds: [
+    {
+      fieldId: "breakEvenQuantity",
+      warning: 250,
+      critical: 1000,
+      direction: "higher_is_bad",
+      warningMessage: "Break-even quantity is high — machining stays cheaper for typical batch sizes.",
+      criticalMessage: "Break-even is very high — additive is unlikely to win except at very low volume.",
+    },
+  ],
+
+  reportTemplate: {
+    title: "Additive vs Machining Break-Even Report",
+    sections: ["executive_summary", "thresholds", "sensitivity", "assumptions"],
+    exportFormats: ["pdf", "csv"],
+  },
+
+  assumptions: {
+    hiddenLossMultiplier: 1,
+    volatilityPercent: 8,
+    targetMarginPercent: 0,
+    assumptionNotes: [
+      "Linear unit-cost model — excludes tooling amortization beyond entered setup.",
+      "Break-even uses printing setup/unit vs machining setup/unit crossover.",
+      "Verify material yield, scrap, and post-process costs before production decisions.",
+    ],
+  },
+};

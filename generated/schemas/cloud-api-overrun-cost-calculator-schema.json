@@ -138,92 +138,6 @@
       "businessContext_i18n": {
         "en": "Cost per GB of data egress (varies by provider and region)."
       }
-    },
-    {
-      "id": "sla_penalty_percentage",
-      "label": "SLA Penalty Percentage",
-      "type": "number",
-      "unit": "%",
-      "default": 10,
-      "min": 0,
-      "max": 100,
-      "businessContext": "Percentage of monthly service fee credited as penalty if SLA is breached.",
-      "label_i18n": {
-        "en": "SLA Penalty Percentage"
-      },
-      "businessContext_i18n": {
-        "en": "Percentage of monthly service fee credited as penalty if SLA is breached."
-      }
-    },
-    {
-      "id": "monthly_service_fee",
-      "label": "Monthly Service Fee",
-      "type": "number",
-      "unit": "USD",
-      "default": 5000,
-      "min": 100,
-      "max": 1000000,
-      "businessContext": "Base monthly fee paid to the cloud provider.",
-      "label_i18n": {
-        "en": "Monthly Service Fee"
-      },
-      "businessContext_i18n": {
-        "en": "Base monthly fee paid to the cloud provider."
-      }
-    },
-    {
-      "id": "overrun_threshold_ms",
-      "label": "Overrun Threshold (SLA)",
-      "type": "number",
-      "unit": "ms",
-      "default": 200,
-      "min": 10,
-      "max": 5000,
-      "businessContext": "Maximum acceptable response time per the SLA.",
-      "label_i18n": {
-        "en": "Overrun Threshold (SLA)"
-      },
-      "businessContext_i18n": {
-        "en": "Maximum acceptable response time per the SLA."
-      }
-    },
-    {
-      "id": "region",
-      "label": "Cloud Region",
-      "type": "select",
-      "unit": "unit",
-      "default": "us-east-1",
-      "min": null,
-      "max": null,
-      "options": [
-        "us-east-1",
-        "us-west-2",
-        "eu-west-1",
-        "ap-southeast-1"
-      ],
-      "businessContext": "Geographic region of the cloud service, affects egress costs and latency.",
-      "label_i18n": {
-        "en": "Cloud Region"
-      },
-      "businessContext_i18n": {
-        "en": "Geographic region of the cloud service, affects egress costs and latency."
-      }
-    },
-    {
-      "id": "include_hidden_costs",
-      "label": "Include Hidden Costs (e.g., opportunity loss)",
-      "type": "boolean",
-      "unit": "unit",
-      "default": true,
-      "min": null,
-      "max": null,
-      "businessContext": "If true, adds estimated hidden costs like customer churn and brand impact.",
-      "label_i18n": {
-        "en": "Include Hidden Costs (e.g., opportunity loss)"
-      },
-      "businessContext_i18n": {
-        "en": "If true, adds estimated hidden costs like customer churn and brand impact."
-      }
     }
   ],
   "validation": {
@@ -282,18 +196,18 @@
       }
     ]
   },
-  "formulas": [
-    "api_call_volume",
-    "api_call_volume",
-    "api_call_volume",
-    "api_call_volume",
-    "api_call_volume",
-    "api_call_volume",
-    "api_call_volume"
-  ],
+  "formulas": {
+    "result": "api_call_volume + overrun_rate + avg_overrun_duration",
+    "result_copy": "api_call_volume + overrun_rate + avg_overrun_duration"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "cloud-api-overrun-cost-calculator",
   "catalogCategory": "everyday-life",

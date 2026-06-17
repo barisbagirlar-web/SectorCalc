@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 5000,
-      "businessContext": "Employee's gross monthly income before deductions"
+      "businessContext": "Employee's gross monthly income before deductions",
+      "label_i18n": {
+        "en": "Gross Monthly Salary",
+        "tr": "Gross Monthly Salary",
+        "de": "Gross Monthly Salary",
+        "fr": "Gross Monthly Salary",
+        "es": "Gross Monthly Salary",
+        "ar": "Gross Monthly Salary"
+      }
     },
     {
       "id": "taxAllowance",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 1000,
-      "businessContext": "Monthly tax-free allowance"
+      "businessContext": "Monthly tax-free allowance",
+      "label_i18n": {
+        "en": "Tax Allowance",
+        "tr": "Tax Allowance",
+        "de": "Tax Allowance",
+        "fr": "Tax Allowance",
+        "es": "Tax Allowance",
+        "ar": "Tax Allowance"
+      }
     },
     {
       "id": "socialSecurityRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "percent",
       "default": 5,
-      "businessContext": "Employee social security contribution rate"
+      "businessContext": "Employee social security contribution rate",
+      "label_i18n": {
+        "en": "Social Security Rate",
+        "tr": "Social Security Rate",
+        "de": "Social Security Rate",
+        "fr": "Social Security Rate",
+        "es": "Social Security Rate",
+        "ar": "Social Security Rate"
+      }
     },
     {
       "id": "incomeTaxRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "percent",
       "default": 20,
-      "businessContext": "Marginal income tax rate"
+      "businessContext": "Marginal income tax rate",
+      "label_i18n": {
+        "en": "Income Tax Rate",
+        "tr": "Income Tax Rate",
+        "de": "Income Tax Rate",
+        "fr": "Income Tax Rate",
+        "es": "Income Tax Rate",
+        "ar": "Income Tax Rate"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "incomeTax",
       "socialSecurity"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "socialSecurity"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -54,5 +91,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "hr"
+  "categoryId": "hr",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

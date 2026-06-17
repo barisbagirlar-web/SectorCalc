@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "N",
       "default": 1000,
-      "businessContext": "Çekme testinde uygulanan kuvvet"
+      "businessContext": "Çekme testinde uygulanan kuvvet",
+      "label_i18n": {
+        "en": "Uygulanan Kuvvet",
+        "tr": "Uygulanan Kuvvet",
+        "de": "Uygulanan Kuvvet",
+        "fr": "Uygulanan Kuvvet",
+        "es": "Uygulanan Kuvvet",
+        "ar": "Uygulanan Kuvvet"
+      }
     },
     {
       "id": "originalLength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Malzemenin başlangıçtaki boyu"
+      "businessContext": "Malzemenin başlangıçtaki boyu",
+      "label_i18n": {
+        "en": "Orijinal Uzunluk",
+        "tr": "Orijinal Uzunluk",
+        "de": "Orijinal Uzunluk",
+        "fr": "Orijinal Uzunluk",
+        "es": "Orijinal Uzunluk",
+        "ar": "Orijinal Uzunluk"
+      }
     },
     {
       "id": "diameter",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "Silindirik numunenin çapı (dairesel kesit için)"
+      "businessContext": "Silindirik numunenin çapı (dairesel kesit için)",
+      "label_i18n": {
+        "en": "Çap",
+        "tr": "Çap",
+        "de": "Çap",
+        "fr": "Çap",
+        "es": "Çap",
+        "ar": "Çap"
+      }
     },
     {
       "id": "elongation",
@@ -31,21 +55,32 @@
       "type": "number",
       "unit": "mm",
       "default": 0.1,
-      "businessContext": "Kuvvet altında meydana gelen uzama"
+      "businessContext": "Kuvvet altında meydana gelen uzama",
+      "label_i18n": {
+        "en": "Uzama Miktarı",
+        "tr": "Uzama Miktarı",
+        "de": "Uzama Miktarı",
+        "fr": "Uzama Miktarı",
+        "es": "Uzama Miktarı",
+        "ar": "Uzama Miktarı"
+      }
     }
   ],
   "formulas": {
-    "area": "Math.PI * Math.pow(diameter/2, 2)",
-    "stress": "force / area",
     "strain": "elongation / originalLength",
-    "youngsModulus": "stress / strain"
+    "strain_aux": "elongation / originalLength"
   },
   "outputs": {
-    "primary": "youngsModulus",
+    "primary": "strain_aux",
     "breakdown": [
       "stress",
       "strain"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "youngsModulus"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -55,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

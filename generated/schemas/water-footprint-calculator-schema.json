@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m³/year",
       "default": 100,
-      "businessContext": "Annual direct water consumption from taps, irrigation, etc."
+      "businessContext": "Annual direct water consumption from taps, irrigation, etc.",
+      "label_i18n": {
+        "en": "Direct Water Use",
+        "tr": "Direct Water Use",
+        "de": "Direct Water Use",
+        "fr": "Direct Water Use",
+        "es": "Direct Water Use",
+        "ar": "Direct Water Use"
+      }
     },
     {
       "id": "foodConsumption",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "kg/year",
       "default": 500,
-      "businessContext": "Annual food consumption, average water footprint per kg is 2.5 m³/kg (global average)"
+      "businessContext": "Annual food consumption, average water footprint per kg is 2.5 m³/kg (global average)",
+      "label_i18n": {
+        "en": "Food Consumption",
+        "tr": "Food Consumption",
+        "de": "Food Consumption",
+        "fr": "Food Consumption",
+        "es": "Food Consumption",
+        "ar": "Food Consumption"
+      }
     },
     {
       "id": "electricityConsumption",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kWh/year",
       "default": 3000,
-      "businessContext": "Annual electricity use, water footprint approx 0.01 m³/kWh (cooling, hydropower)"
+      "businessContext": "Annual electricity use, water footprint approx 0.01 m³/kWh (cooling, hydropower)",
+      "label_i18n": {
+        "en": "Electricity Consumption",
+        "tr": "Electricity Consumption",
+        "de": "Electricity Consumption",
+        "fr": "Electricity Consumption",
+        "es": "Electricity Consumption",
+        "ar": "Electricity Consumption"
+      }
     },
     {
       "id": "fuelConsumption",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "L/year",
       "default": 1000,
-      "businessContext": "Annual fuel use (petrol/diesel), water footprint approx 0.02 m³/L (extraction, refining)"
+      "businessContext": "Annual fuel use (petrol/diesel), water footprint approx 0.02 m³/L (extraction, refining)",
+      "label_i18n": {
+        "en": "Fuel Consumption",
+        "tr": "Fuel Consumption",
+        "de": "Fuel Consumption",
+        "fr": "Fuel Consumption",
+        "es": "Fuel Consumption",
+        "ar": "Fuel Consumption"
+      }
     },
     {
       "id": "wastewater",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m³/year",
       "default": 50,
-      "businessContext": "Annual wastewater volume requiring treatment, equivalent grey water footprint"
+      "businessContext": "Annual wastewater volume requiring treatment, equivalent grey water footprint",
+      "label_i18n": {
+        "en": "Wastewater Discharge",
+        "tr": "Wastewater Discharge",
+        "de": "Wastewater Discharge",
+        "fr": "Wastewater Discharge",
+        "es": "Wastewater Discharge",
+        "ar": "Wastewater Discharge"
+      }
     }
   ],
   "formulas": {
@@ -58,7 +98,12 @@
       "electricityFootprint",
       "fuelFootprint",
       "wastewaterFootprint"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalWaterFootprint"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -68,5 +113,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

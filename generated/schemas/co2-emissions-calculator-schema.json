@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kWh",
       "default": 0,
-      "businessContext": "Total electricity used"
+      "businessContext": "Total electricity used",
+      "label_i18n": {
+        "en": "Electricity Consumption",
+        "tr": "Electricity Consumption",
+        "de": "Electricity Consumption",
+        "fr": "Electricity Consumption",
+        "es": "Electricity Consumption",
+        "ar": "Electricity Consumption"
+      }
     },
     {
       "id": "naturalGas",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m³",
       "default": 0,
-      "businessContext": "Total natural gas used"
+      "businessContext": "Total natural gas used",
+      "label_i18n": {
+        "en": "Natural Gas Consumption",
+        "tr": "Natural Gas Consumption",
+        "de": "Natural Gas Consumption",
+        "fr": "Natural Gas Consumption",
+        "es": "Natural Gas Consumption",
+        "ar": "Natural Gas Consumption"
+      }
     },
     {
       "id": "diesel",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "L",
       "default": 0,
-      "businessContext": "Total diesel fuel used"
+      "businessContext": "Total diesel fuel used",
+      "label_i18n": {
+        "en": "Diesel Consumption",
+        "tr": "Diesel Consumption",
+        "de": "Diesel Consumption",
+        "fr": "Diesel Consumption",
+        "es": "Diesel Consumption",
+        "ar": "Diesel Consumption"
+      }
     },
     {
       "id": "gasoline",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "L",
       "default": 0,
-      "businessContext": "Total gasoline used"
+      "businessContext": "Total gasoline used",
+      "label_i18n": {
+        "en": "Gasoline Consumption",
+        "tr": "Gasoline Consumption",
+        "de": "Gasoline Consumption",
+        "fr": "Gasoline Consumption",
+        "es": "Gasoline Consumption",
+        "ar": "Gasoline Consumption"
+      }
     },
     {
       "id": "lpg",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "L",
       "default": 0,
-      "businessContext": "Total LPG used"
+      "businessContext": "Total LPG used",
+      "label_i18n": {
+        "en": "LPG Consumption",
+        "tr": "LPG Consumption",
+        "de": "LPG Consumption",
+        "fr": "LPG Consumption",
+        "es": "LPG Consumption",
+        "ar": "LPG Consumption"
+      }
     }
   ],
   "formulas": {
@@ -58,7 +98,12 @@
       "dieselEmissions",
       "gasolineEmissions",
       "lpgEmissions"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalEmissions"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -68,5 +113,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Odanın uzunluğu (metre)"
+      "businessContext": "Odanın uzunluğu (metre)",
+      "label_i18n": {
+        "en": "Oda Uzunluğu",
+        "tr": "Oda Uzunluğu",
+        "de": "Oda Uzunluğu",
+        "fr": "Oda Uzunluğu",
+        "es": "Oda Uzunluğu",
+        "ar": "Oda Uzunluğu"
+      }
     },
     {
       "id": "roomWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 4,
-      "businessContext": "Odanın genişliği (metre)"
+      "businessContext": "Odanın genişliği (metre)",
+      "label_i18n": {
+        "en": "Oda Genişliği",
+        "tr": "Oda Genişliği",
+        "de": "Oda Genişliği",
+        "fr": "Oda Genişliği",
+        "es": "Oda Genişliği",
+        "ar": "Oda Genişliği"
+      }
     },
     {
       "id": "tileLength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 30,
-      "businessContext": "Fayansın uzun kenarı (santimetre)"
+      "businessContext": "Fayansın uzun kenarı (santimetre)",
+      "label_i18n": {
+        "en": "Fayans Uzunluğu",
+        "tr": "Fayans Uzunluğu",
+        "de": "Fayans Uzunluğu",
+        "fr": "Fayans Uzunluğu",
+        "es": "Fayans Uzunluğu",
+        "ar": "Fayans Uzunluğu"
+      }
     },
     {
       "id": "tileWidth",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cm",
       "default": 20,
-      "businessContext": "Fayansın kısa kenarı (santimetre)"
+      "businessContext": "Fayansın kısa kenarı (santimetre)",
+      "label_i18n": {
+        "en": "Fayans Genişliği",
+        "tr": "Fayans Genişliği",
+        "de": "Fayans Genişliği",
+        "fr": "Fayans Genişliği",
+        "es": "Fayans Genişliği",
+        "ar": "Fayans Genişliği"
+      }
     },
     {
       "id": "groutWidth",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mm",
       "default": 3,
-      "businessContext": "Derz kalınlığı (milimetre)"
+      "businessContext": "Derz kalınlığı (milimetre)",
+      "label_i18n": {
+        "en": "Derz Aralığı",
+        "tr": "Derz Aralığı",
+        "de": "Derz Aralığı",
+        "fr": "Derz Aralığı",
+        "es": "Derz Aralığı",
+        "ar": "Derz Aralığı"
+      }
     },
     {
       "id": "wastePercent",
@@ -47,24 +87,34 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Kırılma/kesim kaybı yüzdesi"
+      "businessContext": "Kırılma/kesim kaybı yüzdesi",
+      "label_i18n": {
+        "en": "Fire Oranı",
+        "tr": "Fire Oranı",
+        "de": "Fire Oranı",
+        "fr": "Fire Oranı",
+        "es": "Fire Oranı",
+        "ar": "Fire Oranı"
+      }
     }
   ],
   "formulas": {
-    "horizontalTiles": "Math.ceil(roomLength * 1000 / (tileLength * 10 + groutWidth))",
-    "verticalTiles": "Math.ceil(roomWidth * 1000 / (tileWidth * 10 + groutWidth))",
-    "tilesWithoutWaste": "Math.ceil(roomLength * 1000 / (tileLength * 10 + groutWidth)) * Math.ceil(roomWidth * 1000 / (tileWidth * 10 + groutWidth))",
-    "tilesWithWaste": "Math.ceil((Math.ceil(roomLength * 1000 / (tileLength * 10 + groutWidth)) * Math.ceil(roomWidth * 1000 / (tileWidth * 10 + groutWidth))) * (1 + wastePercent / 100))",
-    "wasteTiles": "Math.ceil((Math.ceil(roomLength * 1000 / (tileLength * 10 + groutWidth)) * Math.ceil(roomWidth * 1000 / (tileWidth * 10 + groutWidth))) * (1 + wastePercent / 100)) - (Math.ceil(roomLength * 1000 / (tileLength * 10 + groutWidth)) * Math.ceil(roomWidth * 1000 / (tileWidth * 10 + groutWidth)))"
+    "result": "roomLength + roomWidth + tileLength",
+    "result_copy": "roomLength + roomWidth + tileLength"
   },
   "outputs": {
-    "primary": "tilesWithWaste",
+    "primary": "result",
     "breakdown": [
       "horizontalTiles",
       "verticalTiles",
       "tilesWithoutWaste",
       "wasteTiles"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "wasteTiles"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -74,5 +124,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

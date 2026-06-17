@@ -87,22 +87,21 @@
     "tempFactor": "1 - (cookingTemp - 180) * 0.002",
     "thawFactor": "thawed === 1 ? 1 : 1.5",
     "altFactor": "1 + altitude * 0.0001",
-    "totalMinutes": "baseTime * tempFactor * thawFactor * altFactor",
-    "primary": "Math.round(totalMinutes)",
-    "weight___40___stuffing___20_minutes": "weight * 40 + stuffing * 20 minutes",
-    "_0_2__per__C_from_180_C": "±0.2% per °C from 180°C",
-    "1_5x_if_frozen": "1.5x if frozen",
-    "_0_01__per_meter": "+0.01% per meter",
-    "result": "Total Cooking Time (minutes)"
+    "totalMinutes": "baseTime * tempFactor * thawFactor * altFactor"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "totalMinutes",
     "breakdown": [
       "Base time: weight * 40 + stuffing * 20 minutes",
       "Temperature adjustment: ±0.2% per °C from 180°C",
       "Thaw factor: 1.5x if frozen",
       "Altitude adjustment: +0.01% per meter"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "primary"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -112,5 +111,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

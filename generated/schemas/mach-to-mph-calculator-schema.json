@@ -68,15 +68,19 @@
   ],
   "formulas": {
     "temperatureEffective": "temperature + useISA * ((15 - 0.00198 * altitude) - temperature)",
-    "speedOfSoundMph": "761.2 * Math.sqrt((temperatureEffective + 273.15) / 288.15)",
-    "milesPerHour": "mach * speedOfSoundMph"
+    "temperatureEffective_aux": "temperature + useISA * ((15 - 0.00198 * altitude) - temperature)"
   },
   "outputs": {
-    "primary": "milesPerHour",
+    "primary": "temperatureEffective_aux",
     "breakdown": [
       "speedOfSoundMph",
       "temperatureEffective"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "milesPerHour"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -86,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

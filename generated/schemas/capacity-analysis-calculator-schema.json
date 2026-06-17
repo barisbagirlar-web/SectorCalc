@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "makine",
       "default": 10,
-      "businessContext": "Üretim hattındaki toplam makine sayısı"
+      "businessContext": "Üretim hattındaki toplam makine sayısı",
+      "label_i18n": {
+        "en": "Makine Sayısı",
+        "tr": "Makine Sayısı",
+        "de": "Makine Sayısı",
+        "fr": "Makine Sayısı",
+        "es": "Makine Sayısı",
+        "ar": "Makine Sayısı"
+      }
     },
     {
       "id": "hoursPerDay",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "saat/gün",
       "default": 8,
-      "businessContext": "Vardiya başına günlük çalışma süresi"
+      "businessContext": "Vardiya başına günlük çalışma süresi",
+      "label_i18n": {
+        "en": "Günlük Çalışma Saati",
+        "tr": "Günlük Çalışma Saati",
+        "de": "Günlük Çalışma Saati",
+        "fr": "Günlük Çalışma Saati",
+        "es": "Günlük Çalışma Saati",
+        "ar": "Günlük Çalışma Saati"
+      }
     },
     {
       "id": "daysPerMonth",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "gün",
       "default": 22,
-      "businessContext": "Bir ayda üretimin yapıldığı iş günü sayısı"
+      "businessContext": "Bir ayda üretimin yapıldığı iş günü sayısı",
+      "label_i18n": {
+        "en": "Aylık Çalışma Günü",
+        "tr": "Aylık Çalışma Günü",
+        "de": "Aylık Çalışma Günü",
+        "fr": "Aylık Çalışma Günü",
+        "es": "Aylık Çalışma Günü",
+        "ar": "Aylık Çalışma Günü"
+      }
     },
     {
       "id": "efficiency",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 85,
-      "businessContext": "Planlı duruşlar, ayar ve arızalar sonrası net verimlilik oranı"
+      "businessContext": "Planlı duruşlar, ayar ve arızalar sonrası net verimlilik oranı",
+      "label_i18n": {
+        "en": "Verimlilik",
+        "tr": "Verimlilik",
+        "de": "Verimlilik",
+        "fr": "Verimlilik",
+        "es": "Verimlilik",
+        "ar": "Verimlilik"
+      }
     },
     {
       "id": "productDemand",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "adet/ay",
       "default": 10000,
-      "businessContext": "Müşteri siparişlerine göre aylık üretilmesi gereken ürün adedi"
+      "businessContext": "Müşteri siparişlerine göre aylık üretilmesi gereken ürün adedi",
+      "label_i18n": {
+        "en": "Aylık Talep",
+        "tr": "Aylık Talep",
+        "de": "Aylık Talep",
+        "fr": "Aylık Talep",
+        "es": "Aylık Talep",
+        "ar": "Aylık Talep"
+      }
     },
     {
       "id": "cycleTime",
@@ -47,14 +87,21 @@
       "type": "number",
       "unit": "dakika/adet",
       "default": 1.5,
-      "businessContext": "Bir ürünün makineden geçiş süresi (cycle time)"
+      "businessContext": "Bir ürünün makineden geçiş süresi (cycle time)",
+      "label_i18n": {
+        "en": "Birim İşlem Süresi",
+        "tr": "Birim İşlem Süresi",
+        "de": "Birim İşlem Süresi",
+        "fr": "Birim İşlem Süresi",
+        "es": "Birim İşlem Süresi",
+        "ar": "Birim İşlem Süresi"
+      }
     }
   ],
   "formulas": {
     "availableCapacity": "numMachines * hoursPerDay * 60 * daysPerMonth * (efficiency / 100) / cycleTime",
     "requiredCapacity": "productDemand",
-    "capacityUtilization": "productDemand / (numMachines * hoursPerDay * 60 * daysPerMonth * (efficiency / 100) / cycleTime) * 100",
-    "requiredMachines": "Math.ceil(productDemand * cycleTime / (hoursPerDay * 60 * daysPerMonth * (efficiency / 100)))"
+    "capacityUtilization": "productDemand / (numMachines * hoursPerDay * 60 * daysPerMonth * (efficiency / 100) / cycleTime) * 100"
   },
   "outputs": {
     "primary": "capacityUtilization",
@@ -62,7 +109,12 @@
       "availableCapacity",
       "requiredCapacity",
       "requiredMachines"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "requiredMachines"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -72,5 +124,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "efficiency"
+  "categoryId": "efficiency",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

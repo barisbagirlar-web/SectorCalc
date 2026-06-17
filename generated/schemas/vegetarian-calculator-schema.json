@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g/day",
       "default": 200,
-      "businessContext": "Average amount of meat consumed per day in grams."
+      "businessContext": "Average amount of meat consumed per day in grams.",
+      "label_i18n": {
+        "en": "Daily meat consumption",
+        "tr": "Daily meat consumption",
+        "de": "Daily meat consumption",
+        "fr": "Daily meat consumption",
+        "es": "Daily meat consumption",
+        "ar": "Daily meat consumption"
+      }
     },
     {
       "id": "vegetarianDaysPerWeek",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "days",
       "default": 3,
-      "businessContext": "Number of days per week on a vegetarian diet."
+      "businessContext": "Number of days per week on a vegetarian diet.",
+      "label_i18n": {
+        "en": "Vegetarian days per week",
+        "tr": "Vegetarian days per week",
+        "de": "Vegetarian days per week",
+        "fr": "Vegetarian days per week",
+        "es": "Vegetarian days per week",
+        "ar": "Vegetarian days per week"
+      }
     },
     {
       "id": "beefRatio",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ratio",
       "default": 0.3,
-      "businessContext": "Proportion of meat that is beef (higher environmental impact)."
+      "businessContext": "Proportion of meat that is beef (higher environmental impact).",
+      "label_i18n": {
+        "en": "Beef ratio",
+        "tr": "Beef ratio",
+        "de": "Beef ratio",
+        "fr": "Beef ratio",
+        "es": "Beef ratio",
+        "ar": "Beef ratio"
+      }
     },
     {
       "id": "porkRatio",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "ratio",
       "default": 0.3,
-      "businessContext": "Proportion of meat that is pork."
+      "businessContext": "Proportion of meat that is pork.",
+      "label_i18n": {
+        "en": "Pork ratio",
+        "tr": "Pork ratio",
+        "de": "Pork ratio",
+        "fr": "Pork ratio",
+        "es": "Pork ratio",
+        "ar": "Pork ratio"
+      }
     },
     {
       "id": "poultryRatio",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "ratio",
       "default": 0.4,
-      "businessContext": "Proportion of meat that is poultry."
+      "businessContext": "Proportion of meat that is poultry.",
+      "label_i18n": {
+        "en": "Poultry ratio",
+        "tr": "Poultry ratio",
+        "de": "Poultry ratio",
+        "fr": "Poultry ratio",
+        "es": "Poultry ratio",
+        "ar": "Poultry ratio"
+      }
     }
   ],
   "formulas": {
@@ -56,7 +96,12 @@
     "breakdown": [
       "water_saved",
       "land_saved"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "land_saved"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -66,5 +111,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

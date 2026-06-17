@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "gravity",
       "default": 1.05,
-      "businessContext": "Original gravity reading from hydrometer (unadjusted for temperature)"
+      "businessContext": "Original gravity reading from hydrometer (unadjusted for temperature)",
+      "label_i18n": {
+        "en": "OG Reading",
+        "tr": "OG Reading",
+        "de": "OG Reading",
+        "fr": "OG Reading",
+        "es": "OG Reading",
+        "ar": "OG Reading"
+      }
     },
     {
       "id": "fgReading",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "gravity",
       "default": 1.01,
-      "businessContext": "Final gravity reading from hydrometer (unadjusted for temperature)"
+      "businessContext": "Final gravity reading from hydrometer (unadjusted for temperature)",
+      "label_i18n": {
+        "en": "FG Reading",
+        "tr": "FG Reading",
+        "de": "FG Reading",
+        "fr": "FG Reading",
+        "es": "FG Reading",
+        "ar": "FG Reading"
+      }
     },
     {
       "id": "ogTemp",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Temperature of the liquid when OG reading was taken"
+      "businessContext": "Temperature of the liquid when OG reading was taken",
+      "label_i18n": {
+        "en": "Temperature at OG Reading",
+        "tr": "Temperature at OG Reading",
+        "de": "Temperature at OG Reading",
+        "fr": "Temperature at OG Reading",
+        "es": "Temperature at OG Reading",
+        "ar": "Temperature at OG Reading"
+      }
     },
     {
       "id": "fgTemp",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Temperature of the liquid when FG reading was taken"
+      "businessContext": "Temperature of the liquid when FG reading was taken",
+      "label_i18n": {
+        "en": "Temperature at FG Reading",
+        "tr": "Temperature at FG Reading",
+        "de": "Temperature at FG Reading",
+        "fr": "Temperature at FG Reading",
+        "es": "Temperature at FG Reading",
+        "ar": "Temperature at FG Reading"
+      }
     },
     {
       "id": "calibTemp",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "°C",
       "default": 20,
-      "businessContext": "Temperature at which the hydrometer is calibrated (usually 20°C)"
+      "businessContext": "Temperature at which the hydrometer is calibrated (usually 20°C)",
+      "label_i18n": {
+        "en": "Hydrometer Calibration Temperature",
+        "tr": "Hydrometer Calibration Temperature",
+        "de": "Hydrometer Calibration Temperature",
+        "fr": "Hydrometer Calibration Temperature",
+        "es": "Hydrometer Calibration Temperature",
+        "ar": "Hydrometer Calibration Temperature"
+      }
     }
   ],
   "formulas": {
@@ -53,7 +93,12 @@
       "correctedOg",
       "correctedFg",
       "abv"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "abv"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -63,5 +108,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

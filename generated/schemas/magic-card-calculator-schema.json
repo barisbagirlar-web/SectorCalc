@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 85.6,
-      "businessContext": "Kartın uzun kenarı"
+      "businessContext": "Kartın uzun kenarı",
+      "label_i18n": {
+        "en": "Kart Uzunluğu",
+        "tr": "Kart Uzunluğu",
+        "de": "Kart Uzunluğu",
+        "fr": "Kart Uzunluğu",
+        "es": "Kart Uzunluğu",
+        "ar": "Kart Uzunluğu"
+      }
     },
     {
       "id": "cardWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 54,
-      "businessContext": "Kartın kısa kenarı"
+      "businessContext": "Kartın kısa kenarı",
+      "label_i18n": {
+        "en": "Kart Genişliği",
+        "tr": "Kart Genişliği",
+        "de": "Kart Genişliği",
+        "fr": "Kart Genişliği",
+        "es": "Kart Genişliği",
+        "ar": "Kart Genişliği"
+      }
     },
     {
       "id": "cardThickness",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0.76,
-      "businessContext": "Kart kalınlığı"
+      "businessContext": "Kart kalınlığı",
+      "label_i18n": {
+        "en": "Kart Kalınlığı",
+        "tr": "Kart Kalınlığı",
+        "de": "Kart Kalınlığı",
+        "fr": "Kart Kalınlığı",
+        "es": "Kart Kalınlığı",
+        "ar": "Kart Kalınlığı"
+      }
     },
     {
       "id": "materialDensity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "g/cm³",
       "default": 1.35,
-      "businessContext": "PVC malzeme yoğunluğu"
+      "businessContext": "PVC malzeme yoğunluğu",
+      "label_i18n": {
+        "en": "Malzeme Yoğunluğu",
+        "tr": "Malzeme Yoğunluğu",
+        "de": "Malzeme Yoğunluğu",
+        "fr": "Malzeme Yoğunluğu",
+        "es": "Malzeme Yoğunluğu",
+        "ar": "Malzeme Yoğunluğu"
+      }
     },
     {
       "id": "materialCostPerKg",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "TL/kg",
       "default": 10,
-      "businessContext": "Hammadde kilogram fiyatı"
+      "businessContext": "Hammadde kilogram fiyatı",
+      "label_i18n": {
+        "en": "Malzeme Birim Fiyatı",
+        "tr": "Malzeme Birim Fiyatı",
+        "de": "Malzeme Birim Fiyatı",
+        "fr": "Malzeme Birim Fiyatı",
+        "es": "Malzeme Birim Fiyatı",
+        "ar": "Malzeme Birim Fiyatı"
+      }
     },
     {
       "id": "wasteFactor",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Üretim firesi yüzdesi"
+      "businessContext": "Üretim firesi yüzdesi",
+      "label_i18n": {
+        "en": "Fire Oranı",
+        "tr": "Fire Oranı",
+        "de": "Fire Oranı",
+        "fr": "Fire Oranı",
+        "es": "Fire Oranı",
+        "ar": "Fire Oranı"
+      }
     },
     {
       "id": "batchSize",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1000,
-      "businessContext": "Hesaplanacak kart adedi"
+      "businessContext": "Hesaplanacak kart adedi",
+      "label_i18n": {
+        "en": "Parti Büyüklüğü",
+        "tr": "Parti Büyüklüğü",
+        "de": "Parti Büyüklüğü",
+        "fr": "Parti Büyüklüğü",
+        "es": "Parti Büyüklüğü",
+        "ar": "Parti Büyüklüğü"
+      }
     }
   ],
   "formulas": {
@@ -72,7 +128,12 @@
     "breakdown": [
       "materialCostPerCard",
       "wasteCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -82,5 +143,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

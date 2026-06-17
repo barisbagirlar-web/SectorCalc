@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Current market price per share"
+      "businessContext": "Current market price per share",
+      "label_i18n": {
+        "en": "Stock Price",
+        "tr": "Stock Price",
+        "de": "Stock Price",
+        "fr": "Stock Price",
+        "es": "Stock Price",
+        "ar": "Stock Price"
+      }
     },
     {
       "id": "earningsPerShare",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Trailing twelve-month earnings per share"
+      "businessContext": "Trailing twelve-month earnings per share",
+      "label_i18n": {
+        "en": "Earnings Per Share (EPS)",
+        "tr": "Earnings Per Share (EPS)",
+        "de": "Earnings Per Share (EPS)",
+        "fr": "Earnings Per Share (EPS)",
+        "es": "Earnings Per Share (EPS)",
+        "ar": "Earnings Per Share (EPS)"
+      }
     },
     {
       "id": "growthRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Expected annual EPS growth rate (percentage)"
+      "businessContext": "Expected annual EPS growth rate (percentage)",
+      "label_i18n": {
+        "en": "Earnings Growth Rate",
+        "tr": "Earnings Growth Rate",
+        "de": "Earnings Growth Rate",
+        "fr": "Earnings Growth Rate",
+        "es": "Earnings Growth Rate",
+        "ar": "Earnings Growth Rate"
+      }
     }
   ],
   "formulas": {
@@ -35,7 +59,12 @@
     "breakdown": [
       "peRatio",
       "growthRate"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "pegRatio"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -45,5 +74,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

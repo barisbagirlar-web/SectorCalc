@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "failures/year",
       "default": 0.5,
-      "businessContext": "Number of expected failures per year for the equipment/system."
+      "businessContext": "Number of expected failures per year for the equipment/system.",
+      "label_i18n": {
+        "en": "Failure Rate",
+        "tr": "Failure Rate",
+        "de": "Failure Rate",
+        "fr": "Failure Rate",
+        "es": "Failure Rate",
+        "ar": "Failure Rate"
+      }
     },
     {
       "id": "downtimeHours",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hours",
       "default": 8,
-      "businessContext": "Average downtime in hours per failure event."
+      "businessContext": "Average downtime in hours per failure event.",
+      "label_i18n": {
+        "en": "Downtime per Failure",
+        "tr": "Downtime per Failure",
+        "de": "Downtime per Failure",
+        "fr": "Downtime per Failure",
+        "es": "Downtime per Failure",
+        "ar": "Downtime per Failure"
+      }
     },
     {
       "id": "costPerHour",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD/hour",
       "default": 1000,
-      "businessContext": "Cost incurred per hour of downtime, including lost production, labor, etc."
+      "businessContext": "Cost incurred per hour of downtime, including lost production, labor, etc.",
+      "label_i18n": {
+        "en": "Cost per Downtime Hour",
+        "tr": "Cost per Downtime Hour",
+        "de": "Cost per Downtime Hour",
+        "fr": "Cost per Downtime Hour",
+        "es": "Cost per Downtime Hour",
+        "ar": "Cost per Downtime Hour"
+      }
     },
     {
       "id": "detectionProbability",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "ratio",
       "default": 0.7,
-      "businessContext": "Probability of detecting a failure before it causes downtime (0 to 1)."
+      "businessContext": "Probability of detecting a failure before it causes downtime (0 to 1).",
+      "label_i18n": {
+        "en": "Detection Probability",
+        "tr": "Detection Probability",
+        "de": "Detection Probability",
+        "fr": "Detection Probability",
+        "es": "Detection Probability",
+        "ar": "Detection Probability"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "grossExpectedLoss",
       "detectionSavings"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "annualExpectedLoss"
   },
   "category": "Bakım & Güvenilirlik",
   "sector": "Üretim & İmalat",
@@ -54,5 +91,10 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -84,15 +84,19 @@
   ],
   "formulas": {
     "standardCellPotential": "cathodeStandardPotential - anodeStandardPotential",
-    "nernstCorrection": "(8.314 * temperature / (numberOfElectrons * 96485)) * Math.log(reactionQuotient)",
-    "cellPotential": "standardCellPotential - nernstCorrection"
+    "standardCellPotential_aux": "cathodeStandardPotential - anodeStandardPotential"
   },
   "outputs": {
-    "primary": "cellPotential",
+    "primary": "standardCellPotential_aux",
     "breakdown": [
       "standardCellPotential",
       "nernstCorrection"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "cellPotential"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -102,5 +106,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "kimya",
   "profession": "Proses Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

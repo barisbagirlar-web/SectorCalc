@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from realtor-fee-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,27 +16,35 @@ export const Realtor_fee_calculatorInputSchema = z.object({
   splitRatio: z.number().default(0.5),
 });
 
-function evaluateAllFormulas(input: Realtor_fee_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.salePrice * input.commissionRate / 100; results["totalCommission"] = Number.isFinite(v) ? v : 0; } catch { results["totalCommission"] = 0; }
-  try { const v = (results["totalCommission"] ?? 0) + input.additionalFixedFee; results["totalFee"] = Number.isFinite(v) ? v : 0; } catch { results["totalFee"] = 0; }
-  try { const v = (results["totalFee"] ?? 0) * input.splitRatio; results["agent1Fee"] = Number.isFinite(v) ? v : 0; } catch { results["agent1Fee"] = 0; }
-  try { const v = (results["totalFee"] ?? 0) * (1 - input.splitRatio); results["agent2Fee"] = Number.isFinite(v) ? v : 0; } catch { results["agent2Fee"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Realtor_fee_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.salePrice * input.commissionRate / 100; results["totalCommission"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalCommission"] = 0; }
+  try { const v = (asFormulaNumber(results["totalCommission"])) + input.additionalFixedFee; results["totalFee"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalFee"] = 0; }
+  try { const v = (asFormulaNumber(results["totalFee"])) * input.splitRatio; results["agent1Fee"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["agent1Fee"] = 0; }
+  try { const v = (asFormulaNumber(results["totalFee"])) * (1 - input.splitRatio); results["agent2Fee"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["agent2Fee"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateRealtor_fee_calculator(input: Realtor_fee_calculatorInput): Realtor_fee_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalFee"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["totalFee"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

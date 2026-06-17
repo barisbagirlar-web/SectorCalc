@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 100,
-      "businessContext": "List price before any discount"
+      "businessContext": "List price before any discount",
+      "label_i18n": {
+        "en": "Original Unit Price",
+        "tr": "Original Unit Price",
+        "de": "Original Unit Price",
+        "fr": "Original Unit Price",
+        "es": "Original Unit Price",
+        "ar": "Original Unit Price"
+      }
     },
     {
       "id": "markdownPercentage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Discount percentage applied to original price"
+      "businessContext": "Discount percentage applied to original price",
+      "label_i18n": {
+        "en": "Markdown Percentage",
+        "tr": "Markdown Percentage",
+        "de": "Markdown Percentage",
+        "fr": "Markdown Percentage",
+        "es": "Markdown Percentage",
+        "ar": "Markdown Percentage"
+      }
     },
     {
       "id": "fixedDiscount",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 5,
-      "businessContext": "Fixed amount off after percentage discount"
+      "businessContext": "Fixed amount off after percentage discount",
+      "label_i18n": {
+        "en": "Fixed Discount per Unit",
+        "tr": "Fixed Discount per Unit",
+        "de": "Fixed Discount per Unit",
+        "fr": "Fixed Discount per Unit",
+        "es": "Fixed Discount per Unit",
+        "ar": "Fixed Discount per Unit"
+      }
     },
     {
       "id": "quantity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 10,
-      "businessContext": "Number of items purchased"
+      "businessContext": "Number of items purchased",
+      "label_i18n": {
+        "en": "Quantity",
+        "tr": "Quantity",
+        "de": "Quantity",
+        "fr": "Quantity",
+        "es": "Quantity",
+        "ar": "Quantity"
+      }
     },
     {
       "id": "vatRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Value Added Tax percentage"
+      "businessContext": "Value Added Tax percentage",
+      "label_i18n": {
+        "en": "VAT Rate",
+        "tr": "VAT Rate",
+        "de": "VAT Rate",
+        "fr": "VAT Rate",
+        "es": "VAT Rate",
+        "ar": "VAT Rate"
+      }
     }
   ],
   "formulas": {
@@ -58,7 +98,12 @@
       "totalExclVat",
       "vatAmount",
       "totalSavings"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalSavings"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -68,5 +113,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

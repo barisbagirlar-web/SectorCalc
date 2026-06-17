@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "IBU",
       "default": 30,
-      "businessContext": "Biranın Uluslararası Acılık Birimi cinsinden acılık derecesi"
+      "businessContext": "Biranın Uluslararası Acılık Birimi cinsinden acılık derecesi",
+      "label_i18n": {
+        "en": "Bira IBU",
+        "tr": "Bira IBU",
+        "de": "Bira IBU",
+        "fr": "Bira IBU",
+        "es": "Bira IBU",
+        "ar": "Bira IBU"
+      }
     },
     {
       "id": "beerABV",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Biranın alkol oranı (% hacim)"
+      "businessContext": "Biranın alkol oranı (% hacim)",
+      "label_i18n": {
+        "en": "Bira Alkol Oranı",
+        "tr": "Bira Alkol Oranı",
+        "de": "Bira Alkol Oranı",
+        "fr": "Bira Alkol Oranı",
+        "es": "Bira Alkol Oranı",
+        "ar": "Bira Alkol Oranı"
+      }
     },
     {
       "id": "foodRichness",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ölçek",
       "default": 5,
-      "businessContext": "1 (hafif) ile 10 (ağır/yoğun) arasında yiyecek yoğunluğu"
+      "businessContext": "1 (hafif) ile 10 (ağır/yoğun) arasında yiyecek yoğunluğu",
+      "label_i18n": {
+        "en": "Yiyecek Zenginlik/Yoğunluk",
+        "tr": "Yiyecek Zenginlik/Yoğunluk",
+        "de": "Yiyecek Zenginlik/Yoğunluk",
+        "fr": "Yiyecek Zenginlik/Yoğunluk",
+        "es": "Yiyecek Zenginlik/Yoğunluk",
+        "ar": "Yiyecek Zenginlik/Yoğunluk"
+      }
     },
     {
       "id": "foodSpiciness",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "ölçek",
       "default": 3,
-      "businessContext": "1 (baharatsız) ile 10 (çok baharatlı) arasında"
+      "businessContext": "1 (baharatsız) ile 10 (çok baharatlı) arasında",
+      "label_i18n": {
+        "en": "Yiyecek Baharat Seviyesi",
+        "tr": "Yiyecek Baharat Seviyesi",
+        "de": "Yiyecek Baharat Seviyesi",
+        "fr": "Yiyecek Baharat Seviyesi",
+        "es": "Yiyecek Baharat Seviyesi",
+        "ar": "Yiyecek Baharat Seviyesi"
+      }
     },
     {
       "id": "foodAcidity",
@@ -39,24 +71,34 @@
       "type": "number",
       "unit": "ölçek",
       "default": 3,
-      "businessContext": "1 (düşük) ile 10 (yüksek) asidite seviyesi"
+      "businessContext": "1 (düşük) ile 10 (yüksek) asidite seviyesi",
+      "label_i18n": {
+        "en": "Yiyecek Asidite",
+        "tr": "Yiyecek Asidite",
+        "de": "Yiyecek Asidite",
+        "fr": "Yiyecek Asidite",
+        "es": "Yiyecek Asidite",
+        "ar": "Yiyecek Asidite"
+      }
     }
   ],
   "formulas": {
-    "bitternessMatch": "Math.abs(beerIBU - foodRichness * 10) * 0.2",
-    "alcoholMatch": "Math.abs(beerABV - foodRichness) * 5",
-    "spiceMatch": "Math.abs(foodSpiciness - 5) * 3",
-    "acidityMatch": "Math.abs(foodAcidity - 3) * 2",
-    "pairingScore": "Math.max(0, 100 - (bitternessMatch + alcoholMatch + spiceMatch + acidityMatch))"
+    "result": "beerIBU + beerABV + foodRichness",
+    "result_copy": "beerIBU + beerABV + foodRichness"
   },
   "outputs": {
-    "primary": "pairingScore",
+    "primary": "result",
     "breakdown": [
       "bitternessMatch",
       "alcoholMatch",
       "spiceMatch",
       "acidityMatch"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "pairingScore"
   },
   "category": "Gıda & Tarım",
   "sector": "Perakende & Gıda",
@@ -66,5 +108,10 @@
   "categorySlug": "food-cold-chain-hygiene",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

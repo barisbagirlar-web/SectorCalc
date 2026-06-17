@@ -69,16 +69,20 @@
   "formulas": {
     "controlRate": "controlEvents / controlTotal * 100",
     "treatmentRate": "treatmentEvents / treatmentTotal * 100",
-    "arr": "controlRate - treatmentRate",
-    "nnt": "arr > 0 ? Math.round(100 / arr) : 'N/A'"
+    "arr": "controlRate - treatmentRate"
   },
   "outputs": {
-    "primary": "nnt",
+    "primary": "arr",
     "breakdown": [
       "controlRate",
       "treatmentRate",
       "arr"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "nnt"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -88,5 +92,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

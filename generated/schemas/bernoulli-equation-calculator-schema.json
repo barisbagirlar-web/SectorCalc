@@ -131,13 +131,8 @@
     }
   ],
   "formulas": {
-    "v2": "Math.sqrt(2 * ((P1 - P2) / density + g * (z1 - z2) + v1 * v1 / 2 - g * head_loss))",
-    "_P____P________g_____value__m": "(P₁ - P₂) / (ρ·g) = {value} m",
-    "z____z_____value__m": "z₁ - z₂ = {value} m",
-    "v____2g_____value__m": "v₁²/(2g) = {value} m",
-    "_h____P__P_____g_____z__z_____v____2g___": "Δh = (P₁-P₂)/(ρg) + (z₁-z₂) + v₁²/(2g) - hₗ = {value} m",
-    "v______2g__h_____value__m_s": "v₂ = √(2g·Δh) = {value} m/s",
-    "result": "Hız (v₂)"
+    "result": "density + g + P1",
+    "result_copy": "density + g + P1"
   },
   "outputs": {
     "primary": "result",
@@ -147,7 +142,12 @@
       "Kinetik enerji yüksekliği (giriş): v₁²/(2g) = {value} m",
       "Toplam enerji farkı (kayıp dahil) yüksekliği: Δh = (P₁-P₂)/(ρg) + (z₁-z₂) + v₁²/(2g) - hₗ = {value} m",
       "v₂ = √(2g·Δh) = {value} m/s"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "v2_aux"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -157,5 +157,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

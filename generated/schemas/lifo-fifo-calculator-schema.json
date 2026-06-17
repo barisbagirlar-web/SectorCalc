@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "units",
       "default": 0,
-      "businessContext": "Initial stock quantity"
+      "businessContext": "Initial stock quantity",
+      "label_i18n": {
+        "en": "Opening Inventory Units",
+        "tr": "Opening Inventory Units",
+        "de": "Opening Inventory Units",
+        "fr": "Opening Inventory Units",
+        "es": "Opening Inventory Units",
+        "ar": "Opening Inventory Units"
+      }
     },
     {
       "id": "openingCostPerUnit",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency/unit",
       "default": 0,
-      "businessContext": "Initial stock unit cost"
+      "businessContext": "Initial stock unit cost",
+      "label_i18n": {
+        "en": "Opening Inventory Cost per Unit",
+        "tr": "Opening Inventory Cost per Unit",
+        "de": "Opening Inventory Cost per Unit",
+        "fr": "Opening Inventory Cost per Unit",
+        "es": "Opening Inventory Cost per Unit",
+        "ar": "Opening Inventory Cost per Unit"
+      }
     },
     {
       "id": "purchase1Units",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "units",
       "default": 0,
-      "businessContext": "First additional batch quantity"
+      "businessContext": "First additional batch quantity",
+      "label_i18n": {
+        "en": "Purchase 1 Units",
+        "tr": "Purchase 1 Units",
+        "de": "Purchase 1 Units",
+        "fr": "Purchase 1 Units",
+        "es": "Purchase 1 Units",
+        "ar": "Purchase 1 Units"
+      }
     },
     {
       "id": "purchase1CostPerUnit",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency/unit",
       "default": 0,
-      "businessContext": "First additional batch unit cost"
+      "businessContext": "First additional batch unit cost",
+      "label_i18n": {
+        "en": "Purchase 1 Cost per Unit",
+        "tr": "Purchase 1 Cost per Unit",
+        "de": "Purchase 1 Cost per Unit",
+        "fr": "Purchase 1 Cost per Unit",
+        "es": "Purchase 1 Cost per Unit",
+        "ar": "Purchase 1 Cost per Unit"
+      }
     },
     {
       "id": "purchase2Units",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "units",
       "default": 0,
-      "businessContext": "Second additional batch quantity"
+      "businessContext": "Second additional batch quantity",
+      "label_i18n": {
+        "en": "Purchase 2 Units",
+        "tr": "Purchase 2 Units",
+        "de": "Purchase 2 Units",
+        "fr": "Purchase 2 Units",
+        "es": "Purchase 2 Units",
+        "ar": "Purchase 2 Units"
+      }
     },
     {
       "id": "purchase2CostPerUnit",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "currency/unit",
       "default": 0,
-      "businessContext": "Second additional batch unit cost"
+      "businessContext": "Second additional batch unit cost",
+      "label_i18n": {
+        "en": "Purchase 2 Cost per Unit",
+        "tr": "Purchase 2 Cost per Unit",
+        "de": "Purchase 2 Cost per Unit",
+        "fr": "Purchase 2 Cost per Unit",
+        "es": "Purchase 2 Cost per Unit",
+        "ar": "Purchase 2 Cost per Unit"
+      }
     },
     {
       "id": "unitsSold",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "units",
       "default": 0,
-      "businessContext": "Total units sold or consumed"
+      "businessContext": "Total units sold or consumed",
+      "label_i18n": {
+        "en": "Units Sold",
+        "tr": "Units Sold",
+        "de": "Units Sold",
+        "fr": "Units Sold",
+        "es": "Units Sold",
+        "ar": "Units Sold"
+      }
     }
   ],
   "formulas": {
@@ -71,7 +127,12 @@
       "endingInventoryLifo",
       "cogsFifo",
       "endingInventoryFifo"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "endingInventoryFifo"
   },
   "category": "Lojistik & Tedarik Zinciri",
   "sector": "Lojistik & Sevkiyat",
@@ -81,5 +142,10 @@
   "categorySlug": "procurement-supply-chain",
   "sectorId": "lojistik",
   "profession": "Lojistik Uzmanı",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

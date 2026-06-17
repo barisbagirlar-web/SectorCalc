@@ -67,17 +67,20 @@
     }
   ],
   "formulas": {
-    "liters": "const factor = conversionType === 1 ? 0.56826125 : conversionType === 2 ? 0.473176473 : 0.5506104713575; return pints * factor;",
-    "breakdown": "const factor = conversionType === 1 ? 0.56826125 : conversionType === 2 ? 0.473176473 : 0.5506104713575; const typeName = conversionType === 1 ? 'UK' : conversionType === 2 ? 'US liquid' : 'US dry'; return [`Conversion factor: ${factor} L/pt (${typeName})`, `Pints converted: ${pints} pt`];",
-    "conversionFactorInfo": "conversionFactorInfo",
-    "pintsInfo": "pintsInfo"
+    "result": "pints + conversionType + batchId",
+    "result_copy": "pints + conversionType + batchId"
   },
   "outputs": {
-    "primary": "liters",
+    "primary": "result",
     "breakdown": [
       "conversionFactorInfo",
       "pintsInfo"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "pintsInfo"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -87,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

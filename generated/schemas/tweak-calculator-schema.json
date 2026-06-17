@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "units",
       "default": 100,
-      "businessContext": "Measured current value of the parameter to be adjusted (e.g., pressure, speed, temperature)."
+      "businessContext": "Measured current value of the parameter to be adjusted (e.g., pressure, speed, temperature).",
+      "label_i18n": {
+        "en": "Current Parameter Value",
+        "tr": "Current Parameter Value",
+        "de": "Current Parameter Value",
+        "fr": "Current Parameter Value",
+        "es": "Current Parameter Value",
+        "ar": "Current Parameter Value"
+      }
     },
     {
       "id": "targetValue",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "units",
       "default": 120,
-      "businessContext": "Desired target value for the parameter after adjustment."
+      "businessContext": "Desired target value for the parameter after adjustment.",
+      "label_i18n": {
+        "en": "Target Value",
+        "tr": "Target Value",
+        "de": "Target Value",
+        "fr": "Target Value",
+        "es": "Target Value",
+        "ar": "Target Value"
+      }
     },
     {
       "id": "efficiency",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 85,
-      "businessContext": "Current process efficiency affecting the parameter response (0-100)."
+      "businessContext": "Current process efficiency affecting the parameter response (0-100).",
+      "label_i18n": {
+        "en": "Efficiency Factor",
+        "tr": "Efficiency Factor",
+        "de": "Efficiency Factor",
+        "fr": "Efficiency Factor",
+        "es": "Efficiency Factor",
+        "ar": "Efficiency Factor"
+      }
     },
     {
       "id": "safetyFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 110,
-      "businessContext": "Safety factor applied to the adjustment to prevent overshoot (typically >=100)."
+      "businessContext": "Safety factor applied to the adjustment to prevent overshoot (typically >=100).",
+      "label_i18n": {
+        "en": "Safety Margin",
+        "tr": "Safety Margin",
+        "de": "Safety Margin",
+        "fr": "Safety Margin",
+        "es": "Safety Margin",
+        "ar": "Safety Margin"
+      }
     },
     {
       "id": "tolerance",
@@ -39,15 +71,22 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Maximum permissible tweak percentage variation before issuing a warning."
+      "businessContext": "Maximum permissible tweak percentage variation before issuing a warning.",
+      "label_i18n": {
+        "en": "Adjustment Tolerance",
+        "tr": "Adjustment Tolerance",
+        "de": "Adjustment Tolerance",
+        "fr": "Adjustment Tolerance",
+        "es": "Adjustment Tolerance",
+        "ar": "Adjustment Tolerance"
+      }
     }
   ],
   "formulas": {
     "rawTweakPercent": "((targetValue - currentValue) / currentValue) * 100",
     "efficiencyAdjustedTweakPercent": "((targetValue - currentValue) / currentValue) * 100 / (efficiency / 100)",
     "recommendedTweakPercent": "((targetValue - currentValue) / currentValue) * 100 * safetyFactor / efficiency",
-    "finalParameterValue": "currentValue * (1 + ((targetValue - currentValue) / currentValue) * safetyFactor / efficiency)",
-    "withinTolerance": "Math.abs(((targetValue - currentValue) / currentValue) * 100 * safetyFactor / efficiency) <= tolerance"
+    "finalParameterValue": "currentValue * (1 + ((targetValue - currentValue) / currentValue) * safetyFactor / efficiency)"
   },
   "outputs": {
     "primary": "recommendedTweakPercent",
@@ -56,7 +95,12 @@
       "efficiencyAdjustedTweakPercent",
       "finalParameterValue",
       "withinTolerance"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "withinTolerance"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -66,5 +110,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

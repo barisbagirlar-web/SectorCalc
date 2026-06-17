@@ -101,12 +101,7 @@
   "formulas": {
     "exists": "((fa - k) * (fb - k) <= 0) ? 1 : 0",
     "c": "((fa - k) * (fb - k) <= 0) ? (a + b) / 2 : null",
-    "fc": "((fa - k) * (fb - k) <= 0) ? ((fb - fa) / (b - a)) * (c - a) + fa : null",
-    "iterations": "((fa - k) * (fb - k) <= 0) ? Math.ceil(Math.log((b - a) / tolerance) / Math.log(2)) : 0",
-    "1_if_a_solution_exists__0_otherwise": "1 if a solution exists, 0 otherwise",
-    "approximate_root__midpoint__if_exists__e": "approximate root (midpoint) if exists, else null",
-    "approximate_function_value_at_c": "approximate function value at c",
-    "number_of_bisection_steps_needed": "number of bisection steps needed"
+    "fc": "((fa - k) * (fb - k) <= 0) ? ((fb - fa) / (b - a)) * (c - a) + fa : null"
   },
   "outputs": {
     "primary": "c",
@@ -115,7 +110,12 @@
       "c: approximate root (midpoint) if exists, else null",
       "fc: approximate function value at c",
       "iterations: number of bisection steps needed"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "iterations"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -125,5 +125,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

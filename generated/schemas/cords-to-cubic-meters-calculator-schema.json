@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ft",
       "default": 8,
-      "businessContext": "Ağaç yığınının uzunluğu"
+      "businessContext": "Ağaç yığınının uzunluğu",
+      "label_i18n": {
+        "en": "Uzunluk (ft)",
+        "tr": "Uzunluk (ft)",
+        "de": "Uzunluk (ft)",
+        "fr": "Uzunluk (ft)",
+        "es": "Uzunluk (ft)",
+        "ar": "Uzunluk (ft)"
+      }
     },
     {
       "id": "width_ft",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ft",
       "default": 4,
-      "businessContext": "Ağaç yığınının genişliği"
+      "businessContext": "Ağaç yığınının genişliği",
+      "label_i18n": {
+        "en": "Genişlik (ft)",
+        "tr": "Genişlik (ft)",
+        "de": "Genişlik (ft)",
+        "fr": "Genişlik (ft)",
+        "es": "Genişlik (ft)",
+        "ar": "Genişlik (ft)"
+      }
     },
     {
       "id": "height_ft",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ft",
       "default": 4,
-      "businessContext": "Ağaç yığınının yüksekliği"
+      "businessContext": "Ağaç yığınının yüksekliği",
+      "label_i18n": {
+        "en": "Yükseklik (ft)",
+        "tr": "Yükseklik (ft)",
+        "de": "Yükseklik (ft)",
+        "fr": "Yükseklik (ft)",
+        "es": "Yükseklik (ft)",
+        "ar": "Yükseklik (ft)"
+      }
     },
     {
       "id": "stack_count",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "adet",
       "default": 1,
-      "businessContext": "Aynı boyutlardaki yığın adedi"
+      "businessContext": "Aynı boyutlardaki yığın adedi",
+      "label_i18n": {
+        "en": "Yığın Sayısı",
+        "tr": "Yığın Sayısı",
+        "de": "Yığın Sayısı",
+        "fr": "Yığın Sayısı",
+        "es": "Yığın Sayısı",
+        "ar": "Yığın Sayısı"
+      }
     },
     {
       "id": "waste_percent",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Beklenen boşluk, çökme veya kayıp oranı"
+      "businessContext": "Beklenen boşluk, çökme veya kayıp oranı",
+      "label_i18n": {
+        "en": "Fire Oranı (%)",
+        "tr": "Fire Oranı (%)",
+        "de": "Fire Oranı (%)",
+        "fr": "Fire Oranı (%)",
+        "es": "Fire Oranı (%)",
+        "ar": "Fire Oranı (%)"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "total_cuft",
       "cords"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "cubic_meters"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -62,5 +107,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

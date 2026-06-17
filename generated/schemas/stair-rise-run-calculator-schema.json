@@ -99,25 +99,23 @@
     }
   ],
   "formulas": {
-    "numSteps": "Math.ceil(totalRise / desiredRise)",
-    "actualRiser": "totalRise / numSteps",
-    "treadDepth": "totalRun / (numSteps - 1)",
-    "primaryOutput": "'Rise: ' + actualRiser.toFixed(1) + ' mm, Tread: ' + treadDepth.toFixed(1) + ' mm, Steps: ' + numSteps",
-    "breakdown_0": "'Rise per step: ' + actualRiser.toFixed(1) + ' mm'",
-    "breakdown_1": "'Tread depth: ' + treadDepth.toFixed(1) + ' mm'",
-    "breakdown_2": "'Number of risers: ' + numSteps",
-    "breakdown_3": "'Number of treads: ' + (numSteps - 1)",
-    "breakdown_4": "'Stair angle: ' + (Math.atan(totalRise / totalRun) * 180 / Math.PI).toFixed(2) + '°'"
+    "result": "totalRise + totalRun + maxRiserHeight",
+    "result_copy": "totalRise + totalRun + maxRiserHeight"
   },
   "outputs": {
-    "primary": "primaryOutput",
+    "primary": "result",
     "breakdown": [
       "breakdown_0",
       "breakdown_1",
       "breakdown_2",
       "breakdown_3",
       "breakdown_4"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "breakdown_4"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -127,5 +125,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

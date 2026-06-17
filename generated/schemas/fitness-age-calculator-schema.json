@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Your chronological age in years."
+      "businessContext": "Your chronological age in years.",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     },
     {
       "id": "restingHeartRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "bpm",
       "default": 70,
-      "businessContext": "Your resting heart rate in beats per minute. Measure after waking up, before getting out of bed."
+      "businessContext": "Your resting heart rate in beats per minute. Measure after waking up, before getting out of bed.",
+      "label_i18n": {
+        "en": "Resting Heart Rate",
+        "tr": "Resting Heart Rate",
+        "de": "Resting Heart Rate",
+        "fr": "Resting Heart Rate",
+        "es": "Resting Heart Rate",
+        "ar": "Resting Heart Rate"
+      }
     },
     {
       "id": "gender",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "none",
       "default": 0,
-      "businessContext": "0 for male, 1 for female."
+      "businessContext": "0 for male, 1 for female.",
+      "label_i18n": {
+        "en": "Gender",
+        "tr": "Gender",
+        "de": "Gender",
+        "fr": "Gender",
+        "es": "Gender",
+        "ar": "Gender"
+      }
     },
     {
       "id": "maxHeartRate",
@@ -31,21 +55,32 @@
       "type": "number",
       "unit": "bpm",
       "default": 0,
-      "businessContext": "Maximum heart rate in bpm. Enter 0 to estimate using formula (208 - 0.7 * age)."
+      "businessContext": "Maximum heart rate in bpm. Enter 0 to estimate using formula (208 - 0.7 * age).",
+      "label_i18n": {
+        "en": "Maximum Heart Rate (optional)",
+        "tr": "Maximum Heart Rate (optional)",
+        "de": "Maximum Heart Rate (optional)",
+        "fr": "Maximum Heart Rate (optional)",
+        "es": "Maximum Heart Rate (optional)",
+        "ar": "Maximum Heart Rate (optional)"
+      }
     }
   ],
   "formulas": {
-    "maxHeartRateEstimated": "inputs.maxHeartRate !== 0 ? inputs.maxHeartRate : 208 - 0.7 * inputs.age",
-    "vo2max": "15.3 * (maxHeartRateEstimated / inputs.restingHeartRate)",
-    "averageVO2max": "inputs.gender === 0 ? (50.0 - 0.35 * inputs.age) : (43.0 - 0.30 * inputs.age)",
-    "fitnessAge": "inputs.age + (averageVO2max - vo2max) / 0.35"
+    "result": "age + restingHeartRate + gender",
+    "result_copy": "age + restingHeartRate + gender"
   },
   "outputs": {
-    "primary": "fitnessAge",
+    "primary": "result",
     "breakdown": [
       "vo2max",
       "averageVO2max"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "fitnessAge"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -55,5 +90,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

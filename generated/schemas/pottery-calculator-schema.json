@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "pcs",
       "default": 10,
-      "businessContext": "Total quantity of pottery items to produce."
+      "businessContext": "Total quantity of pottery items to produce.",
+      "label_i18n": {
+        "en": "Number of Pieces",
+        "tr": "Number of Pieces",
+        "de": "Number of Pieces",
+        "fr": "Number of Pieces",
+        "es": "Number of Pieces",
+        "ar": "Number of Pieces"
+      }
     },
     {
       "id": "clayWeightPerPiece",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g",
       "default": 500,
-      "businessContext": "Amount of clay needed for one piece before firing."
+      "businessContext": "Amount of clay needed for one piece before firing.",
+      "label_i18n": {
+        "en": "Clay Weight per Piece",
+        "tr": "Clay Weight per Piece",
+        "de": "Clay Weight per Piece",
+        "fr": "Clay Weight per Piece",
+        "es": "Clay Weight per Piece",
+        "ar": "Clay Weight per Piece"
+      }
     },
     {
       "id": "clayCostPerKg",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$/kg",
       "default": 2.5,
-      "businessContext": "Market price of clay per kilogram."
+      "businessContext": "Market price of clay per kilogram.",
+      "label_i18n": {
+        "en": "Clay Cost per Kg",
+        "tr": "Clay Cost per Kg",
+        "de": "Clay Cost per Kg",
+        "fr": "Clay Cost per Kg",
+        "es": "Clay Cost per Kg",
+        "ar": "Clay Cost per Kg"
+      }
     },
     {
       "id": "glazeUsagePerPiece",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "ml",
       "default": 30,
-      "businessContext": "Volume of glaze applied on each piece."
+      "businessContext": "Volume of glaze applied on each piece.",
+      "label_i18n": {
+        "en": "Glaze Usage per Piece",
+        "tr": "Glaze Usage per Piece",
+        "de": "Glaze Usage per Piece",
+        "fr": "Glaze Usage per Piece",
+        "es": "Glaze Usage per Piece",
+        "ar": "Glaze Usage per Piece"
+      }
     },
     {
       "id": "glazeCostPerLiter",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "$/L",
       "default": 15,
-      "businessContext": "Market price of glaze per liter."
+      "businessContext": "Market price of glaze per liter.",
+      "label_i18n": {
+        "en": "Glaze Cost per Liter",
+        "tr": "Glaze Cost per Liter",
+        "de": "Glaze Cost per Liter",
+        "fr": "Glaze Cost per Liter",
+        "es": "Glaze Cost per Liter",
+        "ar": "Glaze Cost per Liter"
+      }
     },
     {
       "id": "firingCostPerPiece",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "$",
       "default": 1.2,
-      "businessContext": "Energy and kiln maintenance cost for firing one piece."
+      "businessContext": "Energy and kiln maintenance cost for firing one piece.",
+      "label_i18n": {
+        "en": "Firing Cost per Piece",
+        "tr": "Firing Cost per Piece",
+        "de": "Firing Cost per Piece",
+        "fr": "Firing Cost per Piece",
+        "es": "Firing Cost per Piece",
+        "ar": "Firing Cost per Piece"
+      }
     },
     {
       "id": "overheadPercentage",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Indirect costs (labor, rent, tools) as a percentage of material and firing costs."
+      "businessContext": "Indirect costs (labor, rent, tools) as a percentage of material and firing costs.",
+      "label_i18n": {
+        "en": "Overhead Percentage",
+        "tr": "Overhead Percentage",
+        "de": "Overhead Percentage",
+        "fr": "Overhead Percentage",
+        "es": "Overhead Percentage",
+        "ar": "Overhead Percentage"
+      }
     }
   ],
   "formulas": {
@@ -78,7 +134,12 @@
       "materialCost",
       "firingCost",
       "totalCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "costPerPiece"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -88,5 +149,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

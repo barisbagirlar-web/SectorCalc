@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Şirketin piyasa değeri (örn. milyon TL, USD)"
+      "businessContext": "Şirketin piyasa değeri (örn. milyon TL, USD)",
+      "label_i18n": {
+        "en": "Piyasa Değeri",
+        "tr": "Piyasa Değeri",
+        "de": "Piyasa Değeri",
+        "fr": "Piyasa Değeri",
+        "es": "Piyasa Değeri",
+        "ar": "Piyasa Değeri"
+      }
     },
     {
       "id": "total_debt",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Kısa ve uzun vadeli borç toplamı"
+      "businessContext": "Kısa ve uzun vadeli borç toplamı",
+      "label_i18n": {
+        "en": "Toplam Borç",
+        "tr": "Toplam Borç",
+        "de": "Toplam Borç",
+        "fr": "Toplam Borç",
+        "es": "Toplam Borç",
+        "ar": "Toplam Borç"
+      }
     },
     {
       "id": "minority_interest",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Azınlık hissedarların payları (varsa)"
+      "businessContext": "Azınlık hissedarların payları (varsa)",
+      "label_i18n": {
+        "en": "Azınlık Payları",
+        "tr": "Azınlık Payları",
+        "de": "Azınlık Payları",
+        "fr": "Azınlık Payları",
+        "es": "Azınlık Payları",
+        "ar": "Azınlık Payları"
+      }
     },
     {
       "id": "preferred_stock",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "İmtiyazlı hisse senedi değeri (varsa)"
+      "businessContext": "İmtiyazlı hisse senedi değeri (varsa)",
+      "label_i18n": {
+        "en": "İmtiyazlı Hisse Senetleri",
+        "tr": "İmtiyazlı Hisse Senetleri",
+        "de": "İmtiyazlı Hisse Senetleri",
+        "fr": "İmtiyazlı Hisse Senetleri",
+        "es": "İmtiyazlı Hisse Senetleri",
+        "ar": "İmtiyazlı Hisse Senetleri"
+      }
     },
     {
       "id": "cash_equivalents",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Nakit ve nakde eşdeğer varlıklar toplamı"
+      "businessContext": "Nakit ve nakde eşdeğer varlıklar toplamı",
+      "label_i18n": {
+        "en": "Nakit ve Benzerleri",
+        "tr": "Nakit ve Benzerleri",
+        "de": "Nakit ve Benzerleri",
+        "fr": "Nakit ve Benzerleri",
+        "es": "Nakit ve Benzerleri",
+        "ar": "Nakit ve Benzerleri"
+      }
     },
     {
       "id": "ebitda",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Faiz, amortisman ve vergi öncesi kar"
+      "businessContext": "Faiz, amortisman ve vergi öncesi kar",
+      "label_i18n": {
+        "en": "FAVÖK (EBITDA)",
+        "tr": "FAVÖK (EBITDA)",
+        "de": "FAVÖK (EBITDA)",
+        "fr": "FAVÖK (EBITDA)",
+        "es": "FAVÖK (EBITDA)",
+        "ar": "FAVÖK (EBITDA)"
+      }
     }
   ],
   "formulas": {
@@ -59,7 +107,12 @@
     "breakdown": [
       "enterprise_value",
       "ebitda"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "ev_ebitda_ratio"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -69,5 +122,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

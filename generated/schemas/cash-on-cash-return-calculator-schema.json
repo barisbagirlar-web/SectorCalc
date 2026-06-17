@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 12000,
-      "businessContext": "Yıllık toplam kira geliri veya diğer gelirler"
+      "businessContext": "Yıllık toplam kira geliri veya diğer gelirler",
+      "label_i18n": {
+        "en": "Yıllık Brüt Gelir",
+        "tr": "Yıllık Brüt Gelir",
+        "de": "Yıllık Brüt Gelir",
+        "fr": "Yıllık Brüt Gelir",
+        "es": "Yıllık Brüt Gelir",
+        "ar": "Yıllık Brüt Gelir"
+      }
     },
     {
       "id": "annualOperatingExpenses",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 4000,
-      "businessContext": "Yıllık işletme, bakım, vergi ve sigorta giderleri"
+      "businessContext": "Yıllık işletme, bakım, vergi ve sigorta giderleri",
+      "label_i18n": {
+        "en": "Yıllık İşletme Giderleri",
+        "tr": "Yıllık İşletme Giderleri",
+        "de": "Yıllık İşletme Giderleri",
+        "fr": "Yıllık İşletme Giderleri",
+        "es": "Yıllık İşletme Giderleri",
+        "ar": "Yıllık İşletme Giderleri"
+      }
     },
     {
       "id": "annualDebtService",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 5000,
-      "businessContext": "Yıllık toplam kredi geri ödemesi (anapara+faiz)"
+      "businessContext": "Yıllık toplam kredi geri ödemesi (anapara+faiz)",
+      "label_i18n": {
+        "en": "Yıllık Borç Servisi",
+        "tr": "Yıllık Borç Servisi",
+        "de": "Yıllık Borç Servisi",
+        "fr": "Yıllık Borç Servisi",
+        "es": "Yıllık Borç Servisi",
+        "ar": "Yıllık Borç Servisi"
+      }
     },
     {
       "id": "totalCashInvested",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 50000,
-      "businessContext": "Peşinat + kapanış maliyetleri + yenileme giderleri gibi toplam yatırım"
+      "businessContext": "Peşinat + kapanış maliyetleri + yenileme giderleri gibi toplam yatırım",
+      "label_i18n": {
+        "en": "Yatırılan Toplam Nakit",
+        "tr": "Yatırılan Toplam Nakit",
+        "de": "Yatırılan Toplam Nakit",
+        "fr": "Yatırılan Toplam Nakit",
+        "es": "Yatırılan Toplam Nakit",
+        "ar": "Yatırılan Toplam Nakit"
+      }
     }
   ],
   "formulas": {
@@ -42,7 +74,12 @@
     "primary": "cashOnCashReturn",
     "breakdown": [
       "annualCashFlow"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "cashOnCashReturn"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -52,5 +89,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

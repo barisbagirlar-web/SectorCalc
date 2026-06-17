@@ -84,16 +84,19 @@
   ],
   "formulas": {
     "vo2max": "132.853 - 0.0769 * weight - 0.3877 * age + 6.315 * gender - 3.2649 * walkTime - 0.1565 * heartRate",
-    "132_853___0_0769___weight___0_3877___age": "132.853 - 0.0769 * weight - 0.3877 * age + 6.315 * gender - 3.2649 * walkTime - 0.1565 * heartRate",
-    "Compare_result_with_normative_values_bas": "Compare result with normative values based on age and gender to assess cardiovascular fitness.",
-    "result": "VO2max (ml/kg/min)"
+    "132_853___0_0769___weight___0_3877___age": "132.853 - 0.0769 * weight - 0.3877 * age + 6.315 * gender - 3.2649 * walkTime - 0.1565 * heartRate"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "132_853___0_0769___weight___0_3877___age",
     "breakdown": [
       "Rockport Walking Test formula: 132.853 - 0.0769 * weight - 0.3877 * age + 6.315 * gender - 3.2649 * walkTime - 0.1565 * heartRate",
       "Compare result with normative values based on age and gender to assess cardiovascular fitness."
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -103,5 +106,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

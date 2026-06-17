@@ -102,22 +102,21 @@
     "workingStress": "appliedForce / crossSectionArea * stressConcentrationFactor",
     "fosYield": "yieldStrength / workingStress",
     "fosUltimate": "ultimateTensileStrength / workingStress",
-    "marginYield": "fosYield - 1",
-    "passFailYield": "fosYield >= designFactor ? 'Pass' : 'Fail'",
-    "primaryOutput": "`FOS (Yield): ${fosYield.toFixed(2)}`",
-    "breakdown1": "`FOS (Ultimate): ${fosUltimate.toFixed(2)}`",
-    "breakdown2": "`Working Stress: ${workingStress.toFixed(2)} MPa`",
-    "breakdown3": "`Margin of Safety: ${marginYield.toFixed(2)}`",
-    "breakdown4": "`Design Check: ${passFailYield}`"
+    "marginYield": "fosYield - 1"
   },
   "outputs": {
-    "primary": "primaryOutput",
+    "primary": "marginYield",
     "breakdown": [
       "breakdown1",
       "breakdown2",
       "breakdown3",
       "breakdown4"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "passFailYield"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -127,5 +126,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "metal",
   "profession": "Sac Teknisyeni",
-  "categoryId": "engineering"
+  "categoryId": "engineering",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

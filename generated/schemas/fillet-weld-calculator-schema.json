@@ -101,7 +101,12 @@
       "utilizationRatio",
       "requiredWeldLength",
       "weldVolume"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "weldVolume"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -111,5 +116,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

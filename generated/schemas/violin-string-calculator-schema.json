@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.33,
-      "businessContext": "The vibrating length of the string from nut to bridge, typically 0.33 m for a full-size violin."
+      "businessContext": "The vibrating length of the string from nut to bridge, typically 0.33 m for a full-size violin.",
+      "label_i18n": {
+        "en": "Scale Length",
+        "tr": "Scale Length",
+        "de": "Scale Length",
+        "fr": "Scale Length",
+        "es": "Scale Length",
+        "ar": "Scale Length"
+      }
     },
     {
       "id": "frequency",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 440,
-      "businessContext": "Frequency of the desired pitch, e.g., A4 = 440 Hz."
+      "businessContext": "Frequency of the desired pitch, e.g., A4 = 440 Hz.",
+      "label_i18n": {
+        "en": "Desired Pitch Frequency",
+        "tr": "Desired Pitch Frequency",
+        "de": "Desired Pitch Frequency",
+        "fr": "Desired Pitch Frequency",
+        "es": "Desired Pitch Frequency",
+        "ar": "Desired Pitch Frequency"
+      }
     },
     {
       "id": "stringDiameter",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.0005,
-      "businessContext": "Diameter of the string, e.g., 0.5 mm = 0.0005 m."
+      "businessContext": "Diameter of the string, e.g., 0.5 mm = 0.0005 m.",
+      "label_i18n": {
+        "en": "String Diameter",
+        "tr": "String Diameter",
+        "de": "String Diameter",
+        "fr": "String Diameter",
+        "es": "String Diameter",
+        "ar": "String Diameter"
+      }
     },
     {
       "id": "materialDensity",
@@ -31,18 +55,31 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 7800,
-      "businessContext": "Density of the string material, e.g., gut ~1000 kg/m³, steel ~7800 kg/m³."
+      "businessContext": "Density of the string material, e.g., gut ~1000 kg/m³, steel ~7800 kg/m³.",
+      "label_i18n": {
+        "en": "Material Density",
+        "tr": "Material Density",
+        "de": "Material Density",
+        "fr": "Material Density",
+        "es": "Material Density",
+        "ar": "Material Density"
+      }
     }
   ],
   "formulas": {
-    "linearDensity": "Math.PI * (inputs.stringDiameter / 2) ** 2 * inputs.materialDensity",
-    "tension": "(2 * inputs.scaleLength * inputs.frequency) ** 2 * linearDensity"
+    "result": "scaleLength + frequency + stringDiameter",
+    "result_copy": "scaleLength + frequency + stringDiameter"
   },
   "outputs": {
-    "primary": "tension",
+    "primary": "result",
     "breakdown": [
       "linearDensity"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "tension"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -52,5 +89,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "metal",
   "profession": "Sac Teknisyeni",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

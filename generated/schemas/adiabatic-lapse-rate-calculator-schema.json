@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "Altitude of the reference point where initial temperature is measured."
+      "businessContext": "Altitude of the reference point where initial temperature is measured.",
+      "label_i18n": {
+        "en": "Initial Altitude",
+        "tr": "Initial Altitude",
+        "de": "Initial Altitude",
+        "fr": "Initial Altitude",
+        "es": "Initial Altitude",
+        "ar": "Initial Altitude"
+      }
     },
     {
       "id": "finalAltitude",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 1000,
-      "businessContext": "Altitude at which temperature is to be calculated."
+      "businessContext": "Altitude at which temperature is to be calculated.",
+      "label_i18n": {
+        "en": "Final Altitude",
+        "tr": "Final Altitude",
+        "de": "Final Altitude",
+        "fr": "Final Altitude",
+        "es": "Final Altitude",
+        "ar": "Final Altitude"
+      }
     },
     {
       "id": "initialTemperature",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "K",
       "default": 293.15,
-      "businessContext": "Temperature at the initial altitude (in Kelvin). For Celsius, use same numeric temperature change."
+      "businessContext": "Temperature at the initial altitude (in Kelvin). For Celsius, use same numeric temperature change.",
+      "label_i18n": {
+        "en": "Initial Temperature",
+        "tr": "Initial Temperature",
+        "de": "Initial Temperature",
+        "fr": "Initial Temperature",
+        "es": "Initial Temperature",
+        "ar": "Initial Temperature"
+      }
     },
     {
       "id": "specificHeatCapacity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "J/(kg·K)",
       "default": 1005,
-      "businessContext": "Specific heat capacity of air at constant pressure (dry air ≈ 1005 J/(kg·K))."
+      "businessContext": "Specific heat capacity of air at constant pressure (dry air ≈ 1005 J/(kg·K)).",
+      "label_i18n": {
+        "en": "Specific Heat Capacity",
+        "tr": "Specific Heat Capacity",
+        "de": "Specific Heat Capacity",
+        "fr": "Specific Heat Capacity",
+        "es": "Specific Heat Capacity",
+        "ar": "Specific Heat Capacity"
+      }
     },
     {
       "id": "gravityAcceleration",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m/s²",
       "default": 9.81,
-      "businessContext": "Acceleration due to gravity (standard 9.81 m/s²)."
+      "businessContext": "Acceleration due to gravity (standard 9.81 m/s²).",
+      "label_i18n": {
+        "en": "Gravity Acceleration",
+        "tr": "Gravity Acceleration",
+        "de": "Gravity Acceleration",
+        "fr": "Gravity Acceleration",
+        "es": "Gravity Acceleration",
+        "ar": "Gravity Acceleration"
+      }
     }
   ],
   "formulas": {
@@ -55,7 +95,12 @@
       "lapseRate",
       "temperatureChange",
       "finalTemperature"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "finalTemperature"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -65,5 +110,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "danismanlik",
   "profession": "Strateji Uzmanı",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

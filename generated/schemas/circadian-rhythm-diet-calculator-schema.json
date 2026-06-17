@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "score",
       "default": 3,
-      "businessContext": "Morningness-Eveningness score where 1=Extreme Morning, 5=Extreme Evening"
+      "businessContext": "Morningness-Eveningness score where 1=Extreme Morning, 5=Extreme Evening",
+      "label_i18n": {
+        "en": "Chronotype Score (1-5)",
+        "tr": "Chronotype Score (1-5)",
+        "de": "Chronotype Score (1-5)",
+        "fr": "Chronotype Score (1-5)",
+        "es": "Chronotype Score (1-5)",
+        "ar": "Chronotype Score (1-5)"
+      }
     },
     {
       "id": "shiftStart",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "hour",
       "default": 8,
-      "businessContext": "Work shift start in 24-hour format (e.g., 8.5 for 08:30)"
+      "businessContext": "Work shift start in 24-hour format (e.g., 8.5 for 08:30)",
+      "label_i18n": {
+        "en": "Shift Start Time (hour)",
+        "tr": "Shift Start Time (hour)",
+        "de": "Shift Start Time (hour)",
+        "fr": "Shift Start Time (hour)",
+        "es": "Shift Start Time (hour)",
+        "ar": "Shift Start Time (hour)"
+      }
     },
     {
       "id": "mealCount",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "meals",
       "default": 3,
-      "businessContext": "Total number of meals per day (including snacks)"
+      "businessContext": "Total number of meals per day (including snacks)",
+      "label_i18n": {
+        "en": "Number of Meals",
+        "tr": "Number of Meals",
+        "de": "Number of Meals",
+        "fr": "Number of Meals",
+        "es": "Number of Meals",
+        "ar": "Number of Meals"
+      }
     },
     {
       "id": "fastingWindow",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "hours",
       "default": 12,
-      "businessContext": "Duration between last meal and first meal of the next day"
+      "businessContext": "Duration between last meal and first meal of the next day",
+      "label_i18n": {
+        "en": "Fasting Window (hours)",
+        "tr": "Fasting Window (hours)",
+        "de": "Fasting Window (hours)",
+        "fr": "Fasting Window (hours)",
+        "es": "Fasting Window (hours)",
+        "ar": "Fasting Window (hours)"
+      }
     },
     {
       "id": "costPerMeal",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "EUR",
       "default": 5,
-      "businessContext": "Estimated average cost per meal including preparation and ingredients"
+      "businessContext": "Estimated average cost per meal including preparation and ingredients",
+      "label_i18n": {
+        "en": "Average Cost per Meal (EUR)",
+        "tr": "Average Cost per Meal (EUR)",
+        "de": "Average Cost per Meal (EUR)",
+        "fr": "Average Cost per Meal (EUR)",
+        "es": "Average Cost per Meal (EUR)",
+        "ar": "Average Cost per Meal (EUR)"
+      }
     },
     {
       "id": "days",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "days",
       "default": 30,
-      "businessContext": "Planning period in days"
+      "businessContext": "Planning period in days",
+      "label_i18n": {
+        "en": "Number of Days",
+        "tr": "Number of Days",
+        "de": "Number of Days",
+        "fr": "Number of Days",
+        "es": "Number of Days",
+        "ar": "Number of Days"
+      }
     }
   ],
   "formulas": {
@@ -62,7 +110,12 @@
       "dailyCost",
       "mealInterval",
       "firstMealTime"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "firstMealTime"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -72,5 +125,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

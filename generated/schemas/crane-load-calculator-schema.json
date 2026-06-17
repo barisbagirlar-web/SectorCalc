@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "ton",
       "default": 10,
-      "businessContext": "Kaldırılacak yükün ağırlığı (ton)"
+      "businessContext": "Kaldırılacak yükün ağırlığı (ton)",
+      "label_i18n": {
+        "en": "Lifted Load",
+        "tr": "Lifted Load",
+        "de": "Lifted Load",
+        "fr": "Lifted Load",
+        "es": "Lifted Load",
+        "ar": "Lifted Load"
+      }
     },
     {
       "id": "riggingWeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "ton",
       "default": 1,
-      "businessContext": "Donanım ağırlığı (ton)"
+      "businessContext": "Donanım ağırlığı (ton)",
+      "label_i18n": {
+        "en": "Rigging Weight",
+        "tr": "Rigging Weight",
+        "de": "Rigging Weight",
+        "fr": "Rigging Weight",
+        "es": "Rigging Weight",
+        "ar": "Rigging Weight"
+      }
     },
     {
       "id": "dynamicFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1.2,
-      "businessContext": "Dinamik faktör (vinç hareketleri)"
+      "businessContext": "Dinamik faktör (vinç hareketleri)",
+      "label_i18n": {
+        "en": "Dynamic Factor",
+        "tr": "Dynamic Factor",
+        "de": "Dynamic Factor",
+        "fr": "Dynamic Factor",
+        "es": "Dynamic Factor",
+        "ar": "Dynamic Factor"
+      }
     },
     {
       "id": "windFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1.1,
-      "businessContext": "Rüzgar faktörü"
+      "businessContext": "Rüzgar faktörü",
+      "label_i18n": {
+        "en": "Wind Factor",
+        "tr": "Wind Factor",
+        "de": "Wind Factor",
+        "fr": "Wind Factor",
+        "es": "Wind Factor",
+        "ar": "Wind Factor"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "staticLoad",
       "dynamicLoad"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalLoad"
   },
   "category": "Makine & Tasarım",
   "sector": "Teknik & Mühendislik",
@@ -54,5 +91,10 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

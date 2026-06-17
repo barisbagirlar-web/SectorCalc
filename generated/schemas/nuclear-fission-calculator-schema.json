@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 1000,
-      "businessContext": "Mass of the fissile material sample."
+      "businessContext": "Mass of the fissile material sample.",
+      "label_i18n": {
+        "en": "Fissile Material Mass",
+        "tr": "Fissile Material Mass",
+        "de": "Fissile Material Mass",
+        "fr": "Fissile Material Mass",
+        "es": "Fissile Material Mass",
+        "ar": "Fissile Material Mass"
+      }
     },
     {
       "id": "energyPerFission",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "MeV",
       "default": 200,
-      "businessContext": "Average energy released per fission event."
+      "businessContext": "Average energy released per fission event.",
+      "label_i18n": {
+        "en": "Energy per Fission",
+        "tr": "Energy per Fission",
+        "de": "Energy per Fission",
+        "fr": "Energy per Fission",
+        "es": "Energy per Fission",
+        "ar": "Energy per Fission"
+      }
     },
     {
       "id": "molarMass",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "g/mol",
       "default": 235.0439299,
-      "businessContext": "Molar mass of the fissile isotope."
+      "businessContext": "Molar mass of the fissile isotope.",
+      "label_i18n": {
+        "en": "Molar Mass",
+        "tr": "Molar Mass",
+        "de": "Molar Mass",
+        "fr": "Molar Mass",
+        "es": "Molar Mass",
+        "ar": "Molar Mass"
+      }
     },
     {
       "id": "avogadroNumber",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "atoms/mol",
       "default": 6.02214076e+23,
-      "businessContext": "Avogadro constant, number of atoms per mole."
+      "businessContext": "Avogadro constant, number of atoms per mole.",
+      "label_i18n": {
+        "en": "Avogadro's Number",
+        "tr": "Avogadro's Number",
+        "de": "Avogadro's Number",
+        "fr": "Avogadro's Number",
+        "es": "Avogadro's Number",
+        "ar": "Avogadro's Number"
+      }
     },
     {
       "id": "mevToJoules",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "J/MeV",
       "default": 1.602176634e-13,
-      "businessContext": "Conversion factor from mega-electronvolts to joules."
+      "businessContext": "Conversion factor from mega-electronvolts to joules.",
+      "label_i18n": {
+        "en": "Conversion MeV to Joules",
+        "tr": "Conversion MeV to Joules",
+        "de": "Conversion MeV to Joules",
+        "fr": "Conversion MeV to Joules",
+        "es": "Conversion MeV to Joules",
+        "ar": "Conversion MeV to Joules"
+      }
     }
   ],
   "formulas": {
@@ -56,7 +96,12 @@
       "energyMeV",
       "energyKWh",
       "energyTNT"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "energyTNT"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -66,5 +111,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

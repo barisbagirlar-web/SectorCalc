@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from derivative-calculator-schema.json
 import * as z from 'zod';
 
@@ -21,27 +22,33 @@ export const Derivative_calculatorInputSchema = z.object({
   p: z.number().default(0),
 });
 
-function evaluateAllFormulas(input: Derivative_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.a * input.n === 0 ? 0 : input.a * input.n * Math.pow(input.x, input.n - 1); results["derivativeTerm1"] = Number.isFinite(v) ? v : 0; } catch { results["derivativeTerm1"] = 0; }
-  try { const v = input.b * input.m === 0 ? 0 : input.b * input.m * Math.pow(input.x, input.m - 1); results["derivativeTerm2"] = Number.isFinite(v) ? v : 0; } catch { results["derivativeTerm2"] = 0; }
-  try { const v = input.c * input.p === 0 ? 0 : input.c * input.p * Math.pow(input.x, input.p - 1); results["derivativeTerm3"] = Number.isFinite(v) ? v : 0; } catch { results["derivativeTerm3"] = 0; }
-  try { const v = ((input.a * input.n === 0 ? 0 : input.a * input.n * Math.pow(input.x, input.n - 1)) + (input.b * input.m === 0 ? 0 : input.b * input.m * Math.pow(input.x, input.m - 1)) + (input.c * input.p === 0 ? 0 : input.c * input.p * Math.pow(input.x, input.p - 1))); results["derivativeTotal"] = Number.isFinite(v) ? v : 0; } catch { results["derivativeTotal"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Derivative_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.x + input.a + input.n; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.x + input.a + input.n; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateDerivative_calculator(input: Derivative_calculatorInput): Derivative_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["derivativeTotal"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

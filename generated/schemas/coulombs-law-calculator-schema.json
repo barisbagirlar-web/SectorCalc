@@ -68,15 +68,19 @@
   ],
   "formulas": {
     "force": "((charge1 * charge2) / (4 * Math.PI * permittivity * distance * distance))",
-    "forceMagnitude": "Math.abs(((charge1 * charge2) / (4 * Math.PI * permittivity * distance * distance)))",
-    "forceDirection": "charge1 * charge2 > 0 ? 'repulsive' : 'attractive'"
+    "force_aux": "((charge1 * charge2) / (4 * Math.PI * permittivity * distance * distance))"
   },
   "outputs": {
     "primary": "force",
     "breakdown": [
       "forceMagnitude",
       "forceDirection"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "forceDirection"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -86,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 10,
-      "businessContext": "The maximum allowable value for a characteristic"
+      "businessContext": "The maximum allowable value for a characteristic",
+      "label_i18n": {
+        "en": "Upper Specification Limit (USL)",
+        "tr": "Upper Specification Limit (USL)",
+        "de": "Upper Specification Limit (USL)",
+        "fr": "Upper Specification Limit (USL)",
+        "es": "Upper Specification Limit (USL)",
+        "ar": "Upper Specification Limit (USL)"
+      }
     },
     {
       "id": "lsl",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 0,
-      "businessContext": "The minimum allowable value for a characteristic"
+      "businessContext": "The minimum allowable value for a characteristic",
+      "label_i18n": {
+        "en": "Lower Specification Limit (LSL)",
+        "tr": "Lower Specification Limit (LSL)",
+        "de": "Lower Specification Limit (LSL)",
+        "fr": "Lower Specification Limit (LSL)",
+        "es": "Lower Specification Limit (LSL)",
+        "ar": "Lower Specification Limit (LSL)"
+      }
     },
     {
       "id": "target",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 5,
-      "businessContext": "The ideal or nominal value"
+      "businessContext": "The ideal or nominal value",
+      "label_i18n": {
+        "en": "Target Value",
+        "tr": "Target Value",
+        "de": "Target Value",
+        "fr": "Target Value",
+        "es": "Target Value",
+        "ar": "Target Value"
+      }
     },
     {
       "id": "mean",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 5,
-      "businessContext": "The arithmetic mean of the process output"
+      "businessContext": "The arithmetic mean of the process output",
+      "label_i18n": {
+        "en": "Process Mean",
+        "tr": "Process Mean",
+        "de": "Process Mean",
+        "fr": "Process Mean",
+        "es": "Process Mean",
+        "ar": "Process Mean"
+      }
     },
     {
       "id": "stddev",
@@ -39,20 +71,32 @@
       "type": "number",
       "unit": "mm",
       "default": 1,
-      "businessContext": "The standard deviation of the process output, measuring spread"
+      "businessContext": "The standard deviation of the process output, measuring spread",
+      "label_i18n": {
+        "en": "Process Standard Deviation",
+        "tr": "Process Standard Deviation",
+        "de": "Process Standard Deviation",
+        "fr": "Process Standard Deviation",
+        "es": "Process Standard Deviation",
+        "ar": "Process Standard Deviation"
+      }
     }
   ],
   "formulas": {
     "cp": "(usl - lsl) / (6 * stddev)",
-    "cpk": "Math.min((usl - mean), (mean - lsl)) / (3 * stddev)",
-    "cpm": "(usl - lsl) / (6 * Math.sqrt(stddev**2 + (mean - target)**2))"
+    "cp_aux": "(usl - lsl) / (6 * stddev)"
   },
   "outputs": {
-    "primary": "cpk",
+    "primary": "cp_aux",
     "breakdown": [
       "cp",
       "cpm"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "cpm"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -62,5 +106,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

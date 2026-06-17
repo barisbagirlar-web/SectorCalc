@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kJ",
       "default": 0,
-      "businessContext": "Standart reaksiyon entalpisi, genellikle 298 K'deki değer"
+      "businessContext": "Standart reaksiyon entalpisi, genellikle 298 K'deki değer",
+      "label_i18n": {
+        "en": "Referans Sıcaklıktaki Tepkime Entalpisi (ΔH°)",
+        "tr": "Referans Sıcaklıktaki Tepkime Entalpisi (ΔH°)",
+        "de": "Referans Sıcaklıktaki Tepkime Entalpisi (ΔH°)",
+        "fr": "Referans Sıcaklıktaki Tepkime Entalpisi (ΔH°)",
+        "es": "Referans Sıcaklıktaki Tepkime Entalpisi (ΔH°)",
+        "ar": "Referans Sıcaklıktaki Tepkime Entalpisi (ΔH°)"
+      }
     },
     {
       "id": "Tref",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "K",
       "default": 298.15,
-      "businessContext": "Referans sıcaklık, genellikle 298.15 K"
+      "businessContext": "Referans sıcaklık, genellikle 298.15 K",
+      "label_i18n": {
+        "en": "Referans Sıcaklık (T_ref)",
+        "tr": "Referans Sıcaklık (T_ref)",
+        "de": "Referans Sıcaklık (T_ref)",
+        "fr": "Referans Sıcaklık (T_ref)",
+        "es": "Referans Sıcaklık (T_ref)",
+        "ar": "Referans Sıcaklık (T_ref)"
+      }
     },
     {
       "id": "T",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "K",
       "default": 298.15,
-      "businessContext": "Reaksiyonun gerçekleştiği sıcaklık"
+      "businessContext": "Reaksiyonun gerçekleştiği sıcaklık",
+      "label_i18n": {
+        "en": "Hedef Sıcaklık (T)",
+        "tr": "Hedef Sıcaklık (T)",
+        "de": "Hedef Sıcaklık (T)",
+        "fr": "Hedef Sıcaklık (T)",
+        "es": "Hedef Sıcaklık (T)",
+        "ar": "Hedef Sıcaklık (T)"
+      }
     },
     {
       "id": "cpProducts",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kJ/K",
       "default": 0,
-      "businessContext": "Ürünlerin sabit basınçtaki ısı kapasitelerinin stokiyometrik katsayılarla çarpılmış toplamı"
+      "businessContext": "Ürünlerin sabit basınçtaki ısı kapasitelerinin stokiyometrik katsayılarla çarpılmış toplamı",
+      "label_i18n": {
+        "en": "Ürünlerin Isı Kapasitesi Toplamı (ΣCp_ürünler)",
+        "tr": "Ürünlerin Isı Kapasitesi Toplamı (ΣCp_ürünler)",
+        "de": "Ürünlerin Isı Kapasitesi Toplamı (ΣCp_ürünler)",
+        "fr": "Ürünlerin Isı Kapasitesi Toplamı (ΣCp_ürünler)",
+        "es": "Ürünlerin Isı Kapasitesi Toplamı (ΣCp_ürünler)",
+        "ar": "Ürünlerin Isı Kapasitesi Toplamı (ΣCp_ürünler)"
+      }
     },
     {
       "id": "cpReactants",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kJ/K",
       "default": 0,
-      "businessContext": "Reaktantların sabit basınçtaki ısı kapasitelerinin stokiyometrik katsayılarla çarpılmış toplamı"
+      "businessContext": "Reaktantların sabit basınçtaki ısı kapasitelerinin stokiyometrik katsayılarla çarpılmış toplamı",
+      "label_i18n": {
+        "en": "Reaktantların Isı Kapasitesi Toplamı (ΣCp_reaktantlar)",
+        "tr": "Reaktantların Isı Kapasitesi Toplamı (ΣCp_reaktantlar)",
+        "de": "Reaktantların Isı Kapasitesi Toplamı (ΣCp_reaktantlar)",
+        "fr": "Reaktantların Isı Kapasitesi Toplamı (ΣCp_reaktantlar)",
+        "es": "Reaktantların Isı Kapasitesi Toplamı (ΣCp_reaktantlar)",
+        "ar": "Reaktantların Isı Kapasitesi Toplamı (ΣCp_reaktantlar)"
+      }
     },
     {
       "id": "moles",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "mol",
       "default": 1,
-      "businessContext": "Reaksiyonun kaç mol üzerinden gerçekleştiği (ölçek faktörü)"
+      "businessContext": "Reaksiyonun kaç mol üzerinden gerçekleştiği (ölçek faktörü)",
+      "label_i18n": {
+        "en": "Mol Sayısı (n)",
+        "tr": "Mol Sayısı (n)",
+        "de": "Mol Sayısı (n)",
+        "fr": "Mol Sayısı (n)",
+        "es": "Mol Sayısı (n)",
+        "ar": "Mol Sayısı (n)"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +108,12 @@
     "breakdown": [
       "deltaCp",
       "enthalpyCorrection"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "reactionEnthalpy"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -70,5 +123,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "kimya",
   "profession": "Proses Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

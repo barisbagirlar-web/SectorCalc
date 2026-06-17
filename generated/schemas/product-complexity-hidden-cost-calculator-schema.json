@@ -141,22 +141,6 @@
       "businessContext_i18n": {
         "en": "Category of complexity: 'product' (high SKU count), 'process' (high setup time), 'mixed' (both)."
       }
-    },
-    {
-      "id": "use_lean_metrics",
-      "label": "Use Lean Metrics (SMED, OEE)",
-      "type": "boolean",
-      "unit": "unit",
-      "default": true,
-      "min": null,
-      "max": null,
-      "businessContext": "If true, applies SMED-based setup reduction and OEE factors.",
-      "label_i18n": {
-        "en": "Use Lean Metrics (SMED, OEE)"
-      },
-      "businessContext_i18n": {
-        "en": "If true, applies SMED-based setup reduction and OEE factors."
-      }
     }
   ],
   "validation": {
@@ -189,18 +173,18 @@
       }
     ]
   },
-  "formulas": [
-    "num_sku",
-    "num_sku",
-    "num_sku",
-    "num_sku",
-    "num_sku",
-    "num_sku",
-    "num_sku"
-  ],
+  "formulas": {
+    "result": "num_sku + avg_volume_per_sku + num_components",
+    "result_copy": "num_sku + avg_volume_per_sku + num_components"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "toolName": "product-complexity-hidden-cost-calculator",
   "catalogCategory": "everyday-life",

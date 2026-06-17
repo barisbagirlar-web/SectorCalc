@@ -89,8 +89,7 @@
     "eff_kmPerL": "distanceKm / fuelLiters",
     "eff_mpgUS": "(distanceKm / 1.60934) / (fuelLiters / 3.78541)",
     "eff_mpgUK": "(distanceKm / 1.60934) / (fuelLiters / 4.54609)",
-    "eff_galsPer100miUS": "((fuelLiters / 3.78541) / (distanceKm / 1.60934)) * 100",
-    "results": "[eff_Lper100km, eff_kmPerL, eff_mpgUS, eff_mpgUK, eff_galsPer100miUS]"
+    "eff_galsPer100miUS": "((fuelLiters / 3.78541) / (distanceKm / 1.60934)) * 100"
   },
   "outputs": {
     "primary": "distanceKm",
@@ -100,7 +99,12 @@
       "eff_mpgUS",
       "eff_mpgUK",
       "eff_galsPer100miUS"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "eff_galsPer100miUS"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -110,5 +114,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "efficiency"
+  "categoryId": "efficiency",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

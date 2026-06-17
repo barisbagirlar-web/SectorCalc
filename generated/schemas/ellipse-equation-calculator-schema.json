@@ -84,9 +84,7 @@
   ],
   "formulas": {
     "area": "Math.PI * semiMajor * semiMinor",
-    "perimeter": "Math.PI * (3 * (semiMajor + semiMinor) - Math.sqrt((3 * semiMajor + semiMinor) * (semiMajor + 3 * semiMinor)))",
-    "eccentricity": "Math.sqrt(1 - Math.pow(Math.min(semiMajor, semiMinor), 2) / Math.pow(Math.max(semiMajor, semiMinor), 2))",
-    "fociDistance": "Math.sqrt(Math.abs(Math.pow(semiMajor, 2) - Math.pow(semiMinor, 2)))"
+    "area_aux": "Math.PI * semiMajor * semiMinor"
   },
   "outputs": {
     "primary": "area",
@@ -94,7 +92,12 @@
       "perimeter",
       "eccentricity",
       "fociDistance"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "fociDistance"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -104,5 +107,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

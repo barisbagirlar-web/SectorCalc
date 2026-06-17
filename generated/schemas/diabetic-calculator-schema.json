@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Tüketilecek karbonhidrat miktarı"
+      "businessContext": "Tüketilecek karbonhidrat miktarı",
+      "label_i18n": {
+        "en": "Karbonhidrat (g)",
+        "tr": "Karbonhidrat (g)",
+        "de": "Karbonhidrat (g)",
+        "fr": "Karbonhidrat (g)",
+        "es": "Karbonhidrat (g)",
+        "ar": "Karbonhidrat (g)"
+      }
     },
     {
       "id": "currentBG",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 120,
-      "businessContext": "Ölçülen anlık kan şekeri seviyesi"
+      "businessContext": "Ölçülen anlık kan şekeri seviyesi",
+      "label_i18n": {
+        "en": "Anlık Kan Şekeri",
+        "tr": "Anlık Kan Şekeri",
+        "de": "Anlık Kan Şekeri",
+        "fr": "Anlık Kan Şekeri",
+        "es": "Anlık Kan Şekeri",
+        "ar": "Anlık Kan Şekeri"
+      }
     },
     {
       "id": "targetBG",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mg/dL",
       "default": 100,
-      "businessContext": "Ulaşılmak istenen ideal kan şekeri"
+      "businessContext": "Ulaşılmak istenen ideal kan şekeri",
+      "label_i18n": {
+        "en": "Hedef Kan Şekeri",
+        "tr": "Hedef Kan Şekeri",
+        "de": "Hedef Kan Şekeri",
+        "fr": "Hedef Kan Şekeri",
+        "es": "Hedef Kan Şekeri",
+        "ar": "Hedef Kan Şekeri"
+      }
     },
     {
       "id": "insulinToCarbRatio",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "g/Ü",
       "default": 15,
-      "businessContext": "1 ünite insülinin etki ettiği karbonhidrat gramı"
+      "businessContext": "1 ünite insülinin etki ettiği karbonhidrat gramı",
+      "label_i18n": {
+        "en": "İnsülin-Karbonhidrat Oranı",
+        "tr": "İnsülin-Karbonhidrat Oranı",
+        "de": "İnsülin-Karbonhidrat Oranı",
+        "fr": "İnsülin-Karbonhidrat Oranı",
+        "es": "İnsülin-Karbonhidrat Oranı",
+        "ar": "İnsülin-Karbonhidrat Oranı"
+      }
     },
     {
       "id": "insulinSensitivity",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "mg/dL/Ü",
       "default": 50,
-      "businessContext": "1 ünite insülinin düşürdüğü kan şekeri miktarı"
+      "businessContext": "1 ünite insülinin düşürdüğü kan şekeri miktarı",
+      "label_i18n": {
+        "en": "İnsülin Duyarlılık Faktörü",
+        "tr": "İnsülin Duyarlılık Faktörü",
+        "de": "İnsülin Duyarlılık Faktörü",
+        "fr": "İnsülin Duyarlılık Faktörü",
+        "es": "İnsülin Duyarlılık Faktörü",
+        "ar": "İnsülin Duyarlılık Faktörü"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "carbInsulin",
       "correctionInsulin"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalInsulin"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -62,5 +107,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -67,18 +67,20 @@
     }
   ],
   "formulas": {
-    "primary": "envFactor * (Math.log(power1 / power2) / Math.log(10)) + calibrationOffset",
     "powerRatio": "power1 / power2",
-    "decibelValue": "10 * envFactor * (Math.log(power1 / power2) / Math.log(10)) + 10 * calibrationOffset",
-    "Power_Ratio": "Power Ratio",
-    "Decibel_Value": "Decibel Value"
+    "powerRatio_aux": "power1 / power2"
   },
   "outputs": {
-    "primary": "primary",
+    "primary": "powerRatio_aux",
     "breakdown": [
       "Power Ratio",
       "Decibel Value"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "decibelValue"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -88,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

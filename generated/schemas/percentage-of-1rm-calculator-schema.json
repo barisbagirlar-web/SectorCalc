@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "Maximum weight you can lift for one repetition"
+      "businessContext": "Maximum weight you can lift for one repetition",
+      "label_i18n": {
+        "en": "One Rep Max (1RM)",
+        "tr": "One Rep Max (1RM)",
+        "de": "One Rep Max (1RM)",
+        "fr": "One Rep Max (1RM)",
+        "es": "One Rep Max (1RM)",
+        "ar": "One Rep Max (1RM)"
+      }
     },
     {
       "id": "targetPercentage",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 90,
-      "businessContext": "Percentage of 1RM to calculate"
+      "businessContext": "Percentage of 1RM to calculate",
+      "label_i18n": {
+        "en": "Target Percentage",
+        "tr": "Target Percentage",
+        "de": "Target Percentage",
+        "fr": "Target Percentage",
+        "es": "Target Percentage",
+        "ar": "Target Percentage"
+      }
     },
     {
       "id": "roundingIncrement",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg",
       "default": 2.5,
-      "businessContext": "Increment to round the result to (0 for no rounding)"
+      "businessContext": "Increment to round the result to (0 for no rounding)",
+      "label_i18n": {
+        "en": "Rounding Increment",
+        "tr": "Rounding Increment",
+        "de": "Rounding Increment",
+        "fr": "Rounding Increment",
+        "es": "Rounding Increment",
+        "ar": "Rounding Increment"
+      }
     },
     {
       "id": "bodyWeight",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "kg",
       "default": 80,
-      "businessContext": "Your body weight for relative strength reference"
+      "businessContext": "Your body weight for relative strength reference",
+      "label_i18n": {
+        "en": "Body Weight",
+        "tr": "Body Weight",
+        "de": "Body Weight",
+        "fr": "Body Weight",
+        "es": "Body Weight",
+        "ar": "Body Weight"
+      }
     }
   ],
   "formulas": {
-    "targetWeight": "inputs.roundingIncrement > 0 ? Math.round((inputs.oneRepMax * inputs.targetPercentage / 100) / inputs.roundingIncrement) * inputs.roundingIncrement : (inputs.oneRepMax * inputs.targetPercentage / 100)",
-    "rawWeight": "inputs.oneRepMax * inputs.targetPercentage / 100",
-    "bodyWeightPercentage": "((inputs.roundingIncrement > 0 ? Math.round((inputs.oneRepMax * inputs.targetPercentage / 100) / inputs.roundingIncrement) * inputs.roundingIncrement : (inputs.oneRepMax * inputs.targetPercentage / 100)) / inputs.bodyWeight) * 100"
+    "result": "oneRepMax + targetPercentage + roundingIncrement",
+    "result_copy": "oneRepMax + targetPercentage + roundingIncrement"
   },
   "outputs": {
-    "primary": "targetWeight",
+    "primary": "result",
     "breakdown": [
       "rawWeight",
       "bodyWeightPercentage"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "bodyWeightPercentage"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

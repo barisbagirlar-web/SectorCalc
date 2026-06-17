@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 648,
-      "businessContext": "Distance from nut to bridge saddle, typically 628-660 mm for electric guitars."
+      "businessContext": "Distance from nut to bridge saddle, typically 628-660 mm for electric guitars.",
+      "label_i18n": {
+        "en": "Scale Length",
+        "tr": "Scale Length",
+        "de": "Scale Length",
+        "fr": "Scale Length",
+        "es": "Scale Length",
+        "ar": "Scale Length"
+      }
     },
     {
       "id": "frequency",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Hz",
       "default": 82.41,
-      "businessContext": "Target pitch frequency, e.g., E2=82.41 Hz, A2=110 Hz."
+      "businessContext": "Target pitch frequency, e.g., E2=82.41 Hz, A2=110 Hz.",
+      "label_i18n": {
+        "en": "Frequency",
+        "tr": "Frequency",
+        "de": "Frequency",
+        "fr": "Frequency",
+        "es": "Frequency",
+        "ar": "Frequency"
+      }
     },
     {
       "id": "stringDiameter",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 1.17,
-      "businessContext": "String diameter, e.g., 0.046 inch ≈ 1.17 mm."
+      "businessContext": "String diameter, e.g., 0.046 inch ≈ 1.17 mm.",
+      "label_i18n": {
+        "en": "String Diameter (Gauge)",
+        "tr": "String Diameter (Gauge)",
+        "de": "String Diameter (Gauge)",
+        "fr": "String Diameter (Gauge)",
+        "es": "String Diameter (Gauge)",
+        "ar": "String Diameter (Gauge)"
+      }
     },
     {
       "id": "density",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 7850,
-      "businessContext": "Volumetric mass density, steel ≈ 7850 kg/m³."
+      "businessContext": "Volumetric mass density, steel ≈ 7850 kg/m³.",
+      "label_i18n": {
+        "en": "Material Density",
+        "tr": "Material Density",
+        "de": "Material Density",
+        "fr": "Material Density",
+        "es": "Material Density",
+        "ar": "Material Density"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "massPerUnitLength",
       "waveSpeed"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "waveSpeed"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +91,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "metal",
   "profession": "Sac Teknisyeni",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

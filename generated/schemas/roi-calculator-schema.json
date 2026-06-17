@@ -138,73 +138,6 @@
       "businessContext_i18n": {
         "en": "Total annual energy expenditure for the facility."
       }
-    },
-    {
-      "id": "lean_implementation_cost",
-      "label": "Lean Implementation Cost (USD)",
-      "type": "number",
-      "unit": "USD",
-      "default": 200000,
-      "min": 0,
-      "max": 10000000,
-      "businessContext": "One-time cost for implementing Lean/Six Sigma improvements (training, tools, consulting).",
-      "label_i18n": {
-        "en": "Lean Implementation Cost (USD)"
-      },
-      "businessContext_i18n": {
-        "en": "One-time cost for implementing Lean/Six Sigma improvements (training, tools, consulting)."
-      }
-    },
-    {
-      "id": "expected_improvement_factor",
-      "label": "Expected Improvement Factor (0-1)",
-      "type": "number",
-      "unit": "dimensionless",
-      "default": 0.15,
-      "min": 0,
-      "max": 1,
-      "businessContext": "Expected fractional improvement from Lean initiatives (e.g., 0.15 = 15% reduction in waste).",
-      "label_i18n": {
-        "en": "Expected Improvement Factor (0-1)"
-      },
-      "businessContext_i18n": {
-        "en": "Expected fractional improvement from Lean initiatives (e.g., 0.15 = 15% reduction in waste)."
-      }
-    },
-    {
-      "id": "industry_type",
-      "label": "Industry Type",
-      "type": "select",
-      "unit": "none",
-      "default": "manufacturing",
-      "options": [
-        "manufacturing",
-        "logistics",
-        "warehousing",
-        "assembly",
-        "process"
-      ],
-      "businessContext": "Type of industrial operation for benchmarking and standard adjustments.",
-      "label_i18n": {
-        "en": "Industry Type"
-      },
-      "businessContext_i18n": {
-        "en": "Type of industrial operation for benchmarking and standard adjustments."
-      }
-    },
-    {
-      "id": "iso_certified",
-      "label": "ISO 9001 Certified",
-      "type": "boolean",
-      "unit": "none",
-      "default": false,
-      "businessContext": "Indicates if the facility is ISO 9001 certified, affecting quality cost baselines.",
-      "label_i18n": {
-        "en": "ISO 9001 Certified"
-      },
-      "businessContext_i18n": {
-        "en": "Indicates if the facility is ISO 9001 certified, affecting quality cost baselines."
-      }
     }
   ],
   "validation": {
@@ -251,18 +184,18 @@
       }
     ]
   },
-  "formulas": [
-    "annual_revenue",
-    "annual_revenue",
-    "annual_revenue",
-    "annual_revenue",
-    "annual_revenue",
-    "annual_revenue",
-    "annual_revenue"
-  ],
+  "formulas": {
+    "result": "annual_revenue + operating_margin + total_inventory_value",
+    "result_copy": "annual_revenue + operating_margin + total_inventory_value"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",

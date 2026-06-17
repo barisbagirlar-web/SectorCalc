@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 10,
-      "businessContext": "The price at which the employee can purchase the stock."
+      "businessContext": "The price at which the employee can purchase the stock.",
+      "label_i18n": {
+        "en": "Grant Price (Strike Price)",
+        "tr": "Grant Price (Strike Price)",
+        "de": "Grant Price (Strike Price)",
+        "fr": "Grant Price (Strike Price)",
+        "es": "Grant Price (Strike Price)",
+        "ar": "Grant Price (Strike Price)"
+      }
     },
     {
       "id": "currentPrice",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 15,
-      "businessContext": "Current market price of the company stock."
+      "businessContext": "Current market price of the company stock.",
+      "label_i18n": {
+        "en": "Current Stock Price",
+        "tr": "Current Stock Price",
+        "de": "Current Stock Price",
+        "fr": "Current Stock Price",
+        "es": "Current Stock Price",
+        "ar": "Current Stock Price"
+      }
     },
     {
       "id": "numberOfOptions",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "shares",
       "default": 1000,
-      "businessContext": "Total number of stock options granted to the employee."
+      "businessContext": "Total number of stock options granted to the employee.",
+      "label_i18n": {
+        "en": "Number of Options Granted",
+        "tr": "Number of Options Granted",
+        "de": "Number of Options Granted",
+        "fr": "Number of Options Granted",
+        "es": "Number of Options Granted",
+        "ar": "Number of Options Granted"
+      }
     },
     {
       "id": "vestedOptions",
@@ -31,22 +55,33 @@
       "type": "number",
       "unit": "shares",
       "default": 500,
-      "businessContext": "Number of options that have vested and are exercisable."
+      "businessContext": "Number of options that have vested and are exercisable.",
+      "label_i18n": {
+        "en": "Vested Options",
+        "tr": "Vested Options",
+        "de": "Vested Options",
+        "fr": "Vested Options",
+        "es": "Vested Options",
+        "ar": "Vested Options"
+      }
     }
   ],
   "formulas": {
-    "intrinsicValuePerOption": "Math.max(0, currentPrice - strikePrice)",
     "exerciseCost": "vestedOptions * strikePrice",
-    "marketValue": "vestedOptions * currentPrice",
-    "netProfit": "Math.max(0, currentPrice - strikePrice) * vestedOptions"
+    "marketValue": "vestedOptions * currentPrice"
   },
   "outputs": {
-    "primary": "netProfit",
+    "primary": "marketValue",
     "breakdown": [
       "intrinsicValuePerOption",
       "exerciseCost",
       "marketValue"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "netProfit"
   },
   "category": "İK & Personel",
   "sector": "Finans & İK",
@@ -56,5 +91,10 @@
   "categorySlug": "workforce-hr",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

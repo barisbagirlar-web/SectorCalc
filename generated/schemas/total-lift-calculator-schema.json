@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 1000,
-      "businessContext": "Kaldırılacak ana yükün kütlesi (rigging hariç)."
+      "businessContext": "Kaldırılacak ana yükün kütlesi (rigging hariç).",
+      "label_i18n": {
+        "en": "Yük Kütlesi",
+        "tr": "Yük Kütlesi",
+        "de": "Yük Kütlesi",
+        "fr": "Yük Kütlesi",
+        "es": "Yük Kütlesi",
+        "ar": "Yük Kütlesi"
+      }
     },
     {
       "id": "gravity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m/s²",
       "default": 9.81,
-      "businessContext": "Yerel yerçekimi ivmesi değeri."
+      "businessContext": "Yerel yerçekimi ivmesi değeri.",
+      "label_i18n": {
+        "en": "Yerçekimi İvmesi",
+        "tr": "Yerçekimi İvmesi",
+        "de": "Yerçekimi İvmesi",
+        "fr": "Yerçekimi İvmesi",
+        "es": "Yerçekimi İvmesi",
+        "ar": "Yerçekimi İvmesi"
+      }
     },
     {
       "id": "safetyFactor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "boyutsuz",
       "default": 1.5,
-      "businessContext": "Standartlara uygun güvenlik faktörü (EN 13001 vb.)."
+      "businessContext": "Standartlara uygun güvenlik faktörü (EN 13001 vb.).",
+      "label_i18n": {
+        "en": "Güvenlik Katsayısı",
+        "tr": "Güvenlik Katsayısı",
+        "de": "Güvenlik Katsayısı",
+        "fr": "Güvenlik Katsayısı",
+        "es": "Güvenlik Katsayısı",
+        "ar": "Güvenlik Katsayısı"
+      }
     },
     {
       "id": "additionalLoad",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "Sapan, kanca, travers gibi ekipmanların toplam kütlesi."
+      "businessContext": "Sapan, kanca, travers gibi ekipmanların toplam kütlesi.",
+      "label_i18n": {
+        "en": "Ek Yük (Rigging)",
+        "tr": "Ek Yük (Rigging)",
+        "de": "Ek Yük (Rigging)",
+        "fr": "Ek Yük (Rigging)",
+        "es": "Ek Yük (Rigging)",
+        "ar": "Ek Yük (Rigging)"
+      }
     },
     {
       "id": "liftAcceleration",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m/s²",
       "default": 0.5,
-      "businessContext": "Kaldırma sırasındaki ivme (dinamik yük etkisi)."
+      "businessContext": "Kaldırma sırasındaki ivme (dinamik yük etkisi).",
+      "label_i18n": {
+        "en": "Kaldırma İvmesi",
+        "tr": "Kaldırma İvmesi",
+        "de": "Kaldırma İvmesi",
+        "fr": "Kaldırma İvmesi",
+        "es": "Kaldırma İvmesi",
+        "ar": "Kaldırma İvmesi"
+      }
     },
     {
       "id": "frictionCoefficient",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "boyutsuz",
       "default": 0.05,
-      "businessContext": "Kaldırma mekanizmasındaki sürtünme kayıp katsayısı."
+      "businessContext": "Kaldırma mekanizmasındaki sürtünme kayıp katsayısı.",
+      "label_i18n": {
+        "en": "Sürtünme Katsayısı",
+        "tr": "Sürtünme Katsayısı",
+        "de": "Sürtünme Katsayısı",
+        "fr": "Sürtünme Katsayısı",
+        "es": "Sürtünme Katsayısı",
+        "ar": "Sürtünme Katsayısı"
+      }
     }
   ],
   "formulas": {
@@ -61,7 +109,12 @@
       "netWeight",
       "dynamicForce",
       "totalLiftForce"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalLiftForce"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -71,5 +124,10 @@
   "sectorSlug": "cleaning",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 3,
-      "businessContext": "Initial flag-drop or starting fee for taxi."
+      "businessContext": "Initial flag-drop or starting fee for taxi.",
+      "label_i18n": {
+        "en": "Base Fare",
+        "tr": "Base Fare",
+        "de": "Base Fare",
+        "fr": "Base Fare",
+        "es": "Base Fare",
+        "ar": "Base Fare"
+      }
     },
     {
       "id": "costPerKm",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency per km",
       "default": 1.5,
-      "businessContext": "Rate charged per kilometer traveled."
+      "businessContext": "Rate charged per kilometer traveled.",
+      "label_i18n": {
+        "en": "Cost per Kilometer",
+        "tr": "Cost per Kilometer",
+        "de": "Cost per Kilometer",
+        "fr": "Cost per Kilometer",
+        "es": "Cost per Kilometer",
+        "ar": "Cost per Kilometer"
+      }
     },
     {
       "id": "costPerMinute",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "currency per min",
       "default": 0.25,
-      "businessContext": "Rate charged per minute for waiting or slow traffic."
+      "businessContext": "Rate charged per minute for waiting or slow traffic.",
+      "label_i18n": {
+        "en": "Cost per Minute",
+        "tr": "Cost per Minute",
+        "de": "Cost per Minute",
+        "fr": "Cost per Minute",
+        "es": "Cost per Minute",
+        "ar": "Cost per Minute"
+      }
     },
     {
       "id": "distance",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "km",
       "default": 10,
-      "businessContext": "Total distance of the trip in kilometers."
+      "businessContext": "Total distance of the trip in kilometers.",
+      "label_i18n": {
+        "en": "Trip Distance",
+        "tr": "Trip Distance",
+        "de": "Trip Distance",
+        "fr": "Trip Distance",
+        "es": "Trip Distance",
+        "ar": "Trip Distance"
+      }
     },
     {
       "id": "time",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "min",
       "default": 15,
-      "businessContext": "Total duration of the trip in minutes."
+      "businessContext": "Total duration of the trip in minutes.",
+      "label_i18n": {
+        "en": "Trip Time",
+        "tr": "Trip Time",
+        "de": "Trip Time",
+        "fr": "Trip Time",
+        "es": "Trip Time",
+        "ar": "Trip Time"
+      }
     },
     {
       "id": "surcharge",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0,
-      "businessContext": "Any extra fees such as airport toll, night charge, etc."
+      "businessContext": "Any extra fees such as airport toll, night charge, etc.",
+      "label_i18n": {
+        "en": "Additional Surcharge",
+        "tr": "Additional Surcharge",
+        "de": "Additional Surcharge",
+        "fr": "Additional Surcharge",
+        "es": "Additional Surcharge",
+        "ar": "Additional Surcharge"
+      }
     }
   ],
   "formulas": {
@@ -64,7 +112,12 @@
       "timeCost",
       "baseFare",
       "surcharge"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalFare"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -74,5 +127,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

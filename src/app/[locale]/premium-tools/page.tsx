@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
+import { IndustriesTaxonomyGrid } from "@/components/industries/IndustriesTaxonomyGrid";
 import { ToolsPageLayout } from "@/components/tools/ToolsPageLayout";
-import { PremiumCatalogSearch } from "@/components/catalog/PremiumCatalogSearch";
+import { ToolsPageSearchProvider } from "@/components/tools/tools-page-search-context";
+import { SchemaToolsCatalogExplorer } from "@/components/tools/SchemaToolsCatalogExplorer";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { createPageMetadata } from "@/lib/metadata";
-import { buildPremiumCatalogTools } from "@/lib/catalog/premium-catalog-source";
-import { listPremiumCatalogCategories } from "@/lib/premium/premium-category-resolver";
+import { getPremiumTools } from "@/lib/tools/all-tools-data";
+import { buildTaxonomySectorCards, withTaxonomyCountLabels } from "@/lib/tools/build-taxonomy-sector-cards";
 import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
 import { buildItemListJsonLd } from "@/lib/seo/schema-mesh";
 import type { AppLocale } from "@/i18n/routing";
@@ -21,7 +23,7 @@ export const dynamic = "force-static";
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "premiumCategoryCatalog" });
+  const t = await getTranslations({ locale, namespace: "premiumTools" });
   return createPageMetadata({
     title: t("metaTitle"),
     description: t("metaDescription"),
@@ -34,21 +36,13 @@ export default async function PremiumToolsPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const t = await getTranslations("premiumCategoryCatalog");
-  const tPage = await getTranslations("premiumTools");
-  const catalogTools = buildPremiumCatalogTools(locale).map((tool) => ({
-    ...tool,
-    categorySlug: tool.categoryId,
-  }));
-  const activeToolCount = catalogTools.filter((tool) => tool.isActive && tool.routePath).length;
-  const categories = listPremiumCatalogCategories(locale)
-    .filter((category) => category.premiumToolCount > 0)
-    .map((category) => ({
-      slug: category.slug,
-      title: category.title,
-      iconKey: category.iconKey,
-      count: category.premiumToolCount,
-    }));
+  const tCatalog = await getTranslations({ locale, namespace: "catalogExplorer" });
+  const tPage = await getTranslations({ locale, namespace: "premiumTools" });
+  const tools = getPremiumTools(locale);
+  const taxonomySectorCards = withTaxonomyCountLabels(
+    buildTaxonomySectorCards(tools, locale),
+    (count) => tCatalog("labels.premium-tools.countLabel", { count }),
+  );
 
   const jsonLd = [
     await buildLocalizedBreadcrumbJsonLd(
@@ -59,13 +53,11 @@ export default async function PremiumToolsPage({ params }: PageProps) {
       locale,
     ),
     buildItemListJsonLd(
-      catalogTools
-        .filter((tool) => tool.isActive && tool.routePath)
-        .map((tool) => ({
-          name: tool.title,
-          path: tool.routePath!,
-        })),
-      t("title"),
+      tools.map((tool) => ({
+        name: tool.name,
+        path: tool.href,
+      })),
+      tPage("title"),
       locale,
     ),
   ];
@@ -74,20 +66,33 @@ export default async function PremiumToolsPage({ params }: PageProps) {
     <PageLayout>
       <JsonLd data={jsonLd} />
       <section className="sc-pro-section sc-pro-section--border">
-        <ToolsPageLayout
-          title={tPage("title")}
-          subtitle={tPage("subtitle")}
-          searchPlaceholder={tPage("searchPlaceholder")}
-          categoryTitle={tPage("categoryTitle")}
-        >
-          <Suspense fallback={<div className="min-h-[12rem]" aria-hidden="true" />}>
-            <PremiumCatalogSearch
-              tools={catalogTools}
-              categories={categories}
-              totalActiveCount={activeToolCount}
-            />
-          </Suspense>
-        </ToolsPageLayout>
+        <ToolsPageSearchProvider>
+          <ToolsPageLayout
+            title={tPage("title")}
+            subtitle={tPage("subtitle")}
+            searchPlaceholder={tPage("searchPlaceholder")}
+            categoryTitle={tPage("categoryTitle")}
+          >
+            <div className="mb-8">
+              <Suspense fallback={<div className="min-h-[12rem]" aria-hidden="true" />}>
+                <IndustriesTaxonomyGrid
+                  basePath="/premium-tools"
+                  sectors={taxonomySectorCards}
+                  variant="premium"
+                />
+              </Suspense>
+            </div>
+
+            <Suspense fallback={<div className="min-h-[12rem]" aria-hidden="true" />}>
+              <SchemaToolsCatalogExplorer
+                tools={tools}
+                filterBy="sector"
+                variant="premium-tools"
+                hideBrowseSection
+              />
+            </Suspense>
+          </ToolsPageLayout>
+        </ToolsPageSearchProvider>
       </section>
     </PageLayout>
   );

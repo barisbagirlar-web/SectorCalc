@@ -100,11 +100,7 @@
   ],
   "formulas": {
     "eulerResult": "isConnected == 1 ? (oddVertices == 0 ? 2 : (oddVertices == 2 ? 1 : 0)) : 0",
-    "_____eulerResult____2____Euler_Devresi__": "' + (eulerResult == 2 ? 'Euler Devresi (Circuit)' : eulerResult == 1 ? 'Euler Yolu (Path)' : 'Euler Yolu Yok')",
-    "_____isConnected____1____Ba_l______Ba_l_": "' + (isConnected == 1 ? 'Bağlı' : 'Bağlı Değil')",
-    "____oddVertices": "' + oddVertices",
-    "____minDegree______Max_Derece______maxDe": "' + minDegree + ', Max Derece: ' + maxDegree",
-    "____totalVertices______Toplam_Kenar_____": "' + totalVertices + ', Toplam Kenar: ' + totalEdges"
+    "eulerResult_aux": "isConnected == 1 ? (oddVertices == 0 ? 2 : (oddVertices == 2 ? 1 : 0)) : 0"
   },
   "outputs": {
     "primary": "eulerResult",
@@ -114,7 +110,12 @@
       "'Tek Dereceli Düğümler: ' + oddVertices",
       "'Min Derece: ' + minDegree + ', Max Derece: ' + maxDegree",
       "'Toplam Düğüm: ' + totalVertices + ', Toplam Kenar: ' + totalEdges"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "eulerResult_aux"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -124,5 +125,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

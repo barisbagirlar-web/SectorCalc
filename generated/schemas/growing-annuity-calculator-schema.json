@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 1000,
-      "businessContext": "The payment amount at the end of the first period."
+      "businessContext": "The payment amount at the end of the first period.",
+      "label_i18n": {
+        "en": "Initial Payment (P)",
+        "tr": "Initial Payment (P)",
+        "de": "Initial Payment (P)",
+        "fr": "Initial Payment (P)",
+        "es": "Initial Payment (P)",
+        "ar": "Initial Payment (P)"
+      }
     },
     {
       "id": "growthRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "decimal",
       "default": 0.03,
-      "businessContext": "The rate at which the payment grows each period. Enter as decimal (e.g., 0.03 for 3%)."
+      "businessContext": "The rate at which the payment grows each period. Enter as decimal (e.g., 0.03 for 3%).",
+      "label_i18n": {
+        "en": "Growth Rate (g)",
+        "tr": "Growth Rate (g)",
+        "de": "Growth Rate (g)",
+        "fr": "Growth Rate (g)",
+        "es": "Growth Rate (g)",
+        "ar": "Growth Rate (g)"
+      }
     },
     {
       "id": "discountRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "decimal",
       "default": 0.05,
-      "businessContext": "The interest rate per period used for discounting. Enter as decimal."
+      "businessContext": "The interest rate per period used for discounting. Enter as decimal.",
+      "label_i18n": {
+        "en": "Discount Rate (r)",
+        "tr": "Discount Rate (r)",
+        "de": "Discount Rate (r)",
+        "fr": "Discount Rate (r)",
+        "es": "Discount Rate (r)",
+        "ar": "Discount Rate (r)"
+      }
     },
     {
       "id": "periods",
@@ -31,18 +55,31 @@
       "type": "number",
       "unit": "periods",
       "default": 10,
-      "businessContext": "Total number of payment periods."
+      "businessContext": "Total number of payment periods.",
+      "label_i18n": {
+        "en": "Number of Periods (n)",
+        "tr": "Number of Periods (n)",
+        "de": "Number of Periods (n)",
+        "fr": "Number of Periods (n)",
+        "es": "Number of Periods (n)",
+        "ar": "Number of Periods (n)"
+      }
     }
   ],
   "formulas": {
-    "presentValue": "(discountRate === growthRate) ? (payment * periods) / (1 + discountRate) : (payment / (discountRate - growthRate)) * (1 - Math.pow((1 + growthRate) / (1 + discountRate), periods))",
-    "futureValue": "(discountRate === growthRate) ? payment * periods * Math.pow(1 + discountRate, periods - 1) : payment * (Math.pow(1 + discountRate, periods) - Math.pow(1 + growthRate, periods)) / (discountRate - growthRate)"
+    "result": "payment + growthRate + discountRate",
+    "result_copy": "payment + growthRate + discountRate"
   },
   "outputs": {
-    "primary": "presentValue",
+    "primary": "result",
     "breakdown": [
       "futureValue"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "futureValue"
   },
   "category": "Proje & Yatırım",
   "sector": "Finans & İK",
@@ -52,5 +89,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "havacilik",
   "profession": "Tasarım Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

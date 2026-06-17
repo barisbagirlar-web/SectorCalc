@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "tons",
       "default": 1000,
-      "businessContext": "Total weight of dirty bulk cargo to be shipped."
+      "businessContext": "Total weight of dirty bulk cargo to be shipped.",
+      "label_i18n": {
+        "en": "Cargo Weight",
+        "tr": "Cargo Weight",
+        "de": "Cargo Weight",
+        "fr": "Cargo Weight",
+        "es": "Cargo Weight",
+        "ar": "Cargo Weight"
+      }
     },
     {
       "id": "distance",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "km",
       "default": 500,
-      "businessContext": "Distance over sea route."
+      "businessContext": "Distance over sea route.",
+      "label_i18n": {
+        "en": "Shipping Distance",
+        "tr": "Shipping Distance",
+        "de": "Shipping Distance",
+        "fr": "Shipping Distance",
+        "es": "Shipping Distance",
+        "ar": "Shipping Distance"
+      }
     },
     {
       "id": "ratePerTonKm",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$/ton-km",
       "default": 0.05,
-      "businessContext": "Base freight rate per ton-km."
+      "businessContext": "Base freight rate per ton-km.",
+      "label_i18n": {
+        "en": "Freight Rate",
+        "tr": "Freight Rate",
+        "de": "Freight Rate",
+        "fr": "Freight Rate",
+        "es": "Freight Rate",
+        "ar": "Freight Rate"
+      }
     },
     {
       "id": "cleaningSurchargePercent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 15,
-      "businessContext": "Additional percentage for tank cleaning after dirty cargo."
+      "businessContext": "Additional percentage for tank cleaning after dirty cargo.",
+      "label_i18n": {
+        "en": "Cleaning Surcharge",
+        "tr": "Cleaning Surcharge",
+        "de": "Cleaning Surcharge",
+        "fr": "Cleaning Surcharge",
+        "es": "Cleaning Surcharge",
+        "ar": "Cleaning Surcharge"
+      }
     },
     {
       "id": "demurrageRiskFactor",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "days",
       "default": 2,
-      "businessContext": "Expected extra days due to cargo residue requiring extra cleaning."
+      "businessContext": "Expected extra days due to cargo residue requiring extra cleaning.",
+      "label_i18n": {
+        "en": "Demurrage Risk Factor",
+        "tr": "Demurrage Risk Factor",
+        "de": "Demurrage Risk Factor",
+        "fr": "Demurrage Risk Factor",
+        "es": "Demurrage Risk Factor",
+        "ar": "Demurrage Risk Factor"
+      }
     },
     {
       "id": "demurrageRate",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "$/day",
       "default": 5000,
-      "businessContext": "Daily demurrage cost if port time exceeds allowed."
+      "businessContext": "Daily demurrage cost if port time exceeds allowed.",
+      "label_i18n": {
+        "en": "Demurrage Rate",
+        "tr": "Demurrage Rate",
+        "de": "Demurrage Rate",
+        "fr": "Demurrage Rate",
+        "es": "Demurrage Rate",
+        "ar": "Demurrage Rate"
+      }
     }
   ],
   "formulas": {
@@ -64,7 +112,12 @@
       "cleaningSurcharge",
       "demurrageCost",
       "costPerTon"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "costPerTon"
   },
   "category": "Lojistik & Tedarik Zinciri",
   "sector": "Lojistik & Sevkiyat",
@@ -74,5 +127,10 @@
   "sectorSlug": "cleaning",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "logistics"
+  "categoryId": "logistics",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

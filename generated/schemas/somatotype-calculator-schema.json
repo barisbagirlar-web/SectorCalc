@@ -132,11 +132,7 @@
   ],
   "formulas": {
     "endomorphy": "-0.7182 + 0.1451 * (skinfold_triceps + skinfold_subscapular + skinfold_suprailiac) - 0.00068 * ((skinfold_triceps + skinfold_subscapular + skinfold_suprailiac) ** 2) + 0.0000014 * ((skinfold_triceps + skinfold_subscapular + skinfold_suprailiac) ** 3)",
-    "mesomorphy": "0.858 * humerus_breadth + 0.601 * femur_breadth + 0.188 * (skinfold_triceps + skinfold_calf) + 0.161 * (skinfold_subscapular + skinfold_suprailiac) - 0.131 * height + 4.5",
-    "ectomorphy": "if (height / Math.cbrt(weight) > 40.75) { ecto = 0.732 * (height / Math.cbrt(weight)) - 28.58 } else if (height / Math.cbrt(weight) >= 38.25) { ecto = 0.463 * (height / Math.cbrt(weight)) - 17.63 } else { ecto = 0.1 }",
-    "_endomorphy_": "{endomorphy}",
-    "_mesomorphy_": "{mesomorphy}",
-    "_ectomorphy_": "{ectomorphy}"
+    "mesomorphy": "0.858 * humerus_breadth + 0.601 * femur_breadth + 0.188 * (skinfold_triceps + skinfold_calf) + 0.161 * (skinfold_subscapular + skinfold_suprailiac) - 0.131 * height + 4.5"
   },
   "outputs": {
     "primary": "endomorphy",
@@ -144,7 +140,12 @@
       "Endomorphy: {endomorphy}",
       "Mesomorphy: {mesomorphy}",
       "Ectomorphy: {ectomorphy}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "mesomorphy"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -154,5 +155,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

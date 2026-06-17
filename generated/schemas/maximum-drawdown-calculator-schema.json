@@ -103,13 +103,7 @@
     "absoluteDrawdown": "peakValue - troughValue",
     "lossFromInitialPercent": "((initialInvestment - troughValue) / initialInvestment) * 100",
     "requiredRecoveryGainPercent": "(peakValue / troughValue - 1) * 100",
-    "actualRecoveryGainPercent": "recoveryValue > 0 ? ((recoveryValue - troughValue) / troughValue) * 100 : 0",
-    "recoveryStatus": "recoveryValue >= peakValue ? 'Full Recovery' : (recoveryValue > 0 ? 'Partial Recovery' : 'Not Recovered')",
-    "_absoluteDrawdown__USD": "{absoluteDrawdown} USD",
-    "_lossFromInitialPercent__": "{lossFromInitialPercent}%",
-    "_requiredRecoveryGainPercent__": "{requiredRecoveryGainPercent}%",
-    "_actualRecoveryGainPercent__": "{actualRecoveryGainPercent}%",
-    "_recoveryStatus_": "{recoveryStatus}"
+    "actualRecoveryGainPercent": "recoveryValue > 0 ? ((recoveryValue - troughValue) / troughValue) * 100 : 0"
   },
   "outputs": {
     "primary": "maxDrawdownPercent",
@@ -119,7 +113,12 @@
       "Required Recovery Gain: {requiredRecoveryGainPercent}%",
       "Actual Recovery Gain: {actualRecoveryGainPercent}%",
       "Recovery Status: {recoveryStatus}"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "recoveryStatus"
   },
   "category": "Proje & Yatırım",
   "sector": "Finans & İK",
@@ -129,5 +128,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

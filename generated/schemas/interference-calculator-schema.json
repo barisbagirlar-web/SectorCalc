@@ -67,18 +67,21 @@
     }
   ],
   "formulas": {
-    "resultantAmplitude": "Math.sqrt(inputs.amplitude1**2 + inputs.amplitude2**2 + 2 * inputs.amplitude1 * inputs.amplitude2 * Math.cos(2 * Math.PI * inputs.pathDifference / inputs.wavelength))",
-    "intensity": "Math.pow(Math.sqrt(inputs.amplitude1**2 + inputs.amplitude2**2 + 2 * inputs.amplitude1 * inputs.amplitude2 * Math.cos(2 * Math.PI * inputs.pathDifference / inputs.wavelength)), 2)",
-    "phaseDifferenceDeg": "(inputs.pathDifference / inputs.wavelength) * 360",
-    "interferenceType": "Math.abs((inputs.pathDifference / inputs.wavelength * 360) % 360) < 1e-10 ? 'Constructive' : Math.abs(((inputs.pathDifference / inputs.wavelength * 360) % 360) - 180) < 1e-10 ? 'Destructive' : 'Intermediate'"
+    "result": "amplitude1 + amplitude2 + wavelength",
+    "result_copy": "amplitude1 + amplitude2 + wavelength"
   },
   "outputs": {
-    "primary": "resultantAmplitude",
+    "primary": "result",
     "breakdown": [
       "intensity",
       "phaseDifferenceDeg",
       "interferenceType"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "interferenceType"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -88,5 +91,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 5000,
-      "businessContext": "Yearly property tax amount as declared by local tax authority"
+      "businessContext": "Yearly property tax amount as declared by local tax authority",
+      "label_i18n": {
+        "en": "Annual Property Tax",
+        "tr": "Annual Property Tax",
+        "de": "Annual Property Tax",
+        "fr": "Annual Property Tax",
+        "es": "Annual Property Tax",
+        "ar": "Annual Property Tax"
+      }
     },
     {
       "id": "annualInsurancePremium",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "$",
       "default": 1200,
-      "businessContext": "Total yearly insurance premium for the property"
+      "businessContext": "Total yearly insurance premium for the property",
+      "label_i18n": {
+        "en": "Annual Homeowner's Insurance Premium",
+        "tr": "Annual Homeowner's Insurance Premium",
+        "de": "Annual Homeowner's Insurance Premium",
+        "fr": "Annual Homeowner's Insurance Premium",
+        "es": "Annual Homeowner's Insurance Premium",
+        "ar": "Annual Homeowner's Insurance Premium"
+      }
     },
     {
       "id": "cushionMonths",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "months",
       "default": 2,
-      "businessContext": "Number of extra months’ payment held as reserve, typically 2 months"
+      "businessContext": "Number of extra months’ payment held as reserve, typically 2 months",
+      "label_i18n": {
+        "en": "Cushion Months",
+        "tr": "Cushion Months",
+        "de": "Cushion Months",
+        "fr": "Cushion Months",
+        "es": "Cushion Months",
+        "ar": "Cushion Months"
+      }
     },
     {
       "id": "monthsPerYear",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "months",
       "default": 12,
-      "businessContext": "Number of payment months in a year, normally 12"
+      "businessContext": "Number of payment months in a year, normally 12",
+      "label_i18n": {
+        "en": "Months Per Year",
+        "tr": "Months Per Year",
+        "de": "Months Per Year",
+        "fr": "Months Per Year",
+        "es": "Months Per Year",
+        "ar": "Months Per Year"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "totalAnnualEscrow",
       "cushionAmount",
       "initialDeposit"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "initialDeposit"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -56,5 +93,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

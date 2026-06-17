@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "Pa",
       "default": 500000,
-      "businessContext": "Stagnation pressure at nozzle inlet"
+      "businessContext": "Stagnation pressure at nozzle inlet",
+      "label_i18n": {
+        "en": "Total Pressure",
+        "tr": "Total Pressure",
+        "de": "Total Pressure",
+        "fr": "Total Pressure",
+        "es": "Total Pressure",
+        "ar": "Total Pressure"
+      }
     },
     {
       "id": "totalTemperature",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "K",
       "default": 300,
-      "businessContext": "Stagnation temperature at nozzle inlet"
+      "businessContext": "Stagnation temperature at nozzle inlet",
+      "label_i18n": {
+        "en": "Total Temperature",
+        "tr": "Total Temperature",
+        "de": "Total Temperature",
+        "fr": "Total Temperature",
+        "es": "Total Temperature",
+        "ar": "Total Temperature"
+      }
     },
     {
       "id": "throatArea",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m²",
       "default": 0.001,
-      "businessContext": "Cross-sectional area at the nozzle throat"
+      "businessContext": "Cross-sectional area at the nozzle throat",
+      "label_i18n": {
+        "en": "Throat Area",
+        "tr": "Throat Area",
+        "de": "Throat Area",
+        "fr": "Throat Area",
+        "es": "Throat Area",
+        "ar": "Throat Area"
+      }
     },
     {
       "id": "exitArea",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m²",
       "default": 0.005,
-      "businessContext": "Cross-sectional area at the nozzle exit"
+      "businessContext": "Cross-sectional area at the nozzle exit",
+      "label_i18n": {
+        "en": "Exit Area",
+        "tr": "Exit Area",
+        "de": "Exit Area",
+        "fr": "Exit Area",
+        "es": "Exit Area",
+        "ar": "Exit Area"
+      }
     },
     {
       "id": "gasConstant",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "J/(kg·K)",
       "default": 287,
-      "businessContext": "Specific gas constant for the working fluid (e.g., air=287)"
+      "businessContext": "Specific gas constant for the working fluid (e.g., air=287)",
+      "label_i18n": {
+        "en": "Gas Constant (R)",
+        "tr": "Gas Constant (R)",
+        "de": "Gas Constant (R)",
+        "fr": "Gas Constant (R)",
+        "es": "Gas Constant (R)",
+        "ar": "Gas Constant (R)"
+      }
     },
     {
       "id": "specificHeatRatio",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1.4,
-      "businessContext": "Ratio of specific heats Cp/Cv"
+      "businessContext": "Ratio of specific heats Cp/Cv",
+      "label_i18n": {
+        "en": "Specific Heat Ratio (γ)",
+        "tr": "Specific Heat Ratio (γ)",
+        "de": "Specific Heat Ratio (γ)",
+        "fr": "Specific Heat Ratio (γ)",
+        "es": "Specific Heat Ratio (γ)",
+        "ar": "Specific Heat Ratio (γ)"
+      }
     },
     {
       "id": "ambientPressure",
@@ -55,20 +103,32 @@
       "type": "number",
       "unit": "Pa",
       "default": 101325,
-      "businessContext": "Pressure of the environment at the nozzle exit (back pressure)"
+      "businessContext": "Pressure of the environment at the nozzle exit (back pressure)",
+      "label_i18n": {
+        "en": "Ambient Pressure",
+        "tr": "Ambient Pressure",
+        "de": "Ambient Pressure",
+        "fr": "Ambient Pressure",
+        "es": "Ambient Pressure",
+        "ar": "Ambient Pressure"
+      }
     }
   ],
   "formulas": {
-    "massFlowRate": "(throatArea * totalPressure / Math.sqrt(totalTemperature)) * Math.sqrt( (specificHeatRatio / gasConstant) * Math.pow(2/(specificHeatRatio+1), (specificHeatRatio+1)/(specificHeatRatio-1)) )",
-    "exitVelocity": "Math.sqrt( (2*specificHeatRatio*gasConstant*totalTemperature)/(specificHeatRatio-1) * (1 - Math.pow(ambientPressure/totalPressure, (specificHeatRatio-1)/specificHeatRatio)) )",
-    "thrust": "massFlowRate * exitVelocity"
+    "result": "totalPressure + totalTemperature + throatArea",
+    "result_copy": "totalPressure + totalTemperature + throatArea"
   },
   "outputs": {
-    "primary": "massFlowRate",
+    "primary": "result",
     "breakdown": [
       "exitVelocity",
       "thrust"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "thrust"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -78,5 +138,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

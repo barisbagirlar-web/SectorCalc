@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "$",
       "default": 100000,
-      "businessContext": "Total value of the gift given to the recipient."
+      "businessContext": "Total value of the gift given to the recipient.",
+      "label_i18n": {
+        "en": "Gift Amount",
+        "tr": "Gift Amount",
+        "de": "Gift Amount",
+        "fr": "Gift Amount",
+        "es": "Gift Amount",
+        "ar": "Gift Amount"
+      }
     },
     {
       "id": "annualExclusion",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "$",
       "default": 16000,
-      "businessContext": "Maximum amount that can be gifted per person per year without using lifetime exemption."
+      "businessContext": "Maximum amount that can be gifted per person per year without using lifetime exemption.",
+      "label_i18n": {
+        "en": "Annual Exclusion",
+        "tr": "Annual Exclusion",
+        "de": "Annual Exclusion",
+        "fr": "Annual Exclusion",
+        "es": "Annual Exclusion",
+        "ar": "Annual Exclusion"
+      }
     },
     {
       "id": "totalLifetimeExemption",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "$",
       "default": 12060000,
-      "businessContext": "Total amount that can be gifted over a lifetime without incurring gift tax, as per current law."
+      "businessContext": "Total amount that can be gifted over a lifetime without incurring gift tax, as per current law.",
+      "label_i18n": {
+        "en": "Total Lifetime Exemption",
+        "tr": "Total Lifetime Exemption",
+        "de": "Total Lifetime Exemption",
+        "fr": "Total Lifetime Exemption",
+        "es": "Total Lifetime Exemption",
+        "ar": "Total Lifetime Exemption"
+      }
     },
     {
       "id": "lifetimeExemptionUsed",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "$",
       "default": 0,
-      "businessContext": "Portion of the lifetime exemption already utilized from previous gifts."
+      "businessContext": "Portion of the lifetime exemption already utilized from previous gifts.",
+      "label_i18n": {
+        "en": "Lifetime Exemption Used",
+        "tr": "Lifetime Exemption Used",
+        "de": "Lifetime Exemption Used",
+        "fr": "Lifetime Exemption Used",
+        "es": "Lifetime Exemption Used",
+        "ar": "Lifetime Exemption Used"
+      }
     },
     {
       "id": "taxRate",
@@ -39,22 +71,33 @@
       "type": "number",
       "unit": "%",
       "default": 40,
-      "businessContext": "Flat tax rate applied on taxable amount exceeding exemptions."
+      "businessContext": "Flat tax rate applied on taxable amount exceeding exemptions.",
+      "label_i18n": {
+        "en": "Gift Tax Rate",
+        "tr": "Gift Tax Rate",
+        "de": "Gift Tax Rate",
+        "fr": "Gift Tax Rate",
+        "es": "Gift Tax Rate",
+        "ar": "Gift Tax Rate"
+      }
     }
   ],
   "formulas": {
-    "totalTax": "Math.max(0, (Math.max(0, giftAmount - annualExclusion) - Math.max(0, totalLifetimeExemption - lifetimeExemptionUsed))) * (taxRate / 100)",
-    "taxableAmount": "Math.max(0, (Math.max(0, giftAmount - annualExclusion) - Math.max(0, totalLifetimeExemption - lifetimeExemptionUsed)))",
-    "taxableBeforeLifetime": "Math.max(0, giftAmount - annualExclusion)",
-    "remainingLifetimeExemption": "Math.max(0, totalLifetimeExemption - lifetimeExemptionUsed)"
+    "result": "giftAmount + annualExclusion + totalLifetimeExemption",
+    "result_copy": "giftAmount + annualExclusion + totalLifetimeExemption"
   },
   "outputs": {
-    "primary": "totalTax",
+    "primary": "result",
     "breakdown": [
       "taxableAmount",
       "taxableBeforeLifetime",
       "remainingLifetimeExemption"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "remainingLifetimeExemption"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -64,5 +107,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

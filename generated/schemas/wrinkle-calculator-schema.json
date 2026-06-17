@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "mm",
       "default": 1.5,
-      "businessContext": "Sac malzemenin kalınlığı"
+      "businessContext": "Sac malzemenin kalınlığı",
+      "label_i18n": {
+        "en": "Kalınlık",
+        "tr": "Kalınlık",
+        "de": "Kalınlık",
+        "fr": "Kalınlık",
+        "es": "Kalınlık",
+        "ar": "Kalınlık"
+      }
     },
     {
       "id": "blankDiameter",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "mm",
       "default": 200,
-      "businessContext": "Başlangıç sac çapı (blanck çapı)"
+      "businessContext": "Başlangıç sac çapı (blanck çapı)",
+      "label_i18n": {
+        "en": "Blank Çapı",
+        "tr": "Blank Çapı",
+        "de": "Blank Çapı",
+        "fr": "Blank Çapı",
+        "es": "Blank Çapı",
+        "ar": "Blank Çapı"
+      }
     },
     {
       "id": "punchDiameter",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 100,
-      "businessContext": "Deep drawing zımba çapı"
+      "businessContext": "Deep drawing zımba çapı",
+      "label_i18n": {
+        "en": "Zımba Çapı",
+        "tr": "Zımba Çapı",
+        "de": "Zımba Çapı",
+        "fr": "Zımba Çapı",
+        "es": "Zımba Çapı",
+        "ar": "Zımba Çapı"
+      }
     },
     {
       "id": "drawDepth",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mm",
       "default": 50,
-      "businessContext": "Deep drawing derinliği"
+      "businessContext": "Deep drawing derinliği",
+      "label_i18n": {
+        "en": "Çekme Derinliği",
+        "tr": "Çekme Derinliği",
+        "de": "Çekme Derinliği",
+        "fr": "Çekme Derinliği",
+        "es": "Çekme Derinliği",
+        "ar": "Çekme Derinliği"
+      }
     },
     {
       "id": "yieldStrength",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "MPa",
       "default": 250,
-      "businessContext": "Malzemenin akma dayanımı (Re)"
+      "businessContext": "Malzemenin akma dayanımı (Re)",
+      "label_i18n": {
+        "en": "Akma Dayanımı",
+        "tr": "Akma Dayanımı",
+        "de": "Akma Dayanımı",
+        "fr": "Akma Dayanımı",
+        "es": "Akma Dayanımı",
+        "ar": "Akma Dayanımı"
+      }
     },
     {
       "id": "elasticModulus",
@@ -47,22 +87,32 @@
       "type": "number",
       "unit": "GPa",
       "default": 210,
-      "businessContext": "Malzemenin elastisite modülü (E)"
+      "businessContext": "Malzemenin elastisite modülü (E)",
+      "label_i18n": {
+        "en": "Elastisite Modülü",
+        "tr": "Elastisite Modülü",
+        "de": "Elastisite Modülü",
+        "fr": "Elastisite Modülü",
+        "es": "Elastisite Modülü",
+        "ar": "Elastisite Modülü"
+      }
     }
   ],
   "formulas": {
-    "drawAngle_rad": "Math.asin((blankDiameter - punchDiameter) / (2 * drawDepth))",
-    "drawAngle_deg": "drawAngle_rad * 180 / Math.PI",
-    "factor": "Math.sqrt(yieldStrength / (elasticModulus * 1000))",
-    "requiredThickness": "(blankDiameter - punchDiameter) / (2 * Math.sin(drawAngle_rad)) * factor",
-    "safetyMargin": "((thickness - requiredThickness) / requiredThickness) * 100"
+    "result": "thickness + blankDiameter + punchDiameter",
+    "result_copy": "thickness + blankDiameter + punchDiameter"
   },
   "outputs": {
-    "primary": "safetyMargin",
+    "primary": "result",
     "breakdown": [
       "drawAngle_deg",
       "requiredThickness"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "safetyMargin"
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Üretim & İmalat",
@@ -72,5 +122,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "havacilik",
   "profession": "Tasarım Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

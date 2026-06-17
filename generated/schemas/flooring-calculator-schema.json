@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 5,
-      "businessContext": "Döşeme yapılacak odanın uzunluğu (metre cinsinden)."
+      "businessContext": "Döşeme yapılacak odanın uzunluğu (metre cinsinden).",
+      "label_i18n": {
+        "en": "Oda Uzunluğu",
+        "tr": "Oda Uzunluğu",
+        "de": "Oda Uzunluğu",
+        "fr": "Oda Uzunluğu",
+        "es": "Oda Uzunluğu",
+        "ar": "Oda Uzunluğu"
+      }
     },
     {
       "id": "roomWidth",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 4,
-      "businessContext": "Döşeme yapılacak odanın genişliği (metre cinsinden)."
+      "businessContext": "Döşeme yapılacak odanın genişliği (metre cinsinden).",
+      "label_i18n": {
+        "en": "Oda Genişliği",
+        "tr": "Oda Genişliği",
+        "de": "Oda Genişliği",
+        "fr": "Oda Genişliği",
+        "es": "Oda Genişliği",
+        "ar": "Oda Genişliği"
+      }
     },
     {
       "id": "tileLength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.3,
-      "businessContext": "Bir karonun uzun kenar ölçüsü (metre cinsinden). Örn: 30 cm = 0.3 m."
+      "businessContext": "Bir karonun uzun kenar ölçüsü (metre cinsinden). Örn: 30 cm = 0.3 m.",
+      "label_i18n": {
+        "en": "Karo Uzunluğu",
+        "tr": "Karo Uzunluğu",
+        "de": "Karo Uzunluğu",
+        "fr": "Karo Uzunluğu",
+        "es": "Karo Uzunluğu",
+        "ar": "Karo Uzunluğu"
+      }
     },
     {
       "id": "tileWidth",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0.3,
-      "businessContext": "Bir karonun kısa kenar ölçüsü (metre cinsinden). Örn: 30 cm = 0.3 m."
+      "businessContext": "Bir karonun kısa kenar ölçüsü (metre cinsinden). Örn: 30 cm = 0.3 m.",
+      "label_i18n": {
+        "en": "Karo Genişliği",
+        "tr": "Karo Genişliği",
+        "de": "Karo Genişliği",
+        "fr": "Karo Genişliği",
+        "es": "Karo Genişliği",
+        "ar": "Karo Genişliği"
+      }
     },
     {
       "id": "pricePerTile",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "TRY",
       "default": 15,
-      "businessContext": "Bir adet karonun satın alma fiyatı (TL cinsinden)."
+      "businessContext": "Bir adet karonun satın alma fiyatı (TL cinsinden).",
+      "label_i18n": {
+        "en": "Karo Başına Fiyat",
+        "tr": "Karo Başına Fiyat",
+        "de": "Karo Başına Fiyat",
+        "fr": "Karo Başına Fiyat",
+        "es": "Karo Başına Fiyat",
+        "ar": "Karo Başına Fiyat"
+      }
     },
     {
       "id": "wasteFactor",
@@ -47,25 +87,35 @@
       "type": "number",
       "unit": "%",
       "default": 10,
-      "businessContext": "Kesim, kırılma gibi kayıplar için eklenecek yüzde oranı. Örn: 10."
+      "businessContext": "Kesim, kırılma gibi kayıplar için eklenecek yüzde oranı. Örn: 10.",
+      "label_i18n": {
+        "en": "Fire Oranı",
+        "tr": "Fire Oranı",
+        "de": "Fire Oranı",
+        "fr": "Fire Oranı",
+        "es": "Fire Oranı",
+        "ar": "Fire Oranı"
+      }
     }
   ],
   "formulas": {
     "roomArea": "roomLength * roomWidth",
     "tileArea": "tileLength * tileWidth",
     "tilesWithoutWaste": "roomArea / tileArea",
-    "tilesWithWaste": "tilesWithoutWaste * (1 + wasteFactor / 100)",
-    "numberOfTiles": "Math.ceil(tilesWithWaste)",
-    "totalCost": "numberOfTiles * pricePerTile",
-    "wasteTiles": "numberOfTiles - tilesWithoutWaste"
+    "tilesWithWaste": "tilesWithoutWaste * (1 + wasteFactor / 100)"
   },
   "outputs": {
-    "primary": "numberOfTiles",
+    "primary": "tilesWithWaste",
     "breakdown": [
       "roomArea",
       "totalCost",
       "wasteTiles"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "wasteTiles"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -75,5 +125,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

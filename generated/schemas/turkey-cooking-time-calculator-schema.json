@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 5,
-      "businessContext": "Net weight of the turkey before cooking, without giblets."
+      "businessContext": "Net weight of the turkey before cooking, without giblets.",
+      "label_i18n": {
+        "en": "Turkey Weight",
+        "tr": "Turkey Weight",
+        "de": "Turkey Weight",
+        "fr": "Turkey Weight",
+        "es": "Turkey Weight",
+        "ar": "Turkey Weight"
+      }
     },
     {
       "id": "ovenTempC",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "°C",
       "default": 175,
-      "businessContext": "Set temperature of the oven. Standard roasting temperature is 175°C (350°F)."
+      "businessContext": "Set temperature of the oven. Standard roasting temperature is 175°C (350°F).",
+      "label_i18n": {
+        "en": "Oven Temperature",
+        "tr": "Oven Temperature",
+        "de": "Oven Temperature",
+        "fr": "Oven Temperature",
+        "es": "Oven Temperature",
+        "ar": "Oven Temperature"
+      }
     },
     {
       "id": "isStuffed",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "0=No, 1=Yes",
       "default": 0,
-      "businessContext": "Indicates whether the turkey cavity is filled with stuffing. Stuffed turkeys require longer cooking to ensure safe internal temperature."
+      "businessContext": "Indicates whether the turkey cavity is filled with stuffing. Stuffed turkeys require longer cooking to ensure safe internal temperature.",
+      "label_i18n": {
+        "en": "Stuffed",
+        "tr": "Stuffed",
+        "de": "Stuffed",
+        "fr": "Stuffed",
+        "es": "Stuffed",
+        "ar": "Stuffed"
+      }
     },
     {
       "id": "startTempC",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "°C",
       "default": 4,
-      "businessContext": "Initial temperature of the turkey. Typically refrigerated at 4°C."
+      "businessContext": "Initial temperature of the turkey. Typically refrigerated at 4°C.",
+      "label_i18n": {
+        "en": "Starting Temperature",
+        "tr": "Starting Temperature",
+        "de": "Starting Temperature",
+        "fr": "Starting Temperature",
+        "es": "Starting Temperature",
+        "ar": "Starting Temperature"
+      }
     }
   ],
   "formulas": {
@@ -50,7 +82,12 @@
     "breakdown": [
       "finalTimeMinutes",
       "finalTimeHours"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "finalTimeHours"
   },
   "category": "Gıda & Tarım",
   "sector": "Perakende & Gıda",
@@ -60,5 +97,10 @@
   "categorySlug": "food-cold-chain-hygiene",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Mother's age at expected delivery date"
+      "businessContext": "Mother's age at expected delivery date",
+      "label_i18n": {
+        "en": "Maternal Age",
+        "tr": "Maternal Age",
+        "de": "Maternal Age",
+        "fr": "Maternal Age",
+        "es": "Maternal Age",
+        "ar": "Maternal Age"
+      }
     },
     {
       "id": "gestationalAge",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "weeks",
       "default": 12,
-      "businessContext": "Weeks of pregnancy"
+      "businessContext": "Weeks of pregnancy",
+      "label_i18n": {
+        "en": "Gestational Age",
+        "tr": "Gestational Age",
+        "de": "Gestational Age",
+        "fr": "Gestational Age",
+        "es": "Gestational Age",
+        "ar": "Gestational Age"
+      }
     },
     {
       "id": "nuchalTranslucency",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mm",
       "default": 1.5,
-      "businessContext": "NT thickness measured via ultrasound"
+      "businessContext": "NT thickness measured via ultrasound",
+      "label_i18n": {
+        "en": "Nuchal Translucency (NT)",
+        "tr": "Nuchal Translucency (NT)",
+        "de": "Nuchal Translucency (NT)",
+        "fr": "Nuchal Translucency (NT)",
+        "es": "Nuchal Translucency (NT)",
+        "ar": "Nuchal Translucency (NT)"
+      }
     },
     {
       "id": "pappA",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "MoM",
       "default": 1,
-      "businessContext": "Pregnancy-associated plasma protein A in multiples of median"
+      "businessContext": "Pregnancy-associated plasma protein A in multiples of median",
+      "label_i18n": {
+        "en": "PAPP-A",
+        "tr": "PAPP-A",
+        "de": "PAPP-A",
+        "fr": "PAPP-A",
+        "es": "PAPP-A",
+        "ar": "PAPP-A"
+      }
     },
     {
       "id": "freeBetaHCG",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "MoM",
       "default": 1,
-      "businessContext": "Free beta human chorionic gonadotropin in multiples of median"
+      "businessContext": "Free beta human chorionic gonadotropin in multiples of median",
+      "label_i18n": {
+        "en": "Free β-hCG",
+        "tr": "Free β-hCG",
+        "de": "Free β-hCG",
+        "fr": "Free β-hCG",
+        "es": "Free β-hCG",
+        "ar": "Free β-hCG"
+      }
     },
     {
       "id": "previousTrisomy",
@@ -47,22 +87,32 @@
       "type": "number",
       "unit": "count",
       "default": 0,
-      "businessContext": "Number of prior pregnancies affected by trisomy 21"
+      "businessContext": "Number of prior pregnancies affected by trisomy 21",
+      "label_i18n": {
+        "en": "Previous Trisomy 21",
+        "tr": "Previous Trisomy 21",
+        "de": "Previous Trisomy 21",
+        "fr": "Previous Trisomy 21",
+        "es": "Previous Trisomy 21",
+        "ar": "Previous Trisomy 21"
+      }
     }
   ],
   "formulas": {
-    "baseRiskPercent": "0.05 * Math.exp(0.25 * (maternalAge - 20))",
-    "adjustedRiskPercent": "baseRiskPercent * (nuchalTranslucency / 1.0) * (1 / pappA) * freeBetaHCG * (1 + 2 * previousTrisomy)",
-    "oneInN": "Math.round(100 / adjustedRiskPercent)",
-    "ageRiskStr": "baseRiskPercent.toFixed(2)",
-    "adjRiskStr": "adjustedRiskPercent.toFixed(2)"
+    "result": "maternalAge + gestationalAge + nuchalTranslucency",
+    "result_copy": "maternalAge + gestationalAge + nuchalTranslucency"
   },
   "outputs": {
-    "primary": "oneInN",
+    "primary": "result",
     "breakdown": [
       "baseRiskPercent",
       "adjustedRiskPercent"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "oneInN"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -72,5 +122,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "lojistik",
   "profession": "Lojistik Uzmanı",
-  "categoryId": "logistics"
+  "categoryId": "logistics",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

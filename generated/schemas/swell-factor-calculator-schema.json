@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m³",
       "default": 100,
-      "businessContext": "Yerinde sıkışmış malzeme hacmi"
+      "businessContext": "Yerinde sıkışmış malzeme hacmi",
+      "label_i18n": {
+        "en": "Bank/Hacim (Yerinde)",
+        "tr": "Bank/Hacim (Yerinde)",
+        "de": "Bank/Hacim (Yerinde)",
+        "fr": "Bank/Hacim (Yerinde)",
+        "es": "Bank/Hacim (Yerinde)",
+        "ar": "Bank/Hacim (Yerinde)"
+      }
     },
     {
       "id": "swellFactorPercent",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 25,
-      "businessContext": "Yerinde hacme göre yüzde artış"
+      "businessContext": "Yerinde hacme göre yüzde artış",
+      "label_i18n": {
+        "en": "Kabarma Faktörü",
+        "tr": "Kabarma Faktörü",
+        "de": "Kabarma Faktörü",
+        "fr": "Kabarma Faktörü",
+        "es": "Kabarma Faktörü",
+        "ar": "Kabarma Faktörü"
+      }
     },
     {
       "id": "wasteFactorPercent",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Dökülme, sızıntı vb. kayıplar"
+      "businessContext": "Dökülme, sızıntı vb. kayıplar",
+      "label_i18n": {
+        "en": "Fire/Zayiat Faktörü",
+        "tr": "Fire/Zayiat Faktörü",
+        "de": "Fire/Zayiat Faktörü",
+        "fr": "Fire/Zayiat Faktörü",
+        "es": "Fire/Zayiat Faktörü",
+        "ar": "Fire/Zayiat Faktörü"
+      }
     },
     {
       "id": "truckCapacity",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m³",
       "default": 10,
-      "businessContext": "Bir kamyonun taşıma kapasitesi"
+      "businessContext": "Bir kamyonun taşıma kapasitesi",
+      "label_i18n": {
+        "en": "Kamyon Kapasitesi",
+        "tr": "Kamyon Kapasitesi",
+        "de": "Kamyon Kapasitesi",
+        "fr": "Kamyon Kapasitesi",
+        "es": "Kamyon Kapasitesi",
+        "ar": "Kamyon Kapasitesi"
+      }
     }
   ],
   "formulas": {
@@ -48,7 +80,12 @@
       "volumeIncrease",
       "adjustedVolumeIncrease",
       "loadsRequired"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "loadsRequired"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -58,5 +95,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

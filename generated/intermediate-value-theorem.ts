@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from intermediate-value-theorem-schema.json
 import * as z from 'zod';
 
@@ -19,31 +20,34 @@ export const Intermediate_value_theoremInputSchema = z.object({
   tolerance: z.number().default(0.001),
 });
 
-function evaluateAllFormulas(input: Intermediate_value_theoremInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = ((input.fa - input.k) * (input.fb - input.k) <= 0) ? 1 : 0; results["exists"] = Number.isFinite(v) ? v : 0; } catch { results["exists"] = 0; }
-  try { const v = ((input.fa - input.k) * (input.fb - input.k) <= 0) ? (input.a + input.b) / 2 : null; results["c"] = Number.isFinite(v) ? v : 0; } catch { results["c"] = 0; }
-  try { const v = ((input.fa - input.k) * (input.fb - input.k) <= 0) ? ((input.fb - input.fa) / (input.b - input.a)) * ((results["c"] ?? 0) - input.a) + input.fa : null; results["fc"] = Number.isFinite(v) ? v : 0; } catch { results["fc"] = 0; }
-  try { const v = ((input.fa - input.k) * (input.fb - input.k) <= 0) ? Math.ceil(Math.log((input.b - input.a) / input.tolerance) / Math.log(2)) : 0; results["iterations"] = Number.isFinite(v) ? v : 0; } catch { results["iterations"] = 0; }
-  results["1_if_a_solution_exists__0_otherwise"] = 0;
-  results["approximate_root__midpoint__if_exists__e"] = 0;
-  results["approximate_function_value_at_c"] = 0;
-  results["number_of_bisection_steps_needed"] = 0;
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Intermediate_value_theoremInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = ((input.fa - input.k) * (input.fb - input.k) <= 0) ? 1 : 0; results["exists"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["exists"] = 0; }
+  try { const v = ((input.fa - input.k) * (input.fb - input.k) <= 0) ? (input.a + input.b) / 2 : null; results["c"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["c"] = 0; }
+  try { const v = ((input.fa - input.k) * (input.fb - input.k) <= 0) ? ((input.fb - input.fa) / (input.b - input.a)) * ((asFormulaNumber(results["c"])) - input.a) + input.fa : null; results["fc"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["fc"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateIntermediate_value_theorem(input: Intermediate_value_theoremInput): Intermediate_value_theoremOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["c"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["c"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

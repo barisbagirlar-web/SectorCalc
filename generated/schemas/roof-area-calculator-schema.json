@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Total external width of the building footprint in meters"
+      "businessContext": "Total external width of the building footprint in meters",
+      "label_i18n": {
+        "en": "Building Width",
+        "tr": "Building Width",
+        "de": "Building Width",
+        "fr": "Building Width",
+        "es": "Building Width",
+        "ar": "Building Width"
+      }
     },
     {
       "id": "buildingLength",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 12,
-      "businessContext": "Total external length of the building footprint in meters"
+      "businessContext": "Total external length of the building footprint in meters",
+      "label_i18n": {
+        "en": "Building Length",
+        "tr": "Building Length",
+        "de": "Building Length",
+        "fr": "Building Length",
+        "es": "Building Length",
+        "ar": "Building Length"
+      }
     },
     {
       "id": "roofPitch",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "°",
       "default": 30,
-      "businessContext": "Inclination angle of the roof slope in degrees (0 < angle < 90)"
+      "businessContext": "Inclination angle of the roof slope in degrees (0 < angle < 90)",
+      "label_i18n": {
+        "en": "Roof Pitch",
+        "tr": "Roof Pitch",
+        "de": "Roof Pitch",
+        "fr": "Roof Pitch",
+        "es": "Roof Pitch",
+        "ar": "Roof Pitch"
+      }
     },
     {
       "id": "overhang",
@@ -31,23 +55,34 @@
       "type": "number",
       "unit": "m",
       "default": 0.5,
-      "businessContext": "Horizontal projection of the roof beyond the walls on all sides (uniform)"
+      "businessContext": "Horizontal projection of the roof beyond the walls on all sides (uniform)",
+      "label_i18n": {
+        "en": "Overhang",
+        "tr": "Overhang",
+        "de": "Overhang",
+        "fr": "Overhang",
+        "es": "Overhang",
+        "ar": "Overhang"
+      }
     }
   ],
   "formulas": {
     "effectiveWidth": "buildingWidth + 2 * overhang",
     "effectiveLength": "buildingLength + 2 * overhang",
     "angleRad": "roofPitch * Math.PI / 180",
-    "slopeFactor": "1 / Math.cos(angleRad)",
-    "footprintArea": "effectiveWidth * effectiveLength",
-    "roofArea": "footprintArea / Math.cos(angleRad)"
+    "footprintArea": "effectiveWidth * effectiveLength"
   },
   "outputs": {
-    "primary": "roofArea",
+    "primary": "footprintArea",
     "breakdown": [
       "footprintArea",
       "slopeFactor"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roofArea"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -57,5 +92,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "insaat",
   "profession": "Proje Müdürü",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

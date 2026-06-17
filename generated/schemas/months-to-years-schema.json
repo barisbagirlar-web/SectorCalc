@@ -67,17 +67,20 @@
     }
   ],
   "formulas": {
-    "years": "Math.floor(months / monthsPerYear)",
-    "remainderMonths": "months % monthsPerYear",
     "decimalYears": "months / monthsPerYear",
-    "roundedDecimalYears": "Math.round(decimalYears * Math.pow(10, precision)) / Math.pow(10, precision)"
+    "decimalYears_aux": "months / monthsPerYear"
   },
   "outputs": {
-    "primary": "roundedDecimalYears",
+    "primary": "decimalYears_aux",
     "breakdown": [
       "years",
       "remainderMonths"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "roundedDecimalYears"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -87,5 +90,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

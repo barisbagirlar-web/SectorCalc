@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Patient's body weight used to calculate fluid resuscitation volume."
+      "businessContext": "Patient's body weight used to calculate fluid resuscitation volume.",
+      "label_i18n": {
+        "en": "Body Weight",
+        "tr": "Body Weight",
+        "de": "Body Weight",
+        "fr": "Body Weight",
+        "es": "Body Weight",
+        "ar": "Body Weight"
+      }
     },
     {
       "id": "tbsa_percent",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Percentage of total body surface area affected by burns."
+      "businessContext": "Percentage of total body surface area affected by burns.",
+      "label_i18n": {
+        "en": "Total Burn Surface Area",
+        "tr": "Total Burn Surface Area",
+        "de": "Total Burn Surface Area",
+        "fr": "Total Burn Surface Area",
+        "es": "Total Burn Surface Area",
+        "ar": "Total Burn Surface Area"
+      }
     },
     {
       "id": "fluid_factor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mL/kg/%",
       "default": 4,
-      "businessContext": "Standard Parkland factor (4 mL per kg per % TBSA)."
+      "businessContext": "Standard Parkland factor (4 mL per kg per % TBSA).",
+      "label_i18n": {
+        "en": "Fluid Volume Factor",
+        "tr": "Fluid Volume Factor",
+        "de": "Fluid Volume Factor",
+        "fr": "Fluid Volume Factor",
+        "es": "Fluid Volume Factor",
+        "ar": "Fluid Volume Factor"
+      }
     },
     {
       "id": "first_half_hours",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "hours",
       "default": 8,
-      "businessContext": "Duration for the first half of total fluid volume (typically 8 hours)."
+      "businessContext": "Duration for the first half of total fluid volume (typically 8 hours).",
+      "label_i18n": {
+        "en": "First Half Duration",
+        "tr": "First Half Duration",
+        "de": "First Half Duration",
+        "fr": "First Half Duration",
+        "es": "First Half Duration",
+        "ar": "First Half Duration"
+      }
     },
     {
       "id": "second_half_hours",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "hours",
       "default": 16,
-      "businessContext": "Duration for the second half of total fluid volume (typically 16 hours)."
+      "businessContext": "Duration for the second half of total fluid volume (typically 16 hours).",
+      "label_i18n": {
+        "en": "Second Half Duration",
+        "tr": "Second Half Duration",
+        "de": "Second Half Duration",
+        "fr": "Second Half Duration",
+        "es": "Second Half Duration",
+        "ar": "Second Half Duration"
+      }
     }
   ],
   "formulas": {
@@ -52,7 +92,12 @@
     "breakdown": [
       "volume_first_half",
       "volume_second_half"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "volume_second_half"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -62,5 +107,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

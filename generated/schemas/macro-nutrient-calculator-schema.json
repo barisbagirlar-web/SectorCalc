@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "g",
       "default": 100,
-      "businessContext": "Total weight of food batch or serving in grams"
+      "businessContext": "Total weight of food batch or serving in grams",
+      "label_i18n": {
+        "en": "Food Weight",
+        "tr": "Food Weight",
+        "de": "Food Weight",
+        "fr": "Food Weight",
+        "es": "Food Weight",
+        "ar": "Food Weight"
+      }
     },
     {
       "id": "proteinPer100",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g/100g",
       "default": 20,
-      "businessContext": "Protein content per 100 grams of food"
+      "businessContext": "Protein content per 100 grams of food",
+      "label_i18n": {
+        "en": "Protein per 100g",
+        "tr": "Protein per 100g",
+        "de": "Protein per 100g",
+        "fr": "Protein per 100g",
+        "es": "Protein per 100g",
+        "ar": "Protein per 100g"
+      }
     },
     {
       "id": "carbsPer100",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "g/100g",
       "default": 10,
-      "businessContext": "Carbohydrate content per 100 grams of food"
+      "businessContext": "Carbohydrate content per 100 grams of food",
+      "label_i18n": {
+        "en": "Carbohydrates per 100g",
+        "tr": "Carbohydrates per 100g",
+        "de": "Carbohydrates per 100g",
+        "fr": "Carbohydrates per 100g",
+        "es": "Carbohydrates per 100g",
+        "ar": "Carbohydrates per 100g"
+      }
     },
     {
       "id": "fatPer100",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "g/100g",
       "default": 5,
-      "businessContext": "Fat content per 100 grams of food"
+      "businessContext": "Fat content per 100 grams of food",
+      "label_i18n": {
+        "en": "Fat per 100g",
+        "tr": "Fat per 100g",
+        "de": "Fat per 100g",
+        "fr": "Fat per 100g",
+        "es": "Fat per 100g",
+        "ar": "Fat per 100g"
+      }
     }
   ],
   "formulas": {
@@ -46,7 +78,12 @@
       "proteinGrams",
       "carbsGrams",
       "fatGrams"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCalories"
   },
   "category": "Gıda & Tarım",
   "sector": "Perakende & Gıda",
@@ -56,5 +93,10 @@
   "categorySlug": "food-cold-chain-hygiene",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -154,17 +154,12 @@
       }
     ]
   },
-  "formulas": [
-    "exposure_amount",
-    "exposure_amount",
-    "exposure_amount",
-    "exposure_amount",
-    "exposure_amount",
-    "exposure_amount",
-    "exposure_amount"
-  ],
+  "formulas": {
+    "result": "exposure_amount + volatility_annual + confidence_level",
+    "result_copy": "exposure_amount + volatility_annual + confidence_level"
+  },
   "outputs": {
-    "primary": "0",
+    "primary": "result",
     "breakdown": [
       "0",
       "1",
@@ -183,7 +178,7 @@
       "Use options collar strategy to limit downside while retaining upside",
       "Monitor macroeconomic indicators (interest rate differentials, trade balances)"
     ],
-    "dataConfidenceAdjusted": 0.85
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",

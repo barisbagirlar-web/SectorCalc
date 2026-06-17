@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "bpm",
       "default": 6,
-      "businessContext": "Breathing rate in breaths per minute (typical resonance is 6 bpm)"
+      "businessContext": "Breathing rate in breaths per minute (typical resonance is 6 bpm)",
+      "label_i18n": {
+        "en": "Breathing Rate",
+        "tr": "Breathing Rate",
+        "de": "Breathing Rate",
+        "fr": "Breathing Rate",
+        "es": "Breathing Rate",
+        "ar": "Breathing Rate"
+      }
     },
     {
       "id": "heartRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "bpm",
       "default": 70,
-      "businessContext": "Resting heart rate"
+      "businessContext": "Resting heart rate",
+      "label_i18n": {
+        "en": "Heart Rate",
+        "tr": "Heart Rate",
+        "de": "Heart Rate",
+        "fr": "Heart Rate",
+        "es": "Heart Rate",
+        "ar": "Heart Rate"
+      }
     },
     {
       "id": "hrvRMSSD",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "ms",
       "default": 30,
-      "businessContext": "Root mean square of successive differences"
+      "businessContext": "Root mean square of successive differences",
+      "label_i18n": {
+        "en": "HRV RMSSD",
+        "tr": "HRV RMSSD",
+        "de": "HRV RMSSD",
+        "fr": "HRV RMSSD",
+        "es": "HRV RMSSD",
+        "ar": "HRV RMSSD"
+      }
     },
     {
       "id": "hrvSDNN",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "ms",
       "default": 50,
-      "businessContext": "Standard deviation of NN intervals"
+      "businessContext": "Standard deviation of NN intervals",
+      "label_i18n": {
+        "en": "HRV SDNN",
+        "tr": "HRV SDNN",
+        "de": "HRV SDNN",
+        "fr": "HRV SDNN",
+        "es": "HRV SDNN",
+        "ar": "HRV SDNN"
+      }
     },
     {
       "id": "sessionDuration",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "min",
       "default": 10,
-      "businessContext": "Duration of biofeedback session in minutes"
+      "businessContext": "Duration of biofeedback session in minutes",
+      "label_i18n": {
+        "en": "Session Duration",
+        "tr": "Session Duration",
+        "de": "Session Duration",
+        "fr": "Session Duration",
+        "es": "Session Duration",
+        "ar": "Session Duration"
+      }
     },
     {
       "id": "age",
@@ -47,27 +87,35 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "User age for heart rate max calculation"
+      "businessContext": "User age for heart rate max calculation",
+      "label_i18n": {
+        "en": "Age",
+        "tr": "Age",
+        "de": "Age",
+        "fr": "Age",
+        "es": "Age",
+        "ar": "Age"
+      }
     }
   ],
   "formulas": {
-    "resonanceBreathingRate": "6",
-    "breathingMatch": "Math.max(0, Math.min(100, 100 - Math.abs(breathingRate - 6) * 10))",
-    "coherenceAmplitude": "Math.min(100, (hrvRMSSD / 50) * 100)",
-    "sessionFactor": "Math.min(sessionDuration / 20, 1)",
-    "coherenceScore": "((breathingMatch + coherenceAmplitude) / 2) * sessionFactor",
     "maximumHeartRate": "220 - age",
-    "resonanceFrequencyEstimate": "0.1"
+    "maximumHeartRate_aux": "220 - age"
   },
   "outputs": {
-    "primary": "coherenceScore",
+    "primary": "maximumHeartRate_aux",
     "breakdown": [
       "breathingMatch",
       "coherenceAmplitude",
       "sessionFactor",
       "resonanceBreathingRate",
       "maximumHeartRate"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "maximumHeartRate"
   },
   "category": "Gıda & Tarım",
   "sector": "Perakende & Gıda",
@@ -77,5 +125,10 @@
   "categorySlug": "food-cold-chain-hygiene",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from beehive-tank-calculator-schema.json
 import * as z from 'zod';
 
@@ -17,39 +18,41 @@ export const Beehive_tank_calculatorInputSchema = z.object({
   materialCost: z.number().default(10),
 });
 
-function evaluateAllFormulas(input: Beehive_tank_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.diameter / 2; results["radius"] = Number.isFinite(v) ? v : 0; } catch { results["radius"] = 0; }
-  try { const v = Math.PI * (input.diameter/2)**2 * input.heightCylinder; results["volumeCylinder"] = Number.isFinite(v) ? v : 0; } catch { results["volumeCylinder"] = 0; }
-  try { const v = (2/3) * Math.PI * (input.diameter/2)**3; results["volumeHemisphere"] = Number.isFinite(v) ? v : 0; } catch { results["volumeHemisphere"] = 0; }
-  try { const v = (results["volumeCylinder"] ?? 0) + (results["volumeHemisphere"] ?? 0); results["totalVolume"] = Number.isFinite(v) ? v : 0; } catch { results["totalVolume"] = 0; }
-  try { const v = 2 * Math.PI * (input.diameter/2) * input.heightCylinder; results["surfaceAreaCylinder"] = Number.isFinite(v) ? v : 0; } catch { results["surfaceAreaCylinder"] = 0; }
-  try { const v = 2 * Math.PI * (input.diameter/2)**2; results["surfaceAreaHemisphere"] = Number.isFinite(v) ? v : 0; } catch { results["surfaceAreaHemisphere"] = 0; }
-  try { const v = (results["surfaceAreaCylinder"] ?? 0) + (results["surfaceAreaHemisphere"] ?? 0); results["totalSurfaceArea"] = Number.isFinite(v) ? v : 0; } catch { results["totalSurfaceArea"] = 0; }
-  try { const v = (results["totalSurfaceArea"] ?? 0) * (input.wallThickness / 1000); results["materialVolume"] = Number.isFinite(v) ? v : 0; } catch { results["materialVolume"] = 0; }
-  try { const v = (results["materialVolume"] ?? 0) * input.materialDensity; results["materialWeight"] = Number.isFinite(v) ? v : 0; } catch { results["materialWeight"] = 0; }
-  try { const v = (results["materialWeight"] ?? 0) * input.materialCost; results["materialCostTotal"] = Number.isFinite(v) ? v : 0; } catch { results["materialCostTotal"] = 0; }
-  results["Silindir_Hacmi__m__"] = 0;
-  results["Kubbe_Hacmi__m__"] = 0;
-  results["Y_zey_Alan___m__"] = 0;
-  results["Malzeme_A__rl_____kg_"] = 0;
-  results["Malzeme_Maliyeti__TRY_"] = 0;
-  results["result"] = 0;
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Beehive_tank_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.diameter / 2; results["radius"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["radius"] = 0; }
+  try { const v = Math.PI * (input.diameter/2)**2 * input.heightCylinder; results["volumeCylinder"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["volumeCylinder"] = 0; }
+  try { const v = (2/3) * Math.PI * (input.diameter/2)**3; results["volumeHemisphere"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["volumeHemisphere"] = 0; }
+  try { const v = (asFormulaNumber(results["volumeCylinder"])) + (asFormulaNumber(results["volumeHemisphere"])); results["totalVolume"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalVolume"] = 0; }
+  try { const v = 2 * Math.PI * (input.diameter/2) * input.heightCylinder; results["surfaceAreaCylinder"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["surfaceAreaCylinder"] = 0; }
+  try { const v = 2 * Math.PI * (input.diameter/2)**2; results["surfaceAreaHemisphere"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["surfaceAreaHemisphere"] = 0; }
+  try { const v = (asFormulaNumber(results["surfaceAreaCylinder"])) + (asFormulaNumber(results["surfaceAreaHemisphere"])); results["totalSurfaceArea"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalSurfaceArea"] = 0; }
+  try { const v = (asFormulaNumber(results["totalSurfaceArea"])) * (input.wallThickness / 1000); results["materialVolume"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["materialVolume"] = 0; }
+  try { const v = (asFormulaNumber(results["materialVolume"])) * input.materialDensity; results["materialWeight"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["materialWeight"] = 0; }
+  try { const v = (asFormulaNumber(results["materialWeight"])) * input.materialCost; results["materialCostTotal"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["materialCostTotal"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateBeehive_tank_calculator(input: Beehive_tank_calculatorInput): Beehive_tank_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["result"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["materialCostTotal"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

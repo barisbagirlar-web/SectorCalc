@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Length of the bonding surface in meters."
+      "businessContext": "Length of the bonding surface in meters.",
+      "label_i18n": {
+        "en": "Length",
+        "tr": "Length",
+        "de": "Length",
+        "fr": "Length",
+        "es": "Length",
+        "ar": "Length"
+      }
     },
     {
       "id": "width",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Width of the bonding surface in meters."
+      "businessContext": "Width of the bonding surface in meters.",
+      "label_i18n": {
+        "en": "Width",
+        "tr": "Width",
+        "de": "Width",
+        "fr": "Width",
+        "es": "Width",
+        "ar": "Width"
+      }
     },
     {
       "id": "coverageRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg/m²",
       "default": 1.5,
-      "businessContext": "Adhesive consumption per square meter in kilograms per square meter."
+      "businessContext": "Adhesive consumption per square meter in kilograms per square meter.",
+      "label_i18n": {
+        "en": "Coverage Rate",
+        "tr": "Coverage Rate",
+        "de": "Coverage Rate",
+        "fr": "Coverage Rate",
+        "es": "Coverage Rate",
+        "ar": "Coverage Rate"
+      }
     },
     {
       "id": "wasteFactor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Percentage of additional adhesive to account for waste, spillage, and application loss."
+      "businessContext": "Percentage of additional adhesive to account for waste, spillage, and application loss.",
+      "label_i18n": {
+        "en": "Waste Factor",
+        "tr": "Waste Factor",
+        "de": "Waste Factor",
+        "fr": "Waste Factor",
+        "es": "Waste Factor",
+        "ar": "Waste Factor"
+      }
     },
     {
       "id": "layers",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "layers",
       "default": 1,
-      "businessContext": "Number of adhesive layers to be applied (e.g., for multi-coat applications)."
+      "businessContext": "Number of adhesive layers to be applied (e.g., for multi-coat applications).",
+      "label_i18n": {
+        "en": "Number of Layers",
+        "tr": "Number of Layers",
+        "de": "Number of Layers",
+        "fr": "Number of Layers",
+        "es": "Number of Layers",
+        "ar": "Number of Layers"
+      }
     }
   ],
   "formulas": {
@@ -53,7 +93,12 @@
     "breakdown": [
       "netAdhesive",
       "waste"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "total"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -63,5 +108,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "sustainability"
+  "categoryId": "sustainability",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

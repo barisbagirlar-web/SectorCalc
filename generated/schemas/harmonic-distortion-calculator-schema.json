@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "V",
       "default": 230,
-      "businessContext": "RMS voltage at the fundamental frequency (e.g., 50 Hz or 60 Hz)"
+      "businessContext": "RMS voltage at the fundamental frequency (e.g., 50 Hz or 60 Hz)",
+      "label_i18n": {
+        "en": "Fundamental Voltage (Vrms)",
+        "tr": "Fundamental Voltage (Vrms)",
+        "de": "Fundamental Voltage (Vrms)",
+        "fr": "Fundamental Voltage (Vrms)",
+        "es": "Fundamental Voltage (Vrms)",
+        "ar": "Fundamental Voltage (Vrms)"
+      }
     },
     {
       "id": "v2",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "V",
       "default": 5,
-      "businessContext": "RMS voltage of the 2nd harmonic component, typically from nonlinear loads"
+      "businessContext": "RMS voltage of the 2nd harmonic component, typically from nonlinear loads",
+      "label_i18n": {
+        "en": "2nd Harmonic Voltage (Vrms)",
+        "tr": "2nd Harmonic Voltage (Vrms)",
+        "de": "2nd Harmonic Voltage (Vrms)",
+        "fr": "2nd Harmonic Voltage (Vrms)",
+        "es": "2nd Harmonic Voltage (Vrms)",
+        "ar": "2nd Harmonic Voltage (Vrms)"
+      }
     },
     {
       "id": "v3",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "V",
       "default": 3,
-      "businessContext": "RMS voltage of the 3rd harmonic component, common in industrial systems"
+      "businessContext": "RMS voltage of the 3rd harmonic component, common in industrial systems",
+      "label_i18n": {
+        "en": "3rd Harmonic Voltage (Vrms)",
+        "tr": "3rd Harmonic Voltage (Vrms)",
+        "de": "3rd Harmonic Voltage (Vrms)",
+        "fr": "3rd Harmonic Voltage (Vrms)",
+        "es": "3rd Harmonic Voltage (Vrms)",
+        "ar": "3rd Harmonic Voltage (Vrms)"
+      }
     },
     {
       "id": "v4",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "V",
       "default": 1,
-      "businessContext": "RMS voltage of the 4th harmonic component"
+      "businessContext": "RMS voltage of the 4th harmonic component",
+      "label_i18n": {
+        "en": "4th Harmonic Voltage (Vrms)",
+        "tr": "4th Harmonic Voltage (Vrms)",
+        "de": "4th Harmonic Voltage (Vrms)",
+        "fr": "4th Harmonic Voltage (Vrms)",
+        "es": "4th Harmonic Voltage (Vrms)",
+        "ar": "4th Harmonic Voltage (Vrms)"
+      }
     },
     {
       "id": "v5",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "V",
       "default": 0.5,
-      "businessContext": "RMS voltage of the 5th harmonic component"
+      "businessContext": "RMS voltage of the 5th harmonic component",
+      "label_i18n": {
+        "en": "5th Harmonic Voltage (Vrms)",
+        "tr": "5th Harmonic Voltage (Vrms)",
+        "de": "5th Harmonic Voltage (Vrms)",
+        "fr": "5th Harmonic Voltage (Vrms)",
+        "es": "5th Harmonic Voltage (Vrms)",
+        "ar": "5th Harmonic Voltage (Vrms)"
+      }
     },
     {
       "id": "v6",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "V",
       "default": 0.2,
-      "businessContext": "RMS voltage of the 6th harmonic component"
+      "businessContext": "RMS voltage of the 6th harmonic component",
+      "label_i18n": {
+        "en": "6th Harmonic Voltage (Vrms)",
+        "tr": "6th Harmonic Voltage (Vrms)",
+        "de": "6th Harmonic Voltage (Vrms)",
+        "fr": "6th Harmonic Voltage (Vrms)",
+        "es": "6th Harmonic Voltage (Vrms)",
+        "ar": "6th Harmonic Voltage (Vrms)"
+      }
     },
     {
       "id": "v7",
@@ -55,18 +103,31 @@
       "type": "number",
       "unit": "V",
       "default": 0.1,
-      "businessContext": "RMS voltage of the 7th harmonic component"
+      "businessContext": "RMS voltage of the 7th harmonic component",
+      "label_i18n": {
+        "en": "7th Harmonic Voltage (Vrms)",
+        "tr": "7th Harmonic Voltage (Vrms)",
+        "de": "7th Harmonic Voltage (Vrms)",
+        "fr": "7th Harmonic Voltage (Vrms)",
+        "es": "7th Harmonic Voltage (Vrms)",
+        "ar": "7th Harmonic Voltage (Vrms)"
+      }
     }
   ],
   "formulas": {
-    "harmonicRmsSum": "Math.sqrt(v2**2 + v3**2 + v4**2 + v5**2 + v6**2 + v7**2)",
-    "thdPercent": "(harmonicRmsSum / vFund) * 100"
+    "result": "vFund + v2 + v3",
+    "result_copy": "vFund + v2 + v3"
   },
   "outputs": {
-    "primary": "thdPercent",
+    "primary": "result",
     "breakdown": [
       "harmonicRmsSum"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "thdPercent"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -76,5 +137,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

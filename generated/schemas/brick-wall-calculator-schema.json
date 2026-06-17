@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 10,
-      "businessContext": "Total horizontal length of the wall to be constructed."
+      "businessContext": "Total horizontal length of the wall to be constructed.",
+      "label_i18n": {
+        "en": "Wall Length",
+        "tr": "Wall Length",
+        "de": "Wall Length",
+        "fr": "Wall Length",
+        "es": "Wall Length",
+        "ar": "Wall Length"
+      }
     },
     {
       "id": "wallHeight",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "m",
       "default": 3,
-      "businessContext": "Total vertical height of the wall."
+      "businessContext": "Total vertical height of the wall.",
+      "label_i18n": {
+        "en": "Wall Height",
+        "tr": "Wall Height",
+        "de": "Wall Height",
+        "fr": "Wall Height",
+        "es": "Wall Height",
+        "ar": "Wall Height"
+      }
     },
     {
       "id": "brickLength",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "cm",
       "default": 20,
-      "businessContext": "Length of a single brick."
+      "businessContext": "Length of a single brick.",
+      "label_i18n": {
+        "en": "Brick Length",
+        "tr": "Brick Length",
+        "de": "Brick Length",
+        "fr": "Brick Length",
+        "es": "Brick Length",
+        "ar": "Brick Length"
+      }
     },
     {
       "id": "brickHeight",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "cm",
       "default": 10,
-      "businessContext": "Height of a single brick."
+      "businessContext": "Height of a single brick.",
+      "label_i18n": {
+        "en": "Brick Height",
+        "tr": "Brick Height",
+        "de": "Brick Height",
+        "fr": "Brick Height",
+        "es": "Brick Height",
+        "ar": "Brick Height"
+      }
     },
     {
       "id": "brickWidth",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "cm",
       "default": 10,
-      "businessContext": "Width of a brick, which determines the thickness of the wall."
+      "businessContext": "Width of a brick, which determines the thickness of the wall.",
+      "label_i18n": {
+        "en": "Brick Width (Wall Thickness)",
+        "tr": "Brick Width (Wall Thickness)",
+        "de": "Brick Width (Wall Thickness)",
+        "fr": "Brick Width (Wall Thickness)",
+        "es": "Brick Width (Wall Thickness)",
+        "ar": "Brick Width (Wall Thickness)"
+      }
     },
     {
       "id": "mortarJointThickness",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "cm",
       "default": 1,
-      "businessContext": "Thickness of the mortar joint between bricks (both horizontal and vertical)."
+      "businessContext": "Thickness of the mortar joint between bricks (both horizontal and vertical).",
+      "label_i18n": {
+        "en": "Mortar Joint Thickness",
+        "tr": "Mortar Joint Thickness",
+        "de": "Mortar Joint Thickness",
+        "fr": "Mortar Joint Thickness",
+        "es": "Mortar Joint Thickness",
+        "ar": "Mortar Joint Thickness"
+      }
     },
     {
       "id": "brickPrice",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "currency",
       "default": 0.5,
-      "businessContext": "Cost of one brick in the selected currency."
+      "businessContext": "Cost of one brick in the selected currency.",
+      "label_i18n": {
+        "en": "Brick Price per Piece",
+        "tr": "Brick Price per Piece",
+        "de": "Brick Price per Piece",
+        "fr": "Brick Price per Piece",
+        "es": "Brick Price per Piece",
+        "ar": "Brick Price per Piece"
+      }
     },
     {
       "id": "mortarPrice",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "currency/m³",
       "default": 100,
-      "businessContext": "Cost of mortar per cubic meter in the selected currency."
+      "businessContext": "Cost of mortar per cubic meter in the selected currency.",
+      "label_i18n": {
+        "en": "Mortar Price per Cubic Meter",
+        "tr": "Mortar Price per Cubic Meter",
+        "de": "Mortar Price per Cubic Meter",
+        "fr": "Mortar Price per Cubic Meter",
+        "es": "Mortar Price per Cubic Meter",
+        "ar": "Mortar Price per Cubic Meter"
+      }
     }
   ],
   "formulas": {
@@ -79,7 +143,12 @@
     "breakdown": [
       "mortarVolumeM3",
       "totalCost"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalCost"
   },
   "category": "İnşaat & Yapı",
   "sector": "İnşaat & Saha",
@@ -89,5 +158,10 @@
   "categorySlug": "project-construction-management",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

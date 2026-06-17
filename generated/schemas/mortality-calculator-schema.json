@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "count",
       "default": 0,
-      "businessContext": "Total observed deaths in the cohort or population during the time period."
+      "businessContext": "Total observed deaths in the cohort or population during the time period.",
+      "label_i18n": {
+        "en": "Number of Deaths",
+        "tr": "Number of Deaths",
+        "de": "Number of Deaths",
+        "fr": "Number of Deaths",
+        "es": "Number of Deaths",
+        "ar": "Number of Deaths"
+      }
     },
     {
       "id": "population",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "individuals",
       "default": 100000,
-      "businessContext": "The average number of individuals at risk of death during the period."
+      "businessContext": "The average number of individuals at risk of death during the period.",
+      "label_i18n": {
+        "en": "Total Population at Risk",
+        "tr": "Total Population at Risk",
+        "de": "Total Population at Risk",
+        "fr": "Total Population at Risk",
+        "es": "Total Population at Risk",
+        "ar": "Total Population at Risk"
+      }
     },
     {
       "id": "period",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 1,
-      "businessContext": "The length of time over which deaths and population exposure are measured."
+      "businessContext": "The length of time over which deaths and population exposure are measured.",
+      "label_i18n": {
+        "en": "Observation Period",
+        "tr": "Observation Period",
+        "de": "Observation Period",
+        "fr": "Observation Period",
+        "es": "Observation Period",
+        "ar": "Observation Period"
+      }
     },
     {
       "id": "multiplier",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "per",
       "default": 100000,
-      "businessContext": "Standard scaling factor for mortality rate (e.g., deaths per 100,000)."
+      "businessContext": "Standard scaling factor for mortality rate (e.g., deaths per 100,000).",
+      "label_i18n": {
+        "en": "Rate Multiplier",
+        "tr": "Rate Multiplier",
+        "de": "Rate Multiplier",
+        "fr": "Rate Multiplier",
+        "es": "Rate Multiplier",
+        "ar": "Rate Multiplier"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "personYears",
       "crudeRate"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "mortalityRate"
   },
   "category": "İSG & Risk Yönetimi",
   "sector": "İSG & Risk",
@@ -54,5 +91,10 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

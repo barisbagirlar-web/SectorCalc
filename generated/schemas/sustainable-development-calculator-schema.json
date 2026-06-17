@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kWh",
       "default": 1000,
-      "businessContext": "Total energy used in production"
+      "businessContext": "Total energy used in production",
+      "label_i18n": {
+        "en": "Energy Consumption (kWh)",
+        "tr": "Energy Consumption (kWh)",
+        "de": "Energy Consumption (kWh)",
+        "fr": "Energy Consumption (kWh)",
+        "es": "Energy Consumption (kWh)",
+        "ar": "Energy Consumption (kWh)"
+      }
     },
     {
       "id": "renewable_energy_share",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Percentage of energy from renewable sources"
+      "businessContext": "Percentage of energy from renewable sources",
+      "label_i18n": {
+        "en": "Renewable Energy Share (%)",
+        "tr": "Renewable Energy Share (%)",
+        "de": "Renewable Energy Share (%)",
+        "fr": "Renewable Energy Share (%)",
+        "es": "Renewable Energy Share (%)",
+        "ar": "Renewable Energy Share (%)"
+      }
     },
     {
       "id": "water_usage",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "m³",
       "default": 500,
-      "businessContext": "Total water consumed in process"
+      "businessContext": "Total water consumed in process",
+      "label_i18n": {
+        "en": "Water Usage (m³)",
+        "tr": "Water Usage (m³)",
+        "de": "Water Usage (m³)",
+        "fr": "Water Usage (m³)",
+        "es": "Water Usage (m³)",
+        "ar": "Water Usage (m³)"
+      }
     },
     {
       "id": "waste_generated",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "kg",
       "default": 200,
-      "businessContext": "Total waste produced"
+      "businessContext": "Total waste produced",
+      "label_i18n": {
+        "en": "Waste Generated (kg)",
+        "tr": "Waste Generated (kg)",
+        "de": "Waste Generated (kg)",
+        "fr": "Waste Generated (kg)",
+        "es": "Waste Generated (kg)",
+        "ar": "Waste Generated (kg)"
+      }
     },
     {
       "id": "recycled_waste",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg",
       "default": 50,
-      "businessContext": "Waste sent for recycling"
+      "businessContext": "Waste sent for recycling",
+      "label_i18n": {
+        "en": "Recycled Waste (kg)",
+        "tr": "Recycled Waste (kg)",
+        "de": "Recycled Waste (kg)",
+        "fr": "Recycled Waste (kg)",
+        "es": "Recycled Waste (kg)",
+        "ar": "Recycled Waste (kg)"
+      }
     },
     {
       "id": "co2_emissions",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kg",
       "default": 3000,
-      "businessContext": "Total carbon dioxide emissions"
+      "businessContext": "Total carbon dioxide emissions",
+      "label_i18n": {
+        "en": "CO2 Emissions (kg)",
+        "tr": "CO2 Emissions (kg)",
+        "de": "CO2 Emissions (kg)",
+        "fr": "CO2 Emissions (kg)",
+        "es": "CO2 Emissions (kg)",
+        "ar": "CO2 Emissions (kg)"
+      }
     },
     {
       "id": "production_units",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "units",
       "default": 100,
-      "businessContext": "Number of units produced"
+      "businessContext": "Number of units produced",
+      "label_i18n": {
+        "en": "Production Units",
+        "tr": "Production Units",
+        "de": "Production Units",
+        "fr": "Production Units",
+        "es": "Production Units",
+        "ar": "Production Units"
+      }
     }
   ],
   "formulas": {
@@ -73,7 +129,12 @@
       "water_intensity",
       "waste_recycling_rate",
       "co2_intensity"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "sustainability_score"
   },
   "category": "Çevre & Emisyon",
   "sector": "Sürdürülebilirlik",
@@ -83,5 +144,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

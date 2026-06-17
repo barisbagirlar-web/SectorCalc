@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1.5,
-      "businessContext": "Mach number of the flow"
+      "businessContext": "Mach number of the flow",
+      "label_i18n": {
+        "en": "Mach Number",
+        "tr": "Mach Number",
+        "de": "Mach Number",
+        "fr": "Mach Number",
+        "es": "Mach Number",
+        "ar": "Mach Number"
+      }
     },
     {
       "id": "gamma",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "dimensionless",
       "default": 1.4,
-      "businessContext": "Specific heat ratio (Cp/Cv)"
+      "businessContext": "Specific heat ratio (Cp/Cv)",
+      "label_i18n": {
+        "en": "Specific Heat Ratio",
+        "tr": "Specific Heat Ratio",
+        "de": "Specific Heat Ratio",
+        "fr": "Specific Heat Ratio",
+        "es": "Specific Heat Ratio",
+        "ar": "Specific Heat Ratio"
+      }
     },
     {
       "id": "staticTemperature",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "K",
       "default": 300,
-      "businessContext": "Static temperature of the fluid"
+      "businessContext": "Static temperature of the fluid",
+      "label_i18n": {
+        "en": "Static Temperature",
+        "tr": "Static Temperature",
+        "de": "Static Temperature",
+        "fr": "Static Temperature",
+        "es": "Static Temperature",
+        "ar": "Static Temperature"
+      }
     },
     {
       "id": "staticPressure",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "Pa",
       "default": 101325,
-      "businessContext": "Static pressure of the fluid"
+      "businessContext": "Static pressure of the fluid",
+      "label_i18n": {
+        "en": "Static Pressure",
+        "tr": "Static Pressure",
+        "de": "Static Pressure",
+        "fr": "Static Pressure",
+        "es": "Static Pressure",
+        "ar": "Static Pressure"
+      }
     },
     {
       "id": "gasConstant",
@@ -39,14 +71,20 @@
       "type": "number",
       "unit": "J/(kg·K)",
       "default": 287,
-      "businessContext": "Specific gas constant of the fluid"
+      "businessContext": "Specific gas constant of the fluid",
+      "label_i18n": {
+        "en": "Specific Gas Constant",
+        "tr": "Specific Gas Constant",
+        "de": "Specific Gas Constant",
+        "fr": "Specific Gas Constant",
+        "es": "Specific Gas Constant",
+        "ar": "Specific Gas Constant"
+      }
     }
   ],
   "formulas": {
     "stagnationTemperature": "staticTemperature * (1 + ((gamma - 1) / 2) * machNumber ** 2)",
     "stagnationPressure": "staticPressure * (1 + ((gamma - 1) / 2) * machNumber ** 2) ** (gamma / (gamma - 1))",
-    "speedOfSound": "Math.sqrt(gamma * gasConstant * staticTemperature)",
-    "velocity": "machNumber * Math.sqrt(gamma * gasConstant * staticTemperature)",
     "density": "staticPressure / (gasConstant * staticTemperature)"
   },
   "outputs": {
@@ -56,7 +94,12 @@
       "speedOfSound",
       "velocity",
       "density"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "density"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -66,5 +109,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

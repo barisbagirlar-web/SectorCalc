@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "TL",
       "default": 100000,
-      "businessContext": "Bütçelenen sabit genel üretim gideri tutarı"
+      "businessContext": "Bütçelenen sabit genel üretim gideri tutarı",
+      "label_i18n": {
+        "en": "Bütçelenen Genel Üretim Gideri",
+        "tr": "Bütçelenen Genel Üretim Gideri",
+        "de": "Bütçelenen Genel Üretim Gideri",
+        "fr": "Bütçelenen Genel Üretim Gideri",
+        "es": "Bütçelenen Genel Üretim Gideri",
+        "ar": "Bütçelenen Genel Üretim Gideri"
+      }
     },
     {
       "id": "budgetedActivity",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "saat",
       "default": 10000,
-      "businessContext": "Bütçe döneminde planlanan makine çalışma saati"
+      "businessContext": "Bütçe döneminde planlanan makine çalışma saati",
+      "label_i18n": {
+        "en": "Bütçelenen Faaliyet Düzeyi",
+        "tr": "Bütçelenen Faaliyet Düzeyi",
+        "de": "Bütçelenen Faaliyet Düzeyi",
+        "fr": "Bütçelenen Faaliyet Düzeyi",
+        "es": "Bütçelenen Faaliyet Düzeyi",
+        "ar": "Bütçelenen Faaliyet Düzeyi"
+      }
     },
     {
       "id": "actualActivity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "saat",
       "default": 9500,
-      "businessContext": "Gerçekleşen makine çalışma saati"
+      "businessContext": "Gerçekleşen makine çalışma saati",
+      "label_i18n": {
+        "en": "Gerçekleşen Faaliyet Düzeyi",
+        "tr": "Gerçekleşen Faaliyet Düzeyi",
+        "de": "Gerçekleşen Faaliyet Düzeyi",
+        "fr": "Gerçekleşen Faaliyet Düzeyi",
+        "es": "Gerçekleşen Faaliyet Düzeyi",
+        "ar": "Gerçekleşen Faaliyet Düzeyi"
+      }
     },
     {
       "id": "actualOverhead",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "TL",
       "default": 105000,
-      "businessContext": "Gerçekleşen sabit genel üretim gideri tutarı"
+      "businessContext": "Gerçekleşen sabit genel üretim gideri tutarı",
+      "label_i18n": {
+        "en": "Gerçekleşen Genel Üretim Gideri",
+        "tr": "Gerçekleşen Genel Üretim Gideri",
+        "de": "Gerçekleşen Genel Üretim Gideri",
+        "fr": "Gerçekleşen Genel Üretim Gideri",
+        "es": "Gerçekleşen Genel Üretim Gideri",
+        "ar": "Gerçekleşen Genel Üretim Gideri"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "overheadAbsorbed",
       "overUnderAbsorbed"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "overUnderAbsorbed"
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & İK",
@@ -54,5 +91,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

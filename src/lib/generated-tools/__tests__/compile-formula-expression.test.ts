@@ -13,7 +13,7 @@ describe("compileFormulaExpression", () => {
       ...baseOptions,
       selfKey: "primary_result",
     });
-    expect(compiled).toBe("Math.ceil((results[\"thickness_with_corrosion\"] ?? 0) * 2) / 2");
+    expect(compiled).toBe("Math.ceil((asFormulaNumber(results[\"thickness_with_corrosion\"])) * 2) / 2");
     expect(compiled).not.toContain("Math.Math");
   });
 

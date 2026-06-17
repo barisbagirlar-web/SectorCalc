@@ -128,83 +128,14 @@
         "es": "b2 (Constant term of eq2)",
         "ar": "b2 (Constant term of eq2)"
       }
-    },
-    {
-      "id": "a31",
-      "label": "a31 (Coefficient of x1 in eq3)",
-      "type": "number",
-      "unit": "unit",
-      "default": 1,
-      "businessContext": "First coefficient of third equation",
-      "label_i18n": {
-        "en": "a31 (Coefficient of x1 in eq3)",
-        "tr": "a31 (Coefficient of x1 in eq3)",
-        "de": "a31 (Coefficient of x1 in eq3)",
-        "fr": "a31 (Coefficient of x1 in eq3)",
-        "es": "a31 (Coefficient of x1 in eq3)",
-        "ar": "a31 (Coefficient of x1 in eq3)"
-      }
-    },
-    {
-      "id": "a32",
-      "label": "a32 (Coefficient of x2 in eq3)",
-      "type": "number",
-      "unit": "unit",
-      "default": 1,
-      "businessContext": "Second coefficient of third equation",
-      "label_i18n": {
-        "en": "a32 (Coefficient of x2 in eq3)",
-        "tr": "a32 (Coefficient of x2 in eq3)",
-        "de": "a32 (Coefficient of x2 in eq3)",
-        "fr": "a32 (Coefficient of x2 in eq3)",
-        "es": "a32 (Coefficient of x2 in eq3)",
-        "ar": "a32 (Coefficient of x2 in eq3)"
-      }
-    },
-    {
-      "id": "a33",
-      "label": "a33 (Coefficient of x3 in eq3)",
-      "type": "number",
-      "unit": "unit",
-      "default": 1,
-      "businessContext": "Third coefficient of third equation",
-      "label_i18n": {
-        "en": "a33 (Coefficient of x3 in eq3)",
-        "tr": "a33 (Coefficient of x3 in eq3)",
-        "de": "a33 (Coefficient of x3 in eq3)",
-        "fr": "a33 (Coefficient of x3 in eq3)",
-        "es": "a33 (Coefficient of x3 in eq3)",
-        "ar": "a33 (Coefficient of x3 in eq3)"
-      }
-    },
-    {
-      "id": "b3",
-      "label": "b3 (Constant term of eq3)",
-      "type": "number",
-      "unit": "unit",
-      "default": 1,
-      "businessContext": "Right-hand side of third equation",
-      "label_i18n": {
-        "en": "b3 (Constant term of eq3)",
-        "tr": "b3 (Constant term of eq3)",
-        "de": "b3 (Constant term of eq3)",
-        "fr": "b3 (Constant term of eq3)",
-        "es": "b3 (Constant term of eq3)",
-        "ar": "b3 (Constant term of eq3)"
-      }
     }
   ],
   "formulas": {
-    "detA": "a11*(a22*a33 - a23*a32) - a12*(a21*a33 - a23*a31) + a13*(a21*a32 - a22*a31)",
-    "detA1": "b1*(a22*a33 - a23*a32) - a12*(b2*a33 - a23*b3) + a13*(b2*a32 - a22*b3)",
-    "detA2": "a11*(b2*a33 - a23*b3) - b1*(a21*a33 - a23*a31) + a13*(a21*b3 - b2*a31)",
-    "detA3": "a11*(a22*b3 - b2*a32) - a12*(a21*b3 - b2*a31) + b1*(a21*a32 - a22*a31)",
-    "x1": "detA1 / detA",
-    "x2": "detA2 / detA",
-    "x3": "detA3 / detA"
+    "result": "a11 + a12 + a13",
+    "result_copy": "a11 + a12 + a13"
   },
   "outputs": {
-    "primary": "x1",
+    "primary": "result",
     "breakdown": [
       "detA",
       "detA1",
@@ -212,7 +143,12 @@
       "detA3",
       "x2",
       "x3"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "x3"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -222,5 +158,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

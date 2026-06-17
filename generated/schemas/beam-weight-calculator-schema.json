@@ -144,72 +144,6 @@
       "businessContext_i18n": {
         "en": "Number of identical beams."
       }
-    },
-    {
-      "id": "material_cost_per_kg",
-      "label": "Material Cost per kg",
-      "type": "number",
-      "unit": "USD/kg",
-      "default": 1.2,
-      "min": 0.5,
-      "max": 5,
-      "businessContext": "Current market price for structural steel.",
-      "label_i18n": {
-        "en": "Material Cost per kg"
-      },
-      "businessContext_i18n": {
-        "en": "Current market price for structural steel."
-      }
-    },
-    {
-      "id": "cutting_loss_factor",
-      "label": "Cutting Loss Factor",
-      "type": "number",
-      "unit": "%",
-      "default": 3,
-      "min": 0,
-      "max": 10,
-      "businessContext": "Lean allowance for saw kerf and scrap.",
-      "label_i18n": {
-        "en": "Cutting Loss Factor"
-      },
-      "businessContext_i18n": {
-        "en": "Lean allowance for saw kerf and scrap."
-      }
-    },
-    {
-      "id": "surface_condition",
-      "label": "Surface Condition",
-      "type": "select",
-      "unit": "unit",
-      "default": "clean",
-      "options": [
-        "clean",
-        "rusty",
-        "painted",
-        "galvanized"
-      ],
-      "businessContext": "Affects handling and coating weight adjustments.",
-      "label_i18n": {
-        "en": "Surface Condition"
-      },
-      "businessContext_i18n": {
-        "en": "Affects handling and coating weight adjustments."
-      }
-    },
-    {
-      "id": "include_coating_weight",
-      "label": "Include Coating Weight",
-      "type": "boolean",
-      "unit": "unit",
-      "default": false,
-      "businessContext": "Adds estimated paint/galvanizing weight.",
-      "label_i18n": {
-        "en": "Include Coating Weight"
-      },
-      "businessContext_i18n": {
-        "en": "Adds estimated paint/galvanizing weight."
-      }
     }
   ],
   "validation": {
@@ -253,18 +187,18 @@
       }
     ]
   },
-  "formulas": [
-    "beam_type",
-    "beam_type",
-    "beam_type",
-    "beam_type",
-    "beam_type",
-    "beam_type",
-    "beam_type"
-  ],
+  "formulas": {
+    "result": "beam_type + material_density + length",
+    "result_copy": "beam_type + material_density + length"
+  },
   "outputs": {
-    "primary": "0",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "catalogCategory": "construction-measurement",
   "sectorSlug": "construction",

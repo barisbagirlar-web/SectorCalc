@@ -86,16 +86,20 @@
     "primary": "waveSpeed / frequency",
     "period": "1 / frequency",
     "wavelength_energy": "(planckConstant * waveSpeed) / energy",
-    "wavelength_medium": "(waveSpeed / frequency) / refractiveIndex",
-    "result": "Wavelength (vacuum)"
+    "wavelength_medium": "(waveSpeed / frequency) / refractiveIndex"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "wavelength_medium",
     "breakdown": [
       "period",
       "wavelength_energy",
       "wavelength_medium"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "wavelength_medium"
   },
   "category": "Enerji & Sürdürülebilirlik",
   "sector": "Enerji & Karbon",
@@ -105,5 +109,10 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

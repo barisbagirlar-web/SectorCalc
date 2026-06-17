@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m²",
       "default": 10,
-      "businessContext": "Total area of metal to be pickled."
+      "businessContext": "Total area of metal to be pickled.",
+      "label_i18n": {
+        "en": "Metal Surface Area",
+        "tr": "Metal Surface Area",
+        "de": "Metal Surface Area",
+        "fr": "Metal Surface Area",
+        "es": "Metal Surface Area",
+        "ar": "Metal Surface Area"
+      }
     },
     {
       "id": "scaleThickness",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "µm",
       "default": 50,
-      "businessContext": "Average oxide scale thickness."
+      "businessContext": "Average oxide scale thickness.",
+      "label_i18n": {
+        "en": "Scale Thickness",
+        "tr": "Scale Thickness",
+        "de": "Scale Thickness",
+        "fr": "Scale Thickness",
+        "es": "Scale Thickness",
+        "ar": "Scale Thickness"
+      }
     },
     {
       "id": "scaleDensity",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "kg/m³",
       "default": 5000,
-      "businessContext": "Density of the scale (e.g., iron oxide ≈ 5000 kg/m³)."
+      "businessContext": "Density of the scale (e.g., iron oxide ≈ 5000 kg/m³).",
+      "label_i18n": {
+        "en": "Scale Density",
+        "tr": "Scale Density",
+        "de": "Scale Density",
+        "fr": "Scale Density",
+        "es": "Scale Density",
+        "ar": "Scale Density"
+      }
     },
     {
       "id": "acidConcentration",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 18,
-      "businessContext": "Concentration of hydrochloric acid by weight (typical 15-20%)."
+      "businessContext": "Concentration of hydrochloric acid by weight (typical 15-20%).",
+      "label_i18n": {
+        "en": "Acid Concentration",
+        "tr": "Acid Concentration",
+        "de": "Acid Concentration",
+        "fr": "Acid Concentration",
+        "es": "Acid Concentration",
+        "ar": "Acid Concentration"
+      }
     },
     {
       "id": "acidDensity",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "kg/L",
       "default": 1.09,
-      "businessContext": "Density of the acid solution (18% HCl ≈ 1.09 kg/L)."
+      "businessContext": "Density of the acid solution (18% HCl ≈ 1.09 kg/L).",
+      "label_i18n": {
+        "en": "Acid Density",
+        "tr": "Acid Density",
+        "de": "Acid Density",
+        "fr": "Acid Density",
+        "es": "Acid Density",
+        "ar": "Acid Density"
+      }
     },
     {
       "id": "stoichiometricRatio",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "kg/kg",
       "default": 1.5,
-      "businessContext": "Mass of acid required to dissolve 1 kg of scale, considering chemical reaction."
+      "businessContext": "Mass of acid required to dissolve 1 kg of scale, considering chemical reaction.",
+      "label_i18n": {
+        "en": "Stoichiometric Ratio",
+        "tr": "Stoichiometric Ratio",
+        "de": "Stoichiometric Ratio",
+        "fr": "Stoichiometric Ratio",
+        "es": "Stoichiometric Ratio",
+        "ar": "Stoichiometric Ratio"
+      }
     },
     {
       "id": "dragOutRate",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "L/m²",
       "default": 1.5,
-      "businessContext": "Volume of acid solution carried out on metal surface per m²."
+      "businessContext": "Volume of acid solution carried out on metal surface per m².",
+      "label_i18n": {
+        "en": "Drag-out Rate",
+        "tr": "Drag-out Rate",
+        "de": "Drag-out Rate",
+        "fr": "Drag-out Rate",
+        "es": "Drag-out Rate",
+        "ar": "Drag-out Rate"
+      }
     },
     {
       "id": "rinseWaterRatio",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "L/m²",
       "default": 10,
-      "businessContext": "Volume of rinse water needed per m² of metal surface."
+      "businessContext": "Volume of rinse water needed per m² of metal surface.",
+      "label_i18n": {
+        "en": "Rinse Water Ratio",
+        "tr": "Rinse Water Ratio",
+        "de": "Rinse Water Ratio",
+        "fr": "Rinse Water Ratio",
+        "es": "Rinse Water Ratio",
+        "ar": "Rinse Water Ratio"
+      }
     }
   ],
   "formulas": {
@@ -80,7 +144,12 @@
       "reactionAcidVolume",
       "dragOutVolume",
       "rinseWaterVolume"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "rinseWaterVolume"
   },
   "category": "Malzeme & Metalurji",
   "sector": "Teknik & Mühendislik",
@@ -90,5 +159,10 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "kimya",
   "profession": "Proses Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

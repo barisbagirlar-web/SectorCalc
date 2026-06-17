@@ -138,6 +138,11 @@ function resolveSectorKey(
   raw: RawSchemaRecord,
   normalized: GeneratedToolSchema | null,
 ): string {
+  const schemaSectorId = asString(raw.sectorId);
+  if (schemaSectorId) {
+    return schemaSectorId;
+  }
+
   const sectorSlug = resolveSectorSlugFallback(slug, raw, normalized);
   if (sectorSlug) {
     return sectorSlug;

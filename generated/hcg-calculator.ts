@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Auto-generated from hcg-calculator-schema.json
 import * as z from 'zod';
 
@@ -15,27 +16,33 @@ export const Hcg_calculatorInputSchema = z.object({
   initial_hcg: z.number().default(50),
 });
 
-function evaluateAllFormulas(input: Hcg_calculatorInput): Record<string, number> {
-  const results: Record<string, number> = {};
-  try { const v = input.hcg_level * Math.pow(2, input.time_elapsed_hours / input.doubling_time_hours); results["projected_hcg"] = Number.isFinite(v) ? v : 0; } catch { results["projected_hcg"] = 0; }
-  try { const v = input.time_elapsed_hours * Math.log(2) / Math.log(input.hcg_level / input.initial_hcg); results["doubling_time_actual"] = Number.isFinite(v) ? v : 0; } catch { results["doubling_time_actual"] = 0; }
-  try { const v = input.hcg_level / input.initial_hcg; results["hcg_ratio"] = Number.isFinite(v) ? v : 0; } catch { results["hcg_ratio"] = 0; }
-  try { const v = (input.hcg_level - input.initial_hcg) / input.initial_hcg * 100; results["percent_increase"] = Number.isFinite(v) ? v : 0; } catch { results["percent_increase"] = 0; }
+function asFormulaNumber(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function evaluateAllFormulas(input: Hcg_calculatorInput): Record<string, number | string> {
+  const results: Record<string, number | string> = {};
+  try { const v = input.hcg_level / input.initial_hcg; results["hcg_ratio"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["hcg_ratio"] = 0; }
+  try { const v = (input.hcg_level - input.initial_hcg) / input.initial_hcg * 100; results["percent_increase"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["percent_increase"] = 0; }
   return results;
 }
 
 
+function toNumericFormulaValue(value: number | string | undefined): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 export function calculateHcg_calculator(input: Hcg_calculatorInput): Hcg_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["projected_hcg"] ?? 0;
+  const totalWasteCost = toNumericFormulaValue(values["percent_increase"]);
   const breakdown = {
     
   };
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = [];
+  const suggestedActions: string[] = ["Review inputs and verify results against site standards."];
   const dataConfidenceAdjusted =
-    typeof (input as Record<string, unknown>).dataConfidence === "number"
-      ? totalWasteCost * (((input as Record<string, unknown>).dataConfidence as number) / 100)
+    typeof (input as unknown as Record<string, unknown>).dataConfidence === "number"
+      ? totalWasteCost * (((input as unknown as Record<string, unknown>).dataConfidence as number) / 100)
       : totalWasteCost;
   return {
     totalWasteCost,

@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 400000,
-      "businessContext": "Total amount borrowed, typically equal to the home purchase price if 0% down payment."
+      "businessContext": "Total amount borrowed, typically equal to the home purchase price if 0% down payment.",
+      "label_i18n": {
+        "en": "Loan Amount",
+        "tr": "Loan Amount",
+        "de": "Loan Amount",
+        "fr": "Loan Amount",
+        "es": "Loan Amount",
+        "ar": "Loan Amount"
+      }
     },
     {
       "id": "interestRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 3.5,
-      "businessContext": "Annual interest rate for the VA loan, typically lower than conventional loans."
+      "businessContext": "Annual interest rate for the VA loan, typically lower than conventional loans.",
+      "label_i18n": {
+        "en": "Interest Rate",
+        "tr": "Interest Rate",
+        "de": "Interest Rate",
+        "fr": "Interest Rate",
+        "es": "Interest Rate",
+        "ar": "Interest Rate"
+      }
     },
     {
       "id": "loanTerm",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Duration of the loan in years; VA loans are commonly 30-year fixed-rate mortgages."
+      "businessContext": "Duration of the loan in years; VA loans are commonly 30-year fixed-rate mortgages.",
+      "label_i18n": {
+        "en": "Loan Term",
+        "tr": "Loan Term",
+        "de": "Loan Term",
+        "fr": "Loan Term",
+        "es": "Loan Term",
+        "ar": "Loan Term"
+      }
     },
     {
       "id": "fundingFeeRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 2.15,
-      "businessContext": "VA funding fee as a percentage of the loan amount; varies based on down payment and service history; can be financed into the loan."
+      "businessContext": "VA funding fee as a percentage of the loan amount; varies based on down payment and service history; can be financed into the loan.",
+      "label_i18n": {
+        "en": "Funding Fee Rate",
+        "tr": "Funding Fee Rate",
+        "de": "Funding Fee Rate",
+        "fr": "Funding Fee Rate",
+        "es": "Funding Fee Rate",
+        "ar": "Funding Fee Rate"
+      }
     },
     {
       "id": "propertyTaxRate",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "%",
       "default": 1.2,
-      "businessContext": "Annual property tax rate assessed on the home value (assumed equal to loan amount)."
+      "businessContext": "Annual property tax rate assessed on the home value (assumed equal to loan amount).",
+      "label_i18n": {
+        "en": "Property Tax Rate",
+        "tr": "Property Tax Rate",
+        "de": "Property Tax Rate",
+        "fr": "Property Tax Rate",
+        "es": "Property Tax Rate",
+        "ar": "Property Tax Rate"
+      }
     },
     {
       "id": "homeInsuranceAnnual",
@@ -47,29 +87,39 @@
       "type": "number",
       "unit": "USD/year",
       "default": 1200,
-      "businessContext": "Annual homeowners insurance premium."
+      "businessContext": "Annual homeowners insurance premium.",
+      "label_i18n": {
+        "en": "Home Insurance Annual",
+        "tr": "Home Insurance Annual",
+        "de": "Home Insurance Annual",
+        "fr": "Home Insurance Annual",
+        "es": "Home Insurance Annual",
+        "ar": "Home Insurance Annual"
+      }
     }
   ],
   "formulas": {
     "totalLoan": "loanAmount * (1 + fundingFeeRate / 100)",
     "monthlyInterestRate": "interestRate / 12 / 100",
     "numberOfPayments": "loanTerm * 12",
-    "monthlyPI": "(totalLoan * monthlyInterestRate) / (1 - Math.pow(1 + monthlyInterestRate, -numberOfPayments))",
     "monthlyTax": "(loanAmount * propertyTaxRate / 100) / 12",
     "monthlyInsurance": "homeInsuranceAnnual / 12",
-    "totalMonthlyPayment": "monthlyPI + monthlyTax + monthlyInsurance",
-    "totalInterestPaid": "(monthlyPI * numberOfPayments) - totalLoan",
     "totalFundingFee": "loanAmount * fundingFeeRate / 100"
   },
   "outputs": {
-    "primary": "totalMonthlyPayment",
+    "primary": "totalFundingFee",
     "breakdown": [
       "monthlyPI",
       "monthlyTax",
       "monthlyInsurance",
       "totalInterestPaid",
       "totalFundingFee"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalFundingFee"
   },
   "category": "Vergi & Finansal Raporlama",
   "sector": "Finans & İK",
@@ -79,5 +129,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

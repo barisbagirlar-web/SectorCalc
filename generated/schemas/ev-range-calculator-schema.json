@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kWh",
       "default": 60,
-      "businessContext": "Usable battery capacity of the electric vehicle"
+      "businessContext": "Usable battery capacity of the electric vehicle",
+      "label_i18n": {
+        "en": "Battery Capacity",
+        "tr": "Battery Capacity",
+        "de": "Battery Capacity",
+        "fr": "Battery Capacity",
+        "es": "Battery Capacity",
+        "ar": "Battery Capacity"
+      }
     },
     {
       "id": "base_consumption",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "Wh/km",
       "default": 180,
-      "businessContext": "Energy consumption per kilometer under standard conditions"
+      "businessContext": "Energy consumption per kilometer under standard conditions",
+      "label_i18n": {
+        "en": "Base Energy Consumption",
+        "tr": "Base Energy Consumption",
+        "de": "Base Energy Consumption",
+        "fr": "Base Energy Consumption",
+        "es": "Base Energy Consumption",
+        "ar": "Base Energy Consumption"
+      }
     },
     {
       "id": "temperature_factor",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1,
-      "businessContext": "Multiplier for consumption due to ambient temperature"
+      "businessContext": "Multiplier for consumption due to ambient temperature",
+      "label_i18n": {
+        "en": "Temperature Factor",
+        "tr": "Temperature Factor",
+        "de": "Temperature Factor",
+        "fr": "Temperature Factor",
+        "es": "Temperature Factor",
+        "ar": "Temperature Factor"
+      }
     },
     {
       "id": "driving_style_factor",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "multiplier",
       "default": 1,
-      "businessContext": "Multiplier for consumption due to driving behavior"
+      "businessContext": "Multiplier for consumption due to driving behavior",
+      "label_i18n": {
+        "en": "Driving Style Factor",
+        "tr": "Driving Style Factor",
+        "de": "Driving Style Factor",
+        "fr": "Driving Style Factor",
+        "es": "Driving Style Factor",
+        "ar": "Driving Style Factor"
+      }
     },
     {
       "id": "auxiliary_power",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "W",
       "default": 500,
-      "businessContext": "Continuous power draw from accessories like climate control"
+      "businessContext": "Continuous power draw from accessories like climate control",
+      "label_i18n": {
+        "en": "Auxiliary Power",
+        "tr": "Auxiliary Power",
+        "de": "Auxiliary Power",
+        "fr": "Auxiliary Power",
+        "es": "Auxiliary Power",
+        "ar": "Auxiliary Power"
+      }
     },
     {
       "id": "average_speed",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "km/h",
       "default": 60,
-      "businessContext": "Estimated average speed during the trip"
+      "businessContext": "Estimated average speed during the trip",
+      "label_i18n": {
+        "en": "Average Speed",
+        "tr": "Average Speed",
+        "de": "Average Speed",
+        "fr": "Average Speed",
+        "es": "Average Speed",
+        "ar": "Average Speed"
+      }
     }
   ],
   "formulas": {
@@ -70,7 +118,12 @@
         "unit": "Wh/km",
         "value": "effective_consumption"
       }
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "estimated_range_km"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -80,5 +133,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy"
+  "categoryId": "energy",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

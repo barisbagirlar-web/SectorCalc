@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "W/m²",
       "default": 1e-10,
-      "businessContext": "Measured radiative flux of the celestial object"
+      "businessContext": "Measured radiative flux of the celestial object",
+      "label_i18n": {
+        "en": "Object Flux",
+        "tr": "Object Flux",
+        "de": "Object Flux",
+        "fr": "Object Flux",
+        "es": "Object Flux",
+        "ar": "Object Flux"
+      }
     },
     {
       "id": "referenceFlux",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "W/m²",
       "default": 1e-8,
-      "businessContext": "Flux corresponding to magnitude zero point"
+      "businessContext": "Flux corresponding to magnitude zero point",
+      "label_i18n": {
+        "en": "Reference Flux",
+        "tr": "Reference Flux",
+        "de": "Reference Flux",
+        "fr": "Reference Flux",
+        "es": "Reference Flux",
+        "ar": "Reference Flux"
+      }
     },
     {
       "id": "magnitudeZeroPoint",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mag",
       "default": 0,
-      "businessContext": "Offset to align with a specific magnitude system"
+      "businessContext": "Offset to align with a specific magnitude system",
+      "label_i18n": {
+        "en": "Zero Point Correction",
+        "tr": "Zero Point Correction",
+        "de": "Zero Point Correction",
+        "fr": "Zero Point Correction",
+        "es": "Zero Point Correction",
+        "ar": "Zero Point Correction"
+      }
     },
     {
       "id": "extinction",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "mag",
       "default": 0,
-      "businessContext": "Dimming due to interstellar dust (positive value reduces brightness)"
+      "businessContext": "Dimming due to interstellar dust (positive value reduces brightness)",
+      "label_i18n": {
+        "en": "Extinction",
+        "tr": "Extinction",
+        "de": "Extinction",
+        "fr": "Extinction",
+        "es": "Extinction",
+        "ar": "Extinction"
+      }
     }
   ],
   "formulas": {
     "fluxRatio": "objectFlux / referenceFlux",
-    "logRatio": "Math.log10(objectFlux / referenceFlux)",
-    "apparentMagnitude": "-2.5 * Math.log10(objectFlux / referenceFlux) + magnitudeZeroPoint - extinction"
+    "fluxRatio_aux": "objectFlux / referenceFlux"
   },
   "outputs": {
-    "primary": "apparentMagnitude",
+    "primary": "fluxRatio_aux",
     "breakdown": [
       "fluxRatio",
       "logRatio"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "apparentMagnitude"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -54,5 +90,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

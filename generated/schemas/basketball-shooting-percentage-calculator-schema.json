@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "shots",
       "default": 0,
-      "businessContext": "Number of successful field goal attempts (2-point and 3-point baskets made)."
+      "businessContext": "Number of successful field goal attempts (2-point and 3-point baskets made).",
+      "label_i18n": {
+        "en": "Field Goals Made",
+        "tr": "Field Goals Made",
+        "de": "Field Goals Made",
+        "fr": "Field Goals Made",
+        "es": "Field Goals Made",
+        "ar": "Field Goals Made"
+      }
     },
     {
       "id": "fieldGoalsAttempted",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "shots",
       "default": 0,
-      "businessContext": "Total number of field goal attempts."
+      "businessContext": "Total number of field goal attempts.",
+      "label_i18n": {
+        "en": "Field Goals Attempted",
+        "tr": "Field Goals Attempted",
+        "de": "Field Goals Attempted",
+        "fr": "Field Goals Attempted",
+        "es": "Field Goals Attempted",
+        "ar": "Field Goals Attempted"
+      }
     },
     {
       "id": "threePointersMade",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "shots",
       "default": 0,
-      "businessContext": "Number of successful three-point field goal attempts."
+      "businessContext": "Number of successful three-point field goal attempts.",
+      "label_i18n": {
+        "en": "Three-Pointers Made",
+        "tr": "Three-Pointers Made",
+        "de": "Three-Pointers Made",
+        "fr": "Three-Pointers Made",
+        "es": "Three-Pointers Made",
+        "ar": "Three-Pointers Made"
+      }
     },
     {
       "id": "threePointersAttempted",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "shots",
       "default": 0,
-      "businessContext": "Total number of three-point field goal attempts."
+      "businessContext": "Total number of three-point field goal attempts.",
+      "label_i18n": {
+        "en": "Three-Pointers Attempted",
+        "tr": "Three-Pointers Attempted",
+        "de": "Three-Pointers Attempted",
+        "fr": "Three-Pointers Attempted",
+        "es": "Three-Pointers Attempted",
+        "ar": "Three-Pointers Attempted"
+      }
     },
     {
       "id": "freeThrowsMade",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "shots",
       "default": 0,
-      "businessContext": "Number of successful free throw attempts."
+      "businessContext": "Number of successful free throw attempts.",
+      "label_i18n": {
+        "en": "Free Throws Made",
+        "tr": "Free Throws Made",
+        "de": "Free Throws Made",
+        "fr": "Free Throws Made",
+        "es": "Free Throws Made",
+        "ar": "Free Throws Made"
+      }
     },
     {
       "id": "freeThrowsAttempted",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "shots",
       "default": 0,
-      "businessContext": "Total number of free throw attempts."
+      "businessContext": "Total number of free throw attempts.",
+      "label_i18n": {
+        "en": "Free Throws Attempted",
+        "tr": "Free Throws Attempted",
+        "de": "Free Throws Attempted",
+        "fr": "Free Throws Attempted",
+        "es": "Free Throws Attempted",
+        "ar": "Free Throws Attempted"
+      }
     }
   ],
   "formulas": {
@@ -60,7 +108,12 @@
     "breakdown": [
       "threePointPercentage",
       "freeThrowPercentage"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "freeThrowPercentage"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -70,5 +123,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

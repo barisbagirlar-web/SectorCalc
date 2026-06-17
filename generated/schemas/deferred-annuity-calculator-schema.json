@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100000,
-      "businessContext": "Lump sum amount invested today"
+      "businessContext": "Lump sum amount invested today",
+      "label_i18n": {
+        "en": "Present Value",
+        "tr": "Present Value",
+        "de": "Present Value",
+        "fr": "Present Value",
+        "es": "Present Value",
+        "ar": "Present Value"
+      }
     },
     {
       "id": "annualInterestRate",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 5,
-      "businessContext": "Fixed annual interest rate during both deferral and payout phases"
+      "businessContext": "Fixed annual interest rate during both deferral and payout phases",
+      "label_i18n": {
+        "en": "Annual Interest Rate",
+        "tr": "Annual Interest Rate",
+        "de": "Annual Interest Rate",
+        "fr": "Annual Interest Rate",
+        "es": "Annual Interest Rate",
+        "ar": "Annual Interest Rate"
+      }
     },
     {
       "id": "deferralYears",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 10,
-      "businessContext": "Number of years the investment accumulates before payouts begin"
+      "businessContext": "Number of years the investment accumulates before payouts begin",
+      "label_i18n": {
+        "en": "Deferral Years",
+        "tr": "Deferral Years",
+        "de": "Deferral Years",
+        "fr": "Deferral Years",
+        "es": "Deferral Years",
+        "ar": "Deferral Years"
+      }
     },
     {
       "id": "payoutYears",
@@ -31,22 +55,33 @@
       "type": "number",
       "unit": "years",
       "default": 20,
-      "businessContext": "Number of years over which the accumulated value is paid out annually"
+      "businessContext": "Number of years over which the accumulated value is paid out annually",
+      "label_i18n": {
+        "en": "Payout Years",
+        "tr": "Payout Years",
+        "de": "Payout Years",
+        "fr": "Payout Years",
+        "es": "Payout Years",
+        "ar": "Payout Years"
+      }
     }
   ],
   "formulas": {
-    "futureValue": "presentValue * Math.pow(1 + annualInterestRate / 100, deferralYears)",
-    "annualPayout": "(presentValue * Math.pow(1 + annualInterestRate / 100, deferralYears)) * (annualInterestRate / 100) / (1 - Math.pow(1 + annualInterestRate / 100, -payoutYears))",
-    "totalPayoutAmount": "payoutYears * ((presentValue * Math.pow(1 + annualInterestRate / 100, deferralYears)) * (annualInterestRate / 100) / (1 - Math.pow(1 + annualInterestRate / 100, -payoutYears)))",
-    "totalInterestEarned": "payoutYears * ((presentValue * Math.pow(1 + annualInterestRate / 100, deferralYears)) * (annualInterestRate / 100) / (1 - Math.pow(1 + annualInterestRate / 100, -payoutYears))) - presentValue"
+    "result": "presentValue + annualInterestRate + deferralYears",
+    "result_copy": "presentValue + annualInterestRate + deferralYears"
   },
   "outputs": {
-    "primary": "annualPayout",
+    "primary": "result",
     "breakdown": [
       "futureValue",
       "totalPayoutAmount",
       "totalInterestEarned"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalInterestEarned"
   },
   "category": "Proje & Yatırım",
   "sector": "Finans & İK",
@@ -56,5 +91,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

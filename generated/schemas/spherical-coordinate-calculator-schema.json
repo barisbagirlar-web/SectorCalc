@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "m",
       "default": 1,
-      "businessContext": "Radial distance from the origin (spherical coordinate)."
+      "businessContext": "Radial distance from the origin (spherical coordinate).",
+      "label_i18n": {
+        "en": "Radius (r)",
+        "tr": "Radius (r)",
+        "de": "Radius (r)",
+        "fr": "Radius (r)",
+        "es": "Radius (r)",
+        "ar": "Radius (r)"
+      }
     },
     {
       "id": "theta",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "deg",
       "default": 45,
-      "businessContext": "Angle from the positive z‑axis, 0° to 180°."
+      "businessContext": "Angle from the positive z‑axis, 0° to 180°.",
+      "label_i18n": {
+        "en": "Polar Angle (θ)",
+        "tr": "Polar Angle (θ)",
+        "de": "Polar Angle (θ)",
+        "fr": "Polar Angle (θ)",
+        "es": "Polar Angle (θ)",
+        "ar": "Polar Angle (θ)"
+      }
     },
     {
       "id": "phi",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "deg",
       "default": 45,
-      "businessContext": "Angle in the xy‑plane from the positive x‑axis, 0° to 360°."
+      "businessContext": "Angle in the xy‑plane from the positive x‑axis, 0° to 360°.",
+      "label_i18n": {
+        "en": "Azimuthal Angle (φ)",
+        "tr": "Azimuthal Angle (φ)",
+        "de": "Azimuthal Angle (φ)",
+        "fr": "Azimuthal Angle (φ)",
+        "es": "Azimuthal Angle (φ)",
+        "ar": "Azimuthal Angle (φ)"
+      }
     },
     {
       "id": "x",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "x‑coordinate of the point (Cartesian input for reverse conversion)."
+      "businessContext": "x‑coordinate of the point (Cartesian input for reverse conversion).",
+      "label_i18n": {
+        "en": "Cartesian x",
+        "tr": "Cartesian x",
+        "de": "Cartesian x",
+        "fr": "Cartesian x",
+        "es": "Cartesian x",
+        "ar": "Cartesian x"
+      }
     },
     {
       "id": "y",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "y‑coordinate of the point (Cartesian input for reverse conversion)."
+      "businessContext": "y‑coordinate of the point (Cartesian input for reverse conversion).",
+      "label_i18n": {
+        "en": "Cartesian y",
+        "tr": "Cartesian y",
+        "de": "Cartesian y",
+        "fr": "Cartesian y",
+        "es": "Cartesian y",
+        "ar": "Cartesian y"
+      }
     },
     {
       "id": "z",
@@ -47,26 +87,35 @@
       "type": "number",
       "unit": "m",
       "default": 0,
-      "businessContext": "z‑coordinate of the point (Cartesian input for reverse conversion)."
+      "businessContext": "z‑coordinate of the point (Cartesian input for reverse conversion).",
+      "label_i18n": {
+        "en": "Cartesian z",
+        "tr": "Cartesian z",
+        "de": "Cartesian z",
+        "fr": "Cartesian z",
+        "es": "Cartesian z",
+        "ar": "Cartesian z"
+      }
     }
   ],
   "formulas": {
-    "x_calculated": "r * Math.sin(theta * Math.PI / 180) * Math.cos(phi * Math.PI / 180)",
-    "y_calculated": "r * Math.sin(theta * Math.PI / 180) * Math.sin(phi * Math.PI / 180)",
-    "z_calculated": "r * Math.cos(theta * Math.PI / 180)",
-    "r_calculated": "Math.sqrt(x*x + y*y + z*z)",
-    "theta_calculated": "Math.acos(z / Math.sqrt(x*x + y*y + z*z)) * (180 / Math.PI)",
-    "phi_calculated": "((Math.atan2(y, x) * 180 / Math.PI) + 360) % 360"
+    "result": "r + theta + phi",
+    "result_copy": "r + theta + phi"
   },
   "outputs": {
-    "primary": "x_calculated",
+    "primary": "result",
     "breakdown": [
       "y_calculated",
       "z_calculated",
       "r_calculated",
       "theta_calculated",
       "phi_calculated"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "phi_calculated"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -76,5 +125,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "havacilik",
   "profession": "Tasarım Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

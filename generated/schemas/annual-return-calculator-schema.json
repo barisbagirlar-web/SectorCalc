@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "currency",
       "default": 10000,
-      "businessContext": "The amount of money initially invested."
+      "businessContext": "The amount of money initially invested.",
+      "label_i18n": {
+        "en": "Initial Investment",
+        "tr": "Initial Investment",
+        "de": "Initial Investment",
+        "fr": "Initial Investment",
+        "es": "Initial Investment",
+        "ar": "Initial Investment"
+      }
     },
     {
       "id": "finalValue",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "currency",
       "default": 15000,
-      "businessContext": "The total value of the investment at the end of the period."
+      "businessContext": "The total value of the investment at the end of the period.",
+      "label_i18n": {
+        "en": "Final Value",
+        "tr": "Final Value",
+        "de": "Final Value",
+        "fr": "Final Value",
+        "es": "Final Value",
+        "ar": "Final Value"
+      }
     },
     {
       "id": "years",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "years",
       "default": 5,
-      "businessContext": "The duration of the investment in years."
+      "businessContext": "The duration of the investment in years.",
+      "label_i18n": {
+        "en": "Investment Period",
+        "tr": "Investment Period",
+        "de": "Investment Period",
+        "fr": "Investment Period",
+        "es": "Investment Period",
+        "ar": "Investment Period"
+      }
     },
     {
       "id": "inflationRate",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 2,
-      "businessContext": "The annual inflation rate to adjust for real return."
+      "businessContext": "The annual inflation rate to adjust for real return.",
+      "label_i18n": {
+        "en": "Inflation Rate",
+        "tr": "Inflation Rate",
+        "de": "Inflation Rate",
+        "fr": "Inflation Rate",
+        "es": "Inflation Rate",
+        "ar": "Inflation Rate"
+      }
     }
   ],
   "formulas": {
@@ -44,7 +76,12 @@
     "breakdown": [
       "realAnnualReturn",
       "totalReturnMultiple"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "totalReturnMultiple"
   },
   "category": "Proje & Yatırım",
   "sector": "Finans & İK",
@@ -54,5 +91,10 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

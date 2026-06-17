@@ -115,12 +115,17 @@
     }
   ],
   "formulas": {
-    "riskPercent": "(() => { let lp = (age - 55) * 0.05 + (systolicBP - 120) * 0.01 + (totalCholesterol - 200) * 0.005 + (hdl - 50) * (-0.02) + smoker * 0.5 + diabetic * 0.3; let base = gender === 0 ? 0.9965 : 0.9984; return (1 - Math.pow(base, Math.exp(lp))) * 100; })()",
-    "riskPercent_copy": "(() => { let lp = (age - 55) * 0.05 + (systolicBP - 120) * 0.01 + (totalCholesterol - 200) * 0.005 + (hdl - 50) * (-0.02) + smoker * 0.5 + diabetic * 0.3; let base = gender === 0 ? 0.9965 : 0.9984; return (1 - Math.pow(base, Math.exp(lp))) * 100; })()"
+    "result": "age + systolicBP + totalCholesterol",
+    "result_copy": "age + systolicBP + totalCholesterol"
   },
   "outputs": {
-    "primary": "riskPercent",
-    "breakdown": []
+    "primary": "result",
+    "breakdown": [],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "riskPercent_copy"
   },
   "category": "Akışkanlar & Termodinamik",
   "sector": "Teknik & Mühendislik",
@@ -130,5 +135,10 @@
   "categorySlug": "process-chemical",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "safety"
+  "categoryId": "safety",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

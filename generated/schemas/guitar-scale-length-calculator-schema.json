@@ -83,23 +83,21 @@
     }
   ],
   "formulas": {
-    "fretDistance": "scaleLength * (1 - Math.pow(2, -fretNumber / 12))",
     "scaleLengthInches": "scaleLength / 25.4",
-    "stringUnitWeight": "0.283 * Math.PI * Math.pow(stringGauge / 2, 2)",
-    "tensionLbs": "(stringUnitWeight * Math.pow(2 * scaleLengthInches * tuningFrequency, 2)) / 386.4",
-    "tensionKg": "tensionLbs * 0.453592",
-    "__tensionLbs_toFixed_2___lbs": "${tensionLbs.toFixed(2)} lbs",
-    "__tensionKg_toFixed_2___kg": "${tensionKg.toFixed(2)} kg",
-    "__scaleLengthInches_toFixed_2___in": "${scaleLengthInches.toFixed(2)} in",
-    "result": "Distance from nut to fret ${fretNumber}: ${fretDistance.toFixed(2)} mm"
+    "scaleLengthInches_aux": "scaleLength / 25.4"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "scaleLengthInches_aux",
     "breakdown": [
       "String tension (lbs): ${tensionLbs.toFixed(2)} lbs",
       "String tension (kg): ${tensionKg.toFixed(2)} kg",
       "Scale length in inches: ${scaleLengthInches.toFixed(2)} in"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "tensionKg"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -109,5 +107,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "quality"
+  "categoryId": "quality",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

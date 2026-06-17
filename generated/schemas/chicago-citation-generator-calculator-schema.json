@@ -84,13 +84,8 @@
   ],
   "formulas": {
     "authorContrib": "numAuthors * 2.5",
-    "yearContrib": "Math.log(pubYear) * 10",
-    "pageContrib": "Math.sqrt(pageCount) * 1.5",
     "citationContrib": "citationFreq * relevance * 3",
-    "primary": "authorContrib + yearContrib + pageContrib + citationContrib",
     "numAuthors___2_5": "numAuthors * 2.5",
-    "log_pubYear____10": "log(pubYear) * 10",
-    "sqrt_pageCount____1_5": "sqrt(pageCount) * 1.5",
     "citationFreq___relevance___3": "citationFreq * relevance * 3"
   },
   "outputs": {
@@ -100,7 +95,12 @@
       "Year Contribution: log(pubYear) * 10",
       "Page Contribution: sqrt(pageCount) * 1.5",
       "Frequency & Relevance: citationFreq * relevance * 3"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "citationFreq___relevance___3"
   },
   "category": "Üretim & İmalat",
   "sector": "Üretim & İmalat",
@@ -110,5 +110,10 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "diger"
+  "categoryId": "diger",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

@@ -70,21 +70,21 @@
     "feet": "meters * 3.28084",
     "pounds": "kilograms * 2.20462",
     "gallons": "liters * 0.264172",
-    "fahrenheit": "(celsius * 9/5) + 32",
-    "____feet_toFixed_2______ft_": "' + feet.toFixed(2) + ' ft'",
-    "____pounds_toFixed_2______lbs_": "' + pounds.toFixed(2) + ' lbs'",
-    "____gallons_toFixed_2______gal_": "' + gallons.toFixed(2) + ' gal'",
-    "____fahrenheit_toFixed_2_______F_": "' + fahrenheit.toFixed(2) + ' °F'",
-    "result": "'Conversions: ' + meters + 'm => ' + feet.toFixed(2) + 'ft, ' + kilograms + 'kg => ' + pounds.toFixed(2) + 'lbs, ' + liters + 'L => ' + gallons.toFixed(2) + 'gal, ' + celsius + '°C => ' + fahrenheit.toFixed(2) + '°F'"
+    "fahrenheit": "(celsius * 9/5) + 32"
   },
   "outputs": {
-    "primary": "result",
+    "primary": "fahrenheit",
     "breakdown": [
       "'Feet: ' + feet.toFixed(2) + ' ft'",
       "'Pounds: ' + pounds.toFixed(2) + ' lbs'",
       "'US Gallons: ' + gallons.toFixed(2) + ' gal'",
       "'Fahrenheit: ' + fahrenheit.toFixed(2) + ' °F'"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "result"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -94,5 +94,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

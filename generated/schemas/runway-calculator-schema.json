@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "USD",
       "default": 100000,
-      "businessContext": "Total liquid cash on hand."
+      "businessContext": "Total liquid cash on hand.",
+      "label_i18n": {
+        "en": "Current Cash Balance",
+        "tr": "Current Cash Balance",
+        "de": "Current Cash Balance",
+        "fr": "Current Cash Balance",
+        "es": "Current Cash Balance",
+        "ar": "Current Cash Balance"
+      }
     },
     {
       "id": "monthly_expenses",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "USD",
       "default": 10000,
-      "businessContext": "Total monthly cash outflows (operational costs, rent, salaries)."
+      "businessContext": "Total monthly cash outflows (operational costs, rent, salaries).",
+      "label_i18n": {
+        "en": "Monthly Expenses",
+        "tr": "Monthly Expenses",
+        "de": "Monthly Expenses",
+        "fr": "Monthly Expenses",
+        "es": "Monthly Expenses",
+        "ar": "Monthly Expenses"
+      }
     },
     {
       "id": "monthly_revenue",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "USD",
       "default": 5000,
-      "businessContext": "Total monthly cash inflows from sales or other income."
+      "businessContext": "Total monthly cash inflows from sales or other income.",
+      "label_i18n": {
+        "en": "Monthly Revenue",
+        "tr": "Monthly Revenue",
+        "de": "Monthly Revenue",
+        "fr": "Monthly Revenue",
+        "es": "Monthly Revenue",
+        "ar": "Monthly Revenue"
+      }
     },
     {
       "id": "buffer_percent",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "%",
       "default": 0,
-      "businessContext": "Percentage of cash reserved as a safety buffer, not used in runway calculation."
+      "businessContext": "Percentage of cash reserved as a safety buffer, not used in runway calculation.",
+      "label_i18n": {
+        "en": "Cash Buffer (%)",
+        "tr": "Cash Buffer (%)",
+        "de": "Cash Buffer (%)",
+        "fr": "Cash Buffer (%)",
+        "es": "Cash Buffer (%)",
+        "ar": "Cash Buffer (%)"
+      }
     }
   ],
   "formulas": {
@@ -45,7 +77,12 @@
       "net_monthly_burn",
       "effective_cash",
       "runway_months"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "runway_months"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -55,5 +92,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost"
+  "categoryId": "cost",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

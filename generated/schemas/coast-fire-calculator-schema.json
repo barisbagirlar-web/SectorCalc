@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "The investor's current age"
+      "businessContext": "The investor's current age",
+      "label_i18n": {
+        "en": "Current Age",
+        "tr": "Current Age",
+        "de": "Current Age",
+        "fr": "Current Age",
+        "es": "Current Age",
+        "ar": "Current Age"
+      }
     },
     {
       "id": "retirementAge",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "years",
       "default": 65,
-      "businessContext": "Age at which full retirement corpus is needed"
+      "businessContext": "Age at which full retirement corpus is needed",
+      "label_i18n": {
+        "en": "Traditional Retirement Age",
+        "tr": "Traditional Retirement Age",
+        "de": "Traditional Retirement Age",
+        "fr": "Traditional Retirement Age",
+        "es": "Traditional Retirement Age",
+        "ar": "Traditional Retirement Age"
+      }
     },
     {
       "id": "annualReturnRate",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "%",
       "default": 7,
-      "businessContext": "Expected annual nominal investment return before inflation"
+      "businessContext": "Expected annual nominal investment return before inflation",
+      "label_i18n": {
+        "en": "Annual Return Rate",
+        "tr": "Annual Return Rate",
+        "de": "Annual Return Rate",
+        "fr": "Annual Return Rate",
+        "es": "Annual Return Rate",
+        "ar": "Annual Return Rate"
+      }
     },
     {
       "id": "fireTarget",
@@ -31,20 +55,32 @@
       "type": "number",
       "unit": "currency",
       "default": 1000000,
-      "businessContext": "Total retirement corpus required at retirement age"
+      "businessContext": "Total retirement corpus required at retirement age",
+      "label_i18n": {
+        "en": "FIRE Target Amount",
+        "tr": "FIRE Target Amount",
+        "de": "FIRE Target Amount",
+        "fr": "FIRE Target Amount",
+        "es": "FIRE Target Amount",
+        "ar": "FIRE Target Amount"
+      }
     }
   ],
   "formulas": {
     "yearsToRetirement": "retirementAge - currentAge",
-    "growthFactor": "Math.pow(1 + annualReturnRate/100, yearsToRetirement)",
-    "coastFireNumber": "fireTarget / growthFactor"
+    "yearsToRetirement_aux": "retirementAge - currentAge"
   },
   "outputs": {
-    "primary": "coastFireNumber",
+    "primary": "yearsToRetirement_aux",
     "breakdown": [
       "yearsToRetirement",
       "growthFactor"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "coastFireNumber"
   },
   "category": "Elektrik & Otomasyon",
   "sector": "Teknik & Mühendislik",
@@ -54,5 +90,10 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "finance"
+  "categoryId": "finance",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

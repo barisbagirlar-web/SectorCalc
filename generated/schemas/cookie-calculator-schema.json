@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "adet",
       "default": 24,
-      "businessContext": "Number of cookies per batch"
+      "businessContext": "Number of cookies per batch",
+      "label_i18n": {
+        "en": "Batch Size (cookies)",
+        "tr": "Batch Size (cookies)",
+        "de": "Batch Size (cookies)",
+        "fr": "Batch Size (cookies)",
+        "es": "Batch Size (cookies)",
+        "ar": "Batch Size (cookies)"
+      }
     },
     {
       "id": "flour_per_cookie",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "g",
       "default": 30,
-      "businessContext": "Grams of flour per cookie"
+      "businessContext": "Grams of flour per cookie",
+      "label_i18n": {
+        "en": "Flour per Cookie",
+        "tr": "Flour per Cookie",
+        "de": "Flour per Cookie",
+        "fr": "Flour per Cookie",
+        "es": "Flour per Cookie",
+        "ar": "Flour per Cookie"
+      }
     },
     {
       "id": "sugar_per_cookie",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "g",
       "default": 15,
-      "businessContext": "Grams of sugar per cookie"
+      "businessContext": "Grams of sugar per cookie",
+      "label_i18n": {
+        "en": "Sugar per Cookie",
+        "tr": "Sugar per Cookie",
+        "de": "Sugar per Cookie",
+        "fr": "Sugar per Cookie",
+        "es": "Sugar per Cookie",
+        "ar": "Sugar per Cookie"
+      }
     },
     {
       "id": "butter_per_cookie",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "g",
       "default": 10,
-      "businessContext": "Grams of butter per cookie"
+      "businessContext": "Grams of butter per cookie",
+      "label_i18n": {
+        "en": "Butter per Cookie",
+        "tr": "Butter per Cookie",
+        "de": "Butter per Cookie",
+        "fr": "Butter per Cookie",
+        "es": "Butter per Cookie",
+        "ar": "Butter per Cookie"
+      }
     },
     {
       "id": "egg_per_cookie",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "g",
       "default": 5,
-      "businessContext": "Grams of egg per cookie"
+      "businessContext": "Grams of egg per cookie",
+      "label_i18n": {
+        "en": "Egg per Cookie",
+        "tr": "Egg per Cookie",
+        "de": "Egg per Cookie",
+        "fr": "Egg per Cookie",
+        "es": "Egg per Cookie",
+        "ar": "Egg per Cookie"
+      }
     },
     {
       "id": "chocolate_per_cookie",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "g",
       "default": 10,
-      "businessContext": "Grams of chocolate per cookie"
+      "businessContext": "Grams of chocolate per cookie",
+      "label_i18n": {
+        "en": "Chocolate per Cookie",
+        "tr": "Chocolate per Cookie",
+        "de": "Chocolate per Cookie",
+        "fr": "Chocolate per Cookie",
+        "es": "Chocolate per Cookie",
+        "ar": "Chocolate per Cookie"
+      }
     },
     {
       "id": "oven_temp",
@@ -55,7 +103,15 @@
       "type": "number",
       "unit": "°C",
       "default": 180,
-      "businessContext": "Baking temperature in Celsius"
+      "businessContext": "Baking temperature in Celsius",
+      "label_i18n": {
+        "en": "Oven Temperature",
+        "tr": "Oven Temperature",
+        "de": "Oven Temperature",
+        "fr": "Oven Temperature",
+        "es": "Oven Temperature",
+        "ar": "Oven Temperature"
+      }
     },
     {
       "id": "baking_time",
@@ -63,7 +119,15 @@
       "type": "number",
       "unit": "min",
       "default": 12,
-      "businessContext": "Baking time in minutes"
+      "businessContext": "Baking time in minutes",
+      "label_i18n": {
+        "en": "Baking Time",
+        "tr": "Baking Time",
+        "de": "Baking Time",
+        "fr": "Baking Time",
+        "es": "Baking Time",
+        "ar": "Baking Time"
+      }
     }
   ],
   "formulas": {
@@ -86,7 +150,12 @@
       "total_chocolate",
       "energy_consumption",
       "cost_per_cookie"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "cost_per_cookie"
   },
   "category": "Gıda & Tarım",
   "sector": "Perakende & Gıda",
@@ -96,5 +165,10 @@
   "categorySlug": "food-cold-chain-hygiene",
   "sectorId": "diger",
   "profession": "Genel Uzman",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }

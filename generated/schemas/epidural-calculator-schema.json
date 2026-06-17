@@ -7,7 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Weight of the patient in kilograms"
+      "businessContext": "Weight of the patient in kilograms",
+      "label_i18n": {
+        "en": "Patient Weight",
+        "tr": "Patient Weight",
+        "de": "Patient Weight",
+        "fr": "Patient Weight",
+        "es": "Patient Weight",
+        "ar": "Patient Weight"
+      }
     },
     {
       "id": "drugConcentration",
@@ -15,7 +23,15 @@
       "type": "number",
       "unit": "%",
       "default": 1.5,
-      "businessContext": "Concentration of anesthetic agent in percentage (g/100mL)"
+      "businessContext": "Concentration of anesthetic agent in percentage (g/100mL)",
+      "label_i18n": {
+        "en": "Drug Concentration",
+        "tr": "Drug Concentration",
+        "de": "Drug Concentration",
+        "fr": "Drug Concentration",
+        "es": "Drug Concentration",
+        "ar": "Drug Concentration"
+      }
     },
     {
       "id": "desiredDose",
@@ -23,7 +39,15 @@
       "type": "number",
       "unit": "mg/kg",
       "default": 3,
-      "businessContext": "Desired dose of anesthetic per kilogram of body weight"
+      "businessContext": "Desired dose of anesthetic per kilogram of body weight",
+      "label_i18n": {
+        "en": "Desired Dose Rate",
+        "tr": "Desired Dose Rate",
+        "de": "Desired Dose Rate",
+        "fr": "Desired Dose Rate",
+        "es": "Desired Dose Rate",
+        "ar": "Desired Dose Rate"
+      }
     },
     {
       "id": "maxDoseLimit",
@@ -31,7 +55,15 @@
       "type": "number",
       "unit": "mg/kg",
       "default": 4,
-      "businessContext": "Maximum safe dose of the anesthetic without epinephrine (e.g., 4 mg/kg for lidocaine)"
+      "businessContext": "Maximum safe dose of the anesthetic without epinephrine (e.g., 4 mg/kg for lidocaine)",
+      "label_i18n": {
+        "en": "Max Safe Dose Limit",
+        "tr": "Max Safe Dose Limit",
+        "de": "Max Safe Dose Limit",
+        "fr": "Max Safe Dose Limit",
+        "es": "Max Safe Dose Limit",
+        "ar": "Max Safe Dose Limit"
+      }
     },
     {
       "id": "epinephrineAdded",
@@ -39,7 +71,15 @@
       "type": "number",
       "unit": "boolean (0=no, 1=yes)",
       "default": 0,
-      "businessContext": "Indicates whether epinephrine is added (1) or not (0). Increases max safe dose by 75%."
+      "businessContext": "Indicates whether epinephrine is added (1) or not (0). Increases max safe dose by 75%.",
+      "label_i18n": {
+        "en": "Epinephrine Added",
+        "tr": "Epinephrine Added",
+        "de": "Epinephrine Added",
+        "fr": "Epinephrine Added",
+        "es": "Epinephrine Added",
+        "ar": "Epinephrine Added"
+      }
     },
     {
       "id": "volumeOnHand",
@@ -47,7 +87,15 @@
       "type": "number",
       "unit": "mL",
       "default": 20,
-      "businessContext": "Total volume of anesthetic solution available in the vial"
+      "businessContext": "Total volume of anesthetic solution available in the vial",
+      "label_i18n": {
+        "en": "Volume On Hand",
+        "tr": "Volume On Hand",
+        "de": "Volume On Hand",
+        "fr": "Volume On Hand",
+        "es": "Volume On Hand",
+        "ar": "Volume On Hand"
+      }
     }
   ],
   "formulas": {
@@ -64,7 +112,12 @@
       "maxSafeDoseCheck",
       "maxDoseAdjusted",
       "remainingVolume"
-    ]
+    ],
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review inputs and verify results against site standards."
+    ],
+    "dataConfidenceAdjusted": "remainingVolume"
   },
   "category": "Kalite & Laboratuvar",
   "sector": "Kalite, SPC & Altı Sigma",
@@ -74,5 +127,10 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "kimya",
   "profession": "Proses Mühendisi",
-  "categoryId": "conversion"
+  "categoryId": "conversion",
+  "validation": {
+    "rules": [],
+    "thresholds": {}
+  },
+  "premiumFeatures": []
 }
