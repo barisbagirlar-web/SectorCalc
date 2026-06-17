@@ -6,6 +6,7 @@ export type PreviewStaticParamFamily =
   | "free-tools"
   | "premium-tools"
   | "premium-tools-category"
+  | "free-tools-category"
   | "premium-schema"
   | "premium-schema-print"
   | "generated-tools"
@@ -37,6 +38,12 @@ const FAMILY_KEEP_SLUGS: Record<PreviewStaticParamFamily, readonly string[]> = {
     "cnc-manufacturing",
     "construction",
     "logistics-transport",
+  ],
+  "free-tools-category": [
+    "manufacturing",
+    "finance",
+    "construction",
+    "logistics",
   ],
   "premium-schema": [
     "cnc-oee-loss",

@@ -7,6 +7,7 @@ import { Container } from "@/components/ui/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Link } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/metadata";
+import { limitStaticParamsForPreview } from "@/lib/build/preview-static-params";
 import type { AppLocale } from "@/i18n/routing";
 import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
 import { buildItemListJsonLd } from "@/lib/seo/schema-mesh";
@@ -32,12 +33,16 @@ export async function generateStaticParams(): Promise<Array<{ category: string }
   const taxonomy = listTaxonomyCategorySlugs().map((category) => ({ category }));
   const freeTraffic = listFreeTrafficCategorySlugs().map((category) => ({ category }));
   const seen = new Set<string>();
-  return [...taxonomy, ...freeTraffic].filter((entry) => {
+  const params = [...taxonomy, ...freeTraffic].filter((entry) => {
     if (seen.has(entry.category)) {
       return false;
     }
     seen.add(entry.category);
     return true;
+  });
+  return limitStaticParamsForPreview(params, {
+    family: "free-tools-category",
+    slugKey: "category",
   });
 }
 

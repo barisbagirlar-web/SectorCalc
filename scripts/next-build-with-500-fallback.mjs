@@ -140,7 +140,8 @@ function readBuildLogTail(maxChars = 200_000) {
 
 function runNextBuild() {
   mkdirSync(NEXT_DIR, { recursive: true });
-  const logFd = openSync(BUILD_LOG, "w");
+  const streamToConsole = process.env.VERCEL === "1";
+  const logFd = streamToConsole ? null : openSync(BUILD_LOG, "w");
 
   const nextCli = join(ROOT, "node_modules/next/dist/bin/next");
   const result = spawnSync(process.execPath, [nextCli, "build", "--no-lint"], {
@@ -150,22 +151,56 @@ function runNextBuild() {
       NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192",
       FORCE_COLOR: "0",
     },
-    stdio: ["inherit", logFd, logFd],
+    stdio: streamToConsole ? "inherit" : ["inherit", logFd, logFd],
   });
-  closeSync(logFd);
+  if (logFd !== null) {
+    closeSync(logFd);
+  }
 
-  const output = readBuildLogTail();
-  if (process.env.VERCEL === "1" && output) {
+  const output = streamToConsole ? "" : readBuildLogTail();
+  if (!streamToConsole && process.env.VERCEL === "1" && output) {
     process.stdout.write(output);
   }
 
   if (result.error) {
     const message = result.error instanceof Error ? result.error.message : String(result.error);
-    process.stderr.write(`next-build-with-500-fallback: spawn error: ${message}\n`);
-    return { status: 1, output: `${output}\n${message}` };
+    console.error(`next-build-with-500-fallback: spawn error: ${message}`);
+    return { status: 1, output: `${output}\n${message}`, signal: result.signal };
   }
 
-  return { status: result.status ?? 1, output };
+  return { status: result.status ?? 1, output, signal: result.signal };
+}
+
+function logAttemptFailure(attempt, phase, result) {
+  const status = result.status ?? 1;
+  const signal = result.signal ?? "none";
+  console.error(
+    `next-build-with-500-fallback: attempt ${attempt}/${MAX_ATTEMPTS} failed — ${phase} (status=${status}, signal=${signal})`,
+  );
+  const tail = result.output?.slice(-4000) ?? "";
+  if (tail) {
+    console.error(`next-build-with-500-fallback: log tail:\n${tail}`);
+  }
+}
+
+function dumpFinalDiagnostics() {
+  console.error("\nnext-build-with-500-fallback: all attempts exhausted.");
+  const diagnosticLog = readPersistentBuildLogTail() || lastOutput || readBuildLogTail();
+  if (diagnosticLog) {
+    console.error(diagnosticLog.slice(-24_000));
+  } else {
+    console.error("next-build-with-500-fallback: no build log captured.");
+  }
+}
+
+function runValidateOnly() {
+  stripVercelExportMarkers(NEXT_DIR);
+  const validate = spawnSync(process.execPath, ["scripts/validate-next-build.mjs"], {
+    cwd: ROOT,
+    stdio: "inherit",
+    env: process.env,
+  });
+  return (validate.status ?? 1) === 0;
 }
 
 function finalizeAndValidate() {
@@ -234,11 +269,30 @@ try {
     }
 
     const result = runNextBuild();
-    lastOutput = result.output;
-
-    if (result.status === 0 && finalizeAndValidate()) {
-      process.exit(0);
+    if (result.output) {
+      lastOutput = result.output;
     }
+
+    if (result.status === 0) {
+      if (finalizeAndValidate()) {
+        process.exit(0);
+      }
+
+      logAttemptFailure(attempt, "finalize/validate after successful next build", {
+        ...result,
+        output: lastOutput,
+      });
+
+      if (runValidateOnly()) {
+        console.error("next-build-with-500-fallback: recovered via validate-only strip retry.");
+        process.exit(0);
+      }
+
+      dumpFinalDiagnostics();
+      process.exit(1);
+    }
+
+    logAttemptFailure(attempt, "next build", result);
 
     if (shouldRecover500Export(result)) {
       console.warn("next-build-with-500-fallback: SSG complete — applying 500 static fallback…");
@@ -276,13 +330,7 @@ try {
     }
   }
 
-  process.stderr.write("\nnext-build-with-500-fallback: all attempts exhausted.\n");
-  const diagnosticLog = readPersistentBuildLogTail() || lastOutput || readBuildLogTail();
-  if (diagnosticLog) {
-    process.stderr.write(diagnosticLog);
-  } else {
-    process.stderr.write("next-build-with-500-fallback: no build log captured.\n");
-  }
+  dumpFinalDiagnostics();
   process.exit(1);
 } finally {
   releaseBuildLock();
