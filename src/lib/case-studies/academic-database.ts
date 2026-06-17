@@ -95,7 +95,7 @@ export function filterCaseStudiesForDatabase(
       return false;
     }
 
-    const country = study.country ?? "Germany";
+    const country = study.country ?? "";
     if (filters.country && country !== filters.country) {
       return false;
     }

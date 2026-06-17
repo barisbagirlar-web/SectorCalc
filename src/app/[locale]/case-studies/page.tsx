@@ -12,6 +12,8 @@ import {
 import { listPublishedCaseStudies } from "@/lib/case-studies/published-case-study-locale";
 import { createPageMetadata } from "@/lib/metadata";
 import type { AppLocale } from "@/i18n/routing";
+import type { SupportedLocale } from "@/lib/i18n/locale-config";
+import { addLocaleToPath } from "@/lib/i18n/locale-routing";
 import "@/styles/academic-case-studies-database.css";
 
 type PageProps = {
@@ -55,7 +57,9 @@ export default async function CaseStudiesPage({ params, searchParams }: PageProp
   const filteredStudies = filterCaseStudiesForDatabase(studies, filters);
 
   const industries = [...new Set(studies.map((study) => study.industry))].filter(Boolean).sort();
-  const countries = [...new Set(studies.map((study) => study.country ?? "Germany"))].filter(Boolean).sort();
+  const countries = [...new Set(studies.map((study) => study.country).filter(Boolean))].sort(
+    (a, b) => String(a).localeCompare(String(b), locale),
+  );
   const years = [...new Set(studies.map((study) => study.publishedAt.slice(0, 4)))].filter(Boolean).sort();
 
   const updatedOn = new Date().toLocaleDateString(locale);
@@ -86,7 +90,11 @@ export default async function CaseStudiesPage({ params, searchParams }: PageProp
       </div>
 
       <div className="filter-area">
-        <form method="GET" action={`/${locale}/case-studies`} className="filter-form">
+        <form
+          method="GET"
+          action={addLocaleToPath("/case-studies", locale as SupportedLocale)}
+          className="filter-form"
+        >
           <div className="filter-group">
             <label htmlFor="industry">{t("filterIndustry")}</label>
             <select
@@ -186,7 +194,7 @@ export default async function CaseStudiesPage({ params, searchParams }: PageProp
                     <td>{index + 1}</td>
                     <td>{study.testimonial?.company ?? t("unspecified")}</td>
                     <td>{study.city ?? t("emDash")}</td>
-                    <td>{study.country ?? "Germany"}</td>
+                    <td>{study.country ?? t("unspecified")}</td>
                     <td>{study.industry}</td>
                     <td>{study.projectDuration ?? t("emDash")}</td>
                     <td className="numeric">{primaryResult?.before ?? t("emDash")}</td>

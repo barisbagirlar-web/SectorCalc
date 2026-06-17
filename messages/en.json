@@ -1139,6 +1139,7 @@
       "title": "Sector-Specific Calculation Tools",
       "subtitle": "Calculators built for your sector and the decisions you face.",
       "browseByCategory": "Browse by category",
+      "toolCount": "{count, plural, one {# calculator} other {# calculators}}",
       "items": {
         "production": {
           "title": "Production & manufacturing",
@@ -3275,7 +3276,16 @@
       "detailLink": "[HTML]",
       "footerLine1": "SectorCalc GmbH | TÜV-Certifiable Industrial Math",
       "footerLine2": "All cases are documented to ECMI standards and peer-reviewed.",
-      "footerContact": "Contact:"
+      "footerContact": "Contact:",
+      "metaRecordId": "Record ID",
+      "metaPublished": "Published",
+      "metaReadTime": "Read time",
+      "metaEvidenceLevel": "Evidence level",
+      "metaRelatedTool": "Related tool",
+      "resultsMetric": "Metric",
+      "sectionStatement": "Statement",
+      "backToIndex": "← Back to index",
+      "representativeLabel": "Representative scenario (not verified client outcome)"
     }
   },
   "runtimeReadiness": {

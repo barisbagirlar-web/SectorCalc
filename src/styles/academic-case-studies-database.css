@@ -211,6 +211,103 @@
   color: #000;
 }
 
+.academic-database .record-meta {
+  padding: 12px 0;
+  font-size: 14px;
+  border-bottom: 1px solid #000;
+}
+
+.academic-database .record-meta-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.academic-database .record-meta-table th,
+.academic-database .record-meta-table td {
+  border: 1px solid #000;
+  padding: 4px 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.academic-database .record-meta-table th {
+  width: 180px;
+  font-weight: bold;
+  background: #fff;
+}
+
+.academic-database .record-body {
+  padding: 16px 0 8px;
+}
+
+.academic-database .record-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.academic-database .record-subtitle {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.academic-database .record-section {
+  margin-bottom: 20px;
+}
+
+.academic-database .record-section h2 {
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 4px;
+}
+
+.academic-database .record-section p,
+.academic-database .record-section li {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.academic-database .record-tools {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.academic-database .record-blockquote {
+  margin: 0;
+  padding: 0 0 0 16px;
+  border-left: 2px solid #000;
+  font-style: italic;
+  color: #333;
+}
+
+.academic-database .record-attribution {
+  margin-top: 8px;
+  font-size: 14px;
+  font-style: normal;
+  color: #555;
+}
+
+.academic-database .record-footnote {
+  margin-top: 20px;
+  padding-top: 8px;
+  border-top: 1px solid #ccc;
+  font-size: 12px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.academic-database .record-nav {
+  padding: 8px 0 12px;
+  font-size: 14px;
+}
+
 @media (max-width: 768px) {
   .academic-database .filter-form {
     flex-direction: column;

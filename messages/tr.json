@@ -1139,6 +1139,7 @@
       "title": "Sektörel Hesaplama Araçları",
       "subtitle": "Her sektöre özel, ihtiyacınıza yönelik hesaplayıcılar.",
       "browseByCategory": "Kategoriye göre göz at",
+      "toolCount": "{count, plural, one {# hesaplayıcı} other {# hesaplayıcı}}",
       "items": {
         "production": {
           "title": "Üretim ve İmalat Hesaplayıcıları",
@@ -3283,7 +3284,16 @@
       "detailLink": "[HTML]",
       "footerLine1": "SectorCalc GmbH | TÜV-Certifiable Industrial Math",
       "footerLine2": "Tüm vakalar ECMI standartlarında belgelenmiş ve hakem onaylıdır.",
-      "footerContact": "İletişim:"
+      "footerContact": "İletişim:",
+      "metaRecordId": "Kayıt No",
+      "metaPublished": "Yayın",
+      "metaReadTime": "Okuma süresi",
+      "metaEvidenceLevel": "Kanıt düzeyi",
+      "metaRelatedTool": "İlgili araç",
+      "resultsMetric": "Metrik",
+      "sectionStatement": "Beyan",
+      "backToIndex": "← Dizine dön",
+      "representativeLabel": "Temsilî senaryo (doğrulanmış müşteri sonucu değildir)"
     }
   },
   "runtimeReadiness": {
