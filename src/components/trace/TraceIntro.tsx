@@ -2,7 +2,6 @@
 
 import { ArrowRight, Route, Sparkles } from "lucide-react";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/Container";
 import { TRACE_BRAND } from "@/config/trace";
 
@@ -22,14 +21,21 @@ export function openTraceChat(): void {
   window.dispatchEvent(new CustomEvent("trace:open"));
 }
 
-type TraceIntroProps = {
-  readonly freeCount: number;
-  readonly premiumCount: number;
+export type TraceIntroCopy = {
+  readonly avatarAlt: string;
+  readonly badge: string;
+  readonly title: string;
+  readonly description: string;
+  readonly feature1: string;
+  readonly feature2: string;
+  readonly cta: string;
 };
 
-export function TraceIntro({ freeCount, premiumCount }: TraceIntroProps) {
-  const t = useTranslations("trace");
+type TraceIntroProps = {
+  readonly copy: TraceIntroCopy;
+};
 
+export function TraceIntro({ copy }: TraceIntroProps) {
   return (
     <section className="sc-trace-intro" aria-labelledby="trace-intro-heading">
       <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
@@ -38,7 +44,7 @@ export function TraceIntro({ freeCount, premiumCount }: TraceIntroProps) {
             <div className="sc-trace-intro__avatar-wrap">
               <Image
                 src={TRACE_BRAND.avatar}
-                alt={t("title")}
+                alt={copy.avatarAlt}
                 width={80}
                 height={80}
                 className="sc-trace-intro__avatar-image"
@@ -48,28 +54,28 @@ export function TraceIntro({ freeCount, premiumCount }: TraceIntroProps) {
             <div className="sc-trace-intro__copy">
               <div className="sc-trace-intro__badge-row">
                 <Route className="sc-trace-intro__badge-icon" aria-hidden />
-                <span className="sc-trace-intro__badge">{t("intro.badge")}</span>
+                <span className="sc-trace-intro__badge">{copy.badge}</span>
               </div>
 
               <h2 id="trace-intro-heading" className="sc-trace-intro__title">
-                {t("intro.title")}
+                {copy.title}
               </h2>
 
-              <p className="sc-trace-intro__description whitespace-pre-line">{t("intro.description")}</p>
+              <p className="sc-trace-intro__description whitespace-pre-line">{copy.description}</p>
 
               <ul className="sc-trace-intro__features">
                 <li className="sc-trace-intro__feature">
                   <Sparkles className="sc-trace-intro__feature-icon" aria-hidden />
-                  <span>{t("intro.feature1", { count: freeCount })}</span>
+                  <span>{copy.feature1}</span>
                 </li>
                 <li className="sc-trace-intro__feature">
                   <Route className="sc-trace-intro__feature-icon" aria-hidden />
-                  <span>{t("intro.feature2", { count: premiumCount })}</span>
+                  <span>{copy.feature2}</span>
                 </li>
               </ul>
 
               <button type="button" className="sc-cta-primary sc-trace-intro__cta" onClick={openTraceChat}>
-                <span>{t("intro.cta")}</span>
+                <span>{copy.cta}</span>
                 <ArrowRight className="sc-trace-intro__cta-icon" aria-hidden />
               </button>
             </div>
