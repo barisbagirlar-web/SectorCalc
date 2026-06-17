@@ -3,9 +3,11 @@ import { Calculator, LayoutGrid } from "lucide-react";
 import { getCategoryIcon } from "@/lib/catalog/category-icon-map";
 import { getIndustrySlugIcon } from "@/lib/catalog/industry-slug-icon-map";
 import { LEGACY_CATALOG_ICON_ALIASES } from "@/lib/catalog/legacy-catalog-icon-aliases";
+import { SCHEMA_CATALOG_ICON_OVERRIDES } from "@/lib/catalog/schema-catalog-icon-overrides";
 import type { GlobalToolCategorySlug } from "@/lib/catalog/global-tool-category-taxonomy";
 import { listGlobalCategorySlugs } from "@/lib/catalog/global-tool-category-taxonomy";
 import { FREE_TRAFFIC_CATEGORY_TO_GLOBAL } from "@/lib/catalog/resolve-tool-category";
+import { getTaxonomyEntryBySlug } from "@/lib/tools/category-taxonomy";
 import type { IndustrySlug } from "@/lib/tools/industry-registry";
 import { industryRegistry } from "@/lib/tools/industry-registry";
 import type { HomepageCoverageId } from "@/lib/home/homepage-positioning-data";
@@ -24,6 +26,16 @@ export function resolveCatalogCategoryIcon(slug: string, depth = 0): LucideIcon 
 
   if (slug === "all") {
     return LayoutGrid;
+  }
+
+  const schemaOverride = SCHEMA_CATALOG_ICON_OVERRIDES[slug];
+  if (schemaOverride) {
+    return schemaOverride;
+  }
+
+  const taxonomyEntry = getTaxonomyEntryBySlug(slug);
+  if (taxonomyEntry) {
+    return resolveCatalogCategoryIcon(taxonomyEntry.globalCategorySlug, depth + 1);
   }
 
   if (GLOBAL_SLUGS.has(slug)) {
