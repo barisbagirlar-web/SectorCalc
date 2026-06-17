@@ -1,0 +1,70 @@
+{
+  "toolName": "body-recomposition",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Weight (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body weight in kilograms"
+    },
+    {
+      "id": "height",
+      "label": "Height (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Height in centimeters"
+    },
+    {
+      "id": "age",
+      "label": "Age (years)",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age in years"
+    },
+    {
+      "id": "gender",
+      "label": "Gender (0=male, 1=female)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0 for male, 1 for female"
+    },
+    {
+      "id": "activityFactor",
+      "label": "Activity Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.55,
+      "businessContext": "Multiplier: 1.2 sedentary, 1.55 moderate, 1.9 intense"
+    },
+    {
+      "id": "goal",
+      "label": "Calorie Adjustment (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "businessContext": "Negative for deficit, positive for surplus"
+    }
+  ],
+  "formulas": {
+    "dailyCalories": "((gender==0?10*weight+6.25*height-5*age+5:10*weight+6.25*height-5*age-161)*activityFactor*(1+goal/100))",
+    "protein": "weight*2.2",
+    "fat": "weight*0.8",
+    "carbs": "(((gender==0?10*weight+6.25*height-5*age+5:10*weight+6.25*height-5*age-161)*activityFactor*(1+goal/100)) - (weight*2.2*4 + weight*0.8*9)) / 4"
+  },
+  "outputs": {
+    "primary": "dailyCalories",
+    "breakdown": [
+      "protein",
+      "fat",
+      "carbs"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false
+}

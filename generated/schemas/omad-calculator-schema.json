@@ -2,55 +2,62 @@
   "toolName": "omad-calculator",
   "inputs": [
     {
-      "id": "protein",
-      "label": "Protein (g)",
+      "id": "plannedTime",
+      "label": "Planned Production Time",
       "type": "number",
-      "unit": "g",
-      "default": 0,
-      "businessContext": "Protein intake from the single meal, in grams"
+      "unit": "min",
+      "default": 480,
+      "businessContext": "Total planned operating time for the machine."
     },
     {
-      "id": "carbs",
-      "label": "Carbohydrates (g)",
+      "id": "unplannedDowntime",
+      "label": "Unplanned Downtime",
       "type": "number",
-      "unit": "g",
-      "default": 0,
-      "businessContext": "Carbohydrate intake from the single meal, in grams"
+      "unit": "min",
+      "default": 60,
+      "businessContext": "Time lost due to breakdowns or unscheduled stops."
     },
     {
-      "id": "fat",
-      "label": "Fat (g)",
+      "id": "idealCycleTime",
+      "label": "Ideal Cycle Time",
       "type": "number",
-      "unit": "g",
-      "default": 0,
-      "businessContext": "Fat intake from the single meal, in grams"
+      "unit": "min/unit",
+      "default": 0.5,
+      "businessContext": "Theoretically fastest time to produce one unit."
     },
     {
-      "id": "fiber",
-      "label": "Fiber (g)",
+      "id": "totalUnits",
+      "label": "Total Units Produced",
       "type": "number",
-      "unit": "g",
-      "default": 0,
-      "businessContext": "Dietary fiber intake from the single meal, in grams"
+      "unit": "units",
+      "default": 800,
+      "businessContext": "Total output including defective units during planned time."
+    },
+    {
+      "id": "defectiveUnits",
+      "label": "Defective Units",
+      "type": "number",
+      "unit": "units",
+      "default": 40,
+      "businessContext": "Units that do not meet quality standards."
     }
   ],
   "formulas": {
-    "totalCalories": "protein * 4 + carbs * 4 + fat * 9",
-    "proteinCalories": "protein * 4",
-    "carbsCalories": "carbs * 4",
-    "fatCalories": "fat * 9"
+    "availability": "(plannedTime - unplannedDowntime) / plannedTime",
+    "performance": "(idealCycleTime * totalUnits) / (plannedTime - unplannedDowntime)",
+    "quality": "(totalUnits - defectiveUnits) / totalUnits",
+    "oee": "((plannedTime - unplannedDowntime) / plannedTime) * ((idealCycleTime * totalUnits) / (plannedTime - unplannedDowntime)) * ((totalUnits - defectiveUnits) / totalUnits)"
   },
   "outputs": {
-    "primary": "totalCalories",
+    "primary": "oee",
     "breakdown": [
-      "proteinCalories",
-      "carbsCalories",
-      "fatCalories",
-      "fiber"
+      "availability",
+      "performance",
+      "quality"
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "Perakende & Gıda",
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

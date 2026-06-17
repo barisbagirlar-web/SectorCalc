@@ -3,28 +3,30 @@ import * as z from 'zod';
 
 export interface Ounce_to_gram_calculatorInput {
   ounces: number;
-  conversionMode: number;
-  precision: number;
-  roundingMode: number;
+  conversionFactor: number;
+  itemCount: number;
+  decimalPlaces: number;
 }
 
 export const Ounce_to_gram_calculatorInputSchema = z.object({
   ounces: z.number().default(1),
-  conversionMode: z.number().default(0),
-  precision: z.number().default(2),
-  roundingMode: z.number().default(0),
+  conversionFactor: z.number().default(28.349523125),
+  itemCount: z.number().default(1),
+  decimalPlaces: z.number().default(2),
 });
 
 function evaluateAllFormulas(input: Ounce_to_gram_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.roundingMode === 0 ? Math.round(input.ounces * (input.conversionMode === 0 ? 28.3495 : 31.1035) * Math.pow(10, input.precision)) / Math.pow(10, input.precision) : (input.roundingMode === 1 ? Math.floor(input.ounces * (input.conversionMode === 0 ? 28.3495 : 31.1035) * Math.pow(10, input.precision)) / Math.pow(10, input.precision) : Math.ceil(input.ounces * (input.conversionMode === 0 ? 28.3495 : 31.1035) * Math.pow(10, input.precision)) / Math.pow(10, input.precision))); results["primary"] = Number.isFinite(v) ? v : 0; } catch { results["primary"] = 0; }
+  try { const v = Math.round(input.ounces * input.conversionFactor * input.itemCount * 10**input.decimalPlaces) / 10**input.decimalPlaces; results["grams"] = Number.isFinite(v) ? v : 0; } catch { results["grams"] = 0; }
+  try { const v = input.ounces * input.itemCount; results["totalOunces"] = Number.isFinite(v) ? v : 0; } catch { results["totalOunces"] = 0; }
+  try { const v = input.ounces * input.conversionFactor * input.itemCount; results["unroundedGrams"] = Number.isFinite(v) ? v : 0; } catch { results["unroundedGrams"] = 0; }
   return results;
 }
 
 
 export function calculateOunce_to_gram_calculator(input: Ounce_to_gram_calculatorInput): Ounce_to_gram_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["Grams"] ?? 0;
+  const totalWasteCost = values["grams"] ?? 0;
   const breakdown = {
     
   };

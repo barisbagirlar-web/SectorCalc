@@ -1,0 +1,71 @@
+{
+  "toolName": "calorie-counter",
+  "inputs": [
+    {
+      "id": "weight_kg",
+      "label": "Vücut Ağırlığı",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Kullanıcının kilogram cinsinden vücut ağırlığı"
+    },
+    {
+      "id": "height_cm",
+      "label": "Boy",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Kullanıcının santimetre cinsinden boyu"
+    },
+    {
+      "id": "age_years",
+      "label": "Yaş",
+      "type": "number",
+      "unit": "yıl",
+      "default": 30,
+      "businessContext": "Kullanıcının yaşı"
+    },
+    {
+      "id": "activity_factor",
+      "label": "Aktivite Seviyesi",
+      "type": "number",
+      "unit": "",
+      "default": 1.2,
+      "businessContext": "Günlük aktivite seviyesi (1.2: sedanter, 1.375: hafif aktif, 1.55: orta, 1.725: çok aktif, 1.9: ekstra aktif)"
+    },
+    {
+      "id": "gender",
+      "label": "Cinsiyet",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0: Kadın, 1: Erkek"
+    },
+    {
+      "id": "calorie_adjustment",
+      "label": "Kalori Ayarlaması",
+      "type": "number",
+      "unit": "kcal",
+      "default": 0,
+      "businessContext": "Hedefe göre günlük kalori ekleme/çıkarma (örn. kilo vermek için -500)"
+    }
+  ],
+  "formulas": {
+    "bmr": "gender === 1 ? (10 * weight_kg + 6.25 * height_cm - 5 * age_years + 5) : (10 * weight_kg + 6.25 * height_cm - 5 * age_years - 161)",
+    "maintenance_calories": "bmr * activity_factor",
+    "adjusted_calories": "maintenance_calories + calorie_adjustment"
+  },
+  "outputs": {
+    "primary": "adjusted_calories",
+    "breakdown": [
+      "bmr",
+      "maintenance_calories"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "food-cooking",
+  "sectorSlug": "restaurant",
+  "categorySlug": "food-cold-chain-hygiene"
+}

@@ -2,38 +2,38 @@
 import * as z from 'zod';
 
 export interface Keto_macro_calculatorInput {
-  weight_kg: number;
-  height_cm: number;
-  age_years: number;
-  is_male: number;
-  activity_factor: number;
-  bodyfat_percent: number;
+  weight: number;
+  height: number;
+  age: number;
+  gender: number;
+  activityFactor: number;
+  calorieAdjustment: number;
 }
 
 export const Keto_macro_calculatorInputSchema = z.object({
-  weight_kg: z.number().default(70),
-  height_cm: z.number().default(170),
-  age_years: z.number().default(30),
-  is_male: z.number().default(1),
-  activity_factor: z.number().default(1.2),
-  bodyfat_percent: z.number().default(0),
+  weight: z.number().default(70),
+  height: z.number().default(170),
+  age: z.number().default(30),
+  gender: z.number().default(1),
+  activityFactor: z.number().default(1.55),
+  calorieAdjustment: z.number().default(0),
 });
 
 function evaluateAllFormulas(input: Keto_macro_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.is_male === 1) ? (10 * input.weight_kg + 6.25 * input.height_cm - 5 * input.age_years + 5) : (10 * input.weight_kg + 6.25 * input.height_cm - 5 * input.age_years - 161); results["BMR"] = Number.isFinite(v) ? v : 0; } catch { results["BMR"] = 0; }
-  try { const v = input.bodyfat_percent > 0 ? input.weight_kg * (1 - input.bodyfat_percent / 100) : input.weight_kg; results["lean_mass"] = Number.isFinite(v) ? v : 0; } catch { results["lean_mass"] = 0; }
-  try { const v = (results["BMR"] ?? 0) * input.activity_factor; results["daily_kcal"] = Number.isFinite(v) ? v : 0; } catch { results["daily_kcal"] = 0; }
-  try { const v = 20; results["net_carbs_g"] = Number.isFinite(v) ? v : 0; } catch { results["net_carbs_g"] = 0; }
-  try { const v = (results["lean_mass"] ?? 0) * 1.6; results["protein_g"] = Number.isFinite(v) ? v : 0; } catch { results["protein_g"] = 0; }
-  try { const v = ((results["daily_kcal"] ?? 0) - ((results["net_carbs_g"] ?? 0) * 4 + (results["protein_g"] ?? 0) * 4)) / 9; results["fat_g"] = Number.isFinite(v) ? v : 0; } catch { results["fat_g"] = 0; }
+  try { const v = 10*input.weight + 6.25*input.height - 5*input.age + (input.gender === 0 ? -161 : 5); results["bmr"] = Number.isFinite(v) ? v : 0; } catch { results["bmr"] = 0; }
+  try { const v = (results["bmr"] ?? 0) * input.activityFactor; results["tdee"] = Number.isFinite(v) ? v : 0; } catch { results["tdee"] = 0; }
+  try { const v = (results["tdee"] ?? 0) + input.calorieAdjustment; results["adjustedCalories"] = Number.isFinite(v) ? v : 0; } catch { results["adjustedCalories"] = 0; }
+  try { const v = (results["adjustedCalories"] ?? 0) * 0.7 / 9; results["fat"] = Number.isFinite(v) ? v : 0; } catch { results["fat"] = 0; }
+  try { const v = (results["adjustedCalories"] ?? 0) * 0.25 / 4; results["protein"] = Number.isFinite(v) ? v : 0; } catch { results["protein"] = 0; }
+  try { const v = (results["adjustedCalories"] ?? 0) * 0.05 / 4; results["carbs"] = Number.isFinite(v) ? v : 0; } catch { results["carbs"] = 0; }
   return results;
 }
 
 
 export function calculateKeto_macro_calculator(input: Keto_macro_calculatorInput): Keto_macro_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["daily_kcal"] ?? 0;
+  const totalWasteCost = values["adjustedCalories"] ?? 0;
   const breakdown = {
     
   };

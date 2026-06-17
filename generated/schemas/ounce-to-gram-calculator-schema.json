@@ -3,49 +3,47 @@
   "inputs": [
     {
       "id": "ounces",
-      "label": "Ounces",
+      "label": "Weight (oz)",
       "type": "number",
       "unit": "oz",
       "default": 1,
-      "businessContext": "Weight in ounces to convert"
+      "businessContext": "Enter weight in avoirdupois ounces"
     },
     {
-      "id": "conversionMode",
-      "label": "Ounce Type",
+      "id": "conversionFactor",
+      "label": "Conversion Factor (g/oz)",
       "type": "number",
-      "unit": "mode",
-      "default": 0,
-      "businessContext": "0 = avoirdupois (28.3495 g/oz), 1 = troy (31.1035 g/oz)"
+      "unit": "g/oz",
+      "default": 28.349523125,
+      "businessContext": "Grams per ounce. Default is avoirdupois ounce. For troy ounce, use 31.1034768"
     },
     {
-      "id": "precision",
+      "id": "itemCount",
+      "label": "Number of Items",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "If converting total weight of multiple identical items, enter quantity"
+    },
+    {
+      "id": "decimalPlaces",
       "label": "Decimal Places",
       "type": "number",
-      "unit": "dp",
+      "unit": "",
       "default": 2,
-      "businessContext": "Number of decimal places for output"
-    },
-    {
-      "id": "roundingMode",
-      "label": "Rounding Mode",
-      "type": "number",
-      "unit": "mode",
-      "default": 0,
-      "businessContext": "0 = round, 1 = floor, 2 = ceil"
+      "businessContext": "Number of decimal places for result rounding"
     }
   ],
   "formulas": {
-    "primary": "(roundingMode === 0 ? Math.round(ounces * (conversionMode === 0 ? 28.3495 : 31.1035) * Math.pow(10, precision)) / Math.pow(10, precision) : (roundingMode === 1 ? Math.floor(ounces * (conversionMode === 0 ? 28.3495 : 31.1035) * Math.pow(10, precision)) / Math.pow(10, precision) : Math.ceil(ounces * (conversionMode === 0 ? 28.3495 : 31.1035) * Math.pow(10, precision)) / Math.pow(10, precision)))",
-    "breakdown": [
-      "'Raw: ' + (ounces * (conversionMode === 0 ? 28.3495 : 31.1035))",
-      "'Factor: ' + (conversionMode === 0 ? 28.3495 : 31.1035) + ' g/oz'"
-    ]
+    "grams": "Math.round(ounces * conversionFactor * itemCount * 10**decimalPlaces) / 10**decimalPlaces",
+    "totalOunces": "ounces * itemCount",
+    "unroundedGrams": "ounces * conversionFactor * itemCount"
   },
   "outputs": {
-    "primary": "Grams",
+    "primary": "grams",
     "breakdown": [
-      "Raw Value (unrounded)",
-      "Conversion Factor"
+      "totalOunces",
+      "unroundedGrams"
     ]
   },
   "category": "Ölçüm & Dönüşüm",

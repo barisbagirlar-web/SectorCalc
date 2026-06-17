@@ -1,0 +1,62 @@
+{
+  "toolName": "south-beach-diet",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body weight in kilograms"
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Height in centimeters"
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "year",
+      "default": 30,
+      "businessContext": "Age in years"
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0 for male, 1 for female"
+    },
+    {
+      "id": "activityLevel",
+      "label": "Activity Level",
+      "type": "number",
+      "unit": "PAL",
+      "default": 1.55,
+      "businessContext": "Physical Activity Level multiplier (1.2 sedentary, 1.375 light, 1.55 moderate, 1.725 active, 1.9 very active)"
+    }
+  ],
+  "formulas": {
+    "bmr": "(gender === 0) ? (10 * weight + 6.25 * height - 5 * age + 5) : (10 * weight + 6.25 * height - 5 * age - 161)",
+    "tdee": "bmr * activityLevel"
+  },
+  "outputs": {
+    "primary": "tdee",
+    "breakdown": [
+      "bmr",
+      "tdee"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -1,0 +1,71 @@
+{
+  "toolName": "noom-kalori-hesaplayici",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Kilo",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Kullanıcının vücut ağırlığı (kg)"
+    },
+    {
+      "id": "height",
+      "label": "Boy",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Kullanıcının boy uzunluğu (cm)"
+    },
+    {
+      "id": "age",
+      "label": "Yaş",
+      "type": "number",
+      "unit": "yıl",
+      "default": 30,
+      "businessContext": "Kullanıcının yaşı (yıl)"
+    },
+    {
+      "id": "gender",
+      "label": "Cinsiyet",
+      "type": "number",
+      "unit": "0: Erkek, 1: Kadın",
+      "default": 0,
+      "businessContext": "Cinsiyet seçimi: 0 = Erkek, 1 = Kadın"
+    },
+    {
+      "id": "activityLevel",
+      "label": "Aktivite Seviyesi",
+      "type": "number",
+      "unit": "çarpan",
+      "default": 1.2,
+      "businessContext": "Fiziksel aktivite çarpanı: 1.2 (sedanter), 1.375 (hafif), 1.55 (orta), 1.725 (yoğun), 1.9 (çok yoğun)"
+    }
+  ],
+  "formulas": {
+    "BMR": "gender === 0 ? 10*weight + 6.25*height - 5*age + 5 : 10*weight + 6.25*height - 5*age - 161",
+    "TDEE": "BMR * activityLevel"
+  },
+  "outputs": {
+    "primary": {
+      "id": "TDEE",
+      "label": "Günlük Kalori İhtiyacı",
+      "unit": "kcal/gün"
+    },
+    "breakdown": [
+      {
+        "id": "BMR",
+        "label": "Bazal Metabolizma Hızı",
+        "unit": "kcal/gün"
+      },
+      {
+        "id": "activityFactor",
+        "label": "Aktivite Çarpanı",
+        "unit": ""
+      }
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false
+}

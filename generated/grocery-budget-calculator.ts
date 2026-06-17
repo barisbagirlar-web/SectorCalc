@@ -2,35 +2,31 @@
 import * as z from 'zod';
 
 export interface Grocery_budget_calculatorInput {
-  adults: number;
-  children: number;
-  tripsPerMonth: number;
-  avgSpendPerTrip: number;
-  coefficientChild: number;
-  bufferPercent: number;
+  monthlyIncome: number;
+  groceryPercentage: number;
+  numberOfPeople: number;
+  extraExpenses: number;
 }
 
 export const Grocery_budget_calculatorInputSchema = z.object({
-  adults: z.number().default(2),
-  children: z.number().default(1),
-  tripsPerMonth: z.number().default(4),
-  avgSpendPerTrip: z.number().default(150),
-  coefficientChild: z.number().default(0.7),
-  bufferPercent: z.number().default(10),
+  monthlyIncome: z.number().default(5000),
+  groceryPercentage: z.number().default(15),
+  numberOfPeople: z.number().default(1),
+  extraExpenses: z.number().default(0),
 });
 
 function evaluateAllFormulas(input: Grocery_budget_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.tripsPerMonth * input.avgSpendPerTrip * (1 + input.bufferPercent / 100); results["totalMonthlyBudget"] = Number.isFinite(v) ? v : 0; } catch { results["totalMonthlyBudget"] = 0; }
-  try { const v = input.tripsPerMonth * input.avgSpendPerTrip * (1 + input.bufferPercent / 100) / 4.33; results["weeklyBudget"] = Number.isFinite(v) ? v : 0; } catch { results["weeklyBudget"] = 0; }
-  try { const v = (input.tripsPerMonth * input.avgSpendPerTrip * (1 + input.bufferPercent / 100)) / (input.adults + input.children * input.coefficientChild); results["perPersonBudget"] = Number.isFinite(v) ? v : 0; } catch { results["perPersonBudget"] = 0; }
+  try { const v = input.monthlyIncome * input.groceryPercentage / 100; results["baseGroceryFromIncome"] = Number.isFinite(v) ? v : 0; } catch { results["baseGroceryFromIncome"] = 0; }
+  try { const v = (results["baseGroceryFromIncome"] ?? 0) + input.extraExpenses; results["totalGroceyBudget"] = Number.isFinite(v) ? v : 0; } catch { results["totalGroceyBudget"] = 0; }
+  try { const v = (results["totalGroceyBudget"] ?? 0) / input.numberOfPeople; results["perPersonBudget"] = Number.isFinite(v) ? v : 0; } catch { results["perPersonBudget"] = 0; }
   return results;
 }
 
 
 export function calculateGrocery_budget_calculator(input: Grocery_budget_calculatorInput): Grocery_budget_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalMonthlyBudget"] ?? 0;
+  const totalWasteCost = values["totalGroceyBudget"] ?? 0;
   const breakdown = {
     
   };

@@ -2,56 +2,55 @@
   "toolName": "cheat-day-calculator",
   "inputs": [
     {
-      "id": "normalOEE",
-      "label": "Normal OEE (%)",
+      "id": "normalDailyOutput",
+      "label": "Normal Daily Output",
+      "type": "number",
+      "unit": "units",
+      "default": 100,
+      "businessContext": "Standard number of units produced per normal working day."
+    },
+    {
+      "id": "cheatDayOutputPercent",
+      "label": "Cheat Day Output (%)",
       "type": "number",
       "unit": "%",
-      "default": 85,
-      "businessContext": "Normal çalışma günlerinde beklenen OEE değeri."
+      "default": 50,
+      "businessContext": "Percentage of normal output achieved on a cheat day."
     },
     {
-      "id": "targetWeeklyOEE",
-      "label": "Hedef Haftalık OEE (%)",
+      "id": "numCheatDays",
+      "label": "Number of Cheat Days",
       "type": "number",
-      "unit": "%",
-      "default": 80,
-      "businessContext": "Hafta sonunda ulaşılmak istenen ortalama OEE."
-    },
-    {
-      "id": "workingDays",
-      "label": "Çalışma Günü Sayısı",
-      "type": "number",
-      "unit": "gün",
-      "default": 5,
-      "businessContext": "Haftadaki toplam çalışma günü sayısı."
-    },
-    {
-      "id": "cheatDays",
-      "label": "Cheat Day Sayısı",
-      "type": "number",
-      "unit": "gün",
+      "unit": "days",
       "default": 1,
-      "businessContext": "Haftada izin verilen düşük performanslı gün sayısı."
+      "businessContext": "Number of cheat days in the period."
+    },
+    {
+      "id": "totalDays",
+      "label": "Total Days in Period",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "businessContext": "Total working days in the calculation period (e.g., month)."
     }
   ],
   "formulas": {
-    "requiredCheatDayOEE": "(targetWeeklyOEE * workingDays - normalOEE * (workingDays - cheatDays)) / cheatDays",
-    "normalContribution": "normalOEE * (workingDays - cheatDays) / workingDays",
-    "cheatContribution": "requiredCheatDayOEE * cheatDays / workingDays",
-    "weeklyOEECheck": "normalContribution + cheatContribution"
+    "normalContribution": "normalDailyOutput * (totalDays - numCheatDays)",
+    "cheatContribution": "normalDailyOutput * (cheatDayOutputPercent / 100) * numCheatDays",
+    "effectiveOutput": "normalDailyOutput * (totalDays - numCheatDays) + normalDailyOutput * (cheatDayOutputPercent / 100) * numCheatDays",
+    "potentialFullOutput": "normalDailyOutput * totalDays",
+    "loss": "normalDailyOutput * totalDays - (normalDailyOutput * (totalDays - numCheatDays) + normalDailyOutput * (cheatDayOutputPercent / 100) * numCheatDays)"
   },
   "outputs": {
-    "primary": "requiredCheatDayOEE",
+    "primary": "effectiveOutput",
     "breakdown": [
       "normalContribution",
       "cheatContribution",
-      "weeklyOEECheck"
+      "potentialFullOutput",
+      "loss"
     ]
   },
   "category": "Malzeme, Fire & OEE",
   "sector": "Üretim & İmalat",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "premiumRequired": false
 }

@@ -2,70 +2,59 @@
   "toolName": "recomp-calculator",
   "inputs": [
     {
-      "id": "initialPressure",
-      "label": "Initial Pressure",
+      "id": "baseAmount",
+      "label": "Base Amount",
       "type": "number",
-      "unit": "bar",
-      "default": 1,
-      "businessContext": "Inlet gas pressure before compression"
-    },
-    {
-      "id": "finalPressure",
-      "label": "Final Pressure",
-      "type": "number",
-      "unit": "bar",
-      "default": 10,
-      "businessContext": "Target discharge pressure after compression"
-    },
-    {
-      "id": "flowRate",
-      "label": "Flow Rate",
-      "type": "number",
-      "unit": "m³/h",
+      "unit": "currency",
       "default": 1000,
-      "businessContext": "Volumetric flow rate at inlet conditions"
+      "businessContext": "The initial principal or base value."
     },
     {
-      "id": "efficiency",
-      "label": "Compressor Efficiency",
+      "id": "rate",
+      "label": "Annual Interest Rate",
       "type": "number",
       "unit": "%",
-      "default": 75,
-      "businessContext": "Isentropic or polytropic efficiency"
+      "default": 5,
+      "businessContext": "Annual interest rate for compensation calculation."
     },
     {
-      "id": "adiabaticIndex",
-      "label": "Adiabatic Index (k)",
+      "id": "time",
+      "label": "Time Period",
       "type": "number",
-      "unit": "",
-      "default": 1.4,
-      "businessContext": "Specific heat ratio Cp/Cv of the gas"
+      "unit": "months",
+      "default": 12,
+      "businessContext": "Duration in months."
     },
     {
-      "id": "electricityCost",
-      "label": "Electricity Cost",
+      "id": "expenses",
+      "label": "Additional Expenses",
       "type": "number",
-      "unit": "currency/kWh",
-      "default": 0.1,
-      "businessContext": "Unit cost of electrical energy"
+      "unit": "currency",
+      "default": 0,
+      "businessContext": "Any additional expenses to include."
+    },
+    {
+      "id": "adjustmentFactor",
+      "label": "Adjustment Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1,
+      "businessContext": "A factor to adjust the compensation (e.g., risk factor)."
     }
   ],
   "formulas": {
-    "powerKW": "((adiabaticIndex / (adiabaticIndex - 1)) * (initialPressure * 100) * (flowRate / 3600) * (Math.pow(finalPressure / initialPressure, (adiabaticIndex - 1) / adiabaticIndex) - 1)) / (efficiency / 100)",
-    "energyKWhPerHour": "((adiabaticIndex / (adiabaticIndex - 1)) * (initialPressure * 100) * (flowRate / 3600) * (Math.pow(finalPressure / initialPressure, (adiabaticIndex - 1) / adiabaticIndex) - 1)) / (efficiency / 100)",
-    "costPerHour": "(((adiabaticIndex / (adiabaticIndex - 1)) * (initialPressure * 100) * (flowRate / 3600) * (Math.pow(finalPressure / initialPressure, (adiabaticIndex - 1) / adiabaticIndex) - 1)) / (efficiency / 100)) * electricityCost"
+    "interestAmount": "baseAmount * (rate / 100) * (time / 12)",
+    "totalBeforeAdjustment": "baseAmount + interestAmount + expenses",
+    "totalCompensation": "totalBeforeAdjustment * adjustmentFactor"
   },
   "outputs": {
-    "primary": "powerKW",
+    "primary": "totalCompensation",
     "breakdown": [
-      "energyKWhPerHour",
-      "costPerHour"
+      "interestAmount",
+      "totalBeforeAdjustment"
     ]
   },
-  "category": "Enerji & Karbon",
-  "sector": "Enerji & Karbon",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "category": "Finans & Kredi",
+  "sector": "Finans & İK",
+  "premiumRequired": false
 }

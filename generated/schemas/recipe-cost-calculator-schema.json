@@ -2,71 +2,71 @@
   "toolName": "recipe-cost-calculator",
   "inputs": [
     {
-      "id": "ingredientCost",
-      "label": "Toplam Malzeme Maliyeti",
+      "id": "ingredientCostPerUnit",
+      "label": "Ingredient Cost per Unit",
       "type": "number",
-      "unit": "TL",
-      "default": 0,
-      "businessContext": "Ham madde ve malzeme giderleri"
+      "unit": "currency/kg",
+      "default": 5,
+      "businessContext": "The purchase cost of the ingredient per unit weight (e.g., per kg)."
+    },
+    {
+      "id": "ingredientQuantity",
+      "label": "Ingredient Quantity Used",
+      "type": "number",
+      "unit": "kg",
+      "default": 0.5,
+      "businessContext": "The amount of the ingredient used in the recipe."
+    },
+    {
+      "id": "numberOfPortions",
+      "label": "Number of Portions",
+      "type": "number",
+      "unit": "portions",
+      "default": 4,
+      "businessContext": "The number of portions the recipe yields."
+    },
+    {
+      "id": "laborCostPerHour",
+      "label": "Labor Cost per Hour",
+      "type": "number",
+      "unit": "currency/hour",
+      "default": 15,
+      "businessContext": "Hourly wage for kitchen staff."
     },
     {
       "id": "laborHours",
-      "label": "İşçilik Süresi",
+      "label": "Labor Time",
       "type": "number",
-      "unit": "saat",
-      "default": 0,
-      "businessContext": "Üretimde harcanan işçilik süresi"
+      "unit": "hours",
+      "default": 1,
+      "businessContext": "Total labor time required for preparation and cooking."
     },
     {
-      "id": "laborRate",
-      "label": "Saatlik İşçilik Ücreti",
-      "type": "number",
-      "unit": "TL/saat",
-      "default": 50,
-      "businessContext": "İşçilik birim maliyeti"
-    },
-    {
-      "id": "overheadPercentage",
-      "label": "Genel Gider Oranı",
+      "id": "overheadPercent",
+      "label": "Overhead Percentage",
       "type": "number",
       "unit": "%",
-      "default": 20,
-      "businessContext": "Enerji, kira, amortisman gibi genel giderler"
-    },
-    {
-      "id": "packagingCost",
-      "label": "Paketleme Maliyeti",
-      "type": "number",
-      "unit": "TL",
-      "default": 0,
-      "businessContext": "Ambalaj ve paketleme giderleri"
-    },
-    {
-      "id": "servings",
-      "label": "Porsiyon Sayısı",
-      "type": "number",
-      "unit": "adet",
-      "default": 1,
-      "businessContext": "Hazırlanan toplam porsiyon"
+      "default": 10,
+      "businessContext": "Percentage of ingredient cost to cover overheads (rent, utilities, etc.)."
     }
   ],
   "formulas": {
-    "totalIngredientCost": "ingredientCost",
-    "totalLaborCost": "laborHours * laborRate",
-    "totalOverhead": "(totalIngredientCost + totalLaborCost) * (overheadPercentage / 100)",
-    "totalCost": "totalIngredientCost + totalLaborCost + totalOverhead + packagingCost",
-    "costPerServing": "totalCost / servings"
+    "totalIngredientCost": "ingredientCostPerUnit * ingredientQuantity",
+    "laborCost": "laborCostPerHour * laborHours",
+    "overheadCost": "totalIngredientCost * (overheadPercent / 100)",
+    "totalRecipeCost": "totalIngredientCost + laborCost + overheadCost",
+    "costPerPortion": "totalRecipeCost / numberOfPortions"
   },
   "outputs": {
-    "primary": "costPerServing",
+    "primary": "totalRecipeCost",
     "breakdown": [
-      "totalCost",
       "totalIngredientCost",
-      "totalLaborCost",
-      "totalOverhead"
+      "laborCost",
+      "overheadCost",
+      "costPerPortion"
     ]
   },
-  "category": "Perakende & Gıda",
+  "category": "Maliyet & Marj",
   "sector": "Perakende & Gıda",
   "premiumRequired": false,
   "catalogCategory": "health-body",

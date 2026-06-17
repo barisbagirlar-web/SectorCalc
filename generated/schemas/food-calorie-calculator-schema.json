@@ -2,60 +2,70 @@
   "toolName": "food-calorie-calculator",
   "inputs": [
     {
+      "id": "carb",
+      "label": "Carbohydrates",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Total grams of carbohydrates per serving"
+    },
+    {
+      "id": "prot",
+      "label": "Protein",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Total grams of protein per serving"
+    },
+    {
       "id": "fat",
-      "label": "Yağ (g)",
+      "label": "Fat",
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Gıdadaki toplam yağ miktarı (gram)"
+      "businessContext": "Total grams of fat per serving"
     },
     {
-      "id": "carbs",
-      "label": "Karbonhidrat (g)",
+      "id": "fiber",
+      "label": "Fiber",
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Gıdadaki toplam karbonhidrat miktarı (gram)"
+      "businessContext": "Total grams of dietary fiber per serving"
     },
     {
-      "id": "protein",
-      "label": "Protein (g)",
+      "id": "alc",
+      "label": "Alcohol",
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Gıdadaki toplam protein miktarı (gram)"
-    },
-    {
-      "id": "alcohol",
-      "label": "Alkol (g)",
-      "type": "number",
-      "unit": "g",
-      "default": 0,
-      "businessContext": "Gıdadaki alkol miktarı (gram, varsa)"
+      "businessContext": "Total grams of alcohol per serving"
     },
     {
       "id": "servings",
-      "label": "Porsiyon Sayısı",
+      "label": "Servings",
       "type": "number",
-      "unit": "adet",
+      "unit": "servings",
       "default": 1,
-      "businessContext": "Hesaplamanın yapılacağı porsiyon adedi"
+      "businessContext": "Number of servings consumed"
     }
   ],
   "formulas": {
-    "totalCalories": "(9 * fat + 4 * carbs + 4 * protein + 7 * alcohol) * servings",
-    "fatCalories": "9 * fat * servings",
-    "carbsCalories": "4 * carbs * servings",
-    "proteinCalories": "4 * protein * servings",
-    "alcoholCalories": "7 * alcohol * servings"
+    "totalCalories": "((4*carb)+(4*prot)+(9*fat)+(2*fiber)+(7*alc))*servings",
+    "caloriesFromCarbs": "4*carb*servings",
+    "caloriesFromProtein": "4*prot*servings",
+    "caloriesFromFat": "9*fat*servings",
+    "caloriesFromFiber": "2*fiber*servings",
+    "caloriesFromAlcohol": "7*alc*servings"
   },
   "outputs": {
     "primary": "totalCalories",
     "breakdown": [
-      "fatCalories",
-      "carbsCalories",
-      "proteinCalories",
-      "alcoholCalories"
+      "caloriesFromCarbs",
+      "caloriesFromProtein",
+      "caloriesFromFat",
+      "caloriesFromFiber",
+      "caloriesFromAlcohol"
     ]
   },
   "category": "Ölçüm & Dönüşüm",

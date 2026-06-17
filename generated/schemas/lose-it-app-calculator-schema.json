@@ -2,90 +2,69 @@
   "toolName": "lose-it-app-calculator",
   "inputs": [
     {
-      "id": "currentWeight",
-      "label": "Current Weight",
+      "id": "age",
+      "label": "Yaş",
       "type": "number",
-      "unit": "kg",
-      "default": 80,
-      "businessContext": "User's current body weight"
-    },
-    {
-      "id": "targetWeight",
-      "label": "Target Weight",
-      "type": "number",
-      "unit": "kg",
-      "default": 70,
-      "businessContext": "Desired body weight"
+      "unit": "yıl",
+      "default": 30,
+      "businessContext": "Kullanıcının yaşı"
     },
     {
       "id": "height",
-      "label": "Height",
+      "label": "Boy",
       "type": "number",
       "unit": "cm",
       "default": 170,
-      "businessContext": "User's height"
+      "businessContext": "Boy uzunluğu"
     },
     {
-      "id": "age",
-      "label": "Age",
+      "id": "weight",
+      "label": "Kilo",
       "type": "number",
-      "unit": "years",
-      "default": 30,
-      "businessContext": "User's age"
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Vücut ağırlığı"
     },
     {
       "id": "gender",
-      "label": "Gender (1=Male, 2=Female)",
+      "label": "Cinsiyet (0: Erkek, 1: Kadın)",
       "type": "number",
       "unit": "",
-      "default": 1,
-      "businessContext": "Biological gender for BMR calculation"
+      "default": 0,
+      "businessContext": "0 erkek, 1 kadın"
     },
     {
       "id": "activityLevel",
-      "label": "Activity Level (PAL)",
+      "label": "Aktivite Seviyesi",
       "type": "number",
       "unit": "",
-      "default": 1.55,
-      "businessContext": "Physical activity level multiplier (1.2 sedentary, 1.375 light, 1.55 moderate, 1.725 active, 1.9 very active)"
+      "default": 1.2,
+      "businessContext": "1.2: sedanter, 1.375: hafif aktif, 1.55: orta, 1.725: yüksek, 1.9: çok yüksek"
     },
     {
-      "id": "dailyCalorieIntake",
-      "label": "Estimated Daily Calorie Intake",
+      "id": "weightGoal",
+      "label": "Hedef Kilo Değişimi (haftada kg)",
       "type": "number",
-      "unit": "kcal",
-      "default": 2000,
-      "businessContext": "Average daily calorie consumption"
-    },
-    {
-      "id": "targetDays",
-      "label": "Target Duration",
-      "type": "number",
-      "unit": "days",
-      "default": 90,
-      "businessContext": "Number of days to reach target weight"
+      "unit": "kg/hafta",
+      "default": -0.5,
+      "businessContext": "Negatif: kilo verme, pozitif: kilo alma"
     }
   ],
   "formulas": {
-    "bmr": "10 * inputs.currentWeight + 6.25 * inputs.height - 5 * inputs.age + (inputs.gender === 1 ? 5 : -161)",
-    "tdee": "bmr * inputs.activityLevel",
-    "dailyDeficit": "tdee - inputs.dailyCalorieIntake",
-    "projectedWeightLoss": "(dailyDeficit / 7700) * inputs.targetDays",
-    "projectedWeight": "inputs.currentWeight - projectedWeightLoss"
+    "bmr": "10 * weight + 6.25 * height - 5 * age + (gender === 0 ? 5 : -161)",
+    "tdee": "bmr * activityLevel",
+    "dailyAdjustment": "(weightGoal * 7700) / 7",
+    "calorieBudget": "tdee + dailyAdjustment"
   },
   "outputs": {
-    "primary": "projectedWeight",
+    "primary": "calorieBudget",
     "breakdown": [
-      "dailyDeficit",
       "bmr",
       "tdee",
-      "projectedWeightLoss"
+      "dailyAdjustment"
     ]
   },
   "category": "Ölçüm & Dönüşüm",
   "sector": "Perakende & Gıda",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "premiumRequired": false
 }

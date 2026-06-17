@@ -2,77 +2,54 @@
   "toolName": "16-8-fasting-calculator",
   "inputs": [
     {
-      "id": "weight",
-      "label": "Weight (kg)",
+      "id": "currentHour",
+      "label": "Mevcut Saat (0-23)",
       "type": "number",
-      "unit": "kg",
-      "default": 70,
-      "businessContext": "User's body weight in kilograms."
+      "unit": "saat",
+      "default": 12,
+      "businessContext": "Şu anki saat dilimi."
     },
     {
-      "id": "height",
-      "label": "Height (cm)",
+      "id": "fastingStartHour",
+      "label": "Oruç Başlangıç Saati",
       "type": "number",
-      "unit": "cm",
-      "default": 170,
-      "businessContext": "User's height in centimeters."
+      "unit": "saat",
+      "default": 20,
+      "businessContext": "16 saatlik oruç penceresinin başlangıç saati (örn. 20:00)."
     },
     {
-      "id": "age",
-      "label": "Age (years)",
+      "id": "fastingDuration",
+      "label": "Oruç Süresi",
       "type": "number",
-      "unit": "years",
-      "default": 30,
-      "businessContext": "User's age in years."
-    },
-    {
-      "id": "sex",
-      "label": "Sex (0=Female, 1=Male)",
-      "type": "number",
-      "unit": "",
-      "default": 1,
-      "businessContext": "0 for female, 1 for male."
-    },
-    {
-      "id": "fastingHours",
-      "label": "Fasting Duration (hours)",
-      "type": "number",
-      "unit": "hours",
+      "unit": "saat",
       "default": 16,
-      "businessContext": "Number of hours spent fasting."
+      "businessContext": "Oruç penceresinin toplam süresi (standart 16 saat)."
+    },
+    {
+      "id": "eatingDuration",
+      "label": "Yeme Penceresi Süresi",
+      "type": "number",
+      "unit": "saat",
+      "default": 8,
+      "businessContext": "Yeme penceresi süresi (genelde 8 saat)."
     }
   ],
   "formulas": {
-    "bmr": "sex ? (66.47 + 13.75 * weight + 5.003 * height - 6.755 * age) : (655.1 + 9.563 * weight + 1.85 * height - 4.676 * age)",
-    "caloriesBurned": "(bmr / 24) * fastingHours",
-    "estimatedFatLoss": "caloriesBurned / 7700"
+    "fastingEndHour": "(fastingStartHour + fastingDuration) % 24",
+    "eatingWindowEndHour": "((fastingStartHour + fastingDuration) % 24 + eatingDuration) % 24",
+    "remainingFastingTime": "Math.max(0, fastingDuration - (currentHour >= fastingStartHour ? currentHour - fastingStartHour : currentHour + 24 - fastingStartHour))",
+    "progressPercent": "Math.min(100, ((currentHour >= fastingStartHour ? currentHour - fastingStartHour : currentHour + 24 - fastingStartHour) / fastingDuration) * 100)"
   },
   "outputs": {
-    "primary": {
-      "id": "estimatedFatLoss",
-      "label": "Estimated Fat Loss",
-      "unit": "kg"
-    },
+    "primary": "remainingFastingTime",
     "breakdown": [
-      {
-        "id": "bmr",
-        "label": "Basal Metabolic Rate (BMR)",
-        "unit": "kcal/day"
-      },
-      {
-        "id": "caloriesBurned",
-        "label": "Calories Burned During Fasting",
-        "unit": "kcal"
-      },
-      {
-        "id": "estimatedFatLoss",
-        "label": "Estimated Fat Loss",
-        "unit": "kg"
-      }
+      "fastingEndHour",
+      "eatingWindowEndHour",
+      "progressPercent"
     ]
   },
   "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "sector": "Perakende & Gıda",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

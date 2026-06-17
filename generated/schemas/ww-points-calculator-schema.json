@@ -3,57 +3,52 @@
   "inputs": [
     {
       "id": "calories",
-      "label": "Kalori",
+      "label": "Calories (kcal)",
       "type": "number",
       "unit": "kcal",
       "default": 0,
-      "businessContext": "Enerji değeri (gıda etiketi)"
+      "businessContext": "Energy content per serving"
     },
     {
       "id": "saturatedFat",
-      "label": "Doymuş Yağ",
+      "label": "Saturated Fat (g)",
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Doymuş yağ miktarı (gıda etiketi)"
-    },
-    {
-      "id": "sugar",
-      "label": "Şeker",
-      "type": "number",
-      "unit": "g",
-      "default": 0,
-      "businessContext": "Şeker miktarı (gıda etiketi)"
+      "businessContext": "Saturated fat content per serving"
     },
     {
       "id": "protein",
-      "label": "Protein",
+      "label": "Protein (g)",
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Protein miktarı (gıda etiketi)"
+      "businessContext": "Protein content per serving"
+    },
+    {
+      "id": "fiber",
+      "label": "Dietary Fiber (g)",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Dietary fiber content per serving (optional for adjustment)"
     }
   ],
   "formulas": {
-    "wwPoints": "calories/50 + saturatedFat/12 + sugar/12 - protein/10",
-    "calorieComponent": "calories/50",
-    "saturatedFatComponent": "saturatedFat/12",
-    "sugarComponent": "sugar/12",
-    "proteinComponent": "-protein/10"
+    "points": "calories/50 + saturatedFat/12 - protein/10",
+    "energyComponent": "calories/50",
+    "fatComponent": "saturatedFat/12",
+    "proteinComponent": "protein/10"
   },
   "outputs": {
-    "primary": "wwPoints",
+    "primary": "points",
     "breakdown": [
-      "calorieComponent",
-      "saturatedFatComponent",
-      "sugarComponent",
+      "energyComponent",
+      "fatComponent",
       "proteinComponent"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Perakende & Gıda",
   "sector": "Perakende & Gıda",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "premiumRequired": false
 }

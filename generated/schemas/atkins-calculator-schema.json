@@ -2,64 +2,59 @@
   "toolName": "atkins-calculator",
   "inputs": [
     {
-      "id": "totalCarbohydrates",
-      "label": "Total Carbohydrates",
+      "id": "powerInput",
+      "label": "Güç Girişi",
       "type": "number",
-      "unit": "g",
-      "default": 0,
-      "businessContext": "Total carbohydrates in grams as listed on nutrition label"
+      "unit": "kW",
+      "default": 100,
+      "businessContext": "Sisteme verilen anlık güç."
     },
     {
-      "id": "dietaryFiber",
-      "label": "Dietary Fiber",
+      "id": "massFlow",
+      "label": "Kütle Akışı",
       "type": "number",
-      "unit": "g",
-      "default": 0,
-      "businessContext": "Dietary fiber in grams, subtracted from total carbs for net impact"
+      "unit": "kg/s",
+      "default": 2,
+      "businessContext": "Isı transfer akışkanının kütlesel debisi."
     },
     {
-      "id": "sugarAlcohols",
-      "label": "Sugar Alcohols",
+      "id": "specificHeat",
+      "label": "Özgül Isı",
       "type": "number",
-      "unit": "g",
-      "default": 0,
-      "businessContext": "Sugar alcohols in grams, half are subtracted due to partial absorption"
+      "unit": "kJ/kg·K",
+      "default": 4.18,
+      "businessContext": "Akışkanın özgül ısı kapasitesi."
     },
     {
-      "id": "protein",
-      "label": "Protein",
+      "id": "deltaTemp",
+      "label": "Sıcaklık Farkı",
       "type": "number",
-      "unit": "g",
-      "default": 0,
-      "businessContext": "Protein content in grams, contributes 4 kcal per gram"
+      "unit": "K",
+      "default": 10,
+      "businessContext": "Giriş ve çıkış arasındaki sıcaklık farkı."
     },
     {
-      "id": "fat",
-      "label": "Fat",
+      "id": "efficiencyFactor",
+      "label": "Verimlilik Faktörü",
       "type": "number",
-      "unit": "g",
-      "default": 0,
-      "businessContext": "Fat content in grams, contributes 9 kcal per gram"
+      "unit": "-",
+      "default": 1,
+      "businessContext": "Sistem kayıplarını hesaba katan faktör."
     }
   ],
   "formulas": {
-    "netCarbs": "totalCarbohydrates - dietaryFiber - (sugarAlcohols / 2)",
-    "proteinCalories": "protein * 4",
-    "fatCalories": "fat * 9",
-    "carbCalories": "netCarbs * 4",
-    "totalCalories": "proteinCalories + fatCalories + carbCalories"
+    "actualThermalPower": "massFlow * specificHeat * deltaTemp * efficiencyFactor",
+    "atkinsIndex": "powerInput / actualThermalPower"
   },
   "outputs": {
-    "primary": "netCarbs",
+    "primary": "atkinsIndex",
     "breakdown": [
-      "totalCalories",
-      "proteinCalories",
-      "fatCalories",
-      "carbCalories"
+      "actualThermalPower",
+      "powerDensity"
     ]
   },
-  "category": "Perakende & Gıda",
-  "sector": "Perakende & Gıda",
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

@@ -2,52 +2,54 @@
   "toolName": "weight-loss-calculator",
   "inputs": [
     {
-      "id": "currentWeightKg",
-      "label": "Current Weight",
+      "id": "initialWeight",
+      "label": "Initial Weight",
       "type": "number",
       "unit": "kg",
-      "default": 80,
-      "businessContext": "User's current body weight in kilograms."
+      "default": 100,
+      "businessContext": "Weight of the material before the drying process."
     },
     {
-      "id": "targetWeightKg",
-      "label": "Target Weight",
+      "id": "initialMoisture",
+      "label": "Initial Moisture Content",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "businessContext": "Moisture content of the material before drying as a percentage of total weight."
+    },
+    {
+      "id": "finalMoisture",
+      "label": "Final Moisture Content",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "businessContext": "Desired moisture content after drying as a percentage of total weight."
+    },
+    {
+      "id": "targetWeightLoss",
+      "label": "Target Weight Loss",
       "type": "number",
       "unit": "kg",
-      "default": 70,
-      "businessContext": "User's desired target weight in kilograms."
-    },
-    {
-      "id": "dailyDeficitKcal",
-      "label": "Daily Calorie Deficit",
-      "type": "number",
-      "unit": "kcal",
-      "default": 500,
-      "businessContext": "Average daily calorie deficit (calories consumed minus calories burned) in kilocalories."
-    },
-    {
-      "id": "periodDays",
-      "label": "Period (Days)",
-      "type": "number",
-      "unit": "days",
-      "default": 90,
-      "businessContext": "Number of days to simulate for weight loss estimation."
+      "default": 40,
+      "businessContext": "Expected weight loss based on process specifications for comparison."
     }
   ],
   "formulas": {
-    "estimatedWeightLossKg": "(inputs.dailyDeficitKcal * inputs.periodDays) / 7700",
-    "totalDeficitKcal": "inputs.dailyDeficitKcal * inputs.periodDays",
-    "newWeightKg": "inputs.currentWeightKg - ((inputs.dailyDeficitKcal * inputs.periodDays) / 7700)"
+    "boneDryWeight": "initialWeight / (1 + initialMoisture / 100)",
+    "finalWeight": "boneDryWeight * (1 + finalMoisture / 100)",
+    "weightLoss": "initialWeight - finalWeight",
+    "percentageLoss": "(weightLoss / initialWeight) * 100",
+    "targetDelta": "targetWeightLoss - weightLoss"
   },
   "outputs": {
-    "primary": "estimatedWeightLossKg",
+    "primary": "weightLoss",
     "breakdown": [
-      "totalDeficitKcal",
-      "newWeightKg"
+      "percentageLoss",
+      "targetDelta"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

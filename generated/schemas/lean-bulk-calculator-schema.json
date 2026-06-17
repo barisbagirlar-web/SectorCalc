@@ -2,64 +2,80 @@
   "toolName": "lean-bulk-calculator",
   "inputs": [
     {
-      "id": "annualDemand",
-      "label": "Annual Demand (units)",
+      "id": "dailyProduction",
+      "label": "Daily Production Volume",
       "type": "number",
-      "unit": "pcs",
-      "default": 12000,
-      "businessContext": "Toplam yıllık talep miktarı (parça olarak)"
+      "unit": "units/day",
+      "default": 1000,
+      "businessContext": "Number of units produced per day"
     },
     {
-      "id": "setupCost",
-      "label": "Setup Cost per Batch",
+      "id": "materialPerUnit",
+      "label": "Material Per Unit",
       "type": "number",
-      "unit": "$",
-      "default": 50,
-      "businessContext": "Her bir parti üretim için hazırlık/setup maliyeti"
+      "unit": "kg",
+      "default": 0.5,
+      "businessContext": "Amount of raw material required per unit"
     },
     {
-      "id": "holdingCost",
-      "label": "Holding Cost per Unit per Year",
+      "id": "containerCapacity",
+      "label": "Container Capacity",
       "type": "number",
-      "unit": "$/unit/year",
-      "default": 2.5,
-      "businessContext": "Bir birim stoğun yıllık depolama/elde tutma maliyeti"
+      "unit": "kg",
+      "default": 25,
+      "businessContext": "Capacity of each bulk container"
     },
     {
-      "id": "annualProductionRate",
-      "label": "Annual Production Capacity",
-      "type": "number",
-      "unit": "pcs/year",
-      "default": 24000,
-      "businessContext": "Toplam yıllık üretim kapasitesi (parça olarak)"
-    },
-    {
-      "id": "workingDays",
-      "label": "Working Days per Year",
+      "id": "safetyStockDays",
+      "label": "Safety Stock Days",
       "type": "number",
       "unit": "days",
-      "default": 250,
-      "businessContext": "Yıllık çalışma günü sayısı"
+      "default": 2,
+      "businessContext": "Days of inventory kept as safety buffer"
+    },
+    {
+      "id": "leadTimeDays",
+      "label": "Lead Time Days",
+      "type": "number",
+      "unit": "days",
+      "default": 5,
+      "businessContext": "Supplier lead time in days"
+    },
+    {
+      "id": "reorderPointMultiplier",
+      "label": "Reorder Point Multiplier",
+      "type": "number",
+      "unit": "",
+      "default": 1.2,
+      "businessContext": "Multiplier to account for variability in demand during lead time"
     }
   ],
   "formulas": {
-    "dailyDemand": "annualDemand / workingDays",
-    "dailyProduction": "annualProductionRate / workingDays",
-    "optimalBatchSize": "Math.sqrt((2 * annualDemand * setupCost) / (holdingCost * (1 - dailyDemand / dailyProduction)))",
-    "cycleLengthDays": "optimalBatchSize / dailyDemand",
-    "setupsPerYear": "annualDemand / optimalBatchSize"
+    "totalDailyMaterial": "dailyProduction * materialPerUnit",
+    "totalBulkRequired": "totalDailyMaterial * (leadTimeDays + safetyStockDays) * reorderPointMultiplier",
+    "numberOfContainers": "Math.ceil(totalBulkRequired / containerCapacity)",
+    "avgDailyContainers": "totalDailyMaterial / containerCapacity"
   },
   "outputs": {
-    "primary": "optimalBatchSize",
+    "primary": {
+      "label": "Total Bulk Material Required",
+      "value": "totalBulkRequired",
+      "unit": "kg"
+    },
     "breakdown": [
-      "cycleLengthDays",
-      "setupsPerYear"
+      {
+        "label": "Number of Containers",
+        "value": "numberOfContainers",
+        "unit": "containers"
+      },
+      {
+        "label": "Average Daily Containers",
+        "value": "avgDailyContainers",
+        "unit": "containers/day"
+      }
     ]
   },
   "category": "Malzeme, Fire & OEE",
   "sector": "Üretim & İmalat",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "premiumRequired": false
 }

@@ -2,64 +2,60 @@
   "toolName": "vegetarian-calculator",
   "inputs": [
     {
-      "id": "years",
-      "label": "Vejetaryen Olarak Geçirilen Yıl",
+      "id": "dailyMeatConsumption",
+      "label": "Daily meat consumption",
       "type": "number",
-      "unit": "yıl",
-      "default": 1,
-      "businessContext": "Kullanıcının vejetaryen olduğu süre"
-    },
-    {
-      "id": "meatGramsPerDay",
-      "label": "Günlük Et Tüketimi (öncesi)",
-      "type": "number",
-      "unit": "g",
+      "unit": "g/day",
       "default": 200,
-      "businessContext": "Önceki günlük ortalama et tüketim miktarı (gram)"
+      "businessContext": "Average amount of meat consumed per day in grams."
     },
     {
-      "id": "daysVegetarianPerWeek",
-      "label": "Haftada Vejetaryen Gün Sayısı",
+      "id": "vegetarianDaysPerWeek",
+      "label": "Vegetarian days per week",
       "type": "number",
-      "unit": "gün",
-      "default": 7,
-      "businessContext": "Haftada kaç gün tam vejetaryen olunduğu (7 ise tam zamanlı)"
+      "unit": "days",
+      "default": 3,
+      "businessContext": "Number of days per week on a vegetarian diet."
     },
     {
-      "id": "waterPerKgMeat",
-      "label": "Kg Et Başına Kurtarılan Su",
+      "id": "beefRatio",
+      "label": "Beef ratio",
       "type": "number",
-      "unit": "L/kg",
-      "default": 15000,
-      "businessContext": "1 kg et üretimi için gerekli su miktarı (litre), endüstri standart verisi"
+      "unit": "ratio",
+      "default": 0.3,
+      "businessContext": "Proportion of meat that is beef (higher environmental impact)."
     },
     {
-      "id": "co2PerKgMeat",
-      "label": "Kg Et Başına CO2 Salımı",
+      "id": "porkRatio",
+      "label": "Pork ratio",
       "type": "number",
-      "unit": "kg CO2/kg",
-      "default": 27,
-      "businessContext": "1 kg et üretiminin karbon ayak izi (kg CO2)"
+      "unit": "ratio",
+      "default": 0.3,
+      "businessContext": "Proportion of meat that is pork."
     },
     {
-      "id": "animalsPerKgMeat",
-      "label": "Kg Et Başına Hayvan Kurtarma Oranı",
+      "id": "poultryRatio",
+      "label": "Poultry ratio",
       "type": "number",
-      "unit": "adet/kg",
-      "default": 0.005,
-      "businessContext": "1 kg et başına kurtarılan hayvan sayısı, endüstri ortalaması"
+      "unit": "ratio",
+      "default": 0.4,
+      "businessContext": "Proportion of meat that is poultry."
     }
   ],
   "formulas": {
-    "animalsSaved": "((meatGramsPerDay/1000) * (daysVegetarianPerWeek/7) * years * 365) * animalsPerKgMeat",
-    "waterSaved": "((meatGramsPerDay/1000) * (daysVegetarianPerWeek/7) * years * 365) * waterPerKgMeat",
-    "co2Saved": "((meatGramsPerDay/1000) * (daysVegetarianPerWeek/7) * years * 365) * co2PerKgMeat"
+    "meat_reduction": "dailyMeatConsumption * (vegetarianDaysPerWeek / 7) * 365",
+    "beef_reduction": "meat_reduction * beefRatio",
+    "pork_reduction": "meat_reduction * porkRatio",
+    "poultry_reduction": "meat_reduction * poultryRatio",
+    "co2_saved": "beef_reduction * 27 + pork_reduction * 12 + poultry_reduction * 7",
+    "water_saved": "beef_reduction * 15415 + pork_reduction * 6000 + poultry_reduction * 4300",
+    "land_saved": "beef_reduction * 27 + pork_reduction * 9 + poultry_reduction * 5"
   },
   "outputs": {
-    "primary": "animalsSaved",
+    "primary": "co2_saved",
     "breakdown": [
-      "waterSaved",
-      "co2Saved"
+      "water_saved",
+      "land_saved"
     ]
   },
   "category": "Enerji & Karbon",

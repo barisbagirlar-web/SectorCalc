@@ -7,74 +7,39 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "User's body weight in kilograms"
-    },
-    {
-      "id": "height",
-      "label": "Height",
-      "type": "number",
-      "unit": "cm",
-      "default": 170,
-      "businessContext": "User's height in centimeters"
-    },
-    {
-      "id": "age",
-      "label": "Age",
-      "type": "number",
-      "unit": "years",
-      "default": 30,
-      "businessContext": "User's age in years"
-    },
-    {
-      "id": "gender",
-      "label": "Gender (1=Male, 0=Female)",
-      "type": "number",
-      "unit": "",
-      "default": 1,
-      "businessContext": "Gender: 1 for male, 0 for female"
+      "businessContext": "Body weight of the person performing the activity"
     },
     {
       "id": "duration",
-      "label": "Activity Duration",
+      "label": "Duration",
       "type": "number",
       "unit": "min",
       "default": 30,
-      "businessContext": "Duration of the exercise in minutes"
+      "businessContext": "Duration of the physical activity in minutes"
     },
     {
       "id": "met",
-      "label": "MET Value",
+      "label": "MET",
       "type": "number",
       "unit": "MET",
-      "default": 7,
-      "businessContext": "Metabolic Equivalent of Task for the activity"
+      "default": 8,
+      "businessContext": "Metabolic Equivalent of Task, representing activity intensity"
     }
   ],
   "formulas": {
-    "activityCal": "met * 3.5 * weight / 200 * duration",
-    "bmrKcalPerDay": "10 * weight + 6.25 * height - 5 * age + (gender * 166 - 161)"
+    "caloriesBurned": "met * weight * (duration / 60)",
+    "metMinutes": "met * duration",
+    "durationHours": "duration / 60"
   },
   "outputs": {
-    "primary": {
-      "label": "Activity Calories Burned",
-      "formula": "activityCal",
-      "unit": "kcal"
-    },
+    "primary": "caloriesBurned",
     "breakdown": [
-      {
-        "label": "Activity Calories",
-        "formula": "activityCal",
-        "unit": "kcal"
-      },
-      {
-        "label": "BMR (daily)",
-        "formula": "bmrKcalPerDay",
-        "unit": "kcal/day"
-      }
+      "metMinutes",
+      "durationHours"
     ]
   },
   "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

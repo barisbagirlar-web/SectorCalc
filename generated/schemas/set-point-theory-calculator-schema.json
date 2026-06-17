@@ -2,77 +2,48 @@
   "toolName": "set-point-theory-calculator",
   "inputs": [
     {
-      "id": "targetOutput",
-      "label": "Target Output",
+      "id": "targetValue",
+      "label": "Target Value",
       "type": "number",
-      "unit": "",
+      "unit": "°C",
       "default": 100,
-      "businessContext": "The desired process output value (e.g., temperature, pressure)."
+      "businessContext": "Desired process target value (e.g., temperature)"
     },
     {
-      "id": "measuredDisturbance",
-      "label": "Measured Disturbance",
+      "id": "processValue",
+      "label": "Current Process Value",
+      "type": "number",
+      "unit": "°C",
+      "default": 90,
+      "businessContext": "Measured actual process value"
+    },
+    {
+      "id": "gain",
+      "label": "Controller Gain",
       "type": "number",
       "unit": "",
+      "default": 1.5,
+      "businessContext": "Proportional gain factor for control"
+    },
+    {
+      "id": "baseSetPoint",
+      "label": "Base Set Point",
+      "type": "number",
+      "unit": "°C",
       "default": 0,
-      "businessContext": "The measured disturbance affecting the process (same unit as output)."
-    },
-    {
-      "id": "processGain",
-      "label": "Process Gain",
-      "type": "number",
-      "unit": "",
-      "default": 1,
-      "businessContext": "Process gain: change in output per unit change in input."
-    },
-    {
-      "id": "processOffset",
-      "label": "Process Offset",
-      "type": "number",
-      "unit": "",
-      "default": 0,
-      "businessContext": "Systematic bias or offset in the process characteristic."
-    },
-    {
-      "id": "safetyMargin",
-      "label": "Safety Margin (%)",
-      "type": "number",
-      "unit": "%",
-      "default": 5,
-      "businessContext": "Percentage safety margin to reduce set point and avoid overshoot."
-    },
-    {
-      "id": "setPointMin",
-      "label": "Set Point Min",
-      "type": "number",
-      "unit": "",
-      "default": 0,
-      "businessContext": "Minimum allowed set point value."
-    },
-    {
-      "id": "setPointMax",
-      "label": "Set Point Max",
-      "type": "number",
-      "unit": "",
-      "default": 200,
-      "businessContext": "Maximum allowed set point value."
+      "businessContext": "Initial or bias set point value"
     }
   ],
   "formulas": {
-    "effectiveTarget": "targetOutput - processOffset",
-    "gainAdjusted": "effectiveTarget - measuredDisturbance",
-    "rawSetPoint": "gainAdjusted / processGain",
-    "setPointAfterMargin": "rawSetPoint * (1 - safetyMargin / 100)",
-    "recommendedSetPoint": "Math.min(Math.max(setPointAfterMargin, setPointMin), setPointMax)",
-    "marginAdjustment": "rawSetPoint - setPointAfterMargin"
+    "error": "targetValue - processValue",
+    "correction": "gain * (targetValue - processValue)",
+    "adjustedSetPoint": "baseSetPoint + gain * (targetValue - processValue)"
   },
   "outputs": {
-    "primary": "recommendedSetPoint",
+    "primary": "adjustedSetPoint",
     "breakdown": [
-      "rawSetPoint",
-      "effectiveTarget",
-      "gainAdjusted",
-      "marginAdjustment"
+      "error",
+      "correction"
     ]
   },
   "category": "Teknik & Mühendislik",

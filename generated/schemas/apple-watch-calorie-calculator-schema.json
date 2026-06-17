@@ -7,15 +7,15 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "User body weight in kilograms"
+      "businessContext": "User's weight in kilograms."
     },
     {
-      "id": "duration",
-      "label": "Exercise Duration",
+      "id": "height",
+      "label": "Height",
       "type": "number",
-      "unit": "minutes",
-      "default": 30,
-      "businessContext": "Total exercise time"
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "User's height in centimeters (optional for BMR)."
     },
     {
       "id": "age",
@@ -23,41 +23,45 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "User age"
-    },
-    {
-      "id": "heartRate",
-      "label": "Average Heart Rate",
-      "type": "number",
-      "unit": "bpm",
-      "default": 120,
-      "businessContext": "Average heart rate during exercise"
+      "businessContext": "User's age in years."
     },
     {
       "id": "gender",
       "label": "Gender",
       "type": "number",
       "unit": "",
-      "default": 0,
-      "businessContext": "Biological gender: 0 for male, 1 for female"
+      "default": 1,
+      "businessContext": "0 for female, 1 for male."
+    },
+    {
+      "id": "met",
+      "label": "MET Value",
+      "type": "number",
+      "unit": "MET",
+      "default": 8,
+      "businessContext": "Metabolic Equivalent of Task for the activity."
+    },
+    {
+      "id": "durationMinutes",
+      "label": "Duration",
+      "type": "number",
+      "unit": "minutes",
+      "default": 30,
+      "businessContext": "Duration of the activity in minutes."
     }
   ],
   "formulas": {
-    "totalCalories": "((gender === 0 ? ((age * 0.2017) + (weight * 0.1992) + (heartRate * 0.6309) - 55.0969) : ((age * 0.074) + (weight * 0.1266) + (heartRate * 0.4472) - 20.4022)) * duration / 4.184)",
-    "calorieBurnRate": "totalCalories / duration",
-    "energyKj": "totalCalories * 4.184"
+    "totalCalories": "(met * weight * 3.5 / 200) * durationMinutes"
   },
   "outputs": {
     "primary": "totalCalories",
     "breakdown": [
-      "calorieBurnRate",
-      "energyKj"
+      "met",
+      "weight",
+      "durationMinutes"
     ]
   },
   "category": "Ölçüm & Dönüşüm",
   "sector": "Teknik & Mühendislik",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "premiumRequired": false
 }

@@ -2,88 +2,83 @@
   "toolName": "weight-cycling-calculator",
   "inputs": [
     {
-      "id": "initialWeight",
-      "label": "Initial Weight",
+      "id": "mass",
+      "label": "Mass of Load",
       "type": "number",
       "unit": "kg",
       "default": 100,
-      "businessContext": "Starting weight before cycling"
+      "businessContext": "The mass of the load being cycled (lifted and lowered)."
     },
     {
-      "id": "finalWeight",
-      "label": "Final Weight",
+      "id": "height",
+      "label": "Lifting Height",
       "type": "number",
-      "unit": "kg",
-      "default": 80,
-      "businessContext": "Target weight after cycling period"
+      "unit": "m",
+      "default": 5,
+      "businessContext": "Vertical distance the load is lifted each cycle."
     },
     {
       "id": "cyclesPerDay",
       "label": "Cycles per Day",
       "type": "number",
       "unit": "cycles/day",
-      "default": 3,
-      "businessContext": "Number of weight cycles performed daily"
+      "default": 100,
+      "businessContext": "Number of lift cycles per operating day."
     },
     {
-      "id": "days",
-      "label": "Days",
+      "id": "operatingDays",
+      "label": "Operating Days",
       "type": "number",
       "unit": "days",
-      "default": 7,
-      "businessContext": "Duration of cycling program"
+      "default": 250,
+      "businessContext": "Total number of operating days per year or period."
     },
     {
-      "id": "energyPerCycle",
-      "label": "Energy per Cycle",
-      "type": "number",
-      "unit": "kWh",
-      "default": 0.5,
-      "businessContext": "Energy consumed per weight cycle"
-    },
-    {
-      "id": "cycleEfficiency",
-      "label": "Cycle Efficiency",
+      "id": "efficiency",
+      "label": "System Efficiency",
       "type": "number",
       "unit": "%",
-      "default": 85,
-      "businessContext": "Efficiency of weight cycling process"
+      "default": 90,
+      "businessContext": "Overall efficiency of the lifting mechanism including motor, transmission, etc. Enter as percentage (0-100)."
+    },
+    {
+      "id": "energyCost",
+      "label": "Energy Cost",
+      "type": "number",
+      "unit": "currency/kWh",
+      "default": 0.15,
+      "businessContext": "Cost of electricity per kilowatt-hour in your currency."
     }
   ],
   "formulas": {
-    "totalCycles": "cyclesPerDay * days",
-    "averageCycleWeight": "(initialWeight + finalWeight) / 2",
-    "totalWeightCycled": "(initialWeight + finalWeight) / 2 * cyclesPerDay * days",
-    "totalEnergyConsumption": "cyclesPerDay * days * energyPerCycle / (cycleEfficiency / 100)"
+    "energyPerCycle": "(mass * 9.81 * height) / (3.6e6) / (efficiency / 100)",
+    "totalCycles": "cyclesPerDay * operatingDays",
+    "totalEnergy": "energyPerCycle * totalCycles",
+    "totalCost": "totalEnergy * energyCost"
   },
   "outputs": {
     "primary": {
-      "id": "totalWeightCycled",
-      "label": "Total Weight Cycled",
-      "unit": "kg"
+      "id": "totalCost",
+      "label": "Total Energy Cost",
+      "unit": "currency",
+      "formula": "totalCost"
     },
     "breakdown": [
       {
-        "id": "averageCycleWeight",
-        "label": "Average Cycle Weight",
-        "unit": "kg"
+        "id": "totalEnergy",
+        "label": "Total Energy Consumed",
+        "unit": "kWh",
+        "formula": "totalEnergy"
       },
       {
         "id": "totalCycles",
-        "label": "Total Cycles",
-        "unit": "cycles"
-      },
-      {
-        "id": "totalEnergyConsumption",
-        "label": "Total Energy Consumption",
-        "unit": "kWh"
+        "label": "Total Number of Cycles",
+        "unit": "cycles",
+        "formula": "totalCycles"
       }
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Üretim & İmalat",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false
 }

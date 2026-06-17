@@ -3,68 +3,51 @@
   "inputs": [
     {
       "id": "observedTime",
-      "label": "Gözlemlenen Süre",
+      "label": "Gözlemlenen Süre (saniye)",
       "type": "number",
-      "unit": "saniye",
+      "unit": "s",
       "default": 60,
-      "businessContext": "Kronometre ile ölçülen işlem süresi"
+      "businessContext": "Kronometre ile ölçülen çevrim süresi"
+    },
+    {
+      "id": "cycles",
+      "label": "Tekrar Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "businessContext": "Ölçülen parça veya operasyon sayısı"
     },
     {
       "id": "ratingFactor",
-      "label": "Performans Faktörü",
+      "label": "Tempo Takdiri (%)",
       "type": "number",
       "unit": "%",
       "default": 100,
-      "businessContext": "İşçinin performans değerlendirmesi (100 = normal)"
+      "businessContext": "İşçinin normal tempoya göre performans yüzdesi (100 = normal)"
     },
     {
       "id": "allowanceFactor",
-      "label": "Tolerans Faktörü",
+      "label": "Pay (Avans) (%)",
       "type": "number",
       "unit": "%",
-      "default": 10,
-      "businessContext": "Kişisel ihtiyaçlar ve yorgunluk için tolerans payı"
-    },
-    {
-      "id": "contingencyFactor",
-      "label": "Beklenmeyen Durum Faktörü",
-      "type": "number",
-      "unit": "%",
-      "default": 5,
-      "businessContext": "Makine arızası gibi beklenmeyen durumlar için pay"
+      "default": 15,
+      "businessContext": "Dinlenme, gecikme ve kişisel ihtiyaç payı"
     }
   ],
   "formulas": {
-    "standardTime": "observedTime * (ratingFactor / 100) * (1 + (allowanceFactor + contingencyFactor) / 100)",
-    "effectiveTime": "observedTime * (ratingFactor / 100)",
-    "allowancesTime": "observedTime * (ratingFactor / 100) * ((allowanceFactor + contingencyFactor) / 100)"
+    "totalObservedTime": "observedTime * cycles",
+    "normalTime": "observedTime * (ratingFactor / 100)",
+    "standardTime": "observedTime * (ratingFactor / 100) * (1 + allowanceFactor / 100)"
   },
   "outputs": {
-    "primary": {
-      "id": "standardTime",
-      "label": "Standart Süre",
-      "unit": "saniye",
-      "formula": "standardTime"
-    },
+    "primary": "standardTime",
     "breakdown": [
-      {
-        "id": "effectiveTime",
-        "label": "Efektif Süre",
-        "unit": "saniye",
-        "formula": "effectiveTime"
-      },
-      {
-        "id": "allowancesTime",
-        "label": "Tolerans Süresi",
-        "unit": "saniye",
-        "formula": "allowancesTime"
-      }
+      "totalObservedTime",
+      "normalTime",
+      "standardTime"
     ]
   },
   "category": "Ölçüm & Dönüşüm",
   "sector": "Üretim & İmalat",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "premiumRequired": false
 }

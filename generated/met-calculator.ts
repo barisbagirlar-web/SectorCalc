@@ -2,32 +2,31 @@
 import * as z from 'zod';
 
 export interface Met_calculatorInput {
-  met: number;
-  weight: number;
-  duration: number;
-  caloriesPerLiterO2: number;
+  metValue: number;
+  weightKg: number;
+  durationMin: number;
+  adjustmentFactor: number;
 }
 
 export const Met_calculatorInputSchema = z.object({
-  met: z.number().default(8),
-  weight: z.number().default(70),
-  duration: z.number().default(30),
-  caloriesPerLiterO2: z.number().default(5),
+  metValue: z.number().default(1),
+  weightKg: z.number().default(70),
+  durationMin: z.number().default(30),
+  adjustmentFactor: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Met_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.met * 3.5 * input.weight * (input.caloriesPerLiterO2 / 1000) * input.duration; results["totalCalories"] = Number.isFinite(v) ? v : 0; } catch { results["totalCalories"] = 0; }
-  try { const v = input.met * 3.5 * input.weight * (input.caloriesPerLiterO2 / 1000); results["caloriesPerMinute"] = Number.isFinite(v) ? v : 0; } catch { results["caloriesPerMinute"] = 0; }
-  try { const v = input.met * 3.5; results["vo2"] = Number.isFinite(v) ? v : 0; } catch { results["vo2"] = 0; }
-  try { const v = input.met * (input.duration / 60); results["metHours"] = Number.isFinite(v) ? v : 0; } catch { results["metHours"] = 0; }
+  try { const v = input.metValue * input.weightKg * (input.durationMin / 60) * input.adjustmentFactor; results["totalCal"] = Number.isFinite(v) ? v : 0; } catch { results["totalCal"] = 0; }
+  try { const v = (results["totalCal"] ?? 0) / input.durationMin; results["calPerMin"] = Number.isFinite(v) ? v : 0; } catch { results["calPerMin"] = 0; }
+  try { const v = input.metValue * (input.durationMin / 60); results["metHours"] = Number.isFinite(v) ? v : 0; } catch { results["metHours"] = 0; }
   return results;
 }
 
 
 export function calculateMet_calculator(input: Met_calculatorInput): Met_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalCalories"] ?? 0;
+  const totalWasteCost = values["totalCal"] ?? 0;
   const breakdown = {
     
   };

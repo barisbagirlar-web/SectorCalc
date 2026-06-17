@@ -2,71 +2,71 @@
   "toolName": "meal-plan-calculator",
   "inputs": [
     {
-      "id": "age",
-      "label": "Age",
+      "id": "mealsPerDay",
+      "label": "Meals per Day",
       "type": "number",
-      "unit": "years",
-      "default": 35,
-      "businessContext": "Worker age in years"
+      "unit": "meals",
+      "default": 100,
+      "businessContext": "Number of meals served daily"
     },
     {
-      "id": "weight",
-      "label": "Weight",
+      "id": "ingredientCostPerMeal",
+      "label": "Ingredient Cost per Meal",
       "type": "number",
-      "unit": "kg",
-      "default": 70,
-      "businessContext": "Body weight in kilograms"
+      "unit": "USD",
+      "default": 3.5,
+      "businessContext": "Average ingredient cost per meal"
     },
     {
-      "id": "height",
-      "label": "Height",
+      "id": "laborCostPerHour",
+      "label": "Labor Cost per Hour",
       "type": "number",
-      "unit": "cm",
-      "default": 170,
-      "businessContext": "Height in centimeters"
+      "unit": "USD",
+      "default": 20,
+      "businessContext": "Hourly rate for kitchen staff"
     },
     {
-      "id": "gender",
-      "label": "Gender",
+      "id": "prepTimePerMeal",
+      "label": "Preparation Time per Meal",
       "type": "number",
-      "unit": "binary (0=female, 1=male)",
-      "default": 1,
-      "businessContext": "Biological sex for BMR calculation"
+      "unit": "minutes",
+      "default": 10,
+      "businessContext": "Average time to prepare one meal"
     },
     {
-      "id": "activityFactor",
-      "label": "Activity Factor",
+      "id": "overheadPercent",
+      "label": "Overhead Percentage",
       "type": "number",
-      "unit": "multiplier",
-      "default": 1.55,
-      "businessContext": "Physical activity level (1.2=sedentary, 1.55=moderate, 1.9=heavy)"
+      "unit": "%",
+      "default": 15,
+      "businessContext": "Overhead costs as percentage of direct costs"
     },
     {
-      "id": "costPerCalorie",
-      "label": "Cost per Calorie",
+      "id": "wastePercent",
+      "label": "Waste Percentage",
       "type": "number",
-      "unit": "TRY/cal",
-      "default": 0.005,
-      "businessContext": "Average food cost per calorie in Turkish Lira"
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Expected food waste percentage"
     }
   ],
   "formulas": {
-    "BMR": "10*weight + 6.25*height - 5*age + (gender === 1 ? 5 : -161)",
-    "TDEE": "BMR * activityFactor",
-    "proteinG": "weight * 1.5",
-    "fatG": "(TDEE * 0.25) / 9",
-    "carbsG": "(TDEE - (proteinG*4 + fatG*9)) / 4",
-    "dailyCost": "TDEE * costPerCalorie",
-    "weeklyCost": "dailyCost * 7"
+    "laborCostPerMeal": "laborCostPerHour * (prepTimePerMeal / 60)",
+    "totalIngredientCostNoWaste": "ingredientCostPerMeal * mealsPerDay",
+    "wasteCost": "totalIngredientCostNoWaste * (wastePercent / 100)",
+    "totalIngredientCostWithWaste": "totalIngredientCostNoWaste + wasteCost",
+    "totalLaborCost": "laborCostPerMeal * mealsPerDay",
+    "directCost": "totalIngredientCostWithWaste + totalLaborCost",
+    "overheadCost": "directCost * (overheadPercent / 100)",
+    "totalCost": "directCost + overheadCost"
   },
   "outputs": {
-    "primary": "dailyCost",
+    "primary": "totalCost",
     "breakdown": [
-      "TDEE",
-      "proteinG",
-      "fatG",
-      "carbsG",
-      "weeklyCost"
+      "totalIngredientCostNoWaste",
+      "totalLaborCost",
+      "wasteCost",
+      "overheadCost"
     ]
   },
   "category": "Maliyet & Marj",

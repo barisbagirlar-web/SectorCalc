@@ -2,63 +2,48 @@
   "toolName": "grocery-budget-calculator",
   "inputs": [
     {
-      "id": "adults",
-      "label": "Number of Adults",
+      "id": "monthlyIncome",
+      "label": "Monthly Income",
       "type": "number",
-      "unit": "persons",
-      "default": 2,
-      "businessContext": "Count of adult household members"
+      "unit": "TL",
+      "default": 5000,
+      "businessContext": "Total monthly household income after taxes"
     },
     {
-      "id": "children",
-      "label": "Number of Children",
-      "type": "number",
-      "unit": "persons",
-      "default": 1,
-      "businessContext": "Count of child household members"
-    },
-    {
-      "id": "tripsPerMonth",
-      "label": "Grocery Trips per Month",
-      "type": "number",
-      "unit": "trips/month",
-      "default": 4,
-      "businessContext": "Average number of grocery shopping trips each month"
-    },
-    {
-      "id": "avgSpendPerTrip",
-      "label": "Average Spend per Trip",
-      "type": "number",
-      "unit": "currency",
-      "default": 150,
-      "businessContext": "Average amount spent on each grocery trip"
-    },
-    {
-      "id": "coefficientChild",
-      "label": "Child Consumption Factor",
-      "type": "number",
-      "unit": "ratio",
-      "default": 0.7,
-      "businessContext": "Factor to adjust child consumption relative to an adult"
-    },
-    {
-      "id": "bufferPercent",
-      "label": "Buffer for Unexpected Items",
+      "id": "groceryPercentage",
+      "label": "Grocery Budget Percentage",
       "type": "number",
       "unit": "%",
-      "default": 10,
-      "businessContext": "Extra percentage to cover occasional or unexpected purchases"
+      "default": 15,
+      "businessContext": "Recommended percentage of income allocated to groceries"
+    },
+    {
+      "id": "numberOfPeople",
+      "label": "Number of Household Members",
+      "type": "number",
+      "unit": "people",
+      "default": 1,
+      "businessContext": "Number of individuals consuming groceries"
+    },
+    {
+      "id": "extraExpenses",
+      "label": "Additional Grocery Expenses",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "businessContext": "Extra fixed grocery spending (e.g., eating out, special diets)"
     }
   ],
   "formulas": {
-    "totalMonthlyBudget": "tripsPerMonth * avgSpendPerTrip * (1 + bufferPercent / 100)",
-    "weeklyBudget": "tripsPerMonth * avgSpendPerTrip * (1 + bufferPercent / 100) / 4.33",
-    "perPersonBudget": "(tripsPerMonth * avgSpendPerTrip * (1 + bufferPercent / 100)) / (adults + children * coefficientChild)"
+    "baseGroceryFromIncome": "monthlyIncome * groceryPercentage / 100",
+    "totalGroceyBudget": "baseGroceryFromIncome + extraExpenses",
+    "perPersonBudget": "totalGroceyBudget / numberOfPeople"
   },
   "outputs": {
-    "primary": "totalMonthlyBudget",
+    "primary": "totalGroceyBudget",
     "breakdown": [
-      "weeklyBudget",
+      "baseGroceryFromIncome",
+      "extraExpenses",
       "perPersonBudget"
     ]
   },

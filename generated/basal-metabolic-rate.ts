@@ -2,24 +2,24 @@
 import * as z from 'zod';
 
 export interface Basal_metabolic_rateInput {
-  gender: number;
   weight: number;
   height: number;
   age: number;
+  gender: number;
 }
 
 export const Basal_metabolic_rateInputSchema = z.object({
-  gender: z.number().default(0),
   weight: z.number().default(70),
-  height: z.number().default(175),
+  height: z.number().default(170),
   age: z.number().default(30),
+  gender: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Basal_metabolic_rateInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 10 * input.weight + 6.25 * input.height - 5 * input.age + 5; results["bmrMale"] = Number.isFinite(v) ? v : 0; } catch { results["bmrMale"] = 0; }
-  try { const v = 10 * input.weight + 6.25 * input.height - 5 * input.age - 161; results["bmrFemale"] = Number.isFinite(v) ? v : 0; } catch { results["bmrFemale"] = 0; }
-  try { const v = input.gender === 0 ? (results["bmrMale"] ?? 0) : (results["bmrFemale"] ?? 0); results["bmr"] = Number.isFinite(v) ? v : 0; } catch { results["bmr"] = 0; }
+  try { const v = 10 * input.weight + 6.25 * input.height - 5 * input.age; results["base"] = Number.isFinite(v) ? v : 0; } catch { results["base"] = 0; }
+  try { const v = input.gender == 1 ? 5 : -161; results["gender_adjustment"] = Number.isFinite(v) ? v : 0; } catch { results["gender_adjustment"] = 0; }
+  try { const v = (results["base"] ?? 0) + (results["gender_adjustment"] ?? 0); results["bmr"] = Number.isFinite(v) ? v : 0; } catch { results["bmr"] = 0; }
   return results;
 }
 

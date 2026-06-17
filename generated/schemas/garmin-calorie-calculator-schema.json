@@ -7,15 +7,7 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Body weight of the user in kilograms."
-    },
-    {
-      "id": "height",
-      "label": "Height",
-      "type": "number",
-      "unit": "cm",
-      "default": 170,
-      "businessContext": "Height of the user in centimeters."
+      "businessContext": "User's body weight in kilograms"
     },
     {
       "id": "age",
@@ -23,50 +15,46 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "Age of the user in years."
+      "businessContext": "User's age in years"
     },
     {
-      "id": "gender",
-      "label": "Gender",
+      "id": "heartRate",
+      "label": "Heart Rate",
       "type": "number",
-      "unit": "0=Female,1=Male",
-      "default": 1,
-      "businessContext": "Biological gender: 0 for female, 1 for male."
+      "unit": "bpm",
+      "default": 120,
+      "businessContext": "Average heart rate during exercise in beats per minute"
     },
     {
       "id": "duration",
-      "label": "Activity Duration",
+      "label": "Duration",
       "type": "number",
-      "unit": "minutes",
+      "unit": "min",
       "default": 30,
-      "businessContext": "Duration of the activity in minutes."
+      "businessContext": "Exercise duration in minutes"
     },
     {
-      "id": "met",
-      "label": "MET Value",
+      "id": "genderFactor",
+      "label": "Gender (1=Male, 0=Female)",
       "type": "number",
-      "unit": "MET",
-      "default": 8,
-      "businessContext": "Metabolic Equivalent of Task for the activity (e.g., 8 for running)."
+      "unit": "",
+      "default": 1,
+      "businessContext": "Gender factor: 1 for male, 0 for female"
     }
   ],
   "formulas": {
-    "bmrPerDay": "gender == 0 ? 447.593 + 9.247 * weight + 3.098 * height - 4.330 * age : 88.362 + 13.397 * weight + 4.799 * height - 5.677 * age",
-    "totalCalories": "met * weight * (duration / 60)",
-    "restingCalories": "(bmrPerDay / 1440) * duration",
-    "activeCalories": "totalCalories - restingCalories"
+    "calories": "((genderFactor >= 1) ? ((age * 0.2017 - weight * 0.09036 + heartRate * 0.6309 - 55.0969) * duration / 4.184) : ((age * 0.074 - weight * 0.05741 + heartRate * 0.4472 - 20.4022) * duration / 4.184))",
+    "caloriesPerMin": "calories / duration",
+    "genderUsed": "genderFactor >= 1 ? 'Male' : 'Female'"
   },
   "outputs": {
-    "primary": "totalCalories",
+    "primary": "calories",
     "breakdown": [
-      "restingCalories",
-      "activeCalories"
+      "genderUsed",
+      "caloriesPerMin"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Teknik & Mühendislik",
   "sector": "Teknik & Mühendislik",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "premiumRequired": false
 }

@@ -2,80 +2,52 @@
   "toolName": "metabolic-equivalent-calculator",
   "inputs": [
     {
-      "id": "heartRate",
-      "label": "Heart Rate",
-      "type": "number",
-      "unit": "bpm",
-      "default": 120,
-      "businessContext": "Measured heart rate during activity"
-    },
-    {
-      "id": "restingHeartRate",
-      "label": "Resting Heart Rate",
-      "type": "number",
-      "unit": "bpm",
-      "default": 70,
-      "businessContext": "Resting heart rate measured in the morning"
-    },
-    {
-      "id": "age",
-      "label": "Age",
-      "type": "number",
-      "unit": "years",
-      "default": 30,
-      "businessContext": "Age of the person"
-    },
-    {
-      "id": "vo2max",
-      "label": "VO2max",
-      "type": "number",
-      "unit": "ml/kg/min",
-      "default": 40,
-      "businessContext": "Maximum oxygen uptake, either measured or estimated"
-    },
-    {
-      "id": "bodyWeight",
+      "id": "weight",
       "label": "Body Weight",
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Body weight of the person"
+      "businessContext": "User's body weight in kilograms"
     },
     {
-      "id": "gender",
-      "label": "Gender (1=Male, 0=Female)",
+      "id": "duration_hours",
+      "label": "Duration (hours)",
       "type": "number",
-      "unit": "",
-      "default": 1,
-      "businessContext": "1 for male, 0 for female, used for maximum heart rate estimation"
+      "unit": "h",
+      "default": 0,
+      "businessContext": "Activity duration hours component"
+    },
+    {
+      "id": "duration_minutes",
+      "label": "Duration (minutes)",
+      "type": "number",
+      "unit": "min",
+      "default": 30,
+      "businessContext": "Activity duration minutes component"
+    },
+    {
+      "id": "met",
+      "label": "MET Value",
+      "type": "number",
+      "unit": "MET",
+      "default": 5,
+      "businessContext": "Metabolic equivalent for the activity"
     }
   ],
   "formulas": {
-    "metabolicEquivalent": "(vo2max * ((heartRate - restingHeartRate) / (( (gender == 1 ? 220 - age : 226 - age) ) - restingHeartRate))) / 3.5",
-    "relativeVO2": "vo2max * ((heartRate - restingHeartRate) / (( (gender == 1 ? 220 - age : 226 - age) ) - restingHeartRate))",
-    "energyExpenditure": "((vo2max * ((heartRate - restingHeartRate) / (( (gender == 1 ? 220 - age : 226 - age) ) - restingHeartRate))) / 3.5) * bodyWeight"
+    "caloriesBurned": "met * weight * (duration_hours + duration_minutes/60)",
+    "metMinutes": "met * (duration_hours*60 + duration_minutes)",
+    "oxygenConsumed": "(met * 3.5 * weight * (duration_hours*60 + duration_minutes)) / 1000"
   },
   "outputs": {
-    "primary": {
-      "id": "metabolicEquivalent",
-      "label": "Metabolic Equivalent",
-      "unit": "MET"
-    },
+    "primary": "caloriesBurned",
     "breakdown": [
-      {
-        "id": "relativeVO2",
-        "label": "Relative VO2",
-        "unit": "ml/kg/min"
-      },
-      {
-        "id": "energyExpenditure",
-        "label": "Energy Expenditure",
-        "unit": "kcal/hour"
-      }
+      "metMinutes",
+      "oxygenConsumed"
     ]
   },
   "category": "Ölçüm & Dönüşüm",
-  "sector": "Üretim & İmalat",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

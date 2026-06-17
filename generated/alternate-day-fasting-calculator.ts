@@ -2,41 +2,32 @@
 import * as z from 'zod';
 
 export interface Alternate_day_fasting_calculatorInput {
-  periodDays: number;
-  operatingHours: number;
-  powerOn: number;
-  powerStandby: number;
-  electricityCost: number;
-  carbonFactor: number;
+  normalCal: number;
+  fastingCal: number;
+  totalDays: number;
+  startDay: number;
 }
 
 export const Alternate_day_fasting_calculatorInputSchema = z.object({
-  periodDays: z.number().default(30),
-  operatingHours: z.number().default(8),
-  powerOn: z.number().default(100),
-  powerStandby: z.number().default(5),
-  electricityCost: z.number().default(0.15),
-  carbonFactor: z.number().default(0.5),
+  normalCal: z.number().default(2000),
+  fastingCal: z.number().default(500),
+  totalDays: z.number().default(30),
+  startDay: z.number().default(0),
 });
 
 function evaluateAllFormulas(input: Alternate_day_fasting_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = Math.ceil(input.periodDays / 2); results["onDays"] = Number.isFinite(v) ? v : 0; } catch { results["onDays"] = 0; }
-  try { const v = Math.floor(input.periodDays / 2); results["offDays"] = Number.isFinite(v) ? v : 0; } catch { results["offDays"] = 0; }
-  try { const v = input.powerOn * input.operatingHours; results["energyOnDay"] = Number.isFinite(v) ? v : 0; } catch { results["energyOnDay"] = 0; }
-  try { const v = input.powerStandby * input.operatingHours; results["energyOffDay"] = Number.isFinite(v) ? v : 0; } catch { results["energyOffDay"] = 0; }
-  try { const v = ((results["onDays"] ?? 0) * (results["energyOnDay"] ?? 0)) + ((results["offDays"] ?? 0) * (results["energyOffDay"] ?? 0)); results["totalEnergy"] = Number.isFinite(v) ? v : 0; } catch { results["totalEnergy"] = 0; }
-  try { const v = input.periodDays * (results["energyOnDay"] ?? 0); results["baselineEnergy"] = Number.isFinite(v) ? v : 0; } catch { results["baselineEnergy"] = 0; }
-  try { const v = (results["baselineEnergy"] ?? 0) - (results["totalEnergy"] ?? 0); results["energySaved"] = Number.isFinite(v) ? v : 0; } catch { results["energySaved"] = 0; }
-  try { const v = (results["energySaved"] ?? 0) * input.electricityCost; results["costSaved"] = Number.isFinite(v) ? v : 0; } catch { results["costSaved"] = 0; }
-  try { const v = (results["energySaved"] ?? 0) * input.carbonFactor; results["carbonReduced"] = Number.isFinite(v) ? v : 0; } catch { results["carbonReduced"] = 0; }
+  try { const v = input.startDay === 0 ? Math.floor(input.totalDays / 2) : Math.ceil(input.totalDays / 2); results["fastingDays"] = Number.isFinite(v) ? v : 0; } catch { results["fastingDays"] = 0; }
+  try { const v = input.totalDays - (results["fastingDays"] ?? 0); results["normalDays"] = Number.isFinite(v) ? v : 0; } catch { results["normalDays"] = 0; }
+  try { const v = (results["normalDays"] ?? 0) * input.normalCal + (results["fastingDays"] ?? 0) * input.fastingCal; results["totalCalories"] = Number.isFinite(v) ? v : 0; } catch { results["totalCalories"] = 0; }
+  try { const v = (results["totalCalories"] ?? 0) / input.totalDays; results["averageDailyCalories"] = Number.isFinite(v) ? v : 0; } catch { results["averageDailyCalories"] = 0; }
   return results;
 }
 
 
 export function calculateAlternate_day_fasting_calculator(input: Alternate_day_fasting_calculatorInput): Alternate_day_fasting_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["costSaved"] ?? 0;
+  const totalWasteCost = values["totalCalories"] ?? 0;
   const breakdown = {
     
   };

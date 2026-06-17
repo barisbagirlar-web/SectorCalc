@@ -2,33 +2,32 @@
 import * as z from 'zod';
 
 export interface _16_8_fasting_calculatorInput {
-  weight: number;
-  height: number;
-  age: number;
-  sex: number;
-  fastingHours: number;
+  currentHour: number;
+  fastingStartHour: number;
+  fastingDuration: number;
+  eatingDuration: number;
 }
 
 export const _16_8_fasting_calculatorInputSchema = z.object({
-  weight: z.number().default(70),
-  height: z.number().default(170),
-  age: z.number().default(30),
-  sex: z.number().default(1),
-  fastingHours: z.number().default(16),
+  currentHour: z.number().default(12),
+  fastingStartHour: z.number().default(20),
+  fastingDuration: z.number().default(16),
+  eatingDuration: z.number().default(8),
 });
 
 function evaluateAllFormulas(input: _16_8_fasting_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.sex ? (66.47 + 13.75 * input.weight + 5.003 * input.height - 6.755 * input.age) : (655.1 + 9.563 * input.weight + 1.85 * input.height - 4.676 * input.age); results["bmr"] = Number.isFinite(v) ? v : 0; } catch { results["bmr"] = 0; }
-  try { const v = ((results["bmr"] ?? 0) / 24) * input.fastingHours; results["caloriesBurned"] = Number.isFinite(v) ? v : 0; } catch { results["caloriesBurned"] = 0; }
-  try { const v = (results["caloriesBurned"] ?? 0) / 7700; results["estimatedFatLoss"] = Number.isFinite(v) ? v : 0; } catch { results["estimatedFatLoss"] = 0; }
+  try { const v = (input.fastingStartHour + input.fastingDuration) % 24; results["fastingEndHour"] = Number.isFinite(v) ? v : 0; } catch { results["fastingEndHour"] = 0; }
+  try { const v = ((input.fastingStartHour + input.fastingDuration) % 24 + input.eatingDuration) % 24; results["eatingWindowEndHour"] = Number.isFinite(v) ? v : 0; } catch { results["eatingWindowEndHour"] = 0; }
+  try { const v = Math.max(0, input.fastingDuration - (input.currentHour >= input.fastingStartHour ? input.currentHour - input.fastingStartHour : input.currentHour + 24 - input.fastingStartHour)); results["remainingFastingTime"] = Number.isFinite(v) ? v : 0; } catch { results["remainingFastingTime"] = 0; }
+  try { const v = Math.min(100, ((input.currentHour >= input.fastingStartHour ? input.currentHour - input.fastingStartHour : input.currentHour + 24 - input.fastingStartHour) / input.fastingDuration) * 100); results["progressPercent"] = Number.isFinite(v) ? v : 0; } catch { results["progressPercent"] = 0; }
   return results;
 }
 
 
 export function calculate_16_8_fasting_calculator(input: _16_8_fasting_calculatorInput): _16_8_fasting_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["estimatedFatLoss"] ?? 0;
+  const totalWasteCost = values["remainingFastingTime"] ?? 0;
   const breakdown = {
     
   };

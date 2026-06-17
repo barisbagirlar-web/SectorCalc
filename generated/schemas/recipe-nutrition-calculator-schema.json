@@ -2,102 +2,61 @@
   "toolName": "recipe-nutrition-calculator",
   "inputs": [
     {
-      "id": "servings",
+      "id": "totalProtein",
+      "label": "Total Protein",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Total protein in entire recipe"
+    },
+    {
+      "id": "totalCarbs",
+      "label": "Total Carbohydrates",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Total carbohydrates in entire recipe"
+    },
+    {
+      "id": "totalFat",
+      "label": "Total Fat",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Total fat in entire recipe"
+    },
+    {
+      "id": "totalWeight",
+      "label": "Total Weight",
+      "type": "number",
+      "unit": "g",
+      "default": 0,
+      "businessContext": "Total weight of entire recipe"
+    },
+    {
+      "id": "numberOfServings",
       "label": "Number of Servings",
       "type": "number",
-      "unit": "",
+      "unit": "servings",
       "default": 4,
-      "businessContext": "How many portions the recipe makes."
-    },
-    {
-      "id": "flour_g",
-      "label": "Flour (g)",
-      "type": "number",
-      "unit": "g",
-      "default": 250,
-      "businessContext": "All-purpose flour weight."
-    },
-    {
-      "id": "sugar_g",
-      "label": "Sugar (g)",
-      "type": "number",
-      "unit": "g",
-      "default": 200,
-      "businessContext": "Granulated sugar weight."
-    },
-    {
-      "id": "butter_g",
-      "label": "Butter (g)",
-      "type": "number",
-      "unit": "g",
-      "default": 100,
-      "businessContext": "Unsalted butter weight."
-    },
-    {
-      "id": "eggs",
-      "label": "Eggs",
-      "type": "number",
-      "unit": "pieces",
-      "default": 2,
-      "businessContext": "Large eggs, count."
-    },
-    {
-      "id": "milk_ml",
-      "label": "Milk (ml)",
-      "type": "number",
-      "unit": "ml",
-      "default": 120,
-      "businessContext": "Whole milk volume."
-    },
-    {
-      "id": "chocolate_g",
-      "label": "Chocolate (g)",
-      "type": "number",
-      "unit": "g",
-      "default": 50,
-      "businessContext": "Dark chocolate weight."
-    },
-    {
-      "id": "oil_ml",
-      "label": "Oil (ml)",
-      "type": "number",
-      "unit": "ml",
-      "default": 30,
-      "businessContext": "Vegetable oil volume."
+      "businessContext": "Number of servings the recipe yields"
     }
   ],
   "formulas": {
-    "caloriesPerServing": "(flour_g * 3.64 + sugar_g * 3.87 + butter_g * 7.17 + eggs * 78 + milk_ml * 0.42 + chocolate_g * 5.46 + oil_ml * 8.84) / servings",
-    "fatPerServing": "(butter_g * 0.81 + oil_ml * 0.92 + milk_ml * 0.0325 + eggs * 5 + chocolate_g * 0.42) / servings",
-    "carbsPerServing": "(flour_g * 0.76 + sugar_g * 1 + milk_ml * 0.048 + chocolate_g * 0.45) / servings",
-    "proteinPerServing": "(flour_g * 0.1 + eggs * 6.3 + milk_ml * 0.032 + chocolate_g * 0.08) / servings"
+    "totalCalories": "totalProtein * 4 + totalCarbs * 4 + totalFat * 9",
+    "perServingWeight": "totalWeight / numberOfServings",
+    "perServingProtein": "totalProtein / numberOfServings",
+    "perServingCarbs": "totalCarbs / numberOfServings",
+    "perServingFat": "totalFat / numberOfServings",
+    "perServingCalories": "totalCalories / numberOfServings"
   },
   "outputs": {
-    "primary": {
-      "id": "caloriesPerServing",
-      "label": "Calories per Serving",
-      "unit": "kcal",
-      "description": "Energy per serving in kilocalories"
-    },
+    "primary": "perServingCalories",
     "breakdown": [
-      {
-        "id": "fatPerServing",
-        "label": "Fat per Serving",
-        "unit": "g",
-        "description": "Total fat per serving in grams"
-      },
-      {
-        "id": "carbsPerServing",
-        "label": "Carbohydrates per Serving",
-        "unit": "g",
-        "description": "Total carbohydrates per serving in grams"
-      },
-      {
-        "id": "proteinPerServing",
-        "label": "Protein per Serving",
-        "unit": "g",
-        "description": "Total protein per serving in grams"
-      }
+      "perServingProtein",
+      "perServingCarbs",
+      "perServingFat",
+      "totalCalories"
     ]
   },
   "category": "Ölçüm & Dönüşüm",

@@ -2,31 +2,33 @@
 import * as z from 'zod';
 
 export interface Weight_loss_calculatorInput {
-  currentWeightKg: number;
-  targetWeightKg: number;
-  dailyDeficitKcal: number;
-  periodDays: number;
+  initialWeight: number;
+  initialMoisture: number;
+  finalMoisture: number;
+  targetWeightLoss: number;
 }
 
 export const Weight_loss_calculatorInputSchema = z.object({
-  currentWeightKg: z.number().default(80),
-  targetWeightKg: z.number().default(70),
-  dailyDeficitKcal: z.number().default(500),
-  periodDays: z.number().default(90),
+  initialWeight: z.number().default(100),
+  initialMoisture: z.number().default(50),
+  finalMoisture: z.number().default(10),
+  targetWeightLoss: z.number().default(40),
 });
 
 function evaluateAllFormulas(input: Weight_loss_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.dailyDeficitKcal * input.periodDays) / 7700; results["estimatedWeightLossKg"] = Number.isFinite(v) ? v : 0; } catch { results["estimatedWeightLossKg"] = 0; }
-  try { const v = input.dailyDeficitKcal * input.periodDays; results["totalDeficitKcal"] = Number.isFinite(v) ? v : 0; } catch { results["totalDeficitKcal"] = 0; }
-  try { const v = input.currentWeightKg - ((input.dailyDeficitKcal * input.periodDays) / 7700); results["newWeightKg"] = Number.isFinite(v) ? v : 0; } catch { results["newWeightKg"] = 0; }
+  try { const v = input.initialWeight / (1 + input.initialMoisture / 100); results["boneDryWeight"] = Number.isFinite(v) ? v : 0; } catch { results["boneDryWeight"] = 0; }
+  try { const v = (results["boneDryWeight"] ?? 0) * (1 + input.finalMoisture / 100); results["finalWeight"] = Number.isFinite(v) ? v : 0; } catch { results["finalWeight"] = 0; }
+  try { const v = input.initialWeight - (results["finalWeight"] ?? 0); results["weightLoss"] = Number.isFinite(v) ? v : 0; } catch { results["weightLoss"] = 0; }
+  try { const v = ((results["weightLoss"] ?? 0) / input.initialWeight) * 100; results["percentageLoss"] = Number.isFinite(v) ? v : 0; } catch { results["percentageLoss"] = 0; }
+  try { const v = input.targetWeightLoss - (results["weightLoss"] ?? 0); results["targetDelta"] = Number.isFinite(v) ? v : 0; } catch { results["targetDelta"] = 0; }
   return results;
 }
 
 
 export function calculateWeight_loss_calculator(input: Weight_loss_calculatorInput): Weight_loss_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["estimatedWeightLossKg"] ?? 0;
+  const totalWasteCost = values["weightLoss"] ?? 0;
   const breakdown = {
     
   };

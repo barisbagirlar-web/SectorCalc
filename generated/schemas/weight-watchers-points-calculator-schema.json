@@ -3,27 +3,27 @@
   "inputs": [
     {
       "id": "calories",
-      "label": "Kalori",
+      "label": "Calories",
       "type": "number",
       "unit": "kcal",
       "default": 0,
-      "businessContext": "Porsiyon başına toplam kalori miktarı (kcal)"
+      "businessContext": "Total energy content per serving."
     },
     {
       "id": "saturatedFat",
-      "label": "Doymuş Yağ",
+      "label": "Saturated Fat",
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Porsiyon başına doymuş yağ miktarı (gram)"
+      "businessContext": "Grams of saturated fat per serving."
     },
     {
       "id": "sugar",
-      "label": "Şeker",
+      "label": "Sugar",
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Porsiyon başına şeker miktarı (gram)"
+      "businessContext": "Grams of sugar per serving."
     },
     {
       "id": "protein",
@@ -31,29 +31,28 @@
       "type": "number",
       "unit": "g",
       "default": 0,
-      "businessContext": "Porsiyon başına protein miktarı (gram)"
+      "businessContext": "Grams of protein per serving."
     }
   ],
   "formulas": {
-    "calTerm": "calories * 0.0305",
-    "satFatTerm": "saturatedFat * 0.275",
-    "sugarTerm": "sugar * 0.12",
-    "protTerm": "protein * 0.098",
-    "points": "calTerm + satFatTerm + sugarTerm - protTerm"
+    "rawPoints": "calories * 0.0305 + saturatedFat * 0.275 + sugar * 0.12 - protein * 0.098",
+    "points": "Math.round(Math.max(0, rawPoints))",
+    "caloriesContrib": "calories * 0.0305",
+    "saturatedFatContrib": "saturatedFat * 0.275",
+    "sugarContrib": "sugar * 0.12",
+    "proteinContrib": "protein * 0.098"
   },
   "outputs": {
     "primary": "points",
     "breakdown": [
-      "calTerm",
-      "satFatTerm",
-      "sugarTerm",
-      "protTerm"
+      "rawPoints",
+      "caloriesContrib",
+      "saturatedFatContrib",
+      "sugarContrib",
+      "proteinContrib"
     ]
   },
-  "category": "Perakende & Gıda",
+  "category": "Ölçüm & Dönüşüm",
   "sector": "Perakende & Gıda",
-  "premiumRequired": false,
-  "catalogCategory": "everyday-life",
-  "sectorSlug": "daily-renovation",
-  "categorySlug": "packaging-local-business"
+  "premiumRequired": false
 }

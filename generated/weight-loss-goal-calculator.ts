@@ -4,29 +4,29 @@ import * as z from 'zod';
 export interface Weight_loss_goal_calculatorInput {
   currentWeight: number;
   targetWeight: number;
-  dailyCaloricDeficit: number;
-  calorieEquivalent: number;
+  dailyDeficit: number;
+  caloriePerKg: number;
 }
 
 export const Weight_loss_goal_calculatorInputSchema = z.object({
   currentWeight: z.number().default(80),
   targetWeight: z.number().default(70),
-  dailyCaloricDeficit: z.number().default(500),
-  calorieEquivalent: z.number().default(7700),
+  dailyDeficit: z.number().default(500),
+  caloriePerKg: z.number().default(7700),
 });
 
 function evaluateAllFormulas(input: Weight_loss_goal_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.currentWeight - input.targetWeight; results["totalWeightLoss"] = Number.isFinite(v) ? v : 0; } catch { results["totalWeightLoss"] = 0; }
-  try { const v = (input.dailyCaloricDeficit * 7) / input.calorieEquivalent; results["weeklyWeightLoss"] = Number.isFinite(v) ? v : 0; } catch { results["weeklyWeightLoss"] = 0; }
-  try { const v = ((results["totalWeightLoss"] ?? 0) * input.calorieEquivalent) / (input.dailyCaloricDeficit * 7); results["weeksNeeded"] = Number.isFinite(v) ? v : 0; } catch { results["weeksNeeded"] = 0; }
+  try { const v = (input.currentWeight - input.targetWeight) * input.caloriePerKg; results["totalDeficit"] = Number.isFinite(v) ? v : 0; } catch { results["totalDeficit"] = 0; }
+  try { const v = (results["totalDeficit"] ?? 0) / input.dailyDeficit; results["daysToTarget"] = Number.isFinite(v) ? v : 0; } catch { results["daysToTarget"] = 0; }
+  try { const v = (input.dailyDeficit * 7) / input.caloriePerKg; results["weeklyLoss"] = Number.isFinite(v) ? v : 0; } catch { results["weeklyLoss"] = 0; }
   return results;
 }
 
 
 export function calculateWeight_loss_goal_calculator(input: Weight_loss_goal_calculatorInput): Weight_loss_goal_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["weeksNeeded"] ?? 0;
+  const totalWasteCost = values["Estimated"] ?? 0;
   const breakdown = {
     
   };

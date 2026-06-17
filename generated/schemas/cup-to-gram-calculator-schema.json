@@ -3,47 +3,55 @@
   "inputs": [
     {
       "id": "cups",
-      "label": "Number of Cups",
+      "label": "Cup Amount",
       "type": "number",
       "unit": "cups",
       "default": 1,
-      "businessContext": "Volume of ingredient measured in US customary cups"
+      "businessContext": "Number of standard cups to convert to grams."
     },
     {
-      "id": "density_g_per_cup",
+      "id": "cupVolume",
+      "label": "Cup Volume",
+      "type": "number",
+      "unit": "mL",
+      "default": 236.588,
+      "businessContext": "Volume of one cup in milliliters. Standard US cup is 236.588 mL."
+    },
+    {
+      "id": "density",
       "label": "Density",
       "type": "number",
-      "unit": "g/cup",
-      "default": 240,
-      "businessContext": "Density of ingredient in grams per cup (e.g., water ~240, flour ~120, sugar ~200)"
+      "unit": "g/mL",
+      "default": 1,
+      "businessContext": "Density of the ingredient in grams per milliliter at 20°C. Water = 1 g/mL."
     },
     {
-      "id": "packing_factor",
-      "label": "Packing Factor",
+      "id": "temperature",
+      "label": "Temperature",
       "type": "number",
-      "unit": "",
-      "default": 1,
-      "businessContext": "Factor to account for packing density (e.g., 1 for loose, >1 for packed). Default 1 (loose)."
+      "unit": "°C",
+      "default": 20,
+      "businessContext": "Temperature of the ingredient for density correction. Default is 20°C."
     },
     {
-      "id": "calibration_factor",
-      "label": "Calibration Factor",
+      "id": "densityCorrectionFactor",
+      "label": "Temp. Correction Factor",
       "type": "number",
-      "unit": "",
-      "default": 1,
-      "businessContext": "Multiplier for scale calibration adjustment (e.g., 1.05 for +5% correction). Default 1."
+      "unit": "1/°C",
+      "default": 0,
+      "businessContext": "Linear temperature coefficient of density. Density(T) = density(20°C) × (1 + coeff × (T−20)). Usually small; set to 0 if no correction needed."
     }
   ],
   "formulas": {
-    "mass_grams": "cups * density_g_per_cup * packing_factor * calibration_factor",
-    "effective_density": "density_g_per_cup * packing_factor",
-    "adjusted_cups": "cups * calibration_factor"
+    "correctedDensity": "density * (1 + densityCorrectionFactor * (temperature - 20))",
+    "volumeInML": "cups * cupVolume",
+    "massInGrams": "volumeInML * correctedDensity"
   },
   "outputs": {
-    "primary": "mass_grams",
+    "primary": "massInGrams",
     "breakdown": [
-      "effective_density",
-      "adjusted_cups"
+      "volumeInML",
+      "correctedDensity"
     ]
   },
   "category": "Ölçüm & Dönüşüm",

@@ -2,39 +2,40 @@
 import * as z from 'zod';
 
 export interface Meal_plan_calculatorInput {
-  age: number;
-  weight: number;
-  height: number;
-  gender: number;
-  activityFactor: number;
-  costPerCalorie: number;
+  mealsPerDay: number;
+  ingredientCostPerMeal: number;
+  laborCostPerHour: number;
+  prepTimePerMeal: number;
+  overheadPercent: number;
+  wastePercent: number;
 }
 
 export const Meal_plan_calculatorInputSchema = z.object({
-  age: z.number().default(35),
-  weight: z.number().default(70),
-  height: z.number().default(170),
-  gender: z.number().default(1),
-  activityFactor: z.number().default(1.55),
-  costPerCalorie: z.number().default(0.005),
+  mealsPerDay: z.number().default(100),
+  ingredientCostPerMeal: z.number().default(3.5),
+  laborCostPerHour: z.number().default(20),
+  prepTimePerMeal: z.number().default(10),
+  overheadPercent: z.number().default(15),
+  wastePercent: z.number().default(5),
 });
 
 function evaluateAllFormulas(input: Meal_plan_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 10*input.weight + 6.25*input.height - 5*input.age + (input.gender === 1 ? 5 : -161); results["BMR"] = Number.isFinite(v) ? v : 0; } catch { results["BMR"] = 0; }
-  try { const v = (results["BMR"] ?? 0) * input.activityFactor; results["TDEE"] = Number.isFinite(v) ? v : 0; } catch { results["TDEE"] = 0; }
-  try { const v = input.weight * 1.5; results["proteinG"] = Number.isFinite(v) ? v : 0; } catch { results["proteinG"] = 0; }
-  try { const v = ((results["TDEE"] ?? 0) * 0.25) / 9; results["fatG"] = Number.isFinite(v) ? v : 0; } catch { results["fatG"] = 0; }
-  try { const v = ((results["TDEE"] ?? 0) - ((results["proteinG"] ?? 0)*4 + (results["fatG"] ?? 0)*9)) / 4; results["carbsG"] = Number.isFinite(v) ? v : 0; } catch { results["carbsG"] = 0; }
-  try { const v = (results["TDEE"] ?? 0) * input.costPerCalorie; results["dailyCost"] = Number.isFinite(v) ? v : 0; } catch { results["dailyCost"] = 0; }
-  try { const v = (results["dailyCost"] ?? 0) * 7; results["weeklyCost"] = Number.isFinite(v) ? v : 0; } catch { results["weeklyCost"] = 0; }
+  try { const v = input.laborCostPerHour * (input.prepTimePerMeal / 60); results["laborCostPerMeal"] = Number.isFinite(v) ? v : 0; } catch { results["laborCostPerMeal"] = 0; }
+  try { const v = input.ingredientCostPerMeal * input.mealsPerDay; results["totalIngredientCostNoWaste"] = Number.isFinite(v) ? v : 0; } catch { results["totalIngredientCostNoWaste"] = 0; }
+  try { const v = (results["totalIngredientCostNoWaste"] ?? 0) * (input.wastePercent / 100); results["wasteCost"] = Number.isFinite(v) ? v : 0; } catch { results["wasteCost"] = 0; }
+  try { const v = (results["totalIngredientCostNoWaste"] ?? 0) + (results["wasteCost"] ?? 0); results["totalIngredientCostWithWaste"] = Number.isFinite(v) ? v : 0; } catch { results["totalIngredientCostWithWaste"] = 0; }
+  try { const v = (results["laborCostPerMeal"] ?? 0) * input.mealsPerDay; results["totalLaborCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalLaborCost"] = 0; }
+  try { const v = (results["totalIngredientCostWithWaste"] ?? 0) + (results["totalLaborCost"] ?? 0); results["directCost"] = Number.isFinite(v) ? v : 0; } catch { results["directCost"] = 0; }
+  try { const v = (results["directCost"] ?? 0) * (input.overheadPercent / 100); results["overheadCost"] = Number.isFinite(v) ? v : 0; } catch { results["overheadCost"] = 0; }
+  try { const v = (results["directCost"] ?? 0) + (results["overheadCost"] ?? 0); results["totalCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
   return results;
 }
 
 
 export function calculateMeal_plan_calculator(input: Meal_plan_calculatorInput): Meal_plan_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["dailyCost"] ?? 0;
+  const totalWasteCost = values["totalCost"] ?? 0;
   const breakdown = {
     
   };

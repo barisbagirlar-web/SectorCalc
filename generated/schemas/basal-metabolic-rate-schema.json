@@ -2,28 +2,20 @@
   "toolName": "basal-metabolic-rate",
   "inputs": [
     {
-      "id": "gender",
-      "label": "Gender",
-      "type": "number",
-      "unit": "0=male,1=female",
-      "default": 0,
-      "businessContext": "Biological sex for formula selection"
-    },
-    {
       "id": "weight",
       "label": "Weight",
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Body mass in kilograms"
+      "businessContext": "Body weight in kilograms"
     },
     {
       "id": "height",
       "label": "Height",
       "type": "number",
       "unit": "cm",
-      "default": 175,
-      "businessContext": "Body height in centimeters"
+      "default": 170,
+      "businessContext": "Height in centimeters"
     },
     {
       "id": "age",
@@ -32,22 +24,30 @@
       "unit": "years",
       "default": 30,
       "businessContext": "Age in years"
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "1 for Male, 0 for Female"
     }
   ],
   "formulas": {
-    "bmrMale": "10 * weight + 6.25 * height - 5 * age + 5",
-    "bmrFemale": "10 * weight + 6.25 * height - 5 * age - 161",
-    "bmr": "gender === 0 ? bmrMale : bmrFemale"
+    "base": "10 * weight + 6.25 * height - 5 * age",
+    "gender_adjustment": "gender == 1 ? 5 : -161",
+    "bmr": "base + gender_adjustment"
   },
   "outputs": {
     "primary": "bmr",
     "breakdown": [
-      "bmrMale",
-      "bmrFemale"
+      "base",
+      "gender_adjustment"
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

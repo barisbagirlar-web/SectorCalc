@@ -3,37 +3,34 @@ import * as z from 'zod';
 
 export interface Food_cost_calculatorInput {
   ingredientCost: number;
-  laborCost: number;
-  overheadCost: number;
   numberOfServings: number;
-  desiredProfitMargin: number;
-  wastePercentage: number;
+  laborCostPerHour: number;
+  preparationTimeHours: number;
+  overheadPercentage: number;
+  profitMarginPercentage: number;
 }
 
 export const Food_cost_calculatorInputSchema = z.object({
   ingredientCost: z.number().default(0),
-  laborCost: z.number().default(0),
-  overheadCost: z.number().default(0),
   numberOfServings: z.number().default(1),
-  desiredProfitMargin: z.number().default(20),
-  wastePercentage: z.number().default(0),
+  laborCostPerHour: z.number().default(0),
+  preparationTimeHours: z.number().default(0),
+  overheadPercentage: z.number().default(20),
+  profitMarginPercentage: z.number().default(30),
 });
 
 function evaluateAllFormulas(input: Food_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.ingredientCost + input.laborCost + input.overheadCost; results["totalCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = input.ingredientCost + (input.laborCostPerHour * input.preparationTimeHours) + (input.ingredientCost * input.overheadPercentage / 100); results["totalCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
   try { const v = (results["totalCost"] ?? 0) / input.numberOfServings; results["costPerServing"] = Number.isFinite(v) ? v : 0; } catch { results["costPerServing"] = 0; }
-  try { const v = (results["costPerServing"] ?? 0) * (1 + input.wastePercentage / 100); results["costWithWaste"] = Number.isFinite(v) ? v : 0; } catch { results["costWithWaste"] = 0; }
-  try { const v = (results["costWithWaste"] ?? 0) / (1 - input.desiredProfitMargin / 100); results["sellingPrice"] = Number.isFinite(v) ? v : 0; } catch { results["sellingPrice"] = 0; }
-  try { const v = (results["sellingPrice"] ?? 0) - (results["costWithWaste"] ?? 0); results["profitPerServing"] = Number.isFinite(v) ? v : 0; } catch { results["profitPerServing"] = 0; }
-  try { const v = ((results["profitPerServing"] ?? 0) / (results["sellingPrice"] ?? 0)) * 100; results["profitMarginCheck"] = Number.isFinite(v) ? v : 0; } catch { results["profitMarginCheck"] = 0; }
+  try { const v = (results["costPerServing"] ?? 0) / (1 - (input.profitMarginPercentage / 100)); results["sellingPricePerServing"] = Number.isFinite(v) ? v : 0; } catch { results["sellingPricePerServing"] = 0; }
   return results;
 }
 
 
 export function calculateFood_cost_calculator(input: Food_cost_calculatorInput): Food_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["sellingPrice"] ?? 0;
+  const totalWasteCost = values["sellingPricePerServing"] ?? 0;
   const breakdown = {
     
   };

@@ -2,28 +2,31 @@
 import * as z from 'zod';
 
 export interface Food_calorie_calculatorInput {
+  carb: number;
+  prot: number;
   fat: number;
-  carbs: number;
-  protein: number;
-  alcohol: number;
+  fiber: number;
+  alc: number;
   servings: number;
 }
 
 export const Food_calorie_calculatorInputSchema = z.object({
+  carb: z.number().default(0),
+  prot: z.number().default(0),
   fat: z.number().default(0),
-  carbs: z.number().default(0),
-  protein: z.number().default(0),
-  alcohol: z.number().default(0),
+  fiber: z.number().default(0),
+  alc: z.number().default(0),
   servings: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Food_calorie_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (9 * input.fat + 4 * input.carbs + 4 * input.protein + 7 * input.alcohol) * input.servings; results["totalCalories"] = Number.isFinite(v) ? v : 0; } catch { results["totalCalories"] = 0; }
-  try { const v = 9 * input.fat * input.servings; results["fatCalories"] = Number.isFinite(v) ? v : 0; } catch { results["fatCalories"] = 0; }
-  try { const v = 4 * input.carbs * input.servings; results["carbsCalories"] = Number.isFinite(v) ? v : 0; } catch { results["carbsCalories"] = 0; }
-  try { const v = 4 * input.protein * input.servings; results["proteinCalories"] = Number.isFinite(v) ? v : 0; } catch { results["proteinCalories"] = 0; }
-  try { const v = 7 * input.alcohol * input.servings; results["alcoholCalories"] = Number.isFinite(v) ? v : 0; } catch { results["alcoholCalories"] = 0; }
+  try { const v = ((4*input.carb)+(4*input.prot)+(9*input.fat)+(2*input.fiber)+(7*input.alc))*input.servings; results["totalCalories"] = Number.isFinite(v) ? v : 0; } catch { results["totalCalories"] = 0; }
+  try { const v = 4*input.carb*input.servings; results["caloriesFromCarbs"] = Number.isFinite(v) ? v : 0; } catch { results["caloriesFromCarbs"] = 0; }
+  try { const v = 4*input.prot*input.servings; results["caloriesFromProtein"] = Number.isFinite(v) ? v : 0; } catch { results["caloriesFromProtein"] = 0; }
+  try { const v = 9*input.fat*input.servings; results["caloriesFromFat"] = Number.isFinite(v) ? v : 0; } catch { results["caloriesFromFat"] = 0; }
+  try { const v = 2*input.fiber*input.servings; results["caloriesFromFiber"] = Number.isFinite(v) ? v : 0; } catch { results["caloriesFromFiber"] = 0; }
+  try { const v = 7*input.alc*input.servings; results["caloriesFromAlcohol"] = Number.isFinite(v) ? v : 0; } catch { results["caloriesFromAlcohol"] = 0; }
   return results;
 }
 

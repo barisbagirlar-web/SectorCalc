@@ -7,15 +7,15 @@
       "type": "number",
       "unit": "years",
       "default": 30,
-      "businessContext": "User's age in years."
+      "businessContext": "User's age in years"
     },
     {
-      "id": "restingHeartRate",
+      "id": "restingHR",
       "label": "Resting Heart Rate",
       "type": "number",
       "unit": "bpm",
       "default": 70,
-      "businessContext": "Resting heart rate in beats per minute."
+      "businessContext": "Resting heart rate in beats per minute"
     },
     {
       "id": "intensity",
@@ -23,16 +23,24 @@
       "type": "number",
       "unit": "%",
       "default": 70,
-      "businessContext": "Desired exercise intensity as percentage (0-100)."
+      "businessContext": "Target intensity as a percentage (0-100)"
+    },
+    {
+      "id": "maxHR",
+      "label": "Maximum Heart Rate",
+      "type": "number",
+      "unit": "bpm",
+      "default": 0,
+      "businessContext": "If known, enter maximum heart rate; 0 to estimate from age using Tanaka formula"
     }
   ],
   "formulas": {
-    "maxHeartRate": "220 - age",
-    "heartRateReserve": "maxHeartRate - restingHeartRate",
-    "targetHeartRate": "(heartRateReserve * (intensity / 100)) + restingHeartRate"
+    "maxHeartRate": "maxHR > 0 ? maxHR : 208 - 0.7 * age",
+    "heartRateReserve": "(maxHR > 0 ? maxHR : 208 - 0.7 * age) - restingHR",
+    "targetHR": "((maxHR > 0 ? maxHR : 208 - 0.7 * age) - restingHR) * (intensity / 100) + restingHR"
   },
   "outputs": {
-    "primary": "targetHeartRate",
+    "primary": "targetHR",
     "breakdown": [
       "maxHeartRate",
       "heartRateReserve"
@@ -40,8 +48,5 @@
   },
   "category": "Ölçüm & Dönüşüm",
   "sector": "Teknik & Mühendislik",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "premiumRequired": false
 }

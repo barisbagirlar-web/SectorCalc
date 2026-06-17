@@ -2,35 +2,40 @@
 import * as z from 'zod';
 
 export interface Meal_prep_calculatorInput {
-  servings: number;
-  caloriesPerServing: number;
-  proteinPerServing: number;
-  totalCost: number;
-  prepTime: number;
+  desiredServings: number;
+  recipeServings: number;
+  recipeCost: number;
+  wastePercentage: number;
+  packagingCostPerServing: number;
+  fixedCost: number;
 }
 
 export const Meal_prep_calculatorInputSchema = z.object({
-  servings: z.number().default(4),
-  caloriesPerServing: z.number().default(500),
-  proteinPerServing: z.number().default(30),
-  totalCost: z.number().default(20),
-  prepTime: z.number().default(60),
+  desiredServings: z.number().default(1),
+  recipeServings: z.number().default(4),
+  recipeCost: z.number().default(12.5),
+  wastePercentage: z.number().default(5),
+  packagingCostPerServing: z.number().default(0.3),
+  fixedCost: z.number().default(0),
 });
 
 function evaluateAllFormulas(input: Meal_prep_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.totalCost / input.servings; results["costPerServing"] = Number.isFinite(v) ? v : 0; } catch { results["costPerServing"] = 0; }
-  try { const v = input.servings * input.caloriesPerServing; results["totalCalories"] = Number.isFinite(v) ? v : 0; } catch { results["totalCalories"] = 0; }
-  try { const v = input.servings * input.proteinPerServing; results["totalProtein"] = Number.isFinite(v) ? v : 0; } catch { results["totalProtein"] = 0; }
-  try { const v = input.prepTime * Math.sqrt(input.servings / 4); results["scaledPrepTime"] = Number.isFinite(v) ? v : 0; } catch { results["scaledPrepTime"] = 0; }
-  try { const v = input.proteinPerServing * Math.log(input.caloriesPerServing) / input.caloriesPerServing; results["nutrientDensity"] = Number.isFinite(v) ? v : 0; } catch { results["nutrientDensity"] = 0; }
+  try { const v = input.recipeServings * (1 - input.wastePercentage / 100); results["effectiveServingsPerBatch"] = Number.isFinite(v) ? v : 0; } catch { results["effectiveServingsPerBatch"] = 0; }
+  try { const v = Math.ceil(input.desiredServings / (results["effectiveServingsPerBatch"] ?? 0)); results["numberOfBatches"] = Number.isFinite(v) ? v : 0; } catch { results["numberOfBatches"] = 0; }
+  try { const v = (results["numberOfBatches"] ?? 0) * input.recipeCost; results["totalIngredientCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalIngredientCost"] = 0; }
+  try { const v = input.desiredServings * input.packagingCostPerServing; results["totalPackagingCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalPackagingCost"] = 0; }
+  try { const v = (results["totalIngredientCost"] ?? 0) + (results["totalPackagingCost"] ?? 0); results["totalVariableCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalVariableCost"] = 0; }
+  try { const v = (results["totalVariableCost"] ?? 0) + input.fixedCost; results["totalCost"] = Number.isFinite(v) ? v : 0; } catch { results["totalCost"] = 0; }
+  try { const v = (results["totalCost"] ?? 0) / input.desiredServings; results["costPerServing"] = Number.isFinite(v) ? v : 0; } catch { results["costPerServing"] = 0; }
+  try { const v = (results["numberOfBatches"] ?? 0) * input.recipeServings - input.desiredServings; results["wastedServings"] = Number.isFinite(v) ? v : 0; } catch { results["wastedServings"] = 0; }
   return results;
 }
 
 
 export function calculateMeal_prep_calculator(input: Meal_prep_calculatorInput): Meal_prep_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["costPerServing"] ?? 0;
+  const totalWasteCost = values["totalCost"] ?? 0;
   const breakdown = {
     
   };

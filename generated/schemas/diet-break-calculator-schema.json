@@ -2,73 +2,61 @@
   "toolName": "diet-break-calculator",
   "inputs": [
     {
+      "id": "dailyCalories",
+      "label": "Günlük Kalori Hedefi",
+      "type": "number",
+      "unit": "kcal",
+      "default": 2000,
+      "businessContext": "Çalışanın günlük enerji ihtiyacı"
+    },
+    {
+      "id": "dietDays",
+      "label": "Diyet Gün Sayısı",
+      "type": "number",
+      "unit": "days",
+      "default": 5,
+      "businessContext": "Diyet uygulanacak gün sayısı"
+    },
+    {
+      "id": "breakDays",
+      "label": "Diyet Arası Gün Sayısı",
+      "type": "number",
+      "unit": "days",
+      "default": 2,
+      "businessContext": "Diyete ara verilecek gün sayısı"
+    },
+    {
+      "id": "activityFactor",
+      "label": "Aktivite Faktörü",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1.2,
+      "businessContext": "Sedanter (1.2), Hafif Aktif (1.375), Orta Aktif (1.55), Çok Aktif (1.725)"
+    },
+    {
       "id": "weight",
-      "label": "Vücut Ağırlığı (kg)",
+      "label": "Vücut Ağırlığı",
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Kalori hesaplaması için temel vücut ağırlığı"
-    },
-    {
-      "id": "height",
-      "label": "Boy (cm)",
-      "type": "number",
-      "unit": "cm",
-      "default": 170,
-      "businessContext": "Bazal metabolizma hızı hesaplama"
-    },
-    {
-      "id": "age",
-      "label": "Yaş (yıl)",
-      "type": "number",
-      "unit": "yıl",
-      "default": 30,
-      "businessContext": "Bazal metabolizma hızındaki yaş faktörü"
-    },
-    {
-      "id": "gender",
-      "label": "Cinsiyet (0: Kadın, 1: Erkek)",
-      "type": "number",
-      "unit": "",
-      "default": 0,
-      "businessContext": "BMR formülünde cinsiyet farkı (0 kadın, 1 erkek)"
-    },
-    {
-      "id": "activityLevel",
-      "label": "Aktivite Seviyesi (PAL)",
-      "type": "number",
-      "unit": "",
-      "default": 1.55,
-      "businessContext": "Toplam günlük enerji harcamasını belirler (1.2-2.5 arası)"
-    },
-    {
-      "id": "dietDurationWeeks",
-      "label": "Diyet Süresi (hafta)",
-      "type": "number",
-      "unit": "hafta",
-      "default": 12,
-      "businessContext": "Diyet molasının süresini hesaplamak için kullanılır"
+      "businessContext": "Çalışanın vücut ağırlığı"
     }
   ],
   "formulas": {
-    "bmr": "10 * weight + 6.25 * height - 5 * age - 161 + 166 * gender",
-    "tdee": "bmr * activityLevel",
-    "maintenanceCalories": "tdee",
-    "dietBreakWeeks": "dietDurationWeeks / 4"
+    "totalWeeklyCalories": "dailyCalories * dietDays + (dailyCalories * activityFactor) * breakDays",
+    "averageDailyCalories": "(dailyCalories * dietDays + (dailyCalories * activityFactor) * breakDays) / (dietDays + breakDays)",
+    "breakDayCalories": "dailyCalories * activityFactor",
+    "calorieDifference": "(dailyCalories * dietDays + (dailyCalories * activityFactor) * breakDays) / (dietDays + breakDays) - dailyCalories"
   },
   "outputs": {
-    "primary": "maintenanceCalories",
+    "primary": "Ortalama Günlük Kalori",
     "breakdown": [
-      "maintenanceCalories",
-      "bmr",
-      "tdee",
-      "dietBreakWeeks"
+      "Diyet Arası Gün Kalorisi",
+      "Toplam Haftalık Kalori",
+      "Kalori Açığı/Fazlası"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
+  "category": "Finans & İK",
   "sector": "Perakende & Gıda",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "premiumRequired": false
 }

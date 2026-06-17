@@ -2,35 +2,32 @@
 import * as z from 'zod';
 
 export interface Atkins_calculatorInput {
-  totalCarbohydrates: number;
-  dietaryFiber: number;
-  sugarAlcohols: number;
-  protein: number;
-  fat: number;
+  powerInput: number;
+  massFlow: number;
+  specificHeat: number;
+  deltaTemp: number;
+  efficiencyFactor: number;
 }
 
 export const Atkins_calculatorInputSchema = z.object({
-  totalCarbohydrates: z.number().default(0),
-  dietaryFiber: z.number().default(0),
-  sugarAlcohols: z.number().default(0),
-  protein: z.number().default(0),
-  fat: z.number().default(0),
+  powerInput: z.number().default(100),
+  massFlow: z.number().default(2),
+  specificHeat: z.number().default(4.18),
+  deltaTemp: z.number().default(10),
+  efficiencyFactor: z.number().default(1),
 });
 
 function evaluateAllFormulas(input: Atkins_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.totalCarbohydrates - input.dietaryFiber - (input.sugarAlcohols / 2); results["netCarbs"] = Number.isFinite(v) ? v : 0; } catch { results["netCarbs"] = 0; }
-  try { const v = input.protein * 4; results["proteinCalories"] = Number.isFinite(v) ? v : 0; } catch { results["proteinCalories"] = 0; }
-  try { const v = input.fat * 9; results["fatCalories"] = Number.isFinite(v) ? v : 0; } catch { results["fatCalories"] = 0; }
-  try { const v = (results["netCarbs"] ?? 0) * 4; results["carbCalories"] = Number.isFinite(v) ? v : 0; } catch { results["carbCalories"] = 0; }
-  try { const v = (results["proteinCalories"] ?? 0) + (results["fatCalories"] ?? 0) + (results["carbCalories"] ?? 0); results["totalCalories"] = Number.isFinite(v) ? v : 0; } catch { results["totalCalories"] = 0; }
+  try { const v = input.massFlow * input.specificHeat * input.deltaTemp * input.efficiencyFactor; results["actualThermalPower"] = Number.isFinite(v) ? v : 0; } catch { results["actualThermalPower"] = 0; }
+  try { const v = input.powerInput / (results["actualThermalPower"] ?? 0); results["atkinsIndex"] = Number.isFinite(v) ? v : 0; } catch { results["atkinsIndex"] = 0; }
   return results;
 }
 
 
 export function calculateAtkins_calculator(input: Atkins_calculatorInput): Atkins_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["netCarbs"] ?? 0;
+  const totalWasteCost = values["atkinsIndex"] ?? 0;
   const breakdown = {
     
   };

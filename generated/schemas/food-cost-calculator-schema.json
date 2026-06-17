@@ -3,63 +3,60 @@
   "inputs": [
     {
       "id": "ingredientCost",
-      "label": "Ham madde maliyeti",
+      "label": "Total Ingredient Cost",
       "type": "number",
-      "unit": "TRY/parti",
+      "unit": "USD",
       "default": 0,
-      "businessContext": "Bir parti yemek için gerekli tüm ham maddelerin toplam maliyeti"
-    },
-    {
-      "id": "laborCost",
-      "label": "İşçilik maliyeti",
-      "type": "number",
-      "unit": "TRY/parti",
-      "default": 0,
-      "businessContext": "Bir parti yemek üretimi için ayrılan işçilik maliyeti"
-    },
-    {
-      "id": "overheadCost",
-      "label": "Genel gider maliyeti",
-      "type": "number",
-      "unit": "TRY/parti",
-      "default": 0,
-      "businessContext": "Bir parti yemek üretimine düşen kira, enerji, su gibi genel giderler"
+      "businessContext": "Cost of all ingredients used in recipe"
     },
     {
       "id": "numberOfServings",
-      "label": "Porsiyon sayısı",
+      "label": "Number of Servings",
       "type": "number",
-      "unit": "adet",
+      "unit": "servings",
       "default": 1,
-      "businessContext": "Bir parti yemekten elde edilen toplam porsiyon adedi"
+      "businessContext": "Total number of servings the recipe yields"
     },
     {
-      "id": "desiredProfitMargin",
-      "label": "Hedef kâr marjı",
+      "id": "laborCostPerHour",
+      "label": "Labor Cost per Hour",
+      "type": "number",
+      "unit": "USD/h",
+      "default": 0,
+      "businessContext": "Hourly wage for labor"
+    },
+    {
+      "id": "preparationTimeHours",
+      "label": "Preparation Time",
+      "type": "number",
+      "unit": "hours",
+      "default": 0,
+      "businessContext": "Time taken to prepare the dish"
+    },
+    {
+      "id": "overheadPercentage",
+      "label": "Overhead Percentage",
       "type": "number",
       "unit": "%",
       "default": 20,
-      "businessContext": "Satış fiyatı üzerinden hedeflenen kâr oranı"
+      "businessContext": "Additional overhead costs as percentage of ingredient cost"
     },
     {
-      "id": "wastePercentage",
-      "label": "Fire oranı",
+      "id": "profitMarginPercentage",
+      "label": "Desired Profit Margin",
       "type": "number",
       "unit": "%",
-      "default": 0,
-      "businessContext": "Hazırlık ve servis sırasında oluşan malzeme kaybı yüzdesi"
+      "default": 30,
+      "businessContext": "Profit margin to apply as percentage of selling price"
     }
   ],
   "formulas": {
-    "totalCost": "ingredientCost + laborCost + overheadCost",
+    "totalCost": "ingredientCost + (laborCostPerHour * preparationTimeHours) + (ingredientCost * overheadPercentage / 100)",
     "costPerServing": "totalCost / numberOfServings",
-    "costWithWaste": "costPerServing * (1 + wastePercentage / 100)",
-    "sellingPrice": "costWithWaste / (1 - desiredProfitMargin / 100)",
-    "profitPerServing": "sellingPrice - costWithWaste",
-    "profitMarginCheck": "(profitPerServing / sellingPrice) * 100"
+    "sellingPricePerServing": "costPerServing / (1 - (profitMarginPercentage / 100))"
   },
   "outputs": {
-    "primary": "sellingPrice",
+    "primary": "sellingPricePerServing",
     "breakdown": [
       "totalCost",
       "costPerServing"

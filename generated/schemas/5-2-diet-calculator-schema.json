@@ -2,66 +2,52 @@
   "toolName": "5-2-diet-calculator",
   "inputs": [
     {
-      "id": "age",
-      "label": "Age",
+      "id": "normalKcal",
+      "label": "Normal Day Calories",
       "type": "number",
-      "unit": "years",
-      "default": 30,
-      "businessContext": "User age in years for basal metabolic rate calculation."
+      "unit": "kcal/day",
+      "default": 2000,
+      "businessContext": "Daily calorie intake on normal eating days (5 days per week)"
     },
     {
-      "id": "weight",
-      "label": "Weight",
+      "id": "fastKcal",
+      "label": "Fast Day Calories",
       "type": "number",
-      "unit": "kg",
-      "default": 70,
-      "businessContext": "Body weight in kilograms."
+      "unit": "kcal/day",
+      "default": 500,
+      "businessContext": "Daily calorie intake on fasting days (2 days per week)"
     },
     {
-      "id": "height",
-      "label": "Height",
+      "id": "weeks",
+      "label": "Number of Weeks",
       "type": "number",
-      "unit": "cm",
-      "default": 170,
-      "businessContext": "Height in centimeters."
+      "unit": "weeks",
+      "default": 4,
+      "businessContext": "Duration of the diet plan"
     },
     {
-      "id": "gender",
-      "label": "Gender",
+      "id": "maintenanceKcal",
+      "label": "Maintenance Calories",
       "type": "number",
-      "unit": "0=female,1=male",
-      "default": 1,
-      "businessContext": "Biological gender (0 for female, 1 for male) to determine BMR formula."
-    },
-    {
-      "id": "activityLevel",
-      "label": "Activity Level Factor",
-      "type": "number",
-      "unit": "multiplier",
-      "default": 1.55,
-      "businessContext": "Physical activity factor (e.g., 1.2 sedentary, 1.375 light, 1.55 moderate, 1.725 active, 1.9 athlete)."
-    },
-    {
-      "id": "fastingPercent",
-      "label": "Fasting Day Calorie Limit",
-      "type": "number",
-      "unit": "% of TDEE",
-      "default": 25,
-      "businessContext": "Percentage of total daily energy expenditure allowed on fasting days, typically 25%."
+      "unit": "kcal/day",
+      "default": 2500,
+      "businessContext": "Daily calorie intake to maintain current weight (based on TDEE)"
     }
   ],
   "formulas": {
-    "BMR": "(gender === 1) ? (10 * weight + 6.25 * height - 5 * age + 5) : (10 * weight + 6.25 * height - 5 * age - 161)",
-    "TDEE": "BMR * activityLevel",
-    "fastingDayCalories": "TDEE * (fastingPercent / 100)",
-    "normalDayCalories": "TDEE"
+    "totalWeeklyCalories": "5 * normalKcal + 2 * fastKcal",
+    "averageDailyCalories": "totalWeeklyCalories / 7",
+    "weeklyCalorieDeficit": "7 * maintenanceKcal - totalWeeklyCalories",
+    "weeklyWeightLoss": "weeklyCalorieDeficit / 7700",
+    "estimatedTotalWeightLoss": "weeklyWeightLoss * weeks"
   },
   "outputs": {
-    "primary": "fastingDayCalories",
+    "primary": "estimatedTotalWeightLoss",
     "breakdown": [
-      "BMR",
-      "TDEE",
-      "normalDayCalories"
+      "averageDailyCalories",
+      "totalWeeklyCalories",
+      "weeklyCalorieDeficit",
+      "weeklyWeightLoss"
     ]
   },
   "category": "Ölçüm & Dönüşüm",

@@ -2,72 +2,71 @@
   "toolName": "yo-yo-diet-calculator",
   "inputs": [
     {
-      "id": "startingWeight",
-      "label": "Starting Weight",
+      "id": "initialWeight",
+      "label": "Initial Weight",
       "type": "number",
       "unit": "kg",
-      "default": 70,
-      "businessContext": "Initial body weight before starting yo-yo diet cycle"
+      "default": 80,
+      "businessContext": "Body weight at the beginning of the first diet cycle"
     },
     {
-      "id": "dailyWeightLoss",
-      "label": "Daily Weight Loss During Diet",
+      "id": "currentWeight",
+      "label": "Current Weight",
       "type": "number",
-      "unit": "kg/day",
-      "default": 0.2,
-      "businessContext": "Average weight loss per day during active dieting phase"
+      "unit": "kg",
+      "default": 82,
+      "businessContext": "Current body weight after all diet cycles"
     },
     {
-      "id": "dietDuration",
-      "label": "Diet Duration",
+      "id": "numberOfCycles",
+      "label": "Number of Cycles",
+      "type": "number",
+      "unit": "count",
+      "default": 3,
+      "businessContext": "Total number of completed yo-yo diet cycles"
+    },
+    {
+      "id": "weightLossPerCycle",
+      "label": "Weight Loss per Cycle",
+      "type": "number",
+      "unit": "kg",
+      "default": 5,
+      "businessContext": "Average weight lost during the loss phase of one cycle"
+    },
+    {
+      "id": "weightRegainPerCycle",
+      "label": "Weight Regain per Cycle",
+      "type": "number",
+      "unit": "kg",
+      "default": 4,
+      "businessContext": "Average weight regained during the regain phase of one cycle"
+    },
+    {
+      "id": "cycleDurationDays",
+      "label": "Cycle Duration",
       "type": "number",
       "unit": "days",
       "default": 30,
-      "businessContext": "Number of days on the diet"
-    },
-    {
-      "id": "dailyWeightGain",
-      "label": "Daily Weight Gain After Diet",
-      "type": "number",
-      "unit": "kg/day",
-      "default": 0.15,
-      "businessContext": "Average weight gain per day after stopping diet"
-    },
-    {
-      "id": "postDietDuration",
-      "label": "Post-Diet Duration",
-      "type": "number",
-      "unit": "days",
-      "default": 60,
-      "businessContext": "Number of days after diet to evaluate yo-yo effect"
-    },
-    {
-      "id": "cycles",
-      "label": "Number of Cycles",
-      "type": "number",
-      "unit": "cycles",
-      "default": 1,
-      "businessContext": "Number of complete yo-yo diet cycles (diet + post-diet phase)"
+      "businessContext": "Average duration of one complete diet cycle (loss + regain)"
     }
   ],
   "formulas": {
-    "totalWeightLoss": "dailyWeightLoss * dietDuration * cycles",
-    "totalWeightGain": "dailyWeightGain * postDietDuration * cycles",
-    "netWeightChange": "totalWeightGain - totalWeightLoss",
-    "finalWeight": "startingWeight + netWeightChange"
+    "netWeightChange": "currentWeight - initialWeight",
+    "totalWeightLost": "numberOfCycles * weightLossPerCycle",
+    "totalWeightRegained": "numberOfCycles * weightRegainPerCycle",
+    "yoyoIndex": "totalWeightLost !== 0 ? totalWeightRegained / totalWeightLost : 0",
+    "averageCycleFluctuation": "(weightLossPerCycle + weightRegainPerCycle) / 2"
   },
   "outputs": {
-    "primary": "finalWeight",
+    "primary": "yoyoIndex",
     "breakdown": [
-      "totalWeightLoss",
-      "totalWeightGain",
-      "netWeightChange"
+      "netWeightChange",
+      "totalWeightLost",
+      "totalWeightRegained",
+      "averageCycleFluctuation"
     ]
   },
   "category": "Ölçüm & Dönüşüm",
   "sector": "Perakende & Gıda",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "premiumRequired": false
 }

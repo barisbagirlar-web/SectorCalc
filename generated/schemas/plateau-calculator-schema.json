@@ -2,62 +2,66 @@
   "toolName": "plateau-calculator",
   "inputs": [
     {
-      "id": "plateau",
-      "label": "Plateau Value",
+      "id": "initialOutput",
+      "label": "Başlangıç Performansı",
       "type": "number",
-      "unit": "units",
-      "default": 1000,
-      "businessContext": "The asymptote value the system approaches"
-    },
-    {
-      "id": "initialValue",
-      "label": "Initial Value",
-      "type": "number",
-      "unit": "units",
-      "default": 100,
-      "businessContext": "Starting value at time zero"
-    },
-    {
-      "id": "rateConstant",
-      "label": "Rate Constant",
-      "type": "number",
-      "unit": "1/time",
-      "default": 0.2,
-      "businessContext": "Rate of approach to plateau (higher means faster)"
-    },
-    {
-      "id": "currentTime",
-      "label": "Time",
-      "type": "number",
-      "unit": "time",
+      "unit": "birim/saat",
       "default": 10,
-      "businessContext": "Time at which to calculate current value"
+      "businessContext": "Öğrenme eğrisinin başlangıç noktasındaki saatlik çıktı miktarı"
     },
     {
-      "id": "targetPercentage",
-      "label": "Target Percentage",
+      "id": "outputAfterPeriod",
+      "label": "Öğrenme Sonrası Performans",
       "type": "number",
-      "unit": "%",
-      "default": 90,
-      "businessContext": "Desired percentage of plateau to reach"
+      "unit": "birim/saat",
+      "default": 20,
+      "businessContext": "Belirli bir öğrenme süresi sonunda ulaşılan saatlik çıktı"
+    },
+    {
+      "id": "timePeriod",
+      "label": "Öğrenme Süresi",
+      "type": "number",
+      "unit": "hafta",
+      "default": 8,
+      "businessContext": "Performans ölçümleri arasındaki geçen hafta sayısı"
+    },
+    {
+      "id": "learningRate",
+      "label": "Öğrenme Hızı Sabiti",
+      "type": "number",
+      "unit": "1/hafta",
+      "default": 0.25,
+      "businessContext": "Öğrenme eğrisinin diklik katsayısı, üstel yaklaşım modeli için"
     }
   ],
   "formulas": {
-    "currentValue": "plateau - (plateau - initialValue) * Math.exp(-rateConstant * currentTime)",
-    "percentageOfPlateau": "(currentValue / plateau) * 100",
-    "timeToTarget": "-Math.log((plateau - plateau * (targetPercentage/100)) / (plateau - initialValue)) / rateConstant"
+    "plateau": "(outputAfterPeriod - initialOutput * Math.exp(-learningRate * timePeriod)) / (1 - Math.exp(-learningRate * timePeriod))",
+    "approachPercent": "(outputAfterPeriod / ((outputAfterPeriod - initialOutput * Math.exp(-learningRate * timePeriod)) / (1 - Math.exp(-learningRate * timePeriod)))) * 100",
+    "timeTo95": "-(Math.log(0.05)) / learningRate"
   },
   "outputs": {
-    "primary": "currentValue",
+    "primary": {
+      "id": "plateau",
+      "label": "Plato Performansı",
+      "unit": "birim/saat",
+      "formula": "plateau"
+    },
     "breakdown": [
-      "percentageOfPlateau",
-      "timeToTarget"
+      {
+        "id": "approachPercent",
+        "label": "Platoya Yaklaşma Yüzdesi",
+        "unit": "%",
+        "formula": "approachPercent"
+      },
+      {
+        "id": "timeTo95",
+        "label": "%95 Platoya Ulaşma Süresi",
+        "unit": "hafta",
+        "formula": "timeTo95"
+      }
     ]
   },
-  "category": "Teknik & Mühendislik",
-  "sector": "Teknik & Mühendislik",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false
 }

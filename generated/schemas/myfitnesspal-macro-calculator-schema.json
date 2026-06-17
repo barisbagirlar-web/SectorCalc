@@ -2,65 +2,71 @@
   "toolName": "myfitnesspal-macro-calculator",
   "inputs": [
     {
-      "id": "totalCalories",
-      "label": "Daily Calorie Goal",
+      "id": "weight",
+      "label": "Weight (kg)",
       "type": "number",
-      "unit": "kcal",
-      "default": 2000,
-      "businessContext": "Total daily energy intake goal in kilocalories."
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "User body weight in kilograms"
     },
     {
-      "id": "proteinPercent",
-      "label": "Protein (%)",
+      "id": "height",
+      "label": "Height (cm)",
       "type": "number",
-      "unit": "%",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "User height in centimeters"
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
       "default": 30,
-      "businessContext": "Desired percentage of total calories from protein."
+      "businessContext": "User age in years"
     },
     {
-      "id": "carbPercent",
-      "label": "Carbohydrates (%)",
+      "id": "gender",
+      "label": "Gender (0: Female, 1: Male)",
       "type": "number",
-      "unit": "%",
-      "default": 40,
-      "businessContext": "Desired percentage of total calories from carbohydrates."
+      "unit": "",
+      "default": 0,
+      "businessContext": "Biological gender for BMR formula (0 for female, 1 for male)"
     },
     {
-      "id": "fatPercent",
-      "label": "Fat (%)",
+      "id": "activityLevel",
+      "label": "Activity Level",
       "type": "number",
-      "unit": "%",
-      "default": 30,
-      "businessContext": "Desired percentage of total calories from fat."
+      "unit": "",
+      "default": 1.55,
+      "businessContext": "Physical activity multiplier: 1.2=sedentary, 1.375=light, 1.55=moderate, 1.725=very active, 1.9=extra active"
     },
     {
-      "id": "fiberGrams",
-      "label": "Fiber Target",
+      "id": "goalFactor",
+      "label": "Goal Factor",
       "type": "number",
-      "unit": "g",
-      "default": 25,
-      "businessContext": "Daily target for dietary fiber in grams."
+      "unit": "",
+      "default": 0.8,
+      "businessContext": "Calorie adjustment factor: 0.8 for weight loss, 1.0 for maintenance, 1.2 for muscle gain"
     }
   ],
   "formulas": {
-    "proteinGrams": "totalCalories * proteinPercent / 400",
-    "carbsGrams": "totalCalories * carbPercent / 400",
-    "fatGrams": "totalCalories * fatPercent / 900",
-    "fiberGrams": "fiberGrams"
+    "BMR": "gender === 0 ? (10 * weight + 6.25 * height - 5 * age - 161) : (10 * weight + 6.25 * height - 5 * age + 5)",
+    "TDEE": "BMR * activityLevel",
+    "dailyCalories": "TDEE * goalFactor",
+    "protein": "(dailyCalories * 0.30) / 4",
+    "carbs": "(dailyCalories * 0.45) / 4",
+    "fat": "(dailyCalories * 0.25) / 9"
   },
   "outputs": {
-    "primary": "Your daily macro targets based on {{totalCalories}} kcal.",
+    "primary": "dailyCalories",
     "breakdown": [
-      "Protein: {{proteinGrams}} g ({{proteinPercent}}% of calories)",
-      "Carbohydrates: {{carbsGrams}} g ({{carbPercent}}% of calories)",
-      "Fat: {{fatGrams}} g ({{fatPercent}}% of calories)",
-      "Fiber: {{fiberGrams}} g"
+      "protein",
+      "carbs",
+      "fat"
     ]
   },
   "category": "Ölçüm & Dönüşüm",
   "sector": "Perakende & Gıda",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "premiumRequired": false
 }

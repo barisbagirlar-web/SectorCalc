@@ -2,32 +2,34 @@
 import * as z from 'zod';
 
 export interface Omad_calculatorInput {
-  protein: number;
-  carbs: number;
-  fat: number;
-  fiber: number;
+  plannedTime: number;
+  unplannedDowntime: number;
+  idealCycleTime: number;
+  totalUnits: number;
+  defectiveUnits: number;
 }
 
 export const Omad_calculatorInputSchema = z.object({
-  protein: z.number().default(0),
-  carbs: z.number().default(0),
-  fat: z.number().default(0),
-  fiber: z.number().default(0),
+  plannedTime: z.number().default(480),
+  unplannedDowntime: z.number().default(60),
+  idealCycleTime: z.number().default(0.5),
+  totalUnits: z.number().default(800),
+  defectiveUnits: z.number().default(40),
 });
 
 function evaluateAllFormulas(input: Omad_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.protein * 4 + input.carbs * 4 + input.fat * 9; results["totalCalories"] = Number.isFinite(v) ? v : 0; } catch { results["totalCalories"] = 0; }
-  try { const v = input.protein * 4; results["proteinCalories"] = Number.isFinite(v) ? v : 0; } catch { results["proteinCalories"] = 0; }
-  try { const v = input.carbs * 4; results["carbsCalories"] = Number.isFinite(v) ? v : 0; } catch { results["carbsCalories"] = 0; }
-  try { const v = input.fat * 9; results["fatCalories"] = Number.isFinite(v) ? v : 0; } catch { results["fatCalories"] = 0; }
+  try { const v = (input.plannedTime - input.unplannedDowntime) / input.plannedTime; results["availability"] = Number.isFinite(v) ? v : 0; } catch { results["availability"] = 0; }
+  try { const v = (input.idealCycleTime * input.totalUnits) / (input.plannedTime - input.unplannedDowntime); results["performance"] = Number.isFinite(v) ? v : 0; } catch { results["performance"] = 0; }
+  try { const v = (input.totalUnits - input.defectiveUnits) / input.totalUnits; results["quality"] = Number.isFinite(v) ? v : 0; } catch { results["quality"] = 0; }
+  try { const v = ((input.plannedTime - input.unplannedDowntime) / input.plannedTime) * ((input.idealCycleTime * input.totalUnits) / (input.plannedTime - input.unplannedDowntime)) * ((input.totalUnits - input.defectiveUnits) / input.totalUnits); results["oee"] = Number.isFinite(v) ? v : 0; } catch { results["oee"] = 0; }
   return results;
 }
 
 
 export function calculateOmad_calculator(input: Omad_calculatorInput): Omad_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["totalCalories"] ?? 0;
+  const totalWasteCost = values["oee"] ?? 0;
   const breakdown = {
     
   };

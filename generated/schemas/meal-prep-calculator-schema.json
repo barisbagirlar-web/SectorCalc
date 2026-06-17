@@ -2,63 +2,75 @@
   "toolName": "meal-prep-calculator",
   "inputs": [
     {
-      "id": "servings",
-      "label": "Number of Servings",
+      "id": "desiredServings",
+      "label": "Number of Servings Needed",
+      "type": "number",
+      "unit": "servings",
+      "default": 1,
+      "businessContext": "Total meals you intend to prepare"
+    },
+    {
+      "id": "recipeServings",
+      "label": "Servings per Recipe",
       "type": "number",
       "unit": "servings",
       "default": 4,
-      "businessContext": "Total number of servings/meals to prepare."
+      "businessContext": "Servings yielded by one full recipe batch"
     },
     {
-      "id": "caloriesPerServing",
-      "label": "Calories per Serving",
+      "id": "recipeCost",
+      "label": "Total Recipe Cost",
       "type": "number",
-      "unit": "kcal",
-      "default": 500,
-      "businessContext": "Target calories for each serving."
+      "unit": "EUR",
+      "default": 12.5,
+      "businessContext": "Cost of all raw ingredients for one recipe batch"
     },
     {
-      "id": "proteinPerServing",
-      "label": "Protein per Serving",
+      "id": "wastePercentage",
+      "label": "Expected Waste",
       "type": "number",
-      "unit": "g",
-      "default": 30,
-      "businessContext": "Target grams of protein per serving."
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Percentage of ingredients lost to trimming, spillage, or overcooking"
     },
     {
-      "id": "totalCost",
-      "label": "Total Ingredient Cost",
+      "id": "packagingCostPerServing",
+      "label": "Packaging Cost per Serving",
       "type": "number",
-      "unit": "USD",
-      "default": 20,
-      "businessContext": "Total cost of all ingredients for the batch."
+      "unit": "EUR",
+      "default": 0.3,
+      "businessContext": "Cost of disposable containers, foil, film per portion"
     },
     {
-      "id": "prepTime",
-      "label": "Total Prep Time",
+      "id": "fixedCost",
+      "label": "Fixed Costs",
       "type": "number",
-      "unit": "min",
-      "default": 60,
-      "businessContext": "Total time required to prepare the batch (scaled for different servings)."
+      "unit": "EUR",
+      "default": 0,
+      "businessContext": "Equipment rental, utilities, or any one-time overhead"
     }
   ],
   "formulas": {
-    "costPerServing": "totalCost / servings",
-    "totalCalories": "servings * caloriesPerServing",
-    "totalProtein": "servings * proteinPerServing",
-    "scaledPrepTime": "prepTime * Math.sqrt(servings / 4)",
-    "nutrientDensity": "proteinPerServing * Math.log(caloriesPerServing) / caloriesPerServing"
+    "effectiveServingsPerBatch": "recipeServings * (1 - wastePercentage / 100)",
+    "numberOfBatches": "Math.ceil(desiredServings / effectiveServingsPerBatch)",
+    "totalIngredientCost": "numberOfBatches * recipeCost",
+    "totalPackagingCost": "desiredServings * packagingCostPerServing",
+    "totalVariableCost": "totalIngredientCost + totalPackagingCost",
+    "totalCost": "totalVariableCost + fixedCost",
+    "costPerServing": "totalCost / desiredServings",
+    "wastedServings": "numberOfBatches * recipeServings - desiredServings"
   },
   "outputs": {
-    "primary": "costPerServing",
+    "primary": "totalCost",
     "breakdown": [
-      "totalCalories",
-      "totalProtein",
-      "scaledPrepTime",
-      "nutrientDensity"
+      "costPerServing",
+      "numberOfBatches",
+      "totalIngredientCost",
+      "totalPackagingCost",
+      "wastedServings"
     ]
   },
-  "category": "Maliyet & Marj",
+  "category": "Malzeme, Fire & OEE",
   "sector": "Perakende & Gıda",
   "premiumRequired": false,
   "catalogCategory": "health-body",

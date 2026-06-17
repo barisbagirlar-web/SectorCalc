@@ -2,48 +2,48 @@
   "toolName": "gram-to-cup-calculator",
   "inputs": [
     {
-      "id": "mass",
-      "label": "Mass",
+      "id": "grams",
+      "label": "Ağırlık (g)",
       "type": "number",
       "unit": "g",
       "default": 100,
-      "businessContext": "Weight of ingredient in grams"
+      "businessContext": "Malzemenin gram cinsinden ağırlığı."
     },
     {
       "id": "density",
-      "label": "Density",
+      "label": "Yoğunluk (g/mL)",
       "type": "number",
       "unit": "g/mL",
-      "default": 1,
-      "businessContext": "Density of ingredient (mass per unit volume)"
+      "default": 0.59,
+      "businessContext": "Malzemenin yoğunluğu (gram/mililitre). Un için yaklaşık 0.59, şeker için 0.85, su için 1.0."
     },
     {
       "id": "cupVolume",
-      "label": "Cup Volume",
+      "label": "Bardak Hacmi (mL)",
       "type": "number",
       "unit": "mL",
-      "default": 236.588,
-      "businessContext": "Volume of one standard cup in milliliters (US cup)"
+      "default": 240,
+      "businessContext": "Kullanılan standart bardağın mililitre cinsinden hacmi. ABD'de genellikle 240 mL, metrik sistemde 250 mL."
     },
     {
-      "id": "decimals",
-      "label": "Decimal Places",
+      "id": "packingFactor",
+      "label": "Sıkıştırma Faktörü",
       "type": "number",
-      "unit": "",
-      "default": 2,
-      "businessContext": "Number of decimal places for rounding"
+      "unit": "oransız",
+      "default": 1,
+      "businessContext": "Malzemenin ne kadar sıkıştırıldığını gösteren faktör (1 = normal, >1 daha yoğun)."
     }
   ],
   "formulas": {
-    "volumeML": "mass / density",
-    "cups": "volumeML / cupVolume",
-    "finalCups": "Math.round(cups * Math.pow(10, decimals)) / Math.pow(10, decimals)"
+    "cups": "grams / (density * packingFactor * cupVolume)",
+    "volumeML": "grams / (density * packingFactor)",
+    "gramsPerCup": "density * packingFactor * cupVolume"
   },
   "outputs": {
-    "primary": "finalCups",
+    "primary": "cups",
     "breakdown": [
       "volumeML",
-      "cups"
+      "gramsPerCup"
     ]
   },
   "category": "Ölçüm & Dönüşüm",

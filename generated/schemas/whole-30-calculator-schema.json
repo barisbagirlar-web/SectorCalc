@@ -2,58 +2,55 @@
   "toolName": "whole-30-calculator",
   "inputs": [
     {
-      "id": "sugar",
-      "label": "Added Sugar",
+      "id": "dailyDemand",
+      "label": "Daily Material Demand",
       "type": "number",
-      "unit": "g",
-      "default": 0,
-      "businessContext": "Amount of added sugar per serving; any >0 indicates non-compliance"
+      "unit": "kg",
+      "default": 100,
+      "businessContext": "The amount of raw material required per day in kilograms."
     },
     {
-      "id": "alcohol",
-      "label": "Alcohol",
+      "id": "costPerKg",
+      "label": "Cost per kg",
       "type": "number",
-      "unit": "g",
-      "default": 0,
-      "businessContext": "Alcohol content; any >0 non-compliant"
+      "unit": "EUR",
+      "default": 2.5,
+      "businessContext": "Unit cost of the material in EUR per kg."
     },
     {
-      "id": "grain",
-      "label": "Contains Grains",
+      "id": "wasteRate",
+      "label": "Waste Rate",
       "type": "number",
-      "unit": "",
-      "default": 0,
-      "businessContext": "Flag: 0=No, 1=Yes; non-compliant if 1"
+      "unit": "%",
+      "default": 5,
+      "businessContext": "Expected percentage of material wasted during processing."
     },
     {
-      "id": "legume",
-      "label": "Contains Legumes",
+      "id": "days",
+      "label": "Number of Days",
       "type": "number",
-      "unit": "",
-      "default": 0,
-      "businessContext": "Flag: 0=No, 1=Yes"
-    },
-    {
-      "id": "dairy",
-      "label": "Contains Dairy",
-      "type": "number",
-      "unit": "",
-      "default": 0,
-      "businessContext": "Flag: 0=No, 1=Yes"
+      "unit": "days",
+      "default": 30,
+      "businessContext": "Production period in days (default 30 for Whole 30)."
     }
   ],
   "formulas": {
-    "isCompliant": "(sugar <= 0 && alcohol <= 0 && grain === 0 && legume === 0 && dairy === 0) ? 1 : 0",
-    "violationCount": "(sugar > 0 ? 1 : 0) + (alcohol > 0 ? 1 : 0) + grain + legume + dairy"
+    "totalMaterial": "dailyDemand * days * (1 + wasteRate/100)",
+    "wasteAmount": "dailyDemand * days * wasteRate / 100",
+    "totalCost": "dailyDemand * days * (1 + wasteRate/100) * costPerKg",
+    "wasteCost": "dailyDemand * days * (wasteRate/100) * costPerKg"
   },
   "outputs": {
-    "primary": "isCompliant",
+    "primary": "totalCost",
     "breakdown": [
-      "violationCount"
+      "totalMaterial",
+      "wasteAmount",
+      "totalCost",
+      "wasteCost"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

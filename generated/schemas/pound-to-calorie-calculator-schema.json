@@ -2,20 +2,12 @@
   "toolName": "pound-to-calorie-calculator",
   "inputs": [
     {
-      "id": "weightLb",
-      "label": "Weight per Item (lb)",
+      "id": "weightPounds",
+      "label": "Weight in Pounds",
       "type": "number",
       "unit": "lb",
       "default": 1,
-      "businessContext": "Weight of a single item in pounds"
-    },
-    {
-      "id": "itemCount",
-      "label": "Number of Items",
-      "type": "number",
-      "unit": "",
-      "default": 1,
-      "businessContext": "Total quantity of items to consider"
+      "businessContext": "The weight in pounds to convert to calories. Standard use is for body fat energy content."
     },
     {
       "id": "caloriesPerPound",
@@ -23,42 +15,38 @@
       "type": "number",
       "unit": "kcal/lb",
       "default": 3500,
-      "businessContext": "Caloric density in kilocalories per pound (commonly 3500 for body fat)"
+      "businessContext": "Conversion factor from pounds to calories. Default 3500 kcal/lb is the widely accepted value for body fat."
     },
     {
-      "id": "outputUnit",
-      "label": "Output Unit",
+      "id": "includeKilojoules",
+      "label": "Include Kilojoules",
       "type": "number",
       "unit": "",
-      "default": 1,
-      "businessContext": "1 for kilocalories (kcal), 2 for small calories (cal)"
+      "default": 0,
+      "businessContext": "Set to 1 to also display the equivalent energy in kilojoules."
     },
     {
-      "id": "decimals",
-      "label": "Decimal Places",
+      "id": "roundingPrecision",
+      "label": "Rounding Precision",
       "type": "number",
-      "unit": "",
-      "default": 2,
-      "businessContext": "Number of decimal places to round the result to"
+      "unit": "decimal places",
+      "default": 0,
+      "businessContext": "Number of decimal places to round the output values."
     }
   ],
   "formulas": {
-    "totalKcal": "weightLb * itemCount * caloriesPerPound",
-    "perItemKcal": "weightLb * caloriesPerPound",
-    "totalCaloriesRaw": "outputUnit === 1 ? totalKcal : totalKcal * 1000",
-    "perItemCaloriesRaw": "outputUnit === 1 ? perItemKcal : perItemKcal * 1000",
-    "totalCalories": "Math.round(totalCaloriesRaw * Math.pow(10, decimals)) / Math.pow(10, decimals)",
-    "perItemCalories": "Math.round(perItemCaloriesRaw * Math.pow(10, decimals)) / Math.pow(10, decimals)"
+    "calories": "Math.round(weightPounds * caloriesPerPound * Math.pow(10, roundingPrecision)) / Math.pow(10, roundingPrecision)",
+    "kilojoules": "Math.round(weightPounds * caloriesPerPound * 4.184 * Math.pow(10, roundingPrecision)) / Math.pow(10, roundingPrecision)"
   },
   "outputs": {
-    "primary": "totalCalories",
+    "primary": "calories",
     "breakdown": [
-      "perItemCalories",
-      "totalCaloriesRaw"
+      "calories",
+      "kilojoules"
     ]
   },
   "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

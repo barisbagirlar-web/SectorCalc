@@ -1,0 +1,57 @@
+{
+  "toolName": "weight-loss-timeline",
+  "inputs": [
+    {
+      "id": "initialWeight",
+      "label": "Initial Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 100,
+      "businessContext": "Starting weight of the material before the loss process begins."
+    },
+    {
+      "id": "targetWeight",
+      "label": "Target Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 80,
+      "businessContext": "Desired final weight after the loss process."
+    },
+    {
+      "id": "lossRatePercent",
+      "label": "Loss Rate",
+      "type": "number",
+      "unit": "%/hour",
+      "default": 2,
+      "businessContext": "Percentage of current weight lost per hour (exponential decay)."
+    },
+    {
+      "id": "safetyFactor",
+      "label": "Safety Factor",
+      "type": "number",
+      "unit": "",
+      "default": 1.1,
+      "businessContext": "Multiplier to account for process variability and ensure target is achieved."
+    }
+  ],
+  "formulas": {
+    "theoreticalTime": "Math.log(initialWeight / targetWeight) / (lossRatePercent / 100)",
+    "timeRequired": "theoreticalTime * safetyFactor",
+    "totalWeightLoss": "initialWeight - targetWeight",
+    "effectiveLossRate": "totalWeightLoss / timeRequired"
+  },
+  "outputs": {
+    "primary": "timeRequired",
+    "breakdown": [
+      "totalWeightLoss",
+      "theoreticalTime",
+      "effectiveLossRate"
+    ]
+  },
+  "category": "Malzeme, Fire & OEE",
+  "sector": "Üretim & İmalat",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

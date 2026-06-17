@@ -6,84 +6,64 @@
       "label": "Serving Size",
       "type": "number",
       "unit": "g",
-      "default": 0,
-      "businessContext": "Weight of one serving in grams."
+      "default": 100,
+      "businessContext": "Standard serving size in grams as stated on the nutrition label."
     },
     {
       "id": "calories",
-      "label": "Calories",
+      "label": "Calories per Serving",
       "type": "number",
       "unit": "kcal",
-      "default": 0,
-      "businessContext": "Energy content per serving in kilocalories."
+      "default": 250,
+      "businessContext": "Total caloric content per serving."
     },
     {
       "id": "totalFat",
       "label": "Total Fat",
       "type": "number",
       "unit": "g",
-      "default": 0,
-      "businessContext": "Total fat content per serving in grams."
-    },
-    {
-      "id": "saturatedFat",
-      "label": "Saturated Fat",
-      "type": "number",
-      "unit": "g",
-      "default": 0,
-      "businessContext": "Saturated fat content per serving in grams."
-    },
-    {
-      "id": "cholesterol",
-      "label": "Cholesterol",
-      "type": "number",
-      "unit": "mg",
-      "default": 0,
-      "businessContext": "Cholesterol content per serving in milligrams."
+      "default": 12,
+      "businessContext": "Amount of total fat per serving in grams."
     },
     {
       "id": "sodium",
       "label": "Sodium",
       "type": "number",
       "unit": "mg",
-      "default": 0,
+      "default": 500,
       "businessContext": "Sodium content per serving in milligrams."
     },
     {
-      "id": "totalCarbohydrates",
+      "id": "totalCarbs",
       "label": "Total Carbohydrates",
       "type": "number",
       "unit": "g",
-      "default": 0,
-      "businessContext": "Total carbohydrate content per serving in grams."
+      "default": 30,
+      "businessContext": "Amount of total carbohydrates per serving in grams."
     },
     {
       "id": "protein",
       "label": "Protein",
       "type": "number",
       "unit": "g",
-      "default": 0,
+      "default": 5,
       "businessContext": "Protein content per serving in grams."
     }
   ],
   "formulas": {
-    "fatDV": "(totalFat / 65) * 100",
-    "saturatedFatDV": "(saturatedFat / 20) * 100",
-    "cholesterolDV": "(cholesterol / 300) * 100",
-    "sodiumDV": "(sodium / 2300) * 100",
-    "carbsDV": "(totalCarbohydrates / 300) * 100",
-    "proteinDV": "(protein / 50) * 100",
-    "averageDV": "(fatDV + saturatedFatDV + cholesterolDV + sodiumDV + carbsDV + proteinDV) / 6"
+    "caloriesPer100g": "(calories / servingSize) * 100",
+    "totalFatPer100g": "(totalFat / servingSize) * 100",
+    "sodiumPer100g": "(sodium / servingSize) * 100",
+    "totalCarbsPer100g": "(totalCarbs / servingSize) * 100",
+    "proteinPer100g": "(protein / servingSize) * 100"
   },
   "outputs": {
-    "primary": "averageDV",
+    "primary": "caloriesPer100g",
     "breakdown": [
-      "fatDV",
-      "saturatedFatDV",
-      "cholesterolDV",
-      "sodiumDV",
-      "carbsDV",
-      "proteinDV"
+      "totalFatPer100g",
+      "sodiumPer100g",
+      "totalCarbsPer100g",
+      "proteinPer100g"
     ]
   },
   "category": "Ölçüm & Dönüşüm",

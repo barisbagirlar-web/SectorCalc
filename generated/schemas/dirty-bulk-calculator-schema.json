@@ -3,73 +3,70 @@
   "inputs": [
     {
       "id": "weight",
-      "label": "Weight",
+      "label": "Cargo Weight",
       "type": "number",
-      "unit": "kg",
-      "default": 80,
-      "businessContext": "User body weight in kilograms"
+      "unit": "tons",
+      "default": 1000,
+      "businessContext": "Total weight of dirty bulk cargo to be shipped."
     },
     {
-      "id": "height",
-      "label": "Height",
+      "id": "distance",
+      "label": "Shipping Distance",
       "type": "number",
-      "unit": "cm",
-      "default": 175,
-      "businessContext": "User height in centimeters"
+      "unit": "km",
+      "default": 500,
+      "businessContext": "Distance over sea route."
     },
     {
-      "id": "age",
-      "label": "Age",
+      "id": "ratePerTonKm",
+      "label": "Freight Rate",
       "type": "number",
-      "unit": "years",
-      "default": 25,
-      "businessContext": "User age in years"
+      "unit": "$/ton-km",
+      "default": 0.05,
+      "businessContext": "Base freight rate per ton-km."
     },
     {
-      "id": "gender",
-      "label": "Gender",
-      "type": "number",
-      "unit": "binary",
-      "default": 1,
-      "businessContext": "0 for female, 1 for male"
-    },
-    {
-      "id": "activityFactor",
-      "label": "Activity Factor",
-      "type": "number",
-      "unit": "",
-      "default": 1.55,
-      "businessContext": "Physical activity level multiplier (e.g., 1.2 sedentary, 1.55 moderate, 1.9 extra active)"
-    },
-    {
-      "id": "surplusPercent",
-      "label": "Surplus Percentage",
+      "id": "cleaningSurchargePercent",
+      "label": "Cleaning Surcharge",
       "type": "number",
       "unit": "%",
-      "default": 25,
-      "businessContext": "Caloric surplus percentage for dirty bulk (e.g., 25 for 25% surplus)"
+      "default": 15,
+      "businessContext": "Additional percentage for tank cleaning after dirty cargo."
+    },
+    {
+      "id": "demurrageRiskFactor",
+      "label": "Demurrage Risk Factor",
+      "type": "number",
+      "unit": "days",
+      "default": 2,
+      "businessContext": "Expected extra days due to cargo residue requiring extra cleaning."
+    },
+    {
+      "id": "demurrageRate",
+      "label": "Demurrage Rate",
+      "type": "number",
+      "unit": "$/day",
+      "default": 5000,
+      "businessContext": "Daily demurrage cost if port time exceeds allowed."
     }
   ],
   "formulas": {
-    "bmr": "gender ? (10 * weight + 6.25 * height - 5 * age + 5) : (10 * weight + 6.25 * height - 5 * age - 161)",
-    "tdee": "bmr * activityFactor",
-    "targetCalories": "tdee * (1 + surplusPercent / 100)",
-    "proteinGrams": "weight * 2",
-    "fatGrams": "weight * 0.8",
-    "carbGrams": "(targetCalories - (proteinGrams * 4 + fatGrams * 9)) / 4"
+    "baseCost": "weight * distance * ratePerTonKm",
+    "cleaningSurcharge": "baseCost * (cleaningSurchargePercent / 100)",
+    "demurrageCost": "demurrageRiskFactor * demurrageRate",
+    "totalCost": "baseCost + cleaningSurcharge + demurrageCost",
+    "costPerTon": "totalCost / weight"
   },
   "outputs": {
-    "primary": "targetCalories",
+    "primary": "totalCost",
     "breakdown": [
-      "proteinGrams",
-      "fatGrams",
-      "carbGrams"
+      "baseCost",
+      "cleaningSurcharge",
+      "demurrageCost",
+      "costPerTon"
     ]
   },
-  "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "category": "Rota & Lojistik",
+  "sector": "Lojistik & Sevkiyat",
+  "premiumRequired": false
 }

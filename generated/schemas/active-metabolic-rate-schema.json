@@ -1,0 +1,61 @@
+{
+  "toolName": "active-metabolic-rate",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Body weight in kilograms"
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Body height in centimeters"
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "businessContext": "Age in years"
+    },
+    {
+      "id": "sex",
+      "label": "Sex (0 = female, 1 = male)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "businessContext": "Biological sex for BMR calculation"
+    },
+    {
+      "id": "activityFactor",
+      "label": "Activity Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 1.55,
+      "businessContext": "Activity level multiplier (1.2 sedentary, 1.375 light, 1.55 moderate, 1.725 very active, 1.9 extra active)"
+    }
+  ],
+  "formulas": {
+    "bmr": "sex === 1 ? 10 * weight + 6.25 * height - 5 * age + 5 : 10 * weight + 6.25 * height - 5 * age - 161",
+    "amr": "bmr * activityFactor"
+  },
+  "outputs": {
+    "primary": "amr",
+    "breakdown": [
+      "bmr"
+    ]
+  },
+  "category": "Enerji & Karbon",
+  "sector": "Enerji & Karbon",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

@@ -3,61 +3,57 @@
   "inputs": [
     {
       "id": "age",
-      "label": "Age",
+      "label": "Yaş",
       "type": "number",
-      "unit": "years",
+      "unit": "yıl",
       "default": 30,
-      "businessContext": "Age of the individual for basal metabolic rate calculation"
-    },
-    {
-      "id": "weight",
-      "label": "Weight",
-      "type": "number",
-      "unit": "kg",
-      "default": 70,
-      "businessContext": "Body weight in kilograms"
-    },
-    {
-      "id": "height",
-      "label": "Height",
-      "type": "number",
-      "unit": "cm",
-      "default": 170,
-      "businessContext": "Body height in centimeters"
+      "businessContext": "Kullanıcının yıl cinsinden yaşı"
     },
     {
       "id": "gender",
-      "label": "Gender",
+      "label": "Cinsiyet (0: Kadın, 1: Erkek)",
       "type": "number",
-      "unit": "0: female, 1: male",
-      "default": 1,
-      "businessContext": "Biological gender for selecting the appropriate BMR formula"
+      "unit": "",
+      "default": 0,
+      "businessContext": "Cinsiyet: 0 kadın, 1 erkek"
     },
     {
-      "id": "activityLevel",
-      "label": "Activity Level",
+      "id": "weight",
+      "label": "Ağırlık",
       "type": "number",
-      "unit": "factor",
-      "default": 1.55,
-      "businessContext": "Physical activity multiplier (1.2 sedentary, 1.375 light, 1.55 moderate, 1.725 very active, 1.9 extra active)"
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Kullanıcının kilogram cinsinden vücut ağırlığı"
+    },
+    {
+      "id": "height",
+      "label": "Boy",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Kullanıcının santimetre cinsinden boyu"
+    },
+    {
+      "id": "activityFactor",
+      "label": "Aktivite Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 1.2,
+      "businessContext": "Sedanter:1.2, Hafif aktif:1.375, Orta aktif:1.55, Çok aktif:1.725, Ekstra aktif:1.9"
     }
   ],
   "formulas": {
-    "bmr": "gender === 0 ? 10 * weight + 6.25 * height - 5 * age - 161 : 10 * weight + 6.25 * height - 5 * age - 5",
-    "tdee": "bmr * activityLevel",
-    "caloriesFromActivity": "tdee - bmr"
+    "bmr": "(gender === 1 ? (10*weight + 6.25*height - 5*age + 5) : (10*weight + 6.25*height - 5*age - 161))",
+    "tdee": "bmr * activityFactor"
   },
   "outputs": {
     "primary": "tdee",
     "breakdown": [
       "bmr",
-      "caloriesFromActivity"
+      "activityFactor"
     ]
   },
   "category": "Ölçüm & Dönüşüm",
-  "sector": "Teknik & Mühendislik",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false
 }

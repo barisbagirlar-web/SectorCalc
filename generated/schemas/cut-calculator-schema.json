@@ -2,67 +2,67 @@
   "toolName": "cut-calculator",
   "inputs": [
     {
-      "id": "stockLength",
-      "label": "Stock Length",
+      "id": "cuttingSpeed",
+      "label": "Kesme Hızı (Vc)",
       "type": "number",
-      "unit": "mm",
-      "default": 2000,
-      "businessContext": "Total length of raw material available for cutting."
+      "unit": "m/dk",
+      "default": 150,
+      "businessContext": "Kesme hızı, malzeme ve takım özelliklerine bağlıdır."
     },
     {
-      "id": "partLength",
-      "label": "Part Length",
+      "id": "feedPerTooth",
+      "label": "Diş Başı İlerleme (fz)",
       "type": "number",
-      "unit": "mm",
-      "default": 100,
-      "businessContext": "Desired length of each cut piece."
+      "unit": "mm/diş",
+      "default": 0.15,
+      "businessContext": "Takım kataloğundan seçilen değer."
     },
     {
-      "id": "kerf",
-      "label": "Kerf Width",
+      "id": "numberOfTeeth",
+      "label": "Diş Sayısı (z)",
       "type": "number",
-      "unit": "mm",
-      "default": 2,
-      "businessContext": "Material removed by the cutting process (e.g., blade thickness, laser kerf)."
+      "unit": "adet",
+      "default": 4,
+      "businessContext": "Kesici takımın diş sayısı."
     },
     {
-      "id": "endTrim",
-      "label": "End Trim",
+      "id": "toolDiameter",
+      "label": "Takım Çapı (D)",
       "type": "number",
       "unit": "mm",
-      "default": 0,
-      "businessContext": "Additional trim from each end of the stock to ensure squareness. Deducted from usable length."
+      "default": 12,
+      "businessContext": "Kesici takımın çapı."
     },
     {
-      "id": "requiredQuantity",
-      "label": "Required Quantity",
+      "id": "depthOfCut",
+      "label": "Kesme Derinliği (ap)",
       "type": "number",
-      "unit": "pcs",
-      "default": 0,
-      "businessContext": "Total number of pieces needed. If >0, calculates the number of stocks and total material required. Set to 0 for single-stock optimization only."
+      "unit": "mm",
+      "default": 5,
+      "businessContext": "Eksenel kesme derinliği."
+    },
+    {
+      "id": "widthOfCut",
+      "label": "Kesme Genişliği (ae)",
+      "type": "number",
+      "unit": "mm",
+      "default": 8,
+      "businessContext": "Radyal kesme genişliği."
     }
   ],
   "formulas": {
-    "usableLength": "stockLength - 2 * endTrim",
-    "piecesPerStock": "Math.floor((usableLength + kerf) / (partLength + kerf))",
-    "wasteLength": "usableLength - (piecesPerStock * partLength + (piecesPerStock - 1) * kerf)",
-    "wastePercentage": "(wasteLength / usableLength) * 100",
-    "stocksNeeded": "requiredQuantity > 0 ? Math.ceil(requiredQuantity / piecesPerStock) : 0",
-    "totalMaterialNeeded": "requiredQuantity > 0 ? stocksNeeded * stockLength : 0"
+    "spindleSpeed": "(cuttingSpeed * 1000) / (Math.PI * toolDiameter)",
+    "feedRate": "feedPerTooth * numberOfTeeth * spindleSpeed",
+    "materialRemovalRate": "(depthOfCut * widthOfCut * feedRate) / 1000"
   },
   "outputs": {
-    "primary": "piecesPerStock",
+    "primary": "materialRemovalRate",
     "breakdown": [
-      "wasteLength",
-      "wastePercentage",
-      "stocksNeeded",
-      "totalMaterialNeeded"
+      "spindleSpeed",
+      "feedRate"
     ]
   },
-  "category": "Malzeme, Fire & OEE",
+  "category": "Teknik & Mühendislik",
   "sector": "Üretim & İmalat",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "premiumRequired": false
 }

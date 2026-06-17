@@ -1,0 +1,52 @@
+{
+  "toolName": "resting-metabolic-rate",
+  "inputs": [
+    {
+      "id": "gender",
+      "label": "Cinsiyet (Erkek=0, Kadın=1)",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "businessContext": "0: Erkek, 1: Kadın"
+    },
+    {
+      "id": "weight",
+      "label": "Vücut Ağırlığı (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Kilogram cinsinden ağırlık"
+    },
+    {
+      "id": "height",
+      "label": "Boy (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Santimetre cinsinden boy"
+    },
+    {
+      "id": "age",
+      "label": "Yaş (yıl)",
+      "type": "number",
+      "unit": "yıl",
+      "default": 30,
+      "businessContext": "Yaş"
+    }
+  ],
+  "formulas": {
+    "rmr": "(10 * weight) + (6.25 * height) - (5 * age) - (gender === 0 ? 5 : 161)"
+  },
+  "outputs": {
+    "primary": "rmr",
+    "breakdown": [
+      "rmr"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Teknik & Mühendislik",
+  "premiumRequired": false,
+  "catalogCategory": "health-body",
+  "sectorSlug": "cleaning",
+  "categorySlug": "hse-ergonomics"
+}

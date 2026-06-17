@@ -2,36 +2,33 @@
 import * as z from 'zod';
 
 export interface _5_2_diet_calculatorInput {
-  age: number;
-  weight: number;
-  height: number;
-  gender: number;
-  activityLevel: number;
-  fastingPercent: number;
+  normalKcal: number;
+  fastKcal: number;
+  weeks: number;
+  maintenanceKcal: number;
 }
 
 export const _5_2_diet_calculatorInputSchema = z.object({
-  age: z.number().default(30),
-  weight: z.number().default(70),
-  height: z.number().default(170),
-  gender: z.number().default(1),
-  activityLevel: z.number().default(1.55),
-  fastingPercent: z.number().default(25),
+  normalKcal: z.number().default(2000),
+  fastKcal: z.number().default(500),
+  weeks: z.number().default(4),
+  maintenanceKcal: z.number().default(2500),
 });
 
 function evaluateAllFormulas(input: _5_2_diet_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.gender === 1) ? (10 * input.weight + 6.25 * input.height - 5 * input.age + 5) : (10 * input.weight + 6.25 * input.height - 5 * input.age - 161); results["BMR"] = Number.isFinite(v) ? v : 0; } catch { results["BMR"] = 0; }
-  try { const v = (results["BMR"] ?? 0) * input.activityLevel; results["TDEE"] = Number.isFinite(v) ? v : 0; } catch { results["TDEE"] = 0; }
-  try { const v = (results["TDEE"] ?? 0) * (input.fastingPercent / 100); results["fastingDayCalories"] = Number.isFinite(v) ? v : 0; } catch { results["fastingDayCalories"] = 0; }
-  try { const v = (results["TDEE"] ?? 0); results["normalDayCalories"] = Number.isFinite(v) ? v : 0; } catch { results["normalDayCalories"] = 0; }
+  try { const v = 5 * input.normalKcal + 2 * input.fastKcal; results["totalWeeklyCalories"] = Number.isFinite(v) ? v : 0; } catch { results["totalWeeklyCalories"] = 0; }
+  try { const v = (results["totalWeeklyCalories"] ?? 0) / 7; results["averageDailyCalories"] = Number.isFinite(v) ? v : 0; } catch { results["averageDailyCalories"] = 0; }
+  try { const v = 7 * input.maintenanceKcal - (results["totalWeeklyCalories"] ?? 0); results["weeklyCalorieDeficit"] = Number.isFinite(v) ? v : 0; } catch { results["weeklyCalorieDeficit"] = 0; }
+  try { const v = (results["weeklyCalorieDeficit"] ?? 0) / 7700; results["weeklyWeightLoss"] = Number.isFinite(v) ? v : 0; } catch { results["weeklyWeightLoss"] = 0; }
+  try { const v = (results["weeklyWeightLoss"] ?? 0) * input.weeks; results["estimatedTotalWeightLoss"] = Number.isFinite(v) ? v : 0; } catch { results["estimatedTotalWeightLoss"] = 0; }
   return results;
 }
 
 
 export function calculate_5_2_diet_calculator(input: _5_2_diet_calculatorInput): _5_2_diet_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = values["fastingDayCalories"] ?? 0;
+  const totalWasteCost = values["estimatedTotalWeightLoss"] ?? 0;
   const breakdown = {
     
   };

@@ -5,19 +5,17 @@ export interface Net_carb_calculatorInput {
   totalCarbs: number;
   dietaryFiber: number;
   sugarAlcohols: number;
-  allulose: number;
 }
 
 export const Net_carb_calculatorInputSchema = z.object({
-  totalCarbs: z.number().default(0),
-  dietaryFiber: z.number().default(0),
-  sugarAlcohols: z.number().default(0),
-  allulose: z.number().default(0),
+  totalCarbs: z.number().default(30),
+  dietaryFiber: z.number().default(5),
+  sugarAlcohols: z.number().default(2),
 });
 
 function evaluateAllFormulas(input: Net_carb_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.totalCarbs - input.dietaryFiber - input.sugarAlcohols - input.allulose; results["netCarbs"] = Number.isFinite(v) ? v : 0; } catch { results["netCarbs"] = 0; }
+  try { const v = input.totalCarbs - input.dietaryFiber - input.sugarAlcohols; results["netCarbs"] = Number.isFinite(v) ? v : 0; } catch { results["netCarbs"] = 0; }
   return results;
 }
 

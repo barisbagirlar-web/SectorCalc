@@ -2,49 +2,47 @@
   "toolName": "met-calculator",
   "inputs": [
     {
-      "id": "met",
-      "label": "MET Value",
+      "id": "metValue",
+      "label": "MET Değeri",
       "type": "number",
-      "unit": "MET",
-      "default": 8,
-      "businessContext": "Metabolic Equivalent of Task, e.g., running at 8 km/h ≈ 8 MET"
+      "unit": "",
+      "default": 1,
+      "businessContext": "Gerçekleştirilen aktivitenin MET değeri"
     },
     {
-      "id": "weight",
-      "label": "Weight",
+      "id": "weightKg",
+      "label": "Vücut Ağırlığı",
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Body weight in kilograms"
+      "businessContext": "Kullanıcının kilogram cinsinden vücut ağırlığı"
     },
     {
-      "id": "duration",
-      "label": "Duration",
+      "id": "durationMin",
+      "label": "Süre",
       "type": "number",
-      "unit": "minutes",
+      "unit": "dk",
       "default": 30,
-      "businessContext": "Duration of the activity in minutes"
+      "businessContext": "Aktivitenin dakika cinsinden süresi"
     },
     {
-      "id": "caloriesPerLiterO2",
-      "label": "Energy per Liter O₂",
+      "id": "adjustmentFactor",
+      "label": "Düzeltme Faktörü",
       "type": "number",
-      "unit": "kcal/L",
-      "default": 5,
-      "businessContext": "Energy released per liter of oxygen consumed (standard=5 kcal/L)"
+      "unit": "",
+      "default": 1,
+      "businessContext": "Bireysel metabolizma farklılıkları için ayar katsayısı (varsayılan 1)"
     }
   ],
   "formulas": {
-    "totalCalories": "met * 3.5 * weight * (caloriesPerLiterO2 / 1000) * duration",
-    "caloriesPerMinute": "met * 3.5 * weight * (caloriesPerLiterO2 / 1000)",
-    "vo2": "met * 3.5",
-    "metHours": "met * (duration / 60)"
+    "totalCal": "metValue * weightKg * (durationMin / 60) * adjustmentFactor",
+    "calPerMin": "totalCal / durationMin",
+    "metHours": "metValue * (durationMin / 60)"
   },
   "outputs": {
-    "primary": "totalCalories",
+    "primary": "totalCal",
     "breakdown": [
-      "caloriesPerMinute",
-      "vo2",
+      "calPerMin",
       "metHours"
     ]
   },

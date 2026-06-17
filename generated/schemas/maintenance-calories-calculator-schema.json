@@ -2,62 +2,58 @@
   "toolName": "maintenance-calories-calculator",
   "inputs": [
     {
-      "id": "weight",
-      "label": "Kilo",
+      "id": "gender",
+      "label": "Cinsiyet (Kadın=0, Erkek=1)",
       "type": "number",
-      "unit": "kg",
-      "default": 70,
-      "businessContext": "Vücut ağırlığı"
-    },
-    {
-      "id": "height",
-      "label": "Boy",
-      "type": "number",
-      "unit": "cm",
-      "default": 170,
-      "businessContext": "Boy uzunluğu"
+      "unit": null,
+      "default": 1,
+      "businessContext": "Kullanıcının cinsiyeti; 0 kadın, 1 erkek olarak alınır."
     },
     {
       "id": "age",
-      "label": "Yaş",
+      "label": "Yaş (yıl)",
       "type": "number",
       "unit": "yıl",
       "default": 30,
-      "businessContext": "Yaş"
+      "businessContext": "Kullanıcının yaşı, yıl cinsinden."
     },
     {
-      "id": "gender",
-      "label": "Cinsiyet",
+      "id": "weight",
+      "label": "Ağırlık (kg)",
       "type": "number",
-      "unit": "0:Kadın, 1:Erkek",
-      "default": 0,
-      "businessContext": "Cinsiyet kodu (0: kadın, 1: erkek)"
+      "unit": "kg",
+      "default": 70,
+      "businessContext": "Kullanıcının vücut ağırlığı, kilogram."
+    },
+    {
+      "id": "height",
+      "label": "Boy (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "businessContext": "Kullanıcının boyu, santimetre."
     },
     {
       "id": "activityLevel",
-      "label": "Aktivite Seviyesi",
+      "label": "Aktivite Seviyesi Çarpanı",
       "type": "number",
-      "unit": "çarpan",
+      "unit": null,
       "default": 1.55,
-      "businessContext": "Günlük aktivite çarpanı (sedanter:1.2, hafif:1.375, orta:1.55, aktif:1.725, çok aktif:1.9)"
+      "businessContext": "Fiziksel aktivite düzeyi çarpanı (sedanter:1.2, hafif:1.375, orta:1.55, yüksek:1.725, çok yüksek:1.9)."
     }
   ],
   "formulas": {
-    "bmr": "gender * (10 * weight + 6.25 * height - 5 * age + 5) + (1 - gender) * (10 * weight + 6.25 * height - 5 * age - 161)",
-    "maintenance": "bmr * activityLevel",
-    "activityLevel": "activityLevel"
+    "BMR": "66*{gender} + 655*(1-{gender}) + (13.7*{gender} + 9.6*(1-{gender}))*{weight} + (5*{gender} + 1.8*(1-{gender}))*{height} - (6.8*{gender} + 4.7*(1-{gender}))*{age}",
+    "TDEE": "BMR * {activityLevel}"
   },
   "outputs": {
-    "primary": "maintenance",
+    "primary": "TDEE",
     "breakdown": [
-      "bmr",
-      "activityLevel"
+      "BMR",
+      "TDEE"
     ]
   },
   "category": "Teknik & Mühendislik",
   "sector": "Teknik & Mühendislik",
-  "premiumRequired": false,
-  "catalogCategory": "health-body",
-  "sectorSlug": "cleaning",
-  "categorySlug": "hse-ergonomics"
+  "premiumRequired": false
 }

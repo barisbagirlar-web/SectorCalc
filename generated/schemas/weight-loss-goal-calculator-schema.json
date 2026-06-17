@@ -7,7 +7,7 @@
       "type": "number",
       "unit": "kg",
       "default": 80,
-      "businessContext": "Current weight of the individual in kilograms."
+      "businessContext": "User's current body weight in kilograms"
     },
     {
       "id": "targetWeight",
@@ -15,39 +15,39 @@
       "type": "number",
       "unit": "kg",
       "default": 70,
-      "businessContext": "Desired target weight in kilograms."
+      "businessContext": "User's desired body weight in kilograms"
     },
     {
-      "id": "dailyCaloricDeficit",
-      "label": "Daily Caloric Deficit",
+      "id": "dailyDeficit",
+      "label": "Daily Calorie Deficit",
       "type": "number",
       "unit": "kcal",
       "default": 500,
-      "businessContext": "Planned daily caloric deficit in kilocalories."
+      "businessContext": "Planned daily calorie deficit"
     },
     {
-      "id": "calorieEquivalent",
-      "label": "Calorie Equivalent per kg",
+      "id": "caloriePerKg",
+      "label": "Calories per kg of weight loss",
       "type": "number",
       "unit": "kcal/kg",
       "default": 7700,
-      "businessContext": "Estimated energy equivalent of 1 kg of body weight loss, typically 7700 kcal per kg."
+      "businessContext": "Approximate calories needed to lose one kilogram (7700 kcal/kg)"
     }
   ],
   "formulas": {
-    "totalWeightLoss": "currentWeight - targetWeight",
-    "weeklyWeightLoss": "(dailyCaloricDeficit * 7) / calorieEquivalent",
-    "weeksNeeded": "(totalWeightLoss * calorieEquivalent) / (dailyCaloricDeficit * 7)"
+    "totalDeficit": "(currentWeight - targetWeight) * caloriePerKg",
+    "daysToTarget": "totalDeficit / dailyDeficit",
+    "weeklyLoss": "(dailyDeficit * 7) / caloriePerKg"
   },
   "outputs": {
-    "primary": "weeksNeeded",
+    "primary": "Estimated days to reach target: {{daysToTarget}} days",
     "breakdown": [
-      "weeklyWeightLoss",
-      "totalWeightLoss"
+      "Weekly weight loss: {{weeklyLoss}} kg",
+      "Total calorie deficit needed: {{totalDeficit}} kcal"
     ]
   },
   "category": "Ölçüm & Dönüşüm",
-  "sector": "Perakende & Gıda",
+  "sector": "Teknik & Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "health-body",
   "sectorSlug": "cleaning",

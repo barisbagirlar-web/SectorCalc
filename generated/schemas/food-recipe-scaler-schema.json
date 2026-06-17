@@ -1,0 +1,65 @@
+{
+  "toolName": "food-recipe-scaler",
+  "inputs": [
+    {
+      "id": "originalServings",
+      "label": "Orijinal Porsiyon",
+      "type": "number",
+      "unit": "porsiyon",
+      "default": 4,
+      "businessContext": "Bu alan, tarifteki orijinal porsiyon sayısını belirtir."
+    },
+    {
+      "id": "desiredServings",
+      "label": "Hedef Porsiyon",
+      "type": "number",
+      "unit": "porsiyon",
+      "default": 8,
+      "businessContext": "Bu alan, elde edilmek istenen hedef porsiyon sayısını belirtir."
+    },
+    {
+      "id": "ingredient1Amount",
+      "label": "Malzeme 1 Miktarı",
+      "type": "number",
+      "unit": "birim",
+      "default": 200,
+      "businessContext": "Bu alan, ilk malzemenin orijinal miktarını belirtir (gram, ml vb.)."
+    },
+    {
+      "id": "ingredient2Amount",
+      "label": "Malzeme 2 Miktarı",
+      "type": "number",
+      "unit": "birim",
+      "default": 100,
+      "businessContext": "Bu alan, ikinci malzemenin orijinal miktarını belirtir (gram, ml vb.)."
+    },
+    {
+      "id": "ingredient3Amount",
+      "label": "Malzeme 3 Miktarı",
+      "type": "number",
+      "unit": "birim",
+      "default": 50,
+      "businessContext": "Bu alan, üçüncü malzemenin orijinal miktarını belirtir (gram, ml vb.)."
+    }
+  ],
+  "formulas": {
+    "scalingFactor": "desiredServings / originalServings",
+    "scaled1": "ingredient1Amount * scalingFactor",
+    "scaled2": "ingredient2Amount * scalingFactor",
+    "scaled3": "ingredient3Amount * scalingFactor"
+  },
+  "outputs": {
+    "primary": "scalingFactor",
+    "breakdown": [
+      "scaled1",
+      "scaled2",
+      "scaled3"
+    ]
+  },
+  "category": "Ölçüm & Dönüşüm",
+  "sector": "Perakende & Gıda",
+  "premiumRequired": false,
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "packaging-local-business"
+}
