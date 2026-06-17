@@ -14,10 +14,13 @@ import { fileURLToPath } from "node:url";
 import { buildShardRanges } from "./batch-shards";
 import { loadEnvLocal, PROJECT_ROOT } from "./load-env";
 import { resolveDeepSeekApiKey } from "./deepseek-key-pool";
+import { parseCalculatorListEntries } from "./parse-calculator-list";
+import { schemaFileExistsForTool } from "./schema-name-match";
 import { repairJsonText } from "./schema-json-utils";
 
 loadEnvLocal();
 
+const LIST_FILE = path.join(PROJECT_ROOT, "input_calculators.txt");
 const OUTPUT_DIR = path.join(PROJECT_ROOT, "generated", "schemas");
 const FAILED_LOG = "/tmp/batch-failed-tools.log";
 export const RESUME_QUEUE_MANIFEST = path.join(
@@ -121,12 +124,7 @@ export function loadAllFailed(): string[] {
 }
 
 export function schemaExists(toolName: string): boolean {
-  if (!fs.existsSync(OUTPUT_DIR)) return false;
-  const slug = toolName
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "");
-  return fs.existsSync(path.join(OUTPUT_DIR, `${slug}-schema.json`));
+  return schemaFileExistsForTool(toolName, OUTPUT_DIR);
 }
 
 export function loadResumeProgressMerged(): ProgressState {
@@ -184,10 +182,48 @@ export function writeResumeQueueManifest(tools: readonly string[]): void {
   );
 }
 
+/** Katalogdaki tüm araçlar içinde schema dosyası olmayanlar (asıl eksik listesi). */
+export function collectMissingCatalogTools(): string[] {
+  if (!fs.existsSync(LIST_FILE)) return [];
+  return parseCalculatorListEntries(LIST_FILE)
+    .map((entry) => entry.name)
+    .filter((name) => !schemaExists(name))
+    .sort((a, b) => a.localeCompare(b));
+}
+
 export function collectPendingTools(): string[] {
-  const merged = loadResumeProgressMerged();
-  const completedSet = new Set(merged.completed);
-  return loadAllFailed().filter((name) => !schemaExists(name) && !completedSet.has(name));
+  return collectMissingCatalogTools();
+}
+
+/** Taramada başarısız olup hâlâ schema dosyası olmayan araçlar. */
+export function collectScanFailedTools(): string[] {
+  const failed = new Set<string>();
+
+  for (const file of fs.readdirSync(PROJECT_ROOT)) {
+    if (!file.startsWith(".batch-progress") || !file.endsWith(".json")) continue;
+    if (file.includes("backup") || file.includes("queue")) continue;
+    try {
+      const raw = JSON.parse(
+        fs.readFileSync(path.join(PROJECT_ROOT, file), "utf-8"),
+      ) as ProgressState;
+      for (const name of raw.failed ?? []) {
+        failed.add(name);
+      }
+    } catch {
+      // skip
+    }
+  }
+
+  if (fs.existsSync(FAILED_LOG)) {
+    for (const line of fs.readFileSync(FAILED_LOG, "utf-8").split("\n")) {
+      const name = line.split("\t")[1]?.trim();
+      if (name) failed.add(name);
+    }
+  }
+
+  return [...failed]
+    .filter((name) => !schemaExists(name))
+    .sort((a, b) => a.localeCompare(b));
 }
 
 function loadProgress(progressFile: string): ProgressState {
@@ -400,9 +436,8 @@ async function main(): Promise<void> {
   }
 
   const progress = loadProgress(progressFile);
-  const merged = loadResumeProgressMerged();
-  const doneGlobal = new Set([...merged.completed, ...progress.completed]);
-  pending = pending.filter((name) => !doneGlobal.has(name));
+  // Schema yoksa eski progress "completed" kaydına güvenme — taramadan geçemeyenleri yeniden dene.
+  pending = pending.filter((name) => !schemaExists(name));
 
   const shardLabel =
     shardId !== null && shardCount !== null ? `shard ${shardId}/${shardCount}` : "tek süreç";
