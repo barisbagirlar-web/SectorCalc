@@ -1,9 +1,8 @@
 "use client";
 
 import { ArrowRight, Route, Sparkles } from "lucide-react";
-import Image from "next/image";
 import { Container } from "@/components/ui/Container";
-import { TRACE_BRAND } from "@/config/trace";
+import { TraceLivingAvatar } from "@/components/trace/TraceLivingAvatar";
 
 export function openTraceChat(): void {
   if (typeof window === "undefined") {
@@ -41,14 +40,8 @@ export function TraceIntro({ copy }: TraceIntroProps) {
       <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
         <div className="sc-trace-intro__card">
           <div className="sc-trace-intro__inner">
-            <div className="sc-trace-intro__avatar-wrap">
-              <Image
-                src={TRACE_BRAND.avatar}
-                alt={copy.avatarAlt}
-                width={48}
-                height={48}
-                className="sc-trace-intro__avatar-image"
-              />
+            <div className="sc-trace-intro__avatar-wrap" aria-label={copy.avatarAlt}>
+              <TraceLivingAvatar size="lg" className="sc-trace-intro__avatar-living" />
             </div>
 
             <div className="sc-trace-intro__copy">
