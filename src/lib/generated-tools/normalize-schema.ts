@@ -1,6 +1,11 @@
 import { normalizeGeneratedSelectOptions } from "@/lib/generated-tools/select-options";
+import { normalizeGeneratedI18nText } from "@/lib/generated-tools/resolve-i18n-text";
 import { inferUnitFromOutputKey } from "@/lib/generated-tools/resolve-output-unit";
 import type {
+  GeneratedToolAboutContent,
+  GeneratedToolAboutDescription,
+  GeneratedToolAboutExample,
+  GeneratedToolAboutFaq,
   GeneratedToolInput,
   GeneratedToolSchema,
   GeneratedToolStandardOption,
@@ -240,6 +245,139 @@ function normalizeLastUpdated(raw: unknown): string | undefined {
   return match?.[1];
 }
 
+function firstSentence(text: string): string {
+  const trimmed = text.trim();
+  if (!trimmed) {
+    return "";
+  }
+  const match = trimmed.match(/^(.+?[.!?])(?:\s|$)/);
+  return (match?.[1] ?? trimmed).trim();
+}
+
+function normalizeStringArray(raw: unknown): readonly string[] {
+  if (!Array.isArray(raw)) {
+    return [];
+  }
+  return raw
+    .map((entry) => (typeof entry === "string" ? entry.trim() : ""))
+    .filter(Boolean);
+}
+
+function normalizeAboutDescription(raw: unknown): GeneratedToolAboutDescription | null {
+  if (typeof raw === "string") {
+    const long = raw.trim();
+    if (!long) {
+      return null;
+    }
+    return {
+      short: firstSentence(long),
+      long,
+    };
+  }
+
+  const record = asRecord(raw);
+  if (!record) {
+    return null;
+  }
+
+  const long = asString(record.long ?? record.text ?? record.body);
+  const short = asString(record.short) || firstSentence(long);
+  if (!long && !short) {
+    return null;
+  }
+
+  return {
+    short: short || firstSentence(long),
+    long: long || short,
+    short_i18n: record.short_i18n
+      ? normalizeGeneratedI18nText(record.short_i18n, short)
+      : undefined,
+    long_i18n: record.long_i18n
+      ? normalizeGeneratedI18nText(record.long_i18n, long || short)
+      : undefined,
+  };
+}
+
+function normalizeAboutExample(raw: unknown): GeneratedToolAboutExample | null {
+  const record = asRecord(raw);
+  if (!record) {
+    return null;
+  }
+
+  const title = asString(record.title);
+  const scenario = asString(record.scenario);
+  const steps = normalizeStringArray(record.steps);
+  const result = asString(record.result);
+  if (!title || !scenario || steps.length === 0 || !result) {
+    return null;
+  }
+
+  return {
+    title,
+    scenario,
+    steps,
+    result,
+    title_i18n: record.title_i18n
+      ? normalizeGeneratedI18nText(record.title_i18n, title)
+      : undefined,
+    scenario_i18n: record.scenario_i18n
+      ? normalizeGeneratedI18nText(record.scenario_i18n, scenario)
+      : undefined,
+    result_i18n: record.result_i18n
+      ? normalizeGeneratedI18nText(record.result_i18n, result)
+      : undefined,
+  };
+}
+
+function normalizeAboutFaqs(raw: unknown): readonly GeneratedToolAboutFaq[] | undefined {
+  if (!Array.isArray(raw) || raw.length === 0) {
+    return undefined;
+  }
+
+  const faqs: GeneratedToolAboutFaq[] = [];
+  for (const entry of raw) {
+    const record = asRecord(entry);
+    if (!record) {
+      continue;
+    }
+    const question = asString(record.question);
+    const answer = asString(record.answer);
+    if (!question || !answer) {
+      continue;
+    }
+    faqs.push({
+      question,
+      answer,
+      question_i18n: record.question_i18n
+        ? normalizeGeneratedI18nText(record.question_i18n, question)
+        : undefined,
+      answer_i18n: record.answer_i18n
+        ? normalizeGeneratedI18nText(record.answer_i18n, answer)
+        : undefined,
+    });
+  }
+
+  return faqs.length > 0 ? faqs : undefined;
+}
+
+function normalizeAboutContent(record: RawRecord): GeneratedToolAboutContent | undefined {
+  const description =
+    normalizeAboutDescription(record.description) ??
+    normalizeAboutDescription(record.aboutDescription);
+  const example = normalizeAboutExample(record.example);
+  const faqs = normalizeAboutFaqs(record.faqs);
+
+  if (!description && !example && !faqs) {
+    return undefined;
+  }
+
+  return {
+    description: description ?? { short: "", long: "" },
+    example: example ?? undefined,
+    faqs,
+  };
+}
+
 function normalizeGeneratedToolInputFromRaw(entry: unknown): GeneratedToolInput | null {
   const record = asRecord(entry);
   if (!record || typeof record.id !== "string") {
@@ -346,6 +484,7 @@ export function normalizeRawGeneratedSchema(
   const catalogCategory = asString(record.catalogCategory) || undefined;
   const sectorSlug = asString(record.sectorSlug) || undefined;
   const categorySlug = asString(record.categorySlug) || undefined;
+  const about = normalizeAboutContent(record);
 
   return {
     toolName,
@@ -377,5 +516,6 @@ export function normalizeRawGeneratedSchema(
       ? record.premiumFeatures.filter((feature): feature is string => typeof feature === "string")
       : [],
     premiumRequired: record.premiumRequired === true,
+    about,
   };
 }

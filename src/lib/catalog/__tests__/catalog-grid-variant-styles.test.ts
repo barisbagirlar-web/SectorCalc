@@ -10,7 +10,7 @@ describe("catalog-grid-variant-styles", () => {
   });
 
   it("uses burgundy for premium tiles", () => {
-    expect(CATALOG_GRID_VARIANT_STYLES.premium.icon).toBe("text-[#8B2635]");
-    expect(CATALOG_GRID_VARIANT_STYLES.premium.active).toContain("border-[#8B2635]");
+    expect(CATALOG_GRID_VARIANT_STYLES.premium.icon).toBe("text-[var(--sc-premium-bordo)]");
+    expect(CATALOG_GRID_VARIANT_STYLES.premium.active).toContain("border-[var(--sc-premium-bordo)]");
   });
 });

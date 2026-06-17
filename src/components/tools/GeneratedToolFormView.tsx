@@ -1,17 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { ClaimReviewJsonLd } from "@/components/seo/ClaimReviewJsonLd";
 import { DynamicToolForm } from "@/components/tools/DynamicToolForm";
 import { ExportPDFButton } from "@/components/tools/ExportPDFButton";
 import { FreeToolForm } from "@/components/tools/FreeToolForm";
 import { ToolAcademicReferences } from "@/components/tools/ToolAcademicReferences";
+import { ToolDescription } from "@/components/tools/ToolDescription";
 import { formatGeneratedNumericValue } from "@/lib/generated-tools/format-generated-numeric";
 import {
   resolveGeneratedToolTitle,
   resolvePrimaryOutputKey,
 } from "@/lib/generated-tools/resolve-tool-display";
+import { resolveGeneratedToolAboutContent } from "@/lib/generated-tools/resolve-tool-about";
 import { resolvePrimaryOutputUnit } from "@/lib/generated-tools/resolve-output-unit";
 import {
   runGeneratedToolCalculation,
@@ -42,6 +44,10 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
   const primaryOutputKey = resolvePrimaryOutputKey(schema);
   const isPremium = schema.premiumRequired === true;
   const pageUrl = absoluteLocalizedUrl(locale, `/tools/generated/${slug}`);
+  const aboutContent = useMemo(
+    () => resolveGeneratedToolAboutContent(slug, schema, locale),
+    [locale, schema, slug],
+  );
 
   if (loading) {
     return (
@@ -128,6 +134,8 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
           breakdownRows={pdfBreakdownRows}
         />
       ) : null}
+
+      <ToolDescription content={aboutContent} isPremium={isPremium} />
 
       <ToolAcademicReferences />
     </div>

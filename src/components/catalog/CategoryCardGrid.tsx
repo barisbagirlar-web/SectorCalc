@@ -93,7 +93,12 @@ export function CategoryCardGrid({
         const content = (
           <>
             <Icon
-              className={cn("mb-3 h-12 w-12 transition", tone.icon, tone.iconHover)}
+              className={cn(
+                "mb-3 h-12 w-12 stroke-[1.5] transition [stroke:currentColor]",
+                tone.icon,
+                tone.iconHover,
+                variant === "premium" && "sc-premium-sector-icon",
+              )}
               aria-hidden="true"
               strokeWidth={1.5}
             />

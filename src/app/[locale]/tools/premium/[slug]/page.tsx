@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { GeneratedToolFormViewShell } from "@/components/tools/GeneratedToolFormViewShell";
+import { JsonLd } from "@/components/seo/JsonLd";
 import type { AppLocale } from "@/i18n/routing";
 import { limitStaticParamsForPreview } from "@/lib/build/preview-static-params";
 import {
@@ -14,8 +15,10 @@ import {
   resolveGeneratedToolDescription,
   resolveGeneratedToolTitle,
 } from "@/lib/generated-tools/resolve-tool-display";
+import { resolveGeneratedToolAboutContent } from "@/lib/generated-tools/resolve-tool-about";
 import { listMigrationMapLegacySlugs } from "@/lib/premium-schema/premium-migration-map";
 import { createPageMetadata } from "@/lib/metadata";
+import { buildFAQJsonLd } from "@/lib/seo/schema-mesh";
 import { getPremiumRevenueRouteSlugs } from "@/lib/tools/revenue-tools";
 
 interface PremiumToolRouteParams {
@@ -88,8 +91,12 @@ export default async function PremiumGeneratedToolRoutePage({
     notFound();
   }
 
+  const aboutContent = resolveGeneratedToolAboutContent(resolvedSlug, schema, locale);
+  const faqJsonLd = buildFAQJsonLd(aboutContent.faqs);
+
   return (
     <PageLayout>
+      {faqJsonLd ? <JsonLd data={faqJsonLd} /> : null}
       <GeneratedToolFormViewShell slug={resolvedSlug} schema={schema} />
     </PageLayout>
   );

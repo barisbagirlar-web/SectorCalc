@@ -39,6 +39,16 @@ export function resolveGeneratedToolDescription(
   schema: GeneratedToolSchema,
   locale: string,
 ): string {
+  const aboutLong = schema.about?.description.long.trim();
+  if (aboutLong) {
+    const localizedLong = schema.about?.description.long_i18n
+      ? resolveGeneratedI18nText(schema.about.description.long_i18n, locale, aboutLong)
+      : aboutLong;
+    if (localizedLong.trim()) {
+      return localizedLong.trim();
+    }
+  }
+
   const premiumPain = resolvePremiumSchemaPainStatement(slug, "", locale);
   if (premiumPain.trim()) {
     return premiumPain;

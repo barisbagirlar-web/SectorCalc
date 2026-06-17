@@ -29,6 +29,7 @@ function TaxonomySectorTile({
   countLabel,
   professions,
   tone,
+  variant,
 }: {
   readonly href: string;
   readonly active: boolean;
@@ -37,6 +38,7 @@ function TaxonomySectorTile({
   readonly countLabel: string;
   readonly professions?: readonly string[];
   readonly tone: (typeof CATALOG_GRID_VARIANT_STYLES)[CatalogGridVariant];
+  readonly variant: CatalogGridVariant;
 }) {
   return (
     <Link
@@ -52,7 +54,12 @@ function TaxonomySectorTile({
       )}
     >
       <Icon
-        className={cn("mb-3 h-12 w-12 transition", tone.icon, tone.iconHover)}
+        className={cn(
+          "mb-3 h-12 w-12 stroke-[1.5] transition [stroke:currentColor]",
+          tone.icon,
+          tone.iconHover,
+          variant === "premium" && "sc-premium-sector-icon",
+        )}
         aria-hidden="true"
         strokeWidth={1.5}
       />
@@ -109,6 +116,7 @@ export function IndustriesTaxonomyGrid({
             countLabel={countLabel}
             professions={isAllCard ? undefined : sector.professions}
             tone={tone}
+            variant={variant}
           />
         );
       })}

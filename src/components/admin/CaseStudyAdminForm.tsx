@@ -21,7 +21,7 @@ import {
   getPublishedCaseStudyByAdminId,
   nextPublishedCaseStudyId,
 } from "@/lib/case-studies/admin-case-studies";
-import { isLikelyFirestoreDocumentId } from "@/lib/case-studies/firestore-case-studies";
+import { isLikelyFirestoreDocumentId } from "@/lib/case-studies/case-study-id-utils";
 import {
   caseStudyToFormValues,
   downloadCaseStudyDraftExport,

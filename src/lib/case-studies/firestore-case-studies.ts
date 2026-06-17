@@ -236,6 +236,4 @@ export async function resolvePublishedCaseStudyBySlug(
   return firestoreStudy ?? undefined;
 }
 
-export function isLikelyFirestoreDocumentId(id: string): boolean {
-  return /^[A-Za-z0-9]{20}$/.test(id);
-}
+export { isLikelyFirestoreDocumentId } from "@/lib/case-studies/case-study-id-utils";

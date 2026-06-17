@@ -3,6 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import { Link } from "@/i18n/routing";
 import { getCategoryCardIcon } from "@/lib/catalog/category-card-icons";
+import { CATALOG_GRID_VARIANT_STYLES } from "@/lib/catalog/catalog-grid-variant-styles";
 import { cn } from "@/lib/cn";
 import type { TaxonomySectorCard } from "@/lib/tools/build-taxonomy-sector-cards";
 
@@ -15,38 +16,7 @@ type SectorTaxonomyGridProps = {
   readonly variant?: SectorTaxonomyGridVariant;
 };
 
-const GRID_VARIANT_STYLES: Record<
-  SectorTaxonomyGridVariant,
-  {
-    readonly icon: string;
-    readonly iconHover: string;
-    readonly hoverBorder: string;
-    readonly focusRing: string;
-    readonly active: string;
-  }
-> = {
-  industry: {
-    icon: "text-[var(--sc-navy)]",
-    iconHover: "group-hover:text-blue-800",
-    hoverBorder: "hover:border-blue-400",
-    focusRing: "focus-visible:ring-blue-500",
-    active: "border-blue-500 bg-blue-50/70 ring-2 ring-blue-100",
-  },
-  free: {
-    icon: "text-[var(--sc-navy)]",
-    iconHover: "group-hover:text-blue-800",
-    hoverBorder: "hover:border-blue-400",
-    focusRing: "focus-visible:ring-blue-500",
-    active: "border-blue-500 bg-blue-50/70 ring-2 ring-blue-100",
-  },
-  premium: {
-    icon: "text-[#C45A2C]",
-    iconHover: "group-hover:text-[#9a3412]",
-    hoverBorder: "hover:border-[#C45A2C]",
-    focusRing: "focus-visible:ring-orange-400",
-    active: "border-orange-400 bg-orange-50/70 ring-2 ring-orange-100",
-  },
-};
+const GRID_VARIANT_STYLES = CATALOG_GRID_VARIANT_STYLES;
 
 export function SectorTaxonomyGrid({
   basePath,
@@ -89,7 +59,12 @@ export function SectorTaxonomyGrid({
             )}
           >
             <Icon
-              className={cn("mb-3 h-12 w-12 transition", tone.icon, tone.iconHover)}
+              className={cn(
+                "mb-3 h-12 w-12 stroke-[1.5] transition [stroke:currentColor]",
+                tone.icon,
+                tone.iconHover,
+                variant === "premium" && "sc-premium-sector-icon",
+              )}
               aria-hidden="true"
               strokeWidth={1.5}
             />

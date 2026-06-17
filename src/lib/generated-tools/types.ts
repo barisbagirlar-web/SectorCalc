@@ -15,6 +15,37 @@ export type GeneratedToolStandardOption = {
   readonly description?: string;
 };
 
+export type GeneratedToolAboutDescription = {
+  readonly short: string;
+  readonly long: string;
+  readonly short_i18n?: GeneratedToolI18nText;
+  readonly long_i18n?: GeneratedToolI18nText;
+};
+
+export type GeneratedToolAboutExample = {
+  readonly title: string;
+  readonly scenario: string;
+  readonly steps: readonly string[];
+  readonly result: string;
+  readonly title_i18n?: GeneratedToolI18nText;
+  readonly scenario_i18n?: GeneratedToolI18nText;
+  readonly steps_i18n?: Readonly<Partial<Record<SupportedLocale, readonly string[]>>>;
+  readonly result_i18n?: GeneratedToolI18nText;
+};
+
+export type GeneratedToolAboutFaq = {
+  readonly question: string;
+  readonly answer: string;
+  readonly question_i18n?: GeneratedToolI18nText;
+  readonly answer_i18n?: GeneratedToolI18nText;
+};
+
+export type GeneratedToolAboutContent = {
+  readonly description: GeneratedToolAboutDescription;
+  readonly example?: GeneratedToolAboutExample;
+  readonly faqs?: readonly GeneratedToolAboutFaq[];
+};
+
 export type GeneratedToolInput = {
   readonly id: string;
   readonly label: string;
@@ -61,6 +92,7 @@ export type GeneratedToolSchema = {
   };
   readonly premiumFeatures: readonly string[];
   readonly premiumRequired: boolean;
+  readonly about?: GeneratedToolAboutContent;
 };
 
 export type GeneratedToolBreakdown = Readonly<Record<string, number | undefined>>;

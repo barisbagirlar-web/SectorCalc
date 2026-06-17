@@ -1,4 +1,4 @@
-/** Shared tile colors — free/industries: navy blue; premium: burgundy (#8B2635). */
+/** Shared tile colors — free/industries: navy blue; premium: bordo (--sc-premium-bordo). */
 export type CatalogGridVariant = "free" | "premium" | "industry";
 
 export const CATALOG_GRID_VARIANT_STYLES: Record<
@@ -26,10 +26,11 @@ export const CATALOG_GRID_VARIANT_STYLES: Record<
     active: "border-blue-500 bg-blue-50/70 ring-2 ring-blue-100",
   },
   premium: {
-    icon: "text-[#8B2635]",
-    iconHover: "group-hover:text-[#6B1D28]",
-    hoverBorder: "hover:border-[#8B2635]",
-    focusRing: "focus-visible:ring-[#8B2635]",
-    active: "border-[#8B2635] bg-red-50/70 ring-2 ring-red-100",
+    icon: "text-[var(--sc-premium-bordo)]",
+    iconHover: "group-hover:text-[var(--sc-premium-bordo-hover)]",
+    hoverBorder: "hover:border-[var(--sc-premium-bordo)]",
+    focusRing: "focus-visible:ring-[var(--sc-premium-bordo)]",
+    active:
+      "border-[var(--sc-premium-bordo)] bg-red-50/70 ring-2 ring-red-100",
   },
 };

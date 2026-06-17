@@ -308,6 +308,81 @@
   font-size: 14px;
 }
 
+.academic-database .record-snippet {
+  margin: 16px 0 20px;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-left: 4px solid #003366;
+  background: #f8f8f8;
+}
+
+.academic-database .record-snippet-question {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+}
+
+.academic-database .record-snippet-answer {
+  margin: 0 0 12px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: #111;
+}
+
+.academic-database .record-snippet-list {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.academic-database .record-snippet-list li + li {
+  margin-top: 4px;
+}
+
+.academic-database .record-credit {
+  margin: 0 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #ddd;
+  font-size: 13px;
+  color: #444;
+  line-height: 1.5;
+}
+
+.academic-database .record-credit p {
+  margin: 0;
+}
+
+.academic-database .record-credit p + p {
+  margin-top: 4px;
+}
+
+.academic-database .index-snippet-summary {
+  margin: 12px 0 20px;
+  padding: 16px 0 8px;
+  border-top: 1px solid #ccc;
+}
+
+.academic-database .index-snippet-heading {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.academic-database .index-snippet-intro {
+  margin: 0 0 12px;
+  font-size: 14px;
+  color: #333;
+}
+
+.academic-database .index-snippet-list {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.academic-database .index-snippet-list li + li {
+  margin-top: 6px;
+}
+
 @media (max-width: 768px) {
   .academic-database .filter-form {
     flex-direction: column;

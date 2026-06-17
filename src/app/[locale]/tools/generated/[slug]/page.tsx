@@ -14,8 +14,10 @@ import {
   resolveGeneratedToolDescription,
   resolveGeneratedToolTitle,
 } from "@/lib/generated-tools/resolve-tool-display";
+import { resolveGeneratedToolAboutContent } from "@/lib/generated-tools/resolve-tool-about";
 import { createPageMetadata } from "@/lib/metadata";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { buildFAQJsonLd } from "@/lib/seo/schema-mesh";
 import { AnswerBlock } from "@/components/tools/AnswerBlock";
 import { buildGeneratedToolFeaturedCopy } from "@/lib/semantic/build-generated-tool-featured-copy";
 import { buildGeneratedToolProductJsonLd } from "@/lib/semantic/build-generated-tool-product-jsonld";
@@ -96,10 +98,15 @@ export default async function GeneratedToolRoutePage({
   const featuredCopy = buildGeneratedToolFeaturedCopy(displayName, displayDescription, locale);
   const categoryId = inferFreeTrafficCategory(slug);
   const tCatalog = await getTranslations("freeTrafficCatalog");
+  const aboutContent = resolveGeneratedToolAboutContent(slug, schema, locale);
+  const faqJsonLd = buildFAQJsonLd(aboutContent.faqs);
+  const jsonLd = faqJsonLd
+    ? [toolWebPageJsonLd, toolProductJsonLd, faqJsonLd]
+    : [toolWebPageJsonLd, toolProductJsonLd];
 
   return (
     <PageLayout>
-      <JsonLd data={[toolWebPageJsonLd, toolProductJsonLd]} />
+      <JsonLd data={jsonLd} />
       <article aria-label={displayName}>
         <div className="container mx-auto max-w-6xl px-4 pt-6">
           <AnswerBlock question={featuredCopy.question} answer={featuredCopy.answer} />

@@ -7,7 +7,7 @@ import {
   getCaseStudyBySlug,
   listAllCaseStudySlugs,
 } from "@/lib/case-studies/case-study-registry";
-import { resolveCaseStudyPageDescription } from "@/lib/case-studies/case-study-featured-snippet";
+import { resolveCaseStudyPageDescription } from "@/lib/case-studies/case-study-seo";
 import {
   getPublishedCaseStudyBySlug,
   isPublishedCaseStudySlug,

@@ -57,10 +57,15 @@
 .sc-premium-category-icon {
   width: 34px;
   height: 34px;
-  color: var(--sc-accent, #c44814);
+  color: var(--sc-premium-bordo, #8b2635);
   stroke: currentColor;
   fill: none;
   flex: 0 0 auto;
+}
+
+.sc-premium-sector-icon {
+  color: var(--sc-premium-bordo, #8b2635);
+  stroke: currentColor;
 }
 
 .sc-premium-category-title {
