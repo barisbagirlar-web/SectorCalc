@@ -136,14 +136,15 @@ function deployFromCwd(cwd) {
 assertGitAvailable();
 fetchOrigin();
 
-const skipCleanCheck = process.env.ALLOW_DIRTY_DEPLOY === "1";
+const skipCleanCheck =
+  process.env.ALLOW_DIRTY_DEPLOY === "1" || process.env.DEPLOY_FROM_ORIGIN === "1";
 const forceWorktree = process.env.DEPLOY_FROM_ORIGIN === "1";
 const clean = workingTreeClean();
 
 if (!clean && !skipCleanCheck) {
   console.error("deploy-vercel-production: working tree is dirty.");
-  console.error("Commit/stash first, or run with DEPLOY_FROM_ORIGIN=1 for a clean origin/main worktree.");
-  console.error("(ALLOW_DIRTY_DEPLOY=1 bypasses this guard — not recommended.)");
+  console.error("Commit/stash first, DEPLOY_FROM_ORIGIN=1 (origin/main worktree), or ALLOW_DIRTY_DEPLOY=1.");
+  console.error("(ALLOW_DIRTY_DEPLOY=1 deploys the local tree — not recommended.)");
   process.exit(1);
 }
 
