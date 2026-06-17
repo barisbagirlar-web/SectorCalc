@@ -1,4 +1,4 @@
-import { Barlow, Inter, JetBrains_Mono } from "next/font/google";
+import { Barlow, Inter, JetBrains_Mono, Noto_Sans_Arabic } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { AuthorAuthorityHeadLinks } from "@/components/seo/AuthorAuthorityHeadLinks";
@@ -16,8 +16,14 @@ import { GeoLocaleBootstrapScript } from "@/components/i18n/GeoLocaleBootstrapSc
 import { THEME_COLOR } from "@/config/organization-trust";
 
 const inter = Inter({
-  subsets: ["latin", "arabic"],
+  subsets: ["latin", "latin-ext"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+const notoSansArabic = Noto_Sans_Arabic({
+  subsets: ["arabic"],
+  variable: "--font-arabic",
   display: "swap",
 });
 
@@ -50,8 +56,9 @@ export async function LocaleDocumentLayout({ locale, children }: LocaleDocumentL
     <html
       lang={locale}
       dir={direction}
-      className={`${inter.variable} ${barlow.variable} ${jetbrainsMono.variable}`}
+      className={`${inter.variable} ${barlow.variable} ${jetbrainsMono.variable} ${locale === "ar" ? notoSansArabic.variable : ""}`.trim()}
       data-region={region}
+      data-locale={locale}
     >
       <head>
         {locale === "en" ? <GeoLocaleBootstrapScript /> : null}
