@@ -263,6 +263,7 @@ export function PremiumCatalogSearch({ tools, categories, totalActiveCount }: Pr
             formatCount={formatPremiumCount}
             filterParamKey="category"
             allFilterValue="all"
+            variant="premium"
           />
         </section>
       ) : null}

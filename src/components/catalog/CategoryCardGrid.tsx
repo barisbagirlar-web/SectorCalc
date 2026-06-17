@@ -2,6 +2,7 @@
 
 import { Link, usePathname } from "@/i18n/routing";
 import { getCategoryCardIcon } from "@/lib/catalog/category-card-icons";
+import type { CategoryExplorerVariant } from "@/lib/catalog/catalog-types";
 import { cn } from "@/lib/cn";
 import { buildCatalogFilterHref } from "@/lib/navigation/catalog-filter-href";
 
@@ -12,6 +13,8 @@ export type CategoryCardItem = {
   readonly isActive?: boolean;
 };
 
+export type CategoryCardGridVariant = "free" | "premium" | "industry";
+
 type Props = {
   readonly items: readonly CategoryCardItem[];
   readonly onSelect?: (slug: string) => void;
@@ -19,8 +22,56 @@ type Props = {
   readonly allFilterValue?: string;
   readonly formatCount?: (count: number) => string;
   readonly countSuffix?: string;
-  readonly variant?: "default" | "industry";
+  readonly variant?: CategoryCardGridVariant;
 };
+
+const GRID_VARIANT_STYLES: Record<
+  CategoryCardGridVariant,
+  {
+    readonly icon: string;
+    readonly iconHover: string;
+    readonly hoverBorder: string;
+    readonly focusRing: string;
+    readonly active: string;
+  }
+> = {
+  free: {
+    icon: "text-[var(--sc-navy)]",
+    iconHover: "group-hover:text-blue-800",
+    hoverBorder: "hover:border-blue-400",
+    focusRing: "focus-visible:ring-blue-500",
+    active: "border-blue-500 bg-blue-50/70 ring-2 ring-blue-100",
+  },
+  industry: {
+    icon: "text-[var(--sc-navy)]",
+    iconHover: "group-hover:text-blue-800",
+    hoverBorder: "hover:border-blue-400",
+    focusRing: "focus-visible:ring-blue-500",
+    active: "border-blue-500 bg-blue-50/70 ring-2 ring-blue-100",
+  },
+  premium: {
+    icon: "text-[#C45A2C]",
+    iconHover: "group-hover:text-[#9a3412]",
+    hoverBorder: "hover:border-[#C45A2C]",
+    focusRing: "focus-visible:ring-orange-400",
+    active: "border-orange-400 bg-orange-50/70 ring-2 ring-orange-100",
+  },
+};
+
+export function resolveCategoryCardGridVariant(
+  page: CategoryExplorerVariant,
+): CategoryCardGridVariant {
+  if (page === "free-tools") {
+    return "free";
+  }
+  if (page === "premium-tools") {
+    return "premium";
+  }
+  if (page === "industries") {
+    return "industry";
+  }
+  return "free";
+}
 
 function scrollToToolsList() {
   requestAnimationFrame(() => {
@@ -38,21 +89,14 @@ export function CategoryCardGrid({
   allFilterValue = "all",
   formatCount,
   countSuffix = "",
-  variant = "default",
+  variant = "premium",
 }: Props) {
   const pathname = usePathname();
-  const isIndustry = variant === "industry";
+  const tone = GRID_VARIANT_STYLES[variant];
   const useLinks = onSelect == null;
 
   return (
-    <div
-      className={cn(
-        "grid gap-3",
-        isIndustry
-          ? "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"
-          : "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4",
-      )}
-    >
+    <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
       {items.map((item) => {
         const iconMeta = getCategoryCardIcon(item.slug);
         const Icon = iconMeta.icon;
@@ -63,24 +107,16 @@ export function CategoryCardGrid({
 
         const className = cn(
           "group flex min-h-[148px] flex-col items-center justify-center rounded-xl border bg-white px-3 py-5 text-center transition",
-          "shadow-sm hover:-translate-y-0.5 hover:border-[#d4af37] hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
-          isIndustry
-            ? "focus-visible:ring-blue-500"
-            : "focus-visible:ring-orange-400",
-          active
-            ? isIndustry
-              ? "border-blue-500 bg-blue-50/70 ring-2 ring-blue-100"
-              : "border-orange-400 bg-orange-50/70 ring-2 ring-orange-100"
-            : "border-slate-200",
+          "shadow-sm hover:-translate-y-0.5 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
+          tone.hoverBorder,
+          tone.focusRing,
+          active ? tone.active : "border-slate-200",
         );
 
         const content = (
           <>
             <Icon
-              className={cn(
-                "mb-3 h-12 w-12 transition group-hover:text-[#d4af37]",
-                isIndustry ? "text-blue-600" : "text-gray-700",
-              )}
+              className={cn("mb-3 h-12 w-12 transition", tone.icon, tone.iconHover)}
               aria-hidden="true"
               strokeWidth={1.5}
             />

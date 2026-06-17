@@ -6,7 +6,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { Search } from "lucide-react";
 import { CalculatorCard } from "@/components/catalog/CalculatorCard";
 import { CalculatorCardGrid } from "@/components/catalog/CalculatorCardGrid";
-import { CategoryCardGrid } from "@/components/catalog/CategoryCardGrid";
+import { CategoryCardGrid, resolveCategoryCardGridVariant } from "@/components/catalog/CategoryCardGrid";
 import type { CategoryCardItem } from "@/components/catalog/CategoryCardGrid";
 import { resolveCalculatorCardAccent } from "@/lib/catalog/card-accent";
 import type { CatalogGroup, CategoryExplorerVariant } from "@/lib/catalog/catalog-types";
@@ -211,7 +211,7 @@ export function DiscoveryCatalogExplorer({
       <CategoryCardGrid
         items={categoryCardItems}
         formatCount={formatCount}
-        variant={isIndustry ? "industry" : "default"}
+        variant={resolveCategoryCardGridVariant(variant)}
       />
 
       {!isIndustry && (

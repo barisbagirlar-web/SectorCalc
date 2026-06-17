@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { Search, X } from "lucide-react";
-import { CategoryCardGrid } from "@/components/catalog/CategoryCardGrid";
+import { CategoryCardGrid, resolveCategoryCardGridVariant } from "@/components/catalog/CategoryCardGrid";
 import type { CategoryCardItem } from "@/components/catalog/CategoryCardGrid";
 import type { ToolData } from "@/lib/tools/all-tools-data";
 import { ToolsTileGrid } from "@/components/tools/ToolsTileGrid";
@@ -62,7 +62,6 @@ export function SchemaToolsCatalogExplorer({
   const rawFilter = searchParams?.get(filterParamKey) ?? "";
   const selectedFilter = rawFilter === "all" ? "" : rawFilter;
   const isSearching = searchQuery.trim().length > 0;
-  const isIndustry = variant === "industries";
 
   const groups = useMemo(() => {
     const counts = new Map<string, { label: string; count: number }>();
@@ -174,7 +173,7 @@ export function SchemaToolsCatalogExplorer({
             formatCount={formatCardCount}
             filterParamKey={filterParamKey}
             allFilterValue="all"
-            variant={isIndustry ? "industry" : "default"}
+            variant={resolveCategoryCardGridVariant(variant)}
           />
         </section>
       ) : null}
