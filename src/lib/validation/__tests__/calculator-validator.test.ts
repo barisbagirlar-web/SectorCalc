@@ -67,4 +67,53 @@ describe("calculator-validator", () => {
     expect(format.confidence_level).toContain("select");
     expect(format.confidence_level).toContain("95");
   });
+
+  test("strict API schema rejects hallucinated field names", () => {
+    const validator = buildZodSchema(
+      [
+        {
+          id: "planned_production_time",
+          label: "Planned Production Time",
+          type: "number",
+          unit: "minutes",
+          default: 480,
+          min: 0,
+          max: 1440,
+        },
+        {
+          id: "number_operators",
+          label: "Operators",
+          type: "number",
+          unit: "count",
+          default: 20,
+        },
+      ],
+      { strict: true, useDefaults: false },
+    );
+
+    const hallucinated = validator.safeParse({
+      total_work_content: "metin",
+      number_operators: 20,
+    });
+    expect(hallucinated.success).toBe(false);
+  });
+
+  test("strict API schema rejects invalid numeric strings on known fields", () => {
+    const validator = buildZodSchema(
+      [
+        {
+          id: "planned_production_time",
+          label: "Planned Production Time",
+          type: "number",
+          unit: "minutes",
+        },
+      ],
+      { strict: true, useDefaults: false },
+    );
+
+    const invalid = validator.safeParse({
+      planned_production_time: "metin",
+    });
+    expect(invalid.success).toBe(false);
+  });
 });

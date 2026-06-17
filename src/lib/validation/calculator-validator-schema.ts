@@ -13,11 +13,21 @@ export type ValidationFieldError = {
   readonly message: string;
 };
 
+export type BuildZodSchemaOptions = {
+  /** Reject keys that are not declared in the tool schema (AI hallucination guard). */
+  readonly strict?: boolean;
+  /** Apply schema defaults for missing fields (UI forms). Off for public API. */
+  readonly useDefaults?: boolean;
+};
+
 function isFiniteNumber(value: unknown): value is number {
   return typeof value === "number" && Number.isFinite(value);
 }
 
-function buildNumberValidator(input: SchemaInputField): z.ZodTypeAny {
+function buildNumberValidator(
+  input: SchemaInputField,
+  useDefaults: boolean,
+): z.ZodTypeAny {
   let schema: z.ZodNumber = z.coerce.number({
     message: `${input.id} must be a finite number`,
   });
@@ -28,22 +38,32 @@ function buildNumberValidator(input: SchemaInputField): z.ZodTypeAny {
   if (isFiniteNumber(input.max)) {
     schema = schema.max(input.max);
   }
-  if (typeof input.default === "number" && Number.isFinite(input.default)) {
+  if (
+    useDefaults &&
+    typeof input.default === "number" &&
+    Number.isFinite(input.default)
+  ) {
     return schema.default(input.default);
   }
 
   return schema;
 }
 
-function buildBooleanValidator(input: SchemaInputField): z.ZodTypeAny {
+function buildBooleanValidator(
+  input: SchemaInputField,
+  useDefaults: boolean,
+): z.ZodTypeAny {
   let validator: z.ZodTypeAny = z.coerce.boolean();
-  if (typeof input.default === "boolean") {
+  if (useDefaults && typeof input.default === "boolean") {
     validator = validator.default(input.default);
   }
   return validator;
 }
 
-function buildSelectValidator(input: SchemaInputField): z.ZodTypeAny {
+function buildSelectValidator(
+  input: SchemaInputField,
+  useDefaults: boolean,
+): z.ZodTypeAny {
   const options = input.options?.filter((option): option is string => typeof option === "string");
   if (!options || options.length === 0) {
     return z.string().min(1, `${input.id} must be a non-empty string`);
@@ -54,16 +74,27 @@ function buildSelectValidator(input: SchemaInputField): z.ZodTypeAny {
     message: `${input.id} must be one of: ${options.join(", ")}`,
   });
 
-  if (typeof input.default === "string" && options.includes(input.default)) {
+  if (useDefaults && typeof input.default === "string" && options.includes(input.default)) {
     validator = validator.default(input.default);
   }
 
   return validator;
 }
 
+export function findUnknownInputKeys(
+  inputs: Record<string, unknown>,
+  allowedIds: readonly string[],
+): string[] {
+  const allowed = new Set(allowedIds);
+  return Object.keys(inputs).filter((key) => !allowed.has(key));
+}
+
 export function buildZodSchema(
   inputs: readonly SchemaInputField[],
+  options: BuildZodSchemaOptions = {},
 ): z.ZodObject<Record<string, z.ZodTypeAny>> {
+  const strict = options.strict ?? false;
+  const useDefaults = options.useDefaults ?? true;
   const shape: Record<string, z.ZodTypeAny> = {};
 
   for (const input of inputs) {
@@ -71,13 +102,13 @@ export function buildZodSchema(
 
     switch (input.type as GeneratedToolInputType) {
       case "number":
-        validator = buildNumberValidator(input);
+        validator = buildNumberValidator(input, useDefaults);
         break;
       case "boolean":
-        validator = buildBooleanValidator(input);
+        validator = buildBooleanValidator(input, useDefaults);
         break;
       case "select":
-        validator = buildSelectValidator(input);
+        validator = buildSelectValidator(input, useDefaults);
         break;
       default:
         validator = z.unknown();
@@ -90,7 +121,8 @@ export function buildZodSchema(
     shape[input.id] = validator;
   }
 
-  return z.object(shape);
+  const objectSchema = z.object(shape);
+  return strict ? objectSchema.strict() : objectSchema;
 }
 
 export function formatZodValidationErrors(error: z.ZodError): ValidationFieldError[] {

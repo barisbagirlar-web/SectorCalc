@@ -13,9 +13,10 @@ import {
 } from "@/lib/validation/api-public-messages";
 import {
   describeExpectedInputFormat,
+  findUnknownInputKeys,
   formatZodValidationErrors,
+  getApiValidatorForTool,
   getToolValidationSchema,
-  getValidatorForTool,
 } from "@/lib/validation/calculator-validator";
 import { checkPublicCalculateRateLimit } from "@/lib/validation/public-calculate-rate-limit";
 
@@ -130,7 +131,7 @@ export async function POST(
 
     const generatedSchema = getGeneratedToolSchema(slug);
     const calculator = await loadGeneratedCalculator(slug);
-    const validator = calculator?.inputSchema ?? getValidatorForTool(slug);
+    const validator = getApiValidatorForTool(slug);
 
     if (!validator) {
       return jsonWithLocale(
@@ -144,7 +145,30 @@ export async function POST(
       );
     }
 
-    const validationResult = validator.safeParse(inputs);
+    const inputRecord = inputs as Record<string, unknown>;
+    const unknownKeys = findUnknownInputKeys(
+      inputRecord,
+      toolSchema.inputs.map((input) => input.id),
+    );
+    if (unknownKeys.length > 0) {
+      return jsonWithLocale(
+        locale,
+        {
+          error: tApiPublic(locale, "invalidInputError"),
+          code: 422,
+          details: unknownKeys.map((field) => ({
+            field,
+            message: `Unknown input field "${field}" for tool "${slug}".`,
+          })),
+          expected_format: {
+            inputs: describeExpectedInputFormat(toolSchema.inputs),
+          },
+        },
+        422,
+      );
+    }
+
+    const validationResult = validator.safeParse(inputRecord);
     if (!validationResult.success) {
       const errors = formatZodValidationErrors(validationResult.error);
 

@@ -8,13 +8,20 @@ import { getAllTools } from "@/lib/tools/all-tools-data";
 import {
   buildZodSchema,
   describeExpectedInputFormat,
+  findUnknownInputKeys,
   formatZodValidationErrors,
+  type BuildZodSchemaOptions,
   type SchemaInputField,
   type ValidationFieldError,
 } from "@/lib/validation/calculator-validator-schema";
 
-export type { SchemaInputField, ValidationFieldError };
-export { buildZodSchema, describeExpectedInputFormat, formatZodValidationErrors };
+export type { SchemaInputField, ValidationFieldError, BuildZodSchemaOptions };
+export {
+  buildZodSchema,
+  describeExpectedInputFormat,
+  findUnknownInputKeys,
+  formatZodValidationErrors,
+};
 
 export type ToolValidationSchema = {
   readonly toolName: string;
@@ -23,6 +30,25 @@ export type ToolValidationSchema = {
 
 const SCHEMAS_DIR = path.join(process.cwd(), "generated", "schemas");
 const validatorCache = new Map<string, z.ZodObject<Record<string, z.ZodTypeAny>>>();
+
+const API_VALIDATOR_OPTIONS: BuildZodSchemaOptions = {
+  strict: true,
+  useDefaults: false,
+};
+
+function validatorCacheKey(slug: string, options?: BuildZodSchemaOptions): string {
+  if (options?.strict && options.useDefaults === false) {
+    return `${slug}:api`;
+  }
+  return slug;
+}
+
+function buildValidatorForSchema(
+  schema: ToolValidationSchema,
+  options?: BuildZodSchemaOptions,
+): z.ZodObject<Record<string, z.ZodTypeAny>> {
+  return buildZodSchema(schema.inputs, options);
+}
 
 function readToolValidationSchema(slug: string): ToolValidationSchema | null {
   const schemaPath = path.join(SCHEMAS_DIR, `${slug}-schema.json`);
@@ -78,8 +104,12 @@ function readToolValidationSchema(slug: string): ToolValidationSchema | null {
   }
 }
 
-export function getValidatorForTool(slug: string): z.ZodObject<Record<string, z.ZodTypeAny>> | null {
-  const cached = validatorCache.get(slug);
+export function getValidatorForTool(
+  slug: string,
+  options?: BuildZodSchemaOptions,
+): z.ZodObject<Record<string, z.ZodTypeAny>> | null {
+  const cacheKey = validatorCacheKey(slug, options);
+  const cached = validatorCache.get(cacheKey);
   if (cached) {
     return cached;
   }
@@ -89,9 +119,16 @@ export function getValidatorForTool(slug: string): z.ZodObject<Record<string, z.
     return null;
   }
 
-  const validator = buildZodSchema(schema.inputs);
-  validatorCache.set(slug, validator);
+  const validator = buildValidatorForSchema(schema, options);
+  validatorCache.set(cacheKey, validator);
   return validator;
+}
+
+/** Strict validator for /api-public — no defaults, rejects unknown keys. */
+export function getApiValidatorForTool(
+  slug: string,
+): z.ZodObject<Record<string, z.ZodTypeAny>> | null {
+  return getValidatorForTool(slug, API_VALIDATOR_OPTIONS);
 }
 
 export function getToolValidationSchema(slug: string): ToolValidationSchema | null {
