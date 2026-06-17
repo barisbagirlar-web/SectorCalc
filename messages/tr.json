@@ -15886,7 +15886,7 @@
         "helper": "Aylık Ödeme için hesaplamada kullanılan değer."
       },
       "outstanding_balance": {
-        "label": "Outstanding Balance",
+        "label": "Kalan Bakiye",
         "placeholder": "Outstanding Balance girin",
         "helper": "Outstanding Balance için hesaplamada kullanılan değer."
       },
@@ -17502,7 +17502,7 @@
         "helper": "Number Ödeme Periods için hesaplamada kullanılan değer."
       },
       "deferral_periods": {
-        "label": "Deferral Periods",
+        "label": "Erteleme Dönemleri",
         "placeholder": "Deferral Periods girin",
         "helper": "Deferral Periods için hesaplamada kullanılan değer."
       }
@@ -20123,12 +20123,12 @@
         "helper": "Debts ve Expenses için hesaplamada kullanılan değer."
       },
       "marital_deduction": {
-        "label": "Marital Deduction",
+        "label": "Evlilik İndirimi",
         "placeholder": "Marital Deduction girin",
         "helper": "Marital Deduction için hesaplamada kullanılan değer."
       },
       "charitable_deduction": {
-        "label": "Charitable Deduction",
+        "label": "Hayır Kurumu İndirimi",
         "placeholder": "Charitable Deduction girin",
         "helper": "Charitable Deduction için hesaplamada kullanılan değer."
       },
@@ -22555,7 +22555,7 @@
         "helper": "Vergi Oran başına litre için hesaplamada kullanılan değer."
       },
       "additional_surcharge_percent": {
-        "label": "Additional Surcharge (%)",
+        "label": "Ek Vergi Oranı (%)",
         "placeholder": "Additional Surcharge (%) girin",
         "helper": "Additional Surcharge (%) için hesaplamada kullanılan değer."
       }
@@ -29988,7 +29988,7 @@
         "helper": "Spousal Gelir için hesaplamada kullanılan değer."
       },
       "spousal_allowance": {
-        "label": "Spousal Allowance",
+        "label": "Eş Ödeneği",
         "placeholder": "Spousal Allowance girin",
         "helper": "Spousal Allowance için hesaplamada kullanılan değer."
       }
@@ -30101,7 +30101,7 @@
         "helper": "Toplam Retail Drug Maliyet ($) için hesaplamada kullanılan değer."
       },
       "deductible": {
-        "label": "Deductible ($)",
+        "label": "Muafiyet ($)",
         "placeholder": "Deductible ($) girin",
         "helper": "Deductible ($) için hesaplamada kullanılan değer."
       },
@@ -30116,7 +30116,7 @@
         "helper": "Catastrophic eşik ($) için hesaplamada kullanılan değer."
       },
       "coinsurance_initial": {
-        "label": "Initial Coinsurance (%)",
+        "label": "İlk Ortak Sigorta (%)",
         "placeholder": "Initial Coinsurance (%) girin",
         "helper": "Initial Coinsurance (%) için hesaplamada kullanılan değer."
       },
@@ -30126,7 +30126,7 @@
         "helper": "fark Coinsurance (%) için hesaplamada kullanılan değer."
       },
       "copay_catastrophic": {
-        "label": "Catastrophic Copay ($)",
+        "label": "Felaket Katkı Payı ($)",
         "placeholder": "Catastrophic Copay ($) girin",
         "helper": "Catastrophic Copay ($) için hesaplamada kullanılan değer."
       }
@@ -52865,7 +52865,7 @@
         "helper": "Asgari Sabit Tutar için hesaplamada kullanılan değer."
       },
       "outstanding_balance": {
-        "label": "Outstanding Balance",
+        "label": "Kalan Bakiye",
         "placeholder": "Outstanding Balance girin",
         "helper": "Outstanding Balance için hesaplamada kullanılan değer."
       },
@@ -62744,7 +62744,7 @@
         "helper": "Mevcut Yaş için hesaplamada kullanılan değer."
       },
       "full_retirement_age": {
-        "label": "Full Retirement Age",
+        "label": "Tam Emeklilik Yaşı",
         "placeholder": "Full Retirement Age girin",
         "helper": "Full Retirement Age için hesaplamada kullanılan değer."
       },
@@ -62754,7 +62754,7 @@
         "helper": "Primary sigorta Tutar (PIA) için hesaplamada kullanılan değer."
       },
       "claiming_age": {
-        "label": "Claiming Age",
+        "label": "Başvuru Yaşı",
         "placeholder": "Claiming Age girin",
         "helper": "Claiming Age için hesaplamada kullanılan değer."
       },
@@ -62855,12 +62855,12 @@
         "helper": "Worker's Primary sigorta Tutar (PIA) için hesaplamada kullanılan değer."
       },
       "spouse_age_relative_to_full_retirement_age": {
-        "label": "Spouse's Age Relative to Full Retirement Age (FRA)",
+        "label": "Eşin Tam Emeklilik Yaşına Göre Yaşı",
         "placeholder": "Spouse's Age Relative to Full Retirement Age (FRA) girin",
         "helper": "Spouse's Age Relative to Full Retirement Age (FRA) için hesaplamada kullanılan değer."
       },
       "spouse_own_benefit": {
-        "label": "Spouse's Own Retirement Benefit",
+        "label": "Eşin Kendi Emeklilik Hakkı",
         "placeholder": "Spouse's Own Retirement Benefit girin",
         "helper": "Spouse's Own Retirement Benefit için hesaplamada kullanılan değer."
       }
@@ -62882,8 +62882,8 @@
         "helper": "Üçüncül değer için hesaplamada kullanılan değer."
       },
       "deceased_aime": {
-        "label": "Deceased Worker's AIME",
-        "placeholder": "Deceased Worker's AIME girin",
+        "label": "Vefat Edenin AIME",
+        "placeholder": "Vefat Edenin AIME girin",
         "helper": "Deceased Worker's AIME için hesaplamada kullanılan değer."
       },
       "survivor_age": {
@@ -66135,6 +66135,18 @@
         },
         "toleranceStackUpCalculator": {
           "title": "Tolerance Stack Up Calculator girdi haritası"
+        },
+        "5sDenetimSkoru": {
+          "title": "5S Denetim Skoru verimlilik kaybı girdi haritası"
+        },
+        "3bBaskiDestek": {
+          "title": "3B Baskı destek yapısı ve post-proses maliyet girdi haritası"
+        },
+        "3bBaskiParti": {
+          "title": "3B Baskı parti yuvalama optimizasyonu girdi haritası"
+        },
+        "3bBaskiBreakeven": {
+          "title": "3B Baskı vs talaşlı imalat başabaş girdi haritası"
         }
       }
     },

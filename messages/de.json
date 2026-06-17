@@ -16250,7 +16250,7 @@
         "helper": "Eingabewert für Monatliche Zahlung in der Berechnung."
       },
       "outstanding_balance": {
-        "label": "Outstanding Balance",
+        "label": "Ausstehender Saldo",
         "placeholder": "Outstanding Balance eingeben",
         "helper": "Eingabewert für Outstanding Balance in der Berechnung."
       },
@@ -20492,7 +20492,7 @@
         "helper": "Eingabewert für Ehegattenabzug in der Berechnung."
       },
       "charitable_deduction": {
-        "label": "Spendenabzug",
+        "label": "Wohltätigkeitsabzug",
         "placeholder": "Spendenabzug eingeben",
         "helper": "Eingabewert für Spendenabzug in der Berechnung."
       },
@@ -30352,7 +30352,7 @@
         "helper": "Eingabewert für Spousal Income in der Berechnung."
       },
       "spousal_allowance": {
-        "label": "Ehegattenfreibetrag",
+        "label": "Ehegattenzuschuss",
         "placeholder": "Ehegattenfreibetrag eingeben",
         "helper": "Eingabewert für Ehegattenfreibetrag in der Berechnung."
       }
@@ -30465,7 +30465,7 @@
         "helper": "Eingabewert für Total Retail Drug Kosten ($) in der Berechnung."
       },
       "deductible": {
-        "label": "Abzugsfähig ($)",
+        "label": "Selbstbehalt ($)",
         "placeholder": "Abzugsfähig ($) eingeben",
         "helper": "Eingabewert für Abzugsfähig ($) in der Berechnung."
       },
@@ -44799,12 +44799,12 @@
         "helper": "Eingabewert für Tariff Satz in der Berechnung."
       },
       "duty_free_allowance": {
-        "label": "Zollfreier Freibetrag",
+        "label": "Zollfreier Betrag ($)",
         "placeholder": "Zollfreier Freibetrag eingeben",
         "helper": "Eingabewert für Zollfreier Freibetrag in der Berechnung."
       },
       "additional_duties": {
-        "label": "Zusätzliche Abgaben",
+        "label": "Zusätzliche Zölle (%)",
         "placeholder": "Zusätzliche Abgaben eingeben",
         "helper": "Eingabewert für Zusätzliche Abgaben in der Berechnung."
       }
@@ -53229,7 +53229,7 @@
         "helper": "Eingabewert für Mindestfestbetrag in der Berechnung."
       },
       "outstanding_balance": {
-        "label": "Outstanding Balance",
+        "label": "Ausstehender Saldo",
         "placeholder": "Outstanding Balance eingeben",
         "helper": "Eingabewert für Outstanding Balance in der Berechnung."
       },
@@ -53266,7 +53266,7 @@
         "helper": "Eingabewert für Fixed Monthly Payment in der Berechnung."
       },
       "credit_card_balance": {
-        "label": "Outstanding Balance",
+        "label": "Kreditkartensaldo ($)",
         "placeholder": "Outstanding Balance eingeben",
         "helper": "Eingabewert für Outstanding Balance in der Berechnung."
       },
@@ -63118,7 +63118,7 @@
         "helper": "Eingabewert für Primary Insurance Amount (PIA) in der Berechnung."
       },
       "claiming_age": {
-        "label": "Beantragungsalter",
+        "label": "Antrittsalter",
         "placeholder": "Beantragungsalter eingeben",
         "helper": "Eingabewert für Beantragungsalter in der Berechnung."
       },
@@ -63126,6 +63126,9 @@
         "label": "Annual Earnings (Strom)",
         "placeholder": "Annual Earnings (Strom) eingeben",
         "helper": "Eingabewert für Annual Earnings (Strom) in der Berechnung."
+      },
+      "fulretirement_age": {
+        "label": "Volles Rentenalter"
       }
     },
     "social-security-delayed-retirement-calculator": {
@@ -63219,12 +63222,12 @@
         "helper": "Eingabewert für Worker's Primary Insurance Amount (PIA) in der Berechnung."
       },
       "spouse_age_relative_to_full_retirement_age": {
-        "label": "Alter des Ehepartners relativ zum vollen Rentenalter (FRA)",
+        "label": "Alter des Ehepartners relativ zum Rentenalter",
         "placeholder": "Alter des Ehepartners relativ zum vollen Rentenalter (FRA) eingeben",
         "helper": "Eingabewert für Alter des Ehepartners relativ zum vollen Rentenalter (FRA) in der Berechnung."
       },
       "spouse_own_benefit": {
-        "label": "Eigener Rentenanspruch des Ehepartners",
+        "label": "Eigener Rentenanspruch ($)",
         "placeholder": "Eigener Rentenanspruch des Ehepartners eingeben",
         "helper": "Eingabewert für Eigener Rentenanspruch des Ehepartners in der Berechnung."
       }
@@ -63246,7 +63249,7 @@
         "helper": "Eingabewert für Tertiärwert in der Berechnung."
       },
       "deceased_aime": {
-        "label": "AIME des verstorbenen Arbeitnehmers",
+        "label": "AIME des Verstorbenen ($)",
         "placeholder": "AIME des verstorbenen Arbeitnehmers eingeben",
         "helper": "Eingabewert für AIME des verstorbenen Arbeitnehmers in der Berechnung."
       },
@@ -63723,12 +63726,12 @@
         "helper": "Eingabewert für New Loan Laufzeit in der Berechnung."
       },
       "origination_fee": {
-        "label": "Origination Fee",
+        "label": "Bearbeitungsgebühr ($)",
         "placeholder": "Origination Fee eingeben",
         "helper": "Eingabewert für Origination Fee in der Berechnung."
       },
       "upfront_costs": {
-        "label": "Upfront Costs",
+        "label": "Vorabkosten ($)",
         "placeholder": "Upfront Costs eingeben",
         "helper": "Eingabewert für Upfront Costs in der Berechnung."
       }
@@ -66397,6 +66400,18 @@
         },
         "toleranceStackUpCalculator": {
           "title": "Eingabeanleitung für Toleranzstapelrechner"
+        },
+        "5sDenetimSkoru": {
+          "title": "5S-Audit-Score Effizienzverlust Eingabekarte"
+        },
+        "3bBaskiDestek": {
+          "title": "3D-Druck Stützstruktur und Nachbearbeitungskosten Eingabekarte"
+        },
+        "3bBaskiParti": {
+          "title": "3D-Druck Batch-Nesting Optimierung Eingabekarte"
+        },
+        "3bBaskiBreakeven": {
+          "title": "3D-Druck vs Zerspanung Break-even Eingabekarte"
         }
       }
     },
@@ -67669,5 +67684,19 @@
     "addressLabel": "Adresse",
     "phoneLabel": "Telefon",
     "emailLabel": "E-Mail"
+  },
+  "freeTlInputs": {
+    "medicare-part-d-calculator": {
+      "coinsurance_initial": {
+        "label": "Anfängliche Zuzahlung (%)"
+      }
+    }
+  },
+  "freeToolInpts": {
+    "medicare-part-d-calculator": {
+      "copay_catastrophic": {
+        "label": "Katastrophale Zuzahlung ($)"
+      }
+    }
   }
 }
