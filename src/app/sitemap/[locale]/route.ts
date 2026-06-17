@@ -1,20 +1,20 @@
 import {
+  createSitemapXmlResponse,
   generateSitemapUrlsetXml,
-  SITEMAP_CACHE_CONTROL,
 } from "@/lib/seo/generate-sitemap-xml";
 import {
-  buildLocaleSitemapUrlRecords,
+  getLocaleSitemapUrlRecords,
   parseLocaleSitemapParam,
 } from "@/lib/seo/locale-sitemap";
 
-export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
 export const revalidate = 3600;
 
 type RouteContext = {
   params: Promise<{ locale: string }>;
 };
 
-export async function GET(_request: Request, context: RouteContext): Promise<Response> {
+export async function GET(request: Request, context: RouteContext): Promise<Response> {
   const { locale: localeParam } = await context.params;
   const locale = parseLocaleSitemapParam(localeParam);
 
@@ -22,13 +22,7 @@ export async function GET(_request: Request, context: RouteContext): Promise<Res
     return new Response("Not Found", { status: 404 });
   }
 
-  const urls = await buildLocaleSitemapUrlRecords(locale);
+  const urls = await getLocaleSitemapUrlRecords(locale);
   const xml = generateSitemapUrlsetXml(urls);
-
-  return new Response(xml, {
-    headers: {
-      "Content-Type": "application/xml; charset=utf-8",
-      "Cache-Control": SITEMAP_CACHE_CONTROL,
-    },
-  });
+  return createSitemapXmlResponse(xml, request);
 }

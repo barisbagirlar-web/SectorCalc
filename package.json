@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "browserslist": [
-    "chrome >= 90",
-    "firefox >= 90",
-    "safari >= 15",
-    "edge >= 90"
+    "chrome >= 93",
+    "edge >= 93",
+    "firefox >= 92",
+    "safari >= 15"
   ],
   "scripts": {
     "dev": "next dev",
@@ -30,6 +30,7 @@
     "seo:llms": "node scripts/export-ai-index.mjs",
     "seo:authority-txt": "npx tsx scripts/generate-seo-authority-txt.ts",
     "seo:export-manifest": "npx tsx scripts/export-indexable-manifest.ts",
+    "audit:sitemap": "node scripts/audit-sitemap.mjs",
     "seo:indexnow": "npx tsx scripts/submit-indexnow.ts",
     "seo:indexnow:priority": "INDEXNOW_MODE=priority npx tsx scripts/submit-indexnow.ts",
     "seo:indexnow:en-tr": "INDEXNOW_MODE=en-tr npx tsx scripts/submit-indexnow.ts",
@@ -321,11 +322,5 @@
     "tsx": "^4.22.4",
     "typescript": "^5",
     "vitest": "^4.1.8"
-  },
-  "browserslist": [
-    "chrome >= 93",
-    "edge >= 93",
-    "firefox >= 92",
-    "safari >= 15"
-  ]
+  }
 }

@@ -1,26 +1,14 @@
-import { getActiveSitemapLocales, SITE_BASE_URL } from "@/lib/seo/global-seo-config";
 import {
+  createSitemapXmlResponse,
   generateSitemapIndexXml,
-  SITEMAP_CACHE_CONTROL,
 } from "@/lib/seo/generate-sitemap-xml";
+import { getSitemapIndexEntries } from "@/lib/seo/locale-sitemap";
 
-export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
 export const revalidate = 3600;
 
-export async function GET(): Promise<Response> {
-  const now = new Date();
-  const base = SITE_BASE_URL.replace(/\/$/, "");
-  const sitemaps = getActiveSitemapLocales().map((locale) => ({
-    url: `${base}/sitemap/${locale}.xml`,
-    lastModified: now,
-  }));
-
+export async function GET(request: Request): Promise<Response> {
+  const sitemaps = await getSitemapIndexEntries();
   const xml = generateSitemapIndexXml(sitemaps);
-
-  return new Response(xml, {
-    headers: {
-      "Content-Type": "application/xml; charset=utf-8",
-      "Cache-Control": SITEMAP_CACHE_CONTROL,
-    },
-  });
+  return createSitemapXmlResponse(xml, request);
 }
