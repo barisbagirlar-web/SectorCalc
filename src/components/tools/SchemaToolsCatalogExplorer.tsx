@@ -21,12 +21,6 @@ type SchemaToolsCatalogExplorerProps = {
   readonly hideBrowseSection?: boolean;
 };
 
-const VARIANT_TITLE_KEY: Record<SchemaToolsCatalogExplorerProps["variant"], string> = {
-  "free-tools": "freeTools.title",
-  "premium-tools": "premiumTools.title",
-  industries: "industries.title",
-};
-
 function resolveFilterParamKey(filterBy: CatalogFilterMode): string {
   return filterBy === "sector" ? "sector" : "category";
 }
@@ -146,6 +140,7 @@ export function SchemaToolsCatalogExplorer({
 
   const tileTools = useMemo(() => visibleTools.map(toToolTile), [visibleTools]);
   const activeGroup = groups.find((group) => group.isActive);
+  const allLabel = t(`labels.${variant}.allLabel`);
   const formatCardCount = (count: number) => t(`labels.${variant}.countLabel`, { count });
 
   return (
@@ -214,7 +209,7 @@ export function SchemaToolsCatalogExplorer({
               ? t("search.label")
               : activeGroup
                 ? t(`labels.${variant}.categoryToolsTitle`, { category: activeGroup.label })
-                : t(VARIANT_TITLE_KEY[variant])}
+                : allLabel}
           </h2>
           <p className="mt-1 text-sm text-gray-500">
             {t(`labels.${variant}.categoryToolsSubtitle`, { count: visibleTools.length })}

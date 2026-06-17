@@ -45,23 +45,25 @@ export function buildTaxonomySectorCards(
     });
   }
 
-  if (options?.allLabel && tools.length > 0) {
-    const allLabel =
-      options.allLabel === ALL_TOOLS_SECTOR.label || options.allLabel === ALL_TOOLS_SECTOR.labelEn
-        ? resolveTaxonomySectorLabel(locale, ALL_TOOLS_SECTOR.label, ALL_TOOLS_SECTOR.labelEn)
-        : options.allLabel;
-    return [
-      {
-        sector: ALL_TOOLS_SECTOR,
-        label: allLabel,
-        count: tools.length,
-        countLabel: String(tools.length),
-      },
-      ...cards,
-    ];
+  if (tools.length === 0) {
+    return cards;
   }
 
-  return cards;
+  const allLabel = options?.allLabel
+    ? options.allLabel === ALL_TOOLS_SECTOR.label || options.allLabel === ALL_TOOLS_SECTOR.labelEn
+      ? resolveTaxonomySectorLabel(locale, ALL_TOOLS_SECTOR.label, ALL_TOOLS_SECTOR.labelEn)
+      : options.allLabel
+    : resolveTaxonomySectorLabel(locale, ALL_TOOLS_SECTOR.label, ALL_TOOLS_SECTOR.labelEn);
+
+  return [
+    {
+      sector: ALL_TOOLS_SECTOR,
+      label: allLabel,
+      count: tools.length,
+      countLabel: String(tools.length),
+    },
+    ...cards,
+  ];
 }
 
 export function withTaxonomyCountLabels(

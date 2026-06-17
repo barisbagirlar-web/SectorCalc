@@ -30,16 +30,23 @@ describe("buildTaxonomySectorCards", () => {
     expect(makine?.label).toBe("Machinery & Manufacturing");
   });
 
-  it("prepends an All tile when allLabel is provided", () => {
+  it("prepends an All tile when tools exist", () => {
     const cards = buildTaxonomySectorCards(
       [{ sectorKey: "makine" }, { sectorKey: "otomotiv" }],
       "tr",
-      { allLabel: "Tümü" },
     );
 
     expect(cards[0]?.sector.id).toBe("all");
     expect(cards[0]?.label).toBe("Tümü");
     expect(cards[0]?.count).toBe(2);
     expect(cards[0]?.sector.icon).toBe("🗂️");
+  });
+
+  it("allows overriding the All tile label", () => {
+    const cards = buildTaxonomySectorCards([{ sectorKey: "makine" }], "en", {
+      allLabel: "All sectors",
+    });
+
+    expect(cards[0]?.label).toBe("All sectors");
   });
 });
