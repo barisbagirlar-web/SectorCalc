@@ -45,8 +45,8 @@ export function TraceIntro({ copy }: TraceIntroProps) {
               <Image
                 src={TRACE_BRAND.avatar}
                 alt={copy.avatarAlt}
-                width={80}
-                height={80}
+                width={48}
+                height={48}
                 className="sc-trace-intro__avatar-image"
               />
             </div>
@@ -73,7 +73,9 @@ export function TraceIntro({ copy }: TraceIntroProps) {
                   <span>{copy.feature2}</span>
                 </li>
               </ul>
+            </div>
 
+            <div className="sc-trace-intro__cta-wrap">
               <button type="button" className="sc-cta-primary sc-trace-intro__cta" onClick={openTraceChat}>
                 <span>{copy.cta}</span>
                 <ArrowRight className="sc-trace-intro__cta-icon" aria-hidden />
