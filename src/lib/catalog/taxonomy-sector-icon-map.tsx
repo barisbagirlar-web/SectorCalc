@@ -1,6 +1,5 @@
 import type { LucideIcon } from "lucide-react";
 import {
-  Anchor,
   Anvil,
   Antenna,
   Armchair,
@@ -13,6 +12,7 @@ import {
   Circle,
   Cog,
   Columns3,
+  Cylinder,
   Droplets,
   Dumbbell,
   FlaskConical,
@@ -26,9 +26,9 @@ import {
   Landmark,
   LayoutGrid,
   Leaf,
+  Luggage,
   Magnet,
   Monitor,
-  Package,
   PawPrint,
   Pickaxe,
   Plane,
@@ -48,7 +48,6 @@ import {
   Warehouse,
   Wheat,
   Zap,
-  Cylinder,
 } from "lucide-react";
 import { ALL_TOOLS_SECTOR, OTHER_SECTOR, SECTORS } from "@/lib/tools/taxonomy";
 
@@ -89,7 +88,7 @@ export const TAXONOMY_SECTOR_ICON_MAP = {
   "ev-yasam": Home,
   egitim: GraduationCap,
   emlak: KeyRound,
-  turizm: Package,
+  turizm: Luggage,
   cevre: Leaf,
   elektronik: CircuitBoard,
   "ambalaj-baski": Printer,
@@ -143,7 +142,7 @@ export const TAXONOMY_SECTOR_ICON_NAMES: Readonly<Record<TaxonomySectorIconSlug,
   "ev-yasam": "Home",
   egitim: "GraduationCap",
   emlak: "KeyRound",
-  turizm: "Package",
+  turizm: "Luggage",
   cevre: "Leaf",
   elektronik: "CircuitBoard",
   "ambalaj-baski": "Printer",
