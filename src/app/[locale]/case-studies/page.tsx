@@ -55,6 +55,17 @@ export default async function CaseStudiesPage({ params, searchParams }: PageProp
   setRequestLocale(locale);
 
   const t = await getTranslations("caseStudies.database");
+  const indexSummaryLabels = {
+    lineSavingsOnly: (values: { company: string; savings: string }) =>
+      t("indexSummaryLineSavingsOnly", values),
+    lineWithMetric: (values: {
+      company: string;
+      metric: string;
+      before: string;
+      after: string;
+      savings: string;
+    }) => t("indexSummaryLineWithMetric", values),
+  };
   const studies = await listMergedPublishedCaseStudies(locale);
   const filters: CaseStudyDatabaseFilters = {
     industry: query.industry ?? "",
@@ -175,7 +186,7 @@ export default async function CaseStudiesPage({ params, searchParams }: PageProp
           {studies.map((study) => (
             <li key={study.slug}>
               <Link href={`/case-studies/${study.slug}`}>
-                {buildCaseStudyIndexSummaryLine(study, locale)}
+                {buildCaseStudyIndexSummaryLine(study, locale, indexSummaryLabels)}
               </Link>
             </li>
           ))}

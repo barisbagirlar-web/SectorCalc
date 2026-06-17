@@ -42,6 +42,14 @@ const CASE_STUDIES_SMOKE_URLS = [
   "https://www.sectorcalc.com/tr/case-studies/muller-prazision-5s-optimization",
   "https://www.sectorcalc.com/data/case-studies.csv",
 ];
+const CASE_STUDIES_LOCALE_HEADINGS = [
+  { url: "https://www.sectorcalc.com/case-studies", marker: "Success Stories Database" },
+  { url: "https://www.sectorcalc.com/tr/case-studies", marker: "Başarı Hikayeleri Dizini" },
+  { url: "https://www.sectorcalc.com/de/case-studies", marker: "Erfolgsgeschichten-Datenbank" },
+  { url: "https://www.sectorcalc.com/fr/case-studies", marker: "Base de données des success stories" },
+  { url: "https://www.sectorcalc.com/es/case-studies", marker: "Base de datos de casos de éxito" },
+  { url: "https://www.sectorcalc.com/ar/case-studies", marker: "قاعدة بيانات قصص النجاح" },
+];
 const DEPLOY_POLL_MS = 30_000;
 const DEPLOY_MAX_WAIT_MS = 45 * 60_000;
 
@@ -252,6 +260,31 @@ function verifyCaseStudiesAcademicSurface() {
   }
 }
 
+function verifyCaseStudiesLocaleHeadings() {
+  console.log("deploy-vercel-production: verifying case-studies locale headings…");
+  let failed = false;
+
+  for (const { url, marker } of CASE_STUDIES_LOCALE_HEADINGS) {
+    const result = spawnSync(
+      "curl",
+      ["-sL", "-H", "x-vercel-skip-cache: 1", url],
+      { encoding: "utf8" },
+    );
+    const html = result.stdout ?? "";
+    const ok = html.includes(marker);
+    console.log(`  ${ok ? "✓" : "✗"} ${url} (marker=${marker.slice(0, 24)}…)`);
+    if (!ok) {
+      failed = true;
+    }
+  }
+
+  if (failed) {
+    console.error("deploy-vercel-production: case-studies locale heading verification failed.");
+    rollbackProduction();
+    process.exit(1);
+  }
+}
+
 function verifyHomepageToolCounts() {
   console.log("deploy-vercel-production: verifying homepage tool counts on www…");
   let failed = false;
@@ -353,6 +386,7 @@ try {
 
   smokeProduction();
   verifyCaseStudiesAcademicSurface();
+  verifyCaseStudiesLocaleHeadings();
   verifyHomepageToolCounts();
   console.log("deploy-vercel-production: done.");
 } finally {

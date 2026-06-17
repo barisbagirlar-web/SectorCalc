@@ -30,6 +30,17 @@ export type CaseStudySnippetLabels = {
   readonly snippetAnswerSavings: (values: { amount: string }) => string;
 };
 
+export type CaseStudyIndexSummaryLabels = {
+  readonly lineSavingsOnly: (values: { company: string; savings: string }) => string;
+  readonly lineWithMetric: (values: {
+    company: string;
+    metric: string;
+    before: string;
+    after: string;
+    savings: string;
+  }) => string;
+};
+
 const SNIPPET_ANSWER_MAX_WORDS = 58;
 
 function trimToWordLimit(text: string, maxWords: number): string {
@@ -97,14 +108,24 @@ export function buildCaseStudySnippetCopy(
   return { question, answer, bullets };
 }
 
-export function buildCaseStudyIndexSummaryLine(study: CaseStudy, locale: string): string {
+export function buildCaseStudyIndexSummaryLine(
+  study: CaseStudy,
+  locale: string,
+  labels: CaseStudyIndexSummaryLabels,
+): string {
   const company = study.testimonial?.company ?? study.industry;
   const primary = getPrimaryResultRow(study);
   const savings = formatEuroAmount(resolveCaseStudySavingsEur(study), locale);
   if (!primary) {
-    return `${company}: ${savings} documented savings`;
+    return labels.lineSavingsOnly({ company, savings });
   }
-  return `${company}: ${primary.metric} ${primary.before} → ${primary.after}, ${savings} savings`;
+  return labels.lineWithMetric({
+    company,
+    metric: primary.metric,
+    before: primary.before,
+    after: primary.after,
+    savings,
+  });
 }
 
 export type CaseStudySeoPreview = {
