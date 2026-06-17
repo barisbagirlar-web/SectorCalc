@@ -19,9 +19,6 @@
   ],
   "hosting": {
     "source": ".",
-    "build": {
-      "command": "node scripts/firebase-hosting-build.mjs"
-    },
     "ignore": [
       "firebase.json",
       "**/.*",

@@ -1,15 +1,21 @@
 #!/usr/bin/env node
 /**
  * Vercel production build entry — deterministic clean, artifact sync, fallback Next build.
+ *
+ * Why not bare `next build`:
+ * - Large SSG trees hit MODULE_NOT_FOUND races (missing page.js / manifests).
+ * - `generated/` is gitignored; registry must be regenerated from committed schemas.
+ * - Preview/production on Vercel must cap static params to stay within memory/time limits.
+ *
+ * Fast-build env (defaults ON for VERCEL=1 — override with =0):
+ * - SECTORCALC_SKIP_TEST_GENERATED=1 — skip 3300+ sequential import test
+ * - SECTORCALC_SKIP_GENERATE_ALL=1 — skip generate:all when artifacts complete (=0 force regen)
+ * - SECTORCALC_KEEP_NEXT_CACHE=1 — keep .next for Vercel incremental cache (=0 force clean)
  */
 import { spawnSync } from "node:child_process";
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { cleanNextArtifacts } from "../clean-next-artifacts.mjs";
-import {
-  acquireGlobalBuildLock,
-  releaseGlobalBuildLock,
-} from "../lib/global-build-lock.mjs";
 import {
   describeGeneratedArtifactState,
   registryParityOk,
@@ -51,6 +57,7 @@ function configureVercelBuildEnv() {
     return;
   }
 
+  // Cap SSG on Vercel unless explicitly overridden (22k+ pages OOM/ENOENT on Hobby/Pro).
   if (process.env.SECTORCALC_FORCE_FULL_STATIC !== "1" && process.env.SECTORCALC_VERCEL_BUILD_LIMIT !== "0") {
     process.env.SECTORCALC_VERCEL_BUILD_LIMIT = "1";
   }
@@ -88,39 +95,27 @@ function main() {
   configureVercelBuildEnv();
   logFastBuildFlags();
 
-  // Vercel CI is isolated — skip global lock on remote builders.
-  const useGlobalLock = process.env.VERCEL !== "1";
-  if (useGlobalLock) {
-    acquireGlobalBuildLock("vercel-build");
+  const shouldCleanNext =
+    process.env.VERCEL === "1" && !envEnabled("SECTORCALC_KEEP_NEXT_CACHE", true);
+
+  if (shouldCleanNext) {
+    console.log("run-vercel-build: cleaning .next for deterministic Vercel SSG");
+    cleanNextArtifacts();
+  } else if (process.env.VERCEL === "1") {
+    console.log("run-vercel-build: keeping .next cache (SECTORCALC_KEEP_NEXT_CACHE=1)");
   }
 
-  try {
-    const shouldCleanNext =
-      process.env.VERCEL === "1" && !envEnabled("SECTORCALC_KEEP_NEXT_CACHE", true);
+  runStep("node", ["scripts/vercel/ensure-build-prereqs.mjs"]);
+  runStep("node", ["scripts/deepseek/ensure-generated-artifacts.mjs"]);
+  assertRegistryParity();
 
-    if (shouldCleanNext) {
-      console.log("run-vercel-build: cleaning .next for deterministic Vercel SSG");
-      cleanNextArtifacts();
-    } else if (process.env.VERCEL === "1") {
-      console.log("run-vercel-build: keeping .next cache (SECTORCALC_KEEP_NEXT_CACHE=1)");
-    }
-
-    runStep("node", ["scripts/vercel/ensure-build-prereqs.mjs"]);
-    runStep("node", ["scripts/deepseek/ensure-generated-artifacts.mjs"]);
-    assertRegistryParity();
-
-    if (!envEnabled("SECTORCALC_SKIP_TEST_GENERATED", true)) {
-      runStep("npm", ["run", "test:generated"]);
-    } else {
-      console.log("run-vercel-build: skipping test:generated (SECTORCALC_SKIP_TEST_GENERATED=1)");
-    }
-
-    runStep("node", ["scripts/next-build-with-500-fallback.mjs"]);
-  } finally {
-    if (useGlobalLock) {
-      releaseGlobalBuildLock();
-    }
+  if (!envEnabled("SECTORCALC_SKIP_TEST_GENERATED", true)) {
+    runStep("npm", ["run", "test:generated"]);
+  } else {
+    console.log("run-vercel-build: skipping test:generated (SECTORCALC_SKIP_TEST_GENERATED=1)");
   }
+
+  runStep("node", ["scripts/next-build-with-500-fallback.mjs"]);
 }
 
 main();

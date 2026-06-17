@@ -50,6 +50,45 @@ function assertJsonObject(rel) {
   return null;
 }
 
+/** Hub routes that must never 404 after a production build. */
+const CRITICAL_HUB_ROUTES = ["/free-tools", "/tr/free-tools", "/tr"];
+
+/** @returns {string[]} */
+function assertCriticalHubRoutes() {
+  const manifestPath = join(NEXT, "prerender-manifest.json");
+  if (!existsSync(manifestPath)) {
+    return [];
+  }
+
+  /** @type {Set<string>} */
+  let prerenderRoutes;
+  try {
+    const manifest = JSON.parse(readFileSync(manifestPath, "utf8"));
+    prerenderRoutes = new Set(Object.keys(manifest.routes ?? {}));
+  } catch {
+    return [];
+  }
+
+  const errors = [];
+  for (const route of CRITICAL_HUB_ROUTES) {
+    if (prerenderRoutes.has(route)) {
+      continue;
+    }
+
+    const relative =
+      route === "/free-tools"
+        ? join("(english)", "free-tools", "page.js")
+        : join("[locale]", ...route.slice(1).split("/"), "page.js");
+    const pageModule = join(NEXT, "server", "app", relative);
+
+    if (!existsSync(pageModule)) {
+      errors.push(`critical hub route missing: ${route}`);
+    }
+  }
+
+  return errors;
+}
+
 function main() {
   const errors = [];
 
@@ -75,6 +114,8 @@ function main() {
       }
     }
   }
+
+  errors.push(...assertCriticalHubRoutes());
 
   if (errors.length > 0) {
     console.error("validate-next-build: FAIL");

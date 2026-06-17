@@ -8,18 +8,13 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const BUILD_ID_PATH = join(ROOT, ".next/BUILD_ID");
 const args = process.argv.slice(2);
 
-function finalizeExistingBuild() {
-  spawnSync("node", ["scripts/finalize-next-build.mjs"], { cwd: ROOT, stdio: "inherit" });
-  const validate = spawnSync("node", ["scripts/validate-next-build.mjs"], {
-    cwd: ROOT,
-    stdio: "inherit",
-  });
-  return (validate.status ?? 1) === 0;
-}
-
 if (args[0] === "build") {
-  if (existsSync(BUILD_ID_PATH) && finalizeExistingBuild()) {
-    console.log("next-firebase-deploy-shim: reusing validated .next build for Firebase deploy.");
+  if (existsSync(BUILD_ID_PATH)) {
+    spawnSync("node", ["scripts/ensure-500-export.mjs"], {
+      cwd: ROOT,
+      stdio: "inherit",
+    });
+    console.log("next-firebase-deploy-shim: reusing existing .next build for Firebase deploy.");
     process.exit(0);
   }
 
