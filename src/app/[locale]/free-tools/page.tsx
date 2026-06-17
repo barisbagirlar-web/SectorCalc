@@ -43,7 +43,9 @@ export default async function FreeToolsPage({ params }: PageProps) {
   const tPage = await getTranslations({ locale, namespace: "freeTools" });
   const tools = getFreeTools(locale);
   const taxonomySectorCards = withTaxonomyCountLabels(
-    buildTaxonomySectorCards(tools, locale),
+    buildTaxonomySectorCards(tools, locale, {
+      allLabel: tCatalog("labels.free-tools.allLabel"),
+    }),
     (count) => tCatalog("labels.free-tools.countLabel", { count }),
   );
 

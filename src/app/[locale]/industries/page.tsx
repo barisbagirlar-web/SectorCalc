@@ -44,7 +44,9 @@ export default async function IndustriesPage({ params }: PageProps) {
   const tCatalog = await getTranslations({ locale, namespace: "catalogExplorer" });
   const tools = getAllTools(locale);
   const taxonomySectorCards = withTaxonomyCountLabels(
-    buildTaxonomySectorCards(tools, locale),
+    buildTaxonomySectorCards(tools, locale, {
+      allLabel: tCatalog("labels.industries.allLabel"),
+    }),
     (count) => tCatalog("labels.industries.countLabel", { count }),
   );
 

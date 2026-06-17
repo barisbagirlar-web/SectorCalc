@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { assertUniqueSectorIcons, SECTORS } from "@/lib/tools/taxonomy";
+import { assertUniqueSectorIcons, SECTORS, ALL_TOOLS_SECTOR } from "@/lib/tools/taxonomy";
 
 describe("taxonomy sectors", () => {
   it("defines at least 30 sectors with unique icons", () => {
@@ -13,5 +13,6 @@ describe("taxonomy sectors", () => {
       expect(sector.keywords.length).toBeGreaterThan(5);
       expect(sector.professions.length).toBeGreaterThan(2);
     }
+    expect(ALL_TOOLS_SECTOR.icon).toBe("🗂️");
   });
 });

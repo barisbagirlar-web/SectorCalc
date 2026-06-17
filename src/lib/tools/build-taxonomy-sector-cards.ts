@@ -1,4 +1,4 @@
-import { OTHER_SECTOR, SECTORS, type Sector } from "@/lib/tools/taxonomy";
+import { ALL_TOOLS_SECTOR, OTHER_SECTOR, SECTORS, type Sector } from "@/lib/tools/taxonomy";
 
 export type TaxonomySectorCard = {
   readonly sector: Sector;
@@ -18,6 +18,7 @@ export function resolveTaxonomySectorLabel(
 export function buildTaxonomySectorCards(
   tools: readonly { sectorKey: string }[],
   locale: string,
+  options?: { readonly allLabel?: string },
 ): TaxonomySectorCard[] {
   const sectorCounts = new Map<string, number>();
   for (const tool of tools) {
@@ -42,6 +43,22 @@ export function buildTaxonomySectorCards(
       count: otherCount,
       countLabel: String(otherCount),
     });
+  }
+
+  if (options?.allLabel && tools.length > 0) {
+    const allLabel =
+      options.allLabel === ALL_TOOLS_SECTOR.label || options.allLabel === ALL_TOOLS_SECTOR.labelEn
+        ? resolveTaxonomySectorLabel(locale, ALL_TOOLS_SECTOR.label, ALL_TOOLS_SECTOR.labelEn)
+        : options.allLabel;
+    return [
+      {
+        sector: ALL_TOOLS_SECTOR,
+        label: allLabel,
+        count: tools.length,
+        countLabel: String(tools.length),
+      },
+      ...cards,
+    ];
   }
 
   return cards;
