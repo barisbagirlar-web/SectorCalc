@@ -5,7 +5,7 @@
  */
 import fs from "node:fs";
 import path from "node:path";
-import { CATEGORIES, SECTORS } from "../src/lib/tools/taxonomy";
+import { CATEGORIES, SECTORS, SECTOR_SLUG_OVERRIDES, SLUG_TOKEN_SECTOR_HINTS } from "../src/lib/tools/taxonomy";
 
 const SCHEMAS_DIR = path.join(process.cwd(), "generated", "schemas");
 const FALLBACK_SECTOR_ID = "diger";
@@ -13,6 +13,9 @@ const FALLBACK_CATEGORY_ID = "diger";
 const FALLBACK_SECTOR_LABEL = "Diğer";
 const FALLBACK_CATEGORY_LABEL = "Diğer";
 const FALLBACK_PROFESSION = "Genel Uzman";
+
+const SLUG_TOKEN_SCORE = 8;
+const KEYWORD_SCORE = 1;
 
 type SchemaInput = {
   readonly label?: string;
@@ -32,15 +35,35 @@ type ToolSchema = {
   inputs?: readonly SchemaInput[];
 };
 
+function transliterateTurkish(value: string): string {
+  return value
+    .replace(/ı/g, "i")
+    .replace(/İ/g, "i")
+    .replace(/ş/g, "s")
+    .replace(/Ş/g, "s")
+    .replace(/ğ/g, "g")
+    .replace(/Ğ/g, "g")
+    .replace(/ü/g, "u")
+    .replace(/Ü/g, "u")
+    .replace(/ö/g, "o")
+    .replace(/Ö/g, "o")
+    .replace(/ç/g, "c")
+    .replace(/Ç/g, "c");
+}
+
 function normalizeHaystack(parts: readonly string[]): string {
-  return parts
-    .join(" ")
+  return transliterateTurkish(parts.join(" "))
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, " ");
+    .replace(/[^a-z0-9]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 function keywordMatches(haystack: string, keyword: string): boolean {
-  const normalizedKeyword = keyword.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+  const normalizedKeyword = transliterateTurkish(keyword)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
   if (!normalizedKeyword) {
     return false;
   }
@@ -58,15 +81,18 @@ function scoreKeywords(haystack: string, keywords: readonly string[]): number {
   let score = 0;
   for (const keyword of keywords) {
     if (keywordMatches(haystack, keyword)) {
-      score += 1;
+      score += KEYWORD_SCORE;
     }
   }
   return score;
 }
 
 function extractHaystack(schema: ToolSchema, fileSlug: string): string {
+  const slug = fileSlug || schema.slug || schema.toolName || "";
   return normalizeHaystack([
-    fileSlug,
+    slug,
+    slug,
+    slug,
     schema.slug ?? "",
     schema.toolName ?? "",
     schema.title ?? "",
@@ -78,12 +104,32 @@ function extractHaystack(schema: ToolSchema, fileSlug: string): string {
   ]);
 }
 
-function findBestSector(text: string): { sectorId: string; score: number } {
+function scoreSlugTokens(fileSlug: string): Map<string, number> {
+  const scores = new Map<string, number>();
+  const tokens = normalizeHaystack([fileSlug]).split(" ").filter(Boolean);
+  for (const token of tokens) {
+    const hintedSector = SLUG_TOKEN_SECTOR_HINTS[token];
+    if (hintedSector) {
+      scores.set(hintedSector, (scores.get(hintedSector) ?? 0) + SLUG_TOKEN_SCORE);
+    }
+  }
+  return scores;
+}
+
+function findBestSector(text: string, fileSlug: string): { sectorId: string; score: number } {
+  const override = SECTOR_SLUG_OVERRIDES[fileSlug];
+  if (override) {
+    return { sectorId: override, score: 1000 };
+  }
+
+  const tokenScores = scoreSlugTokens(fileSlug);
   let bestSectorId = FALLBACK_SECTOR_ID;
   let bestScore = 0;
 
   for (const sector of SECTORS) {
-    const score = scoreKeywords(text, sector.keywords);
+    const keywordScore = scoreKeywords(text, sector.keywords);
+    const tokenScore = tokenScores.get(sector.id) ?? 0;
+    const score = keywordScore + tokenScore;
     if (score > bestScore) {
       bestScore = score;
       bestSectorId = sector.id;
@@ -118,9 +164,9 @@ function findBestProfession(text: string, sectorId: string): string {
   let bestScore = 0;
 
   for (const profession of sector.professions) {
-    const professionKeywords = profession
+    const professionKeywords = transliterateTurkish(profession)
       .toLowerCase()
-      .replace(/[^a-z0-9ğüşıöç]+/gi, " ")
+      .replace(/[^a-z0-9]+/g, " ")
       .split(/\s+/)
       .filter(Boolean);
     const score = scoreKeywords(text, professionKeywords);
@@ -164,6 +210,7 @@ function main(): void {
 
   let assigned = 0;
   let skipped = 0;
+  const sectorCounts = new Map<string, number>();
 
   for (const file of files) {
     const filePath = path.join(SCHEMAS_DIR, file);
@@ -180,7 +227,7 @@ function main(): void {
     const fileSlug = fileSlugFromName(file);
     const text = extractHaystack(schema, fileSlug);
 
-    const sectorResult = findBestSector(text);
+    const sectorResult = findBestSector(text, fileSlug);
     const categoryResult = findBestCategory(text);
     const sectorLabel = resolveSectorLabel(sectorResult.sectorId);
     const categoryLabel = resolveCategoryLabel(categoryResult.categoryId);
@@ -192,12 +239,11 @@ function main(): void {
     schema.category = categoryLabel;
     schema.categoryId = categoryResult.categoryId;
 
+    sectorCounts.set(sectorResult.sectorId, (sectorCounts.get(sectorResult.sectorId) ?? 0) + 1);
+
     try {
       fs.writeFileSync(filePath, `${JSON.stringify(schema, null, 2)}\n`);
       assigned += 1;
-      console.log(
-        `${file} -> ${sectorLabel} / ${profession} / ${categoryLabel} (scores: ${sectorResult.score}, ${categoryResult.score})`,
-      );
     } catch (error) {
       console.error(`Failed to write ${file}:`, error);
       skipped += 1;
@@ -205,10 +251,24 @@ function main(): void {
   }
 
   console.log("");
+  console.log("Sector distribution:");
+  const sorted = [...sectorCounts.entries()].sort((a, b) => b[1] - a[1]);
+  for (const [sectorId, count] of sorted) {
+    console.log(`  ${sectorId}: ${count}`);
+  }
+
+  const digerCount = sectorCounts.get(FALLBACK_SECTOR_ID) ?? 0;
+  console.log("");
   console.log("Done.");
   console.log(`Assigned: ${assigned}`);
   console.log(`Skipped: ${skipped}`);
   console.log(`Total: ${files.length}`);
+  console.log(`Diğer (diger): ${digerCount}`);
+
+  if (digerCount > 0) {
+    console.error(`FAIL: Diğer count ${digerCount} must be 0.`);
+    process.exit(1);
+  }
 }
 
 main();

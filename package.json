@@ -97,6 +97,8 @@
     "assign:schema-categories": "npx tsx scripts/deepseek/assign-categories-to-schemas.ts && npm run sync:free-catalog",
     "assign:categories-v2": "npx tsx scripts/assign-categories-v2.ts && npm run assign:schema-categories",
     "assign:sector-profession-category": "npx tsx scripts/assign-sector-profession-category.ts",
+    "assign:sectors": "npm run assign:sector-profession-category",
+    "analyze:other-sector": "npx tsx scripts/analyze-other-sector.ts",
     "build:omni-list": "node scripts/data/merge-omni-sections.mjs",
     "patch:omni-category-i18n": "node scripts/patch-omni-free-category-i18n.mjs",
     "generate:fresh-schemas": "node scripts/generate-fresh-schemas.js",
