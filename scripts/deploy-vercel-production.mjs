@@ -154,9 +154,12 @@ if (run("npm", ["run", "check:secrets"]) !== 0) {
 let worktreeDir = "";
 
 try {
-  if (forceWorktree || !clean) {
+  if (forceWorktree) {
     worktreeDir = createOriginWorktree();
     deployFromCwd(worktreeDir);
+  } else if (!clean && skipCleanCheck) {
+    console.warn("deploy-vercel-production: deploying local working tree (ALLOW_DIRTY_DEPLOY=1)…");
+    deployFromCwd(ROOT);
   } else {
     assertOnMainSynced();
     deployFromCwd(ROOT);

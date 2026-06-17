@@ -162,6 +162,7 @@ try {
       ...process.env,
       NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192",
       FIREBASE_FRAMEWORKS_BUILD_TARGET: "production",
+      SECTORCALC_FIREBASE_REUSE_BUILD: "1",
     },
   });
   process.exit(deployStatus);

@@ -43,17 +43,35 @@ function artifactsReady() {
   return allSchemasHaveGeneratedTools() && registryParityOk();
 }
 
+function isVercelBuild() {
+  return process.env.VERCEL === "1";
+}
+
+function failOnVercelWhenArtifactsIncomplete() {
+  if (!isVercelBuild() || artifactsReady()) {
+    return;
+  }
+
+  const state = describeGeneratedArtifactState();
+  console.error(
+    "ensure-generated-artifacts: FAIL on Vercel — committed generated artifacts are out of sync.",
+  );
+  console.error(
+    `  schemas=${state.schemaCount}, tools=${state.toolCount}, registry loaders=${state.loaderCount}`,
+  );
+  console.error(
+    "  Fix locally: npm run generate:all && npm run generate:registry && commit generated/*.ts + calculator-registry.ts",
+  );
+  console.error("  Vercel must not run generate:all (exceeds build time/memory).");
+  process.exit(1);
+}
+
 function shouldSkipGenerateAll() {
   const flag = process.env.SECTORCALC_SKIP_GENERATE_ALL;
   if (flag === "0") {
     return false;
   }
   if (!artifactsReady()) {
-    if (flag === "1") {
-      console.warn(
-        "ensure-generated-artifacts: skip requested but artifacts incomplete — running generate:all",
-      );
-    }
     return false;
   }
   return true;
@@ -66,12 +84,20 @@ function main() {
     return;
   }
 
+  failOnVercelWhenArtifactsIncomplete();
+
   if (shouldSkipGenerateAll()) {
     const state = describeGeneratedArtifactState();
     console.log(
       `ensure-generated-artifacts: up to date — skipping generate:all (${state.toolCount} tools, ${state.schemaCount} schemas)`,
     );
     return;
+  }
+
+  if (process.env.SECTORCALC_SKIP_GENERATE_ALL === "1") {
+    console.warn(
+      "ensure-generated-artifacts: skip requested but artifacts incomplete — running generate:all (local only)",
+    );
   }
 
   console.log("ensure-generated-artifacts: regenerating tools from schemas");

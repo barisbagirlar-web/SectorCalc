@@ -53,11 +53,44 @@ function assertNoDotAllRegexFlags() {
   }
 }
 
+/** Drop orphan `{slug}-schema.json` when `{slug}-calculator-schema.json` already exists. */
+function removeDuplicateBareSchemas() {
+  if (!fs.existsSync(schemasDir)) {
+    return;
+  }
+
+  const schemaNames = new Set(fs.readdirSync(schemasDir).filter((name) => name.endsWith("-schema.json")));
+  let removed = 0;
+
+  for (const name of schemaNames) {
+    const slug = name.replace(/-schema\.json$/, "");
+    if (slug.endsWith("-calculator")) {
+      continue;
+    }
+
+    const calculatorSchema = `${slug}-calculator-schema.json`;
+    if (!schemaNames.has(calculatorSchema)) {
+      continue;
+    }
+
+    fs.unlinkSync(path.join(schemasDir, name));
+    removed += 1;
+    console.warn(
+      `ensure-build-prereqs: removed duplicate bare schema ${name} (${calculatorSchema} is canonical)`,
+    );
+  }
+
+  if (removed > 0) {
+    console.log(`ensure-build-prereqs: cleaned ${removed} duplicate bare schema(s)`);
+  }
+}
+
 for (const dir of [generatedDir, schemasDir, publicDiagramsDir]) {
   fs.mkdirSync(dir, { recursive: true });
 }
 
 assertTsconfigTarget();
 assertNoDotAllRegexFlags();
+removeDuplicateBareSchemas();
 
 console.log("ensure-build-prereqs: generated/schemas + public/generated/schemas ready");

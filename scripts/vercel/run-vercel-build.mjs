@@ -11,6 +11,7 @@ import {
   releaseGlobalBuildLock,
 } from "../lib/global-build-lock.mjs";
 import {
+  allSchemasHaveGeneratedTools,
   describeGeneratedArtifactState,
   registryParityOk,
 } from "./generated-artifact-parity.mjs";
@@ -54,6 +55,10 @@ function configureVercelBuildEnv() {
   if (process.env.SECTORCALC_FORCE_FULL_STATIC !== "1" && process.env.SECTORCALC_VERCEL_BUILD_LIMIT !== "0") {
     process.env.SECTORCALC_VERCEL_BUILD_LIMIT = "1";
   }
+
+  if (process.env.SECTORCALC_SKIP_GENERATE_ALL !== "0") {
+    process.env.SECTORCALC_SKIP_GENERATE_ALL = "1";
+  }
 }
 
 function assertRegistryParity() {
@@ -61,11 +66,14 @@ function assertRegistryParity() {
     return;
   }
 
-  if (!registryParityOk()) {
+  if (!registryParityOk() || !allSchemasHaveGeneratedTools()) {
     const state = describeGeneratedArtifactState();
     console.error(
       `run-vercel-build: registry parity failed — ${state.loaderCount} loaders vs ${state.toolCount} generated tools (${state.schemaCount} schemas)`,
     );
+    if (!allSchemasHaveGeneratedTools()) {
+      console.error("run-vercel-build: at least one schema JSON lacks a matching generated/*.ts file");
+    }
     process.exit(1);
   }
 

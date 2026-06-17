@@ -28,19 +28,19 @@ function run(command, args) {
   }
 }
 
+const forceRebuild = process.env.DEPLOY_FORCE_REBUILD === "1";
+const hasBuild = !forceRebuild && existsSync(BUILD_ID_PATH);
+
+if (hasBuild) {
+  run("node", ["scripts/finalize-next-build.mjs"]);
+  run("node", ["scripts/validate-next-build.mjs"]);
+  console.log("firebase-hosting-build: reusing existing .next build for Firebase deploy.");
+  process.exit(0);
+}
+
 acquireGlobalBuildLock("firebase-hosting-build");
 
 try {
-  const forceRebuild = process.env.DEPLOY_FORCE_REBUILD === "1";
-  const hasBuild = !forceRebuild && existsSync(BUILD_ID_PATH);
-
-  if (hasBuild) {
-    run("node", ["scripts/finalize-next-build.mjs"]);
-    run("node", ["scripts/validate-next-build.mjs"]);
-    console.log("firebase-hosting-build: reusing existing .next build for Firebase deploy.");
-    process.exit(0);
-  }
-
   console.log("firebase-hosting-build: running full npm run build pipeline…");
   run("npm", ["run", "build"]);
 } finally {

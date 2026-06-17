@@ -8,7 +8,7 @@
  * - App Router only — no `src/pages/*` (Pages Router races / _document ENOENT).
  */
 import { spawnSync } from "node:child_process";
-import { existsSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
+import { closeSync, existsSync, mkdirSync, openSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { cleanNextArtifacts } from "./clean-next-artifacts.mjs";
 import {
@@ -19,6 +19,7 @@ import {
 const ROOT = process.cwd();
 const NEXT_DIR = join(ROOT, ".next");
 const BUILD_LOCK = join(NEXT_DIR, ".build.lock");
+const BUILD_LOG = join(NEXT_DIR, "last-next-build.log");
 const useGlobalLock = process.env.VERCEL !== "1";
 
 /** Minimal routes stub — satisfies next-env.d.ts until Next regenerates types. */
@@ -110,20 +111,40 @@ function interruptedBuild(log, status) {
   return status === 143 || status === 130 || /SIGTERM|SIGINT|ENOMEM|JavaScript heap out of memory/i.test(log);
 }
 
+function readBuildLogTail(maxChars = 200_000) {
+  if (!existsSync(BUILD_LOG)) {
+    return "";
+  }
+  const full = readFileSync(BUILD_LOG, "utf8");
+  return full.length > maxChars ? full.slice(-maxChars) : full;
+}
+
 function runNextBuild() {
+  mkdirSync(NEXT_DIR, { recursive: true });
+  const logFd = openSync(BUILD_LOG, "w");
+
   const nextCli = join(ROOT, "node_modules/next/dist/bin/next");
   const result = spawnSync(process.execPath, [nextCli, "build", "--no-lint"], {
     cwd: ROOT,
     env: {
       ...process.env,
       NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192",
+      FORCE_COLOR: "0",
     },
-    encoding: "utf8",
+    stdio: ["inherit", logFd, logFd],
   });
+  closeSync(logFd);
 
-  const output = `${result.stdout ?? ""}${result.stderr ?? ""}`;
-  if (result.stdout) process.stdout.write(result.stdout);
-  if (result.stderr) process.stderr.write(result.stderr);
+  const output = readBuildLogTail();
+  if (process.env.VERCEL === "1" && output) {
+    process.stdout.write(output);
+  }
+
+  if (result.error) {
+    const message = result.error instanceof Error ? result.error.message : String(result.error);
+    process.stderr.write(`next-build-with-500-fallback: spawn error: ${message}\n`);
+    return { status: 1, output: `${output}\n${message}` };
+  }
 
   return { status: result.status ?? 1, output };
 }
@@ -217,7 +238,7 @@ try {
     }
   }
 
-  process.stderr.write(lastOutput);
+  process.stderr.write(lastOutput || readBuildLogTail());
   process.exit(1);
 } finally {
   releaseBuildLock();
