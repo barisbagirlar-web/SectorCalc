@@ -17,6 +17,7 @@ import {
 } from "./generated-artifact-parity.mjs";
 
 const ROOT = process.cwd();
+const NEXT_DIR = join(ROOT, ".next");
 const SCHEMAS_DIR = join(ROOT, "generated", "schemas");
 const REGISTRY_FILE = join(ROOT, "src/lib/generated-tools/calculator-registry.ts");
 
@@ -92,6 +93,16 @@ function logFastBuildFlags() {
   );
 }
 
+function ensureHealthyNextCache() {
+  if (!existsSync(NEXT_DIR)) {
+    return;
+  }
+  if (!existsSync(join(NEXT_DIR, "BUILD_ID"))) {
+    console.warn("run-vercel-build: partial .next without BUILD_ID — cleaning stale cache");
+    cleanNextArtifacts();
+  }
+}
+
 function main() {
   configureVercelBuildEnv();
   logFastBuildFlags();
@@ -103,6 +114,8 @@ function main() {
   }
 
   try {
+    ensureHealthyNextCache();
+
     const shouldCleanNext =
       process.env.VERCEL === "1" && !envEnabled("SECTORCALC_KEEP_NEXT_CACHE", true);
 
