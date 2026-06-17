@@ -1,24 +1,25 @@
 #!/usr/bin/env node
 /**
- * Production Next.js build with controlled retry + manifest/type recovery.
+ * Production Next.js build with controlled retry + manifest recovery.
  *
- * Handles flaky local/Firebase builds:
- * - partial SSG interruption (exit 143 / SIGTERM)
- * - missing 500.html export rename
- * - missing server manifests after compile
- * - missing .next/types/routes.d.ts or build-manifest.json during type phase
+ * Stability rules:
+ * - Global repo lock (no parallel builds).
+ * - Never exit 0 on partial/corrupt `.next` (validate before success).
+ * - App Router only — no `src/pages/*` (Pages Router races / _document ENOENT).
  */
 import { spawnSync } from "node:child_process";
 import { existsSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { cleanNextArtifacts } from "./clean-next-artifacts.mjs";
+import {
+  acquireGlobalBuildLock,
+  releaseGlobalBuildLock,
+} from "./lib/global-build-lock.mjs";
 
 const ROOT = process.cwd();
 const NEXT_DIR = join(ROOT, ".next");
 const BUILD_LOCK = join(NEXT_DIR, ".build.lock");
-
-const FALLBACK_500 =
-  '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><title>500</title></head><body><h1>500 — Server error</h1></body></html>\n';
+const useGlobalLock = process.env.VERCEL !== "1";
 
 /** Minimal routes stub — satisfies next-env.d.ts until Next regenerates types. */
 const ROUTES_D_TS_STUB = `// Auto-generated stub (build recovery). Next.js replaces on successful typegen.
@@ -32,13 +33,11 @@ type PageData = Record<string, unknown>;
 `;
 
 function acquireBuildLock() {
+  if (useGlobalLock) {
+    acquireGlobalBuildLock("npm run build");
+  }
+
   if (existsSync(BUILD_LOCK)) {
-    const stale = spawnSync("pgrep", ["-f", "next/dist/bin/next build"], { encoding: "utf8" });
-    const hasLiveBuild = (stale.stdout ?? "").trim().length > 0;
-    if (hasLiveBuild) {
-      console.error("next-build-with-500-fallback: another Next build is already running.");
-      process.exit(1);
-    }
     rmSync(BUILD_LOCK, { force: true });
   }
 
@@ -52,73 +51,8 @@ function acquireBuildLock() {
 
 function releaseBuildLock() {
   rmSync(BUILD_LOCK, { force: true });
-}
-
-function ensure500Artifacts() {
-  const exportDir = join(NEXT_DIR, "export");
-  const serverPagesDir = join(NEXT_DIR, "server/pages");
-  const exportHtmlPath = join(exportDir, "500.html");
-  const serverHtmlPath = join(serverPagesDir, "500.html");
-  const exportJsonPath = join(exportDir, "500.json");
-  const serverJsonPath = join(serverPagesDir, "500.json");
-  const fallbackJson = JSON.stringify({ page: "/500" });
-
-  mkdirSync(exportDir, { recursive: true });
-  mkdirSync(serverPagesDir, { recursive: true });
-
-  if (!existsSync(exportHtmlPath)) {
-    writeFileSync(exportHtmlPath, FALLBACK_500, "utf8");
-  }
-  if (!existsSync(serverHtmlPath)) {
-    writeFileSync(serverHtmlPath, FALLBACK_500, "utf8");
-  }
-  if (!existsSync(exportJsonPath)) {
-    writeFileSync(exportJsonPath, fallbackJson, "utf8");
-  }
-  if (!existsSync(serverJsonPath)) {
-    writeFileSync(serverJsonPath, fallbackJson, "utf8");
-  }
-}
-
-function ensureServerManifestStubs() {
-  const serverDir = join(NEXT_DIR, "server");
-  mkdirSync(serverDir, { recursive: true });
-
-  const pagesManifestPath = join(serverDir, "pages-manifest.json");
-  if (!existsSync(pagesManifestPath)) {
-    writeFileSync(pagesManifestPath, "{}\n", "utf8");
-  }
-
-  const middlewareManifestPath = join(serverDir, "middleware-manifest.json");
-  if (!existsSync(middlewareManifestPath)) {
-    writeFileSync(
-      middlewareManifestPath,
-      JSON.stringify({ sortedMiddleware: [], middleware: {}, functions: {}, version: 2 }),
-      "utf8",
-    );
-  }
-
-  const fontManifestPath = join(serverDir, "next-font-manifest.json");
-  if (!existsSync(fontManifestPath)) {
-    writeFileSync(
-      fontManifestPath,
-      JSON.stringify({ pages: {}, app: {}, appUsingSizeAdjust: false }),
-      "utf8",
-    );
-  }
-
-  const appPathsManifest = join(serverDir, "app-paths-manifest.json");
-  if (!existsSync(appPathsManifest)) {
-    writeFileSync(appPathsManifest, JSON.stringify({}), "utf8");
-  }
-
-  const exportDetailPath = join(NEXT_DIR, "export-detail.json");
-  if (!existsSync(exportDetailPath)) {
-    writeFileSync(
-      exportDetailPath,
-      JSON.stringify({ version: 1, outDirectory: NEXT_DIR, success: true }),
-      "utf8",
-    );
+  if (useGlobalLock) {
+    releaseGlobalBuildLock();
   }
 }
 
@@ -137,21 +71,17 @@ function ensureNextTypeAndBuildManifestStubs() {
   }
 }
 
-function ensureRecoveryArtifacts() {
-  ensure500Artifacts();
-  ensureServerManifestStubs();
-  ensureNextTypeAndBuildManifestStubs();
-  if (!existsSync(join(NEXT_DIR, "BUILD_ID"))) {
-    writeFileSync(join(NEXT_DIR, "BUILD_ID"), String(Date.now()), "utf8");
+function ssgFullyCompleted(log) {
+  const matches = [...log.matchAll(/Generating static pages \(\s*(\d+)\/(\d+)\s*\)/g)];
+  if (matches.length === 0) {
+    return false;
   }
+  const last = matches[matches.length - 1];
+  return last[1] === last[2];
 }
 
-function ssgCompleted(log) {
-  return /Generating static pages \(\d+\/\d+\)/.test(log);
-}
-
-function buildIdExists() {
-  return existsSync(join(NEXT_DIR, "BUILD_ID"));
+function compileSucceeded(log) {
+  return log.includes("Compiled successfully");
 }
 
 function recoverableManifestFailure(log) {
@@ -159,14 +89,21 @@ function recoverableManifestFailure(log) {
     log.includes("pages-manifest.json") ||
     log.includes("middleware-manifest.json") ||
     log.includes("next-font-manifest.json") ||
+    log.includes("app-build-manifest.json") ||
     log.includes("export-detail.json") ||
     log.includes("build-manifest.json") ||
     log.includes("routes.d.ts")
   );
 }
 
-function compileSucceeded(log) {
-  return log.includes("Compiled successfully");
+function ssgPageModuleRaceFailure(log) {
+  return (
+    (log.includes("Cannot find module") &&
+      (log.includes("/.next/server/app/") || log.includes("/.next/server/pages/"))) ||
+    log.includes("Unexpected end of JSON input") ||
+    log.includes("Cannot find module for page: /_document") ||
+    log.includes("PageNotFoundError")
+  );
 }
 
 function interruptedBuild(log, status) {
@@ -191,36 +128,49 @@ function runNextBuild() {
   return { status: result.status ?? 1, output };
 }
 
-function shouldRecover(result) {
+function finalizeAndValidate() {
+  const finalize = spawnSync(process.execPath, ["scripts/finalize-next-build.mjs"], {
+    cwd: ROOT,
+    stdio: "inherit",
+  });
+  if ((finalize.status ?? 1) !== 0) {
+    return false;
+  }
+
+  const validate = spawnSync(process.execPath, ["scripts/validate-next-build.mjs"], {
+    cwd: ROOT,
+    stdio: "inherit",
+  });
+  return (validate.status ?? 1) === 0;
+}
+
+function shouldRecover500Export(result) {
   const { output } = result;
-
   const rename500Failure =
-    ssgCompleted(output) &&
-    (output.includes(".next/server/pages/500.html") ||
-      output.includes(".next/server/pages/500.json"));
+    output.includes(".next/server/pages/500.html") ||
+    output.includes(".next/server/pages/500.json") ||
+    output.includes("Export encountered an error on /500");
 
-  if (rename500Failure) {
-    return "500-export";
-  }
-
-  if (ssgCompleted(output) && recoverableManifestFailure(output)) {
-    return "ssg-manifest";
-  }
-
-  return null;
+  return ssgFullyCompleted(output) && rename500Failure;
 }
 
 function shouldRetryWithManifestStub(result) {
   const { output } = result;
-  return compileSucceeded(output) && recoverableManifestFailure(output) && !ssgCompleted(output);
+  return recoverableManifestFailure(output) && (compileSucceeded(output) || output.includes("routes.d.ts"));
 }
 
-const MAX_ATTEMPTS = 3;
+function shouldRetryWithFullClean(result) {
+  const { output, status } = result;
+  return ssgPageModuleRaceFailure(output) || interruptedBuild(output, status);
+}
+
+const MAX_ATTEMPTS = process.env.VERCEL === "1" ? 5 : 3;
 let lastOutput = "";
 
-acquireBuildLock();
-
 try {
+  acquireBuildLock();
+  ensureNextTypeAndBuildManifestStubs();
+
   for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt += 1) {
     if (attempt > 1) {
       console.warn(`next-build-with-500-fallback: retry ${attempt}/${MAX_ATTEMPTS}…`);
@@ -229,21 +179,33 @@ try {
     const result = runNextBuild();
     lastOutput = result.output;
 
-    if (result.status === 0) {
-      ensure500Artifacts();
+    if (result.status === 0 && finalizeAndValidate()) {
       process.exit(0);
     }
 
-    const recovery = shouldRecover(result);
-    if (recovery) {
-      ensureRecoveryArtifacts();
-      console.warn(`next-build-with-500-fallback: recovered after ${recovery}.`);
-      process.exit(0);
+    if (shouldRecover500Export(result)) {
+      console.warn("next-build-with-500-fallback: SSG complete — applying 500 static fallback…");
+      const recovered = spawnSync(process.execPath, ["scripts/finalize-next-build.mjs"], {
+        cwd: ROOT,
+        stdio: "inherit",
+      });
+      if ((recovered.status ?? 1) === 0 && finalizeAndValidate()) {
+        console.warn("next-build-with-500-fallback: recovered after 500-export.");
+        process.exit(0);
+      }
     }
 
     if (shouldRetryWithManifestStub(result) && attempt < MAX_ATTEMPTS) {
-      console.warn("next-build-with-500-fallback: stubbing missing manifests and retrying without full clean…");
-      ensureRecoveryArtifacts();
+      console.warn("next-build-with-500-fallback: stubbing missing type/manifest files and retrying…");
+      ensureNextTypeAndBuildManifestStubs();
+      continue;
+    }
+
+    if (shouldRetryWithFullClean(result) && attempt < MAX_ATTEMPTS) {
+      console.warn("next-build-with-500-fallback: SSG race detected — full clean retry…");
+      cleanNextArtifacts();
+      acquireBuildLock();
+      ensureNextTypeAndBuildManifestStubs();
       continue;
     }
 
@@ -251,6 +213,7 @@ try {
       console.warn("next-build-with-500-fallback: full clean before next attempt…");
       cleanNextArtifacts();
       acquireBuildLock();
+      ensureNextTypeAndBuildManifestStubs();
     }
   }
 
