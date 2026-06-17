@@ -65,8 +65,13 @@ function main() {
   }
 
   ensure500StaticFiles();
-  ensureExportMarker();
-  ensureExportDetail();
+
+  // Firebase Hosting expects export markers; Vercel App Router must stay serverless.
+  // Fake export markers on Vercel trigger `next export` routing and www NOT_FOUND.
+  if (process.env.VERCEL !== "1") {
+    ensureExportMarker();
+    ensureExportDetail();
+  }
 
   const buildId = readFileSync(join(NEXT, "BUILD_ID"), "utf8").trim();
   console.log(`finalize-next-build: ready (BUILD_ID=${buildId})`);

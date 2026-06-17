@@ -117,6 +117,12 @@ function main() {
 
   errors.push(...assertCriticalHubRoutes());
 
+  if (process.env.VERCEL === "1" && existsSync(join(NEXT, "export-marker.json"))) {
+    errors.push(
+      "export-marker.json present on Vercel — remove finalize export stubs to avoid production NOT_FOUND",
+    );
+  }
+
   if (errors.length > 0) {
     console.error("validate-next-build: FAIL");
     for (const error of errors) {
