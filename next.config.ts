@@ -19,10 +19,15 @@ const nextConfig: NextConfig = {
   // Large generated-tool SSG can exceed the default 60s per page.
   staticPageGenerationTimeout: 180,
   webpack: (config, { dev }) => {
-    // Local Firebase builds: disable pack cache to avoid ENOENT rename races on retry.
-    // Vercel: keep filesystem cache so app route chunks exist before SSG workers load them.
+    // Keep webpack filesystem cache on Firebase builds — cache: false caused SSG
+    // page.js MODULE_NOT_FOUND races on large static trees (22k+ pages).
     if (!dev && process.env.VERCEL !== "1") {
-      config.cache = false;
+      config.cache = {
+        type: "filesystem",
+        buildDependencies: {
+          config: [path.join(process.cwd(), "next.config.ts")],
+        },
+      };
     }
     config.resolve.alias = {
       ...config.resolve.alias,

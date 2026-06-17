@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { CncQuoteRiskLanding } from "@/components/launch/CncQuoteRiskLanding";
 import { createPageMetadata } from "@/lib/metadata";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = createPageMetadata({
  title: "CNC Quote Risk Calculator",
  description:
