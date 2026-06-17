@@ -115,7 +115,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "totalTimeMinutes"
+    "dataConfidenceAdjusted": "totalTimeMinutes",
+    "unit": "min",
+    "breakdownUnits": {
+      "swimTimeMinutes": "min",
+      "bikeTimeMinutes": "min",
+      "runTimeMinutes": "min"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

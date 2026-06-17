@@ -88,7 +88,16 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "downstreamTemperature"
+    "dataConfidenceAdjusted": "downstreamTemperature",
+    "unit": "°C",
+    "breakdownUnits": {
+      "pressureRatio": "%",
+      "temperatureRatio": "%",
+      "densityRatio": "%",
+      "stagnationPressureRatio": "%",
+      "downstreamPressure": "A",
+      "downstreamTemperature": "°C"
+    }
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Matematik & Geometri",

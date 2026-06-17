@@ -81,7 +81,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "densityAltitude"
+    "dataConfidenceAdjusted": "densityAltitude",
+    "unit": "°C",
+    "breakdownUnits": {
+      "isaTemperature": "°C",
+      "virtualTemperature": "°C"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Fizik & Mekanik",

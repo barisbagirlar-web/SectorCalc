@@ -98,7 +98,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "maxLoad"
+    "dataConfidenceAdjusted": "maxLoad",
+    "unit": "mm",
+    "breakdownUnits": {
+      "slendernessRatio": "%"
+    }
   },
   "category": "Diğer",
   "sector": "Yapısal Mühendislik",

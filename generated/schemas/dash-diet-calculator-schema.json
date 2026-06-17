@@ -100,7 +100,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "fat_g"
+    "dataConfidenceAdjusted": "fat_g",
+    "unit": "years",
+    "breakdownUnits": {
+      "carb_g": "g",
+      "protein_g": "g",
+      "fat_g": "g"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Gıda & Beslenme",

@@ -81,7 +81,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "percent_increase"
+    "dataConfidenceAdjusted": "percent_increase",
+    "unit": "%",
+    "breakdownUnits": {
+      "hcg_ratio": "%",
+      "percent_increase": "%"
+    }
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Sağlık & Tıp",

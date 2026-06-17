@@ -30,7 +30,6 @@ function evaluateAllFormulas(input: Child_pugh_score_calculatorInput): Record<st
   try { const v = input.ascites + 1; results["ascitesPoints"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["ascitesPoints"] = 0; }
   try { const v = input.encephalopathy + 1; results["encephalopathyPoints"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["encephalopathyPoints"] = 0; }
   try { const v = (asFormulaNumber(results["bilirubinPoints"])) + (asFormulaNumber(results["albuminPoints"])) + (asFormulaNumber(results["inrPoints"])) + (asFormulaNumber(results["ascitesPoints"])) + (asFormulaNumber(results["encephalopathyPoints"])); results["totalScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalScore"] = 0; }
-  results["childPughClass"] = 0;
   return results;
 }
 

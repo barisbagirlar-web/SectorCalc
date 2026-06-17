@@ -101,7 +101,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "primary"
+    "dataConfidenceAdjusted": "primary",
+    "unit": "min",
+    "breakdownUnits": {
+      "Base time: weight * 40 + stuffing * 20 minutes": "min",
+      "Temperature adjustment: ±0.2% per °C from 180°C": "°C",
+      "Altitude adjustment: +0.01% per meter": "m"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Havacılık & Uzay",

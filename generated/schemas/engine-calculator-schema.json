@@ -102,7 +102,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "specificFuelConsumption_gPerkWh"
+    "dataConfidenceAdjusted": "specificFuelConsumption_gPerkWh",
+    "unit": "rpm",
+    "breakdownUnits": {
+      "brakeThermalEfficiency_percent": "%",
+      "specificFuelConsumption_gPerkWh": "kWh"
+    }
   },
   "category": "Enerji & Karbon",
   "sector": "Otomotiv & Taşıt",

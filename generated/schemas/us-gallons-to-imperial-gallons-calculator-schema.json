@@ -115,7 +115,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "result"
+    "dataConfidenceAdjusted": "result",
+    "unit": "gal (US)",
+    "breakdownUnits": {
+      "'US Gallons input: ' + usGallons.toFixed(2) + ' gal (US)'": "gal",
+      "'Unrounded result: ' + imperialUnrounded.toFixed(10) + ' Imperial gallons'": "gal",
+      "'Rounded to ' + roundingPrecision + ' decimals: ' + imperialRounded + ' Imperial gallons'": "gal"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

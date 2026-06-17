@@ -85,7 +85,14 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "failureRateFIT"
+    "dataConfidenceAdjusted": "failureRateFIT",
+    "unit": "failures",
+    "breakdownUnits": {
+      "Effective Operating Hours: ${effectiveOperatingHours.toFixed(2)} hours": "h",
+      "Failure Rate (λ): ${failureRatePerHour.toExponential(4)} per hour": "h",
+      "MTBF: ${mtbfHours.toFixed(2)} hours": "h",
+      "FIT Rate: ${failureRateFIT.toFixed(2)} failures per billion hours": "h"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Günlük Yaşam & Ev",

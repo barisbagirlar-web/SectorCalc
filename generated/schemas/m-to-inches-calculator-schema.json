@@ -135,7 +135,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "toleranceUpper"
+    "dataConfidenceAdjusted": "toleranceUpper",
+    "unit": "m",
+    "breakdownUnits": {
+      "baseInches": "in",
+      "correctedInches": "in",
+      "totalInches": "in"
+    }
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Birim & Dönüşüm",

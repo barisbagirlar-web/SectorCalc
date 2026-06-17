@@ -27,7 +27,6 @@ function evaluateAllFormulas(input: Overtraining_calculatorInput): Record<string
   try { const v = input.dailyHours * input.trainingDays; results["weeklyTrainingLoad"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["weeklyTrainingLoad"] = 0; }
   try { const v = input.recoveryFactor * 0.1; results["recoveryIndex"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["recoveryIndex"] = 0; }
   try { const v = ((asFormulaNumber(results["weeklyTrainingLoad"])) / (input.experience + input.taskComplexity)) / (asFormulaNumber(results["recoveryIndex"])); results["overtrainingScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["overtrainingScore"] = 0; }
-  results["scoreInterpretation"] = 0;
   return results;
 }
 

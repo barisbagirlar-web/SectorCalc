@@ -81,7 +81,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "efficiencyGap"
+    "dataConfidenceAdjusted": "efficiencyGap",
+    "unit": "%",
+    "breakdownUnits": {
+      "actualEfficiency": "%",
+      "efficiencyGap": "%"
+    }
   },
   "category": "Enerji & Karbon",
   "sector": "Otomotiv & Taşıt",

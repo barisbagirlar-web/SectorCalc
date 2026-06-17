@@ -131,7 +131,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "formatted_converted_mm"
+    "dataConfidenceAdjusted": "formatted_converted_mm",
+    "unit": "mm",
+    "breakdownUnits": {
+      "tolerance_mm": "mm",
+      "total_batch_mm": "mm"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

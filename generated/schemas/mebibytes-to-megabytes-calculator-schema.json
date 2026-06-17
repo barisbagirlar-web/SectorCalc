@@ -81,7 +81,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "roundedMegabytes"
+    "dataConfidenceAdjusted": "roundedMegabytes",
+    "unit": "MiB",
+    "breakdownUnits": {
+      "Raw value: {mebibytes} MiB × {factor} = {megabytes} MB": "MB",
+      "Rounded to {precision} decimal places: {roundedMegabytes} MB": "MB"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",

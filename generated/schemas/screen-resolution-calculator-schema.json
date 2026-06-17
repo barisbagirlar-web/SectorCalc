@@ -101,7 +101,15 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "pixelPitch"
+    "dataConfidenceAdjusted": "pixelPitch",
+    "unit": "px",
+    "breakdownUnits": {
+      "Aspect Ratio: {aspectDecimal} (Custom: {aspectRatioX}:{aspectRatioY})": "%",
+      "Total Pixels: {totalPixels} (~{totalPixelsMP} MP)": "px",
+      "Screen Width: {screenWidthInches} in": "in",
+      "Screen Height: {screenHeightInches} in": "in",
+      "Pixel Pitch: {pixelPitch} mm": "mm"
+    }
   },
   "category": "Diğer",
   "sector": "Görsel & Medya",

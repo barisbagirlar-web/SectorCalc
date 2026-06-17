@@ -81,7 +81,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "critical_angle_deg"
+    "dataConfidenceAdjusted": "critical_angle_deg",
+    "unit": "degrees",
+    "breakdownUnits": {
+      "Angle of Refraction (degrees): theta2_deg": "°",
+      "Critical Angle (degrees): critical_angle_deg": "°"
+    }
   },
   "category": "Diğer",
   "sector": "Matematik & Geometri",

@@ -35,7 +35,6 @@ function evaluateAllFormulas(input: Atrial_fibrillation_risk_calculatorInput): R
   try { const v = input.priorStrokeOrTIA || input.vascularDisease ? 2 : 0; results["strokePoints"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["strokePoints"] = 0; }
   try { const v = input.sex; results["sexPoints"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["sexPoints"] = 0; }
   try { const v = (asFormulaNumber(results["chfPoints"])) + (asFormulaNumber(results["htnPoints"])) + (asFormulaNumber(results["agePoints"])) + (asFormulaNumber(results["dmPoints"])) + (asFormulaNumber(results["strokePoints"])) + (asFormulaNumber(results["sexPoints"])); results["riskScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["riskScore"] = 0; }
-  results["riskCategory"] = 0;
   return results;
 }
 

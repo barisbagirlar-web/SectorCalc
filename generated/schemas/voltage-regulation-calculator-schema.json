@@ -96,7 +96,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "voltageRegulation"
+    "dataConfidenceAdjusted": "voltageRegulation",
+    "unit": "V",
+    "breakdownUnits": {
+      "sendingVoltage": "V",
+      "voltageDrop": "V"
+    }
   },
   "category": "Enerji & Karbon",
   "sector": "Enerji & Elektrik",

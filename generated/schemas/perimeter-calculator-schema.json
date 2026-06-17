@@ -143,7 +143,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "perimeter___side1___side2___side3___side"
+    "dataConfidenceAdjusted": "perimeter___side1___side2___side3___side",
+    "unit": "m",
+    "breakdownUnits": {
+      "perimeter = side1 + side2 + side3 + side4 + side5 + side6 + side7 + side8": "m"
+    }
   },
   "category": "Diğer",
   "sector": "Birim & Dönüşüm",

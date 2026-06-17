@@ -83,7 +83,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "gramsFatPerMeal"
+    "dataConfidenceAdjusted": "gramsFatPerMeal",
+    "unit": "g",
+    "breakdownUnits": {
+      "gramsFatPerKg": "kg",
+      "gramsFatPerMeal": "g"
+    }
   },
   "category": "Enerji & Karbon",
   "sector": "Gıda & Beslenme",

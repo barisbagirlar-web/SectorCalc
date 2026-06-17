@@ -24,8 +24,8 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Step_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  results["headroomCompliant"] = 0;
-  results["headroomCompliant_aux"] = 0;
+  try { const v = input.totalHeight + input.stepHeight + input.stepDepth; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.totalHeight + input.stepHeight + input.stepDepth; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
   return results;
 }
 
@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateStep_calculator(input: Step_calculatorInput): Step_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["headroomCompliant_aux"]);
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };

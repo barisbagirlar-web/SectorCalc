@@ -25,7 +25,6 @@ function evaluateAllFormulas(input: Chinese_calendarInput): Record<string, numbe
   try { const v = input.year - 2697; results["chineseYear"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["chineseYear"] = 0; }
   try { const v = ((input.month + 9) % 12) + 1; results["chineseMonth"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["chineseMonth"] = 0; }
   try { const v = input.day; results["chineseDay"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["chineseDay"] = 0; }
-  results["isLeapMonth"] = 0;
   return results;
 }
 

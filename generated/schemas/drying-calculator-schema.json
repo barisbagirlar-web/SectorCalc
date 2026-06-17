@@ -116,7 +116,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "dryingRate"
+    "dataConfidenceAdjusted": "dryingRate",
+    "unit": "%",
+    "breakdownUnits": {
+      "Water to Remove: {waterToRemove} kg": "kg",
+      "Total Energy: {totalEnergy} kWh": "kWh"
+    }
   },
   "category": "Enerji & Karbon",
   "sector": "Enerji & Elektrik",

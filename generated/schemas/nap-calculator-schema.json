@@ -101,7 +101,14 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "maxNapWakeTime"
+    "dataConfidenceAdjusted": "maxNapWakeTime",
+    "unit": "min",
+    "breakdownUnits": {
+      "Kullanılabilir pencere: ${availableMinutes} dakika": "min",
+      "Tam döngü (${sleepCycleMinutes} dk) → uyanış: ${cycleNapWakeTime.toFixed(2)}": "min",
+      "Kısa şekerleme (${minNapMinutes} dk) → uyanış: ${shortNapWakeTime.toFixed(2)}": "min",
+      "Maksimum kısa şekerleme (${maxNapMinutes} dk) → uyanış: ${maxNapWakeTime.toFixed(2)}": "min"
+    }
   },
   "category": "İSG & Risk",
   "sector": "Makine & Üretim",

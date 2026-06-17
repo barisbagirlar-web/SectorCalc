@@ -84,7 +84,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "noise_power_dBm"
+    "dataConfidenceAdjusted": "noise_power_dBm",
+    "unit": "V",
+    "breakdownUnits": {
+      "step_V": "V",
+      "noise_RMS_V": "V"
+    }
   },
   "category": "Enerji & Karbon",
   "sector": "Optik & Akustik",

@@ -101,7 +101,14 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "solidsInCheese"
+    "dataConfidenceAdjusted": "solidsInCheese",
+    "unit": "kg",
+    "breakdownUnits": {
+      "fatInCheese": "in",
+      "proteinInCheese": "in",
+      "waterInCheese": "in",
+      "solidsInCheese": "in"
+    }
   },
   "category": "Verimlilik & OEE",
   "sector": "Gıda & Beslenme",

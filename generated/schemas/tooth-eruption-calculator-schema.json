@@ -96,7 +96,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "remainingLifeHours"
+    "dataConfidenceAdjusted": "remainingLifeHours",
+    "unit": "mm",
+    "breakdownUnits": {
+      "remainingLifeHours": "h"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Makine & Üretim",

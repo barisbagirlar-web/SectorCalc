@@ -81,7 +81,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "Milimetre"
+    "dataConfidenceAdjusted": "Milimetre",
+    "unit": "m",
+    "breakdownUnits": {
+      "Santimetre": "m",
+      "Milimetre": "m"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

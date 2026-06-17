@@ -82,7 +82,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "unroundedGrams"
+    "dataConfidenceAdjusted": "unroundedGrams",
+    "unit": "g",
+    "breakdownUnits": {
+      "gramsPerGrain": "g",
+      "unroundedGrams": "g"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",

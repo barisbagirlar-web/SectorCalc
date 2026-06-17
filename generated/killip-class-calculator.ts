@@ -24,7 +24,6 @@ function evaluateAllFormulas(input: Killip_class_calculatorInput): Record<string
   const results: Record<string, number | string> = {};
   try { const v = (input.hypoperfusion === 1 && input.systolic_bp < 90) ? 4 : (input.rales_extent > 50 ? 3 : ((input.rales_extent > 0 || input.s3_gallop === 1) ? 2 : 1)); results["killipClass"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["killipClass"] = 0; }
   try { const v = (input.hypoperfusion === 1 && input.systolic_bp < 90) ? 81 : (input.rales_extent > 50 ? 38 : ((input.rales_extent > 0 || input.s3_gallop === 1) ? 17 : 6)); results["mortalityRisk"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["mortalityRisk"] = 0; }
-  results["description"] = 0;
   return results;
 }
 

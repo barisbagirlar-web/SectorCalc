@@ -30,7 +30,6 @@ function evaluateAllFormulas(input: Ridge_beam_calculatorInput): Record<string, 
   try { const v = ((asFormulaNumber(results["max_bending_moment"])) * 1e6) / input.fb; results["section_modulus_required"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["section_modulus_required"] = 0; }
   try { const v = (input.beam_width * input.beam_depth ** 2) / 6; results["actual_section_modulus"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["actual_section_modulus"] = 0; }
   try { const v = ((asFormulaNumber(results["section_modulus_required"])) / (asFormulaNumber(results["actual_section_modulus"]))) * input.safety_factor; results["utilization_ratio"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["utilization_ratio"] = 0; }
-  results["pass_fail"] = 0;
   return results;
 }
 
@@ -41,7 +40,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateRidge_beam_calculator(input: Ridge_beam_calculatorInput): Ridge_beam_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["pass_fail"]);
+  const totalWasteCost = toNumericFormulaValue(values["utilization_ratio"]);
   const breakdown = {
     
   };

@@ -81,7 +81,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "periodDays"
+    "dataConfidenceAdjusted": "periodDays",
+    "unit": "m",
+    "breakdownUnits": {
+      "periodMinutes": "min",
+      "periodHours": "h"
+    }
   },
   "category": "Diğer",
   "sector": "Havacılık & Uzay",

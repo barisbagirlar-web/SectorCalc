@@ -28,7 +28,6 @@ function evaluateAllFormulas(input: Poker_odds_calculatorInput): Record<string, 
   try { const v = input.numberOfOuts / (asFormulaNumber(results["unseenCards"])); results["probabilityWin"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["probabilityWin"] = 0; }
   try { const v = input.betToCall / (input.currentPot + input.betToCall); results["potOdds"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["potOdds"] = 0; }
   try { const v = (asFormulaNumber(results["probabilityWin"])) * (input.currentPot + input.betToCall) - (1 - (asFormulaNumber(results["probabilityWin"]))) * input.betToCall; results["expectedValue"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["expectedValue"] = 0; }
-  results["recommendation"] = 0;
   return results;
 }
 

@@ -113,7 +113,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "estimatedTimeMin"
+    "dataConfidenceAdjusted": "estimatedTimeMin",
+    "unit": "breaths/min",
+    "breakdownUnits": {
+      "totalFreeAir_L": "L",
+      "minuteVentilation": "min"
+    }
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Sağlık & Tıp",

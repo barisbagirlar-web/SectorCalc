@@ -115,7 +115,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "stage3Ratio"
+    "dataConfidenceAdjusted": "stage3Ratio",
+    "unit": "%",
+    "breakdownUnits": {
+      "stage1Ratio": "%",
+      "stage2Ratio": "%",
+      "stage3Ratio": "%"
+    }
   },
   "category": "Diğer",
   "sector": "Matematik & Geometri",

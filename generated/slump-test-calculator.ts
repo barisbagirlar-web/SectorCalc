@@ -29,7 +29,6 @@ function evaluateAllFormulas(input: Slump_test_calculatorInput): Record<string, 
   try { const v = input.topDiameter / 2; results["topRadius"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["topRadius"] = 0; }
   try { const v = input.bottomDiameter / 2; results["bottomRadius"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["bottomRadius"] = 0; }
   try { const v = input.moldHeight - input.measuredHeight; results["slump"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["slump"] = 0; }
-  results["passFail"] = 0;
   return results;
 }
 
@@ -40,7 +39,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateSlump_test_calculator(input: Slump_test_calculatorInput): Slump_test_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["passFail"]);
+  const totalWasteCost = toNumericFormulaValue(values["slump"]);
   const breakdown = {
     
   };

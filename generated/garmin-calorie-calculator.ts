@@ -26,7 +26,6 @@ function evaluateAllFormulas(input: Garmin_calorie_calculatorInput): Record<stri
   const results: Record<string, number | string> = {};
   try { const v = ((input.genderFactor >= 1) ? ((input.age * 0.2017 - input.weight * 0.09036 + input.heartRate * 0.6309 - 55.0969) * input.duration / 4.184) : ((input.age * 0.074 - input.weight * 0.05741 + input.heartRate * 0.4472 - 20.4022) * input.duration / 4.184)); results["calories"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["calories"] = 0; }
   try { const v = (asFormulaNumber(results["calories"])) / input.duration; results["caloriesPerMin"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["caloriesPerMin"] = 0; }
-  results["genderUsed"] = 0;
   return results;
 }
 

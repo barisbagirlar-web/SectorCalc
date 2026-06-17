@@ -114,7 +114,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "annualCarbonKg"
+    "dataConfidenceAdjusted": "annualCarbonKg",
+    "unit": "W",
+    "breakdownUnits": {
+      "annualEnergyKwh": "kWh",
+      "annualCarbonKg": "kg"
+    }
   },
   "category": "Enerji & Karbon",
   "sector": "Yapısal Mühendislik",

@@ -100,7 +100,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "discharge_voltage"
+    "dataConfidenceAdjusted": "discharge_voltage",
+    "unit": "F",
+    "breakdownUnits": {
+      "discharge_voltage": "V"
+    }
   },
   "category": "Diğer",
   "sector": "Elektronik & Devre",

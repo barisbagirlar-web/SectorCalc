@@ -112,7 +112,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "weightForLengthPercentile"
+    "dataConfidenceAdjusted": "weightForLengthPercentile",
+    "unit": "kg",
+    "breakdownUnits": {
+      "lengthPercentile": "%",
+      "weightForLengthPercentile": "%"
+    }
   },
   "category": "Diğer",
   "sector": "Sağlık & Tıp",

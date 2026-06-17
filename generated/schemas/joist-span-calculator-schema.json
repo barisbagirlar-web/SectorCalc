@@ -116,7 +116,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "max_span_display"
+    "dataConfidenceAdjusted": "max_span_display",
+    "unit": "in",
+    "breakdownUnits": {
+      "max_bending_moment_lb_in": "in",
+      "max_span_in": "in"
+    }
   },
   "category": "Teknik & Mühendislik",
   "sector": "Birim & Dönüşüm",

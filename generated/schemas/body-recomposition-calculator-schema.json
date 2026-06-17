@@ -96,7 +96,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "fatGramsPerDay"
+    "dataConfidenceAdjusted": "fatGramsPerDay",
+    "unit": "kg",
+    "breakdownUnits": {
+      "proteinGramsPerDay": "g",
+      "fatGramsPerDay": "g"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Sağlık & Tıp",

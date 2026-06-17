@@ -105,7 +105,14 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "customPx"
+    "dataConfidenceAdjusted": "customPx",
+    "unit": "px",
+    "breakdownUnits": {
+      "percentage": "%",
+      "mm": "mm",
+      "inches": "in",
+      "customPx": "px"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

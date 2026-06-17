@@ -80,7 +80,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "roundedRatio"
+    "dataConfidenceAdjusted": "roundedRatio",
+    "unit": "%",
+    "breakdownUnits": {
+      "rawRatio": "%",
+      "multipliedRatio": "%"
+    }
   },
   "category": "Diğer",
   "sector": "Matematik & Geometri",

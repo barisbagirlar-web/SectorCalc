@@ -23,7 +23,6 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Nuclear_fusion_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = (input.n_D + input.n_T) * input.T * input.tau; results["tripleProduct"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["tripleProduct"] = 0; }
-  results["meetsLawson"] = 0;
   try { const v = ((input.n_D + input.n_T) * input.T * input.tau) / 30; results["margin"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["margin"] = 0; }
   return results;
 }

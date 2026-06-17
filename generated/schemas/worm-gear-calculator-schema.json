@@ -91,7 +91,16 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "gearRootDiameter"
+    "dataConfidenceAdjusted": "gearRootDiameter",
+    "unit": "%",
+    "breakdownUnits": {
+      "wormPitchDiameter": "m",
+      "gearPitchDiameter": "m",
+      "wormOuterDiameter": "m",
+      "gearOuterDiameter": "m",
+      "wormRootDiameter": "m",
+      "gearRootDiameter": "m"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Makine & Üretim",

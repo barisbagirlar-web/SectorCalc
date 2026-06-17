@@ -65,7 +65,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "aspectRatio"
+    "dataConfidenceAdjusted": "aspectRatio",
+    "unit": "%",
+    "breakdownUnits": {
+      "dotPitchMm": "mm",
+      "totalPixels": "px",
+      "aspectRatio": "%"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Görsel & Medya",

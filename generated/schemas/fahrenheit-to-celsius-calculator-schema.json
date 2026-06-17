@@ -81,7 +81,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "roundedResult"
+    "dataConfidenceAdjusted": "roundedResult",
+    "unit": "°C",
+    "breakdownUnits": {
+      "Hesaplama: °C = ({fahrenheit} - 32) × 5/9 = {celsius}": "°C"
+    }
   },
   "category": "Diğer",
   "sector": "Birim & Dönüşüm",

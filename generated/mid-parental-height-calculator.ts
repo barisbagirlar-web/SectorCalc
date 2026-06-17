@@ -24,11 +24,8 @@ function evaluateAllFormulas(input: Mid_parental_height_calculatorInput): Record
   const results: Record<string, number | string> = {};
   try { const v = input.childSex === 1 ? (input.fatherHeight + input.motherHeight + 13) / 2 : (input.fatherHeight + input.motherHeight - 13) / 2; results["midHeightCm"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["midHeightCm"] = 0; }
   try { const v = input.resultUnit === 1 ? (asFormulaNumber(results["midHeightCm"])) / 2.54 : (asFormulaNumber(results["midHeightCm"])); results["outputHeight"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["outputHeight"] = 0; }
-  results["outputUnit"] = 0;
   try { const v = 'Baba boyu: ' + input.fatherHeight + ' cm'; results["breakdownStep1"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["breakdownStep1"] = 0; }
   try { const v = 'Anne boyu: ' + input.motherHeight + ' cm'; results["breakdownStep2"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["breakdownStep2"] = 0; }
-  results["breakdownStep3"] = 0;
-  results["breakdownStep4"] = 0;
   return results;
 }
 

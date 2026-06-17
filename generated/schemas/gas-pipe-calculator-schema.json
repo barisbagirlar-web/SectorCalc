@@ -114,7 +114,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "flow_rate_m3h"
+    "dataConfidenceAdjusted": "flow_rate_m3h",
+    "unit": "mm",
+    "breakdownUnits": {
+      "diameter_inch": "in",
+      "temperature_K": "°C"
+    }
   },
   "category": "Enerji & Karbon",
   "sector": "Hidrolik & Pnömatik",

@@ -99,7 +99,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "total_co2e_kg"
+    "dataConfidenceAdjusted": "total_co2e_kg",
+    "unit": "kg",
+    "breakdownUnits": {
+      "biomass_per_tree_kg": "kg",
+      "total_carbon_kg": "kg",
+      "total_co2e_kg": "kg"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Yenilenebilir Enerji",

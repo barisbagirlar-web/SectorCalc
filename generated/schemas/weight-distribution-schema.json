@@ -82,7 +82,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "rearAxlePercent"
+    "dataConfidenceAdjusted": "rearAxlePercent",
+    "unit": "kg",
+    "breakdownUnits": {
+      "Front Axle Load: {frontAxleLoad} kg ({frontAxlePercent}%)": "%",
+      "Rear Axle Load: {rearAxleLoad} kg ({rearAxlePercent}%)": "%"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Sağlık & Tıp",

@@ -1713,12 +1713,21 @@
   "freeTools": {
     "title": "Kostenlose Branchenrechner",
     "metaTitle": "Kostenlose Branchenrechner | SectorCalc",
-    "calculate": "Berechnen"
+    "calculate": "Berechnen",
+    "subtitle": "Entdecken Sie kostenlose Rechner für Ihre Branche.",
+    "searchPlaceholder": "Branche, Beruf oder Werkzeug suchen...",
+    "categoryTitle": "NACH BRANCHE DURCHSUCHEN",
+    "metaDescription": "Kostenlose branchenspezifische Rechner."
   },
   "premiumTools": {
     "title": "Premium-Berechnung",
     "openAnalyzer": "Berechnung öffnen",
-    "lockedTrustTrace": "Berechnungsübersicht ist eine Pro-Premium-Funktion."
+    "lockedTrustTrace": "Berechnungsübersicht ist eine Pro-Premium-Funktion.",
+    "subtitle": "Entdecken Sie Premium-Rechner für Ihre Branche.",
+    "searchPlaceholder": "Branche, Beruf oder Werkzeug suchen...",
+    "categoryTitle": "NACH BRANCHE DURCHSUCHEN",
+    "metaTitle": "Premium-Rechner | SectorCalc",
+    "metaDescription": "Branchenspezifische Premium-Rechner."
   },
   "categories": {
     "title": "Nach Kategorie",
@@ -1733,7 +1742,12 @@
     "viewAllCalculators": "Alle Rechner anzeigen",
     "viewAllCalculatorsLead": "Durchsuchen Sie die vollständige Rechnerbibliothek für weitere Branchentools.",
     "noToolsTitle": "Rechner für diese Branche werden vorbereitet",
-    "noToolsDescription": "Ähnliche Rechner finden Sie inzwischen in der Bibliothek."
+    "noToolsDescription": "Ähnliche Rechner finden Sie inzwischen in der Bibliothek.",
+    "metaTitle": "Branchen – SectorCalc",
+    "metaDescription": "Fertigung, Bauwesen, Energie, Logistik, Finanzen und mehr. Branchenspezifische Rechner.",
+    "subtitle": "Entdecken Sie Rechner für Ihre Branche.",
+    "searchPlaceholder": "Branche, Beruf oder Werkzeug suchen...",
+    "categoryTitle": "NACH SEKTOR DURCHSUCHEN"
   },
   "calculator": {
     "calculate": "Jetzt berechnen",
@@ -67698,5 +67712,11 @@
         "label": "Katastrophale Zuzahlung ($)"
       }
     }
+  },
+  "sector": {
+    "title": "Branchenrechner",
+    "subtitle": "Finden Sie Berechnungswerkzeuge nach Branche, Berufsfeld und Geschäftsmodell.",
+    "searchPlaceholder": "Branche, Beruf oder Werkzeug suchen...",
+    "categoryTitle": "NACH BRANCHE DURCHSUCHEN"
   }
 }

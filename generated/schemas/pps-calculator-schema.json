@@ -99,7 +99,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "productionRate_pcsPerShift"
+    "dataConfidenceAdjusted": "productionRate_pcsPerShift",
+    "unit": "m/s",
+    "breakdownUnits": {
+      "Production Rate (pieces/minute): productionRate_pcsPerMinute pieces/minute": "min",
+      "Production Rate (pieces/hour): productionRate_pcsPerHour pieces/hour": "h",
+      "Production Rate (pieces/shift): productionRate_pcsPerShift pieces/shift (assuming ${shiftDuration}h shift)": "%"
+    }
   },
   "category": "Verimlilik & OEE",
   "sector": "Matematik & Geometri",

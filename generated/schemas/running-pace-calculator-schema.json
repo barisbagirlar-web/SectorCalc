@@ -81,7 +81,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "speedKmPerHour"
+    "dataConfidenceAdjusted": "speedKmPerHour",
+    "unit": "km",
+    "breakdownUnits": {
+      "speedKmPerHour": "h"
+    }
   },
   "category": "Diğer",
   "sector": "Fitness & Spor",

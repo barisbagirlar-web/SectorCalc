@@ -80,7 +80,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "safety_margin"
+    "dataConfidenceAdjusted": "safety_margin",
+    "unit": "MPa",
+    "breakdownUnits": {
+      "safety_margin": "%"
+    }
   },
   "category": "İSG & Risk",
   "sector": "İnşaat & Yapı",

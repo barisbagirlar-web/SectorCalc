@@ -21,6 +21,7 @@ import { formatGeneratedNumericValue } from "@/lib/generated-tools/format-genera
 import {
   resolveGeneratedPrimaryOutputCaption,
 } from "@/lib/generated-tools/resolve-generated-display-text";
+import { resolvePrimaryOutputUnit } from "@/lib/generated-tools/resolve-output-unit";
 import { translateCalculatorPhrase } from "@/lib/i18n/calculator-phrase-translate";
 import {
   runGeneratedToolCalculation,
@@ -34,11 +35,22 @@ export type GeneratedToolPageProps = {
   readonly diagramSrc?: string | null;
 };
 
-function formatPrimaryValue(value: unknown, key: string, locale: string): string {
+function formatPrimaryValue(
+  value: unknown,
+  key: string,
+  locale: string,
+  schema: GeneratedToolSchema,
+): string {
   if (typeof value !== "number" || !Number.isFinite(value)) {
     return "—";
   }
-  return formatGeneratedNumericValue(value, key, locale);
+  const unit = resolvePrimaryOutputUnit(schema);
+  return formatGeneratedNumericValue(
+    value,
+    key,
+    locale,
+    unit !== "—" ? unit : undefined,
+  );
 }
 
 function resolveHiddenDrivers(
@@ -179,7 +191,7 @@ export function GeneratedToolPage({ slug, schema, diagramSrc = null }: Generated
                 {t("primaryResult")}
               </p>
               <p className="font-mono text-3xl font-semibold text-premium-velvet">
-                {formatPrimaryValue(primaryValue, primaryKey, locale)}
+                {formatPrimaryValue(primaryValue, primaryKey, locale, schema)}
               </p>
               <p className="text-sm text-body-charcoal">
                 {resolveGeneratedPrimaryOutputCaption(

@@ -145,7 +145,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "paybackPeriod"
+    "dataConfidenceAdjusted": "paybackPeriod",
+    "unit": "W",
+    "breakdownUnits": {
+      "Energy Savings: ${annualEnergySavings.toFixed(2)} kWh/year": "kWh"
+    }
   },
   "category": "Enerji & Karbon",
   "sector": "Enerji & Elektrik",

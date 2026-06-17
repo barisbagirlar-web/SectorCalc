@@ -85,7 +85,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "difference"
+    "dataConfidenceAdjusted": "difference",
+    "unit": "kg",
+    "breakdownUnits": {
+      "metricKg": "kg",
+      "shortKg": "kg",
+      "longKg": "kg"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

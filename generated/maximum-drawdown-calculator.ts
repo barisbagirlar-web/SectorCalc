@@ -31,7 +31,6 @@ function evaluateAllFormulas(input: Maximum_drawdown_calculatorInput): Record<st
   try { const v = ((input.initialInvestment - input.troughValue) / input.initialInvestment) * 100; results["lossFromInitialPercent"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["lossFromInitialPercent"] = 0; }
   try { const v = (input.peakValue / input.troughValue - 1) * 100; results["requiredRecoveryGainPercent"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["requiredRecoveryGainPercent"] = 0; }
   try { const v = input.recoveryValue > 0 ? ((input.recoveryValue - input.troughValue) / input.troughValue) * 100 : 0; results["actualRecoveryGainPercent"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["actualRecoveryGainPercent"] = 0; }
-  results["recoveryStatus"] = 0;
   return results;
 }
 

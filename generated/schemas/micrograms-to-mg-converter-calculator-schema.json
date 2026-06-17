@@ -81,7 +81,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "totalMicrograms"
+    "dataConfidenceAdjusted": "totalMicrograms",
+    "unit": "g",
+    "breakdownUnits": {
+      "milligramsPerUnit": "g",
+      "totalMicrograms": "g"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

@@ -23,7 +23,6 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Cooper_test_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = (input.distance_m - 504.9) / 44.73; results["vo2max"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["vo2max"] = 0; }
-  results["category"] = 0;
   try { const v = input.weight_kg * (input.distance_m / 1000) * 0.97; results["calories"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["calories"] = 0; }
   return results;
 }

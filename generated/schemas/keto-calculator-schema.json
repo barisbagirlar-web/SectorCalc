@@ -103,7 +103,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "fatGrams"
+    "dataConfidenceAdjusted": "fatGrams",
+    "unit": "kg",
+    "breakdownUnits": {
+      "fatGrams": "g",
+      "proteinGrams": "g"
+    }
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Sağlık & Tıp",

@@ -81,7 +81,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "breakdown"
+    "dataConfidenceAdjusted": "breakdown",
+    "unit": "TL",
+    "breakdownUnits": {
+      "Industry Revenue Per Employee": "TRY",
+      "RPE Difference (Your - Industry)": "TRY",
+      "RPE Ratio (Your / Industry)": "%"
+    }
   },
   "category": "İK & Personel",
   "sector": "Perakende & Ticaret",

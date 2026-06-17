@@ -26,7 +26,6 @@ function evaluateAllFormulas(input: Shear_stress_calculatorInput): Record<string
   const results: Record<string, number | string> = {};
   try { const v = input.force / (input.planes * input.area); results["shearStress"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["shearStress"] = 0; }
   try { const v = input.allowStress / input.safetyFactor; results["allowableShear"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["allowableShear"] = 0; }
-  results["status"] = 0;
   try { const v = ((asFormulaNumber(results["shearStress"])) / (asFormulaNumber(results["allowableShear"]))) * 100; results["utilization"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["utilization"] = 0; }
   return results;
 }

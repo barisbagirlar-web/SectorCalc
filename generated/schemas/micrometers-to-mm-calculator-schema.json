@@ -80,7 +80,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "mm"
+    "dataConfidenceAdjusted": "mm",
+    "unit": "mm",
+    "breakdownUnits": {
+      "correctedMicrometers": "m",
+      "mm": "mm"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",

@@ -22,8 +22,8 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Inverse_trig_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  results["functionUsed"] = 0;
   try { const v = 'Input: ' + input.inputValue; results["inputDisplay"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["inputDisplay"] = 0; }
+  try { const v = 'Input: ' + input.inputValue; results["inputDisplay_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["inputDisplay_aux"] = 0; }
   return results;
 }
 

@@ -97,7 +97,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "outputTorque"
+    "dataConfidenceAdjusted": "outputTorque",
+    "unit": "%",
+    "breakdownUnits": {
+      "Output Speed: ${outputSpeed} RPM": "rpm",
+      "Mechanical Advantage: ${ratio}:1": "%"
+    }
   },
   "category": "Verimlilik & OEE",
   "sector": "Makine & Üretim",

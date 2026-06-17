@@ -50,6 +50,8 @@ export type GeneratedToolSchema = {
   readonly formulas: Readonly<Record<string, string>>;
   readonly outputs: {
     readonly primary: string;
+    /** Display unit for the primary result (e.g. MB, kg, %). */
+    readonly unit?: string;
     readonly breakdown: Readonly<Record<string, string>>;
     /** Formula/output units keyed by breakdown id (e.g. minutes, %, dimensionless). */
     readonly breakdownUnits?: Readonly<Record<string, string>>;

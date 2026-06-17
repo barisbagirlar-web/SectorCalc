@@ -81,7 +81,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "deltaV"
+    "dataConfidenceAdjusted": "deltaV",
+    "unit": "kg",
+    "breakdownUnits": {
+      "massRatio": "%",
+      "logMassRatio": "%"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Fizik & Mekanik",

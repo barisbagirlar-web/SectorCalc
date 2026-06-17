@@ -101,7 +101,14 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "terabytes"
+    "dataConfidenceAdjusted": "terabytes",
+    "unit": "bytes",
+    "breakdownUnits": {
+      "kilobytes": "bytes",
+      "megabytes": "bytes",
+      "gigabytes": "bytes",
+      "terabytes": "bytes"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

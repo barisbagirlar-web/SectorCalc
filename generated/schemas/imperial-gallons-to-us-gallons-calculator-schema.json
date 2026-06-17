@@ -80,7 +80,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "usGallonsMax"
+    "dataConfidenceAdjusted": "usGallonsMax",
+    "unit": "gal (imp)",
+    "breakdownUnits": {
+      "usGallonsMin": "gal",
+      "usGallonsMax": "gal"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

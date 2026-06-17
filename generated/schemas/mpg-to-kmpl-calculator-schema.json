@@ -80,7 +80,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "roundedKmPerLiter"
+    "dataConfidenceAdjusted": "roundedKmPerLiter",
+    "unit": "L",
+    "breakdownUnits": {
+      "litersUsed": "L",
+      "kmPerLiterExact": "L"
+    }
   },
   "category": "Verimlilik & OEE",
   "sector": "Birim & Dönüşüm",

@@ -97,7 +97,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "adjustedSampleSize"
+    "dataConfidenceAdjusted": "adjustedSampleSize",
+    "unit": "items",
+    "breakdownUnits": {
+      "uncorrectedSampleSize": "A",
+      "adjustedSampleSize": "A"
+    }
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "İstatistik & Olasılık",

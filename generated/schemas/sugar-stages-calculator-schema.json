@@ -132,7 +132,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "evaporationRate"
+    "dataConfidenceAdjusted": "evaporationRate",
+    "unit": "%",
+    "breakdownUnits": {
+      "supersaturation": "%",
+      "evaporationRate": "%"
+    }
   },
   "category": "Diğer",
   "sector": "Gıda & Beslenme",

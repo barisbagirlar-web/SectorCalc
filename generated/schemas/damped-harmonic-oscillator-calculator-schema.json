@@ -113,7 +113,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "dampedFrequency"
+    "dataConfidenceAdjusted": "dampedFrequency",
+    "unit": "kg",
+    "breakdownUnits": {
+      "dampingRatio": "%",
+      "dampedFrequency": "A"
+    }
   },
   "category": "Diğer",
   "sector": "İnşaat & Yapı",

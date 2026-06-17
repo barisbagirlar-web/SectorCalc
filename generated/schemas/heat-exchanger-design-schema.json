@@ -145,7 +145,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "area"
+    "dataConfidenceAdjusted": "area",
+    "unit": "kg/s",
+    "breakdownUnits": {
+      "Cold fluid outlet temperature: {tempColdOut} °C": "°C",
+      "Log mean temperature difference (LMTD): {lmtd} °C": "°C"
+    }
   },
   "category": "Teknik & Mühendislik",
   "sector": "Fizik & Mekanik",

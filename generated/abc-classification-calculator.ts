@@ -25,7 +25,6 @@ function evaluateAllFormulas(input: Abc_classification_calculatorInput): Record<
   try { const v = input.annualDemand * input.unitCost; results["annualValue"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annualValue"] = 0; }
   try { const v = input.totalAnnualValue !== 0 ? ((asFormulaNumber(results["annualValue"])) / input.totalAnnualValue) * 100 : 0; results["percentage"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["percentage"] = 0; }
   try { const v = input.cumulativeBefore + (asFormulaNumber(results["percentage"])); results["cumulativeAfter"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["cumulativeAfter"] = 0; }
-  results["classification"] = 0;
   return results;
 }
 
@@ -36,7 +35,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateAbc_classification_calculator(input: Abc_classification_calculatorInput): Abc_classification_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["classification"]);
+  const totalWasteCost = toNumericFormulaValue(values["cumulativeAfter"]);
   const breakdown = {
     
   };

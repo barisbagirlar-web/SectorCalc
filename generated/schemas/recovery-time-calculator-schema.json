@@ -103,7 +103,15 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "verificationPercentage"
+    "dataConfidenceAdjusted": "verificationPercentage",
+    "unit": "hours",
+    "breakdownUnits": {
+      "detectionPercentage": "%",
+      "responsePercentage": "%",
+      "repairPercentage": "%",
+      "restartPercentage": "%",
+      "verificationPercentage": "%"
+    }
   },
   "category": "Diğer",
   "sector": "Matematik & Geometri",

@@ -149,7 +149,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "tolerancePass"
+    "dataConfidenceAdjusted": "tolerancePass",
+    "unit": "cm",
+    "breakdownUnits": {
+      "Step 1 – Raw conversion: (inches + calibrationOffset) × conversionFactor = rawCm cm": "%",
+      "Step 3 – Final converted length: rawCm × thermalCorrection = convertedLengthCm cm": "cm",
+      "Step 4 – Expanded uncertainty (k=2): convertedLengthCm × (uncertainty%/100) = expandedUncertaintyCm cm": "cm"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",

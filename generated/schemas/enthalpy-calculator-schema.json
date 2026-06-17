@@ -81,7 +81,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "energy_kWh"
+    "dataConfidenceAdjusted": "energy_kWh",
+    "unit": "kg",
+    "breakdownUnits": {
+      "temperatureChange": "°C",
+      "energy_kWh": "kWh"
+    }
   },
   "category": "Enerji & Karbon",
   "sector": "Birim & Dönüşüm",

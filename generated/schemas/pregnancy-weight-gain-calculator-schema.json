@@ -91,7 +91,14 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "status"
+    "dataConfidenceAdjusted": "status",
+    "unit": "kg",
+    "breakdownUnits": {
+      "Current Weight: ${currentWeight} kg": "kg",
+      "Recommended Weight Range: ${recommendedMinWeight.toFixed(1)} - ${recommendedMaxWeight.toFixed(1)} kg": "kg",
+      "Total Recommended Gain: ${totalMinGain} - ${totalMaxGain} kg": "kg",
+      "Weight Gained So Far: ${weightGained} kg": "kg"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Sağlık & Tıp",

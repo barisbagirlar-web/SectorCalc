@@ -82,7 +82,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "carbGrams"
+    "dataConfidenceAdjusted": "carbGrams",
+    "unit": "g",
+    "breakdownUnits": {
+      "fatGrams": "g",
+      "proteinGrams": "g",
+      "carbGrams": "g"
+    }
   },
   "category": "Enerji & Karbon",
   "sector": "Gıda & Beslenme",

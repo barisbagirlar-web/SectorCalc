@@ -100,7 +100,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "withinTolerance"
+    "dataConfidenceAdjusted": "withinTolerance",
+    "unit": "%",
+    "breakdownUnits": {
+      "rawTweakPercent": "%",
+      "efficiencyAdjustedTweakPercent": "%",
+      "finalParameterValue": "m"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Makine & Üretim",

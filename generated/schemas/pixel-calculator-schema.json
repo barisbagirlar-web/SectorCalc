@@ -82,7 +82,14 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "megapixels"
+    "dataConfidenceAdjusted": "megapixels",
+    "unit": "px",
+    "breakdownUnits": {
+      "pixelPitch": "px",
+      "screenWidthInches": "in",
+      "screenHeightInches": "in",
+      "megapixels": "px"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Görsel & Medya",

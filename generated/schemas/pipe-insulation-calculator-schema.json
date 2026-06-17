@@ -130,7 +130,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "heat_loss_per_meter"
+    "dataConfidenceAdjusted": "heat_loss_per_meter",
+    "unit": "mm",
+    "breakdownUnits": {
+      "heat_loss_per_meter": "m",
+      "surface_temperature": "°C"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Hidrolik & Pnömatik",

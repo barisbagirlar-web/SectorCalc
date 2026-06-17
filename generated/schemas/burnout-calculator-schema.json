@@ -130,7 +130,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "result"
+    "dataConfidenceAdjusted": "result",
+    "unit": "kW",
+    "breakdownUnits": {
+      "ultimateTempRise.toFixed(1) + ' °C'": "°C",
+      "motorTemperature.toFixed(1) + ' °C'": "°C",
+      "temperatureMargin.toFixed(1) + ' °C'": "%"
+    }
   },
   "category": "Enerji & Karbon",
   "sector": "Makine & Üretim",

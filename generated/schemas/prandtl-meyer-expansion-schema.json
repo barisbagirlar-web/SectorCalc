@@ -65,7 +65,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "densityRatio"
+    "dataConfidenceAdjusted": "densityRatio",
+    "unit": "degrees",
+    "breakdownUnits": {
+      "Pressure Ratio (P2/P1)": "%",
+      "Temperature Ratio (T2/T1)": "%",
+      "Density Ratio (ρ2/ρ1)": "%"
+    }
   },
   "category": "Enerji & Karbon",
   "sector": "Matematik & Geometri",

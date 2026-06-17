@@ -135,7 +135,14 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "productivityLossPercent"
+    "dataConfidenceAdjusted": "productivityLossPercent",
+    "unit": "h",
+    "breakdownUnits": {
+      "shallowWorkHours": "h",
+      "meetingHours": "h",
+      "interruptionHours": "h",
+      "effectiveDeepWorkHours": "h"
+    }
   },
   "category": "Diğer",
   "sector": "Günlük Yaşam & Ev",

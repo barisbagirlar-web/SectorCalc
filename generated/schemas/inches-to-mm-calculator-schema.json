@@ -112,7 +112,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "roundedMM"
+    "dataConfidenceAdjusted": "roundedMM",
+    "unit": "in",
+    "breakdownUnits": {
+      "rawMM": "mm",
+      "roundedMM": "mm"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

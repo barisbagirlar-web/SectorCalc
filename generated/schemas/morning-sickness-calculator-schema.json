@@ -97,7 +97,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "msi"
+    "dataConfidenceAdjusted": "msi",
+    "unit": "min",
+    "breakdownUnits": {
+      "downtime_factor": "min",
+      "temp_factor": "°C"
+    }
   },
   "category": "Verimlilik & OEE",
   "sector": "Günlük Yaşam & Ev",

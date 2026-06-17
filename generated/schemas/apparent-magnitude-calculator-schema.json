@@ -80,7 +80,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "apparentMagnitude"
+    "dataConfidenceAdjusted": "apparentMagnitude",
+    "unit": "%",
+    "breakdownUnits": {
+      "fluxRatio": "%",
+      "logRatio": "%"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Günlük Yaşam & Ev",

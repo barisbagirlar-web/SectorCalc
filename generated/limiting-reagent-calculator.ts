@@ -34,7 +34,6 @@ function evaluateAllFormulas(input: Limiting_reagent_calculatorInput): Record<st
   try { const v = input.reactant2Mass / input.reactant2MolarMass; results["moles2"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["moles2"] = 0; }
   try { const v = (asFormulaNumber(results["moles1"])) / input.reactant1Coefficient; results["ratio1"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["ratio1"] = 0; }
   try { const v = (asFormulaNumber(results["moles2"])) / input.reactant2Coefficient; results["ratio2"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["ratio2"] = 0; }
-  results["limitingReagent"] = 0;
   return results;
 }
 
@@ -45,7 +44,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateLimiting_reagent_calculator(input: Limiting_reagent_calculatorInput): Limiting_reagent_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["limitingReagent"]);
+  const totalWasteCost = toNumericFormulaValue(values["ratio2"]);
   const breakdown = {
     
   };

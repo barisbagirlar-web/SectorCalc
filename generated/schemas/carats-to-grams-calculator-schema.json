@@ -100,7 +100,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "totalPrice"
+    "dataConfidenceAdjusted": "totalPrice",
+    "unit": "ct",
+    "breakdownUnits": {
+      "gramsPerItem": "g",
+      "totalGrams": "g"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",

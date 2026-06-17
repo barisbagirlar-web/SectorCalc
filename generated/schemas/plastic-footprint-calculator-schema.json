@@ -115,7 +115,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "totalCarbon"
+    "dataConfidenceAdjusted": "totalCarbon",
+    "unit": "pieces",
+    "breakdownUnits": {
+      "totalPlasticKg": "kg",
+      "recycledPlasticKg": "kg",
+      "wasteKg": "kg"
+    }
   },
   "category": "Sürdürülebilirlik",
   "sector": "Çevre & Sürdürülebilirlik",

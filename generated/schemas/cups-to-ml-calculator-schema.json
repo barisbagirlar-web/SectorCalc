@@ -115,7 +115,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "milliliters"
+    "dataConfidenceAdjusted": "milliliters",
+    "unit": "L",
+    "breakdownUnits": {
+      "Unrounded: {cups} × {cupSize} × {batchSize} = {millilitersUnrounded} ml": "L",
+      "Rounded to {precision} decimal(s): {milliliters} ml": "L"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",

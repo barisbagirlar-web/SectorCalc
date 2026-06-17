@@ -112,7 +112,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "safetyMargin"
+    "dataConfidenceAdjusted": "safetyMargin",
+    "unit": "mm",
+    "breakdownUnits": {
+      "drawAngle_deg": "°"
+    }
   },
   "category": "Diğer",
   "sector": "Havacılık & Uzay",

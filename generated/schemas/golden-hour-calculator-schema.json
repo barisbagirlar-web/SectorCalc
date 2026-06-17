@@ -116,7 +116,16 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "goldenHourEveningEnd"
+    "dataConfidenceAdjusted": "goldenHourEveningEnd",
+    "unit": "hours",
+    "breakdownUnits": {
+      "Morning golden hour start: {goldenHourMorningStart} hours": "h",
+      "Morning golden hour end: {goldenHourMorningEnd} hours": "h",
+      "Evening golden hour start: {goldenHourEveningStart} hours": "h",
+      "Evening golden hour end: {goldenHourEveningEnd} hours": "h",
+      "Day length: {dayLength} hours": "h",
+      "Solar noon: {solarNoon} hours": "h"
+    }
   },
   "category": "Diğer",
   "sector": "Günlük Yaşam & Ev",

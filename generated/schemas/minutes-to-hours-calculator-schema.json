@@ -80,7 +80,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "minutes"
+    "dataConfidenceAdjusted": "minutes",
+    "unit": "min",
+    "breakdownUnits": {
+      "hours": "h",
+      "minutes": "min"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Günlük Yaşam & Ev",

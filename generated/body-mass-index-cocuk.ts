@@ -23,7 +23,7 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Body_mass_index_cocukInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = input.weight / ((input.height / 100) ** 2); results["bmi"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["bmi"] = 0; }
-  results["bmiCategory"] = 0;
+  try { const v = input.weight / ((input.height / 100) ** 2); results["bmi_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["bmi_aux"] = 0; }
   return results;
 }
 

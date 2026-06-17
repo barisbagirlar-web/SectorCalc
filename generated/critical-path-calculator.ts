@@ -24,8 +24,8 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Critical_path_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  results["criticalPath"] = 0;
   try { const v = 'A-C-D: ' + (input.durationA+input.durationC+input.durationD) + ' gün, A-C-E: ' + (input.durationA+input.durationC+input.durationE) + ' gün, B-C-D: ' + (input.durationB+input.durationC+input.durationD) + ' gün, B-C-E: ' + (input.durationB+input.durationC+input.durationE) + ' gün'; results["pathDurations"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["pathDurations"] = 0; }
+  try { const v = 'A-C-D: ' + (input.durationA+input.durationC+input.durationD) + ' gün, A-C-E: ' + (input.durationA+input.durationC+input.durationE) + ' gün, B-C-D: ' + (input.durationB+input.durationC+input.durationD) + ' gün, B-C-E: ' + (input.durationB+input.durationC+input.durationE) + ' gün'; results["pathDurations_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["pathDurations_aux"] = 0; }
   return results;
 }
 

@@ -99,7 +99,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "refeedRatioAchieved"
+    "dataConfidenceAdjusted": "refeedRatioAchieved",
+    "unit": "units/day",
+    "breakdownUnits": {
+      "refeedRatioAchieved": "%"
+    }
   },
   "category": "Lojistik & Rota",
   "sector": "Makine & Üretim",

@@ -72,7 +72,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "roundedFahrenheit___Math_round_fahrenhei"
+    "dataConfidenceAdjusted": "roundedFahrenheit___Math_round_fahrenhei",
+    "unit": "°C",
+    "breakdownUnits": {
+      "fahrenheit = celsius * 9 / 5 + 32": "°C",
+      "roundedFahrenheit = Math.round(fahrenheit * 10 ** precision) / 10 ** precision": "°F"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

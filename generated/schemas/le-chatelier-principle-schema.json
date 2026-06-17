@@ -99,7 +99,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "netShift"
+    "dataConfidenceAdjusted": "netShift",
+    "unit": "kJ/mol",
+    "breakdownUnits": {
+      "temperatureEffect": "°C",
+      "concentrationEffect": "%"
+    }
   },
   "category": "Enerji & Karbon",
   "sector": "Kimya & Proses",

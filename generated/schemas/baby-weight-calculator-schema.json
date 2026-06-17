@@ -80,7 +80,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "efw_kg"
+    "dataConfidenceAdjusted": "efw_kg",
+    "unit": "cm",
+    "breakdownUnits": {
+      "efw_g": "g",
+      "efw_kg": "kg"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Sağlık & Tıp",

@@ -81,7 +81,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "packagingGrams"
+    "dataConfidenceAdjusted": "packagingGrams",
+    "unit": "g",
+    "breakdownUnits": {
+      "itemGrams": "g",
+      "packagingGrams": "g"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

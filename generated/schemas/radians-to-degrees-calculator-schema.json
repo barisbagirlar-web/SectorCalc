@@ -96,7 +96,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "finalDegrees"
+    "dataConfidenceAdjusted": "finalDegrees",
+    "unit": "°",
+    "breakdownUnits": {
+      "radiansToRawDegrees": "°",
+      "finalDegrees": "°"
+    }
   },
   "category": "Matematik & Analiz",
   "sector": "Birim & Dönüşüm",

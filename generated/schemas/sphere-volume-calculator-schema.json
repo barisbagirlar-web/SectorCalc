@@ -134,7 +134,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "totalMassWithWaste"
+    "dataConfidenceAdjusted": "totalMassWithWaste",
+    "unit": "m",
+    "breakdownUnits": {
+      "Total Mass (without waste): {totalMass} kg": "kg",
+      "Total Mass (with {wasteFactor}% waste): {totalMassWithWaste} kg": "kg"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

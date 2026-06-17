@@ -85,7 +85,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "totalRoofArea"
+    "dataConfidenceAdjusted": "totalRoofArea",
+    "unit": "m",
+    "breakdownUnits": {
+      "pitchRatio": "%",
+      "slopePercent": "%"
+    }
   },
   "category": "Diğer",
   "sector": "Makine & Üretim",

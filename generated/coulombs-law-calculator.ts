@@ -23,7 +23,7 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Coulombs_law_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = ((input.charge1 * input.charge2) / (4 * Math.PI * input.permittivity * input.distance * input.distance)); results["force"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["force"] = 0; }
-  results["forceDirection"] = 0;
+  try { const v = ((input.charge1 * input.charge2) / (4 * Math.PI * input.permittivity * input.distance * input.distance)); results["force_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["force_aux"] = 0; }
   return results;
 }
 

@@ -80,7 +80,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "estimatedPrimes____upperBound___Math_log"
+    "dataConfidenceAdjusted": "estimatedPrimes____upperBound___Math_log",
+    "unit": "count",
+    "breakdownUnits": {
+      "Error margin: errorMargin = tolerance% of the estimate, i.e., (tolerance / 100) * estimatedPrimes": "%"
+    }
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Matematik & Geometri",

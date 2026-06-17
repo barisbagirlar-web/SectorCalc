@@ -98,7 +98,14 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "result"
+    "dataConfidenceAdjusted": "result",
+    "unit": "in",
+    "breakdownUnits": {
+      "Math.round((inch1 / 12) * 10 ** precision) / 10 ** precision": "in",
+      "Math.round((inch2 / 12) * 10 ** precision) / 10 ** precision": "in",
+      "Math.round((inch3 / 12) * 10 ** precision) / 10 ** precision": "in",
+      "Math.round((inch4 / 12) * 10 ** precision) / 10 ** precision": "in"
+    }
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Birim & Dönüşüm",

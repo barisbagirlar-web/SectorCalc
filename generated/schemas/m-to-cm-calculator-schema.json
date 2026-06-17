@@ -81,7 +81,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "rounded_cm"
+    "dataConfidenceAdjusted": "rounded_cm",
+    "unit": "cm",
+    "breakdownUnits": {
+      "Raw conversion: {{centimeter_value}} cm": "cm",
+      "Uncertainty: ±{{uncertainty_cm}} cm": "cm"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",

@@ -87,7 +87,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "circumferenceMm"
+    "dataConfidenceAdjusted": "circumferenceMm",
+    "unit": "m",
+    "breakdownUnits": {
+      "sidewallHeightMm": "mm",
+      "overallDiameterMm": "mm",
+      "circumferenceMm": "mm"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Otomotiv & Taşıt",

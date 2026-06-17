@@ -26,7 +26,6 @@ function evaluateAllFormulas(input: Wrestling_weight_class_calculatorInput): Rec
   const results: Record<string, number | string> = {};
   try { const v = input.weight / ((input.height / 100) ** 2); results["bmi"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["bmi"] = 0; }
   try { const v = input.weight * (1 - input.bodyFat / 100); results["leanBodyMass"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["leanBodyMass"] = 0; }
-  results["weightClass"] = 0;
   return results;
 }
 
@@ -37,7 +36,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateWrestling_weight_class_calculator(input: Wrestling_weight_class_calculatorInput): Wrestling_weight_class_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["weightClass"]);
+  const totalWasteCost = toNumericFormulaValue(values["leanBodyMass"]);
   const breakdown = {
     
   };

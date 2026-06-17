@@ -80,7 +80,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "roundedGigabytes"
+    "dataConfidenceAdjusted": "roundedGigabytes",
+    "unit": "bytes",
+    "breakdownUnits": {
+      "rawGigabytes": "bytes",
+      "safetyAppliedGigabytes": "bytes"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",

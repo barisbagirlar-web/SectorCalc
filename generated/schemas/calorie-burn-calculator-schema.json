@@ -65,7 +65,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "durationHours"
+    "dataConfidenceAdjusted": "durationHours",
+    "unit": "kg",
+    "breakdownUnits": {
+      "metMinutes": "min",
+      "durationHours": "%"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Sağlık & Tıp",

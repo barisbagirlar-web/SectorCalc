@@ -120,7 +120,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "status"
+    "dataConfidenceAdjusted": "status",
+    "unit": "%",
+    "breakdownUnits": {
+      "stressRatio": "%",
+      "deflectionRatio": "%"
+    }
   },
   "category": "Teknik & Mühendislik",
   "sector": "Mobilya & Ahşap",

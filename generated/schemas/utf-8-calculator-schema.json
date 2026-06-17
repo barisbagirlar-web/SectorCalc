@@ -113,7 +113,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "storage_efficiency"
+    "dataConfidenceAdjusted": "storage_efficiency",
+    "unit": "bytes",
+    "breakdownUnits": {
+      "Effective bytes with overhead: {effective_bytes} bytes": "bytes",
+      "Storage efficiency: {storage_efficiency}%": "%"
+    }
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Bilişim & Yazılım",

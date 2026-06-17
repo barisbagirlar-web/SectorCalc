@@ -81,7 +81,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "nearPointDistanceCm"
+    "dataConfidenceAdjusted": "nearPointDistanceCm",
+    "unit": "cm",
+    "breakdownUnits": {
+      "amplitudeDiopters": "A",
+      "nearPointDistanceMeters": "m"
+    }
   },
   "category": "Matematik & Analiz",
   "sector": "Günlük Yaşam & Ev",

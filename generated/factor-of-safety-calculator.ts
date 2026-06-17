@@ -30,7 +30,6 @@ function evaluateAllFormulas(input: Factor_of_safety_calculatorInput): Record<st
   try { const v = input.yieldStrength / (asFormulaNumber(results["workingStress"])); results["fosYield"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["fosYield"] = 0; }
   try { const v = input.ultimateTensileStrength / (asFormulaNumber(results["workingStress"])); results["fosUltimate"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["fosUltimate"] = 0; }
   try { const v = (asFormulaNumber(results["fosYield"])) - 1; results["marginYield"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["marginYield"] = 0; }
-  results["passFailYield"] = 0;
   return results;
 }
 
@@ -41,7 +40,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateFactor_of_safety_calculator(input: Factor_of_safety_calculatorInput): Factor_of_safety_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["passFailYield"]);
+  const totalWasteCost = toNumericFormulaValue(values["marginYield"]);
   const breakdown = {
     
   };

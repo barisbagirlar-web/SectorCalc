@@ -82,7 +82,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "apeIndexDiff"
+    "dataConfidenceAdjusted": "apeIndexDiff",
+    "unit": "in",
+    "breakdownUnits": {
+      "Total Height: {{totalHeightInches}} inches": "in",
+      "Total Arm Span: {{totalArmspanInches}} inches": "in"
+    }
   },
   "category": "Diğer",
   "sector": "Birim & Dönüşüm",

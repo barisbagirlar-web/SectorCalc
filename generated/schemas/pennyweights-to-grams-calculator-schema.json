@@ -96,7 +96,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "totalGrams"
+    "dataConfidenceAdjusted": "totalGrams",
+    "unit": "g",
+    "breakdownUnits": {
+      "gramsPerSample": "g",
+      "totalGrams": "g"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",

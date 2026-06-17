@@ -81,7 +81,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "beltLength"
+    "dataConfidenceAdjusted": "beltLength",
+    "unit": "mm",
+    "breakdownUnits": {
+      "Driven pulley speed: {drivenRPM.toFixed(0)} RPM": "rpm",
+      "Speed ratio (driver:driven): {speedRatio.toFixed(2)}": "%"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",

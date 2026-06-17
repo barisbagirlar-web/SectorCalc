@@ -22,7 +22,6 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Congruence_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  results["primary"] = 0;
   try { const v = 'Remainder of ('+input.a+' + '+input.shift+') mod '+input.modulus+' = ' + (((input.a + input.shift) % input.modulus + input.modulus) % input.modulus); results["breakdown[0]"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["breakdown[0]"] = 0; }
   try { const v = 'Remainder of '+input.b+' mod '+input.modulus+' = ' + ((input.b % input.modulus + input.modulus) % input.modulus); results["breakdown[1]"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["breakdown[1]"] = 0; }
   return results;
@@ -35,7 +34,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateCongruence_calculator(input: Congruence_calculatorInput): Congruence_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["primary"]);
+  const totalWasteCost = toNumericFormulaValue(values["breakdown"]);
   const breakdown = {
     
   };

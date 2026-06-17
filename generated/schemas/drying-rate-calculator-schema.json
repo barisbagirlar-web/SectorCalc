@@ -97,7 +97,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "energy_consumption_kWh"
+    "dataConfidenceAdjusted": "energy_consumption_kWh",
+    "unit": "kg",
+    "breakdownUnits": {
+      "drying_time_h": "h",
+      "energy_consumption_kWh": "kWh"
+    }
   },
   "category": "Enerji & Karbon",
   "sector": "Enerji & Elektrik",

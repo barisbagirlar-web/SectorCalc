@@ -32,7 +32,6 @@ function evaluateAllFormulas(input: Flourishing_scale_calculatorInput): Record<s
   const results: Record<string, number | string> = {};
   try { const v = input.item1 + input.item2 + input.item3 + input.item4 + input.item5 + input.item6 + input.item7 + input.item8; results["totalScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalScore"] = 0; }
   try { const v = (input.item1 + input.item2 + input.item3 + input.item4 + input.item5 + input.item6 + input.item7 + input.item8) / 8; results["averageScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["averageScore"] = 0; }
-  results["category"] = 0;
   return results;
 }
 

@@ -117,7 +117,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "netUSD"
+    "dataConfidenceAdjusted": "netUSD",
+    "unit": "USD",
+    "breakdownUnits": {
+      "grossUSD": "USD"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

@@ -113,7 +113,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "powerKW"
+    "dataConfidenceAdjusted": "powerKW",
+    "unit": "m³/s",
+    "breakdownUnits": {
+      "powerWatts": "W",
+      "overallEfficiencyPercent": "%"
+    }
   },
   "category": "Teknik & Mühendislik",
   "sector": "Fizik & Mekanik",

@@ -81,7 +81,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "totalHours"
+    "dataConfidenceAdjusted": "totalHours",
+    "unit": "kg",
+    "breakdownUnits": {
+      "caloriesPerMinute": "min",
+      "totalHours": "h"
+    }
   },
   "category": "Enerji & Karbon",
   "sector": "Sağlık & Tıp",

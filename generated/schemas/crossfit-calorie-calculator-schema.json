@@ -81,7 +81,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "caloriesPerHour"
+    "dataConfidenceAdjusted": "caloriesPerHour",
+    "unit": "kg",
+    "breakdownUnits": {
+      "caloriesPerMinute": "min",
+      "caloriesPerHour": "h"
+    }
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Sağlık & Tıp",

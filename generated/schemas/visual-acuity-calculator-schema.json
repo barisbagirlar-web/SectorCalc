@@ -81,7 +81,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "logMAR"
+    "dataConfidenceAdjusted": "logMAR",
+    "unit": "ft",
+    "breakdownUnits": {
+      "Visual Angle (arcmin): alpha_min": "min"
+    }
   },
   "category": "Diğer",
   "sector": "Birim & Dönüşüm",

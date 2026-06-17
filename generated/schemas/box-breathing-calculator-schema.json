@@ -97,7 +97,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "breathsPerMinute"
+    "dataConfidenceAdjusted": "breathsPerMinute",
+    "unit": "%",
+    "breakdownUnits": {
+      "cycleDuration": "%",
+      "breathsPerMinute": "min"
+    }
   },
   "category": "Diğer",
   "sector": "Sağlık & Tıp",

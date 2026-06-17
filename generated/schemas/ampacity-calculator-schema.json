@@ -99,7 +99,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "finalAmpacity"
+    "dataConfidenceAdjusted": "finalAmpacity",
+    "unit": "mm²",
+    "breakdownUnits": {
+      "baseAmpacity": "A",
+      "tempFactor": "°C",
+      "finalAmpacity": "A"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",

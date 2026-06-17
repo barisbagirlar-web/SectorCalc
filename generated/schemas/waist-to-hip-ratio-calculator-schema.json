@@ -99,7 +99,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "highRiskWHR"
+    "dataConfidenceAdjusted": "highRiskWHR",
+    "unit": "%",
+    "breakdownUnits": {
+      "waistToHeightRatio": "%",
+      "highRiskWHR": "kWh"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Sağlık & Tıp",

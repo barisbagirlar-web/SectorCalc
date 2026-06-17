@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { PremiumDynamicToolFormField } from "@/components/tools/PremiumDynamicToolFormField";
 import { PremiumToolReportModal } from "@/components/tools/PremiumToolReportModal";
+import { ResultPanel } from "@/components/tools/ResultPanel";
 import { ToolOmniMetaSection } from "@/components/tools/ToolOmniMetaSection";
 import { ToolStandardSelector } from "@/components/tools/ToolStandardSelector";
 import type {
@@ -14,8 +15,6 @@ import type {
   GeneratedToolSchema,
 } from "@/lib/generated-tools/types";
 import type { FeedbackSnapshotValue } from "@/lib/feedback/types";
-import { formatGeneratedNumericValue } from "@/lib/generated-tools/format-generated-numeric";
-import { resolveGeneratedBreakdownLabel } from "@/lib/generated-tools/resolve-generated-display-text";
 import { resolveToolDisplayChrome } from "@/lib/tools/resolve-tool-display-chrome";
 
 type PremiumDynamicToolFormLayoutProps = {
@@ -49,27 +48,6 @@ type PremiumDynamicToolFormLayoutProps = {
   readonly selectedStandard?: string;
   readonly onStandardChange?: (standardId: string) => void;
 };
-
-function resolvePrimaryNumericValue(
-  result: GeneratedToolResult,
-  primaryOutputKey: string,
-): number | null {
-  const candidates = [
-    result[primaryOutputKey],
-    result.totalWasteCost,
-    result.dataConfidenceAdjusted,
-  ];
-  for (const candidate of candidates) {
-    if (typeof candidate === "number" && Number.isFinite(candidate)) {
-      return candidate;
-    }
-  }
-  return null;
-}
-
-function formatPremiumPrimaryValue(value: number, key: string, locale: string): string {
-  return formatGeneratedNumericValue(value, key, locale);
-}
 
 function buildFeedbackSnapshot(
   values: Record<string, unknown>,
@@ -138,13 +116,6 @@ export function PremiumDynamicToolFormLayout({
     [locale, schema, slug],
   );
 
-  const primaryValue = result ? resolvePrimaryNumericValue(result, primaryOutputKey) : null;
-  const formattedPrimary =
-    primaryValue !== null
-      ? formatPremiumPrimaryValue(primaryValue, primaryOutputKey, locale)
-      : "—";
-
-  const breakdown = result?.breakdown;
   const inputSnapshot = buildFeedbackSnapshot(formValues);
   const resultSnapshot = buildResultSnapshot(result);
 
@@ -212,39 +183,16 @@ export function PremiumDynamicToolFormLayout({
               </button>
             </div>
 
-            <div className="sc-premium-dtf-result-panel sc-premium-dtf-feedback-area">
-              {result ? (
-                <div className="sc-premium-dtf-result sc-premium-dtf-result--pass">
-                  <div className="sc-premium-dtf-result__title">{tPremium("calculatedValueTitle")}</div>
-                  <div className="sc-premium-dtf-result__value result-value">{formattedPrimary}</div>
-                  <div className="sc-premium-dtf-result__status">{tPremium("validStatus")}</div>
-                  {breakdown && Object.keys(breakdown).length > 0 ? (
-                    <div className="sc-premium-dtf-result__breakdown">
-                      {Object.entries(breakdown).map(([key, value]) => (
-                        <div key={key}>
-                          <span>
-                            {resolveGeneratedBreakdownLabel(
-                              key,
-                              schema.outputs.breakdown,
-                              locale,
-                            )}
-                          </span>
-                          <span>
-                            {typeof value === "number"
-                              ? formatPremiumPrimaryValue(value, key, locale)
-                              : String(value ?? "—")}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  ) : null}
-                </div>
-              ) : (
-                <div className="sc-premium-dtf-result">
-                  <div className="sc-premium-dtf-result__title">{t("clickToCompute")}</div>
-                </div>
-              )}
-            </div>
+            <ResultPanel
+              result={result}
+              schema={schema}
+              locale={locale}
+              primaryOutputKey={primaryOutputKey}
+              titleLabel={tPremium("calculatedValueTitle")}
+              emptyLabel={t("clickToCompute")}
+              statusLabel={result ? tPremium("validStatus") : undefined}
+              loading={loading}
+            />
           </div>
         </div>
       </div>

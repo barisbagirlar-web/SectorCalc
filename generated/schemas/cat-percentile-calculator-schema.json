@@ -147,7 +147,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "lrdi_percentile"
+    "dataConfidenceAdjusted": "lrdi_percentile",
+    "unit": "%",
+    "breakdownUnits": {
+      "QA Percentile: <%= qa_percentile.toFixed(2) %>%": "%",
+      "VARC Percentile: <%= varc_percentile.toFixed(2) %>%": "%",
+      "LRDI Percentile: <%= lrdi_percentile.toFixed(2) %>%": "%"
+    }
   },
   "category": "Diğer",
   "sector": "İstatistik & Olasılık",

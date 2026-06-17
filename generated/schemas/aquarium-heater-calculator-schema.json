@@ -115,7 +115,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "recommendedWattage"
+    "dataConfidenceAdjusted": "recommendedWattage",
+    "unit": "W",
+    "breakdownUnits": {
+      "tempRise": "°C",
+      "requiredWattage": "W"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Su & Atıksu",

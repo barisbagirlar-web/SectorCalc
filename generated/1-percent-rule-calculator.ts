@@ -29,7 +29,6 @@ function evaluateAllFormulas(input: _1_percent_rule_calculatorInput): Record<str
   try { const v = (asFormulaNumber(results["totalInvestment"])) * 0.01; results["onePercentThreshold"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["onePercentThreshold"] = 0; }
   try { const v = input.monthlyRent >= (asFormulaNumber(results["onePercentThreshold"])) ? 1 : 0; results["meetsRule"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["meetsRule"] = 0; }
   try { const v = ((asFormulaNumber(results["monthlyNetIncome"])) * 12 / (asFormulaNumber(results["totalInvestment"]))) * 100; results["annualReturn"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["annualReturn"] = 0; }
-  results["result"] = 0;
   return results;
 }
 
@@ -40,7 +39,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculate_1_percent_rule_calculator(input: _1_percent_rule_calculatorInput): _1_percent_rule_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = toNumericFormulaValue(values["annualReturn"]);
   const breakdown = {
     
   };

@@ -113,7 +113,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "roundedCelsius"
+    "dataConfidenceAdjusted": "roundedCelsius",
+    "unit": "K",
+    "breakdownUnits": {
+      "celsius": "°C",
+      "roundedCelsius": "°C"
+    }
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Birim & Dönüşüm",

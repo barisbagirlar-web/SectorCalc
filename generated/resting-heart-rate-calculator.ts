@@ -23,7 +23,6 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Resting_heart_rate_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = (input.beats / input.seconds) * 60; results["restingHeartRate"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["restingHeartRate"] = 0; }
-  results["classification"] = 0;
   try { const v = 'Normal resting heart rate ranges from 60 to 100 bpm for adults. Athletes may have 40-60 bpm.'; results["breakdown2Text"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["breakdown2Text"] = 0; }
   return results;
 }

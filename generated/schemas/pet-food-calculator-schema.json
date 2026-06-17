@@ -80,7 +80,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "foodPerMealGrams"
+    "dataConfidenceAdjusted": "foodPerMealGrams",
+    "unit": "kg",
+    "breakdownUnits": {
+      "foodPerMealGrams": "g"
+    }
   },
   "category": "Enerji & Karbon",
   "sector": "Gıda & Beslenme",

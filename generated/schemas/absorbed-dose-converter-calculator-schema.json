@@ -85,7 +85,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "signalToNoiseRatio"
+    "dataConfidenceAdjusted": "signalToNoiseRatio",
+    "unit": "Gy",
+    "breakdownUnits": {
+      "signalToNoiseRatio": "%"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

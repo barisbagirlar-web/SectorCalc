@@ -96,7 +96,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "acceleration_force"
+    "dataConfidenceAdjusted": "acceleration_force",
+    "unit": "%",
+    "breakdownUnits": {
+      "Acceleration from velocity change: a = (vf - vi) / t": "%",
+      "Acceleration from Newton's second law: a = F / m (if force and mass are provided)": "%"
+    }
   },
   "category": "Diğer",
   "sector": "Fizik & Mekanik",

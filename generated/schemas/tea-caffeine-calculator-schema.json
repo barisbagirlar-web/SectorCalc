@@ -81,7 +81,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "totalCaffeine"
+    "dataConfidenceAdjusted": "totalCaffeine",
+    "unit": "mg/g",
+    "breakdownUnits": {
+      "efficiency": "%",
+      "teaCaffeinePerGram": "g"
+    }
   },
   "category": "Sürdürülebilirlik",
   "sector": "Makine & Üretim",

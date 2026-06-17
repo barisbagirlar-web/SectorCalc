@@ -80,7 +80,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "heightUsedCm"
+    "dataConfidenceAdjusted": "heightUsedCm",
+    "unit": "cm",
+    "breakdownUnits": {
+      "waistUsedCm": "cm",
+      "heightUsedCm": "cm"
+    }
   },
   "category": "Diğer",
   "sector": "Sağlık & Tıp",

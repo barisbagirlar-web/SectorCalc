@@ -118,7 +118,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "progression_risk"
+    "dataConfidenceAdjusted": "progression_risk",
+    "unit": "years",
+    "breakdownUnits": {
+      "Temporal Score: {temporal_score}": "°C",
+      "Duration Score: {duration_score}": "%"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Günlük Yaşam & Ev",

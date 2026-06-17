@@ -83,7 +83,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "ratio"
+    "dataConfidenceAdjusted": "ratio",
+    "unit": "%",
+    "breakdownUnits": {
+      "totalMass_g": "g",
+      "ratio": "%"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",

@@ -112,7 +112,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "m_ch_solar"
+    "dataConfidenceAdjusted": "m_ch_solar",
+    "unit": "kg",
+    "breakdownUnits": {
+      "m_ch_kg": "kg"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Yenilenebilir Enerji",

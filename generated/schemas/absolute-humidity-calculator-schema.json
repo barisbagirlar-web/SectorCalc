@@ -81,7 +81,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "absoluteHumidity"
+    "dataConfidenceAdjusted": "absoluteHumidity",
+    "unit": "°C",
+    "breakdownUnits": {
+      "saturationVaporPressure": "%",
+      "kelvinTemperature": "°C"
+    }
   },
   "category": "Enerji & Karbon",
   "sector": "Kimya & Proses",

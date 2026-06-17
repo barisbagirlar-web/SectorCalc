@@ -131,7 +131,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "totalSeedKg"
+    "dataConfidenceAdjusted": "totalSeedKg",
+    "unit": "kg",
+    "breakdownUnits": {
+      "baseSeedGrams": "g",
+      "adjustedSeedGrams": "g"
+    }
   },
   "category": "Diğer",
   "sector": "Tarım & Hayvancılık",

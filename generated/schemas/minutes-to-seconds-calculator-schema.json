@@ -100,7 +100,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "totalSeconds"
+    "dataConfidenceAdjusted": "totalSeconds",
+    "unit": "gün",
+    "breakdownUnits": {
+      "hoursToSeconds": "h",
+      "minutesToSeconds": "min"
+    }
   },
   "category": "Diğer",
   "sector": "Günlük Yaşam & Ev",

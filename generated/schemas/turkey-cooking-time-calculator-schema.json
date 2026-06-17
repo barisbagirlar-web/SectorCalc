@@ -87,7 +87,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "finalTimeHours"
+    "dataConfidenceAdjusted": "finalTimeHours",
+    "unit": "min",
+    "breakdownUnits": {
+      "finalTimeMinutes": "min",
+      "finalTimeHours": "h"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Gıda & Beslenme",

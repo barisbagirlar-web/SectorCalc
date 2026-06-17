@@ -81,7 +81,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "EUInseamCm"
+    "dataConfidenceAdjusted": "EUInseamCm",
+    "unit": "size",
+    "breakdownUnits": {
+      "EU Waist: ${EUWaistCm} cm": "cm",
+      "EU Inseam: ${EUInseamCm} cm": "cm"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

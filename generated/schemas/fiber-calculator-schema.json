@@ -132,7 +132,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "spliceLossTotal"
+    "dataConfidenceAdjusted": "spliceLossTotal",
+    "unit": "km",
+    "breakdownUnits": {
+      "margin": "%"
+    }
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Telekomünikasyon",

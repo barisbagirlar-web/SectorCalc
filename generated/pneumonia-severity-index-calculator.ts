@@ -39,7 +39,6 @@ function evaluateAllFormulas(input: Pneumonia_severity_index_calculatorInput): R
   try { const v = (input.hematocrit < 30 ? 10 : 0); results["hematocritPoints"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["hematocritPoints"] = 0; }
   try { const v = (input.paO2 < 60 ? 10 : 0); results["paO2Points"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["paO2Points"] = 0; }
   try { const v = (asFormulaNumber(results["agePoints"])) + (asFormulaNumber(results["respiratoryRatePoints"])) + (asFormulaNumber(results["systolicBPPoints"])) + (asFormulaNumber(results["bunPoints"])) + (asFormulaNumber(results["sodiumPoints"])) + (asFormulaNumber(results["glucosePoints"])) + (asFormulaNumber(results["hematocritPoints"])) + (asFormulaNumber(results["paO2Points"])); results["psiScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["psiScore"] = 0; }
-  results["riskClass"] = 0;
   try { const v = (asFormulaNumber(results["psiScore"])) <= 50 ? 0.1 : ((asFormulaNumber(results["psiScore"])) <= 70 ? 0.6 : ((asFormulaNumber(results["psiScore"])) <= 90 ? 0.9 : ((asFormulaNumber(results["psiScore"])) <= 130 ? 9.3 : 27))); results["mortalityRiskPercentage"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["mortalityRiskPercentage"] = 0; }
   return results;
 }

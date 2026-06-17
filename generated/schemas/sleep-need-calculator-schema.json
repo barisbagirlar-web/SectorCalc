@@ -117,7 +117,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "result"
+    "dataConfidenceAdjusted": "result",
+    "unit": "%",
+    "breakdownUnits": {
+      "'Bedtime: ' + Math.floor(bedtimeMinutes / 60) + ':' + ('0' + (bedtimeMinutes % 60)).slice(-2)": "min",
+      "'Sleep duration: ' + Math.round(totalSleepMinutes) + ' minutes (' + Math.round(totalSleepMinutes / 60 * 10) / 10 + ' hours)'": "%"
+    }
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Sağlık & Tıp",

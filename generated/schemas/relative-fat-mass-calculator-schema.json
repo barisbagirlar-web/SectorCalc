@@ -67,7 +67,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "constant"
+    "dataConfidenceAdjusted": "constant",
+    "unit": "cm",
+    "breakdownUnits": {
+      "heightToWaistRatio": "%",
+      "twentyTimesRatio": "%"
+    }
   },
   "category": "Diğer",
   "sector": "Gıda & Beslenme",

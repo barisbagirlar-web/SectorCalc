@@ -84,7 +84,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "result"
+    "dataConfidenceAdjusted": "result",
+    "unit": "km",
+    "breakdownUnits": {
+      "'Total: ' + hours + ':' + ('0' + minutes).slice(-2) + ':' + ('0' + seconds).slice(-2)": "min"
+    }
   },
   "category": "Diğer",
   "sector": "Fitness & Spor",

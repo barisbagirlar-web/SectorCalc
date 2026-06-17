@@ -97,7 +97,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "caloriesPerHour"
+    "dataConfidenceAdjusted": "caloriesPerHour",
+    "unit": "hour (0-23)",
+    "breakdownUnits": {
+      "eatingEndHour": "h",
+      "totalCycleHours": "h",
+      "caloriesPerHour": "h"
+    }
   },
   "category": "Enerji & Karbon",
   "sector": "Sağlık & Tıp",

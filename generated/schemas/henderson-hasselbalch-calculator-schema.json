@@ -80,7 +80,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "ph"
+    "dataConfidenceAdjusted": "ph",
+    "unit": "%",
+    "breakdownUnits": {
+      "ratio": "%",
+      "log_ratio": "%"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Kimya & Proses",

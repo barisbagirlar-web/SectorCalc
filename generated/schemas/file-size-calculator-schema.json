@@ -118,7 +118,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "downloadTimeMinutes"
+    "dataConfidenceAdjusted": "downloadTimeMinutes",
+    "unit": "GB",
+    "breakdownUnits": {
+      "totalUncompressedMB": "MB",
+      "totalCompressedMB": "MB",
+      "downloadTimeMinutes": "min"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Bilişim & Yazılım",

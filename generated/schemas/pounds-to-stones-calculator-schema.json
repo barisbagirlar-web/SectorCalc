@@ -80,7 +80,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "remainingPounds"
+    "dataConfidenceAdjusted": "remainingPounds",
+    "unit": "lb",
+    "breakdownUnits": {
+      "roundedRemainingPounds": "lb"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

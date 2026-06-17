@@ -81,7 +81,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "mixingRatio"
+    "dataConfidenceAdjusted": "mixingRatio",
+    "unit": "°C",
+    "breakdownUnits": {
+      "mixingRatio": "%"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

@@ -100,7 +100,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "finalTemperature"
+    "dataConfidenceAdjusted": "finalTemperature",
+    "unit": "°C",
+    "breakdownUnits": {
+      "temperatureChange": "°C",
+      "finalTemperature": "°C"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Fizik & Mekanik",

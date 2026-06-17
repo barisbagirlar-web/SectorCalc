@@ -114,7 +114,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "targetTime"
+    "dataConfidenceAdjusted": "targetTime",
+    "unit": "min",
+    "breakdownUnits": {
+      "sourceOffsetTotalMinutes": "min",
+      "targetOffsetTotalMinutes": "min",
+      "utcMinutes": "min"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

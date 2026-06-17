@@ -121,7 +121,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "totalCost"
+    "dataConfidenceAdjusted": "totalCost",
+    "unit": "mm",
+    "breakdownUnits": {
+      "sewingTimeMinutes": "min",
+      "sewingTimeHours": "h",
+      "threadLengthMeters": "m"
+    }
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Tekstil & Konfeksiyon",

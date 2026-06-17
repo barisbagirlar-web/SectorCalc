@@ -81,7 +81,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "peakFrequency_Hz"
+    "dataConfidenceAdjusted": "peakFrequency_Hz",
+    "unit": "K",
+    "breakdownUnits": {
+      "peakWavelength_m": "m"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

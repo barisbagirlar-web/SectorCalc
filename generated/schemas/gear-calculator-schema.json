@@ -121,7 +121,14 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "baseDiameter2"
+    "dataConfidenceAdjusted": "baseDiameter2",
+    "unit": "%",
+    "breakdownUnits": {
+      "pitchDiameter1": "m",
+      "pitchDiameter2": "m",
+      "baseDiameter1": "m",
+      "baseDiameter2": "m"
+    }
   },
   "category": "Diğer",
   "sector": "Makine & Üretim",

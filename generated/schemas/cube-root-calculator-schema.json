@@ -82,7 +82,14 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "finalSideLength_mm"
+    "dataConfidenceAdjusted": "finalSideLength_mm",
+    "unit": "m³",
+    "breakdownUnits": {
+      "rawCubeRoot_mm": "mm",
+      "sideWithTolerance_mm": "mm",
+      "sideWithOversize_mm": "mm",
+      "sideWithCalibration_mm": "%"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",

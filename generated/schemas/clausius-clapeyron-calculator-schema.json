@@ -112,7 +112,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "logPressureRatio"
+    "dataConfidenceAdjusted": "logPressureRatio",
+    "unit": "°C",
+    "breakdownUnits": {
+      "massSpecificHeat_kJkg": "kg",
+      "logPressureRatio": "%"
+    }
   },
   "category": "Diğer",
   "sector": "Kimya & Proses",

@@ -81,7 +81,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "critical_temperature_K"
+    "dataConfidenceAdjusted": "critical_temperature_K",
+    "unit": "°C",
+    "breakdownUnits": {
+      "actual_temperature_K": "°C",
+      "critical_temperature_K": "°C"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

@@ -82,7 +82,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "idealWeight"
+    "dataConfidenceAdjusted": "idealWeight",
+    "unit": "ft",
+    "breakdownUnits": {
+      "idealWeightLbs": "lb",
+      "idealWeightKg": "kg"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

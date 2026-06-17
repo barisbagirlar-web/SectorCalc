@@ -21,8 +21,7 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Planarity_test_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = input.vertices < 3 ? 1 : (input.isBipartite ? (input.edges <= 2*input.vertices - 4 ? 1 : 0) : (input.edges <= 3*input.vertices - 6 ? 1 : 0)); results["planarityScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["planarityScore"] = 0; }
-  results["conditionDetail"] = 0;
-  results["resultSummary"] = 0;
+  try { const v = input.vertices < 3 ? 1 : (input.isBipartite ? (input.edges <= 2*input.vertices - 4 ? 1 : 0) : (input.edges <= 3*input.vertices - 6 ? 1 : 0)); results["planarityScore_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["planarityScore_aux"] = 0; }
   return results;
 }
 

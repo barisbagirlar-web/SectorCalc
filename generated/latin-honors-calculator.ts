@@ -26,11 +26,8 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Latin_honors_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  results["honors"] = 0;
-  results["cumLaudeStatus"] = 0;
-  results["magnaStatus"] = 0;
-  results["summaStatus"] = 0;
   try { const v = "Thresholds: Cum Laude >= " + input.cumLaudeMin + ", Magna >= " + input.magnaMin + ", Summa >= " + input.summaMin + ". Credits required: " + input.creditsRequired; results["thresholdsInfo"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["thresholdsInfo"] = 0; }
+  try { const v = "Thresholds: Cum Laude >= " + input.cumLaudeMin + ", Magna >= " + input.magnaMin + ", Summa >= " + input.summaMin + ". Credits required: " + input.creditsRequired; results["thresholdsInfo_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["thresholdsInfo_aux"] = 0; }
   return results;
 }
 
@@ -41,7 +38,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateLatin_honors_calculator(input: Latin_honors_calculatorInput): Latin_honors_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["honors"]);
+  const totalWasteCost = toNumericFormulaValue(values["thresholdsInfo_aux"]);
   const breakdown = {
     
   };

@@ -82,7 +82,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "ratio"
+    "dataConfidenceAdjusted": "ratio",
+    "unit": "%",
+    "breakdownUnits": {
+      "waistCm": "cm",
+      "heightCm": "cm",
+      "ratio": "%"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

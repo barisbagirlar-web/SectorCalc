@@ -98,7 +98,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "estimatedServings"
+    "dataConfidenceAdjusted": "estimatedServings",
+    "unit": "people",
+    "breakdownUnits": {
+      "cookingTimeHours": "h",
+      "cookingTimeMinutesRemaining": "min"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Sağlık & Tıp",

@@ -97,7 +97,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "caloriesFromAlcohol"
+    "dataConfidenceAdjusted": "caloriesFromAlcohol",
+    "unit": "mL",
+    "breakdownUnits": {
+      "alcoholGramsTotal": "g"
+    }
   },
   "category": "Enerji & Karbon",
   "sector": "Sağlık & Tıp",

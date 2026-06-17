@@ -23,7 +23,7 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Hexadecimal_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = ((input.operation === 1 ? input.operandA + input.operandB : input.operation === 2 ? input.operandA - input.operandB : input.operation === 3 ? input.operandA * input.operandB : input.operation === 4 ? (input.operandB !== 0 ? input.operandA / input.operandB : 'Error: Division by zero') : 'Error: Invalid input.operation') ? 1 : 0); results["decimalResult"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["decimalResult"] = 0; }
-  results["operationName"] = 0;
+  try { const v = ((input.operation === 1 ? input.operandA + input.operandB : input.operation === 2 ? input.operandA - input.operandB : input.operation === 3 ? input.operandA * input.operandB : input.operation === 4 ? (input.operandB !== 0 ? input.operandA / input.operandB : 'Error: Division by zero') : 'Error: Invalid input.operation') ? 1 : 0); results["decimalResult_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["decimalResult_aux"] = 0; }
   return results;
 }
 
@@ -34,7 +34,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateHexadecimal_calculator(input: Hexadecimal_calculatorInput): Hexadecimal_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["operationName"]);
+  const totalWasteCost = toNumericFormulaValue(values["decimalResult_aux"]);
   const breakdown = {
     
   };

@@ -121,7 +121,16 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "entertainmentPercent"
+    "dataConfidenceAdjusted": "entertainmentPercent",
+    "unit": "currency",
+    "breakdownUnits": {
+      "housingPercent": "%",
+      "foodPercent": "%",
+      "transportationPercent": "%",
+      "utilitiesPercent": "%",
+      "healthcarePercent": "%",
+      "entertainmentPercent": "%"
+    }
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Emlak & Gayrimenkul",

@@ -81,7 +81,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "quickRatio_aux"
+    "dataConfidenceAdjusted": "quickRatio_aux",
+    "unit": "TRY",
+    "breakdownUnits": {
+      "Likidite Oranı: ${quickRatio.toFixed(2)}": "%",
+      "Nakit + Menkul Kıymetler + Alacaklar = ${inputs.cashEquivalents + inputs.marketableSecurities + inputs.accountsReceivable} TRY": "TRY",
+      "Kısa Vadeli Yükümlülükler = ${inputs.currentLiabilities} TRY": "TRY"
+    }
   },
   "category": "Diğer",
   "sector": "Matematik & Geometri",

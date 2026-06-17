@@ -112,7 +112,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "oneInN"
+    "dataConfidenceAdjusted": "oneInN",
+    "unit": "years",
+    "breakdownUnits": {
+      "baseRiskPercent": "%",
+      "adjustedRiskPercent": "%"
+    }
   },
   "category": "Lojistik & Rota",
   "sector": "Günlük Yaşam & Ev",

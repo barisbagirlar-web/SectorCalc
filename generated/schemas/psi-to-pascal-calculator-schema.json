@@ -80,7 +80,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "pascal_value"
+    "dataConfidenceAdjusted": "pascal_value",
+    "unit": "Pa",
+    "breakdownUnits": {
+      "raw_pascal": "Pa",
+      "pascal_with_offset": "Pa"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

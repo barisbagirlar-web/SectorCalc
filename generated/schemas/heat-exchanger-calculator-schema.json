@@ -146,7 +146,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "area"
+    "dataConfidenceAdjusted": "area",
+    "unit": "kg/s",
+    "breakdownUnits": {
+      "tempColdOut": "°C",
+      "logMeanTempDiff": "°C"
+    }
   },
   "category": "Teknik & Mühendislik",
   "sector": "Fizik & Mekanik",

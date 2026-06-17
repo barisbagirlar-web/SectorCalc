@@ -31,7 +31,7 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Has_bled_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = input.hypertension + input.abnormalRenal + input.abnormalLiver + input.stroke + input.bleeding + input.labileINR + input.elderly + input.drugsAlcohol; results["totalScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalScore"] = 0; }
-  results["riskCategory"] = 0;
+  try { const v = input.hypertension + input.abnormalRenal + input.abnormalLiver + input.stroke + input.bleeding + input.labileINR + input.elderly + input.drugsAlcohol; results["totalScore_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalScore_aux"] = 0; }
   return results;
 }
 

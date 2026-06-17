@@ -95,7 +95,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "totalCost"
+    "dataConfidenceAdjusted": "totalCost",
+    "unit": "kW",
+    "breakdownUnits": {
+      "totalEnergyKwh": "kWh"
+    }
   },
   "category": "Enerji & Karbon",
   "sector": "Enerji & Elektrik",

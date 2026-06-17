@@ -67,7 +67,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "dewPoint"
+    "dataConfidenceAdjusted": "dewPoint",
+    "unit": "°C",
+    "breakdownUnits": {
+      "saturationVaporPressure": "%",
+      "humidityRatio": "%"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",

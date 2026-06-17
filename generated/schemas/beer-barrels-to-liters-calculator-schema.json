@@ -115,7 +115,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "volumeLiters"
+    "dataConfidenceAdjusted": "volumeLiters",
+    "unit": "L",
+    "breakdownUnits": {
+      "temperatureCorrectionFactor": "°C",
+      "volumeAfterTemperatureCorrection": "°C"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Gıda & Beslenme",

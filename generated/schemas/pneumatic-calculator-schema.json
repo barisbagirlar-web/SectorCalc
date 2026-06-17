@@ -113,7 +113,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "recommendedForce"
+    "dataConfidenceAdjusted": "recommendedForce",
+    "unit": "mm",
+    "breakdownUnits": {
+      "freeAirPerMinute": "min"
+    }
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Hidrolik & Pnömatik",

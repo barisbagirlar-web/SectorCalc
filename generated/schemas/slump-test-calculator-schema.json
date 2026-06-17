@@ -113,7 +113,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "passFail"
+    "dataConfidenceAdjusted": "passFail",
+    "unit": "mm",
+    "breakdownUnits": {
+      "Cone Volume: {coneVolumeLiters} liters": "L",
+      "Specified Range: {specMin} - {specMax} mm": "mm"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Plastik & Polimer",

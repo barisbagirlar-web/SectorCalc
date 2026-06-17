@@ -21,7 +21,6 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Japanese_calendar_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = (input.gregorianYear >= 2019) ? 2019 : (input.gregorianYear >= 1989) ? 1989 : (input.gregorianYear >= 1926) ? 1926 : (input.gregorianYear >= 1912) ? 1912 : (input.gregorianYear >= 1868) ? 1868 : 0; results["eraStart"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["eraStart"] = 0; }
-  results["eraName"] = 0;
   try { const v = input.gregorianYear - (asFormulaNumber(results["eraStart"])) + 1; results["eraYear"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["eraYear"] = 0; }
   return results;
 }

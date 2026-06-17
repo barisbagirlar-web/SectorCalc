@@ -25,7 +25,6 @@ function evaluateAllFormulas(input: Buoyancy_calculatorInput): Record<string, nu
   try { const v = input.objectMass * input.gravitationalAcceleration; results["weight"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["weight"] = 0; }
   try { const v = input.fluidDensity * input.objectVolume * input.gravitationalAcceleration; results["buoyantForce"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["buoyantForce"] = 0; }
   try { const v = (asFormulaNumber(results["buoyantForce"])) - (asFormulaNumber(results["weight"])); results["netForce"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["netForce"] = 0; }
-  results["floatCondition"] = 0;
   return results;
 }
 

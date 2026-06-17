@@ -116,7 +116,16 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "blue_hour_evening_duration"
+    "dataConfidenceAdjusted": "blue_hour_evening_duration",
+    "unit": "hours (0-24)",
+    "breakdownUnits": {
+      "Morning blue hour start (local time): {blue_hour_morning_start} hours": "h",
+      "Morning blue hour end (local time): {blue_hour_morning_end} hours": "h",
+      "Evening blue hour start (local time): {blue_hour_evening_start} hours": "h",
+      "Evening blue hour end (local time): {blue_hour_evening_end} hours": "h",
+      "Morning blue hour duration: {blue_hour_morning_duration} hours": "%",
+      "Evening blue hour duration: {blue_hour_evening_duration} hours": "%"
+    }
   },
   "category": "Enerji & Karbon",
   "sector": "Günlük Yaşam & Ev",

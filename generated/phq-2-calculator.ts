@@ -23,7 +23,6 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Phq_2_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = input.q1 + input.q2; results["total_score"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["total_score"] = 0; }
-  results["interpretation"] = 0;
   try { const v = 'Q1: ' + input.q1; results["q1_detail"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["q1_detail"] = 0; }
   try { const v = 'Q2: ' + input.q2; results["q2_detail"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["q2_detail"] = 0; }
   return results;

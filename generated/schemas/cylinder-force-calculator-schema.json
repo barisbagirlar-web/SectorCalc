@@ -89,7 +89,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "forceRetraction_kN"
+    "dataConfidenceAdjusted": "forceRetraction_kN",
+    "unit": "mm",
+    "breakdownUnits": {
+      "efficiencyFraction": "%"
+    }
   },
   "category": "Verimlilik & OEE",
   "sector": "Fizik & Mekanik",

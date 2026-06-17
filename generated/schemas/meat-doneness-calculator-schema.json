@@ -112,7 +112,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "tempDifference"
+    "dataConfidenceAdjusted": "tempDifference",
+    "unit": "kg",
+    "breakdownUnits": {
+      "tempDifference": "°C"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Gıda & Beslenme",

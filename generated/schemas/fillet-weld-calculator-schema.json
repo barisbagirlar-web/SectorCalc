@@ -106,7 +106,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "weldVolume"
+    "dataConfidenceAdjusted": "weldVolume",
+    "unit": "mm",
+    "breakdownUnits": {
+      "utilizationRatio": "%"
+    }
   },
   "category": "Diğer",
   "sector": "Metal & Kaynak",

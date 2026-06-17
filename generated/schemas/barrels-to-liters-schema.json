@@ -73,7 +73,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "cubicMeters"
+    "dataConfidenceAdjusted": "cubicMeters",
+    "unit": "L",
+    "breakdownUnits": {
+      "gallons": "gal",
+      "cubicMeters": "m"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

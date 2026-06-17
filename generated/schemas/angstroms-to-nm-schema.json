@@ -79,7 +79,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "nanometers___angstroms___0_1"
+    "dataConfidenceAdjusted": "nanometers___angstroms___0_1",
+    "unit": "m",
+    "breakdownUnits": {
+      "nanometers = angstroms * 0.1": "m"
+    }
   },
   "category": "Diğer",
   "sector": "Fizik & Mekanik",

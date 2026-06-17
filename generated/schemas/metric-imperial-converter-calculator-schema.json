@@ -84,7 +84,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "result"
+    "dataConfidenceAdjusted": "result",
+    "unit": "°F",
+    "breakdownUnits": {
+      "'Pounds: ' + pounds.toFixed(2) + ' lbs'": "lb",
+      "'US Gallons: ' + gallons.toFixed(2) + ' gal'": "gal",
+      "'Fahrenheit: ' + fahrenheit.toFixed(2) + ' °F'": "°F"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

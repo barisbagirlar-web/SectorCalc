@@ -80,7 +80,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "roundedTotalPounds"
+    "dataConfidenceAdjusted": "roundedTotalPounds",
+    "unit": "lb",
+    "breakdownUnits": {
+      "poundsPerItem": "lb",
+      "totalPounds": "lb"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

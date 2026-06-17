@@ -81,7 +81,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "progressPercent"
+    "dataConfidenceAdjusted": "progressPercent",
+    "unit": "h",
+    "breakdownUnits": {
+      "fastingEndHour": "h",
+      "eatingWindowEndHour": "h",
+      "progressPercent": "%"
+    }
   },
   "category": "Diğer",
   "sector": "Plastik & Polimer",

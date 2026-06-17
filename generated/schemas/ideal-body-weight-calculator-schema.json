@@ -84,7 +84,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "heightCm"
+    "dataConfidenceAdjusted": "heightCm",
+    "unit": "ft",
+    "breakdownUnits": {
+      "ibwKg": "kg",
+      "heightCm": "cm"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Sağlık & Tıp",

@@ -121,7 +121,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "energyComponent"
+    "dataConfidenceAdjusted": "energyComponent",
+    "unit": "%",
+    "breakdownUnits": {
+      "efficiencyComponent": "%",
+      "availabilityComponent": "%"
+    }
   },
   "category": "Verimlilik & OEE",
   "sector": "Enerji & Elektrik",

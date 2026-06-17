@@ -30,7 +30,6 @@ function evaluateAllFormulas(input: Transition_fit_calculatorInput): Record<stri
   try { const v = input.basic_size + input.shaft_lower_dev; results["shaftMin"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["shaftMin"] = 0; }
   try { const v = (asFormulaNumber(results["holeMax"])) - (asFormulaNumber(results["shaftMin"])); results["maxClearance"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["maxClearance"] = 0; }
   try { const v = (asFormulaNumber(results["holeMin"])) - (asFormulaNumber(results["shaftMax"])); results["minClearance"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["minClearance"] = 0; }
-  results["result"] = 0;
   return results;
 }
 
@@ -41,7 +40,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateTransition_fit_calculator(input: Transition_fit_calculatorInput): Transition_fit_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["result"]);
+  const totalWasteCost = toNumericFormulaValue(values["minClearance"]);
   const breakdown = {
     
   };

@@ -80,7 +80,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "powerRatio"
+    "dataConfidenceAdjusted": "powerRatio",
+    "unit": "%",
+    "breakdownUnits": {
+      "amplitudeDecibel": "A",
+      "powerRatio": "%"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Enerji & Elektrik",

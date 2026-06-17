@@ -25,8 +25,6 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Leed_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = input.ss + input.we + input.ea + input.mr + input.eq; results["total"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["total"] = 0; }
-  results["level"] = 0;
-  try { const v = 'Total: ' + (asFormulaNumber(results["total"])) + ' points (' + (asFormulaNumber(results["level"])) + ')'; results["totalScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalScore"] = 0; }
   try { const v = 'Sustainable Sites: ' + input.ss + ' points'; results["ssBreakdown"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["ssBreakdown"] = 0; }
   try { const v = 'Water Efficiency: ' + input.we + ' points'; results["weBreakdown"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["weBreakdown"] = 0; }
   try { const v = 'Energy & Atmosphere: ' + input.ea + ' points'; results["eaBreakdown"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["eaBreakdown"] = 0; }
@@ -42,7 +40,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateLeed_calculator(input: Leed_calculatorInput): Leed_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["totalScore"]);
+  const totalWasteCost = toNumericFormulaValue(values["eqBreakdown"]);
   const breakdown = {
     
   };

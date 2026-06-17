@@ -113,7 +113,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "heatAdditionPerMass"
+    "dataConfidenceAdjusted": "heatAdditionPerMass",
+    "unit": "K",
+    "breakdownUnits": {
+      "temperatureAfterCompression": "°C",
+      "temperatureAfterExpansion": "°C"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Fizik & Mekanik",

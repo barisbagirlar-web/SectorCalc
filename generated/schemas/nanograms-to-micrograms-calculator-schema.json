@@ -80,7 +80,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "micrograms"
+    "dataConfidenceAdjusted": "micrograms",
+    "unit": "g",
+    "breakdownUnits": {
+      "totalNanograms": "g",
+      "rawMicrograms": "g"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",

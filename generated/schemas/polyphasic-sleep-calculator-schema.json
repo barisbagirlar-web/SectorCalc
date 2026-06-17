@@ -82,7 +82,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "sleepDeficit"
+    "dataConfidenceAdjusted": "sleepDeficit",
+    "unit": "h",
+    "breakdownUnits": {
+      "coreSleepDuration": "%",
+      "napSleepHours": "h"
+    }
   },
   "category": "Diğer",
   "sector": "Sağlık & Tıp",

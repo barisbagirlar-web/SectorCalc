@@ -23,9 +23,7 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Mortar_type_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = input.design_strength * input.exposure_factor * (input.reinforced ? 1.2 : 1) * input.safety_factor; results["required_strength"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["required_strength"] = 0; }
-  results["mortarType"] = 0;
-  try { const v = ((asFormulaNumber(results["mortarType"])) == 'M') ? 17.2 : ((asFormulaNumber(results["mortarType"])) == 'S') ? 12.4 : ((asFormulaNumber(results["mortarType"])) == 'N') ? 5.2 : ((asFormulaNumber(results["mortarType"])) == 'O') ? 2.4 : 0.5; results["min_strength"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["min_strength"] = 0; }
-  try { const v = (asFormulaNumber(results["required_strength"])) - (asFormulaNumber(results["min_strength"])); results["safety_margin"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["safety_margin"] = 0; }
+  try { const v = input.design_strength * input.exposure_factor * (input.reinforced ? 1.2 : 1) * input.safety_factor; results["required_strength_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["required_strength_aux"] = 0; }
   return results;
 }
 
@@ -36,7 +34,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateMortar_type_calculator(input: Mortar_type_calculatorInput): Mortar_type_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["mortarType"]);
+  const totalWasteCost = toNumericFormulaValue(values["required_strength_aux"]);
   const breakdown = {
     
   };

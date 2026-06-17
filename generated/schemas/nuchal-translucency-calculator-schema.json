@@ -80,7 +80,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "riskPercent"
+    "dataConfidenceAdjusted": "riskPercent",
+    "unit": "years",
+    "breakdownUnits": {
+      "baseRiskPercent": "%",
+      "adjustedRiskPercent": "%"
+    }
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Günlük Yaşam & Ev",

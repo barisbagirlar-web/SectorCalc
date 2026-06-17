@@ -82,7 +82,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "gallonsPer100Miles"
+    "dataConfidenceAdjusted": "gallonsPer100Miles",
+    "unit": "L",
+    "breakdownUnits": {
+      "kmPerLiter: {value} km/L": "L",
+      "litersPer100km: {value} L/100km": "L",
+      "gallonsPer100Miles: {value} gal/100mi": "gal"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

@@ -23,7 +23,6 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Pregnancy_weight_gain_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = input.prePregnancyWeight / ((input.height / 100) ** 2); results["bmi"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["bmi"] = 0; }
-  results["bmiCategory"] = 0;
   try { const v = (asFormulaNumber(results["bmi"])) < 18.5 ? 12.5 : (asFormulaNumber(results["bmi"])) < 25 ? 11.5 : (asFormulaNumber(results["bmi"])) < 30 ? 7 : 5; results["totalMinGain"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalMinGain"] = 0; }
   try { const v = (asFormulaNumber(results["bmi"])) < 18.5 ? 18 : (asFormulaNumber(results["bmi"])) < 25 ? 16 : (asFormulaNumber(results["bmi"])) < 30 ? 11.5 : 9; results["totalMaxGain"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalMaxGain"] = 0; }
   try { const v = (asFormulaNumber(results["totalMinGain"])) * (input.currentWeek / 40); results["minGainCurrent"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["minGainCurrent"] = 0; }
@@ -31,7 +30,6 @@ function evaluateAllFormulas(input: Pregnancy_weight_gain_calculatorInput): Reco
   try { const v = input.prePregnancyWeight + (asFormulaNumber(results["minGainCurrent"])); results["recommendedMinWeight"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["recommendedMinWeight"] = 0; }
   try { const v = input.prePregnancyWeight + (asFormulaNumber(results["maxGainCurrent"])); results["recommendedMaxWeight"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["recommendedMaxWeight"] = 0; }
   try { const v = input.currentWeight - input.prePregnancyWeight; results["weightGained"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["weightGained"] = 0; }
-  results["status"] = 0;
   return results;
 }
 
@@ -42,7 +40,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculatePregnancy_weight_gain_calculator(input: Pregnancy_weight_gain_calculatorInput): Pregnancy_weight_gain_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["status"]);
+  const totalWasteCost = toNumericFormulaValue(values["weightGained"]);
   const breakdown = {
     
   };

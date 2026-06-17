@@ -82,7 +82,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "caloriesPerMinute"
+    "dataConfidenceAdjusted": "caloriesPerMinute",
+    "unit": "kg",
+    "breakdownUnits": {
+      "totalDurationHours": "%",
+      "caloriesPerMinute": "min"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Sağlık & Tıp",

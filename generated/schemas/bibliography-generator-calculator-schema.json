@@ -147,7 +147,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "referencesPerHour"
+    "dataConfidenceAdjusted": "referencesPerHour",
+    "unit": "pages",
+    "breakdownUnits": {
+      "References per Hour: ${referencesPerHour}": "h"
+    }
   },
   "category": "Diğer",
   "sector": "Matematik & Geometri",

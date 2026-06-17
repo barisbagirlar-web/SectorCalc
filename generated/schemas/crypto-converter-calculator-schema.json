@@ -84,7 +84,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "finalAmount"
+    "dataConfidenceAdjusted": "finalAmount",
+    "unit": "USD",
+    "breakdownUnits": {
+      "Entered amount: ${amount} USD": "USD",
+      "Rate after spread: ${rateAfterSpread.toFixed(8)} BTC/USD": "USD"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

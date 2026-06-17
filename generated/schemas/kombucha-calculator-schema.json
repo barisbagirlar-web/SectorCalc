@@ -83,7 +83,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "starterRatio"
+    "dataConfidenceAdjusted": "starterRatio",
+    "unit": "L",
+    "breakdownUnits": {
+      "sugarConcentration": "%",
+      "teaConcentration": "%",
+      "starterRatio": "%"
+    }
   },
   "category": "Diğer",
   "sector": "Gıda & Beslenme",

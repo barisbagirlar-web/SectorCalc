@@ -81,7 +81,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "relativeHumidity"
+    "dataConfidenceAdjusted": "relativeHumidity",
+    "unit": "°C",
+    "breakdownUnits": {
+      "saturationVaporPressureDry": "%",
+      "saturationVaporPressureWet": "%"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "İstatistik & Olasılık",

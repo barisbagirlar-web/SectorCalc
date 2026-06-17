@@ -87,7 +87,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "decimalDegrees___60"
+    "dataConfidenceAdjusted": "decimalDegrees___60",
+    "unit": "min",
+    "breakdownUnits": {
+      "Derece → Dakika: degrees * 60": "°",
+      "Toplam Dakika: (degrees * 60) + minutes + (seconds / 60)": "min",
+      "Ondalık Derece → Dakika: decimalDegrees * 60": "°"
+    }
   },
   "category": "Diğer",
   "sector": "Günlük Yaşam & Ev",

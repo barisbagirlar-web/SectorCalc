@@ -1,4 +1,5 @@
 import { normalizeGeneratedSelectOptions } from "@/lib/generated-tools/select-options";
+import { inferUnitFromOutputKey } from "@/lib/generated-tools/resolve-output-unit";
 import type {
   GeneratedToolInput,
   GeneratedToolSchema,
@@ -329,6 +330,19 @@ export function normalizeRawGeneratedSchema(
       ? dataConfidenceRaw
       : asString(asRecord(dataConfidenceRaw)?.id, "dataConfidenceAdjusted");
 
+  const primaryOutput = normalizePrimaryOutput(outputsRecord.primary);
+  const explicitUnit = asString(outputsRecord.unit);
+  const resolvedUnit =
+    explicitUnit ||
+    inferUnitFromOutputKey(primaryOutput) ||
+    (() => {
+      const inputUnit = inputs.find((input) => {
+        const unit = input.unit.trim().toLowerCase();
+        return unit && unit !== "unit" && unit !== "units";
+      })?.unit;
+      return inputUnit ?? "";
+    })();
+
   const catalogCategory = asString(record.catalogCategory) || undefined;
   const sectorSlug = asString(record.sectorSlug) || undefined;
   const categorySlug = asString(record.categorySlug) || undefined;
@@ -351,7 +365,8 @@ export function normalizeRawGeneratedSchema(
     },
     formulas: normalizeFormulaMap(record.formulas),
     outputs: {
-      primary: normalizePrimaryOutput(outputsRecord.primary),
+      primary: primaryOutput,
+      unit: resolvedUnit || undefined,
       breakdown: breakdownMap,
       breakdownUnits: normalizeBreakdownUnits(Object.keys(breakdownMap), formulaUnits),
       hiddenLossDrivers: normalizeStringList(outputsRecord.hiddenLossDrivers),

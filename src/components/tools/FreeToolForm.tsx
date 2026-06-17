@@ -7,6 +7,7 @@ import { useLocale, useTranslations } from "next-intl";
 import type { z } from "zod";
 import { FreeToolReportModal } from "@/components/tools/FreeToolReportModal";
 import { PremiumUpsell } from "@/components/tools/PremiumUpsell";
+import { ResultPanel } from "@/components/tools/ResultPanel";
 import { ToolOmniMetaSection } from "@/components/tools/ToolOmniMetaSection";
 import { usePreferredUnitSystem } from "@/hooks/use-preferred-unit-system";
 import { useGeneratedToolFieldDisplay } from "@/hooks/use-generated-tool-field-display";
@@ -16,7 +17,6 @@ import {
 } from "@/lib/feedback/feedback-service";
 import { resolveToolDisplayChrome } from "@/lib/tools/resolve-tool-display-chrome";
 import { resolveLocalizedGeneratedSelectOptions } from "@/lib/generated-tools/select-options";
-import { resolveGeneratedBreakdownLabel } from "@/lib/generated-tools/resolve-generated-display-text";
 import { buildGeneratedInputGroups } from "@/lib/generated-tools/input-groups";
 import {
   buildInitialSelectedUnits,
@@ -94,66 +94,6 @@ function buildResultFeedbackSnapshot(
     }
   }
   return Object.keys(snapshot).length > 0 ? snapshot : undefined;
-}
-
-function resolvePrimaryNumericValue(
-  result: GeneratedToolResult,
-  primaryOutputKey: string,
-): number | null {
-  const candidates = [result[primaryOutputKey], result.totalWasteCost, result.dataConfidenceAdjusted];
-  for (const candidate of candidates) {
-    if (typeof candidate === "number" && Number.isFinite(candidate)) {
-      return candidate;
-    }
-  }
-  return null;
-}
-
-function formatFreePrimaryValue(
-  value: number,
-  locale: string,
-  primaryOutputKey: string,
-  unitHint?: string,
-): string {
-  const normalizedUnit = unitHint?.trim().toLowerCase() ?? "";
-  const normalizedKey = primaryOutputKey.toLowerCase();
-  const isPercentLike =
-    normalizedUnit.includes("%") ||
-    normalizedUnit.includes("percent") ||
-    normalizedKey.includes("margin") ||
-    normalizedKey.includes("rate") ||
-    normalizedKey.includes("percent") ||
-    normalizedKey.includes("ratio");
-
-  if (isPercentLike && value >= -1000 && value <= 1000) {
-    const asFraction = Math.abs(value) > 1 ? value / 100 : value;
-    return new Intl.NumberFormat(locale, {
-      style: "percent",
-      maximumFractionDigits: 1,
-    }).format(asFraction);
-  }
-
-  if (
-    normalizedUnit.includes("usd") ||
-    normalizedUnit.includes("try") ||
-    normalizedUnit.includes("eur") ||
-    normalizedUnit.includes("$")
-  ) {
-    const currency = normalizedUnit.includes("try")
-      ? "TRY"
-      : normalizedUnit.includes("eur")
-        ? "EUR"
-        : "USD";
-    return new Intl.NumberFormat(locale, {
-      style: "currency",
-      currency,
-      maximumFractionDigits: 0,
-    }).format(value);
-  }
-
-  return new Intl.NumberFormat(locale, {
-    maximumFractionDigits: Math.abs(value) >= 1000 ? 0 : 2,
-  }).format(value);
 }
 
 type FreeToolFormFieldProps = {
@@ -441,13 +381,6 @@ export function FreeToolForm({
     }
   };
 
-  const primaryValue = result ? resolvePrimaryNumericValue(result, primaryOutputKey) : null;
-  const primaryUnitHint = schema.outputs.primary;
-  const formattedPrimary =
-    primaryValue !== null
-      ? formatFreePrimaryValue(primaryValue, locale, primaryOutputKey, primaryUnitHint)
-      : null;
-  const breakdown = result?.breakdown ?? null;
   const inputSnapshot = buildFeedbackSnapshot(formValues);
   const resultSnapshot = buildResultFeedbackSnapshot(result);
 
@@ -518,40 +451,15 @@ export function FreeToolForm({
               </form>
             </div>
 
-            <div className="sc-premium-dtf-result-panel sc-premium-dtf-feedback-area">
-              {result && formattedPrimary !== null ? (
-                <div className="sc-premium-dtf-result sc-premium-dtf-result--pass">
-                  <div className="sc-premium-dtf-result__title">{tFree("resultLabel")}</div>
-                  <div className="sc-premium-dtf-result__value result-value">{formattedPrimary}</div>
-                  {breakdown && Object.keys(breakdown).length > 0 ? (
-                    <div className="sc-premium-dtf-result__breakdown">
-                      {Object.entries(breakdown).map(([key, value]) => {
-                        if (typeof value !== "number" || !Number.isFinite(value)) {
-                          return null;
-                        }
-                        const label = resolveGeneratedBreakdownLabel(
-                          key,
-                          schema.outputs.breakdown,
-                          locale,
-                        );
-                        return (
-                          <div key={key}>
-                            <span>{label}</span>
-                            <span>
-                              {new Intl.NumberFormat(locale, { maximumFractionDigits: 0 }).format(value)}
-                            </span>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  ) : null}
-                </div>
-              ) : (
-                <div className="sc-premium-dtf-result">
-                  <div className="sc-premium-dtf-result__title">{t("clickToCompute")}</div>
-                </div>
-              )}
-            </div>
+            <ResultPanel
+              result={result}
+              schema={schema}
+              locale={locale}
+              primaryOutputKey={primaryOutputKey}
+              titleLabel={tFree("resultLabel")}
+              emptyLabel={t("clickToCompute")}
+              loading={loading}
+            />
           </div>
         </div>
       </div>

@@ -97,7 +97,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "tensionKg"
+    "dataConfidenceAdjusted": "tensionKg",
+    "unit": "in",
+    "breakdownUnits": {
+      "String tension (lbs): ${tensionLbs.toFixed(2)} lbs": "lb",
+      "String tension (kg): ${tensionKg.toFixed(2)} kg": "kg",
+      "Scale length in inches: ${scaleLengthInches.toFixed(2)} in": "in"
+    }
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Birim & Dönüşüm",

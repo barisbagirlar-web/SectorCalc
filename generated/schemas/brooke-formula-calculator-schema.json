@@ -101,7 +101,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "secondHourlyRate"
+    "dataConfidenceAdjusted": "secondHourlyRate",
+    "unit": "kg",
+    "breakdownUnits": {
+      "firstHourlyRate": "h",
+      "secondHourlyRate": "h"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",

@@ -101,7 +101,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "yearlyCost"
+    "dataConfidenceAdjusted": "yearlyCost",
+    "unit": "kWh",
+    "breakdownUnits": {
+      "dailyEnergyKWh": "kWh",
+      "yearlyEnergyKWh": "kWh"
+    }
   },
   "category": "Enerji & Karbon",
   "sector": "Enerji & Elektrik",

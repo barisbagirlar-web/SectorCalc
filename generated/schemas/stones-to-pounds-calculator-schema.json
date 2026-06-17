@@ -112,7 +112,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "stonesToPounds"
+    "dataConfidenceAdjusted": "stonesToPounds",
+    "unit": "lb",
+    "breakdownUnits": {
+      "rawPounds": "lb",
+      "stonesToPounds": "lb"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

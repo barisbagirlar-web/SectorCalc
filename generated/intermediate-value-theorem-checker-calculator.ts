@@ -24,8 +24,8 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Intermediate_value_theorem_checker_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  results["existsString"] = 0;
-  results["existsString_aux"] = 0;
+  try { const v = input.a + input.b + input.f_a; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.a + input.b + input.f_a; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
   return results;
 }
 
@@ -36,7 +36,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateIntermediate_value_theorem_checker_calculator(input: Intermediate_value_theorem_checker_calculatorInput): Intermediate_value_theorem_checker_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["existsString"]);
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };

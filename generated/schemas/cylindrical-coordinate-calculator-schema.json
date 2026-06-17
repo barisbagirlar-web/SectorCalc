@@ -113,7 +113,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "thetaDeg"
+    "dataConfidenceAdjusted": "thetaDeg",
+    "unit": "m",
+    "breakdownUnits": {
+      "direction === 0 ? `Step 1: Convert θ from degrees to radians: θ_rad = ${theta}° × π/180 = ${thetaRad.toFixed(4)} rad` : `Step 1: Compute r = √(x² + y²) = √(${x}² + ${y}²) = ${rResult.toFixed(4)}`": "°"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",

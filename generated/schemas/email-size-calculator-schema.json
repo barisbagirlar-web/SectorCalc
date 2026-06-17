@@ -120,7 +120,15 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "metadataKB"
+    "dataConfidenceAdjusted": "metadataKB",
+    "unit": "KB",
+    "breakdownUnits": {
+      "textKB": "KB",
+      "attachmentsKB": "KB",
+      "imagesKB": "KB",
+      "metadataKB": "KB",
+      "totalMB": "MB"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Bilişim & Yazılım",

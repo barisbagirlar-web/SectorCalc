@@ -116,7 +116,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "result"
+    "dataConfidenceAdjusted": "result",
+    "unit": "L",
+    "breakdownUnits": {
+      "costPerLiter": "L",
+      "sellingPricePerLiter": "L"
+    }
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Matematik & Geometri",

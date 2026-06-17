@@ -25,7 +25,6 @@ function evaluateAllFormulas(input: Outlier_calculatorInput): Record<string, num
   try { const v = input.q3 - input.q1; results["iqr"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["iqr"] = 0; }
   try { const v = input.q1 - input.multiplier * (input.q3 - input.q1); results["lowerBound"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["lowerBound"] = 0; }
   try { const v = input.q3 + input.multiplier * (input.q3 - input.q1); results["upperBound"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["upperBound"] = 0; }
-  results["outlierStatus"] = 0;
   return results;
 }
 
@@ -36,7 +35,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateOutlier_calculator(input: Outlier_calculatorInput): Outlier_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["outlierStatus"]);
+  const totalWasteCost = toNumericFormulaValue(values["upperBound"]);
   const breakdown = {
     
   };

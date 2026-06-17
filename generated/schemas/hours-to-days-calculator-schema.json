@@ -114,7 +114,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "days"
+    "dataConfidenceAdjusted": "days",
+    "unit": "h",
+    "breakdownUnits": {
+      "required_hours": "h",
+      "effective_hours_per_day": "h"
+    }
   },
   "category": "Verimlilik & OEE",
   "sector": "Günlük Yaşam & Ev",

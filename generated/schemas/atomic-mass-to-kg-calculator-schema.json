@@ -99,7 +99,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "totalMass"
+    "dataConfidenceAdjusted": "totalMass",
+    "unit": "u",
+    "breakdownUnits": {
+      "mass_Kg": "kg",
+      "mass_Grams": "g"
+    }
   },
   "category": "Diğer",
   "sector": "Kimya & Proses",

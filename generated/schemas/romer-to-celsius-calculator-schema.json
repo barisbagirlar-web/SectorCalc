@@ -96,7 +96,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "celsiusRounded"
+    "dataConfidenceAdjusted": "celsiusRounded",
+    "unit": "°C",
+    "breakdownUnits": {
+      "celsiusExact": "°C"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",

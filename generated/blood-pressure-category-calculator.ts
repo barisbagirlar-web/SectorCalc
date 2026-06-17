@@ -22,10 +22,8 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Blood_pressure_category_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  results["category"] = 0;
-  results["heart_rate_status"] = 0;
-  results["systolic_status"] = 0;
-  results["diastolic_status"] = 0;
+  try { const v = input.systolic + input.diastolic + input.heart_rate; results["result"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result"] = 0; }
+  try { const v = input.systolic + input.diastolic + input.heart_rate; results["result_copy"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["result_copy"] = 0; }
   return results;
 }
 
@@ -36,7 +34,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateBlood_pressure_category_calculator(input: Blood_pressure_category_calculatorInput): Blood_pressure_category_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["category"]);
+  const totalWasteCost = toNumericFormulaValue(values["result"]);
   const breakdown = {
     
   };

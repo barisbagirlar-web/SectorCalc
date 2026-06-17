@@ -96,7 +96,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "lowerMM"
+    "dataConfidenceAdjusted": "lowerMM",
+    "unit": "thou",
+    "breakdownUnits": {
+      "upperMM": "mm",
+      "lowerMM": "mm"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

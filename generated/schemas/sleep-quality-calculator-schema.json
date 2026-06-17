@@ -82,7 +82,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "sleepQualityScore"
+    "dataConfidenceAdjusted": "sleepQualityScore",
+    "unit": "%",
+    "breakdownUnits": {
+      "durationScore": "%",
+      "efficiencyScore": "%"
+    }
   },
   "category": "Verimlilik & OEE",
   "sector": "Sağlık & Tıp",

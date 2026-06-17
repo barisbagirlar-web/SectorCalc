@@ -117,7 +117,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "CO₂ Emission Reduction (kg)"
+    "dataConfidenceAdjusted": "CO₂ Emission Reduction (kg)",
+    "unit": "hours",
+    "breakdownUnits": {
+      "Normal Energy Consumption (kWh)": "kWh",
+      "Ramadan Energy Consumption (kWh)": "kWh",
+      "Total Energy Saved (kWh)": "kWh"
+    }
   },
   "category": "Enerji & Karbon",
   "sector": "Enerji & Elektrik",

@@ -82,7 +82,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "entropyChange_aux"
+    "dataConfidenceAdjusted": "entropyChange_aux",
+    "unit": "kg",
+    "breakdownUnits": {
+      "Calculate temperature ratio T₂/T₁": "%"
+    }
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Fizik & Mekanik",

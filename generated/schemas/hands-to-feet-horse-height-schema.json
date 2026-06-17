@@ -73,7 +73,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "result"
+    "dataConfidenceAdjusted": "result",
+    "unit": "in",
+    "breakdownUnits": {
+      "totalInches + ' inches total'": "in",
+      "remainingInches + ' inches'": "in"
+    }
   },
   "category": "Diğer",
   "sector": "Birim & Dönüşüm",

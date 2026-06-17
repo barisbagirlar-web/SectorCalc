@@ -97,7 +97,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "snr_dB"
+    "dataConfidenceAdjusted": "snr_dB",
+    "unit": "V",
+    "breakdownUnits": {
+      "noiseVoltageThermal": "V",
+      "totalNoiseVoltage": "V"
+    }
   },
   "category": "İSG & Risk",
   "sector": "Telekomünikasyon",

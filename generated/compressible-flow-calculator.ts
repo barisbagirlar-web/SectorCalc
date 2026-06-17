@@ -30,7 +30,6 @@ function evaluateAllFormulas(input: Compressible_flow_calculatorInput): Record<s
   const results: Record<string, number | string> = {};
   try { const v = input.downstreamPressure / input.upstreamPressure; results["pressureRatio"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["pressureRatio"] = 0; }
   try { const v = (2 / (input.specificHeatRatio + 1)) ** (input.specificHeatRatio / (input.specificHeatRatio - 1)); results["criticalPressureRatio"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["criticalPressureRatio"] = 0; }
-  results["flowType"] = 0;
   return results;
 }
 
@@ -41,7 +40,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculateCompressible_flow_calculator(input: Compressible_flow_calculatorInput): Compressible_flow_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["flowType"]);
+  const totalWasteCost = toNumericFormulaValue(values["criticalPressureRatio"]);
   const breakdown = {
     
   };

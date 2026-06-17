@@ -84,7 +84,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "downloadTimeHours"
+    "dataConfidenceAdjusted": "downloadTimeHours",
+    "unit": "min",
+    "breakdownUnits": {
+      "downloadTimeMinutes": "min",
+      "downloadTimeHours": "h"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Telekomünikasyon",

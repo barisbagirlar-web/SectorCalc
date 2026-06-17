@@ -152,7 +152,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "totalCost"
+    "dataConfidenceAdjusted": "totalCost",
+    "unit": "h",
+    "breakdownUnits": {
+      "Toplam Süre: {totalTimeHours} saat": "h"
+    }
   },
   "category": "Diğer",
   "sector": "Eğitim & Akademik",

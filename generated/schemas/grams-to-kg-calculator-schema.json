@@ -82,7 +82,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "grossWeightKg"
+    "dataConfidenceAdjusted": "grossWeightKg",
+    "unit": "kg",
+    "breakdownUnits": {
+      "netWeightGrams": "g",
+      "grossWeightKg": "kg"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "İstatistik & Olasılık",

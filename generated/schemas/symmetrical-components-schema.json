@@ -117,7 +117,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "unbalance_percent"
+    "dataConfidenceAdjusted": "unbalance_percent",
+    "unit": "V",
+    "breakdownUnits": {
+      "v0_angle_deg": "°",
+      "v1_angle_deg": "°",
+      "v2_angle_deg": "°"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

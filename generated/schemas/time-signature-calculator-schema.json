@@ -81,7 +81,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "totalDurationSeconds"
+    "dataConfidenceAdjusted": "totalDurationSeconds",
+    "unit": "%",
+    "breakdownUnits": {
+      "beatDurationSeconds": "%",
+      "measureDurationSeconds": "%"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Günlük Yaşam & Ev",

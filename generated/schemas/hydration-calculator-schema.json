@@ -83,7 +83,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "tempAdjust"
+    "dataConfidenceAdjusted": "tempAdjust",
+    "unit": "°C",
+    "breakdownUnits": {
+      "Temperature adjustment: ${tempAdjust.toFixed(1)} L": "°C"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Sağlık & Tıp",

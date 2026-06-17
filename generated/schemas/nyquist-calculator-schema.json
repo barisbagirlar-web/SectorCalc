@@ -85,7 +85,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "isAdequate"
+    "dataConfidenceAdjusted": "isAdequate",
+    "unit": "Hz",
+    "breakdownUnits": {
+      "requiredSamplingRate": "A",
+      "actualUtilization": "%",
+      "recommendedSamplingForDesiredUtilization": "%"
+    }
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Telekomünikasyon",

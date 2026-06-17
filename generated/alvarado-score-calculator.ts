@@ -31,7 +31,7 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Alvarado_score_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = input.migrationPain + input.anorexia + input.nauseaVomiting + input.rlqTenderness + input.reboundTenderness + input.tempElevated + input.leukocytosis + input.leftShift; results["totalScore"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalScore"] = 0; }
-  results["interpretation"] = 0;
+  try { const v = input.migrationPain + input.anorexia + input.nauseaVomiting + input.rlqTenderness + input.reboundTenderness + input.tempElevated + input.leukocytosis + input.leftShift; results["totalScore_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["totalScore_aux"] = 0; }
   return results;
 }
 

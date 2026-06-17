@@ -99,7 +99,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "totalReadingTimeMinutes"
+    "dataConfidenceAdjusted": "totalReadingTimeMinutes",
+    "unit": "min",
+    "breakdownUnits": {
+      "baseReadingTimeMinutes": "min",
+      "complexityAdjustedMinutes": "min",
+      "pauseAdditionalMinutes": "min"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",

@@ -118,7 +118,15 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "angular_tolerance"
+    "dataConfidenceAdjusted": "angular_tolerance",
+    "unit": "mm",
+    "breakdownUnits": {
+      "MMC Size: {mmc_size} mm": "mm",
+      "LMC Size: {lmc_size} mm": "mm",
+      "Virtual Condition: {virtual_condition} mm": "mm",
+      "Resultant Condition: {resultant_condition} mm": "mm",
+      "Angular Tolerance: {angular_tolerance} mm": "mm"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Havacılık & Uzay",

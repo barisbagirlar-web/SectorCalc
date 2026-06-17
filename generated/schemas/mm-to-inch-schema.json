@@ -80,7 +80,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "inchFraction"
+    "dataConfidenceAdjusted": "inchFraction",
+    "unit": "in",
+    "breakdownUnits": {
+      "inch": "in",
+      "inchFraction": "in"
+    }
   },
   "category": "Diğer",
   "sector": "Otomotiv & Taşıt",

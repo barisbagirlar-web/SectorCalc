@@ -24,7 +24,6 @@ function asFormulaNumber(value: number | string | undefined): number {
 
 function evaluateAllFormulas(input: Percentage_to_letter_grade_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
-  results["primary"] = 0;
   try { const v = 'A: ≥' + input.aMin + '%'; results["scaleA"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["scaleA"] = 0; }
   try { const v = 'B: ≥' + input.bMin + '%'; results["scaleB"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["scaleB"] = 0; }
   try { const v = 'C: ≥' + input.cMin + '%'; results["scaleC"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["scaleC"] = 0; }
@@ -40,7 +39,7 @@ function toNumericFormulaValue(value: number | string | undefined): number {
 
 export function calculatePercentage_to_letter_grade_calculator(input: Percentage_to_letter_grade_calculatorInput): Percentage_to_letter_grade_calculatorOutput {
   const values = evaluateAllFormulas(input);
-  const totalWasteCost = toNumericFormulaValue(values["primary"]);
+  const totalWasteCost = toNumericFormulaValue(values["scaleF"]);
   const breakdown = {
     
   };

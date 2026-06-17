@@ -101,7 +101,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "batchMultiplier"
+    "dataConfidenceAdjusted": "batchMultiplier",
+    "unit": "mg",
+    "breakdownUnits": {
+      "inputMilligrams": "g",
+      "rawGrams": "g",
+      "grams": "g"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

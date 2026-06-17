@@ -121,7 +121,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "corrosionRisk"
+    "dataConfidenceAdjusted": "corrosionRisk",
+    "unit": "bar",
+    "breakdownUnits": {
+      "temperatureRisk": "°C",
+      "vibrationRisk": "%"
+    }
   },
   "category": "Teknik & Mühendislik",
   "sector": "Fizik & Mekanik",

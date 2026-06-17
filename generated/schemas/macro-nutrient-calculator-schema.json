@@ -83,7 +83,13 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "totalCalories"
+    "dataConfidenceAdjusted": "totalCalories",
+    "unit": "g",
+    "breakdownUnits": {
+      "proteinGrams": "g",
+      "carbsGrams": "g",
+      "fatGrams": "g"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Gıda & Beslenme",

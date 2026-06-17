@@ -114,7 +114,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "totalFabricLengthMeters"
+    "dataConfidenceAdjusted": "totalFabricLengthMeters",
+    "unit": "cm",
+    "breakdownUnits": {
+      "totalLengthBeforeWasteCm": "cm",
+      "totalFabricLengthCm": "cm"
+    }
   },
   "category": "Kalite & Süreç Kontrol",
   "sector": "Tekstil & Konfeksiyon",

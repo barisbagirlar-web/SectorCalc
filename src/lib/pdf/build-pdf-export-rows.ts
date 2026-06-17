@@ -1,6 +1,7 @@
 import type { AppLocale } from "@/i18n/routing";
 import { formatGeneratedNumericValue } from "@/lib/generated-tools/format-generated-numeric";
 import { resolveGeneratedBreakdownLabel } from "@/lib/generated-tools/resolve-generated-display-text";
+import { resolveBreakdownOutputUnit } from "@/lib/generated-tools/resolve-output-unit";
 import type { GeneratedToolInput, GeneratedToolSchema } from "@/lib/generated-tools/types";
 import type { CalculationReportRow } from "@/lib/pdf/calculation-report-types";
 
@@ -47,6 +48,11 @@ export function buildPdfExportBreakdownRows(input: {
     .filter(([, value]) => typeof value === "number" && Number.isFinite(value))
     .map(([key, value]) => ({
       label: resolveGeneratedBreakdownLabel(key, input.schema.outputs.breakdown, input.locale),
-      value: formatGeneratedNumericValue(value as number, key, input.locale),
+      value: formatGeneratedNumericValue(
+        value as number,
+        key,
+        input.locale,
+        resolveBreakdownOutputUnit(input.schema, key) || undefined,
+      ),
     }));
 }

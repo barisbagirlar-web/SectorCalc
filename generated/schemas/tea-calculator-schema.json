@@ -97,7 +97,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "absorbedWater_ml"
+    "dataConfidenceAdjusted": "absorbedWater_ml",
+    "unit": "L",
+    "breakdownUnits": {
+      "totalTeaLeaves_grams": "g"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",

@@ -102,7 +102,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "combined_per_kg"
+    "dataConfidenceAdjusted": "combined_per_kg",
+    "unit": "mg",
+    "breakdownUnits": {
+      "combined_per_kg": "kg"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Sağlık & Tıp",

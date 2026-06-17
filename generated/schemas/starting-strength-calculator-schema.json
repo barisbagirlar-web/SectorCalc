@@ -81,7 +81,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "weightRatio"
+    "dataConfidenceAdjusted": "weightRatio",
+    "unit": "kg",
+    "breakdownUnits": {
+      "weightRatio": "%"
+    }
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Sağlık & Tıp",

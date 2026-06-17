@@ -104,7 +104,14 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "netMargin"
+    "dataConfidenceAdjusted": "netMargin",
+    "unit": "%",
+    "breakdownUnits": {
+      "grossMargin": "%",
+      "operatingMargin": "%",
+      "preTaxMargin": "%",
+      "netMargin": "%"
+    }
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "Finans & Muhasebe",

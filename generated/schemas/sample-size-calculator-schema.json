@@ -80,7 +80,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "sampleSizeFinite"
+    "dataConfidenceAdjusted": "sampleSizeFinite",
+    "unit": "A",
+    "breakdownUnits": {
+      "sampleSizeInfinite": "A",
+      "sampleSizeFinite": "A"
+    }
   },
   "category": "Maliyet & Bütçeleme",
   "sector": "İstatistik & Olasılık",

@@ -23,7 +23,7 @@ function asFormulaNumber(value: number | string | undefined): number {
 function evaluateAllFormulas(input: Flow_state_calculatorInput): Record<string, number | string> {
   const results: Record<string, number | string> = {};
   try { const v = input.density * input.velocity * input.diameter / input.dynamicViscosity; results["reynoldsNumber"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["reynoldsNumber"] = 0; }
-  results["flowState"] = 0;
+  try { const v = input.density * input.velocity * input.diameter / input.dynamicViscosity; results["reynoldsNumber_aux"] = typeof v === "number" ? (Number.isFinite(v) ? v : 0) : typeof v === "string" ? v : 0; } catch { results["reynoldsNumber_aux"] = 0; }
   return results;
 }
 

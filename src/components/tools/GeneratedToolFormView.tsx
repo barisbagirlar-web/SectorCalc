@@ -12,6 +12,7 @@ import {
   resolveGeneratedToolTitle,
   resolvePrimaryOutputKey,
 } from "@/lib/generated-tools/resolve-tool-display";
+import { resolvePrimaryOutputUnit } from "@/lib/generated-tools/resolve-output-unit";
 import {
   runGeneratedToolCalculation,
   useToolSchema,
@@ -64,9 +65,15 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
   };
 
   const primaryRaw = result?.[primaryOutputKey];
+  const primaryUnit = resolvePrimaryOutputUnit(schema);
   const formattedPrimary =
     typeof primaryRaw === "number" && Number.isFinite(primaryRaw)
-      ? formatGeneratedNumericValue(primaryRaw, primaryOutputKey, locale)
+      ? formatGeneratedNumericValue(
+          primaryRaw,
+          primaryOutputKey,
+          locale,
+          primaryUnit !== "—" ? primaryUnit : undefined,
+        )
       : null;
 
   const pdfInputRows = buildPdfExportInputRows({

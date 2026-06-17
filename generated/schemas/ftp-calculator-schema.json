@@ -80,7 +80,11 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "powerToWeight"
+    "dataConfidenceAdjusted": "powerToWeight",
+    "unit": "min",
+    "breakdownUnits": {
+      "Power-to-Weight Ratio (W/kg)": "%"
+    }
   },
   "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",

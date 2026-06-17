@@ -84,7 +84,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "volumeGallons"
+    "dataConfidenceAdjusted": "volumeGallons",
+    "unit": "m",
+    "breakdownUnits": {
+      "volumeLiters": "L",
+      "volumeGallons": "gal"
+    }
   },
   "category": "Diğer",
   "sector": "Su & Atıksu",

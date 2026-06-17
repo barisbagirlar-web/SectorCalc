@@ -80,7 +80,12 @@
     "suggestedActions": [
       "Review inputs and verify results against site standards."
     ],
-    "dataConfidenceAdjusted": "finalAngularVelocity"
+    "dataConfidenceAdjusted": "finalAngularVelocity",
+    "unit": "%",
+    "breakdownUnits": {
+      "Compute angular acceleration: α = τ / I = {torque} / {momentOfInertia} = {angularAcceleration} rad/s²": "%",
+      "Compute final angular velocity: ω_f = ω_i + α * t = {initialAngularVelocity} + {angularAcceleration} * {time} = {finalAngularVelocity} rad/s": "%"
+    }
   },
   "category": "Teknik & Mühendislik",
   "sector": "Fizik & Mekanik",
