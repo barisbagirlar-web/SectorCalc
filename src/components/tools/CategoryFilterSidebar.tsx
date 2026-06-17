@@ -1,8 +1,8 @@
 "use client";
 
-import { Link, usePathname } from "@/i18n/routing";
+import { useSearchParams } from "next/navigation";
+import { usePathname, useRouter } from "@/i18n/routing";
 import { getCategoryCardIcon } from "@/lib/catalog/category-card-icons";
-import { buildCatalogFilterHref } from "@/lib/navigation/catalog-filter-href";
 import { cn } from "@/lib/cn";
 
 export type CategoryFilterItem = {
@@ -23,15 +23,6 @@ type CategoryFilterSidebarProps = {
   readonly formatCount?: (count: number) => string;
 };
 
-function scrollToToolsList() {
-  requestAnimationFrame(() => {
-    document.getElementById("tools-list")?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  });
-}
-
 export function CategoryFilterSidebar({
   categories,
   title,
@@ -43,9 +34,23 @@ export function CategoryFilterSidebar({
   formatCount,
 }: CategoryFilterSidebarProps) {
   const pathname = usePathname();
+  const router = useRouter();
+  const searchParams = useSearchParams();
 
   const formatItemCount = (count: number) =>
     formatCount ? formatCount(count) : String(count);
+
+  const handleFilterClick = (value: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (value === allFilterValue) {
+      params.set(filterParamKey, allFilterValue);
+    } else {
+      params.set(filterParamKey, value);
+    }
+    const query = params.toString();
+    const href = query ? `${pathname}?${query}` : pathname;
+    router.push(href, { scroll: false });
+  };
 
   return (
     <nav
@@ -57,17 +62,12 @@ export function CategoryFilterSidebar({
       </h2>
       <ul className="space-y-1">
         <li>
-          <Link
-            href={buildCatalogFilterHref(pathname, filterParamKey, allFilterValue, allFilterValue)}
-            scroll={false}
+          <button
+            type="button"
+            onClick={() => handleFilterClick(allFilterValue)}
             aria-current={allIsActive ? "true" : undefined}
-            onClick={() => {
-              if (!allIsActive) {
-                scrollToToolsList();
-              }
-            }}
             className={cn(
-              "flex min-h-[44px] items-center justify-between rounded-lg px-3 py-2 text-sm transition",
+              "flex min-h-[44px] w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm transition",
               allIsActive
                 ? "bg-[#d4af37] font-medium text-white"
                 : "text-gray-600 hover:bg-gray-100",
@@ -75,7 +75,7 @@ export function CategoryFilterSidebar({
           >
             <span>{allLabel}</span>
             <span className="text-xs opacity-70">{formatItemCount(allCount)}</span>
-          </Link>
+          </button>
         </li>
 
         {categories.map((cat) => {
@@ -84,17 +84,12 @@ export function CategoryFilterSidebar({
 
           return (
             <li key={cat.slug}>
-              <Link
-                href={buildCatalogFilterHref(pathname, filterParamKey, cat.slug, allFilterValue)}
-                scroll={false}
+              <button
+                type="button"
+                onClick={() => handleFilterClick(cat.slug)}
                 aria-current={isActive ? "true" : undefined}
-                onClick={() => {
-                  if (!isActive) {
-                    scrollToToolsList();
-                  }
-                }}
                 className={cn(
-                  "flex min-h-[44px] items-center justify-between rounded-lg px-3 py-2 text-sm transition",
+                  "flex min-h-[44px] w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm transition",
                   isActive
                     ? "bg-[#d4af37] font-medium text-white"
                     : "text-gray-600 hover:bg-gray-100",
@@ -109,7 +104,7 @@ export function CategoryFilterSidebar({
                   <span className="truncate">{cat.label}</span>
                 </span>
                 <span className="shrink-0 text-xs opacity-70">{formatItemCount(cat.count)}</span>
-              </Link>
+              </button>
             </li>
           );
         })}
