@@ -28,7 +28,6 @@ import {
 } from "@/lib/i18n/locale-routing";
 import { migrateGeneratedToolSlugPath } from "@/lib/tools/generated-tool-slug-redirects";
 import { shouldAllowToolPageFraming } from "@/lib/tools/embed-policy";
-import { checkPublicCalculateRateLimit } from "@/lib/validation/public-calculate-rate-limit";
 /**
  * Locale routing (root English + prefixed locales) + regional compliance.
  */
@@ -129,44 +128,8 @@ function redirectToLocale(
   return applyRegionHeaders(response, request);
 }
 
-function resolveClientIp(request: NextRequest): string {
-  return (
-    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
-    request.headers.get("x-real-ip") ||
-    "local"
-  );
-}
-
-function handleApiPublicRequest(request: NextRequest): NextResponse | null {
-  const { pathname } = request.nextUrl;
-  if (!pathname.startsWith("/api-public/")) {
-    return null;
-  }
-
-  if (request.method === "POST" && pathname.startsWith("/api-public/calculate/")) {
-    const rateLimit = checkPublicCalculateRateLimit(resolveClientIp(request));
-    if (!rateLimit.ok) {
-      return NextResponse.json(
-        {
-          error: "Rate limit exceeded",
-          code: 429,
-          message: "Too many calculation requests. Please retry shortly.",
-        },
-        { status: 429 },
-      );
-    }
-  }
-
-  return NextResponse.next();
-}
-
 export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
-
-  const apiPublicResponse = handleApiPublicRequest(request);
-  if (apiPublicResponse) {
-    return apiPublicResponse;
-  }
 
   if (isMiddlewareExcludedPath(pathname)) {
     return applyRegionHeaders(NextResponse.next(), request);
