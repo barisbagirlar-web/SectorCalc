@@ -41,12 +41,14 @@ function toAlternateLinks(
     return undefined;
   }
 
-  return Object.entries(alternates.languages)
-    .filter((entry): entry is [string, string] => typeof entry[1] === "string" && entry[1].length > 0)
-    .map(([hreflang, href]) => ({
-      hreflang,
-      href,
-    }));
+  const links: SitemapAlternateLink[] = [];
+  for (const [hreflang, href] of Object.entries(alternates.languages)) {
+    if (typeof href === "string" && href.length > 0) {
+      links.push({ hreflang, href });
+    }
+  }
+
+  return links.length > 0 ? links : undefined;
 }
 
 function manifestItemToEntry(
