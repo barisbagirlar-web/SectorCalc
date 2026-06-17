@@ -16,7 +16,10 @@ import Link from "@/lib/navigation/next-link";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { AdminAuthBar } from "@/components/admin/AdminAuthPanel";
+import { useAdminLocale } from "@/lib/admin/admin-locale-context";
 import { useAdminAuth } from "@/lib/admin/use-admin-auth";
+import { listAdminCaseStudyEditorLocales } from "@/lib/i18n/admin-case-study-editor-messages";
+import { getLocaleDefinition, isSupportedLocale } from "@/lib/i18n/locale-config";
 import {
   getPublishedCaseStudyByAdminId,
   nextPublishedCaseStudyId,
@@ -58,6 +61,8 @@ function updateResultRow(
 
 export function CaseStudyAdminForm({ studyId, mode }: CaseStudyAdminFormProps) {
   const router = useRouter();
+  const { messages: editorMessages } = useAdminLocale();
+  const storyLocales = listAdminCaseStudyEditorLocales();
   const { loading: authLoading, isAdmin, getIdToken } = useAdminAuth();
   const initialId = useMemo(
     () => studyId ?? nextPublishedCaseStudyId(),
@@ -390,6 +395,25 @@ export function CaseStudyAdminForm({ studyId, mode }: CaseStudyAdminFormProps) {
                   className={fieldClass}
                   inputMode="numeric"
                 />
+              </label>
+              <label className="block space-y-1">
+                <span className="text-sm font-medium text-deep-navy">{editorMessages.sourceLocaleLabel}</span>
+                <select
+                  value={values.sourceLocale}
+                  onChange={(event) => {
+                    const next = event.target.value;
+                    if (isSupportedLocale(next)) {
+                      update("sourceLocale", next);
+                    }
+                  }}
+                  className={fieldClass}
+                >
+                  {storyLocales.map((code) => (
+                    <option key={code} value={code}>
+                      {getLocaleDefinition(code).nativeName}
+                    </option>
+                  ))}
+                </select>
               </label>
             </div>
           </section>

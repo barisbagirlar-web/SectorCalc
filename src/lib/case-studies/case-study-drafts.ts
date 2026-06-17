@@ -85,6 +85,7 @@ export type CaseStudyFormValues = {
   solution: string;
   publishedAt: string;
   readTime: string;
+  sourceLocale: string;
   results: CaseStudyResult[];
   testimonialQuote: string;
   testimonialAuthor: string;
@@ -109,6 +110,7 @@ export function emptyCaseStudyFormValues(id: string): CaseStudyFormValues {
     solution: "",
     publishedAt: today,
     readTime: "4",
+    sourceLocale: "en",
     results: [
       { metric: "", before: "", after: "" },
       { metric: "", before: "", after: "" },
@@ -137,6 +139,7 @@ export function caseStudyToFormValues(study: CaseStudy): CaseStudyFormValues {
     solution: study.solution,
     publishedAt: study.publishedAt,
     readTime: String(study.readTime),
+    sourceLocale: "en",
     results:
       study.results.length > 0
         ? study.results.map((row) => ({ ...row }))

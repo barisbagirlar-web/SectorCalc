@@ -2,6 +2,7 @@
 
 import Link from "@/lib/navigation/next-link";
 import { usePathname } from "next/navigation";
+import { AdminLocaleSwitcher } from "@/lib/admin/admin-locale-context";
 
 const NAV_ITEMS = [
   { href: "/admin/case-studies", label: "Case Studies" },
@@ -24,18 +25,21 @@ export function AdminSubNav() {
 
   return (
     <nav
-      className="mb-6 flex flex-wrap gap-2"
+      className="mb-6 flex flex-wrap items-center justify-between gap-2"
       aria-label="Admin navigation"
     >
-      {NAV_ITEMS.map((item) => (
-        <Link
-          key={item.href}
-          href={item.href}
-          className={linkClass(pathname === item.href)}
-        >
-          {item.label}
-        </Link>
-      ))}
+      <div className="flex flex-wrap gap-2">
+        {NAV_ITEMS.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            className={linkClass(pathname === item.href)}
+          >
+            {item.label}
+          </Link>
+        ))}
+      </div>
+      <AdminLocaleSwitcher />
     </nav>
   );
 }

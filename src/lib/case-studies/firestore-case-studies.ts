@@ -1,4 +1,5 @@
 import { getAdminFirestore } from "@/lib/firebase/admin";
+import { applyCaseStudyLocalePack, parseCaseStudyLocalePack, type CaseStudyLocalePack } from "@/lib/case-studies/case-study-locale-pack";
 import { getPublishedCaseStudyBySlug, listPublishedCaseStudies } from "@/lib/case-studies/published-case-study-locale";
 import type { CaseStudy, CaseStudyResult, CaseStudyTestimonial } from "@/lib/case-studies/types";
 
@@ -6,6 +7,7 @@ const COLLECTION = "caseStudies";
 
 export type FirestoreCaseStudyRecord = CaseStudy & {
   readonly firestoreId: string;
+  readonly localeContent?: CaseStudyLocalePack;
 };
 
 function isResultRow(value: unknown): value is CaseStudyResult {
@@ -65,6 +67,7 @@ function docToCaseStudy(id: string, data: Record<string, unknown>): FirestoreCas
     solution: typeof data.solution === "string" ? data.solution : "",
     results,
     testimonial: parseTestimonial(data.testimonial),
+    localeContent: parseCaseStudyLocalePack(data.localeContent),
     coverImage: typeof data.coverImage === "string" ? data.coverImage : undefined,
     images: Array.isArray(data.images)
       ? data.images.filter((image): image is string => typeof image === "string")
@@ -163,7 +166,7 @@ export async function getFirestoreCaseStudyBySlug(slug: string): Promise<Firesto
 }
 
 export async function createFirestoreCaseStudy(
-  payload: Omit<CaseStudy, "slug"> & { slug: string },
+  payload: Omit<CaseStudy, "slug"> & { slug: string; localeContent?: CaseStudyLocalePack },
 ): Promise<FirestoreCaseStudyRecord | null> {
   const db = getAdminFirestore();
   if (!db) {
@@ -183,7 +186,7 @@ export async function createFirestoreCaseStudy(
 
 export async function updateFirestoreCaseStudy(
   id: string,
-  payload: Partial<CaseStudy>,
+  payload: Partial<CaseStudy> & { localeContent?: CaseStudyLocalePack },
 ): Promise<boolean> {
   const db = getAdminFirestore();
   if (!db) {
@@ -217,7 +220,9 @@ export async function listMergedPublishedCaseStudies(locale: string): Promise<Ca
 
   const merged = [
     ...staticStudies,
-    ...firestoreStudies.filter((study) => !staticSlugs.has(study.slug)),
+    ...firestoreStudies
+      .filter((study) => !staticSlugs.has(study.slug))
+      .map((study) => applyCaseStudyLocalePack(study, locale, study.localeContent)),
   ];
 
   return merged.sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
@@ -233,7 +238,11 @@ export async function resolvePublishedCaseStudyBySlug(
   }
 
   const firestoreStudy = await getFirestoreCaseStudyBySlug(slug);
-  return firestoreStudy ?? undefined;
+  if (!firestoreStudy) {
+    return undefined;
+  }
+
+  return applyCaseStudyLocalePack(firestoreStudy, locale, firestoreStudy.localeContent);
 }
 
 export { isLikelyFirestoreDocumentId } from "@/lib/case-studies/case-study-id-utils";

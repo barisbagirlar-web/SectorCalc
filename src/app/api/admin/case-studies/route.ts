@@ -4,7 +4,8 @@ import {
   createFirestoreCaseStudy,
   listFirestoreCaseStudies,
 } from "@/lib/case-studies/firestore-case-studies";
-import { formValuesToDraft, type CaseStudyFormValues } from "@/lib/case-studies/case-study-drafts";
+import { buildCaseStudyPublishBundle } from "@/lib/case-studies/case-study-publish";
+import { type CaseStudyFormValues } from "@/lib/case-studies/case-study-drafts";
 import { requireAdminFromRequest } from "@/lib/firebase/verify-admin-user";
 
 export const runtime = "nodejs";
@@ -61,9 +62,20 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const draft = formValuesToDraft(body);
+    const publishBundle = await buildCaseStudyPublishBundle(body);
+    if (!publishBundle.ok) {
+      return NextResponse.json(
+        { error: publishBundle.errorCode, message: publishBundle.message },
+        { status: publishBundle.errorCode === "MISSING_API_KEY" ? 503 : 500 },
+      );
+    }
+
+    const { draft, localeContent } = publishBundle.bundle;
     const { source: _source, ...payload } = draft;
-    const created = await createFirestoreCaseStudy(payload);
+    const created = await createFirestoreCaseStudy({
+      ...payload,
+      localeContent,
+    });
 
     if (!created) {
       return NextResponse.json({ error: "Firestore unavailable" }, { status: 503 });
