@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
+import "./site-styles";
 import "../globals.css";
 import { LocaleDocumentLayout } from "@/components/layout/LocaleDocumentLayout";
 import { RootLocaleAutoRedirect } from "@/components/i18n/RootLocaleAutoRedirect";

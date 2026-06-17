@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { AdminLocaleProvider } from "@/lib/admin/admin-locale-context";
 import { LOCALE_COOKIE, isSupportedLocale, ROOT_LOCALE, type SupportedLocale } from "@/lib/i18n/locale-config";
+import "../site-styles";
 import "../globals.css";
 
 export const dynamic = "force-dynamic";

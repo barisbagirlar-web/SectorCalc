@@ -68,9 +68,9 @@ if (!existsSync(join(ROOT, "src/styles/sectorcalc-calculator-cards.css"))) {
   pass("card CSS exists");
 }
 
-const globals = read("src/app/globals.css");
-if (!globals.includes("sectorcalc-calculator-cards.css")) {
-  fail("card CSS not imported in globals.css");
+const siteStyles = read("src/app/site-styles.ts");
+if (!siteStyles.includes("sectorcalc-calculator-cards.css")) {
+  fail("card CSS not imported in site-styles.ts");
 } else {
   pass("card CSS imported");
 }

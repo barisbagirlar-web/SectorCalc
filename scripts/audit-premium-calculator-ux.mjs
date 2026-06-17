@@ -95,11 +95,11 @@ for (const rel of REQUIRED_FILES) {
 }
 
 // 2. CSS imported
-const globals = read("src/app/globals.css");
-if (globals.includes("premium-calculator-shell.css")) {
-  pass("premium-calculator-shell.css imported in globals.css");
+const siteStyles = read("src/app/site-styles.ts");
+if (siteStyles.includes("premium-calculator-shell.css")) {
+  pass("premium-calculator-shell.css imported in site-styles.ts");
 } else {
-  fail("premium-calculator-shell.css not imported in globals.css");
+  fail("premium-calculator-shell.css not imported in site-styles.ts");
 }
 
 // 3. package.json script
