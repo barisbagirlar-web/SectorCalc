@@ -97,3 +97,6 @@ export function buildCaseStudyIndexSummaryLine(study: CaseStudy, locale: string)
   }
   return `${company}: ${primary.metric} ${primary.before} → ${primary.after}, €${savings} savings`;
 }
+
+/** @deprecated Import from case-study-seo — kept for older import paths. */
+export { resolveCaseStudyPageDescription } from "@/lib/case-studies/case-study-seo";
