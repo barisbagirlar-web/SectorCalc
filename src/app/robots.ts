@@ -31,6 +31,7 @@ const PRIVATE_DISALLOW = [
 
 const AI_INDEX_ALLOW = [
   "/api-public/",
+  "/premium/",
   "/.well-known/openapi.yaml",
   "/llms.txt",
   "/ai.txt",

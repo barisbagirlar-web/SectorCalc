@@ -24,7 +24,6 @@ export async function buildApprovedReportPayload(
   const now = new Date().toISOString();
   const reportId = createReportId(input.toolSlug);
   const validationStampId = createValidationStampId(reportId);
-  const qrTargetUrl = `${BASE_URL}/verify?reportId=${encodeURIComponent(reportId)}`;
 
   const safeInput = sanitizeSnapshot(input.inputSnapshot);
   const safeResult = sanitizeSnapshot(input.resultSnapshot);
@@ -39,6 +38,7 @@ export async function buildApprovedReportPayload(
     resultSnapshot: safeResult,
   };
   const calculationHash = await createCalculationHash(hashPayload);
+  const qrTargetUrl = `${BASE_URL}/verify/${calculationHash}`;
 
   const report: ApprovedReportPayload = {
     id: reportId,
@@ -164,6 +164,49 @@ export async function getApprovedReportForVerify(
     return safeReport;
   } catch (err) {
     console.error("[approved-report-service] getApprovedReportForVerify failed:", err);
+    return null;
+  }
+}
+
+/**
+ * Retrieve an approved report by calculation hash (public verify by hash path).
+ */
+export async function getApprovedReportByHash(
+  calculationHash: string,
+): Promise<ApprovedReportPayload | null> {
+  if (!calculationHash || calculationHash.length !== 64) {
+    return null;
+  }
+
+  const db = getAdminFirestore();
+  if (!db) {
+    return null;
+  }
+
+  try {
+    const snap = await db
+      .collection(COLLECTION_NAME)
+      .where("calculationHash", "==", calculationHash)
+      .limit(1)
+      .get();
+
+    if (snap.empty) {
+      return null;
+    }
+
+    const data = snap.docs[0]?.data() as ApprovedReportPayload | undefined;
+    if (!data) {
+      return null;
+    }
+
+    return {
+      ...data,
+      userId: null,
+      userEmail: null,
+      publicSummary: buildPublicReportSummary(data),
+    };
+  } catch (err) {
+    console.error("[approved-report-service] getApprovedReportByHash failed:", err);
     return null;
   }
 }

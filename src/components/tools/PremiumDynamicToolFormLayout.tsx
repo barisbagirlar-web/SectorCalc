@@ -192,6 +192,8 @@ export function PremiumDynamicToolFormLayout({
               emptyLabel={t("clickToCompute")}
               statusLabel={result ? tPremium("validStatus") : undefined}
               loading={loading}
+              toolSlug={slug}
+              userId={userId}
             />
           </div>
         </div>

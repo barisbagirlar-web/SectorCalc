@@ -127,7 +127,9 @@ export function FreeToolsOmniHub({ tools }: FreeToolsOmniHubProps) {
           {t("hubCategoriesTitle")}
         </h2>
         <ul className="sc-omni-hub__category-grid">
-          {FREE_TRAFFIC_CATEGORY_META.map((meta) => {
+          {FREE_TRAFFIC_CATEGORY_META.filter(
+            (meta) => countToolsInCategory(tools, meta.id) > 0,
+          ).map((meta) => {
             const count = countToolsInCategory(tools, meta.id);
             const isActive = selected === meta.id;
 

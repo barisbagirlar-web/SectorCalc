@@ -2,6 +2,7 @@
  * Export helpers — HTML/CSV/Word for approved reports (no heavy deps)
  */
 import type { ApprovedReportPayload } from "./types";
+import { buildQrCodeImageUrl } from "./verification";
 
 function escapeHtml(str: string): string {
   return str
@@ -25,6 +26,7 @@ function snapshotRows(snapshot: Record<string, unknown>): string {
  * Build a print-ready HTML representation of an approved report.
  */
 export function buildApprovedReportHtml(report: ApprovedReportPayload): string {
+  const qrImageUrl = buildQrCodeImageUrl(report.qrTargetUrl, 140);
   return (
     "<!DOCTYPE html>\n" +
     '<html lang="en">\n' +
@@ -43,6 +45,8 @@ export function buildApprovedReportHtml(report: ApprovedReportPayload): string {
     ".meta{font-size:0.8rem;color:#6b7280;margin-bottom:16px}\n" +
     ".section-title{font-size:0.9rem;font-weight:600;margin:16px 0 4px}\n" +
     ".disclaimer{font-size:0.7rem;color:#9ca3af;margin-top:24px;border-top:1px solid #e5e7eb;padding-top:12px}\n" +
+    ".trust-trace{display:flex;gap:16px;align-items:flex-start;margin:16px 0;padding:12px;border:1px solid #e5e7eb;border-radius:8px;background:#f9fafb}\n" +
+    ".trust-trace img{width:140px;height:140px}\n" +
     "@media print{body{padding:0}}\n" +
     "</style>\n" +
     "</head>\n" +
@@ -59,6 +63,15 @@ export function buildApprovedReportHtml(report: ApprovedReportPayload): string {
     "Tool: " +
     escapeHtml(report.toolSlug) +
     "\n</p>\n" +
+    '<div class="trust-trace">\n' +
+    '<img src="' +
+    escapeHtml(qrImageUrl) +
+    '" alt="Trust Trace QR" width="140" height="140" />\n' +
+    "<div>\n" +
+    '<div class="section-title">Trust Trace</div>\n' +
+    "<p>Scan to verify this report on SectorCalc.com</p>\n" +
+    "</div>\n" +
+    "</div>\n" +
     '<div class="section-title">Validation</div>\n' +
     "<table>\n" +
     "<tr><th>Field</th><th>Value</th></tr>\n" +

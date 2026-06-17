@@ -51,3 +51,9 @@ export {
   buildApprovedReportCsv,
   buildApprovedReportWordHtml,
 } from "./export";
+
+export {
+  generateVerificationHash,
+  generateQRData,
+  buildQrCodeImageUrl,
+} from "./verification";

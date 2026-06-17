@@ -53,3 +53,7 @@ export function resolveCarbonEmissionsKg(result: Record<string, unknown>): numbe
 
   return null;
 }
+
+export function schemaCbamEnabled(schema: { readonly cbam?: { readonly enabled?: boolean } }): boolean {
+  return schema.cbam?.enabled === true;
+}

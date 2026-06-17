@@ -37,6 +37,10 @@ export async function HeroSection({ searchEntries }: HeroSectionProps) {
                 {t("hero.ctaSecondary")}
               </Link>
             </div>
+            <div className="mt-4 flex items-center justify-center gap-2 text-sm text-gray-500">
+              <span className="inline-block h-2 w-2 rounded-full bg-green-500" aria-hidden="true" />
+              <span>{tHome("heroPrivacyNote")}</span>
+            </div>
           </div>
           <HeroMathematicalSymbols />
         </div>
