@@ -1,4 +1,6 @@
 import { siteUrl } from "@/config/site";
+import { getCanonicalPathForLocale } from "@/lib/i18n/locale-routing";
+import { isSupportedLocale } from "@/lib/i18n/locale-config";
 
 /** Canonical public origin — single source of truth via `src/config/site.ts`. */
 export const SITE_URL = siteUrl;
@@ -14,8 +16,6 @@ export function absoluteImageUrl(path: string): string {
 
 export function absoluteLocalizedUrl(locale: string, path: string): string {
   const normalized = path.startsWith("/") ? path : `/${path}`;
-  if (normalized === "/") {
-    return absoluteUrl(`/${locale}`);
-  }
-  return absoluteUrl(`/${locale}${normalized}`);
+  const resolvedLocale = isSupportedLocale(locale) ? locale : "en";
+  return absoluteUrl(getCanonicalPathForLocale(normalized, resolvedLocale));
 }

@@ -12,9 +12,10 @@ interface HeaderNavProps {
 
 export function DesktopHeaderNav() {
   const t = useTranslations("nav");
+  const a11y = useTranslations("a11y");
 
   return (
-    <nav id="main-navigation" aria-label="Main">
+    <nav id="main-navigation" aria-label={a11y("mainNavigation")}>
       <ul className="apple-nav__links">
         {DESKTOP_HEADER_NAV.map((item) => (
           <li key={item.href}>

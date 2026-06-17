@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { EnterpriseFooter } from "@/components/layout/EnterpriseFooter";
+import { MainLandmark } from "@/components/layout/MainLandmark";
 import { AppProviders } from "@/components/providers/AppProviders";
 
 interface PageLayoutProps {
@@ -11,9 +12,7 @@ export function PageLayout({ children }: PageLayoutProps) {
   return (
     <AppProviders>
       <SiteHeader />
-      <main className="sc-app-main min-w-0" role="main" aria-label="Main content">
-        {children}
-      </main>
+      <MainLandmark>{children}</MainLandmark>
       <EnterpriseFooter />
     </AppProviders>
   );

@@ -27,6 +27,30 @@
 }
 
 /* ── Page shell ── */
+.sc-skip-link {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 10000;
+  transform: translateY(-200%);
+  padding: 0.625rem 1rem;
+  border-radius: var(--apple-radius-sm);
+  background: #0f172a;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: var(--apple-shadow-sm);
+  transition: transform 0.15s ease;
+}
+
+.sc-skip-link:focus,
+.sc-skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 2px solid #f97316;
+  outline-offset: 2px;
+}
+
 .apple-page {
   background: var(--apple-bg);
   color: var(--apple-text);

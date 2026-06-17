@@ -1,20 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
+import { isAuthRequiredBrowserPath } from "@/lib/auth/auth-required-path";
 import { warmUserSubscriptionStore } from "@/lib/billing/use-user-subscription";
-
-function stripLocalePrefix(pathname: string): string {
-  return pathname.replace(/^\/(tr|de|fr|es|ar)(?=\/|$)/, "") || "/";
-}
-
-function isAuthRequiredPath(): boolean {
-  const bare = stripLocalePrefix(window.location.pathname);
-  return (
-    /^\/(account|login|pricing)(\/|$)/.test(bare) ||
-    /^\/tools\/(premium|premium-schema)\//.test(bare) ||
-    /^\/admin(\/|$)/.test(bare)
-  );
-}
 
 /** Warm shared auth store after idle — keeps Firebase iframe off the homepage critical path. */
 export function HeaderNavPrefetch() {
@@ -22,7 +10,7 @@ export function HeaderNavPrefetch() {
     let cancelled = false;
     let cancelIdle: (() => void) | undefined;
 
-    if (isAuthRequiredPath()) {
+    if (isAuthRequiredBrowserPath()) {
       warmUserSubscriptionStore();
       return;
     }
@@ -38,12 +26,12 @@ export function HeaderNavPrefetch() {
       );
       cancelIdle = () => window.cancelIdleCallback(idleId);
     } else {
-      const timer = setTimeout(() => {
+      const timer = window.setTimeout(() => {
         if (!cancelled) {
           warmUserSubscriptionStore();
         }
       }, 4000);
-      cancelIdle = () => clearTimeout(timer);
+      cancelIdle = () => window.clearTimeout(timer);
     }
 
     return () => {

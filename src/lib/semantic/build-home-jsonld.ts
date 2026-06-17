@@ -1,4 +1,4 @@
-import { ORGANIZATION_TRUST } from "@/config/organization-trust";
+import { organizationDescriptionForLocale, ORGANIZATION_TRUST } from "@/config/organization-trust";
 import { buildOrganizationJsonLd } from "@/lib/seo/schema-mesh";
 import { buildPlatformFinancialServiceSchema } from "@/lib/semantic/build-financial-service-schema";
 import { buildHomeSoftwareApplicationSchema } from "@/lib/semantic/build-software-application-schema";
@@ -12,10 +12,7 @@ export function buildWebsiteSchema(locale: string): JsonLdRecord {
     "@id": `${SITE_URL}/#website`,
     name: "SectorCalc",
     url: absoluteLocalizedUrl(locale, "/"),
-    description:
-      locale === "tr"
-        ? ORGANIZATION_TRUST.description.tr
-        : ORGANIZATION_TRUST.description.en,
+    description: organizationDescriptionForLocale(locale),
     inLanguage: locale,
     publisher: {
       "@id": `${SITE_URL}/#organization`,

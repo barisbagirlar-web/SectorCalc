@@ -9,14 +9,14 @@ import { LlmsTxtLink, SeoHeadLinks } from "@/components/seo/SeoHeadLinks";
 import type { AppLocale } from "@/i18n/routing";
 import { getLocaleTextDirection } from "@/lib/i18n/locale-config";
 import { getServerRegion } from "@/lib/compliance/server-region";
-import { AttributionBootstrap } from "@/components/campaign/AttributionBootstrap";
+import { SkipToMainLink } from "@/components/layout/SkipToMainLink";
 import { RegionProvider } from "@/lib/compliance/region-context";
 import { ServiceWorkerRegister } from "@/components/field-mode/ServiceWorkerRegister";
 import { GeoLocaleBootstrapScript } from "@/components/i18n/GeoLocaleBootstrapScript";
 import { THEME_COLOR } from "@/config/organization-trust";
 
 const inter = Inter({
-  subsets: ["latin"],
+  subsets: ["latin", "arabic"],
   variable: "--font-inter",
   display: "swap",
 });
@@ -68,6 +68,7 @@ export async function LocaleDocumentLayout({ locale, children }: LocaleDocumentL
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       </head>
       <body className="min-w-0 overflow-x-hidden bg-industrial-matte font-sans text-[17px] leading-[1.47059] text-premium-velvet antialiased">
+        <SkipToMainLink />
         <JsonLd
           data={[
             buildEntityGraph(locale),

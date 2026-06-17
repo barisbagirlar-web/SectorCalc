@@ -5,6 +5,7 @@ import { doc, onSnapshot } from "firebase/firestore";
 import { onAuthStateChanged, type User } from "@/lib/firebase/auth";
 import { getFirebaseAuth } from "@/lib/firebase/auth";
 import { getFirestoreDb } from "@/lib/firebase/client";
+import { isAuthRequiredBrowserPath } from "@/lib/auth/auth-required-path";
 import {
   hasProAccess,
   normalizeUserSubscription,
@@ -44,26 +45,9 @@ function setStoreState(next: UseUserSubscriptionState) {
   emitStore();
 }
 
-function stripLocalePrefix(pathname: string): string {
-  return pathname.replace(/^\/(tr|de|fr|es|ar)(?=\/|$)/, "") || "/";
-}
-
-/** Routes that need Firebase auth on first paint (account, checkout, premium tools). */
-function isAuthRequiredPath(): boolean {
-  if (typeof window === "undefined") {
-    return false;
-  }
-  const bare = stripLocalePrefix(window.location.pathname);
-  return (
-    /^\/(account|login|pricing)(\/|$)/.test(bare) ||
-    /^\/tools\/(premium|premium-schema)\//.test(bare) ||
-    /^\/admin(\/|$)/.test(bare)
-  );
-}
-
 function subscribeStore(listener: StoreListener): () => void {
   storeListeners.add(listener);
-  if (isAuthRequiredPath()) {
+  if (isAuthRequiredBrowserPath()) {
     bootstrapAuthStore();
   }
   return () => {

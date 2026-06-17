@@ -4,6 +4,10 @@ import { SITE } from "@/config/site";
 import { locales, type AppLocale } from "@/i18n/routing";
 import { getCanonicalPathForLocale } from "@/lib/i18n/locale-routing";
 import { normalizeLocale } from "@/lib/format/localization";
+import {
+  resolveToolMetadataDescription,
+  resolveToolTierLabel,
+} from "@/lib/metadata/tool-metadata-copy";
 
 const SITE_ICONS: Metadata["icons"] = {
   icon: [
@@ -54,27 +58,22 @@ function buildHreflangAlternates(path: string): Metadata["alternates"] {
 }
 
 export function getToolMetadata(options: ToolMetadataOptions): Metadata {
-  const locale = normalizeLocale(options.locale ?? "en");
-  const tierLabel =
-    locale === "tr"
-      ? options.tier === "free"
-        ? "Ücretsiz"
-        : "Premium"
-      : options.tier === "free"
-        ? "Free"
-        : "Premium";
+  const locale = normalizeLocale(options.locale ?? "en") as AppLocale;
+  const tierLabel = resolveToolTierLabel(locale, options.tier);
   const title = `${options.toolTitle} — ${tierLabel}`;
-  const description =
-    locale === "tr"
-      ? `${options.sectorName} için ${tierLabel.toLowerCase()} hesaplama aracı. Maliyetleri hesaplayın, kayıpları tespit edin ve karar raporu alın.`
-      : `${tierLabel} ${options.toolTitle.toLowerCase()} for ${options.sectorName.toLowerCase()}. Calculate costs, detect losses, and get expert-level decision reports.`;
+  const description = resolveToolMetadataDescription(
+    locale,
+    options.tier,
+    options.toolTitle,
+    options.sectorName,
+  );
   const path = `/tools/${options.tier}/${options.toolSlug}`;
 
   return createPageMetadata({
     title,
     description,
     path,
-    locale: locale as AppLocale,
+    locale: locale,
   });
 }
 

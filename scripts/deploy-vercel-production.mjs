@@ -23,6 +23,15 @@ const SMOKE_URLS = [
   "https://www.sectorcalc.com/tr",
   "https://www.sectorcalc.com/en/tools",
 ];
+const SITEMAP_SMOKE_URLS = [
+  "https://www.sectorcalc.com/sitemap.xml",
+  "https://www.sectorcalc.com/sitemap/en.xml",
+  "https://www.sectorcalc.com/sitemap/tr.xml",
+  "https://www.sectorcalc.com/sitemap/de.xml",
+  "https://www.sectorcalc.com/sitemap/fr.xml",
+  "https://www.sectorcalc.com/sitemap/es.xml",
+  "https://www.sectorcalc.com/sitemap/ar.xml",
+];
 const CASE_STUDIES_SMOKE_URLS = [
   "https://www.sectorcalc.com/case-studies",
   "https://www.sectorcalc.com/tr/case-studies",
@@ -192,7 +201,7 @@ function smokeProduction() {
   console.log("deploy-vercel-production: smoke-checking production URLs…");
   let failed = false;
 
-  for (const url of [...SMOKE_URLS, ...CASE_STUDIES_SMOKE_URLS]) {
+  for (const url of [...SMOKE_URLS, ...SITEMAP_SMOKE_URLS, ...CASE_STUDIES_SMOKE_URLS]) {
     const result = spawnSync("curl", ["-sL", "-o", "/dev/null", "-w", "%{http_code}", url], {
       encoding: "utf8",
     });
