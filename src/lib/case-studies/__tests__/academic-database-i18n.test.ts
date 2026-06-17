@@ -21,6 +21,8 @@ const DATABASE_KEYS = [
   "filterAll",
   "filterApply",
   "filterCsv",
+  "indexSummaryHeading",
+  "indexSummaryIntro",
   "colCompany",
   "colDetail",
   "noResults",

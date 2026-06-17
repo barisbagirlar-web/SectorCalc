@@ -19,6 +19,7 @@ import { createPageMetadata } from "@/lib/metadata";
 import type { AppLocale } from "@/i18n/routing";
 import type { SupportedLocale } from "@/lib/i18n/locale-config";
 import { addLocaleToPath } from "@/lib/i18n/locale-routing";
+import { getLocalizedDuration } from "@/lib/i18n/duration";
 import "@/styles/academic-case-studies-database.css";
 
 export const revalidate = 60;
@@ -219,7 +220,7 @@ export default async function CaseStudiesPage({ params, searchParams }: PageProp
                     <td>{study.city ?? t("emDash")}</td>
                     <td>{study.country ?? t("unspecified")}</td>
                     <td>{study.industry}</td>
-                    <td>{study.projectDuration ?? t("emDash")}</td>
+                    <td>{study.projectDuration ? getLocalizedDuration(study.projectDuration, locale) : t("emDash")}</td>
                     <td className="numeric">{primaryResult?.before ?? t("emDash")}</td>
                     <td className="numeric">{primaryResult?.after ?? t("emDash")}</td>
                     <td className="numeric">{formatEuroAmount(savingsEur, locale)}</td>

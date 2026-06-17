@@ -61,3 +61,6 @@ tsconfig.tsbuildinfo
 # DeepSeek batch runner progress (local only)
 .batch-progress*.json
 scripts/data/omni-batch.pid
+
+# Build-time sitemap shards (prebuild: generate:sitemap-static)
+public/sitemap/*.xml

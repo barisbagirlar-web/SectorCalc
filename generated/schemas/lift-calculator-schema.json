@@ -10,14 +10,15 @@
       "businessContext": "Mass of the load to be lifted",
       "label_i18n": {
         "en": "Load Mass",
-        "tr": "Load Mass",
+        "tr": "Yük Kütlesi",
         "de": "Load Mass",
         "fr": "Load Mass",
         "es": "Load Mass",
         "ar": "Load Mass"
       },
       "businessContext_i18n": {
-        "en": "Mass of the load to be lifted"
+        "en": "Mass of the load to be lifted",
+        "tr": "Kaldırılacak yükün kütlesi"
       }
     },
     {
@@ -29,14 +30,15 @@
       "businessContext": "Mass of the elevator car or lifting platform",
       "label_i18n": {
         "en": "Car Mass",
-        "tr": "Car Mass",
+        "tr": "Araba Kütlesi",
         "de": "Car Mass",
         "fr": "Car Mass",
         "es": "Car Mass",
         "ar": "Car Mass"
       },
       "businessContext_i18n": {
-        "en": "Mass of the elevator car or lifting platform"
+        "en": "Mass of the elevator car or lifting platform",
+        "tr": "Asansör kabini veya kaldırma platformunun kütlesi"
       }
     },
     {
@@ -48,14 +50,15 @@
       "businessContext": "Acceleration of the lift",
       "label_i18n": {
         "en": "Acceleration",
-        "tr": "Acceleration",
+        "tr": "İvme",
         "de": "Acceleration",
         "fr": "Acceleration",
         "es": "Acceleration",
         "ar": "Acceleration"
       },
       "businessContext_i18n": {
-        "en": "Acceleration of the lift"
+        "en": "Acceleration of the lift",
+        "tr": "Asansörün ivmesi"
       }
     },
     {
@@ -67,14 +70,15 @@
       "businessContext": "Ratio of counterweight mass to total mass (car + load)",
       "label_i18n": {
         "en": "Counterweight Ratio",
-        "tr": "Counterweight Ratio",
+        "tr": "Karşı Ağırlık Oranı",
         "de": "Counterweight Ratio",
         "fr": "Counterweight Ratio",
         "es": "Counterweight Ratio",
         "ar": "Counterweight Ratio"
       },
       "businessContext_i18n": {
-        "en": "Ratio of counterweight mass to total mass (car + load)"
+        "en": "Ratio of counterweight mass to total mass (car + load)",
+        "tr": "Karşı ağırlık kütlesinin toplam kütleye (araba + yük) oranı"
       }
     },
     {
@@ -86,14 +90,15 @@
       "businessContext": "Estimated friction opposing motion",
       "label_i18n": {
         "en": "Friction Force",
-        "tr": "Friction Force",
+        "tr": "Sürtünme Kuvveti",
         "de": "Friction Force",
         "fr": "Friction Force",
         "es": "Friction Force",
         "ar": "Friction Force"
       },
       "businessContext_i18n": {
-        "en": "Estimated friction opposing motion"
+        "en": "Estimated friction opposing motion",
+        "tr": "Harekete karşı tahmini sürtünme"
       }
     },
     {
@@ -112,7 +117,8 @@
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
-        "en": "Safety factor for mechanical design"
+        "en": "Safety factor for mechanical design",
+        "tr": "Mekanik tasarım için güvenlik faktörü"
       }
     }
   ],

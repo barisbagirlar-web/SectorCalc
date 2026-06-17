@@ -8,6 +8,7 @@ import {
 import { formatAcademicDate, renderCaseStudyBodyContent } from "@/lib/case-studies/academic-format";
 import { buildCaseStudyJsonLd } from "@/lib/case-studies/case-study-seo";
 import type { CaseStudy } from "@/lib/case-studies/types";
+import { getLocalizedDuration } from "@/lib/i18n/duration";
 import { resolveGeneratedToolPath } from "@/lib/tools/paths";
 import { AcademicDatabaseChrome } from "@/components/case-studies/academic/AcademicDatabaseChrome";
 
@@ -58,7 +59,7 @@ export async function AcademicPublishedCaseStudyRecord({ study, locale }: Props)
             </tr>
             <tr>
               <th>{t("colProjectDuration")}</th>
-              <td>{study.projectDuration ?? t("emDash")}</td>
+              <td>{getLocalizedDuration(study.projectDuration ?? "", locale) || t("emDash")}</td>
             </tr>
             <tr>
               <th>{t("metaPublished")}</th>
@@ -70,7 +71,7 @@ export async function AcademicPublishedCaseStudyRecord({ study, locale }: Props)
             </tr>
             <tr>
               <th>{t("colSavings")}</th>
-              <td>{formatEuroAmount(savingsEur, locale)} €</td>
+              <td>{formatEuroAmount(savingsEur, locale)}</td>
             </tr>
           </tbody>
         </table>

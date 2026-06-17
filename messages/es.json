@@ -80,7 +80,9 @@
     },
     "errors": {
       "authRequired": "Inicia sesión para usar Trace Pro.",
-      "connection": "Error de conexión. Inténtalo de nuevo más tarde."
+      "connection": "Error de conexión. Inténtalo de nuevo más tarde.",
+      "noCredits": "No tienes créditos suficientes para Trace Pro.",
+      "premiumOnly": "Trace Pro está disponible solo para suscriptores premium."
     }
   },
   "osGate": {
@@ -3261,6 +3263,8 @@
       "filterSavings1mPlus": "1.000.000+",
       "filterApply": "Aplicar",
       "filterCsv": "Descargar CSV",
+      "indexSummaryHeading": "Base de datos de casos de éxito",
+      "indexSummaryIntro": "Historias de éxito de empresas que lograron eficiencia y ahorro de costos con SectorCalc.",
       "colIndex": "#",
       "colCompany": "Empresa",
       "colCity": "Ciudad",

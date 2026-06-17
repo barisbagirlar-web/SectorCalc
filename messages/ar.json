@@ -80,7 +80,9 @@
     },
     "errors": {
       "authRequired": "سجّل الدخول لاستخدام Trace Pro.",
-      "connection": "خطأ في الاتصال. يرجى المحاولة لاحقًا."
+      "connection": "خطأ في الاتصال. يرجى المحاولة لاحقًا.",
+      "noCredits": "ليس لديك رصيد كافٍ لـ Trace Pro.",
+      "premiumOnly": "Trace Pro متاح لمشتركي Premium فقط."
     }
   },
   "osGate": {
@@ -3256,6 +3258,8 @@
       "filterSavings1mPlus": "1,000,000+",
       "filterApply": "تطبيق",
       "filterCsv": "تنزيل CSV",
+      "indexSummaryHeading": "قاعدة بيانات قصص النجاح",
+      "indexSummaryIntro": "قصص نجاح واقعية للشركات التي حققت الكفاءة وتوفير التكاليف باستخدام SectorCalc.",
       "colIndex": "#",
       "colCompany": "الشركة",
       "colCity": "المدينة",

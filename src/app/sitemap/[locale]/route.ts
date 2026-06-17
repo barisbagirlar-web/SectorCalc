@@ -2,6 +2,7 @@ import {
   createSitemapXmlResponse,
   generateSitemapUrlsetXml,
 } from "@/lib/seo/generate-sitemap-xml";
+import { resolveSitemapBaseUrl } from "@/lib/seo/global-seo-config";
 import {
   getLocaleSitemapUrlRecords,
   parseLocaleSitemapParam,
@@ -22,7 +23,8 @@ export async function GET(request: Request, context: RouteContext): Promise<Resp
     return new Response("Not Found", { status: 404 });
   }
 
-  const urls = await getLocaleSitemapUrlRecords(locale);
+  const baseUrl = resolveSitemapBaseUrl(request);
+  const urls = await getLocaleSitemapUrlRecords(locale, baseUrl);
   const xml = generateSitemapUrlsetXml(urls);
   return createSitemapXmlResponse(xml, request);
 }

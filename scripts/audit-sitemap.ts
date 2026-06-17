@@ -80,6 +80,14 @@ async function main(): Promise<void> {
   console.log(`  base: ${SITE_BASE_URL}`);
   console.log(`  manifest paths: ${getSitemapManifest().length}`);
 
+  if (SITE_BASE_URL.includes("web.app")) {
+    record("error", "SITE_BASE_URL must not use Firebase default domain (set NEXT_PUBLIC_SITE_URL)");
+  }
+
+  if (!SITE_BASE_URL.includes("www.sectorcalc.com")) {
+    record("error", `SITE_BASE_URL must use canonical www host (got ${SITE_BASE_URL})`);
+  }
+
   const indexEntries = await getSitemapIndexEntries();
   if (indexEntries.length !== SUPPORTED_LOCALES.length) {
     record(
@@ -93,6 +101,15 @@ async function main(): Promise<void> {
     const cachedCount = await countLocaleSitemapUrls(locale);
     if (cachedCount === 0) {
       record("error", `${locale}: cached shard is empty`);
+    }
+  }
+
+  for (const entry of indexEntries) {
+    if (!entry.url.startsWith(SITE_BASE_URL)) {
+      record("error", `index shard URL must use SITE_BASE_URL: ${entry.url}`);
+    }
+    if (!entry.url.endsWith(".xml")) {
+      record("error", `index shard URL must end with .xml: ${entry.url}`);
     }
   }
 

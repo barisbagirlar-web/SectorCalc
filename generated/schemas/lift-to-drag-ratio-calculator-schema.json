@@ -10,14 +10,15 @@
       "businessContext": "Non-dimensional lift coefficient of the aerodynamic body.",
       "label_i18n": {
         "en": "Lift Coefficient (CL)",
-        "tr": "Lift Coefficient (CL)",
+        "tr": "Kaldırma Katsayısı (CL)",
         "de": "Lift Coefficient (CL)",
         "fr": "Lift Coefficient (CL)",
         "es": "Lift Coefficient (CL)",
         "ar": "Lift Coefficient (CL)"
       },
       "businessContext_i18n": {
-        "en": "Non-dimensional lift coefficient of the aerodynamic body."
+        "en": "Non-dimensional lift coefficient of the aerodynamic body.",
+        "tr": "Aerodinamik cismin boyutsuz kaldırma katsayısı."
       }
     },
     {
@@ -29,14 +30,15 @@
       "businessContext": "Non-dimensional drag coefficient of the aerodynamic body.",
       "label_i18n": {
         "en": "Drag Coefficient (CD)",
-        "tr": "Drag Coefficient (CD)",
+        "tr": "Sürükleme Katsayısı (CD)",
         "de": "Drag Coefficient (CD)",
         "fr": "Drag Coefficient (CD)",
         "es": "Drag Coefficient (CD)",
         "ar": "Drag Coefficient (CD)"
       },
       "businessContext_i18n": {
-        "en": "Non-dimensional drag coefficient of the aerodynamic body."
+        "en": "Non-dimensional drag coefficient of the aerodynamic body.",
+        "tr": "Aerodinamik cismin boyutsuz sürükleme katsayısı."
       }
     },
     {
@@ -55,7 +57,8 @@
         "ar": "Air Density"
       },
       "businessContext_i18n": {
-        "en": "Air density at current altitude and temperature (ISA sea level standard)."
+        "en": "Air density at current altitude and temperature (ISA sea level standard).",
+        "tr": "Mevcut irtifa ve sıcaklıkta hava yoğunluğu (ISA deniz seviyesi standardı)."
       }
     },
     {
@@ -74,7 +77,8 @@
         "ar": "Velocity"
       },
       "businessContext_i18n": {
-        "en": "Relative airspeed of the body through the fluid."
+        "en": "Relative airspeed of the body through the fluid.",
+        "tr": "Cismin akışkana göre bağıl hava hızı."
       }
     },
     {
@@ -93,7 +97,8 @@
         "ar": "Reference Area"
       },
       "businessContext_i18n": {
-        "en": "Characteristic planform area (e.g., wing area)."
+        "en": "Characteristic planform area (e.g., wing area).",
+        "tr": "Karakteristik planform alanı (ör. kanat alanı)."
       }
     }
   ],

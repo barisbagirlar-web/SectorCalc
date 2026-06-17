@@ -80,7 +80,9 @@
     },
     "errors": {
       "authRequired": "Melde dich an, um Trace Pro zu nutzen.",
-      "connection": "Verbindungsfehler. Bitte später erneut versuchen."
+      "connection": "Verbindungsfehler. Bitte später erneut versuchen.",
+      "noCredits": "Du hast nicht genug Guthaben für Trace Pro.",
+      "premiumOnly": "Trace Pro ist nur für Premium-Abonnenten verfügbar."
     }
   },
   "osGate": {
@@ -3261,6 +3263,8 @@
       "filterSavings1mPlus": "1.000.000+",
       "filterApply": "Anwenden",
       "filterCsv": "CSV herunterladen",
+      "indexSummaryHeading": "Erfolgsgeschichten-Datenbank",
+      "indexSummaryIntro": "Erfolgsgeschichten von Unternehmen, die mit SectorCalc Effizienz und Kosteneinsparungen erzielt haben.",
       "colIndex": "#",
       "colCompany": "Unternehmen",
       "colCity": "Stadt",

@@ -1,5 +1,6 @@
 import "server-only";
 
+import { buildTraceLocaleHint } from "@/lib/trace/locale-hints";
 import { TRACE_BRAND } from "@/config/trace";
 
 export const TRACE_FREE_SYSTEM_PROMPT = [
@@ -26,24 +27,9 @@ export const TRACE_PRO_SYSTEM_PROMPT = [
 ].join("\n");
 
 export function buildTraceFreeLocaleHint(locale: string): string {
-  if (locale === "tr") {
-    return "Respond in Turkish unless the user writes in another language.";
-  }
-  if (locale === "de") {
-    return "Respond in German unless the user writes in another language.";
-  }
-  if (locale === "fr") {
-    return "Respond in French unless the user writes in another language.";
-  }
-  if (locale === "es") {
-    return "Respond in Spanish unless the user writes in another language.";
-  }
-  if (locale === "ar") {
-    return "Respond in Arabic unless the user writes in another language.";
-  }
-  return "Respond in English unless the user writes in another language.";
+  return buildTraceLocaleHint(locale);
 }
 
 export function buildTraceProLocaleHint(locale: string): string {
-  return buildTraceFreeLocaleHint(locale);
+  return buildTraceLocaleHint(locale);
 }

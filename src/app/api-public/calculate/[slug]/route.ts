@@ -2,7 +2,15 @@ import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { loadGeneratedCalculator } from "@/lib/generated-tools/calculator-registry";
+import { getGeneratedToolSchema } from "@/lib/generated-tools/schema-loader";
+import { resolveGeneratedToolTitle } from "@/lib/generated-tools/resolve-tool-display";
 import { validateCalculatorRuntimeResult } from "@/lib/generated-tools/runtime-validate-calculator";
+import { getLocaleTextDirection } from "@/lib/i18n/locale-config";
+import {
+  formatApiPublicMessage,
+  resolveApiPublicLocale,
+  tApiPublic,
+} from "@/lib/validation/api-public-messages";
 import {
   describeExpectedInputFormat,
   formatZodValidationErrors,
@@ -15,6 +23,7 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 type CalculateRequestBody = {
+  readonly locale?: unknown;
   readonly inputs?: unknown;
 };
 
@@ -23,6 +32,23 @@ function resolveClientIp(headerStore: Awaited<ReturnType<typeof headers>>): stri
     headerStore.get("x-forwarded-for")?.split(",")[0]?.trim() ||
     headerStore.get("x-real-ip") ||
     "local"
+  );
+}
+
+function jsonWithLocale(
+  locale: ReturnType<typeof resolveApiPublicLocale>,
+  body: Record<string, unknown>,
+  status: number,
+): NextResponse {
+  return NextResponse.json(
+    { locale, ...body },
+    {
+      status,
+      headers: {
+        "Content-Language": locale,
+        "Content-Direction": getLocaleTextDirection(locale),
+      },
+    },
   );
 }
 
@@ -48,60 +74,73 @@ export async function POST(
   req: NextRequest,
   context: { params: Promise<{ slug: string }> },
 ): Promise<NextResponse> {
+  const headerStore = await headers();
+  const acceptLanguage = headerStore.get("accept-language");
+  const queryLocale = req.nextUrl.searchParams.get("locale");
+
   try {
     const { slug } = await context.params;
-    const headerStore = await headers();
     const clientIp = resolveClientIp(headerStore);
+    const body = (await req.json()) as CalculateRequestBody;
+    const locale = resolveApiPublicLocale({
+      queryLocale,
+      bodyLocale: body.locale,
+      acceptLanguage,
+    });
 
     const rateLimit = await checkPublicCalculateRateLimit(clientIp);
     if (!rateLimit.ok) {
-      return NextResponse.json(
+      return jsonWithLocale(
+        locale,
         {
-          error: "Rate limit exceeded",
+          error: tApiPublic(locale, "rateLimitError"),
           code: 429,
-          message: "Too many calculation requests. Please retry shortly.",
+          message: tApiPublic(locale, "rateLimitMessage"),
         },
-        { status: 429 },
+        429,
       );
     }
 
-    const body = (await req.json()) as CalculateRequestBody;
     const inputs = body.inputs;
 
     if (!inputs || typeof inputs !== "object" || Array.isArray(inputs)) {
-      return NextResponse.json(
+      return jsonWithLocale(
+        locale,
         {
-          error: "Invalid request body",
+          error: tApiPublic(locale, "invalidBodyError"),
           code: 400,
-          message: 'Request body must include an "inputs" object.',
+          message: tApiPublic(locale, "invalidBodyMessage"),
         },
-        { status: 400 },
+        400,
       );
     }
 
     const toolSchema = getToolValidationSchema(slug);
     if (!toolSchema) {
-      return NextResponse.json(
+      return jsonWithLocale(
+        locale,
         {
-          error: "Tool not found",
+          error: tApiPublic(locale, "toolNotFoundError"),
           code: 404,
-          message: `"${slug}" isimli hesaplama aracı bulunamadı.`,
+          message: formatApiPublicMessage(locale, "toolNotFoundMessage", { slug }),
         },
-        { status: 404 },
+        404,
       );
     }
 
+    const generatedSchema = getGeneratedToolSchema(slug);
     const calculator = await loadGeneratedCalculator(slug);
     const validator = calculator?.inputSchema ?? getValidatorForTool(slug);
 
     if (!validator) {
-      return NextResponse.json(
+      return jsonWithLocale(
+        locale,
         {
-          error: "Validation schema not found",
+          error: tApiPublic(locale, "schemaNotFoundError"),
           code: 500,
-          message: `"${slug}" aracının şeması yüklenemedi.`,
+          message: formatApiPublicMessage(locale, "schemaNotFoundMessage", { slug }),
         },
-        { status: 500 },
+        500,
       );
     }
 
@@ -109,27 +148,29 @@ export async function POST(
     if (!validationResult.success) {
       const errors = formatZodValidationErrors(validationResult.error);
 
-      return NextResponse.json(
+      return jsonWithLocale(
+        locale,
         {
-          error: "Invalid input parameters (AI Hallucination detected)",
+          error: tApiPublic(locale, "invalidInputError"),
           code: 422,
           details: errors,
           expected_format: {
             inputs: describeExpectedInputFormat(toolSchema.inputs),
           },
         },
-        { status: 422 },
+        422,
       );
     }
 
     if (!calculator) {
-      return NextResponse.json(
+      return jsonWithLocale(
+        locale,
         {
-          error: "Calculator engine not found",
+          error: tApiPublic(locale, "engineNotFoundError"),
           code: 404,
-          message: `"${slug}" aracının hesaplama motoru bulunamadı.`,
+          message: formatApiPublicMessage(locale, "engineNotFoundMessage", { slug }),
         },
-        { status: 404 },
+        404,
       );
     }
 
@@ -140,58 +181,73 @@ export async function POST(
 
       const runtimeValidation = validateCalculatorRuntimeResult(result);
       if (runtimeValidation.status === "FAIL") {
-        return NextResponse.json(
+        return jsonWithLocale(
+          locale,
           {
-            error: "Calculation produced invalid result (NaN/Infinity)",
+            error: tApiPublic(locale, "invalidResultError"),
             code: 422,
-            message:
-              runtimeValidation.error ??
-              "Lütfen girdi değerlerinizi kontrol edin ve tekrar deneyin.",
+            message: runtimeValidation.error ?? tApiPublic(locale, "invalidResultMessage"),
           },
-          { status: 422 },
+          422,
         );
       }
 
       if (hasInvalidNumericOutput(result)) {
-        return NextResponse.json(
+        return jsonWithLocale(
+          locale,
           {
-            error: "Calculation produced invalid result (NaN/Infinity)",
+            error: tApiPublic(locale, "invalidResultError"),
             code: 422,
-            message: "Lütfen girdi değerlerinizi kontrol edin ve tekrar deneyin.",
+            message: tApiPublic(locale, "invalidResultMessage"),
           },
-          { status: 422 },
+          422,
         );
       }
 
-      return NextResponse.json({
-        success: true,
-        result,
-        tool: {
-          slug,
-          name:
-            typeof toolSchema.toolName === "string" ? toolSchema.toolName : slug,
+      const toolName =
+        generatedSchema != null
+          ? resolveGeneratedToolTitle(slug, generatedSchema, locale)
+          : toolSchema.toolName;
+
+      return jsonWithLocale(
+        locale,
+        {
+          success: true,
+          result,
+          tool: {
+            slug,
+            name: toolName,
+          },
+          validations: toolSchema.inputs.map((input) => input.id),
         },
-        validations: toolSchema.inputs.map((input) => input.id),
-      });
+        200,
+      );
     } catch (importError) {
       console.error("Import/Compute error:", importError);
-      return NextResponse.json(
+      return jsonWithLocale(
+        locale,
         {
-          error: "Engine execution failed",
+          error: tApiPublic(locale, "engineFailedError"),
           code: 422,
-          message: `"${slug}" aracı çalıştırılamadı. Lütfen slug ve input formatını kontrol edin.`,
+          message: formatApiPublicMessage(locale, "engineFailedMessage", { slug }),
         },
-        { status: 422 },
+        422,
       );
     }
   } catch (error) {
     console.error("API error:", error);
-    return NextResponse.json(
+    const locale = resolveApiPublicLocale({
+      queryLocale,
+      bodyLocale: undefined,
+      acceptLanguage,
+    });
+    return jsonWithLocale(
+      locale,
       {
-        error: "Internal Server Error",
+        error: tApiPublic(locale, "internalError"),
         code: 500,
       },
-      { status: 500 },
+      500,
     );
   }
 }

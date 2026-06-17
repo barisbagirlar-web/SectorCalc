@@ -80,7 +80,9 @@
     },
     "errors": {
       "authRequired": "Trace Pro için giriş yapın.",
-      "connection": "Bağlantı hatası. Lütfen daha sonra tekrar deneyin."
+      "connection": "Bağlantı hatası. Lütfen daha sonra tekrar deneyin.",
+      "noCredits": "Trace Pro için yeterli krediniz yok.",
+      "premiumOnly": "Trace Pro yalnızca premium abonelere açıktır."
     }
   },
   "osGate": {
@@ -3291,6 +3293,8 @@
       "filterSavings1mPlus": "1.000.000+",
       "filterApply": "Uygula",
       "filterCsv": "CSV İndir",
+      "indexSummaryHeading": "Başarı Hikayeleri Dizini",
+      "indexSummaryIntro": "SectorCalc ile gerçek işletmelerin kazandığı verimlilik ve maliyet tasarrufu hikayeleri.",
       "colIndex": "#",
       "colCompany": "Firma",
       "colCity": "Şehir",

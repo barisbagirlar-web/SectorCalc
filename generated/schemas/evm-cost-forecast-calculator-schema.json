@@ -22,11 +22,11 @@
       "businessContext": "Total authorized budget for the work scope (PMBOK).",
       "label_i18n": {
         "en": "Budget at Completion",
-        "tr": "Budget at Completion"
+        "tr": "Bütçe Tamamlanma"
       },
       "businessContext_i18n": {
         "en": "Total authorized budget for the work scope (PMBOK).",
-        "tr": "Total authorized budget for the work scope (PMBOK)."
+        "tr": "İş kapsamı için toplam yetkilendirilmiş bütçe (PMBOK)."
       }
     },
     {
@@ -40,11 +40,11 @@
       "businessContext": "Value of work actually performed, measured in budgeted cost.",
       "label_i18n": {
         "en": "Earned Value",
-        "tr": "Earned Value"
+        "tr": "Kazanılan Değer"
       },
       "businessContext_i18n": {
         "en": "Value of work actually performed, measured in budgeted cost.",
-        "tr": "Value of work actually performed, measured in budgeted cost."
+        "tr": "Gerçekleştirilen işin bütçelenmiş maliyet cinsinden değeri."
       }
     },
     {
@@ -58,11 +58,11 @@
       "businessContext": "Total cost incurred for the work performed.",
       "label_i18n": {
         "en": "Actual Cost",
-        "tr": "Actual Cost"
+        "tr": "Gerçek Maliyet"
       },
       "businessContext_i18n": {
         "en": "Total cost incurred for the work performed.",
-        "tr": "Total cost incurred for the work performed."
+        "tr": "Gerçekleştirilen iş için oluşan toplam maliyet."
       }
     },
     {
@@ -76,11 +76,11 @@
       "businessContext": "Authorized budget for the work scheduled to be completed.",
       "label_i18n": {
         "en": "Planned Value",
-        "tr": "Planned Value"
+        "tr": "Planlanan Değer"
       },
       "businessContext_i18n": {
         "en": "Authorized budget for the work scheduled to be completed.",
-        "tr": "Authorized budget for the work scheduled to be completed."
+        "tr": "Tamamlanması planlanan iş için yetkilendirilmiş bütçe."
       }
     },
     {
@@ -94,11 +94,11 @@
       "businessContext": "Objective physical progress estimate (e.g., via earned value rules).",
       "label_i18n": {
         "en": "Percent Complete (physical)",
-        "tr": "Percent Complete (physical)"
+        "tr": "Fiziksel Tamamlanma Yüzdesi"
       },
       "businessContext_i18n": {
         "en": "Objective physical progress estimate (e.g., via earned value rules).",
-        "tr": "Objective physical progress estimate (e.g., via earned value rules)."
+        "tr": "Nesnel fiziksel ilerleme tahmini (örn. kazanılan değer kuralları ile)."
       }
     },
     {
@@ -112,11 +112,11 @@
       "businessContext": "If provided, overrides calculated CPI. CPI = EV/AC.",
       "label_i18n": {
         "en": "Cost Performance Index (override)",
-        "tr": "Cost Performance Index (override)"
+        "tr": "Maliyet Performans Endeksi (geçersiz kılma)"
       },
       "businessContext_i18n": {
         "en": "If provided, overrides calculated CPI. CPI = EV/AC.",
-        "tr": "If provided, overrides calculated CPI. CPI = EV/AC."
+        "tr": "Sağlanırsa, hesaplanan MPI'yi geçersiz kılar. MPI = KD/BM."
       }
     },
     {
@@ -130,11 +130,11 @@
       "businessContext": "If provided, overrides calculated SPI. SPI = EV/PV.",
       "label_i18n": {
         "en": "Schedule Performance Index (override)",
-        "tr": "Schedule Performance Index (override)"
+        "tr": "Program Performans Endeksi (geçersiz kılma)"
       },
       "businessContext_i18n": {
         "en": "If provided, overrides calculated SPI. SPI = EV/PV.",
-        "tr": "If provided, overrides calculated SPI. SPI = EV/PV."
+        "tr": "Sağlanırsa, hesaplanan PPE'yi geçersiz kılar. PPE = KD/PD."
       }
     },
     {
@@ -148,11 +148,11 @@
       "businessContext": "If true, applies 0.8*CPI + 0.2*SPI weighting for EAC (industry practice).",
       "label_i18n": {
         "en": "Use weighted CPI/SPI for EAC",
-        "tr": "Use weighted CPI/SPI for EAC"
+        "tr": "TBM için ağırlıklı MPI/PPE kullan"
       },
       "businessContext_i18n": {
         "en": "If true, applies 0.8*CPI + 0.2*SPI weighting for EAC (industry practice).",
-        "tr": "If true, applies 0.8*CPI + 0.2*SPI weighting for EAC (industry practice)."
+        "tr": "Doğruysa, TBM için 0.8*MPI + 0.2*PPE ağırlıklandırması uygular (endüstri uygulaması)."
       }
     }
   ],

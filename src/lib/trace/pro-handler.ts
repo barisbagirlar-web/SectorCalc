@@ -6,6 +6,7 @@ import {
   checkPremiumAssistantCredit,
   consumePremiumAssistantCredit,
 } from "@/lib/trace/check-credits";
+import { resolveTraceErrorMessage } from "@/lib/trace/trace-server-i18n";
 import { findBestTools } from "@/lib/trace/tool-recommendation";
 import type { AssistantSuggestion } from "@/lib/assistant/types";
 import type { TraceProRequest, TraceProResponse } from "@/lib/trace/types";
@@ -33,13 +34,9 @@ export async function handleProTraceRequest(
   const credit = await checkPremiumAssistantCredit(request.userId, request.isPremium);
   if (!credit.ok) {
     const message =
-      request.locale === "tr"
-        ? credit.reason === "no_credits"
-          ? "Trace Pro için yeterli krediniz yok."
-          : "Trace Pro yalnızca premium abonelere açıktır."
-        : credit.reason === "no_credits"
-          ? "You do not have enough credits for Trace Pro."
-          : "Trace Pro is available to premium subscribers only.";
+      credit.reason === "no_credits"
+        ? resolveTraceErrorMessage(request.locale, "noCredits")
+        : resolveTraceErrorMessage(request.locale, "premiumOnly");
 
     return { ok: false, error: message, status: credit.reason === "no_credits" ? 402 : 403 };
   }

@@ -17,7 +17,8 @@
         "ar": "Fluid Density (ρ)"
       },
       "businessContext_i18n": {
-        "en": "Air density at sea level; varies with altitude, temperature, and humidity. For aerodynamic lift, typical range 0.4–1.2 kg/m³."
+        "en": "Air density at sea level; varies with altitude, temperature, and humidity. For aerodynamic lift, typical range 0.4–1.2 kg/m³.",
+        "tr": "Deniz seviyesinde hava yoğunluğu; rakım, sıcaklık ve neme göre değişir. Aerodinamik kaldırma için tipik aralık 0.4–1.2 kg/m³."
       }
     },
     {
@@ -36,7 +37,8 @@
         "ar": "Flow Velocity (v)"
       },
       "businessContext_i18n": {
-        "en": "Relative speed between air and the lifting surface (e.g., aircraft true airspeed, wind tunnel flow speed)."
+        "en": "Relative speed between air and the lifting surface (e.g., aircraft true airspeed, wind tunnel flow speed).",
+        "tr": "Hava ile kaldırma yüzeyi arasındaki bağıl hız (örneğin, uçak gerçek hava hızı, rüzgar tüneli akış hızı)."
       }
     },
     {
@@ -55,7 +57,8 @@
         "ar": "Reference Area (A)"
       },
       "businessContext_i18n": {
-        "en": "Planform area of the wing or lifting surface used for aerodynamic analysis (e.g., gross wing area)."
+        "en": "Planform area of the wing or lifting surface used for aerodynamic analysis (e.g., gross wing area).",
+        "tr": "Kanat veya kaldırma yüzeyinin planform alanı (örneğin, brüt kanat alanı)."
       }
     },
     {
@@ -67,14 +70,15 @@
       "businessContext": "Dimensionless coefficient capturing the effect of angle of attack, airfoil shape, and flow conditions. Typical range 0.2–1.5 for aircraft.",
       "label_i18n": {
         "en": "Lift Coefficient (CL)",
-        "tr": "Lift Coefficient (CL)",
+        "tr": "Kaldırma Katsayısı (CL)",
         "de": "Lift Coefficient (CL)",
         "fr": "Lift Coefficient (CL)",
         "es": "Lift Coefficient (CL)",
         "ar": "Lift Coefficient (CL)"
       },
       "businessContext_i18n": {
-        "en": "Dimensionless coefficient capturing the effect of angle of attack, airfoil shape, and flow conditions. Typical range 0.2–1.5 for aircraft."
+        "en": "Dimensionless coefficient capturing the effect of angle of attack, airfoil shape, and flow conditions. Typical range 0.2–1.5 for aircraft.",
+        "tr": "Hücum açısı, kanat profili şekli ve akış koşullarının etkisini yakalayan boyutsuz katsayı. Uçaklar için tipik aralık 0.2–1.5."
       }
     }
   ],

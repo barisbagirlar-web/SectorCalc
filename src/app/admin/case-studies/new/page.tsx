@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { AdminSubNav } from "@/components/admin/AdminSubNav";
-import { CaseStudyAdminForm } from "@/components/admin/CaseStudyAdminForm";
+import { SimpleCaseStudyForm } from "@/components/admin/SimpleCaseStudyForm";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { PageHero } from "@/components/layout/PageHero";
 import { Container } from "@/components/ui/Container";
@@ -21,13 +21,13 @@ export default function AdminNewCaseStudyPage() {
       <PageHero
         eyebrow="Admin"
         title="Yeni başarı hikayesi"
-        subtitle="Türkçe form ile içerik oluşturun. Kaydet, JSON dışa aktar ve repo dosyalarına ekleyerek yayına alın."
+        subtitle="Hikayeni tek metin kutusuna yapıştır; AI alanları otomatik doldursun."
       />
 
       <section className="bg-off-white py-10 md:py-14">
         <Container size="narrow">
           <AdminSubNav />
-          <CaseStudyAdminForm mode="create" />
+          <SimpleCaseStudyForm />
         </Container>
       </section>
     </PageLayout>

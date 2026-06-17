@@ -102,9 +102,9 @@ export function buildCaseStudyIndexSummaryLine(study: CaseStudy, locale: string)
   const primary = getPrimaryResultRow(study);
   const savings = formatEuroAmount(resolveCaseStudySavingsEur(study), locale);
   if (!primary) {
-    return `${company}: €${savings} documented savings`;
+    return `${company}: ${savings} documented savings`;
   }
-  return `${company}: ${primary.metric} ${primary.before} → ${primary.after}, €${savings} savings`;
+  return `${company}: ${primary.metric} ${primary.before} → ${primary.after}, ${savings} savings`;
 }
 
 export type CaseStudySeoPreview = {

@@ -17,6 +17,11 @@ describe("locale rewrite exclude", () => {
     expect(isCatchAllRewriteTarget("/sitemap/en.xml")).toBe(false);
   });
 
+  test("api-public routes are excluded from /en catch-all rewrite", () => {
+    expect(isCatchAllRewriteTarget("/api-public/calculate/oee-downtime-calculator")).toBe(false);
+    expect(isCatchAllRewriteTarget("/api-public/bot-md/oee-downtime-calculator")).toBe(false);
+  });
+
   test("api-public machine routes are excluded from /en catch-all rewrite", () => {
     expect(isCatchAllRewriteTarget("/api-public/calculate/z-score-calculator")).toBe(false);
     expect(isCatchAllRewriteTarget("/api-public/bot-md/z-score-calculator")).toBe(false);

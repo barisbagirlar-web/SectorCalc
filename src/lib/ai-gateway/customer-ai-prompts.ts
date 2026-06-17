@@ -1,4 +1,5 @@
 import { TRACE_BRAND } from "@/config/trace";
+import { buildTraceLocaleHint } from "@/lib/trace/locale-hints";
 import type { CustomerAiRequest } from "./customer-ai-types";
 
 export function buildCustomerAiSystemPrompt(request: CustomerAiRequest) {
@@ -30,6 +31,7 @@ export function buildCustomerAiSystemPrompt(request: CustomerAiRequest) {
     "Return only valid JSON.",
     "Never expose internal implementation names, API keys, FormulaContract, Akil 1 or Akil 2 to users.",
     "Keep answers short, practical and action-oriented.",
+    buildTraceLocaleHint(request.locale),
     "Use exactly these camelCase keys:",
     "intent (tool_finder|parameter_extraction|input_help|result_explanation|premium_suggestion|general_tool_question|unsupported),",
     "answer, suggestedToolSlug, extractedInputs, missingInputs, premiumSuggestion, confidence, requiresBackendValidation.",

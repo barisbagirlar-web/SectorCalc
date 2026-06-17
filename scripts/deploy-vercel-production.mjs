@@ -276,7 +276,7 @@ function verifyHomepageToolCounts() {
 /** @param {string} cwd @returns {string} */
 function deployFromCwd(cwd) {
   console.log(`deploy-vercel-production: deploying from ${cwd}…`);
-  const args = ["deploy", "--prod", "--yes"];
+  const args = ["deploy", "--prod", "--yes", "--archive=tgz"];
   const scope = process.env.VERCEL_SCOPE?.trim();
   if (scope) {
     args.push("--scope", scope);

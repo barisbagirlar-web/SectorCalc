@@ -240,13 +240,23 @@ export function CaseStudyAdminForm({ studyId, mode }: CaseStudyAdminFormProps) {
         <div className="mx-auto mt-6 max-w-4xl space-y-6">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <h1 className="text-2xl font-bold text-deep-navy">{pageTitle}</h1>
-            <Link
-              href="/admin/case-studies"
-              className="inline-flex min-h-[44px] items-center gap-1 text-sm text-text-secondary transition hover:text-deep-navy"
-            >
-              <ArrowLeft className="h-4 w-4" aria-hidden="true" />
-              Listeye Dön
-            </Link>
+            <div className="flex flex-wrap items-center gap-4">
+              {mode === "create" ? (
+                <Link
+                  href="/admin/case-studies/new"
+                  className="text-sm font-medium text-sc-copper transition hover:text-deep-navy"
+                >
+                  Basit editör
+                </Link>
+              ) : null}
+              <Link
+                href="/admin/case-studies"
+                className="inline-flex min-h-[44px] items-center gap-1 text-sm text-text-secondary transition hover:text-deep-navy"
+              >
+                <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+                Listeye Dön
+              </Link>
+            </div>
           </div>
 
           <p className="text-sm text-text-secondary">

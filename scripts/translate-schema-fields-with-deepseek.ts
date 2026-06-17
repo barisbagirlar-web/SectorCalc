@@ -292,6 +292,9 @@ async function main(): Promise<void> {
 
     const localeTranslations = new Map<string, string>();
 
+    let localePatched = 0;
+    let localeFilesWritten = 0;
+
     for (let i = 0; i < uniquePhrases.length; i += BATCH_SIZE) {
       const batch = uniquePhrases.slice(i, i + BATCH_SIZE);
       const batchResults = await translateBatch(batch, locale);
@@ -301,14 +304,14 @@ async function main(): Promise<void> {
         }
       }
       console.log(`  batch ${Math.floor(i / BATCH_SIZE) + 1}/${Math.ceil(uniquePhrases.length / BATCH_SIZE)}`);
+      localePatched += applyTranslations(schemas, localeTranslations, [locale]);
+      localeFilesWritten += writeSchemaFiles(schemas);
       await sleep(RATE_LIMIT_MS);
     }
 
-    const patched = applyTranslations(schemas, localeTranslations, [locale]);
-    const filesWritten = writeSchemaFiles(schemas);
-    totalPatched += patched;
-    totalFilesWritten += filesWritten;
-    console.log(`  saved ${locale}: ${patched} slot(s), ${filesWritten} schema file(s) updated`);
+    totalPatched += localePatched;
+    totalFilesWritten += localeFilesWritten;
+    console.log(`  saved ${locale}: ${localePatched} slot(s), ${localeFilesWritten} schema file(s) updated`);
   }
 
   console.log(`\nDone — ${totalPatched} field locale slot(s), ${totalFilesWritten} total schema writes.`);

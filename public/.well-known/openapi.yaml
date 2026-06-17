@@ -34,6 +34,13 @@ paths:
           schema:
             type: string
             pattern: "^[a-z0-9-]+$"
+        - name: locale
+          in: query
+          required: false
+          description: Response locale (en, tr, de, fr, es, ar). Also accepts body.locale or Accept-Language.
+          schema:
+            type: string
+            enum: [en, tr, de, fr, es, ar]
       requestBody:
         required: true
         content:
@@ -101,6 +108,13 @@ paths:
           schema:
             type: string
             pattern: "^[a-z0-9-]+$"
+        - name: locale
+          in: query
+          required: false
+          description: Markdown locale (en, tr, de, fr, es, ar). Falls back to Accept-Language.
+          schema:
+            type: string
+            enum: [en, tr, de, fr, es, ar]
       responses:
         "200":
           description: Markdown tool documentation
@@ -120,6 +134,10 @@ components:
       type: object
       required: [inputs]
       properties:
+        locale:
+          type: string
+          enum: [en, tr, de, fr, es, ar]
+          description: Optional response locale override
         inputs:
           type: object
           additionalProperties: true
@@ -128,6 +146,9 @@ components:
       type: object
       required: [success, result, tool]
       properties:
+        locale:
+          type: string
+          enum: [en, tr, de, fr, es, ar]
         success:
           type: boolean
           const: true
