@@ -7,14 +7,11 @@ export const revalidate = 3600;
 export const dynamic = "force-static";
 
 const englishParams = Promise.resolve({ locale: "en" });
-const englishSearchParams = Promise.resolve(
-  {} as Record<string, string | string[] | undefined>,
-);
 
 export async function generateMetadata(): Promise<Metadata> {
-  return generateFreeToolsMetadata({ params: englishParams, searchParams: englishSearchParams });
+  return generateFreeToolsMetadata({ params: englishParams });
 }
 
 export default async function EnglishFreeToolsPage() {
-  return await FreeToolsPage({ params: englishParams, searchParams: englishSearchParams });
+  return await FreeToolsPage({ params: englishParams });
 }

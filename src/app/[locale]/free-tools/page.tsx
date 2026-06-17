@@ -6,7 +6,7 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { IndustriesTaxonomyGrid } from "@/components/industries/IndustriesTaxonomyGrid";
 import { ToolsPageLayout } from "@/components/tools/ToolsPageLayout";
 import { ToolsPageSearchProvider } from "@/components/tools/tools-page-search-context";
-import { CatalogHubToolsSection } from "@/components/tools/CatalogHubToolsSection";
+import { CatalogHubToolsClientPanel } from "@/components/tools/CatalogHubToolsClientPanel";
 import { CatalogSearchUrlSync } from "@/components/tools/CatalogSearchUrlSync";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildItemListJsonLd } from "@/lib/seo/schema-mesh";
@@ -20,7 +20,6 @@ import type { AppLocale } from "@/i18n/routing";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
 };
 
 export const revalidate = 3600;
@@ -37,15 +36,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   });
 }
 
-function resolveSearchParam(
-  value: string | string[] | undefined,
-): string | undefined {
-  return Array.isArray(value) ? value[0] : value;
-}
-
-export default async function FreeToolsPage({ params, searchParams }: PageProps) {
+export default async function FreeToolsPage({ params }: PageProps) {
   const { locale } = await params;
-  const resolvedSearchParams = await searchParams;
   setRequestLocale(locale);
   const tCatalog = await getTranslations({ locale, namespace: "catalogExplorer" });
   const tPage = await getTranslations({ locale, namespace: "freeTools" });
@@ -100,13 +92,7 @@ export default async function FreeToolsPage({ params, searchParams }: PageProps)
             </div>
 
             <Suspense fallback={<div className="min-h-[12rem]" aria-hidden="true" />}>
-              <CatalogHubToolsSection
-                locale={locale}
-                tools={tools}
-                variant="free-tools"
-                sectorFilter={resolveSearchParam(resolvedSearchParams.sector)}
-                searchQuery={resolveSearchParam(resolvedSearchParams.q)}
-              />
+              <CatalogHubToolsClientPanel locale={locale} tools={tools} variant="free-tools" />
             </Suspense>
 
             <div className="sc-discovery-footer">
