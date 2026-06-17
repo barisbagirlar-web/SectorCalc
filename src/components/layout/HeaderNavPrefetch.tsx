@@ -15,23 +15,18 @@ export function HeaderNavPrefetch() {
       return;
     }
 
-    if ("requestIdleCallback" in window) {
-      const idleId = window.requestIdleCallback(
-        () => {
-          if (!cancelled) {
-            warmUserSubscriptionStore();
-          }
-        },
-        { timeout: 5000 },
-      );
+    const scheduleWarm = () => {
+      if (!cancelled) {
+        warmUserSubscriptionStore();
+      }
+    };
+
+    if (typeof window.requestIdleCallback === "function") {
+      const idleId = window.requestIdleCallback(scheduleWarm, { timeout: 5000 });
       cancelIdle = () => window.cancelIdleCallback(idleId);
     } else {
-      const timer = window.setTimeout(() => {
-        if (!cancelled) {
-          warmUserSubscriptionStore();
-        }
-      }, 4000);
-      cancelIdle = () => window.clearTimeout(timer);
+      const timer = setTimeout(scheduleWarm, 4000);
+      cancelIdle = () => clearTimeout(timer);
     }
 
     return () => {
