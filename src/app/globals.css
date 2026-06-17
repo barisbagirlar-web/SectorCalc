@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @import "../styles/industrial-ui.css";
 @import "../styles/industrial-os.css";
 @import "../styles/apple-ui.css";
@@ -19,6 +15,10 @@
 @import "../styles/premium-dynamic-tool-form.css";
 @import "../styles/premium-category-catalog.css";
 @import "../styles/sectorcalc-calculator-cards.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   :root {
